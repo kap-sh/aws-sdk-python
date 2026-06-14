@@ -61,7 +61,7 @@ def get_signer(
     options: AsyncOperationOptions | OperationOptions,
     auth_schemes: list[dict[str, Any]] | None = None,
 ) -> aws_sdk_backup._auth._signers.Signer | None:
-    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}
+    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}  # noqa: F841
     if options.credentials_provider is not None:
         sigv4_config = (
             name_to_schema.get("sigv4")
@@ -80,7 +80,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_backup.types.delete_report_plan_input.DeleteReportPlanInput,
+    input_: aws_sdk_backup.types.delete_report_plan_input.DeleteReportPlanInput,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -92,7 +92,7 @@ def build_request(
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/audit/report-plans/{ReportPlanName}"
     url = url.replace(
-        "{ReportPlanName}", quote(str(input["report_plan_name"]), safe="")
+        "{ReportPlanName}", quote(str(input_["report_plan_name"]), safe="")
     )
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
@@ -107,9 +107,9 @@ def build_request(
 
 def delete_report_plan(
     options: OperationOptions,
-    input: aws_sdk_backup.types.delete_report_plan_input.DeleteReportPlanInput,
+    input_: aws_sdk_backup.types.delete_report_plan_input.DeleteReportPlanInput,
 ) -> tuple[None, zapros.Response]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -123,9 +123,9 @@ def delete_report_plan(
 
 async def async_delete_report_plan(
     options: AsyncOperationOptions,
-    input: aws_sdk_backup.types.delete_report_plan_input.DeleteReportPlanInput,
+    input_: aws_sdk_backup.types.delete_report_plan_input.DeleteReportPlanInput,
 ) -> tuple[None, zapros.Response]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

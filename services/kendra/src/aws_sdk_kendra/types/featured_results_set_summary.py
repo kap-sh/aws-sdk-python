@@ -23,7 +23,7 @@ class FeaturedResultsSetSummary(TypedDict):
     status: NotRequired[
         "aws_sdk_kendra.types.featured_results_set_status.FeaturedResultsSetStatus"
     ]
-    """<p>The current status of the set of featured results. When the value is <code>ACTIVE</code>, featured results are ready for use. You can still configure your settings before setting the status to <code>ACTIVE</code>. You can set the status to <code>ACTIVE</code> or <code>INACTIVE</code> using the <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/API_UpdateFeaturedResultsSet.html\">UpdateFeaturedResultsSet</a> API. The queries you specify for featured results must be unique per featured results set for each index, whether the status is <code>ACTIVE</code> or <code>INACTIVE</code>.</p>"""
+    r"""<p>The current status of the set of featured results. When the value is <code>ACTIVE</code>, featured results are ready for use. You can still configure your settings before setting the status to <code>ACTIVE</code>. You can set the status to <code>ACTIVE</code> or <code>INACTIVE</code> using the <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/API_UpdateFeaturedResultsSet.html\">UpdateFeaturedResultsSet</a> API. The queries you specify for featured results must be unique per featured results set for each index, whether the status is <code>ACTIVE</code> or <code>INACTIVE</code>.</p>"""
     last_updated_timestamp: NotRequired["aws_sdk_kendra.types.long.Long"]
     """<p>The Unix timestamp when the set of featured results was last updated.</p>"""
     creation_timestamp: NotRequired["aws_sdk_kendra.types.long.Long"]

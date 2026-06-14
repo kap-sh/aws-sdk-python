@@ -39,7 +39,7 @@ class ResourceMapping(TypedDict):
     ]
     """<p>Name of the Terraform source that this resource is mapped to when the <code>mappingType</code> is <code>Terraform</code>.</p>"""
     eks_source_name: NotRequired["aws_sdk_resiliencehub.types.string255.String255"]
-    """<p>Name of the Amazon Elastic Kubernetes Service cluster and namespace that this resource is mapped to when the <code>mappingType</code> is <code>EKS</code>.</p> <note> <p>This parameter accepts values in \"eks-cluster/namespace\" format.</p> </note>"""
+    r"""<p>Name of the Amazon Elastic Kubernetes Service cluster and namespace that this resource is mapped to when the <code>mappingType</code> is <code>EKS</code>.</p> <note> <p>This parameter accepts values in \"eks-cluster/namespace\" format.</p> </note>"""
 
 
 # --- restJson1 ser/de ---

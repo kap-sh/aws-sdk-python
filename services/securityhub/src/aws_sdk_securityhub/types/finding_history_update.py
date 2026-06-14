@@ -16,7 +16,7 @@ class FindingHistoryUpdate(TypedDict):
     old_value: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p> The value of the ASFF field before the finding change event. </p>"""
     new_value: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
-    """<p> The value of the ASFF field after the finding change event. To preserve storage and readability, Security Hub CSPM omits this value if <a href=\"https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_FindingHistoryRecord.html\"> <code>FindingHistoryRecord</code> </a> exceeds database limits. </p>"""
+    r"""<p> The value of the ASFF field after the finding change event. To preserve storage and readability, Security Hub CSPM omits this value if <a href=\"https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_FindingHistoryRecord.html\"> <code>FindingHistoryRecord</code> </a> exceeds database limits. </p>"""
 
 
 # --- restJson1 ser/de ---

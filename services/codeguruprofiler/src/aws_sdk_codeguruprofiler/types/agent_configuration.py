@@ -14,7 +14,7 @@ class AgentConfiguration(TypedDict):
     should_profile: "bool"
     """<p> A <code>Boolean</code> that specifies whether the profiling agent collects profiling data or not. Set to <code>true</code> to enable profiling. </p>"""
     period_in_seconds: "int"
-    """<p> How long a profiling agent should send profiling data using <a href=\"https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ConfigureAgent.html\"> <code>ConfigureAgent</code> </a>. For example, if this is set to 300, the profiling agent calls <a href=\"https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ConfigureAgent.html\"> <code>ConfigureAgent</code> </a> every 5 minutes to submit the profiled data collected during that period. </p>"""
+    r"""<p> How long a profiling agent should send profiling data using <a href=\"https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ConfigureAgent.html\"> <code>ConfigureAgent</code> </a>. For example, if this is set to 300, the profiling agent calls <a href=\"https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ConfigureAgent.html\"> <code>ConfigureAgent</code> </a> every 5 minutes to submit the profiled data collected during that period. </p>"""
     agent_parameters: NotRequired[
         "aws_sdk_codeguruprofiler.types.agent_parameters.AgentParameters"
     ]

@@ -41,7 +41,7 @@ class UpdateFleetMetricRequest(TypedDict):
     index_name: "aws_sdk_iot.types.index_name.IndexName"
     """<p>The name of the index to search.</p>"""
     unit: NotRequired["aws_sdk_iot.types.fleet_metric_unit.FleetMetricUnit"]
-    """<p>Used to support unit transformation such as milliseconds to seconds. The unit must be supported by <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html\">CW metric</a>.</p>"""
+    r"""<p>Used to support unit transformation such as milliseconds to seconds. The unit must be supported by <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html\">CW metric</a>.</p>"""
     expected_version: NotRequired["aws_sdk_iot.types.optional_version.OptionalVersion"]
     """<p>The expected version of the fleet metric record in the registry.</p>"""
 

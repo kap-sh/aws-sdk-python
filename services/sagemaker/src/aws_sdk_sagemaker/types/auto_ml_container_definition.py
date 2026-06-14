@@ -12,11 +12,11 @@ if TYPE_CHECKING:
 
 class AutoMLContainerDefinition(TypedDict):
     image: NotRequired["aws_sdk_sagemaker.types.container_image.ContainerImage"]
-    """<p>The Amazon Elastic Container Registry (Amazon ECR) path of the container. For more information, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ContainerDefinition.html\"> ContainerDefinition</a>.</p>"""
+    r"""<p>The Amazon Elastic Container Registry (Amazon ECR) path of the container. For more information, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ContainerDefinition.html\"> ContainerDefinition</a>.</p>"""
     model_data_url: NotRequired["aws_sdk_sagemaker.types.url.Url"]
-    """<p>The location of the model artifacts. For more information, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ContainerDefinition.html\"> ContainerDefinition</a>.</p>"""
+    r"""<p>The location of the model artifacts. For more information, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ContainerDefinition.html\"> ContainerDefinition</a>.</p>"""
     environment: NotRequired["aws_sdk_sagemaker.types.environment_map.EnvironmentMap"]
-    """<p>The environment variables to set in the container. For more information, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ContainerDefinition.html\"> ContainerDefinition</a>.</p>"""
+    r"""<p>The environment variables to set in the container. For more information, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ContainerDefinition.html\"> ContainerDefinition</a>.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

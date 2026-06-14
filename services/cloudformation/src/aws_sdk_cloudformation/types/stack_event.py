@@ -48,7 +48,7 @@ class StackEvent(TypedDict):
     resource_type: NotRequired[
         "aws_sdk_cloudformation.types.resource_type.ResourceType"
     ]
-    """<p>Type of resource. For more information, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html\">Amazon Web Services resource and property types reference</a> in the <i>CloudFormation User Guide</i>.</p>"""
+    r"""<p>Type of resource. For more information, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html\">Amazon Web Services resource and property types reference</a> in the <i>CloudFormation User Guide</i>.</p>"""
     timestamp: NotRequired["aws_sdk_cloudformation.types.timestamp.Timestamp"]
     """<p>Time the status was updated.</p>"""
     resource_status: NotRequired[
@@ -90,7 +90,7 @@ class StackEvent(TypedDict):
     detailed_status: NotRequired[
         "aws_sdk_cloudformation.types.detailed_status.DetailedStatus"
     ]
-    """<p>An optional field that contains information about the detailed status of the stack event.</p> <ul> <li> <p> <code>CONFIGURATION_COMPLETE</code> - all of the resources in the stack have reached that event. For more information, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stack-resource-configuration-complete.html\">Understand CloudFormation stack creation events</a> in the <i>CloudFormation User Guide</i>.</p> </li> </ul> <ul> <li> <p> <code>VALIDATION_FAILED</code> - template validation failed because of invalid properties in the template. The <code>ResourceStatusReason</code> field shows what properties are defined incorrectly.</p> </li> </ul>"""
+    r"""<p>An optional field that contains information about the detailed status of the stack event.</p> <ul> <li> <p> <code>CONFIGURATION_COMPLETE</code> - all of the resources in the stack have reached that event. For more information, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stack-resource-configuration-complete.html\">Understand CloudFormation stack creation events</a> in the <i>CloudFormation User Guide</i>.</p> </li> </ul> <ul> <li> <p> <code>VALIDATION_FAILED</code> - template validation failed because of invalid properties in the template. The <code>ResourceStatusReason</code> field shows what properties are defined incorrectly.</p> </li> </ul>"""
 
 
 # --- awsQuery ser/de ---

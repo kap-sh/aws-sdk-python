@@ -20,7 +20,7 @@ class CreateCloudFormationChangeSetResponse(TypedDict):
     semantic_version: NotRequired[
         "aws_sdk_serverlessapplicationrepository.types.__string.__string"
     ]
-    """<p>The semantic version of the application:</p><p> <a href=\"https://semver.org/\">https://semver.org/</a> </p>"""
+    r"""<p>The semantic version of the application:</p><p> <a href=\"https://semver.org/\">https://semver.org/</a> </p>"""
     stack_id: NotRequired[
         "aws_sdk_serverlessapplicationrepository.types.__string.__string"
     ]

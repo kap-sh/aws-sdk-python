@@ -11,7 +11,7 @@ if TYPE_CHECKING:
 
 class FragmentSelector(TypedDict):
     fragment_selector_type: "aws_sdk_chime_sdk_media_pipelines.types.fragment_selector_type.FragmentSelectorType"
-    """<p>The origin of the timestamps to use, <code>Server</code> or <code>Producer</code>. For more information, see <a href=\"https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_dataplane_StartSelector.html\">StartSelectorType</a> in the <i>Amazon Kinesis Video Streams Developer Guide</i>.</p>"""
+    r"""<p>The origin of the timestamps to use, <code>Server</code> or <code>Producer</code>. For more information, see <a href=\"https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_dataplane_StartSelector.html\">StartSelectorType</a> in the <i>Amazon Kinesis Video Streams Developer Guide</i>.</p>"""
     timestamp_range: (
         "aws_sdk_chime_sdk_media_pipelines.types.timestamp_range.TimestampRange"
     )

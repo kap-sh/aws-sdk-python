@@ -15,7 +15,7 @@ class CreateTrainedModelResponse(TypedDict):
     trained_model_arn: "aws_sdk_cleanroomsml.types.trained_model_arn.TrainedModelArn"
     """<p>The Amazon Resource Name (ARN) of the trained model.</p>"""
     version_identifier: NotRequired["aws_sdk_cleanroomsml.types.uuid.UUID"]
-    """<p>The unique version identifier assigned to the newly created trained model. This identifier can be used to reference this specific version of the trained model in subsequent operations such as inference jobs or incremental training.</p> <p>The initial version identifier for the base version of the trained model is \"NULL\".</p>"""
+    r"""<p>The unique version identifier assigned to the newly created trained model. This identifier can be used to reference this specific version of the trained model in subsequent operations such as inference jobs or incremental training.</p> <p>The initial version identifier for the base version of the trained model is \"NULL\".</p>"""
 
 
 # --- restJson1 ser/de ---

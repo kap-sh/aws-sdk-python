@@ -18,7 +18,7 @@ class ListConfigurationsRequest(TypedDict):
     configuration_type: "aws_sdk_application_discovery_service.types.configuration_item_type.ConfigurationItemType"
     """<p>A valid configuration identified by Application Discovery Service. </p>"""
     filters: NotRequired["aws_sdk_application_discovery_service.types.filters.Filters"]
-    """<p>You can filter the request using various logical operators and a <i>key</i>-<i>value</i> format. For example: </p> <p> <code>{\"key\": \"serverType\", \"value\": \"webServer\"}</code> </p> <p>For a complete list of filter options and guidance about using them with this action, see <a href=\"https://docs.aws.amazon.com/application-discovery/latest/userguide/discovery-api-queries.html#ListConfigurations\">Using the ListConfigurations Action</a> in the <i>Amazon Web Services Application Discovery Service User Guide</i>.</p>"""
+    r"""<p>You can filter the request using various logical operators and a <i>key</i>-<i>value</i> format. For example: </p> <p> <code>{\"key\": \"serverType\", \"value\": \"webServer\"}</code> </p> <p>For a complete list of filter options and guidance about using them with this action, see <a href=\"https://docs.aws.amazon.com/application-discovery/latest/userguide/discovery-api-queries.html#ListConfigurations\">Using the ListConfigurations Action</a> in the <i>Amazon Web Services Application Discovery Service User Guide</i>.</p>"""
     max_results: "aws_sdk_application_discovery_service.types.integer.Integer"
     """<p>The total number of items to return. The maximum value is 100.</p>"""
     next_token: NotRequired[
@@ -28,7 +28,7 @@ class ListConfigurationsRequest(TypedDict):
     order_by: NotRequired[
         "aws_sdk_application_discovery_service.types.order_by_list.OrderByList"
     ]
-    """<p>Certain filter criteria return output that can be sorted in ascending or descending order. For a list of output characteristics for each filter, see <a href=\"https://docs.aws.amazon.com/application-discovery/latest/userguide/discovery-api-queries.html#ListConfigurations\">Using the ListConfigurations Action</a> in the <i>Amazon Web Services Application Discovery Service User Guide</i>.</p>"""
+    r"""<p>Certain filter criteria return output that can be sorted in ascending or descending order. For a list of output characteristics for each filter, see <a href=\"https://docs.aws.amazon.com/application-discovery/latest/userguide/discovery-api-queries.html#ListConfigurations\">Using the ListConfigurations Action</a> in the <i>Amazon Web Services Application Discovery Service User Guide</i>.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

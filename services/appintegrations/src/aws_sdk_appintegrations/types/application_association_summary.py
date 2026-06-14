@@ -1,10 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.appintegrations#ApplicationAssociationSummary``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_appintegrations.types.arn
     import aws_sdk_appintegrations.types.client_id
+
 
 class ApplicationAssociationSummary(TypedDict):
     application_association_arn: NotRequired["aws_sdk_appintegrations.types.arn.Arn"]
@@ -13,6 +16,7 @@ class ApplicationAssociationSummary(TypedDict):
     """<p>The Amazon Resource Name (ARN) of the Application.</p>"""
     client_id: NotRequired["aws_sdk_appintegrations.types.client_id.ClientId"]
     """<p>The identifier for the client that is associated with the Application Association.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: ApplicationAssociationSummary) -> dict:

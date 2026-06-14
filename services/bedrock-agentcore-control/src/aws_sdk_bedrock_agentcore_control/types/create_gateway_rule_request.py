@@ -1,8 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#CreateGatewayRuleRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.actions
     import aws_sdk_bedrock_agentcore_control.types.client_token
@@ -11,19 +14,29 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.gateway_rule_description
     import aws_sdk_bedrock_agentcore_control.types.gateway_rule_priority
 
+
 class CreateGatewayRuleRequest(TypedDict):
-    gateway_identifier: "aws_sdk_bedrock_agentcore_control.types.gateway_identifier.GatewayIdentifier"
+    gateway_identifier: (
+        "aws_sdk_bedrock_agentcore_control.types.gateway_identifier.GatewayIdentifier"
+    )
     """<p>The identifier of the gateway to create a rule for.</p>"""
-    client_token: NotRequired["aws_sdk_bedrock_agentcore_control.types.client_token.ClientToken"]
-    """<p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring idempotency</a>.</p>"""
+    client_token: NotRequired[
+        "aws_sdk_bedrock_agentcore_control.types.client_token.ClientToken"
+    ]
+    r"""<p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring idempotency</a>.</p>"""
     priority: "aws_sdk_bedrock_agentcore_control.types.gateway_rule_priority.GatewayRulePriority"
     """<p>The priority of the rule. Rules are evaluated in order of priority, with lower numbers evaluated first. Must be between 1 and 1,000,000.</p>"""
-    conditions: NotRequired["aws_sdk_bedrock_agentcore_control.types.conditions.Conditions"]
+    conditions: NotRequired[
+        "aws_sdk_bedrock_agentcore_control.types.conditions.Conditions"
+    ]
     """<p>The conditions that must be met for the rule to apply. Conditions can match on principals (IAM ARNs) or request paths.</p>"""
     actions: "aws_sdk_bedrock_agentcore_control.types.actions.Actions"
     """<p>The actions to take when the rule conditions are met. Actions can route to a specific target or apply a configuration bundle override.</p>"""
-    description: NotRequired["aws_sdk_bedrock_agentcore_control.types.gateway_rule_description.GatewayRuleDescription"]
+    description: NotRequired[
+        "aws_sdk_bedrock_agentcore_control.types.gateway_rule_description.GatewayRuleDescription"
+    ]
     """<p>The description of the gateway rule.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: CreateGatewayRuleRequest) -> dict:
@@ -33,9 +46,17 @@ def serialize_json(value: CreateGatewayRuleRequest) -> dict:
     out["priority"] = value["priority"]
     if "conditions" in value:
         import aws_sdk_bedrock_agentcore_control.types.conditions
-        out["conditions"] = aws_sdk_bedrock_agentcore_control.types.conditions.serialize_json(value["conditions"])
+
+        out["conditions"] = (
+            aws_sdk_bedrock_agentcore_control.types.conditions.serialize_json(
+                value["conditions"]
+            )
+        )
     import aws_sdk_bedrock_agentcore_control.types.actions
-    out["actions"] = aws_sdk_bedrock_agentcore_control.types.actions.serialize_json(value["actions"])
+
+    out["actions"] = aws_sdk_bedrock_agentcore_control.types.actions.serialize_json(
+        value["actions"]
+    )
     if "description" in value:
         out["description"] = value["description"]
     return out
@@ -51,10 +72,20 @@ def deserialize_json(data: dict) -> CreateGatewayRuleRequest:
         raise DeserializationError("CreateGatewayRuleRequest.priority required")
     if "conditions" in data:
         import aws_sdk_bedrock_agentcore_control.types.conditions
-        out["conditions"] = aws_sdk_bedrock_agentcore_control.types.conditions.deserialize_json(data["conditions"])
+
+        out["conditions"] = (
+            aws_sdk_bedrock_agentcore_control.types.conditions.deserialize_json(
+                data["conditions"]
+            )
+        )
     if "actions" in data:
         import aws_sdk_bedrock_agentcore_control.types.actions
-        out["actions"] = aws_sdk_bedrock_agentcore_control.types.actions.deserialize_json(data["actions"])
+
+        out["actions"] = (
+            aws_sdk_bedrock_agentcore_control.types.actions.deserialize_json(
+                data["actions"]
+            )
+        )
     else:
         raise DeserializationError("CreateGatewayRuleRequest.actions required")
     if "description" in data:

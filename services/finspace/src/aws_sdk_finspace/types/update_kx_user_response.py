@@ -17,7 +17,7 @@ class UpdateKxUserResponse(TypedDict):
     ]
     """<p>A unique identifier for the user.</p>"""
     user_arn: NotRequired["aws_sdk_finspace.types.kx_user_arn.KxUserArn"]
-    """<p> The Amazon Resource Name (ARN) that identifies the user. For more information about ARNs and how to use ARNs in policies, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html\">IAM Identifiers</a> in the <i>IAM User Guide</i>. </p>"""
+    r"""<p> The Amazon Resource Name (ARN) that identifies the user. For more information about ARNs and how to use ARNs in policies, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html\">IAM Identifiers</a> in the <i>IAM User Guide</i>. </p>"""
     environment_id: NotRequired["aws_sdk_finspace.types.id_type.IdType"]
     """<p>A unique identifier for the kdb environment.</p>"""
     iam_role: NotRequired["aws_sdk_finspace.types.role_arn.RoleArn"]

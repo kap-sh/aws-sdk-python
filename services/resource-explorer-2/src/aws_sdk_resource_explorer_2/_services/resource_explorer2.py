@@ -196,7 +196,7 @@ class ResourceExplorer2Client:
             "aws_sdk_resource_explorer_2.types.view_arn_list.ViewArnList"
         ] = None,
     ) -> "aws_sdk_resource_explorer_2.types.batch_get_view_output.BatchGetViewOutput":
-        """<p>Retrieves details about a list of views.</p>
+        r"""<p>Retrieves details about a list of views.</p>
 
         Args:
             view_arns: <p>A list of <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon resource names (ARNs)</a> that identify the views you want details for.</p>
@@ -436,7 +436,7 @@ class ResourceExplorer2Client:
     ) -> (
         "aws_sdk_resource_explorer_2.types.get_managed_view_output.GetManagedViewOutput"
     ):
-        """<p>Retrieves details of the specified <a href=\"https://docs.aws.amazon.com/resource-explorer/latest/userguide/aws-managed-views.html\">Amazon Web Services-managed view</a>. </p>
+        r"""<p>Retrieves details of the specified <a href=\"https://docs.aws.amazon.com/resource-explorer/latest/userguide/aws-managed-views.html\">Amazon Web Services-managed view</a>. </p>
 
         Args:
             managed_view_arn: <p>The Amazon resource name (ARN) of the managed view.</p>
@@ -678,7 +678,7 @@ class ResourceExplorer2Client:
         next_token: Optional[str] = None,
         service_principal: Optional[str] = None,
     ) -> "aws_sdk_resource_explorer_2.types.list_managed_views_output.ListManagedViewsOutput":
-        """<p>Lists the Amazon resource names (ARNs) of the <a href=\"https://docs.aws.amazon.com/resource-explorer/latest/userguide/aws-managed-views.html\">Amazon Web Services-managed views</a> available in the Amazon Web Services Region in which you call this operation. </p>
+        r"""<p>Lists the Amazon resource names (ARNs) of the <a href=\"https://docs.aws.amazon.com/resource-explorer/latest/userguide/aws-managed-views.html\">Amazon Web Services-managed views</a> available in the Amazon Web Services Region in which you call this operation. </p>
 
         Args:
             max_results: <p>The maximum number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value appropriate to the operation. If additional items exist beyond those included in the current response, the <code>NextToken</code> response element is present and has a value (is not null). Include that value as the <code>NextToken</code> request parameter in the next call to the operation to get the next part of the results.</p> <note> <p>An API operation can return fewer results than the maximum even when there are more results available. You should check <code>NextToken</code> after every operation to ensure that you receive all of the results.</p> </note>
@@ -750,7 +750,7 @@ class ResourceExplorer2Client:
         view_arn: Optional[str] = None,
         next_token: Optional[str] = None,
     ) -> "aws_sdk_resource_explorer_2.types.list_resources_output.ListResourcesOutput":
-        """<p>Returns a list of resources and their details that match the specified criteria. This query must use a view. If you don’t explicitly specify a view, then Resource Explorer uses the default view for the Amazon Web Services Region in which you call this operation. </p>
+        r"""<p>Returns a list of resources and their details that match the specified criteria. This query must use a view. If you don’t explicitly specify a view, then Resource Explorer uses the default view for the Amazon Web Services Region in which you call this operation. </p>
 
         Args:
             filters: <p>An array of strings that specify which resources are included in the results of queries made using this view. When you use this view in a <a>Search</a> operation, the filter string is combined with the search's <code>QueryString</code> parameter using a logical <code>AND</code> operator.</p> <p>For information about the supported syntax, see <a href=\"https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html\">Search query reference for Resource Explorer</a> in the <i>Amazon Web Services Resource Explorer User Guide</i>.</p> <important> <p>This query string in the context of this operation supports only <a href=\"https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html#query-syntax-filters\">filter prefixes</a> with optional <a href=\"https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html#query-syntax-operators\">operators</a>. It doesn't support free-form text. For example, the string <code>region:us* service:ec2 -tag:stage=prod</code> includes all Amazon EC2 resources in any Amazon Web Services Region that begins with the letters <code>us</code> and is <i>not</i> tagged with a key <code>Stage</code> that has the value <code>prod</code>.</p> </important>
@@ -1086,7 +1086,7 @@ class ResourceExplorer2Client:
         *,
         config_overrides: Optional[ResourceExplorer2ClientConfig] = None,
     ) -> "aws_sdk_resource_explorer_2.types.list_tags_for_resource_output.ListTagsForResourceOutput":
-        """<p>Lists the tags that are attached to the specified resource.</p>
+        r"""<p>Lists the tags that are attached to the specified resource.</p>
 
         Args:
             resource_arn: <p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon resource name (ARN)</a> of the view or index that you want to attach tags to.</p>
@@ -1126,7 +1126,7 @@ class ResourceExplorer2Client:
         view_arn: Optional[str] = None,
         next_token: Optional[str] = None,
     ) -> "aws_sdk_resource_explorer_2.types.search_output.SearchOutput":
-        """<p>Searches for resources and displays details about all resources that match the specified criteria. You must specify a query string.</p> <p>All search queries must use a view. If you don't explicitly specify a view, then Amazon Web Services Resource Explorer uses the default view for the Amazon Web Services Region in which you call this operation. The results are the logical intersection of the results that match both the <code>QueryString</code> parameter supplied to this operation and the <code>SearchFilter</code> parameter attached to the view.</p> <p>For the complete syntax supported by the <code>QueryString</code> parameter, see <a href=\"https://docs.aws.amazon.com/resource-explorer/latest/APIReference/about-query-syntax.html\">Search query syntax reference for Resource Explorer</a>.</p> <p>If your search results are empty, or are missing results that you think should be there, see <a href=\"https://docs.aws.amazon.com/resource-explorer/latest/userguide/troubleshooting_search.html\">Troubleshooting Resource Explorer search</a>.</p>
+        r"""<p>Searches for resources and displays details about all resources that match the specified criteria. You must specify a query string.</p> <p>All search queries must use a view. If you don't explicitly specify a view, then Amazon Web Services Resource Explorer uses the default view for the Amazon Web Services Region in which you call this operation. The results are the logical intersection of the results that match both the <code>QueryString</code> parameter supplied to this operation and the <code>SearchFilter</code> parameter attached to the view.</p> <p>For the complete syntax supported by the <code>QueryString</code> parameter, see <a href=\"https://docs.aws.amazon.com/resource-explorer/latest/APIReference/about-query-syntax.html\">Search query syntax reference for Resource Explorer</a>.</p> <p>If your search results are empty, or are missing results that you think should be there, see <a href=\"https://docs.aws.amazon.com/resource-explorer/latest/userguide/troubleshooting_search.html\">Troubleshooting Resource Explorer search</a>.</p>
 
         Args:
             query_string: <p>A string that includes keywords and filters that specify the resources that you want to include in the results.</p> <p>For the complete syntax supported by the <code>QueryString</code> parameter, see <a href=\"https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html\">Search query syntax reference for Resource Explorer</a>.</p> <p>The search is completely case insensitive. You can specify an empty string to return all results up to the limit of 1,000 total results.</p> <note> <p>The operation can return only the first 1,000 results. If the resource you want is not included, then use a different value for <code>QueryString</code> to refine the results.</p> </note>

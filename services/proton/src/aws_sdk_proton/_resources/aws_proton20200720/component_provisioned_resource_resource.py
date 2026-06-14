@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 from aws_sdk_proton._services._pipeline import (
@@ -35,7 +37,7 @@ class ComponentProvisionedResourceResource:
             "aws_sdk_proton.types.empty_next_token.EmptyNextToken"
         ] = None,
     ) -> "aws_sdk_proton.types.list_component_provisioned_resources_output.ListComponentProvisionedResourcesOutput":
-        """<p>List provisioned resources for a component with details.</p> <p>For more information about components, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html\">Proton components</a> in the <i>Proton User Guide</i>.</p>
+        r"""<p>List provisioned resources for a component with details.</p> <p>For more information about components, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html\">Proton components</a> in the <i>Proton User Guide</i>.</p>
 
         Args:
             component_name: <p>The name of the component whose provisioned resources you want.</p>
@@ -83,7 +85,7 @@ class AsyncComponentProvisionedResourceResource:
             "aws_sdk_proton.types.empty_next_token.EmptyNextToken"
         ] = None,
     ) -> "aws_sdk_proton.types.list_component_provisioned_resources_output.ListComponentProvisionedResourcesOutput":
-        """<p>List provisioned resources for a component with details.</p> <p>For more information about components, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html\">Proton components</a> in the <i>Proton User Guide</i>.</p>
+        r"""<p>List provisioned resources for a component with details.</p> <p>For more information about components, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html\">Proton components</a> in the <i>Proton User Guide</i>.</p>
 
         Args:
             component_name: <p>The name of the component whose provisioned resources you want.</p>

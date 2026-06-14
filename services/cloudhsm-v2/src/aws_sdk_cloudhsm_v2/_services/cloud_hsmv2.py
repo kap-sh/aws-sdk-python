@@ -145,7 +145,7 @@ class CloudHSMV2Client:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = CloudHSMV2ClientConfig(
+        self._config = CloudHSMV2ClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -165,7 +165,7 @@ class CloudHSMV2Client:
         overrides: CloudHSMV2ClientConfig = config_overrides or {}
         interceptors_: list[Interceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             retry(),
         ]
@@ -173,16 +173,16 @@ class CloudHSMV2Client:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            region=overrides.get("region", self.config.get("region")),
+            region=overrides.get("region", self._config.get("region")),
             use_dual_stack=overrides.get(
-                "use_dual_stack", self.config.get("use_dual_stack")
+                "use_dual_stack", self._config.get("use_dual_stack")
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -516,7 +516,7 @@ class CloudHSMV2Client:
         shared: Optional["aws_sdk_cloudhsm_v2.types.boolean.Boolean"] = None,
         sort_ascending: Optional["aws_sdk_cloudhsm_v2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_cloudhsm_v2.types.describe_backups_response.DescribeBackupsResponse":
-        """<p>Gets information about backups of CloudHSM clusters. Lists either the backups you own or the backups shared with you when the Shared parameter is true.</p> <p>This is a paginated operation, which means that each response might contain only a subset of all the backups. When the response contains only a subset of backups, it includes a <code>NextToken</code> value. Use this value in a subsequent <code>DescribeBackups</code> request to get more backups. When you receive a response with no <code>NextToken</code> (or an empty or null value), that means there are no more backups to get.</p> <p> <b>Cross-account use:</b> Yes. Customers can describe backups in other Amazon Web Services accounts that are shared with them.</p>
+        r"""<p>Gets information about backups of CloudHSM clusters. Lists either the backups you own or the backups shared with you when the Shared parameter is true.</p> <p>This is a paginated operation, which means that each response might contain only a subset of all the backups. When the response contains only a subset of backups, it includes a <code>NextToken</code> value. Use this value in a subsequent <code>DescribeBackups</code> request to get more backups. When you receive a response with no <code>NextToken</code> (or an empty or null value), that means there are no more backups to get.</p> <p> <b>Cross-account use:</b> Yes. Customers can describe backups in other Amazon Web Services accounts that are shared with them.</p>
 
         Args:
             next_token: <p>The <code>NextToken</code> value that you received in the previous response. Use this value to get more backups.</p>
@@ -836,7 +836,7 @@ class CloudHSMV2Client:
             "aws_sdk_cloudhsm_v2.types.resource_policy.ResourcePolicy"
         ] = None,
     ) -> "aws_sdk_cloudhsm_v2.types.put_resource_policy_response.PutResourcePolicyResponse":
-        """<p>Creates or updates an CloudHSM resource policy. A resource policy helps you to define the IAM entity (for example, an Amazon Web Services account) that can manage your CloudHSM resources. The following resources support CloudHSM resource policies: </p> <ul> <li> <p> Backup - The resource policy allows you to describe the backup and restore a cluster from the backup in another Amazon Web Services account.</p> </li> </ul> <p>In order to share a backup, it must be in a 'READY' state and you must own it.</p> <important> <p>While you can share a backup using the CloudHSM PutResourcePolicy operation, we recommend using Resource Access Manager (RAM) instead. Using RAM provides multiple benefits as it creates the policy for you, allows multiple resources to be shared at one time, and increases the discoverability of shared resources. If you use PutResourcePolicy and want consumers to be able to describe the backups you share with them, you must promote the backup to a standard RAM Resource Share using the RAM PromoteResourceShareCreatedFromPolicy API operation. For more information, see <a href=\"https://docs.aws.amazon.com/cloudhsm/latest/userguide/sharing.html\"> Working with shared backups</a> in the CloudHSM User Guide</p> </important> <p> <b>Cross-account use:</b> No. You cannot perform this operation on an CloudHSM resource in a different Amazon Web Services account.</p>
+        r"""<p>Creates or updates an CloudHSM resource policy. A resource policy helps you to define the IAM entity (for example, an Amazon Web Services account) that can manage your CloudHSM resources. The following resources support CloudHSM resource policies: </p> <ul> <li> <p> Backup - The resource policy allows you to describe the backup and restore a cluster from the backup in another Amazon Web Services account.</p> </li> </ul> <p>In order to share a backup, it must be in a 'READY' state and you must own it.</p> <important> <p>While you can share a backup using the CloudHSM PutResourcePolicy operation, we recommend using Resource Access Manager (RAM) instead. Using RAM provides multiple benefits as it creates the policy for you, allows multiple resources to be shared at one time, and increases the discoverability of shared resources. If you use PutResourcePolicy and want consumers to be able to describe the backups you share with them, you must promote the backup to a standard RAM Resource Share using the RAM PromoteResourceShareCreatedFromPolicy API operation. For more information, see <a href=\"https://docs.aws.amazon.com/cloudhsm/latest/userguide/sharing.html\"> Working with shared backups</a> in the CloudHSM User Guide</p> </important> <p> <b>Cross-account use:</b> No. You cannot perform this operation on an CloudHSM resource in a different Amazon Web Services account.</p>
 
         Args:
             resource_arn: <p>Amazon Resource Name (ARN) of the resource to which you want to attach a policy. </p>

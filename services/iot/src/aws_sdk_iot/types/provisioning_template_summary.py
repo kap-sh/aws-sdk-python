@@ -29,7 +29,7 @@ class ProvisioningTemplateSummary(TypedDict):
     enabled: NotRequired["aws_sdk_iot.types.enabled2.Enabled2"]
     """<p>True if the fleet provision template is enabled, otherwise false.</p>"""
     type: NotRequired["aws_sdk_iot.types.template_type.TemplateType"]
-    """<p>The type you define in a provisioning template. You can create a template with only one type. You can't change the template type after its creation. The default value is <code>FLEET_PROVISIONING</code>. For more information about provisioning template, see: <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/provision-template.html\">Provisioning template</a>. </p>"""
+    r"""<p>The type you define in a provisioning template. You can create a template with only one type. You can't change the template type after its creation. The default value is <code>FLEET_PROVISIONING</code>. For more information about provisioning template, see: <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/provision-template.html\">Provisioning template</a>. </p>"""
 
 
 # --- restJson1 ser/de ---

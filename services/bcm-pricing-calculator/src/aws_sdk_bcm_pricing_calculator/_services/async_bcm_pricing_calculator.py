@@ -106,7 +106,7 @@ class AsyncBCMPricingCalculatorClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = AsyncBCMPricingCalculatorClientConfig(
+        self._config = AsyncBCMPricingCalculatorClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -118,6 +118,7 @@ class AsyncBCMPricingCalculatorClient:
                 "credentials_provider": credentials_provider,
             }
         )
+
         # resources
         self.bill_estimate = AsyncBillEstimate(self)
         self.bill_scenario = AsyncBillScenario(self)
@@ -129,7 +130,7 @@ class AsyncBCMPricingCalculatorClient:
         overrides: AsyncBCMPricingCalculatorClientConfig = config_overrides or {}
         interceptors_: list[AsyncInterceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             aretry(),
         ]
@@ -137,13 +138,13 @@ class AsyncBCMPricingCalculatorClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
-            region=overrides.get("region", self.config.get("region")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
+            region=overrides.get("region", self._config.get("region")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -171,10 +172,10 @@ class AsyncBCMPricingCalculatorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_bcm_pricing_calculator.types.get_preferences_request.GetPreferencesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bcm_pricing_calculator.types.get_preferences_request.GetPreferencesRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -208,11 +209,11 @@ class AsyncBCMPricingCalculatorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_bcm_pricing_calculator.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_bcm_pricing_calculator.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -250,12 +251,12 @@ class AsyncBCMPricingCalculatorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_bcm_pricing_calculator.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
-        input["tags"] = tags
+        input_: aws_sdk_bcm_pricing_calculator.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -291,12 +292,12 @@ class AsyncBCMPricingCalculatorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_bcm_pricing_calculator.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_bcm_pricing_calculator.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -340,22 +341,22 @@ class AsyncBCMPricingCalculatorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_bcm_pricing_calculator.types.update_preferences_request.UpdatePreferencesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bcm_pricing_calculator.types.update_preferences_request.UpdatePreferencesRequest = {}  # type: ignore[typeddict-item]
         if management_account_rate_type_selections is not None:
-            input["management_account_rate_type_selections"] = (
+            input_["management_account_rate_type_selections"] = (
                 management_account_rate_type_selections
             )
         if member_account_rate_type_selections is not None:
-            input["member_account_rate_type_selections"] = (
+            input_["member_account_rate_type_selections"] = (
                 member_account_rate_type_selections
             )
         if standalone_account_rate_type_selections is not None:
-            input["standalone_account_rate_type_selections"] = (
+            input_["standalone_account_rate_type_selections"] = (
                 standalone_account_rate_type_selections
             )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

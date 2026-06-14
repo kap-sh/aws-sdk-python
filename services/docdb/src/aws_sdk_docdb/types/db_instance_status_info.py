@@ -13,7 +13,7 @@ if TYPE_CHECKING:
 
 class DBInstanceStatusInfo(TypedDict):
     status_type: NotRequired["aws_sdk_docdb.types.string.String"]
-    """<p>This value is currently \"<code>read replication</code>.\"</p>"""
+    r"""<p>This value is currently \"<code>read replication</code>.\"</p>"""
     normal: NotRequired["aws_sdk_docdb.types.boolean.Boolean"]
     """<p>A Boolean value that is <code>true</code> if the instance is operating normally, or <code>false</code> if the instance is in an error state.</p>"""
     status: NotRequired["aws_sdk_docdb.types.string.String"]

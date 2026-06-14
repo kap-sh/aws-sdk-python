@@ -22,7 +22,7 @@ class GetBotsRequest(TypedDict):
     name_contains: NotRequired[
         "aws_sdk_lex_model_building_service.types.bot_name.BotName"
     ]
-    """<p>Substring to match in bot names. A bot will be returned if any part of its name matches the substring. For example, \"xyz\" matches both \"xyzabc\" and \"abcxyz.\"</p>"""
+    r"""<p>Substring to match in bot names. A bot will be returned if any part of its name matches the substring. For example, \"xyz\" matches both \"xyzabc\" and \"abcxyz.\"</p>"""
 
 
 # --- restJson1 ser/de ---

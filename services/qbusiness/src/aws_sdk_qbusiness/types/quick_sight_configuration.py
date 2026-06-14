@@ -10,7 +10,7 @@ if TYPE_CHECKING:
 
 class QuickSightConfiguration(TypedDict):
     client_namespace: "aws_sdk_qbusiness.types.client_namespace.ClientNamespace"
-    """<p>The Amazon Quick Suite namespace that is used as the identity provider. For more information about Quick Suite namespaces, see <a href=\"https://docs.aws.amazon.com/quicksight/latest/developerguide/namespace-operations.html\">Namespace operations</a>. </p>"""
+    r"""<p>The Amazon Quick Suite namespace that is used as the identity provider. For more information about Quick Suite namespaces, see <a href=\"https://docs.aws.amazon.com/quicksight/latest/developerguide/namespace-operations.html\">Namespace operations</a>. </p>"""
 
 
 # --- restJson1 ser/de ---

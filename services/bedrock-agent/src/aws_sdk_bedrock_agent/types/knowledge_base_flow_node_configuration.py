@@ -22,7 +22,7 @@ class KnowledgeBaseFlowNodeConfiguration(TypedDict):
     model_id: NotRequired[
         "aws_sdk_bedrock_agent.types.knowledge_base_model_identifier.KnowledgeBaseModelIdentifier"
     ]
-    """<p>The unique identifier of the model or <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html\">inference profile</a> to use to generate a response from the query results. Omit this field if you want to return the retrieved results as an array.</p>"""
+    r"""<p>The unique identifier of the model or <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html\">inference profile</a> to use to generate a response from the query results. Omit this field if you want to return the retrieved results as an array.</p>"""
     guardrail_configuration: NotRequired[
         "aws_sdk_bedrock_agent.types.guardrail_configuration.GuardrailConfiguration"
     ]

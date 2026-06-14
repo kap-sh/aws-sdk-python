@@ -26,7 +26,7 @@ class StartSessionsStatisticsAggregationRequest(TypedDict):
     end_time: "aws_sdk_deadline.types.timestamp.Timestamp"
     """<p>The Linux timestamp of the date and time that the statistics end.</p>"""
     timezone: NotRequired["aws_sdk_deadline.types.timezone.Timezone"]
-    """<p>The timezone to use for the statistics. Use UTC notation such as \"UTC+8.\"</p>"""
+    r"""<p>The timezone to use for the statistics. Use UTC notation such as \"UTC+8.\"</p>"""
     period: NotRequired["aws_sdk_deadline.types.period.Period"]
     """<p>The period to aggregate the statistics.</p>"""
     group_by: "aws_sdk_deadline.types.usage_group_by.UsageGroupBy"

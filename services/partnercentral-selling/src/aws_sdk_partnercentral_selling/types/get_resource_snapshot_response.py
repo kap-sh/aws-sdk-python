@@ -30,7 +30,7 @@ class GetResourceSnapshotResponse(TypedDict):
     ]
     """<p>The AWS account ID of the principal (user or role) who created the snapshot. This helps in tracking the origin of the snapshot. </p>"""
     created_at: NotRequired["aws_sdk_partnercentral_selling.types.date_time.DateTime"]
-    """<p>The timestamp when the snapshot was created, in ISO 8601 format (e.g., \"2023-06-01T14:30:00Z\"). This allows for precise tracking of when the snapshot was taken. </p>"""
+    r"""<p>The timestamp when the snapshot was created, in ISO 8601 format (e.g., \"2023-06-01T14:30:00Z\"). This allows for precise tracking of when the snapshot was taken. </p>"""
     engagement_id: NotRequired[
         "aws_sdk_partnercentral_selling.types.engagement_identifier.EngagementIdentifier"
     ]

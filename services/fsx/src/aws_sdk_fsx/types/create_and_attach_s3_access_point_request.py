@@ -35,7 +35,7 @@ class CreateAndAttachS3AccessPointRequest(TypedDict):
     s3_access_point: NotRequired[
         "aws_sdk_fsx.types.create_and_attach_s3_access_point_s3_configuration.CreateAndAttachS3AccessPointS3Configuration"
     ]
-    """<p>Specifies the virtual private cloud (VPC) configuration if you're creating an access point that is restricted to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/access-points-vpc.html\">Creating access points restricted to a virtual private cloud</a>.</p>"""
+    r"""<p>Specifies the virtual private cloud (VPC) configuration if you're creating an access point that is restricted to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/access-points-vpc.html\">Creating access points restricted to a virtual private cloud</a>.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

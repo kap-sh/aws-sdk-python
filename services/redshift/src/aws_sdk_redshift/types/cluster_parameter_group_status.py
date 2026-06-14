@@ -19,7 +19,7 @@ class ClusterParameterGroupStatus(TypedDict):
     cluster_parameter_status_list: NotRequired[
         "aws_sdk_redshift.types.cluster_parameter_status_list.ClusterParameterStatusList"
     ]
-    """<p>The list of parameter statuses.</p> <p> For more information about parameters and parameter groups, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html\">Amazon Redshift Parameter Groups</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</p>"""
+    r"""<p>The list of parameter statuses.</p> <p> For more information about parameters and parameter groups, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html\">Amazon Redshift Parameter Groups</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</p>"""
 
 
 # --- awsQuery ser/de ---

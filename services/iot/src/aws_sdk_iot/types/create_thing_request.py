@@ -19,7 +19,7 @@ class CreateThingRequest(TypedDict):
     attribute_payload: NotRequired[
         "aws_sdk_iot.types.attribute_payload.AttributePayload"
     ]
-    """<p>The attribute payload, which consists of up to three name/value pairs in a JSON document. For example:</p> <p> <code>{\\"attributes\\":{\\"string1\\":\\"string2\\"}}</code> </p>"""
+    r"""<p>The attribute payload, which consists of up to three name/value pairs in a JSON document. For example:</p> <p> <code>{\\"attributes\\":{\\"string1\\":\\"string2\\"}}</code> </p>"""
     billing_group_name: NotRequired[
         "aws_sdk_iot.types.billing_group_name.BillingGroupName"
     ]

@@ -58,7 +58,7 @@ class GetObjectOutput(TypedDict):
     accept_ranges: NotRequired["aws_sdk_s3.types.accept_ranges.AcceptRanges"]
     """<p>Indicates that a range of bytes was specified in the request.</p>"""
     expiration: NotRequired["aws_sdk_s3.types.expiration.Expiration"]
-    """<p>If the object expiration is configured (see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycleConfiguration.html\"> <code>PutBucketLifecycleConfiguration</code> </a>), the response includes this header. It includes the <code>expiry-date</code> and <code>rule-id</code> key-value pairs providing object expiration information. The value of the <code>rule-id</code> is URL-encoded.</p> <note> <p>Object expiration information is not returned in directory buckets and this header returns the value \"<code>NotImplemented</code>\" in all responses for directory buckets.</p> </note>"""
+    r"""<p>If the object expiration is configured (see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycleConfiguration.html\"> <code>PutBucketLifecycleConfiguration</code> </a>), the response includes this header. It includes the <code>expiry-date</code> and <code>rule-id</code> key-value pairs providing object expiration information. The value of the <code>rule-id</code> is URL-encoded.</p> <note> <p>Object expiration information is not returned in directory buckets and this header returns the value \"<code>NotImplemented</code>\" in all responses for directory buckets.</p> </note>"""
     restore: NotRequired["aws_sdk_s3.types.restore.Restore"]
     """<p>Provides information about object restoration action and expiration time of the restored object copy.</p> <note> <p>This functionality is not supported for directory buckets. Directory buckets only support <code>EXPRESS_ONEZONE</code> (the S3 Express One Zone storage class) in Availability Zones and <code>ONEZONE_IA</code> (the S3 One Zone-Infrequent Access storage class) in Dedicated Local Zones.</p> </note>"""
     last_modified: NotRequired["aws_sdk_s3.types.last_modified.LastModified"]
@@ -68,33 +68,33 @@ class GetObjectOutput(TypedDict):
     e_tag: NotRequired["aws_sdk_s3.types.e_tag.ETag"]
     """<p>An entity tag (ETag) is an opaque identifier assigned by a web server to a specific version of a resource found at a URL.</p>"""
     checksum_crc32: NotRequired["aws_sdk_s3.types.checksum_crc32.ChecksumCRC32"]
-    """<p>The Base64 encoded, 32-bit <code>CRC32</code> checksum of the object. This checksum is only present if the object was uploaded with the object. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html\"> Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>"""
+    r"""<p>The Base64 encoded, 32-bit <code>CRC32</code> checksum of the object. This checksum is only present if the object was uploaded with the object. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html\"> Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>"""
     checksum_crc32_c: NotRequired["aws_sdk_s3.types.checksum_crc32_c.ChecksumCRC32C"]
-    """<p>The Base64 encoded, 32-bit <code>CRC32C</code> checksum of the object. This checksum is only present if the checksum was uploaded with the object. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html\"> Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>"""
+    r"""<p>The Base64 encoded, 32-bit <code>CRC32C</code> checksum of the object. This checksum is only present if the checksum was uploaded with the object. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html\"> Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>"""
     checksum_crc64_nvme: NotRequired[
         "aws_sdk_s3.types.checksum_crc64_nvme.ChecksumCRC64NVME"
     ]
-    """<p>The Base64 encoded, 64-bit <code>CRC64NVME</code> checksum of the object. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html\">Checking object integrity in the Amazon S3 User Guide</a>.</p>"""
+    r"""<p>The Base64 encoded, 64-bit <code>CRC64NVME</code> checksum of the object. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html\">Checking object integrity in the Amazon S3 User Guide</a>.</p>"""
     checksum_sha1: NotRequired["aws_sdk_s3.types.checksum_sha1.ChecksumSHA1"]
-    """<p>The Base64 encoded, 160-bit <code>SHA1</code> digest of the object. This checksum is only present if the checksum was uploaded with the object. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html\"> Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>"""
+    r"""<p>The Base64 encoded, 160-bit <code>SHA1</code> digest of the object. This checksum is only present if the checksum was uploaded with the object. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html\"> Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>"""
     checksum_sha256: NotRequired["aws_sdk_s3.types.checksum_sha256.ChecksumSHA256"]
-    """<p>The Base64 encoded, 256-bit <code>SHA256</code> digest of the object. This checksum is only present if the checksum was uploaded with the object. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html\"> Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>"""
+    r"""<p>The Base64 encoded, 256-bit <code>SHA256</code> digest of the object. This checksum is only present if the checksum was uploaded with the object. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html\"> Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>"""
     checksum_sha512: NotRequired["aws_sdk_s3.types.checksum_sha512.ChecksumSHA512"]
-    """<p>The Base64 encoded, 512-bit <code>SHA512</code> digest of the object. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html\">Checking object integrity in the Amazon S3 User Guide</a>.</p>"""
+    r"""<p>The Base64 encoded, 512-bit <code>SHA512</code> digest of the object. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html\">Checking object integrity in the Amazon S3 User Guide</a>.</p>"""
     checksum_md5: NotRequired["aws_sdk_s3.types.checksum_md5.ChecksumMD5"]
-    """<p>The Base64 encoded, 128-bit <code>MD5</code> digest of the object. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html\">Checking object integrity in the Amazon S3 User Guide</a>.</p>"""
+    r"""<p>The Base64 encoded, 128-bit <code>MD5</code> digest of the object. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html\">Checking object integrity in the Amazon S3 User Guide</a>.</p>"""
     checksum_xxhash64: NotRequired[
         "aws_sdk_s3.types.checksum_xxhash64.ChecksumXXHASH64"
     ]
-    """<p>The Base64 encoded, 64-bit <code>XXHASH64</code> checksum of the object. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html\">Checking object integrity in the Amazon S3 User Guide</a>.</p>"""
+    r"""<p>The Base64 encoded, 64-bit <code>XXHASH64</code> checksum of the object. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html\">Checking object integrity in the Amazon S3 User Guide</a>.</p>"""
     checksum_xxhash3: NotRequired["aws_sdk_s3.types.checksum_xxhash3.ChecksumXXHASH3"]
-    """<p>The Base64 encoded, 64-bit <code>XXHASH3</code> checksum of the object. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html\">Checking object integrity in the Amazon S3 User Guide</a>.</p>"""
+    r"""<p>The Base64 encoded, 64-bit <code>XXHASH3</code> checksum of the object. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html\">Checking object integrity in the Amazon S3 User Guide</a>.</p>"""
     checksum_xxhash128: NotRequired[
         "aws_sdk_s3.types.checksum_xxhash128.ChecksumXXHASH128"
     ]
-    """<p>The Base64 encoded, 128-bit <code>XXHASH128</code> checksum of the object. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html\">Checking object integrity in the Amazon S3 User Guide</a>.</p>"""
+    r"""<p>The Base64 encoded, 128-bit <code>XXHASH128</code> checksum of the object. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html\">Checking object integrity in the Amazon S3 User Guide</a>.</p>"""
     checksum_type: NotRequired["aws_sdk_s3.types.checksum_type.ChecksumType"]
-    """<p>The checksum type, which determines how part-level checksums are combined to create an object-level checksum for multipart objects. You can use this header response to verify that the checksum type that is received is the same checksum type that was specified in the <code>CreateMultipartUpload</code> request. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html\">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>"""
+    r"""<p>The checksum type, which determines how part-level checksums are combined to create an object-level checksum for multipart objects. You can use this header response to verify that the checksum type that is received is the same checksum type that was specified in the <code>CreateMultipartUpload</code> request. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html\">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>"""
     missing_meta: NotRequired["aws_sdk_s3.types.missing_meta.MissingMeta"]
     """<p>This is set to the number of metadata entries not returned in the headers that are prefixed with <code>x-amz-meta-</code>. This can happen if you create metadata using an API like SOAP that supports more flexible metadata than the REST API. For example, using SOAP, you can create metadata whose values are not legal HTTP headers.</p> <note> <p>This functionality is not supported for directory buckets.</p> </note>"""
     version_id: NotRequired["aws_sdk_s3.types.object_version_id.ObjectVersionId"]
@@ -149,7 +149,7 @@ class GetObjectOutput(TypedDict):
     parts_count: NotRequired["aws_sdk_s3.types.parts_count.PartsCount"]
     """<p>The count of parts this object has. This value is only returned if you specify <code>partNumber</code> in your request and the object was uploaded as a multipart upload.</p>"""
     tag_count: NotRequired["aws_sdk_s3.types.tag_count.TagCount"]
-    """<p>The number of tags, if any, on the object, when you have the relevant permission to read object tags.</p> <p>You can use <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectTagging.html\">GetObjectTagging</a> to retrieve the tag set associated with an object.</p> <note> <p>This functionality is not supported for directory buckets.</p> </note>"""
+    r"""<p>The number of tags, if any, on the object, when you have the relevant permission to read object tags.</p> <p>You can use <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectTagging.html\">GetObjectTagging</a> to retrieve the tag set associated with an object.</p> <note> <p>This functionality is not supported for directory buckets.</p> </note>"""
     object_lock_mode: NotRequired["aws_sdk_s3.types.object_lock_mode.ObjectLockMode"]
     """<p>The Object Lock mode that's currently in place for this object.</p> <note> <p>This functionality is not supported for directory buckets.</p> </note>"""
     object_lock_retain_until_date: NotRequired[

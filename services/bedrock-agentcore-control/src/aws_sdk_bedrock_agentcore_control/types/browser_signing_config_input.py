@@ -2,9 +2,11 @@
 
 from typing import TypedDict
 
+
 class BrowserSigningConfigInput(TypedDict):
     enabled: "bool"
     """<p>Specifies whether browser signing is enabled. When enabled, the browser will cryptographically sign HTTP requests to identify itself as an AI agent to bot control vendors.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: BrowserSigningConfigInput) -> dict:

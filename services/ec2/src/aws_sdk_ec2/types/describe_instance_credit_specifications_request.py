@@ -26,7 +26,7 @@ class DescribeInstanceCreditSpecificationsRequest(TypedDict):
     max_results: NotRequired[
         "aws_sdk_ec2.types.describe_instance_credit_specifications_max_results.DescribeInstanceCreditSpecificationsMaxResults"
     ]
-    """<p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p> <p>You cannot specify this parameter and the instance IDs parameter in the same call.</p>"""
+    r"""<p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p> <p>You cannot specify this parameter and the instance IDs parameter in the same call.</p>"""
     next_token: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>"""
 

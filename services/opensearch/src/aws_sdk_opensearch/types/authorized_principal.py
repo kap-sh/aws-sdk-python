@@ -14,7 +14,7 @@ class AuthorizedPrincipal(TypedDict):
     principal_type: NotRequired["aws_sdk_opensearch.types.principal_type.PrincipalType"]
     """<p>The type of principal.</p>"""
     principal: NotRequired["aws_sdk_opensearch.types.string.String"]
-    """<p>The <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html\">IAM principal</a> that is allowed access to the domain.</p>"""
+    r"""<p>The <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html\">IAM principal</a> that is allowed access to the domain.</p>"""
     service_options: NotRequired[
         "aws_sdk_opensearch.types.service_options.ServiceOptions"
     ]

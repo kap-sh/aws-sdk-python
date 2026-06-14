@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_backupsearch._auth._signers
@@ -72,18 +74,18 @@ class SearchResultExportJob:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_backupsearch.types.start_search_result_export_job_input.StartSearchResultExportJobInput = {}  # type: ignore[typeddict-item]
-        input["search_job_identifier"] = search_job_identifier
-        input["export_specification"] = export_specification
+        input_: aws_sdk_backupsearch.types.start_search_result_export_job_input.StartSearchResultExportJobInput = {}  # type: ignore[typeddict-item]
+        input_["search_job_identifier"] = search_job_identifier
+        input_["export_specification"] = export_specification
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -116,11 +118,11 @@ class SearchResultExportJob:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_backupsearch.types.get_search_result_export_job_input.GetSearchResultExportJobInput = {}  # type: ignore[typeddict-item]
-        input["export_job_identifier"] = export_job_identifier
+        input_: aws_sdk_backupsearch.types.get_search_result_export_job_input.GetSearchResultExportJobInput = {}  # type: ignore[typeddict-item]
+        input_["export_job_identifier"] = export_job_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -163,18 +165,18 @@ class SearchResultExportJob:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_backupsearch.types.list_search_result_export_jobs_input.ListSearchResultExportJobsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_backupsearch.types.list_search_result_export_jobs_input.ListSearchResultExportJobsInput = {}  # type: ignore[typeddict-item]
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if search_job_identifier is not None:
-            input["search_job_identifier"] = search_job_identifier
+            input_["search_job_identifier"] = search_job_identifier
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -221,18 +223,18 @@ class AsyncSearchResultExportJob:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_backupsearch.types.start_search_result_export_job_input.StartSearchResultExportJobInput = {}  # type: ignore[typeddict-item]
-        input["search_job_identifier"] = search_job_identifier
-        input["export_specification"] = export_specification
+        input_: aws_sdk_backupsearch.types.start_search_result_export_job_input.StartSearchResultExportJobInput = {}  # type: ignore[typeddict-item]
+        input_["search_job_identifier"] = search_job_identifier
+        input_["export_specification"] = export_specification
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -266,11 +268,11 @@ class AsyncSearchResultExportJob:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_backupsearch.types.get_search_result_export_job_input.GetSearchResultExportJobInput = {}  # type: ignore[typeddict-item]
-        input["export_job_identifier"] = export_job_identifier
+        input_: aws_sdk_backupsearch.types.get_search_result_export_job_input.GetSearchResultExportJobInput = {}  # type: ignore[typeddict-item]
+        input_["export_job_identifier"] = export_job_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -314,18 +316,18 @@ class AsyncSearchResultExportJob:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_backupsearch.types.list_search_result_export_jobs_input.ListSearchResultExportJobsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_backupsearch.types.list_search_result_export_jobs_input.ListSearchResultExportJobsInput = {}  # type: ignore[typeddict-item]
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if search_job_identifier is not None:
-            input["search_job_identifier"] = search_job_identifier
+            input_["search_job_identifier"] = search_job_identifier
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

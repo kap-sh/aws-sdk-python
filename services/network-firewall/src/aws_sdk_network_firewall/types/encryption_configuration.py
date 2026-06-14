@@ -13,7 +13,7 @@ if TYPE_CHECKING:
 
 class EncryptionConfiguration(TypedDict):
     key_id: NotRequired["aws_sdk_network_firewall.types.key_id.KeyId"]
-    """<p>The ID of the Amazon Web Services Key Management Service (KMS) customer managed key. You can use any of the key identifiers that KMS supports, unless you're using a key that's managed by another account. If you're using a key managed by another account, then specify the key ARN. For more information, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id\">Key ID</a> in the <i>Amazon Web Services KMS Developer Guide</i>.</p>"""
+    r"""<p>The ID of the Amazon Web Services Key Management Service (KMS) customer managed key. You can use any of the key identifiers that KMS supports, unless you're using a key that's managed by another account. If you're using a key managed by another account, then specify the key ARN. For more information, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id\">Key ID</a> in the <i>Amazon Web Services KMS Developer Guide</i>.</p>"""
     type: "aws_sdk_network_firewall.types.encryption_type.EncryptionType"
     """<p>The type of Amazon Web Services KMS key to use for encryption of your Network Firewall resources.</p>"""
 

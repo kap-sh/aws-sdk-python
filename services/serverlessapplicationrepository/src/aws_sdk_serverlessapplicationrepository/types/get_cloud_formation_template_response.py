@@ -25,13 +25,13 @@ class GetCloudFormationTemplateResponse(TypedDict):
     semantic_version: NotRequired[
         "aws_sdk_serverlessapplicationrepository.types.__string.__string"
     ]
-    """<p>The semantic version of the application:</p><p> <a href=\"https://semver.org/\">https://semver.org/</a> </p>"""
+    r"""<p>The semantic version of the application:</p><p> <a href=\"https://semver.org/\">https://semver.org/</a> </p>"""
     status: NotRequired["aws_sdk_serverlessapplicationrepository.types.status.Status"]
     """<p>Status of the template creation workflow.</p><p>Possible values: PREPARING | ACTIVE | EXPIRED </p>"""
     template_id: NotRequired[
         "aws_sdk_serverlessapplicationrepository.types.__string.__string"
     ]
-    """<p>The UUID returned by CreateCloudFormationTemplate.</p><p>Pattern: [0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}</p>"""
+    r"""<p>The UUID returned by CreateCloudFormationTemplate.</p><p>Pattern: [0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}</p>"""
     template_url: NotRequired[
         "aws_sdk_serverlessapplicationrepository.types.__string.__string"
     ]

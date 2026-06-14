@@ -12,7 +12,7 @@ class ExportFilterElement(TypedDict):
     properties: NotRequired[
         "aws_sdk_neptune_graph.types.export_filter_property_map.ExportFilterPropertyMap"
     ]
-    """<p>Each property is defined by a key-value pair, where the key is the desired output property name (e.g. \"name\"), and the value is an object.</p>"""
+    r"""<p>Each property is defined by a key-value pair, where the key is the desired output property name (e.g. \"name\"), and the value is an object.</p>"""
 
 
 # --- restJson1 ser/de ---

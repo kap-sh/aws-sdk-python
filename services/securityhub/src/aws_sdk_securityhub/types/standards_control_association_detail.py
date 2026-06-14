@@ -50,7 +50,7 @@ class StandardsControlAssociationDetail(TypedDict):
     standards_control_arns: NotRequired[
         "aws_sdk_securityhub.types.standards_control_arn_list.StandardsControlArnList"
     ]
-    """<p> Provides the input parameter that Security Hub CSPM uses to call the <a href=\"https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_UpdateStandardsControl.html\">UpdateStandardsControl</a> API. This API can be used to enable or disable a control in a specified standard. </p>"""
+    r"""<p> Provides the input parameter that Security Hub CSPM uses to call the <a href=\"https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_UpdateStandardsControl.html\">UpdateStandardsControl</a> API. This API can be used to enable or disable a control in a specified standard. </p>"""
 
 
 # --- restJson1 ser/de ---

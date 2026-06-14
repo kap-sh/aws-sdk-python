@@ -27,11 +27,11 @@ class RoutePedestrianLegDetails(TypedDict):
     )
     """<p>Details corresponding to the departure for the leg.</p>"""
     notices: "aws_sdk_geo_routes.types.route_pedestrian_notice_list.RoutePedestrianNoticeList"
-    """<p> Notices are additional information returned that indicate issues that occurred during route calculation. Not supported in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html\">GrabMaps</a> customers. </p>"""
+    r"""<p> Notices are additional information returned that indicate issues that occurred during route calculation. Not supported in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html\">GrabMaps</a> customers. </p>"""
     pass_through_waypoints: "aws_sdk_geo_routes.types.route_pass_through_waypoint_list.RoutePassThroughWaypointList"
     """<p>Waypoints that were passed through during the leg. This includes the waypoints that were configured with the PassThrough option.</p>"""
     spans: "aws_sdk_geo_routes.types.route_pedestrian_span_list.RoutePedestrianSpanList"
-    """<p> Spans that were computed for the requested SpanAdditionalFeatures. Not supported in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html\">GrabMaps</a> customers. </p>"""
+    r"""<p> Spans that were computed for the requested SpanAdditionalFeatures. Not supported in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html\">GrabMaps</a> customers. </p>"""
     summary: NotRequired[
         "aws_sdk_geo_routes.types.route_pedestrian_summary.RoutePedestrianSummary"
     ]

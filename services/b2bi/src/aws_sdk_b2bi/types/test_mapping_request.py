@@ -16,7 +16,7 @@ class TestMappingRequest(TypedDict):
     )
     """<p>Specify the contents of the EDI (electronic data interchange) XML or JSON file that is used as input for the transform.</p>"""
     mapping_template: "aws_sdk_b2bi.types.mapping_template.MappingTemplate"
-    """<p>Specifies the mapping template for the transformer. This template is used to map the parsed EDI file using JSONata or XSLT.</p> <note> <p>This parameter is available for backwards compatibility. Use the <a href=\"https://docs.aws.amazon.com/b2bi/latest/APIReference/API_Mapping.html\">Mapping</a> data type instead.</p> </note>"""
+    r"""<p>Specifies the mapping template for the transformer. This template is used to map the parsed EDI file using JSONata or XSLT.</p> <note> <p>This parameter is available for backwards compatibility. Use the <a href=\"https://docs.aws.amazon.com/b2bi/latest/APIReference/API_Mapping.html\">Mapping</a> data type instead.</p> </note>"""
     file_format: "aws_sdk_b2bi.types.file_format.FileFormat"
     """<p>Specifies that the currently supported file formats for EDI transformations are <code>JSON</code> and <code>XML</code>.</p>"""
 

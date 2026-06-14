@@ -19,9 +19,9 @@ class IotEventsAction(TypedDict):
     message_id: NotRequired["aws_sdk_iot.types.message_id.MessageId"]
     """<p>The ID of the message. The default <code>messageId</code> is a new UUID value.</p> <p>When <code>batchMode</code> is <code>true</code>, you can't specify a <code>messageId</code>--a new UUID value will be assigned.</p> <p>Assign a value to this property to ensure that only one input (message) with a given <code>messageId</code> will be processed by an IoT Events detector.</p>"""
     batch_mode: NotRequired["aws_sdk_iot.types.batch_mode.BatchMode"]
-    """<p>Whether to process the event actions as a batch. The default value is <code>false</code>.</p> <p>When <code>batchMode</code> is <code>true</code>, you can't specify a <code>messageId</code>. </p> <p>When <code>batchMode</code> is <code>true</code> and the rule SQL statement evaluates to an Array, each Array element is treated as a separate message when it's sent to IoT Events by calling <a href=\"https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_BatchPutMessage.html\"> <code>BatchPutMessage</code> </a>. The resulting array can't have more than 10 messages.</p>"""
+    r"""<p>Whether to process the event actions as a batch. The default value is <code>false</code>.</p> <p>When <code>batchMode</code> is <code>true</code>, you can't specify a <code>messageId</code>. </p> <p>When <code>batchMode</code> is <code>true</code> and the rule SQL statement evaluates to an Array, each Array element is treated as a separate message when it's sent to IoT Events by calling <a href=\"https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_BatchPutMessage.html\"> <code>BatchPutMessage</code> </a>. The resulting array can't have more than 10 messages.</p>"""
     role_arn: "aws_sdk_iot.types.aws_arn.AwsArn"
-    """<p>The ARN of the role that grants IoT permission to send an input to an IoT Events detector. (\"Action\":\"iotevents:BatchPutMessage\").</p>"""
+    r"""<p>The ARN of the role that grants IoT permission to send an input to an IoT Events detector. (\"Action\":\"iotevents:BatchPutMessage\").</p>"""
 
 
 # --- restJson1 ser/de ---

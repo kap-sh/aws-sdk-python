@@ -11,7 +11,7 @@ if TYPE_CHECKING:
 
 class HandshakeParty(TypedDict):
     id: "aws_sdk_organizations.types.handshake_party_id.HandshakePartyId"
-    """<p>ID for the participant: Acccount ID, organization ID, or email address.</p> <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> for handshake ID string requires \"h-\" followed by from 8 to 32 lowercase letters or digits.</p>"""
+    r"""<p>ID for the participant: Acccount ID, organization ID, or email address.</p> <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> for handshake ID string requires \"h-\" followed by from 8 to 32 lowercase letters or digits.</p>"""
     type: "aws_sdk_organizations.types.handshake_party_type.HandshakePartyType"
     """<p>The type of ID for the participant.</p>"""
 

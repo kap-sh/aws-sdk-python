@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 from aws_sdk_backup_gateway._services._pipeline import (
@@ -85,20 +87,20 @@ class HypervisorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_backup_gateway.types.import_hypervisor_configuration_input.ImportHypervisorConfigurationInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["host"] = host
+        input_: aws_sdk_backup_gateway.types.import_hypervisor_configuration_input.ImportHypervisorConfigurationInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["host"] = host
         if username is not None:
-            input["username"] = username
+            input_["username"] = username
         if password is not None:
-            input["password"] = password
+            input_["password"] = password
         if kms_key_arn is not None:
-            input["kms_key_arn"] = kms_key_arn
+            input_["kms_key_arn"] = kms_key_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -131,11 +133,11 @@ class HypervisorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_backup_gateway.types.get_hypervisor_input.GetHypervisorInput = {}  # type: ignore[typeddict-item]
-        input["hypervisor_arn"] = hypervisor_arn
+        input_: aws_sdk_backup_gateway.types.get_hypervisor_input.GetHypervisorInput = {}  # type: ignore[typeddict-item]
+        input_["hypervisor_arn"] = hypervisor_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -180,21 +182,21 @@ class HypervisorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_backup_gateway.types.update_hypervisor_input.UpdateHypervisorInput = {}  # type: ignore[typeddict-item]
-        input["hypervisor_arn"] = hypervisor_arn
+        input_: aws_sdk_backup_gateway.types.update_hypervisor_input.UpdateHypervisorInput = {}  # type: ignore[typeddict-item]
+        input_["hypervisor_arn"] = hypervisor_arn
         if host is not None:
-            input["host"] = host
+            input_["host"] = host
         if username is not None:
-            input["username"] = username
+            input_["username"] = username
         if password is not None:
-            input["password"] = password
+            input_["password"] = password
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if log_group_arn is not None:
-            input["log_group_arn"] = log_group_arn
+            input_["log_group_arn"] = log_group_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -227,11 +229,11 @@ class HypervisorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_backup_gateway.types.delete_hypervisor_input.DeleteHypervisorInput = {}  # type: ignore[typeddict-item]
-        input["hypervisor_arn"] = hypervisor_arn
+        input_: aws_sdk_backup_gateway.types.delete_hypervisor_input.DeleteHypervisorInput = {}  # type: ignore[typeddict-item]
+        input_["hypervisor_arn"] = hypervisor_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -270,14 +272,14 @@ class HypervisorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_backup_gateway.types.list_hypervisors_input.ListHypervisorsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_backup_gateway.types.list_hypervisors_input.ListHypervisorsInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -310,11 +312,11 @@ class HypervisorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_backup_gateway.types.start_virtual_machines_metadata_sync_input.StartVirtualMachinesMetadataSyncInput = {}  # type: ignore[typeddict-item]
-        input["hypervisor_arn"] = hypervisor_arn
+        input_: aws_sdk_backup_gateway.types.start_virtual_machines_metadata_sync_input.StartVirtualMachinesMetadataSyncInput = {}  # type: ignore[typeddict-item]
+        input_["hypervisor_arn"] = hypervisor_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -365,20 +367,20 @@ class AsyncHypervisorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_backup_gateway.types.import_hypervisor_configuration_input.ImportHypervisorConfigurationInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["host"] = host
+        input_: aws_sdk_backup_gateway.types.import_hypervisor_configuration_input.ImportHypervisorConfigurationInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["host"] = host
         if username is not None:
-            input["username"] = username
+            input_["username"] = username
         if password is not None:
-            input["password"] = password
+            input_["password"] = password
         if kms_key_arn is not None:
-            input["kms_key_arn"] = kms_key_arn
+            input_["kms_key_arn"] = kms_key_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -412,11 +414,11 @@ class AsyncHypervisorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_backup_gateway.types.get_hypervisor_input.GetHypervisorInput = {}  # type: ignore[typeddict-item]
-        input["hypervisor_arn"] = hypervisor_arn
+        input_: aws_sdk_backup_gateway.types.get_hypervisor_input.GetHypervisorInput = {}  # type: ignore[typeddict-item]
+        input_["hypervisor_arn"] = hypervisor_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -462,21 +464,21 @@ class AsyncHypervisorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_backup_gateway.types.update_hypervisor_input.UpdateHypervisorInput = {}  # type: ignore[typeddict-item]
-        input["hypervisor_arn"] = hypervisor_arn
+        input_: aws_sdk_backup_gateway.types.update_hypervisor_input.UpdateHypervisorInput = {}  # type: ignore[typeddict-item]
+        input_["hypervisor_arn"] = hypervisor_arn
         if host is not None:
-            input["host"] = host
+            input_["host"] = host
         if username is not None:
-            input["username"] = username
+            input_["username"] = username
         if password is not None:
-            input["password"] = password
+            input_["password"] = password
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if log_group_arn is not None:
-            input["log_group_arn"] = log_group_arn
+            input_["log_group_arn"] = log_group_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -510,11 +512,11 @@ class AsyncHypervisorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_backup_gateway.types.delete_hypervisor_input.DeleteHypervisorInput = {}  # type: ignore[typeddict-item]
-        input["hypervisor_arn"] = hypervisor_arn
+        input_: aws_sdk_backup_gateway.types.delete_hypervisor_input.DeleteHypervisorInput = {}  # type: ignore[typeddict-item]
+        input_["hypervisor_arn"] = hypervisor_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -554,14 +556,14 @@ class AsyncHypervisorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_backup_gateway.types.list_hypervisors_input.ListHypervisorsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_backup_gateway.types.list_hypervisors_input.ListHypervisorsInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -595,11 +597,11 @@ class AsyncHypervisorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_backup_gateway.types.start_virtual_machines_metadata_sync_input.StartVirtualMachinesMetadataSyncInput = {}  # type: ignore[typeddict-item]
-        input["hypervisor_arn"] = hypervisor_arn
+        input_: aws_sdk_backup_gateway.types.start_virtual_machines_metadata_sync_input.StartVirtualMachinesMetadataSyncInput = {}  # type: ignore[typeddict-item]
+        input_["hypervisor_arn"] = hypervisor_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

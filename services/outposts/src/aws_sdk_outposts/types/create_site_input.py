@@ -29,7 +29,7 @@ class CreateSiteInput(TypedDict):
     rack_physical_properties: NotRequired[
         "aws_sdk_outposts.types.rack_physical_properties.RackPhysicalProperties"
     ]
-    """<p> Information about the physical and logistical details for the rack at this site. For more information about hardware requirements for racks, see <a href=\"https://docs.aws.amazon.com/outposts/latest/userguide/outposts-requirements.html#checklist\">Network readiness checklist</a> in the Amazon Web Services Outposts User Guide. </p>"""
+    r"""<p> Information about the physical and logistical details for the rack at this site. For more information about hardware requirements for racks, see <a href=\"https://docs.aws.amazon.com/outposts/latest/userguide/outposts-requirements.html#checklist\">Network readiness checklist</a> in the Amazon Web Services Outposts User Guide. </p>"""
 
 
 # --- restJson1 ser/de ---

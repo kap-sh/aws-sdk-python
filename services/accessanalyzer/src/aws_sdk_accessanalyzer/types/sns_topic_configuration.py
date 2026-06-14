@@ -12,7 +12,7 @@ class SnsTopicConfiguration(TypedDict):
     topic_policy: NotRequired[
         "aws_sdk_accessanalyzer.types.sns_topic_policy.SnsTopicPolicy"
     ]
-    """<p>The JSON policy text that defines who can access an Amazon SNS topic. For more information, see <a href=\"https://docs.aws.amazon.com/sns/latest/dg/sns-access-policy-use-cases.html\">Example cases for Amazon SNS access control</a> in the <i>Amazon SNS Developer Guide</i>.</p>"""
+    r"""<p>The JSON policy text that defines who can access an Amazon SNS topic. For more information, see <a href=\"https://docs.aws.amazon.com/sns/latest/dg/sns-access-policy-use-cases.html\">Example cases for Amazon SNS access control</a> in the <i>Amazon SNS Developer Guide</i>.</p>"""
 
 
 # --- restJson1 ser/de ---

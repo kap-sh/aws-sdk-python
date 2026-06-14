@@ -1,9 +1,12 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#ApiGatewayTargetConfiguration``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.api_gateway_tool_configuration
+
 
 class ApiGatewayTargetConfiguration(TypedDict):
     rest_api_id: "str"
@@ -13,13 +16,19 @@ class ApiGatewayTargetConfiguration(TypedDict):
     api_gateway_tool_configuration: "aws_sdk_bedrock_agentcore_control.types.api_gateway_tool_configuration.ApiGatewayToolConfiguration"
     """<p>The configuration for defining REST API tool filters and overrides for the gateway target.</p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: ApiGatewayTargetConfiguration) -> dict:
     out: dict = {}
     out["restApiId"] = value["rest_api_id"]
     out["stage"] = value["stage"]
     import aws_sdk_bedrock_agentcore_control.types.api_gateway_tool_configuration
-    out["apiGatewayToolConfiguration"] = aws_sdk_bedrock_agentcore_control.types.api_gateway_tool_configuration.serialize_json(value["api_gateway_tool_configuration"])
+
+    out["apiGatewayToolConfiguration"] = (
+        aws_sdk_bedrock_agentcore_control.types.api_gateway_tool_configuration.serialize_json(
+            value["api_gateway_tool_configuration"]
+        )
+    )
     return out
 
 
@@ -35,7 +44,14 @@ def deserialize_json(data: dict) -> ApiGatewayTargetConfiguration:
         raise DeserializationError("ApiGatewayTargetConfiguration.stage required")
     if "apiGatewayToolConfiguration" in data:
         import aws_sdk_bedrock_agentcore_control.types.api_gateway_tool_configuration
-        out["api_gateway_tool_configuration"] = aws_sdk_bedrock_agentcore_control.types.api_gateway_tool_configuration.deserialize_json(data["apiGatewayToolConfiguration"])
+
+        out["api_gateway_tool_configuration"] = (
+            aws_sdk_bedrock_agentcore_control.types.api_gateway_tool_configuration.deserialize_json(
+                data["apiGatewayToolConfiguration"]
+            )
+        )
     else:
-        raise DeserializationError("ApiGatewayTargetConfiguration.api_gateway_tool_configuration required")
+        raise DeserializationError(
+            "ApiGatewayTargetConfiguration.api_gateway_tool_configuration required"
+        )
     return out

@@ -18,7 +18,7 @@ class RouteMatrixAvoidanceAreaGeometry(TypedDict):
     polyline_polygon: NotRequired[
         "aws_sdk_geo_routes.types.polyline_ring_list.PolylineRingList"
     ]
-    """<p>A list of Isoline PolylinePolygon, for each isoline PolylinePolygon, it contains PolylinePolygon of the first linear ring (the outer ring) and from second item to the last item (the inner rings). For more information on polyline encoding, see <a href=\"https://github.com/aws-geospatial/polyline\">https://github.com/aws-geospatial/polyline</a>.</p>"""
+    r"""<p>A list of Isoline PolylinePolygon, for each isoline PolylinePolygon, it contains PolylinePolygon of the first linear ring (the outer ring) and from second item to the last item (the inner rings). For more information on polyline encoding, see <a href=\"https://github.com/aws-geospatial/polyline\">https://github.com/aws-geospatial/polyline</a>.</p>"""
 
 
 # --- restJson1 ser/de ---

@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_bedrock._auth._signers
@@ -70,7 +72,7 @@ class ModelInvocationJobResource:
             "aws_sdk_bedrock.types.model_invocation_type.ModelInvocationType"
         ] = None,
     ) -> "aws_sdk_bedrock.types.create_model_invocation_job_response.CreateModelInvocationJobResponse":
-        """<p>Creates a batch inference job to invoke a model on multiple prompts. Format your data according to <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference-data\">Format your inference data</a> and upload it to an Amazon S3 bucket. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference.html\">Process multiple prompts with batch inference</a>.</p> <p>The response returns a <code>jobArn</code> that you can use to stop or get details about the job.</p>
+        r"""<p>Creates a batch inference job to invoke a model on multiple prompts. Format your data according to <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference-data\">Format your inference data</a> and upload it to an Amazon S3 bucket. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference.html\">Process multiple prompts with batch inference</a>.</p> <p>The response returns a <code>jobArn</code> that you can use to stop or get details about the job.</p>
 
         Args:
             job_name: <p>A name to give the batch inference job.</p>
@@ -130,7 +132,7 @@ class ModelInvocationJobResource:
         *,
         config_overrides: Optional[BedrockClientConfig] = None,
     ) -> "aws_sdk_bedrock.types.get_model_invocation_job_response.GetModelInvocationJobResponse":
-        """<p>Gets details about a batch inference job. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference-monitor\">Monitor batch inference jobs</a> </p>
+        r"""<p>Gets details about a batch inference job. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference-monitor\">Monitor batch inference jobs</a> </p>
 
         Args:
             job_identifier: <p>The Amazon Resource Name (ARN) of the batch inference job.</p>
@@ -182,7 +184,7 @@ class ModelInvocationJobResource:
         sort_by: Optional["aws_sdk_bedrock.types.sort_jobs_by.SortJobsBy"] = None,
         sort_order: Optional["aws_sdk_bedrock.types.sort_order.SortOrder"] = None,
     ) -> "aws_sdk_bedrock.types.list_model_invocation_jobs_response.ListModelInvocationJobsResponse":
-        """<p>Lists all batch inference jobs in the account. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference-view.html\">View details about a batch inference job</a>.</p>
+        r"""<p>Lists all batch inference jobs in the account. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference-view.html\">View details about a batch inference job</a>.</p>
 
         Args:
             submit_time_after: <p>Specify a time to filter for batch inference jobs that were submitted after the time you specify.</p>
@@ -241,7 +243,7 @@ class ModelInvocationJobResource:
         *,
         config_overrides: Optional[BedrockClientConfig] = None,
     ) -> "aws_sdk_bedrock.types.stop_model_invocation_job_response.StopModelInvocationJobResponse":
-        """<p>Stops a batch inference job. You're only charged for tokens that were already processed. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference-stop.html\">Stop a batch inference job</a>.</p>
+        r"""<p>Stops a batch inference job. You're only charged for tokens that were already processed. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference-stop.html\">Stop a batch inference job</a>.</p>
 
         Args:
             job_identifier: <p>The Amazon Resource Name (ARN) of the batch inference job to stop.</p>
@@ -298,7 +300,7 @@ class AsyncModelInvocationJobResource:
             "aws_sdk_bedrock.types.model_invocation_type.ModelInvocationType"
         ] = None,
     ) -> "aws_sdk_bedrock.types.create_model_invocation_job_response.CreateModelInvocationJobResponse":
-        """<p>Creates a batch inference job to invoke a model on multiple prompts. Format your data according to <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference-data\">Format your inference data</a> and upload it to an Amazon S3 bucket. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference.html\">Process multiple prompts with batch inference</a>.</p> <p>The response returns a <code>jobArn</code> that you can use to stop or get details about the job.</p>
+        r"""<p>Creates a batch inference job to invoke a model on multiple prompts. Format your data according to <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference-data\">Format your inference data</a> and upload it to an Amazon S3 bucket. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference.html\">Process multiple prompts with batch inference</a>.</p> <p>The response returns a <code>jobArn</code> that you can use to stop or get details about the job.</p>
 
         Args:
             job_name: <p>A name to give the batch inference job.</p>
@@ -359,7 +361,7 @@ class AsyncModelInvocationJobResource:
         *,
         config_overrides: Optional[AsyncBedrockClientConfig] = None,
     ) -> "aws_sdk_bedrock.types.get_model_invocation_job_response.GetModelInvocationJobResponse":
-        """<p>Gets details about a batch inference job. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference-monitor\">Monitor batch inference jobs</a> </p>
+        r"""<p>Gets details about a batch inference job. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference-monitor\">Monitor batch inference jobs</a> </p>
 
         Args:
             job_identifier: <p>The Amazon Resource Name (ARN) of the batch inference job.</p>
@@ -412,7 +414,7 @@ class AsyncModelInvocationJobResource:
         sort_by: Optional["aws_sdk_bedrock.types.sort_jobs_by.SortJobsBy"] = None,
         sort_order: Optional["aws_sdk_bedrock.types.sort_order.SortOrder"] = None,
     ) -> "aws_sdk_bedrock.types.list_model_invocation_jobs_response.ListModelInvocationJobsResponse":
-        """<p>Lists all batch inference jobs in the account. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference-view.html\">View details about a batch inference job</a>.</p>
+        r"""<p>Lists all batch inference jobs in the account. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference-view.html\">View details about a batch inference job</a>.</p>
 
         Args:
             submit_time_after: <p>Specify a time to filter for batch inference jobs that were submitted after the time you specify.</p>
@@ -472,7 +474,7 @@ class AsyncModelInvocationJobResource:
         *,
         config_overrides: Optional[AsyncBedrockClientConfig] = None,
     ) -> "aws_sdk_bedrock.types.stop_model_invocation_job_response.StopModelInvocationJobResponse":
-        """<p>Stops a batch inference job. You're only charged for tokens that were already processed. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference-stop.html\">Stop a batch inference job</a>.</p>
+        r"""<p>Stops a batch inference job. You're only charged for tokens that were already processed. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference-stop.html\">Stop a batch inference job</a>.</p>
 
         Args:
             job_identifier: <p>The Amazon Resource Name (ARN) of the batch inference job to stop.</p>

@@ -305,7 +305,7 @@ class AsyncAppSyncClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = AsyncAppSyncClientConfig(
+        self._config = AsyncAppSyncClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -325,7 +325,7 @@ class AsyncAppSyncClient:
         overrides: AsyncAppSyncClientConfig = config_overrides or {}
         interceptors_: list[AsyncInterceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             aretry(),
         ]
@@ -333,16 +333,16 @@ class AsyncAppSyncClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            region=overrides.get("region", self.config.get("region")),
+            region=overrides.get("region", self._config.get("region")),
             use_dual_stack=overrides.get(
-                "use_dual_stack", self.config.get("use_dual_stack")
+                "use_dual_stack", self._config.get("use_dual_stack")
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -377,12 +377,12 @@ class AsyncAppSyncClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appsync.types.associate_api_request.AssociateApiRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["api_id"] = api_id
+        input_: aws_sdk_appsync.types.associate_api_request.AssociateApiRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["api_id"] = api_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -424,16 +424,16 @@ class AsyncAppSyncClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appsync.types.associate_merged_graphql_api_request.AssociateMergedGraphqlApiRequest = {}  # type: ignore[typeddict-item]
-        input["source_api_identifier"] = source_api_identifier
-        input["merged_api_identifier"] = merged_api_identifier
+        input_: aws_sdk_appsync.types.associate_merged_graphql_api_request.AssociateMergedGraphqlApiRequest = {}  # type: ignore[typeddict-item]
+        input_["source_api_identifier"] = source_api_identifier
+        input_["merged_api_identifier"] = merged_api_identifier
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if source_api_association_config is not None:
-            input["source_api_association_config"] = source_api_association_config
+            input_["source_api_association_config"] = source_api_association_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -475,16 +475,16 @@ class AsyncAppSyncClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appsync.types.associate_source_graphql_api_request.AssociateSourceGraphqlApiRequest = {}  # type: ignore[typeddict-item]
-        input["merged_api_identifier"] = merged_api_identifier
-        input["source_api_identifier"] = source_api_identifier
+        input_: aws_sdk_appsync.types.associate_source_graphql_api_request.AssociateSourceGraphqlApiRequest = {}  # type: ignore[typeddict-item]
+        input_["merged_api_identifier"] = merged_api_identifier
+        input_["source_api_identifier"] = source_api_identifier
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if source_api_association_config is not None:
-            input["source_api_association_config"] = source_api_association_config
+            input_["source_api_association_config"] = source_api_association_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -523,16 +523,16 @@ class AsyncAppSyncClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appsync.types.create_api_request.CreateApiRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_appsync.types.create_api_request.CreateApiRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if owner_contact is not None:
-            input["owner_contact"] = owner_contact
+            input_["owner_contact"] = owner_contact
         if tags is not None:
-            input["tags"] = tags
-        input["event_config"] = event_config
+            input_["tags"] = tags
+        input_["event_config"] = event_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -584,20 +584,20 @@ class AsyncAppSyncClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appsync.types.create_api_cache_request.CreateApiCacheRequest = {}  # type: ignore[typeddict-item]
-        input["api_id"] = api_id
-        input["ttl"] = ttl
+        input_: aws_sdk_appsync.types.create_api_cache_request.CreateApiCacheRequest = {}  # type: ignore[typeddict-item]
+        input_["api_id"] = api_id
+        input_["ttl"] = ttl
         if transit_encryption_enabled is not None:
-            input["transit_encryption_enabled"] = transit_encryption_enabled
+            input_["transit_encryption_enabled"] = transit_encryption_enabled
         if at_rest_encryption_enabled is not None:
-            input["at_rest_encryption_enabled"] = at_rest_encryption_enabled
-        input["api_caching_behavior"] = api_caching_behavior
-        input["type"] = type
+            input_["at_rest_encryption_enabled"] = at_rest_encryption_enabled
+        input_["api_caching_behavior"] = api_caching_behavior
+        input_["type"] = type
         if health_metrics_config is not None:
-            input["health_metrics_config"] = health_metrics_config
+            input_["health_metrics_config"] = health_metrics_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -635,15 +635,15 @@ class AsyncAppSyncClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appsync.types.create_api_key_request.CreateApiKeyRequest = {}  # type: ignore[typeddict-item]
-        input["api_id"] = api_id
+        input_: aws_sdk_appsync.types.create_api_key_request.CreateApiKeyRequest = {}  # type: ignore[typeddict-item]
+        input_["api_id"] = api_id
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if expires is not None:
-            input["expires"] = expires
+            input_["expires"] = expires
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -694,22 +694,22 @@ class AsyncAppSyncClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appsync.types.create_channel_namespace_request.CreateChannelNamespaceRequest = {}  # type: ignore[typeddict-item]
-        input["api_id"] = api_id
-        input["name"] = name
+        input_: aws_sdk_appsync.types.create_channel_namespace_request.CreateChannelNamespaceRequest = {}  # type: ignore[typeddict-item]
+        input_["api_id"] = api_id
+        input_["name"] = name
         if subscribe_auth_modes is not None:
-            input["subscribe_auth_modes"] = subscribe_auth_modes
+            input_["subscribe_auth_modes"] = subscribe_auth_modes
         if publish_auth_modes is not None:
-            input["publish_auth_modes"] = publish_auth_modes
+            input_["publish_auth_modes"] = publish_auth_modes
         if code_handlers is not None:
-            input["code_handlers"] = code_handlers
+            input_["code_handlers"] = code_handlers
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if handler_configs is not None:
-            input["handler_configs"] = handler_configs
+            input_["handler_configs"] = handler_configs
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -783,33 +783,33 @@ class AsyncAppSyncClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appsync.types.create_data_source_request.CreateDataSourceRequest = {}  # type: ignore[typeddict-item]
-        input["api_id"] = api_id
-        input["name"] = name
+        input_: aws_sdk_appsync.types.create_data_source_request.CreateDataSourceRequest = {}  # type: ignore[typeddict-item]
+        input_["api_id"] = api_id
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["type"] = type
+            input_["description"] = description
+        input_["type"] = type
         if service_role_arn is not None:
-            input["service_role_arn"] = service_role_arn
+            input_["service_role_arn"] = service_role_arn
         if dynamodb_config is not None:
-            input["dynamodb_config"] = dynamodb_config
+            input_["dynamodb_config"] = dynamodb_config
         if lambda_config is not None:
-            input["lambda_config"] = lambda_config
+            input_["lambda_config"] = lambda_config
         if elasticsearch_config is not None:
-            input["elasticsearch_config"] = elasticsearch_config
+            input_["elasticsearch_config"] = elasticsearch_config
         if open_search_service_config is not None:
-            input["open_search_service_config"] = open_search_service_config
+            input_["open_search_service_config"] = open_search_service_config
         if http_config is not None:
-            input["http_config"] = http_config
+            input_["http_config"] = http_config
         if relational_database_config is not None:
-            input["relational_database_config"] = relational_database_config
+            input_["relational_database_config"] = relational_database_config
         if event_bridge_config is not None:
-            input["event_bridge_config"] = event_bridge_config
+            input_["event_bridge_config"] = event_bridge_config
         if metrics_config is not None:
-            input["metrics_config"] = metrics_config
+            input_["metrics_config"] = metrics_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -848,16 +848,16 @@ class AsyncAppSyncClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appsync.types.create_domain_name_request.CreateDomainNameRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["certificate_arn"] = certificate_arn
+        input_: aws_sdk_appsync.types.create_domain_name_request.CreateDomainNameRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["certificate_arn"] = certificate_arn
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -917,29 +917,29 @@ class AsyncAppSyncClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appsync.types.create_function_request.CreateFunctionRequest = {}  # type: ignore[typeddict-item]
-        input["api_id"] = api_id
-        input["name"] = name
+        input_: aws_sdk_appsync.types.create_function_request.CreateFunctionRequest = {}  # type: ignore[typeddict-item]
+        input_["api_id"] = api_id
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["data_source_name"] = data_source_name
+            input_["description"] = description
+        input_["data_source_name"] = data_source_name
         if request_mapping_template is not None:
-            input["request_mapping_template"] = request_mapping_template
+            input_["request_mapping_template"] = request_mapping_template
         if response_mapping_template is not None:
-            input["response_mapping_template"] = response_mapping_template
+            input_["response_mapping_template"] = response_mapping_template
         if function_version is not None:
-            input["function_version"] = function_version
+            input_["function_version"] = function_version
         if sync_config is not None:
-            input["sync_config"] = sync_config
+            input_["sync_config"] = sync_config
         if max_batch_size is not None:
-            input["max_batch_size"] = max_batch_size
+            input_["max_batch_size"] = max_batch_size
         if runtime is not None:
-            input["runtime"] = runtime
+            input_["runtime"] = runtime
         if code is not None:
-            input["code"] = code
+            input_["code"] = code
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -989,7 +989,7 @@ class AsyncAppSyncClient:
             "aws_sdk_appsync.types.enhanced_metrics_config.EnhancedMetricsConfig"
         ] = None,
     ) -> "aws_sdk_appsync.types.create_graphql_api_response.CreateGraphqlApiResponse":
-        """<p>Creates a <code>GraphqlApi</code> object.</p>
+        r"""<p>Creates a <code>GraphqlApi</code> object.</p>
 
         Args:
             name: <p>A user-supplied name for the <code>GraphqlApi</code>.</p>
@@ -1027,44 +1027,44 @@ class AsyncAppSyncClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appsync.types.create_graphql_api_request.CreateGraphqlApiRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_appsync.types.create_graphql_api_request.CreateGraphqlApiRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if log_config is not None:
-            input["log_config"] = log_config
-        input["authentication_type"] = authentication_type
+            input_["log_config"] = log_config
+        input_["authentication_type"] = authentication_type
         if user_pool_config is not None:
-            input["user_pool_config"] = user_pool_config
+            input_["user_pool_config"] = user_pool_config
         if open_id_connect_config is not None:
-            input["open_id_connect_config"] = open_id_connect_config
+            input_["open_id_connect_config"] = open_id_connect_config
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if additional_authentication_providers is not None:
-            input["additional_authentication_providers"] = (
+            input_["additional_authentication_providers"] = (
                 additional_authentication_providers
             )
         if xray_enabled is not None:
-            input["xray_enabled"] = xray_enabled
+            input_["xray_enabled"] = xray_enabled
         if lambda_authorizer_config is not None:
-            input["lambda_authorizer_config"] = lambda_authorizer_config
+            input_["lambda_authorizer_config"] = lambda_authorizer_config
         if api_type is not None:
-            input["api_type"] = api_type
+            input_["api_type"] = api_type
         if merged_api_execution_role_arn is not None:
-            input["merged_api_execution_role_arn"] = merged_api_execution_role_arn
+            input_["merged_api_execution_role_arn"] = merged_api_execution_role_arn
         if visibility is not None:
-            input["visibility"] = visibility
+            input_["visibility"] = visibility
         if owner_contact is not None:
-            input["owner_contact"] = owner_contact
+            input_["owner_contact"] = owner_contact
         if introspection_config is not None:
-            input["introspection_config"] = introspection_config
+            input_["introspection_config"] = introspection_config
         if query_depth_limit is not None:
-            input["query_depth_limit"] = query_depth_limit
+            input_["query_depth_limit"] = query_depth_limit
         if resolver_count_limit is not None:
-            input["resolver_count_limit"] = resolver_count_limit
+            input_["resolver_count_limit"] = resolver_count_limit
         if enhanced_metrics_config is not None:
-            input["enhanced_metrics_config"] = enhanced_metrics_config
+            input_["enhanced_metrics_config"] = enhanced_metrics_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1139,35 +1139,35 @@ class AsyncAppSyncClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appsync.types.create_resolver_request.CreateResolverRequest = {}  # type: ignore[typeddict-item]
-        input["api_id"] = api_id
-        input["type_name"] = type_name
-        input["field_name"] = field_name
+        input_: aws_sdk_appsync.types.create_resolver_request.CreateResolverRequest = {}  # type: ignore[typeddict-item]
+        input_["api_id"] = api_id
+        input_["type_name"] = type_name
+        input_["field_name"] = field_name
         if data_source_name is not None:
-            input["data_source_name"] = data_source_name
+            input_["data_source_name"] = data_source_name
         if request_mapping_template is not None:
-            input["request_mapping_template"] = request_mapping_template
+            input_["request_mapping_template"] = request_mapping_template
         if response_mapping_template is not None:
-            input["response_mapping_template"] = response_mapping_template
+            input_["response_mapping_template"] = response_mapping_template
         if kind is not None:
-            input["kind"] = kind
+            input_["kind"] = kind
         if pipeline_config is not None:
-            input["pipeline_config"] = pipeline_config
+            input_["pipeline_config"] = pipeline_config
         if sync_config is not None:
-            input["sync_config"] = sync_config
+            input_["sync_config"] = sync_config
         if caching_config is not None:
-            input["caching_config"] = caching_config
+            input_["caching_config"] = caching_config
         if max_batch_size is not None:
-            input["max_batch_size"] = max_batch_size
+            input_["max_batch_size"] = max_batch_size
         if runtime is not None:
-            input["runtime"] = runtime
+            input_["runtime"] = runtime
         if code is not None:
-            input["code"] = code
+            input_["code"] = code
         if metrics_config is not None:
-            input["metrics_config"] = metrics_config
+            input_["metrics_config"] = metrics_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1181,7 +1181,7 @@ class AsyncAppSyncClient:
         *,
         config_overrides: Optional[AsyncAppSyncClientConfig] = None,
     ) -> "aws_sdk_appsync.types.create_type_response.CreateTypeResponse":
-        """<p>Creates a <code>Type</code> object.</p>
+        r"""<p>Creates a <code>Type</code> object.</p>
 
         Args:
             api_id: <p>The API ID.</p>
@@ -1205,13 +1205,13 @@ class AsyncAppSyncClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appsync.types.create_type_request.CreateTypeRequest = {}  # type: ignore[typeddict-item]
-        input["api_id"] = api_id
-        input["definition"] = definition
-        input["format"] = format
+        input_: aws_sdk_appsync.types.create_type_request.CreateTypeRequest = {}  # type: ignore[typeddict-item]
+        input_["api_id"] = api_id
+        input_["definition"] = definition
+        input_["format"] = format
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1245,11 +1245,11 @@ class AsyncAppSyncClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appsync.types.delete_api_request.DeleteApiRequest = {}  # type: ignore[typeddict-item]
-        input["api_id"] = api_id
+        input_: aws_sdk_appsync.types.delete_api_request.DeleteApiRequest = {}  # type: ignore[typeddict-item]
+        input_["api_id"] = api_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1283,11 +1283,11 @@ class AsyncAppSyncClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appsync.types.delete_api_cache_request.DeleteApiCacheRequest = {}  # type: ignore[typeddict-item]
-        input["api_id"] = api_id
+        input_: aws_sdk_appsync.types.delete_api_cache_request.DeleteApiCacheRequest = {}  # type: ignore[typeddict-item]
+        input_["api_id"] = api_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1323,12 +1323,12 @@ class AsyncAppSyncClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appsync.types.delete_api_key_request.DeleteApiKeyRequest = {}  # type: ignore[typeddict-item]
-        input["api_id"] = api_id
-        input["id"] = id
+        input_: aws_sdk_appsync.types.delete_api_key_request.DeleteApiKeyRequest = {}  # type: ignore[typeddict-item]
+        input_["api_id"] = api_id
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1364,12 +1364,12 @@ class AsyncAppSyncClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appsync.types.delete_channel_namespace_request.DeleteChannelNamespaceRequest = {}  # type: ignore[typeddict-item]
-        input["api_id"] = api_id
-        input["name"] = name
+        input_: aws_sdk_appsync.types.delete_channel_namespace_request.DeleteChannelNamespaceRequest = {}  # type: ignore[typeddict-item]
+        input_["api_id"] = api_id
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1405,12 +1405,12 @@ class AsyncAppSyncClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appsync.types.delete_data_source_request.DeleteDataSourceRequest = {}  # type: ignore[typeddict-item]
-        input["api_id"] = api_id
-        input["name"] = name
+        input_: aws_sdk_appsync.types.delete_data_source_request.DeleteDataSourceRequest = {}  # type: ignore[typeddict-item]
+        input_["api_id"] = api_id
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1444,11 +1444,11 @@ class AsyncAppSyncClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appsync.types.delete_domain_name_request.DeleteDomainNameRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_appsync.types.delete_domain_name_request.DeleteDomainNameRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1484,12 +1484,12 @@ class AsyncAppSyncClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appsync.types.delete_function_request.DeleteFunctionRequest = {}  # type: ignore[typeddict-item]
-        input["api_id"] = api_id
-        input["function_id"] = function_id
+        input_: aws_sdk_appsync.types.delete_function_request.DeleteFunctionRequest = {}  # type: ignore[typeddict-item]
+        input_["api_id"] = api_id
+        input_["function_id"] = function_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1523,11 +1523,11 @@ class AsyncAppSyncClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appsync.types.delete_graphql_api_request.DeleteGraphqlApiRequest = {}  # type: ignore[typeddict-item]
-        input["api_id"] = api_id
+        input_: aws_sdk_appsync.types.delete_graphql_api_request.DeleteGraphqlApiRequest = {}  # type: ignore[typeddict-item]
+        input_["api_id"] = api_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1565,13 +1565,13 @@ class AsyncAppSyncClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appsync.types.delete_resolver_request.DeleteResolverRequest = {}  # type: ignore[typeddict-item]
-        input["api_id"] = api_id
-        input["type_name"] = type_name
-        input["field_name"] = field_name
+        input_: aws_sdk_appsync.types.delete_resolver_request.DeleteResolverRequest = {}  # type: ignore[typeddict-item]
+        input_["api_id"] = api_id
+        input_["type_name"] = type_name
+        input_["field_name"] = field_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1607,12 +1607,12 @@ class AsyncAppSyncClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appsync.types.delete_type_request.DeleteTypeRequest = {}  # type: ignore[typeddict-item]
-        input["api_id"] = api_id
-        input["type_name"] = type_name
+        input_: aws_sdk_appsync.types.delete_type_request.DeleteTypeRequest = {}  # type: ignore[typeddict-item]
+        input_["api_id"] = api_id
+        input_["type_name"] = type_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1646,11 +1646,11 @@ class AsyncAppSyncClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appsync.types.disassociate_api_request.DisassociateApiRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_appsync.types.disassociate_api_request.DisassociateApiRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1686,12 +1686,12 @@ class AsyncAppSyncClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appsync.types.disassociate_merged_graphql_api_request.DisassociateMergedGraphqlApiRequest = {}  # type: ignore[typeddict-item]
-        input["source_api_identifier"] = source_api_identifier
-        input["association_id"] = association_id
+        input_: aws_sdk_appsync.types.disassociate_merged_graphql_api_request.DisassociateMergedGraphqlApiRequest = {}  # type: ignore[typeddict-item]
+        input_["source_api_identifier"] = source_api_identifier
+        input_["association_id"] = association_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1727,12 +1727,12 @@ class AsyncAppSyncClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appsync.types.disassociate_source_graphql_api_request.DisassociateSourceGraphqlApiRequest = {}  # type: ignore[typeddict-item]
-        input["merged_api_identifier"] = merged_api_identifier
-        input["association_id"] = association_id
+        input_: aws_sdk_appsync.types.disassociate_source_graphql_api_request.DisassociateSourceGraphqlApiRequest = {}  # type: ignore[typeddict-item]
+        input_["merged_api_identifier"] = merged_api_identifier
+        input_["association_id"] = association_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1772,15 +1772,15 @@ class AsyncAppSyncClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appsync.types.evaluate_code_request.EvaluateCodeRequest = {}  # type: ignore[typeddict-item]
-        input["runtime"] = runtime
-        input["code"] = code
-        input["context"] = context
+        input_: aws_sdk_appsync.types.evaluate_code_request.EvaluateCodeRequest = {}  # type: ignore[typeddict-item]
+        input_["runtime"] = runtime
+        input_["code"] = code
+        input_["context"] = context
         if function is not None:
-            input["function"] = function
+            input_["function"] = function
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1816,12 +1816,12 @@ class AsyncAppSyncClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appsync.types.evaluate_mapping_template_request.EvaluateMappingTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["template"] = template
-        input["context"] = context
+        input_: aws_sdk_appsync.types.evaluate_mapping_template_request.EvaluateMappingTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["template"] = template
+        input_["context"] = context
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1855,11 +1855,11 @@ class AsyncAppSyncClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appsync.types.flush_api_cache_request.FlushApiCacheRequest = {}  # type: ignore[typeddict-item]
-        input["api_id"] = api_id
+        input_: aws_sdk_appsync.types.flush_api_cache_request.FlushApiCacheRequest = {}  # type: ignore[typeddict-item]
+        input_["api_id"] = api_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1893,11 +1893,11 @@ class AsyncAppSyncClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appsync.types.get_api_request.GetApiRequest = {}  # type: ignore[typeddict-item]
-        input["api_id"] = api_id
+        input_: aws_sdk_appsync.types.get_api_request.GetApiRequest = {}  # type: ignore[typeddict-item]
+        input_["api_id"] = api_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1931,11 +1931,11 @@ class AsyncAppSyncClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appsync.types.get_api_association_request.GetApiAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_appsync.types.get_api_association_request.GetApiAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1969,11 +1969,11 @@ class AsyncAppSyncClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appsync.types.get_api_cache_request.GetApiCacheRequest = {}  # type: ignore[typeddict-item]
-        input["api_id"] = api_id
+        input_: aws_sdk_appsync.types.get_api_cache_request.GetApiCacheRequest = {}  # type: ignore[typeddict-item]
+        input_["api_id"] = api_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2009,12 +2009,12 @@ class AsyncAppSyncClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appsync.types.get_channel_namespace_request.GetChannelNamespaceRequest = {}  # type: ignore[typeddict-item]
-        input["api_id"] = api_id
-        input["name"] = name
+        input_: aws_sdk_appsync.types.get_channel_namespace_request.GetChannelNamespaceRequest = {}  # type: ignore[typeddict-item]
+        input_["api_id"] = api_id
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2050,12 +2050,12 @@ class AsyncAppSyncClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appsync.types.get_data_source_request.GetDataSourceRequest = {}  # type: ignore[typeddict-item]
-        input["api_id"] = api_id
-        input["name"] = name
+        input_: aws_sdk_appsync.types.get_data_source_request.GetDataSourceRequest = {}  # type: ignore[typeddict-item]
+        input_["api_id"] = api_id
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2097,17 +2097,17 @@ class AsyncAppSyncClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appsync.types.get_data_source_introspection_request.GetDataSourceIntrospectionRequest = {}  # type: ignore[typeddict-item]
-        input["introspection_id"] = introspection_id
+        input_: aws_sdk_appsync.types.get_data_source_introspection_request.GetDataSourceIntrospectionRequest = {}  # type: ignore[typeddict-item]
+        input_["introspection_id"] = introspection_id
         if include_models_sdl is not None:
-            input["include_models_sdl"] = include_models_sdl
+            input_["include_models_sdl"] = include_models_sdl
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2141,11 +2141,11 @@ class AsyncAppSyncClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appsync.types.get_domain_name_request.GetDomainNameRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_appsync.types.get_domain_name_request.GetDomainNameRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2181,12 +2181,12 @@ class AsyncAppSyncClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appsync.types.get_function_request.GetFunctionRequest = {}  # type: ignore[typeddict-item]
-        input["api_id"] = api_id
-        input["function_id"] = function_id
+        input_: aws_sdk_appsync.types.get_function_request.GetFunctionRequest = {}  # type: ignore[typeddict-item]
+        input_["api_id"] = api_id
+        input_["function_id"] = function_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2220,11 +2220,11 @@ class AsyncAppSyncClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appsync.types.get_graphql_api_request.GetGraphqlApiRequest = {}  # type: ignore[typeddict-item]
-        input["api_id"] = api_id
+        input_: aws_sdk_appsync.types.get_graphql_api_request.GetGraphqlApiRequest = {}  # type: ignore[typeddict-item]
+        input_["api_id"] = api_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2258,11 +2258,11 @@ class AsyncAppSyncClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appsync.types.get_graphql_api_environment_variables_request.GetGraphqlApiEnvironmentVariablesRequest = {}  # type: ignore[typeddict-item]
-        input["api_id"] = api_id
+        input_: aws_sdk_appsync.types.get_graphql_api_environment_variables_request.GetGraphqlApiEnvironmentVariablesRequest = {}  # type: ignore[typeddict-item]
+        input_["api_id"] = api_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2302,14 +2302,14 @@ class AsyncAppSyncClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appsync.types.get_introspection_schema_request.GetIntrospectionSchemaRequest = {}  # type: ignore[typeddict-item]
-        input["api_id"] = api_id
-        input["format"] = format
+        input_: aws_sdk_appsync.types.get_introspection_schema_request.GetIntrospectionSchemaRequest = {}  # type: ignore[typeddict-item]
+        input_["api_id"] = api_id
+        input_["format"] = format
         if include_directives is not None:
-            input["include_directives"] = include_directives
+            input_["include_directives"] = include_directives
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2347,13 +2347,13 @@ class AsyncAppSyncClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appsync.types.get_resolver_request.GetResolverRequest = {}  # type: ignore[typeddict-item]
-        input["api_id"] = api_id
-        input["type_name"] = type_name
-        input["field_name"] = field_name
+        input_: aws_sdk_appsync.types.get_resolver_request.GetResolverRequest = {}  # type: ignore[typeddict-item]
+        input_["api_id"] = api_id
+        input_["type_name"] = type_name
+        input_["field_name"] = field_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2387,11 +2387,11 @@ class AsyncAppSyncClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appsync.types.get_schema_creation_status_request.GetSchemaCreationStatusRequest = {}  # type: ignore[typeddict-item]
-        input["api_id"] = api_id
+        input_: aws_sdk_appsync.types.get_schema_creation_status_request.GetSchemaCreationStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["api_id"] = api_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2427,12 +2427,12 @@ class AsyncAppSyncClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appsync.types.get_source_api_association_request.GetSourceApiAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["merged_api_identifier"] = merged_api_identifier
-        input["association_id"] = association_id
+        input_: aws_sdk_appsync.types.get_source_api_association_request.GetSourceApiAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["merged_api_identifier"] = merged_api_identifier
+        input_["association_id"] = association_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2470,13 +2470,13 @@ class AsyncAppSyncClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appsync.types.get_type_request.GetTypeRequest = {}  # type: ignore[typeddict-item]
-        input["api_id"] = api_id
-        input["type_name"] = type_name
-        input["format"] = format
+        input_: aws_sdk_appsync.types.get_type_request.GetTypeRequest = {}  # type: ignore[typeddict-item]
+        input_["api_id"] = api_id
+        input_["type_name"] = type_name
+        input_["format"] = format
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2516,15 +2516,15 @@ class AsyncAppSyncClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appsync.types.list_api_keys_request.ListApiKeysRequest = {}  # type: ignore[typeddict-item]
-        input["api_id"] = api_id
+        input_: aws_sdk_appsync.types.list_api_keys_request.ListApiKeysRequest = {}  # type: ignore[typeddict-item]
+        input_["api_id"] = api_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2587,14 +2587,14 @@ class AsyncAppSyncClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appsync.types.list_apis_request.ListApisRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_appsync.types.list_apis_request.ListApisRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2657,15 +2657,15 @@ class AsyncAppSyncClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appsync.types.list_channel_namespaces_request.ListChannelNamespacesRequest = {}  # type: ignore[typeddict-item]
-        input["api_id"] = api_id
+        input_: aws_sdk_appsync.types.list_channel_namespaces_request.ListChannelNamespacesRequest = {}  # type: ignore[typeddict-item]
+        input_["api_id"] = api_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2730,15 +2730,15 @@ class AsyncAppSyncClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appsync.types.list_data_sources_request.ListDataSourcesRequest = {}  # type: ignore[typeddict-item]
-        input["api_id"] = api_id
+        input_: aws_sdk_appsync.types.list_data_sources_request.ListDataSourcesRequest = {}  # type: ignore[typeddict-item]
+        input_["api_id"] = api_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2801,14 +2801,14 @@ class AsyncAppSyncClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appsync.types.list_domain_names_request.ListDomainNamesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_appsync.types.list_domain_names_request.ListDomainNamesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2871,15 +2871,15 @@ class AsyncAppSyncClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appsync.types.list_functions_request.ListFunctionsRequest = {}  # type: ignore[typeddict-item]
-        input["api_id"] = api_id
+        input_: aws_sdk_appsync.types.list_functions_request.ListFunctionsRequest = {}  # type: ignore[typeddict-item]
+        input_["api_id"] = api_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2948,18 +2948,18 @@ class AsyncAppSyncClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appsync.types.list_graphql_apis_request.ListGraphqlApisRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_appsync.types.list_graphql_apis_request.ListGraphqlApisRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if api_type is not None:
-            input["api_type"] = api_type
+            input_["api_type"] = api_type
         if owner is not None:
-            input["owner"] = owner
+            input_["owner"] = owner
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3030,16 +3030,16 @@ class AsyncAppSyncClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appsync.types.list_resolvers_request.ListResolversRequest = {}  # type: ignore[typeddict-item]
-        input["api_id"] = api_id
-        input["type_name"] = type_name
+        input_: aws_sdk_appsync.types.list_resolvers_request.ListResolversRequest = {}  # type: ignore[typeddict-item]
+        input_["api_id"] = api_id
+        input_["type_name"] = type_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3108,16 +3108,16 @@ class AsyncAppSyncClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appsync.types.list_resolvers_by_function_request.ListResolversByFunctionRequest = {}  # type: ignore[typeddict-item]
-        input["api_id"] = api_id
-        input["function_id"] = function_id
+        input_: aws_sdk_appsync.types.list_resolvers_by_function_request.ListResolversByFunctionRequest = {}  # type: ignore[typeddict-item]
+        input_["api_id"] = api_id
+        input_["function_id"] = function_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3184,15 +3184,15 @@ class AsyncAppSyncClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appsync.types.list_source_api_associations_request.ListSourceApiAssociationsRequest = {}  # type: ignore[typeddict-item]
-        input["api_id"] = api_id
+        input_: aws_sdk_appsync.types.list_source_api_associations_request.ListSourceApiAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_["api_id"] = api_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3251,11 +3251,11 @@ class AsyncAppSyncClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appsync.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_appsync.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3297,16 +3297,16 @@ class AsyncAppSyncClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appsync.types.list_types_request.ListTypesRequest = {}  # type: ignore[typeddict-item]
-        input["api_id"] = api_id
-        input["format"] = format
+        input_: aws_sdk_appsync.types.list_types_request.ListTypesRequest = {}  # type: ignore[typeddict-item]
+        input_["api_id"] = api_id
+        input_["format"] = format
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3377,17 +3377,17 @@ class AsyncAppSyncClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appsync.types.list_types_by_association_request.ListTypesByAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["merged_api_identifier"] = merged_api_identifier
-        input["association_id"] = association_id
-        input["format"] = format
+        input_: aws_sdk_appsync.types.list_types_by_association_request.ListTypesByAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["merged_api_identifier"] = merged_api_identifier
+        input_["association_id"] = association_id
+        input_["format"] = format
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3429,7 +3429,7 @@ class AsyncAppSyncClient:
         *,
         config_overrides: Optional[AsyncAppSyncClientConfig] = None,
     ) -> "aws_sdk_appsync.types.put_graphql_api_environment_variables_response.PutGraphqlApiEnvironmentVariablesResponse":
-        """<p>Creates a list of environmental variables in an API by its ID value. </p> <p>When creating an environmental variable, it must follow the constraints below:</p> <ul> <li> <p>Both JavaScript and VTL templates support environmental variables.</p> </li> <li> <p>Environmental variables are not evaluated before function invocation.</p> </li> <li> <p>Environmental variables only support string values.</p> </li> <li> <p>Any defined value in an environmental variable is considered a string literal and not expanded.</p> </li> <li> <p>Variable evaluations should ideally be performed in the function code.</p> </li> </ul> <p>When creating an environmental variable key-value pair, it must follow the additional constraints below:</p> <ul> <li> <p>Keys must begin with a letter.</p> </li> <li> <p>Keys must be at least two characters long.</p> </li> <li> <p>Keys can only contain letters, numbers, and the underscore character (_).</p> </li> <li> <p>Values can be up to 512 characters long.</p> </li> <li> <p>You can configure up to 50 key-value pairs in a GraphQL API.</p> </li> </ul> <p>You can create a list of environmental variables by adding it to the <code>environmentVariables</code> payload as a list in the format <code>{\"key1\":\"value1\",\"key2\":\"value2\", …}</code>. Note that each call of the <code>PutGraphqlApiEnvironmentVariables</code> action will result in the overwriting of the existing environmental variable list of that API. This means the existing environmental variables will be lost. To avoid this, you must include all existing and new environmental variables in the list each time you call this action.</p>
+        r"""<p>Creates a list of environmental variables in an API by its ID value. </p> <p>When creating an environmental variable, it must follow the constraints below:</p> <ul> <li> <p>Both JavaScript and VTL templates support environmental variables.</p> </li> <li> <p>Environmental variables are not evaluated before function invocation.</p> </li> <li> <p>Environmental variables only support string values.</p> </li> <li> <p>Any defined value in an environmental variable is considered a string literal and not expanded.</p> </li> <li> <p>Variable evaluations should ideally be performed in the function code.</p> </li> </ul> <p>When creating an environmental variable key-value pair, it must follow the additional constraints below:</p> <ul> <li> <p>Keys must begin with a letter.</p> </li> <li> <p>Keys must be at least two characters long.</p> </li> <li> <p>Keys can only contain letters, numbers, and the underscore character (_).</p> </li> <li> <p>Values can be up to 512 characters long.</p> </li> <li> <p>You can configure up to 50 key-value pairs in a GraphQL API.</p> </li> </ul> <p>You can create a list of environmental variables by adding it to the <code>environmentVariables</code> payload as a list in the format <code>{\"key1\":\"value1\",\"key2\":\"value2\", …}</code>. Note that each call of the <code>PutGraphqlApiEnvironmentVariables</code> action will result in the overwriting of the existing environmental variable list of that API. This means the existing environmental variables will be lost. To avoid this, you must include all existing and new environmental variables in the list each time you call this action.</p>
 
         Args:
             api_id: <p>The ID of the API to which the environmental variable list will be written.</p>
@@ -3452,12 +3452,12 @@ class AsyncAppSyncClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appsync.types.put_graphql_api_environment_variables_request.PutGraphqlApiEnvironmentVariablesRequest = {}  # type: ignore[typeddict-item]
-        input["api_id"] = api_id
-        input["environment_variables"] = environment_variables
+        input_: aws_sdk_appsync.types.put_graphql_api_environment_variables_request.PutGraphqlApiEnvironmentVariablesRequest = {}  # type: ignore[typeddict-item]
+        input_["api_id"] = api_id
+        input_["environment_variables"] = environment_variables
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3493,12 +3493,12 @@ class AsyncAppSyncClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appsync.types.start_data_source_introspection_request.StartDataSourceIntrospectionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_appsync.types.start_data_source_introspection_request.StartDataSourceIntrospectionRequest = {}  # type: ignore[typeddict-item]
         if rds_data_api_config is not None:
-            input["rds_data_api_config"] = rds_data_api_config
+            input_["rds_data_api_config"] = rds_data_api_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3534,12 +3534,12 @@ class AsyncAppSyncClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appsync.types.start_schema_creation_request.StartSchemaCreationRequest = {}  # type: ignore[typeddict-item]
-        input["api_id"] = api_id
-        input["definition"] = definition
+        input_: aws_sdk_appsync.types.start_schema_creation_request.StartSchemaCreationRequest = {}  # type: ignore[typeddict-item]
+        input_["api_id"] = api_id
+        input_["definition"] = definition
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3575,12 +3575,12 @@ class AsyncAppSyncClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appsync.types.start_schema_merge_request.StartSchemaMergeRequest = {}  # type: ignore[typeddict-item]
-        input["association_id"] = association_id
-        input["merged_api_identifier"] = merged_api_identifier
+        input_: aws_sdk_appsync.types.start_schema_merge_request.StartSchemaMergeRequest = {}  # type: ignore[typeddict-item]
+        input_["association_id"] = association_id
+        input_["merged_api_identifier"] = merged_api_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3616,12 +3616,12 @@ class AsyncAppSyncClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appsync.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_appsync.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3657,12 +3657,12 @@ class AsyncAppSyncClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appsync.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_appsync.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3702,15 +3702,15 @@ class AsyncAppSyncClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appsync.types.update_api_request.UpdateApiRequest = {}  # type: ignore[typeddict-item]
-        input["api_id"] = api_id
-        input["name"] = name
+        input_: aws_sdk_appsync.types.update_api_request.UpdateApiRequest = {}  # type: ignore[typeddict-item]
+        input_["api_id"] = api_id
+        input_["name"] = name
         if owner_contact is not None:
-            input["owner_contact"] = owner_contact
-        input["event_config"] = event_config
+            input_["owner_contact"] = owner_contact
+        input_["event_config"] = event_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3754,16 +3754,16 @@ class AsyncAppSyncClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appsync.types.update_api_cache_request.UpdateApiCacheRequest = {}  # type: ignore[typeddict-item]
-        input["api_id"] = api_id
-        input["ttl"] = ttl
-        input["api_caching_behavior"] = api_caching_behavior
-        input["type"] = type
+        input_: aws_sdk_appsync.types.update_api_cache_request.UpdateApiCacheRequest = {}  # type: ignore[typeddict-item]
+        input_["api_id"] = api_id
+        input_["ttl"] = ttl
+        input_["api_caching_behavior"] = api_caching_behavior
+        input_["type"] = type
         if health_metrics_config is not None:
-            input["health_metrics_config"] = health_metrics_config
+            input_["health_metrics_config"] = health_metrics_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3803,16 +3803,16 @@ class AsyncAppSyncClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appsync.types.update_api_key_request.UpdateApiKeyRequest = {}  # type: ignore[typeddict-item]
-        input["api_id"] = api_id
-        input["id"] = id
+        input_: aws_sdk_appsync.types.update_api_key_request.UpdateApiKeyRequest = {}  # type: ignore[typeddict-item]
+        input_["api_id"] = api_id
+        input_["id"] = id
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if expires is not None:
-            input["expires"] = expires
+            input_["expires"] = expires
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3862,20 +3862,20 @@ class AsyncAppSyncClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appsync.types.update_channel_namespace_request.UpdateChannelNamespaceRequest = {}  # type: ignore[typeddict-item]
-        input["api_id"] = api_id
-        input["name"] = name
+        input_: aws_sdk_appsync.types.update_channel_namespace_request.UpdateChannelNamespaceRequest = {}  # type: ignore[typeddict-item]
+        input_["api_id"] = api_id
+        input_["name"] = name
         if subscribe_auth_modes is not None:
-            input["subscribe_auth_modes"] = subscribe_auth_modes
+            input_["subscribe_auth_modes"] = subscribe_auth_modes
         if publish_auth_modes is not None:
-            input["publish_auth_modes"] = publish_auth_modes
+            input_["publish_auth_modes"] = publish_auth_modes
         if code_handlers is not None:
-            input["code_handlers"] = code_handlers
+            input_["code_handlers"] = code_handlers
         if handler_configs is not None:
-            input["handler_configs"] = handler_configs
+            input_["handler_configs"] = handler_configs
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3949,33 +3949,33 @@ class AsyncAppSyncClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appsync.types.update_data_source_request.UpdateDataSourceRequest = {}  # type: ignore[typeddict-item]
-        input["api_id"] = api_id
-        input["name"] = name
+        input_: aws_sdk_appsync.types.update_data_source_request.UpdateDataSourceRequest = {}  # type: ignore[typeddict-item]
+        input_["api_id"] = api_id
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["type"] = type
+            input_["description"] = description
+        input_["type"] = type
         if service_role_arn is not None:
-            input["service_role_arn"] = service_role_arn
+            input_["service_role_arn"] = service_role_arn
         if dynamodb_config is not None:
-            input["dynamodb_config"] = dynamodb_config
+            input_["dynamodb_config"] = dynamodb_config
         if lambda_config is not None:
-            input["lambda_config"] = lambda_config
+            input_["lambda_config"] = lambda_config
         if elasticsearch_config is not None:
-            input["elasticsearch_config"] = elasticsearch_config
+            input_["elasticsearch_config"] = elasticsearch_config
         if open_search_service_config is not None:
-            input["open_search_service_config"] = open_search_service_config
+            input_["open_search_service_config"] = open_search_service_config
         if http_config is not None:
-            input["http_config"] = http_config
+            input_["http_config"] = http_config
         if relational_database_config is not None:
-            input["relational_database_config"] = relational_database_config
+            input_["relational_database_config"] = relational_database_config
         if event_bridge_config is not None:
-            input["event_bridge_config"] = event_bridge_config
+            input_["event_bridge_config"] = event_bridge_config
         if metrics_config is not None:
-            input["metrics_config"] = metrics_config
+            input_["metrics_config"] = metrics_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4011,13 +4011,13 @@ class AsyncAppSyncClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appsync.types.update_domain_name_request.UpdateDomainNameRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_appsync.types.update_domain_name_request.UpdateDomainNameRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4079,30 +4079,30 @@ class AsyncAppSyncClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appsync.types.update_function_request.UpdateFunctionRequest = {}  # type: ignore[typeddict-item]
-        input["api_id"] = api_id
-        input["name"] = name
+        input_: aws_sdk_appsync.types.update_function_request.UpdateFunctionRequest = {}  # type: ignore[typeddict-item]
+        input_["api_id"] = api_id
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["function_id"] = function_id
-        input["data_source_name"] = data_source_name
+            input_["description"] = description
+        input_["function_id"] = function_id
+        input_["data_source_name"] = data_source_name
         if request_mapping_template is not None:
-            input["request_mapping_template"] = request_mapping_template
+            input_["request_mapping_template"] = request_mapping_template
         if response_mapping_template is not None:
-            input["response_mapping_template"] = response_mapping_template
+            input_["response_mapping_template"] = response_mapping_template
         if function_version is not None:
-            input["function_version"] = function_version
+            input_["function_version"] = function_version
         if sync_config is not None:
-            input["sync_config"] = sync_config
+            input_["sync_config"] = sync_config
         if max_batch_size is not None:
-            input["max_batch_size"] = max_batch_size
+            input_["max_batch_size"] = max_batch_size
         if runtime is not None:
-            input["runtime"] = runtime
+            input_["runtime"] = runtime
         if code is not None:
-            input["code"] = code
+            input_["code"] = code
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4146,7 +4146,7 @@ class AsyncAppSyncClient:
             "aws_sdk_appsync.types.enhanced_metrics_config.EnhancedMetricsConfig"
         ] = None,
     ) -> "aws_sdk_appsync.types.update_graphql_api_response.UpdateGraphqlApiResponse":
-        """<p>Updates a <code>GraphqlApi</code> object.</p>
+        r"""<p>Updates a <code>GraphqlApi</code> object.</p>
 
         Args:
             api_id: <p>The API ID.</p>
@@ -4182,39 +4182,39 @@ class AsyncAppSyncClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appsync.types.update_graphql_api_request.UpdateGraphqlApiRequest = {}  # type: ignore[typeddict-item]
-        input["api_id"] = api_id
-        input["name"] = name
+        input_: aws_sdk_appsync.types.update_graphql_api_request.UpdateGraphqlApiRequest = {}  # type: ignore[typeddict-item]
+        input_["api_id"] = api_id
+        input_["name"] = name
         if log_config is not None:
-            input["log_config"] = log_config
-        input["authentication_type"] = authentication_type
+            input_["log_config"] = log_config
+        input_["authentication_type"] = authentication_type
         if user_pool_config is not None:
-            input["user_pool_config"] = user_pool_config
+            input_["user_pool_config"] = user_pool_config
         if open_id_connect_config is not None:
-            input["open_id_connect_config"] = open_id_connect_config
+            input_["open_id_connect_config"] = open_id_connect_config
         if additional_authentication_providers is not None:
-            input["additional_authentication_providers"] = (
+            input_["additional_authentication_providers"] = (
                 additional_authentication_providers
             )
         if xray_enabled is not None:
-            input["xray_enabled"] = xray_enabled
+            input_["xray_enabled"] = xray_enabled
         if lambda_authorizer_config is not None:
-            input["lambda_authorizer_config"] = lambda_authorizer_config
+            input_["lambda_authorizer_config"] = lambda_authorizer_config
         if merged_api_execution_role_arn is not None:
-            input["merged_api_execution_role_arn"] = merged_api_execution_role_arn
+            input_["merged_api_execution_role_arn"] = merged_api_execution_role_arn
         if owner_contact is not None:
-            input["owner_contact"] = owner_contact
+            input_["owner_contact"] = owner_contact
         if introspection_config is not None:
-            input["introspection_config"] = introspection_config
+            input_["introspection_config"] = introspection_config
         if query_depth_limit is not None:
-            input["query_depth_limit"] = query_depth_limit
+            input_["query_depth_limit"] = query_depth_limit
         if resolver_count_limit is not None:
-            input["resolver_count_limit"] = resolver_count_limit
+            input_["resolver_count_limit"] = resolver_count_limit
         if enhanced_metrics_config is not None:
-            input["enhanced_metrics_config"] = enhanced_metrics_config
+            input_["enhanced_metrics_config"] = enhanced_metrics_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4289,35 +4289,35 @@ class AsyncAppSyncClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appsync.types.update_resolver_request.UpdateResolverRequest = {}  # type: ignore[typeddict-item]
-        input["api_id"] = api_id
-        input["type_name"] = type_name
-        input["field_name"] = field_name
+        input_: aws_sdk_appsync.types.update_resolver_request.UpdateResolverRequest = {}  # type: ignore[typeddict-item]
+        input_["api_id"] = api_id
+        input_["type_name"] = type_name
+        input_["field_name"] = field_name
         if data_source_name is not None:
-            input["data_source_name"] = data_source_name
+            input_["data_source_name"] = data_source_name
         if request_mapping_template is not None:
-            input["request_mapping_template"] = request_mapping_template
+            input_["request_mapping_template"] = request_mapping_template
         if response_mapping_template is not None:
-            input["response_mapping_template"] = response_mapping_template
+            input_["response_mapping_template"] = response_mapping_template
         if kind is not None:
-            input["kind"] = kind
+            input_["kind"] = kind
         if pipeline_config is not None:
-            input["pipeline_config"] = pipeline_config
+            input_["pipeline_config"] = pipeline_config
         if sync_config is not None:
-            input["sync_config"] = sync_config
+            input_["sync_config"] = sync_config
         if caching_config is not None:
-            input["caching_config"] = caching_config
+            input_["caching_config"] = caching_config
         if max_batch_size is not None:
-            input["max_batch_size"] = max_batch_size
+            input_["max_batch_size"] = max_batch_size
         if runtime is not None:
-            input["runtime"] = runtime
+            input_["runtime"] = runtime
         if code is not None:
-            input["code"] = code
+            input_["code"] = code
         if metrics_config is not None:
-            input["metrics_config"] = metrics_config
+            input_["metrics_config"] = metrics_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4359,16 +4359,16 @@ class AsyncAppSyncClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appsync.types.update_source_api_association_request.UpdateSourceApiAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["association_id"] = association_id
-        input["merged_api_identifier"] = merged_api_identifier
+        input_: aws_sdk_appsync.types.update_source_api_association_request.UpdateSourceApiAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["association_id"] = association_id
+        input_["merged_api_identifier"] = merged_api_identifier
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if source_api_association_config is not None:
-            input["source_api_association_config"] = source_api_association_config
+            input_["source_api_association_config"] = source_api_association_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4408,15 +4408,15 @@ class AsyncAppSyncClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appsync.types.update_type_request.UpdateTypeRequest = {}  # type: ignore[typeddict-item]
-        input["api_id"] = api_id
-        input["type_name"] = type_name
+        input_: aws_sdk_appsync.types.update_type_request.UpdateTypeRequest = {}  # type: ignore[typeddict-item]
+        input_["api_id"] = api_id
+        input_["type_name"] = type_name
         if definition is not None:
-            input["definition"] = definition
-        input["format"] = format
+            input_["definition"] = definition
+        input_["format"] = format
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

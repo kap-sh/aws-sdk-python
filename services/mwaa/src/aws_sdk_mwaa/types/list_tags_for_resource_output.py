@@ -10,7 +10,7 @@ if TYPE_CHECKING:
 
 class ListTagsForResourceOutput(TypedDict):
     tags: NotRequired["aws_sdk_mwaa.types.tag_map.TagMap"]
-    """<p>The key-value tag pairs associated to your environment. For more information, refer to <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services resources</a>.</p>"""
+    r"""<p>The key-value tag pairs associated to your environment. For more information, refer to <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services resources</a>.</p>"""
 
 
 # --- restJson1 ser/de ---

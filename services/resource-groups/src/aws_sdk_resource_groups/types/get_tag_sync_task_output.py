@@ -34,7 +34,7 @@ class GetTagSyncTaskOutput(TypedDict):
         "aws_sdk_resource_groups.types.resource_query.ResourceQuery"
     ]
     role_arn: NotRequired["aws_sdk_resource_groups.types.role_arn.RoleArn"]
-    """<p>The Amazon resource name (ARN) of the role assumed by Resource Groups to tag and untag resources on your behalf. </p> <p>For more information about this role, review <a href=\"https://docs.aws.amazon.com/servicecatalog/latest/arguide/app-tag-sync.html#tag-sync-role\">Tag-sync required permissions</a>. </p>"""
+    r"""<p>The Amazon resource name (ARN) of the role assumed by Resource Groups to tag and untag resources on your behalf. </p> <p>For more information about this role, review <a href=\"https://docs.aws.amazon.com/servicecatalog/latest/arguide/app-tag-sync.html#tag-sync-role\">Tag-sync required permissions</a>. </p>"""
     status: NotRequired[
         "aws_sdk_resource_groups.types.tag_sync_task_status.TagSyncTaskStatus"
     ]

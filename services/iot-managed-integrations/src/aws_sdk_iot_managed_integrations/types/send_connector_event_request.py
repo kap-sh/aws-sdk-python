@@ -28,11 +28,11 @@ class SendConnectorEventRequest(TypedDict):
     ]
     """<p>The id of the third-party cloud provider.</p>"""
     operation: "aws_sdk_iot_managed_integrations.types.connector_event_operation.ConnectorEventOperation"
-    """<p>The Open Connectivity Foundation (OCF) operation requested to be performed on the managed thing.</p> <note> <p>The field op can have a value of \"I\" or \"U\". The field \"cn\" will contain the capability types.</p> </note>"""
+    r"""<p>The Open Connectivity Foundation (OCF) operation requested to be performed on the managed thing.</p> <note> <p>The field op can have a value of \"I\" or \"U\". The field \"cn\" will contain the capability types.</p> </note>"""
     operation_version: NotRequired[
         "aws_sdk_iot_managed_integrations.types.connector_event_operation_version.ConnectorEventOperationVersion"
     ]
-    """<p>The Open Connectivity Foundation (OCF) security specification version for the operation being requested on the managed thing. For more information, see <a href=\"https://openconnectivity.org/specs/OCF_Security_Specification_v1.0.0.pdf\">OCF Security Specification</a>.</p>"""
+    r"""<p>The Open Connectivity Foundation (OCF) security specification version for the operation being requested on the managed thing. For more information, see <a href=\"https://openconnectivity.org/specs/OCF_Security_Specification_v1.0.0.pdf\">OCF Security Specification</a>.</p>"""
     status_code: NotRequired[
         "aws_sdk_iot_managed_integrations.types.connector_event_status_code.ConnectorEventStatusCode"
     ]

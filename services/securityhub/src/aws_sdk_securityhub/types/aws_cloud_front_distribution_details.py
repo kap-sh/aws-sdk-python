@@ -36,7 +36,7 @@ class AwsCloudFrontDistributionDetails(TypedDict):
     last_modified_time: NotRequired[
         "aws_sdk_securityhub.types.non_empty_string.NonEmptyString"
     ]
-    """<p>Indicates when that the distribution was last modified.</p> <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href=\"https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps\">Timestamps</a>.</p>"""
+    r"""<p>Indicates when that the distribution was last modified.</p> <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href=\"https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps\">Timestamps</a>.</p>"""
     logging: NotRequired[
         "aws_sdk_securityhub.types.aws_cloud_front_distribution_logging.AwsCloudFrontDistributionLogging"
     ]

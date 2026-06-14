@@ -45,7 +45,7 @@ class PipelineExecutionStep(TypedDict):
     ]
     """<p>Metadata to run the pipeline step.</p>"""
     attempt_count: NotRequired["aws_sdk_sagemaker.types.integer.Integer"]
-    """<p>The current attempt of the execution step. For more information, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/pipelines-retry-policy.html\">Retry Policy for SageMaker Pipelines steps</a>.</p>"""
+    r"""<p>The current attempt of the execution step. For more information, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/pipelines-retry-policy.html\">Retry Policy for SageMaker Pipelines steps</a>.</p>"""
     selective_execution_result: NotRequired[
         "aws_sdk_sagemaker.types.selective_execution_result.SelectiveExecutionResult"
     ]

@@ -23,7 +23,7 @@ class S3JobManifestGenerator(TypedDict):
     manifest_output_location: NotRequired[
         "aws_sdk_s3_control.types.s3_manifest_output_location.S3ManifestOutputLocation"
     ]
-    """<p>Specifies the location the generated manifest will be written to. Manifests can't be written to directory buckets. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-overview.html\">Directory buckets</a>.</p>"""
+    r"""<p>Specifies the location the generated manifest will be written to. Manifests can't be written to directory buckets. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-overview.html\">Directory buckets</a>.</p>"""
     filter: NotRequired[
         "aws_sdk_s3_control.types.job_manifest_generator_filter.JobManifestGeneratorFilter"
     ]

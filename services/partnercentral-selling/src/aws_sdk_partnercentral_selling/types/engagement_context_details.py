@@ -18,7 +18,7 @@ class EngagementContextDetails(TypedDict):
     ]
     """<p>The unique identifier of the engagement context. This ID is used to reference and manage the specific context within the engagement.</p>"""
     type: "aws_sdk_partnercentral_selling.types.engagement_context_type.EngagementContextType"
-    """<p>Specifies the type of Engagement context. Valid values are \"CustomerProject\" or \"Document\", indicating whether the context relates to a customer project or a document respectively. </p>"""
+    r"""<p>Specifies the type of Engagement context. Valid values are \"CustomerProject\" or \"Document\", indicating whether the context relates to a customer project or a document respectively. </p>"""
     payload: NotRequired[
         "aws_sdk_partnercentral_selling.types.engagement_context_payload.EngagementContextPayload"
     ]

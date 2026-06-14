@@ -15,9 +15,9 @@ if TYPE_CHECKING:
 
 class Leg(TypedDict):
     start_position: "aws_sdk_location.types.position.Position"
-    """<p>The starting position of the leg. Follows the format <code>[longitude,latitude]</code>.</p> <note> <p>If the <code>StartPosition</code> isn't located on a road, it's <a href=\"https://docs.aws.amazon.com/location/previous/developerguide/snap-to-nearby-road.html\">snapped to a nearby road</a>. </p> </note>"""
+    r"""<p>The starting position of the leg. Follows the format <code>[longitude,latitude]</code>.</p> <note> <p>If the <code>StartPosition</code> isn't located on a road, it's <a href=\"https://docs.aws.amazon.com/location/previous/developerguide/snap-to-nearby-road.html\">snapped to a nearby road</a>. </p> </note>"""
     end_position: "aws_sdk_location.types.position.Position"
-    """<p>The terminating position of the leg. Follows the format <code>[longitude,latitude]</code>.</p> <note> <p>If the <code>EndPosition</code> isn't located on a road, it's <a href=\"https://docs.aws.amazon.com/location/previous/developerguide/nap-to-nearby-road.html\">snapped to a nearby road</a>. </p> </note>"""
+    r"""<p>The terminating position of the leg. Follows the format <code>[longitude,latitude]</code>.</p> <note> <p>If the <code>EndPosition</code> isn't located on a road, it's <a href=\"https://docs.aws.amazon.com/location/previous/developerguide/nap-to-nearby-road.html\">snapped to a nearby road</a>. </p> </note>"""
     distance: "aws_sdk_location.types.sensitive_double.SensitiveDouble"
     """<p>The distance between the leg's <code>StartPosition</code> and <code>EndPosition</code> along a calculated route. </p> <ul> <li> <p>The default measurement is <code>Kilometers</code> unless the request specifies a <code>DistanceUnit</code> of <code>Miles</code>.</p> </li> </ul>"""
     duration_seconds: "aws_sdk_location.types.sensitive_double.SensitiveDouble"

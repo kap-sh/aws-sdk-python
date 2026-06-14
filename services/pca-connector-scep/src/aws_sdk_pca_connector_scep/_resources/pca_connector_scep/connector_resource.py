@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_pca_connector_scep._auth._signers
@@ -58,7 +60,7 @@ class ConnectorResource:
         ] = None,
         tags: Optional["aws_sdk_pca_connector_scep.types.tags.Tags"] = None,
     ) -> "aws_sdk_pca_connector_scep.types.create_connector_response.CreateConnectorResponse":
-        """<p>Creates a SCEP connector. A SCEP connector links Amazon Web Services Private Certificate Authority to your SCEP-compatible devices and mobile device management (MDM) systems. Before you create a connector, you must complete a set of prerequisites, including creation of a private certificate authority (CA) to use with this connector. For more information, see <a href=\"https://docs.aws.amazon.com/privateca/latest/userguide/scep-connector.htmlconnector-for-scep-prerequisites.html\">Connector for SCEP prerequisites</a>.</p>
+        r"""<p>Creates a SCEP connector. A SCEP connector links Amazon Web Services Private Certificate Authority to your SCEP-compatible devices and mobile device management (MDM) systems. Before you create a connector, you must complete a set of prerequisites, including creation of a private certificate authority (CA) to use with this connector. For more information, see <a href=\"https://docs.aws.amazon.com/privateca/latest/userguide/scep-connector.htmlconnector-for-scep-prerequisites.html\">Connector for SCEP prerequisites</a>.</p>
 
         Args:
             certificate_authority_arn: <p>The Amazon Resource Name (ARN) of the Amazon Web Services Private Certificate Authority certificate authority to use with this connector. Due to security vulnerabilities present in the SCEP protocol, we recommend using a private CA that's dedicated for use with the connector.</p> <p>To retrieve the private CAs associated with your account, you can call <a href=\"https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListCertificateAuthorities.html\">ListCertificateAuthorities</a> using the Amazon Web Services Private CA API.</p>
@@ -107,7 +109,7 @@ class ConnectorResource:
         *,
         config_overrides: Optional[PcaConnectorScepClientConfig] = None,
     ) -> "aws_sdk_pca_connector_scep.types.get_connector_response.GetConnectorResponse":
-        """<p>Retrieves details about the specified <a href=\"https://docs.aws.amazon.com/pca-connector-scep/latest/APIReference/API_Connector.html\">Connector</a>. Calling this action returns important details about the connector, such as the public SCEP URL where your clients can request certificates.</p>
+        r"""<p>Retrieves details about the specified <a href=\"https://docs.aws.amazon.com/pca-connector-scep/latest/APIReference/API_Connector.html\">Connector</a>. Calling this action returns important details about the connector, such as the public SCEP URL where your clients can request certificates.</p>
 
         Args:
             connector_arn: <p>The Amazon Resource Name (ARN) of the connector.</p>
@@ -144,7 +146,7 @@ class ConnectorResource:
         *,
         config_overrides: Optional[PcaConnectorScepClientConfig] = None,
     ) -> None:
-        """<p>Deletes the specified <a href=\"https://docs.aws.amazon.com/pca-connector-scep/latest/APIReference/API_Connector.html\">Connector</a>. This operation also deletes any challenges associated with the connector.</p>
+        r"""<p>Deletes the specified <a href=\"https://docs.aws.amazon.com/pca-connector-scep/latest/APIReference/API_Connector.html\">Connector</a>. This operation also deletes any challenges associated with the connector.</p>
 
         Args:
             connector_arn: <p>The Amazon Resource Name (ARN) of the connector to delete.</p>
@@ -240,7 +242,7 @@ class AsyncConnectorResource:
         ] = None,
         tags: Optional["aws_sdk_pca_connector_scep.types.tags.Tags"] = None,
     ) -> "aws_sdk_pca_connector_scep.types.create_connector_response.CreateConnectorResponse":
-        """<p>Creates a SCEP connector. A SCEP connector links Amazon Web Services Private Certificate Authority to your SCEP-compatible devices and mobile device management (MDM) systems. Before you create a connector, you must complete a set of prerequisites, including creation of a private certificate authority (CA) to use with this connector. For more information, see <a href=\"https://docs.aws.amazon.com/privateca/latest/userguide/scep-connector.htmlconnector-for-scep-prerequisites.html\">Connector for SCEP prerequisites</a>.</p>
+        r"""<p>Creates a SCEP connector. A SCEP connector links Amazon Web Services Private Certificate Authority to your SCEP-compatible devices and mobile device management (MDM) systems. Before you create a connector, you must complete a set of prerequisites, including creation of a private certificate authority (CA) to use with this connector. For more information, see <a href=\"https://docs.aws.amazon.com/privateca/latest/userguide/scep-connector.htmlconnector-for-scep-prerequisites.html\">Connector for SCEP prerequisites</a>.</p>
 
         Args:
             certificate_authority_arn: <p>The Amazon Resource Name (ARN) of the Amazon Web Services Private Certificate Authority certificate authority to use with this connector. Due to security vulnerabilities present in the SCEP protocol, we recommend using a private CA that's dedicated for use with the connector.</p> <p>To retrieve the private CAs associated with your account, you can call <a href=\"https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListCertificateAuthorities.html\">ListCertificateAuthorities</a> using the Amazon Web Services Private CA API.</p>
@@ -290,7 +292,7 @@ class AsyncConnectorResource:
         *,
         config_overrides: Optional[AsyncPcaConnectorScepClientConfig] = None,
     ) -> "aws_sdk_pca_connector_scep.types.get_connector_response.GetConnectorResponse":
-        """<p>Retrieves details about the specified <a href=\"https://docs.aws.amazon.com/pca-connector-scep/latest/APIReference/API_Connector.html\">Connector</a>. Calling this action returns important details about the connector, such as the public SCEP URL where your clients can request certificates.</p>
+        r"""<p>Retrieves details about the specified <a href=\"https://docs.aws.amazon.com/pca-connector-scep/latest/APIReference/API_Connector.html\">Connector</a>. Calling this action returns important details about the connector, such as the public SCEP URL where your clients can request certificates.</p>
 
         Args:
             connector_arn: <p>The Amazon Resource Name (ARN) of the connector.</p>
@@ -328,7 +330,7 @@ class AsyncConnectorResource:
         *,
         config_overrides: Optional[AsyncPcaConnectorScepClientConfig] = None,
     ) -> None:
-        """<p>Deletes the specified <a href=\"https://docs.aws.amazon.com/pca-connector-scep/latest/APIReference/API_Connector.html\">Connector</a>. This operation also deletes any challenges associated with the connector.</p>
+        r"""<p>Deletes the specified <a href=\"https://docs.aws.amazon.com/pca-connector-scep/latest/APIReference/API_Connector.html\">Connector</a>. This operation also deletes any challenges associated with the connector.</p>
 
         Args:
             connector_arn: <p>The Amazon Resource Name (ARN) of the connector to delete.</p>

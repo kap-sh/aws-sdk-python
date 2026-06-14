@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 from aws_sdk_ecs._services._pipeline import (
@@ -46,7 +48,7 @@ class TaskSetResource:
         *,
         config_overrides: Optional[ECSClientConfig] = None,
     ) -> "aws_sdk_ecs.types.update_task_set_response.UpdateTaskSetResponse":
-        """<p>Modifies a task set. This is used when a service uses the <code>EXTERNAL</code> deployment controller type. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html\">Amazon ECS Deployment Types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+        r"""<p>Modifies a task set. This is used when a service uses the <code>EXTERNAL</code> deployment controller type. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html\">Amazon ECS Deployment Types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
 
         Args:
             cluster: <p>The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service that the task set is found in.</p>
@@ -98,7 +100,7 @@ class TaskSetResource:
         config_overrides: Optional[ECSClientConfig] = None,
         force: Optional["aws_sdk_ecs.types.boxed_boolean.BoxedBoolean"] = None,
     ) -> "aws_sdk_ecs.types.delete_task_set_response.DeleteTaskSetResponse":
-        """<p>Deletes a specified task set within a service. This is used when a service uses the <code>EXTERNAL</code> deployment controller type. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html\">Amazon ECS deployment types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+        r"""<p>Deletes a specified task set within a service. This is used when a service uses the <code>EXTERNAL</code> deployment controller type. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html\">Amazon ECS deployment types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
 
         Args:
             cluster: <p>The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service that the task set found in to delete.</p>
@@ -168,7 +170,7 @@ class TaskSetResource:
         client_token: Optional["aws_sdk_ecs.types.string.String"] = None,
         tags: Optional["aws_sdk_ecs.types.tags.Tags"] = None,
     ) -> "aws_sdk_ecs.types.create_task_set_response.CreateTaskSetResponse":
-        """<p>Create a task set in the specified cluster and service. This is used when a service uses the <code>EXTERNAL</code> deployment controller type. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html\">Amazon ECS deployment types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p> <note> <p>On March 21, 2024, a change was made to resolve the task definition revision before authorization. When a task definition revision is not specified, authorization will occur using the latest revision of a task definition.</p> </note> <p>For information about the maximum number of task sets and other quotas, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-quotas.html\">Amazon ECS service quotas</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+        r"""<p>Create a task set in the specified cluster and service. This is used when a service uses the <code>EXTERNAL</code> deployment controller type. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html\">Amazon ECS deployment types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p> <note> <p>On March 21, 2024, a change was made to resolve the task definition revision before authorization. When a task definition revision is not specified, authorization will occur using the latest revision of a task definition.</p> </note> <p>For information about the maximum number of task sets and other quotas, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-quotas.html\">Amazon ECS service quotas</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
 
         Args:
             service: <p>The short name or full Amazon Resource Name (ARN) of the service to create the task set in.</p>
@@ -250,7 +252,7 @@ class TaskSetResource:
             "aws_sdk_ecs.types.task_set_field_list.TaskSetFieldList"
         ] = None,
     ) -> "aws_sdk_ecs.types.describe_task_sets_response.DescribeTaskSetsResponse":
-        """<p>Describes the task sets in the specified cluster and service. This is used when a service uses the <code>EXTERNAL</code> deployment controller type. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html\">Amazon ECS Deployment Types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+        r"""<p>Describes the task sets in the specified cluster and service. This is used when a service uses the <code>EXTERNAL</code> deployment controller type. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html\">Amazon ECS Deployment Types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
 
         Args:
             cluster: <p>The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service that the task sets exist in.</p>
@@ -309,7 +311,7 @@ class AsyncTaskSetResource:
         *,
         config_overrides: Optional[AsyncECSClientConfig] = None,
     ) -> "aws_sdk_ecs.types.update_task_set_response.UpdateTaskSetResponse":
-        """<p>Modifies a task set. This is used when a service uses the <code>EXTERNAL</code> deployment controller type. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html\">Amazon ECS Deployment Types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+        r"""<p>Modifies a task set. This is used when a service uses the <code>EXTERNAL</code> deployment controller type. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html\">Amazon ECS Deployment Types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
 
         Args:
             cluster: <p>The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service that the task set is found in.</p>
@@ -362,7 +364,7 @@ class AsyncTaskSetResource:
         config_overrides: Optional[AsyncECSClientConfig] = None,
         force: Optional["aws_sdk_ecs.types.boxed_boolean.BoxedBoolean"] = None,
     ) -> "aws_sdk_ecs.types.delete_task_set_response.DeleteTaskSetResponse":
-        """<p>Deletes a specified task set within a service. This is used when a service uses the <code>EXTERNAL</code> deployment controller type. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html\">Amazon ECS deployment types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+        r"""<p>Deletes a specified task set within a service. This is used when a service uses the <code>EXTERNAL</code> deployment controller type. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html\">Amazon ECS deployment types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
 
         Args:
             cluster: <p>The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service that the task set found in to delete.</p>
@@ -433,7 +435,7 @@ class AsyncTaskSetResource:
         client_token: Optional["aws_sdk_ecs.types.string.String"] = None,
         tags: Optional["aws_sdk_ecs.types.tags.Tags"] = None,
     ) -> "aws_sdk_ecs.types.create_task_set_response.CreateTaskSetResponse":
-        """<p>Create a task set in the specified cluster and service. This is used when a service uses the <code>EXTERNAL</code> deployment controller type. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html\">Amazon ECS deployment types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p> <note> <p>On March 21, 2024, a change was made to resolve the task definition revision before authorization. When a task definition revision is not specified, authorization will occur using the latest revision of a task definition.</p> </note> <p>For information about the maximum number of task sets and other quotas, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-quotas.html\">Amazon ECS service quotas</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+        r"""<p>Create a task set in the specified cluster and service. This is used when a service uses the <code>EXTERNAL</code> deployment controller type. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html\">Amazon ECS deployment types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p> <note> <p>On March 21, 2024, a change was made to resolve the task definition revision before authorization. When a task definition revision is not specified, authorization will occur using the latest revision of a task definition.</p> </note> <p>For information about the maximum number of task sets and other quotas, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-quotas.html\">Amazon ECS service quotas</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
 
         Args:
             service: <p>The short name or full Amazon Resource Name (ARN) of the service to create the task set in.</p>
@@ -516,7 +518,7 @@ class AsyncTaskSetResource:
             "aws_sdk_ecs.types.task_set_field_list.TaskSetFieldList"
         ] = None,
     ) -> "aws_sdk_ecs.types.describe_task_sets_response.DescribeTaskSetsResponse":
-        """<p>Describes the task sets in the specified cluster and service. This is used when a service uses the <code>EXTERNAL</code> deployment controller type. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html\">Amazon ECS Deployment Types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+        r"""<p>Describes the task sets in the specified cluster and service. This is used when a service uses the <code>EXTERNAL</code> deployment controller type. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html\">Amazon ECS Deployment Types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
 
         Args:
             cluster: <p>The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service that the task sets exist in.</p>

@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import datetime
 from typing import TYPE_CHECKING, Optional
 
@@ -87,21 +89,21 @@ class BillScenario:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bcm_pricing_calculator.types.create_bill_scenario_request.CreateBillScenarioRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_bcm_pricing_calculator.types.create_bill_scenario_request.CreateBillScenarioRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if group_sharing_preference is not None:
-            input["group_sharing_preference"] = group_sharing_preference
+            input_["group_sharing_preference"] = group_sharing_preference
         if cost_category_group_sharing_preference_arn is not None:
-            input["cost_category_group_sharing_preference_arn"] = (
+            input_["cost_category_group_sharing_preference_arn"] = (
                 cost_category_group_sharing_preference_arn
             )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -134,11 +136,11 @@ class BillScenario:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bcm_pricing_calculator.types.get_bill_scenario_request.GetBillScenarioRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_bcm_pricing_calculator.types.get_bill_scenario_request.GetBillScenarioRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -185,21 +187,21 @@ class BillScenario:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bcm_pricing_calculator.types.update_bill_scenario_request.UpdateBillScenarioRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_bcm_pricing_calculator.types.update_bill_scenario_request.UpdateBillScenarioRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if expires_at is not None:
-            input["expires_at"] = expires_at
+            input_["expires_at"] = expires_at
         if group_sharing_preference is not None:
-            input["group_sharing_preference"] = group_sharing_preference
+            input_["group_sharing_preference"] = group_sharing_preference
         if cost_category_group_sharing_preference_arn is not None:
-            input["cost_category_group_sharing_preference_arn"] = (
+            input_["cost_category_group_sharing_preference_arn"] = (
                 cost_category_group_sharing_preference_arn
             )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -232,11 +234,11 @@ class BillScenario:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bcm_pricing_calculator.types.delete_bill_scenario_request.DeleteBillScenarioRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_bcm_pricing_calculator.types.delete_bill_scenario_request.DeleteBillScenarioRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -287,20 +289,20 @@ class BillScenario:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bcm_pricing_calculator.types.list_bill_scenarios_request.ListBillScenariosRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bcm_pricing_calculator.types.list_bill_scenarios_request.ListBillScenariosRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if created_at_filter is not None:
-            input["created_at_filter"] = created_at_filter
+            input_["created_at_filter"] = created_at_filter
         if expires_at_filter is not None:
-            input["expires_at_filter"] = expires_at_filter
+            input_["expires_at_filter"] = expires_at_filter
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -353,21 +355,21 @@ class AsyncBillScenario:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bcm_pricing_calculator.types.create_bill_scenario_request.CreateBillScenarioRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_bcm_pricing_calculator.types.create_bill_scenario_request.CreateBillScenarioRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if group_sharing_preference is not None:
-            input["group_sharing_preference"] = group_sharing_preference
+            input_["group_sharing_preference"] = group_sharing_preference
         if cost_category_group_sharing_preference_arn is not None:
-            input["cost_category_group_sharing_preference_arn"] = (
+            input_["cost_category_group_sharing_preference_arn"] = (
                 cost_category_group_sharing_preference_arn
             )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -401,11 +403,11 @@ class AsyncBillScenario:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bcm_pricing_calculator.types.get_bill_scenario_request.GetBillScenarioRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_bcm_pricing_calculator.types.get_bill_scenario_request.GetBillScenarioRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -453,21 +455,21 @@ class AsyncBillScenario:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bcm_pricing_calculator.types.update_bill_scenario_request.UpdateBillScenarioRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_bcm_pricing_calculator.types.update_bill_scenario_request.UpdateBillScenarioRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if expires_at is not None:
-            input["expires_at"] = expires_at
+            input_["expires_at"] = expires_at
         if group_sharing_preference is not None:
-            input["group_sharing_preference"] = group_sharing_preference
+            input_["group_sharing_preference"] = group_sharing_preference
         if cost_category_group_sharing_preference_arn is not None:
-            input["cost_category_group_sharing_preference_arn"] = (
+            input_["cost_category_group_sharing_preference_arn"] = (
                 cost_category_group_sharing_preference_arn
             )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -501,11 +503,11 @@ class AsyncBillScenario:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bcm_pricing_calculator.types.delete_bill_scenario_request.DeleteBillScenarioRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_bcm_pricing_calculator.types.delete_bill_scenario_request.DeleteBillScenarioRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -557,20 +559,20 @@ class AsyncBillScenario:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bcm_pricing_calculator.types.list_bill_scenarios_request.ListBillScenariosRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bcm_pricing_calculator.types.list_bill_scenarios_request.ListBillScenariosRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if created_at_filter is not None:
-            input["created_at_filter"] = created_at_filter
+            input_["created_at_filter"] = created_at_filter
         if expires_at_filter is not None:
-            input["expires_at_filter"] = expires_at_filter
+            input_["expires_at_filter"] = expires_at_filter
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

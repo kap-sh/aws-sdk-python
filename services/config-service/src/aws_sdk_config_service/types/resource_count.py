@@ -13,7 +13,7 @@ class ResourceCount(TypedDict):
     resource_type: NotRequired[
         "aws_sdk_config_service.types.resource_type.ResourceType"
     ]
-    """<p>The resource type (for example, <code>\"AWS::EC2::Instance\"</code>).</p>"""
+    r"""<p>The resource type (for example, <code>\"AWS::EC2::Instance\"</code>).</p>"""
     count: "aws_sdk_config_service.types.long.Long"
     """<p>The number of resources.</p>"""
 

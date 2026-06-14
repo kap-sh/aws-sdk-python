@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_location._auth._signers
@@ -81,7 +83,7 @@ class GeofenceCollectionResource:
         tags: Optional["aws_sdk_location.types.tag_map.TagMap"] = None,
         kms_key_id: Optional["aws_sdk_location.types.kms_key_id.KmsKeyId"] = None,
     ) -> "aws_sdk_location.types.create_geofence_collection_response.CreateGeofenceCollectionResponse":
-        """<p>Creates a geofence collection, which manages and stores geofences.</p>
+        r"""<p>Creates a geofence collection, which manages and stores geofences.</p>
 
         Args:
             collection_name: <p>A custom name for the geofence collection.</p> <p>Requirements:</p> <ul> <li> <p>Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_). </p> </li> <li> <p>Must be a unique geofence collection name.</p> </li> <li> <p>No spaces allowed. For example, <code>ExampleGeofenceCollection</code>.</p> </li> </ul>
@@ -574,7 +576,7 @@ class GeofenceCollectionResource:
             "aws_sdk_location.types.property_map.PropertyMap"
         ] = None,
     ) -> "aws_sdk_location.types.put_geofence_response.PutGeofenceResponse":
-        """<p>Stores a geofence geometry in a given geofence collection, or updates the geometry of an existing geofence if a geofence ID is included in the request. </p>
+        r"""<p>Stores a geofence geometry in a given geofence collection, or updates the geometry of an existing geofence if a geofence ID is included in the request. </p>
 
         Args:
             collection_name: <p>The geofence collection to store the geofence in.</p>
@@ -632,7 +634,7 @@ class AsyncGeofenceCollectionResource:
         tags: Optional["aws_sdk_location.types.tag_map.TagMap"] = None,
         kms_key_id: Optional["aws_sdk_location.types.kms_key_id.KmsKeyId"] = None,
     ) -> "aws_sdk_location.types.create_geofence_collection_response.CreateGeofenceCollectionResponse":
-        """<p>Creates a geofence collection, which manages and stores geofences.</p>
+        r"""<p>Creates a geofence collection, which manages and stores geofences.</p>
 
         Args:
             collection_name: <p>A custom name for the geofence collection.</p> <p>Requirements:</p> <ul> <li> <p>Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_). </p> </li> <li> <p>Must be a unique geofence collection name.</p> </li> <li> <p>No spaces allowed. For example, <code>ExampleGeofenceCollection</code>.</p> </li> </ul>
@@ -1136,7 +1138,7 @@ class AsyncGeofenceCollectionResource:
             "aws_sdk_location.types.property_map.PropertyMap"
         ] = None,
     ) -> "aws_sdk_location.types.put_geofence_response.PutGeofenceResponse":
-        """<p>Stores a geofence geometry in a given geofence collection, or updates the geometry of an existing geofence if a geofence ID is included in the request. </p>
+        r"""<p>Stores a geofence geometry in a given geofence collection, or updates the geometry of an existing geofence if a geofence ID is included in the request. </p>
 
         Args:
             collection_name: <p>The geofence collection to store the geofence in.</p>

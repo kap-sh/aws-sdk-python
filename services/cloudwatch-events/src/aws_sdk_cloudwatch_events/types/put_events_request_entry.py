@@ -14,7 +14,7 @@ if TYPE_CHECKING:
 
 class PutEventsRequestEntry(TypedDict):
     time: NotRequired["aws_sdk_cloudwatch_events.types.event_time.EventTime"]
-    """<p>The time stamp of the event, per <a href=\"https://www.rfc-editor.org/rfc/rfc3339.txt\">RFC3339</a>. If no time stamp is provided, the time stamp of the <a href=\"https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutEvents.html\">PutEvents</a> call is used.</p>"""
+    r"""<p>The time stamp of the event, per <a href=\"https://www.rfc-editor.org/rfc/rfc3339.txt\">RFC3339</a>. If no time stamp is provided, the time stamp of the <a href=\"https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutEvents.html\">PutEvents</a> call is used.</p>"""
     source: NotRequired["aws_sdk_cloudwatch_events.types.string.String"]
     """<p>The source of the event.</p>"""
     resources: NotRequired[
@@ -32,7 +32,7 @@ class PutEventsRequestEntry(TypedDict):
     trace_header: NotRequired[
         "aws_sdk_cloudwatch_events.types.trace_header.TraceHeader"
     ]
-    """<p>An X-Ray trade header, which is an http header (X-Amzn-Trace-Id) that contains the trace-id associated with the event.</p> <p>To learn more about X-Ray trace headers, see <a href=\"https://docs.aws.amazon.com/xray/latest/devguide/xray-concepts.html#xray-concepts-tracingheader\">Tracing header</a> in the X-Ray Developer Guide.</p>"""
+    r"""<p>An X-Ray trade header, which is an http header (X-Amzn-Trace-Id) that contains the trace-id associated with the event.</p> <p>To learn more about X-Ray trace headers, see <a href=\"https://docs.aws.amazon.com/xray/latest/devguide/xray-concepts.html#xray-concepts-tracingheader\">Tracing header</a> in the X-Ray Developer Guide.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

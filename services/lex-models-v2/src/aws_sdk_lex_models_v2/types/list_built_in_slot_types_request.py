@@ -13,7 +13,7 @@ if TYPE_CHECKING:
 
 class ListBuiltInSlotTypesRequest(TypedDict):
     locale_id: "aws_sdk_lex_models_v2.types.locale_id.LocaleId"
-    """<p>The identifier of the language and locale of the slot types to list. The string must match one of the supported locales. For more information, see <a href=\"https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html\">Supported languages</a>.</p>"""
+    r"""<p>The identifier of the language and locale of the slot types to list. The string must match one of the supported locales. For more information, see <a href=\"https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html\">Supported languages</a>.</p>"""
     sort_by: NotRequired[
         "aws_sdk_lex_models_v2.types.built_in_slot_type_sort_by.BuiltInSlotTypeSortBy"
     ]

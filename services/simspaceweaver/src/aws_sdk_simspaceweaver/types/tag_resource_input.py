@@ -11,7 +11,7 @@ if TYPE_CHECKING:
 
 class TagResourceInput(TypedDict):
     resource_arn: "aws_sdk_simspaceweaver.types.sim_space_weaver_arn.SimSpaceWeaverArn"
-    """<p>The Amazon Resource Name (ARN) of the resource that you want to add tags to. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>"""
+    r"""<p>The Amazon Resource Name (ARN) of the resource that you want to add tags to. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>"""
     tags: "aws_sdk_simspaceweaver.types.tag_map.TagMap"
     """<p>A list of tags to apply to the resource.</p>"""
 

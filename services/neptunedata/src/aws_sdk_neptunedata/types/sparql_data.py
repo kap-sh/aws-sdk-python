@@ -7,7 +7,7 @@ from aws_sdk_neptunedata.errors import DeserializationError
 
 class SparqlData(TypedDict):
     stmt: "str"
-    """<p>Holds an <a href=\"https://www.w3.org/TR/n-quads/\">N-QUADS</a> statement expressing the changed quad.</p>"""
+    r"""<p>Holds an <a href=\"https://www.w3.org/TR/n-quads/\">N-QUADS</a> statement expressing the changed quad.</p>"""
 
 
 # --- restJson1 ser/de ---

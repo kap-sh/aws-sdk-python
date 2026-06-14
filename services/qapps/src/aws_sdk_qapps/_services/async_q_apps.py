@@ -309,7 +309,7 @@ class AsyncQAppsClient:
         *,
         config_overrides: Optional[AsyncQAppsClientConfig] = None,
     ) -> None:
-        """<p>Creates Categories for the Amazon Q Business application environment instance. Web experience users use Categories to tag and filter library items. For more information, see <a href=\"https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qapps-custom-labels.html\">Custom labels for Amazon Q Apps</a>.</p>
+        r"""<p>Creates Categories for the Amazon Q Business application environment instance. Web experience users use Categories to tag and filter library items. For more information, see <a href=\"https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qapps-custom-labels.html\">Custom labels for Amazon Q Apps</a>.</p>
 
         Args:
             instance_id: <p>The unique identifier of the Amazon Q Business application environment instance.</p>
@@ -353,7 +353,7 @@ class AsyncQAppsClient:
         *,
         config_overrides: Optional[AsyncQAppsClientConfig] = None,
     ) -> None:
-        """<p>Deletes Categories for the Amazon Q Business application environment instance. Web experience users use Categories to tag and filter library items. For more information, see <a href=\"https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qapps-custom-labels.html\">Custom labels for Amazon Q Apps</a>.</p>
+        r"""<p>Deletes Categories for the Amazon Q Business application environment instance. Web experience users use Categories to tag and filter library items. For more information, see <a href=\"https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qapps-custom-labels.html\">Custom labels for Amazon Q Apps</a>.</p>
 
         Args:
             instance_id: <p>The unique identifier of the Amazon Q Business application environment instance.</p>
@@ -397,7 +397,7 @@ class AsyncQAppsClient:
         *,
         config_overrides: Optional[AsyncQAppsClientConfig] = None,
     ) -> None:
-        """<p>Updates Categories for the Amazon Q Business application environment instance. Web experience users use Categories to tag and filter library items. For more information, see <a href=\"https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qapps-custom-labels.html\">Custom labels for Amazon Q Apps</a>.</p>
+        r"""<p>Updates Categories for the Amazon Q Business application environment instance. Web experience users use Categories to tag and filter library items. For more information, see <a href=\"https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qapps-custom-labels.html\">Custom labels for Amazon Q Apps</a>.</p>
 
         Args:
             instance_id: <p>The unique identifier of the Amazon Q Business application environment instance.</p>
@@ -498,7 +498,7 @@ class AsyncQAppsClient:
         config_overrides: Optional[AsyncQAppsClientConfig] = None,
         session_id: Optional["aws_sdk_qapps.types.uuid.UUID"] = None,
     ) -> "aws_sdk_qapps.types.create_presigned_url_output.CreatePresignedUrlOutput":
-        """<p>Creates a presigned URL for an S3 POST operation to upload a file. You can use this URL to set a default file for a <code>FileUploadCard</code> in a Q App definition or to provide a file for a single Q App run. The <code>scope</code> parameter determines how the file will be used, either at the app definition level or the app session level.</p> <note> <p>The IAM permissions are derived from the <code>qapps:ImportDocument</code> action. For more information on the IAM policy for Amazon Q Apps, see <a href=\"https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/deploy-q-apps-iam-permissions.html\">IAM permissions for using Amazon Q Apps</a>.</p> </note>
+        r"""<p>Creates a presigned URL for an S3 POST operation to upload a file. You can use this URL to set a default file for a <code>FileUploadCard</code> in a Q App definition or to provide a file for a single Q App run. The <code>scope</code> parameter determines how the file will be used, either at the app definition level or the app session level.</p> <note> <p>The IAM permissions are derived from the <code>qapps:ImportDocument</code> action. For more information on the IAM policy for Amazon Q Apps, see <a href=\"https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/deploy-q-apps-iam-permissions.html\">IAM permissions for using Amazon Q Apps</a>.</p> </note>
 
         Args:
             instance_id: <p>The unique identifier of the Amazon Q Business application environment instance.</p>
@@ -1134,7 +1134,7 @@ class AsyncQAppsClient:
         *,
         config_overrides: Optional[AsyncQAppsClientConfig] = None,
     ) -> "aws_sdk_qapps.types.list_categories_output.ListCategoriesOutput":
-        """<p>Lists the categories of a Amazon Q Business application environment instance. For more information, see <a href=\"https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qapps-custom-labels.html\">Custom labels for Amazon Q Apps</a>.</p>
+        r"""<p>Lists the categories of a Amazon Q Business application environment instance. For more information, see <a href=\"https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qapps-custom-labels.html\">Custom labels for Amazon Q Apps</a>.</p>
 
         Args:
             instance_id: <p>The unique identifier of the Amazon Q Business application environment instance.</p>
@@ -1671,7 +1671,7 @@ class AsyncQAppsClient:
             "aws_sdk_qapps.types.category_id_list.CategoryIdList"
         ] = None,
     ) -> "aws_sdk_qapps.types.update_library_item_output.UpdateLibraryItemOutput":
-        """<p>Updates the library item for an Amazon Q App.</p>
+        r"""<p>Updates the library item for an Amazon Q App.</p>
 
         Args:
             instance_id: <p>The unique identifier of the Amazon Q Business application environment instance.</p>

@@ -11,7 +11,7 @@ if TYPE_CHECKING:
 
 class SortCondition(TypedDict):
     name: "aws_sdk_route_53_domains.types.list_domains_attribute_name.ListDomainsAttributeName"
-    """<p>Field to be used for sorting the list of domains. It can be either the name or the expiration for a domain. Note that if <code>filterCondition</code> is used in the same <a href=\"https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains__ListDomains.html\">ListDomains</a> call, the field used for sorting has to be the same as the field used for filtering.</p>"""
+    r"""<p>Field to be used for sorting the list of domains. It can be either the name or the expiration for a domain. Note that if <code>filterCondition</code> is used in the same <a href=\"https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains__ListDomains.html\">ListDomains</a> call, the field used for sorting has to be the same as the field used for filtering.</p>"""
     sort_order: "aws_sdk_route_53_domains.types.sort_order.SortOrder"
     """<p>The sort order for a list of domains. Either ascending (ASC) or descending (DES).</p>"""
 

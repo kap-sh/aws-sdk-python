@@ -33,7 +33,7 @@ class UpdateAccessControlConfigurationRequest(TypedDict):
     hierarchical_access_control_list: NotRequired[
         "aws_sdk_kendra.types.hierarchical_principal_list.HierarchicalPrincipalList"
     ]
-    """<p>The updated list of <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/API_Principal.html\">principal</a> lists that define the hierarchy for which documents users should have access to.</p>"""
+    r"""<p>The updated list of <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/API_Principal.html\">principal</a> lists that define the hierarchy for which documents users should have access to.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

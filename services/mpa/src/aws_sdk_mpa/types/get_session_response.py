@@ -71,9 +71,9 @@ class GetSessionResponse(TypedDict):
     requester_service_principal: NotRequired[
         "aws_sdk_mpa.types.service_principal.ServicePrincipal"
     ]
-    """<p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services\">Service principal</a> for the service associated with the protected operation.</p>"""
+    r"""<p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services\">Service principal</a> for the service associated with the protected operation.</p>"""
     requester_principal_arn: NotRequired["aws_sdk_mpa.types.string.String"]
-    """<p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/intro-structure.html#intro-structure-request\">IAM principal</a> that made the operation request.</p>"""
+    r"""<p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/intro-structure.html#intro-structure-request\">IAM principal</a> that made the operation request.</p>"""
     requester_account_id: NotRequired["aws_sdk_mpa.types.account_id.AccountId"]
     """<p>ID for the account that made the operation request.</p>"""
     requester_region: NotRequired["aws_sdk_mpa.types.region.Region"]

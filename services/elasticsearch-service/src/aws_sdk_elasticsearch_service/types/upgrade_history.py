@@ -19,7 +19,7 @@ class UpgradeHistory(TypedDict):
     start_timestamp: NotRequired[
         "aws_sdk_elasticsearch_service.types.start_timestamp.StartTimestamp"
     ]
-    """<p>UTC Timestamp at which the Upgrade API call was made in \"yyyy-MM-ddTHH:mm:ssZ\" format.</p>"""
+    r"""<p>UTC Timestamp at which the Upgrade API call was made in \"yyyy-MM-ddTHH:mm:ssZ\" format.</p>"""
     upgrade_status: NotRequired[
         "aws_sdk_elasticsearch_service.types.upgrade_status.UpgradeStatus"
     ]

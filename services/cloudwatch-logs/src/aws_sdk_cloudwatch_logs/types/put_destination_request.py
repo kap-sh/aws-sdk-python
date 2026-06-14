@@ -21,7 +21,7 @@ class PutDestinationRequest(TypedDict):
     role_arn: "aws_sdk_cloudwatch_logs.types.role_arn.RoleArn"
     """<p>The ARN of an IAM role that grants CloudWatch Logs permissions to call the Amazon Kinesis <code>PutRecord</code> operation on the destination stream.</p>"""
     tags: NotRequired["aws_sdk_cloudwatch_logs.types.tags.Tags"]
-    """<p>An optional list of key-value pairs to associate with the resource.</p> <p>For more information about tagging, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services resources</a> </p>"""
+    r"""<p>An optional list of key-value pairs to associate with the resource.</p> <p>For more information about tagging, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services resources</a> </p>"""
 
 
 # --- awsJson1_1 ser/de ---

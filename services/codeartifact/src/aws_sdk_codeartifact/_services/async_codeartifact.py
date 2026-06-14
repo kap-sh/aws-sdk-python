@@ -237,7 +237,7 @@ class AsynccodeartifactClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = AsynccodeartifactClientConfig(
+        self._config = AsynccodeartifactClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -257,7 +257,7 @@ class AsynccodeartifactClient:
         overrides: AsynccodeartifactClientConfig = config_overrides or {}
         interceptors_: list[AsyncInterceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             aretry(),
         ]
@@ -265,16 +265,16 @@ class AsynccodeartifactClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            region=overrides.get("region", self.config.get("region")),
+            region=overrides.get("region", self._config.get("region")),
             use_dual_stack=overrides.get(
-                "use_dual_stack", self.config.get("use_dual_stack")
+                "use_dual_stack", self._config.get("use_dual_stack")
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -357,7 +357,7 @@ class AsynccodeartifactClient:
             "aws_sdk_codeartifact.types.boolean_optional.BooleanOptional"
         ] = None,
     ) -> "aws_sdk_codeartifact.types.copy_package_versions_result.CopyPackageVersionsResult":
-        """<p> Copies package versions from one repository to another repository in the same domain. </p> <note> <p> You must specify <code>versions</code> or <code>versionRevisions</code>. You cannot specify both. </p> </note>
+        r"""<p> Copies package versions from one repository to another repository in the same domain. </p> <note> <p> You must specify <code>versions</code> or <code>versionRevisions</code>. You cannot specify both. </p> </note>
 
         Args:
             domain: <p> The name of the domain that contains the source and destination repositories. </p>
@@ -423,7 +423,7 @@ class AsynccodeartifactClient:
         encryption_key: Optional["aws_sdk_codeartifact.types.arn.Arn"] = None,
         tags: Optional["aws_sdk_codeartifact.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_codeartifact.types.create_domain_result.CreateDomainResult":
-        """<p> Creates a domain. CodeArtifact <i>domains</i> make it easier to manage multiple repositories across an organization. You can use a domain to apply permissions across many repositories owned by different Amazon Web Services accounts. An asset is stored only once in a domain, even if it's in multiple repositories. </p> <p>Although you can have multiple domains, we recommend a single production domain that contains all published artifacts so that your development teams can find and share packages. You can use a second pre-production domain to test changes to the production domain configuration. </p>
+        r"""<p> Creates a domain. CodeArtifact <i>domains</i> make it easier to manage multiple repositories across an organization. You can use a domain to apply permissions across many repositories owned by different Amazon Web Services accounts. An asset is stored only once in a domain, even if it's in multiple repositories. </p> <p>Although you can have multiple domains, we recommend a single production domain that contains all published artifacts so that your development teams can find and share packages. You can use a second pre-production domain to test changes to the production domain configuration. </p>
 
         Args:
             domain: <p> The name of the domain to create. All domain names in an Amazon Web Services Region that are in the same Amazon Web Services account must be unique. The domain name is used as the prefix in DNS hostnames. Do not use sensitive information in a domain name because it is publicly discoverable. </p>
@@ -478,7 +478,7 @@ class AsynccodeartifactClient:
         ] = None,
         tags: Optional["aws_sdk_codeartifact.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_codeartifact.types.create_package_group_result.CreatePackageGroupResult":
-        """<p> Creates a package group. For more information about creating package groups, including example CLI commands, see <a href=\"https://docs.aws.amazon.com/codeartifact/latest/ug/create-package-group.html\">Create a package group</a> in the <i>CodeArtifact User Guide</i>. </p>
+        r"""<p> Creates a package group. For more information about creating package groups, including example CLI commands, see <a href=\"https://docs.aws.amazon.com/codeartifact/latest/ug/create-package-group.html\">Create a package group</a> in the <i>CodeArtifact User Guide</i>. </p>
 
         Args:
             domain: <p> The name of the domain in which you want to create a package group. </p>
@@ -541,7 +541,7 @@ class AsynccodeartifactClient:
         ] = None,
         tags: Optional["aws_sdk_codeartifact.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_codeartifact.types.create_repository_result.CreateRepositoryResult":
-        """<p> Creates a repository. </p>
+        r"""<p> Creates a repository. </p>
 
         Args:
             domain: <p> The name of the domain that contains the created repository. </p>
@@ -696,7 +696,7 @@ class AsynccodeartifactClient:
             "aws_sdk_codeartifact.types.package_namespace.PackageNamespace"
         ] = None,
     ) -> "aws_sdk_codeartifact.types.delete_package_result.DeletePackageResult":
-        """<p>Deletes a package and all associated package versions. A deleted package cannot be restored. To delete one or more package versions, use the <a href=\"https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_DeletePackageVersions.html\">DeletePackageVersions</a> API.</p>
+        r"""<p>Deletes a package and all associated package versions. A deleted package cannot be restored. To delete one or more package versions, use the <a href=\"https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_DeletePackageVersions.html\">DeletePackageVersions</a> API.</p>
 
         Args:
             domain: <p>The name of the domain that contains the package to delete.</p>
@@ -806,7 +806,7 @@ class AsynccodeartifactClient:
             "aws_sdk_codeartifact.types.package_version_status.PackageVersionStatus"
         ] = None,
     ) -> "aws_sdk_codeartifact.types.delete_package_versions_result.DeletePackageVersionsResult":
-        """<p> Deletes one or more versions of a package. A deleted package version cannot be restored in your repository. If you want to remove a package version from your repository and be able to restore it later, set its status to <code>Archived</code>. Archived packages cannot be downloaded from a repository and don't show up with list package APIs (for example, <a href=\"https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html\">ListPackageVersions</a>), but you can restore them using <a href=\"https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_UpdatePackageVersionsStatus.html\">UpdatePackageVersionsStatus</a>. </p>
+        r"""<p> Deletes one or more versions of a package. A deleted package version cannot be restored in your repository. If you want to remove a package version from your repository and be able to restore it later, set its status to <code>Archived</code>. Archived packages cannot be downloaded from a repository and don't show up with list package APIs (for example, <a href=\"https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html\">ListPackageVersions</a>), but you can restore them using <a href=\"https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_UpdatePackageVersionsStatus.html\">UpdatePackageVersionsStatus</a>. </p>
 
         Args:
             domain: <p> The name of the domain that contains the package to delete. </p>
@@ -964,7 +964,7 @@ class AsynccodeartifactClient:
             "aws_sdk_codeartifact.types.account_id.AccountId"
         ] = None,
     ) -> "aws_sdk_codeartifact.types.describe_domain_result.DescribeDomainResult":
-        """<p> Returns a <a href=\"https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_DomainDescription.html\">DomainDescription</a> object that contains information about the requested domain. </p>
+        r"""<p> Returns a <a href=\"https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_DomainDescription.html\">DomainDescription</a> object that contains information about the requested domain. </p>
 
         Args:
             domain: <p> A string that specifies the name of the requested domain. </p>
@@ -1014,7 +1014,7 @@ class AsynccodeartifactClient:
             "aws_sdk_codeartifact.types.package_namespace.PackageNamespace"
         ] = None,
     ) -> "aws_sdk_codeartifact.types.describe_package_result.DescribePackageResult":
-        """<p> Returns a <a href=\"https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageDescription.html\">PackageDescription</a> object that contains information about the requested package.</p>
+        r"""<p> Returns a <a href=\"https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageDescription.html\">PackageDescription</a> object that contains information about the requested package.</p>
 
         Args:
             domain: <p>The name of the domain that contains the repository that contains the package.</p>
@@ -1068,7 +1068,7 @@ class AsynccodeartifactClient:
             "aws_sdk_codeartifact.types.account_id.AccountId"
         ] = None,
     ) -> "aws_sdk_codeartifact.types.describe_package_group_result.DescribePackageGroupResult":
-        """<p>Returns a <a href=\"https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageGroupDescription.html\">PackageGroupDescription</a> object that contains information about the requested package group.</p>
+        r"""<p>Returns a <a href=\"https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageGroupDescription.html\">PackageGroupDescription</a> object that contains information about the requested package group.</p>
 
         Args:
             domain: <p> The name of the domain that contains the package group. </p>
@@ -1121,7 +1121,7 @@ class AsynccodeartifactClient:
             "aws_sdk_codeartifact.types.package_namespace.PackageNamespace"
         ] = None,
     ) -> "aws_sdk_codeartifact.types.describe_package_version_result.DescribePackageVersionResult":
-        """<p> Returns a <a href=\"https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionDescription.html\">PackageVersionDescription</a> object that contains information about the requested package version. </p>
+        r"""<p> Returns a <a href=\"https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionDescription.html\">PackageVersionDescription</a> object that contains information about the requested package version. </p>
 
         Args:
             domain: <p> The name of the domain that contains the repository that contains the package version. </p>
@@ -1288,7 +1288,7 @@ class AsynccodeartifactClient:
             "aws_sdk_codeartifact.types.package_version_status.PackageVersionStatus"
         ] = None,
     ) -> "aws_sdk_codeartifact.types.dispose_package_versions_result.DisposePackageVersionsResult":
-        """<p> Deletes the assets in package versions and sets the package versions' status to <code>Disposed</code>. A disposed package version cannot be restored in your repository because its assets are deleted. </p> <p> To view all disposed package versions in a repository, use <a href=\"https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html\">ListPackageVersions</a> and set the <a href=\"https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html#API_ListPackageVersions_RequestSyntax\">status</a> parameter to <code>Disposed</code>. </p> <p> To view information about a disposed package version, use <a href=\"https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_DescribePackageVersion.html\">DescribePackageVersion</a>. </p>
+        r"""<p> Deletes the assets in package versions and sets the package versions' status to <code>Disposed</code>. A disposed package version cannot be restored in your repository because its assets are deleted. </p> <p> To view all disposed package versions in a repository, use <a href=\"https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html\">ListPackageVersions</a> and set the <a href=\"https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html#API_ListPackageVersions_RequestSyntax\">status</a> parameter to <code>Disposed</code>. </p> <p> To view information about a disposed package version, use <a href=\"https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_DescribePackageVersion.html\">DescribePackageVersion</a>. </p>
 
         Args:
             domain: <p> The name of the domain that contains the repository you want to dispose. </p>
@@ -1354,7 +1354,7 @@ class AsynccodeartifactClient:
             "aws_sdk_codeartifact.types.package_namespace.PackageNamespace"
         ] = None,
     ) -> "aws_sdk_codeartifact.types.get_associated_package_group_result.GetAssociatedPackageGroupResult":
-        """<p>Returns the most closely associated package group to the specified package. This API does not require that the package exist in any repository in the domain. As such, <code>GetAssociatedPackageGroup</code> can be used to see which package group's origin configuration applies to a package before that package is in a repository. This can be helpful to check if public packages are blocked without ingesting them.</p> <p>For information package group association and matching, see <a href=\"https://docs.aws.amazon.com/codeartifact/latest/ug/package-group-definition-syntax-matching-behavior.html\">Package group definition syntax and matching behavior</a> in the <i>CodeArtifact User Guide</i>.</p>
+        r"""<p>Returns the most closely associated package group to the specified package. This API does not require that the package exist in any repository in the domain. As such, <code>GetAssociatedPackageGroup</code> can be used to see which package group's origin configuration applies to a package before that package is in a repository. This can be helpful to check if public packages are blocked without ingesting them.</p> <p>For information package group association and matching, see <a href=\"https://docs.aws.amazon.com/codeartifact/latest/ug/package-group-definition-syntax-matching-behavior.html\">Package group definition syntax and matching behavior</a> in the <i>CodeArtifact User Guide</i>.</p>
 
         Args:
             domain: <p> The name of the domain that contains the package from which to get the associated package group. </p>
@@ -1408,7 +1408,7 @@ class AsynccodeartifactClient:
             "aws_sdk_codeartifact.types.authorization_token_duration_seconds.AuthorizationTokenDurationSeconds"
         ] = None,
     ) -> "aws_sdk_codeartifact.types.get_authorization_token_result.GetAuthorizationTokenResult":
-        """<p> Generates a temporary authorization token for accessing repositories in the domain. This API requires the <code>codeartifact:GetAuthorizationToken</code> and <code>sts:GetServiceBearerToken</code> permissions. For more information about authorization tokens, see <a href=\"https://docs.aws.amazon.com/codeartifact/latest/ug/tokens-authentication.html\">CodeArtifact authentication and tokens</a>. </p> <note> <p>CodeArtifact authorization tokens are valid for a period of 12 hours when created with the <code>login</code> command. You can call <code>login</code> periodically to refresh the token. When you create an authorization token with the <code>GetAuthorizationToken</code> API, you can set a custom authorization period, up to a maximum of 12 hours, with the <code>durationSeconds</code> parameter.</p> <p>The authorization period begins after <code>login</code> or <code>GetAuthorizationToken</code> is called. If <code>login</code> or <code>GetAuthorizationToken</code> is called while assuming a role, the token lifetime is independent of the maximum session duration of the role. For example, if you call <code>sts assume-role</code> and specify a session duration of 15 minutes, then generate a CodeArtifact authorization token, the token will be valid for the full authorization period even though this is longer than the 15-minute session duration.</p> <p>See <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html\">Using IAM Roles</a> for more information on controlling session duration. </p> </note>
+        r"""<p> Generates a temporary authorization token for accessing repositories in the domain. This API requires the <code>codeartifact:GetAuthorizationToken</code> and <code>sts:GetServiceBearerToken</code> permissions. For more information about authorization tokens, see <a href=\"https://docs.aws.amazon.com/codeartifact/latest/ug/tokens-authentication.html\">CodeArtifact authentication and tokens</a>. </p> <note> <p>CodeArtifact authorization tokens are valid for a period of 12 hours when created with the <code>login</code> command. You can call <code>login</code> periodically to refresh the token. When you create an authorization token with the <code>GetAuthorizationToken</code> API, you can set a custom authorization period, up to a maximum of 12 hours, with the <code>durationSeconds</code> parameter.</p> <p>The authorization period begins after <code>login</code> or <code>GetAuthorizationToken</code> is called. If <code>login</code> or <code>GetAuthorizationToken</code> is called while assuming a role, the token lifetime is independent of the maximum session duration of the role. For example, if you call <code>sts assume-role</code> and specify a session duration of 15 minutes, then generate a CodeArtifact authorization token, the token will be valid for the full authorization period even though this is longer than the 15-minute session duration.</p> <p>See <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html\">Using IAM Roles</a> for more information on controlling session duration. </p> </note>
 
         Args:
             domain: <p> The name of the domain that is in scope for the generated authorization token. </p>
@@ -1455,7 +1455,7 @@ class AsynccodeartifactClient:
             "aws_sdk_codeartifact.types.account_id.AccountId"
         ] = None,
     ) -> "aws_sdk_codeartifact.types.get_domain_permissions_policy_result.GetDomainPermissionsPolicyResult":
-        """<p> Returns the resource policy attached to the specified domain. </p> <note> <p> The policy is a resource-based policy, not an identity-based policy. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html\">Identity-based policies and resource-based policies </a> in the <i>IAM User Guide</i>. </p> </note>
+        r"""<p> Returns the resource policy attached to the specified domain. </p> <note> <p> The policy is a resource-based policy, not an identity-based policy. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html\">Identity-based policies and resource-based policies </a> in the <i>IAM User Guide</i>. </p> </note>
 
         Args:
             domain: <p> The name of the domain to which the resource policy is attached. </p>
@@ -1744,7 +1744,7 @@ class AsynccodeartifactClient:
             "aws_sdk_codeartifact.types.pagination_token.PaginationToken"
         ] = None,
     ) -> "aws_sdk_codeartifact.types.list_allowed_repositories_for_group_result.ListAllowedRepositoriesForGroupResult":
-        """<p>Lists the repositories in the added repositories list of the specified restriction type for a package group. For more information about restriction types and added repository lists, see <a href=\"https://docs.aws.amazon.com/codeartifact/latest/ug/package-group-origin-controls.html\">Package group origin controls</a> in the <i>CodeArtifact User Guide</i>. </p>
+        r"""<p>Lists the repositories in the added repositories list of the specified restriction type for a package group. For more information about restriction types and added repository lists, see <a href=\"https://docs.aws.amazon.com/codeartifact/latest/ug/package-group-origin-controls.html\">Package group origin controls</a> in the <i>CodeArtifact User Guide</i>. </p>
 
         Args:
             domain: <p> The name of the domain that contains the package group from which to list allowed repositories. </p>
@@ -1843,7 +1843,7 @@ class AsynccodeartifactClient:
             "aws_sdk_codeartifact.types.boolean_optional.BooleanOptional"
         ] = None,
     ) -> "aws_sdk_codeartifact.types.list_associated_packages_result.ListAssociatedPackagesResult":
-        """<p>Returns a list of packages associated with the requested package group. For information package group association and matching, see <a href=\"https://docs.aws.amazon.com/codeartifact/latest/ug/package-group-definition-syntax-matching-behavior.html\">Package group definition syntax and matching behavior</a> in the <i>CodeArtifact User Guide</i>.</p>
+        r"""<p>Returns a list of packages associated with the requested package group. For information package group association and matching, see <a href=\"https://docs.aws.amazon.com/codeartifact/latest/ug/package-group-definition-syntax-matching-behavior.html\">Package group definition syntax and matching behavior</a> in the <i>CodeArtifact User Guide</i>.</p>
 
         Args:
             domain: <p> The name of the domain that contains the package group from which to list associated packages. </p>
@@ -1939,7 +1939,7 @@ class AsynccodeartifactClient:
             "aws_sdk_codeartifact.types.pagination_token.PaginationToken"
         ] = None,
     ) -> "aws_sdk_codeartifact.types.list_domains_result.ListDomainsResult":
-        """<p> Returns a list of <a href=\"https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionDescription.html\">DomainSummary</a> objects for all domains owned by the Amazon Web Services account that makes this call. Each returned <code>DomainSummary</code> object contains information about a domain. </p>
+        r"""<p> Returns a list of <a href=\"https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionDescription.html\">DomainSummary</a> objects for all domains owned by the Amazon Web Services account that makes this call. Each returned <code>DomainSummary</code> object contains information about a domain. </p>
 
         Args:
             max_results: <p> The maximum number of results to return per page. </p>
@@ -2130,7 +2130,7 @@ class AsynccodeartifactClient:
             "aws_sdk_codeartifact.types.allow_upstream.AllowUpstream"
         ] = None,
     ) -> "aws_sdk_codeartifact.types.list_packages_result.ListPackagesResult":
-        """<p> Returns a list of <a href=\"https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageSummary.html\">PackageSummary</a> objects for packages in a repository that match the request parameters. </p>
+        r"""<p> Returns a list of <a href=\"https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageSummary.html\">PackageSummary</a> objects for packages in a repository that match the request parameters. </p>
 
         Args:
             domain: <p> The name of the domain that contains the repository that contains the requested packages. </p>
@@ -2263,7 +2263,7 @@ class AsynccodeartifactClient:
             "aws_sdk_codeartifact.types.pagination_token.PaginationToken"
         ] = None,
     ) -> "aws_sdk_codeartifact.types.list_package_version_assets_result.ListPackageVersionAssetsResult":
-        """<p> Returns a list of <a href=\"https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_AssetSummary.html\">AssetSummary</a> objects for assets in a package version. </p>
+        r"""<p> Returns a list of <a href=\"https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_AssetSummary.html\">AssetSummary</a> objects for assets in a package version. </p>
 
         Args:
             domain: <p> The name of the domain that contains the repository associated with the package version assets. </p>
@@ -2377,7 +2377,7 @@ class AsynccodeartifactClient:
             "aws_sdk_codeartifact.types.pagination_token.PaginationToken"
         ] = None,
     ) -> "aws_sdk_codeartifact.types.list_package_version_dependencies_result.ListPackageVersionDependenciesResult":
-        """<p> Returns the direct dependencies for a package version. The dependencies are returned as <a href=\"https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageDependency.html\">PackageDependency</a> objects. CodeArtifact extracts the dependencies for a package version from the metadata file for the package format (for example, the <code>package.json</code> file for npm packages and the <code>pom.xml</code> file for Maven). Any package version dependencies that are not listed in the configuration file are not returned. </p>
+        r"""<p> Returns the direct dependencies for a package version. The dependencies are returned as <a href=\"https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageDependency.html\">PackageDependency</a> objects. CodeArtifact extracts the dependencies for a package version from the metadata file for the package format (for example, the <code>package.json</code> file for npm packages and the <code>pom.xml</code> file for Maven). Any package version dependencies that are not listed in the configuration file are not returned. </p>
 
         Args:
             domain: <p> The name of the domain that contains the repository that contains the requested package version dependencies. </p>
@@ -2456,7 +2456,7 @@ class AsynccodeartifactClient:
             "aws_sdk_codeartifact.types.package_version_origin_type.PackageVersionOriginType"
         ] = None,
     ) -> "aws_sdk_codeartifact.types.list_package_versions_result.ListPackageVersionsResult":
-        """<p> Returns a list of <a href=\"https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionSummary.html\">PackageVersionSummary</a> objects for package versions in a repository that match the request parameters. Package versions of all statuses will be returned by default when calling <code>list-package-versions</code> with no <code>--status</code> parameter. </p>
+        r"""<p> Returns a list of <a href=\"https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionSummary.html\">PackageVersionSummary</a> objects for package versions in a repository that match the request parameters. Package versions of all statuses will be returned by default when calling <code>list-package-versions</code> with no <code>--status</code> parameter. </p>
 
         Args:
             domain: <p> The name of the domain that contains the repository that contains the requested package versions. </p>
@@ -2582,7 +2582,7 @@ class AsynccodeartifactClient:
             "aws_sdk_codeartifact.types.pagination_token.PaginationToken"
         ] = None,
     ) -> "aws_sdk_codeartifact.types.list_repositories_result.ListRepositoriesResult":
-        """<p> Returns a list of <a href=\"https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_RepositorySummary.html\">RepositorySummary</a> objects. Each <code>RepositorySummary</code> contains information about a repository in the specified Amazon Web Services account and that matches the input parameters. </p>
+        r"""<p> Returns a list of <a href=\"https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_RepositorySummary.html\">RepositorySummary</a> objects. Each <code>RepositorySummary</code> contains information about a repository in the specified Amazon Web Services account and that matches the input parameters. </p>
 
         Args:
             repository_prefix: <p> A prefix used to filter returned repositories. Only repositories with names that start with <code>repositoryPrefix</code> are returned.</p>
@@ -2673,7 +2673,7 @@ class AsynccodeartifactClient:
             "aws_sdk_codeartifact.types.pagination_token.PaginationToken"
         ] = None,
     ) -> "aws_sdk_codeartifact.types.list_repositories_in_domain_result.ListRepositoriesInDomainResult":
-        """<p> Returns a list of <a href=\"https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_RepositorySummary.html\">RepositorySummary</a> objects. Each <code>RepositorySummary</code> contains information about a repository in the specified domain and that matches the input parameters. </p>
+        r"""<p> Returns a list of <a href=\"https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_RepositorySummary.html\">RepositorySummary</a> objects. Each <code>RepositorySummary</code> contains information about a repository in the specified domain and that matches the input parameters. </p>
 
         Args:
             domain: <p> The name of the domain that contains the returned list of repositories. </p>
@@ -2777,7 +2777,7 @@ class AsynccodeartifactClient:
             "aws_sdk_codeartifact.types.pagination_token.PaginationToken"
         ] = None,
     ) -> "aws_sdk_codeartifact.types.list_sub_package_groups_result.ListSubPackageGroupsResult":
-        """<p>Returns a list of direct children of the specified package group.</p> <p>For information package group hierarchy, see <a href=\"https://docs.aws.amazon.com/codeartifact/latest/ug/package-group-definition-syntax-matching-behavior.html\">Package group definition syntax and matching behavior</a> in the <i>CodeArtifact User Guide</i>.</p>
+        r"""<p>Returns a list of direct children of the specified package group.</p> <p>For information package group hierarchy, see <a href=\"https://docs.aws.amazon.com/codeartifact/latest/ug/package-group-definition-syntax-matching-behavior.html\">Package group definition syntax and matching behavior</a> in the <i>CodeArtifact User Guide</i>.</p>
 
         Args:
             domain: <p> The name of the domain which contains the package group from which to list sub package groups. </p>
@@ -2913,7 +2913,7 @@ class AsynccodeartifactClient:
             "aws_sdk_codeartifact.types.boolean_optional.BooleanOptional"
         ] = None,
     ) -> "aws_sdk_codeartifact.types.publish_package_version_result.PublishPackageVersionResult":
-        """<p>Creates a new package version containing one or more assets (or files).</p> <p>The <code>unfinished</code> flag can be used to keep the package version in the <code>Unfinished</code> state until all of its assets have been uploaded (see <a href=\"https://docs.aws.amazon.com/codeartifact/latest/ug/packages-overview.html#package-version-status.html#package-version-status\">Package version status</a> in the <i>CodeArtifact user guide</i>). To set the package version’s status to <code>Published</code>, omit the <code>unfinished</code> flag when uploading the final asset, or set the status using <a href=\"https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_UpdatePackageVersionsStatus.html\">UpdatePackageVersionStatus</a>. Once a package version’s status is set to <code>Published</code>, it cannot change back to <code>Unfinished</code>.</p> <note> <p>Only generic packages can be published using this API. For more information, see <a href=\"https://docs.aws.amazon.com/codeartifact/latest/ug/using-generic.html\">Using generic packages</a> in the <i>CodeArtifact User Guide</i>.</p> </note>
+        r"""<p>Creates a new package version containing one or more assets (or files).</p> <p>The <code>unfinished</code> flag can be used to keep the package version in the <code>Unfinished</code> state until all of its assets have been uploaded (see <a href=\"https://docs.aws.amazon.com/codeartifact/latest/ug/packages-overview.html#package-version-status.html#package-version-status\">Package version status</a> in the <i>CodeArtifact user guide</i>). To set the package version’s status to <code>Published</code>, omit the <code>unfinished</code> flag when uploading the final asset, or set the status using <a href=\"https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_UpdatePackageVersionsStatus.html\">UpdatePackageVersionStatus</a>. Once a package version’s status is set to <code>Published</code>, it cannot change back to <code>Unfinished</code>.</p> <note> <p>Only generic packages can be published using this API. For more information, see <a href=\"https://docs.aws.amazon.com/codeartifact/latest/ug/using-generic.html\">Using generic packages</a> in the <i>CodeArtifact User Guide</i>.</p> </note>
 
         Args:
             domain: <p>The name of the domain that contains the repository that contains the package version to publish.</p>
@@ -3037,7 +3037,7 @@ class AsynccodeartifactClient:
             "aws_sdk_codeartifact.types.package_namespace.PackageNamespace"
         ] = None,
     ) -> "aws_sdk_codeartifact.types.put_package_origin_configuration_result.PutPackageOriginConfigurationResult":
-        """<p>Sets the package origin configuration for a package.</p> <p>The package origin configuration determines how new versions of a package can be added to a repository. You can allow or block direct publishing of new package versions, or ingestion and retaining of new package versions from an external connection or upstream source. For more information about package origin controls and configuration, see <a href=\"https://docs.aws.amazon.com/codeartifact/latest/ug/package-origin-controls.html\">Editing package origin controls</a> in the <i>CodeArtifact User Guide</i>.</p> <p> <code>PutPackageOriginConfiguration</code> can be called on a package that doesn't yet exist in the repository. When called on a package that does not exist, a package is created in the repository with no versions and the requested restrictions are set on the package. This can be used to preemptively block ingesting or retaining any versions from external connections or upstream repositories, or to block publishing any versions of the package into the repository before connecting any package managers or publishers to the repository.</p>
+        r"""<p>Sets the package origin configuration for a package.</p> <p>The package origin configuration determines how new versions of a package can be added to a repository. You can allow or block direct publishing of new package versions, or ingestion and retaining of new package versions from an external connection or upstream source. For more information about package origin controls and configuration, see <a href=\"https://docs.aws.amazon.com/codeartifact/latest/ug/package-origin-controls.html\">Editing package origin controls</a> in the <i>CodeArtifact User Guide</i>.</p> <p> <code>PutPackageOriginConfiguration</code> can be called on a package that doesn't yet exist in the repository. When called on a package that does not exist, a package is created in the repository with no versions and the requested restrictions are set on the package. This can be used to preemptively block ingesting or retaining any versions from external connections or upstream repositories, or to block publishing any versions of the package into the repository before connecting any package managers or publishers to the repository.</p>
 
         Args:
             domain: <p>The name of the domain that contains the repository that contains the package.</p>
@@ -3237,7 +3237,7 @@ class AsynccodeartifactClient:
             "aws_sdk_codeartifact.types.description.Description"
         ] = None,
     ) -> "aws_sdk_codeartifact.types.update_package_group_result.UpdatePackageGroupResult":
-        """<p>Updates a package group. This API cannot be used to update a package group's origin configuration or pattern. To update a package group's origin configuration, use <a href=\"https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_UpdatePackageGroupOriginConfiguration.html\">UpdatePackageGroupOriginConfiguration</a>.</p>
+        r"""<p>Updates a package group. This API cannot be used to update a package group's origin configuration or pattern. To update a package group's origin configuration, use <a href=\"https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_UpdatePackageGroupOriginConfiguration.html\">UpdatePackageGroupOriginConfiguration</a>.</p>
 
         Args:
             domain: <p> The name of the domain which contains the package group to be updated. </p>
@@ -3299,7 +3299,7 @@ class AsynccodeartifactClient:
             "aws_sdk_codeartifact.types.package_group_allowed_repository_list.PackageGroupAllowedRepositoryList"
         ] = None,
     ) -> "aws_sdk_codeartifact.types.update_package_group_origin_configuration_result.UpdatePackageGroupOriginConfigurationResult":
-        """<p>Updates the package origin configuration for a package group.</p> <p>The package origin configuration determines how new versions of a package can be added to a repository. You can allow or block direct publishing of new package versions, or ingestion and retaining of new package versions from an external connection or upstream source. For more information about package group origin controls and configuration, see <a href=\"https://docs.aws.amazon.com/codeartifact/latest/ug/package-group-origin-controls.html\">Package group origin controls</a> in the <i>CodeArtifact User Guide</i>.</p>
+        r"""<p>Updates the package origin configuration for a package group.</p> <p>The package origin configuration determines how new versions of a package can be added to a repository. You can allow or block direct publishing of new package versions, or ingestion and retaining of new package versions from an external connection or upstream source. For more information about package group origin controls and configuration, see <a href=\"https://docs.aws.amazon.com/codeartifact/latest/ug/package-group-origin-controls.html\">Package group origin controls</a> in the <i>CodeArtifact User Guide</i>.</p>
 
         Args:
             domain: <p> The name of the domain which contains the package group for which to update the origin configuration. </p>
@@ -3368,7 +3368,7 @@ class AsynccodeartifactClient:
             "aws_sdk_codeartifact.types.package_version_status.PackageVersionStatus"
         ] = None,
     ) -> "aws_sdk_codeartifact.types.update_package_versions_status_result.UpdatePackageVersionsStatusResult":
-        """<p> Updates the status of one or more versions of a package. Using <code>UpdatePackageVersionsStatus</code>, you can update the status of package versions to <code>Archived</code>, <code>Published</code>, or <code>Unlisted</code>. To set the status of a package version to <code>Disposed</code>, use <a href=\"https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_DisposePackageVersions.html\">DisposePackageVersions</a>. </p>
+        r"""<p> Updates the status of one or more versions of a package. Using <code>UpdatePackageVersionsStatus</code>, you can update the status of package versions to <code>Archived</code>, <code>Published</code>, or <code>Unlisted</code>. To set the status of a package version to <code>Disposed</code>, use <a href=\"https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_DisposePackageVersions.html\">DisposePackageVersions</a>. </p>
 
         Args:
             domain: <p> The name of the domain that contains the repository that contains the package versions with a status to be updated. </p>
@@ -3438,7 +3438,7 @@ class AsynccodeartifactClient:
             "aws_sdk_codeartifact.types.upstream_repository_list.UpstreamRepositoryList"
         ] = None,
     ) -> "aws_sdk_codeartifact.types.update_repository_result.UpdateRepositoryResult":
-        """<p> Update the properties of a repository. </p>
+        r"""<p> Update the properties of a repository. </p>
 
         Args:
             domain: <p> The name of the domain associated with the repository to update. </p>

@@ -16,7 +16,7 @@ class GetModelResponse(TypedDict):
     content_type: NotRequired[
         "aws_sdk_apigatewayv2.types.string_with_length_between1_and256.StringWithLengthBetween1And256"
     ]
-    """<p>The content-type for the model, for example, \"application/json\".</p>"""
+    r"""<p>The content-type for the model, for example, \"application/json\".</p>"""
     description: NotRequired[
         "aws_sdk_apigatewayv2.types.string_with_length_between0_and1024.StringWithLengthBetween0And1024"
     ]

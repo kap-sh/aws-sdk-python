@@ -12,7 +12,7 @@ class DeleteLogAnomalyDetectorRequest(TypedDict):
     anomaly_detector_arn: (
         "aws_sdk_cloudwatch_logs.types.anomaly_detector_arn.AnomalyDetectorArn"
     )
-    """<p>The ARN of the anomaly detector to delete. You can find the ARNs of log anomaly detectors in your account by using the <a href=\"https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListLogAnomalyDetectors.html\">ListLogAnomalyDetectors</a> operation.</p>"""
+    r"""<p>The ARN of the anomaly detector to delete. You can find the ARNs of log anomaly detectors in your account by using the <a href=\"https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListLogAnomalyDetectors.html\">ListLogAnomalyDetectors</a> operation.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

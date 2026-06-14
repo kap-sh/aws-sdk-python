@@ -11,7 +11,7 @@ if TYPE_CHECKING:
 
 class UpdateTemplateRequest(TypedDict):
     template_arn: "aws_sdk_pca_connector_ad.types.template_arn.TemplateArn"
-    """<p>The Amazon Resource Name (ARN) that was returned when you called <a href=\"https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html\">CreateTemplate</a>.</p>"""
+    r"""<p>The Amazon Resource Name (ARN) that was returned when you called <a href=\"https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html\">CreateTemplate</a>.</p>"""
     definition: NotRequired[
         "aws_sdk_pca_connector_ad.types.template_definition.TemplateDefinition"
     ]

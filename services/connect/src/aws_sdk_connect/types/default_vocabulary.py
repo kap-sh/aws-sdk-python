@@ -13,11 +13,11 @@ if TYPE_CHECKING:
 
 class DefaultVocabulary(TypedDict):
     instance_id: "aws_sdk_connect.types.instance_id.InstanceId"
-    """<p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>"""
+    r"""<p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>"""
     language_code: (
         "aws_sdk_connect.types.vocabulary_language_code.VocabularyLanguageCode"
     )
-    """<p>The language code of the vocabulary entries. For a list of languages and their corresponding language codes, see <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html\">What is Amazon Transcribe?</a> </p>"""
+    r"""<p>The language code of the vocabulary entries. For a list of languages and their corresponding language codes, see <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html\">What is Amazon Transcribe?</a> </p>"""
     vocabulary_id: "aws_sdk_connect.types.vocabulary_id.VocabularyId"
     """<p>The identifier of the custom vocabulary.</p>"""
     vocabulary_name: "aws_sdk_connect.types.vocabulary_name.VocabularyName"

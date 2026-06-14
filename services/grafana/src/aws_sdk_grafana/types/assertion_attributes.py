@@ -10,17 +10,17 @@ if TYPE_CHECKING:
 
 class AssertionAttributes(TypedDict):
     name: NotRequired["aws_sdk_grafana.types.assertion_attribute.AssertionAttribute"]
-    """<p>The name of the attribute within the SAML assertion to use as the user full \"friendly\" names for SAML users.</p>"""
+    r"""<p>The name of the attribute within the SAML assertion to use as the user full \"friendly\" names for SAML users.</p>"""
     login: NotRequired["aws_sdk_grafana.types.assertion_attribute.AssertionAttribute"]
     """<p>The name of the attribute within the SAML assertion to use as the login names for SAML users.</p>"""
     email: NotRequired["aws_sdk_grafana.types.assertion_attribute.AssertionAttribute"]
     """<p>The name of the attribute within the SAML assertion to use as the email names for SAML users.</p>"""
     groups: NotRequired["aws_sdk_grafana.types.assertion_attribute.AssertionAttribute"]
-    """<p>The name of the attribute within the SAML assertion to use as the user full \"friendly\" names for user groups.</p>"""
+    r"""<p>The name of the attribute within the SAML assertion to use as the user full \"friendly\" names for user groups.</p>"""
     role: NotRequired["aws_sdk_grafana.types.assertion_attribute.AssertionAttribute"]
     """<p>The name of the attribute within the SAML assertion to use as the user roles.</p>"""
     org: NotRequired["aws_sdk_grafana.types.assertion_attribute.AssertionAttribute"]
-    """<p>The name of the attribute within the SAML assertion to use as the user full \"friendly\" names for the users' organizations.</p>"""
+    r"""<p>The name of the attribute within the SAML assertion to use as the user full \"friendly\" names for the users' organizations.</p>"""
 
 
 # --- restJson1 ser/de ---

@@ -1,8 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#CoinbaseCdpConfigurationInput``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.coinbase_cdp_api_key_id_type
     import aws_sdk_bedrock_agentcore_control.types.default_coinbase_cdp_api_key_secret_type
@@ -10,40 +13,70 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.secret_reference
     import aws_sdk_bedrock_agentcore_control.types.secret_source_type
 
+
 class CoinbaseCdpConfigurationInput(TypedDict):
     api_key_id: "aws_sdk_bedrock_agentcore_control.types.coinbase_cdp_api_key_id_type.CoinbaseCdpApiKeyIdType"
     """<p>The API key identifier provided by Coinbase Developer Platform.</p>"""
     api_key_secret: "aws_sdk_bedrock_agentcore_control.types.default_coinbase_cdp_api_key_secret_type.DefaultCoinbaseCdpApiKeySecretType"
     """<p>The API key secret provided by Coinbase Developer Platform.</p>"""
-    api_key_secret_source: NotRequired["aws_sdk_bedrock_agentcore_control.types.secret_source_type.SecretSourceType"]
+    api_key_secret_source: NotRequired[
+        "aws_sdk_bedrock_agentcore_control.types.secret_source_type.SecretSourceType"
+    ]
     """<p>The source type of the API key secret for the Coinbase Developer Platform. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in AWS Secrets Manager.</p>"""
-    api_key_secret_config: NotRequired["aws_sdk_bedrock_agentcore_control.types.secret_reference.SecretReference"]
+    api_key_secret_config: NotRequired[
+        "aws_sdk_bedrock_agentcore_control.types.secret_reference.SecretReference"
+    ]
     """<p>A reference to the AWS Secrets Manager secret that stores the API key secret. This includes the secret ID and the JSON key used to extract the API key secret value from the secret. Required when <code>apiKeySecretSource</code> is set to <code>EXTERNAL</code>.</p>"""
     wallet_secret: "aws_sdk_bedrock_agentcore_control.types.default_coinbase_cdp_wallet_secret_type.DefaultCoinbaseCdpWalletSecretType"
     """<p>The wallet secret provided by Coinbase Developer Platform.</p>"""
-    wallet_secret_source: NotRequired["aws_sdk_bedrock_agentcore_control.types.secret_source_type.SecretSourceType"]
+    wallet_secret_source: NotRequired[
+        "aws_sdk_bedrock_agentcore_control.types.secret_source_type.SecretSourceType"
+    ]
     """<p>The source type of the wallet secret for the Coinbase Developer Platform. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in AWS Secrets Manager.</p>"""
-    wallet_secret_config: NotRequired["aws_sdk_bedrock_agentcore_control.types.secret_reference.SecretReference"]
+    wallet_secret_config: NotRequired[
+        "aws_sdk_bedrock_agentcore_control.types.secret_reference.SecretReference"
+    ]
     """<p>A reference to the AWS Secrets Manager secret that stores the wallet secret. This includes the secret ID and the JSON key used to extract the wallet secret value from the secret. Required when <code>walletSecretSource</code> is set to <code>EXTERNAL</code>.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: CoinbaseCdpConfigurationInput) -> dict:
     out: dict = {}
     out["apiKeyId"] = value["api_key_id"]
-    out["apiKeySecret"] = value.get("api_key_secret", '')
+    out["apiKeySecret"] = value.get("api_key_secret", "")
     if "api_key_secret_source" in value:
         import aws_sdk_bedrock_agentcore_control.types.secret_source_type
-        out["apiKeySecretSource"] = aws_sdk_bedrock_agentcore_control.types.secret_source_type.serialize_json(value["api_key_secret_source"])
+
+        out["apiKeySecretSource"] = (
+            aws_sdk_bedrock_agentcore_control.types.secret_source_type.serialize_json(
+                value["api_key_secret_source"]
+            )
+        )
     if "api_key_secret_config" in value:
         import aws_sdk_bedrock_agentcore_control.types.secret_reference
-        out["apiKeySecretConfig"] = aws_sdk_bedrock_agentcore_control.types.secret_reference.serialize_json(value["api_key_secret_config"])
-    out["walletSecret"] = value.get("wallet_secret", '')
+
+        out["apiKeySecretConfig"] = (
+            aws_sdk_bedrock_agentcore_control.types.secret_reference.serialize_json(
+                value["api_key_secret_config"]
+            )
+        )
+    out["walletSecret"] = value.get("wallet_secret", "")
     if "wallet_secret_source" in value:
         import aws_sdk_bedrock_agentcore_control.types.secret_source_type
-        out["walletSecretSource"] = aws_sdk_bedrock_agentcore_control.types.secret_source_type.serialize_json(value["wallet_secret_source"])
+
+        out["walletSecretSource"] = (
+            aws_sdk_bedrock_agentcore_control.types.secret_source_type.serialize_json(
+                value["wallet_secret_source"]
+            )
+        )
     if "wallet_secret_config" in value:
         import aws_sdk_bedrock_agentcore_control.types.secret_reference
-        out["walletSecretConfig"] = aws_sdk_bedrock_agentcore_control.types.secret_reference.serialize_json(value["wallet_secret_config"])
+
+        out["walletSecretConfig"] = (
+            aws_sdk_bedrock_agentcore_control.types.secret_reference.serialize_json(
+                value["wallet_secret_config"]
+            )
+        )
     return out
 
 
@@ -56,21 +89,41 @@ def deserialize_json(data: dict) -> CoinbaseCdpConfigurationInput:
     if "apiKeySecret" in data:
         out["api_key_secret"] = data["apiKeySecret"]
     else:
-        out["api_key_secret"] = ''
+        out["api_key_secret"] = ""
     if "apiKeySecretSource" in data:
         import aws_sdk_bedrock_agentcore_control.types.secret_source_type
-        out["api_key_secret_source"] = aws_sdk_bedrock_agentcore_control.types.secret_source_type.deserialize_json(data["apiKeySecretSource"])
+
+        out["api_key_secret_source"] = (
+            aws_sdk_bedrock_agentcore_control.types.secret_source_type.deserialize_json(
+                data["apiKeySecretSource"]
+            )
+        )
     if "apiKeySecretConfig" in data:
         import aws_sdk_bedrock_agentcore_control.types.secret_reference
-        out["api_key_secret_config"] = aws_sdk_bedrock_agentcore_control.types.secret_reference.deserialize_json(data["apiKeySecretConfig"])
+
+        out["api_key_secret_config"] = (
+            aws_sdk_bedrock_agentcore_control.types.secret_reference.deserialize_json(
+                data["apiKeySecretConfig"]
+            )
+        )
     if "walletSecret" in data:
         out["wallet_secret"] = data["walletSecret"]
     else:
-        out["wallet_secret"] = ''
+        out["wallet_secret"] = ""
     if "walletSecretSource" in data:
         import aws_sdk_bedrock_agentcore_control.types.secret_source_type
-        out["wallet_secret_source"] = aws_sdk_bedrock_agentcore_control.types.secret_source_type.deserialize_json(data["walletSecretSource"])
+
+        out["wallet_secret_source"] = (
+            aws_sdk_bedrock_agentcore_control.types.secret_source_type.deserialize_json(
+                data["walletSecretSource"]
+            )
+        )
     if "walletSecretConfig" in data:
         import aws_sdk_bedrock_agentcore_control.types.secret_reference
-        out["wallet_secret_config"] = aws_sdk_bedrock_agentcore_control.types.secret_reference.deserialize_json(data["walletSecretConfig"])
+
+        out["wallet_secret_config"] = (
+            aws_sdk_bedrock_agentcore_control.types.secret_reference.deserialize_json(
+                data["walletSecretConfig"]
+            )
+        )
     return out

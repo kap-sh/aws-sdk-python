@@ -16,7 +16,7 @@ class DeleteMessageRequest(TypedDict):
     room_identifier: "aws_sdk_ivschat.types.room_identifier.RoomIdentifier"
     """<p>Identifier of the room where the message should be deleted. Currently this must be an ARN. </p>"""
     id: "aws_sdk_ivschat.types.message_id.MessageID"
-    """<p>ID of the message to be deleted. This is the <code>Id</code> field in the received message (see <a href=\"https://docs.aws.amazon.com/ivs/latest/chatmsgapireference/actions-message-subscribe.html\"> Message (Subscribe)</a> in the Chat Messaging API).</p>"""
+    r"""<p>ID of the message to be deleted. This is the <code>Id</code> field in the received message (see <a href=\"https://docs.aws.amazon.com/ivs/latest/chatmsgapireference/actions-message-subscribe.html\"> Message (Subscribe)</a> in the Chat Messaging API).</p>"""
     reason: NotRequired["aws_sdk_ivschat.types.reason.Reason"]
     """<p>Reason for deleting the message.</p>"""
 

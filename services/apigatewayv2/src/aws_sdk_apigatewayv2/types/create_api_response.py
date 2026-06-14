@@ -30,7 +30,7 @@ class CreateApiResponse(TypedDict):
     api_key_selection_expression: NotRequired[
         "aws_sdk_apigatewayv2.types.selection_expression.SelectionExpression"
     ]
-    """<p>An API key selection expression. Supported only for WebSocket APIs. See <a href=\"https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions\">API Key Selection Expressions</a>.</p>"""
+    r"""<p>An API key selection expression. Supported only for WebSocket APIs. See <a href=\"https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions\">API Key Selection Expressions</a>.</p>"""
     cors_configuration: NotRequired["aws_sdk_apigatewayv2.types.cors.Cors"]
     """<p>A CORS configuration. Supported only for HTTP APIs.</p>"""
     created_date: NotRequired[

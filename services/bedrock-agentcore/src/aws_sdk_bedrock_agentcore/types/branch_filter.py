@@ -1,15 +1,19 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#BranchFilter``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.branch_name
+
 
 class BranchFilter(TypedDict):
     name: "aws_sdk_bedrock_agentcore.types.branch_name.BranchName"
     """<p>The name of the branch to filter by.</p>"""
     include_parent_branches: "bool"
     """<p>Specifies whether to include parent branches in the results. Set to true to include parent branches, or false to exclude them.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: BranchFilter) -> dict:

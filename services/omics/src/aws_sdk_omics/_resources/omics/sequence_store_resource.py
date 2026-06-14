@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from collections.abc import AsyncIterator, Iterator
 from typing import TYPE_CHECKING, Optional
 
@@ -133,7 +135,7 @@ class SequenceStoreResource:
     ) -> (
         "aws_sdk_omics.types.create_sequence_store_response.CreateSequenceStoreResponse"
     ):
-        """<p>Creates a sequence store and returns its metadata. Sequence stores are used to store sequence data files called read sets that are saved in FASTQ, BAM, uBAM, or CRAM formats. For aligned formats (BAM and CRAM), a sequence store can only use one reference genome. For unaligned formats (FASTQ and uBAM), a reference genome is not required. You can create multiple sequence stores per region per account. </p> <p>The following are optional parameters you can specify for your sequence store:</p> <ul> <li> <p>Use <code>s3AccessConfig</code> to configure your sequence store with S3 access logs (recommended).</p> </li> <li> <p>Use <code>sseConfig</code> to define your own KMS key for encryption.</p> </li> <li> <p>Use <code>eTagAlgorithmFamily</code> to define which algorithm to use for the HealthOmics eTag on objects.</p> </li> <li> <p>Use <code>fallbackLocation</code> to define a backup location for storing files that have failed a direct upload.</p> </li> <li> <p>Use <code>propagatedSetLevelTags</code> to configure tags that propagate to all objects in your store.</p> </li> </ul> <p>For more information, see <a href=\"https://docs.aws.amazon.com/omics/latest/dev/create-sequence-store.html\">Creating a HealthOmics sequence store</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
+        r"""<p>Creates a sequence store and returns its metadata. Sequence stores are used to store sequence data files called read sets that are saved in FASTQ, BAM, uBAM, or CRAM formats. For aligned formats (BAM and CRAM), a sequence store can only use one reference genome. For unaligned formats (FASTQ and uBAM), a reference genome is not required. You can create multiple sequence stores per region per account. </p> <p>The following are optional parameters you can specify for your sequence store:</p> <ul> <li> <p>Use <code>s3AccessConfig</code> to configure your sequence store with S3 access logs (recommended).</p> </li> <li> <p>Use <code>sseConfig</code> to define your own KMS key for encryption.</p> </li> <li> <p>Use <code>eTagAlgorithmFamily</code> to define which algorithm to use for the HealthOmics eTag on objects.</p> </li> <li> <p>Use <code>fallbackLocation</code> to define a backup location for storing files that have failed a direct upload.</p> </li> <li> <p>Use <code>propagatedSetLevelTags</code> to configure tags that propagate to all objects in your store.</p> </li> </ul> <p>For more information, see <a href=\"https://docs.aws.amazon.com/omics/latest/dev/create-sequence-store.html\">Creating a HealthOmics sequence store</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
 
         Args:
             name: <p>A name for the store.</p>
@@ -306,7 +308,7 @@ class SequenceStoreResource:
     ) -> (
         "aws_sdk_omics.types.delete_sequence_store_response.DeleteSequenceStoreResponse"
     ):
-        """<p>Deletes a sequence store and returns a response with no body if the operation is successful. You can only delete a sequence store when it does not contain any read sets.</p> <p>Use the <code>BatchDeleteReadSet</code> API operation to ensure that all read sets in the sequence store are deleted. When a sequence store is deleted, all tags associated with the store are also deleted.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/omics/latest/dev/deleting-reference-and-sequence-stores.html\">Deleting HealthOmics reference and sequence stores</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
+        r"""<p>Deletes a sequence store and returns a response with no body if the operation is successful. You can only delete a sequence store when it does not contain any read sets.</p> <p>Use the <code>BatchDeleteReadSet</code> API operation to ensure that all read sets in the sequence store are deleted. When a sequence store is deleted, all tags associated with the store are also deleted.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/omics/latest/dev/deleting-reference-and-sequence-stores.html\">Deleting HealthOmics reference and sequence stores</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
 
         Args:
             id: <p>The sequence store's ID.</p>
@@ -347,7 +349,7 @@ class SequenceStoreResource:
             "aws_sdk_omics.types.sequence_store_filter.SequenceStoreFilter"
         ] = None,
     ) -> "aws_sdk_omics.types.list_sequence_stores_response.ListSequenceStoresResponse":
-        """<p>Retrieves a list of sequence stores and returns each sequence store's metadata.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/omics/latest/dev/create-sequence-store.html\">Creating a HealthOmics sequence store</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
+        r"""<p>Retrieves a list of sequence stores and returns each sequence store's metadata.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/omics/latest/dev/create-sequence-store.html\">Creating a HealthOmics sequence store</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
 
         Args:
             max_results: <p>The maximum number of stores to return in one page of results.</p>
@@ -433,7 +435,7 @@ class SequenceStoreResource:
         *,
         config_overrides: Optional[OmicsClientConfig] = None,
     ) -> "aws_sdk_omics.types.complete_multipart_read_set_upload_response.CompleteMultipartReadSetUploadResponse":
-        """<p>Completes a multipart read set upload into a sequence store after you have initiated the upload process with <code>CreateMultipartReadSetUpload</code> and uploaded all read set parts using <code>UploadReadSetPart</code>. You must specify the parts you uploaded using the parts parameter. If the operation is successful, it returns the read set ID(s) of the uploaded read set(s).</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/omics/latest/dev/synchronous-uploads.html\">Direct upload to a sequence store</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
+        r"""<p>Completes a multipart read set upload into a sequence store after you have initiated the upload process with <code>CreateMultipartReadSetUpload</code> and uploaded all read set parts using <code>UploadReadSetPart</code>. You must specify the parts you uploaded using the parts parameter. If the operation is successful, it returns the read set ID(s) of the uploaded read set(s).</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/omics/latest/dev/synchronous-uploads.html\">Direct upload to a sequence store</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
 
         Args:
             sequence_store_id: <p>The sequence store ID for the store involved in the multipart upload.</p>
@@ -489,7 +491,7 @@ class SequenceStoreResource:
         ] = None,
         tags: Optional["aws_sdk_omics.types.tag_map.TagMap"] = None,
     ) -> "aws_sdk_omics.types.create_multipart_read_set_upload_response.CreateMultipartReadSetUploadResponse":
-        """<p>Initiates a multipart read set upload for uploading partitioned source files into a sequence store. You can directly import source files from an EC2 instance and other local compute, or from an S3 bucket. To separate these source files into parts, use the <code>split</code> operation. Each part cannot be larger than 100 MB. If the operation is successful, it provides an <code>uploadId</code> which is required by the <code>UploadReadSetPart</code> API operation to upload parts into a sequence store.</p> <p>To continue uploading a multipart read set into your sequence store, you must use the <code>UploadReadSetPart</code> API operation to upload each part individually following the steps below:</p> <ul> <li> <p>Specify the <code>uploadId</code> obtained from the previous call to <code>CreateMultipartReadSetUpload</code>.</p> </li> <li> <p>Upload parts for that <code>uploadId</code>.</p> </li> </ul> <p>When you have finished uploading parts, use the <code>CompleteMultipartReadSetUpload</code> API to complete the multipart read set upload and to retrieve the final read set IDs in the response.</p> <p>To learn more about creating parts and the <code>split</code> operation, see <a href=\"https://docs.aws.amazon.com/omics/latest/dev/synchronous-uploads.html\">Direct upload to a sequence store</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
+        r"""<p>Initiates a multipart read set upload for uploading partitioned source files into a sequence store. You can directly import source files from an EC2 instance and other local compute, or from an S3 bucket. To separate these source files into parts, use the <code>split</code> operation. Each part cannot be larger than 100 MB. If the operation is successful, it provides an <code>uploadId</code> which is required by the <code>UploadReadSetPart</code> API operation to upload parts into a sequence store.</p> <p>To continue uploading a multipart read set into your sequence store, you must use the <code>UploadReadSetPart</code> API operation to upload each part individually following the steps below:</p> <ul> <li> <p>Specify the <code>uploadId</code> obtained from the previous call to <code>CreateMultipartReadSetUpload</code>.</p> </li> <li> <p>Upload parts for that <code>uploadId</code>.</p> </li> </ul> <p>When you have finished uploading parts, use the <code>CompleteMultipartReadSetUpload</code> API to complete the multipart read set upload and to retrieve the final read set IDs in the response.</p> <p>To learn more about creating parts and the <code>split</code> operation, see <a href=\"https://docs.aws.amazon.com/omics/latest/dev/synchronous-uploads.html\">Direct upload to a sequence store</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
 
         Args:
             sequence_store_id: <p>The sequence store ID for the store that is the destination of the multipart uploads.</p>
@@ -926,7 +928,7 @@ class SequenceStoreResource:
         config_overrides: Optional[OmicsClientConfig] = None,
         client_token: Optional["aws_sdk_omics.types.client_token.ClientToken"] = None,
     ) -> "aws_sdk_omics.types.start_read_set_activation_job_response.StartReadSetActivationJobResponse":
-        """<p>Activates an archived read set and returns its metadata in a JSON formatted output. AWS HealthOmics automatically archives unused read sets after 30 days. To monitor the status of your read set activation job, use the <code>GetReadSetActivationJob</code> operation.</p> <p>To learn more, see <a href=\"https://docs.aws.amazon.com/omics/latest/dev/activating-read-sets.html\">Activating read sets</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
+        r"""<p>Activates an archived read set and returns its metadata in a JSON formatted output. AWS HealthOmics automatically archives unused read sets after 30 days. To monitor the status of your read set activation job, use the <code>GetReadSetActivationJob</code> operation.</p> <p>To learn more, see <a href=\"https://docs.aws.amazon.com/omics/latest/dev/activating-read-sets.html\">Activating read sets</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
 
         Args:
             sequence_store_id: <p>The read set's sequence store ID.</p>
@@ -1069,7 +1071,7 @@ class SequenceStoreResource:
         *,
         config_overrides: Optional[OmicsClientConfig] = None,
     ) -> "aws_sdk_omics.types.upload_read_set_part_response.UploadReadSetPartResponse":
-        """<p>Uploads a specific part of a read set into a sequence store. When you a upload a read set part with a part number that already exists, the new part replaces the existing one. This operation returns a JSON formatted response containing a string identifier that is used to confirm that parts are being added to the intended upload.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/omics/latest/dev/synchronous-uploads.html\">Direct upload to a sequence store</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
+        r"""<p>Uploads a specific part of a read set into a sequence store. When you a upload a read set part with a part number that already exists, the new part replaces the existing one. This operation returns a JSON formatted response containing a string identifier that is used to confirm that parts are being added to the intended upload.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/omics/latest/dev/synchronous-uploads.html\">Direct upload to a sequence store</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
 
         Args:
             sequence_store_id: <p>The Sequence Store ID used for the multipart upload.</p>
@@ -1139,7 +1141,7 @@ class AsyncSequenceStoreResource:
     ) -> (
         "aws_sdk_omics.types.create_sequence_store_response.CreateSequenceStoreResponse"
     ):
-        """<p>Creates a sequence store and returns its metadata. Sequence stores are used to store sequence data files called read sets that are saved in FASTQ, BAM, uBAM, or CRAM formats. For aligned formats (BAM and CRAM), a sequence store can only use one reference genome. For unaligned formats (FASTQ and uBAM), a reference genome is not required. You can create multiple sequence stores per region per account. </p> <p>The following are optional parameters you can specify for your sequence store:</p> <ul> <li> <p>Use <code>s3AccessConfig</code> to configure your sequence store with S3 access logs (recommended).</p> </li> <li> <p>Use <code>sseConfig</code> to define your own KMS key for encryption.</p> </li> <li> <p>Use <code>eTagAlgorithmFamily</code> to define which algorithm to use for the HealthOmics eTag on objects.</p> </li> <li> <p>Use <code>fallbackLocation</code> to define a backup location for storing files that have failed a direct upload.</p> </li> <li> <p>Use <code>propagatedSetLevelTags</code> to configure tags that propagate to all objects in your store.</p> </li> </ul> <p>For more information, see <a href=\"https://docs.aws.amazon.com/omics/latest/dev/create-sequence-store.html\">Creating a HealthOmics sequence store</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
+        r"""<p>Creates a sequence store and returns its metadata. Sequence stores are used to store sequence data files called read sets that are saved in FASTQ, BAM, uBAM, or CRAM formats. For aligned formats (BAM and CRAM), a sequence store can only use one reference genome. For unaligned formats (FASTQ and uBAM), a reference genome is not required. You can create multiple sequence stores per region per account. </p> <p>The following are optional parameters you can specify for your sequence store:</p> <ul> <li> <p>Use <code>s3AccessConfig</code> to configure your sequence store with S3 access logs (recommended).</p> </li> <li> <p>Use <code>sseConfig</code> to define your own KMS key for encryption.</p> </li> <li> <p>Use <code>eTagAlgorithmFamily</code> to define which algorithm to use for the HealthOmics eTag on objects.</p> </li> <li> <p>Use <code>fallbackLocation</code> to define a backup location for storing files that have failed a direct upload.</p> </li> <li> <p>Use <code>propagatedSetLevelTags</code> to configure tags that propagate to all objects in your store.</p> </li> </ul> <p>For more information, see <a href=\"https://docs.aws.amazon.com/omics/latest/dev/create-sequence-store.html\">Creating a HealthOmics sequence store</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
 
         Args:
             name: <p>A name for the store.</p>
@@ -1315,7 +1317,7 @@ class AsyncSequenceStoreResource:
     ) -> (
         "aws_sdk_omics.types.delete_sequence_store_response.DeleteSequenceStoreResponse"
     ):
-        """<p>Deletes a sequence store and returns a response with no body if the operation is successful. You can only delete a sequence store when it does not contain any read sets.</p> <p>Use the <code>BatchDeleteReadSet</code> API operation to ensure that all read sets in the sequence store are deleted. When a sequence store is deleted, all tags associated with the store are also deleted.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/omics/latest/dev/deleting-reference-and-sequence-stores.html\">Deleting HealthOmics reference and sequence stores</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
+        r"""<p>Deletes a sequence store and returns a response with no body if the operation is successful. You can only delete a sequence store when it does not contain any read sets.</p> <p>Use the <code>BatchDeleteReadSet</code> API operation to ensure that all read sets in the sequence store are deleted. When a sequence store is deleted, all tags associated with the store are also deleted.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/omics/latest/dev/deleting-reference-and-sequence-stores.html\">Deleting HealthOmics reference and sequence stores</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
 
         Args:
             id: <p>The sequence store's ID.</p>
@@ -1357,7 +1359,7 @@ class AsyncSequenceStoreResource:
             "aws_sdk_omics.types.sequence_store_filter.SequenceStoreFilter"
         ] = None,
     ) -> "aws_sdk_omics.types.list_sequence_stores_response.ListSequenceStoresResponse":
-        """<p>Retrieves a list of sequence stores and returns each sequence store's metadata.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/omics/latest/dev/create-sequence-store.html\">Creating a HealthOmics sequence store</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
+        r"""<p>Retrieves a list of sequence stores and returns each sequence store's metadata.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/omics/latest/dev/create-sequence-store.html\">Creating a HealthOmics sequence store</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
 
         Args:
             max_results: <p>The maximum number of stores to return in one page of results.</p>
@@ -1445,7 +1447,7 @@ class AsyncSequenceStoreResource:
         *,
         config_overrides: Optional[AsyncOmicsClientConfig] = None,
     ) -> "aws_sdk_omics.types.complete_multipart_read_set_upload_response.CompleteMultipartReadSetUploadResponse":
-        """<p>Completes a multipart read set upload into a sequence store after you have initiated the upload process with <code>CreateMultipartReadSetUpload</code> and uploaded all read set parts using <code>UploadReadSetPart</code>. You must specify the parts you uploaded using the parts parameter. If the operation is successful, it returns the read set ID(s) of the uploaded read set(s).</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/omics/latest/dev/synchronous-uploads.html\">Direct upload to a sequence store</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
+        r"""<p>Completes a multipart read set upload into a sequence store after you have initiated the upload process with <code>CreateMultipartReadSetUpload</code> and uploaded all read set parts using <code>UploadReadSetPart</code>. You must specify the parts you uploaded using the parts parameter. If the operation is successful, it returns the read set ID(s) of the uploaded read set(s).</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/omics/latest/dev/synchronous-uploads.html\">Direct upload to a sequence store</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
 
         Args:
             sequence_store_id: <p>The sequence store ID for the store involved in the multipart upload.</p>
@@ -1502,7 +1504,7 @@ class AsyncSequenceStoreResource:
         ] = None,
         tags: Optional["aws_sdk_omics.types.tag_map.TagMap"] = None,
     ) -> "aws_sdk_omics.types.create_multipart_read_set_upload_response.CreateMultipartReadSetUploadResponse":
-        """<p>Initiates a multipart read set upload for uploading partitioned source files into a sequence store. You can directly import source files from an EC2 instance and other local compute, or from an S3 bucket. To separate these source files into parts, use the <code>split</code> operation. Each part cannot be larger than 100 MB. If the operation is successful, it provides an <code>uploadId</code> which is required by the <code>UploadReadSetPart</code> API operation to upload parts into a sequence store.</p> <p>To continue uploading a multipart read set into your sequence store, you must use the <code>UploadReadSetPart</code> API operation to upload each part individually following the steps below:</p> <ul> <li> <p>Specify the <code>uploadId</code> obtained from the previous call to <code>CreateMultipartReadSetUpload</code>.</p> </li> <li> <p>Upload parts for that <code>uploadId</code>.</p> </li> </ul> <p>When you have finished uploading parts, use the <code>CompleteMultipartReadSetUpload</code> API to complete the multipart read set upload and to retrieve the final read set IDs in the response.</p> <p>To learn more about creating parts and the <code>split</code> operation, see <a href=\"https://docs.aws.amazon.com/omics/latest/dev/synchronous-uploads.html\">Direct upload to a sequence store</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
+        r"""<p>Initiates a multipart read set upload for uploading partitioned source files into a sequence store. You can directly import source files from an EC2 instance and other local compute, or from an S3 bucket. To separate these source files into parts, use the <code>split</code> operation. Each part cannot be larger than 100 MB. If the operation is successful, it provides an <code>uploadId</code> which is required by the <code>UploadReadSetPart</code> API operation to upload parts into a sequence store.</p> <p>To continue uploading a multipart read set into your sequence store, you must use the <code>UploadReadSetPart</code> API operation to upload each part individually following the steps below:</p> <ul> <li> <p>Specify the <code>uploadId</code> obtained from the previous call to <code>CreateMultipartReadSetUpload</code>.</p> </li> <li> <p>Upload parts for that <code>uploadId</code>.</p> </li> </ul> <p>When you have finished uploading parts, use the <code>CompleteMultipartReadSetUpload</code> API to complete the multipart read set upload and to retrieve the final read set IDs in the response.</p> <p>To learn more about creating parts and the <code>split</code> operation, see <a href=\"https://docs.aws.amazon.com/omics/latest/dev/synchronous-uploads.html\">Direct upload to a sequence store</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
 
         Args:
             sequence_store_id: <p>The sequence store ID for the store that is the destination of the multipart uploads.</p>
@@ -1948,7 +1950,7 @@ class AsyncSequenceStoreResource:
         config_overrides: Optional[AsyncOmicsClientConfig] = None,
         client_token: Optional["aws_sdk_omics.types.client_token.ClientToken"] = None,
     ) -> "aws_sdk_omics.types.start_read_set_activation_job_response.StartReadSetActivationJobResponse":
-        """<p>Activates an archived read set and returns its metadata in a JSON formatted output. AWS HealthOmics automatically archives unused read sets after 30 days. To monitor the status of your read set activation job, use the <code>GetReadSetActivationJob</code> operation.</p> <p>To learn more, see <a href=\"https://docs.aws.amazon.com/omics/latest/dev/activating-read-sets.html\">Activating read sets</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
+        r"""<p>Activates an archived read set and returns its metadata in a JSON formatted output. AWS HealthOmics automatically archives unused read sets after 30 days. To monitor the status of your read set activation job, use the <code>GetReadSetActivationJob</code> operation.</p> <p>To learn more, see <a href=\"https://docs.aws.amazon.com/omics/latest/dev/activating-read-sets.html\">Activating read sets</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
 
         Args:
             sequence_store_id: <p>The read set's sequence store ID.</p>
@@ -2094,7 +2096,7 @@ class AsyncSequenceStoreResource:
         *,
         config_overrides: Optional[AsyncOmicsClientConfig] = None,
     ) -> "aws_sdk_omics.types.upload_read_set_part_response.UploadReadSetPartResponse":
-        """<p>Uploads a specific part of a read set into a sequence store. When you a upload a read set part with a part number that already exists, the new part replaces the existing one. This operation returns a JSON formatted response containing a string identifier that is used to confirm that parts are being added to the intended upload.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/omics/latest/dev/synchronous-uploads.html\">Direct upload to a sequence store</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
+        r"""<p>Uploads a specific part of a read set into a sequence store. When you a upload a read set part with a part number that already exists, the new part replaces the existing one. This operation returns a JSON formatted response containing a string identifier that is used to confirm that parts are being added to the intended upload.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/omics/latest/dev/synchronous-uploads.html\">Direct upload to a sequence store</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
 
         Args:
             sequence_store_id: <p>The Sequence Store ID used for the multipart upload.</p>

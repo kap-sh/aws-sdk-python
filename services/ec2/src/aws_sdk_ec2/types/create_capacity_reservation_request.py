@@ -27,9 +27,9 @@ if TYPE_CHECKING:
 
 class CreateCapacityReservationRequest(TypedDict):
     client_token: NotRequired["aws_sdk_ec2.types.string.String"]
-    """<p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensure Idempotency</a>.</p>"""
+    r"""<p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensure Idempotency</a>.</p>"""
     instance_type: NotRequired["aws_sdk_ec2.types.string.String"]
-    """<p>The instance type for which to reserve capacity.</p> <note> <p>You can request future-dated Capacity Reservations for instance types in the C, M, R, I, T, and G instance families only.</p> </note> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html\">Instance types</a> in the <i>Amazon EC2 User Guide</i>.</p>"""
+    r"""<p>The instance type for which to reserve capacity.</p> <note> <p>You can request future-dated Capacity Reservations for instance types in the C, M, R, I, T, and G instance families only.</p> </note> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html\">Instance types</a> in the <i>Amazon EC2 User Guide</i>.</p>"""
     instance_platform: NotRequired[
         "aws_sdk_ec2.types.capacity_reservation_instance_platform.CapacityReservationInstancePlatform"
     ]
@@ -71,7 +71,7 @@ class CreateCapacityReservationRequest(TypedDict):
     placement_group_arn: NotRequired[
         "aws_sdk_ec2.types.placement_group_arn.PlacementGroupArn"
     ]
-    """<note> <p>Not supported for future-dated Capacity Reservations.</p> </note> <p>The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-cpg.html\"> Capacity Reservations for cluster placement groups</a> in the <i>Amazon EC2 User Guide</i>.</p>"""
+    r"""<note> <p>Not supported for future-dated Capacity Reservations.</p> </note> <p>The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-cpg.html\"> Capacity Reservations for cluster placement groups</a> in the <i>Amazon EC2 User Guide</i>.</p>"""
     start_date: NotRequired[
         "aws_sdk_ec2.types.millisecond_date_time.MillisecondDateTime"
     ]
@@ -79,7 +79,7 @@ class CreateCapacityReservationRequest(TypedDict):
     commitment_duration: NotRequired[
         "aws_sdk_ec2.types.capacity_reservation_commitment_duration.CapacityReservationCommitmentDuration"
     ]
-    """<note> <p>Required for future-dated Capacity Reservations only. To create a Capacity Reservation for immediate use, omit this parameter. </p> </note> <p>Specify a commitment duration, in seconds, for the future-dated Capacity Reservation.</p> <p>The commitment duration is a minimum duration for which you commit to having the future-dated Capacity Reservation in the <code>active</code> state in your account after it has been delivered.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-concepts.html#cr-commitment-duration\"> Commitment duration</a>.</p>"""
+    r"""<note> <p>Required for future-dated Capacity Reservations only. To create a Capacity Reservation for immediate use, omit this parameter. </p> </note> <p>Specify a commitment duration, in seconds, for the future-dated Capacity Reservation.</p> <p>The commitment duration is a minimum duration for which you commit to having the future-dated Capacity Reservation in the <code>active</code> state in your account after it has been delivered.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-concepts.html#cr-commitment-duration\"> Commitment duration</a>.</p>"""
     delivery_preference: NotRequired[
         "aws_sdk_ec2.types.capacity_reservation_delivery_preference.CapacityReservationDeliveryPreference"
     ]

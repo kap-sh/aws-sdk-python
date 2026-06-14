@@ -374,7 +374,7 @@ class ivsClient:
         ] = None,
         tags: Optional["aws_sdk_ivs.types.tags.Tags"] = None,
     ) -> "aws_sdk_ivs.types.create_ad_configuration_response.CreateAdConfigurationResponse":
-        """<p>Creates a new ad configuration to be used for server-side ad insertion.</p>
+        r"""<p>Creates a new ad configuration to be used for server-side ad insertion.</p>
 
         Args:
             name: <p>Ad configuration name. Defaults to “”.</p>
@@ -442,7 +442,7 @@ class ivsClient:
             "aws_sdk_ivs.types.channel_ad_configuration_arn.ChannelAdConfigurationArn"
         ] = None,
     ) -> "aws_sdk_ivs.types.create_channel_response.CreateChannelResponse":
-        """<p>Creates a new channel and an associated stream key to start streaming.</p>
+        r"""<p>Creates a new channel and an associated stream key to start streaming.</p>
 
         Args:
             name: <p>Channel name.</p>
@@ -525,7 +525,7 @@ class ivsClient:
         ] = None,
         tags: Optional["aws_sdk_ivs.types.tags.Tags"] = None,
     ) -> "aws_sdk_ivs.types.create_playback_restriction_policy_response.CreatePlaybackRestrictionPolicyResponse":
-        """<p>Creates a new playback restriction policy, for constraining playback by countries and/or origins.</p>
+        r"""<p>Creates a new playback restriction policy, for constraining playback by countries and/or origins.</p>
 
         Args:
             allowed_countries: <p>A list of country codes that control geoblocking restriction. Allowed values are the officially assigned <a href=\"https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2\">ISO 3166-1 alpha-2</a> codes. Default: All countries (an empty array).</p>
@@ -590,7 +590,7 @@ class ivsClient:
             "aws_sdk_ivs.types.rendition_configuration.RenditionConfiguration"
         ] = None,
     ) -> "aws_sdk_ivs.types.create_recording_configuration_response.CreateRecordingConfigurationResponse":
-        """<p>Creates a new recording configuration, used to enable recording to Amazon S3.</p> <p> <b>Known issue:</b> In the us-east-1 region, if you use the Amazon Web Services CLI to create a recording configuration, it returns success even if the S3 bucket is in a different region. In this case, the <code>state</code> of the recording configuration is <code>CREATE_FAILED</code> (instead of <code>ACTIVE</code>). (In other regions, the CLI correctly returns failure if the bucket is in a different region.)</p> <p> <b>Workaround:</b> Ensure that your S3 bucket is in the same region as the recording configuration. If you create a recording configuration in a different region as your S3 bucket, delete that recording configuration and create a new one with an S3 bucket from the correct region.</p>
+        r"""<p>Creates a new recording configuration, used to enable recording to Amazon S3.</p> <p> <b>Known issue:</b> In the us-east-1 region, if you use the Amazon Web Services CLI to create a recording configuration, it returns success even if the S3 bucket is in a different region. In this case, the <code>state</code> of the recording configuration is <code>CREATE_FAILED</code> (instead of <code>ACTIVE</code>). (In other regions, the CLI correctly returns failure if the bucket is in a different region.)</p> <p> <b>Workaround:</b> Ensure that your S3 bucket is in the same region as the recording configuration. If you create a recording configuration in a different region as your S3 bucket, delete that recording configuration and create a new one with an S3 bucket from the correct region.</p>
 
         Args:
             name: <p>Recording-configuration name. The value does not need to be unique.</p>
@@ -645,7 +645,7 @@ class ivsClient:
         config_overrides: Optional[ivsClientConfig] = None,
         tags: Optional["aws_sdk_ivs.types.tags.Tags"] = None,
     ) -> "aws_sdk_ivs.types.create_stream_key_response.CreateStreamKeyResponse":
-        """<p>Creates a stream key, used to initiate a stream, for the specified channel ARN.</p> <p>Note that <a>CreateChannel</a> creates a stream key. If you subsequently use CreateStreamKey on the same channel, it will fail because a stream key already exists and there is a limit of 1 stream key per channel. To reset the stream key on a channel, use <a>DeleteStreamKey</a> and then CreateStreamKey.</p>
+        r"""<p>Creates a stream key, used to initiate a stream, for the specified channel ARN.</p> <p>Note that <a>CreateChannel</a> creates a stream key. If you subsequently use CreateStreamKey on the same channel, it will fail because a stream key already exists and there is a limit of 1 stream key per channel. To reset the stream key on a channel, use <a>DeleteStreamKey</a> and then CreateStreamKey.</p>
 
         Args:
             channel_arn: <p>ARN of the channel for which to create the stream key.</p>
@@ -720,7 +720,7 @@ class ivsClient:
         *,
         config_overrides: Optional[ivsClientConfig] = None,
     ) -> None:
-        """<p>Deletes the specified channel and its associated stream keys.</p> <p>If you try to delete a live channel, you will get an error (409 ConflictException). To delete a channel that is live, call <a>StopStream</a>, wait for the Amazon EventBridge \"Stream End\" event (to verify that the stream's state is no longer Live), then call DeleteChannel. (See <a href=\"https://docs.aws.amazon.com/ivs/latest/userguide/eventbridge.html\"> Using EventBridge with Amazon IVS</a>.) </p>
+        r"""<p>Deletes the specified channel and its associated stream keys.</p> <p>If you try to delete a live channel, you will get an error (409 ConflictException). To delete a channel that is live, call <a>StopStream</a>, wait for the Amazon EventBridge \"Stream End\" event (to verify that the stream's state is no longer Live), then call DeleteChannel. (See <a href=\"https://docs.aws.amazon.com/ivs/latest/userguide/eventbridge.html\"> Using EventBridge with Amazon IVS</a>.) </p>
 
         Args:
             arn: <p>ARN of the channel to be deleted.</p>
@@ -755,7 +755,7 @@ class ivsClient:
         *,
         config_overrides: Optional[ivsClientConfig] = None,
     ) -> "aws_sdk_ivs.types.delete_playback_key_pair_response.DeletePlaybackKeyPairResponse":
-        """<p>Deletes a specified authorization key pair. This invalidates future viewer tokens generated using the key pair’s <code>privateKey</code>. For more information, see <a href=\"https://docs.aws.amazon.com/ivs/latest/userguide/private-channels.html\">Setting Up Private Channels</a> in the <i>Amazon IVS User Guide</i>.</p>
+        r"""<p>Deletes a specified authorization key pair. This invalidates future viewer tokens generated using the key pair’s <code>privateKey</code>. For more information, see <a href=\"https://docs.aws.amazon.com/ivs/latest/userguide/private-channels.html\">Setting Up Private Channels</a> in the <i>Amazon IVS User Guide</i>.</p>
 
         Args:
             arn: <p>ARN of the key pair to be deleted.</p>
@@ -971,7 +971,7 @@ class ivsClient:
         *,
         config_overrides: Optional[ivsClientConfig] = None,
     ) -> "aws_sdk_ivs.types.get_playback_key_pair_response.GetPlaybackKeyPairResponse":
-        """<p>Gets a specified playback authorization key pair and returns the <code>arn</code> and <code>fingerprint</code>. The <code>privateKey</code> held by the caller can be used to generate viewer authorization tokens, to grant viewers access to private channels. For more information, see <a href=\"https://docs.aws.amazon.com/ivs/latest/userguide/private-channels.html\">Setting Up Private Channels</a> in the <i>Amazon IVS User Guide</i>.</p>
+        r"""<p>Gets a specified playback authorization key pair and returns the <code>arn</code> and <code>fingerprint</code>. The <code>privateKey</code> held by the caller can be used to generate viewer authorization tokens, to grant viewers access to private channels. For more information, see <a href=\"https://docs.aws.amazon.com/ivs/latest/userguide/private-channels.html\">Setting Up Private Channels</a> in the <i>Amazon IVS User Guide</i>.</p>
 
         Args:
             arn: <p>ARN of the key pair to be returned.</p>
@@ -1201,7 +1201,7 @@ class ivsClient:
         ] = None,
         tags: Optional["aws_sdk_ivs.types.tags.Tags"] = None,
     ) -> "aws_sdk_ivs.types.import_playback_key_pair_response.ImportPlaybackKeyPairResponse":
-        """<p>Imports the public portion of a new key pair and returns its <code>arn</code> and <code>fingerprint</code>. The <code>privateKey</code> can then be used to generate viewer authorization tokens, to grant viewers access to private channels. For more information, see <a href=\"https://docs.aws.amazon.com/ivs/latest/userguide/private-channels.html\">Setting Up Private Channels</a> in the <i>Amazon IVS User Guide</i>.</p>
+        r"""<p>Imports the public portion of a new key pair and returns its <code>arn</code> and <code>fingerprint</code>. The <code>privateKey</code> can then be used to generate viewer authorization tokens, to grant viewers access to private channels. For more information, see <a href=\"https://docs.aws.amazon.com/ivs/latest/userguide/private-channels.html\">Setting Up Private Channels</a> in the <i>Amazon IVS User Guide</i>.</p>
 
         Args:
             public_key_material: <p>The public portion of a customer-generated key pair.</p>
@@ -1245,7 +1245,7 @@ class ivsClient:
         *,
         config_overrides: Optional[ivsClientConfig] = None,
     ) -> "aws_sdk_ivs.types.insert_ad_break_response.InsertAdBreakResponse":
-        """<p>Inserts an ad marker in the playlist for the specified channel and duration using the ad configuration associated with the channel.</p> <p> <b>Note:</b> AWS Elemental MediaTailor (EMT), the service that handles ad requests, provides CloudWatch metrics to help you monitor the success or failure of each InsertAdBreak operation. See <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/monitoring-cloudwatch-metrics.html\">Monitoring AWS Elemental MediaTailor with Amazon CloudWatch</a> metrics in the <i>AWS Elemental MediaTailor User Guide</i> for details on available metrics.</p>
+        r"""<p>Inserts an ad marker in the playlist for the specified channel and duration using the ad configuration associated with the channel.</p> <p> <b>Note:</b> AWS Elemental MediaTailor (EMT), the service that handles ad requests, provides CloudWatch metrics to help you monitor the success or failure of each InsertAdBreak operation. See <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/monitoring-cloudwatch-metrics.html\">Monitoring AWS Elemental MediaTailor with Amazon CloudWatch</a> metrics in the <i>AWS Elemental MediaTailor User Guide</i> for details on available metrics.</p>
 
         Args:
             channel_arn: <p>ARN of the channel into which the ad break is inserted.</p>
@@ -1434,7 +1434,7 @@ class ivsClient:
             "aws_sdk_ivs.types.max_playback_key_pair_results.MaxPlaybackKeyPairResults"
         ] = None,
     ) -> "aws_sdk_ivs.types.list_playback_key_pairs_response.ListPlaybackKeyPairsResponse":
-        """<p>Gets summary information about playback key pairs. For more information, see <a href=\"https://docs.aws.amazon.com/ivs/latest/userguide/private-channels.html\">Setting Up Private Channels</a> in the <i>Amazon IVS User Guide</i>.</p>
+        r"""<p>Gets summary information about playback key pairs. For more information, see <a href=\"https://docs.aws.amazon.com/ivs/latest/userguide/private-channels.html\">Setting Up Private Channels</a> in the <i>Amazon IVS User Guide</i>.</p>
 
         Args:
             next_token: <p>The first key pair to retrieve. This is used for pagination; see the <code>nextToken</code> response field.</p>
@@ -1755,7 +1755,7 @@ class ivsClient:
         *,
         config_overrides: Optional[ivsClientConfig] = None,
     ) -> None:
-        """<p>Inserts metadata into the active stream of the specified channel. At most 5 requests per second per channel are allowed, each with a maximum 1 KB payload. (If 5 TPS is not sufficient for your needs, we recommend batching your data into a single PutMetadata call.) At most 155 requests per second per account are allowed. Also see <a href=\"https://docs.aws.amazon.com/ivs/latest/userguide/metadata.html\">Embedding Metadata within a Video Stream</a> in the <i>Amazon IVS User Guide</i>.</p>
+        r"""<p>Inserts metadata into the active stream of the specified channel. At most 5 requests per second per channel are allowed, each with a maximum 1 KB payload. (If 5 TPS is not sufficient for your needs, we recommend batching your data into a single PutMetadata call.) At most 155 requests per second per account are allowed. Also see <a href=\"https://docs.aws.amazon.com/ivs/latest/userguide/metadata.html\">Embedding Metadata within a Video Stream</a> in the <i>Amazon IVS User Guide</i>.</p>
 
         Args:
             channel_arn: <p>ARN of the channel into which metadata is inserted. This channel must have an active stream.</p>
@@ -1796,7 +1796,7 @@ class ivsClient:
             "aws_sdk_ivs.types.viewer_session_version.ViewerSessionVersion"
         ] = None,
     ) -> "aws_sdk_ivs.types.start_viewer_session_revocation_response.StartViewerSessionRevocationResponse":
-        """<p>Starts the process of revoking the viewer session associated with a specified channel ARN and viewer ID. Optionally, you can provide a version to revoke viewer sessions less than and including that version. For instructions on associating a viewer ID with a viewer session, see <a href=\"https://docs.aws.amazon.com/ivs/latest/userguide/private-channels.html\">Setting Up Private Channels</a>.</p>
+        r"""<p>Starts the process of revoking the viewer session associated with a specified channel ARN and viewer ID. Optionally, you can provide a version to revoke viewer sessions less than and including that version. For instructions on associating a viewer ID with a viewer session, see <a href=\"https://docs.aws.amazon.com/ivs/latest/userguide/private-channels.html\">Setting Up Private Channels</a>.</p>
 
         Args:
             channel_arn: <p>The ARN of the channel associated with the viewer session to revoke.</p>
@@ -1878,7 +1878,7 @@ class ivsClient:
         *,
         config_overrides: Optional[ivsClientConfig] = None,
     ) -> "aws_sdk_ivs.types.tag_resource_response.TagResourceResponse":
-        """<p>Adds or updates tags for the Amazon Web Services resource with the specified ARN.</p>
+        r"""<p>Adds or updates tags for the Amazon Web Services resource with the specified ARN.</p>
 
         Args:
             resource_arn: <p>ARN of the resource for which tags are to be added or updated. The ARN must be URL-encoded.</p>
@@ -1918,7 +1918,7 @@ class ivsClient:
         *,
         config_overrides: Optional[ivsClientConfig] = None,
     ) -> "aws_sdk_ivs.types.untag_resource_response.UntagResourceResponse":
-        """<p>Removes tags from the resource with the specified ARN.</p>
+        r"""<p>Removes tags from the resource with the specified ARN.</p>
 
         Args:
             resource_arn: <p>ARN of the resource for which tags are to be removed. The ARN must be URL-encoded.</p>
@@ -1963,7 +1963,7 @@ class ivsClient:
             "aws_sdk_ivs.types.media_tailor_playback_configurations_list.MediaTailorPlaybackConfigurationsList"
         ] = None,
     ) -> "aws_sdk_ivs.types.update_ad_configuration_response.UpdateAdConfigurationResponse":
-        """<p>Updates a specified ad configuration.</p>
+        r"""<p>Updates a specified ad configuration.</p>
 
         Args:
             arn: <p>ARN of the ad configuration to be updated.</p>
@@ -2031,7 +2031,7 @@ class ivsClient:
             "aws_sdk_ivs.types.channel_ad_configuration_arn.ChannelAdConfigurationArn"
         ] = None,
     ) -> "aws_sdk_ivs.types.update_channel_response.UpdateChannelResponse":
-        """<p>Updates a channel's configuration. Live channels cannot be updated. You must stop the ongoing stream, update the channel, and restart the stream for the changes to take effect.</p>
+        r"""<p>Updates a channel's configuration. Live channels cannot be updated. You must stop the ongoing stream, update the channel, and restart the stream for the changes to take effect.</p>
 
         Args:
             arn: <p>ARN of the channel to be updated.</p>
@@ -2113,7 +2113,7 @@ class ivsClient:
             "aws_sdk_ivs.types.playback_restriction_policy_name.PlaybackRestrictionPolicyName"
         ] = None,
     ) -> "aws_sdk_ivs.types.update_playback_restriction_policy_response.UpdatePlaybackRestrictionPolicyResponse":
-        """<p>Updates a specified playback restriction policy.</p>
+        r"""<p>Updates a specified playback restriction policy.</p>
 
         Args:
             arn: <p>ARN of the playback-restriction-policy to be updated.</p>

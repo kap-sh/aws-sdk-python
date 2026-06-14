@@ -15,7 +15,7 @@ if TYPE_CHECKING:
 
 class ListPermissionAssociationsRequest(TypedDict):
     permission_arn: NotRequired["aws_sdk_ram.types.string.String"]
-    """<p>Specifies the <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of the managed permission.</p>"""
+    r"""<p>Specifies the <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of the managed permission.</p>"""
     permission_version: NotRequired["aws_sdk_ram.types.integer.Integer"]
     """<p>Specifies that you want to list only those associations with resource shares that use this version of the managed permission. If you don't provide a value for this parameter, then the operation returns information about associations with resource shares that use any version of the managed permission.</p>"""
     association_status: NotRequired[

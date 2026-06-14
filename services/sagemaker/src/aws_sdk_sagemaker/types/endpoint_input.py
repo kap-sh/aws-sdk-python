@@ -43,11 +43,11 @@ class EndpointInput(TypedDict):
     start_time_offset: NotRequired[
         "aws_sdk_sagemaker.types.monitoring_time_offset_string.MonitoringTimeOffsetString"
     ]
-    """<p>If specified, monitoring jobs substract this time from the start time. For information about using offsets for scheduling monitoring jobs, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-model-quality-schedule.html\">Schedule Model Quality Monitoring Jobs</a>.</p>"""
+    r"""<p>If specified, monitoring jobs substract this time from the start time. For information about using offsets for scheduling monitoring jobs, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-model-quality-schedule.html\">Schedule Model Quality Monitoring Jobs</a>.</p>"""
     end_time_offset: NotRequired[
         "aws_sdk_sagemaker.types.monitoring_time_offset_string.MonitoringTimeOffsetString"
     ]
-    """<p>If specified, monitoring jobs substract this time from the end time. For information about using offsets for scheduling monitoring jobs, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-model-quality-schedule.html\">Schedule Model Quality Monitoring Jobs</a>.</p>"""
+    r"""<p>If specified, monitoring jobs substract this time from the end time. For information about using offsets for scheduling monitoring jobs, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-model-quality-schedule.html\">Schedule Model Quality Monitoring Jobs</a>.</p>"""
     exclude_features_attribute: NotRequired[
         "aws_sdk_sagemaker.types.exclude_features_attribute.ExcludeFeaturesAttribute"
     ]

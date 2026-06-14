@@ -30,7 +30,7 @@ class CreateCustomActionTypeInput(TypedDict):
     configuration_properties: NotRequired[
         "aws_sdk_codepipeline.types.action_configuration_property_list.ActionConfigurationPropertyList"
     ]
-    """<p>The configuration properties for the custom action.</p> <note> <p>You can refer to a name in the configuration properties of the custom action within the URL templates by following the format of {Config:name}, as long as the configuration property is both required and not secret. For more information, see <a href=\"https://docs.aws.amazon.com/codepipeline/latest/userguide/how-to-create-custom-action.html\">Create a Custom Action for a Pipeline</a>.</p> </note>"""
+    r"""<p>The configuration properties for the custom action.</p> <note> <p>You can refer to a name in the configuration properties of the custom action within the URL templates by following the format of {Config:name}, as long as the configuration property is both required and not secret. For more information, see <a href=\"https://docs.aws.amazon.com/codepipeline/latest/userguide/how-to-create-custom-action.html\">Create a Custom Action for a Pipeline</a>.</p> </note>"""
     input_artifact_details: (
         "aws_sdk_codepipeline.types.artifact_details.ArtifactDetails"
     )

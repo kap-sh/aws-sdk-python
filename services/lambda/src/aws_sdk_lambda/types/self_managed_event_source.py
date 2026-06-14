@@ -10,7 +10,7 @@ if TYPE_CHECKING:
 
 class SelfManagedEventSource(TypedDict):
     endpoints: NotRequired["aws_sdk_lambda.types.endpoints.Endpoints"]
-    """<p>The list of bootstrap servers for your Kafka brokers in the following format: <code>\"KAFKA_BOOTSTRAP_SERVERS\": [\"abc.xyz.com:xxxx\",\"abc2.xyz.com:xxxx\"]</code>.</p>"""
+    r"""<p>The list of bootstrap servers for your Kafka brokers in the following format: <code>\"KAFKA_BOOTSTRAP_SERVERS\": [\"abc.xyz.com:xxxx\",\"abc2.xyz.com:xxxx\"]</code>.</p>"""
 
 
 # --- restJson1 ser/de ---

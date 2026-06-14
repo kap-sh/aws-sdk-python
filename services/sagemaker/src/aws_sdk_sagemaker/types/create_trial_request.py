@@ -27,7 +27,7 @@ class CreateTrialRequest(TypedDict):
         "aws_sdk_sagemaker.types.metadata_properties.MetadataProperties"
     ]
     tags: NotRequired["aws_sdk_sagemaker.types.tag_list.TagList"]
-    """<p>A list of tags to associate with the trial. You can use <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html\">Search</a> API to search on the tags.</p>"""
+    r"""<p>A list of tags to associate with the trial. You can use <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html\">Search</a> API to search on the tags.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

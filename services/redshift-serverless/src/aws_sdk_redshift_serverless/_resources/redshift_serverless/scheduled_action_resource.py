@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import datetime
 from typing import TYPE_CHECKING, Optional
 
@@ -56,7 +58,7 @@ class ScheduledActionResource:
         start_time: Optional[datetime.datetime] = None,
         end_time: Optional[datetime.datetime] = None,
     ) -> "aws_sdk_redshift_serverless.types.create_scheduled_action_response.CreateScheduledActionResponse":
-        """<p>Creates a scheduled action. A scheduled action contains a schedule and an Amazon Redshift API action. For example, you can create a schedule of when to run the <code>CreateSnapshot</code> API operation.</p>
+        r"""<p>Creates a scheduled action. A scheduled action contains a schedule and an Amazon Redshift API action. For example, you can create a schedule of when to run the <code>CreateSnapshot</code> API operation.</p>
 
         Args:
             scheduled_action_name: <p>The name of the scheduled action.</p>
@@ -249,7 +251,7 @@ class ScheduledActionResource:
         start_time: Optional[datetime.datetime] = None,
         end_time: Optional[datetime.datetime] = None,
     ) -> "aws_sdk_redshift_serverless.types.update_scheduled_action_response.UpdateScheduledActionResponse":
-        """<p>Updates a scheduled action.</p>
+        r"""<p>Updates a scheduled action.</p>
 
         Args:
             scheduled_action_name: <p>The name of the scheduled action to update to.</p>
@@ -319,7 +321,7 @@ class AsyncScheduledActionResource:
         start_time: Optional[datetime.datetime] = None,
         end_time: Optional[datetime.datetime] = None,
     ) -> "aws_sdk_redshift_serverless.types.create_scheduled_action_response.CreateScheduledActionResponse":
-        """<p>Creates a scheduled action. A scheduled action contains a schedule and an Amazon Redshift API action. For example, you can create a schedule of when to run the <code>CreateSnapshot</code> API operation.</p>
+        r"""<p>Creates a scheduled action. A scheduled action contains a schedule and an Amazon Redshift API action. For example, you can create a schedule of when to run the <code>CreateSnapshot</code> API operation.</p>
 
         Args:
             scheduled_action_name: <p>The name of the scheduled action.</p>
@@ -516,7 +518,7 @@ class AsyncScheduledActionResource:
         start_time: Optional[datetime.datetime] = None,
         end_time: Optional[datetime.datetime] = None,
     ) -> "aws_sdk_redshift_serverless.types.update_scheduled_action_response.UpdateScheduledActionResponse":
-        """<p>Updates a scheduled action.</p>
+        r"""<p>Updates a scheduled action.</p>
 
         Args:
             scheduled_action_name: <p>The name of the scheduled action to update to.</p>

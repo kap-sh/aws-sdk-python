@@ -10,7 +10,7 @@ if TYPE_CHECKING:
 
 class DescribePackageVersionResult(TypedDict):
     package_version: "aws_sdk_codeartifact.types.package_version_description.PackageVersionDescription"
-    """<p> A <a href=\"https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionDescription.html\">PackageVersionDescription</a> object that contains information about the requested package version. </p>"""
+    r"""<p> A <a href=\"https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionDescription.html\">PackageVersionDescription</a> object that contains information about the requested package version. </p>"""
 
 
 # --- restJson1 ser/de ---

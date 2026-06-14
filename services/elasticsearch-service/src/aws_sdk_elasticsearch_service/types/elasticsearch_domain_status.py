@@ -41,7 +41,7 @@ class ElasticsearchDomainStatus(TypedDict):
     domain_name: "aws_sdk_elasticsearch_service.types.domain_name.DomainName"
     """<p>The name of an Elasticsearch domain. Domain names are unique across the domains owned by an account within an AWS region. Domain names start with a letter or number and can contain the following characters: a-z (lowercase), 0-9, and - (hyphen).</p>"""
     arn: "aws_sdk_elasticsearch_service.types.arn.ARN"
-    """<p>The Amazon resource name (ARN) of an Elasticsearch domain. See <a href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/index.html?Using_Identifiers.html\" target=\"_blank\">Identifiers for IAM Entities</a> in <i>Using AWS Identity and Access Management</i> for more information.</p>"""
+    r"""<p>The Amazon resource name (ARN) of an Elasticsearch domain. See <a href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/index.html?Using_Identifiers.html\" target=\"_blank\">Identifiers for IAM Entities</a> in <i>Using AWS Identity and Access Management</i> for more information.</p>"""
     created: NotRequired["aws_sdk_elasticsearch_service.types.boolean.Boolean"]
     """<p>The domain creation status. <code>True</code> if the creation of an Elasticsearch domain is complete. <code>False</code> if domain creation is still in progress.</p>"""
     deleted: NotRequired["aws_sdk_elasticsearch_service.types.boolean.Boolean"]
@@ -66,7 +66,7 @@ class ElasticsearchDomainStatus(TypedDict):
     ebs_options: NotRequired[
         "aws_sdk_elasticsearch_service.types.ebs_options.EBSOptions"
     ]
-    """<p>The <code>EBSOptions</code> for the specified domain. See <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-ebs\" target=\"_blank\">Configuring EBS-based Storage</a> for more information.</p>"""
+    r"""<p>The <code>EBSOptions</code> for the specified domain. See <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-ebs\" target=\"_blank\">Configuring EBS-based Storage</a> for more information.</p>"""
     access_policies: NotRequired[
         "aws_sdk_elasticsearch_service.types.policy_document.PolicyDocument"
     ]
@@ -78,11 +78,11 @@ class ElasticsearchDomainStatus(TypedDict):
     vpc_options: NotRequired[
         "aws_sdk_elasticsearch_service.types.vpc_derived_info.VPCDerivedInfo"
     ]
-    """<p>The <code>VPCOptions</code> for the specified domain. For more information, see <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html\" target=\"_blank\">VPC Endpoints for Amazon Elasticsearch Service Domains</a>.</p>"""
+    r"""<p>The <code>VPCOptions</code> for the specified domain. For more information, see <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html\" target=\"_blank\">VPC Endpoints for Amazon Elasticsearch Service Domains</a>.</p>"""
     cognito_options: NotRequired[
         "aws_sdk_elasticsearch_service.types.cognito_options.CognitoOptions"
     ]
-    """<p>The <code>CognitoOptions</code> for the specified domain. For more information, see <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-cognito-auth.html\" target=\"_blank\">Amazon Cognito Authentication for Kibana</a>.</p>"""
+    r"""<p>The <code>CognitoOptions</code> for the specified domain. For more information, see <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-cognito-auth.html\" target=\"_blank\">Amazon Cognito Authentication for Kibana</a>.</p>"""
     encryption_at_rest_options: NotRequired[
         "aws_sdk_elasticsearch_service.types.encryption_at_rest_options.EncryptionAtRestOptions"
     ]

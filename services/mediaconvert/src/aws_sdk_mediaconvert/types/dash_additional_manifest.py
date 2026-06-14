@@ -13,7 +13,7 @@ class DashAdditionalManifest(TypedDict):
     manifest_name_modifier: NotRequired[
         "aws_sdk_mediaconvert.types.__string_min1.__stringMin1"
     ]
-    """Specify a name modifier that the service adds to the name of this manifest to make it different from the file names of the other main manifests in the output group. For example, say that the default main manifest for your DASH group is film-name.mpd. If you enter \"-no-premium\" for this setting, then the file name the service generates for this top-level manifest is film-name-no-premium.mpd."""
+    r"""Specify a name modifier that the service adds to the name of this manifest to make it different from the file names of the other main manifests in the output group. For example, say that the default main manifest for your DASH group is film-name.mpd. If you enter \"-no-premium\" for this setting, then the file name the service generates for this top-level manifest is film-name-no-premium.mpd."""
     selected_outputs: NotRequired[
         "aws_sdk_mediaconvert.types.__list_of__string_min1.__listOf__stringMin1"
     ]

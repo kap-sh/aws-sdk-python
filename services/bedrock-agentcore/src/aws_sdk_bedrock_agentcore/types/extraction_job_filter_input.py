@@ -1,9 +1,12 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#ExtractionJobFilterInput``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.extraction_job_status
+
 
 class ExtractionJobFilterInput(TypedDict):
     strategy_id: NotRequired["str"]
@@ -12,8 +15,11 @@ class ExtractionJobFilterInput(TypedDict):
     """<p>The unique identifier of the session. If specified, only extraction jobs with this session ID are returned.</p>"""
     actor_id: NotRequired["str"]
     """<p>The identifier of the actor. If specified, only extraction jobs with this actor ID are returned.</p>"""
-    status: NotRequired["aws_sdk_bedrock_agentcore.types.extraction_job_status.ExtractionJobStatus"]
+    status: NotRequired[
+        "aws_sdk_bedrock_agentcore.types.extraction_job_status.ExtractionJobStatus"
+    ]
     """<p>The status of the extraction job. If specified, only extraction jobs with this status are returned.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: ExtractionJobFilterInput) -> dict:
@@ -26,7 +32,12 @@ def serialize_json(value: ExtractionJobFilterInput) -> dict:
         out["actorId"] = value["actor_id"]
     if "status" in value:
         import aws_sdk_bedrock_agentcore.types.extraction_job_status
-        out["status"] = aws_sdk_bedrock_agentcore.types.extraction_job_status.serialize_json(value["status"])
+
+        out["status"] = (
+            aws_sdk_bedrock_agentcore.types.extraction_job_status.serialize_json(
+                value["status"]
+            )
+        )
     return out
 
 
@@ -40,5 +51,10 @@ def deserialize_json(data: dict) -> ExtractionJobFilterInput:
         out["actor_id"] = data["actorId"]
     if "status" in data:
         import aws_sdk_bedrock_agentcore.types.extraction_job_status
-        out["status"] = aws_sdk_bedrock_agentcore.types.extraction_job_status.deserialize_json(data["status"])
+
+        out["status"] = (
+            aws_sdk_bedrock_agentcore.types.extraction_job_status.deserialize_json(
+                data["status"]
+            )
+        )
     return out

@@ -12,7 +12,7 @@ class AwsWafv2RulesActionCountDetails(TypedDict):
     custom_request_handling: NotRequired[
         "aws_sdk_securityhub.types.aws_wafv2_custom_request_handling_details.AwsWafv2CustomRequestHandlingDetails"
     ]
-    """<p> Defines custom handling for the web request. For more information, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html\">Customizing web requests and responses in WAF</a> in the <i>WAF Developer Guide.</i>. </p>"""
+    r"""<p> Defines custom handling for the web request. For more information, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html\">Customizing web requests and responses in WAF</a> in the <i>WAF Developer Guide.</i>. </p>"""
 
 
 # --- restJson1 ser/de ---

@@ -107,7 +107,7 @@ class BuildBatch(TypedDict):
     debug_session_enabled: NotRequired[
         "aws_sdk_codebuild.types.wrapper_boolean.WrapperBoolean"
     ]
-    """<p>Specifies if session debugging is enabled for this batch build. For more information, see <a href=\"https://docs.aws.amazon.com/codebuild/latest/userguide/session-manager.html\">Viewing a running build in Session Manager</a>. Batch session debugging is not supported for matrix batch builds.</p>"""
+    r"""<p>Specifies if session debugging is enabled for this batch build. For more information, see <a href=\"https://docs.aws.amazon.com/codebuild/latest/userguide/session-manager.html\">Viewing a running build in Session Manager</a>. Batch session debugging is not supported for matrix batch builds.</p>"""
     report_arns: NotRequired[
         "aws_sdk_codebuild.types.build_report_arns.BuildReportArns"
     ]

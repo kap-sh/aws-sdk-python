@@ -14,7 +14,7 @@ class AutoTuneMaintenanceSchedule(TypedDict):
     start_at: NotRequired["aws_sdk_opensearch.types.start_at.StartAt"]
     """<p>The Epoch timestamp at which the Auto-Tune maintenance schedule starts.</p>"""
     duration: NotRequired["aws_sdk_opensearch.types.duration.Duration"]
-    """<p>The duration of the maintenance schedule. For example, <code>\"Duration\": {\"Value\": 2, \"Unit\": \"HOURS\"}</code>.</p>"""
+    r"""<p>The duration of the maintenance schedule. For example, <code>\"Duration\": {\"Value\": 2, \"Unit\": \"HOURS\"}</code>.</p>"""
     cron_expression_for_recurrence: NotRequired[
         "aws_sdk_opensearch.types.string.String"
     ]

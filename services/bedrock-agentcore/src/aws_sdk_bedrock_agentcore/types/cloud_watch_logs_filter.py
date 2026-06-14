@@ -1,10 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#CloudWatchLogsFilter``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.cloud_watch_logs_filter_operator
     import aws_sdk_bedrock_agentcore.types.filter_value
+
 
 class CloudWatchLogsFilter(TypedDict):
     key: "str"
@@ -14,14 +17,23 @@ class CloudWatchLogsFilter(TypedDict):
     value: "aws_sdk_bedrock_agentcore.types.filter_value.FilterValue"
     """<p>The value to compare against using the specified operator.</p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: CloudWatchLogsFilter) -> dict:
     out: dict = {}
     out["key"] = value["key"]
     import aws_sdk_bedrock_agentcore.types.cloud_watch_logs_filter_operator
-    out["operator"] = aws_sdk_bedrock_agentcore.types.cloud_watch_logs_filter_operator.serialize_json(value["operator"])
+
+    out["operator"] = (
+        aws_sdk_bedrock_agentcore.types.cloud_watch_logs_filter_operator.serialize_json(
+            value["operator"]
+        )
+    )
     import aws_sdk_bedrock_agentcore.types.filter_value
-    out["value"] = aws_sdk_bedrock_agentcore.types.filter_value.serialize_json(value["value"])
+
+    out["value"] = aws_sdk_bedrock_agentcore.types.filter_value.serialize_json(
+        value["value"]
+    )
     return out
 
 
@@ -33,12 +45,20 @@ def deserialize_json(data: dict) -> CloudWatchLogsFilter:
         raise DeserializationError("CloudWatchLogsFilter.key required")
     if "operator" in data:
         import aws_sdk_bedrock_agentcore.types.cloud_watch_logs_filter_operator
-        out["operator"] = aws_sdk_bedrock_agentcore.types.cloud_watch_logs_filter_operator.deserialize_json(data["operator"])
+
+        out["operator"] = (
+            aws_sdk_bedrock_agentcore.types.cloud_watch_logs_filter_operator.deserialize_json(
+                data["operator"]
+            )
+        )
     else:
         raise DeserializationError("CloudWatchLogsFilter.operator required")
     if "value" in data:
         import aws_sdk_bedrock_agentcore.types.filter_value
-        out["value"] = aws_sdk_bedrock_agentcore.types.filter_value.deserialize_json(data["value"])
+
+        out["value"] = aws_sdk_bedrock_agentcore.types.filter_value.deserialize_json(
+            data["value"]
+        )
     else:
         raise DeserializationError("CloudWatchLogsFilter.value required")
     return out

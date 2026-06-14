@@ -687,7 +687,7 @@ class savingsplansClient:
         *,
         config_overrides: Optional[savingsplansClientConfig] = None,
     ) -> "aws_sdk_savingsplans.types.tag_resource_response.TagResourceResponse":
-        """<p>Adds the specified tags to the specified resource.</p>
+        r"""<p>Adds the specified tags to the specified resource.</p>
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource.</p>

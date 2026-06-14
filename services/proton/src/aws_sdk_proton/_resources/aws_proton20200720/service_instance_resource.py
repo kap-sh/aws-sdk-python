@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 from aws_sdk_proton._services._pipeline import (
@@ -57,7 +59,7 @@ class ServiceInstanceResource:
         tags: Optional["aws_sdk_proton.types.tag_list.TagList"] = None,
         client_token: Optional["aws_sdk_proton.types.client_token.ClientToken"] = None,
     ) -> "aws_sdk_proton.types.create_service_instance_output.CreateServiceInstanceOutput":
-        """<p>Create a service instance.</p>
+        r"""<p>Create a service instance.</p>
 
         Args:
             name: <p>The name of the service instance to create.</p>
@@ -160,7 +162,7 @@ class ServiceInstanceResource:
         ] = None,
         client_token: Optional["aws_sdk_proton.types.client_token.ClientToken"] = None,
     ) -> "aws_sdk_proton.types.update_service_instance_output.UpdateServiceInstanceOutput":
-        """<p>Update a service instance.</p> <p>There are a few modes for updating a service instance. The <code>deploymentType</code> field defines the mode.</p> <note> <p>You can't update a service instance while its deployment status, or the deployment status of a component attached to it, is <code>IN_PROGRESS</code>.</p> <p>For more information about components, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html\">Proton components</a> in the <i>Proton User Guide</i>.</p> </note>
+        r"""<p>Update a service instance.</p> <p>There are a few modes for updating a service instance. The <code>deploymentType</code> field defines the mode.</p> <note> <p>You can't update a service instance while its deployment status, or the deployment status of a component attached to it, is <code>IN_PROGRESS</code>.</p> <p>For more information about components, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html\">Proton components</a> in the <i>Proton User Guide</i>.</p> </note>
 
         Args:
             name: <p>The name of the service instance to update.</p>
@@ -296,7 +298,7 @@ class AsyncServiceInstanceResource:
         tags: Optional["aws_sdk_proton.types.tag_list.TagList"] = None,
         client_token: Optional["aws_sdk_proton.types.client_token.ClientToken"] = None,
     ) -> "aws_sdk_proton.types.create_service_instance_output.CreateServiceInstanceOutput":
-        """<p>Create a service instance.</p>
+        r"""<p>Create a service instance.</p>
 
         Args:
             name: <p>The name of the service instance to create.</p>
@@ -401,7 +403,7 @@ class AsyncServiceInstanceResource:
         ] = None,
         client_token: Optional["aws_sdk_proton.types.client_token.ClientToken"] = None,
     ) -> "aws_sdk_proton.types.update_service_instance_output.UpdateServiceInstanceOutput":
-        """<p>Update a service instance.</p> <p>There are a few modes for updating a service instance. The <code>deploymentType</code> field defines the mode.</p> <note> <p>You can't update a service instance while its deployment status, or the deployment status of a component attached to it, is <code>IN_PROGRESS</code>.</p> <p>For more information about components, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html\">Proton components</a> in the <i>Proton User Guide</i>.</p> </note>
+        r"""<p>Update a service instance.</p> <p>There are a few modes for updating a service instance. The <code>deploymentType</code> field defines the mode.</p> <note> <p>You can't update a service instance while its deployment status, or the deployment status of a component attached to it, is <code>IN_PROGRESS</code>.</p> <p>For more information about components, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html\">Proton components</a> in the <i>Proton User Guide</i>.</p> </note>
 
         Args:
             name: <p>The name of the service instance to update.</p>

@@ -15,7 +15,7 @@ class ListPackageVersionsRequest(TypedDict):
     package_name: "aws_sdk_iot.types.package_name.PackageName"
     """<p>The name of the target software package.</p>"""
     status: NotRequired["aws_sdk_iot.types.package_version_status.PackageVersionStatus"]
-    """<p>The status of the package version. For more information, see <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle\">Package version lifecycle</a>.</p>"""
+    r"""<p>The status of the package version. For more information, see <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle\">Package version lifecycle</a>.</p>"""
     max_results: NotRequired[
         "aws_sdk_iot.types.package_catalog_max_results.PackageCatalogMaxResults"
     ]

@@ -12,7 +12,7 @@ if TYPE_CHECKING:
 
 class CreateServiceLinkedRoleResponse(TypedDict):
     role: NotRequired["aws_sdk_iam.types.role.Role"]
-    """<p>A <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_Role.html\">Role</a> object that contains details about the newly created role.</p>"""
+    r"""<p>A <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_Role.html\">Role</a> object that contains details about the newly created role.</p>"""
 
 
 # --- awsQuery ser/de ---

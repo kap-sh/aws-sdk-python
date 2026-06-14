@@ -27,7 +27,7 @@ class DescribeAlarmModelResponse(TypedDict):
     alarm_model_arn: NotRequired[
         "aws_sdk_iot_events.types.alarm_model_arn.AlarmModelArn"
     ]
-    """<p>The ARN of the alarm model. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</p>"""
+    r"""<p>The ARN of the alarm model. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</p>"""
     alarm_model_version: NotRequired[
         "aws_sdk_iot_events.types.alarm_model_version.AlarmModelVersion"
     ]
@@ -51,9 +51,9 @@ class DescribeAlarmModelResponse(TypedDict):
     role_arn: NotRequired[
         "aws_sdk_iot_events.types.amazon_resource_name.AmazonResourceName"
     ]
-    """<p>The ARN of the IAM role that allows the alarm to perform actions and access AWS resources. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</p>"""
+    r"""<p>The ARN of the IAM role that allows the alarm to perform actions and access AWS resources. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</p>"""
     key: NotRequired["aws_sdk_iot_events.types.attribute_json_path.AttributeJsonPath"]
-    """<p>An input attribute used as a key to create an alarm. AWS IoT Events routes <a href=\"https://docs.aws.amazon.com/iotevents/latest/apireference/API_Input.html\">inputs</a> associated with this key to the alarm.</p>"""
+    r"""<p>An input attribute used as a key to create an alarm. AWS IoT Events routes <a href=\"https://docs.aws.amazon.com/iotevents/latest/apireference/API_Input.html\">inputs</a> associated with this key to the alarm.</p>"""
     severity: NotRequired["aws_sdk_iot_events.types.severity.Severity"]
     """<p>A non-negative integer that reflects the severity level of the alarm.</p>"""
     alarm_rule: NotRequired["aws_sdk_iot_events.types.alarm_rule.AlarmRule"]

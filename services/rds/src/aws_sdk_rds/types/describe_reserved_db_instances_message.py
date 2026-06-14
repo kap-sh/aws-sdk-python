@@ -25,7 +25,7 @@ class DescribeReservedDBInstancesMessage(TypedDict):
     product_description: NotRequired["aws_sdk_rds.types.string.String"]
     """<p>The product description filter value. Specify this parameter to show only those reservations matching the specified product description.</p>"""
     offering_type: NotRequired["aws_sdk_rds.types.string.String"]
-    """<p>The offering type filter value. Specify this parameter to show only the available offerings matching the specified offering type.</p> <p>Valid Values: <code>\"Partial Upfront\" | \"All Upfront\" | \"No Upfront\" </code> </p>"""
+    r"""<p>The offering type filter value. Specify this parameter to show only the available offerings matching the specified offering type.</p> <p>Valid Values: <code>\"Partial Upfront\" | \"All Upfront\" | \"No Upfront\" </code> </p>"""
     multi_az: NotRequired["aws_sdk_rds.types.boolean_optional.BooleanOptional"]
     """<p>Specifies whether to show only those reservations that support Multi-AZ.</p>"""
     lease_id: NotRequired["aws_sdk_rds.types.string.String"]

@@ -23,7 +23,7 @@ class VpcConnector(TypedDict):
     ]
     """<p>The Amazon Resource Name (ARN) of this VPC connector.</p>"""
     vpc_connector_revision: "aws_sdk_apprunner.types.integer.Integer"
-    """<p>The revision of this VPC connector. It's unique among all the active connectors (<code>\"Status\": \"ACTIVE\"</code>) that share the same <code>Name</code>.</p> <note> <p>At this time, App Runner supports only one revision per name.</p> </note>"""
+    r"""<p>The revision of this VPC connector. It's unique among all the active connectors (<code>\"Status\": \"ACTIVE\"</code>) that share the same <code>Name</code>.</p> <note> <p>At this time, App Runner supports only one revision per name.</p> </note>"""
     subnets: NotRequired["aws_sdk_apprunner.types.string_list.StringList"]
     """<p>A list of IDs of subnets that App Runner uses for your service. All IDs are of subnets of a single Amazon VPC.</p>"""
     security_groups: NotRequired["aws_sdk_apprunner.types.string_list.StringList"]

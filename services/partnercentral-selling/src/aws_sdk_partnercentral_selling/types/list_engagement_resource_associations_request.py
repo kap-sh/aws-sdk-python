@@ -17,7 +17,7 @@ if TYPE_CHECKING:
 
 class ListEngagementResourceAssociationsRequest(TypedDict):
     catalog: "aws_sdk_partnercentral_selling.types.catalog_identifier.CatalogIdentifier"
-    """<p>Specifies the catalog in which to search for engagement-resource associations. Valid Values: \"AWS\" or \"Sandbox\"</p> <ul> <li> <p> <code>AWS</code> for production environments.</p> </li> <li> <p> <code>Sandbox</code> for testing and development purposes.</p> </li> </ul>"""
+    r"""<p>Specifies the catalog in which to search for engagement-resource associations. Valid Values: \"AWS\" or \"Sandbox\"</p> <ul> <li> <p> <code>AWS</code> for production environments.</p> </li> <li> <p> <code>Sandbox</code> for testing and development purposes.</p> </li> </ul>"""
     max_results: "aws_sdk_partnercentral_selling.types.page_size.PageSize"
     """<p>Limits the number of results returned in a single call. Use this to control the number of results returned, especially useful for pagination.</p>"""
     next_token: NotRequired["str"]

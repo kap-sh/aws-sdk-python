@@ -37,7 +37,7 @@ class JobDetail(TypedDict):
     job_queue: NotRequired["aws_sdk_batch.types.string.String"]
     """<p>The Amazon Resource Name (ARN) of the job queue that the job is associated with.</p>"""
     status: NotRequired["aws_sdk_batch.types.job_status.JobStatus"]
-    """<p>The current status for the job.</p> <note> <p>If your jobs don't progress to <code>STARTING</code>, see <a href=\"https://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html#job_stuck_in_runnable\">Jobs stuck in RUNNABLE status</a> in the troubleshooting section of the <i>Batch User Guide</i>.</p> </note>"""
+    r"""<p>The current status for the job.</p> <note> <p>If your jobs don't progress to <code>STARTING</code>, see <a href=\"https://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html#job_stuck_in_runnable\">Jobs stuck in RUNNABLE status</a> in the troubleshooting section of the <i>Batch User Guide</i>.</p> </note>"""
     share_identifier: NotRequired["aws_sdk_batch.types.string.String"]
     """<p>The share identifier for the job.</p>"""
     scheduling_priority: NotRequired["aws_sdk_batch.types.integer.Integer"]
@@ -47,7 +47,7 @@ class JobDetail(TypedDict):
     status_reason: NotRequired["aws_sdk_batch.types.string.String"]
     """<p>A short, human-readable string to provide more details for the current status of the job.</p> <ul> <li> <p> <code>CAPACITY:INSUFFICIENT_INSTANCE_CAPACITY</code> - All compute environments have insufficient capacity to service the job.</p> </li> <li> <p> <code>MISCONFIGURATION:COMPUTE_ENVIRONMENT_MAX_RESOURCE</code> - All compute environments have a <code>maxVcpu</code> setting that is smaller than the job requirements.</p> </li> <li> <p> <code>MISCONFIGURATION:JOB_RESOURCE_REQUIREMENT</code> - All compute environments have no connected instances that meet the job requirements.</p> </li> <li> <p> <code>MISCONFIGURATION:SERVICE_ROLE_PERMISSIONS</code> - All compute environments have problems with the service role permissions.</p> </li> </ul>"""
     created_at: NotRequired["aws_sdk_batch.types.long.Long"]
-    """<p>The Unix timestamp (in milliseconds) for when the job was created. For non-array jobs and parent array jobs, this is when the job entered the <code>SUBMITTED</code> state. This is specifically at the time <a href=\"https://docs.aws.amazon.com/batch/latest/APIReference/API_SubmitJob.html\">SubmitJob</a> was called. For array child jobs, this is when the child job was spawned by its parent and entered the <code>PENDING</code> state.</p>"""
+    r"""<p>The Unix timestamp (in milliseconds) for when the job was created. For non-array jobs and parent array jobs, this is when the job entered the <code>SUBMITTED</code> state. This is specifically at the time <a href=\"https://docs.aws.amazon.com/batch/latest/APIReference/API_SubmitJob.html\">SubmitJob</a> was called. For array child jobs, this is when the child job was spawned by its parent and entered the <code>PENDING</code> state.</p>"""
     retry_strategy: NotRequired["aws_sdk_batch.types.retry_strategy.RetryStrategy"]
     """<p>The retry strategy to use for this job if an attempt fails.</p>"""
     started_at: NotRequired["aws_sdk_batch.types.long.Long"]

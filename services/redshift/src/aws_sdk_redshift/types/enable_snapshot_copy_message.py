@@ -15,7 +15,7 @@ class EnableSnapshotCopyMessage(TypedDict):
     cluster_identifier: NotRequired["aws_sdk_redshift.types.string.String"]
     """<p>The unique identifier of the source cluster to copy snapshots from.</p> <p>Constraints: Must be the valid name of an existing cluster that does not already have cross-region snapshot copy enabled.</p>"""
     destination_region: NotRequired["aws_sdk_redshift.types.string.String"]
-    """<p>The destination Amazon Web Services Region that you want to copy snapshots to.</p> <p>Constraints: Must be the name of a valid Amazon Web Services Region. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region\">Regions and Endpoints</a> in the Amazon Web Services General Reference. </p>"""
+    r"""<p>The destination Amazon Web Services Region that you want to copy snapshots to.</p> <p>Constraints: Must be the name of a valid Amazon Web Services Region. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region\">Regions and Endpoints</a> in the Amazon Web Services General Reference. </p>"""
     retention_period: NotRequired[
         "aws_sdk_redshift.types.integer_optional.IntegerOptional"
     ]

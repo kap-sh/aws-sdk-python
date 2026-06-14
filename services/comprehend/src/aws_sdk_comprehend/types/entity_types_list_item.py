@@ -10,7 +10,7 @@ if TYPE_CHECKING:
 
 class EntityTypesListItem(TypedDict):
     type: "aws_sdk_comprehend.types.entity_type_name.EntityTypeName"
-    """<p>An entity type within a labeled training dataset that Amazon Comprehend uses to train a custom entity recognizer.</p> <p>Entity types must not contain the following invalid characters: \n (line break), \\n (escaped line break, \r (carriage return), \\r (escaped carriage return), \t (tab), \\t (escaped tab), and , (comma).</p>"""
+    r"""<p>An entity type within a labeled training dataset that Amazon Comprehend uses to train a custom entity recognizer.</p> <p>Entity types must not contain the following invalid characters: \n (line break), \\n (escaped line break, \r (carriage return), \\r (escaped carriage return), \t (tab), \\t (escaped tab), and , (comma).</p>"""
 
 
 # --- awsJson1_1 ser/de ---

@@ -87,7 +87,7 @@ class CapacityReservation(TypedDict):
     placement_group_arn: NotRequired[
         "aws_sdk_ec2.types.placement_group_arn.PlacementGroupArn"
     ]
-    """<p>The Amazon Resource Name (ARN) of the cluster placement group in which the Capacity Reservation was created. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-cpg.html\"> Capacity Reservations for cluster placement groups</a> in the <i>Amazon EC2 User Guide</i>.</p>"""
+    r"""<p>The Amazon Resource Name (ARN) of the cluster placement group in which the Capacity Reservation was created. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-cpg.html\"> Capacity Reservations for cluster placement groups</a> in the <i>Amazon EC2 User Guide</i>.</p>"""
     capacity_allocations: NotRequired[
         "aws_sdk_ec2.types.capacity_allocations.CapacityAllocations"
     ]

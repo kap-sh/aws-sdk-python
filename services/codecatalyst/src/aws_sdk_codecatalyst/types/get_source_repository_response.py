@@ -25,9 +25,9 @@ class GetSourceRepositoryResponse(TypedDict):
     ]
     """<p>The description of the source repository.</p>"""
     last_updated_time: "aws_sdk_codecatalyst.types.timestamp.Timestamp"
-    """<p>The time the source repository was last updated, in coordinated universal time (UTC) timestamp format as specified in <a href=\"https://www.rfc-editor.org/rfc/rfc3339#section-5.6\">RFC 3339</a>.</p>"""
+    r"""<p>The time the source repository was last updated, in coordinated universal time (UTC) timestamp format as specified in <a href=\"https://www.rfc-editor.org/rfc/rfc3339#section-5.6\">RFC 3339</a>.</p>"""
     created_time: "aws_sdk_codecatalyst.types.timestamp.Timestamp"
-    """<p>The time the source repository was created, in coordinated universal time (UTC) timestamp format as specified in <a href=\"https://www.rfc-editor.org/rfc/rfc3339#section-5.6\">RFC 3339</a>.</p>"""
+    r"""<p>The time the source repository was created, in coordinated universal time (UTC) timestamp format as specified in <a href=\"https://www.rfc-editor.org/rfc/rfc3339#section-5.6\">RFC 3339</a>.</p>"""
 
 
 # --- restJson1 ser/de ---

@@ -19,7 +19,7 @@ class AnomalyDetectorConfiguration(TypedDict):
     metric_timezone: NotRequired[
         "aws_sdk_cloudwatch.types.anomaly_detector_metric_timezone.AnomalyDetectorMetricTimezone"
     ]
-    """<p>The time zone to use for the metric. This is useful to enable the model to automatically account for daylight savings time changes if the metric is sensitive to such time changes.</p> <p>To specify a time zone, use the name of the time zone as specified in the standard tz database. For more information, see <a href=\"https://en.wikipedia.org/wiki/Tz_database\">tz database</a>.</p>"""
+    r"""<p>The time zone to use for the metric. This is useful to enable the model to automatically account for daylight savings time changes if the metric is sensitive to such time changes.</p> <p>To specify a time zone, use the name of the time zone as specified in the standard tz database. For more information, see <a href=\"https://en.wikipedia.org/wiki/Tz_database\">tz database</a>.</p>"""
 
 
 # --- awsJson1_0 ser/de ---

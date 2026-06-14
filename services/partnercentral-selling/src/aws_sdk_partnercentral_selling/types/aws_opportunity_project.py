@@ -13,7 +13,7 @@ class AwsOpportunityProject(TypedDict):
     expected_customer_spend: NotRequired[
         "aws_sdk_partnercentral_selling.types.expected_customer_spend_list.ExpectedCustomerSpendList"
     ]
-    """<p>Indicates the expected spending by the customer over the course of the project. This value helps partners and AWS estimate the financial impact of the opportunity. Use the <a href=\"https://calculator.aws/#/\">AWS Pricing Calculator</a> to create an estimate of the customer’s total spend. If only annual recurring revenue (ARR) is available, distribute it across 12 months to provide an average monthly value.</p>"""
+    r"""<p>Indicates the expected spending by the customer over the course of the project. This value helps partners and AWS estimate the financial impact of the opportunity. Use the <a href=\"https://calculator.aws/#/\">AWS Pricing Calculator</a> to create an estimate of the customer’s total spend. If only annual recurring revenue (ARR) is available, distribute it across 12 months to provide an average monthly value.</p>"""
     aws_partition: NotRequired[
         "aws_sdk_partnercentral_selling.types.aws_partition.AwsPartition"
     ]

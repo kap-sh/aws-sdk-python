@@ -21,7 +21,7 @@ class EnableLoggingMessage(TypedDict):
     s3_key_prefix: NotRequired[
         "aws_sdk_redshift.types.s3_key_prefix_value.S3KeyPrefixValue"
     ]
-    """<p>The prefix applied to the log file names.</p> <p>Valid characters are any letter from any language, any whitespace character, any numeric character, and the following characters: underscore (<code>_</code>), period (<code>.</code>), colon (<code>:</code>), slash (<code>/</code>), equal (<code>=</code>), plus (<code>+</code>), backslash (<code>\</code>), hyphen (<code>-</code>), at symbol (<code>@</code>).</p>"""
+    r"""<p>The prefix applied to the log file names.</p> <p>Valid characters are any letter from any language, any whitespace character, any numeric character, and the following characters: underscore (<code>_</code>), period (<code>.</code>), colon (<code>:</code>), slash (<code>/</code>), equal (<code>=</code>), plus (<code>+</code>), backslash (<code>\</code>), hyphen (<code>-</code>), at symbol (<code>@</code>).</p>"""
     log_destination_type: NotRequired[
         "aws_sdk_redshift.types.log_destination_type.LogDestinationType"
     ]

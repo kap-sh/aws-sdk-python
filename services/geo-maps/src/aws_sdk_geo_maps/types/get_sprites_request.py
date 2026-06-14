@@ -10,7 +10,7 @@ if TYPE_CHECKING:
 
 class GetSpritesRequest(TypedDict):
     file_name: "str"
-    """<p> <code>Sprites</code> API: The name of the sprite ﬁle to retrieve, following pattern <code>sprites(@2x)?\.(png|json)</code>.</p> <p>Example: <code>sprites.png</code> </p>"""
+    r"""<p> <code>Sprites</code> API: The name of the sprite ﬁle to retrieve, following pattern <code>sprites(@2x)?\.(png|json)</code>.</p> <p>Example: <code>sprites.png</code> </p>"""
     style: "aws_sdk_geo_maps.types.map_style.MapStyle"
     """<p>Style specifies the desired map style for the <code>Sprites</code> APIs.</p>"""
     color_scheme: "aws_sdk_geo_maps.types.color_scheme.ColorScheme"

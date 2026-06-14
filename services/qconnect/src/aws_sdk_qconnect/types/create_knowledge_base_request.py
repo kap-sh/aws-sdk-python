@@ -20,7 +20,7 @@ if TYPE_CHECKING:
 
 class CreateKnowledgeBaseRequest(TypedDict):
     client_token: NotRequired["aws_sdk_qconnect.types.non_empty_string.NonEmptyString"]
-    """<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\"http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>"""
+    r"""<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\"http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>"""
     name: "aws_sdk_qconnect.types.name.Name"
     """<p>The name of the knowledge base.</p>"""
     knowledge_base_type: "aws_sdk_qconnect.types.knowledge_base_type.KnowledgeBaseType"
@@ -40,7 +40,7 @@ class CreateKnowledgeBaseRequest(TypedDict):
     server_side_encryption_configuration: NotRequired[
         "aws_sdk_qconnect.types.server_side_encryption_configuration.ServerSideEncryptionConfiguration"
     ]
-    """<p>The configuration information for the customer managed key used for encryption. </p> <p>This KMS key must have a policy that allows <code>kms:CreateGrant</code>, <code>kms:DescribeKey</code>, <code>kms:Decrypt</code>, and <code>kms:GenerateDataKey*</code> permissions to the IAM identity using the key to invoke Amazon Q in Connect.</p> <p>For more information about setting up a customer managed key for Amazon Q in Connect, see <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/enable-q.html\">Enable Amazon Q in Connect for your instance</a>.</p>"""
+    r"""<p>The configuration information for the customer managed key used for encryption. </p> <p>This KMS key must have a policy that allows <code>kms:CreateGrant</code>, <code>kms:DescribeKey</code>, <code>kms:Decrypt</code>, and <code>kms:GenerateDataKey*</code> permissions to the IAM identity using the key to invoke Amazon Q in Connect.</p> <p>For more information about setting up a customer managed key for Amazon Q in Connect, see <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/enable-q.html\">Enable Amazon Q in Connect for your instance</a>.</p>"""
     description: NotRequired["aws_sdk_qconnect.types.description.Description"]
     """<p>The description.</p>"""
     tags: NotRequired["aws_sdk_qconnect.types.tags.Tags"]

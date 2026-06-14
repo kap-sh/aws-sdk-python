@@ -1,10 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#DatasetExampleList``."""
 
 from typing import TYPE_CHECKING, TypeAlias
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.sensitive_json
 
-DatasetExampleList: TypeAlias = list["aws_sdk_bedrock_agentcore_control.types.sensitive_json.SensitiveJson"]
+DatasetExampleList: TypeAlias = list[
+    "aws_sdk_bedrock_agentcore_control.types.sensitive_json.SensitiveJson"
+]
 
 
 # --- restJson1 ser/de ---

@@ -1,14 +1,18 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#HarnessBedrockModelConfig``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.harness_bedrock_api_format
     import aws_sdk_bedrock_agentcore.types.max_tokens
     import aws_sdk_bedrock_agentcore.types.model_id
     import aws_sdk_bedrock_agentcore.types.temperature
     import aws_sdk_bedrock_agentcore.types.top_p
+
 
 class HarnessBedrockModelConfig(TypedDict):
     model_id: "aws_sdk_bedrock_agentcore.types.model_id.ModelId"
@@ -19,10 +23,13 @@ class HarnessBedrockModelConfig(TypedDict):
     """<p>The temperature to set when calling the model.</p>"""
     top_p: NotRequired["aws_sdk_bedrock_agentcore.types.top_p.TopP"]
     """<p>The topP set when calling the model.</p>"""
-    api_format: NotRequired["aws_sdk_bedrock_agentcore.types.harness_bedrock_api_format.HarnessBedrockApiFormat"]
+    api_format: NotRequired[
+        "aws_sdk_bedrock_agentcore.types.harness_bedrock_api_format.HarnessBedrockApiFormat"
+    ]
     """<p>The API format to use when calling the Bedrock provider.</p>"""
     additional_params: NotRequired["object"]
     """<p>Provider-specific parameters passed through to the model provider unchanged.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: HarnessBedrockModelConfig) -> dict:
@@ -36,7 +43,12 @@ def serialize_json(value: HarnessBedrockModelConfig) -> dict:
         out["topP"] = value["top_p"]
     if "api_format" in value:
         import aws_sdk_bedrock_agentcore.types.harness_bedrock_api_format
-        out["apiFormat"] = aws_sdk_bedrock_agentcore.types.harness_bedrock_api_format.serialize_json(value["api_format"])
+
+        out["apiFormat"] = (
+            aws_sdk_bedrock_agentcore.types.harness_bedrock_api_format.serialize_json(
+                value["api_format"]
+            )
+        )
     if "additional_params" in value:
         out["additionalParams"] = value["additional_params"]
     return out
@@ -56,7 +68,12 @@ def deserialize_json(data: dict) -> HarnessBedrockModelConfig:
         out["top_p"] = data["topP"]
     if "apiFormat" in data:
         import aws_sdk_bedrock_agentcore.types.harness_bedrock_api_format
-        out["api_format"] = aws_sdk_bedrock_agentcore.types.harness_bedrock_api_format.deserialize_json(data["apiFormat"])
+
+        out["api_format"] = (
+            aws_sdk_bedrock_agentcore.types.harness_bedrock_api_format.deserialize_json(
+                data["apiFormat"]
+            )
+        )
     if "additionalParams" in data:
         out["additional_params"] = data["additionalParams"]
     return out

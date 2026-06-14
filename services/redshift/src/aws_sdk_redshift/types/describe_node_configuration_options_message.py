@@ -15,7 +15,7 @@ if TYPE_CHECKING:
 
 class DescribeNodeConfigurationOptionsMessage(TypedDict):
     action_type: NotRequired["aws_sdk_redshift.types.action_type.ActionType"]
-    """<p>The action type to evaluate for possible node configurations. Specify \"restore-cluster\" to get configuration combinations based on an existing snapshot. Specify \"recommend-node-config\" to get configuration recommendations based on an existing cluster or snapshot. Specify \"resize-cluster\" to get configuration combinations for elastic resize based on an existing cluster. </p>"""
+    r"""<p>The action type to evaluate for possible node configurations. Specify \"restore-cluster\" to get configuration combinations based on an existing snapshot. Specify \"recommend-node-config\" to get configuration recommendations based on an existing cluster or snapshot. Specify \"resize-cluster\" to get configuration combinations for elastic resize based on an existing cluster. </p>"""
     cluster_identifier: NotRequired["aws_sdk_redshift.types.string.String"]
     """<p>The identifier of the cluster to evaluate for possible node configurations.</p>"""
     snapshot_identifier: NotRequired["aws_sdk_redshift.types.string.String"]

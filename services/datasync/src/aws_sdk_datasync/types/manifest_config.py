@@ -14,11 +14,11 @@ class ManifestConfig(TypedDict):
     action: NotRequired["aws_sdk_datasync.types.manifest_action.ManifestAction"]
     """<p>Specifies what DataSync uses the manifest for.</p>"""
     format: NotRequired["aws_sdk_datasync.types.manifest_format.ManifestFormat"]
-    """<p>Specifies the file format of your manifest. For more information, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html#transferring-with-manifest-create\">Creating a manifest</a>.</p>"""
+    r"""<p>Specifies the file format of your manifest. For more information, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html#transferring-with-manifest-create\">Creating a manifest</a>.</p>"""
     source: NotRequired[
         "aws_sdk_datasync.types.source_manifest_config.SourceManifestConfig"
     ]
-    """<p>Specifies the manifest that you want DataSync to use and where it's hosted.</p> <note> <p>You must specify this parameter if you're configuring a new manifest on or after February 7, 2024.</p> <p>If you don't, you'll get a 400 status code and <code>ValidationException</code> error stating that you're missing the IAM role for DataSync to access the S3 bucket where you're hosting your manifest. For more information, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html#transferring-with-manifest-access\">Providing DataSync access to your manifest</a>.</p> </note>"""
+    r"""<p>Specifies the manifest that you want DataSync to use and where it's hosted.</p> <note> <p>You must specify this parameter if you're configuring a new manifest on or after February 7, 2024.</p> <p>If you don't, you'll get a 400 status code and <code>ValidationException</code> error stating that you're missing the IAM role for DataSync to access the S3 bucket where you're hosting your manifest. For more information, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html#transferring-with-manifest-access\">Providing DataSync access to your manifest</a>.</p> </note>"""
 
 
 # --- awsJson1_1 ser/de ---

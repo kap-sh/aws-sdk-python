@@ -14,7 +14,7 @@ class BlockedEncryptionTypes(TypedDict):
     encryption_type: NotRequired[
         "aws_sdk_s3.types.encryption_type_list.EncryptionTypeList"
     ]
-    """<p>The object encryption type that you want to block or unblock for an Amazon S3 general purpose bucket.</p> <note> <p>Currently, this parameter only supports blocking or unblocking server side encryption with customer-provided keys (SSE-C). For more information about SSE-C, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html\">Using server-side encryption with customer-provided keys (SSE-C)</a>.</p> </note>"""
+    r"""<p>The object encryption type that you want to block or unblock for an Amazon S3 general purpose bucket.</p> <note> <p>Currently, this parameter only supports blocking or unblocking server side encryption with customer-provided keys (SSE-C). For more information about SSE-C, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html\">Using server-side encryption with customer-provided keys (SSE-C)</a>.</p> </note>"""
 
 
 # --- restXml ser/de ---

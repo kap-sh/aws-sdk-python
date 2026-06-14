@@ -12,7 +12,7 @@ if TYPE_CHECKING:
 
 class BatchPutMessageErrorEntry(TypedDict):
     message_id: NotRequired["aws_sdk_iot_events_data.types.message_id.MessageId"]
-    """<p>The ID of the message that caused the error. (See the value corresponding to the <code>\"messageId\"</code> key in the <code>\"message\"</code> object.)</p>"""
+    r"""<p>The ID of the message that caused the error. (See the value corresponding to the <code>\"messageId\"</code> key in the <code>\"message\"</code> object.)</p>"""
     error_code: NotRequired["aws_sdk_iot_events_data.types.error_code.ErrorCode"]
     """<p>The error code.</p>"""
     error_message: NotRequired[

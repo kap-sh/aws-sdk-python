@@ -296,7 +296,7 @@ class FraudDetectorClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = FraudDetectorClientConfig(
+        self._config = FraudDetectorClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -316,7 +316,7 @@ class FraudDetectorClient:
         overrides: FraudDetectorClientConfig = config_overrides or {}
         interceptors_: list[Interceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             retry(),
         ]
@@ -324,16 +324,16 @@ class FraudDetectorClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            region=overrides.get("region", self.config.get("region")),
+            region=overrides.get("region", self._config.get("region")),
             use_dual_stack=overrides.get(
-                "use_dual_stack", self.config.get("use_dual_stack")
+                "use_dual_stack", self._config.get("use_dual_stack")
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -501,7 +501,7 @@ class FraudDetectorClient:
         config_overrides: Optional[FraudDetectorClientConfig] = None,
         tags: Optional["aws_sdk_frauddetector.types.tag_list.tagList"] = None,
     ) -> "aws_sdk_frauddetector.types.create_batch_import_job_result.CreateBatchImportJobResult":
-        """<p>Creates a batch import job. </p>
+        r"""<p>Creates a batch import job. </p>
 
         Args:
             job_id: <p>The ID of the batch import job. The ID cannot be of a past job, unless the job exists in <code>CREATE_FAILED</code> state.</p>
@@ -558,7 +558,7 @@ class FraudDetectorClient:
         ] = None,
         tags: Optional["aws_sdk_frauddetector.types.tag_list.tagList"] = None,
     ) -> "aws_sdk_frauddetector.types.create_batch_prediction_job_result.CreateBatchPredictionJobResult":
-        """<p>Creates a batch prediction job.</p>
+        r"""<p>Creates a batch prediction job.</p>
 
         Args:
             job_id: <p>The ID of the batch prediction job.</p>
@@ -689,7 +689,7 @@ class FraudDetectorClient:
         ] = None,
         tags: Optional["aws_sdk_frauddetector.types.tag_list.tagList"] = None,
     ) -> "aws_sdk_frauddetector.types.create_list_result.CreateListResult":
-        """<p> Creates a list. </p> <p>List is a set of input data for a variable in your event dataset. You use the input data in a rule that's associated with your detector. For more information, see <a href=\"https://docs.aws.amazon.com/frauddetector/latest/ug/lists.html\">Lists</a>.</p>
+        r"""<p> Creates a list. </p> <p>List is a set of input data for a variable in your event dataset. You use the input data in a rule that's associated with your detector. For more information, see <a href=\"https://docs.aws.amazon.com/frauddetector/latest/ug/lists.html\">Lists</a>.</p>
 
         Args:
             name: <p> The name of the list. </p>
@@ -918,7 +918,7 @@ class FraudDetectorClient:
         variable_type: Optional["aws_sdk_frauddetector.types.string.string"] = None,
         tags: Optional["aws_sdk_frauddetector.types.tag_list.tagList"] = None,
     ) -> "aws_sdk_frauddetector.types.create_variable_result.CreateVariableResult":
-        """<p>Creates a variable.</p>
+        r"""<p>Creates a variable.</p>
 
         Args:
             name: <p>The name of the variable.</p>
@@ -2010,7 +2010,7 @@ class FraudDetectorClient:
             "aws_sdk_frauddetector.types.external_model_endpoint_data_blob_map.ExternalModelEndpointDataBlobMap"
         ] = None,
     ) -> "aws_sdk_frauddetector.types.get_event_prediction_result.GetEventPredictionResult":
-        """<p>Evaluates an event against a detector version. If a version ID is not provided, the detector’s (<code>ACTIVE</code>) version is used.</p>
+        r"""<p>Evaluates an event against a detector version. If a version ID is not provided, the detector’s (<code>ACTIVE</code>) version is used.</p>
 
         Args:
             detector_id: <p>The detector ID.</p>
@@ -2069,7 +2069,7 @@ class FraudDetectorClient:
         *,
         config_overrides: Optional[FraudDetectorClientConfig] = None,
     ) -> "aws_sdk_frauddetector.types.get_event_prediction_metadata_result.GetEventPredictionMetadataResult":
-        """<p> Gets details of the past fraud predictions for the specified event ID, event type, detector ID, and detector version ID that was generated in the specified time period. </p>
+        r"""<p> Gets details of the past fraud predictions for the specified event ID, event type, detector ID, and detector version ID that was generated in the specified time period. </p>
 
         Args:
             event_id: <p> The event ID. </p>
@@ -2655,7 +2655,7 @@ class FraudDetectorClient:
             "aws_sdk_frauddetector.types.event_predictions_max_results.EventPredictionsMaxResults"
         ] = None,
     ) -> "aws_sdk_frauddetector.types.list_event_predictions_result.ListEventPredictionsResult":
-        """<p>Gets a list of past predictions. The list can be filtered by detector ID, detector version ID, event ID, event type, or by specifying a time period. If filter is not specified, the most recent prediction is returned.</p> <p>For example, the following filter lists all past predictions for <code>xyz</code> event type - <code>{ \"eventType\":{ \"value\": \"xyz\" }” } </code> </p> <p>This is a paginated API. If you provide a null <code>maxResults</code>, this action will retrieve a maximum of 10 records per page. If you provide a <code>maxResults</code>, the value must be between 50 and 100. To get the next page results, provide the <code>nextToken</code> from the response as part of your request. A null <code>nextToken</code> fetches the records from the beginning. </p>
+        r"""<p>Gets a list of past predictions. The list can be filtered by detector ID, detector version ID, event ID, event type, or by specifying a time period. If filter is not specified, the most recent prediction is returned.</p> <p>For example, the following filter lists all past predictions for <code>xyz</code> event type - <code>{ \"eventType\":{ \"value\": \"xyz\" }” } </code> </p> <p>This is a paginated API. If you provide a null <code>maxResults</code>, this action will retrieve a maximum of 10 records per page. If you provide a <code>maxResults</code>, the value must be between 50 and 100. To get the next page results, provide the <code>nextToken</code> from the response as part of your request. A null <code>nextToken</code> fetches the records from the beginning. </p>
 
         Args:
             event_id: <p> The event ID. </p>
@@ -3763,7 +3763,7 @@ class FraudDetectorClient:
         description: Optional["aws_sdk_frauddetector.types.string.string"] = None,
         variable_type: Optional["aws_sdk_frauddetector.types.string.string"] = None,
     ) -> "aws_sdk_frauddetector.types.update_variable_result.UpdateVariableResult":
-        """<p>Updates a variable.</p>
+        r"""<p>Updates a variable.</p>
 
         Args:
             name: <p>The name of the variable.</p>

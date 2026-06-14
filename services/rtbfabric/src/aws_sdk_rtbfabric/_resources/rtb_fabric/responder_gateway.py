@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_rtbfabric._auth._signers
@@ -242,7 +244,7 @@ class ResponderGateway:
         *,
         config_overrides: Optional[RTBFabricClientConfig] = None,
     ) -> "aws_sdk_rtbfabric.types.associate_certificate_response.AssociateCertificateResponse":
-        """<p>Associates an ACM certificate with a responder gateway.</p>
+        r"""<p>Associates an ACM certificate with a responder gateway.</p>
 
         Args:
             gateway_id: <p>The unique identifier of the gateway.</p>
@@ -699,7 +701,7 @@ class AsyncResponderGateway:
         *,
         config_overrides: Optional[AsyncRTBFabricClientConfig] = None,
     ) -> "aws_sdk_rtbfabric.types.associate_certificate_response.AssociateCertificateResponse":
-        """<p>Associates an ACM certificate with a responder gateway.</p>
+        r"""<p>Associates an ACM certificate with a responder gateway.</p>
 
         Args:
             gateway_id: <p>The unique identifier of the gateway.</p>

@@ -413,7 +413,7 @@ class GuardDutyClient:
         *,
         config_overrides: Optional[GuardDutyClientConfig] = None,
     ) -> "aws_sdk_guardduty.types.accept_invitation_response.AcceptInvitationResponse":
-        """<p>Accepts the invitation to be monitored by a GuardDuty administrator account.</p>
+        r"""<p>Accepts the invitation to be monitored by a GuardDuty administrator account.</p>
 
         Args:
             detector_id: <p>The unique ID of the detector of the GuardDuty member account.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html\">ListDetectors</a> API.</p>
@@ -455,7 +455,7 @@ class GuardDutyClient:
         *,
         config_overrides: Optional[GuardDutyClientConfig] = None,
     ) -> "aws_sdk_guardduty.types.archive_findings_response.ArchiveFindingsResponse":
-        """<p>Archives GuardDuty findings that are specified by the list of finding IDs.</p> <note> <p>Only the administrator account can archive findings. Member accounts don't have permission to archive findings from their accounts.</p> </note>
+        r"""<p>Archives GuardDuty findings that are specified by the list of finding IDs.</p> <note> <p>Only the administrator account can archive findings. Member accounts don't have permission to archive findings from their accounts.</p> </note>
 
         Args:
             detector_id: <p>The ID of the detector that specifies the GuardDuty service whose findings you want to archive.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html\">ListDetectors</a> API.</p>
@@ -507,7 +507,7 @@ class GuardDutyClient:
             "aws_sdk_guardduty.types.detector_feature_configurations.DetectorFeatureConfigurations"
         ] = None,
     ) -> "aws_sdk_guardduty.types.create_detector_response.CreateDetectorResponse":
-        """<p>Creates a single GuardDuty detector. A detector is a resource that represents the GuardDuty service. To start using GuardDuty, you must create a detector in each Region where you enable the service. You can have only one detector per account per Region. All data sources are enabled in a new detector by default.</p> <ul> <li> <p>When you don't specify any <code>features</code>, with an exception to <code>RUNTIME_MONITORING</code>, all the optional features are enabled by default.</p> </li> <li> <p>When you specify some of the <code>features</code>, any feature that is not specified in the API call gets enabled by default, with an exception to <code>RUNTIME_MONITORING</code>. </p> </li> </ul> <p>Specifying both EKS Runtime Monitoring (<code>EKS_RUNTIME_MONITORING</code>) and Runtime Monitoring (<code>RUNTIME_MONITORING</code>) will cause an error. You can add only one of these two features because Runtime Monitoring already includes the threat detection for Amazon EKS resources. For more information, see <a href=\"https://docs.aws.amazon.com/guardduty/latest/ug/runtime-monitoring.html\">Runtime Monitoring</a>.</p> <p>There might be regional differences because some data sources might not be available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more information, see <a href=\"https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html\">Regions and endpoints</a>.</p>
+        r"""<p>Creates a single GuardDuty detector. A detector is a resource that represents the GuardDuty service. To start using GuardDuty, you must create a detector in each Region where you enable the service. You can have only one detector per account per Region. All data sources are enabled in a new detector by default.</p> <ul> <li> <p>When you don't specify any <code>features</code>, with an exception to <code>RUNTIME_MONITORING</code>, all the optional features are enabled by default.</p> </li> <li> <p>When you specify some of the <code>features</code>, any feature that is not specified in the API call gets enabled by default, with an exception to <code>RUNTIME_MONITORING</code>. </p> </li> </ul> <p>Specifying both EKS Runtime Monitoring (<code>EKS_RUNTIME_MONITORING</code>) and Runtime Monitoring (<code>RUNTIME_MONITORING</code>) will cause an error. You can add only one of these two features because Runtime Monitoring already includes the threat detection for Amazon EKS resources. For more information, see <a href=\"https://docs.aws.amazon.com/guardduty/latest/ug/runtime-monitoring.html\">Runtime Monitoring</a>.</p> <p>There might be regional differences because some data sources might not be available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more information, see <a href=\"https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html\">Regions and endpoints</a>.</p>
 
         Args:
             enable: <p>A Boolean value that specifies whether the detector is to be enabled.</p>
@@ -570,7 +570,7 @@ class GuardDutyClient:
         ] = None,
         tags: Optional["aws_sdk_guardduty.types.tag_map.TagMap"] = None,
     ) -> "aws_sdk_guardduty.types.create_filter_response.CreateFilterResponse":
-        """<p>Creates a filter using the specified finding criteria. The maximum number of saved filters per Amazon Web Services account per Region is 100. For more information, see <a href=\"https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_limits.html\">Quotas for GuardDuty</a>.</p>
+        r"""<p>Creates a filter using the specified finding criteria. The maximum number of saved filters per Amazon Web Services account per Region is 100. For more information, see <a href=\"https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_limits.html\">Quotas for GuardDuty</a>.</p>
 
         Args:
             detector_id: <p>The detector ID associated with the GuardDuty account for which you want to create a filter.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html\">ListDetectors</a> API.</p>
@@ -637,7 +637,7 @@ class GuardDutyClient:
             "aws_sdk_guardduty.types.account_id.AccountId"
         ] = None,
     ) -> "aws_sdk_guardduty.types.create_ip_set_response.CreateIPSetResponse":
-        """<p>Creates a new IPSet, which is called a trusted IP list in the console user interface. An IPSet is a list of IP addresses that are trusted for secure communication with Amazon Web Services infrastructure and applications. GuardDuty doesn't generate findings for IP addresses that are included in IPSets. Only users from the administrator account can use this operation.</p>
+        r"""<p>Creates a new IPSet, which is called a trusted IP list in the console user interface. An IPSet is a list of IP addresses that are trusted for secure communication with Amazon Web Services infrastructure and applications. GuardDuty doesn't generate findings for IP addresses that are included in IPSets. Only users from the administrator account can use this operation.</p>
 
         Args:
             detector_id: <p>The unique ID of the detector of the GuardDuty account for which you want to create an IPSet.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html\">ListDetectors</a> API.</p>
@@ -699,7 +699,7 @@ class GuardDutyClient:
         ] = None,
         tags: Optional["aws_sdk_guardduty.types.tag_map.TagMap"] = None,
     ) -> "aws_sdk_guardduty.types.create_malware_protection_plan_response.CreateMalwareProtectionPlanResponse":
-        """<p>Creates a new Malware Protection plan for the protected resource.</p> <p>When you create a Malware Protection plan, the Amazon Web Services service terms for GuardDuty Malware Protection apply. For more information, see <a href=\"http://aws.amazon.com/service-terms/#87._Amazon_GuardDuty\">Amazon Web Services service terms for GuardDuty Malware Protection</a>.</p>
+        r"""<p>Creates a new Malware Protection plan for the protected resource.</p> <p>When you create a Malware Protection plan, the Amazon Web Services service terms for GuardDuty Malware Protection apply. For more information, see <a href=\"http://aws.amazon.com/service-terms/#87._Amazon_GuardDuty\">Amazon Web Services service terms for GuardDuty Malware Protection</a>.</p>
 
         Args:
             client_token: <p>The idempotency token for the create request.</p>
@@ -748,7 +748,7 @@ class GuardDutyClient:
         *,
         config_overrides: Optional[GuardDutyClientConfig] = None,
     ) -> "aws_sdk_guardduty.types.create_members_response.CreateMembersResponse":
-        """<p>Creates member accounts of the current Amazon Web Services account by specifying a list of Amazon Web Services account IDs. This step is a prerequisite for managing the associated member accounts either by invitation or through an organization.</p> <p>As a delegated administrator, using <code>CreateMembers</code> will enable GuardDuty in the added member accounts, with the exception of the organization delegated administrator account. A delegated administrator must enable GuardDuty prior to being added as a member.</p> <p>When you use CreateMembers as an Organizations delegated administrator, GuardDuty applies your organization's auto-enable settings to the member accounts in this request, irrespective of the accounts being new or existing members. For more information about the existing auto-enable settings for your organization, see <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DescribeOrganizationConfiguration.html\">DescribeOrganizationConfiguration</a>.</p> <p>If you disassociate a member account that was added by invitation, the member account details obtained from this API, including the associated email addresses, will be retained. This is done so that the delegated administrator can invoke the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html\">InviteMembers</a> API without the need to invoke the CreateMembers API again. To remove the details associated with a member account, the delegated administrator must invoke the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DeleteMembers.html\">DeleteMembers</a> API. </p> <p>When the member accounts added through Organizations are later disassociated, you (administrator) can't invite them by calling the InviteMembers API. You can create an association with these member accounts again only by calling the CreateMembers API.</p>
+        r"""<p>Creates member accounts of the current Amazon Web Services account by specifying a list of Amazon Web Services account IDs. This step is a prerequisite for managing the associated member accounts either by invitation or through an organization.</p> <p>As a delegated administrator, using <code>CreateMembers</code> will enable GuardDuty in the added member accounts, with the exception of the organization delegated administrator account. A delegated administrator must enable GuardDuty prior to being added as a member.</p> <p>When you use CreateMembers as an Organizations delegated administrator, GuardDuty applies your organization's auto-enable settings to the member accounts in this request, irrespective of the accounts being new or existing members. For more information about the existing auto-enable settings for your organization, see <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DescribeOrganizationConfiguration.html\">DescribeOrganizationConfiguration</a>.</p> <p>If you disassociate a member account that was added by invitation, the member account details obtained from this API, including the associated email addresses, will be retained. This is done so that the delegated administrator can invoke the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html\">InviteMembers</a> API without the need to invoke the CreateMembers API again. To remove the details associated with a member account, the delegated administrator must invoke the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DeleteMembers.html\">DeleteMembers</a> API. </p> <p>When the member accounts added through Organizations are later disassociated, you (administrator) can't invite them by calling the InviteMembers API. You can create an association with these member accounts again only by calling the CreateMembers API.</p>
 
         Args:
             detector_id: <p>The unique ID of the detector of the GuardDuty account for which you want to associate member accounts.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html\">ListDetectors</a> API.</p>
@@ -793,7 +793,7 @@ class GuardDutyClient:
         ] = None,
         tags: Optional["aws_sdk_guardduty.types.tag_map.TagMap"] = None,
     ) -> "aws_sdk_guardduty.types.create_publishing_destination_response.CreatePublishingDestinationResponse":
-        """<p>Creates a publishing destination where you can export your GuardDuty findings. Before you start exporting the findings, the destination resource must exist.</p>
+        r"""<p>Creates a publishing destination where you can export your GuardDuty findings. Before you start exporting the findings, the destination resource must exist.</p>
 
         Args:
             detector_id: <p>The ID of the GuardDuty detector associated with the publishing destination.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html\">ListDetectors</a> API.</p>
@@ -843,7 +843,7 @@ class GuardDutyClient:
             "aws_sdk_guardduty.types.finding_types.FindingTypes"
         ] = None,
     ) -> "aws_sdk_guardduty.types.create_sample_findings_response.CreateSampleFindingsResponse":
-        """<p>Generates sample findings of types specified by the list of finding types. If 'NULL' is specified for <code>findingTypes</code>, the API generates sample findings of all supported finding types.</p>
+        r"""<p>Generates sample findings of types specified by the list of finding types. If 'NULL' is specified for <code>findingTypes</code>, the API generates sample findings of all supported finding types.</p>
 
         Args:
             detector_id: <p>The ID of the detector for which you need to create sample findings.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html\">ListDetectors</a> API.</p>
@@ -894,7 +894,7 @@ class GuardDutyClient:
         ] = None,
         tags: Optional["aws_sdk_guardduty.types.tag_map.TagMap"] = None,
     ) -> "aws_sdk_guardduty.types.create_threat_entity_set_response.CreateThreatEntitySetResponse":
-        """<p>Creates a new threat entity set. In a threat entity set, you can provide known malicious threat entities for your Amazon Web Services environment. GuardDuty generates findings based on the entries in the threat entity sets. Only users of the administrator account can manage entity sets, which automatically apply to member accounts.</p>
+        r"""<p>Creates a new threat entity set. In a threat entity set, you can provide known malicious threat entities for your Amazon Web Services environment. GuardDuty generates findings based on the entries in the threat entity sets. Only users of the administrator account can manage entity sets, which automatically apply to member accounts.</p>
 
         Args:
             detector_id: <p>The unique ID of the detector of the GuardDuty account for which you want to create a threat entity set.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html\">ListDetectors</a> API.</p>
@@ -959,7 +959,7 @@ class GuardDutyClient:
             "aws_sdk_guardduty.types.account_id.AccountId"
         ] = None,
     ) -> "aws_sdk_guardduty.types.create_threat_intel_set_response.CreateThreatIntelSetResponse":
-        """<p>Creates a new ThreatIntelSet. ThreatIntelSets consist of known malicious IP addresses. GuardDuty generates findings based on ThreatIntelSets. Only users of the administrator account can use this operation.</p>
+        r"""<p>Creates a new ThreatIntelSet. ThreatIntelSets consist of known malicious IP addresses. GuardDuty generates findings based on ThreatIntelSets. Only users of the administrator account can use this operation.</p>
 
         Args:
             detector_id: <p>The unique ID of the detector of the GuardDuty account for which you want to create a <code>threatIntelSet</code>.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html\">ListDetectors</a> API.</p>
@@ -1024,7 +1024,7 @@ class GuardDutyClient:
         ] = None,
         tags: Optional["aws_sdk_guardduty.types.tag_map.TagMap"] = None,
     ) -> "aws_sdk_guardduty.types.create_trusted_entity_set_response.CreateTrustedEntitySetResponse":
-        """<p>Creates a new trusted entity set. In the trusted entity set, you can provide IP addresses and domains that you believe are secure for communication in your Amazon Web Services environment. GuardDuty will not generate findings for the entries that are specified in a trusted entity set. At any given time, you can have only one trusted entity set. </p> <p>Only users of the administrator account can manage the entity sets, which automatically apply to member accounts.</p>
+        r"""<p>Creates a new trusted entity set. In the trusted entity set, you can provide IP addresses and domains that you believe are secure for communication in your Amazon Web Services environment. GuardDuty will not generate findings for the entries that are specified in a trusted entity set. At any given time, you can have only one trusted entity set. </p> <p>Only users of the administrator account can manage the entity sets, which automatically apply to member accounts.</p>
 
         Args:
             detector_id: <p>The unique ID of the detector of the GuardDuty account for which you want to create a trusted entity set.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html\">ListDetectors</a> API.</p>
@@ -1115,7 +1115,7 @@ class GuardDutyClient:
         *,
         config_overrides: Optional[GuardDutyClientConfig] = None,
     ) -> "aws_sdk_guardduty.types.delete_detector_response.DeleteDetectorResponse":
-        """<p>Deletes an Amazon GuardDuty detector that is specified by the detector ID.</p>
+        r"""<p>Deletes an Amazon GuardDuty detector that is specified by the detector ID.</p>
 
         Args:
             detector_id: <p>The unique ID of the detector that you want to delete.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html\">ListDetectors</a> API.</p>
@@ -1153,7 +1153,7 @@ class GuardDutyClient:
         *,
         config_overrides: Optional[GuardDutyClientConfig] = None,
     ) -> "aws_sdk_guardduty.types.delete_filter_response.DeleteFilterResponse":
-        """<p>Deletes the filter specified by the filter name.</p>
+        r"""<p>Deletes the filter specified by the filter name.</p>
 
         Args:
             detector_id: <p>The unique ID of the detector that is associated with the filter.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html\">ListDetectors</a> API.</p>
@@ -1232,7 +1232,7 @@ class GuardDutyClient:
         *,
         config_overrides: Optional[GuardDutyClientConfig] = None,
     ) -> "aws_sdk_guardduty.types.delete_ip_set_response.DeleteIPSetResponse":
-        """<p>Deletes the IPSet specified by the <code>ipSetId</code>. IPSets are called trusted IP lists in the console user interface.</p>
+        r"""<p>Deletes the IPSet specified by the <code>ipSetId</code>. IPSets are called trusted IP lists in the console user interface.</p>
 
         Args:
             detector_id: <p>The unique ID of the detector associated with the IPSet.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html\">ListDetectors</a> API.</p>
@@ -1307,7 +1307,7 @@ class GuardDutyClient:
         *,
         config_overrides: Optional[GuardDutyClientConfig] = None,
     ) -> "aws_sdk_guardduty.types.delete_members_response.DeleteMembersResponse":
-        """<p>Deletes GuardDuty member accounts (to the current GuardDuty administrator account) specified by the account IDs.</p> <p>With <code>autoEnableOrganizationMembers</code> configuration for your organization set to <code>ALL</code>, you'll receive an error if you attempt to disable GuardDuty for a member account in your organization.</p>
+        r"""<p>Deletes GuardDuty member accounts (to the current GuardDuty administrator account) specified by the account IDs.</p> <p>With <code>autoEnableOrganizationMembers</code> configuration for your organization set to <code>ALL</code>, you'll receive an error if you attempt to disable GuardDuty for a member account in your organization.</p>
 
         Args:
             detector_id: <p>The unique ID of the detector of the GuardDuty account whose members you want to delete.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html\">ListDetectors</a> API.</p>
@@ -1347,7 +1347,7 @@ class GuardDutyClient:
         *,
         config_overrides: Optional[GuardDutyClientConfig] = None,
     ) -> "aws_sdk_guardduty.types.delete_publishing_destination_response.DeletePublishingDestinationResponse":
-        """<p>Deletes the publishing definition with the specified <code>destinationId</code>.</p>
+        r"""<p>Deletes the publishing definition with the specified <code>destinationId</code>.</p>
 
         Args:
             detector_id: <p>The unique ID of the detector associated with the publishing destination to delete.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html\">ListDetectors</a> API.</p>
@@ -1387,7 +1387,7 @@ class GuardDutyClient:
         *,
         config_overrides: Optional[GuardDutyClientConfig] = None,
     ) -> "aws_sdk_guardduty.types.delete_threat_entity_set_response.DeleteThreatEntitySetResponse":
-        """<p>Deletes the threat entity set that is associated with the specified <code>threatEntitySetId</code>.</p>
+        r"""<p>Deletes the threat entity set that is associated with the specified <code>threatEntitySetId</code>.</p>
 
         Args:
             detector_id: <p>The unique ID of the detector associated with the threat entity set resource.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html\">ListDetectors</a> API.</p>
@@ -1427,7 +1427,7 @@ class GuardDutyClient:
         *,
         config_overrides: Optional[GuardDutyClientConfig] = None,
     ) -> "aws_sdk_guardduty.types.delete_threat_intel_set_response.DeleteThreatIntelSetResponse":
-        """<p>Deletes the ThreatIntelSet specified by the ThreatIntelSet ID.</p>
+        r"""<p>Deletes the ThreatIntelSet specified by the ThreatIntelSet ID.</p>
 
         Args:
             detector_id: <p>The unique ID of the detector that is associated with the threatIntelSet.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html\">ListDetectors</a> API.</p>
@@ -1467,7 +1467,7 @@ class GuardDutyClient:
         *,
         config_overrides: Optional[GuardDutyClientConfig] = None,
     ) -> "aws_sdk_guardduty.types.delete_trusted_entity_set_response.DeleteTrustedEntitySetResponse":
-        """<p>Deletes the trusted entity set that is associated with the specified <code>trustedEntitySetId</code>.</p>
+        r"""<p>Deletes the trusted entity set that is associated with the specified <code>trustedEntitySetId</code>.</p>
 
         Args:
             detector_id: <p>The unique ID of the detector associated with the trusted entity set resource.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html\">ListDetectors</a> API.</p>
@@ -1516,7 +1516,7 @@ class GuardDutyClient:
             "aws_sdk_guardduty.types.sort_criteria.SortCriteria"
         ] = None,
     ) -> "aws_sdk_guardduty.types.describe_malware_scans_response.DescribeMalwareScansResponse":
-        """<p>Returns a list of malware scans. Each member account can view the malware scans for their own accounts. An administrator can view the malware scans for all the member accounts.</p> <p>There might be regional differences because some data sources might not be available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more information, see <a href=\"https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html\">Regions and endpoints</a>.</p>
+        r"""<p>Returns a list of malware scans. Each member account can view the malware scans for their own accounts. An administrator can view the malware scans for all the member accounts.</p> <p>There might be regional differences because some data sources might not be available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more information, see <a href=\"https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html\">Regions and endpoints</a>.</p>
 
         Args:
             detector_id: <p>The unique ID of the detector that the request is associated with.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html\">ListDetectors</a> API.</p>
@@ -1600,7 +1600,7 @@ class GuardDutyClient:
         max_results: Optional["aws_sdk_guardduty.types.max_results.MaxResults"] = None,
         next_token: Optional["aws_sdk_guardduty.types.string.String"] = None,
     ) -> "aws_sdk_guardduty.types.describe_organization_configuration_response.DescribeOrganizationConfigurationResponse":
-        """<p>Returns information about the account selected as the delegated administrator for GuardDuty.</p> <p>There might be regional differences because some data sources might not be available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more information, see <a href=\"https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html\">Regions and endpoints</a>.</p>
+        r"""<p>Returns information about the account selected as the delegated administrator for GuardDuty.</p> <p>There might be regional differences because some data sources might not be available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more information, see <a href=\"https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html\">Regions and endpoints</a>.</p>
 
         Args:
             detector_id: <p>The detector ID of the delegated administrator for which you need to retrieve the information.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html\">ListDetectors</a> API.</p>
@@ -1644,7 +1644,7 @@ class GuardDutyClient:
         *,
         config_overrides: Optional[GuardDutyClientConfig] = None,
     ) -> "aws_sdk_guardduty.types.describe_publishing_destination_response.DescribePublishingDestinationResponse":
-        """<p>Returns information about the publishing destination specified by the provided <code>destinationId</code>.</p>
+        r"""<p>Returns information about the publishing destination specified by the provided <code>destinationId</code>.</p>
 
         Args:
             detector_id: <p>The unique ID of the detector associated with the publishing destination to retrieve.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html\">ListDetectors</a> API.</p>
@@ -1720,7 +1720,7 @@ class GuardDutyClient:
         *,
         config_overrides: Optional[GuardDutyClientConfig] = None,
     ) -> "aws_sdk_guardduty.types.disassociate_from_administrator_account_response.DisassociateFromAdministratorAccountResponse":
-        """<p>Disassociates the current GuardDuty member account from its administrator account.</p> <p>When you disassociate an invited member from a GuardDuty delegated administrator, the member account details obtained from the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateMembers.html\">CreateMembers</a> API, including the associated email addresses, are retained. This is done so that the delegated administrator can invoke the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html\">InviteMembers</a> API without the need to invoke the CreateMembers API again. To remove the details associated with a member account, the delegated administrator must invoke the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DeleteMembers.html\">DeleteMembers</a> API. </p> <p>With <code>autoEnableOrganizationMembers</code> configuration for your organization set to <code>ALL</code>, you'll receive an error if you attempt to disable GuardDuty in a member account.</p>
+        r"""<p>Disassociates the current GuardDuty member account from its administrator account.</p> <p>When you disassociate an invited member from a GuardDuty delegated administrator, the member account details obtained from the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateMembers.html\">CreateMembers</a> API, including the associated email addresses, are retained. This is done so that the delegated administrator can invoke the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html\">InviteMembers</a> API without the need to invoke the CreateMembers API again. To remove the details associated with a member account, the delegated administrator must invoke the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DeleteMembers.html\">DeleteMembers</a> API. </p> <p>With <code>autoEnableOrganizationMembers</code> configuration for your organization set to <code>ALL</code>, you'll receive an error if you attempt to disable GuardDuty in a member account.</p>
 
         Args:
             detector_id: <p>The unique ID of the detector of the GuardDuty member account.</p>
@@ -1757,7 +1757,7 @@ class GuardDutyClient:
         *,
         config_overrides: Optional[GuardDutyClientConfig] = None,
     ) -> "aws_sdk_guardduty.types.disassociate_from_master_account_response.DisassociateFromMasterAccountResponse":
-        """<p>Disassociates the current GuardDuty member account from its administrator account.</p> <p>When you disassociate an invited member from a GuardDuty delegated administrator, the member account details obtained from the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateMembers.html\">CreateMembers</a> API, including the associated email addresses, are retained. This is done so that the delegated administrator can invoke the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html\">InviteMembers</a> API without the need to invoke the CreateMembers API again. To remove the details associated with a member account, the delegated administrator must invoke the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DeleteMembers.html\">DeleteMembers</a> API.</p>
+        r"""<p>Disassociates the current GuardDuty member account from its administrator account.</p> <p>When you disassociate an invited member from a GuardDuty delegated administrator, the member account details obtained from the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateMembers.html\">CreateMembers</a> API, including the associated email addresses, are retained. This is done so that the delegated administrator can invoke the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html\">InviteMembers</a> API without the need to invoke the CreateMembers API again. To remove the details associated with a member account, the delegated administrator must invoke the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DeleteMembers.html\">DeleteMembers</a> API.</p>
 
         Args:
             detector_id: <p>The unique ID of the detector of the GuardDuty member account.</p>
@@ -1795,7 +1795,7 @@ class GuardDutyClient:
         *,
         config_overrides: Optional[GuardDutyClientConfig] = None,
     ) -> "aws_sdk_guardduty.types.disassociate_members_response.DisassociateMembersResponse":
-        """<p>Disassociates GuardDuty member accounts (from the current administrator account) specified by the account IDs.</p> <p>When you disassociate an invited member from a GuardDuty delegated administrator, the member account details obtained from the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateMembers.html\">CreateMembers</a> API, including the associated email addresses, are retained. This is done so that the delegated administrator can invoke the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html\">InviteMembers</a> API without the need to invoke the CreateMembers API again. To remove the details associated with a member account, the delegated administrator must invoke the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DeleteMembers.html\">DeleteMembers</a> API. </p> <p>With <code>autoEnableOrganizationMembers</code> configuration for your organization set to <code>ALL</code>, you'll receive an error if you attempt to disassociate a member account before removing them from your organization.</p> <p>If you disassociate a member account that was added by invitation, the member account details obtained from this API, including the associated email addresses, will be retained. This is done so that the delegated administrator can invoke the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html\">InviteMembers</a> API without the need to invoke the CreateMembers API again. To remove the details associated with a member account, the delegated administrator must invoke the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DeleteMembers.html\">DeleteMembers</a> API. </p> <p>When the member accounts added through Organizations are later disassociated, you (administrator) can't invite them by calling the InviteMembers API. You can create an association with these member accounts again only by calling the CreateMembers API.</p>
+        r"""<p>Disassociates GuardDuty member accounts (from the current administrator account) specified by the account IDs.</p> <p>When you disassociate an invited member from a GuardDuty delegated administrator, the member account details obtained from the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateMembers.html\">CreateMembers</a> API, including the associated email addresses, are retained. This is done so that the delegated administrator can invoke the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html\">InviteMembers</a> API without the need to invoke the CreateMembers API again. To remove the details associated with a member account, the delegated administrator must invoke the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DeleteMembers.html\">DeleteMembers</a> API. </p> <p>With <code>autoEnableOrganizationMembers</code> configuration for your organization set to <code>ALL</code>, you'll receive an error if you attempt to disassociate a member account before removing them from your organization.</p> <p>If you disassociate a member account that was added by invitation, the member account details obtained from this API, including the associated email addresses, will be retained. This is done so that the delegated administrator can invoke the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html\">InviteMembers</a> API without the need to invoke the CreateMembers API again. To remove the details associated with a member account, the delegated administrator must invoke the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DeleteMembers.html\">DeleteMembers</a> API. </p> <p>When the member accounts added through Organizations are later disassociated, you (administrator) can't invite them by calling the InviteMembers API. You can create an association with these member accounts again only by calling the CreateMembers API.</p>
 
         Args:
             detector_id: <p>The unique ID of the detector of the GuardDuty account whose members you want to disassociate from the administrator account.</p>
@@ -1912,7 +1912,7 @@ class GuardDutyClient:
             "aws_sdk_guardduty.types.coverage_filter_criteria.CoverageFilterCriteria"
         ] = None,
     ) -> "aws_sdk_guardduty.types.get_coverage_statistics_response.GetCoverageStatisticsResponse":
-        """<p>Retrieves aggregated statistics for your account. If you are a GuardDuty administrator, you can retrieve the statistics for all the resources associated with the active member accounts in your organization who have enabled Runtime Monitoring and have the GuardDuty security agent running on their resources.</p>
+        r"""<p>Retrieves aggregated statistics for your account. If you are a GuardDuty administrator, you can retrieve the statistics for all the resources associated with the active member accounts in your organization who have enabled Runtime Monitoring and have the GuardDuty security agent running on their resources.</p>
 
         Args:
             detector_id: <p>The unique ID of the GuardDuty detector.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html\">ListDetectors</a> API.</p>
@@ -1954,7 +1954,7 @@ class GuardDutyClient:
         *,
         config_overrides: Optional[GuardDutyClientConfig] = None,
     ) -> "aws_sdk_guardduty.types.get_detector_response.GetDetectorResponse":
-        """<p>Retrieves a GuardDuty detector specified by the detectorId.</p> <p>There might be regional differences because some data sources might not be available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more information, see <a href=\"https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html\">Regions and endpoints</a>.</p>
+        r"""<p>Retrieves a GuardDuty detector specified by the detectorId.</p> <p>There might be regional differences because some data sources might not be available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more information, see <a href=\"https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html\">Regions and endpoints</a>.</p>
 
         Args:
             detector_id: <p>The unique ID of the detector that you want to get.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html\">ListDetectors</a> API.</p>
@@ -1992,7 +1992,7 @@ class GuardDutyClient:
         *,
         config_overrides: Optional[GuardDutyClientConfig] = None,
     ) -> "aws_sdk_guardduty.types.get_filter_response.GetFilterResponse":
-        """<p>Returns the details of the filter specified by the filter name.</p>
+        r"""<p>Returns the details of the filter specified by the filter name.</p>
 
         Args:
             detector_id: <p>The unique ID of the detector that is associated with this filter.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html\">ListDetectors</a> API.</p>
@@ -2035,7 +2035,7 @@ class GuardDutyClient:
             "aws_sdk_guardduty.types.sort_criteria.SortCriteria"
         ] = None,
     ) -> "aws_sdk_guardduty.types.get_findings_response.GetFindingsResponse":
-        """<p>Describes Amazon GuardDuty findings specified by finding IDs.</p>
+        r"""<p>Describes Amazon GuardDuty findings specified by finding IDs.</p>
 
         Args:
             detector_id: <p>The ID of the detector that specifies the GuardDuty service whose findings you want to retrieve.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html\">ListDetectors</a> API.</p>
@@ -2088,7 +2088,7 @@ class GuardDutyClient:
             "aws_sdk_guardduty.types.max_results100.MaxResults100"
         ] = None,
     ) -> "aws_sdk_guardduty.types.get_findings_statistics_response.GetFindingsStatisticsResponse":
-        """<p>Lists GuardDuty findings statistics for the specified detector ID.</p> <p>You must provide either <code>findingStatisticTypes</code> or <code>groupBy</code> parameter, and not both. You can use the <code>maxResults</code> and <code>orderBy</code> parameters only when using <code>groupBy</code>.</p> <p>There might be regional differences because some flags might not be available in all the Regions where GuardDuty is currently supported. For more information, see <a href=\"https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html\">Regions and endpoints</a>.</p>
+        r"""<p>Lists GuardDuty findings statistics for the specified detector ID.</p> <p>You must provide either <code>findingStatisticTypes</code> or <code>groupBy</code> parameter, and not both. You can use the <code>maxResults</code> and <code>orderBy</code> parameters only when using <code>groupBy</code>.</p> <p>There might be regional differences because some flags might not be available in all the Regions where GuardDuty is currently supported. For more information, see <a href=\"https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html\">Regions and endpoints</a>.</p>
 
         Args:
             detector_id: <p>The ID of the detector whose findings statistics you want to retrieve.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html\">ListDetectors</a> API.</p>
@@ -2170,7 +2170,7 @@ class GuardDutyClient:
         *,
         config_overrides: Optional[GuardDutyClientConfig] = None,
     ) -> "aws_sdk_guardduty.types.get_ip_set_response.GetIPSetResponse":
-        """<p>Retrieves the IPSet specified by the <code>ipSetId</code>.</p>
+        r"""<p>Retrieves the IPSet specified by the <code>ipSetId</code>.</p>
 
         Args:
             detector_id: <p>The unique ID of the detector that is associated with the IPSet.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html\">ListDetectors</a> API.</p>
@@ -2246,7 +2246,7 @@ class GuardDutyClient:
         *,
         config_overrides: Optional[GuardDutyClientConfig] = None,
     ) -> "aws_sdk_guardduty.types.get_malware_scan_response.GetMalwareScanResponse":
-        """<p>Retrieves the detailed information for a specific malware scan. Each member account can view the malware scan details for their own account. An administrator can view malware scan details for all accounts in the organization.</p> <p>There might be regional differences because some data sources might not be available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more information, see <a href=\"https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html\">Regions and endpoints</a>.</p>
+        r"""<p>Retrieves the detailed information for a specific malware scan. Each member account can view the malware scan details for their own account. An administrator can view malware scan details for all accounts in the organization.</p> <p>There might be regional differences because some data sources might not be available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more information, see <a href=\"https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html\">Regions and endpoints</a>.</p>
 
         Args:
             scan_id: <p>A unique identifier that gets generated when you invoke the API without any error. Each malware scan has a corresponding scan ID. Using this scan ID, you can monitor the status of your malware scan.</p>
@@ -2283,7 +2283,7 @@ class GuardDutyClient:
         *,
         config_overrides: Optional[GuardDutyClientConfig] = None,
     ) -> "aws_sdk_guardduty.types.get_malware_scan_settings_response.GetMalwareScanSettingsResponse":
-        """<p>Returns the details of the malware scan settings.</p> <p>There might be regional differences because some data sources might not be available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more information, see <a href=\"https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html\">Regions and endpoints</a>.</p>
+        r"""<p>Returns the details of the malware scan settings.</p> <p>There might be regional differences because some data sources might not be available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more information, see <a href=\"https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html\">Regions and endpoints</a>.</p>
 
         Args:
             detector_id: <p>The unique ID of the detector that is associated with this scan.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html\">ListDetectors</a> API.</p>
@@ -2320,7 +2320,7 @@ class GuardDutyClient:
         *,
         config_overrides: Optional[GuardDutyClientConfig] = None,
     ) -> "aws_sdk_guardduty.types.get_master_account_response.GetMasterAccountResponse":
-        """<p>Provides the details for the GuardDuty administrator account associated with the current GuardDuty member account.</p>
+        r"""<p>Provides the details for the GuardDuty administrator account associated with the current GuardDuty member account.</p>
 
         Args:
             detector_id: <p>The unique ID of the detector of the GuardDuty member account.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html\">ListDetectors</a> API.</p>
@@ -2358,7 +2358,7 @@ class GuardDutyClient:
         *,
         config_overrides: Optional[GuardDutyClientConfig] = None,
     ) -> "aws_sdk_guardduty.types.get_member_detectors_response.GetMemberDetectorsResponse":
-        """<p>Describes which data sources are enabled for the member account's detector.</p> <p>There might be regional differences because some data sources might not be available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more information, see <a href=\"https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html\">Regions and endpoints</a>.</p>
+        r"""<p>Describes which data sources are enabled for the member account's detector.</p> <p>There might be regional differences because some data sources might not be available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more information, see <a href=\"https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html\">Regions and endpoints</a>.</p>
 
         Args:
             detector_id: <p>The detector ID for the administrator account.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html\">ListDetectors</a> API.</p>
@@ -2398,7 +2398,7 @@ class GuardDutyClient:
         *,
         config_overrides: Optional[GuardDutyClientConfig] = None,
     ) -> "aws_sdk_guardduty.types.get_members_response.GetMembersResponse":
-        """<p>Retrieves GuardDuty member accounts (of the current GuardDuty administrator account) specified by the account IDs.</p>
+        r"""<p>Retrieves GuardDuty member accounts (of the current GuardDuty administrator account) specified by the account IDs.</p>
 
         Args:
             detector_id: <p>The unique ID of the detector of the GuardDuty account whose members you want to retrieve.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html\">ListDetectors</a> API.</p>
@@ -2466,7 +2466,7 @@ class GuardDutyClient:
         *,
         config_overrides: Optional[GuardDutyClientConfig] = None,
     ) -> "aws_sdk_guardduty.types.get_remaining_free_trial_days_response.GetRemainingFreeTrialDaysResponse":
-        """<p>Provides the number of days left for each data source used in the free trial period.</p>
+        r"""<p>Provides the number of days left for each data source used in the free trial period.</p>
 
         Args:
             detector_id: <p>The unique ID of the detector of the GuardDuty member account.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html\">ListDetectors</a> API.</p>
@@ -2506,7 +2506,7 @@ class GuardDutyClient:
         *,
         config_overrides: Optional[GuardDutyClientConfig] = None,
     ) -> "aws_sdk_guardduty.types.get_threat_entity_set_response.GetThreatEntitySetResponse":
-        """<p>Retrieves the threat entity set associated with the specified <code>threatEntitySetId</code>.</p>
+        r"""<p>Retrieves the threat entity set associated with the specified <code>threatEntitySetId</code>.</p>
 
         Args:
             detector_id: <p>The unique ID of the detector associated with the threat entity set resource.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html\">ListDetectors</a> API.</p>
@@ -2546,7 +2546,7 @@ class GuardDutyClient:
         *,
         config_overrides: Optional[GuardDutyClientConfig] = None,
     ) -> "aws_sdk_guardduty.types.get_threat_intel_set_response.GetThreatIntelSetResponse":
-        """<p>Retrieves the ThreatIntelSet that is specified by the ThreatIntelSet ID.</p>
+        r"""<p>Retrieves the ThreatIntelSet that is specified by the ThreatIntelSet ID.</p>
 
         Args:
             detector_id: <p>The unique ID of the detector that is associated with the threatIntelSet.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html\">ListDetectors</a> API.</p>
@@ -2630,7 +2630,7 @@ class GuardDutyClient:
         max_results: Optional["aws_sdk_guardduty.types.max_results.MaxResults"] = None,
         next_token: Optional["aws_sdk_guardduty.types.string.String"] = None,
     ) -> "aws_sdk_guardduty.types.get_usage_statistics_response.GetUsageStatisticsResponse":
-        """<p>Lists Amazon GuardDuty usage statistics over the last 30 days for the specified detector ID. For newly enabled detectors or data sources, the cost returned will include only the usage so far under 30 days. This may differ from the cost metrics in the console, which project usage over 30 days to provide a monthly cost estimate. For more information, see <a href=\"https://docs.aws.amazon.com/guardduty/latest/ug/monitoring_costs.html#usage-calculations\">Understanding How Usage Costs are Calculated</a>.</p>
+        r"""<p>Lists Amazon GuardDuty usage statistics over the last 30 days for the specified detector ID. For newly enabled detectors or data sources, the cost returned will include only the usage so far under 30 days. This may differ from the cost metrics in the console, which project usage over 30 days to provide a monthly cost estimate. For more information, see <a href=\"https://docs.aws.amazon.com/guardduty/latest/ug/monitoring_costs.html#usage-calculations\">Understanding How Usage Costs are Calculated</a>.</p>
 
         Args:
             detector_id: <p>The ID of the detector that specifies the GuardDuty service whose usage statistics you want to retrieve.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html\">ListDetectors</a> API.</p>
@@ -2685,7 +2685,7 @@ class GuardDutyClient:
         ] = None,
         message: Optional["aws_sdk_guardduty.types.string.String"] = None,
     ) -> "aws_sdk_guardduty.types.invite_members_response.InviteMembersResponse":
-        """<p>Invites Amazon Web Services accounts to become members of an organization administered by the Amazon Web Services account that invokes this API. If you are using Amazon Web Services Organizations to manage your GuardDuty environment, this step is not needed. For more information, see <a href=\"https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_organizations.html\">Managing accounts with organizations</a>.</p> <p>To invite Amazon Web Services accounts, the first step is to ensure that GuardDuty has been enabled in the potential member accounts. You can now invoke this API to add accounts by invitation. The invited accounts can either accept or decline the invitation from their GuardDuty accounts. Each invited Amazon Web Services account can choose to accept the invitation from only one Amazon Web Services account. For more information, see <a href=\"https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_invitations.html\">Managing GuardDuty accounts by invitation</a>.</p> <p>After the invite has been accepted and you choose to disassociate a member account (by using <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DisassociateMembers.html\">DisassociateMembers</a>) from your account, the details of the member account obtained by invoking <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateMembers.html\">CreateMembers</a>, including the associated email addresses, will be retained. This is done so that you can invoke InviteMembers without the need to invoke <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateMembers.html\">CreateMembers</a> again. To remove the details associated with a member account, you must also invoke <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DeleteMembers.html\">DeleteMembers</a>. </p> <p>If you disassociate a member account that was added by invitation, the member account details obtained from this API, including the associated email addresses, will be retained. This is done so that the delegated administrator can invoke the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html\">InviteMembers</a> API without the need to invoke the CreateMembers API again. To remove the details associated with a member account, the delegated administrator must invoke the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DeleteMembers.html\">DeleteMembers</a> API. </p> <p>When the member accounts added through Organizations are later disassociated, you (administrator) can't invite them by calling the InviteMembers API. You can create an association with these member accounts again only by calling the CreateMembers API.</p>
+        r"""<p>Invites Amazon Web Services accounts to become members of an organization administered by the Amazon Web Services account that invokes this API. If you are using Amazon Web Services Organizations to manage your GuardDuty environment, this step is not needed. For more information, see <a href=\"https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_organizations.html\">Managing accounts with organizations</a>.</p> <p>To invite Amazon Web Services accounts, the first step is to ensure that GuardDuty has been enabled in the potential member accounts. You can now invoke this API to add accounts by invitation. The invited accounts can either accept or decline the invitation from their GuardDuty accounts. Each invited Amazon Web Services account can choose to accept the invitation from only one Amazon Web Services account. For more information, see <a href=\"https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_invitations.html\">Managing GuardDuty accounts by invitation</a>.</p> <p>After the invite has been accepted and you choose to disassociate a member account (by using <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DisassociateMembers.html\">DisassociateMembers</a>) from your account, the details of the member account obtained by invoking <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateMembers.html\">CreateMembers</a>, including the associated email addresses, will be retained. This is done so that you can invoke InviteMembers without the need to invoke <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateMembers.html\">CreateMembers</a> again. To remove the details associated with a member account, you must also invoke <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DeleteMembers.html\">DeleteMembers</a>. </p> <p>If you disassociate a member account that was added by invitation, the member account details obtained from this API, including the associated email addresses, will be retained. This is done so that the delegated administrator can invoke the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html\">InviteMembers</a> API without the need to invoke the CreateMembers API again. To remove the details associated with a member account, the delegated administrator must invoke the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DeleteMembers.html\">DeleteMembers</a> API. </p> <p>When the member accounts added through Organizations are later disassociated, you (administrator) can't invite them by calling the InviteMembers API. You can create an association with these member accounts again only by calling the CreateMembers API.</p>
 
         Args:
             detector_id: <p>The unique ID of the detector of the GuardDuty account with which you want to invite members.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html\">ListDetectors</a> API.</p>
@@ -2738,7 +2738,7 @@ class GuardDutyClient:
             "aws_sdk_guardduty.types.coverage_sort_criteria.CoverageSortCriteria"
         ] = None,
     ) -> "aws_sdk_guardduty.types.list_coverage_response.ListCoverageResponse":
-        """<p>Lists coverage details for your GuardDuty account. If you're a GuardDuty administrator, you can retrieve all resources associated with the active member accounts in your organization.</p> <p>Make sure the accounts have Runtime Monitoring enabled and GuardDuty agent running on their resources.</p>
+        r"""<p>Lists coverage details for your GuardDuty account. If you're a GuardDuty administrator, you can retrieve all resources associated with the active member accounts in your organization.</p> <p>Make sure the accounts have Runtime Monitoring enabled and GuardDuty agent running on their resources.</p>
 
         Args:
             detector_id: <p>The unique ID of the detector whose coverage details you want to retrieve.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html\">ListDetectors</a> API.</p>
@@ -2883,7 +2883,7 @@ class GuardDutyClient:
         max_results: Optional["aws_sdk_guardduty.types.max_results.MaxResults"] = None,
         next_token: Optional["aws_sdk_guardduty.types.string.String"] = None,
     ) -> "aws_sdk_guardduty.types.list_filters_response.ListFiltersResponse":
-        """<p>Returns a paginated list of the current filters.</p>
+        r"""<p>Returns a paginated list of the current filters.</p>
 
         Args:
             detector_id: <p>The unique ID of the detector that is associated with the filter.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html\">ListDetectors</a> API.</p>
@@ -2957,7 +2957,7 @@ class GuardDutyClient:
         max_results: Optional["aws_sdk_guardduty.types.max_results.MaxResults"] = None,
         next_token: Optional["aws_sdk_guardduty.types.string.String"] = None,
     ) -> "aws_sdk_guardduty.types.list_findings_response.ListFindingsResponse":
-        """<p>Lists GuardDuty findings for the specified detector ID.</p> <p>There might be regional differences because some flags might not be available in all the Regions where GuardDuty is currently supported. For more information, see <a href=\"https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html\">Regions and endpoints</a>.</p>
+        r"""<p>Lists GuardDuty findings for the specified detector ID.</p> <p>There might be regional differences because some flags might not be available in all the Regions where GuardDuty is currently supported. For more information, see <a href=\"https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html\">Regions and endpoints</a>.</p>
 
         Args:
             detector_id: <p>The ID of the detector that specifies the GuardDuty service whose findings you want to list.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html\">ListDetectors</a> API.</p>
@@ -3102,7 +3102,7 @@ class GuardDutyClient:
         max_results: Optional["aws_sdk_guardduty.types.max_results.MaxResults"] = None,
         next_token: Optional["aws_sdk_guardduty.types.string.String"] = None,
     ) -> "aws_sdk_guardduty.types.list_ip_sets_response.ListIPSetsResponse":
-        """<p>Lists the IPSets of the GuardDuty service specified by the detector ID. If you use this operation from a member account, the IPSets returned are the IPSets from the associated administrator account.</p>
+        r"""<p>Lists the IPSets of the GuardDuty service specified by the detector ID. If you use this operation from a member account, the IPSets returned are the IPSets from the associated administrator account.</p>
 
         Args:
             detector_id: <p>The unique ID of the detector that is associated with IPSet.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html\">ListDetectors</a> API.</p>
@@ -3292,7 +3292,7 @@ class GuardDutyClient:
         next_token: Optional["aws_sdk_guardduty.types.string.String"] = None,
         only_associated: Optional["aws_sdk_guardduty.types.string.String"] = None,
     ) -> "aws_sdk_guardduty.types.list_members_response.ListMembersResponse":
-        """<p>Lists details about all member accounts for the current GuardDuty administrator account.</p>
+        r"""<p>Lists details about all member accounts for the current GuardDuty administrator account.</p>
 
         Args:
             detector_id: <p>The unique ID of the detector that is associated with the member.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html\">ListDetectors</a> API.</p>
@@ -3428,7 +3428,7 @@ class GuardDutyClient:
         max_results: Optional["aws_sdk_guardduty.types.max_results.MaxResults"] = None,
         next_token: Optional["aws_sdk_guardduty.types.string.String"] = None,
     ) -> "aws_sdk_guardduty.types.list_publishing_destinations_response.ListPublishingDestinationsResponse":
-        """<p>Returns a list of publishing destinations associated with the specified <code>detectorId</code>.</p>
+        r"""<p>Returns a list of publishing destinations associated with the specified <code>detectorId</code>.</p>
 
         Args:
             detector_id: <p>The detector ID for which you want to retrieve the publishing destination.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html\">ListDetectors</a> API.</p>
@@ -3510,7 +3510,7 @@ class GuardDutyClient:
         max_results: Optional["aws_sdk_guardduty.types.max_results.MaxResults"] = None,
         next_token: Optional["aws_sdk_guardduty.types.string.String"] = None,
     ) -> "aws_sdk_guardduty.types.list_threat_entity_sets_response.ListThreatEntitySetsResponse":
-        """<p>Lists the threat entity sets associated with the specified GuardDuty detector ID. If you use this operation from a member account, the threat entity sets that are returned as a response, belong to the administrator account.</p>
+        r"""<p>Lists the threat entity sets associated with the specified GuardDuty detector ID. If you use this operation from a member account, the threat entity sets that are returned as a response, belong to the administrator account.</p>
 
         Args:
             detector_id: <p>The unique ID of the GuardDuty detector that is associated with this threat entity set.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html\">ListDetectors</a> API.</p>
@@ -3578,7 +3578,7 @@ class GuardDutyClient:
         max_results: Optional["aws_sdk_guardduty.types.max_results.MaxResults"] = None,
         next_token: Optional["aws_sdk_guardduty.types.string.String"] = None,
     ) -> "aws_sdk_guardduty.types.list_threat_intel_sets_response.ListThreatIntelSetsResponse":
-        """<p>Lists the ThreatIntelSets of the GuardDuty service specified by the detector ID. If you use this operation from a member account, the ThreatIntelSets associated with the administrator account are returned.</p>
+        r"""<p>Lists the ThreatIntelSets of the GuardDuty service specified by the detector ID. If you use this operation from a member account, the ThreatIntelSets associated with the administrator account are returned.</p>
 
         Args:
             detector_id: <p>The unique ID of the detector that is associated with the threatIntelSet.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html\">ListDetectors</a> API.</p>
@@ -3646,7 +3646,7 @@ class GuardDutyClient:
         max_results: Optional["aws_sdk_guardduty.types.max_results.MaxResults"] = None,
         next_token: Optional["aws_sdk_guardduty.types.string.String"] = None,
     ) -> "aws_sdk_guardduty.types.list_trusted_entity_sets_response.ListTrustedEntitySetsResponse":
-        """<p>Lists the trusted entity sets associated with the specified GuardDuty detector ID. If you use this operation from a member account, the trusted entity sets that are returned as a response, belong to the administrator account.</p>
+        r"""<p>Lists the trusted entity sets associated with the specified GuardDuty detector ID. If you use this operation from a member account, the trusted entity sets that are returned as a response, belong to the administrator account.</p>
 
         Args:
             detector_id: <p>The unique ID of the GuardDuty detector that is associated with this threat entity set.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html\">ListDetectors</a> API.</p>
@@ -3714,7 +3714,7 @@ class GuardDutyClient:
             "aws_sdk_guardduty.types.s3_object_for_send_object_malware_scan.S3ObjectForSendObjectMalwareScan"
         ] = None,
     ) -> "aws_sdk_guardduty.types.send_object_malware_scan_response.SendObjectMalwareScanResponse":
-        """<p>Initiates a malware scan for a specific S3 object. This API allows you to perform on-demand malware scanning of individual objects in S3 buckets that have Malware Protection for S3 enabled.</p> <p>When you use this API, the Amazon Web Services service terms for GuardDuty Malware Protection apply. For more information, see <a href=\"http://aws.amazon.com/service-terms/#87._Amazon_GuardDuty\">Amazon Web Services service terms for GuardDuty Malware Protection</a>.</p>
+        r"""<p>Initiates a malware scan for a specific S3 object. This API allows you to perform on-demand malware scanning of individual objects in S3 buckets that have Malware Protection for S3 enabled.</p> <p>When you use this API, the Amazon Web Services service terms for GuardDuty Malware Protection apply. For more information, see <a href=\"http://aws.amazon.com/service-terms/#87._Amazon_GuardDuty\">Amazon Web Services service terms for GuardDuty Malware Protection</a>.</p>
 
         Args:
             s3_object: <p>The S3 object information for the object you want to scan. The bucket must have a Malware Protection plan configured to use this API.</p>
@@ -3758,7 +3758,7 @@ class GuardDutyClient:
             "aws_sdk_guardduty.types.start_malware_scan_configuration.StartMalwareScanConfiguration"
         ] = None,
     ) -> "aws_sdk_guardduty.types.start_malware_scan_response.StartMalwareScanResponse":
-        """<p>Initiates the malware scan. Invoking this API will automatically create the <a href=\"https://docs.aws.amazon.com/guardduty/latest/ug/slr-permissions-malware-protection.html\">Service-linked role</a> in the corresponding account if the resourceArn belongs to an EC2 instance.</p> <p>When the malware scan starts, you can use the associated scan ID to track the status of the scan. For more information, see <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListMalwareScans.html\">ListMalwareScans</a> and <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_GetMalwareScan.html\">GetMalwareScan</a>.</p> <p>When you use this API, the Amazon Web Services service terms for GuardDuty Malware Protection apply. For more information, see <a href=\"http://aws.amazon.com/service-terms/#87._Amazon_GuardDuty\">Amazon Web Services service terms for GuardDuty Malware Protection</a>.</p>
+        r"""<p>Initiates the malware scan. Invoking this API will automatically create the <a href=\"https://docs.aws.amazon.com/guardduty/latest/ug/slr-permissions-malware-protection.html\">Service-linked role</a> in the corresponding account if the resourceArn belongs to an EC2 instance.</p> <p>When the malware scan starts, you can use the associated scan ID to track the status of the scan. For more information, see <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListMalwareScans.html\">ListMalwareScans</a> and <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_GetMalwareScan.html\">GetMalwareScan</a>.</p> <p>When you use this API, the Amazon Web Services service terms for GuardDuty Malware Protection apply. For more information, see <a href=\"http://aws.amazon.com/service-terms/#87._Amazon_GuardDuty\">Amazon Web Services service terms for GuardDuty Malware Protection</a>.</p>
 
         Args:
             resource_arn: <p>Amazon Resource Name (ARN) of the resource for which you invoked the API.</p>
@@ -3802,7 +3802,7 @@ class GuardDutyClient:
         *,
         config_overrides: Optional[GuardDutyClientConfig] = None,
     ) -> "aws_sdk_guardduty.types.start_monitoring_members_response.StartMonitoringMembersResponse":
-        """<p>Turns on GuardDuty monitoring of the specified member accounts. Use this operation to restart monitoring of accounts that you stopped monitoring with the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_StopMonitoringMembers.html\">StopMonitoringMembers</a> operation.</p>
+        r"""<p>Turns on GuardDuty monitoring of the specified member accounts. Use this operation to restart monitoring of accounts that you stopped monitoring with the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_StopMonitoringMembers.html\">StopMonitoringMembers</a> operation.</p>
 
         Args:
             detector_id: <p>The unique ID of the detector of the GuardDuty administrator account associated with the member accounts to monitor.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html\">ListDetectors</a> API.</p>
@@ -3842,7 +3842,7 @@ class GuardDutyClient:
         *,
         config_overrides: Optional[GuardDutyClientConfig] = None,
     ) -> "aws_sdk_guardduty.types.stop_monitoring_members_response.StopMonitoringMembersResponse":
-        """<p>Stops GuardDuty monitoring for the specified member accounts. Use the <code>StartMonitoringMembers</code> operation to restart monitoring for those accounts.</p> <p>With <code>autoEnableOrganizationMembers</code> configuration for your organization set to <code>ALL</code>, you'll receive an error if you attempt to stop monitoring the member accounts in your organization.</p>
+        r"""<p>Stops GuardDuty monitoring for the specified member accounts. Use the <code>StartMonitoringMembers</code> operation to restart monitoring for those accounts.</p> <p>With <code>autoEnableOrganizationMembers</code> configuration for your organization set to <code>ALL</code>, you'll receive an error if you attempt to stop monitoring the member accounts in your organization.</p>
 
         Args:
             detector_id: <p>The unique ID of the detector associated with the GuardDuty administrator account that is monitoring member accounts.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html\">ListDetectors</a> API.</p>
@@ -3924,7 +3924,7 @@ class GuardDutyClient:
     ) -> (
         "aws_sdk_guardduty.types.unarchive_findings_response.UnarchiveFindingsResponse"
     ):
-        """<p>Unarchives GuardDuty findings specified by the <code>findingIds</code>.</p>
+        r"""<p>Unarchives GuardDuty findings specified by the <code>findingIds</code>.</p>
 
         Args:
             detector_id: <p>The ID of the detector associated with the findings to unarchive.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html\">ListDetectors</a> API.</p>
@@ -4013,7 +4013,7 @@ class GuardDutyClient:
             "aws_sdk_guardduty.types.detector_feature_configurations.DetectorFeatureConfigurations"
         ] = None,
     ) -> "aws_sdk_guardduty.types.update_detector_response.UpdateDetectorResponse":
-        """<p>Updates the GuardDuty detector specified by the detector ID.</p> <p>Specifying both EKS Runtime Monitoring (<code>EKS_RUNTIME_MONITORING</code>) and Runtime Monitoring (<code>RUNTIME_MONITORING</code>) will cause an error. You can add only one of these two features because Runtime Monitoring already includes the threat detection for Amazon EKS resources. For more information, see <a href=\"https://docs.aws.amazon.com/guardduty/latest/ug/runtime-monitoring.html\">Runtime Monitoring</a>.</p> <p>There might be regional differences because some data sources might not be available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more information, see <a href=\"https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html\">Regions and endpoints</a>.</p>
+        r"""<p>Updates the GuardDuty detector specified by the detector ID.</p> <p>Specifying both EKS Runtime Monitoring (<code>EKS_RUNTIME_MONITORING</code>) and Runtime Monitoring (<code>RUNTIME_MONITORING</code>) will cause an error. You can add only one of these two features because Runtime Monitoring already includes the threat detection for Amazon EKS resources. For more information, see <a href=\"https://docs.aws.amazon.com/guardduty/latest/ug/runtime-monitoring.html\">Runtime Monitoring</a>.</p> <p>There might be regional differences because some data sources might not be available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more information, see <a href=\"https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html\">Regions and endpoints</a>.</p>
 
         Args:
             detector_id: <p>The unique ID of the detector to update.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html\">ListDetectors</a> API.</p>
@@ -4071,7 +4071,7 @@ class GuardDutyClient:
             "aws_sdk_guardduty.types.finding_criteria.FindingCriteria"
         ] = None,
     ) -> "aws_sdk_guardduty.types.update_filter_response.UpdateFilterResponse":
-        """<p>Updates the filter specified by the filter name.</p>
+        r"""<p>Updates the filter specified by the filter name.</p>
 
         Args:
             detector_id: <p>The unique ID of the detector that specifies the GuardDuty service where you want to update a filter.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html\">ListDetectors</a> API.</p>
@@ -4127,7 +4127,7 @@ class GuardDutyClient:
             "aws_sdk_guardduty.types.sensitive_string.SensitiveString"
         ] = None,
     ) -> "aws_sdk_guardduty.types.update_findings_feedback_response.UpdateFindingsFeedbackResponse":
-        """<p>Marks the specified GuardDuty findings as useful or not useful.</p>
+        r"""<p>Marks the specified GuardDuty findings as useful or not useful.</p>
 
         Args:
             detector_id: <p>The ID of the detector that is associated with the findings for which you want to update the feedback.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html\">ListDetectors</a> API.</p>
@@ -4178,7 +4178,7 @@ class GuardDutyClient:
             "aws_sdk_guardduty.types.account_id.AccountId"
         ] = None,
     ) -> "aws_sdk_guardduty.types.update_ip_set_response.UpdateIPSetResponse":
-        """<p>Updates the IPSet specified by the IPSet ID.</p>
+        r"""<p>Updates the IPSet specified by the IPSet ID.</p>
 
         Args:
             detector_id: <p>The detectorID that specifies the GuardDuty service whose IPSet you want to update.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html\">ListDetectors</a> API.</p>
@@ -4286,7 +4286,7 @@ class GuardDutyClient:
             "aws_sdk_guardduty.types.ebs_snapshot_preservation.EbsSnapshotPreservation"
         ] = None,
     ) -> "aws_sdk_guardduty.types.update_malware_scan_settings_response.UpdateMalwareScanSettingsResponse":
-        """<p>Updates the malware scan settings.</p> <p>There might be regional differences because some data sources might not be available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more information, see <a href=\"https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html\">Regions and endpoints</a>.</p>
+        r"""<p>Updates the malware scan settings.</p> <p>There might be regional differences because some data sources might not be available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more information, see <a href=\"https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html\">Regions and endpoints</a>.</p>
 
         Args:
             detector_id: <p>The unique ID of the detector that specifies the GuardDuty service where you want to update scan settings.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html\">ListDetectors</a> API.</p>
@@ -4336,7 +4336,7 @@ class GuardDutyClient:
             "aws_sdk_guardduty.types.member_features_configurations.MemberFeaturesConfigurations"
         ] = None,
     ) -> "aws_sdk_guardduty.types.update_member_detectors_response.UpdateMemberDetectorsResponse":
-        """<p>Contains information on member accounts to be updated.</p> <p>Specifying both EKS Runtime Monitoring (<code>EKS_RUNTIME_MONITORING</code>) and Runtime Monitoring (<code>RUNTIME_MONITORING</code>) will cause an error. You can add only one of these two features because Runtime Monitoring already includes the threat detection for Amazon EKS resources. For more information, see <a href=\"https://docs.aws.amazon.com/guardduty/latest/ug/runtime-monitoring.html\">Runtime Monitoring</a>.</p> <p>There might be regional differences because some data sources might not be available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more information, see <a href=\"https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html\">Regions and endpoints</a>.</p>
+        r"""<p>Contains information on member accounts to be updated.</p> <p>Specifying both EKS Runtime Monitoring (<code>EKS_RUNTIME_MONITORING</code>) and Runtime Monitoring (<code>RUNTIME_MONITORING</code>) will cause an error. You can add only one of these two features because Runtime Monitoring already includes the threat detection for Amazon EKS resources. For more information, see <a href=\"https://docs.aws.amazon.com/guardduty/latest/ug/runtime-monitoring.html\">Runtime Monitoring</a>.</p> <p>There might be regional differences because some data sources might not be available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more information, see <a href=\"https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html\">Regions and endpoints</a>.</p>
 
         Args:
             detector_id: <p>The detector ID of the administrator account.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html\">ListDetectors</a> API.</p>
@@ -4391,7 +4391,7 @@ class GuardDutyClient:
             "aws_sdk_guardduty.types.auto_enable_members.AutoEnableMembers"
         ] = None,
     ) -> "aws_sdk_guardduty.types.update_organization_configuration_response.UpdateOrganizationConfigurationResponse":
-        """<p>Configures the delegated administrator account with the provided values. You must provide a value for either <code>autoEnableOrganizationMembers</code> or <code>autoEnable</code>, but not both. </p> <p>Specifying both EKS Runtime Monitoring (<code>EKS_RUNTIME_MONITORING</code>) and Runtime Monitoring (<code>RUNTIME_MONITORING</code>) will cause an error. You can add only one of these two features because Runtime Monitoring already includes the threat detection for Amazon EKS resources. For more information, see <a href=\"https://docs.aws.amazon.com/guardduty/latest/ug/runtime-monitoring.html\">Runtime Monitoring</a>.</p> <p>There might be regional differences because some data sources might not be available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more information, see <a href=\"https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html\">Regions and endpoints</a>.</p>
+        r"""<p>Configures the delegated administrator account with the provided values. You must provide a value for either <code>autoEnableOrganizationMembers</code> or <code>autoEnable</code>, but not both. </p> <p>Specifying both EKS Runtime Monitoring (<code>EKS_RUNTIME_MONITORING</code>) and Runtime Monitoring (<code>RUNTIME_MONITORING</code>) will cause an error. You can add only one of these two features because Runtime Monitoring already includes the threat detection for Amazon EKS resources. For more information, see <a href=\"https://docs.aws.amazon.com/guardduty/latest/ug/runtime-monitoring.html\">Runtime Monitoring</a>.</p> <p>There might be regional differences because some data sources might not be available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more information, see <a href=\"https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html\">Regions and endpoints</a>.</p>
 
         Args:
             detector_id: <p>The ID of the detector that configures the delegated administrator.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html\">ListDetectors</a> API.</p>
@@ -4446,7 +4446,7 @@ class GuardDutyClient:
             "aws_sdk_guardduty.types.destination_properties.DestinationProperties"
         ] = None,
     ) -> "aws_sdk_guardduty.types.update_publishing_destination_response.UpdatePublishingDestinationResponse":
-        """<p>Updates information about the publishing destination specified by the <code>destinationId</code>.</p>
+        r"""<p>Updates information about the publishing destination specified by the <code>destinationId</code>.</p>
 
         Args:
             detector_id: <p>The ID of the detector associated with the publishing destinations to update.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html\">ListDetectors</a> API.</p>
@@ -4495,7 +4495,7 @@ class GuardDutyClient:
         ] = None,
         activate: Optional["aws_sdk_guardduty.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_guardduty.types.update_threat_entity_set_response.UpdateThreatEntitySetResponse":
-        """<p>Updates the threat entity set associated with the specified <code>threatEntitySetId</code>.</p>
+        r"""<p>Updates the threat entity set associated with the specified <code>threatEntitySetId</code>.</p>
 
         Args:
             detector_id: <p>The unique ID of the GuardDuty detector associated with the threat entity set that you want to update.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html\">ListDetectors</a> API.</p>
@@ -4553,7 +4553,7 @@ class GuardDutyClient:
             "aws_sdk_guardduty.types.account_id.AccountId"
         ] = None,
     ) -> "aws_sdk_guardduty.types.update_threat_intel_set_response.UpdateThreatIntelSetResponse":
-        """<p>Updates the ThreatIntelSet specified by the ThreatIntelSet ID.</p>
+        r"""<p>Updates the ThreatIntelSet specified by the ThreatIntelSet ID.</p>
 
         Args:
             detector_id: <p>The detectorID that specifies the GuardDuty service whose ThreatIntelSet you want to update.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html\">ListDetectors</a> API.</p>
@@ -4611,7 +4611,7 @@ class GuardDutyClient:
         ] = None,
         activate: Optional["aws_sdk_guardduty.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_guardduty.types.update_trusted_entity_set_response.UpdateTrustedEntitySetResponse":
-        """<p>Updates the trusted entity set associated with the specified <code>trustedEntitySetId</code>.</p>
+        r"""<p>Updates the trusted entity set associated with the specified <code>trustedEntitySetId</code>.</p>
 
         Args:
             detector_id: <p>The unique ID of the GuardDuty detector associated with the threat entity set that you want to update.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html\">ListDetectors</a> API.</p>

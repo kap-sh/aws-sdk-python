@@ -44,7 +44,7 @@ class Cluster(TypedDict):
     resources_vpc_config: NotRequired[
         "aws_sdk_eks.types.vpc_config_response.VpcConfigResponse"
     ]
-    """<p>The VPC configuration used by the cluster control plane. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see <a href=\"https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html\">Cluster VPC considerations</a> and <a href=\"https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html\">Cluster security group considerations</a> in the <i>Amazon EKS User Guide</i>.</p>"""
+    r"""<p>The VPC configuration used by the cluster control plane. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see <a href=\"https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html\">Cluster VPC considerations</a> and <a href=\"https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html\">Cluster security group considerations</a> in the <i>Amazon EKS User Guide</i>.</p>"""
     kubernetes_network_config: NotRequired[
         "aws_sdk_eks.types.kubernetes_network_config_response.KubernetesNetworkConfigResponse"
     ]
@@ -60,7 +60,7 @@ class Cluster(TypedDict):
     client_request_token: NotRequired["aws_sdk_eks.types.string.String"]
     """<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>"""
     platform_version: NotRequired["aws_sdk_eks.types.string.String"]
-    """<p>The platform version of your Amazon EKS cluster. For more information about clusters deployed on the Amazon Web Services Cloud, see <a href=\"https://docs.aws.amazon.com/eks/latest/userguide/platform-versions.html\">Platform versions</a> in the <i> <i>Amazon EKS User Guide</i> </i>. For more information about local clusters deployed on an Outpost, see <a href=\"https://docs.aws.amazon.com/eks/latest/userguide/eks-outposts-platform-versions.html\">Amazon EKS local cluster platform versions</a> in the <i> <i>Amazon EKS User Guide</i> </i>.</p>"""
+    r"""<p>The platform version of your Amazon EKS cluster. For more information about clusters deployed on the Amazon Web Services Cloud, see <a href=\"https://docs.aws.amazon.com/eks/latest/userguide/platform-versions.html\">Platform versions</a> in the <i> <i>Amazon EKS User Guide</i> </i>. For more information about local clusters deployed on an Outpost, see <a href=\"https://docs.aws.amazon.com/eks/latest/userguide/eks-outposts-platform-versions.html\">Amazon EKS local cluster platform versions</a> in the <i> <i>Amazon EKS User Guide</i> </i>.</p>"""
     tags: NotRequired["aws_sdk_eks.types.tag_map.TagMap"]
     """<p>Metadata that assists with categorization and organization. Each tag consists of a key and an optional value. You define both. Tags don't propagate to any other cluster or Amazon Web Services resources.</p>"""
     encryption_config: NotRequired[
@@ -86,7 +86,7 @@ class Cluster(TypedDict):
     upgrade_policy: NotRequired[
         "aws_sdk_eks.types.upgrade_policy_response.UpgradePolicyResponse"
     ]
-    """<p>This value indicates if extended support is enabled or disabled for the cluster.</p> <p> <a href=\"https://docs.aws.amazon.com/eks/latest/userguide/extended-support-control.html\">Learn more about EKS Extended Support in the <i>Amazon EKS User Guide</i>.</a> </p>"""
+    r"""<p>This value indicates if extended support is enabled or disabled for the cluster.</p> <p> <a href=\"https://docs.aws.amazon.com/eks/latest/userguide/extended-support-control.html\">Learn more about EKS Extended Support in the <i>Amazon EKS User Guide</i>.</a> </p>"""
     zonal_shift_config: NotRequired[
         "aws_sdk_eks.types.zonal_shift_config_response.ZonalShiftConfigResponse"
     ]

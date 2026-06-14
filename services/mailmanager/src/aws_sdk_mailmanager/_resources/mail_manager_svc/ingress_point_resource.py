@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 from aws_sdk_mailmanager._services._pipeline import (
@@ -69,7 +71,7 @@ class IngressPointResource:
         tls_policy: Optional["aws_sdk_mailmanager.types.tls_policy.TlsPolicy"] = None,
         tags: Optional["aws_sdk_mailmanager.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_mailmanager.types.create_ingress_point_response.CreateIngressPointResponse":
-        """<p>Provision a new ingress endpoint resource.</p>
+        r"""<p>Provision a new ingress endpoint resource.</p>
 
         Args:
             client_token: <p>A unique token that Amazon SES uses to recognize subsequent retries of the same request.</p>
@@ -388,7 +390,7 @@ class AsyncIngressPointResource:
         tls_policy: Optional["aws_sdk_mailmanager.types.tls_policy.TlsPolicy"] = None,
         tags: Optional["aws_sdk_mailmanager.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_mailmanager.types.create_ingress_point_response.CreateIngressPointResponse":
-        """<p>Provision a new ingress endpoint resource.</p>
+        r"""<p>Provision a new ingress endpoint resource.</p>
 
         Args:
             client_token: <p>A unique token that Amazon SES uses to recognize subsequent retries of the same request.</p>

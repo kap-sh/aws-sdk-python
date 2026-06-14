@@ -19,7 +19,7 @@ class UserIdentityInfo(TypedDict):
     email: NotRequired["aws_sdk_connect.types.email.Email"]
     """<p>The email address. If you are using SAML for identity management and include this parameter, an error is returned.</p>"""
     secondary_email: NotRequired["aws_sdk_connect.types.email.Email"]
-    """<p>The user's secondary email address. If you provide a secondary email, the user receives email notifications - other than password reset notifications - to this email address instead of to their primary email address.</p> <p>Pattern: <code>(?=^.{0,265}$)[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,63}</code> </p>"""
+    r"""<p>The user's secondary email address. If you provide a secondary email, the user receives email notifications - other than password reset notifications - to this email address instead of to their primary email address.</p> <p>Pattern: <code>(?=^.{0,265}$)[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,63}</code> </p>"""
     mobile: NotRequired["aws_sdk_connect.types.phone_number.PhoneNumber"]
     """<p>The user's mobile number.</p>"""
 

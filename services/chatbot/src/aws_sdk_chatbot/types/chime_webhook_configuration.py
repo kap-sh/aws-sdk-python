@@ -22,13 +22,13 @@ class ChimeWebhookConfiguration(TypedDict):
     webhook_description: (
         "aws_sdk_chatbot.types.chime_webhook_description.ChimeWebhookDescription"
     )
-    """<p>A description of the webhook. We recommend using the convention <code>RoomName/WebhookName</code>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/chatbot/latest/adminguide/chime-setup.html\">Tutorial: Get started with Amazon Chime</a> in the <i> AWS Chatbot Administrator Guide</i>. </p>"""
+    r"""<p>A description of the webhook. We recommend using the convention <code>RoomName/WebhookName</code>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/chatbot/latest/adminguide/chime-setup.html\">Tutorial: Get started with Amazon Chime</a> in the <i> AWS Chatbot Administrator Guide</i>. </p>"""
     chat_configuration_arn: (
         "aws_sdk_chatbot.types.chat_configuration_arn.ChatConfigurationArn"
     )
     """<p>The Amazon Resource Name (ARN) of the ChimeWebhookConfiguration.</p>"""
     iam_role_arn: "aws_sdk_chatbot.types.arn.Arn"
-    """<p>A user-defined role that AWS Chatbot assumes. This is not the service-linked role.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/chatbot/latest/adminguide/chatbot-iam-policies.html\">IAM policies for AWS Chatbot</a> in the <i> AWS Chatbot Administrator Guide</i>. </p>"""
+    r"""<p>A user-defined role that AWS Chatbot assumes. This is not the service-linked role.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/chatbot/latest/adminguide/chatbot-iam-policies.html\">IAM policies for AWS Chatbot</a> in the <i> AWS Chatbot Administrator Guide</i>. </p>"""
     sns_topic_arns: "aws_sdk_chatbot.types.sns_topic_arn_list.SnsTopicArnList"
     """<p>The Amazon Resource Names (ARNs) of the SNS topics that deliver notifications to AWS Chatbot.</p>"""
     configuration_name: NotRequired[

@@ -23,7 +23,7 @@ if TYPE_CHECKING:
 
 class CreateEvaluationFormRequest(TypedDict):
     instance_id: "aws_sdk_connect.types.instance_id.InstanceId"
-    """<p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>"""
+    r"""<p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>"""
     title: "aws_sdk_connect.types.evaluation_form_title.EvaluationFormTitle"
     """<p>A title of the evaluation form.</p>"""
     description: NotRequired[
@@ -41,11 +41,11 @@ class CreateEvaluationFormRequest(TypedDict):
     ]
     """<p>Configuration information about automated evaluations.</p>"""
     client_token: NotRequired["aws_sdk_connect.types.client_token.ClientToken"]
-    """<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>"""
+    r"""<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>"""
     as_draft: "aws_sdk_connect.types.boxed_boolean.BoxedBoolean"
     """<p>A boolean flag indicating whether to create evaluation form in draft state.</p>"""
     tags: NotRequired["aws_sdk_connect.types.tag_map.TagMap"]
-    """<p>The tags used to organize, track, or control access for this resource. For example, { \"Tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.</p>"""
+    r"""<p>The tags used to organize, track, or control access for this resource. For example, { \"Tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.</p>"""
     review_configuration: NotRequired[
         "aws_sdk_connect.types.evaluation_review_configuration.EvaluationReviewConfiguration"
     ]

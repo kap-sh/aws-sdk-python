@@ -20,7 +20,7 @@ class ListSlotsRequest(TypedDict):
     bot_version: "aws_sdk_lex_models_v2.types.bot_version.BotVersion"
     """<p>The version of the bot that contains the slot.</p>"""
     locale_id: "aws_sdk_lex_models_v2.types.locale_id.LocaleId"
-    """<p>The identifier of the language and locale of the slots to list. The string must match one of the supported locales. For more information, see <a href=\"https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html\">Supported languages</a>.</p>"""
+    r"""<p>The identifier of the language and locale of the slots to list. The string must match one of the supported locales. For more information, see <a href=\"https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html\">Supported languages</a>.</p>"""
     intent_id: "aws_sdk_lex_models_v2.types.id.Id"
     """<p>The unique identifier of the intent that contains the slot.</p>"""
     sort_by: NotRequired["aws_sdk_lex_models_v2.types.slot_sort_by.SlotSortBy"]

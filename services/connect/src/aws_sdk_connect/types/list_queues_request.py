@@ -13,7 +13,7 @@ if TYPE_CHECKING:
 
 class ListQueuesRequest(TypedDict):
     instance_id: "aws_sdk_connect.types.instance_id.InstanceId"
-    """<p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>"""
+    r"""<p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>"""
     queue_types: NotRequired["aws_sdk_connect.types.queue_types.QueueTypes"]
     """<p>The type of queue.</p>"""
     next_token: NotRequired["aws_sdk_connect.types.next_token.NextToken"]

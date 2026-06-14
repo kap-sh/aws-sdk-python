@@ -18,7 +18,7 @@ class SendMessageResponse(TypedDict):
     configuration: NotRequired[
         "aws_sdk_qconnect.types.message_configuration.MessageConfiguration"
     ]
-    """<p>The configuration of the <a href=\"https://docs.aws.amazon.com/connect/latest/APIReference/API_amazon-q-connect_SendMessage.html\">SendMessage</a> request.</p>"""
+    r"""<p>The configuration of the <a href=\"https://docs.aws.amazon.com/connect/latest/APIReference/API_amazon-q-connect_SendMessage.html\">SendMessage</a> request.</p>"""
     next_message_token: "aws_sdk_qconnect.types.next_token.NextToken"
     """<p>The token for the next message, used by GetNextMessage.</p>"""
 

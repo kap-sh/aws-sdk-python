@@ -19,7 +19,7 @@ class GeoProximityLocation(TypedDict):
     local_zone_group: NotRequired[
         "aws_sdk_route_53.types.local_zone_group.LocalZoneGroup"
     ]
-    """<p> Specifies an Amazon Web Services Local Zone Group. </p> <p>A local Zone Group is usually the Local Zone code without the ending character. For example, if the Local Zone is <code>us-east-1-bue-1a</code> the Local Zone Group is <code>us-east-1-bue-1</code>.</p> <p>You can identify the Local Zones Group for a specific Local Zone by using the <a href=\"https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-availability-zones.html\">describe-availability-zones</a> CLI command:</p> <p>This command returns: <code>\"GroupName\": \"us-west-2-den-1\"</code>, specifying that the Local Zone <code>us-west-2-den-1a</code> belongs to the Local Zone Group <code>us-west-2-den-1</code>.</p>"""
+    r"""<p> Specifies an Amazon Web Services Local Zone Group. </p> <p>A local Zone Group is usually the Local Zone code without the ending character. For example, if the Local Zone is <code>us-east-1-bue-1a</code> the Local Zone Group is <code>us-east-1-bue-1</code>.</p> <p>You can identify the Local Zones Group for a specific Local Zone by using the <a href=\"https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-availability-zones.html\">describe-availability-zones</a> CLI command:</p> <p>This command returns: <code>\"GroupName\": \"us-west-2-den-1\"</code>, specifying that the Local Zone <code>us-west-2-den-1a</code> belongs to the Local Zone Group <code>us-west-2-den-1</code>.</p>"""
     coordinates: NotRequired["aws_sdk_route_53.types.coordinates.Coordinates"]
     """<p> Contains the longitude and latitude for a geographic region. </p>"""
     bias: NotRequired["aws_sdk_route_53.types.bias.Bias"]

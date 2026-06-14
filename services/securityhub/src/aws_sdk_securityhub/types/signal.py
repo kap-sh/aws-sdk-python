@@ -15,7 +15,7 @@ if TYPE_CHECKING:
 
 class Signal(TypedDict):
     type: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
-    """<p> The type of the signal used to identify an attack sequence. </p> <p>Signals can be GuardDuty findings or activities observed in data sources that GuardDuty monitors. For more information, see <a href=\"https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_data-sources.html\">GuardDuty foundational data sources</a> in the <i>Amazon GuardDuty User Guide</i>.</p> <p>A signal type can be one of the following values. Here are the related descriptions:</p> <ul> <li> <p> <code>FINDING</code> - Individually generated GuardDuty finding.</p> </li> <li> <p> <code>CLOUD_TRAIL</code> - Activity observed from CloudTrail logs</p> </li> <li> <p> <code>S3_DATA_EVENTS</code> - Activity observed from CloudTrail data events for Amazon Simple Storage Service (S3). Activities associated with this type will show up only when you have enabled GuardDuty S3 Protection feature in your account. For more information about S3 Protection and the steps to enable it, see <a href=\"https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html\">S3 Protection</a> in the <i>Amazon GuardDuty User Guide</i>.</p> </li> </ul>"""
+    r"""<p> The type of the signal used to identify an attack sequence. </p> <p>Signals can be GuardDuty findings or activities observed in data sources that GuardDuty monitors. For more information, see <a href=\"https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_data-sources.html\">GuardDuty foundational data sources</a> in the <i>Amazon GuardDuty User Guide</i>.</p> <p>A signal type can be one of the following values. Here are the related descriptions:</p> <ul> <li> <p> <code>FINDING</code> - Individually generated GuardDuty finding.</p> </li> <li> <p> <code>CLOUD_TRAIL</code> - Activity observed from CloudTrail logs</p> </li> <li> <p> <code>S3_DATA_EVENTS</code> - Activity observed from CloudTrail data events for Amazon Simple Storage Service (S3). Activities associated with this type will show up only when you have enabled GuardDuty S3 Protection feature in your account. For more information about S3 Protection and the steps to enable it, see <a href=\"https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html\">S3 Protection</a> in the <i>Amazon GuardDuty User Guide</i>.</p> </li> </ul>"""
     id: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p> The identifier of the signal. </p>"""
     title: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
@@ -31,7 +31,7 @@ class Signal(TypedDict):
     signal_indicators: NotRequired[
         "aws_sdk_securityhub.types.indicators_list.IndicatorsList"
     ]
-    """<p> Contains information about the indicators associated with the signals in this attack sequence finding. The values for <code>SignalIndicators</code> are a subset of the values for <a href=\"https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_Sequence.html\">SequenceIndicators</a>, but the values for these fields don't always match 1:1. </p>"""
+    r"""<p> Contains information about the indicators associated with the signals in this attack sequence finding. The values for <code>SignalIndicators</code> are a subset of the values for <a href=\"https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_Sequence.html\">SequenceIndicators</a>, but the values for these fields don't always match 1:1. </p>"""
     name: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p> The name of the GuardDuty signal. For example, when signal type is <code>FINDING</code>, the signal name is the name of the finding. </p>"""
     created_at: NotRequired["aws_sdk_securityhub.types.long.Long"]
@@ -43,7 +43,7 @@ class Signal(TypedDict):
     last_seen_at: NotRequired["aws_sdk_securityhub.types.long.Long"]
     """<p> The timestamp when the last finding or activity related to this signal was observed. </p>"""
     severity: NotRequired["aws_sdk_securityhub.types.double.Double"]
-    """<p>The severity associated with the signal. For more information about severity, see <a href=\"https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings-severity.html\">Severity levels for GuardDuty findings</a> in the <i>Amazon GuardDuty User Guide</i>.</p>"""
+    r"""<p>The severity associated with the signal. For more information about severity, see <a href=\"https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings-severity.html\">Severity levels for GuardDuty findings</a> in the <i>Amazon GuardDuty User Guide</i>.</p>"""
     count: NotRequired["aws_sdk_securityhub.types.integer.Integer"]
     """<p> The number of times this signal was observed. </p>"""
     actor_ids: NotRequired[

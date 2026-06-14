@@ -133,7 +133,7 @@ class AsyncBCMDashboardsClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = AsyncBCMDashboardsClientConfig(
+        self._config = AsyncBCMDashboardsClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -152,7 +152,7 @@ class AsyncBCMDashboardsClient:
         overrides: AsyncBCMDashboardsClientConfig = config_overrides or {}
         interceptors_: list[AsyncInterceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             aretry(),
         ]
@@ -160,13 +160,13 @@ class AsyncBCMDashboardsClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
-            region=overrides.get("region", self.config.get("region")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
+            region=overrides.get("region", self._config.get("region")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -216,16 +216,16 @@ class AsyncBCMDashboardsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_bcm_dashboards.types.create_dashboard_request.CreateDashboardRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_bcm_dashboards.types.create_dashboard_request.CreateDashboardRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["widgets"] = widgets
+            input_["description"] = description
+        input_["widgets"] = widgets
         if resource_tags is not None:
-            input["resource_tags"] = resource_tags
+            input_["resource_tags"] = resource_tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -267,15 +267,15 @@ class AsyncBCMDashboardsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_bcm_dashboards.types.create_scheduled_report_request.CreateScheduledReportRequest = {}  # type: ignore[typeddict-item]
-        input["scheduled_report"] = scheduled_report
+        input_: aws_sdk_bcm_dashboards.types.create_scheduled_report_request.CreateScheduledReportRequest = {}  # type: ignore[typeddict-item]
+        input_["scheduled_report"] = scheduled_report
         if resource_tags is not None:
-            input["resource_tags"] = resource_tags
+            input_["resource_tags"] = resource_tags
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -316,11 +316,11 @@ class AsyncBCMDashboardsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_bcm_dashboards.types.delete_dashboard_request.DeleteDashboardRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_bcm_dashboards.types.delete_dashboard_request.DeleteDashboardRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -354,11 +354,11 @@ class AsyncBCMDashboardsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_bcm_dashboards.types.delete_scheduled_report_request.DeleteScheduledReportRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_bcm_dashboards.types.delete_scheduled_report_request.DeleteScheduledReportRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -398,15 +398,15 @@ class AsyncBCMDashboardsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_bcm_dashboards.types.execute_scheduled_report_request.ExecuteScheduledReportRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_bcm_dashboards.types.execute_scheduled_report_request.ExecuteScheduledReportRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if dry_run is not None:
-            input["dry_run"] = dry_run
+            input_["dry_run"] = dry_run
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -445,11 +445,11 @@ class AsyncBCMDashboardsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_bcm_dashboards.types.get_dashboard_request.GetDashboardRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_bcm_dashboards.types.get_dashboard_request.GetDashboardRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -488,11 +488,11 @@ class AsyncBCMDashboardsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_bcm_dashboards.types.get_resource_policy_request.GetResourcePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_bcm_dashboards.types.get_resource_policy_request.GetResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -526,11 +526,11 @@ class AsyncBCMDashboardsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_bcm_dashboards.types.get_scheduled_report_request.GetScheduledReportRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_bcm_dashboards.types.get_scheduled_report_request.GetScheduledReportRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -575,14 +575,14 @@ class AsyncBCMDashboardsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_bcm_dashboards.types.list_dashboards_request.ListDashboardsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bcm_dashboards.types.list_dashboards_request.ListDashboardsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -647,14 +647,14 @@ class AsyncBCMDashboardsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_bcm_dashboards.types.list_scheduled_reports_request.ListScheduledReportsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bcm_dashboards.types.list_scheduled_reports_request.ListScheduledReportsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -718,11 +718,11 @@ class AsyncBCMDashboardsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_bcm_dashboards.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_bcm_dashboards.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -763,12 +763,12 @@ class AsyncBCMDashboardsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_bcm_dashboards.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["resource_tags"] = resource_tags
+        input_: aws_sdk_bcm_dashboards.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["resource_tags"] = resource_tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -809,12 +809,12 @@ class AsyncBCMDashboardsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_bcm_dashboards.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["resource_tag_keys"] = resource_tag_keys
+        input_: aws_sdk_bcm_dashboards.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["resource_tag_keys"] = resource_tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -863,16 +863,16 @@ class AsyncBCMDashboardsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_bcm_dashboards.types.update_dashboard_request.UpdateDashboardRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
-        input["name"] = name
+        input_: aws_sdk_bcm_dashboards.types.update_dashboard_request.UpdateDashboardRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if widgets is not None:
-            input["widgets"] = widgets
+            input_["widgets"] = widgets
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -938,31 +938,33 @@ class AsyncBCMDashboardsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_bcm_dashboards.types.update_scheduled_report_request.UpdateScheduledReportRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_bcm_dashboards.types.update_scheduled_report_request.UpdateScheduledReportRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if dashboard_arn is not None:
-            input["dashboard_arn"] = dashboard_arn
+            input_["dashboard_arn"] = dashboard_arn
         if scheduled_report_execution_role_arn is not None:
-            input["scheduled_report_execution_role_arn"] = (
+            input_["scheduled_report_execution_role_arn"] = (
                 scheduled_report_execution_role_arn
             )
         if schedule_config is not None:
-            input["schedule_config"] = schedule_config
+            input_["schedule_config"] = schedule_config
         if widget_ids is not None:
-            input["widget_ids"] = widget_ids
+            input_["widget_ids"] = widget_ids
         if widget_date_range_override is not None:
-            input["widget_date_range_override"] = widget_date_range_override
+            input_["widget_date_range_override"] = widget_date_range_override
         if clear_widget_ids is not None:
-            input["clear_widget_ids"] = clear_widget_ids
+            input_["clear_widget_ids"] = clear_widget_ids
         if clear_widget_date_range_override is not None:
-            input["clear_widget_date_range_override"] = clear_widget_date_range_override
+            input_["clear_widget_date_range_override"] = (
+                clear_widget_date_range_override
+            )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

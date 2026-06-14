@@ -1,0 +1,55 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrockagentcore#UpdateBrowserStreamRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_bedrock_agentcore.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_bedrock_agentcore.types.browser_session_id
+    import aws_sdk_bedrock_agentcore.types.client_token
+    import aws_sdk_bedrock_agentcore.types.stream_update
+
+
+class UpdateBrowserStreamRequest(TypedDict):
+    browser_identifier: "str"
+    """<p>The identifier of the browser.</p>"""
+    session_id: "aws_sdk_bedrock_agentcore.types.browser_session_id.BrowserSessionId"
+    """<p>The identifier of the browser session.</p>"""
+    stream_update: "aws_sdk_bedrock_agentcore.types.stream_update.StreamUpdate"
+    """<p>The update to apply to the browser stream.</p>"""
+    client_token: NotRequired[
+        "aws_sdk_bedrock_agentcore.types.client_token.ClientToken"
+    ]
+    """<p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request, but does not return an error.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: UpdateBrowserStreamRequest) -> dict:
+    out: dict = {}
+    import aws_sdk_bedrock_agentcore.types.stream_update
+
+    out["streamUpdate"] = aws_sdk_bedrock_agentcore.types.stream_update.serialize_json(
+        value["stream_update"]
+    )
+    if "client_token" in value:
+        out["clientToken"] = value["client_token"]
+    return out
+
+
+def deserialize_json(data: dict) -> UpdateBrowserStreamRequest:
+    out: UpdateBrowserStreamRequest = {}  # type: ignore[typeddict-item]
+    if "streamUpdate" in data:
+        import aws_sdk_bedrock_agentcore.types.stream_update
+
+        out["stream_update"] = (
+            aws_sdk_bedrock_agentcore.types.stream_update.deserialize_json(
+                data["streamUpdate"]
+            )
+        )
+    else:
+        raise DeserializationError("UpdateBrowserStreamRequest.stream_update required")
+    if "clientToken" in data:
+        out["client_token"] = data["clientToken"]
+    return out

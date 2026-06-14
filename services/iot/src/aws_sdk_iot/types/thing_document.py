@@ -28,9 +28,9 @@ class ThingDocument(TypedDict):
     attributes: NotRequired["aws_sdk_iot.types.attributes.Attributes"]
     """<p>The attributes.</p>"""
     shadow: NotRequired["aws_sdk_iot.types.json_document.JsonDocument"]
-    """<p>The unnamed shadow and named shadow.</p> <p>For more information about shadows, see <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/iot-device-shadows.html\">IoT Device Shadow service.</a> </p>"""
+    r"""<p>The unnamed shadow and named shadow.</p> <p>For more information about shadows, see <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/iot-device-shadows.html\">IoT Device Shadow service.</a> </p>"""
     device_defender: NotRequired["aws_sdk_iot.types.json_document.JsonDocument"]
-    """<p>Contains Device Defender data.</p> <p>For more information about Device Defender, see <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/device-defender.html\">Device Defender</a>. </p>"""
+    r"""<p>Contains Device Defender data.</p> <p>For more information about Device Defender, see <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/device-defender.html\">Device Defender</a>. </p>"""
     connectivity: NotRequired["aws_sdk_iot.types.thing_connectivity.ThingConnectivity"]
     """<p>Indicates whether the thing is connected to the Amazon Web Services IoT Core service.</p>"""
 

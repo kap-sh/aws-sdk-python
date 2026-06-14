@@ -13,7 +13,7 @@ class TagResourceRequest(TypedDict):
     resource_arn: "aws_sdk_personalize.types.arn.Arn"
     """<p>The resource's Amazon Resource Name (ARN).</p>"""
     tags: "aws_sdk_personalize.types.tags.Tags"
-    """<p>Tags to apply to the resource. For more information see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html\">Tagging Amazon Personalize resources</a>.</p>"""
+    r"""<p>Tags to apply to the resource. For more information see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html\">Tagging Amazon Personalize resources</a>.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

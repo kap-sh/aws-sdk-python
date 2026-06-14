@@ -40,13 +40,13 @@ class AwsEc2LaunchTemplateDataDetails(TypedDict):
     cpu_options: NotRequired[
         "aws_sdk_securityhub.types.aws_ec2_launch_template_data_cpu_options_details.AwsEc2LaunchTemplateDataCpuOptionsDetails"
     ]
-    """<p> Specifies the CPU options for an instance. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html\">Optimize CPU options</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. </p>"""
+    r"""<p> Specifies the CPU options for an instance. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html\">Optimize CPU options</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. </p>"""
     credit_specification: NotRequired[
         "aws_sdk_securityhub.types.aws_ec2_launch_template_data_credit_specification_details.AwsEc2LaunchTemplateDataCreditSpecificationDetails"
     ]
     """<p> Specifies the credit option for CPU usage of a T2, T3, or T3a instance. </p>"""
     disable_api_stop: NotRequired["aws_sdk_securityhub.types.boolean.Boolean"]
-    """<p> Indicates whether to enable the instance for stop protection. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection\">Enable stop protection</a> in the <i>Amazon EC2 User Guide</i>. </p>"""
+    r"""<p> Indicates whether to enable the instance for stop protection. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection\">Enable stop protection</a> in the <i>Amazon EC2 User Guide</i>. </p>"""
     disable_api_termination: NotRequired["aws_sdk_securityhub.types.boolean.Boolean"]
     """<p> If you set this parameter to <code>true</code>, you can't terminate the instance using the Amazon EC2 console, CLI, or API. If set to <code>true</code>, you can. </p>"""
     ebs_optimized: NotRequired["aws_sdk_securityhub.types.boolean.Boolean"]
@@ -88,7 +88,7 @@ class AwsEc2LaunchTemplateDataDetails(TypedDict):
     instance_type: NotRequired[
         "aws_sdk_securityhub.types.non_empty_string.NonEmptyString"
     ]
-    """<p> The instance type. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html\">Instance types</a> in the <i>Amazon EC2 User Guide</i>. If you specify <code>InstanceType</code>, you can't specify <code>InstanceRequirements</code>. </p>"""
+    r"""<p> The instance type. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html\">Instance types</a> in the <i>Amazon EC2 User Guide</i>. If you specify <code>InstanceType</code>, you can't specify <code>InstanceRequirements</code>. </p>"""
     kernel_id: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p> The ID of the kernel. </p>"""
     key_name: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
@@ -104,7 +104,7 @@ class AwsEc2LaunchTemplateDataDetails(TypedDict):
     metadata_options: NotRequired[
         "aws_sdk_securityhub.types.aws_ec2_launch_template_data_metadata_options_details.AwsEc2LaunchTemplateDataMetadataOptionsDetails"
     ]
-    """<p> The metadata options for the instance. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html\">Instance metadata and user data</a> in the <i>Amazon EC2 User Guide</i>. </p>"""
+    r"""<p> The metadata options for the instance. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html\">Instance metadata and user data</a> in the <i>Amazon EC2 User Guide</i>. </p>"""
     monitoring: NotRequired[
         "aws_sdk_securityhub.types.aws_ec2_launch_template_data_monitoring_details.AwsEc2LaunchTemplateDataMonitoringDetails"
     ]

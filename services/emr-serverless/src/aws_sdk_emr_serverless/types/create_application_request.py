@@ -73,7 +73,7 @@ class CreateApplicationRequest(TypedDict):
     runtime_configuration: NotRequired[
         "aws_sdk_emr_serverless.types.configuration_list.ConfigurationList"
     ]
-    """<p>The <a href=\"https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_Configuration.html\">Configuration</a> specifications to use when creating an application. Each configuration consists of a classification and properties. This configuration is applied to all the job runs submitted under the application.</p>"""
+    r"""<p>The <a href=\"https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_Configuration.html\">Configuration</a> specifications to use when creating an application. Each configuration consists of a classification and properties. This configuration is applied to all the job runs submitted under the application.</p>"""
     monitoring_configuration: NotRequired[
         "aws_sdk_emr_serverless.types.monitoring_configuration.MonitoringConfiguration"
     ]

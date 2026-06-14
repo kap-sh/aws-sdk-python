@@ -20,7 +20,7 @@ class NodeGroupConfiguration(TypedDict):
     ]
     """<p>Either the ElastiCache supplied 4-digit id or a user supplied id for the node group these configuration values apply to.</p>"""
     slots: NotRequired["aws_sdk_elasticache.types.string.String"]
-    """<p>A string that specifies the keyspace for a particular node group. Keyspaces range from 0 to 16,383. The string is in the format <code>startkey-endkey</code>.</p> <p>Example: <code>\"0-3999\"</code> </p>"""
+    r"""<p>A string that specifies the keyspace for a particular node group. Keyspaces range from 0 to 16,383. The string is in the format <code>startkey-endkey</code>.</p> <p>Example: <code>\"0-3999\"</code> </p>"""
     replica_count: NotRequired[
         "aws_sdk_elasticache.types.integer_optional.IntegerOptional"
     ]

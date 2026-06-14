@@ -13,7 +13,7 @@ if TYPE_CHECKING:
 
 class KxUser(TypedDict):
     user_arn: NotRequired["aws_sdk_finspace.types.kx_user_arn.KxUserArn"]
-    """<p> The Amazon Resource Name (ARN) that identifies the user. For more information about ARNs and how to use ARNs in policies, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html\">IAM Identifiers</a> in the <i>IAM User Guide</i>. </p>"""
+    r"""<p> The Amazon Resource Name (ARN) that identifies the user. For more information about ARNs and how to use ARNs in policies, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html\">IAM Identifiers</a> in the <i>IAM User Guide</i>. </p>"""
     user_name: NotRequired[
         "aws_sdk_finspace.types.kx_user_name_string.KxUserNameString"
     ]

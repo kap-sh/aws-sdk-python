@@ -56,7 +56,7 @@ class InstanceRequirements(TypedDict):
     instance_generations: NotRequired[
         "aws_sdk_auto_scaling.types.instance_generations.InstanceGenerations"
     ]
-    """<p>Indicates whether current or previous generation instance types are included.</p> <ul> <li> <p>For current generation instance types, specify <code>current</code>. The current generation includes EC2 instance types currently recommended for use. This typically includes the latest two to three generations in each instance family. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html\">Instance types</a> in the <i>Amazon EC2 User Guide</i>.</p> </li> <li> <p>For previous generation instance types, specify <code>previous</code>.</p> </li> </ul> <p>Default: Any current or previous generation</p>"""
+    r"""<p>Indicates whether current or previous generation instance types are included.</p> <ul> <li> <p>For current generation instance types, specify <code>current</code>. The current generation includes EC2 instance types currently recommended for use. This typically includes the latest two to three generations in each instance family. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html\">Instance types</a> in the <i>Amazon EC2 User Guide</i>.</p> </li> <li> <p>For previous generation instance types, specify <code>previous</code>.</p> </li> </ul> <p>Default: Any current or previous generation</p>"""
     spot_max_price_percentage_over_lowest_price: NotRequired[
         "aws_sdk_auto_scaling.types.nullable_positive_integer.NullablePositiveInteger"
     ]
@@ -74,7 +74,7 @@ class InstanceRequirements(TypedDict):
     burstable_performance: NotRequired[
         "aws_sdk_auto_scaling.types.burstable_performance.BurstablePerformance"
     ]
-    """<p>Indicates whether burstable performance instance types are included, excluded, or required. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html\">Burstable performance instances</a> in the <i>Amazon EC2 User Guide</i>.</p> <p>Default: <code>excluded</code> </p>"""
+    r"""<p>Indicates whether burstable performance instance types are included, excluded, or required. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html\">Burstable performance instances</a> in the <i>Amazon EC2 User Guide</i>.</p> <p>Default: <code>excluded</code> </p>"""
     require_hibernate_support: NotRequired[
         "aws_sdk_auto_scaling.types.nullable_boolean.NullableBoolean"
     ]
@@ -84,7 +84,7 @@ class InstanceRequirements(TypedDict):
     ]
     """<p>The minimum and maximum number of network interfaces for an instance type.</p> <p>Default: No minimum or maximum limits</p>"""
     local_storage: NotRequired["aws_sdk_auto_scaling.types.local_storage.LocalStorage"]
-    """<p>Indicates whether instance types with instance store volumes are included, excluded, or required. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html\">Amazon EC2 instance store</a> in the <i>Amazon EC2 User Guide</i>.</p> <p>Default: <code>included</code> </p>"""
+    r"""<p>Indicates whether instance types with instance store volumes are included, excluded, or required. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html\">Amazon EC2 instance store</a> in the <i>Amazon EC2 User Guide</i>.</p> <p>Default: <code>included</code> </p>"""
     local_storage_types: NotRequired[
         "aws_sdk_auto_scaling.types.local_storage_types.LocalStorageTypes"
     ]
@@ -96,7 +96,7 @@ class InstanceRequirements(TypedDict):
     baseline_ebs_bandwidth_mbps: NotRequired[
         "aws_sdk_auto_scaling.types.baseline_ebs_bandwidth_mbps_request.BaselineEbsBandwidthMbpsRequest"
     ]
-    """<p>The minimum and maximum baseline bandwidth performance for an instance type, in Mbps. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html\">Amazon EBS–optimized instances</a> in the <i>Amazon EC2 User Guide</i>.</p> <p>Default: No minimum or maximum limits</p>"""
+    r"""<p>The minimum and maximum baseline bandwidth performance for an instance type, in Mbps. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html\">Amazon EBS–optimized instances</a> in the <i>Amazon EC2 User Guide</i>.</p> <p>Default: No minimum or maximum limits</p>"""
     accelerator_types: NotRequired[
         "aws_sdk_auto_scaling.types.accelerator_types.AcceleratorTypes"
     ]

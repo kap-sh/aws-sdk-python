@@ -1,10 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#AllowedQueryParameters``."""
 
 from typing import TYPE_CHECKING, TypeAlias
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.http_query_parameter_name
 
-AllowedQueryParameters: TypeAlias = list["aws_sdk_bedrock_agentcore_control.types.http_query_parameter_name.HttpQueryParameterName"]
+AllowedQueryParameters: TypeAlias = list[
+    "aws_sdk_bedrock_agentcore_control.types.http_query_parameter_name.HttpQueryParameterName"
+]
 
 
 # --- restJson1 ser/de ---

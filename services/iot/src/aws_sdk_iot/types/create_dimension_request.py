@@ -20,7 +20,7 @@ class CreateDimensionRequest(TypedDict):
     type: "aws_sdk_iot.types.dimension_type.DimensionType"
     """<p>Specifies the type of dimension. Supported types: <code>TOPIC_FILTER.</code> </p>"""
     string_values: "aws_sdk_iot.types.dimension_string_values.DimensionStringValues"
-    """<p>Specifies the value or list of values for the dimension. For <code>TOPIC_FILTER</code> dimensions, this is a pattern used to match the MQTT topic (for example, \"admin/#\").</p>"""
+    r"""<p>Specifies the value or list of values for the dimension. For <code>TOPIC_FILTER</code> dimensions, this is a pattern used to match the MQTT topic (for example, \"admin/#\").</p>"""
     tags: NotRequired["aws_sdk_iot.types.tag_list.TagList"]
     """<p>Metadata that can be used to manage the dimension.</p>"""
     client_request_token: "aws_sdk_iot.types.client_request_token.ClientRequestToken"

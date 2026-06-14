@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_scheduler._auth._signers
@@ -79,7 +81,7 @@ class Schedule:
             "aws_sdk_scheduler.types.action_after_completion.ActionAfterCompletion"
         ] = None,
     ) -> "aws_sdk_scheduler.types.create_schedule_output.CreateScheduleOutput":
-        """<p>Creates the specified schedule.</p>
+        r"""<p>Creates the specified schedule.</p>
 
         Args:
             name: <p>The name of the schedule that you are creating.</p>
@@ -212,7 +214,7 @@ class Schedule:
             "aws_sdk_scheduler.types.action_after_completion.ActionAfterCompletion"
         ] = None,
     ) -> "aws_sdk_scheduler.types.update_schedule_output.UpdateScheduleOutput":
-        """<p> Updates the specified schedule. When you call <code>UpdateSchedule</code>, EventBridge Scheduler uses all values, including empty values, specified in the request and overrides the existing schedule. This is by design. This means that if you do not set an optional field in your request, that field will be set to its system-default value after the update. </p> <p> Before calling this operation, we recommend that you call the <code>GetSchedule</code> API operation and make a note of all optional parameters for your <code>UpdateSchedule</code> call. </p>
+        r"""<p> Updates the specified schedule. When you call <code>UpdateSchedule</code>, EventBridge Scheduler uses all values, including empty values, specified in the request and overrides the existing schedule. This is by design. This means that if you do not set an optional field in your request, that field will be set to its system-default value after the update. </p> <p> Before calling this operation, we recommend that you call the <code>GetSchedule</code> API operation and make a note of all optional parameters for your <code>UpdateSchedule</code> call. </p>
 
         Args:
             name: <p>The name of the schedule that you are updating.</p>
@@ -412,7 +414,7 @@ class AsyncSchedule:
             "aws_sdk_scheduler.types.action_after_completion.ActionAfterCompletion"
         ] = None,
     ) -> "aws_sdk_scheduler.types.create_schedule_output.CreateScheduleOutput":
-        """<p>Creates the specified schedule.</p>
+        r"""<p>Creates the specified schedule.</p>
 
         Args:
             name: <p>The name of the schedule that you are creating.</p>
@@ -547,7 +549,7 @@ class AsyncSchedule:
             "aws_sdk_scheduler.types.action_after_completion.ActionAfterCompletion"
         ] = None,
     ) -> "aws_sdk_scheduler.types.update_schedule_output.UpdateScheduleOutput":
-        """<p> Updates the specified schedule. When you call <code>UpdateSchedule</code>, EventBridge Scheduler uses all values, including empty values, specified in the request and overrides the existing schedule. This is by design. This means that if you do not set an optional field in your request, that field will be set to its system-default value after the update. </p> <p> Before calling this operation, we recommend that you call the <code>GetSchedule</code> API operation and make a note of all optional parameters for your <code>UpdateSchedule</code> call. </p>
+        r"""<p> Updates the specified schedule. When you call <code>UpdateSchedule</code>, EventBridge Scheduler uses all values, including empty values, specified in the request and overrides the existing schedule. This is by design. This means that if you do not set an optional field in your request, that field will be set to its system-default value after the update. </p> <p> Before calling this operation, we recommend that you call the <code>GetSchedule</code> API operation and make a note of all optional parameters for your <code>UpdateSchedule</code> call. </p>
 
         Args:
             name: <p>The name of the schedule that you are updating.</p>

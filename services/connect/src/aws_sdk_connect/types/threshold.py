@@ -11,7 +11,7 @@ if TYPE_CHECKING:
 
 class Threshold(TypedDict):
     comparison: NotRequired["aws_sdk_connect.types.comparison.Comparison"]
-    """<p>The type of comparison. Only \"less than\" (LT) comparisons are supported.</p>"""
+    r"""<p>The type of comparison. Only \"less than\" (LT) comparisons are supported.</p>"""
     threshold_value: NotRequired["aws_sdk_connect.types.threshold_value.ThresholdValue"]
     """<p>The threshold value to compare.</p>"""
 

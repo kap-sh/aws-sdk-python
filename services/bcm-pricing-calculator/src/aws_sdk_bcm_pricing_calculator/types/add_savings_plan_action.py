@@ -13,7 +13,7 @@ class AddSavingsPlanAction(TypedDict):
     savings_plan_offering_id: NotRequired[
         "aws_sdk_bcm_pricing_calculator.types.uuid.Uuid"
     ]
-    """<p> The ID of the Savings Plan offering to add. For more information, see <a href=\"https://docs.aws.amazon.com/savingsplans/latest/APIReference/API_DescribeSavingsPlansOfferings.html\"> DescribeSavingsPlansOfferings</a>. </p>"""
+    r"""<p> The ID of the Savings Plan offering to add. For more information, see <a href=\"https://docs.aws.amazon.com/savingsplans/latest/APIReference/API_DescribeSavingsPlansOfferings.html\"> DescribeSavingsPlansOfferings</a>. </p>"""
     commitment: NotRequired[
         "aws_sdk_bcm_pricing_calculator.types.savings_plan_commitment.SavingsPlanCommitment"
     ]

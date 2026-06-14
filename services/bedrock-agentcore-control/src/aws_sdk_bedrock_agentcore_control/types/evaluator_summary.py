@@ -1,9 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#EvaluatorSummary``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
+
 if TYPE_CHECKING:
+    import datetime
+
     import aws_sdk_bedrock_agentcore_control.types.evaluator_arn
     import aws_sdk_bedrock_agentcore_control.types.evaluator_description
     import aws_sdk_bedrock_agentcore_control.types.evaluator_id
@@ -12,20 +17,28 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.evaluator_status
     import aws_sdk_bedrock_agentcore_control.types.evaluator_type
     import aws_sdk_bedrock_agentcore_control.types.kms_key_arn
-    import datetime
+
 
 class EvaluatorSummary(TypedDict):
     evaluator_arn: "aws_sdk_bedrock_agentcore_control.types.evaluator_arn.EvaluatorArn"
     """<p> The Amazon Resource Name (ARN) of the evaluator. </p>"""
     evaluator_id: "aws_sdk_bedrock_agentcore_control.types.evaluator_id.EvaluatorId"
     """<p> The unique identifier of the evaluator. </p>"""
-    evaluator_name: "aws_sdk_bedrock_agentcore_control.types.evaluator_name.EvaluatorName"
+    evaluator_name: (
+        "aws_sdk_bedrock_agentcore_control.types.evaluator_name.EvaluatorName"
+    )
     """<p> The name of the evaluator. </p>"""
-    description: NotRequired["aws_sdk_bedrock_agentcore_control.types.evaluator_description.EvaluatorDescription"]
+    description: NotRequired[
+        "aws_sdk_bedrock_agentcore_control.types.evaluator_description.EvaluatorDescription"
+    ]
     """<p> The description of the evaluator. </p>"""
-    evaluator_type: "aws_sdk_bedrock_agentcore_control.types.evaluator_type.EvaluatorType"
+    evaluator_type: (
+        "aws_sdk_bedrock_agentcore_control.types.evaluator_type.EvaluatorType"
+    )
     """<p> The type of evaluator, indicating whether it is a built-in evaluator provided by the service or a custom evaluator created by the user. </p>"""
-    level: NotRequired["aws_sdk_bedrock_agentcore_control.types.evaluator_level.EvaluatorLevel"]
+    level: NotRequired[
+        "aws_sdk_bedrock_agentcore_control.types.evaluator_level.EvaluatorLevel"
+    ]
     """<p> The evaluation level (<code>TOOL_CALL</code>, <code>TRACE</code>, or <code>SESSION</code>) that determines the scope of evaluation. </p>"""
     status: "aws_sdk_bedrock_agentcore_control.types.evaluator_status.EvaluatorStatus"
     """<p> The current status of the evaluator. </p>"""
@@ -35,8 +48,11 @@ class EvaluatorSummary(TypedDict):
     """<p> The timestamp when the evaluator was last updated. </p>"""
     locked_for_modification: NotRequired["bool"]
     """<p> Whether the evaluator is locked for modification due to being referenced by active online evaluation configurations. </p>"""
-    kms_key_arn: NotRequired["aws_sdk_bedrock_agentcore_control.types.kms_key_arn.KmsKeyArn"]
+    kms_key_arn: NotRequired[
+        "aws_sdk_bedrock_agentcore_control.types.kms_key_arn.KmsKeyArn"
+    ]
     """<p> The Amazon Resource Name (ARN) of the customer managed KMS key used to encrypt the evaluator's sensitive data. This field is only present for evaluators encrypted with a customer managed key. </p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: EvaluatorSummary) -> dict:
@@ -47,16 +63,41 @@ def serialize_json(value: EvaluatorSummary) -> dict:
     if "description" in value:
         out["description"] = value["description"]
     import aws_sdk_bedrock_agentcore_control.types.evaluator_type
-    out["evaluatorType"] = aws_sdk_bedrock_agentcore_control.types.evaluator_type.serialize_json(value["evaluator_type"])
+
+    out["evaluatorType"] = (
+        aws_sdk_bedrock_agentcore_control.types.evaluator_type.serialize_json(
+            value["evaluator_type"]
+        )
+    )
     if "level" in value:
         import aws_sdk_bedrock_agentcore_control.types.evaluator_level
-        out["level"] = aws_sdk_bedrock_agentcore_control.types.evaluator_level.serialize_json(value["level"])
+
+        out["level"] = (
+            aws_sdk_bedrock_agentcore_control.types.evaluator_level.serialize_json(
+                value["level"]
+            )
+        )
     import aws_sdk_bedrock_agentcore_control.types.evaluator_status
-    out["status"] = aws_sdk_bedrock_agentcore_control.types.evaluator_status.serialize_json(value["status"])
+
+    out["status"] = (
+        aws_sdk_bedrock_agentcore_control.types.evaluator_status.serialize_json(
+            value["status"]
+        )
+    )
     import aws_sdk_bedrock_agentcore_control.types._prelude.timestamp
-    out["createdAt"] = aws_sdk_bedrock_agentcore_control.types._prelude.timestamp.serialize_json(value["created_at"])
+
+    out["createdAt"] = (
+        aws_sdk_bedrock_agentcore_control.types._prelude.timestamp.serialize_json(
+            value["created_at"]
+        )
+    )
     import aws_sdk_bedrock_agentcore_control.types._prelude.timestamp
-    out["updatedAt"] = aws_sdk_bedrock_agentcore_control.types._prelude.timestamp.serialize_json(value["updated_at"])
+
+    out["updatedAt"] = (
+        aws_sdk_bedrock_agentcore_control.types._prelude.timestamp.serialize_json(
+            value["updated_at"]
+        )
+    )
     if "locked_for_modification" in value:
         out["lockedForModification"] = value["locked_for_modification"]
     if "kms_key_arn" in value:
@@ -82,25 +123,50 @@ def deserialize_json(data: dict) -> EvaluatorSummary:
         out["description"] = data["description"]
     if "evaluatorType" in data:
         import aws_sdk_bedrock_agentcore_control.types.evaluator_type
-        out["evaluator_type"] = aws_sdk_bedrock_agentcore_control.types.evaluator_type.deserialize_json(data["evaluatorType"])
+
+        out["evaluator_type"] = (
+            aws_sdk_bedrock_agentcore_control.types.evaluator_type.deserialize_json(
+                data["evaluatorType"]
+            )
+        )
     else:
         raise DeserializationError("EvaluatorSummary.evaluator_type required")
     if "level" in data:
         import aws_sdk_bedrock_agentcore_control.types.evaluator_level
-        out["level"] = aws_sdk_bedrock_agentcore_control.types.evaluator_level.deserialize_json(data["level"])
+
+        out["level"] = (
+            aws_sdk_bedrock_agentcore_control.types.evaluator_level.deserialize_json(
+                data["level"]
+            )
+        )
     if "status" in data:
         import aws_sdk_bedrock_agentcore_control.types.evaluator_status
-        out["status"] = aws_sdk_bedrock_agentcore_control.types.evaluator_status.deserialize_json(data["status"])
+
+        out["status"] = (
+            aws_sdk_bedrock_agentcore_control.types.evaluator_status.deserialize_json(
+                data["status"]
+            )
+        )
     else:
         raise DeserializationError("EvaluatorSummary.status required")
     if "createdAt" in data:
         import aws_sdk_bedrock_agentcore_control.types._prelude.timestamp
-        out["created_at"] = aws_sdk_bedrock_agentcore_control.types._prelude.timestamp.deserialize_json(data["createdAt"])
+
+        out["created_at"] = (
+            aws_sdk_bedrock_agentcore_control.types._prelude.timestamp.deserialize_json(
+                data["createdAt"]
+            )
+        )
     else:
         raise DeserializationError("EvaluatorSummary.created_at required")
     if "updatedAt" in data:
         import aws_sdk_bedrock_agentcore_control.types._prelude.timestamp
-        out["updated_at"] = aws_sdk_bedrock_agentcore_control.types._prelude.timestamp.deserialize_json(data["updatedAt"])
+
+        out["updated_at"] = (
+            aws_sdk_bedrock_agentcore_control.types._prelude.timestamp.deserialize_json(
+                data["updatedAt"]
+            )
+        )
     else:
         raise DeserializationError("EvaluatorSummary.updated_at required")
     if "lockedForModification" in data:

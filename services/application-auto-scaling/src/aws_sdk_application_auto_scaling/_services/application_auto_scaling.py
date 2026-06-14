@@ -137,7 +137,7 @@ class ApplicationAutoScalingClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = ApplicationAutoScalingClientConfig(
+        self._config = ApplicationAutoScalingClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -157,7 +157,7 @@ class ApplicationAutoScalingClient:
         overrides: ApplicationAutoScalingClientConfig = config_overrides or {}
         interceptors_: list[Interceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             retry(),
         ]
@@ -165,16 +165,16 @@ class ApplicationAutoScalingClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            region=overrides.get("region", self.config.get("region")),
+            region=overrides.get("region", self._config.get("region")),
             use_dual_stack=overrides.get(
-                "use_dual_stack", self.config.get("use_dual_stack")
+                "use_dual_stack", self._config.get("use_dual_stack")
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -188,7 +188,7 @@ class ApplicationAutoScalingClient:
         *,
         config_overrides: Optional[ApplicationAutoScalingClientConfig] = None,
     ) -> "aws_sdk_application_auto_scaling.types.delete_scaling_policy_response.DeleteScalingPolicyResponse":
-        """<p>Deletes the specified scaling policy for an Application Auto Scaling scalable target.</p> <p>Deleting a step scaling policy deletes the underlying alarm action, but does not delete the CloudWatch alarm associated with the scaling policy, even if it no longer has an associated action.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/application/userguide/create-step-scaling-policy-cli.html#delete-step-scaling-policy\">Delete a step scaling policy</a> and <a href=\"https://docs.aws.amazon.com/autoscaling/application/userguide/create-target-tracking-policy-cli.html#delete-target-tracking-policy\">Delete a target tracking scaling policy</a> in the <i>Application Auto Scaling User Guide</i>.</p>
+        r"""<p>Deletes the specified scaling policy for an Application Auto Scaling scalable target.</p> <p>Deleting a step scaling policy deletes the underlying alarm action, but does not delete the CloudWatch alarm associated with the scaling policy, even if it no longer has an associated action.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/application/userguide/create-step-scaling-policy-cli.html#delete-step-scaling-policy\">Delete a step scaling policy</a> and <a href=\"https://docs.aws.amazon.com/autoscaling/application/userguide/create-target-tracking-policy-cli.html#delete-target-tracking-policy\">Delete a target tracking scaling policy</a> in the <i>Application Auto Scaling User Guide</i>.</p>
 
         Args:
             policy_name: <p>The name of the scaling policy.</p>
@@ -218,14 +218,14 @@ class ApplicationAutoScalingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_auto_scaling.types.delete_scaling_policy_request.DeleteScalingPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["policy_name"] = policy_name
-        input["service_namespace"] = service_namespace
-        input["resource_id"] = resource_id
-        input["scalable_dimension"] = scalable_dimension
+        input_: aws_sdk_application_auto_scaling.types.delete_scaling_policy_request.DeleteScalingPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_name"] = policy_name
+        input_["service_namespace"] = service_namespace
+        input_["resource_id"] = resource_id
+        input_["scalable_dimension"] = scalable_dimension
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -240,7 +240,7 @@ class ApplicationAutoScalingClient:
         *,
         config_overrides: Optional[ApplicationAutoScalingClientConfig] = None,
     ) -> "aws_sdk_application_auto_scaling.types.delete_scheduled_action_response.DeleteScheduledActionResponse":
-        """<p>Deletes the specified scheduled action for an Application Auto Scaling scalable target.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/application/userguide/scheduled-scaling-additional-cli-commands.html#delete-scheduled-action\">Delete a scheduled action</a> in the <i>Application Auto Scaling User Guide</i>.</p>
+        r"""<p>Deletes the specified scheduled action for an Application Auto Scaling scalable target.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/application/userguide/scheduled-scaling-additional-cli-commands.html#delete-scheduled-action\">Delete a scheduled action</a> in the <i>Application Auto Scaling User Guide</i>.</p>
 
         Args:
             service_namespace: <p>The namespace of the Amazon Web Services service that provides the resource. For a resource provided by your own application or service, use <code>custom-resource</code> instead.</p>
@@ -270,14 +270,14 @@ class ApplicationAutoScalingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_auto_scaling.types.delete_scheduled_action_request.DeleteScheduledActionRequest = {}  # type: ignore[typeddict-item]
-        input["service_namespace"] = service_namespace
-        input["scheduled_action_name"] = scheduled_action_name
-        input["resource_id"] = resource_id
-        input["scalable_dimension"] = scalable_dimension
+        input_: aws_sdk_application_auto_scaling.types.delete_scheduled_action_request.DeleteScheduledActionRequest = {}  # type: ignore[typeddict-item]
+        input_["service_namespace"] = service_namespace
+        input_["scheduled_action_name"] = scheduled_action_name
+        input_["resource_id"] = resource_id
+        input_["scalable_dimension"] = scalable_dimension
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -291,7 +291,7 @@ class ApplicationAutoScalingClient:
         *,
         config_overrides: Optional[ApplicationAutoScalingClientConfig] = None,
     ) -> "aws_sdk_application_auto_scaling.types.deregister_scalable_target_response.DeregisterScalableTargetResponse":
-        """<p>Deregisters an Application Auto Scaling scalable target when you have finished using it. To see which resources have been registered, use <a href=\"https://docs.aws.amazon.com/autoscaling/application/APIReference/API_DescribeScalableTargets.html\">DescribeScalableTargets</a>. </p> <note> <p>Deregistering a scalable target deletes the scaling policies and the scheduled actions that are associated with it.</p> </note>
+        r"""<p>Deregisters an Application Auto Scaling scalable target when you have finished using it. To see which resources have been registered, use <a href=\"https://docs.aws.amazon.com/autoscaling/application/APIReference/API_DescribeScalableTargets.html\">DescribeScalableTargets</a>. </p> <note> <p>Deregistering a scalable target deletes the scaling policies and the scheduled actions that are associated with it.</p> </note>
 
         Args:
             service_namespace: <p>The namespace of the Amazon Web Services service that provides the resource. For a resource provided by your own application or service, use <code>custom-resource</code> instead.</p>
@@ -320,13 +320,13 @@ class ApplicationAutoScalingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_auto_scaling.types.deregister_scalable_target_request.DeregisterScalableTargetRequest = {}  # type: ignore[typeddict-item]
-        input["service_namespace"] = service_namespace
-        input["resource_id"] = resource_id
-        input["scalable_dimension"] = scalable_dimension
+        input_: aws_sdk_application_auto_scaling.types.deregister_scalable_target_request.DeregisterScalableTargetRequest = {}  # type: ignore[typeddict-item]
+        input_["service_namespace"] = service_namespace
+        input_["resource_id"] = resource_id
+        input_["scalable_dimension"] = scalable_dimension
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -350,7 +350,7 @@ class ApplicationAutoScalingClient:
             "aws_sdk_application_auto_scaling.types.xml_string.XmlString"
         ] = None,
     ) -> "aws_sdk_application_auto_scaling.types.describe_scalable_targets_response.DescribeScalableTargetsResponse":
-        """<p>Gets information about the scalable targets in the specified namespace.</p> <p>You can filter the results using <code>ResourceIds</code> and <code>ScalableDimension</code>.</p>
+        r"""<p>Gets information about the scalable targets in the specified namespace.</p> <p>You can filter the results using <code>ResourceIds</code> and <code>ScalableDimension</code>.</p>
 
         Args:
             service_namespace: <p>The namespace of the Amazon Web Services service that provides the resource. For a resource provided by your own application or service, use <code>custom-resource</code> instead.</p>
@@ -381,19 +381,19 @@ class ApplicationAutoScalingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_auto_scaling.types.describe_scalable_targets_request.DescribeScalableTargetsRequest = {}  # type: ignore[typeddict-item]
-        input["service_namespace"] = service_namespace
+        input_: aws_sdk_application_auto_scaling.types.describe_scalable_targets_request.DescribeScalableTargetsRequest = {}  # type: ignore[typeddict-item]
+        input_["service_namespace"] = service_namespace
         if resource_ids is not None:
-            input["resource_ids"] = resource_ids
+            input_["resource_ids"] = resource_ids
         if scalable_dimension is not None:
-            input["scalable_dimension"] = scalable_dimension
+            input_["scalable_dimension"] = scalable_dimension
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -455,7 +455,7 @@ class ApplicationAutoScalingClient:
             "aws_sdk_application_auto_scaling.types.include_not_scaled_activities.IncludeNotScaledActivities"
         ] = None,
     ) -> "aws_sdk_application_auto_scaling.types.describe_scaling_activities_response.DescribeScalingActivitiesResponse":
-        """<p>Provides descriptive information about the scaling activities in the specified namespace from the previous six weeks.</p> <p>You can filter the results using <code>ResourceId</code> and <code>ScalableDimension</code>.</p> <p>For information about viewing scaling activities using the Amazon Web Services CLI, see <a href=\"https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-scaling-activities.html\">Scaling activities for Application Auto Scaling</a>.</p>
+        r"""<p>Provides descriptive information about the scaling activities in the specified namespace from the previous six weeks.</p> <p>You can filter the results using <code>ResourceId</code> and <code>ScalableDimension</code>.</p> <p>For information about viewing scaling activities using the Amazon Web Services CLI, see <a href=\"https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-scaling-activities.html\">Scaling activities for Application Auto Scaling</a>.</p>
 
         Args:
             service_namespace: <p>The namespace of the Amazon Web Services service that provides the resource. For a resource provided by your own application or service, use <code>custom-resource</code> instead.</p>
@@ -487,21 +487,21 @@ class ApplicationAutoScalingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_auto_scaling.types.describe_scaling_activities_request.DescribeScalingActivitiesRequest = {}  # type: ignore[typeddict-item]
-        input["service_namespace"] = service_namespace
+        input_: aws_sdk_application_auto_scaling.types.describe_scaling_activities_request.DescribeScalingActivitiesRequest = {}  # type: ignore[typeddict-item]
+        input_["service_namespace"] = service_namespace
         if resource_id is not None:
-            input["resource_id"] = resource_id
+            input_["resource_id"] = resource_id
         if scalable_dimension is not None:
-            input["scalable_dimension"] = scalable_dimension
+            input_["scalable_dimension"] = scalable_dimension
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if include_not_scaled_activities is not None:
-            input["include_not_scaled_activities"] = include_not_scaled_activities
+            input_["include_not_scaled_activities"] = include_not_scaled_activities
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -567,7 +567,7 @@ class ApplicationAutoScalingClient:
             "aws_sdk_application_auto_scaling.types.xml_string.XmlString"
         ] = None,
     ) -> "aws_sdk_application_auto_scaling.types.describe_scaling_policies_response.DescribeScalingPoliciesResponse":
-        """<p>Describes the Application Auto Scaling scaling policies for the specified service namespace.</p> <p>You can filter the results using <code>ResourceId</code>, <code>ScalableDimension</code>, and <code>PolicyNames</code>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html\">Target tracking scaling policies</a> and <a href=\"https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html\">Step scaling policies</a> in the <i>Application Auto Scaling User Guide</i>.</p>
+        r"""<p>Describes the Application Auto Scaling scaling policies for the specified service namespace.</p> <p>You can filter the results using <code>ResourceId</code>, <code>ScalableDimension</code>, and <code>PolicyNames</code>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html\">Target tracking scaling policies</a> and <a href=\"https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html\">Step scaling policies</a> in the <i>Application Auto Scaling User Guide</i>.</p>
 
         Args:
             policy_names: <p>The names of the scaling policies to describe.</p>
@@ -599,21 +599,21 @@ class ApplicationAutoScalingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_auto_scaling.types.describe_scaling_policies_request.DescribeScalingPoliciesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_application_auto_scaling.types.describe_scaling_policies_request.DescribeScalingPoliciesRequest = {}  # type: ignore[typeddict-item]
         if policy_names is not None:
-            input["policy_names"] = policy_names
-        input["service_namespace"] = service_namespace
+            input_["policy_names"] = policy_names
+        input_["service_namespace"] = service_namespace
         if resource_id is not None:
-            input["resource_id"] = resource_id
+            input_["resource_id"] = resource_id
         if scalable_dimension is not None:
-            input["scalable_dimension"] = scalable_dimension
+            input_["scalable_dimension"] = scalable_dimension
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -681,7 +681,7 @@ class ApplicationAutoScalingClient:
             "aws_sdk_application_auto_scaling.types.xml_string.XmlString"
         ] = None,
     ) -> "aws_sdk_application_auto_scaling.types.describe_scheduled_actions_response.DescribeScheduledActionsResponse":
-        """<p>Describes the Application Auto Scaling scheduled actions for the specified service namespace.</p> <p>You can filter the results using the <code>ResourceId</code>, <code>ScalableDimension</code>, and <code>ScheduledActionNames</code> parameters.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-scheduled-scaling.html\">Scheduled scaling</a> in the <i>Application Auto Scaling User Guide</i>.</p>
+        r"""<p>Describes the Application Auto Scaling scheduled actions for the specified service namespace.</p> <p>You can filter the results using the <code>ResourceId</code>, <code>ScalableDimension</code>, and <code>ScheduledActionNames</code> parameters.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-scheduled-scaling.html\">Scheduled scaling</a> in the <i>Application Auto Scaling User Guide</i>.</p>
 
         Args:
             scheduled_action_names: <p>The names of the scheduled actions to describe.</p>
@@ -713,21 +713,21 @@ class ApplicationAutoScalingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_auto_scaling.types.describe_scheduled_actions_request.DescribeScheduledActionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_application_auto_scaling.types.describe_scheduled_actions_request.DescribeScheduledActionsRequest = {}  # type: ignore[typeddict-item]
         if scheduled_action_names is not None:
-            input["scheduled_action_names"] = scheduled_action_names
-        input["service_namespace"] = service_namespace
+            input_["scheduled_action_names"] = scheduled_action_names
+        input_["service_namespace"] = service_namespace
         if resource_id is not None:
-            input["resource_id"] = resource_id
+            input_["resource_id"] = resource_id
         if scalable_dimension is not None:
-            input["scalable_dimension"] = scalable_dimension
+            input_["scalable_dimension"] = scalable_dimension
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -809,16 +809,16 @@ class ApplicationAutoScalingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_auto_scaling.types.get_predictive_scaling_forecast_request.GetPredictiveScalingForecastRequest = {}  # type: ignore[typeddict-item]
-        input["service_namespace"] = service_namespace
-        input["resource_id"] = resource_id
-        input["scalable_dimension"] = scalable_dimension
-        input["policy_name"] = policy_name
-        input["start_time"] = start_time
-        input["end_time"] = end_time
+        input_: aws_sdk_application_auto_scaling.types.get_predictive_scaling_forecast_request.GetPredictiveScalingForecastRequest = {}  # type: ignore[typeddict-item]
+        input_["service_namespace"] = service_namespace
+        input_["resource_id"] = resource_id
+        input_["scalable_dimension"] = scalable_dimension
+        input_["policy_name"] = policy_name
+        input_["start_time"] = start_time
+        input_["end_time"] = end_time
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -830,7 +830,7 @@ class ApplicationAutoScalingClient:
         *,
         config_overrides: Optional[ApplicationAutoScalingClientConfig] = None,
     ) -> "aws_sdk_application_auto_scaling.types.list_tags_for_resource_response.ListTagsForResourceResponse":
-        """<p>Returns all the tags on the specified Application Auto Scaling scalable target.</p> <p>For general information about tags, including the format and syntax, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging your Amazon Web Services resources</a> in the <i>Amazon Web Services General Reference</i>.</p>
+        r"""<p>Returns all the tags on the specified Application Auto Scaling scalable target.</p> <p>For general information about tags, including the format and syntax, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging your Amazon Web Services resources</a> in the <i>Amazon Web Services General Reference</i>.</p>
 
         Args:
             resource_arn: <p>Specify the ARN of the scalable target.</p> <p>For example: <code>arn:aws:application-autoscaling:us-east-1:123456789012:scalable-target/1234abcd56ab78cd901ef1234567890ab123</code> </p> <p>To get the ARN for a scalable target, use <a>DescribeScalableTargets</a>.</p>
@@ -857,11 +857,11 @@ class ApplicationAutoScalingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_auto_scaling.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_application_auto_scaling.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -888,7 +888,7 @@ class ApplicationAutoScalingClient:
             "aws_sdk_application_auto_scaling.types.predictive_scaling_policy_configuration.PredictiveScalingPolicyConfiguration"
         ] = None,
     ) -> "aws_sdk_application_auto_scaling.types.put_scaling_policy_response.PutScalingPolicyResponse":
-        """<p>Creates or updates a scaling policy for an Application Auto Scaling scalable target.</p> <p>Each scalable target is identified by a service namespace, resource ID, and scalable dimension. A scaling policy applies to the scalable target identified by those three attributes. You cannot create a scaling policy until you have registered the resource as a scalable target.</p> <p>Multiple scaling policies can be in force at the same time for the same scalable target. You can have one or more target tracking scaling policies, one or more step scaling policies, or both. However, there is a chance that multiple policies could conflict, instructing the scalable target to scale out or in at the same time. Application Auto Scaling gives precedence to the policy that provides the largest capacity for both scale out and scale in. For example, if one policy increases capacity by 3, another policy increases capacity by 200 percent, and the current capacity is 10, Application Auto Scaling uses the policy with the highest calculated capacity (200% of 10 = 20) and scales out to 30. </p> <p>We recommend caution, however, when using target tracking scaling policies with step scaling policies because conflicts between these policies can cause undesirable behavior. For example, if the step scaling policy initiates a scale-in activity before the target tracking policy is ready to scale in, the scale-in activity will not be blocked. After the scale-in activity completes, the target tracking policy could instruct the scalable target to scale out again. </p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html\">Target tracking scaling policies</a>, <a href=\"https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html\">Step scaling policies</a>, and <a href=\"https://docs.aws.amazon.com/autoscaling/application/userguide/aas-create-predictive-scaling-policy.html\">Predictive scaling policies</a> in the <i>Application Auto Scaling User Guide</i>.</p> <note> <p>If a scalable target is deregistered, the scalable target is no longer available to use scaling policies. Any scaling policies that were specified for the scalable target are deleted.</p> </note>
+        r"""<p>Creates or updates a scaling policy for an Application Auto Scaling scalable target.</p> <p>Each scalable target is identified by a service namespace, resource ID, and scalable dimension. A scaling policy applies to the scalable target identified by those three attributes. You cannot create a scaling policy until you have registered the resource as a scalable target.</p> <p>Multiple scaling policies can be in force at the same time for the same scalable target. You can have one or more target tracking scaling policies, one or more step scaling policies, or both. However, there is a chance that multiple policies could conflict, instructing the scalable target to scale out or in at the same time. Application Auto Scaling gives precedence to the policy that provides the largest capacity for both scale out and scale in. For example, if one policy increases capacity by 3, another policy increases capacity by 200 percent, and the current capacity is 10, Application Auto Scaling uses the policy with the highest calculated capacity (200% of 10 = 20) and scales out to 30. </p> <p>We recommend caution, however, when using target tracking scaling policies with step scaling policies because conflicts between these policies can cause undesirable behavior. For example, if the step scaling policy initiates a scale-in activity before the target tracking policy is ready to scale in, the scale-in activity will not be blocked. After the scale-in activity completes, the target tracking policy could instruct the scalable target to scale out again. </p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html\">Target tracking scaling policies</a>, <a href=\"https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html\">Step scaling policies</a>, and <a href=\"https://docs.aws.amazon.com/autoscaling/application/userguide/aas-create-predictive-scaling-policy.html\">Predictive scaling policies</a> in the <i>Application Auto Scaling User Guide</i>.</p> <note> <p>If a scalable target is deregistered, the scalable target is no longer available to use scaling policies. Any scaling policies that were specified for the scalable target are deleted.</p> </note>
 
         Args:
             policy_name: <p>The name of the scaling policy.</p> <p>You cannot change the name of a scaling policy, but you can delete the original scaling policy and create a new scaling policy with the same settings and a different name.</p>
@@ -922,28 +922,28 @@ class ApplicationAutoScalingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_auto_scaling.types.put_scaling_policy_request.PutScalingPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["policy_name"] = policy_name
-        input["service_namespace"] = service_namespace
-        input["resource_id"] = resource_id
-        input["scalable_dimension"] = scalable_dimension
+        input_: aws_sdk_application_auto_scaling.types.put_scaling_policy_request.PutScalingPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_name"] = policy_name
+        input_["service_namespace"] = service_namespace
+        input_["resource_id"] = resource_id
+        input_["scalable_dimension"] = scalable_dimension
         if policy_type is not None:
-            input["policy_type"] = policy_type
+            input_["policy_type"] = policy_type
         if step_scaling_policy_configuration is not None:
-            input["step_scaling_policy_configuration"] = (
+            input_["step_scaling_policy_configuration"] = (
                 step_scaling_policy_configuration
             )
         if target_tracking_scaling_policy_configuration is not None:
-            input["target_tracking_scaling_policy_configuration"] = (
+            input_["target_tracking_scaling_policy_configuration"] = (
                 target_tracking_scaling_policy_configuration
             )
         if predictive_scaling_policy_configuration is not None:
-            input["predictive_scaling_policy_configuration"] = (
+            input_["predictive_scaling_policy_configuration"] = (
                 predictive_scaling_policy_configuration
             )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -973,7 +973,7 @@ class ApplicationAutoScalingClient:
             "aws_sdk_application_auto_scaling.types.scalable_target_action.ScalableTargetAction"
         ] = None,
     ) -> "aws_sdk_application_auto_scaling.types.put_scheduled_action_response.PutScheduledActionResponse":
-        """<p>Creates or updates a scheduled action for an Application Auto Scaling scalable target. </p> <p>Each scalable target is identified by a service namespace, resource ID, and scalable dimension. A scheduled action applies to the scalable target identified by those three attributes. You cannot create a scheduled action until you have registered the resource as a scalable target.</p> <p>When you specify start and end times with a recurring schedule using a cron expression or rates, they form the boundaries for when the recurring action starts and stops.</p> <p>To update a scheduled action, specify the parameters that you want to change. If you don't specify start and end times, the old values are deleted.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-scheduled-scaling.html\">Scheduled scaling</a> in the <i>Application Auto Scaling User Guide</i>.</p> <note> <p>If a scalable target is deregistered, the scalable target is no longer available to run scheduled actions. Any scheduled actions that were specified for the scalable target are deleted.</p> </note>
+        r"""<p>Creates or updates a scheduled action for an Application Auto Scaling scalable target. </p> <p>Each scalable target is identified by a service namespace, resource ID, and scalable dimension. A scheduled action applies to the scalable target identified by those three attributes. You cannot create a scheduled action until you have registered the resource as a scalable target.</p> <p>When you specify start and end times with a recurring schedule using a cron expression or rates, they form the boundaries for when the recurring action starts and stops.</p> <p>To update a scheduled action, specify the parameters that you want to change. If you don't specify start and end times, the old values are deleted.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-scheduled-scaling.html\">Scheduled scaling</a> in the <i>Application Auto Scaling User Guide</i>.</p> <note> <p>If a scalable target is deregistered, the scalable target is no longer available to run scheduled actions. Any scheduled actions that were specified for the scalable target are deleted.</p> </note>
 
         Args:
             service_namespace: <p>The namespace of the Amazon Web Services service that provides the resource. For a resource provided by your own application or service, use <code>custom-resource</code> instead.</p>
@@ -1008,24 +1008,24 @@ class ApplicationAutoScalingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_auto_scaling.types.put_scheduled_action_request.PutScheduledActionRequest = {}  # type: ignore[typeddict-item]
-        input["service_namespace"] = service_namespace
+        input_: aws_sdk_application_auto_scaling.types.put_scheduled_action_request.PutScheduledActionRequest = {}  # type: ignore[typeddict-item]
+        input_["service_namespace"] = service_namespace
         if schedule is not None:
-            input["schedule"] = schedule
+            input_["schedule"] = schedule
         if timezone is not None:
-            input["timezone"] = timezone
-        input["scheduled_action_name"] = scheduled_action_name
-        input["resource_id"] = resource_id
-        input["scalable_dimension"] = scalable_dimension
+            input_["timezone"] = timezone
+        input_["scheduled_action_name"] = scheduled_action_name
+        input_["resource_id"] = resource_id
+        input_["scalable_dimension"] = scalable_dimension
         if start_time is not None:
-            input["start_time"] = start_time
+            input_["start_time"] = start_time
         if end_time is not None:
-            input["end_time"] = end_time
+            input_["end_time"] = end_time
         if scalable_target_action is not None:
-            input["scalable_target_action"] = scalable_target_action
+            input_["scalable_target_action"] = scalable_target_action
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1052,7 +1052,7 @@ class ApplicationAutoScalingClient:
         ] = None,
         tags: Optional["aws_sdk_application_auto_scaling.types.tag_map.TagMap"] = None,
     ) -> "aws_sdk_application_auto_scaling.types.register_scalable_target_response.RegisterScalableTargetResponse":
-        """<p>Registers or updates a scalable target, which is the resource that you want to scale.</p> <p>Scalable targets are uniquely identified by the combination of resource ID, scalable dimension, and namespace, which represents some capacity dimension of the underlying service.</p> <p>When you register a new scalable target, you must specify values for the minimum and maximum capacity. If the specified resource is not active in the target service, this operation does not change the resource's current capacity. Otherwise, it changes the resource's current capacity to a value that is inside of this range.</p> <p>If you add a scaling policy, current capacity is adjustable within the specified range when scaling starts. Application Auto Scaling scaling policies will not scale capacity to values that are outside of the minimum and maximum range.</p> <p>After you register a scalable target, you do not need to register it again to use other Application Auto Scaling operations. To see which resources have been registered, use <a href=\"https://docs.aws.amazon.com/autoscaling/application/APIReference/API_DescribeScalableTargets.html\">DescribeScalableTargets</a>. You can also view the scaling policies for a service namespace by using <a href=\"https://docs.aws.amazon.com/autoscaling/application/APIReference/API_DescribeScalableTargets.html\">DescribeScalableTargets</a>. If you no longer need a scalable target, you can deregister it by using <a href=\"https://docs.aws.amazon.com/autoscaling/application/APIReference/API_DeregisterScalableTarget.html\">DeregisterScalableTarget</a>.</p> <p>To update a scalable target, specify the parameters that you want to change. Include the parameters that identify the scalable target: resource ID, scalable dimension, and namespace. Any parameters that you don't specify are not changed by this update request. </p> <note> <p>If you call the <code>RegisterScalableTarget</code> API operation to create a scalable target, there might be a brief delay until the operation achieves <a href=\"https://en.wikipedia.org/wiki/Eventual_consistency\">eventual consistency</a>. You might become aware of this brief delay if you get unexpected errors when performing sequential operations. The typical strategy is to retry the request, and some Amazon Web Services SDKs include automatic backoff and retry logic.</p> <p>If you call the <code>RegisterScalableTarget</code> API operation to update an existing scalable target, Application Auto Scaling retrieves the current capacity of the resource. If it's below the minimum capacity or above the maximum capacity, Application Auto Scaling adjusts the capacity of the scalable target to place it within these bounds, even if you don't include the <code>MinCapacity</code> or <code>MaxCapacity</code> request parameters.</p> </note>
+        r"""<p>Registers or updates a scalable target, which is the resource that you want to scale.</p> <p>Scalable targets are uniquely identified by the combination of resource ID, scalable dimension, and namespace, which represents some capacity dimension of the underlying service.</p> <p>When you register a new scalable target, you must specify values for the minimum and maximum capacity. If the specified resource is not active in the target service, this operation does not change the resource's current capacity. Otherwise, it changes the resource's current capacity to a value that is inside of this range.</p> <p>If you add a scaling policy, current capacity is adjustable within the specified range when scaling starts. Application Auto Scaling scaling policies will not scale capacity to values that are outside of the minimum and maximum range.</p> <p>After you register a scalable target, you do not need to register it again to use other Application Auto Scaling operations. To see which resources have been registered, use <a href=\"https://docs.aws.amazon.com/autoscaling/application/APIReference/API_DescribeScalableTargets.html\">DescribeScalableTargets</a>. You can also view the scaling policies for a service namespace by using <a href=\"https://docs.aws.amazon.com/autoscaling/application/APIReference/API_DescribeScalableTargets.html\">DescribeScalableTargets</a>. If you no longer need a scalable target, you can deregister it by using <a href=\"https://docs.aws.amazon.com/autoscaling/application/APIReference/API_DeregisterScalableTarget.html\">DeregisterScalableTarget</a>.</p> <p>To update a scalable target, specify the parameters that you want to change. Include the parameters that identify the scalable target: resource ID, scalable dimension, and namespace. Any parameters that you don't specify are not changed by this update request. </p> <note> <p>If you call the <code>RegisterScalableTarget</code> API operation to create a scalable target, there might be a brief delay until the operation achieves <a href=\"https://en.wikipedia.org/wiki/Eventual_consistency\">eventual consistency</a>. You might become aware of this brief delay if you get unexpected errors when performing sequential operations. The typical strategy is to retry the request, and some Amazon Web Services SDKs include automatic backoff and retry logic.</p> <p>If you call the <code>RegisterScalableTarget</code> API operation to update an existing scalable target, Application Auto Scaling retrieves the current capacity of the resource. If it's below the minimum capacity or above the maximum capacity, Application Auto Scaling adjusts the capacity of the scalable target to place it within these bounds, even if you don't include the <code>MinCapacity</code> or <code>MaxCapacity</code> request parameters.</p> </note>
 
         Args:
             service_namespace: <p>The namespace of the Amazon Web Services service that provides the resource. For a resource provided by your own application or service, use <code>custom-resource</code> instead.</p>
@@ -1086,23 +1086,23 @@ class ApplicationAutoScalingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_auto_scaling.types.register_scalable_target_request.RegisterScalableTargetRequest = {}  # type: ignore[typeddict-item]
-        input["service_namespace"] = service_namespace
-        input["resource_id"] = resource_id
-        input["scalable_dimension"] = scalable_dimension
+        input_: aws_sdk_application_auto_scaling.types.register_scalable_target_request.RegisterScalableTargetRequest = {}  # type: ignore[typeddict-item]
+        input_["service_namespace"] = service_namespace
+        input_["resource_id"] = resource_id
+        input_["scalable_dimension"] = scalable_dimension
         if min_capacity is not None:
-            input["min_capacity"] = min_capacity
+            input_["min_capacity"] = min_capacity
         if max_capacity is not None:
-            input["max_capacity"] = max_capacity
+            input_["max_capacity"] = max_capacity
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
         if suspended_state is not None:
-            input["suspended_state"] = suspended_state
+            input_["suspended_state"] = suspended_state
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1115,7 +1115,7 @@ class ApplicationAutoScalingClient:
         *,
         config_overrides: Optional[ApplicationAutoScalingClientConfig] = None,
     ) -> "aws_sdk_application_auto_scaling.types.tag_resource_response.TagResourceResponse":
-        """<p>Adds or edits tags on an Application Auto Scaling scalable target.</p> <p>Each tag consists of a tag key and a tag value, which are both case-sensitive strings. To add a tag, specify a new tag key and a tag value. To edit a tag, specify an existing tag key and a new tag value.</p> <p>You can use this operation to tag an Application Auto Scaling scalable target, but you cannot tag a scaling policy or scheduled action.</p> <p>You can also add tags to an Application Auto Scaling scalable target while creating it (<code>RegisterScalableTarget</code>).</p> <p>For general information about tags, including the format and syntax, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging your Amazon Web Services resources</a> in the <i>Amazon Web Services General Reference</i>.</p> <p>Use tags to control access to a scalable target. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/application/userguide/resource-tagging-support.html\">Tagging support for Application Auto Scaling</a> in the <i>Application Auto Scaling User Guide</i>.</p>
+        r"""<p>Adds or edits tags on an Application Auto Scaling scalable target.</p> <p>Each tag consists of a tag key and a tag value, which are both case-sensitive strings. To add a tag, specify a new tag key and a tag value. To edit a tag, specify an existing tag key and a new tag value.</p> <p>You can use this operation to tag an Application Auto Scaling scalable target, but you cannot tag a scaling policy or scheduled action.</p> <p>You can also add tags to an Application Auto Scaling scalable target while creating it (<code>RegisterScalableTarget</code>).</p> <p>For general information about tags, including the format and syntax, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging your Amazon Web Services resources</a> in the <i>Amazon Web Services General Reference</i>.</p> <p>Use tags to control access to a scalable target. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/application/userguide/resource-tagging-support.html\">Tagging support for Application Auto Scaling</a> in the <i>Application Auto Scaling User Guide</i>.</p>
 
         Args:
             resource_arn: <p>Identifies the Application Auto Scaling scalable target that you want to apply tags to.</p> <p>For example: <code>arn:aws:application-autoscaling:us-east-1:123456789012:scalable-target/1234abcd56ab78cd901ef1234567890ab123</code> </p> <p>To get the ARN for a scalable target, use <a>DescribeScalableTargets</a>.</p>
@@ -1143,12 +1143,12 @@ class ApplicationAutoScalingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_auto_scaling.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_application_auto_scaling.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1189,12 +1189,12 @@ class ApplicationAutoScalingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_auto_scaling.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_application_auto_scaling.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

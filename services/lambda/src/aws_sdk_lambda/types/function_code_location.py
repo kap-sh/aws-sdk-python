@@ -18,7 +18,7 @@ class FunctionCodeLocation(TypedDict):
     resolved_image_uri: NotRequired["aws_sdk_lambda.types.string.String"]
     """<p>The resolved URI for the image.</p>"""
     source_kms_key_arn: NotRequired["aws_sdk_lambda.types.string.String"]
-    """<p>The ARN of the Key Management Service (KMS) customer managed key that's used to encrypt your function's .zip deployment package. If you don't provide a customer managed key, Lambda uses an <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk\">Amazon Web Services owned key</a>.</p>"""
+    r"""<p>The ARN of the Key Management Service (KMS) customer managed key that's used to encrypt your function's .zip deployment package. If you don't provide a customer managed key, Lambda uses an <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk\">Amazon Web Services owned key</a>.</p>"""
 
 
 # --- restJson1 ser/de ---

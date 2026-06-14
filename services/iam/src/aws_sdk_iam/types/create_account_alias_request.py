@@ -11,7 +11,7 @@ if TYPE_CHECKING:
 
 class CreateAccountAliasRequest(TypedDict):
     account_alias: "aws_sdk_iam.types.account_alias_type.accountAliasType"
-    """<p>The account alias to create.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of lowercase letters, digits, and dashes. You cannot start or finish with a dash, nor can you have two dashes in a row.</p>"""
+    r"""<p>The account alias to create.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of lowercase letters, digits, and dashes. You cannot start or finish with a dash, nor can you have two dashes in a row.</p>"""
 
 
 # --- awsQuery ser/de ---

@@ -19,7 +19,7 @@ class AssetModelPropertyDefinition(TypedDict):
     id: NotRequired["aws_sdk_iotsitewise.types.id.ID"]
     """<p>The ID to assign to the asset model property, if desired. IoT SiteWise automatically generates a unique ID for you, so this parameter is never required. However, if you prefer to supply your own ID instead, you can specify it here in UUID format. If you specify your own ID, it must be globally unique.</p>"""
     external_id: NotRequired["aws_sdk_iotsitewise.types.external_id.ExternalId"]
-    """<p>An external ID to assign to the property definition. The external ID must be unique among property definitions within this asset model. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-ids\">Using external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>"""
+    r"""<p>An external ID to assign to the property definition. The external ID must be unique among property definitions within this asset model. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-ids\">Using external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>"""
     name: "aws_sdk_iotsitewise.types.name.Name"
     """<p>The name of the property definition.</p>"""
     data_type: "aws_sdk_iotsitewise.types.property_data_type.PropertyDataType"

@@ -28,7 +28,7 @@ class OracleDataProviderSettings(TypedDict):
     ]
     """<p>The Amazon Resource Name (ARN) of the certificate used for SSL connection.</p>"""
     asm_server: NotRequired["aws_sdk_database_migration_service.types.string.String"]
-    """<p>The address of your Oracle Automatic Storage Management (ASM) server. You can set this value from the <code>asm_server</code> value. You set <code>asm_server</code> as part of the extra connection attribute string to access an Oracle server with Binary Reader that uses ASM. For more information, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.CDC.Configuration\">Configuration for change data capture (CDC) on an Oracle source database</a>.</p>"""
+    r"""<p>The address of your Oracle Automatic Storage Management (ASM) server. You can set this value from the <code>asm_server</code> value. You set <code>asm_server</code> as part of the extra connection attribute string to access an Oracle server with Binary Reader that uses ASM. For more information, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.CDC.Configuration\">Configuration for change data capture (CDC) on an Oracle source database</a>.</p>"""
     secrets_manager_oracle_asm_secret_id: NotRequired[
         "aws_sdk_database_migration_service.types.string.String"
     ]

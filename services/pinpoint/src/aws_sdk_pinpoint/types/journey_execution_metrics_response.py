@@ -17,7 +17,7 @@ class JourneyExecutionMetricsResponse(TypedDict):
     last_evaluated_time: NotRequired["aws_sdk_pinpoint.types.__string.__string"]
     """<p>The date and time, in ISO 8601 format, when Amazon Pinpoint last evaluated the journey and updated the data for the metric.</p>"""
     metrics: NotRequired["aws_sdk_pinpoint.types.map_of__string.MapOf__string"]
-    """<p>A JSON object that contains the results of the query. For information about the structure and contents of the results, see the <a href=\"https://docs.aws.amazon.com//pinpoint/latest/developerguide/analytics-standard-metrics.html\">Amazon Pinpoint Developer Guide</a>.</p>"""
+    r"""<p>A JSON object that contains the results of the query. For information about the structure and contents of the results, see the <a href=\"https://docs.aws.amazon.com//pinpoint/latest/developerguide/analytics-standard-metrics.html\">Amazon Pinpoint Developer Guide</a>.</p>"""
 
 
 # --- restJson1 ser/de ---

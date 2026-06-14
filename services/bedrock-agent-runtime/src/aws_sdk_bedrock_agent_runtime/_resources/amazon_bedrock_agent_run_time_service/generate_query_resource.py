@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_bedrock_agent_runtime._auth._signers
@@ -37,7 +39,7 @@ class GenerateQueryResource:
         *,
         config_overrides: Optional[BedrockAgentRuntimeClientConfig] = None,
     ) -> "aws_sdk_bedrock_agent_runtime.types.generate_query_response.GenerateQueryResponse":
-        """<p>Generates an SQL query from a natural language query. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-generate-query.html\">Generate a query for structured data</a> in the Amazon Bedrock User Guide.</p>
+        r"""<p>Generates an SQL query from a natural language query. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-generate-query.html\">Generate a query for structured data</a> in the Amazon Bedrock User Guide.</p>
 
         Args:
             query_generation_input: <p>Specifies information about a natural language query to transform into SQL.</p>
@@ -82,7 +84,7 @@ class AsyncGenerateQueryResource:
         *,
         config_overrides: Optional[AsyncBedrockAgentRuntimeClientConfig] = None,
     ) -> "aws_sdk_bedrock_agent_runtime.types.generate_query_response.GenerateQueryResponse":
-        """<p>Generates an SQL query from a natural language query. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-generate-query.html\">Generate a query for structured data</a> in the Amazon Bedrock User Guide.</p>
+        r"""<p>Generates an SQL query from a natural language query. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-generate-query.html\">Generate a query for structured data</a> in the Amazon Bedrock User Guide.</p>
 
         Args:
             query_generation_input: <p>Specifies information about a natural language query to transform into SQL.</p>

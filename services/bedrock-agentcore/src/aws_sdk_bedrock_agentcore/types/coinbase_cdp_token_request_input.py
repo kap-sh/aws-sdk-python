@@ -1,31 +1,47 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#CoinbaseCdpTokenRequestInput``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.coinbase_cdp_payment_request_body_type
     import aws_sdk_bedrock_agentcore.types.payment_http_method_type
     import aws_sdk_bedrock_agentcore.types.payment_request_host_type
     import aws_sdk_bedrock_agentcore.types.payment_request_path_type
 
+
 class CoinbaseCdpTokenRequestInput(TypedDict):
-    request_method: "aws_sdk_bedrock_agentcore.types.payment_http_method_type.PaymentHttpMethodType"
+    request_method: (
+        "aws_sdk_bedrock_agentcore.types.payment_http_method_type.PaymentHttpMethodType"
+    )
     """<p>The HTTP method for the payment API request.</p>"""
-    request_host: NotRequired["aws_sdk_bedrock_agentcore.types.payment_request_host_type.PaymentRequestHostType"]
-    """<p>The host for the payment API request. Defaults to \"api.cdp.coinbase.com\".</p>"""
+    request_host: NotRequired[
+        "aws_sdk_bedrock_agentcore.types.payment_request_host_type.PaymentRequestHostType"
+    ]
+    r"""<p>The host for the payment API request. Defaults to \"api.cdp.coinbase.com\".</p>"""
     request_path: "aws_sdk_bedrock_agentcore.types.payment_request_path_type.PaymentRequestPathType"
     """<p>The path of the payment API request.</p>"""
     include_wallet_auth_token: "bool"
     """<p>Set to true for wallet write operations (requires walletSecret configured).</p>"""
-    request_body: NotRequired["aws_sdk_bedrock_agentcore.types.coinbase_cdp_payment_request_body_type.CoinbaseCdpPaymentRequestBodyType"]
+    request_body: NotRequired[
+        "aws_sdk_bedrock_agentcore.types.coinbase_cdp_payment_request_body_type.CoinbaseCdpPaymentRequestBodyType"
+    ]
     """<p>Request body JSON — used to generate wallet auth JWT.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: CoinbaseCdpTokenRequestInput) -> dict:
     out: dict = {}
     import aws_sdk_bedrock_agentcore.types.payment_http_method_type
-    out["requestMethod"] = aws_sdk_bedrock_agentcore.types.payment_http_method_type.serialize_json(value["request_method"])
+
+    out["requestMethod"] = (
+        aws_sdk_bedrock_agentcore.types.payment_http_method_type.serialize_json(
+            value["request_method"]
+        )
+    )
     if "request_host" in value:
         out["requestHost"] = value["request_host"]
     out["requestPath"] = value["request_path"]
@@ -39,9 +55,16 @@ def deserialize_json(data: dict) -> CoinbaseCdpTokenRequestInput:
     out: CoinbaseCdpTokenRequestInput = {}  # type: ignore[typeddict-item]
     if "requestMethod" in data:
         import aws_sdk_bedrock_agentcore.types.payment_http_method_type
-        out["request_method"] = aws_sdk_bedrock_agentcore.types.payment_http_method_type.deserialize_json(data["requestMethod"])
+
+        out["request_method"] = (
+            aws_sdk_bedrock_agentcore.types.payment_http_method_type.deserialize_json(
+                data["requestMethod"]
+            )
+        )
     else:
-        raise DeserializationError("CoinbaseCdpTokenRequestInput.request_method required")
+        raise DeserializationError(
+            "CoinbaseCdpTokenRequestInput.request_method required"
+        )
     if "requestHost" in data:
         out["request_host"] = data["requestHost"]
     if "requestPath" in data:

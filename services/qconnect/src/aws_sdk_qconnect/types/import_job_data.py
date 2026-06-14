@@ -25,7 +25,7 @@ class ImportJobData(TypedDict):
     knowledge_base_id: "aws_sdk_qconnect.types.uuid.Uuid"
     """<p>The identifier of the knowledge base.</p>"""
     upload_id: "aws_sdk_qconnect.types.upload_id.UploadId"
-    """<p>A pointer to the uploaded asset. This value is returned by <a href=\"https://docs.aws.amazon.com/wisdom/latest/APIReference/API_StartContentUpload.html\">StartContentUpload</a>.</p>"""
+    r"""<p>A pointer to the uploaded asset. This value is returned by <a href=\"https://docs.aws.amazon.com/wisdom/latest/APIReference/API_StartContentUpload.html\">StartContentUpload</a>.</p>"""
     knowledge_base_arn: "aws_sdk_qconnect.types.arn.Arn"
     """<p>The Amazon Resource Name (ARN) of the knowledge base.</p>"""
     import_job_type: "aws_sdk_qconnect.types.import_job_type.ImportJobType"

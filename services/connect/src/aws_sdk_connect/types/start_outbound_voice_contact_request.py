@@ -28,7 +28,7 @@ class StartOutboundVoiceContactRequest(TypedDict):
     name: NotRequired["aws_sdk_connect.types.name.Name"]
     """<p>The name of a voice contact that is shown to an agent in the Contact Control Panel (CCP).</p>"""
     description: NotRequired["aws_sdk_connect.types.description.Description"]
-    """<p>A description of the voice contact that appears in the agent's snapshot in the CCP logs. For more information about CCP logs, see <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/download-ccp-logs.html\">Download and review CCP logs</a> in the <i>Connect Customer Administrator Guide</i>.</p>"""
+    r"""<p>A description of the voice contact that appears in the agent's snapshot in the CCP logs. For more information about CCP logs, see <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/download-ccp-logs.html\">Download and review CCP logs</a> in the <i>Connect Customer Administrator Guide</i>.</p>"""
     references: NotRequired[
         "aws_sdk_connect.types.contact_references.ContactReferences"
     ]
@@ -40,9 +40,9 @@ class StartOutboundVoiceContactRequest(TypedDict):
     contact_flow_id: "aws_sdk_connect.types.contact_flow_id.ContactFlowId"
     """<p>The identifier of the flow for the outbound call. To see the ContactFlowId in the Connect Customer admin website, on the navigation menu go to <b>Routing</b>, <b>Contact Flows</b>. Choose the flow. On the flow page, under the name of the flow, choose <b>Show additional flow information</b>. The ContactFlowId is the last part of the ARN, shown here in bold: </p> <p>arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/<b>846ec553-a005-41c0-8341-xxxxxxxxxxxx</b> </p>"""
     instance_id: "aws_sdk_connect.types.instance_id.InstanceId"
-    """<p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>"""
+    r"""<p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>"""
     client_token: NotRequired["aws_sdk_connect.types.client_token.ClientToken"]
-    """<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>. The token is valid for 7 days after creation. If a contact is already started, the contact ID is returned. </p>"""
+    r"""<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>. The token is valid for 7 days after creation. If a contact is already started, the contact ID is returned. </p>"""
     source_phone_number: NotRequired["aws_sdk_connect.types.phone_number.PhoneNumber"]
     """<p>The phone number associated with the Connect Customer instance, in E.164 format. If you do not specify a source phone number, you must specify a queue.</p>"""
     queue_id: NotRequired["aws_sdk_connect.types.queue_id.QueueId"]

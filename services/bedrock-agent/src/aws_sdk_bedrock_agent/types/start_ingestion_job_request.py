@@ -16,7 +16,7 @@ class StartIngestionJobRequest(TypedDict):
     data_source_id: "aws_sdk_bedrock_agent.types.id.Id"
     """<p>The unique identifier of the data source you want to ingest into your knowledge base.</p>"""
     client_token: NotRequired["aws_sdk_bedrock_agent.types.client_token.ClientToken"]
-    """<p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring idempotency</a>.</p>"""
+    r"""<p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring idempotency</a>.</p>"""
     description: NotRequired["aws_sdk_bedrock_agent.types.description.Description"]
     """<p>A description of the data ingestion job.</p>"""
 

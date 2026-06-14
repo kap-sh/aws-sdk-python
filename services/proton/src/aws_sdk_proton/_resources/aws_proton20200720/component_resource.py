@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 from aws_sdk_proton._services._pipeline import (
@@ -66,7 +68,7 @@ class ComponentResource:
         tags: Optional["aws_sdk_proton.types.tag_list.TagList"] = None,
         client_token: Optional["aws_sdk_proton.types.client_token.ClientToken"] = None,
     ) -> "aws_sdk_proton.types.create_component_output.CreateComponentOutput":
-        """<p>Create an Proton component. A component is an infrastructure extension for a service instance.</p> <p>For more information about components, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html\">Proton components</a> in the <i>Proton User Guide</i>.</p>
+        r"""<p>Create an Proton component. A component is an infrastructure extension for a service instance.</p> <p>For more information about components, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html\">Proton components</a> in the <i>Proton User Guide</i>.</p>
 
         Args:
             name: <p>The customer-provided name of the component.</p>
@@ -128,7 +130,7 @@ class ComponentResource:
         *,
         config_overrides: Optional[ProtonClientConfig] = None,
     ) -> "aws_sdk_proton.types.get_component_output.GetComponentOutput":
-        """<p>Get detailed data for a component.</p> <p>For more information about components, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html\">Proton components</a> in the <i>Proton User Guide</i>.</p>
+        r"""<p>Get detailed data for a component.</p> <p>For more information about components, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html\">Proton components</a> in the <i>Proton User Guide</i>.</p>
 
         Args:
             name: <p>The name of the component that you want to get the detailed data for.</p>
@@ -180,7 +182,7 @@ class ComponentResource:
         ] = None,
         client_token: Optional["aws_sdk_proton.types.client_token.ClientToken"] = None,
     ) -> "aws_sdk_proton.types.update_component_output.UpdateComponentOutput":
-        """<p>Update a component.</p> <p>There are a few modes for updating a component. The <code>deploymentType</code> field defines the mode.</p> <note> <p>You can't update a component while its deployment status, or the deployment status of a service instance attached to it, is <code>IN_PROGRESS</code>.</p> </note> <p>For more information about components, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html\">Proton components</a> in the <i>Proton User Guide</i>.</p>
+        r"""<p>Update a component.</p> <p>There are a few modes for updating a component. The <code>deploymentType</code> field defines the mode.</p> <note> <p>You can't update a component while its deployment status, or the deployment status of a service instance attached to it, is <code>IN_PROGRESS</code>.</p> </note> <p>For more information about components, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html\">Proton components</a> in the <i>Proton User Guide</i>.</p>
 
         Args:
             name: <p>The name of the component to update.</p>
@@ -237,7 +239,7 @@ class ComponentResource:
         *,
         config_overrides: Optional[ProtonClientConfig] = None,
     ) -> "aws_sdk_proton.types.delete_component_output.DeleteComponentOutput":
-        """<p>Delete an Proton component resource.</p> <p>For more information about components, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html\">Proton components</a> in the <i>Proton User Guide</i>.</p>
+        r"""<p>Delete an Proton component resource.</p> <p>For more information about components, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html\">Proton components</a> in the <i>Proton User Guide</i>.</p>
 
         Args:
             name: <p>The name of the component to delete.</p>
@@ -286,7 +288,7 @@ class ComponentResource:
             "aws_sdk_proton.types.max_page_results.MaxPageResults"
         ] = None,
     ) -> "aws_sdk_proton.types.list_components_output.ListComponentsOutput":
-        """<p>List components with summary data. You can filter the result list by environment, service, or a single service instance.</p> <p>For more information about components, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html\">Proton components</a> in the <i>Proton User Guide</i>.</p>
+        r"""<p>List components with summary data. You can filter the result list by environment, service, or a single service instance.</p> <p>For more information about components, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html\">Proton components</a> in the <i>Proton User Guide</i>.</p>
 
         Args:
             next_token: <p>A token that indicates the location of the next component in the array of components, after the list of components that was previously requested.</p>
@@ -358,7 +360,7 @@ class AsyncComponentResource:
         tags: Optional["aws_sdk_proton.types.tag_list.TagList"] = None,
         client_token: Optional["aws_sdk_proton.types.client_token.ClientToken"] = None,
     ) -> "aws_sdk_proton.types.create_component_output.CreateComponentOutput":
-        """<p>Create an Proton component. A component is an infrastructure extension for a service instance.</p> <p>For more information about components, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html\">Proton components</a> in the <i>Proton User Guide</i>.</p>
+        r"""<p>Create an Proton component. A component is an infrastructure extension for a service instance.</p> <p>For more information about components, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html\">Proton components</a> in the <i>Proton User Guide</i>.</p>
 
         Args:
             name: <p>The customer-provided name of the component.</p>
@@ -421,7 +423,7 @@ class AsyncComponentResource:
         *,
         config_overrides: Optional[AsyncProtonClientConfig] = None,
     ) -> "aws_sdk_proton.types.get_component_output.GetComponentOutput":
-        """<p>Get detailed data for a component.</p> <p>For more information about components, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html\">Proton components</a> in the <i>Proton User Guide</i>.</p>
+        r"""<p>Get detailed data for a component.</p> <p>For more information about components, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html\">Proton components</a> in the <i>Proton User Guide</i>.</p>
 
         Args:
             name: <p>The name of the component that you want to get the detailed data for.</p>
@@ -474,7 +476,7 @@ class AsyncComponentResource:
         ] = None,
         client_token: Optional["aws_sdk_proton.types.client_token.ClientToken"] = None,
     ) -> "aws_sdk_proton.types.update_component_output.UpdateComponentOutput":
-        """<p>Update a component.</p> <p>There are a few modes for updating a component. The <code>deploymentType</code> field defines the mode.</p> <note> <p>You can't update a component while its deployment status, or the deployment status of a service instance attached to it, is <code>IN_PROGRESS</code>.</p> </note> <p>For more information about components, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html\">Proton components</a> in the <i>Proton User Guide</i>.</p>
+        r"""<p>Update a component.</p> <p>There are a few modes for updating a component. The <code>deploymentType</code> field defines the mode.</p> <note> <p>You can't update a component while its deployment status, or the deployment status of a service instance attached to it, is <code>IN_PROGRESS</code>.</p> </note> <p>For more information about components, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html\">Proton components</a> in the <i>Proton User Guide</i>.</p>
 
         Args:
             name: <p>The name of the component to update.</p>
@@ -532,7 +534,7 @@ class AsyncComponentResource:
         *,
         config_overrides: Optional[AsyncProtonClientConfig] = None,
     ) -> "aws_sdk_proton.types.delete_component_output.DeleteComponentOutput":
-        """<p>Delete an Proton component resource.</p> <p>For more information about components, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html\">Proton components</a> in the <i>Proton User Guide</i>.</p>
+        r"""<p>Delete an Proton component resource.</p> <p>For more information about components, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html\">Proton components</a> in the <i>Proton User Guide</i>.</p>
 
         Args:
             name: <p>The name of the component to delete.</p>
@@ -582,7 +584,7 @@ class AsyncComponentResource:
             "aws_sdk_proton.types.max_page_results.MaxPageResults"
         ] = None,
     ) -> "aws_sdk_proton.types.list_components_output.ListComponentsOutput":
-        """<p>List components with summary data. You can filter the result list by environment, service, or a single service instance.</p> <p>For more information about components, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html\">Proton components</a> in the <i>Proton User Guide</i>.</p>
+        r"""<p>List components with summary data. You can filter the result list by environment, service, or a single service instance.</p> <p>For more information about components, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html\">Proton components</a> in the <i>Proton User Guide</i>.</p>
 
         Args:
             next_token: <p>A token that indicates the location of the next component in the array of components, after the list of components that was previously requested.</p>

@@ -126,7 +126,7 @@ class BillingClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = BillingClientConfig(
+        self._config = BillingClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -146,7 +146,7 @@ class BillingClient:
         overrides: BillingClientConfig = config_overrides or {}
         interceptors_: list[Interceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             retry(),
         ]
@@ -154,16 +154,16 @@ class BillingClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
             use_dual_stack=overrides.get(
-                "use_dual_stack", self.config.get("use_dual_stack")
+                "use_dual_stack", self._config.get("use_dual_stack")
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
-            region=overrides.get("region", self.config.get("region")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
+            region=overrides.get("region", self._config.get("region")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -230,7 +230,7 @@ class BillingClient:
             "aws_sdk_billing.types.resource_tag_list.ResourceTagList"
         ] = None,
     ) -> "aws_sdk_billing.types.create_billing_view_response.CreateBillingViewResponse":
-        """<p> Creates a billing view with the specified billing view attributes. </p>
+        r"""<p> Creates a billing view with the specified billing view attributes. </p>
 
         Args:
             name: <p> The name of the billing view. </p>
@@ -806,7 +806,7 @@ class BillingClient:
             "aws_sdk_billing.types.expression.Expression"
         ] = None,
     ) -> "aws_sdk_billing.types.update_billing_view_response.UpdateBillingViewResponse":
-        """<p>An API to update the attributes of the billing view. </p>
+        r"""<p>An API to update the attributes of the billing view. </p>
 
         Args:
             arn: <p> The Amazon Resource Name (ARN) that can be used to uniquely identify the billing view. </p>

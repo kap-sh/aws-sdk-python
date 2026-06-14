@@ -34,7 +34,7 @@ class CACertificateDescription(TypedDict):
     auto_registration_status: NotRequired[
         "aws_sdk_iot.types.auto_registration_status.AutoRegistrationStatus"
     ]
-    """<p>Whether the CA certificate configured for auto registration of device certificates. Valid values are \"ENABLE\" and \"DISABLE\"</p>"""
+    r"""<p>Whether the CA certificate configured for auto registration of device certificates. Valid values are \"ENABLE\" and \"DISABLE\"</p>"""
     last_modified_date: NotRequired["aws_sdk_iot.types.date_type.DateType"]
     """<p>The date the CA certificate was last modified.</p>"""
     customer_version: NotRequired["aws_sdk_iot.types.customer_version.CustomerVersion"]
@@ -44,7 +44,7 @@ class CACertificateDescription(TypedDict):
     validity: NotRequired["aws_sdk_iot.types.certificate_validity.CertificateValidity"]
     """<p>When the CA certificate is valid.</p>"""
     certificate_mode: NotRequired["aws_sdk_iot.types.certificate_mode.CertificateMode"]
-    """<p>The mode of the CA. </p> <p>All the device certificates that are registered using this CA will be registered in the same mode as the CA. For more information about certificate mode for device certificates, see <a href=\"https://docs.aws.amazon.com/iot/latest/apireference/API_CertificateDescription.html#iot-Type-CertificateDescription-certificateMode\">certificate mode</a>.</p>"""
+    r"""<p>The mode of the CA. </p> <p>All the device certificates that are registered using this CA will be registered in the same mode as the CA. For more information about certificate mode for device certificates, see <a href=\"https://docs.aws.amazon.com/iot/latest/apireference/API_CertificateDescription.html#iot-Type-CertificateDescription-certificateMode\">certificate mode</a>.</p>"""
 
 
 # --- restJson1 ser/de ---

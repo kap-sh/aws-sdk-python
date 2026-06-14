@@ -227,7 +227,7 @@ class AsyncDataBrewClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = AsyncDataBrewClientConfig(
+        self._config = AsyncDataBrewClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -247,7 +247,7 @@ class AsyncDataBrewClient:
         overrides: AsyncDataBrewClientConfig = config_overrides or {}
         interceptors_: list[AsyncInterceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             aretry(),
         ]
@@ -255,16 +255,16 @@ class AsyncDataBrewClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            region=overrides.get("region", self.config.get("region")),
+            region=overrides.get("region", self._config.get("region")),
             use_dual_stack=overrides.get(
-                "use_dual_stack", self.config.get("use_dual_stack")
+                "use_dual_stack", self._config.get("use_dual_stack")
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -745,7 +745,7 @@ class AsyncDataBrewClient:
         job_names: Optional["aws_sdk_databrew.types.job_name_list.JobNameList"] = None,
         tags: Optional["aws_sdk_databrew.types.tag_map.TagMap"] = None,
     ) -> "aws_sdk_databrew.types.create_schedule_response.CreateScheduleResponse":
-        """<p>Creates a new schedule for one or more DataBrew jobs. Jobs can be run at a specific date and time, or at regular intervals.</p>
+        r"""<p>Creates a new schedule for one or more DataBrew jobs. Jobs can be run at a specific date and time, or at regular intervals.</p>
 
         Args:
             job_names: <p>The name or names of one or more jobs to be run.</p>
@@ -2616,7 +2616,7 @@ class AsyncDataBrewClient:
         config_overrides: Optional[AsyncDataBrewClientConfig] = None,
         job_names: Optional["aws_sdk_databrew.types.job_name_list.JobNameList"] = None,
     ) -> "aws_sdk_databrew.types.update_schedule_response.UpdateScheduleResponse":
-        """<p>Modifies the definition of an existing DataBrew schedule.</p>
+        r"""<p>Modifies the definition of an existing DataBrew schedule.</p>
 
         Args:
             job_names: <p>The name or names of one or more jobs to be run for this schedule.</p>

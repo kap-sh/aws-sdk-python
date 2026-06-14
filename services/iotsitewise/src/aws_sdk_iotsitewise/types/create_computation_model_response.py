@@ -14,7 +14,7 @@ class CreateComputationModelResponse(TypedDict):
     computation_model_id: "aws_sdk_iotsitewise.types.id.ID"
     """<p>The ID of the computation model.</p>"""
     computation_model_arn: "aws_sdk_iotsitewise.types.arn.ARN"
-    """<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the computation model, which has the following format.</p> <p> <code>arn:${Partition}:iotsitewise:${Region}:${Account}:computation-model/${ComputationModelId}</code> </p>"""
+    r"""<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the computation model, which has the following format.</p> <p> <code>arn:${Partition}:iotsitewise:${Region}:${Account}:computation-model/${ComputationModelId}</code> </p>"""
     computation_model_status: (
         "aws_sdk_iotsitewise.types.computation_model_status.ComputationModelStatus"
     )

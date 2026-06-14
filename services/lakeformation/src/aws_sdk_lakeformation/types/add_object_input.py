@@ -23,7 +23,7 @@ class AddObjectInput(TypedDict):
     partition_values: NotRequired[
         "aws_sdk_lakeformation.types.partition_values_list.PartitionValuesList"
     ]
-    """<p>A list of partition values for the object. A value must be specified for each partition key associated with the table.</p> <p>The supported data types are integer, long, date(yyyy-MM-dd), timestamp(yyyy-MM-dd HH:mm:ssXXX or yyyy-MM-dd HH:mm:ss\"), string and decimal.</p>"""
+    r"""<p>A list of partition values for the object. A value must be specified for each partition key associated with the table.</p> <p>The supported data types are integer, long, date(yyyy-MM-dd), timestamp(yyyy-MM-dd HH:mm:ssXXX or yyyy-MM-dd HH:mm:ss\"), string and decimal.</p>"""
 
 
 # --- restJson1 ser/de ---

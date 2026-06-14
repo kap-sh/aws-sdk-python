@@ -17,7 +17,7 @@ class DescribeAgentsRequest(TypedDict):
     ]
     """<p>The agent or the collector IDs for which you want information. If you specify no IDs, the system returns information about all agents/collectors associated with your user.</p>"""
     filters: NotRequired["aws_sdk_application_discovery_service.types.filters.Filters"]
-    """<p>You can filter the request using various logical operators and a <i>key</i>-<i>value</i> format. For example: </p> <p> <code>{\"key\": \"collectionStatus\", \"value\": \"STARTED\"}</code> </p>"""
+    r"""<p>You can filter the request using various logical operators and a <i>key</i>-<i>value</i> format. For example: </p> <p> <code>{\"key\": \"collectionStatus\", \"value\": \"STARTED\"}</code> </p>"""
     max_results: "aws_sdk_application_discovery_service.types.integer.Integer"
     """<p>The total number of agents/collectors to return in a single page of output. The maximum value is 100.</p>"""
     next_token: NotRequired[

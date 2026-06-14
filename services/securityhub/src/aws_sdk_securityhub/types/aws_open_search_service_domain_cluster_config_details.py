@@ -29,7 +29,7 @@ class AwsOpenSearchServiceDomainClusterConfigDetails(TypedDict):
     instance_type: NotRequired[
         "aws_sdk_securityhub.types.non_empty_string.NonEmptyString"
     ]
-    """<p>The instance type for your data nodes.</p> <p>For a list of valid values, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/supported-instance-types.html\">Supported instance types in Amazon OpenSearch Service</a> in the <i>Amazon OpenSearch Service Developer Guide</i>.</p>"""
+    r"""<p>The instance type for your data nodes.</p> <p>For a list of valid values, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/supported-instance-types.html\">Supported instance types in Amazon OpenSearch Service</a> in the <i>Amazon OpenSearch Service Developer Guide</i>.</p>"""
     warm_type: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p>The type of UltraWarm instance.</p>"""
     zone_awareness_enabled: NotRequired["aws_sdk_securityhub.types.boolean.Boolean"]

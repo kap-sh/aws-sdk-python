@@ -53,7 +53,7 @@ class OrganizationCustomPolicyRuleMetadataNoPolicy(TypedDict):
     policy_runtime: NotRequired[
         "aws_sdk_config_service.types.policy_runtime.PolicyRuntime"
     ]
-    """<p>The runtime system for your organization Config Custom Policy rules. Guard is a policy-as-code language that allows you to write policies that are enforced by Config Custom Policy rules. For more information about Guard, see the <a href=\"https://github.com/aws-cloudformation/cloudformation-guard\">Guard GitHub Repository</a>.</p>"""
+    r"""<p>The runtime system for your organization Config Custom Policy rules. Guard is a policy-as-code language that allows you to write policies that are enforced by Config Custom Policy rules. For more information about Guard, see the <a href=\"https://github.com/aws-cloudformation/cloudformation-guard\">Guard GitHub Repository</a>.</p>"""
     debug_log_delivery_accounts: NotRequired[
         "aws_sdk_config_service.types.debug_log_delivery_accounts.DebugLogDeliveryAccounts"
     ]

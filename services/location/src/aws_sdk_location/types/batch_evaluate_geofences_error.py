@@ -14,7 +14,7 @@ class BatchEvaluateGeofencesError(TypedDict):
     device_id: "aws_sdk_location.types.id.Id"
     """<p>The device associated with the position evaluation error.</p>"""
     sample_time: "aws_sdk_location.types.timestamp.Timestamp"
-    """<p>Specifies a timestamp for when the error occurred in <a href=\"https://www.iso.org/iso-8601-date-and-time-format.html\">ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code> </p>"""
+    r"""<p>Specifies a timestamp for when the error occurred in <a href=\"https://www.iso.org/iso-8601-date-and-time-format.html\">ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code> </p>"""
     error: "aws_sdk_location.types.batch_item_error.BatchItemError"
     """<p>Contains details associated to the batch error.</p>"""
 

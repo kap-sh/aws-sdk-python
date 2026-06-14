@@ -1,13 +1,19 @@
-from typing import Optional, TYPE_CHECKING
-from aws_sdk_bedrock_agentcore._services.async_bedrock_agent_core import ensure_async_iterator
-from aws_sdk_bedrock_agentcore._services.bedrock_agent_core import ensure_sync_iterator
-import datetime
-from aws_sdk_bedrock_agentcore._services._pipeline import OperationRequest, OperationResponse, execute_pipeline, AsyncOperationRequest, AsyncOperationResponse, aexecute_pipeline
+from __future__ import annotations
+
+from typing import TYPE_CHECKING, Optional
+
 import aws_sdk_bedrock_agentcore._auth._signers
 import aws_sdk_bedrock_agentcore._auth._sigv4
+from aws_sdk_bedrock_agentcore._services._pipeline import (
+    AsyncOperationRequest,
+    AsyncOperationResponse,
+    OperationRequest,
+    OperationResponse,
+    aexecute_pipeline,
+    execute_pipeline,
+)
+
 if TYPE_CHECKING:
-    from aws_sdk_bedrock_agentcore._services.bedrock_agent_core import BedrockAgentCoreClient, BedrockAgentCoreClientConfig
-    from aws_sdk_bedrock_agentcore._services.async_bedrock_agent_core import AsyncBedrockAgentCoreClient, AsyncBedrockAgentCoreClientConfig
     import aws_sdk_bedrock_agentcore.types.ab_test_description
     import aws_sdk_bedrock_agentcore.types.ab_test_evaluation_config
     import aws_sdk_bedrock_agentcore.types.ab_test_execution_status
@@ -68,11 +74,40 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.update_ab_test_request
     import aws_sdk_bedrock_agentcore.types.update_ab_test_response
     import aws_sdk_bedrock_agentcore.types.variant_list
+    from aws_sdk_bedrock_agentcore._services.async_bedrock_agent_core import (
+        AsyncBedrockAgentCoreClient,
+        AsyncBedrockAgentCoreClientConfig,
+    )
+    from aws_sdk_bedrock_agentcore._services.bedrock_agent_core import (
+        BedrockAgentCoreClient,
+        BedrockAgentCoreClientConfig,
+    )
+
 
 class EvaluationResource:
     def __init__(self, service: BedrockAgentCoreClient) -> None:
         self._service = service
-    def create_ab_test(self, name: "aws_sdk_bedrock_agentcore.types.ab_test_name.ABTestName", gateway_arn: "aws_sdk_bedrock_agentcore.types.gateway_arn.GatewayArn", variants: "aws_sdk_bedrock_agentcore.types.variant_list.VariantList", evaluation_config: "aws_sdk_bedrock_agentcore.types.ab_test_evaluation_config.ABTestEvaluationConfig", role_arn: "aws_sdk_bedrock_agentcore.types.role_arn.RoleArn", *, config_overrides: Optional[BedrockAgentCoreClientConfig] = None, description: Optional["aws_sdk_bedrock_agentcore.types.ab_test_description.ABTestDescription"] = None, gateway_filter: Optional["aws_sdk_bedrock_agentcore.types.gateway_filter.GatewayFilter"] = None, enable_on_create: Optional[bool] = None, client_token: Optional["aws_sdk_bedrock_agentcore.types.client_token.ClientToken"] = None) -> "aws_sdk_bedrock_agentcore.types.create_ab_test_response.CreateABTestResponse":
+
+    def create_ab_test(
+        self,
+        name: "aws_sdk_bedrock_agentcore.types.ab_test_name.ABTestName",
+        gateway_arn: "aws_sdk_bedrock_agentcore.types.gateway_arn.GatewayArn",
+        variants: "aws_sdk_bedrock_agentcore.types.variant_list.VariantList",
+        evaluation_config: "aws_sdk_bedrock_agentcore.types.ab_test_evaluation_config.ABTestEvaluationConfig",
+        role_arn: "aws_sdk_bedrock_agentcore.types.role_arn.RoleArn",
+        *,
+        config_overrides: Optional[BedrockAgentCoreClientConfig] = None,
+        description: Optional[
+            "aws_sdk_bedrock_agentcore.types.ab_test_description.ABTestDescription"
+        ] = None,
+        gateway_filter: Optional[
+            "aws_sdk_bedrock_agentcore.types.gateway_filter.GatewayFilter"
+        ] = None,
+        enable_on_create: Optional[bool] = None,
+        client_token: Optional[
+            "aws_sdk_bedrock_agentcore.types.client_token.ClientToken"
+        ] = None,
+    ) -> "aws_sdk_bedrock_agentcore.types.create_ab_test_response.CreateABTestResponse":
         """<p>Creates an A/B test for comparing agent configurations. A/B tests split traffic between a control variant and a treatment variant through a gateway, then evaluate performance using online evaluation configurations to determine which variant performs better.</p>
 
         Args:
@@ -86,9 +121,19 @@ class EvaluationResource:
             enable_on_create: <p>Whether to enable the A/B test immediately upon creation. If true, traffic splitting begins automatically.</p>
             client_token: <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, the service ignores the request, but does not return an error.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_bedrock_agentcore.types.create_ab_test_request.CreateABTestRequest]') -> OperationResponse["aws_sdk_bedrock_agentcore.types.create_ab_test_response.CreateABTestResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_bedrock_agentcore.types.create_ab_test_request.CreateABTestRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_bedrock_agentcore.types.create_ab_test_response.CreateABTestResponse"
+        ]:
             import aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.create_ab_test
-            output, http_response = aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.create_ab_test.create_ab_test(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.create_ab_test.create_ab_test(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -107,60 +152,137 @@ class EvaluationResource:
         if client_token is not None:
             input_["client_token"] = client_token
 
-        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def delete_ab_test(self, ab_test_id: "aws_sdk_bedrock_agentcore.types.ab_test_id.ABTestId", *, config_overrides: Optional[BedrockAgentCoreClientConfig] = None) -> "aws_sdk_bedrock_agentcore.types.delete_ab_test_response.DeleteABTestResponse":
+
+    def delete_ab_test(
+        self,
+        ab_test_id: "aws_sdk_bedrock_agentcore.types.ab_test_id.ABTestId",
+        *,
+        config_overrides: Optional[BedrockAgentCoreClientConfig] = None,
+    ) -> "aws_sdk_bedrock_agentcore.types.delete_ab_test_response.DeleteABTestResponse":
         """<p>Deletes an A/B test and its associated gateway rules.</p>
 
         Args:
             ab_test_id: <p>The unique identifier of the A/B test to delete.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_bedrock_agentcore.types.delete_ab_test_request.DeleteABTestRequest]') -> OperationResponse["aws_sdk_bedrock_agentcore.types.delete_ab_test_response.DeleteABTestResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_bedrock_agentcore.types.delete_ab_test_request.DeleteABTestRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_bedrock_agentcore.types.delete_ab_test_response.DeleteABTestResponse"
+        ]:
             import aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.delete_ab_test
-            output, http_response = aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.delete_ab_test.delete_ab_test(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.delete_ab_test.delete_ab_test(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: aws_sdk_bedrock_agentcore.types.delete_ab_test_request.DeleteABTestRequest = {}  # type: ignore[typeddict-item]
         input_["ab_test_id"] = ab_test_id
 
-        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def delete_batch_evaluation(self, batch_evaluation_id: "aws_sdk_bedrock_agentcore.types.batch_evaluation_id.BatchEvaluationId", *, config_overrides: Optional[BedrockAgentCoreClientConfig] = None) -> "aws_sdk_bedrock_agentcore.types.delete_batch_evaluation_response.DeleteBatchEvaluationResponse":
+
+    def delete_batch_evaluation(
+        self,
+        batch_evaluation_id: "aws_sdk_bedrock_agentcore.types.batch_evaluation_id.BatchEvaluationId",
+        *,
+        config_overrides: Optional[BedrockAgentCoreClientConfig] = None,
+    ) -> "aws_sdk_bedrock_agentcore.types.delete_batch_evaluation_response.DeleteBatchEvaluationResponse":
         """<p>Deletes a batch evaluation and its associated results.</p>
 
         Args:
             batch_evaluation_id: <p>The unique identifier of the batch evaluation to delete.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_bedrock_agentcore.types.delete_batch_evaluation_request.DeleteBatchEvaluationRequest]') -> OperationResponse["aws_sdk_bedrock_agentcore.types.delete_batch_evaluation_response.DeleteBatchEvaluationResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_bedrock_agentcore.types.delete_batch_evaluation_request.DeleteBatchEvaluationRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_bedrock_agentcore.types.delete_batch_evaluation_response.DeleteBatchEvaluationResponse"
+        ]:
             import aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.delete_batch_evaluation
-            output, http_response = aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.delete_batch_evaluation.delete_batch_evaluation(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.delete_batch_evaluation.delete_batch_evaluation(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: aws_sdk_bedrock_agentcore.types.delete_batch_evaluation_request.DeleteBatchEvaluationRequest = {}  # type: ignore[typeddict-item]
         input_["batch_evaluation_id"] = batch_evaluation_id
 
-        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def delete_recommendation(self, recommendation_id: "aws_sdk_bedrock_agentcore.types.recommendation_id.RecommendationId", *, config_overrides: Optional[BedrockAgentCoreClientConfig] = None) -> "aws_sdk_bedrock_agentcore.types.delete_recommendation_response.DeleteRecommendationResponse":
+
+    def delete_recommendation(
+        self,
+        recommendation_id: "aws_sdk_bedrock_agentcore.types.recommendation_id.RecommendationId",
+        *,
+        config_overrides: Optional[BedrockAgentCoreClientConfig] = None,
+    ) -> "aws_sdk_bedrock_agentcore.types.delete_recommendation_response.DeleteRecommendationResponse":
         """<p>Deletes a recommendation and its associated results.</p>
 
         Args:
             recommendation_id: <p>The unique identifier of the recommendation to delete.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_bedrock_agentcore.types.delete_recommendation_request.DeleteRecommendationRequest]') -> OperationResponse["aws_sdk_bedrock_agentcore.types.delete_recommendation_response.DeleteRecommendationResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_bedrock_agentcore.types.delete_recommendation_request.DeleteRecommendationRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_bedrock_agentcore.types.delete_recommendation_response.DeleteRecommendationResponse"
+        ]:
             import aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.delete_recommendation
-            output, http_response = aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.delete_recommendation.delete_recommendation(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.delete_recommendation.delete_recommendation(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: aws_sdk_bedrock_agentcore.types.delete_recommendation_request.DeleteRecommendationRequest = {}  # type: ignore[typeddict-item]
         input_["recommendation_id"] = recommendation_id
 
-        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def evaluate(self, evaluator_id: "aws_sdk_bedrock_agentcore.types.evaluator_id.EvaluatorId", evaluation_input: "aws_sdk_bedrock_agentcore.types.evaluation_input.EvaluationInput", *, config_overrides: Optional[BedrockAgentCoreClientConfig] = None, evaluation_target: Optional["aws_sdk_bedrock_agentcore.types.evaluation_target.EvaluationTarget"] = None, evaluation_reference_inputs: Optional["aws_sdk_bedrock_agentcore.types.evaluation_reference_inputs.EvaluationReferenceInputs"] = None) -> "aws_sdk_bedrock_agentcore.types.evaluate_response.EvaluateResponse":
+
+    def evaluate(
+        self,
+        evaluator_id: "aws_sdk_bedrock_agentcore.types.evaluator_id.EvaluatorId",
+        evaluation_input: "aws_sdk_bedrock_agentcore.types.evaluation_input.EvaluationInput",
+        *,
+        config_overrides: Optional[BedrockAgentCoreClientConfig] = None,
+        evaluation_target: Optional[
+            "aws_sdk_bedrock_agentcore.types.evaluation_target.EvaluationTarget"
+        ] = None,
+        evaluation_reference_inputs: Optional[
+            "aws_sdk_bedrock_agentcore.types.evaluation_reference_inputs.EvaluationReferenceInputs"
+        ] = None,
+    ) -> "aws_sdk_bedrock_agentcore.types.evaluate_response.EvaluateResponse":
         """<p> Performs on-demand evaluation of agent traces using a specified evaluator. This synchronous API accepts traces in OpenTelemetry format and returns immediate scoring results with detailed explanations.</p>
 
         Args:
@@ -169,9 +291,19 @@ class EvaluationResource:
             evaluation_target: <p> The specific trace or span IDs to evaluate within the provided input. Allows targeting evaluation at different levels: individual tool calls, single request-response interactions (traces), or entire conversation sessions. </p>
             evaluation_reference_inputs: <p> Ground truth data to compare against agent responses during evaluation. Allows to provide expected responses, assertions, and expected tool trajectories at different evaluation levels. Session-level reference inputs apply to the entire conversation, while trace-level reference inputs target specific request-response interactions identified by trace ID. </p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_bedrock_agentcore.types.evaluate_request.EvaluateRequest]') -> OperationResponse["aws_sdk_bedrock_agentcore.types.evaluate_response.EvaluateResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_bedrock_agentcore.types.evaluate_request.EvaluateRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_bedrock_agentcore.types.evaluate_response.EvaluateResponse"
+        ]:
             import aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.evaluate
-            output, http_response = aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.evaluate.evaluate(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.evaluate.evaluate(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -183,69 +315,150 @@ class EvaluationResource:
         if evaluation_reference_inputs is not None:
             input_["evaluation_reference_inputs"] = evaluation_reference_inputs
 
-        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def get_ab_test(self, ab_test_id: "aws_sdk_bedrock_agentcore.types.ab_test_id.ABTestId", *, config_overrides: Optional[BedrockAgentCoreClientConfig] = None) -> "aws_sdk_bedrock_agentcore.types.get_ab_test_response.GetABTestResponse":
+
+    def get_ab_test(
+        self,
+        ab_test_id: "aws_sdk_bedrock_agentcore.types.ab_test_id.ABTestId",
+        *,
+        config_overrides: Optional[BedrockAgentCoreClientConfig] = None,
+    ) -> "aws_sdk_bedrock_agentcore.types.get_ab_test_response.GetABTestResponse":
         """<p>Retrieves detailed information about an A/B test, including its configuration, status, and statistical results.</p>
 
         Args:
             ab_test_id: <p>The unique identifier of the A/B test to retrieve.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_bedrock_agentcore.types.get_ab_test_request.GetABTestRequest]') -> OperationResponse["aws_sdk_bedrock_agentcore.types.get_ab_test_response.GetABTestResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_bedrock_agentcore.types.get_ab_test_request.GetABTestRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_bedrock_agentcore.types.get_ab_test_response.GetABTestResponse"
+        ]:
             import aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.get_ab_test
-            output, http_response = aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.get_ab_test.get_ab_test(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.get_ab_test.get_ab_test(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: aws_sdk_bedrock_agentcore.types.get_ab_test_request.GetABTestRequest = {}  # type: ignore[typeddict-item]
         input_["ab_test_id"] = ab_test_id
 
-        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def get_batch_evaluation(self, batch_evaluation_id: "aws_sdk_bedrock_agentcore.types.batch_evaluation_id.BatchEvaluationId", *, config_overrides: Optional[BedrockAgentCoreClientConfig] = None) -> "aws_sdk_bedrock_agentcore.types.get_batch_evaluation_response.GetBatchEvaluationResponse":
+
+    def get_batch_evaluation(
+        self,
+        batch_evaluation_id: "aws_sdk_bedrock_agentcore.types.batch_evaluation_id.BatchEvaluationId",
+        *,
+        config_overrides: Optional[BedrockAgentCoreClientConfig] = None,
+    ) -> "aws_sdk_bedrock_agentcore.types.get_batch_evaluation_response.GetBatchEvaluationResponse":
         """<p>Retrieves detailed information about a batch evaluation, including its status, configuration, results, and any error details.</p>
 
         Args:
             batch_evaluation_id: <p>The unique identifier of the batch evaluation to retrieve.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_bedrock_agentcore.types.get_batch_evaluation_request.GetBatchEvaluationRequest]') -> OperationResponse["aws_sdk_bedrock_agentcore.types.get_batch_evaluation_response.GetBatchEvaluationResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_bedrock_agentcore.types.get_batch_evaluation_request.GetBatchEvaluationRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_bedrock_agentcore.types.get_batch_evaluation_response.GetBatchEvaluationResponse"
+        ]:
             import aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.get_batch_evaluation
-            output, http_response = aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.get_batch_evaluation.get_batch_evaluation(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.get_batch_evaluation.get_batch_evaluation(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: aws_sdk_bedrock_agentcore.types.get_batch_evaluation_request.GetBatchEvaluationRequest = {}  # type: ignore[typeddict-item]
         input_["batch_evaluation_id"] = batch_evaluation_id
 
-        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def get_recommendation(self, recommendation_id: "aws_sdk_bedrock_agentcore.types.recommendation_id.RecommendationId", *, config_overrides: Optional[BedrockAgentCoreClientConfig] = None) -> "aws_sdk_bedrock_agentcore.types.get_recommendation_response.GetRecommendationResponse":
+
+    def get_recommendation(
+        self,
+        recommendation_id: "aws_sdk_bedrock_agentcore.types.recommendation_id.RecommendationId",
+        *,
+        config_overrides: Optional[BedrockAgentCoreClientConfig] = None,
+    ) -> "aws_sdk_bedrock_agentcore.types.get_recommendation_response.GetRecommendationResponse":
         """<p>Retrieves detailed information about a recommendation, including its configuration, status, and results.</p>
 
         Args:
             recommendation_id: <p>The unique identifier of the recommendation to retrieve.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_bedrock_agentcore.types.get_recommendation_request.GetRecommendationRequest]') -> OperationResponse["aws_sdk_bedrock_agentcore.types.get_recommendation_response.GetRecommendationResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_bedrock_agentcore.types.get_recommendation_request.GetRecommendationRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_bedrock_agentcore.types.get_recommendation_response.GetRecommendationResponse"
+        ]:
             import aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.get_recommendation
-            output, http_response = aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.get_recommendation.get_recommendation(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.get_recommendation.get_recommendation(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: aws_sdk_bedrock_agentcore.types.get_recommendation_request.GetRecommendationRequest = {}  # type: ignore[typeddict-item]
         input_["recommendation_id"] = recommendation_id
 
-        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def list_ab_tests(self, *, config_overrides: Optional[BedrockAgentCoreClientConfig] = None, max_results: Optional[int] = None, next_token: Optional[str] = None) -> "aws_sdk_bedrock_agentcore.types.list_ab_tests_response.ListABTestsResponse":
+
+    def list_ab_tests(
+        self,
+        *,
+        config_overrides: Optional[BedrockAgentCoreClientConfig] = None,
+        max_results: Optional[int] = None,
+        next_token: Optional[str] = None,
+    ) -> "aws_sdk_bedrock_agentcore.types.list_ab_tests_response.ListABTestsResponse":
         """<p>Lists all A/B tests in the account.</p>
 
         Args:
             max_results: <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
             next_token: <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_bedrock_agentcore.types.list_ab_tests_request.ListABTestsRequest]') -> OperationResponse["aws_sdk_bedrock_agentcore.types.list_ab_tests_response.ListABTestsResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_bedrock_agentcore.types.list_ab_tests_request.ListABTestsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_bedrock_agentcore.types.list_ab_tests_response.ListABTestsResponse"
+        ]:
             import aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.list_ab_tests
-            output, http_response = aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.list_ab_tests.list_ab_tests(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.list_ab_tests.list_ab_tests(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -255,18 +468,39 @@ class EvaluationResource:
         if next_token is not None:
             input_["next_token"] = next_token
 
-        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def list_batch_evaluations(self, *, config_overrides: Optional[BedrockAgentCoreClientConfig] = None, max_results: Optional[int] = None, next_token: Optional[str] = None) -> "aws_sdk_bedrock_agentcore.types.list_batch_evaluations_response.ListBatchEvaluationsResponse":
+
+    def list_batch_evaluations(
+        self,
+        *,
+        config_overrides: Optional[BedrockAgentCoreClientConfig] = None,
+        max_results: Optional[int] = None,
+        next_token: Optional[str] = None,
+    ) -> "aws_sdk_bedrock_agentcore.types.list_batch_evaluations_response.ListBatchEvaluationsResponse":
         """<p>Lists all batch evaluations in the account, providing summary information about each evaluation's status and configuration.</p>
 
         Args:
             max_results: <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
             next_token: <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_bedrock_agentcore.types.list_batch_evaluations_request.ListBatchEvaluationsRequest]') -> OperationResponse["aws_sdk_bedrock_agentcore.types.list_batch_evaluations_response.ListBatchEvaluationsResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_bedrock_agentcore.types.list_batch_evaluations_request.ListBatchEvaluationsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_bedrock_agentcore.types.list_batch_evaluations_response.ListBatchEvaluationsResponse"
+        ]:
             import aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.list_batch_evaluations
-            output, http_response = aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.list_batch_evaluations.list_batch_evaluations(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.list_batch_evaluations.list_batch_evaluations(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -276,9 +510,25 @@ class EvaluationResource:
         if next_token is not None:
             input_["next_token"] = next_token
 
-        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def list_recommendations(self, *, config_overrides: Optional[BedrockAgentCoreClientConfig] = None, max_results: Optional[int] = None, next_token: Optional["aws_sdk_bedrock_agentcore.types.next_token.NextToken"] = None, status_filter: Optional["aws_sdk_bedrock_agentcore.types.recommendation_status.RecommendationStatus"] = None) -> "aws_sdk_bedrock_agentcore.types.list_recommendations_response.ListRecommendationsResponse":
+
+    def list_recommendations(
+        self,
+        *,
+        config_overrides: Optional[BedrockAgentCoreClientConfig] = None,
+        max_results: Optional[int] = None,
+        next_token: Optional[
+            "aws_sdk_bedrock_agentcore.types.next_token.NextToken"
+        ] = None,
+        status_filter: Optional[
+            "aws_sdk_bedrock_agentcore.types.recommendation_status.RecommendationStatus"
+        ] = None,
+    ) -> "aws_sdk_bedrock_agentcore.types.list_recommendations_response.ListRecommendationsResponse":
         """<p>Lists all recommendations in the account, with optional filtering by status.</p>
 
         Args:
@@ -286,9 +536,19 @@ class EvaluationResource:
             next_token: <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
             status_filter: <p>Optional filter to return only recommendations with the specified status.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_bedrock_agentcore.types.list_recommendations_request.ListRecommendationsRequest]') -> OperationResponse["aws_sdk_bedrock_agentcore.types.list_recommendations_response.ListRecommendationsResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_bedrock_agentcore.types.list_recommendations_request.ListRecommendationsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_bedrock_agentcore.types.list_recommendations_response.ListRecommendationsResponse"
+        ]:
             import aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.list_recommendations
-            output, http_response = aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.list_recommendations.list_recommendations(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.list_recommendations.list_recommendations(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -300,9 +560,32 @@ class EvaluationResource:
         if status_filter is not None:
             input_["status_filter"] = status_filter
 
-        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def start_batch_evaluation(self, batch_evaluation_name: "aws_sdk_bedrock_agentcore.types.batch_evaluation_name.BatchEvaluationName", data_source_config: "aws_sdk_bedrock_agentcore.types.data_source_config.DataSourceConfig", *, config_overrides: Optional[BedrockAgentCoreClientConfig] = None, evaluators: Optional["aws_sdk_bedrock_agentcore.types.evaluator_list.EvaluatorList"] = None, client_token: Optional["aws_sdk_bedrock_agentcore.types.client_token.ClientToken"] = None, evaluation_metadata: Optional["aws_sdk_bedrock_agentcore.types.evaluation_metadata.EvaluationMetadata"] = None, description: Optional["aws_sdk_bedrock_agentcore.types.batch_evaluation_description.BatchEvaluationDescription"] = None) -> "aws_sdk_bedrock_agentcore.types.start_batch_evaluation_response.StartBatchEvaluationResponse":
+
+    def start_batch_evaluation(
+        self,
+        batch_evaluation_name: "aws_sdk_bedrock_agentcore.types.batch_evaluation_name.BatchEvaluationName",
+        data_source_config: "aws_sdk_bedrock_agentcore.types.data_source_config.DataSourceConfig",
+        *,
+        config_overrides: Optional[BedrockAgentCoreClientConfig] = None,
+        evaluators: Optional[
+            "aws_sdk_bedrock_agentcore.types.evaluator_list.EvaluatorList"
+        ] = None,
+        client_token: Optional[
+            "aws_sdk_bedrock_agentcore.types.client_token.ClientToken"
+        ] = None,
+        evaluation_metadata: Optional[
+            "aws_sdk_bedrock_agentcore.types.evaluation_metadata.EvaluationMetadata"
+        ] = None,
+        description: Optional[
+            "aws_sdk_bedrock_agentcore.types.batch_evaluation_description.BatchEvaluationDescription"
+        ] = None,
+    ) -> "aws_sdk_bedrock_agentcore.types.start_batch_evaluation_response.StartBatchEvaluationResponse":
         """<p>Starts a batch evaluation job that evaluates agent performance across multiple sessions. Batch evaluations pull agent traces from CloudWatch Logs or an existing online evaluation configuration and run specified evaluators and insights against them.</p>
 
         Args:
@@ -313,9 +596,19 @@ class EvaluationResource:
             evaluation_metadata: <p>Optional metadata for the evaluation, including session-specific ground truth data and test scenario identifiers.</p>
             description: <p>The description of the batch evaluation.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_bedrock_agentcore.types.start_batch_evaluation_request.StartBatchEvaluationRequest]') -> OperationResponse["aws_sdk_bedrock_agentcore.types.start_batch_evaluation_response.StartBatchEvaluationResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_bedrock_agentcore.types.start_batch_evaluation_request.StartBatchEvaluationRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_bedrock_agentcore.types.start_batch_evaluation_response.StartBatchEvaluationResponse"
+        ]:
             import aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.start_batch_evaluation
-            output, http_response = aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.start_batch_evaluation.start_batch_evaluation(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.start_batch_evaluation.start_batch_evaluation(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -331,9 +624,27 @@ class EvaluationResource:
         if description is not None:
             input_["description"] = description
 
-        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def start_recommendation(self, name: "aws_sdk_bedrock_agentcore.types.recommendation_name.RecommendationName", type: "aws_sdk_bedrock_agentcore.types.recommendation_type.RecommendationType", recommendation_config: "aws_sdk_bedrock_agentcore.types.recommendation_config.RecommendationConfig", *, config_overrides: Optional[BedrockAgentCoreClientConfig] = None, description: Optional["aws_sdk_bedrock_agentcore.types.recommendation_description.RecommendationDescription"] = None, client_token: Optional["aws_sdk_bedrock_agentcore.types.client_token.ClientToken"] = None) -> "aws_sdk_bedrock_agentcore.types.start_recommendation_response.StartRecommendationResponse":
+
+    def start_recommendation(
+        self,
+        name: "aws_sdk_bedrock_agentcore.types.recommendation_name.RecommendationName",
+        type: "aws_sdk_bedrock_agentcore.types.recommendation_type.RecommendationType",
+        recommendation_config: "aws_sdk_bedrock_agentcore.types.recommendation_config.RecommendationConfig",
+        *,
+        config_overrides: Optional[BedrockAgentCoreClientConfig] = None,
+        description: Optional[
+            "aws_sdk_bedrock_agentcore.types.recommendation_description.RecommendationDescription"
+        ] = None,
+        client_token: Optional[
+            "aws_sdk_bedrock_agentcore.types.client_token.ClientToken"
+        ] = None,
+    ) -> "aws_sdk_bedrock_agentcore.types.start_recommendation_response.StartRecommendationResponse":
         """<p>Starts a recommendation job that analyzes agent traces and generates optimization suggestions for system prompts or tool descriptions to improve agent performance.</p>
 
         Args:
@@ -343,9 +654,19 @@ class EvaluationResource:
             recommendation_config: <p>The configuration for the recommendation, including the input to optimize, agent traces to analyze, and evaluation settings.</p>
             client_token: <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, the service ignores the request, but does not return an error.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_bedrock_agentcore.types.start_recommendation_request.StartRecommendationRequest]') -> OperationResponse["aws_sdk_bedrock_agentcore.types.start_recommendation_response.StartRecommendationResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_bedrock_agentcore.types.start_recommendation_request.StartRecommendationRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_bedrock_agentcore.types.start_recommendation_response.StartRecommendationResponse"
+        ]:
             import aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.start_recommendation
-            output, http_response = aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.start_recommendation.start_recommendation(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.start_recommendation.start_recommendation(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -358,26 +679,78 @@ class EvaluationResource:
         if client_token is not None:
             input_["client_token"] = client_token
 
-        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def stop_batch_evaluation(self, batch_evaluation_id: "aws_sdk_bedrock_agentcore.types.batch_evaluation_id.BatchEvaluationId", *, config_overrides: Optional[BedrockAgentCoreClientConfig] = None) -> "aws_sdk_bedrock_agentcore.types.stop_batch_evaluation_response.StopBatchEvaluationResponse":
+
+    def stop_batch_evaluation(
+        self,
+        batch_evaluation_id: "aws_sdk_bedrock_agentcore.types.batch_evaluation_id.BatchEvaluationId",
+        *,
+        config_overrides: Optional[BedrockAgentCoreClientConfig] = None,
+    ) -> "aws_sdk_bedrock_agentcore.types.stop_batch_evaluation_response.StopBatchEvaluationResponse":
         """<p>Stops a running batch evaluation. Sessions that have already been evaluated retain their results.</p>
 
         Args:
             batch_evaluation_id: <p>The unique identifier of the batch evaluation to stop.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_bedrock_agentcore.types.stop_batch_evaluation_request.StopBatchEvaluationRequest]') -> OperationResponse["aws_sdk_bedrock_agentcore.types.stop_batch_evaluation_response.StopBatchEvaluationResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_bedrock_agentcore.types.stop_batch_evaluation_request.StopBatchEvaluationRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_bedrock_agentcore.types.stop_batch_evaluation_response.StopBatchEvaluationResponse"
+        ]:
             import aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.stop_batch_evaluation
-            output, http_response = aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.stop_batch_evaluation.stop_batch_evaluation(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.stop_batch_evaluation.stop_batch_evaluation(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: aws_sdk_bedrock_agentcore.types.stop_batch_evaluation_request.StopBatchEvaluationRequest = {}  # type: ignore[typeddict-item]
         input_["batch_evaluation_id"] = batch_evaluation_id
 
-        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def update_ab_test(self, ab_test_id: "aws_sdk_bedrock_agentcore.types.ab_test_id.ABTestId", *, config_overrides: Optional[BedrockAgentCoreClientConfig] = None, client_token: Optional["aws_sdk_bedrock_agentcore.types.client_token.ClientToken"] = None, name: Optional["aws_sdk_bedrock_agentcore.types.ab_test_name.ABTestName"] = None, description: Optional["aws_sdk_bedrock_agentcore.types.ab_test_description.ABTestDescription"] = None, variants: Optional["aws_sdk_bedrock_agentcore.types.variant_list.VariantList"] = None, gateway_filter: Optional["aws_sdk_bedrock_agentcore.types.gateway_filter.GatewayFilter"] = None, evaluation_config: Optional["aws_sdk_bedrock_agentcore.types.ab_test_evaluation_config.ABTestEvaluationConfig"] = None, role_arn: Optional["aws_sdk_bedrock_agentcore.types.role_arn.RoleArn"] = None, execution_status: Optional["aws_sdk_bedrock_agentcore.types.ab_test_execution_status.ABTestExecutionStatus"] = None) -> "aws_sdk_bedrock_agentcore.types.update_ab_test_response.UpdateABTestResponse":
+
+    def update_ab_test(
+        self,
+        ab_test_id: "aws_sdk_bedrock_agentcore.types.ab_test_id.ABTestId",
+        *,
+        config_overrides: Optional[BedrockAgentCoreClientConfig] = None,
+        client_token: Optional[
+            "aws_sdk_bedrock_agentcore.types.client_token.ClientToken"
+        ] = None,
+        name: Optional[
+            "aws_sdk_bedrock_agentcore.types.ab_test_name.ABTestName"
+        ] = None,
+        description: Optional[
+            "aws_sdk_bedrock_agentcore.types.ab_test_description.ABTestDescription"
+        ] = None,
+        variants: Optional[
+            "aws_sdk_bedrock_agentcore.types.variant_list.VariantList"
+        ] = None,
+        gateway_filter: Optional[
+            "aws_sdk_bedrock_agentcore.types.gateway_filter.GatewayFilter"
+        ] = None,
+        evaluation_config: Optional[
+            "aws_sdk_bedrock_agentcore.types.ab_test_evaluation_config.ABTestEvaluationConfig"
+        ] = None,
+        role_arn: Optional["aws_sdk_bedrock_agentcore.types.role_arn.RoleArn"] = None,
+        execution_status: Optional[
+            "aws_sdk_bedrock_agentcore.types.ab_test_execution_status.ABTestExecutionStatus"
+        ] = None,
+    ) -> "aws_sdk_bedrock_agentcore.types.update_ab_test_response.UpdateABTestResponse":
         """<p>Updates an A/B test's configuration, including variants, traffic allocation, evaluation settings, or execution status.</p>
 
         Args:
@@ -391,9 +764,19 @@ class EvaluationResource:
             role_arn: <p>The updated IAM role ARN.</p>
             execution_status: <p>The updated execution status to enable or disable the A/B test.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_bedrock_agentcore.types.update_ab_test_request.UpdateABTestRequest]') -> OperationResponse["aws_sdk_bedrock_agentcore.types.update_ab_test_response.UpdateABTestResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_bedrock_agentcore.types.update_ab_test_request.UpdateABTestRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_bedrock_agentcore.types.update_ab_test_response.UpdateABTestResponse"
+        ]:
             import aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.update_ab_test
-            output, http_response = aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.update_ab_test.update_ab_test(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.update_ab_test.update_ab_test(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -416,13 +799,38 @@ class EvaluationResource:
         if execution_status is not None:
             input_["execution_status"] = execution_status
 
-        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
+
 
 class AsyncEvaluationResource:
     def __init__(self, service: AsyncBedrockAgentCoreClient) -> None:
         self._service = service
-    async def create_ab_test(self, name: "aws_sdk_bedrock_agentcore.types.ab_test_name.ABTestName", gateway_arn: "aws_sdk_bedrock_agentcore.types.gateway_arn.GatewayArn", variants: "aws_sdk_bedrock_agentcore.types.variant_list.VariantList", evaluation_config: "aws_sdk_bedrock_agentcore.types.ab_test_evaluation_config.ABTestEvaluationConfig", role_arn: "aws_sdk_bedrock_agentcore.types.role_arn.RoleArn", *, config_overrides: Optional[AsyncBedrockAgentCoreClientConfig] = None, description: Optional["aws_sdk_bedrock_agentcore.types.ab_test_description.ABTestDescription"] = None, gateway_filter: Optional["aws_sdk_bedrock_agentcore.types.gateway_filter.GatewayFilter"] = None, enable_on_create: Optional[bool] = None, client_token: Optional["aws_sdk_bedrock_agentcore.types.client_token.ClientToken"] = None) -> "aws_sdk_bedrock_agentcore.types.create_ab_test_response.CreateABTestResponse":
+
+    async def create_ab_test(
+        self,
+        name: "aws_sdk_bedrock_agentcore.types.ab_test_name.ABTestName",
+        gateway_arn: "aws_sdk_bedrock_agentcore.types.gateway_arn.GatewayArn",
+        variants: "aws_sdk_bedrock_agentcore.types.variant_list.VariantList",
+        evaluation_config: "aws_sdk_bedrock_agentcore.types.ab_test_evaluation_config.ABTestEvaluationConfig",
+        role_arn: "aws_sdk_bedrock_agentcore.types.role_arn.RoleArn",
+        *,
+        config_overrides: Optional[AsyncBedrockAgentCoreClientConfig] = None,
+        description: Optional[
+            "aws_sdk_bedrock_agentcore.types.ab_test_description.ABTestDescription"
+        ] = None,
+        gateway_filter: Optional[
+            "aws_sdk_bedrock_agentcore.types.gateway_filter.GatewayFilter"
+        ] = None,
+        enable_on_create: Optional[bool] = None,
+        client_token: Optional[
+            "aws_sdk_bedrock_agentcore.types.client_token.ClientToken"
+        ] = None,
+    ) -> "aws_sdk_bedrock_agentcore.types.create_ab_test_response.CreateABTestResponse":
         """<p>Creates an A/B test for comparing agent configurations. A/B tests split traffic between a control variant and a treatment variant through a gateway, then evaluate performance using online evaluation configurations to determine which variant performs better.</p>
 
         Args:
@@ -436,9 +844,20 @@ class AsyncEvaluationResource:
             enable_on_create: <p>Whether to enable the A/B test immediately upon creation. If true, traffic splitting begins automatically.</p>
             client_token: <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, the service ignores the request, but does not return an error.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_bedrock_agentcore.types.create_ab_test_request.CreateABTestRequest]') -> AsyncOperationResponse["aws_sdk_bedrock_agentcore.types.create_ab_test_response.CreateABTestResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_bedrock_agentcore.types.create_ab_test_request.CreateABTestRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_bedrock_agentcore.types.create_ab_test_response.CreateABTestResponse"
+        ]:
             import aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.create_ab_test
-            output, http_response = await aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.create_ab_test.async_create_ab_test(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.create_ab_test.async_create_ab_test(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -457,60 +876,140 @@ class AsyncEvaluationResource:
         if client_token is not None:
             input_["client_token"] = client_token
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def delete_ab_test(self, ab_test_id: "aws_sdk_bedrock_agentcore.types.ab_test_id.ABTestId", *, config_overrides: Optional[AsyncBedrockAgentCoreClientConfig] = None) -> "aws_sdk_bedrock_agentcore.types.delete_ab_test_response.DeleteABTestResponse":
+
+    async def delete_ab_test(
+        self,
+        ab_test_id: "aws_sdk_bedrock_agentcore.types.ab_test_id.ABTestId",
+        *,
+        config_overrides: Optional[AsyncBedrockAgentCoreClientConfig] = None,
+    ) -> "aws_sdk_bedrock_agentcore.types.delete_ab_test_response.DeleteABTestResponse":
         """<p>Deletes an A/B test and its associated gateway rules.</p>
 
         Args:
             ab_test_id: <p>The unique identifier of the A/B test to delete.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_bedrock_agentcore.types.delete_ab_test_request.DeleteABTestRequest]') -> AsyncOperationResponse["aws_sdk_bedrock_agentcore.types.delete_ab_test_response.DeleteABTestResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_bedrock_agentcore.types.delete_ab_test_request.DeleteABTestRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_bedrock_agentcore.types.delete_ab_test_response.DeleteABTestResponse"
+        ]:
             import aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.delete_ab_test
-            output, http_response = await aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.delete_ab_test.async_delete_ab_test(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.delete_ab_test.async_delete_ab_test(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: aws_sdk_bedrock_agentcore.types.delete_ab_test_request.DeleteABTestRequest = {}  # type: ignore[typeddict-item]
         input_["ab_test_id"] = ab_test_id
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def delete_batch_evaluation(self, batch_evaluation_id: "aws_sdk_bedrock_agentcore.types.batch_evaluation_id.BatchEvaluationId", *, config_overrides: Optional[AsyncBedrockAgentCoreClientConfig] = None) -> "aws_sdk_bedrock_agentcore.types.delete_batch_evaluation_response.DeleteBatchEvaluationResponse":
+
+    async def delete_batch_evaluation(
+        self,
+        batch_evaluation_id: "aws_sdk_bedrock_agentcore.types.batch_evaluation_id.BatchEvaluationId",
+        *,
+        config_overrides: Optional[AsyncBedrockAgentCoreClientConfig] = None,
+    ) -> "aws_sdk_bedrock_agentcore.types.delete_batch_evaluation_response.DeleteBatchEvaluationResponse":
         """<p>Deletes a batch evaluation and its associated results.</p>
 
         Args:
             batch_evaluation_id: <p>The unique identifier of the batch evaluation to delete.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_bedrock_agentcore.types.delete_batch_evaluation_request.DeleteBatchEvaluationRequest]') -> AsyncOperationResponse["aws_sdk_bedrock_agentcore.types.delete_batch_evaluation_response.DeleteBatchEvaluationResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_bedrock_agentcore.types.delete_batch_evaluation_request.DeleteBatchEvaluationRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_bedrock_agentcore.types.delete_batch_evaluation_response.DeleteBatchEvaluationResponse"
+        ]:
             import aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.delete_batch_evaluation
-            output, http_response = await aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.delete_batch_evaluation.async_delete_batch_evaluation(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.delete_batch_evaluation.async_delete_batch_evaluation(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: aws_sdk_bedrock_agentcore.types.delete_batch_evaluation_request.DeleteBatchEvaluationRequest = {}  # type: ignore[typeddict-item]
         input_["batch_evaluation_id"] = batch_evaluation_id
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def delete_recommendation(self, recommendation_id: "aws_sdk_bedrock_agentcore.types.recommendation_id.RecommendationId", *, config_overrides: Optional[AsyncBedrockAgentCoreClientConfig] = None) -> "aws_sdk_bedrock_agentcore.types.delete_recommendation_response.DeleteRecommendationResponse":
+
+    async def delete_recommendation(
+        self,
+        recommendation_id: "aws_sdk_bedrock_agentcore.types.recommendation_id.RecommendationId",
+        *,
+        config_overrides: Optional[AsyncBedrockAgentCoreClientConfig] = None,
+    ) -> "aws_sdk_bedrock_agentcore.types.delete_recommendation_response.DeleteRecommendationResponse":
         """<p>Deletes a recommendation and its associated results.</p>
 
         Args:
             recommendation_id: <p>The unique identifier of the recommendation to delete.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_bedrock_agentcore.types.delete_recommendation_request.DeleteRecommendationRequest]') -> AsyncOperationResponse["aws_sdk_bedrock_agentcore.types.delete_recommendation_response.DeleteRecommendationResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_bedrock_agentcore.types.delete_recommendation_request.DeleteRecommendationRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_bedrock_agentcore.types.delete_recommendation_response.DeleteRecommendationResponse"
+        ]:
             import aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.delete_recommendation
-            output, http_response = await aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.delete_recommendation.async_delete_recommendation(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.delete_recommendation.async_delete_recommendation(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: aws_sdk_bedrock_agentcore.types.delete_recommendation_request.DeleteRecommendationRequest = {}  # type: ignore[typeddict-item]
         input_["recommendation_id"] = recommendation_id
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def evaluate(self, evaluator_id: "aws_sdk_bedrock_agentcore.types.evaluator_id.EvaluatorId", evaluation_input: "aws_sdk_bedrock_agentcore.types.evaluation_input.EvaluationInput", *, config_overrides: Optional[AsyncBedrockAgentCoreClientConfig] = None, evaluation_target: Optional["aws_sdk_bedrock_agentcore.types.evaluation_target.EvaluationTarget"] = None, evaluation_reference_inputs: Optional["aws_sdk_bedrock_agentcore.types.evaluation_reference_inputs.EvaluationReferenceInputs"] = None) -> "aws_sdk_bedrock_agentcore.types.evaluate_response.EvaluateResponse":
+
+    async def evaluate(
+        self,
+        evaluator_id: "aws_sdk_bedrock_agentcore.types.evaluator_id.EvaluatorId",
+        evaluation_input: "aws_sdk_bedrock_agentcore.types.evaluation_input.EvaluationInput",
+        *,
+        config_overrides: Optional[AsyncBedrockAgentCoreClientConfig] = None,
+        evaluation_target: Optional[
+            "aws_sdk_bedrock_agentcore.types.evaluation_target.EvaluationTarget"
+        ] = None,
+        evaluation_reference_inputs: Optional[
+            "aws_sdk_bedrock_agentcore.types.evaluation_reference_inputs.EvaluationReferenceInputs"
+        ] = None,
+    ) -> "aws_sdk_bedrock_agentcore.types.evaluate_response.EvaluateResponse":
         """<p> Performs on-demand evaluation of agent traces using a specified evaluator. This synchronous API accepts traces in OpenTelemetry format and returns immediate scoring results with detailed explanations.</p>
 
         Args:
@@ -519,9 +1018,20 @@ class AsyncEvaluationResource:
             evaluation_target: <p> The specific trace or span IDs to evaluate within the provided input. Allows targeting evaluation at different levels: individual tool calls, single request-response interactions (traces), or entire conversation sessions. </p>
             evaluation_reference_inputs: <p> Ground truth data to compare against agent responses during evaluation. Allows to provide expected responses, assertions, and expected tool trajectories at different evaluation levels. Session-level reference inputs apply to the entire conversation, while trace-level reference inputs target specific request-response interactions identified by trace ID. </p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_bedrock_agentcore.types.evaluate_request.EvaluateRequest]') -> AsyncOperationResponse["aws_sdk_bedrock_agentcore.types.evaluate_response.EvaluateResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_bedrock_agentcore.types.evaluate_request.EvaluateRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_bedrock_agentcore.types.evaluate_response.EvaluateResponse"
+        ]:
             import aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.evaluate
-            output, http_response = await aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.evaluate.async_evaluate(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.evaluate.async_evaluate(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -533,69 +1043,154 @@ class AsyncEvaluationResource:
         if evaluation_reference_inputs is not None:
             input_["evaluation_reference_inputs"] = evaluation_reference_inputs
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def get_ab_test(self, ab_test_id: "aws_sdk_bedrock_agentcore.types.ab_test_id.ABTestId", *, config_overrides: Optional[AsyncBedrockAgentCoreClientConfig] = None) -> "aws_sdk_bedrock_agentcore.types.get_ab_test_response.GetABTestResponse":
+
+    async def get_ab_test(
+        self,
+        ab_test_id: "aws_sdk_bedrock_agentcore.types.ab_test_id.ABTestId",
+        *,
+        config_overrides: Optional[AsyncBedrockAgentCoreClientConfig] = None,
+    ) -> "aws_sdk_bedrock_agentcore.types.get_ab_test_response.GetABTestResponse":
         """<p>Retrieves detailed information about an A/B test, including its configuration, status, and statistical results.</p>
 
         Args:
             ab_test_id: <p>The unique identifier of the A/B test to retrieve.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_bedrock_agentcore.types.get_ab_test_request.GetABTestRequest]') -> AsyncOperationResponse["aws_sdk_bedrock_agentcore.types.get_ab_test_response.GetABTestResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_bedrock_agentcore.types.get_ab_test_request.GetABTestRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_bedrock_agentcore.types.get_ab_test_response.GetABTestResponse"
+        ]:
             import aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.get_ab_test
-            output, http_response = await aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.get_ab_test.async_get_ab_test(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.get_ab_test.async_get_ab_test(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: aws_sdk_bedrock_agentcore.types.get_ab_test_request.GetABTestRequest = {}  # type: ignore[typeddict-item]
         input_["ab_test_id"] = ab_test_id
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def get_batch_evaluation(self, batch_evaluation_id: "aws_sdk_bedrock_agentcore.types.batch_evaluation_id.BatchEvaluationId", *, config_overrides: Optional[AsyncBedrockAgentCoreClientConfig] = None) -> "aws_sdk_bedrock_agentcore.types.get_batch_evaluation_response.GetBatchEvaluationResponse":
+
+    async def get_batch_evaluation(
+        self,
+        batch_evaluation_id: "aws_sdk_bedrock_agentcore.types.batch_evaluation_id.BatchEvaluationId",
+        *,
+        config_overrides: Optional[AsyncBedrockAgentCoreClientConfig] = None,
+    ) -> "aws_sdk_bedrock_agentcore.types.get_batch_evaluation_response.GetBatchEvaluationResponse":
         """<p>Retrieves detailed information about a batch evaluation, including its status, configuration, results, and any error details.</p>
 
         Args:
             batch_evaluation_id: <p>The unique identifier of the batch evaluation to retrieve.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_bedrock_agentcore.types.get_batch_evaluation_request.GetBatchEvaluationRequest]') -> AsyncOperationResponse["aws_sdk_bedrock_agentcore.types.get_batch_evaluation_response.GetBatchEvaluationResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_bedrock_agentcore.types.get_batch_evaluation_request.GetBatchEvaluationRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_bedrock_agentcore.types.get_batch_evaluation_response.GetBatchEvaluationResponse"
+        ]:
             import aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.get_batch_evaluation
-            output, http_response = await aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.get_batch_evaluation.async_get_batch_evaluation(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.get_batch_evaluation.async_get_batch_evaluation(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: aws_sdk_bedrock_agentcore.types.get_batch_evaluation_request.GetBatchEvaluationRequest = {}  # type: ignore[typeddict-item]
         input_["batch_evaluation_id"] = batch_evaluation_id
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def get_recommendation(self, recommendation_id: "aws_sdk_bedrock_agentcore.types.recommendation_id.RecommendationId", *, config_overrides: Optional[AsyncBedrockAgentCoreClientConfig] = None) -> "aws_sdk_bedrock_agentcore.types.get_recommendation_response.GetRecommendationResponse":
+
+    async def get_recommendation(
+        self,
+        recommendation_id: "aws_sdk_bedrock_agentcore.types.recommendation_id.RecommendationId",
+        *,
+        config_overrides: Optional[AsyncBedrockAgentCoreClientConfig] = None,
+    ) -> "aws_sdk_bedrock_agentcore.types.get_recommendation_response.GetRecommendationResponse":
         """<p>Retrieves detailed information about a recommendation, including its configuration, status, and results.</p>
 
         Args:
             recommendation_id: <p>The unique identifier of the recommendation to retrieve.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_bedrock_agentcore.types.get_recommendation_request.GetRecommendationRequest]') -> AsyncOperationResponse["aws_sdk_bedrock_agentcore.types.get_recommendation_response.GetRecommendationResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_bedrock_agentcore.types.get_recommendation_request.GetRecommendationRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_bedrock_agentcore.types.get_recommendation_response.GetRecommendationResponse"
+        ]:
             import aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.get_recommendation
-            output, http_response = await aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.get_recommendation.async_get_recommendation(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.get_recommendation.async_get_recommendation(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: aws_sdk_bedrock_agentcore.types.get_recommendation_request.GetRecommendationRequest = {}  # type: ignore[typeddict-item]
         input_["recommendation_id"] = recommendation_id
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def list_ab_tests(self, *, config_overrides: Optional[AsyncBedrockAgentCoreClientConfig] = None, max_results: Optional[int] = None, next_token: Optional[str] = None) -> "aws_sdk_bedrock_agentcore.types.list_ab_tests_response.ListABTestsResponse":
+
+    async def list_ab_tests(
+        self,
+        *,
+        config_overrides: Optional[AsyncBedrockAgentCoreClientConfig] = None,
+        max_results: Optional[int] = None,
+        next_token: Optional[str] = None,
+    ) -> "aws_sdk_bedrock_agentcore.types.list_ab_tests_response.ListABTestsResponse":
         """<p>Lists all A/B tests in the account.</p>
 
         Args:
             max_results: <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
             next_token: <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_bedrock_agentcore.types.list_ab_tests_request.ListABTestsRequest]') -> AsyncOperationResponse["aws_sdk_bedrock_agentcore.types.list_ab_tests_response.ListABTestsResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_bedrock_agentcore.types.list_ab_tests_request.ListABTestsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_bedrock_agentcore.types.list_ab_tests_response.ListABTestsResponse"
+        ]:
             import aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.list_ab_tests
-            output, http_response = await aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.list_ab_tests.async_list_ab_tests(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.list_ab_tests.async_list_ab_tests(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -605,18 +1200,40 @@ class AsyncEvaluationResource:
         if next_token is not None:
             input_["next_token"] = next_token
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def list_batch_evaluations(self, *, config_overrides: Optional[AsyncBedrockAgentCoreClientConfig] = None, max_results: Optional[int] = None, next_token: Optional[str] = None) -> "aws_sdk_bedrock_agentcore.types.list_batch_evaluations_response.ListBatchEvaluationsResponse":
+
+    async def list_batch_evaluations(
+        self,
+        *,
+        config_overrides: Optional[AsyncBedrockAgentCoreClientConfig] = None,
+        max_results: Optional[int] = None,
+        next_token: Optional[str] = None,
+    ) -> "aws_sdk_bedrock_agentcore.types.list_batch_evaluations_response.ListBatchEvaluationsResponse":
         """<p>Lists all batch evaluations in the account, providing summary information about each evaluation's status and configuration.</p>
 
         Args:
             max_results: <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
             next_token: <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_bedrock_agentcore.types.list_batch_evaluations_request.ListBatchEvaluationsRequest]') -> AsyncOperationResponse["aws_sdk_bedrock_agentcore.types.list_batch_evaluations_response.ListBatchEvaluationsResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_bedrock_agentcore.types.list_batch_evaluations_request.ListBatchEvaluationsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_bedrock_agentcore.types.list_batch_evaluations_response.ListBatchEvaluationsResponse"
+        ]:
             import aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.list_batch_evaluations
-            output, http_response = await aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.list_batch_evaluations.async_list_batch_evaluations(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.list_batch_evaluations.async_list_batch_evaluations(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -626,9 +1243,25 @@ class AsyncEvaluationResource:
         if next_token is not None:
             input_["next_token"] = next_token
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def list_recommendations(self, *, config_overrides: Optional[AsyncBedrockAgentCoreClientConfig] = None, max_results: Optional[int] = None, next_token: Optional["aws_sdk_bedrock_agentcore.types.next_token.NextToken"] = None, status_filter: Optional["aws_sdk_bedrock_agentcore.types.recommendation_status.RecommendationStatus"] = None) -> "aws_sdk_bedrock_agentcore.types.list_recommendations_response.ListRecommendationsResponse":
+
+    async def list_recommendations(
+        self,
+        *,
+        config_overrides: Optional[AsyncBedrockAgentCoreClientConfig] = None,
+        max_results: Optional[int] = None,
+        next_token: Optional[
+            "aws_sdk_bedrock_agentcore.types.next_token.NextToken"
+        ] = None,
+        status_filter: Optional[
+            "aws_sdk_bedrock_agentcore.types.recommendation_status.RecommendationStatus"
+        ] = None,
+    ) -> "aws_sdk_bedrock_agentcore.types.list_recommendations_response.ListRecommendationsResponse":
         """<p>Lists all recommendations in the account, with optional filtering by status.</p>
 
         Args:
@@ -636,9 +1269,20 @@ class AsyncEvaluationResource:
             next_token: <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
             status_filter: <p>Optional filter to return only recommendations with the specified status.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_bedrock_agentcore.types.list_recommendations_request.ListRecommendationsRequest]') -> AsyncOperationResponse["aws_sdk_bedrock_agentcore.types.list_recommendations_response.ListRecommendationsResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_bedrock_agentcore.types.list_recommendations_request.ListRecommendationsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_bedrock_agentcore.types.list_recommendations_response.ListRecommendationsResponse"
+        ]:
             import aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.list_recommendations
-            output, http_response = await aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.list_recommendations.async_list_recommendations(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.list_recommendations.async_list_recommendations(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -650,9 +1294,32 @@ class AsyncEvaluationResource:
         if status_filter is not None:
             input_["status_filter"] = status_filter
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def start_batch_evaluation(self, batch_evaluation_name: "aws_sdk_bedrock_agentcore.types.batch_evaluation_name.BatchEvaluationName", data_source_config: "aws_sdk_bedrock_agentcore.types.data_source_config.DataSourceConfig", *, config_overrides: Optional[AsyncBedrockAgentCoreClientConfig] = None, evaluators: Optional["aws_sdk_bedrock_agentcore.types.evaluator_list.EvaluatorList"] = None, client_token: Optional["aws_sdk_bedrock_agentcore.types.client_token.ClientToken"] = None, evaluation_metadata: Optional["aws_sdk_bedrock_agentcore.types.evaluation_metadata.EvaluationMetadata"] = None, description: Optional["aws_sdk_bedrock_agentcore.types.batch_evaluation_description.BatchEvaluationDescription"] = None) -> "aws_sdk_bedrock_agentcore.types.start_batch_evaluation_response.StartBatchEvaluationResponse":
+
+    async def start_batch_evaluation(
+        self,
+        batch_evaluation_name: "aws_sdk_bedrock_agentcore.types.batch_evaluation_name.BatchEvaluationName",
+        data_source_config: "aws_sdk_bedrock_agentcore.types.data_source_config.DataSourceConfig",
+        *,
+        config_overrides: Optional[AsyncBedrockAgentCoreClientConfig] = None,
+        evaluators: Optional[
+            "aws_sdk_bedrock_agentcore.types.evaluator_list.EvaluatorList"
+        ] = None,
+        client_token: Optional[
+            "aws_sdk_bedrock_agentcore.types.client_token.ClientToken"
+        ] = None,
+        evaluation_metadata: Optional[
+            "aws_sdk_bedrock_agentcore.types.evaluation_metadata.EvaluationMetadata"
+        ] = None,
+        description: Optional[
+            "aws_sdk_bedrock_agentcore.types.batch_evaluation_description.BatchEvaluationDescription"
+        ] = None,
+    ) -> "aws_sdk_bedrock_agentcore.types.start_batch_evaluation_response.StartBatchEvaluationResponse":
         """<p>Starts a batch evaluation job that evaluates agent performance across multiple sessions. Batch evaluations pull agent traces from CloudWatch Logs or an existing online evaluation configuration and run specified evaluators and insights against them.</p>
 
         Args:
@@ -663,9 +1330,20 @@ class AsyncEvaluationResource:
             evaluation_metadata: <p>Optional metadata for the evaluation, including session-specific ground truth data and test scenario identifiers.</p>
             description: <p>The description of the batch evaluation.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_bedrock_agentcore.types.start_batch_evaluation_request.StartBatchEvaluationRequest]') -> AsyncOperationResponse["aws_sdk_bedrock_agentcore.types.start_batch_evaluation_response.StartBatchEvaluationResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_bedrock_agentcore.types.start_batch_evaluation_request.StartBatchEvaluationRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_bedrock_agentcore.types.start_batch_evaluation_response.StartBatchEvaluationResponse"
+        ]:
             import aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.start_batch_evaluation
-            output, http_response = await aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.start_batch_evaluation.async_start_batch_evaluation(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.start_batch_evaluation.async_start_batch_evaluation(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -681,9 +1359,27 @@ class AsyncEvaluationResource:
         if description is not None:
             input_["description"] = description
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def start_recommendation(self, name: "aws_sdk_bedrock_agentcore.types.recommendation_name.RecommendationName", type: "aws_sdk_bedrock_agentcore.types.recommendation_type.RecommendationType", recommendation_config: "aws_sdk_bedrock_agentcore.types.recommendation_config.RecommendationConfig", *, config_overrides: Optional[AsyncBedrockAgentCoreClientConfig] = None, description: Optional["aws_sdk_bedrock_agentcore.types.recommendation_description.RecommendationDescription"] = None, client_token: Optional["aws_sdk_bedrock_agentcore.types.client_token.ClientToken"] = None) -> "aws_sdk_bedrock_agentcore.types.start_recommendation_response.StartRecommendationResponse":
+
+    async def start_recommendation(
+        self,
+        name: "aws_sdk_bedrock_agentcore.types.recommendation_name.RecommendationName",
+        type: "aws_sdk_bedrock_agentcore.types.recommendation_type.RecommendationType",
+        recommendation_config: "aws_sdk_bedrock_agentcore.types.recommendation_config.RecommendationConfig",
+        *,
+        config_overrides: Optional[AsyncBedrockAgentCoreClientConfig] = None,
+        description: Optional[
+            "aws_sdk_bedrock_agentcore.types.recommendation_description.RecommendationDescription"
+        ] = None,
+        client_token: Optional[
+            "aws_sdk_bedrock_agentcore.types.client_token.ClientToken"
+        ] = None,
+    ) -> "aws_sdk_bedrock_agentcore.types.start_recommendation_response.StartRecommendationResponse":
         """<p>Starts a recommendation job that analyzes agent traces and generates optimization suggestions for system prompts or tool descriptions to improve agent performance.</p>
 
         Args:
@@ -693,9 +1389,20 @@ class AsyncEvaluationResource:
             recommendation_config: <p>The configuration for the recommendation, including the input to optimize, agent traces to analyze, and evaluation settings.</p>
             client_token: <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, the service ignores the request, but does not return an error.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_bedrock_agentcore.types.start_recommendation_request.StartRecommendationRequest]') -> AsyncOperationResponse["aws_sdk_bedrock_agentcore.types.start_recommendation_response.StartRecommendationResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_bedrock_agentcore.types.start_recommendation_request.StartRecommendationRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_bedrock_agentcore.types.start_recommendation_response.StartRecommendationResponse"
+        ]:
             import aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.start_recommendation
-            output, http_response = await aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.start_recommendation.async_start_recommendation(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.start_recommendation.async_start_recommendation(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -708,26 +1415,79 @@ class AsyncEvaluationResource:
         if client_token is not None:
             input_["client_token"] = client_token
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def stop_batch_evaluation(self, batch_evaluation_id: "aws_sdk_bedrock_agentcore.types.batch_evaluation_id.BatchEvaluationId", *, config_overrides: Optional[AsyncBedrockAgentCoreClientConfig] = None) -> "aws_sdk_bedrock_agentcore.types.stop_batch_evaluation_response.StopBatchEvaluationResponse":
+
+    async def stop_batch_evaluation(
+        self,
+        batch_evaluation_id: "aws_sdk_bedrock_agentcore.types.batch_evaluation_id.BatchEvaluationId",
+        *,
+        config_overrides: Optional[AsyncBedrockAgentCoreClientConfig] = None,
+    ) -> "aws_sdk_bedrock_agentcore.types.stop_batch_evaluation_response.StopBatchEvaluationResponse":
         """<p>Stops a running batch evaluation. Sessions that have already been evaluated retain their results.</p>
 
         Args:
             batch_evaluation_id: <p>The unique identifier of the batch evaluation to stop.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_bedrock_agentcore.types.stop_batch_evaluation_request.StopBatchEvaluationRequest]') -> AsyncOperationResponse["aws_sdk_bedrock_agentcore.types.stop_batch_evaluation_response.StopBatchEvaluationResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_bedrock_agentcore.types.stop_batch_evaluation_request.StopBatchEvaluationRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_bedrock_agentcore.types.stop_batch_evaluation_response.StopBatchEvaluationResponse"
+        ]:
             import aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.stop_batch_evaluation
-            output, http_response = await aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.stop_batch_evaluation.async_stop_batch_evaluation(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.stop_batch_evaluation.async_stop_batch_evaluation(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: aws_sdk_bedrock_agentcore.types.stop_batch_evaluation_request.StopBatchEvaluationRequest = {}  # type: ignore[typeddict-item]
         input_["batch_evaluation_id"] = batch_evaluation_id
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def update_ab_test(self, ab_test_id: "aws_sdk_bedrock_agentcore.types.ab_test_id.ABTestId", *, config_overrides: Optional[AsyncBedrockAgentCoreClientConfig] = None, client_token: Optional["aws_sdk_bedrock_agentcore.types.client_token.ClientToken"] = None, name: Optional["aws_sdk_bedrock_agentcore.types.ab_test_name.ABTestName"] = None, description: Optional["aws_sdk_bedrock_agentcore.types.ab_test_description.ABTestDescription"] = None, variants: Optional["aws_sdk_bedrock_agentcore.types.variant_list.VariantList"] = None, gateway_filter: Optional["aws_sdk_bedrock_agentcore.types.gateway_filter.GatewayFilter"] = None, evaluation_config: Optional["aws_sdk_bedrock_agentcore.types.ab_test_evaluation_config.ABTestEvaluationConfig"] = None, role_arn: Optional["aws_sdk_bedrock_agentcore.types.role_arn.RoleArn"] = None, execution_status: Optional["aws_sdk_bedrock_agentcore.types.ab_test_execution_status.ABTestExecutionStatus"] = None) -> "aws_sdk_bedrock_agentcore.types.update_ab_test_response.UpdateABTestResponse":
+
+    async def update_ab_test(
+        self,
+        ab_test_id: "aws_sdk_bedrock_agentcore.types.ab_test_id.ABTestId",
+        *,
+        config_overrides: Optional[AsyncBedrockAgentCoreClientConfig] = None,
+        client_token: Optional[
+            "aws_sdk_bedrock_agentcore.types.client_token.ClientToken"
+        ] = None,
+        name: Optional[
+            "aws_sdk_bedrock_agentcore.types.ab_test_name.ABTestName"
+        ] = None,
+        description: Optional[
+            "aws_sdk_bedrock_agentcore.types.ab_test_description.ABTestDescription"
+        ] = None,
+        variants: Optional[
+            "aws_sdk_bedrock_agentcore.types.variant_list.VariantList"
+        ] = None,
+        gateway_filter: Optional[
+            "aws_sdk_bedrock_agentcore.types.gateway_filter.GatewayFilter"
+        ] = None,
+        evaluation_config: Optional[
+            "aws_sdk_bedrock_agentcore.types.ab_test_evaluation_config.ABTestEvaluationConfig"
+        ] = None,
+        role_arn: Optional["aws_sdk_bedrock_agentcore.types.role_arn.RoleArn"] = None,
+        execution_status: Optional[
+            "aws_sdk_bedrock_agentcore.types.ab_test_execution_status.ABTestExecutionStatus"
+        ] = None,
+    ) -> "aws_sdk_bedrock_agentcore.types.update_ab_test_response.UpdateABTestResponse":
         """<p>Updates an A/B test's configuration, including variants, traffic allocation, evaluation settings, or execution status.</p>
 
         Args:
@@ -741,9 +1501,20 @@ class AsyncEvaluationResource:
             role_arn: <p>The updated IAM role ARN.</p>
             execution_status: <p>The updated execution status to enable or disable the A/B test.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_bedrock_agentcore.types.update_ab_test_request.UpdateABTestRequest]') -> AsyncOperationResponse["aws_sdk_bedrock_agentcore.types.update_ab_test_response.UpdateABTestResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_bedrock_agentcore.types.update_ab_test_request.UpdateABTestRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_bedrock_agentcore.types.update_ab_test_response.UpdateABTestResponse"
+        ]:
             import aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.update_ab_test
-            output, http_response = await aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.update_ab_test.async_update_ab_test(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.update_ab_test.async_update_ab_test(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -766,5 +1537,9 @@ class AsyncEvaluationResource:
         if execution_status is not None:
             input_["execution_status"] = execution_status
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output

@@ -12,9 +12,9 @@ if TYPE_CHECKING:
 
 class RemoveClientIDFromOpenIDConnectProviderRequest(TypedDict):
     open_id_connect_provider_arn: "aws_sdk_iam.types.arn_type.arnType"
-    """<p>The Amazon Resource Name (ARN) of the IAM OIDC provider resource to remove the client ID from. You can get a list of OIDC provider ARNs by using the <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListOpenIDConnectProviders.html\">ListOpenIDConnectProviders</a> operation.</p> <p>For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>"""
+    r"""<p>The Amazon Resource Name (ARN) of the IAM OIDC provider resource to remove the client ID from. You can get a list of OIDC provider ARNs by using the <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListOpenIDConnectProviders.html\">ListOpenIDConnectProviders</a> operation.</p> <p>For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>"""
     client_id: "aws_sdk_iam.types.client_id_type.clientIDType"
-    """<p>The client ID (also known as audience) to remove from the IAM OIDC provider resource. For more information about client IDs, see <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html\">CreateOpenIDConnectProvider</a>.</p>"""
+    r"""<p>The client ID (also known as audience) to remove from the IAM OIDC provider resource. For more information about client IDs, see <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html\">CreateOpenIDConnectProvider</a>.</p>"""
 
 
 # --- awsQuery ser/de ---

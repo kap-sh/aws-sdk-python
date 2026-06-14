@@ -33,7 +33,7 @@ class CreateModelCustomizationJobRequest(TypedDict):
     client_request_token: NotRequired[
         "aws_sdk_bedrock.types.idempotency_token.IdempotencyToken"
     ]
-    """<p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring idempotency</a>.</p>"""
+    r"""<p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring idempotency</a>.</p>"""
     base_model_identifier: (
         "aws_sdk_bedrock.types.base_model_identifier.BaseModelIdentifier"
     )
@@ -61,9 +61,9 @@ class CreateModelCustomizationJobRequest(TypedDict):
     hyper_parameters: NotRequired[
         "aws_sdk_bedrock.types.model_customization_hyper_parameters.ModelCustomizationHyperParameters"
     ]
-    """<p>Parameters related to tuning the model. For details on the format for different models, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models-hp.html\">Custom model hyperparameters</a>.</p>"""
+    r"""<p>Parameters related to tuning the model. For details on the format for different models, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models-hp.html\">Custom model hyperparameters</a>.</p>"""
     vpc_config: NotRequired["aws_sdk_bedrock.types.vpc_config.VpcConfig"]
-    """<p>The configuration of the Virtual Private Cloud (VPC) that contains the resources that you're using for this job. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/vpc-model-customization.html\">Protect your model customization jobs using a VPC</a>.</p>"""
+    r"""<p>The configuration of the Virtual Private Cloud (VPC) that contains the resources that you're using for this job. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/vpc-model-customization.html\">Protect your model customization jobs using a VPC</a>.</p>"""
     customization_config: NotRequired[
         "aws_sdk_bedrock.types.customization_config.CustomizationConfig"
     ]

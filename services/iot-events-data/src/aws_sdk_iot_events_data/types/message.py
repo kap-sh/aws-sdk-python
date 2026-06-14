@@ -15,7 +15,7 @@ if TYPE_CHECKING:
 
 class Message(TypedDict):
     message_id: "aws_sdk_iot_events_data.types.message_id.MessageId"
-    """<p>The ID to assign to the message. Within each batch sent, each <code>\"messageId\"</code> must be unique.</p>"""
+    r"""<p>The ID to assign to the message. Within each batch sent, each <code>\"messageId\"</code> must be unique.</p>"""
     input_name: "aws_sdk_iot_events_data.types.ephemeral_input_name.EphemeralInputName"
     """<p>The name of the input into which the message payload is transformed.</p>"""
     payload: "aws_sdk_iot_events_data.types.payload.Payload"

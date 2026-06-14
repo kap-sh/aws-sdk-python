@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_pca_connector_ad._auth._signers
@@ -57,7 +59,7 @@ class TemplateResource:
     ) -> (
         "aws_sdk_pca_connector_ad.types.create_template_response.CreateTemplateResponse"
     ):
-        """<p>Creates an Active Directory compatible certificate template. The connectors issues certificates using these templates based on the requester’s Active Directory group membership.</p>
+        r"""<p>Creates an Active Directory compatible certificate template. The connectors issues certificates using these templates based on the requester’s Active Directory group membership.</p>
 
         Args:
             connector_arn: <p>The Amazon Resource Name (ARN) that was returned when you called <a href=\"https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html\">CreateConnector</a>.</p>
@@ -104,7 +106,7 @@ class TemplateResource:
         *,
         config_overrides: Optional[PcaConnectorAdClientConfig] = None,
     ) -> "aws_sdk_pca_connector_ad.types.get_template_response.GetTemplateResponse":
-        """<p>Retrieves a certificate template that the connector uses to issue certificates from a private CA.</p>
+        r"""<p>Retrieves a certificate template that the connector uses to issue certificates from a private CA.</p>
 
         Args:
             template_arn: <p>The Amazon Resource Name (ARN) that was returned when you called <a href=\"https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html\">CreateTemplate</a>.</p>
@@ -145,7 +147,7 @@ class TemplateResource:
         ] = None,
         reenroll_all_certificate_holders: Optional[bool] = None,
     ) -> None:
-        """<p>Update template configuration to define the information included in certificates.</p>
+        r"""<p>Update template configuration to define the information included in certificates.</p>
 
         Args:
             template_arn: <p>The Amazon Resource Name (ARN) that was returned when you called <a href=\"https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html\">CreateTemplate</a>.</p>
@@ -188,7 +190,7 @@ class TemplateResource:
         *,
         config_overrides: Optional[PcaConnectorAdClientConfig] = None,
     ) -> None:
-        """<p>Deletes a template. Certificates issued using the template are still valid until they are revoked or expired.</p>
+        r"""<p>Deletes a template. Certificates issued using the template are still valid until they are revoked or expired.</p>
 
         Args:
             template_arn: <p>The Amazon Resource Name (ARN) that was returned when you called <a href=\"https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html\">CreateTemplate</a>.</p>
@@ -229,7 +231,7 @@ class TemplateResource:
             "aws_sdk_pca_connector_ad.types.next_token.NextToken"
         ] = None,
     ) -> "aws_sdk_pca_connector_ad.types.list_templates_response.ListTemplatesResponse":
-        """<p>Lists the templates, if any, that are associated with a connector.</p>
+        r"""<p>Lists the templates, if any, that are associated with a connector.</p>
 
         Args:
             max_results: <p>Use this parameter when paginating results to specify the maximum number of items to return in the response on each page. If additional items exist beyond the number you specify, the <code>NextToken</code> element is sent in the response. Use this <code>NextToken</code> value in a subsequent request to retrieve additional items.</p>
@@ -285,7 +287,7 @@ class AsyncTemplateResource:
     ) -> (
         "aws_sdk_pca_connector_ad.types.create_template_response.CreateTemplateResponse"
     ):
-        """<p>Creates an Active Directory compatible certificate template. The connectors issues certificates using these templates based on the requester’s Active Directory group membership.</p>
+        r"""<p>Creates an Active Directory compatible certificate template. The connectors issues certificates using these templates based on the requester’s Active Directory group membership.</p>
 
         Args:
             connector_arn: <p>The Amazon Resource Name (ARN) that was returned when you called <a href=\"https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html\">CreateConnector</a>.</p>
@@ -333,7 +335,7 @@ class AsyncTemplateResource:
         *,
         config_overrides: Optional[AsyncPcaConnectorAdClientConfig] = None,
     ) -> "aws_sdk_pca_connector_ad.types.get_template_response.GetTemplateResponse":
-        """<p>Retrieves a certificate template that the connector uses to issue certificates from a private CA.</p>
+        r"""<p>Retrieves a certificate template that the connector uses to issue certificates from a private CA.</p>
 
         Args:
             template_arn: <p>The Amazon Resource Name (ARN) that was returned when you called <a href=\"https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html\">CreateTemplate</a>.</p>
@@ -375,7 +377,7 @@ class AsyncTemplateResource:
         ] = None,
         reenroll_all_certificate_holders: Optional[bool] = None,
     ) -> None:
-        """<p>Update template configuration to define the information included in certificates.</p>
+        r"""<p>Update template configuration to define the information included in certificates.</p>
 
         Args:
             template_arn: <p>The Amazon Resource Name (ARN) that was returned when you called <a href=\"https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html\">CreateTemplate</a>.</p>
@@ -419,7 +421,7 @@ class AsyncTemplateResource:
         *,
         config_overrides: Optional[AsyncPcaConnectorAdClientConfig] = None,
     ) -> None:
-        """<p>Deletes a template. Certificates issued using the template are still valid until they are revoked or expired.</p>
+        r"""<p>Deletes a template. Certificates issued using the template are still valid until they are revoked or expired.</p>
 
         Args:
             template_arn: <p>The Amazon Resource Name (ARN) that was returned when you called <a href=\"https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html\">CreateTemplate</a>.</p>
@@ -461,7 +463,7 @@ class AsyncTemplateResource:
             "aws_sdk_pca_connector_ad.types.next_token.NextToken"
         ] = None,
     ) -> "aws_sdk_pca_connector_ad.types.list_templates_response.ListTemplatesResponse":
-        """<p>Lists the templates, if any, that are associated with a connector.</p>
+        r"""<p>Lists the templates, if any, that are associated with a connector.</p>
 
         Args:
             max_results: <p>Use this parameter when paginating results to specify the maximum number of items to return in the response on each page. If additional items exist beyond the number you specify, the <code>NextToken</code> element is sent in the response. Use this <code>NextToken</code> value in a subsequent request to retrieve additional items.</p>

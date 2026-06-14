@@ -12,7 +12,7 @@ class EventSourceMappingLoggingConfig(TypedDict):
     system_log_level: NotRequired[
         "aws_sdk_lambda.types.event_source_mapping_system_log_level.EventSourceMappingSystemLogLevel"
     ]
-    """<p> The log level you want your event source mapping to use. Lambda event poller only sends system logs at the selected level of detail and lower, where <code>DEBUG</code> is the highest level and <code>WARN</code> is the lowest. For more information about these metrics, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/esm-logging.html\"> Event source mapping logging</a>. </p>"""
+    r"""<p> The log level you want your event source mapping to use. Lambda event poller only sends system logs at the selected level of detail and lower, where <code>DEBUG</code> is the highest level and <code>WARN</code> is the lowest. For more information about these metrics, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/esm-logging.html\"> Event source mapping logging</a>. </p>"""
 
 
 # --- restJson1 ser/de ---

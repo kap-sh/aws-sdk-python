@@ -33,7 +33,7 @@ class CreateNotificationRuleRequest(TypedDict):
     ]
     """<p>A unique, client-generated idempotency token that, when provided in a request, ensures the request cannot be repeated with a changed parameter. If a request with the same parameters is received and a token is included, the request returns information about the initial request that used that token.</p> <note> <p>The Amazon Web Services SDKs prepopulate client request tokens. If you are using an Amazon Web Services SDK, an idempotency token is created for you.</p> </note>"""
     tags: NotRequired["aws_sdk_codestar_notifications.types.tags.Tags"]
-    """<p>A list of tags to apply to this notification rule. Key names cannot start with \"<code>aws</code>\". </p>"""
+    r"""<p>A list of tags to apply to this notification rule. Key names cannot start with \"<code>aws</code>\". </p>"""
     status: NotRequired[
         "aws_sdk_codestar_notifications.types.notification_rule_status.NotificationRuleStatus"
     ]

@@ -13,7 +13,7 @@ class CreateTypeRequest(TypedDict):
     api_id: "aws_sdk_appsync.types.string.String"
     """<p>The API ID.</p>"""
     definition: "aws_sdk_appsync.types.string.String"
-    """<p>The type definition, in GraphQL Schema Definition Language (SDL) format.</p> <p>For more information, see the <a href=\"http://graphql.org/learn/schema/\">GraphQL SDL documentation</a>.</p>"""
+    r"""<p>The type definition, in GraphQL Schema Definition Language (SDL) format.</p> <p>For more information, see the <a href=\"http://graphql.org/learn/schema/\">GraphQL SDL documentation</a>.</p>"""
     format: "aws_sdk_appsync.types.type_definition_format.TypeDefinitionFormat"
     """<p>The type format: SDL or JSON.</p>"""
 

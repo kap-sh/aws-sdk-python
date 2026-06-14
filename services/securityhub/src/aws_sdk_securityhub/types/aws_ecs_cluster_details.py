@@ -19,7 +19,7 @@ class AwsEcsClusterDetails(TypedDict):
     ]
     """<p>The Amazon Resource Name (ARN) that identifies the cluster. </p>"""
     active_services_count: NotRequired["aws_sdk_securityhub.types.integer.Integer"]
-    """<p>The number of services that are running on the cluster in an <code>ACTIVE</code> state. You can view these services with the Amazon ECS <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListServices.html\"> <code>ListServices</code> </a> API operation. </p>"""
+    r"""<p>The number of services that are running on the cluster in an <code>ACTIVE</code> state. You can view these services with the Amazon ECS <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListServices.html\"> <code>ListServices</code> </a> API operation. </p>"""
     capacity_providers: NotRequired[
         "aws_sdk_securityhub.types.non_empty_string_list.NonEmptyStringList"
     ]

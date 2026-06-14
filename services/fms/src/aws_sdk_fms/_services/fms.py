@@ -188,7 +188,7 @@ class FMSClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = FMSClientConfig(
+        self._config = FMSClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -208,7 +208,7 @@ class FMSClient:
         overrides: FMSClientConfig = config_overrides or {}
         interceptors_: list[Interceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             retry(),
         ]
@@ -216,16 +216,16 @@ class FMSClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            region=overrides.get("region", self.config.get("region")),
+            region=overrides.get("region", self._config.get("region")),
             use_dual_stack=overrides.get(
-                "use_dual_stack", self.config.get("use_dual_stack")
+                "use_dual_stack", self._config.get("use_dual_stack")
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -236,7 +236,7 @@ class FMSClient:
         *,
         config_overrides: Optional[FMSClientConfig] = None,
     ) -> None:
-        """<p>Sets a Firewall Manager default administrator account. The Firewall Manager default administrator account can manage third-party firewalls and has full administrative scope that allows administration of all policy types, accounts, organizational units, and Regions. This account must be a member account of the organization in Organizations whose resources you want to protect.</p> <p>For information about working with Firewall Manager administrator accounts, see <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/fms-administrators.html\">Managing Firewall Manager administrators</a> in the <i>Firewall Manager Developer Guide</i>.</p>
+        r"""<p>Sets a Firewall Manager default administrator account. The Firewall Manager default administrator account can manage third-party firewalls and has full administrative scope that allows administration of all policy types, accounts, organizational units, and Regions. This account must be a member account of the organization in Organizations whose resources you want to protect.</p> <p>For information about working with Firewall Manager administrator accounts, see <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/fms-administrators.html\">Managing Firewall Manager administrators</a> in the <i>Firewall Manager Developer Guide</i>.</p>
 
         Args:
             admin_account: <p>The Amazon Web Services account ID to associate with Firewall Manager as the Firewall Manager default administrator account. This account must be a member account of the organization in Organizations whose resources you want to protect. For more information about Organizations, see <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts.html\">Managing the Amazon Web Services Accounts in Your Organization</a>. </p>
@@ -1019,7 +1019,7 @@ class FMSClient:
         *,
         config_overrides: Optional[FMSClientConfig] = None,
     ) -> "aws_sdk_fms.types.get_violation_details_response.GetViolationDetailsResponse":
-        """<p>Retrieves violations for a resource based on the specified Firewall Manager policy and Amazon Web Services account.</p>
+        r"""<p>Retrieves violations for a resource based on the specified Firewall Manager policy and Amazon Web Services account.</p>
 
         Args:
             policy_id: <p>The ID of the Firewall Manager policy that you want the details for. You can get violation details for the following policy types:</p> <ul> <li> <p>WAF</p> </li> <li> <p>DNS Firewall</p> </li> <li> <p>Imported Network Firewall</p> </li> <li> <p>Network Firewall</p> </li> <li> <p>Security group content audit</p> </li> <li> <p>Network ACL</p> </li> <li> <p>Third-party firewall</p> </li> </ul>
@@ -1828,7 +1828,7 @@ class FMSClient:
         config_overrides: Optional[FMSClientConfig] = None,
         admin_scope: Optional["aws_sdk_fms.types.admin_scope.AdminScope"] = None,
     ) -> None:
-        """<p>Creates or updates an Firewall Manager administrator account. The account must be a member of the organization that was onboarded to Firewall Manager by <a>AssociateAdminAccount</a>. Only the organization's management account can create an Firewall Manager administrator account. When you create an Firewall Manager administrator account, the service checks to see if the account is already a delegated administrator within Organizations. If the account isn't a delegated administrator, Firewall Manager calls Organizations to delegate the account within Organizations. For more information about administrator accounts within Organizations, see <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts.html\">Managing the Amazon Web Services Accounts in Your Organization</a>.</p>
+        r"""<p>Creates or updates an Firewall Manager administrator account. The account must be a member of the organization that was onboarded to Firewall Manager by <a>AssociateAdminAccount</a>. Only the organization's management account can create an Firewall Manager administrator account. When you create an Firewall Manager administrator account, the service checks to see if the account is already a delegated administrator within Organizations. If the account isn't a delegated administrator, Firewall Manager calls Organizations to delegate the account within Organizations. For more information about administrator accounts within Organizations, see <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts.html\">Managing the Amazon Web Services Accounts in Your Organization</a>.</p>
 
         Args:
             admin_account: <p>The Amazon Web Services account ID to add as an Firewall Manager administrator account. The account must be a member of the organization that was onboarded to Firewall Manager by <a>AssociateAdminAccount</a>. For more information about Organizations, see <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts.html\">Managing the Amazon Web Services Accounts in Your Organization</a>.</p>
@@ -1908,7 +1908,7 @@ class FMSClient:
         *,
         config_overrides: Optional[FMSClientConfig] = None,
     ) -> None:
-        """<p>Designates the IAM role and Amazon Simple Notification Service (SNS) topic that Firewall Manager uses to record SNS logs.</p> <p>To perform this action outside of the console, you must first configure the SNS topic's access policy to allow the <code>SnsRoleName</code> to publish SNS logs. If the <code>SnsRoleName</code> provided is a role other than the <code>AWSServiceRoleForFMS</code> service-linked role, this role must have a trust relationship configured to allow the Firewall Manager service principal <code>fms.amazonaws.com</code> to assume this role. For information about configuring an SNS access policy, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/fms-security_iam_service-with-iam.html#fms-security_iam_service-with-iam-roles-service\">Service roles for Firewall Manager</a> in the <i>Firewall Manager Developer Guide</i>.</p>
+        r"""<p>Designates the IAM role and Amazon Simple Notification Service (SNS) topic that Firewall Manager uses to record SNS logs.</p> <p>To perform this action outside of the console, you must first configure the SNS topic's access policy to allow the <code>SnsRoleName</code> to publish SNS logs. If the <code>SnsRoleName</code> provided is a role other than the <code>AWSServiceRoleForFMS</code> service-linked role, this role must have a trust relationship configured to allow the Firewall Manager service principal <code>fms.amazonaws.com</code> to assume this role. For information about configuring an SNS access policy, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/fms-security_iam_service-with-iam.html#fms-security_iam_service-with-iam-roles-service\">Service roles for Firewall Manager</a> in the <i>Firewall Manager Developer Guide</i>.</p>
 
         Args:
             sns_topic_arn: <p>The Amazon Resource Name (ARN) of the SNS topic that collects notifications from Firewall Manager.</p>
@@ -1946,7 +1946,7 @@ class FMSClient:
         config_overrides: Optional[FMSClientConfig] = None,
         tag_list: Optional["aws_sdk_fms.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_fms.types.put_policy_response.PutPolicyResponse":
-        """<p>Creates an Firewall Manager policy.</p> <p>A Firewall Manager policy is specific to the individual policy type. If you want to enforce multiple policy types across accounts, you can create multiple policies. You can create more than one policy for each type. </p> <p>If you add a new account to an organization that you created with Organizations, Firewall Manager automatically applies the policy to the resources in that account that are within scope of the policy. </p> <p>Firewall Manager provides the following types of policies: </p> <ul> <li> <p> <b>WAF policy</b> - This policy applies WAF web ACL protections to specified accounts and resources. </p> </li> <li> <p> <b>Shield Advanced policy</b> - This policy applies Shield Advanced protection to specified accounts and resources. </p> </li> <li> <p> <b>Security Groups policy</b> - This type of policy gives you control over security groups that are in use throughout your organization in Organizations and lets you enforce a baseline set of rules across your organization. </p> </li> <li> <p> <b>Network ACL policy</b> - This type of policy gives you control over the network ACLs that are in use throughout your organization in Organizations and lets you enforce a baseline set of first and last network ACL rules across your organization. </p> </li> <li> <p> <b>Network Firewall policy</b> - This policy applies Network Firewall protection to your organization's VPCs. </p> </li> <li> <p> <b>DNS Firewall policy</b> - This policy applies Amazon Route 53 Resolver DNS Firewall protections to your organization's VPCs. </p> </li> <li> <p> <b>Third-party firewall policy</b> - This policy applies third-party firewall protections. Third-party firewalls are available by subscription through the Amazon Web Services Marketplace console at <a href=\"http://aws.amazon.com/marketplace\">Amazon Web Services Marketplace</a>.</p> <ul> <li> <p> <b>Palo Alto Networks Cloud NGFW policy</b> - This policy applies Palo Alto Networks Cloud Next Generation Firewall (NGFW) protections and Palo Alto Networks Cloud NGFW rulestacks to your organization's VPCs.</p> </li> <li> <p> <b>Fortigate CNF policy</b> - This policy applies Fortigate Cloud Native Firewall (CNF) protections. Fortigate CNF is a cloud-centered solution that blocks Zero-Day threats and secures cloud infrastructures with industry-leading advanced threat prevention, smart web application firewalls (WAF), and API protection.</p> </li> </ul> </li> </ul>
+        r"""<p>Creates an Firewall Manager policy.</p> <p>A Firewall Manager policy is specific to the individual policy type. If you want to enforce multiple policy types across accounts, you can create multiple policies. You can create more than one policy for each type. </p> <p>If you add a new account to an organization that you created with Organizations, Firewall Manager automatically applies the policy to the resources in that account that are within scope of the policy. </p> <p>Firewall Manager provides the following types of policies: </p> <ul> <li> <p> <b>WAF policy</b> - This policy applies WAF web ACL protections to specified accounts and resources. </p> </li> <li> <p> <b>Shield Advanced policy</b> - This policy applies Shield Advanced protection to specified accounts and resources. </p> </li> <li> <p> <b>Security Groups policy</b> - This type of policy gives you control over security groups that are in use throughout your organization in Organizations and lets you enforce a baseline set of rules across your organization. </p> </li> <li> <p> <b>Network ACL policy</b> - This type of policy gives you control over the network ACLs that are in use throughout your organization in Organizations and lets you enforce a baseline set of first and last network ACL rules across your organization. </p> </li> <li> <p> <b>Network Firewall policy</b> - This policy applies Network Firewall protection to your organization's VPCs. </p> </li> <li> <p> <b>DNS Firewall policy</b> - This policy applies Amazon Route 53 Resolver DNS Firewall protections to your organization's VPCs. </p> </li> <li> <p> <b>Third-party firewall policy</b> - This policy applies third-party firewall protections. Third-party firewalls are available by subscription through the Amazon Web Services Marketplace console at <a href=\"http://aws.amazon.com/marketplace\">Amazon Web Services Marketplace</a>.</p> <ul> <li> <p> <b>Palo Alto Networks Cloud NGFW policy</b> - This policy applies Palo Alto Networks Cloud Next Generation Firewall (NGFW) protections and Palo Alto Networks Cloud NGFW rulestacks to your organization's VPCs.</p> </li> <li> <p> <b>Fortigate CNF policy</b> - This policy applies Fortigate Cloud Native Firewall (CNF) protections. Fortigate CNF is a cloud-centered solution that blocks Zero-Day threats and secures cloud infrastructures with industry-leading advanced threat prevention, smart web application firewalls (WAF), and API protection.</p> </li> </ul> </li> </ul>
 
         Args:
             policy: <p>The details of the Firewall Manager policy to be created.</p>
@@ -2028,7 +2028,7 @@ class FMSClient:
         config_overrides: Optional[FMSClientConfig] = None,
         tag_list: Optional["aws_sdk_fms.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_fms.types.put_resource_set_response.PutResourceSetResponse":
-        """<p>Creates the resource set.</p> <p>An Firewall Manager resource set defines the resources to import into an Firewall Manager policy from another Amazon Web Services service.</p>
+        r"""<p>Creates the resource set.</p> <p>An Firewall Manager resource set defines the resources to import into an Firewall Manager policy from another Amazon Web Services service.</p>
 
         Args:
             resource_set: <p>Details about the resource set to be created or updated.></p>

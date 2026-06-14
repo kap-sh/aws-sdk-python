@@ -15,7 +15,7 @@ class CreateTrailResponse(TypedDict):
     s3_bucket_name: NotRequired["aws_sdk_cloudtrail.types.string.String"]
     """<p>Specifies the name of the Amazon S3 bucket designated for publishing log files.</p>"""
     s3_key_prefix: NotRequired["aws_sdk_cloudtrail.types.string.String"]
-    """<p>Specifies the Amazon S3 key prefix that comes after the name of the bucket you have designated for log file delivery. For more information, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/get-and-view-cloudtrail-log-files.html#cloudtrail-find-log-files\">Finding Your CloudTrail Log Files</a>.</p>"""
+    r"""<p>Specifies the Amazon S3 key prefix that comes after the name of the bucket you have designated for log file delivery. For more information, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/get-and-view-cloudtrail-log-files.html#cloudtrail-find-log-files\">Finding Your CloudTrail Log Files</a>.</p>"""
     sns_topic_name: NotRequired["aws_sdk_cloudtrail.types.string.String"]
     """<p>This field is no longer in use. Use <code>SnsTopicARN</code>.</p>"""
     sns_topic_arn: NotRequired["aws_sdk_cloudtrail.types.string.String"]

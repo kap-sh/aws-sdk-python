@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import datetime
 from typing import TYPE_CHECKING, Optional
 
@@ -68,7 +70,7 @@ class SnapshotResource:
         retention_period: Optional[int] = None,
         tags: Optional["aws_sdk_redshift_serverless.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_redshift_serverless.types.create_snapshot_response.CreateSnapshotResponse":
-        """<p>Creates a snapshot of all databases in a namespace. For more information about snapshots, see <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-snapshots-recovery-points.html\"> Working with snapshots and recovery points</a>.</p>
+        r"""<p>Creates a snapshot of all databases in a namespace. For more information about snapshots, see <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-snapshots-recovery-points.html\"> Working with snapshots and recovery points</a>.</p>
 
         Args:
             namespace_name: <p>The namespace to create a snapshot for.</p>
@@ -557,7 +559,7 @@ class SnapshotResource:
         target_schema_name: Optional[str] = None,
         activate_case_sensitive_identifier: Optional[bool] = None,
     ) -> "aws_sdk_redshift_serverless.types.restore_table_from_snapshot_response.RestoreTableFromSnapshotResponse":
-        """<p>Restores a table from a snapshot to your Amazon Redshift Serverless instance. You can't use this operation to restore tables with <a href=\"https://docs.aws.amazon.com/redshift/latest/dg/t_Sorting_data.html#t_Sorting_data-interleaved\">interleaved sort keys</a>.</p>
+        r"""<p>Restores a table from a snapshot to your Amazon Redshift Serverless instance. You can't use this operation to restore tables with <a href=\"https://docs.aws.amazon.com/redshift/latest/dg/t_Sorting_data.html#t_Sorting_data-interleaved\">interleaved sort keys</a>.</p>
 
         Args:
             namespace_name: <p>The namespace of the snapshot to restore from.</p>
@@ -708,7 +710,7 @@ class AsyncSnapshotResource:
         retention_period: Optional[int] = None,
         tags: Optional["aws_sdk_redshift_serverless.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_redshift_serverless.types.create_snapshot_response.CreateSnapshotResponse":
-        """<p>Creates a snapshot of all databases in a namespace. For more information about snapshots, see <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-snapshots-recovery-points.html\"> Working with snapshots and recovery points</a>.</p>
+        r"""<p>Creates a snapshot of all databases in a namespace. For more information about snapshots, see <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-snapshots-recovery-points.html\"> Working with snapshots and recovery points</a>.</p>
 
         Args:
             namespace_name: <p>The namespace to create a snapshot for.</p>
@@ -1207,7 +1209,7 @@ class AsyncSnapshotResource:
         target_schema_name: Optional[str] = None,
         activate_case_sensitive_identifier: Optional[bool] = None,
     ) -> "aws_sdk_redshift_serverless.types.restore_table_from_snapshot_response.RestoreTableFromSnapshotResponse":
-        """<p>Restores a table from a snapshot to your Amazon Redshift Serverless instance. You can't use this operation to restore tables with <a href=\"https://docs.aws.amazon.com/redshift/latest/dg/t_Sorting_data.html#t_Sorting_data-interleaved\">interleaved sort keys</a>.</p>
+        r"""<p>Restores a table from a snapshot to your Amazon Redshift Serverless instance. You can't use this operation to restore tables with <a href=\"https://docs.aws.amazon.com/redshift/latest/dg/t_Sorting_data.html#t_Sorting_data-interleaved\">interleaved sort keys</a>.</p>
 
         Args:
             namespace_name: <p>The namespace of the snapshot to restore from.</p>

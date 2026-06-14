@@ -19,7 +19,7 @@ class LambdaFunctionInfo(TypedDict):
     function_alias: NotRequired[
         "aws_sdk_codedeploy.types.lambda_function_alias.LambdaFunctionAlias"
     ]
-    """<p> The alias of a Lambda function. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html\">Lambda Function Aliases</a> in the <i>Lambda Developer Guide</i>.</p>"""
+    r"""<p> The alias of a Lambda function. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html\">Lambda Function Aliases</a> in the <i>Lambda Developer Guide</i>.</p>"""
     current_version: NotRequired["aws_sdk_codedeploy.types.version.Version"]
     """<p> The version of a Lambda function that production traffic points to. </p>"""
     target_version: NotRequired["aws_sdk_codedeploy.types.version.Version"]

@@ -16,7 +16,7 @@ class CreateAlertManagerDefinitionRequest(TypedDict):
     workspace_id: "aws_sdk_amp.types.workspace_id.WorkspaceId"
     """<p>The ID of the workspace to add the alert manager definition to.</p>"""
     data: "aws_sdk_amp.types.alert_manager_definition_data.AlertManagerDefinitionData"
-    """<p>The alert manager definition to add. A base64-encoded version of the YAML alert manager definition file.</p> <p>For details about the alert manager definition, see <a href=\"https://docs.aws.amazon.com/prometheus/latest/APIReference/yaml-AlertManagerDefinitionData.html\">AlertManagedDefinitionData</a>.</p>"""
+    r"""<p>The alert manager definition to add. A base64-encoded version of the YAML alert manager definition file.</p> <p>For details about the alert manager definition, see <a href=\"https://docs.aws.amazon.com/prometheus/latest/APIReference/yaml-AlertManagerDefinitionData.html\">AlertManagedDefinitionData</a>.</p>"""
     client_token: NotRequired["aws_sdk_amp.types.idempotency_token.IdempotencyToken"]
     """<p>A unique identifier that you can provide to ensure the idempotency of the request. Case-sensitive.</p>"""
 

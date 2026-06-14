@@ -17,7 +17,7 @@ class JdbcTarget(TypedDict):
     path: NotRequired["aws_sdk_glue.types.path.Path"]
     """<p>The path of the JDBC target.</p>"""
     exclusions: NotRequired["aws_sdk_glue.types.path_list.PathList"]
-    """<p>A list of glob patterns used to exclude from the crawl. For more information, see <a href=\"https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html\">Catalog Tables with a Crawler</a>.</p>"""
+    r"""<p>A list of glob patterns used to exclude from the crawl. For more information, see <a href=\"https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html\">Catalog Tables with a Crawler</a>.</p>"""
     enable_additional_metadata: NotRequired[
         "aws_sdk_glue.types.enable_additional_metadata.EnableAdditionalMetadata"
     ]

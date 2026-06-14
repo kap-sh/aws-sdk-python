@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_amp._auth._signers
@@ -46,7 +48,7 @@ class Workspace:
         tags: Optional["aws_sdk_amp.types.tag_map.TagMap"] = None,
         kms_key_arn: Optional["aws_sdk_amp.types.kms_key_arn.KmsKeyArn"] = None,
     ) -> "aws_sdk_amp.types.create_workspace_response.CreateWorkspaceResponse":
-        """<p>Creates a Prometheus workspace. A workspace is a logical space dedicated to the storage and querying of Prometheus metrics. You can have one or more workspaces in each Region in your account.</p>
+        r"""<p>Creates a Prometheus workspace. A workspace is a logical space dedicated to the storage and querying of Prometheus metrics. You can have one or more workspaces in each Region in your account.</p>
 
         Args:
             alias: <p>An alias that you assign to this workspace to help you identify it. It does not need to be unique.</p> <p>Blank spaces at the beginning or end of the alias that you specify will be trimmed from the value used.</p>
@@ -274,7 +276,7 @@ class AsyncWorkspace:
         tags: Optional["aws_sdk_amp.types.tag_map.TagMap"] = None,
         kms_key_arn: Optional["aws_sdk_amp.types.kms_key_arn.KmsKeyArn"] = None,
     ) -> "aws_sdk_amp.types.create_workspace_response.CreateWorkspaceResponse":
-        """<p>Creates a Prometheus workspace. A workspace is a logical space dedicated to the storage and querying of Prometheus metrics. You can have one or more workspaces in each Region in your account.</p>
+        r"""<p>Creates a Prometheus workspace. A workspace is a logical space dedicated to the storage and querying of Prometheus metrics. You can have one or more workspaces in each Region in your account.</p>
 
         Args:
             alias: <p>An alias that you assign to this workspace to help you identify it. It does not need to be unique.</p> <p>Blank spaces at the beginning or end of the alias that you specify will be trimmed from the value used.</p>

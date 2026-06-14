@@ -11,7 +11,7 @@ if TYPE_CHECKING:
 
 class UntagResourceRequest(TypedDict):
     resource_arn: "aws_sdk_cost_explorer.types.arn.Arn"
-    """<p>The Amazon Resource Name (ARN) of the resource. For a list of supported resources, see <a href=\"https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_ResourceTag.html\">ResourceTag</a>. </p>"""
+    r"""<p>The Amazon Resource Name (ARN) of the resource. For a list of supported resources, see <a href=\"https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_ResourceTag.html\">ResourceTag</a>. </p>"""
     resource_tag_keys: (
         "aws_sdk_cost_explorer.types.resource_tag_key_list.ResourceTagKeyList"
     )

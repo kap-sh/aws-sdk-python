@@ -11,7 +11,7 @@ if TYPE_CHECKING:
 
 class AddHeaderAction(TypedDict):
     header_name: "aws_sdk_mailmanager.types.header_name.HeaderName"
-    """<p>The name of the header to add to an email. The header must be prefixed with \"X-\". Headers are added regardless of whether the header name pre-existed in the email.</p>"""
+    r"""<p>The name of the header to add to an email. The header must be prefixed with \"X-\". Headers are added regardless of whether the header name pre-existed in the email.</p>"""
     header_value: "aws_sdk_mailmanager.types.header_value.HeaderValue"
     """<p>The value of the header to add to the email.</p>"""
 

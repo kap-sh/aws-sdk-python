@@ -31,7 +31,7 @@ class DescribeDashboardPermissionsResponse(TypedDict):
     link_sharing_configuration: NotRequired[
         "aws_sdk_quicksight.types.link_sharing_configuration.LinkSharingConfiguration"
     ]
-    """<p>A structure that contains the configuration of a shareable link that grants access to the dashboard. Your users can use the link to view and interact with the dashboard, if the dashboard has been shared with them. For more information about sharing dashboards, see <a href=\"https://docs.aws.amazon.com/quicksight/latest/user/sharing-a-dashboard.html\">Sharing Dashboards</a>.</p>"""
+    r"""<p>A structure that contains the configuration of a shareable link that grants access to the dashboard. Your users can use the link to view and interact with the dashboard, if the dashboard has been shared with them. For more information about sharing dashboards, see <a href=\"https://docs.aws.amazon.com/quicksight/latest/user/sharing-a-dashboard.html\">Sharing Dashboards</a>.</p>"""
 
 
 # --- restJson1 ser/de ---

@@ -12,7 +12,7 @@ class InputProcessingConfiguration(TypedDict):
     input_lambda_processor: (
         "aws_sdk_kinesis_analytics.types.input_lambda_processor.InputLambdaProcessor"
     )
-    """<p>The <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputLambdaProcessor.html\">InputLambdaProcessor</a> that is used to preprocess the records in the stream before being processed by your application code.</p>"""
+    r"""<p>The <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputLambdaProcessor.html\">InputLambdaProcessor</a> that is used to preprocess the records in the stream before being processed by your application code.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

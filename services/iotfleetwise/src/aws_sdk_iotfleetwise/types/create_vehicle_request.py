@@ -23,7 +23,7 @@ class CreateVehicleRequest(TypedDict):
     decoder_manifest_arn: "aws_sdk_iotfleetwise.types.arn.arn"
     """<p> The ARN of a decoder manifest. </p>"""
     attributes: NotRequired["aws_sdk_iotfleetwise.types.attributes_map.attributesMap"]
-    """<p>Static information about a vehicle in a key-value pair. For example: <code>\"engineType\"</code> : <code>\"1.3 L R2\"</code> </p> <p>To use attributes with Campaigns or State Templates, you must include them using the request parameters <code>dataExtraDimensions</code> and/or <code>metadataExtraDimensions</code> (for state templates only) when creating your campaign/state template. </p>"""
+    r"""<p>Static information about a vehicle in a key-value pair. For example: <code>\"engineType\"</code> : <code>\"1.3 L R2\"</code> </p> <p>To use attributes with Campaigns or State Templates, you must include them using the request parameters <code>dataExtraDimensions</code> and/or <code>metadataExtraDimensions</code> (for state templates only) when creating your campaign/state template. </p>"""
     association_behavior: NotRequired[
         "aws_sdk_iotfleetwise.types.vehicle_association_behavior.VehicleAssociationBehavior"
     ]

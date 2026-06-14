@@ -408,7 +408,7 @@ class AsyncOpenSearchClient:
         *,
         config_overrides: Optional[AsyncOpenSearchClientConfig] = None,
     ) -> "aws_sdk_opensearch.types.accept_inbound_connection_response.AcceptInboundConnectionResponse":
-        """<p>Allows the destination Amazon OpenSearch Service domain owner to accept an inbound cross-cluster search connection request. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html\">Cross-cluster search for Amazon OpenSearch Service</a>.</p>
+        r"""<p>Allows the destination Amazon OpenSearch Service domain owner to accept an inbound cross-cluster search connection request. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html\">Cross-cluster search for Amazon OpenSearch Service</a>.</p>
 
         Args:
             connection_id: <p>The ID of the inbound connection to accept.</p>
@@ -451,7 +451,7 @@ class AsyncOpenSearchClient:
             "aws_sdk_opensearch.types.data_source_description.DataSourceDescription"
         ] = None,
     ) -> "aws_sdk_opensearch.types.add_data_source_response.AddDataSourceResponse":
-        """<p>Creates a new direct-query data source to the specified domain. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/direct-query-s3-creating.html\">Creating Amazon OpenSearch Service data source integrations with Amazon S3</a>.</p>
+        r"""<p>Creates a new direct-query data source to the specified domain. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/direct-query-s3-creating.html\">Creating Amazon OpenSearch Service data source integrations with Amazon S3</a>.</p>
 
         Args:
             domain_name: <p>The name of the domain to add the data source to.</p>
@@ -559,7 +559,7 @@ class AsyncOpenSearchClient:
         *,
         config_overrides: Optional[AsyncOpenSearchClientConfig] = None,
     ) -> None:
-        """<p>Attaches tags to an existing Amazon OpenSearch Service domain, data source, or application. </p> <p>Tags are a set of case-sensitive key-value pairs. A domain, data source, or application can have up to 10 tags. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-awsresourcetagging.html\">Tagging Amazon OpenSearch Service resources</a>. </p>
+        r"""<p>Attaches tags to an existing Amazon OpenSearch Service domain, data source, or application. </p> <p>Tags are a set of case-sensitive key-value pairs. A domain, data source, or application can have up to 10 tags. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-awsresourcetagging.html\">Tagging Amazon OpenSearch Service resources</a>. </p>
 
         Args:
             arn: <p>Amazon Resource Name (ARN) for the OpenSearch Service domain, data source, or application to which you want to attach resource tags.</p>
@@ -604,7 +604,7 @@ class AsyncOpenSearchClient:
             "aws_sdk_opensearch.types.package_association_configuration.PackageAssociationConfiguration"
         ] = None,
     ) -> "aws_sdk_opensearch.types.associate_package_response.AssociatePackageResponse":
-        """<p>Associates a package with an Amazon OpenSearch Service domain. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html\">Custom packages for Amazon OpenSearch Service</a>.</p>
+        r"""<p>Associates a package with an Amazon OpenSearch Service domain. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html\">Custom packages for Amazon OpenSearch Service</a>.</p>
 
         Args:
             package_id: <p>Internal ID of the package to associate with a domain. Use <code>DescribePackages</code> to find this value. </p>
@@ -787,7 +787,7 @@ class AsyncOpenSearchClient:
         *,
         config_overrides: Optional[AsyncOpenSearchClientConfig] = None,
     ) -> "aws_sdk_opensearch.types.cancel_service_software_update_response.CancelServiceSoftwareUpdateResponse":
-        """<p>Cancels a scheduled service software update for an Amazon OpenSearch Service domain. You can only perform this operation before the <code>AutomatedUpdateDate</code> and when the domain's <code>UpdateStatus</code> is <code>PENDING_UPDATE</code>. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html\">Service software updates in Amazon OpenSearch Service</a>.</p>
+        r"""<p>Cancels a scheduled service software update for an Amazon OpenSearch Service domain. You can only perform this operation before the <code>AutomatedUpdateDate</code> and when the domain's <code>UpdateStatus</code> is <code>PENDING_UPDATE</code>. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html\">Service software updates in Amazon OpenSearch Service</a>.</p>
 
         Args:
             domain_name: <p>Name of the OpenSearch Service domain that you want to cancel the service software update on.</p>
@@ -839,7 +839,7 @@ class AsyncOpenSearchClient:
     ) -> (
         "aws_sdk_opensearch.types.create_application_response.CreateApplicationResponse"
     ):
-        """<p>Creates an OpenSearch UI application. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/application.html\">Using the OpenSearch user interface in Amazon OpenSearch Service</a>.</p>
+        r"""<p>Creates an OpenSearch UI application. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/application.html\">Using the OpenSearch user interface in Amazon OpenSearch Service</a>.</p>
 
         Args:
             client_token: <p>Unique, case-sensitive identifier to ensure idempotency of the request.</p>
@@ -954,7 +954,7 @@ class AsyncOpenSearchClient:
             "aws_sdk_opensearch.types.automated_snapshot_pause_request_options.AutomatedSnapshotPauseRequestOptions"
         ] = None,
     ) -> "aws_sdk_opensearch.types.create_domain_response.CreateDomainResponse":
-        """<p>Creates an Amazon OpenSearch Service domain. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html\">Creating and managing Amazon OpenSearch Service domains</a>.</p>
+        r"""<p>Creates an Amazon OpenSearch Service domain. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html\">Creating and managing Amazon OpenSearch Service domains</a>.</p>
 
         Args:
             domain_name: <p>Name of the OpenSearch Service domain to create. Domain names are unique across the domains owned by an account within an Amazon Web Services Region.</p>
@@ -1062,7 +1062,7 @@ class AsyncOpenSearchClient:
         *,
         config_overrides: Optional[AsyncOpenSearchClientConfig] = None,
     ) -> "aws_sdk_opensearch.types.create_index_response.CreateIndexResponse":
-        """<p>Creates an OpenSearch index with optional automatic semantic enrichment for specified text fields. Automatic semantic enrichment enables semantic search capabilities without requiring machine learning expertise, improving search relevance by up to 20% by understanding search intent and contextual meaning beyond keyword matching. The semantic enrichment process has zero impact on search latency as sparse encodings are stored directly within the index during indexing. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/opensearch-semantic-enrichment.html\">Automatic semantic enrichment</a>.</p>
+        r"""<p>Creates an OpenSearch index with optional automatic semantic enrichment for specified text fields. Automatic semantic enrichment enables semantic search capabilities without requiring machine learning expertise, improving search relevance by up to 20% by understanding search intent and contextual meaning beyond keyword matching. The semantic enrichment process has zero impact on search latency as sparse encodings are stored directly within the index during indexing. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/opensearch-semantic-enrichment.html\">Automatic semantic enrichment</a>.</p>
 
         Args:
             index_name: <p>The name of the index to create. Must be between 1 and 255 characters and follow OpenSearch naming conventions.</p>
@@ -1111,7 +1111,7 @@ class AsyncOpenSearchClient:
             "aws_sdk_opensearch.types.connection_properties.ConnectionProperties"
         ] = None,
     ) -> "aws_sdk_opensearch.types.create_outbound_connection_response.CreateOutboundConnectionResponse":
-        """<p>Creates a new cross-cluster search connection from a source Amazon OpenSearch Service domain to a destination domain. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html\">Cross-cluster search for Amazon OpenSearch Service</a>.</p>
+        r"""<p>Creates a new cross-cluster search connection from a source Amazon OpenSearch Service domain to a destination domain. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html\">Cross-cluster search for Amazon OpenSearch Service</a>.</p>
 
         Args:
             local_domain_info: <p>Name and Region of the source (local) domain.</p>
@@ -1176,7 +1176,7 @@ class AsyncOpenSearchClient:
             "aws_sdk_opensearch.types.package_encryption_options.PackageEncryptionOptions"
         ] = None,
     ) -> "aws_sdk_opensearch.types.create_package_response.CreatePackageResponse":
-        """<p>Creates a package for use with Amazon OpenSearch Service domains. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html\">Custom packages for Amazon OpenSearch Service</a>.</p>
+        r"""<p>Creates a package for use with Amazon OpenSearch Service domains. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html\">Custom packages for Amazon OpenSearch Service</a>.</p>
 
         Args:
             package_name: <p>Unique name for the package.</p>
@@ -1323,7 +1323,7 @@ class AsyncOpenSearchClient:
     ) -> (
         "aws_sdk_opensearch.types.delete_data_source_response.DeleteDataSourceResponse"
     ):
-        """<p>Deletes a direct-query data source. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/direct-query-s3-delete.html\">Deleting an Amazon OpenSearch Service data source with Amazon S3</a>.</p>
+        r"""<p>Deletes a direct-query data source. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/direct-query-s3-delete.html\">Deleting an Amazon OpenSearch Service data source with Amazon S3</a>.</p>
 
         Args:
             domain_name: <p>The name of the domain.</p>
@@ -1437,7 +1437,7 @@ class AsyncOpenSearchClient:
         *,
         config_overrides: Optional[AsyncOpenSearchClientConfig] = None,
     ) -> "aws_sdk_opensearch.types.delete_inbound_connection_response.DeleteInboundConnectionResponse":
-        """<p>Allows the destination Amazon OpenSearch Service domain owner to delete an existing inbound cross-cluster search connection. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html\">Cross-cluster search for Amazon OpenSearch Service</a>.</p>
+        r"""<p>Allows the destination Amazon OpenSearch Service domain owner to delete an existing inbound cross-cluster search connection. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html\">Cross-cluster search for Amazon OpenSearch Service</a>.</p>
 
         Args:
             connection_id: <p>The ID of the inbound connection to permanently delete.</p>
@@ -1515,7 +1515,7 @@ class AsyncOpenSearchClient:
         *,
         config_overrides: Optional[AsyncOpenSearchClientConfig] = None,
     ) -> "aws_sdk_opensearch.types.delete_outbound_connection_response.DeleteOutboundConnectionResponse":
-        """<p>Allows the source Amazon OpenSearch Service domain owner to delete an existing outbound cross-cluster search connection. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html\">Cross-cluster search for Amazon OpenSearch Service</a>.</p>
+        r"""<p>Allows the source Amazon OpenSearch Service domain owner to delete an existing outbound cross-cluster search connection. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html\">Cross-cluster search for Amazon OpenSearch Service</a>.</p>
 
         Args:
             connection_id: <p>The ID of the outbound connection you want to permanently delete.</p>
@@ -1553,7 +1553,7 @@ class AsyncOpenSearchClient:
         *,
         config_overrides: Optional[AsyncOpenSearchClientConfig] = None,
     ) -> "aws_sdk_opensearch.types.delete_package_response.DeletePackageResponse":
-        """<p>Deletes an Amazon OpenSearch Service package. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html\">Custom packages for Amazon OpenSearch Service</a>.</p>
+        r"""<p>Deletes an Amazon OpenSearch Service package. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html\">Custom packages for Amazon OpenSearch Service</a>.</p>
 
         Args:
             package_id: <p>The internal ID of the package you want to delete. Use <code>DescribePackages</code> to find this value.</p>
@@ -1710,7 +1710,7 @@ class AsyncOpenSearchClient:
         max_results: Optional["aws_sdk_opensearch.types.max_results.MaxResults"] = None,
         next_token: Optional["aws_sdk_opensearch.types.next_token.NextToken"] = None,
     ) -> "aws_sdk_opensearch.types.describe_domain_auto_tunes_response.DescribeDomainAutoTunesResponse":
-        """<p>Returns the list of optimizations that Auto-Tune has made to an Amazon OpenSearch Service domain. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html\">Auto-Tune for Amazon OpenSearch Service</a>.</p>
+        r"""<p>Returns the list of optimizations that Auto-Tune has made to an Amazon OpenSearch Service domain. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html\">Auto-Tune for Amazon OpenSearch Service</a>.</p>
 
         Args:
             domain_name: <p>Name of the domain that you want Auto-Tune details about.</p>
@@ -1755,7 +1755,7 @@ class AsyncOpenSearchClient:
         config_overrides: Optional[AsyncOpenSearchClientConfig] = None,
         change_id: Optional["aws_sdk_opensearch.types.guid.GUID"] = None,
     ) -> "aws_sdk_opensearch.types.describe_domain_change_progress_response.DescribeDomainChangeProgressResponse":
-        """<p>Returns information about the current blue/green deployment happening on an Amazon OpenSearch Service domain. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-configuration-changes.html\">Making configuration changes in Amazon OpenSearch Service</a>.</p>
+        r"""<p>Returns information about the current blue/green deployment happening on an Amazon OpenSearch Service domain. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-configuration-changes.html\">Making configuration changes in Amazon OpenSearch Service</a>.</p>
 
         Args:
             domain_name: <p>The name of the domain to get progress information for.</p>
@@ -1952,7 +1952,7 @@ class AsyncOpenSearchClient:
             "aws_sdk_opensearch.types.boolean.Boolean"
         ] = None,
     ) -> "aws_sdk_opensearch.types.describe_dry_run_progress_response.DescribeDryRunProgressResponse":
-        """<p>Describes the progress of a pre-update dry run analysis on an Amazon OpenSearch Service domain. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-configuration-changes#dryrun\">Determining whether a change will cause a blue/green deployment</a>.</p>
+        r"""<p>Describes the progress of a pre-update dry run analysis on an Amazon OpenSearch Service domain. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-configuration-changes#dryrun\">Determining whether a change will cause a blue/green deployment</a>.</p>
 
         Args:
             domain_name: <p>The name of the domain.</p>
@@ -1998,7 +1998,7 @@ class AsyncOpenSearchClient:
         max_results: Optional["aws_sdk_opensearch.types.max_results.MaxResults"] = None,
         next_token: Optional["aws_sdk_opensearch.types.next_token.NextToken"] = None,
     ) -> "aws_sdk_opensearch.types.describe_inbound_connections_response.DescribeInboundConnectionsResponse":
-        """<p>Lists all the inbound cross-cluster search connections for a destination (remote) Amazon OpenSearch Service domain. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html\">Cross-cluster search for Amazon OpenSearch Service</a>.</p>
+        r"""<p>Lists all the inbound cross-cluster search connections for a destination (remote) Amazon OpenSearch Service domain. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html\">Cross-cluster search for Amazon OpenSearch Service</a>.</p>
 
         Args:
             filters: <p> A list of filters used to match properties for inbound cross-cluster connections.</p>
@@ -2135,7 +2135,7 @@ class AsyncOpenSearchClient:
         max_results: Optional["aws_sdk_opensearch.types.max_results.MaxResults"] = None,
         next_token: Optional["aws_sdk_opensearch.types.next_token.NextToken"] = None,
     ) -> "aws_sdk_opensearch.types.describe_outbound_connections_response.DescribeOutboundConnectionsResponse":
-        """<p>Lists all the outbound cross-cluster connections for a local (source) Amazon OpenSearch Service domain. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html\">Cross-cluster search for Amazon OpenSearch Service</a>.</p>
+        r"""<p>Lists all the outbound cross-cluster connections for a local (source) Amazon OpenSearch Service domain. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html\">Cross-cluster search for Amazon OpenSearch Service</a>.</p>
 
         Args:
             filters: <p>List of filter names and values that you can use for requests.</p>
@@ -2184,7 +2184,7 @@ class AsyncOpenSearchClient:
         max_results: Optional["aws_sdk_opensearch.types.max_results.MaxResults"] = None,
         next_token: Optional["aws_sdk_opensearch.types.next_token.NextToken"] = None,
     ) -> "aws_sdk_opensearch.types.describe_packages_response.DescribePackagesResponse":
-        """<p>Describes all packages available to OpenSearch Service. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html\">Custom packages for Amazon OpenSearch Service</a>.</p>
+        r"""<p>Describes all packages available to OpenSearch Service. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html\">Custom packages for Amazon OpenSearch Service</a>.</p>
 
         Args:
             filters: <p>Only returns packages that match the <code>DescribePackagesFilterList</code> values.</p>
@@ -2233,7 +2233,7 @@ class AsyncOpenSearchClient:
         max_results: Optional["aws_sdk_opensearch.types.max_results.MaxResults"] = None,
         next_token: Optional["aws_sdk_opensearch.types.next_token.NextToken"] = None,
     ) -> "aws_sdk_opensearch.types.describe_reserved_instance_offerings_response.DescribeReservedInstanceOfferingsResponse":
-        """<p>Describes the available Amazon OpenSearch Service Reserved Instance offerings for a given Region. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ri.html\">Reserved Instances in Amazon OpenSearch Service</a>.</p>
+        r"""<p>Describes the available Amazon OpenSearch Service Reserved Instance offerings for a given Region. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ri.html\">Reserved Instances in Amazon OpenSearch Service</a>.</p>
 
         Args:
             reserved_instance_offering_id: <p>The Reserved Instance identifier filter value. Use this parameter to show only the available instance types that match the specified reservation identifier.</p>
@@ -2280,7 +2280,7 @@ class AsyncOpenSearchClient:
         max_results: Optional["aws_sdk_opensearch.types.max_results.MaxResults"] = None,
         next_token: Optional["aws_sdk_opensearch.types.next_token.NextToken"] = None,
     ) -> "aws_sdk_opensearch.types.describe_reserved_instances_response.DescribeReservedInstancesResponse":
-        """<p>Describes the Amazon OpenSearch Service instances that you have reserved in a given Region. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ri.html\">Reserved Instances in Amazon OpenSearch Service</a>.</p>
+        r"""<p>Describes the Amazon OpenSearch Service instances that you have reserved in a given Region. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ri.html\">Reserved Instances in Amazon OpenSearch Service</a>.</p>
 
         Args:
             reserved_instance_id: <p>The reserved instance identifier filter value. Use this parameter to show only the reservation that matches the specified reserved OpenSearch instance ID.</p>
@@ -2366,7 +2366,7 @@ class AsyncOpenSearchClient:
     ) -> (
         "aws_sdk_opensearch.types.dissociate_package_response.DissociatePackageResponse"
     ):
-        """<p>Removes a package from the specified Amazon OpenSearch Service domain. The package can't be in use with any OpenSearch index for the dissociation to succeed. The package is still available in OpenSearch Service for association later. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html\">Custom packages for Amazon OpenSearch Service</a>.</p>
+        r"""<p>Removes a package from the specified Amazon OpenSearch Service domain. The package can't be in use with any OpenSearch index for the dissociation to succeed. The package is still available in OpenSearch Service for association later. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html\">Custom packages for Amazon OpenSearch Service</a>.</p>
 
         Args:
             package_id: <p>Internal ID of the package to dissociate from the domain. Use <code>ListPackagesForDomain</code> to find this value.</p>
@@ -2756,7 +2756,7 @@ class AsyncOpenSearchClient:
         max_results: Optional["aws_sdk_opensearch.types.max_results.MaxResults"] = None,
         next_token: Optional["aws_sdk_opensearch.types.next_token.NextToken"] = None,
     ) -> "aws_sdk_opensearch.types.get_package_version_history_response.GetPackageVersionHistoryResponse":
-        """<p>Returns a list of Amazon OpenSearch Service package versions, along with their creation time, commit message, and plugin properties (if the package is a zip plugin package). For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html\">Custom packages for Amazon OpenSearch Service</a>.</p>
+        r"""<p>Returns a list of Amazon OpenSearch Service package versions, along with their creation time, commit message, and plugin properties (if the package is a zip plugin package). For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html\">Custom packages for Amazon OpenSearch Service</a>.</p>
 
         Args:
             package_id: <p>The unique identifier of the package.</p>
@@ -2960,7 +2960,7 @@ class AsyncOpenSearchClient:
         *,
         config_overrides: Optional[AsyncOpenSearchClientConfig] = None,
     ) -> "aws_sdk_opensearch.types.list_data_sources_response.ListDataSourcesResponse":
-        """<p>Lists direct-query data sources for a specific domain. For more information, see For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/direct-query-s3.html\">Working with Amazon OpenSearch Service direct queries with Amazon S3</a>.</p>
+        r"""<p>Lists direct-query data sources for a specific domain. For more information, see For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/direct-query-s3.html\">Working with Amazon OpenSearch Service direct queries with Amazon S3</a>.</p>
 
         Args:
             domain_name: <p>The name of the domain.</p>
@@ -3132,7 +3132,7 @@ class AsyncOpenSearchClient:
         max_results: Optional["aws_sdk_opensearch.types.max_results.MaxResults"] = None,
         next_token: Optional["aws_sdk_opensearch.types.next_token.NextToken"] = None,
     ) -> "aws_sdk_opensearch.types.list_domains_for_package_response.ListDomainsForPackageResponse":
-        """<p>Lists all Amazon OpenSearch Service domains associated with a given package. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html\">Custom packages for Amazon OpenSearch Service</a>.</p>
+        r"""<p>Lists all Amazon OpenSearch Service domains associated with a given package. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html\">Custom packages for Amazon OpenSearch Service</a>.</p>
 
         Args:
             package_id: <p>The unique identifier of the package for which to list associated domains.</p>
@@ -3298,7 +3298,7 @@ class AsyncOpenSearchClient:
         max_results: Optional["aws_sdk_opensearch.types.max_results.MaxResults"] = None,
         next_token: Optional["aws_sdk_opensearch.types.next_token.NextToken"] = None,
     ) -> "aws_sdk_opensearch.types.list_packages_for_domain_response.ListPackagesForDomainResponse":
-        """<p>Lists all packages associated with an Amazon OpenSearch Service domain. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html\">Custom packages for Amazon OpenSearch Service</a>.</p>
+        r"""<p>Lists all packages associated with an Amazon OpenSearch Service domain. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html\">Custom packages for Amazon OpenSearch Service</a>.</p>
 
         Args:
             domain_name: <p>The name of the domain for which you want to list associated packages.</p>
@@ -3344,7 +3344,7 @@ class AsyncOpenSearchClient:
         max_results: Optional["aws_sdk_opensearch.types.max_results.MaxResults"] = None,
         next_token: Optional["aws_sdk_opensearch.types.next_token.NextToken"] = None,
     ) -> "aws_sdk_opensearch.types.list_scheduled_actions_response.ListScheduledActionsResponse":
-        """<p>Retrieves a list of configuration changes that are scheduled for a domain. These changes can be <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html\">service software updates</a> or <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html#auto-tune-types\">blue/green Auto-Tune enhancements</a>.</p>
+        r"""<p>Retrieves a list of configuration changes that are scheduled for a domain. These changes can be <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html\">service software updates</a> or <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html#auto-tune-types\">blue/green Auto-Tune enhancements</a>.</p>
 
         Args:
             domain_name: <p>The name of the domain.</p>
@@ -3388,7 +3388,7 @@ class AsyncOpenSearchClient:
         *,
         config_overrides: Optional[AsyncOpenSearchClientConfig] = None,
     ) -> "aws_sdk_opensearch.types.list_tags_response.ListTagsResponse":
-        """<p>Returns all resource tags for an Amazon OpenSearch Service domain, data source, or application. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-awsresourcetagging.html\">Tagging Amazon OpenSearch Service resources</a>.</p>
+        r"""<p>Returns all resource tags for an Amazon OpenSearch Service domain, data source, or application. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-awsresourcetagging.html\">Tagging Amazon OpenSearch Service resources</a>.</p>
 
         Args:
             arn: <p>Amazon Resource Name (ARN) for the domain, data source, or application to view tags for.</p>
@@ -3683,7 +3683,7 @@ class AsyncOpenSearchClient:
         *,
         config_overrides: Optional[AsyncOpenSearchClientConfig] = None,
     ) -> "aws_sdk_opensearch.types.register_capability_response.RegisterCapabilityResponse":
-        """<p>Registers a capability for an OpenSearch UI application. Use this operation to enable specific capabilities, such as AI features, for a given application. The capability configuration defines the type and settings of the capability to register. For more information about the AI features, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/application-ai-assistant.html\">Agentic AI for OpenSearch UI</a>.</p>
+        r"""<p>Registers a capability for an OpenSearch UI application. Use this operation to enable specific capabilities, such as AI features, for a given application. The capability configuration defines the type and settings of the capability to register. For more information about the AI features, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/application-ai-assistant.html\">Agentic AI for OpenSearch UI</a>.</p>
 
         Args:
             application_id: <p>The unique identifier of the OpenSearch UI application to register the capability for.</p>
@@ -3764,7 +3764,7 @@ class AsyncOpenSearchClient:
         *,
         config_overrides: Optional[AsyncOpenSearchClientConfig] = None,
     ) -> None:
-        """<p>Removes the specified set of tags from an Amazon OpenSearch Service domain, data source, or application. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains.html#managedomains-awsresorcetagging\"> Tagging Amazon OpenSearch Service resources</a>.</p>
+        r"""<p>Removes the specified set of tags from an Amazon OpenSearch Service domain, data source, or application. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains.html#managedomains-awsresorcetagging\"> Tagging Amazon OpenSearch Service resources</a>.</p>
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the domain, data source, or application from which you want to delete the specified tags.</p>
@@ -3856,7 +3856,7 @@ class AsyncOpenSearchClient:
         *,
         config_overrides: Optional[AsyncOpenSearchClientConfig] = None,
     ) -> "aws_sdk_opensearch.types.rollback_service_software_update_response.RollbackServiceSoftwareUpdateResponse":
-        """<p>Rolls back a service software update for a domain to the previous version. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html\">Service software updates in Amazon OpenSearch Service</a>.</p>
+        r"""<p>Rolls back a service software update for a domain to the previous version. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html\">Service software updates in Amazon OpenSearch Service</a>.</p>
 
         Args:
             domain_name: <p>The name of the domain to roll back the service software update on.</p>
@@ -3941,7 +3941,7 @@ class AsyncOpenSearchClient:
         schedule_at: Optional["aws_sdk_opensearch.types.schedule_at.ScheduleAt"] = None,
         desired_start_time: Optional["aws_sdk_opensearch.types.long.Long"] = None,
     ) -> "aws_sdk_opensearch.types.start_service_software_update_response.StartServiceSoftwareUpdateResponse":
-        """<p>Schedules a service software update for an Amazon OpenSearch Service domain. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html\">Service software updates in Amazon OpenSearch Service</a>.</p>
+        r"""<p>Schedules a service software update for an Amazon OpenSearch Service domain. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html\">Service software updates in Amazon OpenSearch Service</a>.</p>
 
         Args:
             domain_name: <p>The name of the domain that you want to update to the latest service software.</p>
@@ -4045,7 +4045,7 @@ class AsyncOpenSearchClient:
     ) -> (
         "aws_sdk_opensearch.types.update_data_source_response.UpdateDataSourceResponse"
     ):
-        """<p>Updates a direct-query data source. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/direct-query-s3-creating.html\">Working with Amazon OpenSearch Service data source integrations with Amazon S3</a>.</p>
+        r"""<p>Updates a direct-query data source. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/direct-query-s3-creating.html\">Working with Amazon OpenSearch Service data source integrations with Amazon S3</a>.</p>
 
         Args:
             domain_name: <p>The name of the domain.</p>
@@ -4212,7 +4212,7 @@ class AsyncOpenSearchClient:
             "aws_sdk_opensearch.types.automated_snapshot_pause_request_options.AutomatedSnapshotPauseRequestOptions"
         ] = None,
     ) -> "aws_sdk_opensearch.types.update_domain_config_response.UpdateDomainConfigResponse":
-        """<p>Modifies the cluster configuration of the specified Amazon OpenSearch Service domain.</p>
+        r"""<p>Modifies the cluster configuration of the specified Amazon OpenSearch Service domain.</p>
 
         Args:
             domain_name: <p>The name of the domain that you're updating.</p>
@@ -4373,7 +4373,7 @@ class AsyncOpenSearchClient:
             "aws_sdk_opensearch.types.package_encryption_options.PackageEncryptionOptions"
         ] = None,
     ) -> "aws_sdk_opensearch.types.update_package_response.UpdatePackageResponse":
-        """<p>Updates a package for use with Amazon OpenSearch Service domains. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html\">Custom packages for Amazon OpenSearch Service</a>.</p>
+        r"""<p>Updates a package for use with Amazon OpenSearch Service domains. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html\">Custom packages for Amazon OpenSearch Service</a>.</p>
 
         Args:
             package_id: <p>The unique identifier for the package.</p>
@@ -4473,7 +4473,7 @@ class AsyncOpenSearchClient:
         config_overrides: Optional[AsyncOpenSearchClientConfig] = None,
         desired_start_time: Optional["aws_sdk_opensearch.types.long.Long"] = None,
     ) -> "aws_sdk_opensearch.types.update_scheduled_action_response.UpdateScheduledActionResponse":
-        """<p>Reschedules a planned domain configuration change for a later time. This change can be a scheduled <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html\">service software update</a> or a <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html#auto-tune-types\">blue/green Auto-Tune enhancement</a>.</p>
+        r"""<p>Reschedules a planned domain configuration change for a later time. This change can be a scheduled <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html\">service software update</a> or a <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html#auto-tune-types\">blue/green Auto-Tune enhancement</a>.</p>
 
         Args:
             domain_name: <p>The name of the domain to reschedule an action for.</p>

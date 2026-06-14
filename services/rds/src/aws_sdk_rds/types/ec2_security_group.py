@@ -12,7 +12,7 @@ if TYPE_CHECKING:
 
 class EC2SecurityGroup(TypedDict):
     status: NotRequired["aws_sdk_rds.types.string.String"]
-    """<p>Provides the status of the EC2 security group. Status can be \"authorizing\", \"authorized\", \"revoking\", and \"revoked\".</p>"""
+    r"""<p>Provides the status of the EC2 security group. Status can be \"authorizing\", \"authorized\", \"revoking\", and \"revoked\".</p>"""
     ec2_security_group_name: NotRequired["aws_sdk_rds.types.string.String"]
     """<p>Specifies the name of the EC2 security group.</p>"""
     ec2_security_group_id: NotRequired["aws_sdk_rds.types.string.String"]

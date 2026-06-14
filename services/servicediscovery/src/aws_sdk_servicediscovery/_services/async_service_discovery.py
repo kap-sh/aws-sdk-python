@@ -236,7 +236,7 @@ class AsyncServiceDiscoveryClient:
         ] = None,
         tags: Optional["aws_sdk_servicediscovery.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_servicediscovery.types.create_http_namespace_response.CreateHttpNamespaceResponse":
-        """<p>Creates an HTTP namespace. Service instances registered using an HTTP namespace can be discovered using a <code>DiscoverInstances</code> request but can't be discovered using DNS.</p> <p>For the current quota on the number of namespaces that you can create using the same Amazon Web Services account, see <a href=\"https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html\">Cloud Map quotas</a> in the <i>Cloud Map Developer Guide</i>.</p>
+        r"""<p>Creates an HTTP namespace. Service instances registered using an HTTP namespace can be discovered using a <code>DiscoverInstances</code> request but can't be discovered using DNS.</p> <p>For the current quota on the number of namespaces that you can create using the same Amazon Web Services account, see <a href=\"https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html\">Cloud Map quotas</a> in the <i>Cloud Map Developer Guide</i>.</p>
 
         Args:
             name: <p>The name that you want to assign to this namespace.</p>
@@ -300,7 +300,7 @@ class AsyncServiceDiscoveryClient:
             "aws_sdk_servicediscovery.types.private_dns_namespace_properties.PrivateDnsNamespaceProperties"
         ] = None,
     ) -> "aws_sdk_servicediscovery.types.create_private_dns_namespace_response.CreatePrivateDnsNamespaceResponse":
-        """<p>Creates a private namespace based on DNS, which is visible only inside a specified Amazon VPC. The namespace defines your service naming scheme. For example, if you name your namespace <code>example.com</code> and name your service <code>backend</code>, the resulting DNS name for the service is <code>backend.example.com</code>. Service instances that are registered using a private DNS namespace can be discovered using either a <code>DiscoverInstances</code> request or using DNS. For the current quota on the number of namespaces that you can create using the same Amazon Web Services account, see <a href=\"https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html\">Cloud Map quotas</a> in the <i>Cloud Map Developer Guide</i>.</p>
+        r"""<p>Creates a private namespace based on DNS, which is visible only inside a specified Amazon VPC. The namespace defines your service naming scheme. For example, if you name your namespace <code>example.com</code> and name your service <code>backend</code>, the resulting DNS name for the service is <code>backend.example.com</code>. Service instances that are registered using a private DNS namespace can be discovered using either a <code>DiscoverInstances</code> request or using DNS. For the current quota on the number of namespaces that you can create using the same Amazon Web Services account, see <a href=\"https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html\">Cloud Map quotas</a> in the <i>Cloud Map Developer Guide</i>.</p>
 
         Args:
             name: <p>The name that you want to assign to this namespace. When you create a private DNS namespace, Cloud Map automatically creates an Amazon Route 53 private hosted zone that has the same name as the namespace.</p>
@@ -368,7 +368,7 @@ class AsyncServiceDiscoveryClient:
             "aws_sdk_servicediscovery.types.public_dns_namespace_properties.PublicDnsNamespaceProperties"
         ] = None,
     ) -> "aws_sdk_servicediscovery.types.create_public_dns_namespace_response.CreatePublicDnsNamespaceResponse":
-        """<p>Creates a public namespace based on DNS, which is visible on the internet. The namespace defines your service naming scheme. For example, if you name your namespace <code>example.com</code> and name your service <code>backend</code>, the resulting DNS name for the service is <code>backend.example.com</code>. You can discover instances that were registered with a public DNS namespace by using either a <code>DiscoverInstances</code> request or using DNS. For the current quota on the number of namespaces that you can create using the same Amazon Web Services account, see <a href=\"https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html\">Cloud Map quotas</a> in the <i>Cloud Map Developer Guide</i>.</p> <important> <p>The <code>CreatePublicDnsNamespace</code> API operation is not supported in the Amazon Web Services GovCloud (US) Regions.</p> </important>
+        r"""<p>Creates a public namespace based on DNS, which is visible on the internet. The namespace defines your service naming scheme. For example, if you name your namespace <code>example.com</code> and name your service <code>backend</code>, the resulting DNS name for the service is <code>backend.example.com</code>. You can discover instances that were registered with a public DNS namespace by using either a <code>DiscoverInstances</code> request or using DNS. For the current quota on the number of namespaces that you can create using the same Amazon Web Services account, see <a href=\"https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html\">Cloud Map quotas</a> in the <i>Cloud Map Developer Guide</i>.</p> <important> <p>The <code>CreatePublicDnsNamespace</code> API operation is not supported in the Amazon Web Services GovCloud (US) Regions.</p> </important>
 
         Args:
             name: <p>The name that you want to assign to this namespace.</p> <note> <p>Do not include sensitive information in the name. The name is publicly available using DNS queries.</p> </note>
@@ -444,7 +444,7 @@ class AsyncServiceDiscoveryClient:
             "aws_sdk_servicediscovery.types.service_type_option.ServiceTypeOption"
         ] = None,
     ) -> "aws_sdk_servicediscovery.types.create_service_response.CreateServiceResponse":
-        """<p>Creates a service. This action defines the configuration for the following entities:</p> <ul> <li> <p>For public and private DNS namespaces, one of the following combinations of DNS records in Amazon Route 53:</p> <ul> <li> <p> <code>A</code> </p> </li> <li> <p> <code>AAAA</code> </p> </li> <li> <p> <code>A</code> and <code>AAAA</code> </p> </li> <li> <p> <code>SRV</code> </p> </li> <li> <p> <code>CNAME</code> </p> </li> </ul> </li> <li> <p>Optionally, a health check</p> </li> </ul> <p>After you create the service, you can submit a <a href=\"https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html\">RegisterInstance</a> request, and Cloud Map uses the values in the configuration to create the specified entities.</p> <p>For the current quota on the number of instances that you can register using the same namespace and using the same service, see <a href=\"https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html\">Cloud Map quotas</a> in the <i>Cloud Map Developer Guide</i>.</p>
+        r"""<p>Creates a service. This action defines the configuration for the following entities:</p> <ul> <li> <p>For public and private DNS namespaces, one of the following combinations of DNS records in Amazon Route 53:</p> <ul> <li> <p> <code>A</code> </p> </li> <li> <p> <code>AAAA</code> </p> </li> <li> <p> <code>A</code> and <code>AAAA</code> </p> </li> <li> <p> <code>SRV</code> </p> </li> <li> <p> <code>CNAME</code> </p> </li> </ul> </li> <li> <p>Optionally, a health check</p> </li> </ul> <p>After you create the service, you can submit a <a href=\"https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html\">RegisterInstance</a> request, and Cloud Map uses the values in the configuration to create the specified entities.</p> <p>For the current quota on the number of instances that you can register using the same namespace and using the same service, see <a href=\"https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html\">Cloud Map quotas</a> in the <i>Cloud Map Developer Guide</i>.</p>
 
         Args:
             name: <p>The name that you want to assign to the service.</p> <note> <p>Do not include sensitive information in the name if the namespace is discoverable by public DNS queries.</p> </note> <p>If you want Cloud Map to create an <code>SRV</code> record when you register an instance and you're using a system that requires a specific <code>SRV</code> format, such as <a href=\"http://www.haproxy.org/\">HAProxy</a>, specify the following for <code>Name</code>:</p> <ul> <li> <p>Start the name with an underscore (_), such as <code>_exampleservice</code>.</p> </li> <li> <p>End the name with <i>._protocol</i>, such as <code>._tcp</code>.</p> </li> </ul> <p>When you register an instance, Cloud Map creates an <code>SRV</code> record and assigns a name to the record by concatenating the service name and the namespace name (for example,</p> <p> <code>_exampleservice._tcp.example.com</code>).</p> <note> <p>For services that are accessible by DNS queries, you can't create multiple services with names that differ only by case (such as EXAMPLE and example). Otherwise, these services have the same DNS name and can't be distinguished. However, if you use a namespace that's only accessible by API calls, then you can create services that with names that differ only by case.</p> </note>
@@ -564,7 +564,7 @@ class AsyncServiceDiscoveryClient:
         *,
         config_overrides: Optional[AsyncServiceDiscoveryClientConfig] = None,
     ) -> "aws_sdk_servicediscovery.types.delete_service_response.DeleteServiceResponse":
-        """<p>Deletes a specified service and all associated service attributes. If the service still contains one or more registered instances, the request fails.</p>
+        r"""<p>Deletes a specified service and all associated service attributes. If the service still contains one or more registered instances, the request fails.</p>
 
         Args:
             id: <p>The ID or Amazon Resource Name (ARN) of the service that you want to delete. If the namespace associated with the service is shared with your Amazon Web Services account, specify the service ARN. For more information about shared namespaces, see <a href=\"https://docs.aws.amazon.com/cloud-map/latest/dg/sharing-namespaces.html\">Cross-account Cloud Map namespace sharing</a>.</p>
@@ -613,7 +613,7 @@ class AsyncServiceDiscoveryClient:
         *,
         config_overrides: Optional[AsyncServiceDiscoveryClientConfig] = None,
     ) -> "aws_sdk_servicediscovery.types.delete_service_attributes_response.DeleteServiceAttributesResponse":
-        """<p>Deletes specific attributes associated with a service.</p>
+        r"""<p>Deletes specific attributes associated with a service.</p>
 
         Args:
             service_id: <p>The ID or Amazon Resource Name (ARN) of the service from which the attributes will be deleted. For services created in a namespace shared with your Amazon Web Services account, specify the service ARN. For more information about shared namespaces, see <a href=\"https://docs.aws.amazon.com/cloud-map/latest/dg/sharing-namespaces.html\">Cross-account Cloud Map namespace sharing</a> in the <i>Cloud Map Developer Guide</i>.</p>
@@ -664,7 +664,7 @@ class AsyncServiceDiscoveryClient:
         *,
         config_overrides: Optional[AsyncServiceDiscoveryClientConfig] = None,
     ) -> "aws_sdk_servicediscovery.types.deregister_instance_response.DeregisterInstanceResponse":
-        """<p>Deletes the Amazon Route 53 DNS records and health check, if any, that Cloud Map created for the specified instance.</p>
+        r"""<p>Deletes the Amazon Route 53 DNS records and health check, if any, that Cloud Map created for the specified instance.</p>
 
         Args:
             service_id: <p>The ID or Amazon Resource Name (ARN) of the service that the instance is associated with. If the namespace associated with the service is shared with your account, specify the service ARN. For more information about shared namespaces, see <a href=\"https://docs.aws.amazon.com/cloud-map/latest/dg/sharing-namespaces.html\">Cross-account Cloud Map namespace sharing</a> in the <i>Cloud Map Developer Guide</i>.</p>
@@ -799,7 +799,7 @@ class AsyncServiceDiscoveryClient:
             "aws_sdk_servicediscovery.types.aws_account_id.AWSAccountId"
         ] = None,
     ) -> "aws_sdk_servicediscovery.types.discover_instances_revision_response.DiscoverInstancesRevisionResponse":
-        """<p>Discovers the increasing revision associated with an instance.</p>
+        r"""<p>Discovers the increasing revision associated with an instance.</p>
 
         Args:
             namespace_name: <p>The <code>HttpName</code> name of the namespace. The <code>HttpName</code> is found in the <code>HttpProperties</code> member of the <code>Properties</code> member of the namespace.</p>
@@ -853,7 +853,7 @@ class AsyncServiceDiscoveryClient:
         *,
         config_overrides: Optional[AsyncServiceDiscoveryClientConfig] = None,
     ) -> "aws_sdk_servicediscovery.types.get_instance_response.GetInstanceResponse":
-        """<p>Gets information about a specified instance.</p>
+        r"""<p>Gets information about a specified instance.</p>
 
         Args:
             service_id: <p>The ID or Amazon Resource Name (ARN) of the service that the instance is associated with. For services created in a shared namespace, specify the service ARN. For more information about shared namespaces, see <a href=\"https://docs.aws.amazon.com/cloud-map/latest/dg/sharing-namespaces.html\">Cross-account Cloud Map namespace sharing</a> in the <i>Cloud Map Developer Guide</i>.</p>
@@ -912,7 +912,7 @@ class AsyncServiceDiscoveryClient:
             "aws_sdk_servicediscovery.types.next_token.NextToken"
         ] = None,
     ) -> "aws_sdk_servicediscovery.types.get_instances_health_status_response.GetInstancesHealthStatusResponse":
-        """<p>Gets the current health status (<code>Healthy</code>, <code>Unhealthy</code>, or <code>Unknown</code>) of one or more instances that are associated with a specified service.</p> <note> <p>There's a brief delay between when you register an instance and when the health status for the instance is available. </p> </note>
+        r"""<p>Gets the current health status (<code>Healthy</code>, <code>Unhealthy</code>, or <code>Unknown</code>) of one or more instances that are associated with a specified service.</p> <note> <p>There's a brief delay between when you register an instance and when the health status for the instance is available. </p> </note>
 
         Args:
             service_id: <p>The ID or Amazon Resource Name (ARN) of the service that the instance is associated with. For services created in a shared namespace, specify the service ARN. For more information about shared namespaces, see <a href=\"https://docs.aws.amazon.com/cloud-map/latest/dg/sharing-namespaces.html\">Cross-account Cloud Map namespace sharing</a> in the <i>Cloud Map Developer Guide</i>.</p>
@@ -969,7 +969,7 @@ class AsyncServiceDiscoveryClient:
         *,
         config_overrides: Optional[AsyncServiceDiscoveryClientConfig] = None,
     ) -> "aws_sdk_servicediscovery.types.get_namespace_response.GetNamespaceResponse":
-        """<p>Gets information about a namespace.</p>
+        r"""<p>Gets information about a namespace.</p>
 
         Args:
             id: <p>The ID or Amazon Resource Name (ARN) of the namespace that you want to get information about. For namespaces shared with your Amazon Web Services account, specify the namespace ARN. For more information about shared namespaces, see <a href=\"https://docs.aws.amazon.com/cloud-map/latest/dg/sharing-namespaces.html\">Cross-account Cloud Map namespace sharing</a> in the <i>Cloud Map Developer Guide</i> </p>
@@ -1010,7 +1010,7 @@ class AsyncServiceDiscoveryClient:
             "aws_sdk_servicediscovery.types.aws_account_id.AWSAccountId"
         ] = None,
     ) -> "aws_sdk_servicediscovery.types.get_operation_response.GetOperationResponse":
-        """<p>Gets information about any operation that returns an operation ID in the response, such as a <code>CreateHttpNamespace</code> request.</p> <note> <p>To get a list of operations that match specified criteria, see <a href=\"https://docs.aws.amazon.com/cloud-map/latest/api/API_ListOperations.html\">ListOperations</a>.</p> </note>
+        r"""<p>Gets information about any operation that returns an operation ID in the response, such as a <code>CreateHttpNamespace</code> request.</p> <note> <p>To get a list of operations that match specified criteria, see <a href=\"https://docs.aws.amazon.com/cloud-map/latest/api/API_ListOperations.html\">ListOperations</a>.</p> </note>
 
         Args:
             operation_id: <p>The ID of the operation that you want to get more information about.</p>
@@ -1057,7 +1057,7 @@ class AsyncServiceDiscoveryClient:
         *,
         config_overrides: Optional[AsyncServiceDiscoveryClientConfig] = None,
     ) -> "aws_sdk_servicediscovery.types.get_service_response.GetServiceResponse":
-        """<p>Gets the settings for a specified service.</p>
+        r"""<p>Gets the settings for a specified service.</p>
 
         Args:
             id: <p>The ID or Amazon Resource Name (ARN) of the service that you want to get settings for. For services created by consumers in a shared namespace, specify the service ARN. For more information about shared namespaces, see <a href=\"https://docs.aws.amazon.com/cloud-map/latest/dg/sharing-namespaces.html\">Cross-account Cloud Map namespace sharing</a> in the <i>Cloud Map Developer Guide</i>.</p>
@@ -1101,7 +1101,7 @@ class AsyncServiceDiscoveryClient:
         *,
         config_overrides: Optional[AsyncServiceDiscoveryClientConfig] = None,
     ) -> "aws_sdk_servicediscovery.types.get_service_attributes_response.GetServiceAttributesResponse":
-        """<p>Returns the attributes associated with a specified service.</p>
+        r"""<p>Returns the attributes associated with a specified service.</p>
 
         Args:
             service_id: <p>The ID or Amazon Resource Name (ARN) of the service that you want to get attributes for. For services created in a namespace shared with your Amazon Web Services account, specify the service ARN. For more information about shared namespaces, see <a href=\"https://docs.aws.amazon.com/cloud-map/latest/dg/sharing-namespaces.html\">Cross-account Cloud Map namespace sharing</a> in the <i>Cloud Map Developer Guide</i>.</p>
@@ -1155,7 +1155,7 @@ class AsyncServiceDiscoveryClient:
             "aws_sdk_servicediscovery.types.max_results.MaxResults"
         ] = None,
     ) -> "aws_sdk_servicediscovery.types.list_instances_response.ListInstancesResponse":
-        """<p>Lists summary information about the instances that you registered by using a specified service.</p>
+        r"""<p>Lists summary information about the instances that you registered by using a specified service.</p>
 
         Args:
             service_id: <p>The ID or Amazon Resource Name (ARN) of the service that you want to list instances for. For services created in a shared namespace, specify the service ARN. For more information about shared namespaces, see <a href=\"https://docs.aws.amazon.com/cloud-map/latest/dg/sharing-namespaces.html\">Cross-account Cloud Map namespace sharing</a> in the <i>Cloud Map Developer Guide</i>.</p>
@@ -1443,7 +1443,7 @@ class AsyncServiceDiscoveryClient:
             "aws_sdk_servicediscovery.types.resource_id.ResourceId"
         ] = None,
     ) -> "aws_sdk_servicediscovery.types.register_instance_response.RegisterInstanceResponse":
-        """<p>Creates or updates one or more records and, optionally, creates a health check based on the settings in a specified service. When you submit a <code>RegisterInstance</code> request, the following occurs:</p> <ul> <li> <p>For each DNS record that you define in the service that's specified by <code>ServiceId</code>, a record is created or updated in the hosted zone that's associated with the corresponding namespace.</p> </li> <li> <p>If the service includes <code>HealthCheckConfig</code>, a health check is created based on the settings in the health check configuration.</p> </li> <li> <p>The health check, if any, is associated with each of the new or updated records.</p> </li> </ul> <important> <p>One <code>RegisterInstance</code> request must complete before you can submit another request and specify the same service ID and instance ID.</p> </important> <p>For more information, see <a href=\"https://docs.aws.amazon.com/cloud-map/latest/api/API_CreateService.html\">CreateService</a>.</p> <p>When Cloud Map receives a DNS query for the specified DNS name, it returns the applicable value:</p> <ul> <li> <p> <b>If the health check is healthy</b>: returns all the records</p> </li> <li> <p> <b>If the health check is unhealthy</b>: returns the applicable value for the last healthy instance</p> </li> <li> <p> <b>If you didn't specify a health check configuration</b>: returns all the records</p> </li> </ul> <p>For the current quota on the number of instances that you can register using the same namespace and using the same service, see <a href=\"https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html\">Cloud Map quotas</a> in the <i>Cloud Map Developer Guide</i>.</p>
+        r"""<p>Creates or updates one or more records and, optionally, creates a health check based on the settings in a specified service. When you submit a <code>RegisterInstance</code> request, the following occurs:</p> <ul> <li> <p>For each DNS record that you define in the service that's specified by <code>ServiceId</code>, a record is created or updated in the hosted zone that's associated with the corresponding namespace.</p> </li> <li> <p>If the service includes <code>HealthCheckConfig</code>, a health check is created based on the settings in the health check configuration.</p> </li> <li> <p>The health check, if any, is associated with each of the new or updated records.</p> </li> </ul> <important> <p>One <code>RegisterInstance</code> request must complete before you can submit another request and specify the same service ID and instance ID.</p> </important> <p>For more information, see <a href=\"https://docs.aws.amazon.com/cloud-map/latest/api/API_CreateService.html\">CreateService</a>.</p> <p>When Cloud Map receives a DNS query for the specified DNS name, it returns the applicable value:</p> <ul> <li> <p> <b>If the health check is healthy</b>: returns all the records</p> </li> <li> <p> <b>If the health check is unhealthy</b>: returns the applicable value for the last healthy instance</p> </li> <li> <p> <b>If you didn't specify a health check configuration</b>: returns all the records</p> </li> </ul> <p>For the current quota on the number of instances that you can register using the same namespace and using the same service, see <a href=\"https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html\">Cloud Map quotas</a> in the <i>Cloud Map Developer Guide</i>.</p>
 
         Args:
             service_id: <p>The ID or Amazon Resource Name (ARN) of the service that you want to use for settings for the instance. For services created in a shared namespace, specify the service ARN. For more information about shared namespaces, see <a href=\"https://docs.aws.amazon.com/cloud-map/latest/dg/sharing-namespaces.html\">Cross-account Cloud Map namespace sharing</a> in the <i>Cloud Map Developer Guide</i>.</p>
@@ -1651,7 +1651,7 @@ class AsyncServiceDiscoveryClient:
         *,
         config_overrides: Optional[AsyncServiceDiscoveryClientConfig] = None,
     ) -> None:
-        """<p>Submits a request to change the health status of a custom health check to healthy or unhealthy.</p> <p>You can use <code>UpdateInstanceCustomHealthStatus</code> to change the status only for custom health checks, which you define using <code>HealthCheckCustomConfig</code> when you create a service. You can't use it to change the status for Route 53 health checks, which you define using <code>HealthCheckConfig</code>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/cloud-map/latest/api/API_HealthCheckCustomConfig.html\">HealthCheckCustomConfig</a>.</p>
+        r"""<p>Submits a request to change the health status of a custom health check to healthy or unhealthy.</p> <p>You can use <code>UpdateInstanceCustomHealthStatus</code> to change the status only for custom health checks, which you define using <code>HealthCheckCustomConfig</code> when you create a service. You can't use it to change the status for Route 53 health checks, which you define using <code>HealthCheckConfig</code>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/cloud-map/latest/api/API_HealthCheckCustomConfig.html\">HealthCheckCustomConfig</a>.</p>
 
         Args:
             service_id: <p>The ID or Amazon Resource Name (ARN) of the service that includes the configuration for the custom health check that you want to change the status for. For services created in a shared namespace, specify the service ARN. For more information about shared namespaces, see <a href=\"https://docs.aws.amazon.com/cloud-map/latest/dg/sharing-namespaces.html\">Cross-account Cloud Map namespace sharing</a> in the <i>Cloud Map Developer Guide</i>.</p>
@@ -1816,7 +1816,7 @@ class AsyncServiceDiscoveryClient:
         *,
         config_overrides: Optional[AsyncServiceDiscoveryClientConfig] = None,
     ) -> "aws_sdk_servicediscovery.types.update_service_response.UpdateServiceResponse":
-        """<p>Submits a request to perform the following operations:</p> <ul> <li> <p>Update the TTL setting for existing <code>DnsRecords</code> configurations</p> </li> <li> <p>Add, update, or delete <code>HealthCheckConfig</code> for a specified service</p> <note> <p>You can't add, update, or delete a <code>HealthCheckCustomConfig</code> configuration.</p> </note> </li> </ul> <p>For public and private DNS namespaces, note the following:</p> <ul> <li> <p>If you omit any existing <code>DnsRecords</code> or <code>HealthCheckConfig</code> configurations from an <code>UpdateService</code> request, the configurations are deleted from the service.</p> </li> <li> <p>If you omit an existing <code>HealthCheckCustomConfig</code> configuration from an <code>UpdateService</code> request, the configuration isn't deleted from the service.</p> </li> </ul> <note> <p>You can't call <code>UpdateService</code> and update settings in the following scenarios:</p> <ul> <li> <p>When the service is associated with an HTTP namespace</p> </li> <li> <p>When the service is associated with a shared namespace and contains instances that were registered by Amazon Web Services accounts other than the account making the <code>UpdateService</code> call</p> </li> </ul> </note> <p>When you update settings for a service, Cloud Map also updates the corresponding settings in all the records and health checks that were created by using the specified service.</p>
+        r"""<p>Submits a request to perform the following operations:</p> <ul> <li> <p>Update the TTL setting for existing <code>DnsRecords</code> configurations</p> </li> <li> <p>Add, update, or delete <code>HealthCheckConfig</code> for a specified service</p> <note> <p>You can't add, update, or delete a <code>HealthCheckCustomConfig</code> configuration.</p> </note> </li> </ul> <p>For public and private DNS namespaces, note the following:</p> <ul> <li> <p>If you omit any existing <code>DnsRecords</code> or <code>HealthCheckConfig</code> configurations from an <code>UpdateService</code> request, the configurations are deleted from the service.</p> </li> <li> <p>If you omit an existing <code>HealthCheckCustomConfig</code> configuration from an <code>UpdateService</code> request, the configuration isn't deleted from the service.</p> </li> </ul> <note> <p>You can't call <code>UpdateService</code> and update settings in the following scenarios:</p> <ul> <li> <p>When the service is associated with an HTTP namespace</p> </li> <li> <p>When the service is associated with a shared namespace and contains instances that were registered by Amazon Web Services accounts other than the account making the <code>UpdateService</code> call</p> </li> </ul> </note> <p>When you update settings for a service, Cloud Map also updates the corresponding settings in all the records and health checks that were created by using the specified service.</p>
 
         Args:
             id: <p>The ID or Amazon Resource Name (ARN) of the service that you want to update. If the namespace associated with the service is shared with your Amazon Web Services account, specify the service ARN. For more information about shared namespaces, see <a href=\"https://docs.aws.amazon.com/cloud-map/latest/dg/sharing-namespaces.html\">Cross-account Cloud Map namespace sharing</a> in the <i>Cloud Map Developer Guide</i> </p>

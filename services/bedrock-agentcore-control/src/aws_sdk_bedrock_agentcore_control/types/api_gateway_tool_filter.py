@@ -1,9 +1,12 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#ApiGatewayToolFilter``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.rest_api_methods
+
 
 class ApiGatewayToolFilter(TypedDict):
     filter_path: "str"
@@ -11,12 +14,18 @@ class ApiGatewayToolFilter(TypedDict):
     methods: "aws_sdk_bedrock_agentcore_control.types.rest_api_methods.RestApiMethods"
     """<p>The methods to filter for.</p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: ApiGatewayToolFilter) -> dict:
     out: dict = {}
     out["filterPath"] = value["filter_path"]
     import aws_sdk_bedrock_agentcore_control.types.rest_api_methods
-    out["methods"] = aws_sdk_bedrock_agentcore_control.types.rest_api_methods.serialize_json(value["methods"])
+
+    out["methods"] = (
+        aws_sdk_bedrock_agentcore_control.types.rest_api_methods.serialize_json(
+            value["methods"]
+        )
+    )
     return out
 
 
@@ -28,7 +37,12 @@ def deserialize_json(data: dict) -> ApiGatewayToolFilter:
         raise DeserializationError("ApiGatewayToolFilter.filter_path required")
     if "methods" in data:
         import aws_sdk_bedrock_agentcore_control.types.rest_api_methods
-        out["methods"] = aws_sdk_bedrock_agentcore_control.types.rest_api_methods.deserialize_json(data["methods"])
+
+        out["methods"] = (
+            aws_sdk_bedrock_agentcore_control.types.rest_api_methods.deserialize_json(
+                data["methods"]
+            )
+        )
     else:
         raise DeserializationError("ApiGatewayToolFilter.methods required")
     return out

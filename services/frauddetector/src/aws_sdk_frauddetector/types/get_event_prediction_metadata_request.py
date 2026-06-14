@@ -20,7 +20,7 @@ class GetEventPredictionMetadataRequest(TypedDict):
     detector_version_id: "aws_sdk_frauddetector.types.whole_number_version_string.wholeNumberVersionString"
     """<p> The detector version ID. </p>"""
     prediction_timestamp: "aws_sdk_frauddetector.types.time.time"
-    """<p> The timestamp that defines when the prediction was generated. The timestamp must be specified using ISO 8601 standard in UTC.</p> <p>We recommend calling <a href=\"https://docs.aws.amazon.com/frauddetector/latest/api/API_ListEventPredictions.html\">ListEventPredictions</a> first, and using the <code>predictionTimestamp</code> value in the response to provide an accurate prediction timestamp value.</p>"""
+    r"""<p> The timestamp that defines when the prediction was generated. The timestamp must be specified using ISO 8601 standard in UTC.</p> <p>We recommend calling <a href=\"https://docs.aws.amazon.com/frauddetector/latest/api/API_ListEventPredictions.html\">ListEventPredictions</a> first, and using the <code>predictionTimestamp</code> value in the response to provide an accurate prediction timestamp value.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

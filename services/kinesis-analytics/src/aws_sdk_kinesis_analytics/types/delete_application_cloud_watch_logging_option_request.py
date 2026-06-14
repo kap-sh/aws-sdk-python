@@ -18,7 +18,7 @@ class DeleteApplicationCloudWatchLoggingOptionRequest(TypedDict):
     )
     """<p>The version ID of the Kinesis Analytics application.</p>"""
     cloud_watch_logging_option_id: "aws_sdk_kinesis_analytics.types.id.Id"
-    """<p>The <code>CloudWatchLoggingOptionId</code> of the CloudWatch logging option to delete. You can get the <code>CloudWatchLoggingOptionId</code> by using the <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html\">DescribeApplication</a> operation. </p>"""
+    r"""<p>The <code>CloudWatchLoggingOptionId</code> of the CloudWatch logging option to delete. You can get the <code>CloudWatchLoggingOptionId</code> by using the <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html\">DescribeApplication</a> operation. </p>"""
 
 
 # --- awsJson1_1 ser/de ---

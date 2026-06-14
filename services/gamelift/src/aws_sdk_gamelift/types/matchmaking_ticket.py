@@ -27,7 +27,7 @@ class MatchmakingTicket(TypedDict):
     configuration_arn: NotRequired[
         "aws_sdk_gamelift.types.matchmaking_configuration_arn.MatchmakingConfigurationArn"
     ]
-    """<p>The Amazon Resource Name (<a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html\">ARN</a>) associated with the GameLift matchmaking configuration resource that is used with this ticket.</p>"""
+    r"""<p>The Amazon Resource Name (<a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html\">ARN</a>) associated with the GameLift matchmaking configuration resource that is used with this ticket.</p>"""
     status: NotRequired[
         "aws_sdk_gamelift.types.matchmaking_configuration_status.MatchmakingConfigurationStatus"
     ]
@@ -37,15 +37,15 @@ class MatchmakingTicket(TypedDict):
     status_message: NotRequired["aws_sdk_gamelift.types.string_model.StringModel"]
     """<p>Additional information about the current status.</p>"""
     start_time: NotRequired["aws_sdk_gamelift.types.timestamp.Timestamp"]
-    """<p>Time stamp indicating when this matchmaking request was received. Format is a number expressed in Unix time as milliseconds (for example <code>\"1469498468.057\"</code>).</p>"""
+    r"""<p>Time stamp indicating when this matchmaking request was received. Format is a number expressed in Unix time as milliseconds (for example <code>\"1469498468.057\"</code>).</p>"""
     end_time: NotRequired["aws_sdk_gamelift.types.timestamp.Timestamp"]
-    """<p>Time stamp indicating when the matchmaking request stopped being processed due to successful completion, timeout, or cancellation. Format is a number expressed in Unix time as milliseconds (for example <code>\"1469498468.057\"</code>).</p>"""
+    r"""<p>Time stamp indicating when the matchmaking request stopped being processed due to successful completion, timeout, or cancellation. Format is a number expressed in Unix time as milliseconds (for example <code>\"1469498468.057\"</code>).</p>"""
     players: NotRequired["aws_sdk_gamelift.types.player_list.PlayerList"]
     """<p>A set of <code>Player</code> objects, each representing a player to find matches for. Players are identified by a unique player ID and may include latency data for use during matchmaking. If the ticket is in status <code>COMPLETED</code>, the <code>Player</code> objects include the team the players were assigned to in the resulting match.</p>"""
     game_session_connection_info: NotRequired[
         "aws_sdk_gamelift.types.game_session_connection_info.GameSessionConnectionInfo"
     ]
-    """<p>Connection information for a new game session. Once a match is made, the FlexMatch engine creates a new game session for it. This information is added to the matchmaking ticket, which you can be retrieve by calling <a href=\"https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeMatchmaking.html\">DescribeMatchmaking</a> .</p>"""
+    r"""<p>Connection information for a new game session. Once a match is made, the FlexMatch engine creates a new game session for it. This information is added to the matchmaking ticket, which you can be retrieve by calling <a href=\"https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeMatchmaking.html\">DescribeMatchmaking</a> .</p>"""
     estimated_wait_time: NotRequired["aws_sdk_gamelift.types.whole_number.WholeNumber"]
     """<p>Average amount of time (in seconds) that players are currently waiting for a match. If there is not enough recent data, this property may be empty.</p>"""
 

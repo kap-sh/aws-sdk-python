@@ -152,7 +152,7 @@ class CognitoIdentityClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = CognitoIdentityClientConfig(
+        self._config = CognitoIdentityClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -172,7 +172,7 @@ class CognitoIdentityClient:
         overrides: CognitoIdentityClientConfig = config_overrides or {}
         interceptors_: list[Interceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             retry(),
         ]
@@ -180,16 +180,16 @@ class CognitoIdentityClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            region=overrides.get("region", self.config.get("region")),
+            region=overrides.get("region", self._config.get("region")),
             use_dual_stack=overrides.get(
-                "use_dual_stack", self.config.get("use_dual_stack")
+                "use_dual_stack", self._config.get("use_dual_stack")
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -222,7 +222,7 @@ class CognitoIdentityClient:
             "aws_sdk_cognito_identity.types.identity_pool_tags_type.IdentityPoolTagsType"
         ] = None,
     ) -> "aws_sdk_cognito_identity.types.identity_pool.IdentityPool":
-        """<p>Creates a new identity pool. The identity pool is a store of user identity information that is specific to your Amazon Web Services account. The keys for <code>SupportedLoginProviders</code> are as follows:</p> <ul> <li> <p>Facebook: <code>graph.facebook.com</code> </p> </li> <li> <p>Google: <code>accounts.google.com</code> </p> </li> <li> <p>Sign in With Apple: <code>appleid.apple.com</code> </p> </li> <li> <p>Amazon: <code>www.amazon.com</code> </p> </li> <li> <p>Twitter: <code>api.twitter.com</code> </p> </li> <li> <p>Digits: <code>www.digits.com</code> </p> </li> </ul> <important> <p>If you don't provide a value for a parameter, Amazon Cognito sets it to its default value. </p> </important> <p>You must use Amazon Web Services developer credentials to call this operation.</p>
+        r"""<p>Creates a new identity pool. The identity pool is a store of user identity information that is specific to your Amazon Web Services account. The keys for <code>SupportedLoginProviders</code> are as follows:</p> <ul> <li> <p>Facebook: <code>graph.facebook.com</code> </p> </li> <li> <p>Google: <code>accounts.google.com</code> </p> </li> <li> <p>Sign in With Apple: <code>appleid.apple.com</code> </p> </li> <li> <p>Amazon: <code>www.amazon.com</code> </p> </li> <li> <p>Twitter: <code>api.twitter.com</code> </p> </li> <li> <p>Digits: <code>www.digits.com</code> </p> </li> </ul> <important> <p>If you don't provide a value for a parameter, Amazon Cognito sets it to its default value. </p> </important> <p>You must use Amazon Web Services developer credentials to call this operation.</p>
 
         Args:
             identity_pool_name: <p>A string that you provide.</p>
@@ -432,7 +432,7 @@ class CognitoIdentityClient:
             "aws_sdk_cognito_identity.types.arn_string.ARNString"
         ] = None,
     ) -> "aws_sdk_cognito_identity.types.get_credentials_for_identity_response.GetCredentialsForIdentityResponse":
-        """<p>Returns credentials for the provided identity ID. Any provided logins will be validated against supported login providers. If the token is for <code>cognito-identity.amazonaws.com</code>, it will be passed through to Security Token Service with the appropriate role for the token.</p> <p>This is a public API. You do not need any credentials to call this API.</p>
+        r"""<p>Returns credentials for the provided identity ID. Any provided logins will be validated against supported login providers. If the token is for <code>cognito-identity.amazonaws.com</code>, it will be passed through to Security Token Service with the appropriate role for the token.</p> <p>This is a public API. You do not need any credentials to call this API.</p>
 
         Args:
             identity_id: <p>A unique identifier in the format REGION:GUID.</p>
@@ -610,7 +610,7 @@ class CognitoIdentityClient:
             "aws_sdk_cognito_identity.types.token_duration.TokenDuration"
         ] = None,
     ) -> "aws_sdk_cognito_identity.types.get_open_id_token_for_developer_identity_response.GetOpenIdTokenForDeveloperIdentityResponse":
-        """<p>Registers (or retrieves) a Cognito <code>IdentityId</code> and an OpenID Connect token for a user authenticated by your backend authentication process. Supplying multiple logins will create an implicit linked account. You can only specify one developer provider as part of the <code>Logins</code> map, which is linked to the identity pool. The developer provider is the \"domain\" by which Cognito will refer to your users.</p> <p>You can use <code>GetOpenIdTokenForDeveloperIdentity</code> to create a new identity and to link new logins (that is, user credentials issued by a public provider or developer provider) to an existing identity. When you want to create a new identity, the <code>IdentityId</code> should be null. When you want to associate a new login with an existing authenticated/unauthenticated identity, you can do so by providing the existing <code>IdentityId</code>. This API will create the identity in the specified <code>IdentityPoolId</code>.</p> <p>You must use Amazon Web Services developer credentials to call this operation.</p>
+        r"""<p>Registers (or retrieves) a Cognito <code>IdentityId</code> and an OpenID Connect token for a user authenticated by your backend authentication process. Supplying multiple logins will create an implicit linked account. You can only specify one developer provider as part of the <code>Logins</code> map, which is linked to the identity pool. The developer provider is the \"domain\" by which Cognito will refer to your users.</p> <p>You can use <code>GetOpenIdTokenForDeveloperIdentity</code> to create a new identity and to link new logins (that is, user credentials issued by a public provider or developer provider) to an existing identity. When you want to create a new identity, the <code>IdentityId</code> should be null. When you want to associate a new login with an existing authenticated/unauthenticated identity, you can do so by providing the existing <code>IdentityId</code>. This API will create the identity in the specified <code>IdentityPoolId</code>.</p> <p>You must use Amazon Web Services developer credentials to call this operation.</p>
 
         Args:
             identity_pool_id: <p>An identity pool ID in the format REGION:GUID.</p>
@@ -919,7 +919,7 @@ class CognitoIdentityClient:
         *,
         config_overrides: Optional[CognitoIdentityClientConfig] = None,
     ) -> "aws_sdk_cognito_identity.types.merge_developer_identities_response.MergeDeveloperIdentitiesResponse":
-        """<p>Merges two users having different <code>IdentityId</code>s, existing in the same identity pool, and identified by the same developer provider. You can use this action to request that discrete users be merged and identified as a single user in the Cognito environment. Cognito associates the given source user (<code>SourceUserIdentifier</code>) with the <code>IdentityId</code> of the <code>DestinationUserIdentifier</code>. Only developer-authenticated users can be merged. If the users to be merged are associated with the same public provider, but as two different users, an exception will be thrown.</p> <p>The number of linked logins is limited to 20. So, the number of linked logins for the source user, <code>SourceUserIdentifier</code>, and the destination user, <code>DestinationUserIdentifier</code>, together should not be larger than 20. Otherwise, an exception will be thrown.</p> <p>You must use Amazon Web Services developer credentials to call this operation.</p>
+        r"""<p>Merges two users having different <code>IdentityId</code>s, existing in the same identity pool, and identified by the same developer provider. You can use this action to request that discrete users be merged and identified as a single user in the Cognito environment. Cognito associates the given source user (<code>SourceUserIdentifier</code>) with the <code>IdentityId</code> of the <code>DestinationUserIdentifier</code>. Only developer-authenticated users can be merged. If the users to be merged are associated with the same public provider, but as two different users, an exception will be thrown.</p> <p>The number of linked logins is limited to 20. So, the number of linked logins for the source user, <code>SourceUserIdentifier</code>, and the destination user, <code>DestinationUserIdentifier</code>, together should not be larger than 20. Otherwise, an exception will be thrown.</p> <p>You must use Amazon Web Services developer credentials to call this operation.</p>
 
         Args:
             source_user_identifier: <p>User identifier for the source user. The value should be a <code>DeveloperUserIdentifier</code>.</p>
@@ -966,7 +966,7 @@ class CognitoIdentityClient:
             "aws_sdk_cognito_identity.types.role_mapping_map.RoleMappingMap"
         ] = None,
     ) -> None:
-        """<p>Sets the roles for an identity pool. These roles are used when making calls to <a>GetCredentialsForIdentity</a> action.</p> <p>You must use Amazon Web Services developer credentials to call this operation.</p>
+        r"""<p>Sets the roles for an identity pool. These roles are used when making calls to <a>GetCredentialsForIdentity</a> action.</p> <p>You must use Amazon Web Services developer credentials to call this operation.</p>
 
         Args:
             identity_pool_id: <p>An identity pool ID in the format REGION:GUID.</p>
@@ -1101,7 +1101,7 @@ class CognitoIdentityClient:
         *,
         config_overrides: Optional[CognitoIdentityClientConfig] = None,
     ) -> None:
-        """<p>Unlinks a <code>DeveloperUserIdentifier</code> from an existing identity. Unlinked developer users will be considered new identities next time they are seen. If, for a given Cognito identity, you remove all federated identities as well as the developer user identifier, the Cognito identity becomes inaccessible.</p> <p>You must use Amazon Web Services developer credentials to call this operation.</p>
+        r"""<p>Unlinks a <code>DeveloperUserIdentifier</code> from an existing identity. Unlinked developer users will be considered new identities next time they are seen. If, for a given Cognito identity, you remove all federated identities as well as the developer user identifier, the Cognito identity becomes inaccessible.</p> <p>You must use Amazon Web Services developer credentials to call this operation.</p>
 
         Args:
             identity_id: <p>A unique identifier in the format REGION:GUID.</p>
@@ -1246,7 +1246,7 @@ class CognitoIdentityClient:
             "aws_sdk_cognito_identity.types.identity_pool_tags_type.IdentityPoolTagsType"
         ] = None,
     ) -> "aws_sdk_cognito_identity.types.identity_pool.IdentityPool":
-        """<p>Updates the configuration of an identity pool.</p> <important> <p>If you don't provide a value for a parameter, Amazon Cognito sets it to its default value. </p> </important> <p>You must use Amazon Web Services developer credentials to call this operation.</p>
+        r"""<p>Updates the configuration of an identity pool.</p> <important> <p>If you don't provide a value for a parameter, Amazon Cognito sets it to its default value. </p> </important> <p>You must use Amazon Web Services developer credentials to call this operation.</p>
 
         Args:
             identity_pool_id: <p>An identity pool ID in the format REGION:GUID.</p>

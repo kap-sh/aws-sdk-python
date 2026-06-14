@@ -12,7 +12,7 @@ class DeleteMatchmakingRuleSetInput(TypedDict):
     name: NotRequired[
         "aws_sdk_gamelift.types.matchmaking_rule_set_name.MatchmakingRuleSetName"
     ]
-    """<p>A unique identifier for the matchmaking rule set to be deleted. (Note: The rule set name is different from the optional \"name\" field in the rule set body.) You can use either the rule set name or ARN value.</p>"""
+    r"""<p>A unique identifier for the matchmaking rule set to be deleted. (Note: The rule set name is different from the optional \"name\" field in the rule set body.) You can use either the rule set name or ARN value.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

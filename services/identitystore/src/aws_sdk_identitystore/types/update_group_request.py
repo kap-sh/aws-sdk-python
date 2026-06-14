@@ -16,7 +16,7 @@ class UpdateGroupRequest(TypedDict):
     group_id: "aws_sdk_identitystore.types.resource_id.ResourceId"
     """<p>The identifier for a group in the identity store.</p>"""
     operations: "aws_sdk_identitystore.types.attribute_operations.AttributeOperations"
-    """<p>A list of <code>AttributeOperation</code> objects to apply to the requested group. These operations might add, replace, or remove an attribute. For more information on the attributes that can be added, replaced, or removed, see <a href=\"https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html\">Group</a>.</p>"""
+    r"""<p>A list of <code>AttributeOperation</code> objects to apply to the requested group. These operations might add, replace, or remove an attribute. For more information on the attributes that can be added, replaced, or removed, see <a href=\"https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html\">Group</a>.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

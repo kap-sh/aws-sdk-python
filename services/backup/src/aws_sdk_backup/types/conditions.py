@@ -12,15 +12,15 @@ class Conditions(TypedDict):
     string_equals: NotRequired[
         "aws_sdk_backup.types.condition_parameters.ConditionParameters"
     ]
-    """<p>Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called \"exact matching.\"</p>"""
+    r"""<p>Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called \"exact matching.\"</p>"""
     string_not_equals: NotRequired[
         "aws_sdk_backup.types.condition_parameters.ConditionParameters"
     ]
-    """<p>Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called \"negated matching.\"</p>"""
+    r"""<p>Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called \"negated matching.\"</p>"""
     string_like: NotRequired[
         "aws_sdk_backup.types.condition_parameters.ConditionParameters"
     ]
-    """<p>Filters the values of your tagged resources for matching tag values with the use of a wildcard character (*) anywhere in the string. For example, \"prod*\" or \"*rod*\" matches the tag value \"production\".</p>"""
+    r"""<p>Filters the values of your tagged resources for matching tag values with the use of a wildcard character (*) anywhere in the string. For example, \"prod*\" or \"*rod*\" matches the tag value \"production\".</p>"""
     string_not_like: NotRequired[
         "aws_sdk_backup.types.condition_parameters.ConditionParameters"
     ]

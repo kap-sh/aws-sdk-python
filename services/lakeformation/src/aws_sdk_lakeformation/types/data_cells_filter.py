@@ -27,7 +27,7 @@ class DataCellsFilter(TypedDict):
     row_filter: NotRequired["aws_sdk_lakeformation.types.row_filter.RowFilter"]
     """<p>A PartiQL predicate.</p>"""
     column_names: NotRequired["aws_sdk_lakeformation.types.column_names.ColumnNames"]
-    """<p>A list of column names and/or nested column attributes. When specifying nested attributes, use a qualified dot (.) delimited format such as \"address\".\"zip\". Nested attributes within this list may not exceed a depth of 5.</p>"""
+    r"""<p>A list of column names and/or nested column attributes. When specifying nested attributes, use a qualified dot (.) delimited format such as \"address\".\"zip\". Nested attributes within this list may not exceed a depth of 5.</p>"""
     column_wildcard: NotRequired[
         "aws_sdk_lakeformation.types.column_wildcard.ColumnWildcard"
     ]

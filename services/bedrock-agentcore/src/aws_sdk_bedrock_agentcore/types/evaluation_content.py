@@ -1,12 +1,16 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#EvaluationContent``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TypeAlias, TypedDict
+
 from aws_sdk_bedrock_agentcore.errors import DeserializationError, SerializationError
+
 
 class _EvaluationContent_text(TypedDict):
     text: "str"
 
+
 EvaluationContent: TypeAlias = _EvaluationContent_text
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: EvaluationContent) -> dict:

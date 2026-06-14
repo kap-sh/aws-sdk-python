@@ -15,7 +15,7 @@ class Grok(TypedDict):
     source: NotRequired["aws_sdk_cloudwatch_logs.types.source.Source"]
     """<p>The path to the field in the log event that you want to parse. If you omit this value, the whole log message is parsed.</p>"""
     match: "aws_sdk_cloudwatch_logs.types.grok_match.GrokMatch"
-    """<p>The grok pattern to match against the log event. For a list of supported grok patterns, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Configurable.html#CloudWatch-Logs-Transformation-Grok\">Supported grok patterns</a>.</p>"""
+    r"""<p>The grok pattern to match against the log event. For a list of supported grok patterns, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Configurable.html#CloudWatch-Logs-Transformation-Grok\">Supported grok patterns</a>.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

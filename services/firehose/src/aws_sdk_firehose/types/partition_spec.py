@@ -10,7 +10,7 @@ if TYPE_CHECKING:
 
 class PartitionSpec(TypedDict):
     identity: NotRequired["aws_sdk_firehose.types.partition_fields.PartitionFields"]
-    """<p> List of identity <a href=\"https://iceberg.apache.org/spec/#partition-transforms\">transforms</a> that performs an identity transformation. The transform takes the source value, and does not modify it. Result type is the source type.</p> <p>Amazon Data Firehose is in preview release and is subject to change.</p>"""
+    r"""<p> List of identity <a href=\"https://iceberg.apache.org/spec/#partition-transforms\">transforms</a> that performs an identity transformation. The transform takes the source value, and does not modify it. Result type is the source type.</p> <p>Amazon Data Firehose is in preview release and is subject to change.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

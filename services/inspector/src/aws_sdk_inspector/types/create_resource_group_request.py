@@ -10,7 +10,7 @@ if TYPE_CHECKING:
 
 class CreateResourceGroupRequest(TypedDict):
     resource_group_tags: "aws_sdk_inspector.types.resource_group_tags.ResourceGroupTags"
-    """<p>A collection of keys and an array of possible values, '[{\"key\":\"key1\",\"values\":[\"Value1\",\"Value2\"]},{\"key\":\"Key2\",\"values\":[\"Value3\"]}]'.</p> <p>For example,'[{\"key\":\"Name\",\"values\":[\"TestEC2Instance\"]}]'.</p>"""
+    r"""<p>A collection of keys and an array of possible values, '[{\"key\":\"key1\",\"values\":[\"Value1\",\"Value2\"]},{\"key\":\"Key2\",\"values\":[\"Value3\"]}]'.</p> <p>For example,'[{\"key\":\"Name\",\"values\":[\"TestEC2Instance\"]}]'.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

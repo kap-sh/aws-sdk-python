@@ -20,7 +20,7 @@ class ListSlotTypesRequest(TypedDict):
     bot_version: "aws_sdk_lex_models_v2.types.bot_version.BotVersion"
     """<p>The version of the bot that contains the slot type.</p>"""
     locale_id: "aws_sdk_lex_models_v2.types.locale_id.LocaleId"
-    """<p>The identifier of the language and locale of the slot types to list. The string must match one of the supported locales. For more information, see <a href=\"https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html\">Supported languages</a>.</p>"""
+    r"""<p>The identifier of the language and locale of the slot types to list. The string must match one of the supported locales. For more information, see <a href=\"https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html\">Supported languages</a>.</p>"""
     sort_by: NotRequired["aws_sdk_lex_models_v2.types.slot_type_sort_by.SlotTypeSortBy"]
     """<p>Determines the sort order for the response from the <code>ListSlotTypes</code> operation. You can choose to sort by the slot type name or last updated date in either ascending or descending order.</p>"""
     filters: NotRequired[

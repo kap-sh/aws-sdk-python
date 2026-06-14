@@ -1,11 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.appintegrations#ListApplicationAssociationsRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_appintegrations.types.arn_or_uuid
     import aws_sdk_appintegrations.types.max_results
     import aws_sdk_appintegrations.types.next_token
+
 
 class ListApplicationAssociationsRequest(TypedDict):
     application_id: "aws_sdk_appintegrations.types.arn_or_uuid.ArnOrUUID"
@@ -14,6 +17,7 @@ class ListApplicationAssociationsRequest(TypedDict):
     """<p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>"""
     max_results: NotRequired["aws_sdk_appintegrations.types.max_results.MaxResults"]
     """<p>The maximum number of results to return per page.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: ListApplicationAssociationsRequest) -> dict:

@@ -83,7 +83,7 @@ class ModelPackage(TypedDict):
     certify_for_marketplace: NotRequired[
         "aws_sdk_sagemaker.types.certify_for_marketplace.CertifyForMarketplace"
     ]
-    """<p>Whether the model package is to be certified to be listed on Amazon Web Services Marketplace. For information about listing model packages on Amazon Web Services Marketplace, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-mkt-list.html\">List Your Algorithm or Model Package on Amazon Web Services Marketplace</a>.</p>"""
+    r"""<p>Whether the model package is to be certified to be listed on Amazon Web Services Marketplace. For information about listing model packages on Amazon Web Services Marketplace, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-mkt-list.html\">List Your Algorithm or Model Package on Amazon Web Services Marketplace</a>.</p>"""
     model_approval_status: NotRequired[
         "aws_sdk_sagemaker.types.model_approval_status.ModelApprovalStatus"
     ]
@@ -129,7 +129,7 @@ class ModelPackage(TypedDict):
     ]
     """<p> A structure describing the current state of the model in its life cycle. </p>"""
     tags: NotRequired["aws_sdk_sagemaker.types.tag_list.TagList"]
-    """<p>A list of the tags associated with the model package. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services resources</a> in the <i>Amazon Web Services General Reference Guide</i>.</p>"""
+    r"""<p>A list of the tags associated with the model package. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services resources</a> in the <i>Amazon Web Services General Reference Guide</i>.</p>"""
     customer_metadata_properties: NotRequired[
         "aws_sdk_sagemaker.types.customer_metadata_map.CustomerMetadataMap"
     ]

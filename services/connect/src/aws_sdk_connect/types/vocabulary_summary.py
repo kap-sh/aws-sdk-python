@@ -26,7 +26,7 @@ class VocabularySummary(TypedDict):
     language_code: (
         "aws_sdk_connect.types.vocabulary_language_code.VocabularyLanguageCode"
     )
-    """<p>The language code of the vocabulary entries. For a list of languages and their corresponding language codes, see <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html\">What is Amazon Transcribe?</a> </p>"""
+    r"""<p>The language code of the vocabulary entries. For a list of languages and their corresponding language codes, see <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html\">What is Amazon Transcribe?</a> </p>"""
     state: "aws_sdk_connect.types.vocabulary_state.VocabularyState"
     """<p>The current state of the custom vocabulary.</p>"""
     last_modified_time: (

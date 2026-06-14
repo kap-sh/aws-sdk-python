@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_securitylake._auth._signers
@@ -171,7 +173,7 @@ class Subscriber:
     ) -> (
         "aws_sdk_securitylake.types.update_subscriber_response.UpdateSubscriberResponse"
     ):
-        """<p>Updates an existing subscription for the given Amazon Security Lake account ID. You can update a subscriber by changing the sources that the subscriber consumes data from.</p>
+        r"""<p>Updates an existing subscription for the given Amazon Security Lake account ID. You can update a subscriber by changing the sources that the subscriber consumes data from.</p>
 
         Args:
             subscriber_id: <p>A value created by Security Lake that uniquely identifies your subscription.</p>
@@ -539,7 +541,7 @@ class AsyncSubscriber:
     ) -> (
         "aws_sdk_securitylake.types.update_subscriber_response.UpdateSubscriberResponse"
     ):
-        """<p>Updates an existing subscription for the given Amazon Security Lake account ID. You can update a subscriber by changing the sources that the subscriber consumes data from.</p>
+        r"""<p>Updates an existing subscription for the given Amazon Security Lake account ID. You can update a subscriber by changing the sources that the subscriber consumes data from.</p>
 
         Args:
             subscriber_id: <p>A value created by Security Lake that uniquely identifies your subscription.</p>

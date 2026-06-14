@@ -1,9 +1,10 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#CodeInterpreterStreamOutput``."""
 
 from typing import TYPE_CHECKING, TypeAlias, TypedDict
+
 from aws_sdk_bedrock_agentcore.errors import DeserializationError, SerializationError
+
 if TYPE_CHECKING:
-    import aws_sdk_bedrock_agentcore.types.code_interpreter_result
     import aws_sdk_bedrock_agentcore.errors.access_denied_exception
     import aws_sdk_bedrock_agentcore.errors.conflict_exception
     import aws_sdk_bedrock_agentcore.errors.internal_server_exception
@@ -11,9 +12,13 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.errors.service_quota_exceeded_exception
     import aws_sdk_bedrock_agentcore.errors.throttling_exception
     import aws_sdk_bedrock_agentcore.errors.validation_exception
+    import aws_sdk_bedrock_agentcore.types.code_interpreter_result
+
 
 class _CodeInterpreterStreamOutput_result(TypedDict):
-    result: "aws_sdk_bedrock_agentcore.types.code_interpreter_result.CodeInterpreterResult"
+    result: (
+        "aws_sdk_bedrock_agentcore.types.code_interpreter_result.CodeInterpreterResult"
+    )
 
 
 class _CodeInterpreterStreamOutput_accessDeniedException(TypedDict):
@@ -21,7 +26,9 @@ class _CodeInterpreterStreamOutput_accessDeniedException(TypedDict):
 
 
 class _CodeInterpreterStreamOutput_conflictException(TypedDict):
-    conflictException: "aws_sdk_bedrock_agentcore.errors.conflict_exception.ConflictException_"
+    conflictException: (
+        "aws_sdk_bedrock_agentcore.errors.conflict_exception.ConflictException_"
+    )
 
 
 class _CodeInterpreterStreamOutput_internalServerException(TypedDict):
@@ -37,40 +44,95 @@ class _CodeInterpreterStreamOutput_serviceQuotaExceededException(TypedDict):
 
 
 class _CodeInterpreterStreamOutput_throttlingException(TypedDict):
-    throttlingException: "aws_sdk_bedrock_agentcore.errors.throttling_exception.ThrottlingException_"
+    throttlingException: (
+        "aws_sdk_bedrock_agentcore.errors.throttling_exception.ThrottlingException_"
+    )
 
 
 class _CodeInterpreterStreamOutput_validationException(TypedDict):
-    validationException: "aws_sdk_bedrock_agentcore.errors.validation_exception.ValidationException_"
+    validationException: (
+        "aws_sdk_bedrock_agentcore.errors.validation_exception.ValidationException_"
+    )
 
-CodeInterpreterStreamOutput: TypeAlias = _CodeInterpreterStreamOutput_result | _CodeInterpreterStreamOutput_accessDeniedException | _CodeInterpreterStreamOutput_conflictException | _CodeInterpreterStreamOutput_internalServerException | _CodeInterpreterStreamOutput_resourceNotFoundException | _CodeInterpreterStreamOutput_serviceQuotaExceededException | _CodeInterpreterStreamOutput_throttlingException | _CodeInterpreterStreamOutput_validationException
+
+CodeInterpreterStreamOutput: TypeAlias = (
+    _CodeInterpreterStreamOutput_result
+    | _CodeInterpreterStreamOutput_accessDeniedException
+    | _CodeInterpreterStreamOutput_conflictException
+    | _CodeInterpreterStreamOutput_internalServerException
+    | _CodeInterpreterStreamOutput_resourceNotFoundException
+    | _CodeInterpreterStreamOutput_serviceQuotaExceededException
+    | _CodeInterpreterStreamOutput_throttlingException
+    | _CodeInterpreterStreamOutput_validationException
+)
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: CodeInterpreterStreamOutput) -> dict:
     if "result" in value:
         import aws_sdk_bedrock_agentcore.types.code_interpreter_result
-        return {"result": aws_sdk_bedrock_agentcore.types.code_interpreter_result.serialize_json(value["result"])}
+
+        return {
+            "result": aws_sdk_bedrock_agentcore.types.code_interpreter_result.serialize_json(
+                value["result"]
+            )
+        }
     elif "accessDeniedException" in value:
         import aws_sdk_bedrock_agentcore.errors.access_denied_exception
-        return {"accessDeniedException": aws_sdk_bedrock_agentcore.errors.access_denied_exception.serialize_json(value["accessDeniedException"])}
+
+        return {
+            "accessDeniedException": aws_sdk_bedrock_agentcore.errors.access_denied_exception.serialize_json(
+                value["accessDeniedException"]
+            )
+        }
     elif "conflictException" in value:
         import aws_sdk_bedrock_agentcore.errors.conflict_exception
-        return {"conflictException": aws_sdk_bedrock_agentcore.errors.conflict_exception.serialize_json(value["conflictException"])}
+
+        return {
+            "conflictException": aws_sdk_bedrock_agentcore.errors.conflict_exception.serialize_json(
+                value["conflictException"]
+            )
+        }
     elif "internalServerException" in value:
         import aws_sdk_bedrock_agentcore.errors.internal_server_exception
-        return {"internalServerException": aws_sdk_bedrock_agentcore.errors.internal_server_exception.serialize_json(value["internalServerException"])}
+
+        return {
+            "internalServerException": aws_sdk_bedrock_agentcore.errors.internal_server_exception.serialize_json(
+                value["internalServerException"]
+            )
+        }
     elif "resourceNotFoundException" in value:
         import aws_sdk_bedrock_agentcore.errors.resource_not_found_exception
-        return {"resourceNotFoundException": aws_sdk_bedrock_agentcore.errors.resource_not_found_exception.serialize_json(value["resourceNotFoundException"])}
+
+        return {
+            "resourceNotFoundException": aws_sdk_bedrock_agentcore.errors.resource_not_found_exception.serialize_json(
+                value["resourceNotFoundException"]
+            )
+        }
     elif "serviceQuotaExceededException" in value:
         import aws_sdk_bedrock_agentcore.errors.service_quota_exceeded_exception
-        return {"serviceQuotaExceededException": aws_sdk_bedrock_agentcore.errors.service_quota_exceeded_exception.serialize_json(value["serviceQuotaExceededException"])}
+
+        return {
+            "serviceQuotaExceededException": aws_sdk_bedrock_agentcore.errors.service_quota_exceeded_exception.serialize_json(
+                value["serviceQuotaExceededException"]
+            )
+        }
     elif "throttlingException" in value:
         import aws_sdk_bedrock_agentcore.errors.throttling_exception
-        return {"throttlingException": aws_sdk_bedrock_agentcore.errors.throttling_exception.serialize_json(value["throttlingException"])}
+
+        return {
+            "throttlingException": aws_sdk_bedrock_agentcore.errors.throttling_exception.serialize_json(
+                value["throttlingException"]
+            )
+        }
     elif "validationException" in value:
         import aws_sdk_bedrock_agentcore.errors.validation_exception
-        return {"validationException": aws_sdk_bedrock_agentcore.errors.validation_exception.serialize_json(value["validationException"])}
+
+        return {
+            "validationException": aws_sdk_bedrock_agentcore.errors.validation_exception.serialize_json(
+                value["validationException"]
+            )
+        }
     else:
         raise SerializationError("CodeInterpreterStreamOutput: no variant present")
 
@@ -78,27 +140,69 @@ def serialize_json(value: CodeInterpreterStreamOutput) -> dict:
 def deserialize_json(data: dict) -> CodeInterpreterStreamOutput:
     if "result" in data:
         import aws_sdk_bedrock_agentcore.types.code_interpreter_result
-        return {"result": aws_sdk_bedrock_agentcore.types.code_interpreter_result.deserialize_json(data["result"])}
+
+        return {
+            "result": aws_sdk_bedrock_agentcore.types.code_interpreter_result.deserialize_json(
+                data["result"]
+            )
+        }
     elif "accessDeniedException" in data:
         import aws_sdk_bedrock_agentcore.errors.access_denied_exception
-        return {"accessDeniedException": aws_sdk_bedrock_agentcore.errors.access_denied_exception.deserialize_json(data["accessDeniedException"])}
+
+        return {
+            "accessDeniedException": aws_sdk_bedrock_agentcore.errors.access_denied_exception.deserialize_json(
+                data["accessDeniedException"]
+            )
+        }
     elif "conflictException" in data:
         import aws_sdk_bedrock_agentcore.errors.conflict_exception
-        return {"conflictException": aws_sdk_bedrock_agentcore.errors.conflict_exception.deserialize_json(data["conflictException"])}
+
+        return {
+            "conflictException": aws_sdk_bedrock_agentcore.errors.conflict_exception.deserialize_json(
+                data["conflictException"]
+            )
+        }
     elif "internalServerException" in data:
         import aws_sdk_bedrock_agentcore.errors.internal_server_exception
-        return {"internalServerException": aws_sdk_bedrock_agentcore.errors.internal_server_exception.deserialize_json(data["internalServerException"])}
+
+        return {
+            "internalServerException": aws_sdk_bedrock_agentcore.errors.internal_server_exception.deserialize_json(
+                data["internalServerException"]
+            )
+        }
     elif "resourceNotFoundException" in data:
         import aws_sdk_bedrock_agentcore.errors.resource_not_found_exception
-        return {"resourceNotFoundException": aws_sdk_bedrock_agentcore.errors.resource_not_found_exception.deserialize_json(data["resourceNotFoundException"])}
+
+        return {
+            "resourceNotFoundException": aws_sdk_bedrock_agentcore.errors.resource_not_found_exception.deserialize_json(
+                data["resourceNotFoundException"]
+            )
+        }
     elif "serviceQuotaExceededException" in data:
         import aws_sdk_bedrock_agentcore.errors.service_quota_exceeded_exception
-        return {"serviceQuotaExceededException": aws_sdk_bedrock_agentcore.errors.service_quota_exceeded_exception.deserialize_json(data["serviceQuotaExceededException"])}
+
+        return {
+            "serviceQuotaExceededException": aws_sdk_bedrock_agentcore.errors.service_quota_exceeded_exception.deserialize_json(
+                data["serviceQuotaExceededException"]
+            )
+        }
     elif "throttlingException" in data:
         import aws_sdk_bedrock_agentcore.errors.throttling_exception
-        return {"throttlingException": aws_sdk_bedrock_agentcore.errors.throttling_exception.deserialize_json(data["throttlingException"])}
+
+        return {
+            "throttlingException": aws_sdk_bedrock_agentcore.errors.throttling_exception.deserialize_json(
+                data["throttlingException"]
+            )
+        }
     elif "validationException" in data:
         import aws_sdk_bedrock_agentcore.errors.validation_exception
-        return {"validationException": aws_sdk_bedrock_agentcore.errors.validation_exception.deserialize_json(data["validationException"])}
+
+        return {
+            "validationException": aws_sdk_bedrock_agentcore.errors.validation_exception.deserialize_json(
+                data["validationException"]
+            )
+        }
     else:
-        raise DeserializationError("CodeInterpreterStreamOutput: no recognized variant key")
+        raise DeserializationError(
+            "CodeInterpreterStreamOutput: no recognized variant key"
+        )

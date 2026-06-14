@@ -22,7 +22,7 @@ class DescribeCapacityReservationTopologyRequest(TypedDict):
     max_results: NotRequired[
         "aws_sdk_ec2.types.describe_capacity_reservation_topology_max_results.DescribeCapacityReservationTopologyMaxResults"
     ]
-    """<p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p> <p>You can't specify this parameter and the Capacity Reservation IDs parameter in the same request.</p> <p>Default: <code>10</code> </p>"""
+    r"""<p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p> <p>You can't specify this parameter and the Capacity Reservation IDs parameter in the same request.</p> <p>Default: <code>10</code> </p>"""
     capacity_reservation_ids: NotRequired[
         "aws_sdk_ec2.types.capacity_reservation_id_set.CapacityReservationIdSet"
     ]

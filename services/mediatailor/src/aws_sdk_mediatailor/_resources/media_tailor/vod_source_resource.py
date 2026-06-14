@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_mediatailor._auth._signers
@@ -52,7 +54,7 @@ class VodSourceResource:
             "aws_sdk_mediatailor.types.__map_of__string.__mapOf__string"
         ] = None,
     ) -> "aws_sdk_mediatailor.types.create_vod_source_response.CreateVodSourceResponse":
-        """<p>The VOD source configuration parameters.</p>
+        r"""<p>The VOD source configuration parameters.</p>
 
         Args:
             http_package_configurations: <p>A list of HTTP package configuration parameters for this VOD source.</p>
@@ -276,7 +278,7 @@ class AsyncVodSourceResource:
             "aws_sdk_mediatailor.types.__map_of__string.__mapOf__string"
         ] = None,
     ) -> "aws_sdk_mediatailor.types.create_vod_source_response.CreateVodSourceResponse":
-        """<p>The VOD source configuration parameters.</p>
+        r"""<p>The VOD source configuration parameters.</p>
 
         Args:
             http_package_configurations: <p>A list of HTTP package configuration parameters for this VOD source.</p>

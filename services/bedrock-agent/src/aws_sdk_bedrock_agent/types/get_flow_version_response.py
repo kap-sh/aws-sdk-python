@@ -29,7 +29,7 @@ class GetFlowVersionResponse(TypedDict):
     execution_role_arn: (
         "aws_sdk_bedrock_agent.types.flow_execution_role_arn.FlowExecutionRoleArn"
     )
-    """<p>The Amazon Resource Name (ARN) of the service role with permissions to create a flow. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html\">Create a service role for flows in Amazon Bedrock</a> in the Amazon Bedrock User Guide.</p>"""
+    r"""<p>The Amazon Resource Name (ARN) of the service role with permissions to create a flow. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html\">Create a service role for flows in Amazon Bedrock</a> in the Amazon Bedrock User Guide.</p>"""
     customer_encryption_key_arn: NotRequired[
         "aws_sdk_bedrock_agent.types.kms_key_arn.KmsKeyArn"
     ]

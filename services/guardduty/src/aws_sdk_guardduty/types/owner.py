@@ -10,7 +10,7 @@ if TYPE_CHECKING:
 
 class Owner(TypedDict):
     id: NotRequired["aws_sdk_guardduty.types.string.String"]
-    """<p>The canonical user ID of the bucket owner. For information about locating your canonical user ID see <a href=\"https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html#FindingCanonicalId\">Finding Your Account Canonical User ID.</a> </p>"""
+    r"""<p>The canonical user ID of the bucket owner. For information about locating your canonical user ID see <a href=\"https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html#FindingCanonicalId\">Finding Your Account Canonical User ID.</a> </p>"""
 
 
 # --- restJson1 ser/de ---

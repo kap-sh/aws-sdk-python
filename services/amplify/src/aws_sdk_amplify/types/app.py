@@ -60,7 +60,7 @@ class App(TypedDict):
     compute_role_arn: NotRequired[
         "aws_sdk_amplify.types.compute_role_arn.ComputeRoleArn"
     ]
-    """<p>The Amazon Resource Name (ARN) of the IAM role for an SSR app. The Compute role allows the Amplify Hosting compute service to securely access specific Amazon Web Services resources based on the role's permissions. For more information about the SSR Compute role, see <a href=\"https://docs.aws.amazon.com/amplify/latest/userguide/amplify-SSR-compute-role.html\">Adding an SSR Compute role</a> in the <i>Amplify User Guide</i>.</p>"""
+    r"""<p>The Amazon Resource Name (ARN) of the IAM role for an SSR app. The Compute role allows the Amplify Hosting compute service to securely access specific Amazon Web Services resources based on the role's permissions. For more information about the SSR Compute role, see <a href=\"https://docs.aws.amazon.com/amplify/latest/userguide/amplify-SSR-compute-role.html\">Adding an SSR Compute role</a> in the <i>Amplify User Guide</i>.</p>"""
     iam_service_role_arn: NotRequired[
         "aws_sdk_amplify.types.service_role_arn.ServiceRoleArn"
     ]
@@ -68,7 +68,7 @@ class App(TypedDict):
     environment_variables: (
         "aws_sdk_amplify.types.environment_variables.EnvironmentVariables"
     )
-    """<p>The environment variables for the Amplify app. </p> <p>For a list of the environment variables that are accessible to Amplify by default, see <a href=\"https://docs.aws.amazon.com/amplify/latest/userguide/amplify-console-environment-variables.html\">Amplify Environment variables</a> in the <i>Amplify Hosting User Guide</i>.</p>"""
+    r"""<p>The environment variables for the Amplify app. </p> <p>For a list of the environment variables that are accessible to Amplify by default, see <a href=\"https://docs.aws.amazon.com/amplify/latest/userguide/amplify-console-environment-variables.html\">Amplify Environment variables</a> in the <i>Amplify Hosting User Guide</i>.</p>"""
     default_domain: "aws_sdk_amplify.types.default_domain.DefaultDomain"
     """<p>The default domain for the Amplify app. </p>"""
     enable_branch_auto_build: (

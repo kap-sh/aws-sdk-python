@@ -58,7 +58,7 @@ class GetManagedThingResponse(TypedDict):
     provisioning_status: NotRequired[
         "aws_sdk_iot_managed_integrations.types.provisioning_status.ProvisioningStatus"
     ]
-    """<p>The provisioning status of the device in the provisioning workflow for onboarding to IoT managed integrations. For more information, see <a href=\"https://docs.aws.amazon.com/iot-mi/latest/devguide/device-provisioning.html\">Device Provisioning</a>.</p>"""
+    r"""<p>The provisioning status of the device in the provisioning workflow for onboarding to IoT managed integrations. For more information, see <a href=\"https://docs.aws.amazon.com/iot-mi/latest/devguide/device-provisioning.html\">Device Provisioning</a>.</p>"""
     name: NotRequired["aws_sdk_iot_managed_integrations.types.name.Name"]
     """<p>The name of the managed thing representing the physical device.</p>"""
     model: NotRequired["aws_sdk_iot_managed_integrations.types.model.Model"]

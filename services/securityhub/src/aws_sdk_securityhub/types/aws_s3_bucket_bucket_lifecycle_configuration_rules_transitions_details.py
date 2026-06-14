@@ -11,7 +11,7 @@ if TYPE_CHECKING:
 
 class AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails(TypedDict):
     date: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
-    """<p>A date on which to transition objects to the specified storage class. If you provide <code>Date</code>, you cannot provide <code>Days</code>.</p> <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href=\"https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps\">Timestamps</a>.</p>"""
+    r"""<p>A date on which to transition objects to the specified storage class. If you provide <code>Date</code>, you cannot provide <code>Days</code>.</p> <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href=\"https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps\">Timestamps</a>.</p>"""
     days: NotRequired["aws_sdk_securityhub.types.integer.Integer"]
     """<p>The number of days after which to transition the object to the specified storage class. If you provide <code>Days</code>, you cannot provide <code>Date</code>.</p>"""
     storage_class: NotRequired[

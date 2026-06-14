@@ -1,0 +1,31 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#LifecycleConfiguration``."""
+
+from typing import TypedDict
+
+from typing_extensions import NotRequired
+
+
+class LifecycleConfiguration(TypedDict):
+    idle_runtime_session_timeout: NotRequired["int"]
+    """<p>Timeout in seconds for idle runtime sessions. When a session remains idle for this duration, it will be automatically terminated. Default: 900 seconds (15 minutes).</p>"""
+    max_lifetime: NotRequired["int"]
+    """<p>Maximum lifetime for the instance in seconds. Once reached, instances will be automatically terminated and replaced. Default: 28800 seconds (8 hours).</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: LifecycleConfiguration) -> dict:
+    out: dict = {}
+    if "idle_runtime_session_timeout" in value:
+        out["idleRuntimeSessionTimeout"] = value["idle_runtime_session_timeout"]
+    if "max_lifetime" in value:
+        out["maxLifetime"] = value["max_lifetime"]
+    return out
+
+
+def deserialize_json(data: dict) -> LifecycleConfiguration:
+    out: LifecycleConfiguration = {}  # type: ignore[typeddict-item]
+    if "idleRuntimeSessionTimeout" in data:
+        out["idle_runtime_session_timeout"] = data["idleRuntimeSessionTimeout"]
+    if "maxLifetime" in data:
+        out["max_lifetime"] = data["maxLifetime"]
+    return out

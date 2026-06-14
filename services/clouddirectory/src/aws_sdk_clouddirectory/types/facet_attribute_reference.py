@@ -11,9 +11,9 @@ if TYPE_CHECKING:
 
 class FacetAttributeReference(TypedDict):
     target_facet_name: "aws_sdk_clouddirectory.types.facet_name.FacetName"
-    """<p>The target facet name that is associated with the facet reference. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html\">Attribute References</a> for more information.</p>"""
+    r"""<p>The target facet name that is associated with the facet reference. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html\">Attribute References</a> for more information.</p>"""
     target_attribute_name: "aws_sdk_clouddirectory.types.attribute_name.AttributeName"
-    """<p>The target attribute name that is associated with the facet reference. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html\">Attribute References</a> for more information.</p>"""
+    r"""<p>The target attribute name that is associated with the facet reference. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html\">Attribute References</a> for more information.</p>"""
 
 
 # --- restJson1 ser/de ---

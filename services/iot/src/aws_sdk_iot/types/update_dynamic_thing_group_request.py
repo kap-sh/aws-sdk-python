@@ -29,7 +29,7 @@ class UpdateDynamicThingGroupRequest(TypedDict):
     query_string: NotRequired["aws_sdk_iot.types.query_string.QueryString"]
     """<p>The dynamic thing group search query string to update.</p>"""
     query_version: NotRequired["aws_sdk_iot.types.query_version.QueryVersion"]
-    """<p>The dynamic thing group query version to update.</p> <note> <p>Currently one query version is supported: \"2017-09-30\". If not specified, the query version defaults to this value.</p> </note>"""
+    r"""<p>The dynamic thing group query version to update.</p> <note> <p>Currently one query version is supported: \"2017-09-30\". If not specified, the query version defaults to this value.</p> </note>"""
 
 
 # --- restJson1 ser/de ---

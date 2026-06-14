@@ -1,15 +1,20 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#GetPaymentConnectorRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.payment_connector_id
     import aws_sdk_bedrock_agentcore_control.types.payment_manager_id
 
+
 class GetPaymentConnectorRequest(TypedDict):
-    payment_manager_id: "aws_sdk_bedrock_agentcore_control.types.payment_manager_id.PaymentManagerId"
+    payment_manager_id: (
+        "aws_sdk_bedrock_agentcore_control.types.payment_manager_id.PaymentManagerId"
+    )
     """<p>The unique identifier of the parent payment manager.</p>"""
     payment_connector_id: "aws_sdk_bedrock_agentcore_control.types.payment_connector_id.PaymentConnectorId"
     """<p>The unique identifier of the payment connector to retrieve.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: GetPaymentConnectorRequest) -> dict:

@@ -20,7 +20,7 @@ class FrameworkControl(TypedDict):
     ]
     """<p>The name/value pairs.</p>"""
     control_scope: NotRequired["aws_sdk_backup.types.control_scope.ControlScope"]
-    """<p>The scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/aws-backup/latest/devguide/API_ControlScope.html\"> <code>ControlScope</code>.</a> </p>"""
+    r"""<p>The scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/aws-backup/latest/devguide/API_ControlScope.html\"> <code>ControlScope</code>.</a> </p>"""
 
 
 # --- restJson1 ser/de ---

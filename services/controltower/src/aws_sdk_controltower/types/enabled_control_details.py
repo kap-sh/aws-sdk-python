@@ -21,11 +21,11 @@ class EnabledControlDetails(TypedDict):
     control_identifier: NotRequired[
         "aws_sdk_controltower.types.control_identifier.ControlIdentifier"
     ]
-    """<p>The control identifier of the enabled control. For information on how to find the <code>controlIdentifier</code>, see <a href=\"https://docs.aws.amazon.com/controltower/latest/APIReference/Welcome.html\">the overview page</a>.</p>"""
+    r"""<p>The control identifier of the enabled control. For information on how to find the <code>controlIdentifier</code>, see <a href=\"https://docs.aws.amazon.com/controltower/latest/APIReference/Welcome.html\">the overview page</a>.</p>"""
     target_identifier: NotRequired[
         "aws_sdk_controltower.types.target_identifier.TargetIdentifier"
     ]
-    """<p>The ARN of the organizational unit. For information on how to find the <code>targetIdentifier</code>, see <a href=\"https://docs.aws.amazon.com/controltower/latest/APIReference/Welcome.html\">the overview page</a>.</p>"""
+    r"""<p>The ARN of the organizational unit. For information on how to find the <code>targetIdentifier</code>, see <a href=\"https://docs.aws.amazon.com/controltower/latest/APIReference/Welcome.html\">the overview page</a>.</p>"""
     status_summary: NotRequired[
         "aws_sdk_controltower.types.enablement_status_summary.EnablementStatusSummary"
     ]

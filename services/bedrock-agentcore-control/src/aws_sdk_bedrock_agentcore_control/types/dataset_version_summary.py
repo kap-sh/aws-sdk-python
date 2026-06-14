@@ -1,18 +1,25 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#DatasetVersionSummary``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
+
 if TYPE_CHECKING:
-    import aws_sdk_bedrock_agentcore_control.types.dataset_version
     import datetime
 
+    import aws_sdk_bedrock_agentcore_control.types.dataset_version
+
+
 class DatasetVersionSummary(TypedDict):
-    dataset_version: "aws_sdk_bedrock_agentcore_control.types.dataset_version.DatasetVersion"
+    dataset_version: (
+        "aws_sdk_bedrock_agentcore_control.types.dataset_version.DatasetVersion"
+    )
     """<p> The version number of this published snapshot. </p>"""
     example_count: "int"
     """<p> The number of examples in this version. </p>"""
     created_at: "datetime.datetime"
     """<p> The timestamp when this version was published. </p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: DatasetVersionSummary) -> dict:
@@ -20,7 +27,12 @@ def serialize_json(value: DatasetVersionSummary) -> dict:
     out["datasetVersion"] = value["dataset_version"]
     out["exampleCount"] = value["example_count"]
     import aws_sdk_bedrock_agentcore_control.types._prelude.timestamp
-    out["createdAt"] = aws_sdk_bedrock_agentcore_control.types._prelude.timestamp.serialize_json(value["created_at"])
+
+    out["createdAt"] = (
+        aws_sdk_bedrock_agentcore_control.types._prelude.timestamp.serialize_json(
+            value["created_at"]
+        )
+    )
     return out
 
 
@@ -36,7 +48,12 @@ def deserialize_json(data: dict) -> DatasetVersionSummary:
         raise DeserializationError("DatasetVersionSummary.example_count required")
     if "createdAt" in data:
         import aws_sdk_bedrock_agentcore_control.types._prelude.timestamp
-        out["created_at"] = aws_sdk_bedrock_agentcore_control.types._prelude.timestamp.deserialize_json(data["createdAt"])
+
+        out["created_at"] = (
+            aws_sdk_bedrock_agentcore_control.types._prelude.timestamp.deserialize_json(
+                data["createdAt"]
+            )
+        )
     else:
         raise DeserializationError("DatasetVersionSummary.created_at required")
     return out

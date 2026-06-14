@@ -18,11 +18,11 @@ class CommandParameterValue(TypedDict):
     s: NotRequired[
         "aws_sdk_iot_jobs_data_plane.types.string_parameter_value.StringParameterValue"
     ]
-    """<p>An attribute of type String. For example:</p> <p> <code>\"S\": \"Hello\"</code> </p>"""
+    r"""<p>An attribute of type String. For example:</p> <p> <code>\"S\": \"Hello\"</code> </p>"""
     b: NotRequired[
         "aws_sdk_iot_jobs_data_plane.types.boolean_parameter_value.BooleanParameterValue"
     ]
-    """<p>An attribute of type Boolean. For example:</p> <p> <code>\"BOOL\": true</code> </p>"""
+    r"""<p>An attribute of type Boolean. For example:</p> <p> <code>\"BOOL\": true</code> </p>"""
     i: NotRequired[
         "aws_sdk_iot_jobs_data_plane.types.integer_parameter_value.IntegerParameterValue"
     ]

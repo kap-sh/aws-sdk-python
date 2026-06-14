@@ -28,13 +28,13 @@ if TYPE_CHECKING:
 
 class CreateJobRequest(TypedDict):
     job_id: "aws_sdk_iot.types.job_id.JobId"
-    """<p>A job identifier which must be unique for your account. We recommend using a UUID. Alpha-numeric characters, \"-\" and \"_\" are valid for use here.</p>"""
+    r"""<p>A job identifier which must be unique for your account. We recommend using a UUID. Alpha-numeric characters, \"-\" and \"_\" are valid for use here.</p>"""
     targets: "aws_sdk_iot.types.job_targets.JobTargets"
     """<p>A list of things and thing groups to which the job should be sent.</p>"""
     document_source: NotRequired[
         "aws_sdk_iot.types.job_document_source.JobDocumentSource"
     ]
-    """<p>An S3 link, or S3 object URL, to the job document. The link is an Amazon S3 object URL and is required if you don't specify a value for <code>document</code>.</p> <p>For example, <code>--document-source https://s3.<i>region-code</i>.amazonaws.com/example-firmware/device-firmware.1.0</code> </p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-bucket-intro.html\">Methods for accessing a bucket</a>.</p>"""
+    r"""<p>An S3 link, or S3 object URL, to the job document. The link is an Amazon S3 object URL and is required if you don't specify a value for <code>document</code>.</p> <p>For example, <code>--document-source https://s3.<i>region-code</i>.amazonaws.com/example-firmware/device-firmware.1.0</code> </p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-bucket-intro.html\">Methods for accessing a bucket</a>.</p>"""
     document: NotRequired["aws_sdk_iot.types.job_document.JobDocument"]
     """<p>The job document. Required if you don't specify a value for <code>documentSource</code>.</p>"""
     description: NotRequired["aws_sdk_iot.types.job_description.JobDescription"]
@@ -56,7 +56,7 @@ class CreateJobRequest(TypedDict):
     tags: NotRequired["aws_sdk_iot.types.tag_list.TagList"]
     """<p>Metadata which can be used to manage the job.</p>"""
     namespace_id: NotRequired["aws_sdk_iot.types.namespace_id.NamespaceId"]
-    """<p>The namespace used to indicate that a job is a customer-managed job.</p> <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that contain the value in the following format.</p> <p> <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code> </p> <note> <p>The <code>namespaceId</code> feature is only supported by IoT Greengrass at this time. For more information, see <a href=\"https://docs.aws.amazon.com/greengrass/v2/developerguide/setting-up.html\">Setting up IoT Greengrass core devices.</a> </p> </note>"""
+    r"""<p>The namespace used to indicate that a job is a customer-managed job.</p> <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that contain the value in the following format.</p> <p> <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code> </p> <note> <p>The <code>namespaceId</code> feature is only supported by IoT Greengrass at this time. For more information, see <a href=\"https://docs.aws.amazon.com/greengrass/v2/developerguide/setting-up.html\">Setting up IoT Greengrass core devices.</a> </p> </note>"""
     job_template_arn: NotRequired["aws_sdk_iot.types.job_template_arn.JobTemplateArn"]
     """<p>The ARN of the job template used to create the job.</p>"""
     job_executions_retry_config: NotRequired[
@@ -72,7 +72,7 @@ class CreateJobRequest(TypedDict):
     destination_package_versions: NotRequired[
         "aws_sdk_iot.types.destination_package_versions.DestinationPackageVersions"
     ]
-    """<p>The package version Amazon Resource Names (ARNs) that are installed on the device when the job successfully completes. The package version must be in either the Published or Deprecated state when the job deploys. For more information, see <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle\">Package version lifecycle</a>. </p> <p> <b>Note:</b>The following Length Constraints relates to a single ARN. Up to 25 package version ARNs are allowed.</p>"""
+    r"""<p>The package version Amazon Resource Names (ARNs) that are installed on the device when the job successfully completes. The package version must be in either the Published or Deprecated state when the job deploys. For more information, see <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle\">Package version lifecycle</a>. </p> <p> <b>Note:</b>The following Length Constraints relates to a single ARN. Up to 25 package version ARNs are allowed.</p>"""
 
 
 # --- restJson1 ser/de ---

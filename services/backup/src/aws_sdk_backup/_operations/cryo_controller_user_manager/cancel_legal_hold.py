@@ -69,7 +69,7 @@ def get_signer(
     options: AsyncOperationOptions | OperationOptions,
     auth_schemes: list[dict[str, Any]] | None = None,
 ) -> aws_sdk_backup._auth._signers.Signer | None:
-    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}
+    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}  # noqa: F841
     if options.credentials_provider is not None:
         sigv4_config = (
             name_to_schema.get("sigv4")
@@ -88,7 +88,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_backup.types.cancel_legal_hold_input.CancelLegalHoldInput,
+    input_: aws_sdk_backup.types.cancel_legal_hold_input.CancelLegalHoldInput,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -99,12 +99,12 @@ def build_request(
         )
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/legal-holds/{LegalHoldId}"
-    url = url.replace("{LegalHoldId}", quote(str(input["legal_hold_id"]), safe=""))
+    url = url.replace("{LegalHoldId}", quote(str(input_["legal_hold_id"]), safe=""))
     params: dict[str, str] = {}
-    if "cancel_description" in input:
-        params["cancelDescription"] = str(input["cancel_description"])
-    if "retain_record_in_days" in input:
-        params["retainRecordInDays"] = str(input["retain_record_in_days"])
+    if "cancel_description" in input_:
+        params["cancelDescription"] = str(input_["cancel_description"])
+    if "retain_record_in_days" in input_:
+        params["retainRecordInDays"] = str(input_["retain_record_in_days"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
@@ -117,11 +117,11 @@ def build_request(
 
 def cancel_legal_hold(
     options: OperationOptions,
-    input: aws_sdk_backup.types.cancel_legal_hold_input.CancelLegalHoldInput,
+    input_: aws_sdk_backup.types.cancel_legal_hold_input.CancelLegalHoldInput,
 ) -> tuple[
     aws_sdk_backup.types.cancel_legal_hold_output.CancelLegalHoldOutput, zapros.Response
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -135,11 +135,11 @@ def cancel_legal_hold(
 
 async def async_cancel_legal_hold(
     options: AsyncOperationOptions,
-    input: aws_sdk_backup.types.cancel_legal_hold_input.CancelLegalHoldInput,
+    input_: aws_sdk_backup.types.cancel_legal_hold_input.CancelLegalHoldInput,
 ) -> tuple[
     aws_sdk_backup.types.cancel_legal_hold_output.CancelLegalHoldOutput, zapros.Response
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

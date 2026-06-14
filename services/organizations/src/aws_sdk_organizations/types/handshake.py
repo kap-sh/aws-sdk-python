@@ -16,9 +16,9 @@ if TYPE_CHECKING:
 
 class Handshake(TypedDict):
     id: NotRequired["aws_sdk_organizations.types.handshake_id.HandshakeId"]
-    """<p>ID for the handshake.</p> <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> for handshake ID string requires \"h-\" followed by from 8 to 32 lowercase letters or digits.</p>"""
+    r"""<p>ID for the handshake.</p> <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> for handshake ID string requires \"h-\" followed by from 8 to 32 lowercase letters or digits.</p>"""
     arn: NotRequired["aws_sdk_organizations.types.handshake_arn.HandshakeArn"]
-    """<p>Amazon Resource Name (ARN) for the handshake.</p> <p>For more information about ARNs in Organizations, see <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies\">ARN Formats Supported by Organizations</a> in the <i>Amazon Web Services Service Authorization Reference</i>.</p>"""
+    r"""<p>Amazon Resource Name (ARN) for the handshake.</p> <p>For more information about ARNs in Organizations, see <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies\">ARN Formats Supported by Organizations</a> in the <i>Amazon Web Services Service Authorization Reference</i>.</p>"""
     parties: NotRequired[
         "aws_sdk_organizations.types.handshake_parties.HandshakeParties"
     ]

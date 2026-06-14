@@ -20,7 +20,7 @@ class CpuOptionsRequest(TypedDict):
     amd_sev_snp: NotRequired[
         "aws_sdk_ec2.types.amd_sev_snp_specification.AmdSevSnpSpecification"
     ]
-    """<p>Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sev-snp.html\">AMD SEV-SNP</a>.</p>"""
+    r"""<p>Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sev-snp.html\">AMD SEV-SNP</a>.</p>"""
     nested_virtualization: NotRequired[
         "aws_sdk_ec2.types.nested_virtualization_specification.NestedVirtualizationSpecification"
     ]

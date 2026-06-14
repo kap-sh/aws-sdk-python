@@ -79,7 +79,7 @@ class DescribeServiceJobResponse(TypedDict):
     stopped_at: NotRequired["aws_sdk_batch.types.long.Long"]
     """<p>The Unix timestamp (in milliseconds) for when the service job stopped running.</p>"""
     tags: NotRequired["aws_sdk_batch.types.tagris_tags_map.TagrisTagsMap"]
-    """<p>The tags that are associated with the service job. Each tag consists of a key and an optional value. For more information, see <a href=\"https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html\">Tagging your Batch resources</a>.</p>"""
+    r"""<p>The tags that are associated with the service job. Each tag consists of a key and an optional value. For more information, see <a href=\"https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html\">Tagging your Batch resources</a>.</p>"""
     timeout_config: NotRequired[
         "aws_sdk_batch.types.service_job_timeout.ServiceJobTimeout"
     ]

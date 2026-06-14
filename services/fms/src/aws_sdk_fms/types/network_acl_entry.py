@@ -21,7 +21,7 @@ class NetworkAclEntry(TypedDict):
     ]
     """<p>ICMP protocol: The ICMP type and code.</p>"""
     protocol: "aws_sdk_fms.types.length_bounded_string.LengthBoundedString"
-    """<p>The protocol number. A value of \"-1\" means all protocols. </p>"""
+    r"""<p>The protocol number. A value of \"-1\" means all protocols. </p>"""
     port_range: NotRequired[
         "aws_sdk_fms.types.network_acl_port_range.NetworkAclPortRange"
     ]

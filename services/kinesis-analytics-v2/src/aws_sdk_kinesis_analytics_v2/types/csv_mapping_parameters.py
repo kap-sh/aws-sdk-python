@@ -13,9 +13,9 @@ class CSVMappingParameters(TypedDict):
     record_row_delimiter: (
         "aws_sdk_kinesis_analytics_v2.types.record_row_delimiter.RecordRowDelimiter"
     )
-    """<p>The row delimiter. For example, in a CSV format, <i>'\n'</i> is the typical row delimiter.</p>"""
+    r"""<p>The row delimiter. For example, in a CSV format, <i>'\n'</i> is the typical row delimiter.</p>"""
     record_column_delimiter: "aws_sdk_kinesis_analytics_v2.types.record_column_delimiter.RecordColumnDelimiter"
-    """<p>The column delimiter. For example, in a CSV format, a comma (\",\") is the typical column delimiter.</p>"""
+    r"""<p>The column delimiter. For example, in a CSV format, a comma (\",\") is the typical column delimiter.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

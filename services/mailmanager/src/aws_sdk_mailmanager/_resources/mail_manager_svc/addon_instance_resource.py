@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 from aws_sdk_mailmanager._services._pipeline import (
@@ -49,7 +51,7 @@ class AddonInstanceResource:
         ] = None,
         tags: Optional["aws_sdk_mailmanager.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_mailmanager.types.create_addon_instance_response.CreateAddonInstanceResponse":
-        """<p>Creates an Add On instance for the subscription indicated in the request. The resulting Amazon Resource Name (ARN) can be used in a conditional statement for a rule set or traffic policy. </p>
+        r"""<p>Creates an Add On instance for the subscription indicated in the request. The resulting Amazon Resource Name (ARN) can be used in a conditional statement for a rule set or traffic policy. </p>
 
         Args:
             client_token: <p>A unique token that Amazon SES uses to recognize subsequent retries of the same request.</p>
@@ -221,7 +223,7 @@ class AsyncAddonInstanceResource:
         ] = None,
         tags: Optional["aws_sdk_mailmanager.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_mailmanager.types.create_addon_instance_response.CreateAddonInstanceResponse":
-        """<p>Creates an Add On instance for the subscription indicated in the request. The resulting Amazon Resource Name (ARN) can be used in a conditional statement for a rule set or traffic policy. </p>
+        r"""<p>Creates an Add On instance for the subscription indicated in the request. The resulting Amazon Resource Name (ARN) can be used in a conditional statement for a rule set or traffic policy. </p>
 
         Args:
             client_token: <p>A unique token that Amazon SES uses to recognize subsequent retries of the same request.</p>

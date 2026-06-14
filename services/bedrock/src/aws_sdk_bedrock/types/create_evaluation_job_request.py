@@ -29,9 +29,9 @@ class CreateEvaluationJobRequest(TypedDict):
     client_request_token: NotRequired[
         "aws_sdk_bedrock.types.idempotency_token.IdempotencyToken"
     ]
-    """<p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring idempotency</a>.</p>"""
+    r"""<p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring idempotency</a>.</p>"""
     role_arn: "aws_sdk_bedrock.types.role_arn.RoleArn"
-    """<p>The Amazon Resource Name (ARN) of an IAM service role that Amazon Bedrock can assume to perform tasks on your behalf. To learn more about the required permissions, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/model-evaluation-security.html\">Required permissions for model evaluations</a>.</p>"""
+    r"""<p>The Amazon Resource Name (ARN) of an IAM service role that Amazon Bedrock can assume to perform tasks on your behalf. To learn more about the required permissions, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/model-evaluation-security.html\">Required permissions for model evaluations</a>.</p>"""
     customer_encryption_key_id: NotRequired["aws_sdk_bedrock.types.kms_key_id.KmsKeyId"]
     """<p>Specify your customer managed encryption key Amazon Resource Name (ARN) that will be used to encrypt your evaluation job.</p>"""
     job_tags: NotRequired["aws_sdk_bedrock.types.tag_list.TagList"]
@@ -45,7 +45,7 @@ class CreateEvaluationJobRequest(TypedDict):
     inference_config: (
         "aws_sdk_bedrock.types.evaluation_inference_config.EvaluationInferenceConfig"
     )
-    """<p>Contains the configuration details of the inference model for the evaluation job.</p> <p>For model evaluation jobs, automated jobs support a single model or <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html\">inference profile</a>, and jobs that use human workers support two models or inference profiles.</p>"""
+    r"""<p>Contains the configuration details of the inference model for the evaluation job.</p> <p>For model evaluation jobs, automated jobs support a single model or <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html\">inference profile</a>, and jobs that use human workers support two models or inference profiles.</p>"""
     output_data_config: (
         "aws_sdk_bedrock.types.evaluation_output_data_config.EvaluationOutputDataConfig"
     )

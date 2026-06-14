@@ -13,7 +13,7 @@ class ListPackagesResult(TypedDict):
     packages: NotRequired[
         "aws_sdk_codeartifact.types.package_summary_list.PackageSummaryList"
     ]
-    """<p> The list of returned <a href=\"https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageSummary.html\">PackageSummary</a> objects. </p>"""
+    r"""<p> The list of returned <a href=\"https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageSummary.html\">PackageSummary</a> objects. </p>"""
     next_token: NotRequired[
         "aws_sdk_codeartifact.types.pagination_token.PaginationToken"
     ]

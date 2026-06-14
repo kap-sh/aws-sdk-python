@@ -15,7 +15,7 @@ if TYPE_CHECKING:
 
 class ReservedInstancesModification(TypedDict):
     client_token: NotRequired["aws_sdk_ec2.types.string.String"]
-    """<p>A unique, case-sensitive key supplied by the client to ensure that the request is idempotent. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring Idempotency</a>.</p>"""
+    r"""<p>A unique, case-sensitive key supplied by the client to ensure that the request is idempotent. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring Idempotency</a>.</p>"""
     create_date: NotRequired["aws_sdk_ec2.types.date_time.DateTime"]
     """<p>The time when the modification request was created.</p>"""
     effective_date: NotRequired["aws_sdk_ec2.types.date_time.DateTime"]

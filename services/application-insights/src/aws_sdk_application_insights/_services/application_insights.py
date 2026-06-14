@@ -187,7 +187,7 @@ class ApplicationInsightsClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = ApplicationInsightsClientConfig(
+        self._config = ApplicationInsightsClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -207,7 +207,7 @@ class ApplicationInsightsClient:
         overrides: ApplicationInsightsClientConfig = config_overrides or {}
         interceptors_: list[Interceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             retry(),
         ]
@@ -215,16 +215,16 @@ class ApplicationInsightsClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            region=overrides.get("region", self.config.get("region")),
+            region=overrides.get("region", self._config.get("region")),
             use_dual_stack=overrides.get(
-                "use_dual_stack", self.config.get("use_dual_stack")
+                "use_dual_stack", self._config.get("use_dual_stack")
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -260,13 +260,13 @@ class ApplicationInsightsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_insights.types.add_workload_request.AddWorkloadRequest = {}  # type: ignore[typeddict-item]
-        input["resource_group_name"] = resource_group_name
-        input["component_name"] = component_name
-        input["workload_configuration"] = workload_configuration
+        input_: aws_sdk_application_insights.types.add_workload_request.AddWorkloadRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_group_name"] = resource_group_name
+        input_["component_name"] = component_name
+        input_["workload_configuration"] = workload_configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -335,30 +335,30 @@ class ApplicationInsightsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_insights.types.create_application_request.CreateApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_application_insights.types.create_application_request.CreateApplicationRequest = {}  # type: ignore[typeddict-item]
         if resource_group_name is not None:
-            input["resource_group_name"] = resource_group_name
+            input_["resource_group_name"] = resource_group_name
         if ops_center_enabled is not None:
-            input["ops_center_enabled"] = ops_center_enabled
+            input_["ops_center_enabled"] = ops_center_enabled
         if cwe_monitor_enabled is not None:
-            input["cwe_monitor_enabled"] = cwe_monitor_enabled
+            input_["cwe_monitor_enabled"] = cwe_monitor_enabled
         if ops_item_sns_topic_arn is not None:
-            input["ops_item_sns_topic_arn"] = ops_item_sns_topic_arn
+            input_["ops_item_sns_topic_arn"] = ops_item_sns_topic_arn
         if sns_notification_arn is not None:
-            input["sns_notification_arn"] = sns_notification_arn
+            input_["sns_notification_arn"] = sns_notification_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if auto_config_enabled is not None:
-            input["auto_config_enabled"] = auto_config_enabled
+            input_["auto_config_enabled"] = auto_config_enabled
         if auto_create is not None:
-            input["auto_create"] = auto_create
+            input_["auto_create"] = auto_create
         if grouping_type is not None:
-            input["grouping_type"] = grouping_type
+            input_["grouping_type"] = grouping_type
         if attach_missing_permission is not None:
-            input["attach_missing_permission"] = attach_missing_permission
+            input_["attach_missing_permission"] = attach_missing_permission
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -395,13 +395,13 @@ class ApplicationInsightsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_insights.types.create_component_request.CreateComponentRequest = {}  # type: ignore[typeddict-item]
-        input["resource_group_name"] = resource_group_name
-        input["component_name"] = component_name
-        input["resource_list"] = resource_list
+        input_: aws_sdk_application_insights.types.create_component_request.CreateComponentRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_group_name"] = resource_group_name
+        input_["component_name"] = component_name
+        input_["resource_list"] = resource_list
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -442,15 +442,15 @@ class ApplicationInsightsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_insights.types.create_log_pattern_request.CreateLogPatternRequest = {}  # type: ignore[typeddict-item]
-        input["resource_group_name"] = resource_group_name
-        input["pattern_set_name"] = pattern_set_name
-        input["pattern_name"] = pattern_name
-        input["pattern"] = pattern
-        input["rank"] = rank
+        input_: aws_sdk_application_insights.types.create_log_pattern_request.CreateLogPatternRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_group_name"] = resource_group_name
+        input_["pattern_set_name"] = pattern_set_name
+        input_["pattern_name"] = pattern_name
+        input_["pattern"] = pattern
+        input_["rank"] = rank
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -483,11 +483,11 @@ class ApplicationInsightsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_insights.types.delete_application_request.DeleteApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["resource_group_name"] = resource_group_name
+        input_: aws_sdk_application_insights.types.delete_application_request.DeleteApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_group_name"] = resource_group_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -522,12 +522,12 @@ class ApplicationInsightsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_insights.types.delete_component_request.DeleteComponentRequest = {}  # type: ignore[typeddict-item]
-        input["resource_group_name"] = resource_group_name
-        input["component_name"] = component_name
+        input_: aws_sdk_application_insights.types.delete_component_request.DeleteComponentRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_group_name"] = resource_group_name
+        input_["component_name"] = component_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -564,13 +564,13 @@ class ApplicationInsightsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_insights.types.delete_log_pattern_request.DeleteLogPatternRequest = {}  # type: ignore[typeddict-item]
-        input["resource_group_name"] = resource_group_name
-        input["pattern_set_name"] = pattern_set_name
-        input["pattern_name"] = pattern_name
+        input_: aws_sdk_application_insights.types.delete_log_pattern_request.DeleteLogPatternRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_group_name"] = resource_group_name
+        input_["pattern_set_name"] = pattern_set_name
+        input_["pattern_name"] = pattern_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -607,13 +607,13 @@ class ApplicationInsightsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_insights.types.describe_application_request.DescribeApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["resource_group_name"] = resource_group_name
+        input_: aws_sdk_application_insights.types.describe_application_request.DescribeApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_group_name"] = resource_group_name
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -652,14 +652,14 @@ class ApplicationInsightsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_insights.types.describe_component_request.DescribeComponentRequest = {}  # type: ignore[typeddict-item]
-        input["resource_group_name"] = resource_group_name
-        input["component_name"] = component_name
+        input_: aws_sdk_application_insights.types.describe_component_request.DescribeComponentRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_group_name"] = resource_group_name
+        input_["component_name"] = component_name
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -698,14 +698,14 @@ class ApplicationInsightsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_insights.types.describe_component_configuration_request.DescribeComponentConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["resource_group_name"] = resource_group_name
-        input["component_name"] = component_name
+        input_: aws_sdk_application_insights.types.describe_component_configuration_request.DescribeComponentConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_group_name"] = resource_group_name
+        input_["component_name"] = component_name
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -750,17 +750,17 @@ class ApplicationInsightsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_insights.types.describe_component_configuration_recommendation_request.DescribeComponentConfigurationRecommendationRequest = {}  # type: ignore[typeddict-item]
-        input["resource_group_name"] = resource_group_name
-        input["component_name"] = component_name
-        input["tier"] = tier
+        input_: aws_sdk_application_insights.types.describe_component_configuration_recommendation_request.DescribeComponentConfigurationRecommendationRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_group_name"] = resource_group_name
+        input_["component_name"] = component_name
+        input_["tier"] = tier
         if workload_name is not None:
-            input["workload_name"] = workload_name
+            input_["workload_name"] = workload_name
         if recommendation_type is not None:
-            input["recommendation_type"] = recommendation_type
+            input_["recommendation_type"] = recommendation_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -801,15 +801,15 @@ class ApplicationInsightsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_insights.types.describe_log_pattern_request.DescribeLogPatternRequest = {}  # type: ignore[typeddict-item]
-        input["resource_group_name"] = resource_group_name
-        input["pattern_set_name"] = pattern_set_name
-        input["pattern_name"] = pattern_name
+        input_: aws_sdk_application_insights.types.describe_log_pattern_request.DescribeLogPatternRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_group_name"] = resource_group_name
+        input_["pattern_set_name"] = pattern_set_name
+        input_["pattern_name"] = pattern_name
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -846,13 +846,13 @@ class ApplicationInsightsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_insights.types.describe_observation_request.DescribeObservationRequest = {}  # type: ignore[typeddict-item]
-        input["observation_id"] = observation_id
+        input_: aws_sdk_application_insights.types.describe_observation_request.DescribeObservationRequest = {}  # type: ignore[typeddict-item]
+        input_["observation_id"] = observation_id
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -889,13 +889,13 @@ class ApplicationInsightsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_insights.types.describe_problem_request.DescribeProblemRequest = {}  # type: ignore[typeddict-item]
-        input["problem_id"] = problem_id
+        input_: aws_sdk_application_insights.types.describe_problem_request.DescribeProblemRequest = {}  # type: ignore[typeddict-item]
+        input_["problem_id"] = problem_id
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -932,13 +932,13 @@ class ApplicationInsightsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_insights.types.describe_problem_observations_request.DescribeProblemObservationsRequest = {}  # type: ignore[typeddict-item]
-        input["problem_id"] = problem_id
+        input_: aws_sdk_application_insights.types.describe_problem_observations_request.DescribeProblemObservationsRequest = {}  # type: ignore[typeddict-item]
+        input_["problem_id"] = problem_id
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -979,15 +979,15 @@ class ApplicationInsightsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_insights.types.describe_workload_request.DescribeWorkloadRequest = {}  # type: ignore[typeddict-item]
-        input["resource_group_name"] = resource_group_name
-        input["component_name"] = component_name
-        input["workload_id"] = workload_id
+        input_: aws_sdk_application_insights.types.describe_workload_request.DescribeWorkloadRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_group_name"] = resource_group_name
+        input_["component_name"] = component_name
+        input_["workload_id"] = workload_id
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1030,16 +1030,16 @@ class ApplicationInsightsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_insights.types.list_applications_request.ListApplicationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_application_insights.types.list_applications_request.ListApplicationsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1084,17 +1084,17 @@ class ApplicationInsightsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_insights.types.list_components_request.ListComponentsRequest = {}  # type: ignore[typeddict-item]
-        input["resource_group_name"] = resource_group_name
+        input_: aws_sdk_application_insights.types.list_components_request.ListComponentsRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_group_name"] = resource_group_name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1153,24 +1153,24 @@ class ApplicationInsightsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_insights.types.list_configuration_history_request.ListConfigurationHistoryRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_application_insights.types.list_configuration_history_request.ListConfigurationHistoryRequest = {}  # type: ignore[typeddict-item]
         if resource_group_name is not None:
-            input["resource_group_name"] = resource_group_name
+            input_["resource_group_name"] = resource_group_name
         if start_time is not None:
-            input["start_time"] = start_time
+            input_["start_time"] = start_time
         if end_time is not None:
-            input["end_time"] = end_time
+            input_["end_time"] = end_time
         if event_status is not None:
-            input["event_status"] = event_status
+            input_["event_status"] = event_status
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1219,19 +1219,19 @@ class ApplicationInsightsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_insights.types.list_log_patterns_request.ListLogPatternsRequest = {}  # type: ignore[typeddict-item]
-        input["resource_group_name"] = resource_group_name
+        input_: aws_sdk_application_insights.types.list_log_patterns_request.ListLogPatternsRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_group_name"] = resource_group_name
         if pattern_set_name is not None:
-            input["pattern_set_name"] = pattern_set_name
+            input_["pattern_set_name"] = pattern_set_name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1276,17 +1276,17 @@ class ApplicationInsightsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_insights.types.list_log_pattern_sets_request.ListLogPatternSetsRequest = {}  # type: ignore[typeddict-item]
-        input["resource_group_name"] = resource_group_name
+        input_: aws_sdk_application_insights.types.list_log_pattern_sets_request.ListLogPatternSetsRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_group_name"] = resource_group_name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1351,26 +1351,26 @@ class ApplicationInsightsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_insights.types.list_problems_request.ListProblemsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_application_insights.types.list_problems_request.ListProblemsRequest = {}  # type: ignore[typeddict-item]
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
         if resource_group_name is not None:
-            input["resource_group_name"] = resource_group_name
+            input_["resource_group_name"] = resource_group_name
         if start_time is not None:
-            input["start_time"] = start_time
+            input_["start_time"] = start_time
         if end_time is not None:
-            input["end_time"] = end_time
+            input_["end_time"] = end_time
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if component_name is not None:
-            input["component_name"] = component_name
+            input_["component_name"] = component_name
         if visibility is not None:
-            input["visibility"] = visibility
+            input_["visibility"] = visibility
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1403,11 +1403,11 @@ class ApplicationInsightsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_insights.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_application_insights.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1454,18 +1454,18 @@ class ApplicationInsightsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_insights.types.list_workloads_request.ListWorkloadsRequest = {}  # type: ignore[typeddict-item]
-        input["resource_group_name"] = resource_group_name
-        input["component_name"] = component_name
+        input_: aws_sdk_application_insights.types.list_workloads_request.ListWorkloadsRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_group_name"] = resource_group_name
+        input_["component_name"] = component_name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1502,13 +1502,13 @@ class ApplicationInsightsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_insights.types.remove_workload_request.RemoveWorkloadRequest = {}  # type: ignore[typeddict-item]
-        input["resource_group_name"] = resource_group_name
-        input["component_name"] = component_name
-        input["workload_id"] = workload_id
+        input_: aws_sdk_application_insights.types.remove_workload_request.RemoveWorkloadRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_group_name"] = resource_group_name
+        input_["component_name"] = component_name
+        input_["workload_id"] = workload_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1543,12 +1543,12 @@ class ApplicationInsightsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_insights.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_application_insights.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1583,12 +1583,12 @@ class ApplicationInsightsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_insights.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_application_insights.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1649,25 +1649,25 @@ class ApplicationInsightsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_insights.types.update_application_request.UpdateApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["resource_group_name"] = resource_group_name
+        input_: aws_sdk_application_insights.types.update_application_request.UpdateApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_group_name"] = resource_group_name
         if ops_center_enabled is not None:
-            input["ops_center_enabled"] = ops_center_enabled
+            input_["ops_center_enabled"] = ops_center_enabled
         if cwe_monitor_enabled is not None:
-            input["cwe_monitor_enabled"] = cwe_monitor_enabled
+            input_["cwe_monitor_enabled"] = cwe_monitor_enabled
         if ops_item_sns_topic_arn is not None:
-            input["ops_item_sns_topic_arn"] = ops_item_sns_topic_arn
+            input_["ops_item_sns_topic_arn"] = ops_item_sns_topic_arn
         if sns_notification_arn is not None:
-            input["sns_notification_arn"] = sns_notification_arn
+            input_["sns_notification_arn"] = sns_notification_arn
         if remove_sns_topic is not None:
-            input["remove_sns_topic"] = remove_sns_topic
+            input_["remove_sns_topic"] = remove_sns_topic
         if auto_config_enabled is not None:
-            input["auto_config_enabled"] = auto_config_enabled
+            input_["auto_config_enabled"] = auto_config_enabled
         if attach_missing_permission is not None:
-            input["attach_missing_permission"] = attach_missing_permission
+            input_["attach_missing_permission"] = attach_missing_permission
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1710,16 +1710,16 @@ class ApplicationInsightsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_insights.types.update_component_request.UpdateComponentRequest = {}  # type: ignore[typeddict-item]
-        input["resource_group_name"] = resource_group_name
-        input["component_name"] = component_name
+        input_: aws_sdk_application_insights.types.update_component_request.UpdateComponentRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_group_name"] = resource_group_name
+        input_["component_name"] = component_name
         if new_component_name is not None:
-            input["new_component_name"] = new_component_name
+            input_["new_component_name"] = new_component_name
         if resource_list is not None:
-            input["resource_list"] = resource_list
+            input_["resource_list"] = resource_list
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1740,7 +1740,7 @@ class ApplicationInsightsClient:
             "aws_sdk_application_insights.types.auto_config_enabled.AutoConfigEnabled"
         ] = None,
     ) -> "aws_sdk_application_insights.types.update_component_configuration_response.UpdateComponentConfigurationResponse":
-        """<p>Updates the monitoring configurations for the component. The configuration input parameter is an escaped JSON of the configuration and should match the schema of what is returned by <code>DescribeComponentConfigurationRecommendation</code>. </p>
+        r"""<p>Updates the monitoring configurations for the component. The configuration input parameter is an escaped JSON of the configuration and should match the schema of what is returned by <code>DescribeComponentConfigurationRecommendation</code>. </p>
 
         Args:
             resource_group_name: <p>The name of the resource group.</p>
@@ -1766,20 +1766,20 @@ class ApplicationInsightsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_insights.types.update_component_configuration_request.UpdateComponentConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["resource_group_name"] = resource_group_name
-        input["component_name"] = component_name
+        input_: aws_sdk_application_insights.types.update_component_configuration_request.UpdateComponentConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_group_name"] = resource_group_name
+        input_["component_name"] = component_name
         if monitor is not None:
-            input["monitor"] = monitor
+            input_["monitor"] = monitor
         if tier is not None:
-            input["tier"] = tier
+            input_["tier"] = tier
         if component_configuration is not None:
-            input["component_configuration"] = component_configuration
+            input_["component_configuration"] = component_configuration
         if auto_config_enabled is not None:
-            input["auto_config_enabled"] = auto_config_enabled
+            input_["auto_config_enabled"] = auto_config_enabled
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1824,17 +1824,17 @@ class ApplicationInsightsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_insights.types.update_log_pattern_request.UpdateLogPatternRequest = {}  # type: ignore[typeddict-item]
-        input["resource_group_name"] = resource_group_name
-        input["pattern_set_name"] = pattern_set_name
-        input["pattern_name"] = pattern_name
+        input_: aws_sdk_application_insights.types.update_log_pattern_request.UpdateLogPatternRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_group_name"] = resource_group_name
+        input_["pattern_set_name"] = pattern_set_name
+        input_["pattern_name"] = pattern_name
         if pattern is not None:
-            input["pattern"] = pattern
+            input_["pattern"] = pattern
         if rank is not None:
-            input["rank"] = rank
+            input_["rank"] = rank
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1875,15 +1875,15 @@ class ApplicationInsightsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_insights.types.update_problem_request.UpdateProblemRequest = {}  # type: ignore[typeddict-item]
-        input["problem_id"] = problem_id
+        input_: aws_sdk_application_insights.types.update_problem_request.UpdateProblemRequest = {}  # type: ignore[typeddict-item]
+        input_["problem_id"] = problem_id
         if update_status is not None:
-            input["update_status"] = update_status
+            input_["update_status"] = update_status
         if visibility is not None:
-            input["visibility"] = visibility
+            input_["visibility"] = visibility
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1924,15 +1924,15 @@ class ApplicationInsightsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_insights.types.update_workload_request.UpdateWorkloadRequest = {}  # type: ignore[typeddict-item]
-        input["resource_group_name"] = resource_group_name
-        input["component_name"] = component_name
+        input_: aws_sdk_application_insights.types.update_workload_request.UpdateWorkloadRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_group_name"] = resource_group_name
+        input_["component_name"] = component_name
         if workload_id is not None:
-            input["workload_id"] = workload_id
-        input["workload_configuration"] = workload_configuration
+            input_["workload_id"] = workload_id
+        input_["workload_configuration"] = workload_configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

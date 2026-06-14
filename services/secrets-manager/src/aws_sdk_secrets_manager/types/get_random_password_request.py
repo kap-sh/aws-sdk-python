@@ -31,7 +31,7 @@ class GetRandomPasswordRequest(TypedDict):
     exclude_punctuation: NotRequired[
         "aws_sdk_secrets_manager.types.exclude_punctuation_type.ExcludePunctuationType"
     ]
-    """<p>Specifies whether to exclude the following punctuation characters from the password: <code>! \" # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~</code>. If you don't include this switch, the password can contain punctuation.</p>"""
+    r"""<p>Specifies whether to exclude the following punctuation characters from the password: <code>! \" # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~</code>. If you don't include this switch, the password can contain punctuation.</p>"""
     exclude_uppercase: NotRequired[
         "aws_sdk_secrets_manager.types.exclude_uppercase_type.ExcludeUppercaseType"
     ]

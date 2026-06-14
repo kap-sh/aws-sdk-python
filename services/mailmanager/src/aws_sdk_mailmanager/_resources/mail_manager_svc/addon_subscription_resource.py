@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 from aws_sdk_mailmanager._services._pipeline import (
@@ -49,7 +51,7 @@ class AddonSubscriptionResource:
         ] = None,
         tags: Optional["aws_sdk_mailmanager.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_mailmanager.types.create_addon_subscription_response.CreateAddonSubscriptionResponse":
-        """<p>Creates a subscription for an Add On representing the acceptance of its terms of use and additional pricing. The subscription can then be used to create an instance for use in rule sets or traffic policies.</p>
+        r"""<p>Creates a subscription for an Add On representing the acceptance of its terms of use and additional pricing. The subscription can then be used to create an instance for use in rule sets or traffic policies.</p>
 
         Args:
             client_token: <p>A unique token that Amazon SES uses to recognize subsequent retries of the same request.</p>
@@ -219,7 +221,7 @@ class AsyncAddonSubscriptionResource:
         ] = None,
         tags: Optional["aws_sdk_mailmanager.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_mailmanager.types.create_addon_subscription_response.CreateAddonSubscriptionResponse":
-        """<p>Creates a subscription for an Add On representing the acceptance of its terms of use and additional pricing. The subscription can then be used to create an instance for use in rule sets or traffic policies.</p>
+        r"""<p>Creates a subscription for an Add On representing the acceptance of its terms of use and additional pricing. The subscription can then be used to create an instance for use in rule sets or traffic policies.</p>
 
         Args:
             client_token: <p>A unique token that Amazon SES uses to recognize subsequent retries of the same request.</p>

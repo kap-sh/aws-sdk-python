@@ -13,7 +13,7 @@ if TYPE_CHECKING:
 
 class AdvancedEventSelector(TypedDict):
     name: NotRequired["aws_sdk_cloudtrail.types.selector_name.SelectorName"]
-    """<p>An optional, descriptive name for an advanced event selector, such as \"Log data events for only two S3 buckets\".</p>"""
+    r"""<p>An optional, descriptive name for an advanced event selector, such as \"Log data events for only two S3 buckets\".</p>"""
     field_selectors: (
         "aws_sdk_cloudtrail.types.advanced_field_selectors.AdvancedFieldSelectors"
     )

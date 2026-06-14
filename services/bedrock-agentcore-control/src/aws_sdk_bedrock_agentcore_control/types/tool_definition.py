@@ -1,0 +1,79 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#ToolDefinition``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_bedrock_agentcore_control.types.schema_definition
+
+
+class ToolDefinition(TypedDict):
+    name: "str"
+    """<p>The name of the tool. This name identifies the tool in the Model Context Protocol.</p>"""
+    description: "str"
+    """<p>The description of the tool. This description provides information about the purpose and usage of the tool.</p>"""
+    input_schema: (
+        "aws_sdk_bedrock_agentcore_control.types.schema_definition.SchemaDefinition"
+    )
+    """<p>The input schema for the tool. This schema defines the structure of the input that the tool accepts.</p>"""
+    output_schema: NotRequired[
+        "aws_sdk_bedrock_agentcore_control.types.schema_definition.SchemaDefinition"
+    ]
+    """<p>The output schema for the tool. This schema defines the structure of the output that the tool produces.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ToolDefinition) -> dict:
+    out: dict = {}
+    out["name"] = value["name"]
+    out["description"] = value["description"]
+    import aws_sdk_bedrock_agentcore_control.types.schema_definition
+
+    out["inputSchema"] = (
+        aws_sdk_bedrock_agentcore_control.types.schema_definition.serialize_json(
+            value["input_schema"]
+        )
+    )
+    if "output_schema" in value:
+        import aws_sdk_bedrock_agentcore_control.types.schema_definition
+
+        out["outputSchema"] = (
+            aws_sdk_bedrock_agentcore_control.types.schema_definition.serialize_json(
+                value["output_schema"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> ToolDefinition:
+    out: ToolDefinition = {}  # type: ignore[typeddict-item]
+    if "name" in data:
+        out["name"] = data["name"]
+    else:
+        raise DeserializationError("ToolDefinition.name required")
+    if "description" in data:
+        out["description"] = data["description"]
+    else:
+        raise DeserializationError("ToolDefinition.description required")
+    if "inputSchema" in data:
+        import aws_sdk_bedrock_agentcore_control.types.schema_definition
+
+        out["input_schema"] = (
+            aws_sdk_bedrock_agentcore_control.types.schema_definition.deserialize_json(
+                data["inputSchema"]
+            )
+        )
+    else:
+        raise DeserializationError("ToolDefinition.input_schema required")
+    if "outputSchema" in data:
+        import aws_sdk_bedrock_agentcore_control.types.schema_definition
+
+        out["output_schema"] = (
+            aws_sdk_bedrock_agentcore_control.types.schema_definition.deserialize_json(
+                data["outputSchema"]
+            )
+        )
+    return out

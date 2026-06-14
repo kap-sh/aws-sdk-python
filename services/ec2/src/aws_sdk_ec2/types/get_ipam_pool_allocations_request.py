@@ -25,7 +25,7 @@ class GetIpamPoolAllocationsRequest(TypedDict):
     ]
     """<p>The ID of the allocation.</p>"""
     filters: NotRequired["aws_sdk_ec2.types.filter_list.FilterList"]
-    """<p>One or more filters for the request. For more information about filtering, see <a href=\"https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html\">Filtering CLI output</a>.</p>"""
+    r"""<p>One or more filters for the request. For more information about filtering, see <a href=\"https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html\">Filtering CLI output</a>.</p>"""
     max_results: NotRequired[
         "aws_sdk_ec2.types.get_ipam_pool_allocations_max_results.GetIpamPoolAllocationsMaxResults"
     ]

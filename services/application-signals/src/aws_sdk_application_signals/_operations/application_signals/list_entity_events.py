@@ -60,7 +60,7 @@ def get_signer(
     options: AsyncOperationOptions | OperationOptions,
     auth_schemes: list[dict[str, Any]] | None = None,
 ) -> aws_sdk_application_signals._auth._signers.Signer | None:
-    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}
+    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}  # noqa: F841
     if options.credentials_provider is not None:
         sigv4_config = (
             name_to_schema.get("sigv4")
@@ -79,7 +79,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_application_signals.types.list_entity_events_input.ListEntityEventsInput,
+    input_: aws_sdk_application_signals.types.list_entity_events_input.ListEntityEventsInput,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -88,14 +88,16 @@ def build_request(
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/events"
     params: dict[str, str] = {}
-    params["MaxResults"] = str(input.get("max_results", 20))
-    if "next_token" in input:
-        params["NextToken"] = str(input["next_token"])
+    params["MaxResults"] = str(input_.get("max_results", 20))
+    if "next_token" in input_:
+        params["NextToken"] = str(input_["next_token"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     import aws_sdk_application_signals.types.list_entity_events_input
 
     body: bytes | None = json.dumps(
-        aws_sdk_application_signals.types.list_entity_events_input.serialize_json(input)
+        aws_sdk_application_signals.types.list_entity_events_input.serialize_json(
+            input_
+        )
     ).encode()
     headers["content-type"] = "application/json"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
@@ -108,12 +110,12 @@ def build_request(
 
 def list_entity_events(
     options: OperationOptions,
-    input: aws_sdk_application_signals.types.list_entity_events_input.ListEntityEventsInput,
+    input_: aws_sdk_application_signals.types.list_entity_events_input.ListEntityEventsInput,
 ) -> tuple[
     aws_sdk_application_signals.types.list_entity_events_output.ListEntityEventsOutput,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -127,12 +129,12 @@ def list_entity_events(
 
 async def async_list_entity_events(
     options: AsyncOperationOptions,
-    input: aws_sdk_application_signals.types.list_entity_events_input.ListEntityEventsInput,
+    input_: aws_sdk_application_signals.types.list_entity_events_input.ListEntityEventsInput,
 ) -> tuple[
     aws_sdk_application_signals.types.list_entity_events_output.ListEntityEventsOutput,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

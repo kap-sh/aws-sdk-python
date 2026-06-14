@@ -10,7 +10,7 @@ class GetApplicationAssignmentConfigurationResponse(TypedDict):
     assignment_required: (
         "aws_sdk_sso_admin.types.assignment_required.AssignmentRequired"
     )
-    """<p>If <code>AssignmentsRequired</code> is <code>true</code> (default value), users don’t have access to the application unless an assignment is created using the <a href=\"https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_CreateApplicationAssignment.html\">CreateApplicationAssignment API</a>. If <code>false</code>, all users have access to the application. </p>"""
+    r"""<p>If <code>AssignmentsRequired</code> is <code>true</code> (default value), users don’t have access to the application unless an assignment is created using the <a href=\"https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_CreateApplicationAssignment.html\">CreateApplicationAssignment API</a>. If <code>false</code>, all users have access to the application. </p>"""
 
 
 # --- awsJson1_1 ser/de ---

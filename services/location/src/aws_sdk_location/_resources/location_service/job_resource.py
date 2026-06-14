@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_location._auth._signers
@@ -60,7 +62,7 @@ class JobResource:
         name: Optional["aws_sdk_location.types.resource_name.ResourceName"] = None,
         tags: Optional["aws_sdk_location.types.tag_map.TagMap"] = None,
     ) -> "aws_sdk_location.types.start_job_response.StartJobResponse":
-        """<p> <code>StartJob</code> starts a new asynchronous bulk processing job. You specify the input data location in Amazon S3, the action to perform, and the output location where results are written.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/jobs-concepts.html\">Job concepts</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
+        r"""<p> <code>StartJob</code> starts a new asynchronous bulk processing job. You specify the input data location in Amazon S3, the action to perform, and the output location where results are written.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/jobs-concepts.html\">Job concepts</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
 
         Args:
             client_token: <p>A unique identifier for this request to ensure idempotency.</p>
@@ -115,7 +117,7 @@ class JobResource:
         *,
         config_overrides: Optional[LocationClientConfig] = None,
     ) -> "aws_sdk_location.types.get_job_response.GetJobResponse":
-        """<p> <code>GetJob</code> retrieves detailed information about a specific job, including its current status, configuration, and error information if the job failed.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/jobs-concepts.html\">Job concepts</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
+        r"""<p> <code>GetJob</code> retrieves detailed information about a specific job, including its current status, configuration, and error information if the job failed.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/jobs-concepts.html\">Job concepts</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
 
         Args:
             job_id: <p>The unique identifier of the job to retrieve.</p>
@@ -154,7 +156,7 @@ class JobResource:
         max_results: Optional[int] = None,
         next_token: Optional["aws_sdk_location.types.large_token.LargeToken"] = None,
     ) -> "aws_sdk_location.types.list_jobs_response.ListJobsResponse":
-        """<p> <code>ListJobs</code> retrieves a list of jobs with optional filtering and pagination support.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/jobs-concepts.html\">Job concepts</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
+        r"""<p> <code>ListJobs</code> retrieves a list of jobs with optional filtering and pagination support.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/jobs-concepts.html\">Job concepts</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
 
         Args:
             filter: <p>An optional structure containing criteria by which to filter job results.</p>
@@ -198,7 +200,7 @@ class JobResource:
         *,
         config_overrides: Optional[LocationClientConfig] = None,
     ) -> "aws_sdk_location.types.cancel_job_response.CancelJobResponse":
-        """<p> <code>CancelJob</code> cancels a job that is currently running or pending. If the job is already in a terminal state (<code>Completed</code>, <code>Failed</code>, or <code>Cancelled</code>), the operation returns successfully with the current status.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/jobs-concepts.html\">Job concepts</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
+        r"""<p> <code>CancelJob</code> cancels a job that is currently running or pending. If the job is already in a terminal state (<code>Completed</code>, <code>Failed</code>, or <code>Cancelled</code>), the operation returns successfully with the current status.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/jobs-concepts.html\">Job concepts</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
 
         Args:
             job_id: <p>The unique identifier of the job to cancel.</p>
@@ -251,7 +253,7 @@ class AsyncJobResource:
         name: Optional["aws_sdk_location.types.resource_name.ResourceName"] = None,
         tags: Optional["aws_sdk_location.types.tag_map.TagMap"] = None,
     ) -> "aws_sdk_location.types.start_job_response.StartJobResponse":
-        """<p> <code>StartJob</code> starts a new asynchronous bulk processing job. You specify the input data location in Amazon S3, the action to perform, and the output location where results are written.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/jobs-concepts.html\">Job concepts</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
+        r"""<p> <code>StartJob</code> starts a new asynchronous bulk processing job. You specify the input data location in Amazon S3, the action to perform, and the output location where results are written.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/jobs-concepts.html\">Job concepts</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
 
         Args:
             client_token: <p>A unique identifier for this request to ensure idempotency.</p>
@@ -307,7 +309,7 @@ class AsyncJobResource:
         *,
         config_overrides: Optional[AsyncLocationClientConfig] = None,
     ) -> "aws_sdk_location.types.get_job_response.GetJobResponse":
-        """<p> <code>GetJob</code> retrieves detailed information about a specific job, including its current status, configuration, and error information if the job failed.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/jobs-concepts.html\">Job concepts</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
+        r"""<p> <code>GetJob</code> retrieves detailed information about a specific job, including its current status, configuration, and error information if the job failed.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/jobs-concepts.html\">Job concepts</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
 
         Args:
             job_id: <p>The unique identifier of the job to retrieve.</p>
@@ -347,7 +349,7 @@ class AsyncJobResource:
         max_results: Optional[int] = None,
         next_token: Optional["aws_sdk_location.types.large_token.LargeToken"] = None,
     ) -> "aws_sdk_location.types.list_jobs_response.ListJobsResponse":
-        """<p> <code>ListJobs</code> retrieves a list of jobs with optional filtering and pagination support.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/jobs-concepts.html\">Job concepts</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
+        r"""<p> <code>ListJobs</code> retrieves a list of jobs with optional filtering and pagination support.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/jobs-concepts.html\">Job concepts</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
 
         Args:
             filter: <p>An optional structure containing criteria by which to filter job results.</p>
@@ -392,7 +394,7 @@ class AsyncJobResource:
         *,
         config_overrides: Optional[AsyncLocationClientConfig] = None,
     ) -> "aws_sdk_location.types.cancel_job_response.CancelJobResponse":
-        """<p> <code>CancelJob</code> cancels a job that is currently running or pending. If the job is already in a terminal state (<code>Completed</code>, <code>Failed</code>, or <code>Cancelled</code>), the operation returns successfully with the current status.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/jobs-concepts.html\">Job concepts</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
+        r"""<p> <code>CancelJob</code> cancels a job that is currently running or pending. If the job is already in a terminal state (<code>Completed</code>, <code>Failed</code>, or <code>Cancelled</code>), the operation returns successfully with the current status.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/jobs-concepts.html\">Job concepts</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
 
         Args:
             job_id: <p>The unique identifier of the job to cancel.</p>

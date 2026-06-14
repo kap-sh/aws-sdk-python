@@ -345,7 +345,7 @@ class AsyncKinesisAnalyticsV2Client:
         *,
         config_overrides: Optional[AsyncKinesisAnalyticsV2ClientConfig] = None,
     ) -> "aws_sdk_kinesis_analytics_v2.types.add_application_input_processing_configuration_response.AddApplicationInputProcessingConfigurationResponse":
-        """<p>Adds an <a>InputProcessingConfiguration</a> to a SQL-based Kinesis Data Analytics application. An input processor pre-processes records on the input stream before the application's SQL code executes. Currently, the only input processor available is <a href=\"https://docs.aws.amazon.com/lambda/\">Amazon Lambda</a>.</p>
+        r"""<p>Adds an <a>InputProcessingConfiguration</a> to a SQL-based Kinesis Data Analytics application. An input processor pre-processes records on the input stream before the application's SQL code executes. Currently, the only input processor available is <a href=\"https://docs.aws.amazon.com/lambda/\">Amazon Lambda</a>.</p>
 
         Args:
             application_name: <p>The name of the application to which you want to add the input processing configuration.</p>
@@ -545,7 +545,7 @@ class AsyncKinesisAnalyticsV2Client:
             "aws_sdk_kinesis_analytics_v2.types.application_mode.ApplicationMode"
         ] = None,
     ) -> "aws_sdk_kinesis_analytics_v2.types.create_application_response.CreateApplicationResponse":
-        """<p>Creates a Managed Service for Apache Flink application. For information about creating a Managed Service for Apache Flink application, see <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/java/getting-started.html\">Creating an Application</a>.</p>
+        r"""<p>Creates a Managed Service for Apache Flink application. For information about creating a Managed Service for Apache Flink application, see <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/java/getting-started.html\">Creating an Application</a>.</p>
 
         Args:
             application_name: <p>The name of your application (for example, <code>sample-app</code>).</p>
@@ -1335,7 +1335,7 @@ class AsyncKinesisAnalyticsV2Client:
             "aws_sdk_kinesis_analytics_v2.types.application_name.ApplicationName"
         ] = None,
     ) -> "aws_sdk_kinesis_analytics_v2.types.list_applications_response.ListApplicationsResponse":
-        """<p>Returns a list of Managed Service for Apache Flink applications in your account. For each application, the response includes the application name, Amazon Resource Name (ARN), and status. </p> <p>If you want detailed information about a specific application, use <a>DescribeApplication</a>.</p>
+        r"""<p>Returns a list of Managed Service for Apache Flink applications in your account. For each application, the response includes the application name, Amazon Resource Name (ARN), and status. </p> <p>If you want detailed information about a specific application, use <a>DescribeApplication</a>.</p>
 
         Args:
             limit: <p>The maximum number of applications to list.</p>
@@ -1485,7 +1485,7 @@ class AsyncKinesisAnalyticsV2Client:
             "aws_sdk_kinesis_analytics_v2.types.next_token.NextToken"
         ] = None,
     ) -> "aws_sdk_kinesis_analytics_v2.types.list_application_versions_response.ListApplicationVersionsResponse":
-        """<p>Lists all the versions for the specified application, including versions that were rolled back. The response also includes a summary of the configuration associated with each version.</p> <p>To get the complete description of a specific application version, invoke the <a>DescribeApplicationVersion</a> operation.</p> <note> <p>This operation is supported only for Managed Service for Apache Flink.</p> </note>
+        r"""<p>Lists all the versions for the specified application, including versions that were rolled back. The response also includes a summary of the configuration associated with each version.</p> <p>To get the complete description of a specific application version, invoke the <a>DescribeApplicationVersion</a> operation.</p> <note> <p>This operation is supported only for Managed Service for Apache Flink.</p> </note>
 
         Args:
             application_name: <p>The name of the application for which you want to list all versions.</p>
@@ -1556,7 +1556,7 @@ class AsyncKinesisAnalyticsV2Client:
         *,
         config_overrides: Optional[AsyncKinesisAnalyticsV2ClientConfig] = None,
     ) -> "aws_sdk_kinesis_analytics_v2.types.list_tags_for_resource_response.ListTagsForResourceResponse":
-        """<p>Retrieves the list of key-value tags assigned to the application. For more information, see <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/java/how-tagging.html\">Using Tagging</a>.</p>
+        r"""<p>Retrieves the list of key-value tags assigned to the application. For more information, see <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/java/how-tagging.html\">Using Tagging</a>.</p>
 
         Args:
             resource_arn: <p>The ARN of the application for which to retrieve tags.</p>
@@ -1724,7 +1724,7 @@ class AsyncKinesisAnalyticsV2Client:
         *,
         config_overrides: Optional[AsyncKinesisAnalyticsV2ClientConfig] = None,
     ) -> "aws_sdk_kinesis_analytics_v2.types.tag_resource_response.TagResourceResponse":
-        """<p>Adds one or more key-value tags to a Managed Service for Apache Flink application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50. For more information, see <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/java/how-tagging.html\">Using Tagging</a>.</p>
+        r"""<p>Adds one or more key-value tags to a Managed Service for Apache Flink application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50. For more information, see <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/java/how-tagging.html\">Using Tagging</a>.</p>
 
         Args:
             resource_arn: <p>The ARN of the application to assign the tags.</p>
@@ -1765,7 +1765,7 @@ class AsyncKinesisAnalyticsV2Client:
         *,
         config_overrides: Optional[AsyncKinesisAnalyticsV2ClientConfig] = None,
     ) -> "aws_sdk_kinesis_analytics_v2.types.untag_resource_response.UntagResourceResponse":
-        """<p>Removes one or more tags from a Managed Service for Apache Flink application. For more information, see <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/java/how-tagging.html\">Using Tagging</a>.</p>
+        r"""<p>Removes one or more tags from a Managed Service for Apache Flink application. For more information, see <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/java/how-tagging.html\">Using Tagging</a>.</p>
 
         Args:
             resource_arn: <p>The ARN of the Managed Service for Apache Flink application from which to remove the tags.</p>
@@ -1890,7 +1890,7 @@ class AsyncKinesisAnalyticsV2Client:
         *,
         config_overrides: Optional[AsyncKinesisAnalyticsV2ClientConfig] = None,
     ) -> "aws_sdk_kinesis_analytics_v2.types.update_application_maintenance_configuration_response.UpdateApplicationMaintenanceConfigurationResponse":
-        """<p>Updates the maintenance configuration of the Managed Service for Apache Flink application. </p> <p>You can invoke this operation on an application that is in one of the two following states: <code>READY</code> or <code>RUNNING</code>. If you invoke it when the application is in a state other than these two states, it throws a <code>ResourceInUseException</code>. The service makes use of the updated configuration the next time it schedules maintenance for the application. If you invoke this operation after the service schedules maintenance, the service will apply the configuration update the next time it schedules maintenance for the application. This means that you might not see the maintenance configuration update applied to the maintenance process that follows a successful invocation of this operation, but to the following maintenance process instead.</p> <p>To see the current maintenance configuration of your application, invoke the <a>DescribeApplication</a> operation.</p> <p>For information about application maintenance, see <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/java/maintenance.html\">Managed Service for Apache Flink for Apache Flink Maintenance</a>.</p> <note> <p>This operation is supported only for Managed Service for Apache Flink.</p> </note>
+        r"""<p>Updates the maintenance configuration of the Managed Service for Apache Flink application. </p> <p>You can invoke this operation on an application that is in one of the two following states: <code>READY</code> or <code>RUNNING</code>. If you invoke it when the application is in a state other than these two states, it throws a <code>ResourceInUseException</code>. The service makes use of the updated configuration the next time it schedules maintenance for the application. If you invoke this operation after the service schedules maintenance, the service will apply the configuration update the next time it schedules maintenance for the application. This means that you might not see the maintenance configuration update applied to the maintenance process that follows a successful invocation of this operation, but to the following maintenance process instead.</p> <p>To see the current maintenance configuration of your application, invoke the <a>DescribeApplication</a> operation.</p> <p>For information about application maintenance, see <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/java/maintenance.html\">Managed Service for Apache Flink for Apache Flink Maintenance</a>.</p> <note> <p>This operation is supported only for Managed Service for Apache Flink.</p> </note>
 
         Args:
             application_name: <p>The name of the application for which you want to update the maintenance configuration.</p>

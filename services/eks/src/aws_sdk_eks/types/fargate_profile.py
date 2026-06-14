@@ -24,7 +24,7 @@ class FargateProfile(TypedDict):
     created_at: NotRequired["aws_sdk_eks.types.timestamp.Timestamp"]
     """<p>The Unix epoch timestamp at object creation.</p>"""
     pod_execution_role_arn: NotRequired["aws_sdk_eks.types.string.String"]
-    """<p>The Amazon Resource Name (ARN) of the <code>Pod</code> execution role to use for any <code>Pod</code> that matches the selectors in the Fargate profile. For more information, see <a href=\"https://docs.aws.amazon.com/eks/latest/userguide/pod-execution-role.html\"> <code>Pod</code> execution role</a> in the <i>Amazon EKS User Guide</i>.</p>"""
+    r"""<p>The Amazon Resource Name (ARN) of the <code>Pod</code> execution role to use for any <code>Pod</code> that matches the selectors in the Fargate profile. For more information, see <a href=\"https://docs.aws.amazon.com/eks/latest/userguide/pod-execution-role.html\"> <code>Pod</code> execution role</a> in the <i>Amazon EKS User Guide</i>.</p>"""
     subnets: NotRequired["aws_sdk_eks.types.string_list.StringList"]
     """<p>The IDs of subnets to launch a <code>Pod</code> into.</p>"""
     selectors: NotRequired[

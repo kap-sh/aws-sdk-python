@@ -12,7 +12,7 @@ if TYPE_CHECKING:
 
 class AttachManagedPolicyToPermissionSetRequest(TypedDict):
     instance_arn: "aws_sdk_sso_admin.types.instance_arn.InstanceArn"
-    """<p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>"""
+    r"""<p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>"""
     permission_set_arn: "aws_sdk_sso_admin.types.permission_set_arn.PermissionSetArn"
     """<p>The ARN of the <a>PermissionSet</a> that the managed policy should be attached to.</p>"""
     managed_policy_arn: "aws_sdk_sso_admin.types.managed_policy_arn.ManagedPolicyArn"

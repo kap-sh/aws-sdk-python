@@ -10,13 +10,13 @@ if TYPE_CHECKING:
 
 class Criterion(TypedDict):
     eq: NotRequired["aws_sdk_accessanalyzer.types.value_list.ValueList"]
-    """<p>An \"equals\" operator to match for the filter used to create the rule.</p>"""
+    r"""<p>An \"equals\" operator to match for the filter used to create the rule.</p>"""
     neq: NotRequired["aws_sdk_accessanalyzer.types.value_list.ValueList"]
-    """<p>A \"not equals\" operator to match for the filter used to create the rule.</p>"""
+    r"""<p>A \"not equals\" operator to match for the filter used to create the rule.</p>"""
     contains: NotRequired["aws_sdk_accessanalyzer.types.value_list.ValueList"]
-    """<p>A \"contains\" operator to match for the filter used to create the rule.</p>"""
+    r"""<p>A \"contains\" operator to match for the filter used to create the rule.</p>"""
     exists: NotRequired["bool"]
-    """<p>An \"exists\" operator to match for the filter used to create the rule. </p>"""
+    r"""<p>An \"exists\" operator to match for the filter used to create the rule. </p>"""
 
 
 # --- restJson1 ser/de ---

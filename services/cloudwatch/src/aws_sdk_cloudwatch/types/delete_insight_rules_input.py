@@ -14,7 +14,7 @@ class DeleteInsightRulesInput(TypedDict):
     rule_names: NotRequired[
         "aws_sdk_cloudwatch.types.insight_rule_names.InsightRuleNames"
     ]
-    """<p>An array of the rule names to delete. If you need to find out the names of your rules, use <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeInsightRules.html\">DescribeInsightRules</a>.</p>"""
+    r"""<p>An array of the rule names to delete. If you need to find out the names of your rules, use <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeInsightRules.html\">DescribeInsightRules</a>.</p>"""
 
 
 # --- awsJson1_0 ser/de ---

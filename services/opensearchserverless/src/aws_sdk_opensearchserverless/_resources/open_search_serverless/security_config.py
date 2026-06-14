@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 from aws_sdk_opensearchserverless._services._pipeline import (
@@ -66,7 +68,7 @@ class SecurityConfig:
             "aws_sdk_opensearchserverless.types.client_token.ClientToken"
         ] = None,
     ) -> "aws_sdk_opensearchserverless.types.create_security_config_response.CreateSecurityConfigResponse":
-        """<p>Specifies a security configuration for OpenSearch Serverless. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html\">SAML authentication for Amazon OpenSearch Serverless</a>.</p>
+        r"""<p>Specifies a security configuration for OpenSearch Serverless. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html\">SAML authentication for Amazon OpenSearch Serverless</a>.</p>
 
         Args:
             type: <p>The type of security configuration.</p>
@@ -120,7 +122,7 @@ class SecurityConfig:
         *,
         config_overrides: Optional[OpenSearchServerlessClientConfig] = None,
     ) -> "aws_sdk_opensearchserverless.types.get_security_config_response.GetSecurityConfigResponse":
-        """<p>Returns information about an OpenSearch Serverless security configuration. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html\">SAML authentication for Amazon OpenSearch Serverless</a>.</p>
+        r"""<p>Returns information about an OpenSearch Serverless security configuration. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html\">SAML authentication for Amazon OpenSearch Serverless</a>.</p>
 
         Args:
             id: <p>The unique identifier of the security configuration.</p>
@@ -173,7 +175,7 @@ class SecurityConfig:
             "aws_sdk_opensearchserverless.types.client_token.ClientToken"
         ] = None,
     ) -> "aws_sdk_opensearchserverless.types.update_security_config_response.UpdateSecurityConfigResponse":
-        """<p>Updates a security configuration for OpenSearch Serverless. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html\">SAML authentication for Amazon OpenSearch Serverless</a>.</p>
+        r"""<p>Updates a security configuration for OpenSearch Serverless. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html\">SAML authentication for Amazon OpenSearch Serverless</a>.</p>
 
         Args:
             id: <p>The security configuration identifier. For SAML the ID will be <code>saml/&lt;accountId&gt;/&lt;idpProviderName&gt;</code>. For example, <code>saml/123456789123/OKTADev</code>.</p>
@@ -232,7 +234,7 @@ class SecurityConfig:
             "aws_sdk_opensearchserverless.types.client_token.ClientToken"
         ] = None,
     ) -> "aws_sdk_opensearchserverless.types.delete_security_config_response.DeleteSecurityConfigResponse":
-        """<p>Deletes a security configuration for OpenSearch Serverless. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html\">SAML authentication for Amazon OpenSearch Serverless</a>.</p>
+        r"""<p>Deletes a security configuration for OpenSearch Serverless. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html\">SAML authentication for Amazon OpenSearch Serverless</a>.</p>
 
         Args:
             id: <p>The security configuration identifier. For SAML the ID will be <code>saml/&lt;accountId&gt;/&lt;idpProviderName&gt;</code>. For example, <code>saml/123456789123/OKTADev</code>.</p>
@@ -274,7 +276,7 @@ class SecurityConfig:
         next_token: Optional[str] = None,
         max_results: Optional[int] = None,
     ) -> "aws_sdk_opensearchserverless.types.list_security_configs_response.ListSecurityConfigsResponse":
-        """<p>Returns information about configured OpenSearch Serverless security configurations. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html\">SAML authentication for Amazon OpenSearch Serverless</a>.</p>
+        r"""<p>Returns information about configured OpenSearch Serverless security configurations. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html\">SAML authentication for Amazon OpenSearch Serverless</a>.</p>
 
         Args:
             type: <p>The type of security configuration.</p>
@@ -338,7 +340,7 @@ class AsyncSecurityConfig:
             "aws_sdk_opensearchserverless.types.client_token.ClientToken"
         ] = None,
     ) -> "aws_sdk_opensearchserverless.types.create_security_config_response.CreateSecurityConfigResponse":
-        """<p>Specifies a security configuration for OpenSearch Serverless. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html\">SAML authentication for Amazon OpenSearch Serverless</a>.</p>
+        r"""<p>Specifies a security configuration for OpenSearch Serverless. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html\">SAML authentication for Amazon OpenSearch Serverless</a>.</p>
 
         Args:
             type: <p>The type of security configuration.</p>
@@ -393,7 +395,7 @@ class AsyncSecurityConfig:
         *,
         config_overrides: Optional[AsyncOpenSearchServerlessClientConfig] = None,
     ) -> "aws_sdk_opensearchserverless.types.get_security_config_response.GetSecurityConfigResponse":
-        """<p>Returns information about an OpenSearch Serverless security configuration. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html\">SAML authentication for Amazon OpenSearch Serverless</a>.</p>
+        r"""<p>Returns information about an OpenSearch Serverless security configuration. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html\">SAML authentication for Amazon OpenSearch Serverless</a>.</p>
 
         Args:
             id: <p>The unique identifier of the security configuration.</p>
@@ -447,7 +449,7 @@ class AsyncSecurityConfig:
             "aws_sdk_opensearchserverless.types.client_token.ClientToken"
         ] = None,
     ) -> "aws_sdk_opensearchserverless.types.update_security_config_response.UpdateSecurityConfigResponse":
-        """<p>Updates a security configuration for OpenSearch Serverless. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html\">SAML authentication for Amazon OpenSearch Serverless</a>.</p>
+        r"""<p>Updates a security configuration for OpenSearch Serverless. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html\">SAML authentication for Amazon OpenSearch Serverless</a>.</p>
 
         Args:
             id: <p>The security configuration identifier. For SAML the ID will be <code>saml/&lt;accountId&gt;/&lt;idpProviderName&gt;</code>. For example, <code>saml/123456789123/OKTADev</code>.</p>
@@ -507,7 +509,7 @@ class AsyncSecurityConfig:
             "aws_sdk_opensearchserverless.types.client_token.ClientToken"
         ] = None,
     ) -> "aws_sdk_opensearchserverless.types.delete_security_config_response.DeleteSecurityConfigResponse":
-        """<p>Deletes a security configuration for OpenSearch Serverless. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html\">SAML authentication for Amazon OpenSearch Serverless</a>.</p>
+        r"""<p>Deletes a security configuration for OpenSearch Serverless. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html\">SAML authentication for Amazon OpenSearch Serverless</a>.</p>
 
         Args:
             id: <p>The security configuration identifier. For SAML the ID will be <code>saml/&lt;accountId&gt;/&lt;idpProviderName&gt;</code>. For example, <code>saml/123456789123/OKTADev</code>.</p>
@@ -550,7 +552,7 @@ class AsyncSecurityConfig:
         next_token: Optional[str] = None,
         max_results: Optional[int] = None,
     ) -> "aws_sdk_opensearchserverless.types.list_security_configs_response.ListSecurityConfigsResponse":
-        """<p>Returns information about configured OpenSearch Serverless security configurations. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html\">SAML authentication for Amazon OpenSearch Serverless</a>.</p>
+        r"""<p>Returns information about configured OpenSearch Serverless security configurations. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html\">SAML authentication for Amazon OpenSearch Serverless</a>.</p>
 
         Args:
             type: <p>The type of security configuration.</p>

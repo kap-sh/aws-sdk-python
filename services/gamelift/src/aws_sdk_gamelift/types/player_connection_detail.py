@@ -21,7 +21,7 @@ class PlayerConnectionDetail(TypedDict):
     player_gateway_token: NotRequired["aws_sdk_gamelift.types.max_string.MaxString"]
     """<p>Access token that your game client must prepend to all traffic sent through player gateway. Player gateway verifies identity and authorizes connection based on this token.</p> <p>This value is empty when player gateway is disabled.</p>"""
     expiration: NotRequired["aws_sdk_gamelift.types.timestamp.Timestamp"]
-    """<p>When player gateway is enabled, this is the timestamp indicating when player gateway token expires. Your game backend should call <a href=\"https://docs.aws.amazon.com/gamelift/latest/apireference/API_GetPlayerConnectionDetails.html\">GetPlayerConnectionDetails</a> to retrieve fresh connection information for your game clients before this time. Format is a number expressed in Unix time as milliseconds (for example <code>\"1469498468.057\"</code>). </p> <p>This value is empty when player gateway is disabled.</p>"""
+    r"""<p>When player gateway is enabled, this is the timestamp indicating when player gateway token expires. Your game backend should call <a href=\"https://docs.aws.amazon.com/gamelift/latest/apireference/API_GetPlayerConnectionDetails.html\">GetPlayerConnectionDetails</a> to retrieve fresh connection information for your game clients before this time. Format is a number expressed in Unix time as milliseconds (for example <code>\"1469498468.057\"</code>). </p> <p>This value is empty when player gateway is disabled.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

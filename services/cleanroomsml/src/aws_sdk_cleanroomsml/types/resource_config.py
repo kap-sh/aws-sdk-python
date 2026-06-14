@@ -14,7 +14,7 @@ class ResourceConfig(TypedDict):
     instance_type: "aws_sdk_cleanroomsml.types.instance_type.InstanceType"
     """<p>The instance type that is used to train the model.</p>"""
     volume_size_in_gb: "int"
-    """<p>The volume size of the instance that is used to train the model. Please see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-store-volumes.html\">EC2 volume limit</a> for volume size limitations on different instance types.</p>"""
+    r"""<p>The volume size of the instance that is used to train the model. Please see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-store-volumes.html\">EC2 volume limit</a> for volume size limitations on different instance types.</p>"""
 
 
 # --- restJson1 ser/de ---

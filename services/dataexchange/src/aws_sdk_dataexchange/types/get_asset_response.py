@@ -28,7 +28,7 @@ class GetAssetResponse(TypedDict):
     id: NotRequired["aws_sdk_dataexchange.types.id.Id"]
     """<p>The unique identifier for the asset.</p>"""
     name: NotRequired["aws_sdk_dataexchange.types.asset_name.AssetName"]
-    """<p>The name of the asset. When importing from Amazon S3, the Amazon S3 object key is used as the asset name. When exporting to Amazon S3, the asset name is used as default target Amazon S3 object key. When importing from Amazon API Gateway API, the API name is used as the asset name. When importing from Amazon Redshift, the datashare name is used as the asset name. When importing from AWS Lake Formation, the static values of \"Database(s) included in the LF-tag policy\" or \"Table(s) included in the LF-tag policy\" are used as the asset name.</p>"""
+    r"""<p>The name of the asset. When importing from Amazon S3, the Amazon S3 object key is used as the asset name. When exporting to Amazon S3, the asset name is used as default target Amazon S3 object key. When importing from Amazon API Gateway API, the API name is used as the asset name. When importing from Amazon Redshift, the datashare name is used as the asset name. When importing from AWS Lake Formation, the static values of \"Database(s) included in the LF-tag policy\" or \"Table(s) included in the LF-tag policy\" are used as the asset name.</p>"""
     revision_id: NotRequired["aws_sdk_dataexchange.types.id.Id"]
     """<p>The unique identifier for the revision associated with this asset.</p>"""
     source_id: NotRequired["aws_sdk_dataexchange.types.id.Id"]

@@ -14,7 +14,7 @@ class MediaExtractionConfiguration(TypedDict):
     image_extraction_configuration: NotRequired[
         "aws_sdk_qbusiness.types.image_extraction_configuration.ImageExtractionConfiguration"
     ]
-    """<p>The configuration for extracting semantic meaning from images in documents. For more information, see <a href=\"https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/extracting-meaning-from-images.html\">Extracting semantic meaning from images and visuals</a>. </p>"""
+    r"""<p>The configuration for extracting semantic meaning from images in documents. For more information, see <a href=\"https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/extracting-meaning-from-images.html\">Extracting semantic meaning from images and visuals</a>. </p>"""
     audio_extraction_configuration: NotRequired[
         "aws_sdk_qbusiness.types.audio_extraction_configuration.AudioExtractionConfiguration"
     ]

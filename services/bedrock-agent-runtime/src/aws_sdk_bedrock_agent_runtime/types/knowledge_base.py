@@ -24,7 +24,7 @@ class KnowledgeBase(TypedDict):
     retrieval_configuration: NotRequired[
         "aws_sdk_bedrock_agent_runtime.types.knowledge_base_retrieval_configuration.KnowledgeBaseRetrievalConfiguration"
     ]
-    """<p> The configurations to apply to the knowledge base during query. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html\">Query configurations</a>. </p>"""
+    r"""<p> The configurations to apply to the knowledge base during query. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html\">Query configurations</a>. </p>"""
 
 
 # --- restJson1 ser/de ---

@@ -372,7 +372,7 @@ class ServiceQuotasClient:
     def get_auto_management_configuration(
         self, *, config_overrides: Optional[ServiceQuotasClientConfig] = None
     ) -> "aws_sdk_service_quotas.types.get_auto_management_configuration_response.GetAutoManagementConfigurationResponse":
-        """<p>Retrieves information about your <a href=\"https://docs.aws.amazon.com/servicequotas/latest/userguide/automatic-management.html\">Service Quotas Automatic Management</a> configuration. Automatic Management monitors your Service Quotas utilization and notifies you before you run out of your allocated quotas.</p>"""
+        r"""<p>Retrieves information about your <a href=\"https://docs.aws.amazon.com/servicequotas/latest/userguide/automatic-management.html\">Service Quotas Automatic Management</a> configuration. Automatic Management monitors your Service Quotas utilization and notifies you before you run out of your allocated quotas.</p>"""
 
         def _handler(
             req: "OperationRequest[aws_sdk_service_quotas.types.get_auto_management_configuration_request.GetAutoManagementConfigurationRequest]",
@@ -1157,7 +1157,7 @@ class ServiceQuotasClient:
         *,
         config_overrides: Optional[ServiceQuotasClientConfig] = None,
     ) -> "aws_sdk_service_quotas.types.list_tags_for_resource_response.ListTagsForResourceResponse":
-        """<p>Returns a list of the tags assigned to the specified applied quota.</p>
+        r"""<p>Returns a list of the tags assigned to the specified applied quota.</p>
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) for the applied quota for which you want to list tags. You can get this information by using the Service Quotas console, or by listing the quotas using the <a href=\"https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html\">list-service-quotas</a> CLI command or the <a href=\"https://docs.aws.amazon.com/servicequotas/2019-06-24/apireference/API_ListServiceQuotas.html\">ListServiceQuotas</a> Amazon Web Services API operation.</p>
@@ -1302,7 +1302,7 @@ class ServiceQuotasClient:
             "aws_sdk_service_quotas.types.exclusion_list.ExclusionList"
         ] = None,
     ) -> "aws_sdk_service_quotas.types.start_auto_management_response.StartAutoManagementResponse":
-        """<p>Starts <a href=\"https://docs.aws.amazon.com/servicequotas/latest/userguide/automatic-management.html\">Service Quotas Automatic Management</a> for an Amazon Web Services account, including notification preferences and excluded quotas configurations. Automatic Management monitors your Service Quotas utilization and notifies you before you run out of your allocated quotas.</p>
+        r"""<p>Starts <a href=\"https://docs.aws.amazon.com/servicequotas/latest/userguide/automatic-management.html\">Service Quotas Automatic Management</a> for an Amazon Web Services account, including notification preferences and excluded quotas configurations. Automatic Management monitors your Service Quotas utilization and notifies you before you run out of your allocated quotas.</p>
 
         Args:
             opt_in_level: <p>Sets the opt-in level for Automatic Management. Only Amazon Web Services account level is supported.</p>
@@ -1373,7 +1373,7 @@ class ServiceQuotasClient:
     def stop_auto_management(
         self, *, config_overrides: Optional[ServiceQuotasClientConfig] = None
     ) -> "aws_sdk_service_quotas.types.stop_auto_management_response.StopAutoManagementResponse":
-        """<p>Stops <a href=\"https://docs.aws.amazon.com/servicequotas/latest/userguide/automatic-management.html\">Service Quotas Automatic Management</a> for an Amazon Web Services account and removes all associated configurations. Automatic Management monitors your Service Quotas utilization and notifies you before you run out of your allocated quotas.</p>"""
+        r"""<p>Stops <a href=\"https://docs.aws.amazon.com/servicequotas/latest/userguide/automatic-management.html\">Service Quotas Automatic Management</a> for an Amazon Web Services account and removes all associated configurations. Automatic Management monitors your Service Quotas utilization and notifies you before you run out of your allocated quotas.</p>"""
 
         def _handler(
             req: "OperationRequest[aws_sdk_service_quotas.types.stop_auto_management_request.StopAutoManagementRequest]",
@@ -1406,7 +1406,7 @@ class ServiceQuotasClient:
         *,
         config_overrides: Optional[ServiceQuotasClientConfig] = None,
     ) -> "aws_sdk_service_quotas.types.tag_resource_response.TagResourceResponse":
-        """<p>Adds tags to the specified applied quota. You can include one or more tags to add to the quota.</p>
+        r"""<p>Adds tags to the specified applied quota. You can include one or more tags to add to the quota.</p>
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) for the applied quota. You can get this information by using the Service Quotas console, or by listing the quotas using the <a href=\"https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html\">list-service-quotas</a> CLI command or the <a href=\"https://docs.aws.amazon.com/servicequotas/2019-06-24/apireference/API_ListServiceQuotas.html\">ListServiceQuotas</a> Amazon Web Services API operation.</p>
@@ -1446,7 +1446,7 @@ class ServiceQuotasClient:
         *,
         config_overrides: Optional[ServiceQuotasClientConfig] = None,
     ) -> "aws_sdk_service_quotas.types.untag_resource_response.UntagResourceResponse":
-        """<p>Removes tags from the specified applied quota. You can specify one or more tags to remove.</p>
+        r"""<p>Removes tags from the specified applied quota. You can specify one or more tags to remove.</p>
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) for the applied quota that you want to untag. You can get this information by using the Service Quotas console, or by listing the quotas using the <a href=\"https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html\">list-service-quotas</a> CLI command or the <a href=\"https://docs.aws.amazon.com/servicequotas/2019-06-24/apireference/API_ListServiceQuotas.html\">ListServiceQuotas</a> Amazon Web Services API operation.</p>
@@ -1493,7 +1493,7 @@ class ServiceQuotasClient:
             "aws_sdk_service_quotas.types.exclusion_list.ExclusionList"
         ] = None,
     ) -> "aws_sdk_service_quotas.types.update_auto_management_response.UpdateAutoManagementResponse":
-        """<p>Updates your <a href=\"https://docs.aws.amazon.com/servicequotas/latest/userguide/automatic-management.html\">Service Quotas Automatic Management</a> configuration, including notification preferences and excluded quotas. Automatic Management monitors your Service Quotas utilization and notifies you before you run out of your allocated quotas.</p>
+        r"""<p>Updates your <a href=\"https://docs.aws.amazon.com/servicequotas/latest/userguide/automatic-management.html\">Service Quotas Automatic Management</a> configuration, including notification preferences and excluded quotas. Automatic Management monitors your Service Quotas utilization and notifies you before you run out of your allocated quotas.</p>
 
         Args:
             opt_in_type: <p>Information on the opt-in type for your Automatic Management configuration. There are two modes: Notify only and Notify and Auto-Adjust. Currently, only NotifyOnly is available.</p>

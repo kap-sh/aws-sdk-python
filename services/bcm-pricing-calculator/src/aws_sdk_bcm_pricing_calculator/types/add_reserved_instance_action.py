@@ -13,7 +13,7 @@ class AddReservedInstanceAction(TypedDict):
     reserved_instances_offering_id: NotRequired[
         "aws_sdk_bcm_pricing_calculator.types.uuid.Uuid"
     ]
-    """<p> The ID of the Reserved Instance offering to add. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeReservedInstancesOfferings.html\"> DescribeReservedInstancesOfferings</a>. </p>"""
+    r"""<p> The ID of the Reserved Instance offering to add. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeReservedInstancesOfferings.html\"> DescribeReservedInstancesOfferings</a>. </p>"""
     instance_count: NotRequired[
         "aws_sdk_bcm_pricing_calculator.types.reserved_instance_instance_count.ReservedInstanceInstanceCount"
     ]

@@ -13,9 +13,9 @@ if TYPE_CHECKING:
 
 class IpAddressUpdate(TypedDict):
     ip_id: NotRequired["aws_sdk_route53resolver.types.resource_id.ResourceId"]
-    """<p> <i>Only when removing an IP address from a Resolver endpoint</i>: The ID of the IP address that you want to remove. To get this ID, use <a href=\"https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverEndpoint.html\">GetResolverEndpoint</a>.</p>"""
+    r"""<p> <i>Only when removing an IP address from a Resolver endpoint</i>: The ID of the IP address that you want to remove. To get this ID, use <a href=\"https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverEndpoint.html\">GetResolverEndpoint</a>.</p>"""
     subnet_id: NotRequired["aws_sdk_route53resolver.types.subnet_id.SubnetId"]
-    """<p>The ID of the subnet that includes the IP address that you want to update. To get this ID, use <a href=\"https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverEndpoint.html\">GetResolverEndpoint</a>.</p>"""
+    r"""<p>The ID of the subnet that includes the IP address that you want to update. To get this ID, use <a href=\"https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverEndpoint.html\">GetResolverEndpoint</a>.</p>"""
     ip: NotRequired["aws_sdk_route53resolver.types.ip.Ip"]
     """<p>The new IPv4 address.</p>"""
     ipv6: NotRequired["aws_sdk_route53resolver.types.ipv6.Ipv6"]

@@ -17,11 +17,11 @@ class ServicePrincipalName(TypedDict):
     directory_registration_arn: NotRequired[
         "aws_sdk_pca_connector_ad.types.directory_registration_arn.DirectoryRegistrationArn"
     ]
-    """<p>The Amazon Resource Name (ARN) that was returned when you called <a href=\"https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html\">CreateDirectoryRegistration</a>.</p>"""
+    r"""<p>The Amazon Resource Name (ARN) that was returned when you called <a href=\"https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html\">CreateDirectoryRegistration</a>.</p>"""
     connector_arn: NotRequired[
         "aws_sdk_pca_connector_ad.types.connector_arn.ConnectorArn"
     ]
-    """<p>The Amazon Resource Name (ARN) that was returned when you called <a href=\"https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html\">CreateConnector.html</a>.</p>"""
+    r"""<p>The Amazon Resource Name (ARN) that was returned when you called <a href=\"https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html\">CreateConnector.html</a>.</p>"""
     status: NotRequired[
         "aws_sdk_pca_connector_ad.types.service_principal_name_status.ServicePrincipalNameStatus"
     ]

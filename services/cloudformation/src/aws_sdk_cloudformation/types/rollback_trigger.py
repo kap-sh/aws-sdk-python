@@ -15,7 +15,7 @@ class RollbackTrigger(TypedDict):
     arn: NotRequired["aws_sdk_cloudformation.types.arn.Arn"]
     """<p>The Amazon Resource Name (ARN) of the rollback trigger.</p> <p>If a specified trigger is missing, the entire stack operation fails and is rolled back.</p>"""
     type: NotRequired["aws_sdk_cloudformation.types.type.Type"]
-    """<p>The resource type of the rollback trigger. Specify either <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudwatch-alarm.html\">AWS::CloudWatch::Alarm</a> or <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudwatch-compositealarm.html\">AWS::CloudWatch::CompositeAlarm</a> resource types.</p>"""
+    r"""<p>The resource type of the rollback trigger. Specify either <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudwatch-alarm.html\">AWS::CloudWatch::Alarm</a> or <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudwatch-compositealarm.html\">AWS::CloudWatch::CompositeAlarm</a> resource types.</p>"""
 
 
 # --- awsQuery ser/de ---

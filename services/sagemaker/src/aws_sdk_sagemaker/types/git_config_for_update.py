@@ -10,7 +10,7 @@ if TYPE_CHECKING:
 
 class GitConfigForUpdate(TypedDict):
     secret_arn: NotRequired["aws_sdk_sagemaker.types.secret_arn.SecretArn"]
-    """<p>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that contains the credentials used to access the git repository. The secret must have a staging label of <code>AWSCURRENT</code> and must be in the following format:</p> <p> <code>{\"username\": <i>UserName</i>, \"password\": <i>Password</i>}</code> </p>"""
+    r"""<p>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that contains the credentials used to access the git repository. The secret must have a staging label of <code>AWSCURRENT</code> and must be in the following format:</p> <p> <code>{\"username\": <i>UserName</i>, \"password\": <i>Password</i>}</code> </p>"""
 
 
 # --- awsJson1_1 ser/de ---

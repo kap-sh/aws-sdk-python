@@ -60,7 +60,7 @@ def get_signer(
     options: AsyncOperationOptions | OperationOptions,
     auth_schemes: list[dict[str, Any]] | None = None,
 ) -> aws_sdk_application_signals._auth._signers.Signer | None:
-    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}
+    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}  # noqa: F841
     if options.credentials_provider is not None:
         sigv4_config = (
             name_to_schema.get("sigv4")
@@ -79,7 +79,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_application_signals.types.list_tags_for_resource_request.ListTagsForResourceRequest,
+    input_: aws_sdk_application_signals.types.list_tags_for_resource_request.ListTagsForResourceRequest,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -88,8 +88,8 @@ def build_request(
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/tags"
     params: dict[str, str] = {}
-    if "resource_arn" in input:
-        params["ResourceArn"] = str(input["resource_arn"])
+    if "resource_arn" in input_:
+        params["ResourceArn"] = str(input_["resource_arn"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
@@ -102,12 +102,12 @@ def build_request(
 
 def list_tags_for_resource(
     options: OperationOptions,
-    input: aws_sdk_application_signals.types.list_tags_for_resource_request.ListTagsForResourceRequest,
+    input_: aws_sdk_application_signals.types.list_tags_for_resource_request.ListTagsForResourceRequest,
 ) -> tuple[
     aws_sdk_application_signals.types.list_tags_for_resource_response.ListTagsForResourceResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -121,12 +121,12 @@ def list_tags_for_resource(
 
 async def async_list_tags_for_resource(
     options: AsyncOperationOptions,
-    input: aws_sdk_application_signals.types.list_tags_for_resource_request.ListTagsForResourceRequest,
+    input_: aws_sdk_application_signals.types.list_tags_for_resource_request.ListTagsForResourceRequest,
 ) -> tuple[
     aws_sdk_application_signals.types.list_tags_for_resource_response.ListTagsForResourceResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

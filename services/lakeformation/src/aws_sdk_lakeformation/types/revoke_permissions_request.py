@@ -24,7 +24,7 @@ class RevokePermissionsRequest(TypedDict):
     resource: "aws_sdk_lakeformation.types.resource.Resource"
     """<p>The resource to which permissions are to be revoked.</p>"""
     permissions: "aws_sdk_lakeformation.types.permission_list.PermissionList"
-    """<p>The permissions revoked to the principal on the resource. For information about permissions, see <a href=\"https://docs.aws.amazon.com/lake-formation/latest/dg/security-data-access.html\">Security and Access Control to Metadata and Data</a>.</p>"""
+    r"""<p>The permissions revoked to the principal on the resource. For information about permissions, see <a href=\"https://docs.aws.amazon.com/lake-formation/latest/dg/security-data-access.html\">Security and Access Control to Metadata and Data</a>.</p>"""
     condition: NotRequired["aws_sdk_lakeformation.types.condition.Condition"]
     permissions_with_grant_option: NotRequired[
         "aws_sdk_lakeformation.types.permission_list.PermissionList"

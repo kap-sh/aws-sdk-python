@@ -25,7 +25,7 @@ class CodeReview(TypedDict):
     name: NotRequired["aws_sdk_codeguru_reviewer.types.name.Name"]
     """<p>The name of the code review.</p>"""
     code_review_arn: NotRequired["aws_sdk_codeguru_reviewer.types.arn.Arn"]
-    """<p>The Amazon Resource Name (ARN) of the <a href=\"https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html\">CodeReview</a> object. </p>"""
+    r"""<p>The Amazon Resource Name (ARN) of the <a href=\"https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html\">CodeReview</a> object. </p>"""
     repository_name: NotRequired["aws_sdk_codeguru_reviewer.types.name.Name"]
     """<p>The name of the repository.</p>"""
     owner: NotRequired["aws_sdk_codeguru_reviewer.types.owner.Owner"]
@@ -61,7 +61,7 @@ class CodeReview(TypedDict):
     association_arn: NotRequired[
         "aws_sdk_codeguru_reviewer.types.association_arn.AssociationArn"
     ]
-    """<p>The Amazon Resource Name (ARN) of the <a href=\"https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html\">RepositoryAssociation</a> that contains the reviewed source code. You can retrieve associated repository ARNs by calling <a href=\"https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListRepositoryAssociations.html\">ListRepositoryAssociations</a>.</p>"""
+    r"""<p>The Amazon Resource Name (ARN) of the <a href=\"https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html\">RepositoryAssociation</a> that contains the reviewed source code. You can retrieve associated repository ARNs by calling <a href=\"https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListRepositoryAssociations.html\">ListRepositoryAssociations</a>.</p>"""
     metrics: NotRequired["aws_sdk_codeguru_reviewer.types.metrics.Metrics"]
     """<p>The statistics from the code review.</p>"""
     analysis_types: NotRequired[

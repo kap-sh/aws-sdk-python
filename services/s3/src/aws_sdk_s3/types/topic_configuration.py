@@ -19,7 +19,7 @@ class TopicConfiguration(TypedDict):
     topic_arn: "aws_sdk_s3.types.topic_arn.TopicArn"
     """<p>The Amazon Resource Name (ARN) of the Amazon SNS topic to which Amazon S3 publishes a message when it detects events of the specified type.</p>"""
     events: "aws_sdk_s3.types.event_list.EventList"
-    """<p>The Amazon S3 bucket event about which to send notifications. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html\">Supported Event Types</a> in the <i>Amazon S3 User Guide</i>.</p>"""
+    r"""<p>The Amazon S3 bucket event about which to send notifications. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html\">Supported Event Types</a> in the <i>Amazon S3 User Guide</i>.</p>"""
     filter: NotRequired[
         "aws_sdk_s3.types.notification_configuration_filter.NotificationConfigurationFilter"
     ]

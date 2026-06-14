@@ -15,7 +15,7 @@ class LogOddsMetric(TypedDict):
     variable_type: "aws_sdk_frauddetector.types.string.string"
     """<p>The type of variable.</p>"""
     variable_importance: "aws_sdk_frauddetector.types.float.float"
-    """<p>The relative importance of the variable. For more information, see <a href=\"https://docs.aws.amazon.com/frauddetector/latest/ug/model-variable-importance.html\">Model variable importance</a>.</p>"""
+    r"""<p>The relative importance of the variable. For more information, see <a href=\"https://docs.aws.amazon.com/frauddetector/latest/ug/model-variable-importance.html\">Model variable importance</a>.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

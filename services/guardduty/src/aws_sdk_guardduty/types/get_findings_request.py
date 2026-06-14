@@ -12,7 +12,7 @@ if TYPE_CHECKING:
 
 class GetFindingsRequest(TypedDict):
     detector_id: "aws_sdk_guardduty.types.detector_id.DetectorId"
-    """<p>The ID of the detector that specifies the GuardDuty service whose findings you want to retrieve.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html\">ListDetectors</a> API.</p>"""
+    r"""<p>The ID of the detector that specifies the GuardDuty service whose findings you want to retrieve.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html\">ListDetectors</a> API.</p>"""
     finding_ids: NotRequired["aws_sdk_guardduty.types.finding_ids.FindingIds"]
     """<p>The IDs of the findings that you want to retrieve.</p>"""
     sort_criteria: NotRequired["aws_sdk_guardduty.types.sort_criteria.SortCriteria"]

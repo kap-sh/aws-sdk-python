@@ -24,7 +24,7 @@ class IntentConfirmationSetting(TypedDict):
     declination_response: NotRequired[
         "aws_sdk_lex_models_v2.types.response_specification.ResponseSpecification"
     ]
-    """<p>When the user answers \"no\" to the question defined in <code>promptSpecification</code>, Amazon Lex responds with this response to acknowledge that the intent was canceled. </p>"""
+    r"""<p>When the user answers \"no\" to the question defined in <code>promptSpecification</code>, Amazon Lex responds with this response to acknowledge that the intent was canceled. </p>"""
     active: NotRequired["aws_sdk_lex_models_v2.types.boxed_boolean.BoxedBoolean"]
     """<p>Specifies whether the intent's confirmation is sent to the user. When this field is false, confirmation and declination responses aren't sent. If the <code>active</code> field isn't specified, the default is true.</p>"""
     confirmation_response: NotRequired[

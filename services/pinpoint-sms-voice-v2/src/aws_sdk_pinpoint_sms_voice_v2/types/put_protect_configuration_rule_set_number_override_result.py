@@ -26,7 +26,7 @@ class PutProtectConfigurationRuleSetNumberOverrideResult(TypedDict):
     )
     """<p>The destination phone number in E.164 format.</p>"""
     created_timestamp: "datetime.datetime"
-    """<p>The time when the rule was created, in <a href=\"https://www.epochconverter.com/\">UNIX epoch time</a> format.</p>"""
+    r"""<p>The time when the rule was created, in <a href=\"https://www.epochconverter.com/\">UNIX epoch time</a> format.</p>"""
     action: "aws_sdk_pinpoint_sms_voice_v2.types.protect_configuration_rule_override_action.ProtectConfigurationRuleOverrideAction"
     """<p>The action for the rule to take.</p>"""
     iso_country_code: NotRequired[

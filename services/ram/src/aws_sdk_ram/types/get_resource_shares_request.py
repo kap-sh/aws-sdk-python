@@ -20,7 +20,7 @@ class GetResourceSharesRequest(TypedDict):
     resource_share_arns: NotRequired[
         "aws_sdk_ram.types.resource_share_arn_list.ResourceShareArnList"
     ]
-    """<p>Specifies the <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> of individual resource shares that you want information about.</p>"""
+    r"""<p>Specifies the <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> of individual resource shares that you want information about.</p>"""
     resource_share_status: NotRequired[
         "aws_sdk_ram.types.resource_share_status.ResourceShareStatus"
     ]
@@ -36,7 +36,7 @@ class GetResourceSharesRequest(TypedDict):
     max_results: NotRequired["aws_sdk_ram.types.max_results.MaxResults"]
     """<p>Specifies the total number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the number you specify, the <code>NextToken</code> response element is returned with a value (not null). Include the specified value as the <code>NextToken</code> request parameter in the next call to the operation to get the next part of the results. Note that the service might return fewer results than the maximum even when there are more results available. You should check <code>NextToken</code> after every operation to ensure that you receive all of the results.</p>"""
     permission_arn: NotRequired["aws_sdk_ram.types.string.String"]
-    """<p>Specifies that you want to retrieve details of only those resource shares that use the managed permission with this <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a>.</p>"""
+    r"""<p>Specifies that you want to retrieve details of only those resource shares that use the managed permission with this <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a>.</p>"""
     permission_version: NotRequired["aws_sdk_ram.types.integer.Integer"]
     """<p>Specifies that you want to retrieve details for only those resource shares that use the specified version of the managed permission.</p>"""
 

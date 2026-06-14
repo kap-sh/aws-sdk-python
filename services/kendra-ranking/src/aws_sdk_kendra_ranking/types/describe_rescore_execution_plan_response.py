@@ -33,7 +33,7 @@ class DescribeRescoreExecutionPlanResponse(TypedDict):
     capacity_units: NotRequired[
         "aws_sdk_kendra_ranking.types.capacity_units_configuration.CapacityUnitsConfiguration"
     ]
-    """<p>The capacity units set for the rescore execution plan. A capacity of zero indicates that the rescore execution plan is using the default capacity. For more information on the default capacity and additional capacity units, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/adjusting-capacity.html\">Adjusting capacity</a>.</p>"""
+    r"""<p>The capacity units set for the rescore execution plan. A capacity of zero indicates that the rescore execution plan is using the default capacity. For more information on the default capacity and additional capacity units, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/adjusting-capacity.html\">Adjusting capacity</a>.</p>"""
     created_at: NotRequired["aws_sdk_kendra_ranking.types.timestamp.Timestamp"]
     """<p>The Unix timestamp of when the rescore execution plan was created.</p>"""
     updated_at: NotRequired["aws_sdk_kendra_ranking.types.timestamp.Timestamp"]

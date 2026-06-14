@@ -28,15 +28,15 @@ class EcsTaskDetails(TypedDict):
     ]
     """<p>The amount of ephemeral storage allocated for the task.</p>"""
     execution_role_arn: NotRequired["aws_sdk_batch.types.string.String"]
-    """<p>The Amazon Resource Name (ARN) of the execution role that Batch can assume. For more information, see <a href=\"https://docs.aws.amazon.com/batch/latest/userguide/execution-IAM-role.html\">Batch execution IAM role</a> in the <i>Batch User Guide</i>.</p>"""
+    r"""<p>The Amazon Resource Name (ARN) of the execution role that Batch can assume. For more information, see <a href=\"https://docs.aws.amazon.com/batch/latest/userguide/execution-IAM-role.html\">Batch execution IAM role</a> in the <i>Batch User Guide</i>.</p>"""
     platform_version: NotRequired["aws_sdk_batch.types.string.String"]
     """<p>The Fargate platform version where the jobs are running.</p>"""
     ipc_mode: NotRequired["aws_sdk_batch.types.string.String"]
-    """<p>The IPC resource namespace to use for the containers in the task. The valid values are <code>host</code>, <code>task</code>, or <code>none</code>. For more information see <code>ipcMode</code> in <a href=\"https://docs.aws.amazon.com/batch/latest/APIReference/API_EcsTaskProperties.html\">EcsTaskProperties</a>.</p>"""
+    r"""<p>The IPC resource namespace to use for the containers in the task. The valid values are <code>host</code>, <code>task</code>, or <code>none</code>. For more information see <code>ipcMode</code> in <a href=\"https://docs.aws.amazon.com/batch/latest/APIReference/API_EcsTaskProperties.html\">EcsTaskProperties</a>.</p>"""
     task_role_arn: NotRequired["aws_sdk_batch.types.string.String"]
-    """<p>The Amazon Resource Name (ARN) of the IAM role that the container can assume for Amazon Web Services permissions. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html\">IAM roles for tasks</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p> <note> <p>This is object is comparable to <a href=\"https://docs.aws.amazon.com/batch/latest/APIReference/API_ContainerProperties.html\">ContainerProperties:jobRoleArn</a>.</p> </note>"""
+    r"""<p>The Amazon Resource Name (ARN) of the IAM role that the container can assume for Amazon Web Services permissions. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html\">IAM roles for tasks</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p> <note> <p>This is object is comparable to <a href=\"https://docs.aws.amazon.com/batch/latest/APIReference/API_ContainerProperties.html\">ContainerProperties:jobRoleArn</a>.</p> </note>"""
     pid_mode: NotRequired["aws_sdk_batch.types.string.String"]
-    """<p>The process namespace to use for the containers in the task. The valid values are <code>host</code>, or <code>task</code>. For more information see <code>pidMode</code> in <a href=\"https://docs.aws.amazon.com/batch/latest/APIReference/API_EcsTaskProperties.html\">EcsTaskProperties</a>.</p>"""
+    r"""<p>The process namespace to use for the containers in the task. The valid values are <code>host</code>, or <code>task</code>. For more information see <code>pidMode</code> in <a href=\"https://docs.aws.amazon.com/batch/latest/APIReference/API_EcsTaskProperties.html\">EcsTaskProperties</a>.</p>"""
     network_configuration: NotRequired[
         "aws_sdk_batch.types.network_configuration.NetworkConfiguration"
     ]

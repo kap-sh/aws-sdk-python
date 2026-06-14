@@ -151,7 +151,7 @@ class AsyncComprehendMedicalClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = AsyncComprehendMedicalClientConfig(
+        self._config = AsyncComprehendMedicalClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -171,7 +171,7 @@ class AsyncComprehendMedicalClient:
         overrides: AsyncComprehendMedicalClientConfig = config_overrides or {}
         interceptors_: list[AsyncInterceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             aretry(),
         ]
@@ -179,16 +179,16 @@ class AsyncComprehendMedicalClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            region=overrides.get("region", self.config.get("region")),
+            region=overrides.get("region", self._config.get("region")),
             use_dual_stack=overrides.get(
-                "use_dual_stack", self.config.get("use_dual_stack")
+                "use_dual_stack", self._config.get("use_dual_stack")
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -881,7 +881,7 @@ class AsyncComprehendMedicalClient:
         ] = None,
         kms_key: Optional["aws_sdk_comprehendmedical.types.kms_key.KMSKey"] = None,
     ) -> "aws_sdk_comprehendmedical.types.start_entities_detection_v2_job_response.StartEntitiesDetectionV2JobResponse":
-        """<p>Starts an asynchronous medical entity detection job for a collection of documents. Use the <code>DescribeEntitiesDetectionV2Job</code> operation to track the status of a job.</p>
+        r"""<p>Starts an asynchronous medical entity detection job for a collection of documents. Use the <code>DescribeEntitiesDetectionV2Job</code> operation to track the status of a job.</p>
 
         Args:
             input_data_config: <p>The input configuration that specifies the format and location of the input data for the job.</p>
@@ -942,7 +942,7 @@ class AsyncComprehendMedicalClient:
         ] = None,
         kms_key: Optional["aws_sdk_comprehendmedical.types.kms_key.KMSKey"] = None,
     ) -> "aws_sdk_comprehendmedical.types.start_icd10_cm_inference_job_response.StartICD10CMInferenceJobResponse":
-        """<p>Starts an asynchronous job to detect medical conditions and link them to the ICD-10-CM ontology. Use the <code>DescribeICD10CMInferenceJob</code> operation to track the status of a job.</p>
+        r"""<p>Starts an asynchronous job to detect medical conditions and link them to the ICD-10-CM ontology. Use the <code>DescribeICD10CMInferenceJob</code> operation to track the status of a job.</p>
 
         Args:
             input_data_config: <p>Specifies the format and location of the input data for the job.</p>
@@ -1003,7 +1003,7 @@ class AsyncComprehendMedicalClient:
         ] = None,
         kms_key: Optional["aws_sdk_comprehendmedical.types.kms_key.KMSKey"] = None,
     ) -> "aws_sdk_comprehendmedical.types.start_phi_detection_job_response.StartPHIDetectionJobResponse":
-        """<p>Starts an asynchronous job to detect protected health information (PHI). Use the <code>DescribePHIDetectionJob</code> operation to track the status of a job.</p>
+        r"""<p>Starts an asynchronous job to detect protected health information (PHI). Use the <code>DescribePHIDetectionJob</code> operation to track the status of a job.</p>
 
         Args:
             input_data_config: <p>Specifies the format and location of the input data for the job.</p>
@@ -1064,7 +1064,7 @@ class AsyncComprehendMedicalClient:
         ] = None,
         kms_key: Optional["aws_sdk_comprehendmedical.types.kms_key.KMSKey"] = None,
     ) -> "aws_sdk_comprehendmedical.types.start_rx_norm_inference_job_response.StartRxNormInferenceJobResponse":
-        """<p>Starts an asynchronous job to detect medication entities and link them to the RxNorm ontology. Use the <code>DescribeRxNormInferenceJob</code> operation to track the status of a job.</p>
+        r"""<p>Starts an asynchronous job to detect medication entities and link them to the RxNorm ontology. Use the <code>DescribeRxNormInferenceJob</code> operation to track the status of a job.</p>
 
         Args:
             input_data_config: <p>Specifies the format and location of the input data for the job.</p>

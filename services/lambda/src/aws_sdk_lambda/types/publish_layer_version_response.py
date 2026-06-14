@@ -30,19 +30,19 @@ class PublishLayerVersionResponse(TypedDict):
     description: NotRequired["aws_sdk_lambda.types.description.Description"]
     """<p>The description of the version.</p>"""
     created_date: NotRequired["aws_sdk_lambda.types.timestamp.Timestamp"]
-    """<p>The date that the layer version was created, in <a href=\"https://www.w3.org/TR/NOTE-datetime\">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>"""
+    r"""<p>The date that the layer version was created, in <a href=\"https://www.w3.org/TR/NOTE-datetime\">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>"""
     version: "aws_sdk_lambda.types.layer_version_number.LayerVersionNumber"
     """<p>The version number.</p>"""
     compatible_runtimes: NotRequired[
         "aws_sdk_lambda.types.compatible_runtimes.CompatibleRuntimes"
     ]
-    """<p>The layer's compatible runtimes.</p> <p>The following list includes deprecated runtimes. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels\">Runtime use after deprecation</a>.</p> <p>For a list of all currently supported runtimes, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported\">Supported runtimes</a>.</p>"""
+    r"""<p>The layer's compatible runtimes.</p> <p>The following list includes deprecated runtimes. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels\">Runtime use after deprecation</a>.</p> <p>For a list of all currently supported runtimes, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported\">Supported runtimes</a>.</p>"""
     license_info: NotRequired["aws_sdk_lambda.types.license_info.LicenseInfo"]
     """<p>The layer's software license.</p>"""
     compatible_architectures: NotRequired[
         "aws_sdk_lambda.types.compatible_architectures.CompatibleArchitectures"
     ]
-    """<p>A list of compatible <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html\">instruction set architectures</a>.</p>"""
+    r"""<p>A list of compatible <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html\">instruction set architectures</a>.</p>"""
 
 
 # --- restJson1 ser/de ---

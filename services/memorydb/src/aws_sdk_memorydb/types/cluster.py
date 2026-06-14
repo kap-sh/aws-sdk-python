@@ -87,7 +87,7 @@ class Cluster(TypedDict):
     data_tiering: NotRequired[
         "aws_sdk_memorydb.types.data_tiering_status.DataTieringStatus"
     ]
-    """<p>Enables data tiering. Data tiering is only supported for clusters using the r6gd node type. This parameter must be set when using r6gd nodes. For more information, see <a href=\"https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html\">Data tiering</a>.</p>"""
+    r"""<p>Enables data tiering. Data tiering is only supported for clusters using the r6gd node type. This parameter must be set when using r6gd nodes. For more information, see <a href=\"https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html\">Data tiering</a>.</p>"""
     network_type: NotRequired["aws_sdk_memorydb.types.network_type.NetworkType"]
     """<p>The IP address type for the cluster. Returns 'ipv4' for IPv4 only, 'ipv6' for IPv6 only, or 'dual-stack' if the cluster supports both IPv4 and IPv6 addressing.</p>"""
     ip_discovery: NotRequired["aws_sdk_memorydb.types.ip_discovery.IpDiscovery"]

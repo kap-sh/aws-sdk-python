@@ -42,7 +42,7 @@ class PutProfileObjectTypeResponse(TypedDict):
     source_last_updated_timestamp_format: NotRequired[
         "aws_sdk_customer_profiles.types.string1_to255.string1To255"
     ]
-    """<p>The format of your <code>sourceLastUpdatedTimestamp</code> that was previously set up in fields that were parsed using <a href=\"https://docs.oracle.com/javase/10/docs/api/java/text/SimpleDateFormat.html\">SimpleDateFormat</a>. If you have <code>sourceLastUpdatedTimestamp</code> in your field, you must set up <code>sourceLastUpdatedTimestampFormat</code>.</p>"""
+    r"""<p>The format of your <code>sourceLastUpdatedTimestamp</code> that was previously set up in fields that were parsed using <a href=\"https://docs.oracle.com/javase/10/docs/api/java/text/SimpleDateFormat.html\">SimpleDateFormat</a>. If you have <code>sourceLastUpdatedTimestamp</code> in your field, you must set up <code>sourceLastUpdatedTimestampFormat</code>.</p>"""
     max_profile_object_count: NotRequired[
         "aws_sdk_customer_profiles.types.min_size1.minSize1"
     ]

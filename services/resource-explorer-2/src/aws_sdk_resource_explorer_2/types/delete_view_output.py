@@ -7,7 +7,7 @@ from typing_extensions import NotRequired
 
 class DeleteViewOutput(TypedDict):
     view_arn: NotRequired["str"]
-    """<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon resource name (ARN)</a> of the view that you successfully deleted.</p>"""
+    r"""<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon resource name (ARN)</a> of the view that you successfully deleted.</p>"""
 
 
 # --- restJson1 ser/de ---

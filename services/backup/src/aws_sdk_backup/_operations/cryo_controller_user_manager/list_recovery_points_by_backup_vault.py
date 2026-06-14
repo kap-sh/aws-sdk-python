@@ -67,7 +67,7 @@ def get_signer(
     options: AsyncOperationOptions | OperationOptions,
     auth_schemes: list[dict[str, Any]] | None = None,
 ) -> aws_sdk_backup._auth._signers.Signer | None:
-    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}
+    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}  # noqa: F841
     if options.credentials_provider is not None:
         sigv4_config = (
             name_to_schema.get("sigv4")
@@ -86,7 +86,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_backup.types.list_recovery_points_by_backup_vault_input.ListRecoveryPointsByBackupVaultInput,
+    input_: aws_sdk_backup.types.list_recovery_points_by_backup_vault_input.ListRecoveryPointsByBackupVaultInput,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -98,27 +98,27 @@ def build_request(
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/backup-vaults/{BackupVaultName}/recovery-points"
     url = url.replace(
-        "{BackupVaultName}", quote(str(input["backup_vault_name"]), safe="")
+        "{BackupVaultName}", quote(str(input_["backup_vault_name"]), safe="")
     )
     params: dict[str, str] = {}
-    if "backup_vault_account_id" in input:
-        params["backupVaultAccountId"] = str(input["backup_vault_account_id"])
-    if "next_token" in input:
-        params["nextToken"] = str(input["next_token"])
-    if "max_results" in input:
-        params["maxResults"] = str(input["max_results"])
-    if "by_resource_arn" in input:
-        params["resourceArn"] = str(input["by_resource_arn"])
-    if "by_resource_type" in input:
-        params["resourceType"] = str(input["by_resource_type"])
-    if "by_backup_plan_id" in input:
-        params["backupPlanId"] = str(input["by_backup_plan_id"])
-    if "by_created_before" in input:
-        params["createdBefore"] = str(input["by_created_before"])
-    if "by_created_after" in input:
-        params["createdAfter"] = str(input["by_created_after"])
-    if "by_parent_recovery_point_arn" in input:
-        params["parentRecoveryPointArn"] = str(input["by_parent_recovery_point_arn"])
+    if "backup_vault_account_id" in input_:
+        params["backupVaultAccountId"] = str(input_["backup_vault_account_id"])
+    if "next_token" in input_:
+        params["nextToken"] = str(input_["next_token"])
+    if "max_results" in input_:
+        params["maxResults"] = str(input_["max_results"])
+    if "by_resource_arn" in input_:
+        params["resourceArn"] = str(input_["by_resource_arn"])
+    if "by_resource_type" in input_:
+        params["resourceType"] = str(input_["by_resource_type"])
+    if "by_backup_plan_id" in input_:
+        params["backupPlanId"] = str(input_["by_backup_plan_id"])
+    if "by_created_before" in input_:
+        params["createdBefore"] = str(input_["by_created_before"])
+    if "by_created_after" in input_:
+        params["createdAfter"] = str(input_["by_created_after"])
+    if "by_parent_recovery_point_arn" in input_:
+        params["parentRecoveryPointArn"] = str(input_["by_parent_recovery_point_arn"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
@@ -131,12 +131,12 @@ def build_request(
 
 def list_recovery_points_by_backup_vault(
     options: OperationOptions,
-    input: aws_sdk_backup.types.list_recovery_points_by_backup_vault_input.ListRecoveryPointsByBackupVaultInput,
+    input_: aws_sdk_backup.types.list_recovery_points_by_backup_vault_input.ListRecoveryPointsByBackupVaultInput,
 ) -> tuple[
     aws_sdk_backup.types.list_recovery_points_by_backup_vault_output.ListRecoveryPointsByBackupVaultOutput,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -150,12 +150,12 @@ def list_recovery_points_by_backup_vault(
 
 async def async_list_recovery_points_by_backup_vault(
     options: AsyncOperationOptions,
-    input: aws_sdk_backup.types.list_recovery_points_by_backup_vault_input.ListRecoveryPointsByBackupVaultInput,
+    input_: aws_sdk_backup.types.list_recovery_points_by_backup_vault_input.ListRecoveryPointsByBackupVaultInput,
 ) -> tuple[
     aws_sdk_backup.types.list_recovery_points_by_backup_vault_output.ListRecoveryPointsByBackupVaultOutput,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

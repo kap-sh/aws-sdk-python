@@ -14,7 +14,7 @@ class ReplacePermissionAssociationsWork(TypedDict):
     id: NotRequired["aws_sdk_ram.types.string.String"]
     """<p>The unique identifier for the background task associated with one <a>ReplacePermissionAssociations</a> request.</p>"""
     from_permission_arn: NotRequired["aws_sdk_ram.types.string.String"]
-    """<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of the managed permission that this background task is replacing.</p>"""
+    r"""<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of the managed permission that this background task is replacing.</p>"""
     from_permission_version: NotRequired["aws_sdk_ram.types.string.String"]
     """<p>The version of the managed permission that this background task is replacing.</p>"""
     to_permission_arn: NotRequired["aws_sdk_ram.types.string.String"]

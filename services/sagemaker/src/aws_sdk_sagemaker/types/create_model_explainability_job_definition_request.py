@@ -50,7 +50,7 @@ class CreateModelExplainabilityJobDefinitionRequest(TypedDict):
         "aws_sdk_sagemaker.types.monitoring_stopping_condition.MonitoringStoppingCondition"
     ]
     tags: NotRequired["aws_sdk_sagemaker.types.tag_list.TagList"]
-    """<p>(Optional) An array of key-value pairs. For more information, see <a href=\"https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL\"> Using Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management User Guide</i>.</p>"""
+    r"""<p>(Optional) An array of key-value pairs. For more information, see <a href=\"https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL\"> Using Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management User Guide</i>.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

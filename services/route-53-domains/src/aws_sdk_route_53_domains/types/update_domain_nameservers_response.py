@@ -10,7 +10,7 @@ if TYPE_CHECKING:
 
 class UpdateDomainNameserversResponse(TypedDict):
     operation_id: NotRequired["aws_sdk_route_53_domains.types.operation_id.OperationId"]
-    """<p>Identifier for tracking the progress of the request. To query the operation status, use <a href=\"https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html\">GetOperationDetail</a>.</p>"""
+    r"""<p>Identifier for tracking the progress of the request. To query the operation status, use <a href=\"https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html\">GetOperationDetail</a>.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

@@ -35,7 +35,7 @@ class StartEventsDetectionJobRequest(TypedDict):
     target_event_types: "aws_sdk_comprehend.types.target_event_types.TargetEventTypes"
     """<p>The types of events to detect in the input documents.</p>"""
     tags: NotRequired["aws_sdk_comprehend.types.tag_list.TagList"]
-    """<p>Tags to associate with the events detection job. A tag is a key-value pair that adds metadata to a resource used by Amazon Comprehend. For example, a tag with \"Sales\" as the key might be added to a resource to indicate its use by the sales department.</p>"""
+    r"""<p>Tags to associate with the events detection job. A tag is a key-value pair that adds metadata to a resource used by Amazon Comprehend. For example, a tag with \"Sales\" as the key might be added to a resource to indicate its use by the sales department.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

@@ -23,7 +23,7 @@ class CreateUserProfileRequest(TypedDict):
     single_sign_on_user_identifier: NotRequired[
         "aws_sdk_sagemaker.types.single_sign_on_user_identifier.SingleSignOnUserIdentifier"
     ]
-    """<p>A specifier for the type of value specified in SingleSignOnUserValue. Currently, the only supported value is \"UserName\". If the Domain's AuthMode is IAM Identity Center, this field is required. If the Domain's AuthMode is not IAM Identity Center, this field cannot be specified. </p>"""
+    r"""<p>A specifier for the type of value specified in SingleSignOnUserValue. Currently, the only supported value is \"UserName\". If the Domain's AuthMode is IAM Identity Center, this field is required. If the Domain's AuthMode is not IAM Identity Center, this field cannot be specified. </p>"""
     single_sign_on_user_value: NotRequired[
         "aws_sdk_sagemaker.types.string256.String256"
     ]

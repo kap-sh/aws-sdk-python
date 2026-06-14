@@ -14,9 +14,9 @@ class DeleteUtterancesRequest(TypedDict):
     bot_id: "aws_sdk_lex_models_v2.types.id.Id"
     """<p>The unique identifier of the bot that contains the utterances.</p>"""
     locale_id: NotRequired["aws_sdk_lex_models_v2.types.locale_id.LocaleId"]
-    """<p>The identifier of the language and locale where the utterances were collected. The string must match one of the supported locales. For more information, see <a href=\"https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html\">Supported languages</a>.</p>"""
+    r"""<p>The identifier of the language and locale where the utterances were collected. The string must match one of the supported locales. For more information, see <a href=\"https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html\">Supported languages</a>.</p>"""
     session_id: NotRequired["aws_sdk_lex_models_v2.types.session_id.SessionId"]
-    """<p>The unique identifier of the session with the user. The ID is returned in the response from the <a href=\"https://docs.aws.amazon.com/lexv2/latest/APIReference/API_runtime_RecognizeText.html\">RecognizeText</a> and <a href=\"https://docs.aws.amazon.com/lexv2/latest/APIReference/API_runtime_RecognizeUtterance.html\">RecognizeUtterance</a> operations.</p>"""
+    r"""<p>The unique identifier of the session with the user. The ID is returned in the response from the <a href=\"https://docs.aws.amazon.com/lexv2/latest/APIReference/API_runtime_RecognizeText.html\">RecognizeText</a> and <a href=\"https://docs.aws.amazon.com/lexv2/latest/APIReference/API_runtime_RecognizeUtterance.html\">RecognizeUtterance</a> operations.</p>"""
 
 
 # --- restJson1 ser/de ---

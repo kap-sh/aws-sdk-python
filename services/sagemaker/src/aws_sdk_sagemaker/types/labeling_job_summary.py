@@ -45,7 +45,7 @@ class LabelingJobSummary(TypedDict):
     annotation_consolidation_lambda_arn: NotRequired[
         "aws_sdk_sagemaker.types.lambda_function_arn.LambdaFunctionArn"
     ]
-    """<p>The Amazon Resource Name (ARN) of the Lambda function used to consolidate the annotations from individual workers into a label for a data object. For more information, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/sms-annotation-consolidation.html\">Annotation Consolidation</a>.</p>"""
+    r"""<p>The Amazon Resource Name (ARN) of the Lambda function used to consolidate the annotations from individual workers into a label for a data object. For more information, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/sms-annotation-consolidation.html\">Annotation Consolidation</a>.</p>"""
     failure_reason: NotRequired["aws_sdk_sagemaker.types.failure_reason.FailureReason"]
     """<p>If the <code>LabelingJobStatus</code> field is <code>Failed</code>, this field contains a description of the error.</p>"""
     labeling_job_output: NotRequired[

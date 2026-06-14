@@ -59,7 +59,7 @@ class DocumentDescription(TypedDict):
     status_information: NotRequired[
         "aws_sdk_ssm.types.document_status_information.DocumentStatusInformation"
     ]
-    """<p>A message returned by Amazon Web Services Systems Manager that explains the <code>Status</code> value. For example, a <code>Failed</code> status might be explained by the <code>StatusInformation</code> message, \"The specified S3 bucket doesn't exist. Verify that the URL of the S3 bucket is correct.\"</p>"""
+    r"""<p>A message returned by Amazon Web Services Systems Manager that explains the <code>Status</code> value. For example, a <code>Failed</code> status might be explained by the <code>StatusInformation</code> message, \"The specified S3 bucket doesn't exist. Verify that the URL of the S3 bucket is correct.\"</p>"""
     document_version: NotRequired["aws_sdk_ssm.types.document_version.DocumentVersion"]
     """<p>The document version.</p>"""
     description: NotRequired[
@@ -85,7 +85,7 @@ class DocumentDescription(TypedDict):
     document_format: NotRequired["aws_sdk_ssm.types.document_format.DocumentFormat"]
     """<p>The document format, either JSON or YAML.</p>"""
     target_type: NotRequired["aws_sdk_ssm.types.target_type.TargetType"]
-    """<p>The target type which defines the kinds of resources the document can run on. For example, <code>/AWS::EC2::Instance</code>. For a list of valid resource types, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html\">Amazon Web Services resource and property types reference</a> in the <i>CloudFormation User Guide</i>. </p>"""
+    r"""<p>The target type which defines the kinds of resources the document can run on. For example, <code>/AWS::EC2::Instance</code>. For a list of valid resource types, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html\">Amazon Web Services resource and property types reference</a> in the <i>CloudFormation User Guide</i>. </p>"""
     tags: NotRequired["aws_sdk_ssm.types.tag_list.TagList"]
     """<p>The tags, or metadata, that have been applied to the document.</p>"""
     attachments_information: NotRequired[

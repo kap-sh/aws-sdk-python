@@ -19,7 +19,7 @@ class CreateDeploymentResponse(TypedDict):
     ]
     """<p>The ID of the IoT job that applies the deployment to target devices.</p>"""
     iot_job_arn: NotRequired["aws_sdk_greengrassv2.types.io_t_job_arn.IoTJobARN"]
-    """<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the IoT job that applies the deployment to target devices.</p>"""
+    r"""<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the IoT job that applies the deployment to target devices.</p>"""
 
 
 # --- restJson1 ser/de ---

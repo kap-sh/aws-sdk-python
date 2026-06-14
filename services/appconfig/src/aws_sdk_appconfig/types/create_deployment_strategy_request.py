@@ -28,7 +28,7 @@ class CreateDeploymentStrategyRequest(TypedDict):
     final_bake_time_in_minutes: (
         "aws_sdk_appconfig.types.minutes_between0_and24_hours.MinutesBetween0And24Hours"
     )
-    """<p>Specifies the amount of time AppConfig monitors for Amazon CloudWatch alarms after the configuration has been deployed to 100% of its targets, before considering the deployment to be complete. If an alarm is triggered during this time, AppConfig rolls back the deployment. You must configure permissions for AppConfig to roll back based on CloudWatch alarms. For more information, see <a href=\"https://docs.aws.amazon.com/appconfig/latest/userguide/getting-started-with-appconfig-cloudwatch-alarms-permissions.html\">Configuring permissions for rollback based on Amazon CloudWatch alarms</a> in the <i>AppConfig User Guide</i>.</p>"""
+    r"""<p>Specifies the amount of time AppConfig monitors for Amazon CloudWatch alarms after the configuration has been deployed to 100% of its targets, before considering the deployment to be complete. If an alarm is triggered during this time, AppConfig rolls back the deployment. You must configure permissions for AppConfig to roll back based on CloudWatch alarms. For more information, see <a href=\"https://docs.aws.amazon.com/appconfig/latest/userguide/getting-started-with-appconfig-cloudwatch-alarms-permissions.html\">Configuring permissions for rollback based on Amazon CloudWatch alarms</a> in the <i>AppConfig User Guide</i>.</p>"""
     growth_factor: "aws_sdk_appconfig.types.growth_factor.GrowthFactor"
     """<p>The percentage of targets to receive a deployed configuration during each interval.</p>"""
     growth_type: NotRequired["aws_sdk_appconfig.types.growth_type.GrowthType"]

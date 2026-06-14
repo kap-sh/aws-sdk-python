@@ -27,7 +27,7 @@ class Snapshot(TypedDict):
     snapshot_create_time: NotRequired["aws_sdk_redshift.types.t_stamp.TStamp"]
     """<p>The time (in UTC format) when Amazon Redshift began the snapshot. A snapshot contains a copy of the cluster data as of this exact time.</p>"""
     status: NotRequired["aws_sdk_redshift.types.string.String"]
-    """<p>The snapshot status. The value of the status depends on the API operation used: </p> <ul> <li> <p> <a>CreateClusterSnapshot</a> and <a>CopyClusterSnapshot</a> returns status as \"creating\". </p> </li> <li> <p> <a>DescribeClusterSnapshots</a> returns status as \"creating\", \"available\", \"final snapshot\", or \"failed\".</p> </li> <li> <p> <a>DeleteClusterSnapshot</a> returns status as \"deleted\".</p> </li> </ul>"""
+    r"""<p>The snapshot status. The value of the status depends on the API operation used: </p> <ul> <li> <p> <a>CreateClusterSnapshot</a> and <a>CopyClusterSnapshot</a> returns status as \"creating\". </p> </li> <li> <p> <a>DescribeClusterSnapshots</a> returns status as \"creating\", \"available\", \"final snapshot\", or \"failed\".</p> </li> <li> <p> <a>DeleteClusterSnapshot</a> returns status as \"deleted\".</p> </li> </ul>"""
     port: NotRequired["aws_sdk_redshift.types.integer.Integer"]
     """<p>The port that the cluster is listening on.</p>"""
     availability_zone: NotRequired["aws_sdk_redshift.types.string.String"]
@@ -41,7 +41,7 @@ class Snapshot(TypedDict):
     engine_full_version: NotRequired["aws_sdk_redshift.types.string.String"]
     """<p>The cluster version of the cluster used to create the snapshot. For example, 1.0.15503. </p>"""
     snapshot_type: NotRequired["aws_sdk_redshift.types.string.String"]
-    """<p>The snapshot type. Snapshots created using <a>CreateClusterSnapshot</a> and <a>CopyClusterSnapshot</a> are of type \"manual\". </p>"""
+    r"""<p>The snapshot type. Snapshots created using <a>CreateClusterSnapshot</a> and <a>CopyClusterSnapshot</a> are of type \"manual\". </p>"""
     node_type: NotRequired["aws_sdk_redshift.types.string.String"]
     """<p>The node type of the nodes in the cluster.</p>"""
     number_of_nodes: NotRequired["aws_sdk_redshift.types.integer.Integer"]
@@ -87,7 +87,7 @@ class Snapshot(TypedDict):
     ]
     """<p>The list of node types that this cluster snapshot is able to restore into.</p>"""
     enhanced_vpc_routing: NotRequired["aws_sdk_redshift.types.boolean.Boolean"]
-    """<p>An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html\">Enhanced VPC Routing</a> in the Amazon Redshift Cluster Management Guide.</p> <p>If this option is <code>true</code>, enhanced VPC routing is enabled. </p> <p>Default: false</p>"""
+    r"""<p>An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html\">Enhanced VPC Routing</a> in the Amazon Redshift Cluster Management Guide.</p> <p>If this option is <code>true</code>, enhanced VPC routing is enabled. </p> <p>Default: false</p>"""
     maintenance_track_name: NotRequired["aws_sdk_redshift.types.string.String"]
     """<p>The name of the maintenance track for the snapshot.</p>"""
     manual_snapshot_retention_period: NotRequired[

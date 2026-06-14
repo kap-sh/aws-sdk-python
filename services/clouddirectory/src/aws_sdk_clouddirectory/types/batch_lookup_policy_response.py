@@ -13,7 +13,7 @@ class BatchLookupPolicyResponse(TypedDict):
     policy_to_path_list: NotRequired[
         "aws_sdk_clouddirectory.types.policy_to_path_list.PolicyToPathList"
     ]
-    """<p>Provides list of path to policies. Policies contain <code>PolicyId</code>, <code>ObjectIdentifier</code>, and <code>PolicyType</code>. For more information, see <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directory.html#key_concepts_policies\">Policies</a>.</p>"""
+    r"""<p>Provides list of path to policies. Policies contain <code>PolicyId</code>, <code>ObjectIdentifier</code>, and <code>PolicyType</code>. For more information, see <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directory.html#key_concepts_policies\">Policies</a>.</p>"""
     next_token: NotRequired["aws_sdk_clouddirectory.types.next_token.NextToken"]
     """<p>The pagination token.</p>"""
 

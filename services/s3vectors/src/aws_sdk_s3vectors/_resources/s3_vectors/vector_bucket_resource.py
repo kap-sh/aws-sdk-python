@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_s3vectors._auth._signers
@@ -59,7 +61,7 @@ class VectorBucketResource:
         ] = None,
         tags: Optional["aws_sdk_s3vectors.types.tags_map.TagsMap"] = None,
     ) -> "aws_sdk_s3vectors.types.create_vector_bucket_output.CreateVectorBucketOutput":
-        """<p>Creates a vector bucket in the Amazon Web Services Region that you want your bucket to be in. </p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3vectors:CreateVectorBucket</code> permission to use this operation. </p> <p>You must have the <code>s3vectors:TagResource</code> permission in addition to <code>s3vectors:CreateVectorBucket</code> permission to create a vector bucket with tags.</p> </dd> </dl>
+        r"""<p>Creates a vector bucket in the Amazon Web Services Region that you want your bucket to be in. </p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3vectors:CreateVectorBucket</code> permission to use this operation. </p> <p>You must have the <code>s3vectors:TagResource</code> permission in addition to <code>s3vectors:CreateVectorBucket</code> permission to create a vector bucket with tags.</p> </dd> </dl>
 
         Args:
             vector_bucket_name: <p>The name of the vector bucket to create. </p>
@@ -344,7 +346,7 @@ class VectorBucketResource:
             "aws_sdk_s3vectors.types.vector_bucket_arn.VectorBucketArn"
         ] = None,
     ) -> "aws_sdk_s3vectors.types.put_vector_bucket_policy_output.PutVectorBucketPolicyOutput":
-        """<p>Creates a bucket policy for a vector bucket. To specify the bucket, you must use either the vector bucket name or the vector bucket Amazon Resource Name (ARN). </p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3vectors:PutVectorBucketPolicy</code> permission to use this operation. </p> </dd> </dl>
+        r"""<p>Creates a bucket policy for a vector bucket. To specify the bucket, you must use either the vector bucket name or the vector bucket Amazon Resource Name (ARN). </p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3vectors:PutVectorBucketPolicy</code> permission to use this operation. </p> </dd> </dl>
 
         Args:
             vector_bucket_name: <p>The name of the vector bucket.</p>
@@ -396,7 +398,7 @@ class AsyncVectorBucketResource:
         ] = None,
         tags: Optional["aws_sdk_s3vectors.types.tags_map.TagsMap"] = None,
     ) -> "aws_sdk_s3vectors.types.create_vector_bucket_output.CreateVectorBucketOutput":
-        """<p>Creates a vector bucket in the Amazon Web Services Region that you want your bucket to be in. </p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3vectors:CreateVectorBucket</code> permission to use this operation. </p> <p>You must have the <code>s3vectors:TagResource</code> permission in addition to <code>s3vectors:CreateVectorBucket</code> permission to create a vector bucket with tags.</p> </dd> </dl>
+        r"""<p>Creates a vector bucket in the Amazon Web Services Region that you want your bucket to be in. </p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3vectors:CreateVectorBucket</code> permission to use this operation. </p> <p>You must have the <code>s3vectors:TagResource</code> permission in addition to <code>s3vectors:CreateVectorBucket</code> permission to create a vector bucket with tags.</p> </dd> </dl>
 
         Args:
             vector_bucket_name: <p>The name of the vector bucket to create. </p>
@@ -687,7 +689,7 @@ class AsyncVectorBucketResource:
             "aws_sdk_s3vectors.types.vector_bucket_arn.VectorBucketArn"
         ] = None,
     ) -> "aws_sdk_s3vectors.types.put_vector_bucket_policy_output.PutVectorBucketPolicyOutput":
-        """<p>Creates a bucket policy for a vector bucket. To specify the bucket, you must use either the vector bucket name or the vector bucket Amazon Resource Name (ARN). </p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3vectors:PutVectorBucketPolicy</code> permission to use this operation. </p> </dd> </dl>
+        r"""<p>Creates a bucket policy for a vector bucket. To specify the bucket, you must use either the vector bucket name or the vector bucket Amazon Resource Name (ARN). </p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3vectors:PutVectorBucketPolicy</code> permission to use this operation. </p> </dd> </dl>
 
         Args:
             vector_bucket_name: <p>The name of the vector bucket.</p>

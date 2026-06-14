@@ -10,7 +10,7 @@ if TYPE_CHECKING:
 
 class InputProcessingConfigurationUpdate(TypedDict):
     input_lambda_processor_update: "aws_sdk_kinesis_analytics.types.input_lambda_processor_update.InputLambdaProcessorUpdate"
-    """<p>Provides update information for an <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputLambdaProcessor.html\">InputLambdaProcessor</a>.</p>"""
+    r"""<p>Provides update information for an <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputLambdaProcessor.html\">InputLambdaProcessor</a>.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

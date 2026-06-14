@@ -23,7 +23,7 @@ class JsonClassifier(TypedDict):
     version: "aws_sdk_glue.types.version_id.VersionId"
     """<p>The version of this classifier.</p>"""
     json_path: "aws_sdk_glue.types.json_path.JsonPath"
-    """<p>A <code>JsonPath</code> string defining the JSON data for the classifier to classify. Glue supports a subset of JsonPath, as described in <a href=\"https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json\">Writing JsonPath Custom Classifiers</a>.</p>"""
+    r"""<p>A <code>JsonPath</code> string defining the JSON data for the classifier to classify. Glue supports a subset of JsonPath, as described in <a href=\"https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json\">Writing JsonPath Custom Classifiers</a>.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

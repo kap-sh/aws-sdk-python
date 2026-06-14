@@ -226,7 +226,7 @@ class AmplifyClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = AmplifyClientConfig(
+        self._config = AmplifyClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -246,7 +246,7 @@ class AmplifyClient:
         overrides: AmplifyClientConfig = config_overrides or {}
         interceptors_: list[Interceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             retry(),
         ]
@@ -254,16 +254,16 @@ class AmplifyClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            region=overrides.get("region", self.config.get("region")),
+            region=overrides.get("region", self._config.get("region")),
             use_dual_stack=overrides.get(
-                "use_dual_stack", self.config.get("use_dual_stack")
+                "use_dual_stack", self._config.get("use_dual_stack")
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -317,7 +317,7 @@ class AmplifyClient:
         job_config: Optional["aws_sdk_amplify.types.job_config.JobConfig"] = None,
         cache_config: Optional["aws_sdk_amplify.types.cache_config.CacheConfig"] = None,
     ) -> "aws_sdk_amplify.types.create_app_result.CreateAppResult":
-        """<p>Creates a new Amplify app. </p>
+        r"""<p>Creates a new Amplify app. </p>
 
         Args:
             name: <p>The name of the Amplify app. </p>
@@ -509,7 +509,7 @@ class AmplifyClient:
             "aws_sdk_amplify.types.compute_role_arn.ComputeRoleArn"
         ] = None,
     ) -> "aws_sdk_amplify.types.create_branch_result.CreateBranchResult":
-        """<p> Creates a new branch for an Amplify app. </p>
+        r"""<p> Creates a new branch for an Amplify app. </p>
 
         Args:
             app_id: <p> The unique ID for an Amplify app. </p>
@@ -1384,7 +1384,7 @@ class AmplifyClient:
         next_token: Optional["aws_sdk_amplify.types.next_token.NextToken"] = None,
         max_results: Optional["aws_sdk_amplify.types.max_results.MaxResults"] = None,
     ) -> "aws_sdk_amplify.types.list_artifacts_result.ListArtifactsResult":
-        """<p>Returns a list of end-to-end testing artifacts for a specified app, branch, and job.</p> <p>To return the build artifacts, use the <a href=\"https://docs.aws.amazon.com/amplify/latest/APIReference/API_GetJob.html\">GetJob</a> API.</p> <p>For more information about Amplify testing support, see <a href=\"https://docs.aws.amazon.com/amplify/latest/userguide/running-tests.html\">Setting up end-to-end Cypress tests for your Amplify application</a> in the <i>Amplify Hosting User Guide</i>. </p>
+        r"""<p>Returns a list of end-to-end testing artifacts for a specified app, branch, and job.</p> <p>To return the build artifacts, use the <a href=\"https://docs.aws.amazon.com/amplify/latest/APIReference/API_GetJob.html\">GetJob</a> API.</p> <p>For more information about Amplify testing support, see <a href=\"https://docs.aws.amazon.com/amplify/latest/userguide/running-tests.html\">Setting up end-to-end Cypress tests for your Amplify application</a> in the <i>Amplify Hosting User Guide</i>. </p>
 
         Args:
             app_id: <p>The unique ID for an Amplify app. </p>
@@ -2052,7 +2052,7 @@ class AmplifyClient:
         job_config: Optional["aws_sdk_amplify.types.job_config.JobConfig"] = None,
         cache_config: Optional["aws_sdk_amplify.types.cache_config.CacheConfig"] = None,
     ) -> "aws_sdk_amplify.types.update_app_result.UpdateAppResult":
-        """<p>Updates an existing Amplify app. </p>
+        r"""<p>Updates an existing Amplify app. </p>
 
         Args:
             app_id: <p>The unique ID for an Amplify app. </p>
@@ -2193,7 +2193,7 @@ class AmplifyClient:
             "aws_sdk_amplify.types.compute_role_arn.ComputeRoleArn"
         ] = None,
     ) -> "aws_sdk_amplify.types.update_branch_result.UpdateBranchResult":
-        """<p> Updates a branch for an Amplify app. </p>
+        r"""<p> Updates a branch for an Amplify app. </p>
 
         Args:
             app_id: <p> The unique ID for an Amplify app. </p>

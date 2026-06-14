@@ -36,7 +36,7 @@ class StackResource(TypedDict):
     resource_type: NotRequired[
         "aws_sdk_cloudformation.types.resource_type.ResourceType"
     ]
-    """<p>Type of resource. For more information, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html\">Amazon Web Services resource and property types reference</a> in the <i>CloudFormation User Guide</i>.</p>"""
+    r"""<p>Type of resource. For more information, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html\">Amazon Web Services resource and property types reference</a> in the <i>CloudFormation User Guide</i>.</p>"""
     timestamp: NotRequired["aws_sdk_cloudformation.types.timestamp.Timestamp"]
     """<p>Time the status was updated.</p>"""
     resource_status: NotRequired[
@@ -52,7 +52,7 @@ class StackResource(TypedDict):
     drift_information: NotRequired[
         "aws_sdk_cloudformation.types.stack_resource_drift_information.StackResourceDriftInformation"
     ]
-    """<p>Information about whether the resource's actual configuration differs, or has <i>drifted</i>, from its expected configuration, as defined in the stack template and any values specified as template parameters. For more information, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html\">Detect unmanaged configuration changes to stacks and resources with drift detection</a>.</p>"""
+    r"""<p>Information about whether the resource's actual configuration differs, or has <i>drifted</i>, from its expected configuration, as defined in the stack template and any values specified as template parameters. For more information, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html\">Detect unmanaged configuration changes to stacks and resources with drift detection</a>.</p>"""
     module_info: NotRequired["aws_sdk_cloudformation.types.module_info.ModuleInfo"]
     """<p>Contains information about the module from which the resource was created, if the resource was created from a module included in the stack template.</p>"""
 

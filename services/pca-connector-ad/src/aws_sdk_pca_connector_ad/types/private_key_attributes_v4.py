@@ -17,7 +17,7 @@ class PrivateKeyAttributesV4(TypedDict):
     minimal_key_length: "int"
     """<p>Set the minimum key length of the private key.</p>"""
     key_spec: "aws_sdk_pca_connector_ad.types.key_spec.KeySpec"
-    """<p>Defines the purpose of the private key. Set it to \"KEY_EXCHANGE\" or \"SIGNATURE\" value.</p>"""
+    r"""<p>Defines the purpose of the private key. Set it to \"KEY_EXCHANGE\" or \"SIGNATURE\" value.</p>"""
     crypto_providers: NotRequired[
         "aws_sdk_pca_connector_ad.types.crypto_providers_list.CryptoProvidersList"
     ]

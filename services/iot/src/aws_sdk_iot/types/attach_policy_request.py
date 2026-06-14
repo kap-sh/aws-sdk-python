@@ -13,7 +13,7 @@ class AttachPolicyRequest(TypedDict):
     policy_name: "aws_sdk_iot.types.policy_name.PolicyName"
     """<p>The name of the policy to attach.</p>"""
     target: "aws_sdk_iot.types.policy_target.PolicyTarget"
-    """<p>The <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/security-iam.html\">identity</a> to which the policy is attached. For example, a thing group or a certificate.</p>"""
+    r"""<p>The <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/security-iam.html\">identity</a> to which the policy is attached. For example, a thing group or a certificate.</p>"""
 
 
 # --- restJson1 ser/de ---

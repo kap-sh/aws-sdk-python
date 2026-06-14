@@ -19,14 +19,14 @@ class PolicyGrantingServiceAccess(TypedDict):
     policy_name: "aws_sdk_iam.types.policy_name_type.policyNameType"
     """<p>The policy name.</p>"""
     policy_type: "aws_sdk_iam.types.policy_type.policyType"
-    """<p>The policy type. For more information about these policy types, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html\">Managed policies and inline policies</a> in the <i>IAM User Guide</i>.</p>"""
+    r"""<p>The policy type. For more information about these policy types, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html\">Managed policies and inline policies</a> in the <i>IAM User Guide</i>.</p>"""
     policy_arn: NotRequired["aws_sdk_iam.types.arn_type.arnType"]
     entity_type: NotRequired[
         "aws_sdk_iam.types.policy_owner_entity_type.policyOwnerEntityType"
     ]
-    """<p>The type of entity (user or role) that used the policy to access the service to which the inline policy is attached.</p> <p>This field is null for managed policies. For more information about these policy types, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html\">Managed policies and inline policies</a> in the <i>IAM User Guide</i>.</p>"""
+    r"""<p>The type of entity (user or role) that used the policy to access the service to which the inline policy is attached.</p> <p>This field is null for managed policies. For more information about these policy types, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html\">Managed policies and inline policies</a> in the <i>IAM User Guide</i>.</p>"""
     entity_name: NotRequired["aws_sdk_iam.types.entity_name_type.entityNameType"]
-    """<p>The name of the entity (user or role) to which the inline policy is attached.</p> <p>This field is null for managed policies. For more information about these policy types, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html\">Managed policies and inline policies</a> in the <i>IAM User Guide</i>.</p>"""
+    r"""<p>The name of the entity (user or role) to which the inline policy is attached.</p> <p>This field is null for managed policies. For more information about these policy types, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html\">Managed policies and inline policies</a> in the <i>IAM User Guide</i>.</p>"""
 
 
 # --- awsQuery ser/de ---

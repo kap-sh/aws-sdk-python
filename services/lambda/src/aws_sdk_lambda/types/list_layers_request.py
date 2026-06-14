@@ -13,7 +13,7 @@ if TYPE_CHECKING:
 
 class ListLayersRequest(TypedDict):
     compatible_runtime: NotRequired["aws_sdk_lambda.types.runtime.Runtime"]
-    """<p>A runtime identifier.</p> <p>The following list includes deprecated runtimes. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels\">Runtime use after deprecation</a>.</p> <p>For a list of all currently supported runtimes, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported\">Supported runtimes</a>.</p>"""
+    r"""<p>A runtime identifier.</p> <p>The following list includes deprecated runtimes. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels\">Runtime use after deprecation</a>.</p> <p>For a list of all currently supported runtimes, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported\">Supported runtimes</a>.</p>"""
     marker: NotRequired["aws_sdk_lambda.types.string.String"]
     """<p>A pagination token returned by a previous call.</p>"""
     max_items: NotRequired[
@@ -23,7 +23,7 @@ class ListLayersRequest(TypedDict):
     compatible_architecture: NotRequired[
         "aws_sdk_lambda.types.architecture.Architecture"
     ]
-    """<p>The compatible <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html\">instruction set architecture</a>.</p>"""
+    r"""<p>The compatible <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html\">instruction set architecture</a>.</p>"""
 
 
 # --- restJson1 ser/de ---

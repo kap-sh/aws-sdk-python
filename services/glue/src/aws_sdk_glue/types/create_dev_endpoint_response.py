@@ -43,7 +43,7 @@ class CreateDevEndpointResponse(TypedDict):
     glue_version: NotRequired[
         "aws_sdk_glue.types.glue_version_string.GlueVersionString"
     ]
-    """<p>Glue version determines the versions of Apache Spark and Python that Glue supports. The Python version indicates the version supported for running your ETL scripts on development endpoints. </p> <p>For more information about the available Glue versions and corresponding Spark and Python versions, see <a href=\"https://docs.aws.amazon.com/glue/latest/dg/add-job.html\">Glue version</a> in the developer guide.</p>"""
+    r"""<p>Glue version determines the versions of Apache Spark and Python that Glue supports. The Python version indicates the version supported for running your ETL scripts on development endpoints. </p> <p>For more information about the available Glue versions and corresponding Spark and Python versions, see <a href=\"https://docs.aws.amazon.com/glue/latest/dg/add-job.html\">Glue version</a> in the developer guide.</p>"""
     number_of_workers: NotRequired[
         "aws_sdk_glue.types.nullable_integer.NullableInteger"
     ]
@@ -65,7 +65,7 @@ class CreateDevEndpointResponse(TypedDict):
     created_timestamp: NotRequired["aws_sdk_glue.types.timestamp_value.TimestampValue"]
     """<p>The point in time at which this <code>DevEndpoint</code> was created.</p>"""
     arguments: NotRequired["aws_sdk_glue.types.map_value.MapValue"]
-    """<p>The map of arguments used to configure this <code>DevEndpoint</code>.</p> <p>Valid arguments are:</p> <ul> <li> <p> <code>\"--enable-glue-datacatalog\": \"\"</code> </p> </li> </ul> <p>You can specify a version of Python support for development endpoints by using the <code>Arguments</code> parameter in the <code>CreateDevEndpoint</code> or <code>UpdateDevEndpoint</code> APIs. If no arguments are provided, the version defaults to Python 2.</p>"""
+    r"""<p>The map of arguments used to configure this <code>DevEndpoint</code>.</p> <p>Valid arguments are:</p> <ul> <li> <p> <code>\"--enable-glue-datacatalog\": \"\"</code> </p> </li> </ul> <p>You can specify a version of Python support for development endpoints by using the <code>Arguments</code> parameter in the <code>CreateDevEndpoint</code> or <code>UpdateDevEndpoint</code> APIs. If no arguments are provided, the version defaults to Python 2.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

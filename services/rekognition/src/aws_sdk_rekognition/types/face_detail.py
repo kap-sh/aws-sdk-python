@@ -56,7 +56,7 @@ class FaceDetail(TypedDict):
     confidence: NotRequired["aws_sdk_rekognition.types.percent.Percent"]
     """<p>Confidence level that the bounding box contains a face (and not a different object such as a tree). Default attribute.</p>"""
     face_occluded: NotRequired["aws_sdk_rekognition.types.face_occluded.FaceOccluded"]
-    """<p> <code>FaceOccluded</code> should return \"true\" with a high confidence score if a detected face’s eyes, nose, and mouth are partially captured or if they are covered by masks, dark sunglasses, cell phones, hands, or other objects. <code>FaceOccluded</code> should return \"false\" with a high confidence score if common occurrences that do not impact face verification are detected, such as eye glasses, lightly tinted sunglasses, strands of hair, and others. </p>"""
+    r"""<p> <code>FaceOccluded</code> should return \"true\" with a high confidence score if a detected face’s eyes, nose, and mouth are partially captured or if they are covered by masks, dark sunglasses, cell phones, hands, or other objects. <code>FaceOccluded</code> should return \"false\" with a high confidence score if common occurrences that do not impact face verification are detected, such as eye glasses, lightly tinted sunglasses, strands of hair, and others. </p>"""
     eye_direction: NotRequired["aws_sdk_rekognition.types.eye_direction.EyeDirection"]
     """<p>Indicates the direction the eyes are gazing in, as defined by pitch and yaw.</p>"""
 

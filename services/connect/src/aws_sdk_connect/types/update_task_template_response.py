@@ -20,7 +20,7 @@ if TYPE_CHECKING:
 
 class UpdateTaskTemplateResponse(TypedDict):
     instance_id: NotRequired["aws_sdk_connect.types.instance_id.InstanceId"]
-    """<p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>"""
+    r"""<p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>"""
     id: NotRequired["aws_sdk_connect.types.task_template_id.TaskTemplateId"]
     """<p>The identifier of the task template resource.</p>"""
     arn: NotRequired["aws_sdk_connect.types.task_template_arn.TaskTemplateArn"]

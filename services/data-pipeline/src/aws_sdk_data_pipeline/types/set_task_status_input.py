@@ -19,7 +19,7 @@ class SetTaskStatusInput(TypedDict):
     task_status: "aws_sdk_data_pipeline.types.task_status.TaskStatus"
     """<p>If <code>FINISHED</code>, the task successfully completed. If <code>FAILED</code>, the task ended unsuccessfully. Preconditions use false.</p>"""
     error_id: NotRequired["aws_sdk_data_pipeline.types.string.string"]
-    """<p>If an error occurred during the task, this value specifies the error code. This value is set on the physical attempt object. It is used to display error information to the user. It should not start with string \"Service_\" which is reserved by the system.</p>"""
+    r"""<p>If an error occurred during the task, this value specifies the error code. This value is set on the physical attempt object. It is used to display error information to the user. It should not start with string \"Service_\" which is reserved by the system.</p>"""
     error_message: NotRequired["aws_sdk_data_pipeline.types.error_message.errorMessage"]
     """<p>If an error occurred during the task, this value specifies a text description of the error. This value is set on the physical attempt object. It is used to display error information to the user. The web service does not parse this value.</p>"""
     error_stack_trace: NotRequired["aws_sdk_data_pipeline.types.string.string"]

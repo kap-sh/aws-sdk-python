@@ -26,7 +26,7 @@ class UpdateSettingsRequest(TypedDict):
     kms_key: NotRequired["aws_sdk_auditmanager.types.kms_key.KmsKey"]
     """<p> The KMS key details. </p>"""
     evidence_finder_enabled: NotRequired["aws_sdk_auditmanager.types.boolean.Boolean"]
-    """<p>Specifies whether the evidence finder feature is enabled. Change this attribute to enable or disable evidence finder.</p> <important> <p>When you use this attribute to disable evidence finder, Audit Manager deletes the event data store that’s used to query your evidence data. As a result, you can’t re-enable evidence finder and use the feature again. Your only alternative is to <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeregisterAccount.html\">deregister</a> and then <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_RegisterAccount.html\">re-register</a> Audit Manager. </p> </important>"""
+    r"""<p>Specifies whether the evidence finder feature is enabled. Change this attribute to enable or disable evidence finder.</p> <important> <p>When you use this attribute to disable evidence finder, Audit Manager deletes the event data store that’s used to query your evidence data. As a result, you can’t re-enable evidence finder and use the feature again. Your only alternative is to <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeregisterAccount.html\">deregister</a> and then <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_RegisterAccount.html\">re-register</a> Audit Manager. </p> </important>"""
     deregistration_policy: NotRequired[
         "aws_sdk_auditmanager.types.deregistration_policy.DeregistrationPolicy"
     ]

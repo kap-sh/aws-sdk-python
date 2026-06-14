@@ -26,7 +26,7 @@ class JobExecution(TypedDict):
     status: NotRequired[
         "aws_sdk_iot_jobs_data_plane.types.job_execution_status.JobExecutionStatus"
     ]
-    """<p>The status of the job execution. Can be one of: \"QUEUED\", \"IN_PROGRESS\", \"FAILED\", \"SUCCESS\", \"CANCELED\", \"TIMED_OUT\", \"REJECTED\", or \"REMOVED\".</p>"""
+    r"""<p>The status of the job execution. Can be one of: \"QUEUED\", \"IN_PROGRESS\", \"FAILED\", \"SUCCESS\", \"CANCELED\", \"TIMED_OUT\", \"REJECTED\", or \"REMOVED\".</p>"""
     status_details: NotRequired[
         "aws_sdk_iot_jobs_data_plane.types.details_map.DetailsMap"
     ]

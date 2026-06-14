@@ -28,11 +28,11 @@ class PipeLogConfigurationParameters(TypedDict):
     ]
     """<p>The Amazon CloudWatch Logs logging configuration settings for the pipe.</p>"""
     level: "aws_sdk_pipes.types.log_level.LogLevel"
-    """<p>The level of logging detail to include. This applies to all log destinations for the pipe.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-logs.html#eb-pipes-logs-level\">Specifying EventBridge Pipes log level</a> in the <i>Amazon EventBridge User Guide</i>.</p>"""
+    r"""<p>The level of logging detail to include. This applies to all log destinations for the pipe.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-logs.html#eb-pipes-logs-level\">Specifying EventBridge Pipes log level</a> in the <i>Amazon EventBridge User Guide</i>.</p>"""
     include_execution_data: NotRequired[
         "aws_sdk_pipes.types.include_execution_data.IncludeExecutionData"
     ]
-    """<p>Specify <code>ALL</code> to include the execution data (specifically, the <code>payload</code>, <code>awsRequest</code>, and <code>awsResponse</code> fields) in the log messages for this pipe.</p> <p>This applies to all log destinations for the pipe.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-logs.html#eb-pipes-logs-execution-data\">Including execution data in logs</a> in the <i>Amazon EventBridge User Guide</i>.</p> <p>By default, execution data is not included.</p>"""
+    r"""<p>Specify <code>ALL</code> to include the execution data (specifically, the <code>payload</code>, <code>awsRequest</code>, and <code>awsResponse</code> fields) in the log messages for this pipe.</p> <p>This applies to all log destinations for the pipe.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-logs.html#eb-pipes-logs-execution-data\">Including execution data in logs</a> in the <i>Amazon EventBridge User Guide</i>.</p> <p>By default, execution data is not included.</p>"""
 
 
 # --- restJson1 ser/de ---

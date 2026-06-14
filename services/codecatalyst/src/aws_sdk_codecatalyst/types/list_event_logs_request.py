@@ -15,9 +15,9 @@ class ListEventLogsRequest(TypedDict):
     space_name: "aws_sdk_codecatalyst.types.name_string.NameString"
     """<p>The name of the space.</p>"""
     start_time: "aws_sdk_codecatalyst.types.timestamp.Timestamp"
-    """<p>The date and time when you want to start retrieving events, in coordinated universal time (UTC) timestamp format as specified in <a href=\"https://www.rfc-editor.org/rfc/rfc3339#section-5.6\">RFC 3339</a>.</p>"""
+    r"""<p>The date and time when you want to start retrieving events, in coordinated universal time (UTC) timestamp format as specified in <a href=\"https://www.rfc-editor.org/rfc/rfc3339#section-5.6\">RFC 3339</a>.</p>"""
     end_time: "aws_sdk_codecatalyst.types.timestamp.Timestamp"
-    """<p>The time after which you do not want any events retrieved, in coordinated universal time (UTC) timestamp format as specified in <a href=\"https://www.rfc-editor.org/rfc/rfc3339#section-5.6\">RFC 3339</a>.</p>"""
+    r"""<p>The time after which you do not want any events retrieved, in coordinated universal time (UTC) timestamp format as specified in <a href=\"https://www.rfc-editor.org/rfc/rfc3339#section-5.6\">RFC 3339</a>.</p>"""
     event_name: NotRequired["str"]
     """<p>The name of the event.</p>"""
     next_token: NotRequired["str"]

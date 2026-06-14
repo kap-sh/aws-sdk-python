@@ -36,7 +36,7 @@ class InventoryDeletionStatusItem(TypedDict):
     deletion_summary: NotRequired[
         "aws_sdk_ssm.types.inventory_deletion_summary.InventoryDeletionSummary"
     ]
-    """<p>Information about the delete operation. For more information about this summary, see <a href=\"https://docs.aws.amazon.com/systems-manager/latest/userguide/inventory-custom.html#delete-custom-inventory\">Understanding the delete inventory summary</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>"""
+    r"""<p>Information about the delete operation. For more information about this summary, see <a href=\"https://docs.aws.amazon.com/systems-manager/latest/userguide/inventory-custom.html#delete-custom-inventory\">Understanding the delete inventory summary</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>"""
     last_status_update_time: NotRequired[
         "aws_sdk_ssm.types.inventory_deletion_last_status_update_time.InventoryDeletionLastStatusUpdateTime"
     ]

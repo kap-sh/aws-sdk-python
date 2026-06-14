@@ -12,7 +12,7 @@ class GetGraphqlApiEnvironmentVariablesResponse(TypedDict):
     environment_variables: NotRequired[
         "aws_sdk_appsync.types.environment_variable_map.EnvironmentVariableMap"
     ]
-    """<p>The payload containing each environmental variable in the <code>\"key\" : \"value\"</code> format.</p>"""
+    r"""<p>The payload containing each environmental variable in the <code>\"key\" : \"value\"</code> format.</p>"""
 
 
 # --- restJson1 ser/de ---

@@ -24,7 +24,7 @@ class ThreatIntelIndicator(TypedDict):
     last_observed_at: NotRequired[
         "aws_sdk_securityhub.types.non_empty_string.NonEmptyString"
     ]
-    """<p>Indicates when the most recent instance of a threat intelligence indicator was observed.</p> <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href=\"https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps\">Timestamps</a>.</p>"""
+    r"""<p>Indicates when the most recent instance of a threat intelligence indicator was observed.</p> <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href=\"https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps\">Timestamps</a>.</p>"""
     source: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p>The source of the threat intelligence indicator.</p> <p>Length Constraints: Minimum of 1 length. Maximum of 64 length.</p>"""
     source_url: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]

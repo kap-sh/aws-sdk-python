@@ -16,7 +16,7 @@ class CreateRealtimeLogConfigRequest(TypedDict):
     end_points: "aws_sdk_cloudfront.types.end_point_list.EndPointList"
     """<p>Contains information about the Amazon Kinesis data stream where you are sending real-time log data.</p>"""
     fields: "aws_sdk_cloudfront.types.field_list.FieldList"
-    """<p>A list of fields to include in each real-time log record.</p> <p>For more information about fields, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields\">Real-time log configuration fields</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>"""
+    r"""<p>A list of fields to include in each real-time log record.</p> <p>For more information about fields, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields\">Real-time log configuration fields</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>"""
     name: "aws_sdk_cloudfront.types.string.string"
     """<p>A unique name to identify this real-time log configuration.</p>"""
     sampling_rate: "aws_sdk_cloudfront.types.long.long"

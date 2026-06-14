@@ -24,7 +24,7 @@ class CreateEventDestinationRequest(TypedDict):
     matching_event_types: (
         "aws_sdk_pinpoint_sms_voice_v2.types.event_type_list.EventTypeList"
     )
-    """<p>An array of event types that determine which events to log. If \"ALL\" is used, then End User Messaging SMS logs every event type.</p> <note> <p>The <code>TEXT_SENT</code> event type is not supported.</p> </note>"""
+    r"""<p>An array of event types that determine which events to log. If \"ALL\" is used, then End User Messaging SMS logs every event type.</p> <note> <p>The <code>TEXT_SENT</code> event type is not supported.</p> </note>"""
     cloud_watch_logs_destination: NotRequired[
         "aws_sdk_pinpoint_sms_voice_v2.types.cloud_watch_logs_destination.CloudWatchLogsDestination"
     ]

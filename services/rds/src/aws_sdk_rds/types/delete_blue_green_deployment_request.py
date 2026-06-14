@@ -17,7 +17,7 @@ class DeleteBlueGreenDeploymentRequest(TypedDict):
     ]
     """<p>The unique identifier of the blue/green deployment to delete. This parameter isn't case-sensitive.</p> <p>Constraints: </p> <ul> <li> <p>Must match an existing blue/green deployment identifier.</p> </li> </ul>"""
     delete_target: NotRequired["aws_sdk_rds.types.boolean_optional.BooleanOptional"]
-    """<p>Specifies whether to delete the resources in the green environment. You can't specify this option if the blue/green deployment <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_BlueGreenDeployment.html\">status</a> is <code>SWITCHOVER_COMPLETED</code>.</p>"""
+    r"""<p>Specifies whether to delete the resources in the green environment. You can't specify this option if the blue/green deployment <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_BlueGreenDeployment.html\">status</a> is <code>SWITCHOVER_COMPLETED</code>.</p>"""
 
 
 # --- awsQuery ser/de ---

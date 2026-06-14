@@ -16,7 +16,7 @@ if TYPE_CHECKING:
 
 class LogDeliveryConfigurationRequest(TypedDict):
     log_type: NotRequired["aws_sdk_elasticache.types.log_type.LogType"]
-    """<p>Refers to <a href=\"https://redis.io/commands/slowlog\">slow-log</a> or engine-log..</p>"""
+    r"""<p>Refers to <a href=\"https://redis.io/commands/slowlog\">slow-log</a> or engine-log..</p>"""
     destination_type: NotRequired[
         "aws_sdk_elasticache.types.destination_type.DestinationType"
     ]

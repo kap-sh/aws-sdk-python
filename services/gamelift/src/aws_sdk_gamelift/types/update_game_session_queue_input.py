@@ -45,7 +45,7 @@ class UpdateGameSessionQueueInput(TypedDict):
     notification_target: NotRequired[
         "aws_sdk_gamelift.types.queue_sns_arn_string_model.QueueSnsArnStringModel"
     ]
-    """<p>An SNS topic ARN that is set up to receive game session placement notifications. See <a href=\"https://docs.aws.amazon.com/gamelift/latest/developerguide/queue-notification.html\"> Setting up notifications for game session placement</a>.</p>"""
+    r"""<p>An SNS topic ARN that is set up to receive game session placement notifications. See <a href=\"https://docs.aws.amazon.com/gamelift/latest/developerguide/queue-notification.html\"> Setting up notifications for game session placement</a>.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

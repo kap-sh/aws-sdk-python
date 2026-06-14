@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_connectcases._auth._signers
@@ -56,7 +58,7 @@ class CaseRule:
             "aws_sdk_connectcases.types.case_rule_description.CaseRuleDescription"
         ] = None,
     ) -> "aws_sdk_connectcases.types.create_case_rule_response.CreateCaseRuleResponse":
-        """<p>Creates a new case rule. In the Amazon Connect admin website, case rules are known as <i>case field conditions</i>. For more information about case field conditions, see <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html\">Add case field conditions to a case template</a>.</p>
+        r"""<p>Creates a new case rule. In the Amazon Connect admin website, case rules are known as <i>case field conditions</i>. For more information about case field conditions, see <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html\">Add case field conditions to a case template</a>.</p>
 
         Args:
             domain_id: <p>Unique identifier of a Cases domain.</p>
@@ -108,7 +110,7 @@ class CaseRule:
             "aws_sdk_connectcases.types.case_rule_details.CaseRuleDetails"
         ] = None,
     ) -> "aws_sdk_connectcases.types.update_case_rule_response.UpdateCaseRuleResponse":
-        """<p>Updates a case rule. In the Amazon Connect admin website, case rules are known as <i>case field conditions</i>. For more information about case field conditions, see <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html\">Add case field conditions to a case template</a>.</p>
+        r"""<p>Updates a case rule. In the Amazon Connect admin website, case rules are known as <i>case field conditions</i>. For more information about case field conditions, see <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html\">Add case field conditions to a case template</a>.</p>
 
         Args:
             domain_id: <p>Unique identifier of a Cases domain.</p>
@@ -157,7 +159,7 @@ class CaseRule:
         *,
         config_overrides: Optional[ConnectCasesClientConfig] = None,
     ) -> "aws_sdk_connectcases.types.delete_case_rule_response.DeleteCaseRuleResponse":
-        """<p>Deletes a case rule. In the Amazon Connect admin website, case rules are known as <i>case field conditions</i>. For more information about case field conditions, see <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html\">Add case field conditions to a case template</a>.</p>
+        r"""<p>Deletes a case rule. In the Amazon Connect admin website, case rules are known as <i>case field conditions</i>. For more information about case field conditions, see <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html\">Add case field conditions to a case template</a>.</p>
 
         Args:
             domain_id: <p>Unique identifier of a Cases domain.</p>
@@ -200,7 +202,7 @@ class CaseRule:
         ] = None,
         next_token: Optional["aws_sdk_connectcases.types.next_token.NextToken"] = None,
     ) -> "aws_sdk_connectcases.types.list_case_rules_response.ListCaseRulesResponse":
-        """<p>Lists all case rules in a Cases domain. In the Amazon Connect admin website, case rules are known as <i>case field conditions</i>. For more information about case field conditions, see <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html\">Add case field conditions to a case template</a>.</p>
+        r"""<p>Lists all case rules in a Cases domain. In the Amazon Connect admin website, case rules are known as <i>case field conditions</i>. For more information about case field conditions, see <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html\">Add case field conditions to a case template</a>.</p>
 
         Args:
             domain_id: <p>Unique identifier of a Cases domain.</p>
@@ -244,7 +246,7 @@ class CaseRule:
         *,
         config_overrides: Optional[ConnectCasesClientConfig] = None,
     ) -> "aws_sdk_connectcases.types.batch_get_case_rule_response.BatchGetCaseRuleResponse":
-        """<p>Gets a batch of case rules. In the Amazon Connect admin website, case rules are known as <i>case field conditions</i>. For more information about case field conditions, see <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html\">Add case field conditions to a case template</a>.</p>
+        r"""<p>Gets a batch of case rules. In the Amazon Connect admin website, case rules are known as <i>case field conditions</i>. For more information about case field conditions, see <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html\">Add case field conditions to a case template</a>.</p>
 
         Args:
             domain_id: <p>Unique identifier of a Cases domain.</p>
@@ -293,7 +295,7 @@ class AsyncCaseRule:
             "aws_sdk_connectcases.types.case_rule_description.CaseRuleDescription"
         ] = None,
     ) -> "aws_sdk_connectcases.types.create_case_rule_response.CreateCaseRuleResponse":
-        """<p>Creates a new case rule. In the Amazon Connect admin website, case rules are known as <i>case field conditions</i>. For more information about case field conditions, see <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html\">Add case field conditions to a case template</a>.</p>
+        r"""<p>Creates a new case rule. In the Amazon Connect admin website, case rules are known as <i>case field conditions</i>. For more information about case field conditions, see <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html\">Add case field conditions to a case template</a>.</p>
 
         Args:
             domain_id: <p>Unique identifier of a Cases domain.</p>
@@ -346,7 +348,7 @@ class AsyncCaseRule:
             "aws_sdk_connectcases.types.case_rule_details.CaseRuleDetails"
         ] = None,
     ) -> "aws_sdk_connectcases.types.update_case_rule_response.UpdateCaseRuleResponse":
-        """<p>Updates a case rule. In the Amazon Connect admin website, case rules are known as <i>case field conditions</i>. For more information about case field conditions, see <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html\">Add case field conditions to a case template</a>.</p>
+        r"""<p>Updates a case rule. In the Amazon Connect admin website, case rules are known as <i>case field conditions</i>. For more information about case field conditions, see <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html\">Add case field conditions to a case template</a>.</p>
 
         Args:
             domain_id: <p>Unique identifier of a Cases domain.</p>
@@ -396,7 +398,7 @@ class AsyncCaseRule:
         *,
         config_overrides: Optional[AsyncConnectCasesClientConfig] = None,
     ) -> "aws_sdk_connectcases.types.delete_case_rule_response.DeleteCaseRuleResponse":
-        """<p>Deletes a case rule. In the Amazon Connect admin website, case rules are known as <i>case field conditions</i>. For more information about case field conditions, see <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html\">Add case field conditions to a case template</a>.</p>
+        r"""<p>Deletes a case rule. In the Amazon Connect admin website, case rules are known as <i>case field conditions</i>. For more information about case field conditions, see <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html\">Add case field conditions to a case template</a>.</p>
 
         Args:
             domain_id: <p>Unique identifier of a Cases domain.</p>
@@ -440,7 +442,7 @@ class AsyncCaseRule:
         ] = None,
         next_token: Optional["aws_sdk_connectcases.types.next_token.NextToken"] = None,
     ) -> "aws_sdk_connectcases.types.list_case_rules_response.ListCaseRulesResponse":
-        """<p>Lists all case rules in a Cases domain. In the Amazon Connect admin website, case rules are known as <i>case field conditions</i>. For more information about case field conditions, see <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html\">Add case field conditions to a case template</a>.</p>
+        r"""<p>Lists all case rules in a Cases domain. In the Amazon Connect admin website, case rules are known as <i>case field conditions</i>. For more information about case field conditions, see <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html\">Add case field conditions to a case template</a>.</p>
 
         Args:
             domain_id: <p>Unique identifier of a Cases domain.</p>
@@ -485,7 +487,7 @@ class AsyncCaseRule:
         *,
         config_overrides: Optional[AsyncConnectCasesClientConfig] = None,
     ) -> "aws_sdk_connectcases.types.batch_get_case_rule_response.BatchGetCaseRuleResponse":
-        """<p>Gets a batch of case rules. In the Amazon Connect admin website, case rules are known as <i>case field conditions</i>. For more information about case field conditions, see <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html\">Add case field conditions to a case template</a>.</p>
+        r"""<p>Gets a batch of case rules. In the Amazon Connect admin website, case rules are known as <i>case field conditions</i>. For more information about case field conditions, see <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html\">Add case field conditions to a case template</a>.</p>
 
         Args:
             domain_id: <p>Unique identifier of a Cases domain.</p>

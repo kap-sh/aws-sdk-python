@@ -21,7 +21,7 @@ class FlowNodeInput(TypedDict):
     expression: (
         "aws_sdk_bedrock_agent.types.flow_node_input_expression.FlowNodeInputExpression"
     )
-    """<p>An expression that formats the input for the node. For an explanation of how to create expressions, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/flows-expressions.html\">Expressions in Prompt flows in Amazon Bedrock</a>.</p>"""
+    r"""<p>An expression that formats the input for the node. For an explanation of how to create expressions, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/flows-expressions.html\">Expressions in Prompt flows in Amazon Bedrock</a>.</p>"""
     category: NotRequired[
         "aws_sdk_bedrock_agent.types.flow_node_input_category.FlowNodeInputCategory"
     ]

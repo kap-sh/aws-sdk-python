@@ -17,7 +17,7 @@ class GetConsoleScreenshotRequest(TypedDict):
     instance_id: NotRequired["aws_sdk_ec2.types.instance_id.InstanceId"]
     """<p>The ID of the instance.</p>"""
     wake_up: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]
-    """<p>When set to <code>true</code>, acts as keystroke input and wakes up an instance that's in standby or \"sleep\" mode.</p>"""
+    r"""<p>When set to <code>true</code>, acts as keystroke input and wakes up an instance that's in standby or \"sleep\" mode.</p>"""
 
 
 # --- ec2Query ser/de ---

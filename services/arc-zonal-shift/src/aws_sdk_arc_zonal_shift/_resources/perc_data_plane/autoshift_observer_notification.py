@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_arc_zonal_shift._auth._signers
@@ -51,10 +53,10 @@ class AutoshiftObserverNotification:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_arc_zonal_shift.types.get_autoshift_observer_notification_status_request.GetAutoshiftObserverNotificationStatusRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_arc_zonal_shift.types.get_autoshift_observer_notification_status_request.GetAutoshiftObserverNotificationStatusRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -66,7 +68,7 @@ class AutoshiftObserverNotification:
         *,
         config_overrides: Optional[ARCZonalShiftClientConfig] = None,
     ) -> "aws_sdk_arc_zonal_shift.types.update_autoshift_observer_notification_status_response.UpdateAutoshiftObserverNotificationStatusResponse":
-        """<p>Update the status of autoshift observer notification. Autoshift observer notification enables you to be notified, through Amazon EventBridge, when there is an autoshift event for zonal autoshift.</p> <p>If the status is <code>ENABLED</code>, ARC includes all autoshift events when you use the EventBridge pattern <code>Autoshift In Progress</code>. When the status is <code>DISABLED</code>, ARC includes only autoshift events for autoshifts when one or more of your resources is included in the autoshift.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-autoshift.how-it-works.html#ZAShiftNotification\"> Notifications for practice runs and autoshifts</a> in the Amazon Application Recovery Controller Developer Guide.</p>
+        r"""<p>Update the status of autoshift observer notification. Autoshift observer notification enables you to be notified, through Amazon EventBridge, when there is an autoshift event for zonal autoshift.</p> <p>If the status is <code>ENABLED</code>, ARC includes all autoshift events when you use the EventBridge pattern <code>Autoshift In Progress</code>. When the status is <code>DISABLED</code>, ARC includes only autoshift events for autoshifts when one or more of your resources is included in the autoshift.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-autoshift.how-it-works.html#ZAShiftNotification\"> Notifications for practice runs and autoshifts</a> in the Amazon Application Recovery Controller Developer Guide.</p>
 
         Args:
             status: <p>The status to set for autoshift observer notification. If the status is <code>ENABLED</code>, ARC includes all autoshift events when you use the Amazon EventBridge pattern <code>Autoshift In Progress</code>. When the status is <code>DISABLED</code>, ARC includes only autoshift events for autoshifts when one or more of your resources is included in the autoshift. </p>
@@ -87,11 +89,11 @@ class AutoshiftObserverNotification:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_arc_zonal_shift.types.update_autoshift_observer_notification_status_request.UpdateAutoshiftObserverNotificationStatusRequest = {}  # type: ignore[typeddict-item]
-        input["status"] = status
+        input_: aws_sdk_arc_zonal_shift.types.update_autoshift_observer_notification_status_request.UpdateAutoshiftObserverNotificationStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["status"] = status
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -123,10 +125,10 @@ class AsyncAutoshiftObserverNotification:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_arc_zonal_shift.types.get_autoshift_observer_notification_status_request.GetAutoshiftObserverNotificationStatusRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_arc_zonal_shift.types.get_autoshift_observer_notification_status_request.GetAutoshiftObserverNotificationStatusRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -138,7 +140,7 @@ class AsyncAutoshiftObserverNotification:
         *,
         config_overrides: Optional[AsyncARCZonalShiftClientConfig] = None,
     ) -> "aws_sdk_arc_zonal_shift.types.update_autoshift_observer_notification_status_response.UpdateAutoshiftObserverNotificationStatusResponse":
-        """<p>Update the status of autoshift observer notification. Autoshift observer notification enables you to be notified, through Amazon EventBridge, when there is an autoshift event for zonal autoshift.</p> <p>If the status is <code>ENABLED</code>, ARC includes all autoshift events when you use the EventBridge pattern <code>Autoshift In Progress</code>. When the status is <code>DISABLED</code>, ARC includes only autoshift events for autoshifts when one or more of your resources is included in the autoshift.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-autoshift.how-it-works.html#ZAShiftNotification\"> Notifications for practice runs and autoshifts</a> in the Amazon Application Recovery Controller Developer Guide.</p>
+        r"""<p>Update the status of autoshift observer notification. Autoshift observer notification enables you to be notified, through Amazon EventBridge, when there is an autoshift event for zonal autoshift.</p> <p>If the status is <code>ENABLED</code>, ARC includes all autoshift events when you use the EventBridge pattern <code>Autoshift In Progress</code>. When the status is <code>DISABLED</code>, ARC includes only autoshift events for autoshifts when one or more of your resources is included in the autoshift.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-autoshift.how-it-works.html#ZAShiftNotification\"> Notifications for practice runs and autoshifts</a> in the Amazon Application Recovery Controller Developer Guide.</p>
 
         Args:
             status: <p>The status to set for autoshift observer notification. If the status is <code>ENABLED</code>, ARC includes all autoshift events when you use the Amazon EventBridge pattern <code>Autoshift In Progress</code>. When the status is <code>DISABLED</code>, ARC includes only autoshift events for autoshifts when one or more of your resources is included in the autoshift. </p>
@@ -160,11 +162,11 @@ class AsyncAutoshiftObserverNotification:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_arc_zonal_shift.types.update_autoshift_observer_notification_status_request.UpdateAutoshiftObserverNotificationStatusRequest = {}  # type: ignore[typeddict-item]
-        input["status"] = status
+        input_: aws_sdk_arc_zonal_shift.types.update_autoshift_observer_notification_status_request.UpdateAutoshiftObserverNotificationStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["status"] = status
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

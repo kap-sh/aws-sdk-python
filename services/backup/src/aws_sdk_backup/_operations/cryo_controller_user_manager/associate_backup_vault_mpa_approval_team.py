@@ -61,7 +61,7 @@ def get_signer(
     options: AsyncOperationOptions | OperationOptions,
     auth_schemes: list[dict[str, Any]] | None = None,
 ) -> aws_sdk_backup._auth._signers.Signer | None:
-    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}
+    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}  # noqa: F841
     if options.credentials_provider is not None:
         sigv4_config = (
             name_to_schema.get("sigv4")
@@ -80,7 +80,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_backup.types.associate_backup_vault_mpa_approval_team_input.AssociateBackupVaultMpaApprovalTeamInput,
+    input_: aws_sdk_backup.types.associate_backup_vault_mpa_approval_team_input.AssociateBackupVaultMpaApprovalTeamInput,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -92,7 +92,7 @@ def build_request(
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/backup-vaults/{BackupVaultName}/mpaApprovalTeam"
     url = url.replace(
-        "{BackupVaultName}", quote(str(input["backup_vault_name"]), safe="")
+        "{BackupVaultName}", quote(str(input_["backup_vault_name"]), safe="")
     )
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
@@ -100,7 +100,7 @@ def build_request(
 
     body: bytes | None = json.dumps(
         aws_sdk_backup.types.associate_backup_vault_mpa_approval_team_input.serialize_json(
-            input
+            input_
         )
     ).encode()
     headers["content-type"] = "application/json"
@@ -114,9 +114,9 @@ def build_request(
 
 def associate_backup_vault_mpa_approval_team(
     options: OperationOptions,
-    input: aws_sdk_backup.types.associate_backup_vault_mpa_approval_team_input.AssociateBackupVaultMpaApprovalTeamInput,
+    input_: aws_sdk_backup.types.associate_backup_vault_mpa_approval_team_input.AssociateBackupVaultMpaApprovalTeamInput,
 ) -> tuple[None, zapros.Response]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -130,9 +130,9 @@ def associate_backup_vault_mpa_approval_team(
 
 async def async_associate_backup_vault_mpa_approval_team(
     options: AsyncOperationOptions,
-    input: aws_sdk_backup.types.associate_backup_vault_mpa_approval_team_input.AssociateBackupVaultMpaApprovalTeamInput,
+    input_: aws_sdk_backup.types.associate_backup_vault_mpa_approval_team_input.AssociateBackupVaultMpaApprovalTeamInput,
 ) -> tuple[None, zapros.Response]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

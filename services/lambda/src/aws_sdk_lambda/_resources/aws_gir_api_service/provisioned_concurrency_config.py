@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_lambda._auth._signers
@@ -39,7 +41,7 @@ class ProvisionedConcurrencyConfig:
         *,
         config_overrides: Optional[LambdaClientConfig] = None,
     ) -> "aws_sdk_lambda.types.put_provisioned_concurrency_config_response.PutProvisionedConcurrencyConfigResponse":
-        """<p>Adds a provisioned concurrency configuration to a function's alias or version.</p>
+        r"""<p>Adds a provisioned concurrency configuration to a function's alias or version.</p>
 
         Args:
             function_name: <p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
@@ -87,7 +89,7 @@ class ProvisionedConcurrencyConfig:
         *,
         config_overrides: Optional[LambdaClientConfig] = None,
     ) -> "aws_sdk_lambda.types.get_provisioned_concurrency_config_response.GetProvisionedConcurrencyConfigResponse":
-        """<p>Retrieves the provisioned concurrency configuration for a function's alias or version.</p>
+        r"""<p>Retrieves the provisioned concurrency configuration for a function's alias or version.</p>
 
         Args:
             function_name: <p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
@@ -137,7 +139,7 @@ class ProvisionedConcurrencyConfig:
         *,
         config_overrides: Optional[LambdaClientConfig] = None,
     ) -> None:
-        """<p>Deletes the provisioned concurrency configuration for a function.</p>
+        r"""<p>Deletes the provisioned concurrency configuration for a function.</p>
 
         Args:
             function_name: <p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
@@ -187,7 +189,7 @@ class AsyncProvisionedConcurrencyConfig:
         *,
         config_overrides: Optional[AsyncLambdaClientConfig] = None,
     ) -> "aws_sdk_lambda.types.put_provisioned_concurrency_config_response.PutProvisionedConcurrencyConfigResponse":
-        """<p>Adds a provisioned concurrency configuration to a function's alias or version.</p>
+        r"""<p>Adds a provisioned concurrency configuration to a function's alias or version.</p>
 
         Args:
             function_name: <p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
@@ -236,7 +238,7 @@ class AsyncProvisionedConcurrencyConfig:
         *,
         config_overrides: Optional[AsyncLambdaClientConfig] = None,
     ) -> "aws_sdk_lambda.types.get_provisioned_concurrency_config_response.GetProvisionedConcurrencyConfigResponse":
-        """<p>Retrieves the provisioned concurrency configuration for a function's alias or version.</p>
+        r"""<p>Retrieves the provisioned concurrency configuration for a function's alias or version.</p>
 
         Args:
             function_name: <p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
@@ -287,7 +289,7 @@ class AsyncProvisionedConcurrencyConfig:
         *,
         config_overrides: Optional[AsyncLambdaClientConfig] = None,
     ) -> None:
-        """<p>Deletes the provisioned concurrency configuration for a function.</p>
+        r"""<p>Deletes the provisioned concurrency configuration for a function.</p>
 
         Args:
             function_name: <p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>

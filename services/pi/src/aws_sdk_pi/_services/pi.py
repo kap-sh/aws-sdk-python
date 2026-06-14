@@ -297,7 +297,7 @@ class PIClient:
         max_results: Optional["aws_sdk_pi.types.max_results.MaxResults"] = None,
         next_token: Optional["aws_sdk_pi.types.next_token.NextToken"] = None,
     ) -> "aws_sdk_pi.types.describe_dimension_keys_response.DescribeDimensionKeysResponse":
-        """<p>For a specific time period, retrieve the top <code>N</code> dimension keys for a metric. </p> <note> <p>Each response element returns a maximum of 500 bytes. For larger elements, such as SQL statements, only the first 500 bytes are returned.</p> </note>
+        r"""<p>For a specific time period, retrieve the top <code>N</code> dimension keys for a metric. </p> <note> <p>Each response element returns a maximum of 500 bytes. For larger elements, such as SQL statements, only the first 500 bytes are returned.</p> </note>
 
         Args:
             service_type: <p>The Amazon Web Services service for which Performance Insights will return metrics. Valid values are as follows:</p> <ul> <li> <p> <code>RDS</code> </p> </li> <li> <p> <code>DOCDB</code> </p> </li> </ul>
@@ -823,7 +823,7 @@ class PIClient:
         *,
         config_overrides: Optional[PIClientConfig] = None,
     ) -> "aws_sdk_pi.types.list_tags_for_resource_response.ListTagsForResourceResponse":
-        """<p>Retrieves all the metadata tags associated with Amazon RDS Performance Insights resource.</p>
+        r"""<p>Retrieves all the metadata tags associated with Amazon RDS Performance Insights resource.</p>
 
         Args:
             service_type: <p>List the tags for the Amazon Web Services service for which Performance Insights returns metrics. Valid value is <code>RDS</code>.</p>
@@ -864,7 +864,7 @@ class PIClient:
         *,
         config_overrides: Optional[PIClientConfig] = None,
     ) -> "aws_sdk_pi.types.tag_resource_response.TagResourceResponse":
-        """<p>Adds metadata tags to the Amazon RDS Performance Insights resource.</p>
+        r"""<p>Adds metadata tags to the Amazon RDS Performance Insights resource.</p>
 
         Args:
             service_type: <p>The Amazon Web Services service for which Performance Insights returns metrics. Valid value is <code>RDS</code>.</p>
@@ -907,7 +907,7 @@ class PIClient:
         *,
         config_overrides: Optional[PIClientConfig] = None,
     ) -> "aws_sdk_pi.types.untag_resource_response.UntagResourceResponse":
-        """<p>Deletes the metadata tags from the Amazon RDS Performance Insights resource.</p>
+        r"""<p>Deletes the metadata tags from the Amazon RDS Performance Insights resource.</p>
 
         Args:
             service_type: <p>List the tags for the Amazon Web Services service for which Performance Insights returns metrics. Valid value is <code>RDS</code>.</p>

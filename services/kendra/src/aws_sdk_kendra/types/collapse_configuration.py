@@ -18,7 +18,7 @@ class CollapseConfiguration(TypedDict):
     document_attribute_key: (
         "aws_sdk_kendra.types.document_attribute_key.DocumentAttributeKey"
     )
-    """<p>The document attribute used to group search results. You can use any attribute that has the <code>Sortable</code> flag set to true. You can also sort by any of the following built-in attributes:\"_category\",\"_created_at\", \"_last_updated_at\", \"_version\", \"_view_count\".</p>"""
+    r"""<p>The document attribute used to group search results. You can use any attribute that has the <code>Sortable</code> flag set to true. You can also sort by any of the following built-in attributes:\"_category\",\"_created_at\", \"_last_updated_at\", \"_version\", \"_view_count\".</p>"""
     sorting_configurations: NotRequired[
         "aws_sdk_kendra.types.sorting_configuration_list.SortingConfigurationList"
     ]

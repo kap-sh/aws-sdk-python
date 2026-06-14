@@ -1214,7 +1214,7 @@ class PinpointClient:
         config_overrides: Optional[PinpointClientConfig] = None,
         version: Optional["aws_sdk_pinpoint.types.__string.__string"] = None,
     ) -> "aws_sdk_pinpoint.types.delete_email_template_response.DeleteEmailTemplateResponse":
-        """<p>Deletes a message template for messages that were sent through the email channel.</p>
+        r"""<p>Deletes a message template for messages that were sent through the email channel.</p>
 
         Args:
             template_name: <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
@@ -1371,7 +1371,7 @@ class PinpointClient:
         config_overrides: Optional[PinpointClientConfig] = None,
         version: Optional["aws_sdk_pinpoint.types.__string.__string"] = None,
     ) -> "aws_sdk_pinpoint.types.delete_in_app_template_response.DeleteInAppTemplateResponse":
-        """<p>Deletes a message template for messages sent using the in-app message channel.</p>
+        r"""<p>Deletes a message template for messages sent using the in-app message channel.</p>
 
         Args:
             template_name: <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
@@ -1452,7 +1452,7 @@ class PinpointClient:
         config_overrides: Optional[PinpointClientConfig] = None,
         version: Optional["aws_sdk_pinpoint.types.__string.__string"] = None,
     ) -> "aws_sdk_pinpoint.types.delete_push_template_response.DeletePushTemplateResponse":
-        """<p>Deletes a message template for messages that were sent through a push notification channel.</p>
+        r"""<p>Deletes a message template for messages that were sent through a push notification channel.</p>
 
         Args:
             template_name: <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
@@ -1609,7 +1609,7 @@ class PinpointClient:
     ) -> (
         "aws_sdk_pinpoint.types.delete_sms_template_response.DeleteSmsTemplateResponse"
     ):
-        """<p>Deletes a message template for messages that were sent through the SMS channel.</p>
+        r"""<p>Deletes a message template for messages that were sent through the SMS channel.</p>
 
         Args:
             template_name: <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
@@ -1727,7 +1727,7 @@ class PinpointClient:
         config_overrides: Optional[PinpointClientConfig] = None,
         version: Optional["aws_sdk_pinpoint.types.__string.__string"] = None,
     ) -> "aws_sdk_pinpoint.types.delete_voice_template_response.DeleteVoiceTemplateResponse":
-        """<p>Deletes a message template for messages that were sent through the voice channel.</p>
+        r"""<p>Deletes a message template for messages that were sent through the voice channel.</p>
 
         Args:
             template_name: <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
@@ -1998,7 +1998,7 @@ class PinpointClient:
             "aws_sdk_pinpoint.types.__timestamp_iso8601.__timestampIso8601"
         ] = None,
     ) -> "aws_sdk_pinpoint.types.get_application_date_range_kpi_response.GetApplicationDateRangeKpiResponse":
-        """<p>Retrieves (queries) pre-aggregated data for a standard metric that applies to an application.</p>
+        r"""<p>Retrieves (queries) pre-aggregated data for a standard metric that applies to an application.</p>
 
         Args:
             application_id: <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -2263,7 +2263,7 @@ class PinpointClient:
             "aws_sdk_pinpoint.types.__timestamp_iso8601.__timestampIso8601"
         ] = None,
     ) -> "aws_sdk_pinpoint.types.get_campaign_date_range_kpi_response.GetCampaignDateRangeKpiResponse":
-        """<p>Retrieves (queries) pre-aggregated data for a standard metric that applies to a campaign.</p>
+        r"""<p>Retrieves (queries) pre-aggregated data for a standard metric that applies to a campaign.</p>
 
         Args:
             application_id: <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -2527,7 +2527,7 @@ class PinpointClient:
         config_overrides: Optional[PinpointClientConfig] = None,
         version: Optional["aws_sdk_pinpoint.types.__string.__string"] = None,
     ) -> "aws_sdk_pinpoint.types.get_email_template_response.GetEmailTemplateResponse":
-        """<p>Retrieves the content and settings of a message template for messages that are sent through the email channel.</p>
+        r"""<p>Retrieves the content and settings of a message template for messages that are sent through the email channel.</p>
 
         Args:
             template_name: <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
@@ -2892,7 +2892,7 @@ class PinpointClient:
         config_overrides: Optional[PinpointClientConfig] = None,
         version: Optional["aws_sdk_pinpoint.types.__string.__string"] = None,
     ) -> "aws_sdk_pinpoint.types.get_in_app_template_response.GetInAppTemplateResponse":
-        """<p>Retrieves the content and settings of a message template for messages sent through the in-app channel.</p>
+        r"""<p>Retrieves the content and settings of a message template for messages sent through the in-app channel.</p>
 
         Args:
             template_name: <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
@@ -2982,7 +2982,7 @@ class PinpointClient:
             "aws_sdk_pinpoint.types.__timestamp_iso8601.__timestampIso8601"
         ] = None,
     ) -> "aws_sdk_pinpoint.types.get_journey_date_range_kpi_response.GetJourneyDateRangeKpiResponse":
-        """<p>Retrieves (queries) pre-aggregated data for a standard engagement metric that applies to a journey.</p>
+        r"""<p>Retrieves (queries) pre-aggregated data for a standard engagement metric that applies to a journey.</p>
 
         Args:
             application_id: <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -3306,7 +3306,7 @@ class PinpointClient:
         config_overrides: Optional[PinpointClientConfig] = None,
         version: Optional["aws_sdk_pinpoint.types.__string.__string"] = None,
     ) -> "aws_sdk_pinpoint.types.get_push_template_response.GetPushTemplateResponse":
-        """<p>Retrieves the content and settings of a message template for messages that are sent through a push notification channel.</p>
+        r"""<p>Retrieves the content and settings of a message template for messages that are sent through a push notification channel.</p>
 
         Args:
             template_name: <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
@@ -3737,7 +3737,7 @@ class PinpointClient:
         config_overrides: Optional[PinpointClientConfig] = None,
         version: Optional["aws_sdk_pinpoint.types.__string.__string"] = None,
     ) -> "aws_sdk_pinpoint.types.get_sms_template_response.GetSmsTemplateResponse":
-        """<p>Retrieves the content and settings of a message template for messages that are sent through the SMS channel.</p>
+        r"""<p>Retrieves the content and settings of a message template for messages that are sent through the SMS channel.</p>
 
         Args:
             template_name: <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
@@ -3855,7 +3855,7 @@ class PinpointClient:
         config_overrides: Optional[PinpointClientConfig] = None,
         version: Optional["aws_sdk_pinpoint.types.__string.__string"] = None,
     ) -> "aws_sdk_pinpoint.types.get_voice_template_response.GetVoiceTemplateResponse":
-        """<p>Retrieves the content and settings of a message template for messages that are sent through the voice channel.</p>
+        r"""<p>Retrieves the content and settings of a message template for messages that are sent through the voice channel.</p>
 
         Args:
             template_name: <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
@@ -4787,7 +4787,7 @@ class PinpointClient:
         ] = None,
         version: Optional["aws_sdk_pinpoint.types.__string.__string"] = None,
     ) -> "aws_sdk_pinpoint.types.update_email_template_response.UpdateEmailTemplateResponse":
-        """<p>Updates an existing message template for messages that are sent through the email channel.</p>
+        r"""<p>Updates an existing message template for messages that are sent through the email channel.</p>
 
         Args:
             create_new_version: <p>Specifies whether to save the updates as a new version of the message template. Valid values are: true, save the updates as a new version; and, false, save the updates to (overwrite) the latest existing version of the template.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint saves the updates to (overwrites) the latest existing version of the template. If you specify a value of true for this parameter, don't specify a value for the version parameter. Otherwise, an error will occur.</p>
@@ -4956,7 +4956,7 @@ class PinpointClient:
         ] = None,
         version: Optional["aws_sdk_pinpoint.types.__string.__string"] = None,
     ) -> "aws_sdk_pinpoint.types.update_in_app_template_response.UpdateInAppTemplateResponse":
-        """<p>Updates an existing message template for messages sent through the in-app message channel.</p>
+        r"""<p>Updates an existing message template for messages sent through the in-app message channel.</p>
 
         Args:
             create_new_version: <p>Specifies whether to save the updates as a new version of the message template. Valid values are: true, save the updates as a new version; and, false, save the updates to (overwrite) the latest existing version of the template.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint saves the updates to (overwrites) the latest existing version of the template. If you specify a value of true for this parameter, don't specify a value for the version parameter. Otherwise, an error will occur.</p>
@@ -5089,7 +5089,7 @@ class PinpointClient:
         ] = None,
         version: Optional["aws_sdk_pinpoint.types.__string.__string"] = None,
     ) -> "aws_sdk_pinpoint.types.update_push_template_response.UpdatePushTemplateResponse":
-        """<p>Updates an existing message template for messages that are sent through a push notification channel.</p>
+        r"""<p>Updates an existing message template for messages that are sent through a push notification channel.</p>
 
         Args:
             create_new_version: <p>Specifies whether to save the updates as a new version of the message template. Valid values are: true, save the updates as a new version; and, false, save the updates to (overwrite) the latest existing version of the template.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint saves the updates to (overwrites) the latest existing version of the template. If you specify a value of true for this parameter, don't specify a value for the version parameter. Otherwise, an error will occur.</p>
@@ -5262,7 +5262,7 @@ class PinpointClient:
     ) -> (
         "aws_sdk_pinpoint.types.update_sms_template_response.UpdateSmsTemplateResponse"
     ):
-        """<p>Updates an existing message template for messages that are sent through the SMS channel.</p>
+        r"""<p>Updates an existing message template for messages that are sent through the SMS channel.</p>
 
         Args:
             create_new_version: <p>Specifies whether to save the updates as a new version of the message template. Valid values are: true, save the updates as a new version; and, false, save the updates to (overwrite) the latest existing version of the template.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint saves the updates to (overwrites) the latest existing version of the template. If you specify a value of true for this parameter, don't specify a value for the version parameter. Otherwise, an error will occur.</p>
@@ -5392,7 +5392,7 @@ class PinpointClient:
         ] = None,
         version: Optional["aws_sdk_pinpoint.types.__string.__string"] = None,
     ) -> "aws_sdk_pinpoint.types.update_voice_template_response.UpdateVoiceTemplateResponse":
-        """<p>Updates an existing message template for messages that are sent through the voice channel.</p>
+        r"""<p>Updates an existing message template for messages that are sent through the voice channel.</p>
 
         Args:
             create_new_version: <p>Specifies whether to save the updates as a new version of the message template. Valid values are: true, save the updates as a new version; and, false, save the updates to (overwrite) the latest existing version of the template.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint saves the updates to (overwrites) the latest existing version of the template. If you specify a value of true for this parameter, don't specify a value for the version parameter. Otherwise, an error will occur.</p>

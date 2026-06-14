@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 from aws_sdk_arc_region_switch._services._pipeline import (
@@ -111,29 +113,29 @@ class RegionSwitchPlan:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_arc_region_switch.types.create_plan_request.CreatePlanRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_arc_region_switch.types.create_plan_request.CreatePlanRequest = {}  # type: ignore[typeddict-item]
         if description is not None:
-            input["description"] = description
-        input["workflows"] = workflows
-        input["execution_role"] = execution_role
+            input_["description"] = description
+        input_["workflows"] = workflows
+        input_["execution_role"] = execution_role
         if recovery_time_objective_minutes is not None:
-            input["recovery_time_objective_minutes"] = recovery_time_objective_minutes
+            input_["recovery_time_objective_minutes"] = recovery_time_objective_minutes
         if associated_alarms is not None:
-            input["associated_alarms"] = associated_alarms
+            input_["associated_alarms"] = associated_alarms
         if triggers is not None:
-            input["triggers"] = triggers
+            input_["triggers"] = triggers
         if report_configuration is not None:
-            input["report_configuration"] = report_configuration
-        input["name"] = name
-        input["regions"] = regions
-        input["recovery_approach"] = recovery_approach
+            input_["report_configuration"] = report_configuration
+        input_["name"] = name
+        input_["regions"] = regions
+        input_["recovery_approach"] = recovery_approach
         if primary_region is not None:
-            input["primary_region"] = primary_region
+            input_["primary_region"] = primary_region
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -166,11 +168,11 @@ class RegionSwitchPlan:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_arc_region_switch.types.get_plan_request.GetPlanRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_arc_region_switch.types.get_plan_request.GetPlanRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -223,23 +225,23 @@ class RegionSwitchPlan:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_arc_region_switch.types.update_plan_request.UpdatePlanRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_arc_region_switch.types.update_plan_request.UpdatePlanRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
         if description is not None:
-            input["description"] = description
-        input["workflows"] = workflows
-        input["execution_role"] = execution_role
+            input_["description"] = description
+        input_["workflows"] = workflows
+        input_["execution_role"] = execution_role
         if recovery_time_objective_minutes is not None:
-            input["recovery_time_objective_minutes"] = recovery_time_objective_minutes
+            input_["recovery_time_objective_minutes"] = recovery_time_objective_minutes
         if associated_alarms is not None:
-            input["associated_alarms"] = associated_alarms
+            input_["associated_alarms"] = associated_alarms
         if triggers is not None:
-            input["triggers"] = triggers
+            input_["triggers"] = triggers
         if report_configuration is not None:
-            input["report_configuration"] = report_configuration
+            input_["report_configuration"] = report_configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -272,11 +274,11 @@ class RegionSwitchPlan:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_arc_region_switch.types.delete_plan_request.DeletePlanRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_arc_region_switch.types.delete_plan_request.DeletePlanRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -315,14 +317,14 @@ class RegionSwitchPlan:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_arc_region_switch.types.list_plans_request.ListPlansRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_arc_region_switch.types.list_plans_request.ListPlansRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -355,11 +357,11 @@ class RegionSwitchPlan:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_arc_region_switch.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_arc_region_switch.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -394,12 +396,12 @@ class RegionSwitchPlan:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_arc_region_switch.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
-        input["tags"] = tags
+        input_: aws_sdk_arc_region_switch.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -436,12 +438,12 @@ class RegionSwitchPlan:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_arc_region_switch.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
-        input["resource_tag_keys"] = resource_tag_keys
+        input_: aws_sdk_arc_region_switch.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
+        input_["resource_tag_keys"] = resource_tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -509,29 +511,29 @@ class AsyncRegionSwitchPlan:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_arc_region_switch.types.create_plan_request.CreatePlanRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_arc_region_switch.types.create_plan_request.CreatePlanRequest = {}  # type: ignore[typeddict-item]
         if description is not None:
-            input["description"] = description
-        input["workflows"] = workflows
-        input["execution_role"] = execution_role
+            input_["description"] = description
+        input_["workflows"] = workflows
+        input_["execution_role"] = execution_role
         if recovery_time_objective_minutes is not None:
-            input["recovery_time_objective_minutes"] = recovery_time_objective_minutes
+            input_["recovery_time_objective_minutes"] = recovery_time_objective_minutes
         if associated_alarms is not None:
-            input["associated_alarms"] = associated_alarms
+            input_["associated_alarms"] = associated_alarms
         if triggers is not None:
-            input["triggers"] = triggers
+            input_["triggers"] = triggers
         if report_configuration is not None:
-            input["report_configuration"] = report_configuration
-        input["name"] = name
-        input["regions"] = regions
-        input["recovery_approach"] = recovery_approach
+            input_["report_configuration"] = report_configuration
+        input_["name"] = name
+        input_["regions"] = regions
+        input_["recovery_approach"] = recovery_approach
         if primary_region is not None:
-            input["primary_region"] = primary_region
+            input_["primary_region"] = primary_region
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -565,11 +567,11 @@ class AsyncRegionSwitchPlan:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_arc_region_switch.types.get_plan_request.GetPlanRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_arc_region_switch.types.get_plan_request.GetPlanRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -623,23 +625,23 @@ class AsyncRegionSwitchPlan:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_arc_region_switch.types.update_plan_request.UpdatePlanRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_arc_region_switch.types.update_plan_request.UpdatePlanRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
         if description is not None:
-            input["description"] = description
-        input["workflows"] = workflows
-        input["execution_role"] = execution_role
+            input_["description"] = description
+        input_["workflows"] = workflows
+        input_["execution_role"] = execution_role
         if recovery_time_objective_minutes is not None:
-            input["recovery_time_objective_minutes"] = recovery_time_objective_minutes
+            input_["recovery_time_objective_minutes"] = recovery_time_objective_minutes
         if associated_alarms is not None:
-            input["associated_alarms"] = associated_alarms
+            input_["associated_alarms"] = associated_alarms
         if triggers is not None:
-            input["triggers"] = triggers
+            input_["triggers"] = triggers
         if report_configuration is not None:
-            input["report_configuration"] = report_configuration
+            input_["report_configuration"] = report_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -673,11 +675,11 @@ class AsyncRegionSwitchPlan:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_arc_region_switch.types.delete_plan_request.DeletePlanRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_arc_region_switch.types.delete_plan_request.DeletePlanRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -717,14 +719,14 @@ class AsyncRegionSwitchPlan:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_arc_region_switch.types.list_plans_request.ListPlansRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_arc_region_switch.types.list_plans_request.ListPlansRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -758,11 +760,11 @@ class AsyncRegionSwitchPlan:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_arc_region_switch.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_arc_region_switch.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -798,12 +800,12 @@ class AsyncRegionSwitchPlan:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_arc_region_switch.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
-        input["tags"] = tags
+        input_: aws_sdk_arc_region_switch.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -841,12 +843,12 @@ class AsyncRegionSwitchPlan:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_arc_region_switch.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
-        input["resource_tag_keys"] = resource_tag_keys
+        input_: aws_sdk_arc_region_switch.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
+        input_["resource_tag_keys"] = resource_tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

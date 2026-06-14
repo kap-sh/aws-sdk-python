@@ -27,7 +27,7 @@ class ForecastedEvent(TypedDict):
     event_type: "aws_sdk_location.types.forecasted_geofence_event_type.ForecastedGeofenceEventType"
     """<p>The event type, forecasting three states for which a device can be in relative to a geofence:</p> <p> <code>ENTER</code>: If a device is outside of a geofence, but would breach the fence if the device is moving at its current speed within time horizon window.</p> <p> <code>EXIT</code>: If a device is inside of a geofence, but would breach the fence if the device is moving at its current speed within time horizon window.</p> <p> <code>IDLE</code>: If a device is inside of a geofence, and the device is not moving.</p>"""
     forecasted_breach_time: NotRequired["aws_sdk_location.types.timestamp.Timestamp"]
-    """<p>The forecasted time the device will breach the geofence in <a href=\"https://www.iso.org/iso-8601-date-and-time-format.html\">ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code> </p>"""
+    r"""<p>The forecasted time the device will breach the geofence in <a href=\"https://www.iso.org/iso-8601-date-and-time-format.html\">ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code> </p>"""
     geofence_properties: NotRequired["aws_sdk_location.types.property_map.PropertyMap"]
     """<p>The geofence properties.</p>"""
 

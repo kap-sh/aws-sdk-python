@@ -41,7 +41,7 @@ class UpdateSlotRequest(TypedDict):
     bot_version: "aws_sdk_lex_models_v2.types.draft_bot_version.DraftBotVersion"
     """<p>The version of the bot that contains the slot. Must always be <code>DRAFT</code>.</p>"""
     locale_id: "aws_sdk_lex_models_v2.types.locale_id.LocaleId"
-    """<p>The identifier of the language and locale that contains the slot. The string must match one of the supported locales. For more information, see <a href=\"https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html\">Supported languages</a>.</p>"""
+    r"""<p>The identifier of the language and locale that contains the slot. The string must match one of the supported locales. For more information, see <a href=\"https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html\">Supported languages</a>.</p>"""
     intent_id: "aws_sdk_lex_models_v2.types.id.Id"
     """<p>The identifier of the intent that contains the slot.</p>"""
     multiple_values_setting: NotRequired[

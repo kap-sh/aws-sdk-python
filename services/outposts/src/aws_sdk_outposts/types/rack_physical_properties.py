@@ -38,7 +38,7 @@ class RackPhysicalProperties(TypedDict):
     optical_standard: NotRequired[
         "aws_sdk_outposts.types.optical_standard.OpticalStandard"
     ]
-    """<p>The type of optical standard used to attach the Outpost to the network. This field is dependent on uplink speed, fiber type, and distance to the upstream device. For more information about networking requirements for racks, see <a href=\"https://docs.aws.amazon.com/outposts/latest/userguide/outposts-requirements.html#facility-networking\">Network</a> in the Amazon Web Services Outposts User Guide. </p>"""
+    r"""<p>The type of optical standard used to attach the Outpost to the network. This field is dependent on uplink speed, fiber type, and distance to the upstream device. For more information about networking requirements for racks, see <a href=\"https://docs.aws.amazon.com/outposts/latest/userguide/outposts-requirements.html#facility-networking\">Network</a> in the Amazon Web Services Outposts User Guide. </p>"""
     maximum_supported_weight_lbs: NotRequired[
         "aws_sdk_outposts.types.maximum_supported_weight_lbs.MaximumSupportedWeightLbs"
     ]

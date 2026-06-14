@@ -30,7 +30,7 @@ class UpdateChannelRequest(TypedDict):
     ]
     """<p>Channel latency mode. Use <code>NORMAL</code> to broadcast and deliver live video up to Full HD. Use <code>LOW</code> for near-real-time interaction with viewers.</p>"""
     type: NotRequired["aws_sdk_ivs.types.channel_type.ChannelType"]
-    """<p>Channel type, which determines the allowable resolution and bitrate. <i>If you exceed the allowable input resolution or bitrate, the stream probably will disconnect immediately.</i> Default: <code>STANDARD</code>. For details, see <a href=\"https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/channel-types.html\">Channel Types</a>.</p>"""
+    r"""<p>Channel type, which determines the allowable resolution and bitrate. <i>If you exceed the allowable input resolution or bitrate, the stream probably will disconnect immediately.</i> Default: <code>STANDARD</code>. For details, see <a href=\"https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/channel-types.html\">Channel Types</a>.</p>"""
     authorized: "aws_sdk_ivs.types.boolean.Boolean"
     """<p>Whether the channel is private (enabled for playback authorization).</p>"""
     recording_configuration_arn: NotRequired[
@@ -40,7 +40,7 @@ class UpdateChannelRequest(TypedDict):
     insecure_ingest: "aws_sdk_ivs.types.boolean.Boolean"
     """<p>Whether the channel allows insecure RTMP and SRT ingest. Default: <code>false</code>.</p>"""
     preset: NotRequired["aws_sdk_ivs.types.transcode_preset.TranscodePreset"]
-    """<p>Optional transcode preset for the channel. This is selectable only for <code>ADVANCED_HD</code> and <code>ADVANCED_SD</code> channel types. For those channel types, the default <code>preset</code> is <code>HIGHER_BANDWIDTH_DELIVERY</code>. For other channel types (<code>BASIC</code> and <code>STANDARD</code>), <code>preset</code> is the empty string (<code>\"\"</code>).</p>"""
+    r"""<p>Optional transcode preset for the channel. This is selectable only for <code>ADVANCED_HD</code> and <code>ADVANCED_SD</code> channel types. For those channel types, the default <code>preset</code> is <code>HIGHER_BANDWIDTH_DELIVERY</code>. For other channel types (<code>BASIC</code> and <code>STANDARD</code>), <code>preset</code> is the empty string (<code>\"\"</code>).</p>"""
     playback_restriction_policy_arn: NotRequired[
         "aws_sdk_ivs.types.channel_playback_restriction_policy_arn.ChannelPlaybackRestrictionPolicyArn"
     ]

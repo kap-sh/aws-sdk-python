@@ -20,7 +20,7 @@ class LocationState(TypedDict):
     location_name: NotRequired[
         "aws_sdk_gameliftstreams.types.location_name.LocationName"
     ]
-    """<p> A location's name. For example, <code>us-east-1</code>. For a complete list of locations that Amazon GameLift Streams supports, refer to <a href=\"https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/regions-quotas.html\">Regions, quotas, and limitations</a> in the <i>Amazon GameLift Streams Developer Guide</i>. </p>"""
+    r"""<p> A location's name. For example, <code>us-east-1</code>. For a complete list of locations that Amazon GameLift Streams supports, refer to <a href=\"https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/regions-quotas.html\">Regions, quotas, and limitations</a> in the <i>Amazon GameLift Streams Developer Guide</i>. </p>"""
     status: NotRequired[
         "aws_sdk_gameliftstreams.types.stream_group_location_status.StreamGroupLocationStatus"
     ]

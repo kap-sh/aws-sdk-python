@@ -15,7 +15,7 @@ class CodeReviewType(TypedDict):
     repository_analysis: (
         "aws_sdk_codeguru_reviewer.types.repository_analysis.RepositoryAnalysis"
     )
-    """<p>A code review that analyzes all code under a specified branch in an associated repository. The associated repository is specified using its ARN in <a href=\"https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CreateCodeReview\">CreateCodeReview</a>.</p>"""
+    r"""<p>A code review that analyzes all code under a specified branch in an associated repository. The associated repository is specified using its ARN in <a href=\"https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CreateCodeReview\">CreateCodeReview</a>.</p>"""
     analysis_types: NotRequired[
         "aws_sdk_codeguru_reviewer.types.analysis_types.AnalysisTypes"
     ]

@@ -347,7 +347,7 @@ class kendraClient:
         *,
         config_overrides: Optional[kendraClientConfig] = None,
     ) -> "aws_sdk_kendra.types.associate_entities_to_experience_response.AssociateEntitiesToExperienceResponse":
-        """<p>Grants users or groups in your IAM Identity Center identity source access to your Amazon Kendra experience. You can create an Amazon Kendra experience such as a search application. For more information on creating a search application experience, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html\">Building a search experience with no code</a>.</p>
+        r"""<p>Grants users or groups in your IAM Identity Center identity source access to your Amazon Kendra experience. You can create an Amazon Kendra experience such as a search application. For more information on creating a search application experience, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html\">Building a search experience with no code</a>.</p>
 
         Args:
             id: <p>The identifier of your Amazon Kendra experience.</p>
@@ -390,7 +390,7 @@ class kendraClient:
         *,
         config_overrides: Optional[kendraClientConfig] = None,
     ) -> "aws_sdk_kendra.types.associate_personas_to_entities_response.AssociatePersonasToEntitiesResponse":
-        """<p>Defines the specific permissions of users or groups in your IAM Identity Center identity source with access to your Amazon Kendra experience. You can create an Amazon Kendra experience such as a search application. For more information on creating a search application experience, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html\">Building a search experience with no code</a>.</p>
+        r"""<p>Defines the specific permissions of users or groups in your IAM Identity Center identity source with access to your Amazon Kendra experience. You can create an Amazon Kendra experience such as a search application. For more information on creating a search application experience, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html\">Building a search experience with no code</a>.</p>
 
         Args:
             id: <p>The identifier of your Amazon Kendra experience.</p>
@@ -519,7 +519,7 @@ class kendraClient:
         *,
         config_overrides: Optional[kendraClientConfig] = None,
     ) -> "aws_sdk_kendra.types.batch_get_document_status_response.BatchGetDocumentStatusResponse":
-        """<p>Returns the indexing status for one or more documents submitted with the <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/API_BatchPutDocument.html\"> BatchPutDocument</a> API.</p> <p>When you use the <code>BatchPutDocument</code> API, documents are indexed asynchronously. You can use the <code>BatchGetDocumentStatus</code> API to get the current status of a list of documents so that you can determine if they have been successfully indexed.</p> <p>You can also use the <code>BatchGetDocumentStatus</code> API to check the status of the <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/API_BatchDeleteDocument.html\"> BatchDeleteDocument</a> API. When a document is deleted from the index, Amazon Kendra returns <code>NOT_FOUND</code> as the status.</p>
+        r"""<p>Returns the indexing status for one or more documents submitted with the <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/API_BatchPutDocument.html\"> BatchPutDocument</a> API.</p> <p>When you use the <code>BatchPutDocument</code> API, documents are indexed asynchronously. You can use the <code>BatchGetDocumentStatus</code> API to get the current status of a list of documents so that you can determine if they have been successfully indexed.</p> <p>You can also use the <code>BatchGetDocumentStatus</code> API to check the status of the <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/API_BatchDeleteDocument.html\"> BatchDeleteDocument</a> API. When a document is deleted from the index, Amazon Kendra returns <code>NOT_FOUND</code> as the status.</p>
 
         Args:
             index_id: <p>The identifier of the index to add documents to. The index ID is returned by the <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/API_CreateIndex.html\">CreateIndex </a> API.</p>
@@ -563,7 +563,7 @@ class kendraClient:
             "aws_sdk_kendra.types.custom_document_enrichment_configuration.CustomDocumentEnrichmentConfiguration"
         ] = None,
     ) -> "aws_sdk_kendra.types.batch_put_document_response.BatchPutDocumentResponse":
-        """<p>Adds one or more documents to an index.</p> <p>The <code>BatchPutDocument</code> API enables you to ingest inline documents or a set of documents stored in an Amazon S3 bucket. Use this API to ingest your text and unstructured text into an index, add custom attributes to the documents, and to attach an access control list to the documents added to the index.</p> <p>The documents are indexed asynchronously. You can see the progress of the batch using Amazon Web Services CloudWatch. Any error messages related to processing the batch are sent to your Amazon Web Services CloudWatch log. You can also use the <code>BatchGetDocumentStatus</code> API to monitor the progress of indexing your documents.</p> <p>For an example of ingesting inline documents using Python and Java SDKs, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/in-adding-binary-doc.html\">Adding files directly to an index</a>.</p>
+        r"""<p>Adds one or more documents to an index.</p> <p>The <code>BatchPutDocument</code> API enables you to ingest inline documents or a set of documents stored in an Amazon S3 bucket. Use this API to ingest your text and unstructured text into an index, add custom attributes to the documents, and to attach an access control list to the documents added to the index.</p> <p>The documents are indexed asynchronously. You can see the progress of the batch using Amazon Web Services CloudWatch. Any error messages related to processing the batch are sent to your Amazon Web Services CloudWatch log. You can also use the <code>BatchGetDocumentStatus</code> API to monitor the progress of indexing your documents.</p> <p>For an example of ingesting inline documents using Python and Java SDKs, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/in-adding-binary-doc.html\">Adding files directly to an index</a>.</p>
 
         Args:
             index_id: <p>The identifier of the index to add the documents to. You need to create the index first using the <code>CreateIndex</code> API.</p>
@@ -656,7 +656,7 @@ class kendraClient:
             "aws_sdk_kendra.types.client_token_name.ClientTokenName"
         ] = None,
     ) -> "aws_sdk_kendra.types.create_access_control_configuration_response.CreateAccessControlConfigurationResponse":
-        """<p>Creates an access configuration for your documents. This includes user and group access information for your documents. This is useful for user context filtering, where search results are filtered based on the user or their group access to documents.</p> <p>You can use this to re-configure your existing document level access control without indexing all of your documents again. For example, your index contains top-secret company documents that only certain employees or users should access. One of these users leaves the company or switches to a team that should be blocked from accessing top-secret documents. The user still has access to top-secret documents because the user had access when your documents were previously indexed. You can create a specific access control configuration for the user with deny access. You can later update the access control configuration to allow access if the user returns to the company and re-joins the 'top-secret' team. You can re-configure access control for your documents as circumstances change.</p> <p>To apply your access control configuration to certain documents, you call the <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/API_BatchPutDocument.html\">BatchPutDocument</a> API with the <code>AccessControlConfigurationId</code> included in the <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/API_Document.html\">Document</a> object. If you use an S3 bucket as a data source, you update the <code>.metadata.json</code> with the <code>AccessControlConfigurationId</code> and synchronize your data source. Amazon Kendra currently only supports access control configuration for S3 data sources and documents indexed using the <code>BatchPutDocument</code> API.</p> <important> <p>You can't configure access control using <code>CreateAccessControlConfiguration</code> for an Amazon Kendra Gen AI Enterprise Edition index. Amazon Kendra will return a <code>ValidationException</code> error for a <code>Gen_AI_ENTERPRISE_EDITION</code> index.</p> </important>
+        r"""<p>Creates an access configuration for your documents. This includes user and group access information for your documents. This is useful for user context filtering, where search results are filtered based on the user or their group access to documents.</p> <p>You can use this to re-configure your existing document level access control without indexing all of your documents again. For example, your index contains top-secret company documents that only certain employees or users should access. One of these users leaves the company or switches to a team that should be blocked from accessing top-secret documents. The user still has access to top-secret documents because the user had access when your documents were previously indexed. You can create a specific access control configuration for the user with deny access. You can later update the access control configuration to allow access if the user returns to the company and re-joins the 'top-secret' team. You can re-configure access control for your documents as circumstances change.</p> <p>To apply your access control configuration to certain documents, you call the <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/API_BatchPutDocument.html\">BatchPutDocument</a> API with the <code>AccessControlConfigurationId</code> included in the <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/API_Document.html\">Document</a> object. If you use an S3 bucket as a data source, you update the <code>.metadata.json</code> with the <code>AccessControlConfigurationId</code> and synchronize your data source. Amazon Kendra currently only supports access control configuration for S3 data sources and documents indexed using the <code>BatchPutDocument</code> API.</p> <important> <p>You can't configure access control using <code>CreateAccessControlConfiguration</code> for an Amazon Kendra Gen AI Enterprise Edition index. Amazon Kendra will return a <code>ValidationException</code> error for a <code>Gen_AI_ENTERPRISE_EDITION</code> index.</p> </important>
 
         Args:
             index_id: <p>The identifier of the index to create an access control configuration for your documents.</p>
@@ -730,7 +730,7 @@ class kendraClient:
             "aws_sdk_kendra.types.custom_document_enrichment_configuration.CustomDocumentEnrichmentConfiguration"
         ] = None,
     ) -> "aws_sdk_kendra.types.create_data_source_response.CreateDataSourceResponse":
-        """<p>Creates a data source connector that you want to use with an Amazon Kendra index.</p> <p>You specify a name, data source connector type and description for your data source. You also specify configuration information for the data source connector.</p> <p> <code>CreateDataSource</code> is a synchronous operation. The operation returns 200 if the data source was successfully created. Otherwise, an exception is raised.</p> <p>For an example of creating an index and data source using the Python SDK, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/gs-python.html\">Getting started with Python SDK</a>. For an example of creating an index and data source using the Java SDK, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/gs-java.html\">Getting started with Java SDK</a>.</p>
+        r"""<p>Creates a data source connector that you want to use with an Amazon Kendra index.</p> <p>You specify a name, data source connector type and description for your data source. You also specify configuration information for the data source connector.</p> <p> <code>CreateDataSource</code> is a synchronous operation. The operation returns 200 if the data source was successfully created. Otherwise, an exception is raised.</p> <p>For an example of creating an index and data source using the Python SDK, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/gs-python.html\">Getting started with Python SDK</a>. For an example of creating an index and data source using the Java SDK, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/gs-java.html\">Getting started with Java SDK</a>.</p>
 
         Args:
             name: <p>A name for the data source connector.</p>
@@ -809,7 +809,7 @@ class kendraClient:
             "aws_sdk_kendra.types.client_token_name.ClientTokenName"
         ] = None,
     ) -> "aws_sdk_kendra.types.create_experience_response.CreateExperienceResponse":
-        """<p>Creates an Amazon Kendra experience such as a search application. For more information on creating a search application experience, including using the Python and Java SDKs, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html\">Building a search experience with no code</a>.</p>
+        r"""<p>Creates an Amazon Kendra experience such as a search application. For more information on creating a search application experience, including using the Python and Java SDKs, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html\">Building a search experience with no code</a>.</p>
 
         Args:
             name: <p>A name for your Amazon Kendra experience.</p>
@@ -874,7 +874,7 @@ class kendraClient:
             "aws_sdk_kendra.types.language_code.LanguageCode"
         ] = None,
     ) -> "aws_sdk_kendra.types.create_faq_response.CreateFaqResponse":
-        """<p>Creates a set of frequently ask questions (FAQs) using a specified FAQ file stored in an Amazon S3 bucket.</p> <p>Adding FAQs to an index is an asynchronous operation.</p> <p>For an example of adding an FAQ to an index using Python and Java SDKs, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/in-creating-faq.html#using-faq-file\">Using your FAQ file</a>.</p>
+        r"""<p>Creates a set of frequently ask questions (FAQs) using a specified FAQ file stored in an Amazon S3 bucket.</p> <p>Adding FAQs to an index is an asynchronous operation.</p> <p>For an example of adding an FAQ to an index using Python and Java SDKs, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/in-creating-faq.html#using-faq-file\">Using your FAQ file</a>.</p>
 
         Args:
             index_id: <p>The identifier of the index for the FAQ.</p>
@@ -949,7 +949,7 @@ class kendraClient:
         ] = None,
         tags: Optional["aws_sdk_kendra.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_kendra.types.create_featured_results_set_response.CreateFeaturedResultsSetResponse":
-        """<p>Creates a set of featured results to display at the top of the search results page. Featured results are placed above all other results for certain queries. You map specific queries to specific documents for featuring in the results. If a query contains an exact match, then one or more specific documents are featured in the search results.</p> <p>You can create up to 50 sets of featured results per index. You can request to increase this limit by contacting <a href=\"http://aws.amazon.com/contact-us/\">Support</a>.</p>
+        r"""<p>Creates a set of featured results to display at the top of the search results page. Featured results are placed above all other results for certain queries. You map specific queries to specific documents for featuring in the results. If a query contains an exact match, then one or more specific documents are featured in the search results.</p> <p>You can create up to 50 sets of featured results per index. You can request to increase this limit by contacting <a href=\"http://aws.amazon.com/contact-us/\">Support</a>.</p>
 
         Args:
             index_id: <p>The identifier of the index that you want to use for featuring results.</p>
@@ -1025,7 +1025,7 @@ class kendraClient:
             "aws_sdk_kendra.types.user_group_resolution_configuration.UserGroupResolutionConfiguration"
         ] = None,
     ) -> "aws_sdk_kendra.types.create_index_response.CreateIndexResponse":
-        """<p>Creates an Amazon Kendra index. Index creation is an asynchronous API. To determine if index creation has completed, check the <code>Status</code> field returned from a call to <code>DescribeIndex</code>. The <code>Status</code> field is set to <code>ACTIVE</code> when the index is ready to use.</p> <p>Once the index is active, you can index your documents using the <code>BatchPutDocument</code> API or using one of the supported <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/data-sources.html\">data sources</a>.</p> <p>For an example of creating an index and data source using the Python SDK, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/gs-python.html\">Getting started with Python SDK</a>. For an example of creating an index and data source using the Java SDK, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/gs-java.html\">Getting started with Java SDK</a>.</p>
+        r"""<p>Creates an Amazon Kendra index. Index creation is an asynchronous API. To determine if index creation has completed, check the <code>Status</code> field returned from a call to <code>DescribeIndex</code>. The <code>Status</code> field is set to <code>ACTIVE</code> when the index is ready to use.</p> <p>Once the index is active, you can index your documents using the <code>BatchPutDocument</code> API or using one of the supported <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/data-sources.html\">data sources</a>.</p> <p>For an example of creating an index and data source using the Python SDK, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/gs-python.html\">Getting started with Python SDK</a>. For an example of creating an index and data source using the Java SDK, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/gs-java.html\">Getting started with Java SDK</a>.</p>
 
         Args:
             name: <p>A name for the index.</p>
@@ -1100,7 +1100,7 @@ class kendraClient:
         ] = None,
         tags: Optional["aws_sdk_kendra.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_kendra.types.create_query_suggestions_block_list_response.CreateQuerySuggestionsBlockListResponse":
-        """<p>Creates a block list to exlcude certain queries from suggestions.</p> <p>Any query that contains words or phrases specified in the block list is blocked or filtered out from being shown as a suggestion.</p> <p>You need to provide the file location of your block list text file in your S3 bucket. In your text file, enter each block word or phrase on a separate line.</p> <p>For information on the current quota limits for block lists, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/quotas.html\">Quotas for Amazon Kendra</a>.</p> <p> <code>CreateQuerySuggestionsBlockList</code> is currently not supported in the Amazon Web Services GovCloud (US-West) region.</p> <p>For an example of creating a block list for query suggestions using the Python SDK, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/query-suggestions.html#query-suggestions-blocklist\">Query suggestions block list</a>.</p>
+        r"""<p>Creates a block list to exlcude certain queries from suggestions.</p> <p>Any query that contains words or phrases specified in the block list is blocked or filtered out from being shown as a suggestion.</p> <p>You need to provide the file location of your block list text file in your S3 bucket. In your text file, enter each block word or phrase on a separate line.</p> <p>For information on the current quota limits for block lists, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/quotas.html\">Quotas for Amazon Kendra</a>.</p> <p> <code>CreateQuerySuggestionsBlockList</code> is currently not supported in the Amazon Web Services GovCloud (US-West) region.</p> <p>For an example of creating a block list for query suggestions using the Python SDK, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/query-suggestions.html#query-suggestions-blocklist\">Query suggestions block list</a>.</p>
 
         Args:
             index_id: <p>The identifier of the index you want to create a query suggestions block list for.</p>
@@ -1160,7 +1160,7 @@ class kendraClient:
             "aws_sdk_kendra.types.client_token_name.ClientTokenName"
         ] = None,
     ) -> "aws_sdk_kendra.types.create_thesaurus_response.CreateThesaurusResponse":
-        """<p>Creates a thesaurus for an index. The thesaurus contains a list of synonyms in Solr format.</p> <p>For an example of adding a thesaurus file to an index, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/index-synonyms-adding-thesaurus-file.html\">Adding custom synonyms to an index</a>.</p>
+        r"""<p>Creates a thesaurus for an index. The thesaurus contains a list of synonyms in Solr format.</p> <p>For an example of adding a thesaurus file to an index, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/index-synonyms-adding-thesaurus-file.html\">Adding custom synonyms to an index</a>.</p>
 
         Args:
             index_id: <p>The identifier of the index for the thesaurus.</p>
@@ -1253,7 +1253,7 @@ class kendraClient:
         *,
         config_overrides: Optional[kendraClientConfig] = None,
     ) -> None:
-        """<p>Deletes an Amazon Kendra data source connector. An exception is not thrown if the data source is already being deleted. While the data source is being deleted, the <code>Status</code> field returned by a call to the <code>DescribeDataSource</code> API is set to <code>DELETING</code>. For more information, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/delete-data-source.html\">Deleting Data Sources</a>.</p> <p>Deleting an entire data source or re-syncing your index after deleting specific documents from a data source could take up to an hour or more, depending on the number of documents you want to delete.</p>
+        r"""<p>Deletes an Amazon Kendra data source connector. An exception is not thrown if the data source is already being deleted. While the data source is being deleted, the <code>Status</code> field returned by a call to the <code>DescribeDataSource</code> API is set to <code>DELETING</code>. For more information, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/delete-data-source.html\">Deleting Data Sources</a>.</p> <p>Deleting an entire data source or re-syncing your index after deleting specific documents from a data source could take up to an hour or more, depending on the number of documents you want to delete.</p>
 
         Args:
             id: <p>The identifier of the data source connector you want to delete.</p>
@@ -1291,7 +1291,7 @@ class kendraClient:
         *,
         config_overrides: Optional[kendraClientConfig] = None,
     ) -> "aws_sdk_kendra.types.delete_experience_response.DeleteExperienceResponse":
-        """<p>Deletes your Amazon Kendra experience such as a search application. For more information on creating a search application experience, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html\">Building a search experience with no code</a>.</p>
+        r"""<p>Deletes your Amazon Kendra experience such as a search application. For more information on creating a search application experience, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html\">Building a search experience with no code</a>.</p>
 
         Args:
             id: <p>The identifier of your Amazon Kendra experience you want to delete.</p>
@@ -1410,7 +1410,7 @@ class kendraClient:
             "aws_sdk_kendra.types.principal_ordering_id.PrincipalOrderingId"
         ] = None,
     ) -> None:
-        """<p>Deletes a group so that all users that belong to the group can no longer access documents only available to that group.</p> <p>For example, after deleting the group \"Summer Interns\", all interns who belonged to that group no longer see intern-only documents in their search results.</p> <p>If you want to delete or replace users or sub groups of a group, you need to use the <code>PutPrincipalMapping</code> operation. For example, if a user in the group \"Engineering\" leaves the engineering team and another user takes their place, you provide an updated list of users or sub groups that belong to the \"Engineering\" group when calling <code>PutPrincipalMapping</code>. You can update your internal list of users or sub groups and input this list when calling <code>PutPrincipalMapping</code>.</p> <p> <code>DeletePrincipalMapping</code> is currently not supported in the Amazon Web Services GovCloud (US-West) region.</p>
+        r"""<p>Deletes a group so that all users that belong to the group can no longer access documents only available to that group.</p> <p>For example, after deleting the group \"Summer Interns\", all interns who belonged to that group no longer see intern-only documents in their search results.</p> <p>If you want to delete or replace users or sub groups of a group, you need to use the <code>PutPrincipalMapping</code> operation. For example, if a user in the group \"Engineering\" leaves the engineering team and another user takes their place, you provide an updated list of users or sub groups that belong to the \"Engineering\" group when calling <code>PutPrincipalMapping</code>. You can update your internal list of users or sub groups and input this list when calling <code>PutPrincipalMapping</code>.</p> <p> <code>DeletePrincipalMapping</code> is currently not supported in the Amazon Web Services GovCloud (US-West) region.</p>
 
         Args:
             index_id: <p>The identifier of the index you want to delete a group from.</p>
@@ -1612,7 +1612,7 @@ class kendraClient:
         *,
         config_overrides: Optional[kendraClientConfig] = None,
     ) -> "aws_sdk_kendra.types.describe_experience_response.DescribeExperienceResponse":
-        """<p>Gets information about your Amazon Kendra experience such as a search application. For more information on creating a search application experience, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html\">Building a search experience with no code</a>.</p>
+        r"""<p>Gets information about your Amazon Kendra experience such as a search application. For more information on creating a search application experience, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html\">Building a search experience with no code</a>.</p>
 
         Args:
             id: <p>The identifier of your Amazon Kendra experience you want to get information on.</p>
@@ -1933,7 +1933,7 @@ class kendraClient:
         *,
         config_overrides: Optional[kendraClientConfig] = None,
     ) -> "aws_sdk_kendra.types.disassociate_entities_from_experience_response.DisassociateEntitiesFromExperienceResponse":
-        """<p>Prevents users or groups in your IAM Identity Center identity source from accessing your Amazon Kendra experience. You can create an Amazon Kendra experience such as a search application. For more information on creating a search application experience, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html\">Building a search experience with no code</a>.</p>
+        r"""<p>Prevents users or groups in your IAM Identity Center identity source from accessing your Amazon Kendra experience. You can create an Amazon Kendra experience such as a search application. For more information on creating a search application experience, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html\">Building a search experience with no code</a>.</p>
 
         Args:
             id: <p>The identifier of your Amazon Kendra experience.</p>
@@ -1976,7 +1976,7 @@ class kendraClient:
         *,
         config_overrides: Optional[kendraClientConfig] = None,
     ) -> "aws_sdk_kendra.types.disassociate_personas_from_entities_response.DisassociatePersonasFromEntitiesResponse":
-        """<p>Removes the specific permissions of users or groups in your IAM Identity Center identity source with access to your Amazon Kendra experience. You can create an Amazon Kendra experience such as a search application. For more information on creating a search application experience, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html\">Building a search experience with no code</a>.</p>
+        r"""<p>Removes the specific permissions of users or groups in your IAM Identity Center identity source with access to your Amazon Kendra experience. You can create an Amazon Kendra experience such as a search application. For more information on creating a search application experience, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html\">Building a search experience with no code</a>.</p>
 
         Args:
             id: <p>The identifier of your Amazon Kendra experience.</p>
@@ -2077,7 +2077,7 @@ class kendraClient:
         next_token: Optional["aws_sdk_kendra.types.next_token.NextToken"] = None,
         max_results: Optional["aws_sdk_kendra.types.integer.Integer"] = None,
     ) -> "aws_sdk_kendra.types.get_snapshots_response.GetSnapshotsResponse":
-        """<p>Retrieves search metrics data. The data provides a snapshot of how your users interact with your search application and how effective the application is.</p>
+        r"""<p>Retrieves search metrics data. The data provides a snapshot of how your users interact with your search application and how effective the application is.</p>
 
         Args:
             index_id: <p>The identifier of the index to get search metrics data.</p>
@@ -2332,7 +2332,7 @@ class kendraClient:
         config_overrides: Optional[kendraClientConfig] = None,
         next_token: Optional["aws_sdk_kendra.types.next_token.NextToken"] = None,
     ) -> "aws_sdk_kendra.types.list_experience_entities_response.ListExperienceEntitiesResponse":
-        """<p>Lists users or groups in your IAM Identity Center identity source that are granted access to your Amazon Kendra experience. You can create an Amazon Kendra experience such as a search application. For more information on creating a search application experience, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html\">Building a search experience with no code</a>.</p>
+        r"""<p>Lists users or groups in your IAM Identity Center identity source that are granted access to your Amazon Kendra experience. You can create an Amazon Kendra experience such as a search application. For more information on creating a search application experience, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html\">Building a search experience with no code</a>.</p>
 
         Args:
             id: <p>The identifier of your Amazon Kendra experience.</p>
@@ -2378,7 +2378,7 @@ class kendraClient:
             "aws_sdk_kendra.types.max_results_integer_for_list_experiences_request.MaxResultsIntegerForListExperiencesRequest"
         ] = None,
     ) -> "aws_sdk_kendra.types.list_experiences_response.ListExperiencesResponse":
-        """<p>Lists one or more Amazon Kendra experiences. You can create an Amazon Kendra experience such as a search application. For more information on creating a search application experience, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html\">Building a search experience with no code</a>.</p>
+        r"""<p>Lists one or more Amazon Kendra experiences. You can create an Amazon Kendra experience such as a search application. For more information on creating a search application experience, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html\">Building a search experience with no code</a>.</p>
 
         Args:
             index_id: <p>The identifier of the index for your Amazon Kendra experience.</p>
@@ -2619,7 +2619,7 @@ class kendraClient:
             "aws_sdk_kendra.types.max_results_integer_for_list_query_suggestions_block_lists.MaxResultsIntegerForListQuerySuggestionsBlockLists"
         ] = None,
     ) -> "aws_sdk_kendra.types.list_query_suggestions_block_lists_response.ListQuerySuggestionsBlockListsResponse":
-        """<p>Lists the block lists used for query suggestions for an index.</p> <p>For information on the current quota limits for block lists, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/quotas.html\">Quotas for Amazon Kendra</a>.</p> <p> <code>ListQuerySuggestionsBlockLists</code> is currently not supported in the Amazon Web Services GovCloud (US-West) region.</p>
+        r"""<p>Lists the block lists used for query suggestions for an index.</p> <p>For information on the current quota limits for block lists, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/quotas.html\">Quotas for Amazon Kendra</a>.</p> <p> <code>ListQuerySuggestionsBlockLists</code> is currently not supported in the Amazon Web Services GovCloud (US-West) region.</p>
 
         Args:
             index_id: <p>The identifier of the index for a list of all block lists that exist for that index.</p> <p>For information on the current quota limits for block lists, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/quotas.html\">Quotas for Amazon Kendra</a>.</p>
@@ -2662,7 +2662,7 @@ class kendraClient:
         *,
         config_overrides: Optional[kendraClientConfig] = None,
     ) -> "aws_sdk_kendra.types.list_tags_for_resource_response.ListTagsForResourceResponse":
-        """<p>Gets a list of tags associated with a resource. Indexes, FAQs, data sources, and other resources can have tags associated with them.</p>
+        r"""<p>Gets a list of tags associated with a resource. Indexes, FAQs, data sources, and other resources can have tags associated with them.</p>
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the index, FAQ, data source, or other resource to get a list of tags for. For example, the ARN of an index is constructed as follows: <i>arn:aws:kendra:your-region:your-account-id:index/index-id</i> For information on how to construct an ARN for all types of Amazon Kendra resources, see <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonkendra.html#amazonkendra-resources-for-iam-policies\">Resource types</a>.</p>
@@ -2755,7 +2755,7 @@ class kendraClient:
         ] = None,
         role_arn: Optional["aws_sdk_kendra.types.role_arn.RoleArn"] = None,
     ) -> None:
-        """<p>Maps users to their groups so that you only need to provide the user ID when you issue the query.</p> <p>You can also map sub groups to groups. For example, the group \"Company Intellectual Property Teams\" includes sub groups \"Research\" and \"Engineering\". These sub groups include their own list of users or people who work in these teams. Only users who work in research and engineering, and therefore belong in the intellectual property group, can see top-secret company documents in their search results.</p> <p>This is useful for user context filtering, where search results are filtered based on the user or their group access to documents. For more information, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/user-context-filter.html\">Filtering on user context</a>.</p> <p>If more than five <code>PUT</code> actions for a group are currently processing, a validation exception is thrown.</p>
+        r"""<p>Maps users to their groups so that you only need to provide the user ID when you issue the query.</p> <p>You can also map sub groups to groups. For example, the group \"Company Intellectual Property Teams\" includes sub groups \"Research\" and \"Engineering\". These sub groups include their own list of users or people who work in these teams. Only users who work in research and engineering, and therefore belong in the intellectual property group, can see top-secret company documents in their search results.</p> <p>This is useful for user context filtering, where search results are filtered based on the user or their group access to documents. For more information, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/user-context-filter.html\">Filtering on user context</a>.</p> <p>If more than five <code>PUT</code> actions for a group are currently processing, a validation exception is thrown.</p>
 
         Args:
             index_id: <p>The identifier of the index you want to map users to their groups.</p>
@@ -2833,7 +2833,7 @@ class kendraClient:
             "aws_sdk_kendra.types.collapse_configuration.CollapseConfiguration"
         ] = None,
     ) -> "aws_sdk_kendra.types.query_result.QueryResult":
-        """<p>Searches an index given an input query.</p> <note> <p>If you are working with large language models (LLMs) or implementing retrieval augmented generation (RAG) systems, you can use Amazon Kendra's <a href=\"https://docs.aws.amazon.com/kendra/latest/APIReference/API_Retrieve.html\">Retrieve</a> API, which can return longer semantically relevant passages. We recommend using the <code>Retrieve</code> API instead of filing a service limit increase to increase the <code>Query</code> API document excerpt length.</p> </note> <p>You can configure boosting or relevance tuning at the query level to override boosting at the index level, filter based on document fields/attributes and faceted search, and filter based on the user or their group access to documents. You can also include certain fields in the response that might provide useful additional information.</p> <p>A query response contains three types of results.</p> <ul> <li> <p>Relevant suggested answers. The answers can be either a text excerpt or table excerpt. The answer can be highlighted in the excerpt.</p> </li> <li> <p>Matching FAQs or questions-answer from your FAQ file.</p> </li> <li> <p>Relevant documents. This result type includes an excerpt of the document with the document title. The searched terms can be highlighted in the excerpt.</p> </li> </ul> <p>You can specify that the query return only one type of result using the <code>QueryResultTypeFilter</code> parameter. Each query returns the 100 most relevant results. If you filter result type to only question-answers, a maximum of four results are returned. If you filter result type to only answers, a maximum of three results are returned.</p> <important> <p>If you're using an Amazon Kendra Gen AI Enterprise Edition index, you can only use <code>ATTRIBUTE_FILTER</code> to filter search results by user context. If you're using an Amazon Kendra Gen AI Enterprise Edition index and you try to use <code>USER_TOKEN</code> to configure user context policy, Amazon Kendra returns a <code>ValidationException</code> error.</p> </important>
+        r"""<p>Searches an index given an input query.</p> <note> <p>If you are working with large language models (LLMs) or implementing retrieval augmented generation (RAG) systems, you can use Amazon Kendra's <a href=\"https://docs.aws.amazon.com/kendra/latest/APIReference/API_Retrieve.html\">Retrieve</a> API, which can return longer semantically relevant passages. We recommend using the <code>Retrieve</code> API instead of filing a service limit increase to increase the <code>Query</code> API document excerpt length.</p> </note> <p>You can configure boosting or relevance tuning at the query level to override boosting at the index level, filter based on document fields/attributes and faceted search, and filter based on the user or their group access to documents. You can also include certain fields in the response that might provide useful additional information.</p> <p>A query response contains three types of results.</p> <ul> <li> <p>Relevant suggested answers. The answers can be either a text excerpt or table excerpt. The answer can be highlighted in the excerpt.</p> </li> <li> <p>Matching FAQs or questions-answer from your FAQ file.</p> </li> <li> <p>Relevant documents. This result type includes an excerpt of the document with the document title. The searched terms can be highlighted in the excerpt.</p> </li> </ul> <p>You can specify that the query return only one type of result using the <code>QueryResultTypeFilter</code> parameter. Each query returns the 100 most relevant results. If you filter result type to only question-answers, a maximum of four results are returned. If you filter result type to only answers, a maximum of three results are returned.</p> <important> <p>If you're using an Amazon Kendra Gen AI Enterprise Edition index, you can only use <code>ATTRIBUTE_FILTER</code> to filter search results by user context. If you're using an Amazon Kendra Gen AI Enterprise Edition index and you try to use <code>USER_TOKEN</code> to configure user context policy, Amazon Kendra returns a <code>ValidationException</code> error.</p> </important>
 
         Args:
             index_id: <p>The identifier of the index for the search.</p>
@@ -2925,7 +2925,7 @@ class kendraClient:
         page_size: Optional["aws_sdk_kendra.types.integer.Integer"] = None,
         user_context: Optional["aws_sdk_kendra.types.user_context.UserContext"] = None,
     ) -> "aws_sdk_kendra.types.retrieve_result.RetrieveResult":
-        """<p>Retrieves relevant passages or text excerpts given an input query.</p> <p>This API is similar to the <a href=\"https://docs.aws.amazon.com/kendra/latest/APIReference/API_Query.html\">Query</a> API. However, by default, the <code>Query</code> API only returns excerpt passages of up to 100 token words. With the <code>Retrieve</code> API, you can retrieve longer passages of up to 200 token words and up to 100 semantically relevant passages. This doesn't include question-answer or FAQ type responses from your index. The passages are text excerpts that can be semantically extracted from multiple documents and multiple parts of the same document. If in extreme cases your documents produce zero passages using the <code>Retrieve</code> API, you can alternatively use the <code>Query</code> API and its types of responses.</p> <p>You can also do the following:</p> <ul> <li> <p>Override boosting at the index level</p> </li> <li> <p>Filter based on document fields or attributes</p> </li> <li> <p>Filter based on the user or their group access to documents</p> </li> <li> <p>View the confidence score bucket for a retrieved passage result. The confidence bucket provides a relative ranking that indicates how confident Amazon Kendra is that the response is relevant to the query.</p> <note> <p>Confidence score buckets are currently available only for English.</p> </note> </li> </ul> <p>You can also include certain fields in the response that might provide useful additional information.</p> <p>The <code>Retrieve</code> API shares the number of <a href=\"https://docs.aws.amazon.com/kendra/latest/APIReference/API_CapacityUnitsConfiguration.html\">query capacity units</a> that you set for your index. For more information on what's included in a single capacity unit and the default base capacity for an index, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/adjusting-capacity.html\">Adjusting capacity</a>.</p> <important> <p>If you're using an Amazon Kendra Gen AI Enterprise Edition index, you can only use <code>ATTRIBUTE_FILTER</code> to filter search results by user context. If you're using an Amazon Kendra Gen AI Enterprise Edition index and you try to use <code>USER_TOKEN</code> to configure user context policy, Amazon Kendra returns a <code>ValidationException</code> error.</p> </important>
+        r"""<p>Retrieves relevant passages or text excerpts given an input query.</p> <p>This API is similar to the <a href=\"https://docs.aws.amazon.com/kendra/latest/APIReference/API_Query.html\">Query</a> API. However, by default, the <code>Query</code> API only returns excerpt passages of up to 100 token words. With the <code>Retrieve</code> API, you can retrieve longer passages of up to 200 token words and up to 100 semantically relevant passages. This doesn't include question-answer or FAQ type responses from your index. The passages are text excerpts that can be semantically extracted from multiple documents and multiple parts of the same document. If in extreme cases your documents produce zero passages using the <code>Retrieve</code> API, you can alternatively use the <code>Query</code> API and its types of responses.</p> <p>You can also do the following:</p> <ul> <li> <p>Override boosting at the index level</p> </li> <li> <p>Filter based on document fields or attributes</p> </li> <li> <p>Filter based on the user or their group access to documents</p> </li> <li> <p>View the confidence score bucket for a retrieved passage result. The confidence bucket provides a relative ranking that indicates how confident Amazon Kendra is that the response is relevant to the query.</p> <note> <p>Confidence score buckets are currently available only for English.</p> </note> </li> </ul> <p>You can also include certain fields in the response that might provide useful additional information.</p> <p>The <code>Retrieve</code> API shares the number of <a href=\"https://docs.aws.amazon.com/kendra/latest/APIReference/API_CapacityUnitsConfiguration.html\">query capacity units</a> that you set for your index. For more information on what's included in a single capacity unit and the default base capacity for an index, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/adjusting-capacity.html\">Adjusting capacity</a>.</p> <important> <p>If you're using an Amazon Kendra Gen AI Enterprise Edition index, you can only use <code>ATTRIBUTE_FILTER</code> to filter search results by user context. If you're using an Amazon Kendra Gen AI Enterprise Edition index and you try to use <code>USER_TOKEN</code> to configure user context policy, Amazon Kendra returns a <code>ValidationException</code> error.</p> </important>
 
         Args:
             index_id: <p>The identifier of the index to retrieve relevant passages for the search.</p>
@@ -3111,7 +3111,7 @@ class kendraClient:
         *,
         config_overrides: Optional[kendraClientConfig] = None,
     ) -> "aws_sdk_kendra.types.tag_resource_response.TagResourceResponse":
-        """<p>Adds the specified tag to the specified index, FAQ, data source, or other resource. If the tag already exists, the existing value is replaced with the new value.</p>
+        r"""<p>Adds the specified tag to the specified index, FAQ, data source, or other resource. If the tag already exists, the existing value is replaced with the new value.</p>
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the index, FAQ, data source, or other resource to add a tag. For example, the ARN of an index is constructed as follows: <i>arn:aws:kendra:your-region:your-account-id:index/index-id</i> For information on how to construct an ARN for all types of Amazon Kendra resources, see <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonkendra.html#amazonkendra-resources-for-iam-policies\">Resource types</a>.</p>
@@ -3151,7 +3151,7 @@ class kendraClient:
         *,
         config_overrides: Optional[kendraClientConfig] = None,
     ) -> "aws_sdk_kendra.types.untag_resource_response.UntagResourceResponse":
-        """<p>Removes a tag from an index, FAQ, data source, or other resource.</p>
+        r"""<p>Removes a tag from an index, FAQ, data source, or other resource.</p>
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the index, FAQ, data source, or other resource to remove a tag. For example, the ARN of an index is constructed as follows: <i>arn:aws:kendra:your-region:your-account-id:index/index-id</i> For information on how to construct an ARN for all types of Amazon Kendra resources, see <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonkendra.html#amazonkendra-resources-for-iam-policies\">Resource types</a>.</p>
@@ -3201,7 +3201,7 @@ class kendraClient:
             "aws_sdk_kendra.types.hierarchical_principal_list.HierarchicalPrincipalList"
         ] = None,
     ) -> "aws_sdk_kendra.types.update_access_control_configuration_response.UpdateAccessControlConfigurationResponse":
-        """<p>Updates an access control configuration for your documents in an index. This includes user and group access information for your documents. This is useful for user context filtering, where search results are filtered based on the user or their group access to documents.</p> <p>You can update an access control configuration you created without indexing all of your documents again. For example, your index contains top-secret company documents that only certain employees or users should access. You created an 'allow' access control configuration for one user who recently joined the 'top-secret' team, switching from a team with 'deny' access to top-secret documents. However, the user suddenly returns to their previous team and should no longer have access to top secret documents. You can update the access control configuration to re-configure access control for your documents as circumstances change.</p> <p>You call the <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/API_BatchPutDocument.html\">BatchPutDocument</a> API to apply the updated access control configuration, with the <code>AccessControlConfigurationId</code> included in the <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/API_Document.html\">Document</a> object. If you use an S3 bucket as a data source, you synchronize your data source to apply the <code>AccessControlConfigurationId</code> in the <code>.metadata.json</code> file. Amazon Kendra currently only supports access control configuration for S3 data sources and documents indexed using the <code>BatchPutDocument</code> API.</p> <important> <p>You can't configure access control using <code>CreateAccessControlConfiguration</code> for an Amazon Kendra Gen AI Enterprise Edition index. Amazon Kendra will return a <code>ValidationException</code> error for a <code>Gen_AI_ENTERPRISE_EDITION</code> index.</p> </important>
+        r"""<p>Updates an access control configuration for your documents in an index. This includes user and group access information for your documents. This is useful for user context filtering, where search results are filtered based on the user or their group access to documents.</p> <p>You can update an access control configuration you created without indexing all of your documents again. For example, your index contains top-secret company documents that only certain employees or users should access. You created an 'allow' access control configuration for one user who recently joined the 'top-secret' team, switching from a team with 'deny' access to top-secret documents. However, the user suddenly returns to their previous team and should no longer have access to top secret documents. You can update the access control configuration to re-configure access control for your documents as circumstances change.</p> <p>You call the <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/API_BatchPutDocument.html\">BatchPutDocument</a> API to apply the updated access control configuration, with the <code>AccessControlConfigurationId</code> included in the <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/API_Document.html\">Document</a> object. If you use an S3 bucket as a data source, you synchronize your data source to apply the <code>AccessControlConfigurationId</code> in the <code>.metadata.json</code> file. Amazon Kendra currently only supports access control configuration for S3 data sources and documents indexed using the <code>BatchPutDocument</code> API.</p> <important> <p>You can't configure access control using <code>CreateAccessControlConfiguration</code> for an Amazon Kendra Gen AI Enterprise Edition index. Amazon Kendra will return a <code>ValidationException</code> error for a <code>Gen_AI_ENTERPRISE_EDITION</code> index.</p> </important>
 
         Args:
             index_id: <p>The identifier of the index for an access control configuration.</p>
@@ -3271,7 +3271,7 @@ class kendraClient:
             "aws_sdk_kendra.types.custom_document_enrichment_configuration.CustomDocumentEnrichmentConfiguration"
         ] = None,
     ) -> None:
-        """<p>Updates an Amazon Kendra data source connector.</p>
+        r"""<p>Updates an Amazon Kendra data source connector.</p>
 
         Args:
             id: <p>The identifier of the data source connector you want to update.</p>
@@ -3341,7 +3341,7 @@ class kendraClient:
         ] = None,
         description: Optional["aws_sdk_kendra.types.description.Description"] = None,
     ) -> None:
-        """<p>Updates your Amazon Kendra experience such as a search application. For more information on creating a search application experience, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html\">Building a search experience with no code</a>.</p>
+        r"""<p>Updates your Amazon Kendra experience such as a search application. For more information on creating a search application experience, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html\">Building a search experience with no code</a>.</p>
 
         Args:
             id: <p>The identifier of your Amazon Kendra experience you want to update.</p>
@@ -3406,7 +3406,7 @@ class kendraClient:
             "aws_sdk_kendra.types.featured_document_list.FeaturedDocumentList"
         ] = None,
     ) -> "aws_sdk_kendra.types.update_featured_results_set_response.UpdateFeaturedResultsSetResponse":
-        """<p>Updates a set of featured results. Features results are placed above all other results for certain queries. You map specific queries to specific documents for featuring in the results. If a query contains an exact match of a query, then one or more specific documents are featured in the search results.</p>
+        r"""<p>Updates a set of featured results. Features results are placed above all other results for certain queries. You map specific queries to specific documents for featuring in the results. If a query contains an exact match of a query, then one or more specific documents are featured in the search results.</p>
 
         Args:
             index_id: <p>The identifier of the index used for featuring results.</p>
@@ -3478,7 +3478,7 @@ class kendraClient:
             "aws_sdk_kendra.types.user_group_resolution_configuration.UserGroupResolutionConfiguration"
         ] = None,
     ) -> None:
-        """<p>Updates an Amazon Kendra index.</p>
+        r"""<p>Updates an Amazon Kendra index.</p>
 
         Args:
             id: <p>The identifier of the index you want to update.</p>

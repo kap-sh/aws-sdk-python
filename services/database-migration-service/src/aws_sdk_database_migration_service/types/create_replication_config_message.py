@@ -27,23 +27,23 @@ class CreateReplicationConfigMessage(TypedDict):
     )
     """<p>Configuration parameters for provisioning an DMS Serverless replication.</p>"""
     replication_type: "aws_sdk_database_migration_service.types.migration_type_value.MigrationTypeValue"
-    """<p>The type of DMS Serverless replication to provision using this replication configuration.</p> <p>Possible values:</p> <ul> <li> <p> <code>\"full-load\"</code> </p> </li> <li> <p> <code>\"cdc\"</code> </p> </li> <li> <p> <code>\"full-load-and-cdc\"</code> </p> </li> </ul>"""
+    r"""<p>The type of DMS Serverless replication to provision using this replication configuration.</p> <p>Possible values:</p> <ul> <li> <p> <code>\"full-load\"</code> </p> </li> <li> <p> <code>\"cdc\"</code> </p> </li> <li> <p> <code>\"full-load-and-cdc\"</code> </p> </li> </ul>"""
     table_mappings: "aws_sdk_database_migration_service.types.string.String"
-    """<p>JSON table mappings for DMS Serverless replications that are provisioned using this replication configuration. For more information, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.html\"> Specifying table selection and transformations rules using JSON</a>.</p>"""
+    r"""<p>JSON table mappings for DMS Serverless replications that are provisioned using this replication configuration. For more information, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.html\"> Specifying table selection and transformations rules using JSON</a>.</p>"""
     replication_settings: NotRequired[
         "aws_sdk_database_migration_service.types.string.String"
     ]
-    """<p>Optional JSON settings for DMS Serverless replications that are provisioned using this replication configuration. For example, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.ChangeProcessingTuning.html\"> Change processing tuning settings</a>.</p>"""
+    r"""<p>Optional JSON settings for DMS Serverless replications that are provisioned using this replication configuration. For example, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.ChangeProcessingTuning.html\"> Change processing tuning settings</a>.</p>"""
     supplemental_settings: NotRequired[
         "aws_sdk_database_migration_service.types.string.String"
     ]
-    """<p>Optional JSON settings for specifying supplemental data. For more information, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.TaskData.html\"> Specifying supplemental data for task settings</a>.</p>"""
+    r"""<p>Optional JSON settings for specifying supplemental data. For more information, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.TaskData.html\"> Specifying supplemental data for task settings</a>.</p>"""
     resource_identifier: NotRequired[
         "aws_sdk_database_migration_service.types.string.String"
     ]
-    """<p>Optional unique value or name that you set for a given resource that can be used to construct an Amazon Resource Name (ARN) for that resource. For more information, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.FineGrainedAccess\"> Fine-grained access control using resource names and tags</a>.</p>"""
+    r"""<p>Optional unique value or name that you set for a given resource that can be used to construct an Amazon Resource Name (ARN) for that resource. For more information, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.FineGrainedAccess\"> Fine-grained access control using resource names and tags</a>.</p>"""
     tags: NotRequired["aws_sdk_database_migration_service.types.tag_list.TagList"]
-    """<p>One or more optional tags associated with resources used by the DMS Serverless replication. For more information, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tagging.html\"> Tagging resources in Database Migration Service</a>.</p>"""
+    r"""<p>One or more optional tags associated with resources used by the DMS Serverless replication. For more information, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tagging.html\"> Tagging resources in Database Migration Service</a>.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

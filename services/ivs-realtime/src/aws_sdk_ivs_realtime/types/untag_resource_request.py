@@ -11,7 +11,7 @@ class UntagResourceRequest(TypedDict):
     resource_arn: "aws_sdk_ivs_realtime.types.resource_arn.ResourceArn"
     """<p>The ARN of the resource to be untagged. The ARN must be URL-encoded.</p>"""
     tag_keys: "aws_sdk_ivs_realtime.types.tag_key_list.TagKeyList"
-    """<p>Array of tag keys (strings) for the tags to be removed. See <a href=\"https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html\">Best practices and strategies</a> in <i>Tagging AWS Resources and Tag Editor</i> for details, including restrictions that apply to tags and \"Tag naming limits and requirements\"; Amazon IVS has no constraints on tags beyond what is documented there.</p>"""
+    r"""<p>Array of tag keys (strings) for the tags to be removed. See <a href=\"https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html\">Best practices and strategies</a> in <i>Tagging AWS Resources and Tag Editor</i> for details, including restrictions that apply to tags and \"Tag naming limits and requirements\"; Amazon IVS has no constraints on tags beyond what is documented there.</p>"""
 
 
 # --- restJson1 ser/de ---

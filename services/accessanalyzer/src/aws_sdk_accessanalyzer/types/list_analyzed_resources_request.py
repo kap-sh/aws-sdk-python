@@ -14,7 +14,7 @@ if TYPE_CHECKING:
 
 class ListAnalyzedResourcesRequest(TypedDict):
     analyzer_arn: "aws_sdk_accessanalyzer.types.analyzer_arn.AnalyzerArn"
-    """<p>The <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources\">ARN of the analyzer</a> to retrieve a list of analyzed resources from.</p>"""
+    r"""<p>The <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources\">ARN of the analyzer</a> to retrieve a list of analyzed resources from.</p>"""
     resource_type: NotRequired[
         "aws_sdk_accessanalyzer.types.resource_type.ResourceType"
     ]

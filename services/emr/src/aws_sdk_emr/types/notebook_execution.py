@@ -51,7 +51,7 @@ class NotebookExecution(TypedDict):
     notebook_instance_security_group_id: NotRequired[
         "aws_sdk_emr.types.xml_string_max_len256.XmlStringMaxLen256"
     ]
-    """<p>The unique identifier of the Amazon EC2 security group associated with the Amazon EMR Notebook instance. For more information see <a href=\"https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-notebooks-security-groups.html\">Specifying Amazon EC2 Security Groups for Amazon EMR Notebooks</a> in the <i>Amazon EMR Management Guide</i>.</p>"""
+    r"""<p>The unique identifier of the Amazon EC2 security group associated with the Amazon EMR Notebook instance. For more information see <a href=\"https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-notebooks-security-groups.html\">Specifying Amazon EC2 Security Groups for Amazon EMR Notebooks</a> in the <i>Amazon EMR Management Guide</i>.</p>"""
     tags: NotRequired["aws_sdk_emr.types.tag_list.TagList"]
     """<p>A list of tags associated with a notebook execution. Tags are user-defined key-value pairs that consist of a required key string with a maximum of 128 characters and an optional value string with a maximum of 256 characters.</p>"""
     notebook_s3_location: NotRequired[

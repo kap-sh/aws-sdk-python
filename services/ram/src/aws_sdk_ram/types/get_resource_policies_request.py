@@ -14,7 +14,7 @@ if TYPE_CHECKING:
 
 class GetResourcePoliciesRequest(TypedDict):
     resource_arns: "aws_sdk_ram.types.resource_arn_list.ResourceArnList"
-    """<p>Specifies the <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> of the resources whose policies you want to retrieve.</p>"""
+    r"""<p>Specifies the <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> of the resources whose policies you want to retrieve.</p>"""
     principal: NotRequired["aws_sdk_ram.types.string.String"]
     """<p>Specifies the principal.</p>"""
     next_token: NotRequired["aws_sdk_ram.types.string.String"]

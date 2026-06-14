@@ -13,7 +13,7 @@ class CreateEventTrackerResponse(TypedDict):
     event_tracker_arn: NotRequired["aws_sdk_personalize.types.arn.Arn"]
     """<p>The ARN of the event tracker.</p>"""
     tracking_id: NotRequired["aws_sdk_personalize.types.tracking_id.TrackingId"]
-    """<p>The ID of the event tracker. Include this ID in requests to the <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/API_UBS_PutEvents.html\">PutEvents</a> API.</p>"""
+    r"""<p>The ID of the event tracker. Include this ID in requests to the <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/API_UBS_PutEvents.html\">PutEvents</a> API.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

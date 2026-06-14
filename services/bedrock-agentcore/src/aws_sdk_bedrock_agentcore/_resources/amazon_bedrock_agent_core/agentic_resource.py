@@ -1,17 +1,21 @@
-from typing import Optional, TYPE_CHECKING
-from aws_sdk_bedrock_agentcore._services.async_bedrock_agent_core import ensure_async_iterator
-from aws_sdk_bedrock_agentcore._services.bedrock_agent_core import ensure_sync_iterator
-import datetime
-from aws_sdk_bedrock_agentcore._services._pipeline import OperationRequest, OperationResponse, execute_pipeline, AsyncOperationRequest, AsyncOperationResponse, aexecute_pipeline
-from collections.abc import Generator
-from collections.abc import AsyncGenerator
-from contextlib import contextmanager
-from contextlib import asynccontextmanager
+from __future__ import annotations
+
+from collections.abc import AsyncGenerator, Generator
+from contextlib import asynccontextmanager, contextmanager
+from typing import TYPE_CHECKING, Optional
+
 import aws_sdk_bedrock_agentcore._auth._signers
 import aws_sdk_bedrock_agentcore._auth._sigv4
+from aws_sdk_bedrock_agentcore._services._pipeline import (
+    AsyncOperationRequest,
+    AsyncOperationResponse,
+    OperationRequest,
+    OperationResponse,
+    aexecute_pipeline,
+    execute_pipeline,
+)
+
 if TYPE_CHECKING:
-    from aws_sdk_bedrock_agentcore._services.bedrock_agent_core import BedrockAgentCoreClient, BedrockAgentCoreClientConfig
-    from aws_sdk_bedrock_agentcore._services.async_bedrock_agent_core import AsyncBedrockAgentCoreClient, AsyncBedrockAgentCoreClientConfig
     import aws_sdk_bedrock_agentcore.types.body
     import aws_sdk_bedrock_agentcore.types.client_token
     import aws_sdk_bedrock_agentcore.types.get_agent_card_request
@@ -26,11 +30,30 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.stop_runtime_session_request
     import aws_sdk_bedrock_agentcore.types.stop_runtime_session_response
     import aws_sdk_bedrock_agentcore.types.string_type
+    from aws_sdk_bedrock_agentcore._services.async_bedrock_agent_core import (
+        AsyncBedrockAgentCoreClient,
+        AsyncBedrockAgentCoreClientConfig,
+    )
+    from aws_sdk_bedrock_agentcore._services.bedrock_agent_core import (
+        BedrockAgentCoreClient,
+        BedrockAgentCoreClientConfig,
+    )
+
 
 class AgenticResource:
     def __init__(self, service: BedrockAgentCoreClient) -> None:
         self._service = service
-    def get_agent_card(self, agent_runtime_arn: str, *, config_overrides: Optional[BedrockAgentCoreClientConfig] = None, runtime_session_id: Optional["aws_sdk_bedrock_agentcore.types.session_type.SessionType"] = None, qualifier: Optional[str] = None) -> "aws_sdk_bedrock_agentcore.types.get_agent_card_response.GetAgentCardResponse":
+
+    def get_agent_card(
+        self,
+        agent_runtime_arn: str,
+        *,
+        config_overrides: Optional[BedrockAgentCoreClientConfig] = None,
+        runtime_session_id: Optional[
+            "aws_sdk_bedrock_agentcore.types.session_type.SessionType"
+        ] = None,
+        qualifier: Optional[str] = None,
+    ) -> "aws_sdk_bedrock_agentcore.types.get_agent_card_response.GetAgentCardResponse":
         """<p>Retrieves the A2A agent card associated with an AgentCore Runtime agent.</p>
 
         Args:
@@ -38,9 +61,19 @@ class AgenticResource:
             agent_runtime_arn: <p>The ARN of the AgentCore Runtime agent for which you want to get the A2A agent card.</p>
             qualifier: <p>Optional qualifier to specify an agent alias, such as <code>prod</code>code&gt; or <code>dev</code>. If you don't provide a value, the DEFAULT alias is used. </p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_bedrock_agentcore.types.get_agent_card_request.GetAgentCardRequest]') -> OperationResponse["aws_sdk_bedrock_agentcore.types.get_agent_card_response.GetAgentCardResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_bedrock_agentcore.types.get_agent_card_request.GetAgentCardRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_bedrock_agentcore.types.get_agent_card_response.GetAgentCardResponse"
+        ]:
             import aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.get_agent_card
-            output, http_response = aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.get_agent_card.get_agent_card(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.get_agent_card.get_agent_card(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -51,11 +84,44 @@ class AgenticResource:
         if qualifier is not None:
             input_["qualifier"] = qualifier
 
-        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
+
     @contextmanager
-    def invoke_agent_runtime(self, agent_runtime_arn: str, payload: "aws_sdk_bedrock_agentcore.types.body.Body", *, config_overrides: Optional[BedrockAgentCoreClientConfig] = None, content_type: Optional["aws_sdk_bedrock_agentcore.types.mime_type.MimeType"] = None, accept: Optional["aws_sdk_bedrock_agentcore.types.mime_type.MimeType"] = None, mcp_session_id: Optional["aws_sdk_bedrock_agentcore.types.string_type.StringType"] = None, runtime_session_id: Optional["aws_sdk_bedrock_agentcore.types.session_type.SessionType"] = None, mcp_protocol_version: Optional["aws_sdk_bedrock_agentcore.types.string_type.StringType"] = None, runtime_user_id: Optional["aws_sdk_bedrock_agentcore.types.string_type.StringType"] = None, trace_id: Optional[str] = None, trace_parent: Optional[str] = None, trace_state: Optional[str] = None, baggage: Optional[str] = None, qualifier: Optional[str] = None, account_id: Optional[str] = None) -> "Generator[aws_sdk_bedrock_agentcore.types.invoke_agent_runtime_response.InvokeAgentRuntimeResponse]":
-        """<p>Sends a request to an agent or tool hosted in an Amazon Bedrock AgentCore Runtime and receives responses in real-time. </p> <p>To invoke an agent, you can specify either the AgentCore Runtime ARN or the agent ID with an account ID, and provide a payload containing your request. When you use the agent ID instead of the full ARN, you don't need to URL-encode the identifier. You can optionally specify a qualifier to target a specific endpoint of the agent.</p> <p>This operation supports streaming responses, allowing you to receive partial responses as they become available. We recommend using pagination to ensure that the operation returns quickly and successfully when processing large responses.</p> <p>For example code, see <a href=\"https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-invoke-agent.html\">Invoke an AgentCore Runtime agent</a>. </p> <p>If you're integrating your agent with OAuth, you can't use the Amazon Web Services SDK to call <code>InvokeAgentRuntime</code>. Instead, make a HTTPS request to <code>InvokeAgentRuntime</code>. For an example, see <a href=\"https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-oauth.html\">Authenticate and authorize with Inbound Auth and Outbound Auth</a>.</p> <p>To use this operation, you must have the <code>bedrock-agentcore:InvokeAgentRuntime</code> permission. If you are making a call to <code>InvokeAgentRuntime</code> on behalf of a user ID with the <code>X-Amzn-Bedrock-AgentCore-Runtime-User-Id</code> header, You require permissions to both actions (<code>bedrock-agentcore:InvokeAgentRuntime</code> and <code>bedrock-agentcore:InvokeAgentRuntimeForUser</code>). </p>
+    def invoke_agent_runtime(
+        self,
+        agent_runtime_arn: str,
+        payload: "aws_sdk_bedrock_agentcore.types.body.Body",
+        *,
+        config_overrides: Optional[BedrockAgentCoreClientConfig] = None,
+        content_type: Optional[
+            "aws_sdk_bedrock_agentcore.types.mime_type.MimeType"
+        ] = None,
+        accept: Optional["aws_sdk_bedrock_agentcore.types.mime_type.MimeType"] = None,
+        mcp_session_id: Optional[
+            "aws_sdk_bedrock_agentcore.types.string_type.StringType"
+        ] = None,
+        runtime_session_id: Optional[
+            "aws_sdk_bedrock_agentcore.types.session_type.SessionType"
+        ] = None,
+        mcp_protocol_version: Optional[
+            "aws_sdk_bedrock_agentcore.types.string_type.StringType"
+        ] = None,
+        runtime_user_id: Optional[
+            "aws_sdk_bedrock_agentcore.types.string_type.StringType"
+        ] = None,
+        trace_id: Optional[str] = None,
+        trace_parent: Optional[str] = None,
+        trace_state: Optional[str] = None,
+        baggage: Optional[str] = None,
+        qualifier: Optional[str] = None,
+        account_id: Optional[str] = None,
+    ) -> "Generator[aws_sdk_bedrock_agentcore.types.invoke_agent_runtime_response.InvokeAgentRuntimeResponse]":
+        r"""<p>Sends a request to an agent or tool hosted in an Amazon Bedrock AgentCore Runtime and receives responses in real-time. </p> <p>To invoke an agent, you can specify either the AgentCore Runtime ARN or the agent ID with an account ID, and provide a payload containing your request. When you use the agent ID instead of the full ARN, you don't need to URL-encode the identifier. You can optionally specify a qualifier to target a specific endpoint of the agent.</p> <p>This operation supports streaming responses, allowing you to receive partial responses as they become available. We recommend using pagination to ensure that the operation returns quickly and successfully when processing large responses.</p> <p>For example code, see <a href=\"https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-invoke-agent.html\">Invoke an AgentCore Runtime agent</a>. </p> <p>If you're integrating your agent with OAuth, you can't use the Amazon Web Services SDK to call <code>InvokeAgentRuntime</code>. Instead, make a HTTPS request to <code>InvokeAgentRuntime</code>. For an example, see <a href=\"https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-oauth.html\">Authenticate and authorize with Inbound Auth and Outbound Auth</a>.</p> <p>To use this operation, you must have the <code>bedrock-agentcore:InvokeAgentRuntime</code> permission. If you are making a call to <code>InvokeAgentRuntime</code> on behalf of a user ID with the <code>X-Amzn-Bedrock-AgentCore-Runtime-User-Id</code> header, You require permissions to both actions (<code>bedrock-agentcore:InvokeAgentRuntime</code> and <code>bedrock-agentcore:InvokeAgentRuntimeForUser</code>). </p>
 
         Args:
             content_type: <p>The MIME type of the input data in the payload. This tells the agent runtime how to interpret the payload data. Common values include application/json for JSON data.</p>
@@ -73,9 +139,19 @@ class AgenticResource:
             account_id: <p>The identifier of the Amazon Web Services account for the agent runtime resource. This parameter is required when you specify an agent ID instead of the full ARN for <code>agentRuntimeArn</code>.</p>
             payload: <p>The input data to send to the agent runtime. The format of this data depends on the specific agent configuration and must match the specified content type. For most agents, this is a JSON object containing the user's request.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_bedrock_agentcore.types.invoke_agent_runtime_request.InvokeAgentRuntimeRequest]') -> OperationResponse["aws_sdk_bedrock_agentcore.types.invoke_agent_runtime_response.InvokeAgentRuntimeResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_bedrock_agentcore.types.invoke_agent_runtime_request.InvokeAgentRuntimeRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_bedrock_agentcore.types.invoke_agent_runtime_response.InvokeAgentRuntimeResponse"
+        ]:
             import aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.invoke_agent_runtime
-            output, http_response = aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.invoke_agent_runtime.invoke_agent_runtime(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.invoke_agent_runtime.invoke_agent_runtime(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -107,9 +183,33 @@ class AgenticResource:
             input_["account_id"] = account_id
         input_["payload"] = payload
 
-        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         yield response.output
-    def invoke_agent_runtime_command(self, agent_runtime_arn: str, body: "aws_sdk_bedrock_agentcore.types.invoke_agent_runtime_command_request_body.InvokeAgentRuntimeCommandRequestBody", *, config_overrides: Optional[BedrockAgentCoreClientConfig] = None, content_type: Optional["aws_sdk_bedrock_agentcore.types.mime_type.MimeType"] = None, accept: Optional["aws_sdk_bedrock_agentcore.types.mime_type.MimeType"] = None, runtime_session_id: Optional["aws_sdk_bedrock_agentcore.types.session_type.SessionType"] = None, trace_id: Optional[str] = None, trace_parent: Optional[str] = None, trace_state: Optional[str] = None, baggage: Optional[str] = None, qualifier: Optional[str] = None, account_id: Optional[str] = None) -> "aws_sdk_bedrock_agentcore.types.invoke_agent_runtime_command_response.InvokeAgentRuntimeCommandResponse":
+
+    def invoke_agent_runtime_command(
+        self,
+        agent_runtime_arn: str,
+        body: "aws_sdk_bedrock_agentcore.types.invoke_agent_runtime_command_request_body.InvokeAgentRuntimeCommandRequestBody",
+        *,
+        config_overrides: Optional[BedrockAgentCoreClientConfig] = None,
+        content_type: Optional[
+            "aws_sdk_bedrock_agentcore.types.mime_type.MimeType"
+        ] = None,
+        accept: Optional["aws_sdk_bedrock_agentcore.types.mime_type.MimeType"] = None,
+        runtime_session_id: Optional[
+            "aws_sdk_bedrock_agentcore.types.session_type.SessionType"
+        ] = None,
+        trace_id: Optional[str] = None,
+        trace_parent: Optional[str] = None,
+        trace_state: Optional[str] = None,
+        baggage: Optional[str] = None,
+        qualifier: Optional[str] = None,
+        account_id: Optional[str] = None,
+    ) -> "aws_sdk_bedrock_agentcore.types.invoke_agent_runtime_command_response.InvokeAgentRuntimeCommandResponse":
         """<p>Executes a command in a runtime session container and streams the output back to the caller. This operation allows you to run shell commands within the agent runtime environment and receive real-time streaming responses including standard output and standard error.</p> <p>To invoke a command, you must specify the agent runtime ARN and a runtime session ID. The command execution supports streaming responses, allowing you to receive output as it becomes available through <code>contentStart</code>, <code>contentDelta</code>, and <code>contentStop</code> events.</p> <p>To use this operation, you must have the <code>bedrock-agentcore:InvokeAgentRuntimeCommand</code> permission.</p>
 
         Args:
@@ -125,9 +225,19 @@ class AgenticResource:
             account_id: <p>The identifier of the Amazon Web Services account for the agent runtime resource. This parameter is required when you specify an agent ID instead of the full ARN for <code>agentRuntimeArn</code>.</p>
             body: <p>The request body containing the command to execute and optional configuration parameters such as timeout settings.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_bedrock_agentcore.types.invoke_agent_runtime_command_request.InvokeAgentRuntimeCommandRequest]') -> OperationResponse["aws_sdk_bedrock_agentcore.types.invoke_agent_runtime_command_response.InvokeAgentRuntimeCommandResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_bedrock_agentcore.types.invoke_agent_runtime_command_request.InvokeAgentRuntimeCommandRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_bedrock_agentcore.types.invoke_agent_runtime_command_response.InvokeAgentRuntimeCommandResponse"
+        ]:
             import aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.invoke_agent_runtime_command
-            output, http_response = aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.invoke_agent_runtime_command.invoke_agent_runtime_command(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.invoke_agent_runtime_command.invoke_agent_runtime_command(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -153,9 +263,24 @@ class AgenticResource:
             input_["account_id"] = account_id
         input_["body"] = body
 
-        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def stop_runtime_session(self, runtime_session_id: "aws_sdk_bedrock_agentcore.types.session_type.SessionType", agent_runtime_arn: str, *, config_overrides: Optional[BedrockAgentCoreClientConfig] = None, qualifier: Optional[str] = None, client_token: Optional["aws_sdk_bedrock_agentcore.types.client_token.ClientToken"] = None) -> "aws_sdk_bedrock_agentcore.types.stop_runtime_session_response.StopRuntimeSessionResponse":
+
+    def stop_runtime_session(
+        self,
+        runtime_session_id: "aws_sdk_bedrock_agentcore.types.session_type.SessionType",
+        agent_runtime_arn: str,
+        *,
+        config_overrides: Optional[BedrockAgentCoreClientConfig] = None,
+        qualifier: Optional[str] = None,
+        client_token: Optional[
+            "aws_sdk_bedrock_agentcore.types.client_token.ClientToken"
+        ] = None,
+    ) -> "aws_sdk_bedrock_agentcore.types.stop_runtime_session_response.StopRuntimeSessionResponse":
         """<p>Stops a session that is running in an running AgentCore Runtime agent.</p>
 
         Args:
@@ -164,9 +289,19 @@ class AgenticResource:
             qualifier: <p>Optional qualifier to specify an agent alias, such as <code>prod</code>code&gt; or <code>dev</code>. If you don't provide a value, the DEFAULT alias is used. </p>
             client_token: <p>Idempotent token used to identify the request. If you use the same token with multiple requests, the same response is returned. Use ClientToken to prevent the same request from being processed more than once.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_bedrock_agentcore.types.stop_runtime_session_request.StopRuntimeSessionRequest]') -> OperationResponse["aws_sdk_bedrock_agentcore.types.stop_runtime_session_response.StopRuntimeSessionResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_bedrock_agentcore.types.stop_runtime_session_request.StopRuntimeSessionRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_bedrock_agentcore.types.stop_runtime_session_response.StopRuntimeSessionResponse"
+        ]:
             import aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.stop_runtime_session
-            output, http_response = aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.stop_runtime_session.stop_runtime_session(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.stop_runtime_session.stop_runtime_session(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -178,13 +313,28 @@ class AgenticResource:
         if client_token is not None:
             input_["client_token"] = client_token
 
-        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
+
 
 class AsyncAgenticResource:
     def __init__(self, service: AsyncBedrockAgentCoreClient) -> None:
         self._service = service
-    async def get_agent_card(self, agent_runtime_arn: str, *, config_overrides: Optional[AsyncBedrockAgentCoreClientConfig] = None, runtime_session_id: Optional["aws_sdk_bedrock_agentcore.types.session_type.SessionType"] = None, qualifier: Optional[str] = None) -> "aws_sdk_bedrock_agentcore.types.get_agent_card_response.GetAgentCardResponse":
+
+    async def get_agent_card(
+        self,
+        agent_runtime_arn: str,
+        *,
+        config_overrides: Optional[AsyncBedrockAgentCoreClientConfig] = None,
+        runtime_session_id: Optional[
+            "aws_sdk_bedrock_agentcore.types.session_type.SessionType"
+        ] = None,
+        qualifier: Optional[str] = None,
+    ) -> "aws_sdk_bedrock_agentcore.types.get_agent_card_response.GetAgentCardResponse":
         """<p>Retrieves the A2A agent card associated with an AgentCore Runtime agent.</p>
 
         Args:
@@ -192,9 +342,20 @@ class AsyncAgenticResource:
             agent_runtime_arn: <p>The ARN of the AgentCore Runtime agent for which you want to get the A2A agent card.</p>
             qualifier: <p>Optional qualifier to specify an agent alias, such as <code>prod</code>code&gt; or <code>dev</code>. If you don't provide a value, the DEFAULT alias is used. </p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_bedrock_agentcore.types.get_agent_card_request.GetAgentCardRequest]') -> AsyncOperationResponse["aws_sdk_bedrock_agentcore.types.get_agent_card_response.GetAgentCardResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_bedrock_agentcore.types.get_agent_card_request.GetAgentCardRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_bedrock_agentcore.types.get_agent_card_response.GetAgentCardResponse"
+        ]:
             import aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.get_agent_card
-            output, http_response = await aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.get_agent_card.async_get_agent_card(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.get_agent_card.async_get_agent_card(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -205,11 +366,44 @@ class AsyncAgenticResource:
         if qualifier is not None:
             input_["qualifier"] = qualifier
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
+
     @asynccontextmanager
-    async def invoke_agent_runtime(self, agent_runtime_arn: str, payload: "aws_sdk_bedrock_agentcore.types.body.Body", *, config_overrides: Optional[AsyncBedrockAgentCoreClientConfig] = None, content_type: Optional["aws_sdk_bedrock_agentcore.types.mime_type.MimeType"] = None, accept: Optional["aws_sdk_bedrock_agentcore.types.mime_type.MimeType"] = None, mcp_session_id: Optional["aws_sdk_bedrock_agentcore.types.string_type.StringType"] = None, runtime_session_id: Optional["aws_sdk_bedrock_agentcore.types.session_type.SessionType"] = None, mcp_protocol_version: Optional["aws_sdk_bedrock_agentcore.types.string_type.StringType"] = None, runtime_user_id: Optional["aws_sdk_bedrock_agentcore.types.string_type.StringType"] = None, trace_id: Optional[str] = None, trace_parent: Optional[str] = None, trace_state: Optional[str] = None, baggage: Optional[str] = None, qualifier: Optional[str] = None, account_id: Optional[str] = None) -> "AsyncGenerator[aws_sdk_bedrock_agentcore.types.invoke_agent_runtime_response.InvokeAgentRuntimeResponse]":
-        """<p>Sends a request to an agent or tool hosted in an Amazon Bedrock AgentCore Runtime and receives responses in real-time. </p> <p>To invoke an agent, you can specify either the AgentCore Runtime ARN or the agent ID with an account ID, and provide a payload containing your request. When you use the agent ID instead of the full ARN, you don't need to URL-encode the identifier. You can optionally specify a qualifier to target a specific endpoint of the agent.</p> <p>This operation supports streaming responses, allowing you to receive partial responses as they become available. We recommend using pagination to ensure that the operation returns quickly and successfully when processing large responses.</p> <p>For example code, see <a href=\"https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-invoke-agent.html\">Invoke an AgentCore Runtime agent</a>. </p> <p>If you're integrating your agent with OAuth, you can't use the Amazon Web Services SDK to call <code>InvokeAgentRuntime</code>. Instead, make a HTTPS request to <code>InvokeAgentRuntime</code>. For an example, see <a href=\"https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-oauth.html\">Authenticate and authorize with Inbound Auth and Outbound Auth</a>.</p> <p>To use this operation, you must have the <code>bedrock-agentcore:InvokeAgentRuntime</code> permission. If you are making a call to <code>InvokeAgentRuntime</code> on behalf of a user ID with the <code>X-Amzn-Bedrock-AgentCore-Runtime-User-Id</code> header, You require permissions to both actions (<code>bedrock-agentcore:InvokeAgentRuntime</code> and <code>bedrock-agentcore:InvokeAgentRuntimeForUser</code>). </p>
+    async def invoke_agent_runtime(
+        self,
+        agent_runtime_arn: str,
+        payload: "aws_sdk_bedrock_agentcore.types.body.Body",
+        *,
+        config_overrides: Optional[AsyncBedrockAgentCoreClientConfig] = None,
+        content_type: Optional[
+            "aws_sdk_bedrock_agentcore.types.mime_type.MimeType"
+        ] = None,
+        accept: Optional["aws_sdk_bedrock_agentcore.types.mime_type.MimeType"] = None,
+        mcp_session_id: Optional[
+            "aws_sdk_bedrock_agentcore.types.string_type.StringType"
+        ] = None,
+        runtime_session_id: Optional[
+            "aws_sdk_bedrock_agentcore.types.session_type.SessionType"
+        ] = None,
+        mcp_protocol_version: Optional[
+            "aws_sdk_bedrock_agentcore.types.string_type.StringType"
+        ] = None,
+        runtime_user_id: Optional[
+            "aws_sdk_bedrock_agentcore.types.string_type.StringType"
+        ] = None,
+        trace_id: Optional[str] = None,
+        trace_parent: Optional[str] = None,
+        trace_state: Optional[str] = None,
+        baggage: Optional[str] = None,
+        qualifier: Optional[str] = None,
+        account_id: Optional[str] = None,
+    ) -> "AsyncGenerator[aws_sdk_bedrock_agentcore.types.invoke_agent_runtime_response.InvokeAgentRuntimeResponse]":
+        r"""<p>Sends a request to an agent or tool hosted in an Amazon Bedrock AgentCore Runtime and receives responses in real-time. </p> <p>To invoke an agent, you can specify either the AgentCore Runtime ARN or the agent ID with an account ID, and provide a payload containing your request. When you use the agent ID instead of the full ARN, you don't need to URL-encode the identifier. You can optionally specify a qualifier to target a specific endpoint of the agent.</p> <p>This operation supports streaming responses, allowing you to receive partial responses as they become available. We recommend using pagination to ensure that the operation returns quickly and successfully when processing large responses.</p> <p>For example code, see <a href=\"https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-invoke-agent.html\">Invoke an AgentCore Runtime agent</a>. </p> <p>If you're integrating your agent with OAuth, you can't use the Amazon Web Services SDK to call <code>InvokeAgentRuntime</code>. Instead, make a HTTPS request to <code>InvokeAgentRuntime</code>. For an example, see <a href=\"https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-oauth.html\">Authenticate and authorize with Inbound Auth and Outbound Auth</a>.</p> <p>To use this operation, you must have the <code>bedrock-agentcore:InvokeAgentRuntime</code> permission. If you are making a call to <code>InvokeAgentRuntime</code> on behalf of a user ID with the <code>X-Amzn-Bedrock-AgentCore-Runtime-User-Id</code> header, You require permissions to both actions (<code>bedrock-agentcore:InvokeAgentRuntime</code> and <code>bedrock-agentcore:InvokeAgentRuntimeForUser</code>). </p>
 
         Args:
             content_type: <p>The MIME type of the input data in the payload. This tells the agent runtime how to interpret the payload data. Common values include application/json for JSON data.</p>
@@ -227,9 +421,20 @@ class AsyncAgenticResource:
             account_id: <p>The identifier of the Amazon Web Services account for the agent runtime resource. This parameter is required when you specify an agent ID instead of the full ARN for <code>agentRuntimeArn</code>.</p>
             payload: <p>The input data to send to the agent runtime. The format of this data depends on the specific agent configuration and must match the specified content type. For most agents, this is a JSON object containing the user's request.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_bedrock_agentcore.types.invoke_agent_runtime_request.InvokeAgentRuntimeRequest]') -> AsyncOperationResponse["aws_sdk_bedrock_agentcore.types.invoke_agent_runtime_response.InvokeAgentRuntimeResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_bedrock_agentcore.types.invoke_agent_runtime_request.InvokeAgentRuntimeRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_bedrock_agentcore.types.invoke_agent_runtime_response.InvokeAgentRuntimeResponse"
+        ]:
             import aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.invoke_agent_runtime
-            output, http_response = await aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.invoke_agent_runtime.async_invoke_agent_runtime(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.invoke_agent_runtime.async_invoke_agent_runtime(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -261,9 +466,33 @@ class AsyncAgenticResource:
             input_["account_id"] = account_id
         input_["payload"] = payload
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         yield response.output
-    async def invoke_agent_runtime_command(self, agent_runtime_arn: str, body: "aws_sdk_bedrock_agentcore.types.invoke_agent_runtime_command_request_body.InvokeAgentRuntimeCommandRequestBody", *, config_overrides: Optional[AsyncBedrockAgentCoreClientConfig] = None, content_type: Optional["aws_sdk_bedrock_agentcore.types.mime_type.MimeType"] = None, accept: Optional["aws_sdk_bedrock_agentcore.types.mime_type.MimeType"] = None, runtime_session_id: Optional["aws_sdk_bedrock_agentcore.types.session_type.SessionType"] = None, trace_id: Optional[str] = None, trace_parent: Optional[str] = None, trace_state: Optional[str] = None, baggage: Optional[str] = None, qualifier: Optional[str] = None, account_id: Optional[str] = None) -> "aws_sdk_bedrock_agentcore.types.invoke_agent_runtime_command_response.InvokeAgentRuntimeCommandResponse":
+
+    async def invoke_agent_runtime_command(
+        self,
+        agent_runtime_arn: str,
+        body: "aws_sdk_bedrock_agentcore.types.invoke_agent_runtime_command_request_body.InvokeAgentRuntimeCommandRequestBody",
+        *,
+        config_overrides: Optional[AsyncBedrockAgentCoreClientConfig] = None,
+        content_type: Optional[
+            "aws_sdk_bedrock_agentcore.types.mime_type.MimeType"
+        ] = None,
+        accept: Optional["aws_sdk_bedrock_agentcore.types.mime_type.MimeType"] = None,
+        runtime_session_id: Optional[
+            "aws_sdk_bedrock_agentcore.types.session_type.SessionType"
+        ] = None,
+        trace_id: Optional[str] = None,
+        trace_parent: Optional[str] = None,
+        trace_state: Optional[str] = None,
+        baggage: Optional[str] = None,
+        qualifier: Optional[str] = None,
+        account_id: Optional[str] = None,
+    ) -> "aws_sdk_bedrock_agentcore.types.invoke_agent_runtime_command_response.InvokeAgentRuntimeCommandResponse":
         """<p>Executes a command in a runtime session container and streams the output back to the caller. This operation allows you to run shell commands within the agent runtime environment and receive real-time streaming responses including standard output and standard error.</p> <p>To invoke a command, you must specify the agent runtime ARN and a runtime session ID. The command execution supports streaming responses, allowing you to receive output as it becomes available through <code>contentStart</code>, <code>contentDelta</code>, and <code>contentStop</code> events.</p> <p>To use this operation, you must have the <code>bedrock-agentcore:InvokeAgentRuntimeCommand</code> permission.</p>
 
         Args:
@@ -279,9 +508,20 @@ class AsyncAgenticResource:
             account_id: <p>The identifier of the Amazon Web Services account for the agent runtime resource. This parameter is required when you specify an agent ID instead of the full ARN for <code>agentRuntimeArn</code>.</p>
             body: <p>The request body containing the command to execute and optional configuration parameters such as timeout settings.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_bedrock_agentcore.types.invoke_agent_runtime_command_request.InvokeAgentRuntimeCommandRequest]') -> AsyncOperationResponse["aws_sdk_bedrock_agentcore.types.invoke_agent_runtime_command_response.InvokeAgentRuntimeCommandResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_bedrock_agentcore.types.invoke_agent_runtime_command_request.InvokeAgentRuntimeCommandRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_bedrock_agentcore.types.invoke_agent_runtime_command_response.InvokeAgentRuntimeCommandResponse"
+        ]:
             import aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.invoke_agent_runtime_command
-            output, http_response = await aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.invoke_agent_runtime_command.async_invoke_agent_runtime_command(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.invoke_agent_runtime_command.async_invoke_agent_runtime_command(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -307,9 +547,24 @@ class AsyncAgenticResource:
             input_["account_id"] = account_id
         input_["body"] = body
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def stop_runtime_session(self, runtime_session_id: "aws_sdk_bedrock_agentcore.types.session_type.SessionType", agent_runtime_arn: str, *, config_overrides: Optional[AsyncBedrockAgentCoreClientConfig] = None, qualifier: Optional[str] = None, client_token: Optional["aws_sdk_bedrock_agentcore.types.client_token.ClientToken"] = None) -> "aws_sdk_bedrock_agentcore.types.stop_runtime_session_response.StopRuntimeSessionResponse":
+
+    async def stop_runtime_session(
+        self,
+        runtime_session_id: "aws_sdk_bedrock_agentcore.types.session_type.SessionType",
+        agent_runtime_arn: str,
+        *,
+        config_overrides: Optional[AsyncBedrockAgentCoreClientConfig] = None,
+        qualifier: Optional[str] = None,
+        client_token: Optional[
+            "aws_sdk_bedrock_agentcore.types.client_token.ClientToken"
+        ] = None,
+    ) -> "aws_sdk_bedrock_agentcore.types.stop_runtime_session_response.StopRuntimeSessionResponse":
         """<p>Stops a session that is running in an running AgentCore Runtime agent.</p>
 
         Args:
@@ -318,9 +573,20 @@ class AsyncAgenticResource:
             qualifier: <p>Optional qualifier to specify an agent alias, such as <code>prod</code>code&gt; or <code>dev</code>. If you don't provide a value, the DEFAULT alias is used. </p>
             client_token: <p>Idempotent token used to identify the request. If you use the same token with multiple requests, the same response is returned. Use ClientToken to prevent the same request from being processed more than once.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_bedrock_agentcore.types.stop_runtime_session_request.StopRuntimeSessionRequest]') -> AsyncOperationResponse["aws_sdk_bedrock_agentcore.types.stop_runtime_session_response.StopRuntimeSessionResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_bedrock_agentcore.types.stop_runtime_session_request.StopRuntimeSessionRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_bedrock_agentcore.types.stop_runtime_session_response.StopRuntimeSessionResponse"
+        ]:
             import aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.stop_runtime_session
-            output, http_response = await aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.stop_runtime_session.async_stop_runtime_session(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_bedrock_agentcore._operations.amazon_bedrock_agent_core.stop_runtime_session.async_stop_runtime_session(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -332,5 +598,9 @@ class AsyncAgenticResource:
         if client_token is not None:
             input_["client_token"] = client_token
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output

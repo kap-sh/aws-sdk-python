@@ -15,7 +15,7 @@ if TYPE_CHECKING:
 
 class ListAccountAssignmentDeletionStatusRequest(TypedDict):
     instance_arn: "aws_sdk_sso_admin.types.instance_arn.InstanceArn"
-    """<p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>"""
+    r"""<p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>"""
     max_results: NotRequired["aws_sdk_sso_admin.types.max_results.MaxResults"]
     """<p>The maximum number of results to display for the assignment.</p>"""
     next_token: NotRequired["aws_sdk_sso_admin.types.token.Token"]

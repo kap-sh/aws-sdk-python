@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_pca_connector_ad._auth._signers
@@ -48,7 +50,7 @@ class ServicePrincipalNameResource:
             "aws_sdk_pca_connector_ad.types.client_token.ClientToken"
         ] = None,
     ) -> None:
-        """<p>Creates a service principal name (SPN) for the service account in Active Directory. Kerberos authentication uses SPNs to associate a service instance with a service sign-in account.</p>
+        r"""<p>Creates a service principal name (SPN) for the service account in Active Directory. Kerberos authentication uses SPNs to associate a service instance with a service sign-in account.</p>
 
         Args:
             directory_registration_arn: <p>The Amazon Resource Name (ARN) that was returned when you called <a href=\"https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html\">CreateDirectoryRegistration</a>.</p>
@@ -89,7 +91,7 @@ class ServicePrincipalNameResource:
         *,
         config_overrides: Optional[PcaConnectorAdClientConfig] = None,
     ) -> "aws_sdk_pca_connector_ad.types.get_service_principal_name_response.GetServicePrincipalNameResponse":
-        """<p>Lists the service principal name that the connector uses to authenticate with Active Directory.</p>
+        r"""<p>Lists the service principal name that the connector uses to authenticate with Active Directory.</p>
 
         Args:
             directory_registration_arn: <p>The Amazon Resource Name (ARN) that was returned when you called <a href=\"https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html\">CreateDirectoryRegistration</a>.</p>
@@ -129,7 +131,7 @@ class ServicePrincipalNameResource:
         *,
         config_overrides: Optional[PcaConnectorAdClientConfig] = None,
     ) -> None:
-        """<p>Deletes the service principal name (SPN) used by a connector to authenticate with your Active Directory.</p>
+        r"""<p>Deletes the service principal name (SPN) used by a connector to authenticate with your Active Directory.</p>
 
         Args:
             directory_registration_arn: <p>The Amazon Resource Name (ARN) that was returned when you called <a href=\"https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html\">CreateDirectoryRegistration</a>.</p>
@@ -172,7 +174,7 @@ class ServicePrincipalNameResource:
             "aws_sdk_pca_connector_ad.types.next_token.NextToken"
         ] = None,
     ) -> "aws_sdk_pca_connector_ad.types.list_service_principal_names_response.ListServicePrincipalNamesResponse":
-        """<p>Lists the service principal names that the connector uses to authenticate with Active Directory.</p>
+        r"""<p>Lists the service principal names that the connector uses to authenticate with Active Directory.</p>
 
         Args:
             max_results: <p>Use this parameter when paginating results to specify the maximum number of items to return in the response on each page. If additional items exist beyond the number you specify, the <code>NextToken</code> element is sent in the response. Use this <code>NextToken</code> value in a subsequent request to retrieve additional items.</p>
@@ -224,7 +226,7 @@ class AsyncServicePrincipalNameResource:
             "aws_sdk_pca_connector_ad.types.client_token.ClientToken"
         ] = None,
     ) -> None:
-        """<p>Creates a service principal name (SPN) for the service account in Active Directory. Kerberos authentication uses SPNs to associate a service instance with a service sign-in account.</p>
+        r"""<p>Creates a service principal name (SPN) for the service account in Active Directory. Kerberos authentication uses SPNs to associate a service instance with a service sign-in account.</p>
 
         Args:
             directory_registration_arn: <p>The Amazon Resource Name (ARN) that was returned when you called <a href=\"https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html\">CreateDirectoryRegistration</a>.</p>
@@ -266,7 +268,7 @@ class AsyncServicePrincipalNameResource:
         *,
         config_overrides: Optional[AsyncPcaConnectorAdClientConfig] = None,
     ) -> "aws_sdk_pca_connector_ad.types.get_service_principal_name_response.GetServicePrincipalNameResponse":
-        """<p>Lists the service principal name that the connector uses to authenticate with Active Directory.</p>
+        r"""<p>Lists the service principal name that the connector uses to authenticate with Active Directory.</p>
 
         Args:
             directory_registration_arn: <p>The Amazon Resource Name (ARN) that was returned when you called <a href=\"https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html\">CreateDirectoryRegistration</a>.</p>
@@ -307,7 +309,7 @@ class AsyncServicePrincipalNameResource:
         *,
         config_overrides: Optional[AsyncPcaConnectorAdClientConfig] = None,
     ) -> None:
-        """<p>Deletes the service principal name (SPN) used by a connector to authenticate with your Active Directory.</p>
+        r"""<p>Deletes the service principal name (SPN) used by a connector to authenticate with your Active Directory.</p>
 
         Args:
             directory_registration_arn: <p>The Amazon Resource Name (ARN) that was returned when you called <a href=\"https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html\">CreateDirectoryRegistration</a>.</p>
@@ -351,7 +353,7 @@ class AsyncServicePrincipalNameResource:
             "aws_sdk_pca_connector_ad.types.next_token.NextToken"
         ] = None,
     ) -> "aws_sdk_pca_connector_ad.types.list_service_principal_names_response.ListServicePrincipalNamesResponse":
-        """<p>Lists the service principal names that the connector uses to authenticate with Active Directory.</p>
+        r"""<p>Lists the service principal names that the connector uses to authenticate with Active Directory.</p>
 
         Args:
             max_results: <p>Use this parameter when paginating results to specify the maximum number of items to return in the response on each page. If additional items exist beyond the number you specify, the <code>NextToken</code> element is sent in the response. Use this <code>NextToken</code> value in a subsequent request to retrieve additional items.</p>

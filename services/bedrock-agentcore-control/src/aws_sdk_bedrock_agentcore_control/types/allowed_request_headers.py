@@ -1,10 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#AllowedRequestHeaders``."""
 
 from typing import TYPE_CHECKING, TypeAlias
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.http_header_name
 
-AllowedRequestHeaders: TypeAlias = list["aws_sdk_bedrock_agentcore_control.types.http_header_name.HttpHeaderName"]
+AllowedRequestHeaders: TypeAlias = list[
+    "aws_sdk_bedrock_agentcore_control.types.http_header_name.HttpHeaderName"
+]
 
 
 # --- restJson1 ser/de ---

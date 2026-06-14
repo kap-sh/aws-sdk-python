@@ -11,7 +11,7 @@ if TYPE_CHECKING:
 
 class DataResource(TypedDict):
     type: NotRequired["aws_sdk_cloudtrail.types.string.String"]
-    """<p>The resource type in which you want to log data events. You can specify the following <i>basic</i> event selector resource types:</p> <ul> <li> <p> <code>AWS::DynamoDB::Table</code> </p> </li> <li> <p> <code>AWS::Lambda::Function</code> </p> </li> <li> <p> <code>AWS::S3::Object</code> </p> </li> </ul> <p>Additional resource types are available through <i>advanced</i> event selectors. For more information, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedEventSelector.html\">AdvancedEventSelector</a>.</p>"""
+    r"""<p>The resource type in which you want to log data events. You can specify the following <i>basic</i> event selector resource types:</p> <ul> <li> <p> <code>AWS::DynamoDB::Table</code> </p> </li> <li> <p> <code>AWS::Lambda::Function</code> </p> </li> <li> <p> <code>AWS::S3::Object</code> </p> </li> </ul> <p>Additional resource types are available through <i>advanced</i> event selectors. For more information, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedEventSelector.html\">AdvancedEventSelector</a>.</p>"""
     values: NotRequired[
         "aws_sdk_cloudtrail.types.data_resource_values.DataResourceValues"
     ]

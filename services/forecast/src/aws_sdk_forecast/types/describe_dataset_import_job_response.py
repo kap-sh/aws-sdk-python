@@ -32,7 +32,7 @@ class DescribeDatasetImportJobResponse(TypedDict):
     timestamp_format: NotRequired[
         "aws_sdk_forecast.types.timestamp_format.TimestampFormat"
     ]
-    """<p>The format of timestamps in the dataset. The format that you specify depends on the <code>DataFrequency</code> specified when the dataset was created. The following formats are supported</p> <ul> <li> <p>\"yyyy-MM-dd\"</p> <p>For the following data frequencies: Y, M, W, and D</p> </li> <li> <p>\"yyyy-MM-dd HH:mm:ss\"</p> <p>For the following data frequencies: H, 30min, 15min, and 1min; and optionally, for: Y, M, W, and D</p> </li> </ul>"""
+    r"""<p>The format of timestamps in the dataset. The format that you specify depends on the <code>DataFrequency</code> specified when the dataset was created. The following formats are supported</p> <ul> <li> <p>\"yyyy-MM-dd\"</p> <p>For the following data frequencies: Y, M, W, and D</p> </li> <li> <p>\"yyyy-MM-dd HH:mm:ss\"</p> <p>For the following data frequencies: H, 30min, 15min, and 1min; and optionally, for: Y, M, W, and D</p> </li> </ul>"""
     time_zone: NotRequired["aws_sdk_forecast.types.time_zone.TimeZone"]
     """<p>The single time zone applied to every item in the dataset</p>"""
     use_geolocation_for_time_zone: (
@@ -42,7 +42,7 @@ class DescribeDatasetImportJobResponse(TypedDict):
     geolocation_format: NotRequired[
         "aws_sdk_forecast.types.geolocation_format.GeolocationFormat"
     ]
-    """<p>The format of the geolocation attribute. Valid Values:<code>\"LAT_LONG\"</code> and <code>\"CC_POSTALCODE\"</code>.</p>"""
+    r"""<p>The format of the geolocation attribute. Valid Values:<code>\"LAT_LONG\"</code> and <code>\"CC_POSTALCODE\"</code>.</p>"""
     data_source: NotRequired["aws_sdk_forecast.types.data_source.DataSource"]
     """<p>The location of the training data to import and an Identity and Access Management (IAM) role that Amazon Forecast can assume to access the data.</p> <p>If encryption is used, <code>DataSource</code> includes an Key Management Service (KMS) key.</p>"""
     estimated_time_remaining_in_minutes: NotRequired["aws_sdk_forecast.types.long.Long"]

@@ -1,9 +1,12 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#HarnessContentBlockStartEvent``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.harness_content_block_start
+
 
 class HarnessContentBlockStartEvent(TypedDict):
     content_block_index: "int"
@@ -11,12 +14,18 @@ class HarnessContentBlockStartEvent(TypedDict):
     start: "aws_sdk_bedrock_agentcore.types.harness_content_block_start.HarnessContentBlockStart"
     """<p>The content block start payload.</p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: HarnessContentBlockStartEvent) -> dict:
     out: dict = {}
     out["contentBlockIndex"] = value["content_block_index"]
     import aws_sdk_bedrock_agentcore.types.harness_content_block_start
-    out["start"] = aws_sdk_bedrock_agentcore.types.harness_content_block_start.serialize_json(value["start"])
+
+    out["start"] = (
+        aws_sdk_bedrock_agentcore.types.harness_content_block_start.serialize_json(
+            value["start"]
+        )
+    )
     return out
 
 
@@ -25,10 +34,17 @@ def deserialize_json(data: dict) -> HarnessContentBlockStartEvent:
     if "contentBlockIndex" in data:
         out["content_block_index"] = data["contentBlockIndex"]
     else:
-        raise DeserializationError("HarnessContentBlockStartEvent.content_block_index required")
+        raise DeserializationError(
+            "HarnessContentBlockStartEvent.content_block_index required"
+        )
     if "start" in data:
         import aws_sdk_bedrock_agentcore.types.harness_content_block_start
-        out["start"] = aws_sdk_bedrock_agentcore.types.harness_content_block_start.deserialize_json(data["start"])
+
+        out["start"] = (
+            aws_sdk_bedrock_agentcore.types.harness_content_block_start.deserialize_json(
+                data["start"]
+            )
+        )
     else:
         raise DeserializationError("HarnessContentBlockStartEvent.start required")
     return out

@@ -15,7 +15,7 @@ class VpcConfig(TypedDict):
     ]
     """<p>The VPC security group IDs, in the form <code>sg-xxxxxxxx</code>. Specify the security groups for the VPC that is specified in the <code>Subnets</code> field.</p>"""
     subnets: NotRequired["aws_sdk_sagemaker.types.subnets.Subnets"]
-    """<p>The ID of the subnets in the VPC to which you want to connect your training job or model. For information about the availability of specific instance types, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/instance-types-az.html\">Supported Instance Types and Availability Zones</a>.</p>"""
+    r"""<p>The ID of the subnets in the VPC to which you want to connect your training job or model. For information about the availability of specific instance types, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/instance-types-az.html\">Supported Instance Types and Availability Zones</a>.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

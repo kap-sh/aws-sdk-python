@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 from aws_sdk_backup_gateway._services._pipeline import (
@@ -59,11 +61,11 @@ class VirtualMachineResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_backup_gateway.types.get_virtual_machine_input.GetVirtualMachineInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_backup_gateway.types.get_virtual_machine_input.GetVirtualMachineInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -106,16 +108,16 @@ class VirtualMachineResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_backup_gateway.types.list_virtual_machines_input.ListVirtualMachinesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_backup_gateway.types.list_virtual_machines_input.ListVirtualMachinesInput = {}  # type: ignore[typeddict-item]
         if hypervisor_arn is not None:
-            input["hypervisor_arn"] = hypervisor_arn
+            input_["hypervisor_arn"] = hypervisor_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -154,11 +156,11 @@ class AsyncVirtualMachineResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_backup_gateway.types.get_virtual_machine_input.GetVirtualMachineInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_backup_gateway.types.get_virtual_machine_input.GetVirtualMachineInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -202,16 +204,16 @@ class AsyncVirtualMachineResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_backup_gateway.types.list_virtual_machines_input.ListVirtualMachinesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_backup_gateway.types.list_virtual_machines_input.ListVirtualMachinesInput = {}  # type: ignore[typeddict-item]
         if hypervisor_arn is not None:
-            input["hypervisor_arn"] = hypervisor_arn
+            input_["hypervisor_arn"] = hypervisor_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

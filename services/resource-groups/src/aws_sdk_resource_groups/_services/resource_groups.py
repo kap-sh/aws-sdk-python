@@ -258,7 +258,7 @@ class ResourceGroupsClient:
             "aws_sdk_resource_groups.types.display_name.DisplayName"
         ] = None,
     ) -> "aws_sdk_resource_groups.types.create_group_output.CreateGroupOutput":
-        """<p>Creates a resource group with the specified name and description. You can optionally include either a resource query or a service configuration. For more information about constructing a resource query, see <a href=\"https://docs.aws.amazon.com/ARG/latest/userguide/getting_started-query.html\">Build queries and groups in Resource Groups</a> in the <i>Resource Groups User Guide</i>. For more information about service-linked groups and service configurations, see <a href=\"https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html\">Service configurations for Resource Groups</a>.</p> <p> <b>Minimum permissions</b> </p> <p>To run this command, you must have the following permissions:</p> <ul> <li> <p> <code>resource-groups:CreateGroup</code> </p> </li> </ul>
+        r"""<p>Creates a resource group with the specified name and description. You can optionally include either a resource query or a service configuration. For more information about constructing a resource query, see <a href=\"https://docs.aws.amazon.com/ARG/latest/userguide/getting_started-query.html\">Build queries and groups in Resource Groups</a> in the <i>Resource Groups User Guide</i>. For more information about service-linked groups and service configurations, see <a href=\"https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html\">Service configurations for Resource Groups</a>.</p> <p> <b>Minimum permissions</b> </p> <p>To run this command, you must have the following permissions:</p> <ul> <li> <p> <code>resource-groups:CreateGroup</code> </p> </li> </ul>
 
         Args:
             name: <p>The name of the group, which is the identifier of the group in other operations. You can't change the name of a resource group after you create it. A resource group name can consist of letters, numbers, hyphens, periods, and underscores. The name cannot start with <code>AWS</code>, <code>aws</code>, or any other possible capitalization; these are reserved. A resource group name must be unique within each Amazon Web Services Region in your Amazon Web Services account.</p>
@@ -438,7 +438,7 @@ class ResourceGroupsClient:
             "aws_sdk_resource_groups.types.group_string.GroupString"
         ] = None,
     ) -> "aws_sdk_resource_groups.types.get_group_configuration_output.GetGroupConfigurationOutput":
-        """<p>Retrieves the service configuration associated with the specified resource group. For details about the service configuration syntax, see <a href=\"https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html\">Service configurations for Resource Groups</a>.</p> <p> <b>Minimum permissions</b> </p> <p>To run this command, you must have the following permissions:</p> <ul> <li> <p> <code>resource-groups:GetGroupConfiguration</code> </p> </li> </ul>
+        r"""<p>Retrieves the service configuration associated with the specified resource group. For details about the service configuration syntax, see <a href=\"https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html\">Service configurations for Resource Groups</a>.</p> <p> <b>Minimum permissions</b> </p> <p>To run this command, you must have the following permissions:</p> <ul> <li> <p> <code>resource-groups:GetGroupConfiguration</code> </p> </li> </ul>
 
         Args:
             group: <p>The name or the Amazon resource name (ARN) of the resource group for which you want to retrive the service configuration.</p>
@@ -481,7 +481,7 @@ class ResourceGroupsClient:
             "aws_sdk_resource_groups.types.group_string.GroupString"
         ] = None,
     ) -> "aws_sdk_resource_groups.types.get_group_query_output.GetGroupQueryOutput":
-        """<p>Retrieves the resource query associated with the specified resource group. For more information about resource queries, see <a href=\"https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#gettingstarted-query-cli-tag\">Create a tag-based group in Resource Groups</a>.</p> <p> <b>Minimum permissions</b> </p> <p>To run this command, you must have the following permissions:</p> <ul> <li> <p> <code>resource-groups:GetGroupQuery</code> </p> </li> </ul>
+        r"""<p>Retrieves the resource query associated with the specified resource group. For more information about resource queries, see <a href=\"https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#gettingstarted-query-cli-tag\">Create a tag-based group in Resource Groups</a>.</p> <p> <b>Minimum permissions</b> </p> <p>To run this command, you must have the following permissions:</p> <ul> <li> <p> <code>resource-groups:GetGroupQuery</code> </p> </li> </ul>
 
         Args:
             group_name: <p>Don't use this parameter. Use <code>Group</code> instead.</p>
@@ -992,7 +992,7 @@ class ResourceGroupsClient:
             "aws_sdk_resource_groups.types.group_configuration_list.GroupConfigurationList"
         ] = None,
     ) -> "aws_sdk_resource_groups.types.put_group_configuration_output.PutGroupConfigurationOutput":
-        """<p>Attaches a service configuration to the specified group. This occurs asynchronously, and can take time to complete. You can use <a>GetGroupConfiguration</a> to check the status of the update.</p> <p> <b>Minimum permissions</b> </p> <p>To run this command, you must have the following permissions:</p> <ul> <li> <p> <code>resource-groups:PutGroupConfiguration</code> </p> </li> </ul>
+        r"""<p>Attaches a service configuration to the specified group. This occurs asynchronously, and can take time to complete. You can use <a>GetGroupConfiguration</a> to check the status of the update.</p> <p> <b>Minimum permissions</b> </p> <p>To run this command, you must have the following permissions:</p> <ul> <li> <p> <code>resource-groups:PutGroupConfiguration</code> </p> </li> </ul>
 
         Args:
             group: <p>The name or Amazon resource name (ARN) of the resource group with the configuration that you want to update.</p>
@@ -1117,7 +1117,7 @@ class ResourceGroupsClient:
             "aws_sdk_resource_groups.types.resource_query.ResourceQuery"
         ] = None,
     ) -> "aws_sdk_resource_groups.types.start_tag_sync_task_output.StartTagSyncTaskOutput":
-        """<p>Creates a new tag-sync task to onboard and sync resources tagged with a specific tag key-value pair to an application. To start a tag-sync task, you need a <a href=\"https://docs.aws.amazon.com/servicecatalog/latest/arguide/app-tag-sync.html#tag-sync-role\">resource tagging role</a>. The resource tagging role grants permissions to tag and untag applications resources and must include a trust policy that allows Resource Groups to assume the role and perform resource tagging tasks on your behalf. </p> <p>For instructions on creating a tag-sync task, see <a href=\"https://docs.aws.amazon.com/servicecatalog/latest/arguide/app-tag-sync.html#create-tag-sync\">Create a tag-sync using the Resource Groups API</a> in the <i>Amazon Web Services Service Catalog AppRegistry Administrator Guide</i>. </p> <p> <b>Minimum permissions</b> </p> <p>To run this command, you must have the following permissions:</p> <ul> <li> <p> <code>resource-groups:StartTagSyncTask</code> on the application group</p> </li> <li> <p> <code>resource-groups:CreateGroup</code> </p> </li> <li> <p> <code>iam:PassRole</code> on the role provided in the request </p> </li> </ul>
+        r"""<p>Creates a new tag-sync task to onboard and sync resources tagged with a specific tag key-value pair to an application. To start a tag-sync task, you need a <a href=\"https://docs.aws.amazon.com/servicecatalog/latest/arguide/app-tag-sync.html#tag-sync-role\">resource tagging role</a>. The resource tagging role grants permissions to tag and untag applications resources and must include a trust policy that allows Resource Groups to assume the role and perform resource tagging tasks on your behalf. </p> <p>For instructions on creating a tag-sync task, see <a href=\"https://docs.aws.amazon.com/servicecatalog/latest/arguide/app-tag-sync.html#create-tag-sync\">Create a tag-sync using the Resource Groups API</a> in the <i>Amazon Web Services Service Catalog AppRegistry Administrator Guide</i>. </p> <p> <b>Minimum permissions</b> </p> <p>To run this command, you must have the following permissions:</p> <ul> <li> <p> <code>resource-groups:StartTagSyncTask</code> on the application group</p> </li> <li> <p> <code>resource-groups:CreateGroup</code> </p> </li> <li> <p> <code>iam:PassRole</code> on the role provided in the request </p> </li> </ul>
 
         Args:
             group: <p>The Amazon resource name (ARN) or name of the application group for which you want to create a tag-sync task. </p>
@@ -1285,7 +1285,7 @@ class ResourceGroupsClient:
             "aws_sdk_resource_groups.types.group_lifecycle_events_desired_status.GroupLifecycleEventsDesiredStatus"
         ] = None,
     ) -> "aws_sdk_resource_groups.types.update_account_settings_output.UpdateAccountSettingsOutput":
-        """<p>Turns on or turns off optional features in Resource Groups.</p> <p>The preceding example shows that the request to turn on group lifecycle events is <code>IN_PROGRESS</code>. You can call the <a>GetAccountSettings</a> operation to check for completion by looking for <code>GroupLifecycleEventsStatus</code> to change to <code>ACTIVE</code>.</p>
+        r"""<p>Turns on or turns off optional features in Resource Groups.</p> <p>The preceding example shows that the request to turn on group lifecycle events is <code>IN_PROGRESS</code>. You can call the <a>GetAccountSettings</a> operation to check for completion by looking for <code>GroupLifecycleEventsStatus</code> to change to <code>ACTIVE</code>.</p>
 
         Args:
             group_lifecycle_events_desired_status: <p>Specifies whether you want to turn <a href=\"https://docs.aws.amazon.com/ARG/latest/userguide/monitor-groups.html\">group lifecycle events</a> on or off.</p> <p>You can't turn on group lifecycle events if your resource groups quota is greater than 2,000. </p>
@@ -1401,7 +1401,7 @@ class ResourceGroupsClient:
     ) -> (
         "aws_sdk_resource_groups.types.update_group_query_output.UpdateGroupQueryOutput"
     ):
-        """<p>Updates the resource query of a group. For more information about resource queries, see <a href=\"https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#gettingstarted-query-cli-tag\">Create a tag-based group in Resource Groups</a>.</p> <p> <b>Minimum permissions</b> </p> <p>To run this command, you must have the following permissions:</p> <ul> <li> <p> <code>resource-groups:UpdateGroupQuery</code> </p> </li> </ul>
+        r"""<p>Updates the resource query of a group. For more information about resource queries, see <a href=\"https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#gettingstarted-query-cli-tag\">Create a tag-based group in Resource Groups</a>.</p> <p> <b>Minimum permissions</b> </p> <p>To run this command, you must have the following permissions:</p> <ul> <li> <p> <code>resource-groups:UpdateGroupQuery</code> </p> </li> </ul>
 
         Args:
             group_name: <p>Don't use this parameter. Use <code>Group</code> instead.</p>

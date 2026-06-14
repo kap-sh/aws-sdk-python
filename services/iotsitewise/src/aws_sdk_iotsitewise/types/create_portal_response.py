@@ -16,7 +16,7 @@ class CreatePortalResponse(TypedDict):
     portal_id: "aws_sdk_iotsitewise.types.id.ID"
     """<p>The ID of the created portal.</p>"""
     portal_arn: "aws_sdk_iotsitewise.types.arn.ARN"
-    """<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the portal, which has the following format.</p> <p> <code>arn:${Partition}:iotsitewise:${Region}:${Account}:portal/${PortalId}</code> </p>"""
+    r"""<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the portal, which has the following format.</p> <p> <code>arn:${Partition}:iotsitewise:${Region}:${Account}:portal/${PortalId}</code> </p>"""
     portal_start_url: "aws_sdk_iotsitewise.types.url.Url"
     """<p>The URL for the IoT SiteWise Monitor portal. You can use this URL to access portals that use IAM Identity Center for authentication. For portals that use IAM for authentication, you must use the IoT SiteWise console to get a URL that you can use to access the portal.</p>"""
     portal_status: "aws_sdk_iotsitewise.types.portal_status.PortalStatus"

@@ -18,7 +18,7 @@ class Account(TypedDict):
     ]
     """<p>Specifies the API request limits configured for the current Account.</p>"""
     features: NotRequired["aws_sdk_api_gateway.types.list_of_string.ListOfString"]
-    """<p>A list of features supported for the account. When usage plans are enabled, the features list will include an entry of <code>\"UsagePlans\"</code>.</p>"""
+    r"""<p>A list of features supported for the account. When usage plans are enabled, the features list will include an entry of <code>\"UsagePlans\"</code>.</p>"""
     api_key_version: NotRequired["aws_sdk_api_gateway.types.string.String"]
     """<p>The version of the API keys used for the account.</p>"""
 

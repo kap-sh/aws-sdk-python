@@ -608,7 +608,7 @@ class AsyncQBusinessClient:
             "aws_sdk_qbusiness.types.client_token.ClientToken"
         ] = None,
     ) -> "aws_sdk_qbusiness.types.chat_sync_output.ChatSyncOutput":
-        """<p>Starts or continues a non-streaming Amazon Q Business conversation.</p>
+        r"""<p>Starts or continues a non-streaming Amazon Q Business conversation.</p>
 
         Args:
             application_id: <p>The identifier of the Amazon Q Business application linked to the Amazon Q Business conversation.</p>
@@ -839,7 +839,7 @@ class AsyncQBusinessClient:
             "aws_sdk_qbusiness.types.client_token.ClientToken"
         ] = None,
     ) -> "aws_sdk_qbusiness.types.create_subscription_response.CreateSubscriptionResponse":
-        """<p>Subscribes an IAM Identity Center user or a group to a pricing tier for an Amazon Q Business application.</p> <p>Amazon Q Business offers two subscription tiers: <code>Q_LITE</code> and <code>Q_BUSINESS</code>. Subscription tier determines feature access for the user. For more information on subscriptions and pricing tiers, see <a href=\"https://aws.amazon.com/q/business/pricing/\">Amazon Q Business pricing</a>.</p> <note> <p>For an example IAM role policy for assigning subscriptions, see <a href=\"https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/setting-up.html#permissions\">Set up required permissions</a> in the Amazon Q Business User Guide.</p> </note>
+        r"""<p>Subscribes an IAM Identity Center user or a group to a pricing tier for an Amazon Q Business application.</p> <p>Amazon Q Business offers two subscription tiers: <code>Q_LITE</code> and <code>Q_BUSINESS</code>. Subscription tier determines feature access for the user. For more information on subscriptions and pricing tiers, see <a href=\"https://aws.amazon.com/q/business/pricing/\">Amazon Q Business pricing</a>.</p> <note> <p>For an example IAM role policy for assigning subscriptions, see <a href=\"https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/setting-up.html#permissions\">Set up required permissions</a> in the Amazon Q Business User Guide.</p> </note>
 
         Args:
             application_id: <p>The identifier of the Amazon Q Business application the subscription should be added to.</p>
@@ -1114,7 +1114,7 @@ class AsyncQBusinessClient:
             "aws_sdk_qbusiness.types.data_source_id.DataSourceId"
         ] = None,
     ) -> "aws_sdk_qbusiness.types.delete_group_response.DeleteGroupResponse":
-        """<p>Deletes a group so that all users and sub groups that belong to the group can no longer access documents only available to that group. For example, after deleting the group \"Summer Interns\", all interns who belonged to that group no longer see intern-only documents in their chat results. </p> <p>If you want to delete, update, or replace users or sub groups of a group, you need to use the <code>PutGroup</code> operation. For example, if a user in the group \"Engineering\" leaves the engineering team and another user takes their place, you provide an updated list of users or sub groups that belong to the \"Engineering\" group when calling <code>PutGroup</code>.</p>
+        r"""<p>Deletes a group so that all users and sub groups that belong to the group can no longer access documents only available to that group. For example, after deleting the group \"Summer Interns\", all interns who belonged to that group no longer see intern-only documents in their chat results. </p> <p>If you want to delete, update, or replace users or sub groups of a group, you need to use the <code>PutGroup</code> operation. For example, if a user in the group \"Engineering\" leaves the engineering team and another user takes their place, you provide an updated list of users or sub groups that belong to the \"Engineering\" group when calling <code>PutGroup</code>.</p>
 
         Args:
             application_id: <p>The identifier of the application in which the group mapping belongs.</p>
@@ -1365,7 +1365,7 @@ class AsyncQBusinessClient:
             "aws_sdk_qbusiness.types.output_format.OutputFormat"
         ] = None,
     ) -> "aws_sdk_qbusiness.types.get_document_content_response.GetDocumentContentResponse":
-        """<p>Retrieves the content of a document that was ingested into Amazon Q Business. This API validates user authorization against document ACLs before returning a pre-signed URL for secure document access. You can download or view source documents referenced in chat responses through the URL.</p>
+        r"""<p>Retrieves the content of a document that was ingested into Amazon Q Business. This API validates user authorization against document ACLs before returning a pre-signed URL for secure document access. You can download or view source documents referenced in chat responses through the URL.</p>
 
         Args:
             application_id: <p>The unique identifier of the Amazon Q Business application containing the document. This ensures the request is scoped to the correct application environment and its associated security policies.</p>
@@ -1466,7 +1466,7 @@ class AsyncQBusinessClient:
         *,
         config_overrides: Optional[AsyncQBusinessClientConfig] = None,
     ) -> "aws_sdk_qbusiness.types.get_media_response.GetMediaResponse":
-        """<p>Returns the image bytes corresponding to a media object. If you have implemented your own application with the Chat and ChatSync APIs, and have enabled content extraction from visual data in Amazon Q Business, you use the GetMedia API operation to download the images so you can show them in your UI with responses.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/extracting-meaning-from-images.html\">Extracting semantic meaning from images and visuals</a>.</p>
+        r"""<p>Returns the image bytes corresponding to a media object. If you have implemented your own application with the Chat and ChatSync APIs, and have enabled content extraction from visual data in Amazon Q Business, you use the GetMedia API operation to download the images so you can show them in your UI with responses.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/extracting-meaning-from-images.html\">Extracting semantic meaning from images and visuals</a>.</p>
 
         Args:
             application_id: <p>The identifier of the Amazon Q Business which contains the media object.</p>
@@ -2600,7 +2600,7 @@ class AsyncQBusinessClient:
         ] = None,
         role_arn: Optional["aws_sdk_qbusiness.types.role_arn.RoleArn"] = None,
     ) -> "aws_sdk_qbusiness.types.put_group_response.PutGroupResponse":
-        """<p>Create, or updates, a mapping of users—who have access to a document—to groups.</p> <p>You can also map sub groups to groups. For example, the group \"Company Intellectual Property Teams\" includes sub groups \"Research\" and \"Engineering\". These sub groups include their own list of users or people who work in these teams. Only users who work in research and engineering, and therefore belong in the intellectual property group, can see top-secret company documents in their Amazon Q Business chat results.</p> <p>There are two options for creating groups, either passing group members inline or using an S3 file via the S3PathForGroupMembers field. For inline groups, there is a limit of 1000 members per group and for provided S3 files there is a limit of 100 thousand members. When creating a group using an S3 file, you provide both an S3 file and a <code>RoleArn</code> for Amazon Q Buisness to access the file.</p>
+        r"""<p>Create, or updates, a mapping of users—who have access to a document—to groups.</p> <p>You can also map sub groups to groups. For example, the group \"Company Intellectual Property Teams\" includes sub groups \"Research\" and \"Engineering\". These sub groups include their own list of users or people who work in these teams. Only users who work in research and engineering, and therefore belong in the intellectual property group, can see top-secret company documents in their Amazon Q Business chat results.</p> <p>There are two options for creating groups, either passing group members inline or using an S3 file via the S3PathForGroupMembers field. For inline groups, there is a limit of 1000 members per group and for provided S3 files there is a limit of 100 thousand members. When creating a group using an S3 file, you provide both an S3 file and a <code>RoleArn</code> for Amazon Q Buisness to access the file.</p>
 
         Args:
             application_id: <p>The identifier of the application in which the user and group mapping belongs.</p>
@@ -3057,7 +3057,7 @@ class AsyncQBusinessClient:
         *,
         config_overrides: Optional[AsyncQBusinessClientConfig] = None,
     ) -> "aws_sdk_qbusiness.types.update_subscription_response.UpdateSubscriptionResponse":
-        """<p>Updates the pricing tier for an Amazon Q Business subscription. Upgrades are instant. Downgrades apply at the start of the next month. Subscription tier determines feature access for the user. For more information on subscriptions and pricing tiers, see <a href=\"https://aws.amazon.com/q/business/pricing/\">Amazon Q Business pricing</a>.</p>
+        r"""<p>Updates the pricing tier for an Amazon Q Business subscription. Upgrades are instant. Downgrades apply at the start of the next month. Subscription tier determines feature access for the user. For more information on subscriptions and pricing tiers, see <a href=\"https://aws.amazon.com/q/business/pricing/\">Amazon Q Business pricing</a>.</p>
 
         Args:
             application_id: <p>The identifier of the Amazon Q Business application where the subscription update should take effect.</p>

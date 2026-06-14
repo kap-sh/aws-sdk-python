@@ -75,7 +75,7 @@ def get_signer(
     options: AsyncOperationOptions | OperationOptions,
     auth_schemes: list[dict[str, Any]] | None = None,
 ) -> aws_sdk_backup._auth._signers.Signer | None:
-    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}
+    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}  # noqa: F841
     if options.credentials_provider is not None:
         sigv4_config = (
             name_to_schema.get("sigv4")
@@ -94,7 +94,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_backup.types.create_backup_vault_input.CreateBackupVaultInput,
+    input_: aws_sdk_backup.types.create_backup_vault_input.CreateBackupVaultInput,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -106,14 +106,14 @@ def build_request(
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/backup-vaults/{BackupVaultName}"
     url = url.replace(
-        "{BackupVaultName}", quote(str(input["backup_vault_name"]), safe="")
+        "{BackupVaultName}", quote(str(input_["backup_vault_name"]), safe="")
     )
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     import aws_sdk_backup.types.create_backup_vault_input
 
     body: bytes | None = json.dumps(
-        aws_sdk_backup.types.create_backup_vault_input.serialize_json(input)
+        aws_sdk_backup.types.create_backup_vault_input.serialize_json(input_)
     ).encode()
     headers["content-type"] = "application/json"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
@@ -126,12 +126,12 @@ def build_request(
 
 def create_backup_vault(
     options: OperationOptions,
-    input: aws_sdk_backup.types.create_backup_vault_input.CreateBackupVaultInput,
+    input_: aws_sdk_backup.types.create_backup_vault_input.CreateBackupVaultInput,
 ) -> tuple[
     aws_sdk_backup.types.create_backup_vault_output.CreateBackupVaultOutput,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -145,12 +145,12 @@ def create_backup_vault(
 
 async def async_create_backup_vault(
     options: AsyncOperationOptions,
-    input: aws_sdk_backup.types.create_backup_vault_input.CreateBackupVaultInput,
+    input_: aws_sdk_backup.types.create_backup_vault_input.CreateBackupVaultInput,
 ) -> tuple[
     aws_sdk_backup.types.create_backup_vault_output.CreateBackupVaultOutput,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

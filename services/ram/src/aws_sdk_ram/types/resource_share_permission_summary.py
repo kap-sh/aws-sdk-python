@@ -15,7 +15,7 @@ if TYPE_CHECKING:
 
 class ResourceSharePermissionSummary(TypedDict):
     arn: NotRequired["aws_sdk_ram.types.string.String"]
-    """<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of the permission you want information about.</p>"""
+    r"""<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of the permission you want information about.</p>"""
     version: NotRequired["aws_sdk_ram.types.string.String"]
     """<p>The version of the permission associated with this resource share.</p>"""
     default_version: NotRequired["aws_sdk_ram.types.boolean.Boolean"]

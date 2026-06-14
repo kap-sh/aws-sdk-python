@@ -10,11 +10,11 @@ if TYPE_CHECKING:
 
 class OpeningHoursComponents(TypedDict):
     open_time: NotRequired["aws_sdk_geo_places.types.sensitive_string.SensitiveString"]
-    """<p>String which represents the opening hours, such as <code>\"T070000\"</code>.</p>"""
+    r"""<p>String which represents the opening hours, such as <code>\"T070000\"</code>.</p>"""
     open_duration: NotRequired[
         "aws_sdk_geo_places.types.sensitive_string.SensitiveString"
     ]
-    """<p>String which represents the duration of the opening period, such as <code>\"PT12H00M\"</code>.</p>"""
+    r"""<p>String which represents the duration of the opening period, such as <code>\"PT12H00M\"</code>.</p>"""
     recurrence: NotRequired["aws_sdk_geo_places.types.sensitive_string.SensitiveString"]
     """<p>Days or periods when the provided opening hours are in affect. </p> <p>Example: <code>FREQ:DAILY;BYDAY:MO,TU,WE,TH,SU</code> </p>"""
 

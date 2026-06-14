@@ -7,9 +7,9 @@ from aws_sdk_backup.errors import DeserializationError
 
 class KeyValue(TypedDict):
     key: "str"
-    """<p>The tag key (String). The key can't start with <code>aws:</code>.</p> <p>Length Constraints: Minimum length of 1. Maximum length of 128.</p> <p>Pattern: <code>^(?![aA]{1}[wW]{1}[sS]{1}:)([\p{L}\p{Z}\p{N}_.:/=+\-@]+)$</code> </p>"""
+    r"""<p>The tag key (String). The key can't start with <code>aws:</code>.</p> <p>Length Constraints: Minimum length of 1. Maximum length of 128.</p> <p>Pattern: <code>^(?![aA]{1}[wW]{1}[sS]{1}:)([\p{L}\p{Z}\p{N}_.:/=+\-@]+)$</code> </p>"""
     value: "str"
-    """<p>The value of the key.</p> <p>Length Constraints: Maximum length of 256.</p> <p>Pattern: <code>^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$</code> </p>"""
+    r"""<p>The value of the key.</p> <p>Length Constraints: Maximum length of 256.</p> <p>Pattern: <code>^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$</code> </p>"""
 
 
 # --- restJson1 ser/de ---

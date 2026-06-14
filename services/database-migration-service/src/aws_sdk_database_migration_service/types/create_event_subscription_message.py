@@ -24,7 +24,7 @@ class CreateEventSubscriptionMessage(TypedDict):
     event_categories: NotRequired[
         "aws_sdk_database_migration_service.types.event_categories_list.EventCategoriesList"
     ]
-    """<p>A list of event categories for a source type that you want to subscribe to. For more information, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html\">Working with Events and Notifications</a> in the <i>Database Migration Service User Guide.</i> </p>"""
+    r"""<p>A list of event categories for a source type that you want to subscribe to. For more information, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html\">Working with Events and Notifications</a> in the <i>Database Migration Service User Guide.</i> </p>"""
     source_ids: NotRequired[
         "aws_sdk_database_migration_service.types.source_ids_list.SourceIdsList"
     ]

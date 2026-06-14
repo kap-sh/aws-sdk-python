@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_datazone._auth._signers
@@ -79,7 +81,7 @@ class NotebookRun:
             "aws_sdk_datazone.types.client_token.ClientToken"
         ] = None,
     ) -> "aws_sdk_datazone.types.start_notebook_run_output.StartNotebookRunOutput":
-        """<p>Starts a notebook run in Amazon SageMaker Unified Studio. A notebook run represents the execution of an <a href=\"https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/notebooks.html\">Amazon SageMaker notebook</a> within a project. You can configure compute, network, timeout, and environment settings for the run.</p>
+        r"""<p>Starts a notebook run in Amazon SageMaker Unified Studio. A notebook run represents the execution of an <a href=\"https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/notebooks.html\">Amazon SageMaker notebook</a> within a project. You can configure compute, network, timeout, and environment settings for the run.</p>
 
         Args:
             domain_identifier: <p>The identifier of the Amazon SageMaker Unified Studio domain in which the notebook run is started.</p>
@@ -145,7 +147,7 @@ class NotebookRun:
         *,
         config_overrides: Optional[DataZoneClientConfig] = None,
     ) -> "aws_sdk_datazone.types.get_notebook_run_output.GetNotebookRunOutput":
-        """<p>Gets the details of a <a href=\"https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/notebooks.html\">notebook run</a> in Amazon SageMaker Unified Studio.</p>
+        r"""<p>Gets the details of a <a href=\"https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/notebooks.html\">notebook run</a> in Amazon SageMaker Unified Studio.</p>
 
         Args:
             domain_identifier: <p>The identifier of the Amazon SageMaker Unified Studio domain in which the notebook run exists.</p>
@@ -199,7 +201,7 @@ class NotebookRun:
             "aws_sdk_datazone.types.pagination_token.PaginationToken"
         ] = None,
     ) -> "aws_sdk_datazone.types.list_notebook_runs_output.ListNotebookRunsOutput":
-        """<p>Lists <a href=\"https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/notebooks.html\">notebook runs</a> in Amazon SageMaker Unified Studio.</p>
+        r"""<p>Lists <a href=\"https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/notebooks.html\">notebook runs</a> in Amazon SageMaker Unified Studio.</p>
 
         Args:
             domain_identifier: <p>The identifier of the Amazon SageMaker Unified Studio domain in which to list notebook runs.</p>
@@ -260,7 +262,7 @@ class NotebookRun:
             "aws_sdk_datazone.types.client_token.ClientToken"
         ] = None,
     ) -> "aws_sdk_datazone.types.stop_notebook_run_output.StopNotebookRunOutput":
-        """<p>Stops a running <a href=\"https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/notebooks.html\">notebook run</a> in Amazon SageMaker Unified Studio.</p>
+        r"""<p>Stops a running <a href=\"https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/notebooks.html\">notebook run</a> in Amazon SageMaker Unified Studio.</p>
 
         Args:
             domain_identifier: <p>The identifier of the Amazon SageMaker Unified Studio domain in which the notebook run is stopped.</p>
@@ -329,7 +331,7 @@ class AsyncNotebookRun:
             "aws_sdk_datazone.types.client_token.ClientToken"
         ] = None,
     ) -> "aws_sdk_datazone.types.start_notebook_run_output.StartNotebookRunOutput":
-        """<p>Starts a notebook run in Amazon SageMaker Unified Studio. A notebook run represents the execution of an <a href=\"https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/notebooks.html\">Amazon SageMaker notebook</a> within a project. You can configure compute, network, timeout, and environment settings for the run.</p>
+        r"""<p>Starts a notebook run in Amazon SageMaker Unified Studio. A notebook run represents the execution of an <a href=\"https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/notebooks.html\">Amazon SageMaker notebook</a> within a project. You can configure compute, network, timeout, and environment settings for the run.</p>
 
         Args:
             domain_identifier: <p>The identifier of the Amazon SageMaker Unified Studio domain in which the notebook run is started.</p>
@@ -396,7 +398,7 @@ class AsyncNotebookRun:
         *,
         config_overrides: Optional[AsyncDataZoneClientConfig] = None,
     ) -> "aws_sdk_datazone.types.get_notebook_run_output.GetNotebookRunOutput":
-        """<p>Gets the details of a <a href=\"https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/notebooks.html\">notebook run</a> in Amazon SageMaker Unified Studio.</p>
+        r"""<p>Gets the details of a <a href=\"https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/notebooks.html\">notebook run</a> in Amazon SageMaker Unified Studio.</p>
 
         Args:
             domain_identifier: <p>The identifier of the Amazon SageMaker Unified Studio domain in which the notebook run exists.</p>
@@ -451,7 +453,7 @@ class AsyncNotebookRun:
             "aws_sdk_datazone.types.pagination_token.PaginationToken"
         ] = None,
     ) -> "aws_sdk_datazone.types.list_notebook_runs_output.ListNotebookRunsOutput":
-        """<p>Lists <a href=\"https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/notebooks.html\">notebook runs</a> in Amazon SageMaker Unified Studio.</p>
+        r"""<p>Lists <a href=\"https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/notebooks.html\">notebook runs</a> in Amazon SageMaker Unified Studio.</p>
 
         Args:
             domain_identifier: <p>The identifier of the Amazon SageMaker Unified Studio domain in which to list notebook runs.</p>
@@ -513,7 +515,7 @@ class AsyncNotebookRun:
             "aws_sdk_datazone.types.client_token.ClientToken"
         ] = None,
     ) -> "aws_sdk_datazone.types.stop_notebook_run_output.StopNotebookRunOutput":
-        """<p>Stops a running <a href=\"https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/notebooks.html\">notebook run</a> in Amazon SageMaker Unified Studio.</p>
+        r"""<p>Stops a running <a href=\"https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/notebooks.html\">notebook run</a> in Amazon SageMaker Unified Studio.</p>
 
         Args:
             domain_identifier: <p>The identifier of the Amazon SageMaker Unified Studio domain in which the notebook run is stopped.</p>

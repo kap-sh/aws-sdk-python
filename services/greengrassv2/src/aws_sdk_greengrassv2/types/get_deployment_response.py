@@ -21,7 +21,7 @@ if TYPE_CHECKING:
 
 class GetDeploymentResponse(TypedDict):
     target_arn: NotRequired["aws_sdk_greengrassv2.types.target_arn.TargetARN"]
-    """<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the target IoT thing or thing group.</p>"""
+    r"""<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the target IoT thing or thing group.</p>"""
     revision_id: NotRequired[
         "aws_sdk_greengrassv2.types.non_empty_string.NonEmptyString"
     ]
@@ -41,7 +41,7 @@ class GetDeploymentResponse(TypedDict):
     iot_job_id: NotRequired["aws_sdk_greengrassv2.types.nullable_string.NullableString"]
     """<p>The ID of the IoT job that applies the deployment to target devices.</p>"""
     iot_job_arn: NotRequired["aws_sdk_greengrassv2.types.io_t_job_arn.IoTJobARN"]
-    """<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the IoT job that applies the deployment to target devices.</p>"""
+    r"""<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the IoT job that applies the deployment to target devices.</p>"""
     components: NotRequired[
         "aws_sdk_greengrassv2.types.component_deployment_specifications.ComponentDeploymentSpecifications"
     ]
@@ -63,9 +63,9 @@ class GetDeploymentResponse(TypedDict):
     parent_target_arn: NotRequired[
         "aws_sdk_greengrassv2.types.thing_group_arn.ThingGroupARN"
     ]
-    """<p>The parent deployment's target <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> within a subdeployment.</p>"""
+    r"""<p>The parent deployment's target <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> within a subdeployment.</p>"""
     tags: NotRequired["aws_sdk_greengrassv2.types.tag_map.TagMap"]
-    """<p>A list of key-value pairs that contain metadata for the resource. For more information, see <a href=\"https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html\">Tag your resources</a> in the <i>IoT Greengrass V2 Developer Guide</i>.</p>"""
+    r"""<p>A list of key-value pairs that contain metadata for the resource. For more information, see <a href=\"https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html\">Tag your resources</a> in the <i>IoT Greengrass V2 Developer Guide</i>.</p>"""
 
 
 # --- restJson1 ser/de ---

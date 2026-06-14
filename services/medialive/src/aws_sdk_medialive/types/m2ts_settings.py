@@ -100,7 +100,7 @@ class M2tsSettings(TypedDict):
     ebp_lookahead_ms: NotRequired[
         "aws_sdk_medialive.types.__integer_min0_max10000.__integerMin0Max10000"
     ]
-    """When set, enforces that Encoder Boundary Points do not come within the specified time interval of each other by looking ahead at input video. If another EBP is going to come in within the specified time interval, the current EBP is not emitted, and the segment is \"stretched\" to the next marker. The lookahead value does not add latency to the system. The Live Event must be configured elsewhere to create sufficient latency to make the lookahead accurate."""
+    r"""When set, enforces that Encoder Boundary Points do not come within the specified time interval of each other by looking ahead at input video. If another EBP is going to come in within the specified time interval, the current EBP is not emitted, and the segment is \"stretched\" to the next marker. The lookahead value does not add latency to the system. The Live Event must be configured elsewhere to create sufficient latency to make the lookahead accurate."""
     ebp_placement: NotRequired[
         "aws_sdk_medialive.types.m2ts_ebp_placement.M2tsEbpPlacement"
     ]
@@ -168,7 +168,7 @@ class M2tsSettings(TypedDict):
     segmentation_style: NotRequired[
         "aws_sdk_medialive.types.m2ts_segmentation_style.M2tsSegmentationStyle"
     ]
-    """The segmentation style parameter controls how segmentation markers are inserted into the transport stream. With avails, it is possible that segments may be truncated, which can influence where future segmentation markers are inserted. When a segmentation style of \"resetCadence\" is selected and a segment is truncated due to an avail, we will reset the segmentation cadence. This means the subsequent segment will have a duration of $segmentationTime seconds. When a segmentation style of \"maintainCadence\" is selected and a segment is truncated due to an avail, we will not reset the segmentation cadence. This means the subsequent segment will likely be truncated as well. However, all segments after that will have a duration of $segmentationTime seconds. Note that EBP lookahead is a slight exception to this rule."""
+    r"""The segmentation style parameter controls how segmentation markers are inserted into the transport stream. With avails, it is possible that segments may be truncated, which can influence where future segmentation markers are inserted. When a segmentation style of \"resetCadence\" is selected and a segment is truncated due to an avail, we will reset the segmentation cadence. This means the subsequent segment will have a duration of $segmentationTime seconds. When a segmentation style of \"maintainCadence\" is selected and a segment is truncated due to an avail, we will not reset the segmentation cadence. This means the subsequent segment will likely be truncated as well. However, all segments after that will have a duration of $segmentationTime seconds. Note that EBP lookahead is a slight exception to this rule."""
     segmentation_time: NotRequired["aws_sdk_medialive.types.__double_min1.__doubleMin1"]
     """The length in seconds of each segment. Required unless markers is set to _none_."""
     timed_metadata_behavior: NotRequired[

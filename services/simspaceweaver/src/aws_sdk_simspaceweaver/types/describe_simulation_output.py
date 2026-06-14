@@ -30,11 +30,11 @@ class DescribeSimulationOutput(TypedDict):
     arn: NotRequired[
         "aws_sdk_simspaceweaver.types.sim_space_weaver_arn.SimSpaceWeaverArn"
     ]
-    """<p>The Amazon Resource Name (ARN) of the simulation. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>"""
+    r"""<p>The Amazon Resource Name (ARN) of the simulation. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>"""
     description: NotRequired["aws_sdk_simspaceweaver.types.description.Description"]
     """<p>The description of the simulation.</p>"""
     role_arn: NotRequired["aws_sdk_simspaceweaver.types.role_arn.RoleArn"]
-    """<p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role that the simulation assumes to perform actions. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>. For more information about IAM roles, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html\">IAM roles</a> in the <i>Identity and Access Management User Guide</i>.</p>"""
+    r"""<p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role that the simulation assumes to perform actions. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>. For more information about IAM roles, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html\">IAM roles</a> in the <i>Identity and Access Management User Guide</i>.</p>"""
     creation_time: NotRequired["aws_sdk_simspaceweaver.types.timestamp.Timestamp"]
     """<p>The time when the simulation was created, expressed as the number of seconds and milliseconds in UTC since the Unix epoch (0:0:0.000, January 1, 1970).</p>"""
     status: NotRequired[
@@ -48,7 +48,7 @@ class DescribeSimulationOutput(TypedDict):
     schema_s3_location: NotRequired[
         "aws_sdk_simspaceweaver.types.s3_location.S3Location"
     ]
-    """<p>The location of the simulation schema in Amazon Simple Storage Service (Amazon S3). For more information about Amazon S3, see the <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html\"> <i>Amazon Simple Storage Service User Guide</i> </a>.</p>"""
+    r"""<p>The location of the simulation schema in Amazon Simple Storage Service (Amazon S3). For more information about Amazon S3, see the <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html\"> <i>Amazon Simple Storage Service User Guide</i> </a>.</p>"""
     schema_error: NotRequired[
         "aws_sdk_simspaceweaver.types.optional_string.OptionalString"
     ]

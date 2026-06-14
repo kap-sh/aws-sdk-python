@@ -32,10 +32,11 @@ include = ["src", "tests"]
 extraPaths = ["src"]
 pythonVersion = "3.14"
 reportInvalidStringEscapeSequence = false
+reportTypedDictNotRequiredAccess = false
 
 [tool.ruff.lint]
 select = ["E", "F", "I"]
-ignore = ["E501"]
+ignore = ["E501", "E741"]
 
 [dependency-groups]
 dev = [

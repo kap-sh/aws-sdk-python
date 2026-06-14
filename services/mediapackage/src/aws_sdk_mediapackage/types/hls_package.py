@@ -17,7 +17,7 @@ if TYPE_CHECKING:
 
 class HlsPackage(TypedDict):
     ad_markers: NotRequired["aws_sdk_mediapackage.types.ad_markers.AdMarkers"]
-    """This setting controls how ad markers are included in the packaged OriginEndpoint. \"NONE\" will omit all SCTE-35 ad markers from the output. \"PASSTHROUGH\" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. \"SCTE35_ENHANCED\" generates ad markers and blackout tags based on SCTE-35 messages in the input source. \"DATERANGE\" inserts EXT-X-DATERANGE tags to signal ad and program transition events in HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value that is greater than 0."""
+    r"""This setting controls how ad markers are included in the packaged OriginEndpoint. \"NONE\" will omit all SCTE-35 ad markers from the output. \"PASSTHROUGH\" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. \"SCTE35_ENHANCED\" generates ad markers and blackout tags based on SCTE-35 messages in the input source. \"DATERANGE\" inserts EXT-X-DATERANGE tags to signal ad and program transition events in HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value that is greater than 0."""
     ad_triggers: NotRequired["aws_sdk_mediapackage.types.ad_triggers.AdTriggers"]
     ads_on_delivery_restrictions: NotRequired[
         "aws_sdk_mediapackage.types.ads_on_delivery_restrictions.AdsOnDeliveryRestrictions"
@@ -30,7 +30,7 @@ class HlsPackage(TypedDict):
     ]
     """When enabled, an I-Frame only stream will be included in the output."""
     playlist_type: NotRequired["aws_sdk_mediapackage.types.playlist_type.PlaylistType"]
-    """The HTTP Live Streaming (HLS) playlist type. When either \"EVENT\" or \"VOD\" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be included in the media playlist."""
+    r"""The HTTP Live Streaming (HLS) playlist type. When either \"EVENT\" or \"VOD\" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be included in the media playlist."""
     playlist_window_seconds: NotRequired[
         "aws_sdk_mediapackage.types.__integer.__integer"
     ]

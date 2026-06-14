@@ -20,7 +20,7 @@ class DescribeConfigRulesRequest(TypedDict):
     filters: NotRequired[
         "aws_sdk_config_service.types.describe_config_rules_filters.DescribeConfigRulesFilters"
     ]
-    """<p>Returns a list of Detective or Proactive Config rules. By default, this API returns an unfiltered list. For more information on Detective or Proactive Config rules, see <a href=\"https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config-rules.html\"> <b>Evaluation Mode</b> </a> in the <i>Config Developer Guide</i>.</p>"""
+    r"""<p>Returns a list of Detective or Proactive Config rules. By default, this API returns an unfiltered list. For more information on Detective or Proactive Config rules, see <a href=\"https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config-rules.html\"> <b>Evaluation Mode</b> </a> in the <i>Config Developer Guide</i>.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

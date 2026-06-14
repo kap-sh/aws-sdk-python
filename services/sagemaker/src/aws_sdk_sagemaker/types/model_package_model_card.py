@@ -13,7 +13,7 @@ class ModelPackageModelCard(TypedDict):
     model_card_content: NotRequired[
         "aws_sdk_sagemaker.types.model_card_content.ModelCardContent"
     ]
-    """<p>The content of the model card. The content must follow the schema described in <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html#model-card-schema\">Model Package Model Card Schema</a>.</p>"""
+    r"""<p>The content of the model card. The content must follow the schema described in <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html#model-card-schema\">Model Package Model Card Schema</a>.</p>"""
     model_card_status: NotRequired[
         "aws_sdk_sagemaker.types.model_card_status.ModelCardStatus"
     ]

@@ -28,7 +28,7 @@ class AssetModelCompositeModel(TypedDict):
     id: NotRequired["aws_sdk_iotsitewise.types.custom_id.CustomID"]
     """<p> The ID of the asset model composite model. </p>"""
     external_id: NotRequired["aws_sdk_iotsitewise.types.external_id.ExternalId"]
-    """<p>The external ID of the asset model composite model. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-ids\">Using external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>"""
+    r"""<p>The external ID of the asset model composite model. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-ids\">Using external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>"""
 
 
 # --- restJson1 ser/de ---

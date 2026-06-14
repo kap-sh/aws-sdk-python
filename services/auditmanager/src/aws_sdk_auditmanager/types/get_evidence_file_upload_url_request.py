@@ -8,7 +8,7 @@ if TYPE_CHECKING:
 
 class GetEvidenceFileUploadUrlRequest(TypedDict):
     file_name: "aws_sdk_auditmanager.types.manual_evidence_local_file_name.ManualEvidenceLocalFileName"
-    """<p>The file that you want to upload. For a list of supported file formats, see <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/upload-evidence.html#supported-manual-evidence-files\">Supported file types for manual evidence</a> in the <i>Audit Manager User Guide</i>.</p>"""
+    r"""<p>The file that you want to upload. For a list of supported file formats, see <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/upload-evidence.html#supported-manual-evidence-files\">Supported file types for manual evidence</a> in the <i>Audit Manager User Guide</i>.</p>"""
 
 
 # --- restJson1 ser/de ---

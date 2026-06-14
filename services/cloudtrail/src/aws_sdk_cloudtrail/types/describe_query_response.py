@@ -38,7 +38,7 @@ class DescribeQueryResponse(TypedDict):
     ]
     """<p>The delivery status.</p>"""
     prompt: NotRequired["aws_sdk_cloudtrail.types.prompt.Prompt"]
-    """<p> The prompt used for a generated query. For information about generated queries, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/lake-query-generator.html\">Create CloudTrail Lake queries from natural language prompts</a> in the <i>CloudTrail </i> user guide. </p>"""
+    r"""<p> The prompt used for a generated query. For information about generated queries, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/lake-query-generator.html\">Create CloudTrail Lake queries from natural language prompts</a> in the <i>CloudTrail </i> user guide. </p>"""
     event_data_store_owner_account_id: NotRequired[
         "aws_sdk_cloudtrail.types.account_id.AccountId"
     ]

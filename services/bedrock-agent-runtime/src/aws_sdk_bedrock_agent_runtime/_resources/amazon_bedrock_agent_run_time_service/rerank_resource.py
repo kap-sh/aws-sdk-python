@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_bedrock_agent_runtime._auth._signers
@@ -44,7 +46,7 @@ class RerankResource:
             "aws_sdk_bedrock_agent_runtime.types.next_token.NextToken"
         ] = None,
     ) -> "aws_sdk_bedrock_agent_runtime.types.rerank_response.RerankResponse":
-        """<p>Reranks the relevance of sources based on queries. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/rerank.html\">Improve the relevance of query responses with a reranker model</a>.</p>
+        r"""<p>Reranks the relevance of sources based on queries. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/rerank.html\">Improve the relevance of query responses with a reranker model</a>.</p>
 
         Args:
             queries: <p>An array of objects, each of which contains information about a query to submit to the reranker model.</p>
@@ -98,7 +100,7 @@ class AsyncRerankResource:
             "aws_sdk_bedrock_agent_runtime.types.next_token.NextToken"
         ] = None,
     ) -> "aws_sdk_bedrock_agent_runtime.types.rerank_response.RerankResponse":
-        """<p>Reranks the relevance of sources based on queries. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/rerank.html\">Improve the relevance of query responses with a reranker model</a>.</p>
+        r"""<p>Reranks the relevance of sources based on queries. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/rerank.html\">Improve the relevance of query responses with a reranker model</a>.</p>
 
         Args:
             queries: <p>An array of objects, each of which contains information about a query to submit to the reranker model.</p>

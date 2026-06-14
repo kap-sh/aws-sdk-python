@@ -22,7 +22,7 @@ class DescribeGatewayResponse(TypedDict):
     gateway_name: "aws_sdk_iotsitewise.types.gateway_name.GatewayName"
     """<p>The name of the gateway.</p>"""
     gateway_arn: "aws_sdk_iotsitewise.types.arn.ARN"
-    """<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the gateway, which has the following format.</p> <p> <code>arn:${Partition}:iotsitewise:${Region}:${Account}:gateway/${GatewayId}</code> </p>"""
+    r"""<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the gateway, which has the following format.</p> <p> <code>arn:${Partition}:iotsitewise:${Region}:${Account}:gateway/${GatewayId}</code> </p>"""
     gateway_platform: NotRequired[
         "aws_sdk_iotsitewise.types.gateway_platform.GatewayPlatform"
     ]
@@ -32,7 +32,7 @@ class DescribeGatewayResponse(TypedDict):
     ]
     """<p>The version of the gateway. A value of <code>3</code> indicates an MQTT-enabled, V3 gateway, while <code>2</code> indicates a Classic streams, V2 gateway.</p>"""
     gateway_capability_summaries: "aws_sdk_iotsitewise.types.gateway_capability_summaries.GatewayCapabilitySummaries"
-    """<p>A list of gateway capability summaries that each contain a namespace and status. Each gateway capability defines data sources for the gateway. To retrieve a capability configuration's definition, use <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeGatewayCapabilityConfiguration.html\">DescribeGatewayCapabilityConfiguration</a>.</p>"""
+    r"""<p>A list of gateway capability summaries that each contain a namespace and status. Each gateway capability defines data sources for the gateway. To retrieve a capability configuration's definition, use <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeGatewayCapabilityConfiguration.html\">DescribeGatewayCapabilityConfiguration</a>.</p>"""
     creation_date: "aws_sdk_iotsitewise.types.timestamp.Timestamp"
     """<p>The date the gateway was created, in Unix epoch time.</p>"""
     last_update_date: "aws_sdk_iotsitewise.types.timestamp.Timestamp"

@@ -2,8 +2,10 @@
 
 from typing import TypedDict
 
+
 class DeleteOauth2CredentialProviderResponse(TypedDict):
     pass
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: DeleteOauth2CredentialProviderResponse) -> dict:

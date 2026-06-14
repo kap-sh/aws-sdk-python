@@ -25,7 +25,7 @@ if TYPE_CHECKING:
 
 class CreateApplicationOutput(TypedDict):
     arn: "aws_sdk_gameliftstreams.types.identifier.Identifier"
-    """<p>The <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html\">Amazon Resource Name (ARN)</a> that's assigned to an application resource and uniquely identifies it across all Amazon Web Services Regions. Format is <code>arn:aws:gameliftstreams:[AWS Region]:[AWS account]:application/[resource ID]</code>.</p>"""
+    r"""<p>The <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html\">Amazon Resource Name (ARN)</a> that's assigned to an application resource and uniquely identifies it across all Amazon Web Services Regions. Format is <code>arn:aws:gameliftstreams:[AWS Region]:[AWS account]:application/[resource ID]</code>.</p>"""
     description: NotRequired["aws_sdk_gameliftstreams.types.description.Description"]
     """<p>A human-readable label for the application. You can edit this value. </p>"""
     runtime_environment: NotRequired[
@@ -39,7 +39,7 @@ class CreateApplicationOutput(TypedDict):
     application_log_paths: NotRequired[
         "aws_sdk_gameliftstreams.types.file_paths.FilePaths"
     ]
-    """<p>Locations of log files that your content generates during a stream session. Amazon GameLift Streams uploads log files to the Amazon S3 bucket that you specify in <code>ApplicationLogOutputUri</code> at the end of a stream session. To retrieve stored log files, call <a href=\"https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_GetStreamSession.html\">GetStreamSession</a> and get the <code>LogFileLocationUri</code>.</p>"""
+    r"""<p>Locations of log files that your content generates during a stream session. Amazon GameLift Streams uploads log files to the Amazon S3 bucket that you specify in <code>ApplicationLogOutputUri</code> at the end of a stream session. To retrieve stored log files, call <a href=\"https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_GetStreamSession.html\">GetStreamSession</a> and get the <code>LogFileLocationUri</code>.</p>"""
     application_log_output_uri: NotRequired[
         "aws_sdk_gameliftstreams.types.application_log_output_uri.ApplicationLogOutputUri"
     ]

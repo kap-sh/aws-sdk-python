@@ -49,11 +49,11 @@ class ElasticsearchDomainConfig(TypedDict):
     vpc_options: NotRequired[
         "aws_sdk_elasticsearch_service.types.vpc_derived_info_status.VPCDerivedInfoStatus"
     ]
-    """<p>The <code>VPCOptions</code> for the specified domain. For more information, see <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html\" target=\"_blank\">VPC Endpoints for Amazon Elasticsearch Service Domains</a>.</p>"""
+    r"""<p>The <code>VPCOptions</code> for the specified domain. For more information, see <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html\" target=\"_blank\">VPC Endpoints for Amazon Elasticsearch Service Domains</a>.</p>"""
     cognito_options: NotRequired[
         "aws_sdk_elasticsearch_service.types.cognito_options_status.CognitoOptionsStatus"
     ]
-    """<p>The <code>CognitoOptions</code> for the specified domain. For more information, see <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-cognito-auth.html\" target=\"_blank\">Amazon Cognito Authentication for Kibana</a>.</p>"""
+    r"""<p>The <code>CognitoOptions</code> for the specified domain. For more information, see <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-cognito-auth.html\" target=\"_blank\">Amazon Cognito Authentication for Kibana</a>.</p>"""
     encryption_at_rest_options: NotRequired[
         "aws_sdk_elasticsearch_service.types.encryption_at_rest_options_status.EncryptionAtRestOptionsStatus"
     ]
@@ -65,7 +65,7 @@ class ElasticsearchDomainConfig(TypedDict):
     advanced_options: NotRequired[
         "aws_sdk_elasticsearch_service.types.advanced_options_status.AdvancedOptionsStatus"
     ]
-    """<p>Specifies the <code>AdvancedOptions</code> for the domain. See <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options\" target=\"_blank\">Configuring Advanced Options</a> for more information.</p>"""
+    r"""<p>Specifies the <code>AdvancedOptions</code> for the domain. See <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options\" target=\"_blank\">Configuring Advanced Options</a> for more information.</p>"""
     log_publishing_options: NotRequired[
         "aws_sdk_elasticsearch_service.types.log_publishing_options_status.LogPublishingOptionsStatus"
     ]

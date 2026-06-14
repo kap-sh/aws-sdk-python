@@ -31,11 +31,11 @@ class CreateSecurityProfileRequest(TypedDict):
     ]
     """<p>The description of the security profile.</p>"""
     permissions: NotRequired["aws_sdk_connect.types.permissions_list.PermissionsList"]
-    """<p>Permissions assigned to the security profile. For a list of valid permissions, see <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-list.html\">List of security profile permissions</a>. </p>"""
+    r"""<p>Permissions assigned to the security profile. For a list of valid permissions, see <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-list.html\">List of security profile permissions</a>. </p>"""
     instance_id: "aws_sdk_connect.types.instance_id.InstanceId"
-    """<p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>"""
+    r"""<p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>"""
     tags: NotRequired["aws_sdk_connect.types.tag_map.TagMap"]
-    """<p>The tags used to organize, track, or control access for this resource. For example, { \"Tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.</p>"""
+    r"""<p>The tags used to organize, track, or control access for this resource. For example, { \"Tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.</p>"""
     allowed_access_control_tags: NotRequired[
         "aws_sdk_connect.types.allowed_access_control_tags.AllowedAccessControlTags"
     ]
@@ -43,7 +43,7 @@ class CreateSecurityProfileRequest(TypedDict):
     tag_restricted_resources: NotRequired[
         "aws_sdk_connect.types.tag_restricted_resource_list.TagRestrictedResourceList"
     ]
-    """<p>The list of resources that a security profile applies tag restrictions to in Connect Customer. For a list of Connect Customer resources that you can tag, see <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/tagging.html\">Add tags to resources in Connect Customer</a> in the <i>Connect Customer Administrator Guide</i>. </p>"""
+    r"""<p>The list of resources that a security profile applies tag restrictions to in Connect Customer. For a list of Connect Customer resources that you can tag, see <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/tagging.html\">Add tags to resources in Connect Customer</a> in the <i>Connect Customer Administrator Guide</i>. </p>"""
     applications: NotRequired["aws_sdk_connect.types.applications.Applications"]
     """<p>A list of third-party applications or MCP Servers that the security profile will give access to.</p>"""
     hierarchy_restricted_resources: NotRequired[

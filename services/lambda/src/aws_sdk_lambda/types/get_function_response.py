@@ -22,11 +22,11 @@ class GetFunctionResponse(TypedDict):
     ]
     """<p>The deployment package of the function or version.</p>"""
     tags: NotRequired["aws_sdk_lambda.types.tags.Tags"]
-    """<p>The function's <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/tagging.html\">tags</a>. Lambda returns tag data only if you have explicit allow permissions for <a href=\"https://docs.aws.amazon.com/lambda/latest/api/API_ListTags.html\">lambda:ListTags</a>.</p>"""
+    r"""<p>The function's <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/tagging.html\">tags</a>. Lambda returns tag data only if you have explicit allow permissions for <a href=\"https://docs.aws.amazon.com/lambda/latest/api/API_ListTags.html\">lambda:ListTags</a>.</p>"""
     tags_error: NotRequired["aws_sdk_lambda.types.tags_error.TagsError"]
     """<p>An object that contains details about an error related to retrieving tags.</p>"""
     concurrency: NotRequired["aws_sdk_lambda.types.concurrency.Concurrency"]
-    """<p>The function's <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html\">reserved concurrency</a>.</p>"""
+    r"""<p>The function's <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html\">reserved concurrency</a>.</p>"""
 
 
 # --- restJson1 ser/de ---

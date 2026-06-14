@@ -15,7 +15,7 @@ class WaitStartedDetails(TypedDict):
     scheduled_end_timestamp: (
         "aws_sdk_lambda.types.execution_timestamp.ExecutionTimestamp"
     )
-    """<p>The date and time when the wait operation is scheduled to complete, in <a href=\"https://www.w3.org/TR/NOTE-datetime\">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>"""
+    r"""<p>The date and time when the wait operation is scheduled to complete, in <a href=\"https://www.w3.org/TR/NOTE-datetime\">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>"""
 
 
 # --- restJson1 ser/de ---

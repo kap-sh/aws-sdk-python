@@ -17,7 +17,7 @@ class StartSchemaExtensionRequest(TypedDict):
     create_snapshot_before_schema_extension: "aws_sdk_directory_service.types.create_snapshot_before_schema_extension.CreateSnapshotBeforeSchemaExtension"
     """<p>If true, creates a snapshot of the directory before applying the schema extension.</p>"""
     ldif_content: "aws_sdk_directory_service.types.ldif_content.LdifContent"
-    """<p>The LDIF file represented as a string. To construct the LdifContent string, precede each line as it would be formatted in an ldif file with \n. See the example request below for more details. The file size can be no larger than 1MB.</p>"""
+    r"""<p>The LDIF file represented as a string. To construct the LdifContent string, precede each line as it would be formatted in an ldif file with \n. See the example request below for more details. The file size can be no larger than 1MB.</p>"""
     description: "aws_sdk_directory_service.types.description.Description"
     """<p>A description of the schema extension.</p>"""
 

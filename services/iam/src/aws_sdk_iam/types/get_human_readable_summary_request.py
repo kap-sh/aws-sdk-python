@@ -16,7 +16,7 @@ class GetHumanReadableSummaryRequest(TypedDict):
     entity_arn: "aws_sdk_iam.types.arn_type.arnType"
     """<p>Arn of the entity to be summarized. At this time, the only supported entity type is <code>delegation-request</code> </p>"""
     locale: NotRequired["aws_sdk_iam.types.locale_type.localeType"]
-    """<p>A string representing the locale to use for the summary generation. The supported locale strings are based on the <a href=\"/awsconsolehelpdocs/latest/gsg/change-language.html#supported-languages\"> Supported languages of the Amazon Web Services Management Console </a>.</p>"""
+    r"""<p>A string representing the locale to use for the summary generation. The supported locale strings are based on the <a href=\"/awsconsolehelpdocs/latest/gsg/change-language.html#supported-languages\"> Supported languages of the Amazon Web Services Management Console </a>.</p>"""
 
 
 # --- awsQuery ser/de ---

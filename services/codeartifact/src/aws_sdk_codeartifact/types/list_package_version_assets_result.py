@@ -36,7 +36,7 @@ class ListPackageVersionAssetsResult(TypedDict):
     assets: NotRequired[
         "aws_sdk_codeartifact.types.asset_summary_list.AssetSummaryList"
     ]
-    """<p> The returned list of <a href=\"https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_AssetSummary.html\">AssetSummary</a> objects. </p>"""
+    r"""<p> The returned list of <a href=\"https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_AssetSummary.html\">AssetSummary</a> objects. </p>"""
 
 
 # --- restJson1 ser/de ---

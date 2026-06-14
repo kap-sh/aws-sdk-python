@@ -11,11 +11,11 @@ if TYPE_CHECKING:
 
 class NetworkConfiguration(TypedDict):
     subnet_ids: NotRequired["aws_sdk_mwaa.types.subnet_list.SubnetList"]
-    """<p>A list of subnet IDs. For more information, refer to <a href=\"https://docs.aws.amazon.com/mwaa/latest/userguide/networking-about.html\">About networking on Amazon MWAA</a>.</p>"""
+    r"""<p>A list of subnet IDs. For more information, refer to <a href=\"https://docs.aws.amazon.com/mwaa/latest/userguide/networking-about.html\">About networking on Amazon MWAA</a>.</p>"""
     security_group_ids: NotRequired[
         "aws_sdk_mwaa.types.security_group_list.SecurityGroupList"
     ]
-    """<p>A list of security group IDs. For more information, refer to <a href=\"https://docs.aws.amazon.com/mwaa/latest/userguide/vpc-security.html\">Security in your VPC on Amazon MWAA</a>.</p>"""
+    r"""<p>A list of security group IDs. For more information, refer to <a href=\"https://docs.aws.amazon.com/mwaa/latest/userguide/vpc-security.html\">Security in your VPC on Amazon MWAA</a>.</p>"""
 
 
 # --- restJson1 ser/de ---

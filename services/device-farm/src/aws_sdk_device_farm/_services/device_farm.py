@@ -299,7 +299,7 @@ class DeviceFarmClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = DeviceFarmClientConfig(
+        self._config = DeviceFarmClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -319,7 +319,7 @@ class DeviceFarmClient:
         overrides: DeviceFarmClientConfig = config_overrides or {}
         interceptors_: list[Interceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             retry(),
         ]
@@ -327,16 +327,16 @@ class DeviceFarmClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            region=overrides.get("region", self.config.get("region")),
+            region=overrides.get("region", self._config.get("region")),
             use_dual_stack=overrides.get(
-                "use_dual_stack", self.config.get("use_dual_stack")
+                "use_dual_stack", self._config.get("use_dual_stack")
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -557,7 +557,7 @@ class DeviceFarmClient:
             "aws_sdk_device_farm.types.amazon_role_resource_name.AmazonRoleResourceName"
         ] = None,
     ) -> "aws_sdk_device_farm.types.create_project_result.CreateProjectResult":
-        """<p>Creates a project.</p>
+        r"""<p>Creates a project.</p>
 
         Args:
             name: <p>The project's name.</p>
@@ -621,7 +621,7 @@ class DeviceFarmClient:
         ] = None,
         skip_app_resign: Optional["aws_sdk_device_farm.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_device_farm.types.create_remote_access_session_result.CreateRemoteAccessSessionResult":
-        """<p>Specifies and starts a remote access session.</p>
+        r"""<p>Specifies and starts a remote access session.</p>
 
         Args:
             project_arn: <p>The Amazon Resource Name (ARN) of the project for which you want to create a remote access session.</p>
@@ -1587,7 +1587,7 @@ class DeviceFarmClient:
             "aws_sdk_device_farm.types.pagination_token.PaginationToken"
         ] = None,
     ) -> "aws_sdk_device_farm.types.get_offering_status_result.GetOfferingStatusResult":
-        """<p>Gets the current status and future status of all offerings purchased by an AWS account. The response indicates how many offerings are currently available and the offerings that will be available in the next period. The API returns a <code>NotEligible</code> error if the user is not permitted to invoke the operation. If you must be able to invoke this operation, contact <a href=\"mailto:aws-devicefarm-support@amazon.com\">aws-devicefarm-support@amazon.com</a>.</p>
+        r"""<p>Gets the current status and future status of all offerings purchased by an AWS account. The response indicates how many offerings are currently available and the offerings that will be available in the next period. The API returns a <code>NotEligible</code> error if the user is not permitted to invoke the operation. If you must be able to invoke this operation, contact <a href=\"mailto:aws-devicefarm-support@amazon.com\">aws-devicefarm-support@amazon.com</a>.</p>
 
         Args:
             next_token: <p>An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.</p>
@@ -2250,7 +2250,7 @@ class DeviceFarmClient:
             "aws_sdk_device_farm.types.device_filters.DeviceFilters"
         ] = None,
     ) -> "aws_sdk_device_farm.types.list_devices_result.ListDevicesResult":
-        """<p>Gets information about unique device types.</p>
+        r"""<p>Gets information about unique device types.</p>
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the project.</p>
@@ -2496,7 +2496,7 @@ class DeviceFarmClient:
             "aws_sdk_device_farm.types.pagination_token.PaginationToken"
         ] = None,
     ) -> "aws_sdk_device_farm.types.list_offering_promotions_result.ListOfferingPromotionsResult":
-        """<p>Returns a list of offering promotions. Each offering promotion record contains the ID and description of the promotion. The API returns a <code>NotEligible</code> error if the caller is not permitted to invoke the operation. Contact <a href=\"mailto:aws-devicefarm-support@amazon.com\">aws-devicefarm-support@amazon.com</a> if you must be able to invoke this operation.</p>
+        r"""<p>Returns a list of offering promotions. Each offering promotion record contains the ID and description of the promotion. The API returns a <code>NotEligible</code> error if the caller is not permitted to invoke the operation. Contact <a href=\"mailto:aws-devicefarm-support@amazon.com\">aws-devicefarm-support@amazon.com</a> if you must be able to invoke this operation.</p>
 
         Args:
             next_token: <p>An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.</p>
@@ -2536,7 +2536,7 @@ class DeviceFarmClient:
             "aws_sdk_device_farm.types.pagination_token.PaginationToken"
         ] = None,
     ) -> "aws_sdk_device_farm.types.list_offerings_result.ListOfferingsResult":
-        """<p>Returns a list of products or offerings that the user can manage through the API. Each offering record indicates the recurring price per unit and the frequency for that offering. The API returns a <code>NotEligible</code> error if the user is not permitted to invoke the operation. If you must be able to invoke this operation, contact <a href=\"mailto:aws-devicefarm-support@amazon.com\">aws-devicefarm-support@amazon.com</a>.</p>
+        r"""<p>Returns a list of products or offerings that the user can manage through the API. Each offering record indicates the recurring price per unit and the frequency for that offering. The API returns a <code>NotEligible</code> error if the user is not permitted to invoke the operation. If you must be able to invoke this operation, contact <a href=\"mailto:aws-devicefarm-support@amazon.com\">aws-devicefarm-support@amazon.com</a>.</p>
 
         Args:
             next_token: <p>An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.</p>
@@ -2603,7 +2603,7 @@ class DeviceFarmClient:
             "aws_sdk_device_farm.types.pagination_token.PaginationToken"
         ] = None,
     ) -> "aws_sdk_device_farm.types.list_offering_transactions_result.ListOfferingTransactionsResult":
-        """<p>Returns a list of all historical purchases, renewals, and system renewal transactions for an AWS account. The list is paginated and ordered by a descending timestamp (most recent transactions are first). The API returns a <code>NotEligible</code> error if the user is not permitted to invoke the operation. If you must be able to invoke this operation, contact <a href=\"mailto:aws-devicefarm-support@amazon.com\">aws-devicefarm-support@amazon.com</a>.</p>
+        r"""<p>Returns a list of all historical purchases, renewals, and system renewal transactions for an AWS account. The list is paginated and ordered by a descending timestamp (most recent transactions are first). The API returns a <code>NotEligible</code> error if the user is not permitted to invoke the operation. If you must be able to invoke this operation, contact <a href=\"mailto:aws-devicefarm-support@amazon.com\">aws-devicefarm-support@amazon.com</a>.</p>
 
         Args:
             next_token: <p>An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.</p>
@@ -3528,7 +3528,7 @@ class DeviceFarmClient:
             "aws_sdk_device_farm.types.offering_promotion_identifier.OfferingPromotionIdentifier"
         ] = None,
     ) -> "aws_sdk_device_farm.types.purchase_offering_result.PurchaseOfferingResult":
-        """<p>Immediately purchases offerings for an AWS account. Offerings renew with the latest total purchased quantity for an offering, unless the renewal was overridden. The API returns a <code>NotEligible</code> error if the user is not permitted to invoke the operation. If you must be able to invoke this operation, contact <a href=\"mailto:aws-devicefarm-support@amazon.com\">aws-devicefarm-support@amazon.com</a>.</p>
+        r"""<p>Immediately purchases offerings for an AWS account. Offerings renew with the latest total purchased quantity for an offering, unless the renewal was overridden. The API returns a <code>NotEligible</code> error if the user is not permitted to invoke the operation. If you must be able to invoke this operation, contact <a href=\"mailto:aws-devicefarm-support@amazon.com\">aws-devicefarm-support@amazon.com</a>.</p>
 
         Args:
             offering_id: <p>The ID of the offering.</p>
@@ -3571,7 +3571,7 @@ class DeviceFarmClient:
         *,
         config_overrides: Optional[DeviceFarmClientConfig] = None,
     ) -> "aws_sdk_device_farm.types.renew_offering_result.RenewOfferingResult":
-        """<p>Explicitly sets the quantity of devices to renew for an offering, starting from the <code>effectiveDate</code> of the next period. The API returns a <code>NotEligible</code> error if the user is not permitted to invoke the operation. If you must be able to invoke this operation, contact <a href=\"mailto:aws-devicefarm-support@amazon.com\">aws-devicefarm-support@amazon.com</a>.</p>
+        r"""<p>Explicitly sets the quantity of devices to renew for an offering, starting from the <code>effectiveDate</code> of the next period. The API returns a <code>NotEligible</code> error if the user is not permitted to invoke the operation. If you must be able to invoke this operation, contact <a href=\"mailto:aws-devicefarm-support@amazon.com\">aws-devicefarm-support@amazon.com</a>.</p>
 
         Args:
             offering_id: <p>The ID of a request to renew an offering.</p>
@@ -4158,7 +4158,7 @@ class DeviceFarmClient:
             "aws_sdk_device_farm.types.amazon_role_resource_name.AmazonRoleResourceName"
         ] = None,
     ) -> "aws_sdk_device_farm.types.update_project_result.UpdateProjectResult":
-        """<p>Modifies the specified project name, given the project ARN and a new name.</p>
+        r"""<p>Modifies the specified project name, given the project ARN and a new name.</p>
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the project whose name to update.</p>

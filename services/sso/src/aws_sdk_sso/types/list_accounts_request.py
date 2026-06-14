@@ -16,7 +16,7 @@ class ListAccountsRequest(TypedDict):
     max_results: NotRequired["aws_sdk_sso.types.max_result_type.MaxResultType"]
     """<p>This is the number of items clients can request per page.</p>"""
     access_token: "aws_sdk_sso.types.access_token_type.AccessTokenType"
-    """<p>The token issued by the <code>CreateToken</code> API call. For more information, see <a href=\"https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html\">CreateToken</a> in the <i>IAM Identity Center OIDC API Reference Guide</i>.</p>"""
+    r"""<p>The token issued by the <code>CreateToken</code> API call. For more information, see <a href=\"https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html\">CreateToken</a> in the <i>IAM Identity Center OIDC API Reference Guide</i>.</p>"""
 
 
 # --- restJson1 ser/de ---

@@ -29,7 +29,7 @@ class KeyPair(TypedDict):
     resource_type: NotRequired["aws_sdk_lightsail.types.resource_type.ResourceType"]
     """<p>The resource type (usually <code>KeyPair</code>).</p>"""
     tags: NotRequired["aws_sdk_lightsail.types.tag_list.TagList"]
-    """<p>The tag keys and optional values for the resource. For more information about tags in Lightsail, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-tags\">Amazon Lightsail Developer Guide</a>.</p>"""
+    r"""<p>The tag keys and optional values for the resource. For more information about tags in Lightsail, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-tags\">Amazon Lightsail Developer Guide</a>.</p>"""
     fingerprint: NotRequired["aws_sdk_lightsail.types.base64.Base64"]
     """<p>The RSA fingerprint of the key pair.</p>"""
 

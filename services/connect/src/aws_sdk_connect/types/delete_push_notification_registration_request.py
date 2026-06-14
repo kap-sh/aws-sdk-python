@@ -10,7 +10,7 @@ if TYPE_CHECKING:
 
 class DeletePushNotificationRegistrationRequest(TypedDict):
     instance_id: "aws_sdk_connect.types.instance_id.InstanceId"
-    """<p>The identifier of the Amazon Connect instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>"""
+    r"""<p>The identifier of the Amazon Connect instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>"""
     registration_id: "aws_sdk_connect.types.registration_id.RegistrationId"
     """<p>The identifier for the registration.</p>"""
     contact_id: "aws_sdk_connect.types.contact_id.ContactId"

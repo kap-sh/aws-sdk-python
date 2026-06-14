@@ -13,7 +13,7 @@ if TYPE_CHECKING:
 
 class SigningRule(TypedDict):
     signing_profile_arn: "aws_sdk_ecr.types.signing_profile_arn.SigningProfileArn"
-    """<p>The ARN of the Amazon Web Services Signer signing profile to use for signing images that match this rule. For more information about signing profiles, see <a href=\"https://docs.aws.amazon.com/signer/latest/developerguide/signing-profiles.html\">Signing profiles</a> in the <i>Amazon Web Services Signer Developer Guide</i>.</p>"""
+    r"""<p>The ARN of the Amazon Web Services Signer signing profile to use for signing images that match this rule. For more information about signing profiles, see <a href=\"https://docs.aws.amazon.com/signer/latest/developerguide/signing-profiles.html\">Signing profiles</a> in the <i>Amazon Web Services Signer Developer Guide</i>.</p>"""
     repository_filters: NotRequired[
         "aws_sdk_ecr.types.signing_repository_filter_list.SigningRepositoryFilterList"
     ]

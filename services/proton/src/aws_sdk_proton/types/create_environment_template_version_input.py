@@ -31,7 +31,7 @@ class CreateEnvironmentTemplateVersionInput(TypedDict):
     )
     """<p>An object that includes the template bundle S3 bucket path and name for the new version of an template.</p>"""
     tags: NotRequired["aws_sdk_proton.types.tag_list.TagList"]
-    """<p>An optional list of metadata items that you can associate with the Proton environment template version. A tag is a key-value pair.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/resources.html\">Proton resources and tagging</a> in the <i>Proton User Guide</i>.</p>"""
+    r"""<p>An optional list of metadata items that you can associate with the Proton environment template version. A tag is a key-value pair.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/resources.html\">Proton resources and tagging</a> in the <i>Proton User Guide</i>.</p>"""
 
 
 # --- awsJson1_0 ser/de ---

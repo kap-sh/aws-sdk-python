@@ -13,13 +13,13 @@ if TYPE_CHECKING:
 
 class StartJobResponse(TypedDict):
     created_at: "aws_sdk_location.types.timestamp.Timestamp"
-    """<p>Job creation time in <a href=\"https://www.iso.org/iso-8601-date-and-time-format.html\">ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sss</code>.</p>"""
+    r"""<p>Job creation time in <a href=\"https://www.iso.org/iso-8601-date-and-time-format.html\">ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sss</code>.</p>"""
     job_arn: "aws_sdk_location.types.geo_arn.GeoArn"
     """<p>The Amazon Resource Name (ARN) for the job resource. Used when you need to specify a resource across all Amazon Web Services.</p> <p>Format example: <code>arn:aws:geo:region:account-id:job/ExampleJob</code> </p>"""
     job_id: "aws_sdk_location.types.job_id.JobId"
     """<p>Unique job identifier.</p>"""
     status: "aws_sdk_location.types.job_status.JobStatus"
-    """<p>Initial job status (always \"Pending\" for new jobs).</p>"""
+    r"""<p>Initial job status (always \"Pending\" for new jobs).</p>"""
 
 
 # --- restJson1 ser/de ---

@@ -17,7 +17,7 @@ class TransitGatewayRouteTableAttachment(TypedDict):
     transit_gateway_route_table_arn: NotRequired[
         "aws_sdk_networkmanager.types.transit_gateway_route_table_arn.TransitGatewayRouteTableArn"
     ]
-    """<p>The ARN of the transit gateway attachment route table. For example, <code>\"TransitGatewayRouteTableArn\": \"arn:aws:ec2:us-west-2:123456789012:transit-gateway-route-table/tgw-rtb-9876543210123456\"</code>.</p>"""
+    r"""<p>The ARN of the transit gateway attachment route table. For example, <code>\"TransitGatewayRouteTableArn\": \"arn:aws:ec2:us-west-2:123456789012:transit-gateway-route-table/tgw-rtb-9876543210123456\"</code>.</p>"""
 
 
 # --- restJson1 ser/de ---

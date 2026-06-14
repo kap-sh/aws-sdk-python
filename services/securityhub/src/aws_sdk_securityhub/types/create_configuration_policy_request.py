@@ -20,7 +20,7 @@ class CreateConfigurationPolicyRequest(TypedDict):
     configuration_policy: NotRequired["aws_sdk_securityhub.types.policy.Policy"]
     """<p> An object that defines how Security Hub CSPM is configured. It includes whether Security Hub CSPM is enabled or disabled, a list of enabled security standards, a list of enabled or disabled security controls, and a list of custom parameter values for specified controls. If you provide a list of security controls that are enabled in the configuration policy, Security Hub CSPM disables all other controls (including newly released controls). If you provide a list of security controls that are disabled in the configuration policy, Security Hub CSPM enables all other controls (including newly released controls). </p>"""
     tags: NotRequired["aws_sdk_securityhub.types.tag_map.TagMap"]
-    """<p> User-defined tags associated with a configuration policy. For more information, see <a href=\"https://docs.aws.amazon.com/securityhub/latest/userguide/tagging-resources.html\">Tagging Security Hub CSPM resources</a> in the <i>Security Hub CSPM user guide</i>. </p>"""
+    r"""<p> User-defined tags associated with a configuration policy. For more information, see <a href=\"https://docs.aws.amazon.com/securityhub/latest/userguide/tagging-resources.html\">Tagging Security Hub CSPM resources</a> in the <i>Security Hub CSPM user guide</i>. </p>"""
 
 
 # --- restJson1 ser/de ---

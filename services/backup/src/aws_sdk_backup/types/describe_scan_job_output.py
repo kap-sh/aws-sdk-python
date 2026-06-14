@@ -23,7 +23,7 @@ class DescribeScanJobOutput(TypedDict):
     backup_vault_arn: "str"
     """<p>An Amazon Resource Name (ARN) that uniquely identifies a backup vault; for example, <code>arn:aws:backup:us-east-1:123456789012:backup-vault:aBackupVault</code> </p>"""
     backup_vault_name: "str"
-    """<p>The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the Amazon Web Services Region where they are created.</p> <p>Pattern: <code>^[a-zA-Z0-9\-\_\.]{2,50}$</code> </p>"""
+    r"""<p>The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the Amazon Web Services Region where they are created.</p> <p>Pattern: <code>^[a-zA-Z0-9\-\_\.]{2,50}$</code> </p>"""
     completion_date: NotRequired["datetime.datetime"]
     """<p>The date and time that a backup index finished creation, in Unix format and Coordinated Universal Time (UTC). The value of <code>CompletionDate</code> is accurate to milliseconds. For example, the value 1516925490.087 represents Friday, January 26, 2018 12:11:30.087 AM.</p>"""
     continuous_scan_end_time: NotRequired["datetime.datetime"]
@@ -44,7 +44,7 @@ class DescribeScanJobOutput(TypedDict):
     resource_name: "str"
     """<p>The non-unique name of the resource that belongs to the specified backup.</p>"""
     resource_type: "aws_sdk_backup.types.scan_resource_type.ScanResourceType"
-    """<p>The type of Amazon Web Services Resource to be backed up; for example, an Amazon Elastic Block Store (Amazon EBS) volume.</p> <p>Pattern: <code>^[a-zA-Z0-9\-\_\.]{1,50}$</code> </p>"""
+    r"""<p>The type of Amazon Web Services Resource to be backed up; for example, an Amazon Elastic Block Store (Amazon EBS) volume.</p> <p>Pattern: <code>^[a-zA-Z0-9\-\_\.]{1,50}$</code> </p>"""
     scan_base_recovery_point_arn: NotRequired["str"]
     """<p>An ARN that uniquely identifies the base recovery point for scanning. This field will only be populated when an incremental scan job has taken place.</p>"""
     scan_id: NotRequired["str"]

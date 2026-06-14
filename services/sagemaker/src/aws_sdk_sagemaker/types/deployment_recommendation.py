@@ -17,7 +17,7 @@ class DeploymentRecommendation(TypedDict):
     real_time_inference_recommendations: NotRequired[
         "aws_sdk_sagemaker.types.real_time_inference_recommendations.RealTimeInferenceRecommendations"
     ]
-    """<p>A list of <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_RealTimeInferenceRecommendation.html\">RealTimeInferenceRecommendation</a> items.</p>"""
+    r"""<p>A list of <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_RealTimeInferenceRecommendation.html\">RealTimeInferenceRecommendation</a> items.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

@@ -20,7 +20,7 @@ class Filters(TypedDict):
     key_usage: NotRequired["aws_sdk_acm.types.key_usage_filter_list.KeyUsageFilterList"]
     """<p>Specify one or more <a>KeyUsage</a> extension values.</p>"""
     key_types: NotRequired["aws_sdk_acm.types.key_algorithm_list.KeyAlgorithmList"]
-    """<p>Specify one or more algorithms that can be used to generate key pairs.</p> <p>Default filtering returns only <code>RSA_1024</code> and <code>RSA_2048</code> certificates that have at least one domain. To return other certificate types, provide the desired type signatures in a comma-separated list. For example, <code>\"keyTypes\": [\"RSA_2048\",\"RSA_4096\"]</code> returns both <code>RSA_2048</code> and <code>RSA_4096</code> certificates.</p>"""
+    r"""<p>Specify one or more algorithms that can be used to generate key pairs.</p> <p>Default filtering returns only <code>RSA_1024</code> and <code>RSA_2048</code> certificates that have at least one domain. To return other certificate types, provide the desired type signatures in a comma-separated list. For example, <code>\"keyTypes\": [\"RSA_2048\",\"RSA_4096\"]</code> returns both <code>RSA_2048</code> and <code>RSA_4096</code> certificates.</p>"""
     export_option: NotRequired["aws_sdk_acm.types.certificate_export.CertificateExport"]
     """<p>Specify <code>ENABLED</code> or <code>DISABLED</code> to identify certificates that can be exported.</p>"""
     managed_by: NotRequired[

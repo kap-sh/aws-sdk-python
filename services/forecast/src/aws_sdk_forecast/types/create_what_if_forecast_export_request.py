@@ -22,7 +22,7 @@ class CreateWhatIfForecastExportRequest(TypedDict):
     destination: "aws_sdk_forecast.types.data_destination.DataDestination"
     """<p>The location where you want to save the forecast and an Identity and Access Management (IAM) role that Amazon Forecast can assume to access the location. The forecast must be exported to an Amazon S3 bucket.</p> <p>If encryption is used, <code>Destination</code> must include an Key Management Service (KMS) key. The IAM role must allow Amazon Forecast permission to access the key.</p>"""
     tags: NotRequired["aws_sdk_forecast.types.tags.Tags"]
-    """<p>A list of <a href=\"https://docs.aws.amazon.com/forecast/latest/dg/tagging-forecast-resources.html\">tags</a> to apply to the what if forecast.</p>"""
+    r"""<p>A list of <a href=\"https://docs.aws.amazon.com/forecast/latest/dg/tagging-forecast-resources.html\">tags</a> to apply to the what if forecast.</p>"""
     format: NotRequired["aws_sdk_forecast.types.format.Format"]
     """<p>The format of the exported data, CSV or PARQUET.</p>"""
 

@@ -482,7 +482,7 @@ class IoTSiteWiseClient:
             "aws_sdk_iotsitewise.types.client_token.ClientToken"
         ] = None,
     ) -> None:
-        """<p>Associates a child asset with the given parent asset through a hierarchy defined in the parent asset's model. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/add-associated-assets.html\">Associating assets</a> in the <i>IoT SiteWise User Guide</i>.</p>
+        r"""<p>Associates a child asset with the given parent asset through a hierarchy defined in the parent asset's model. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/add-associated-assets.html\">Associating assets</a> in the <i>IoT SiteWise User Guide</i>.</p>
 
         Args:
             asset_id: <p>The ID of the parent asset. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references\">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
@@ -529,7 +529,7 @@ class IoTSiteWiseClient:
             "aws_sdk_iotsitewise.types.client_token.ClientToken"
         ] = None,
     ) -> None:
-        """<p>Associates a time series (data stream) with an asset property.</p>
+        r"""<p>Associates a time series (data stream) with an asset property.</p>
 
         Args:
             alias: <p>The alias that identifies the time series.</p>
@@ -667,7 +667,7 @@ class IoTSiteWiseClient:
             "aws_sdk_iotsitewise.types.batch_get_asset_property_aggregates_max_results.BatchGetAssetPropertyAggregatesMaxResults"
         ] = None,
     ) -> "aws_sdk_iotsitewise.types.batch_get_asset_property_aggregates_response.BatchGetAssetPropertyAggregatesResponse":
-        """<p>Gets aggregated values (for example, average, minimum, and maximum) for one or more asset properties. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#aggregates\">Querying aggregates</a> in the <i>IoT SiteWise User Guide</i>.</p>
+        r"""<p>Gets aggregated values (for example, average, minimum, and maximum) for one or more asset properties. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#aggregates\">Querying aggregates</a> in the <i>IoT SiteWise User Guide</i>.</p>
 
         Args:
             entries: <p>The list of asset property aggregate entries for the batch get request. You can specify up to 16 entries per request.</p>
@@ -711,7 +711,7 @@ class IoTSiteWiseClient:
         config_overrides: Optional[IoTSiteWiseClientConfig] = None,
         next_token: Optional["aws_sdk_iotsitewise.types.next_token.NextToken"] = None,
     ) -> "aws_sdk_iotsitewise.types.batch_get_asset_property_value_response.BatchGetAssetPropertyValueResponse":
-        """<p>Gets the current value for one or more asset properties. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#current-values\">Querying current values</a> in the <i>IoT SiteWise User Guide</i>.</p>
+        r"""<p>Gets the current value for one or more asset properties. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#current-values\">Querying current values</a> in the <i>IoT SiteWise User Guide</i>.</p>
 
         Args:
             entries: <p>The list of asset property value entries for the batch get request. You can specify up to 128 entries per request.</p>
@@ -755,7 +755,7 @@ class IoTSiteWiseClient:
             "aws_sdk_iotsitewise.types.batch_get_asset_property_value_history_max_results.BatchGetAssetPropertyValueHistoryMaxResults"
         ] = None,
     ) -> "aws_sdk_iotsitewise.types.batch_get_asset_property_value_history_response.BatchGetAssetPropertyValueHistoryResponse":
-        """<p>Gets the historical values for one or more asset properties. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#historical-values\">Querying historical values</a> in the <i>IoT SiteWise User Guide</i>.</p>
+        r"""<p>Gets the historical values for one or more asset properties. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#historical-values\">Querying historical values</a> in the <i>IoT SiteWise User Guide</i>.</p>
 
         Args:
             entries: <p>The list of asset property historical value entries for the batch get request. You can specify up to 16 entries per request.</p>
@@ -801,7 +801,7 @@ class IoTSiteWiseClient:
             "aws_sdk_iotsitewise.types.boolean_value.BooleanValue"
         ] = None,
     ) -> "aws_sdk_iotsitewise.types.batch_put_asset_property_value_response.BatchPutAssetPropertyValueResponse":
-        """<p>Sends a list of asset property values to IoT SiteWise. Each value is a timestamp-quality-value (TQV) data point. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/ingest-api.html\">Ingesting data using the API</a> in the <i>IoT SiteWise User Guide</i>.</p> <p>To identify an asset property, you must specify one of the following:</p> <ul> <li> <p>The <code>assetId</code> and <code>propertyId</code> of an asset property.</p> </li> <li> <p>A <code>propertyAlias</code>, which is a data stream alias (for example, <code>/company/windfarm/3/turbine/7/temperature</code>). To define an asset property's alias, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html\">UpdateAssetProperty</a>.</p> </li> </ul> <important> <p>With respect to Unix epoch time, IoT SiteWise accepts only TQVs that have a timestamp of no more than 7 days in the past and no more than 10 minutes in the future. IoT SiteWise rejects timestamps outside of the inclusive range of [-7 days, +10 minutes] and returns a <code>TimestampOutOfRangeException</code> error.</p> <p>For each asset property, IoT SiteWise overwrites TQVs with duplicate timestamps unless the newer TQV has a different quality. For example, if you store a TQV <code>{T1, GOOD, V1}</code>, then storing <code>{T1, GOOD, V2}</code> replaces the existing TQV.</p> </important> <p>IoT SiteWise authorizes access to each <code>BatchPutAssetPropertyValue</code> entry individually. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-id-based-policies-batchputassetpropertyvalue-action\">BatchPutAssetPropertyValue authorization</a> in the <i>IoT SiteWise User Guide</i>.</p>
+        r"""<p>Sends a list of asset property values to IoT SiteWise. Each value is a timestamp-quality-value (TQV) data point. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/ingest-api.html\">Ingesting data using the API</a> in the <i>IoT SiteWise User Guide</i>.</p> <p>To identify an asset property, you must specify one of the following:</p> <ul> <li> <p>The <code>assetId</code> and <code>propertyId</code> of an asset property.</p> </li> <li> <p>A <code>propertyAlias</code>, which is a data stream alias (for example, <code>/company/windfarm/3/turbine/7/temperature</code>). To define an asset property's alias, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html\">UpdateAssetProperty</a>.</p> </li> </ul> <important> <p>With respect to Unix epoch time, IoT SiteWise accepts only TQVs that have a timestamp of no more than 7 days in the past and no more than 10 minutes in the future. IoT SiteWise rejects timestamps outside of the inclusive range of [-7 days, +10 minutes] and returns a <code>TimestampOutOfRangeException</code> error.</p> <p>For each asset property, IoT SiteWise overwrites TQVs with duplicate timestamps unless the newer TQV has a different quality. For example, if you store a TQV <code>{T1, GOOD, V1}</code>, then storing <code>{T1, GOOD, V2}</code> replaces the existing TQV.</p> </important> <p>IoT SiteWise authorizes access to each <code>BatchPutAssetPropertyValue</code> entry individually. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-id-based-policies-batchputassetpropertyvalue-action\">BatchPutAssetPropertyValue authorization</a> in the <i>IoT SiteWise User Guide</i>.</p>
 
         Args:
             enable_partial_entry_processing: <p>This setting enables partial ingestion at entry-level. If set to <code>true</code>, we ingest all TQVs not resulting in an error. If set to <code>false</code>, an invalid TQV fails ingestion of the entire entry that contains it.</p>
@@ -847,7 +847,7 @@ class IoTSiteWiseClient:
         ] = None,
         tags: Optional["aws_sdk_iotsitewise.types.tag_map.TagMap"] = None,
     ) -> "aws_sdk_iotsitewise.types.create_access_policy_response.CreateAccessPolicyResponse":
-        """<p>Creates an access policy that grants the specified identity (IAM Identity Center user, IAM Identity Center group, or IAM user) access to the specified IoT SiteWise Monitor portal or project resource.</p> <note> <p>Support for access policies that use an SSO Group as the identity is not supported at this time.</p> </note>
+        r"""<p>Creates an access policy that grants the specified identity (IAM Identity Center user, IAM Identity Center group, or IAM user) access to the specified IoT SiteWise Monitor portal or project resource.</p> <note> <p>Support for access policies that use an SSO Group as the identity is not supported at this time.</p> </note>
 
         Args:
             access_policy_identity: <p>The identity for this access policy. Choose an IAM Identity Center user, an IAM Identity Center group, or an IAM user.</p>
@@ -906,7 +906,7 @@ class IoTSiteWiseClient:
             "aws_sdk_iotsitewise.types.description.Description"
         ] = None,
     ) -> "aws_sdk_iotsitewise.types.create_asset_response.CreateAssetResponse":
-        """<p>Creates an asset from an existing asset model. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/create-assets.html\">Creating assets</a> in the <i>IoT SiteWise User Guide</i>.</p>
+        r"""<p>Creates an asset from an existing asset model. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/create-assets.html\">Creating assets</a> in the <i>IoT SiteWise User Guide</i>.</p>
 
         Args:
             asset_name: <p>A friendly name for the asset.</p>
@@ -985,7 +985,7 @@ class IoTSiteWiseClient:
     ) -> (
         "aws_sdk_iotsitewise.types.create_asset_model_response.CreateAssetModelResponse"
     ):
-        """<p>Creates an asset model from specified property and hierarchy definitions. You create assets from asset models. With asset models, you can easily create assets of the same type that have standardized definitions. Each asset created from a model inherits the asset model's property and hierarchy definitions. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/define-models.html\">Defining asset models</a> in the <i>IoT SiteWise User Guide</i>.</p> <p>You can create three types of asset models, <code>ASSET_MODEL</code>, <code>COMPONENT_MODEL</code>, or an <code>INTERFACE</code>.</p> <ul> <li> <p> <b>ASSET_MODEL</b> – (default) An asset model that you can use to create assets. Can't be included as a component in another asset model.</p> </li> <li> <p> <b>COMPONENT_MODEL</b> – A reusable component that you can include in the composite models of other asset models. You can't create assets directly from this type of asset model. </p> </li> <li> <p> <b>INTERFACE</b> – An interface is a type of model that defines a standard structure that can be applied to different asset models.</p> </li> </ul>
+        r"""<p>Creates an asset model from specified property and hierarchy definitions. You create assets from asset models. With asset models, you can easily create assets of the same type that have standardized definitions. Each asset created from a model inherits the asset model's property and hierarchy definitions. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/define-models.html\">Defining asset models</a> in the <i>IoT SiteWise User Guide</i>.</p> <p>You can create three types of asset models, <code>ASSET_MODEL</code>, <code>COMPONENT_MODEL</code>, or an <code>INTERFACE</code>.</p> <ul> <li> <p> <b>ASSET_MODEL</b> – (default) An asset model that you can use to create assets. Can't be included as a component in another asset model.</p> </li> <li> <p> <b>COMPONENT_MODEL</b> – A reusable component that you can include in the composite models of other asset models. You can't create assets directly from this type of asset model. </p> </li> <li> <p> <b>INTERFACE</b> – An interface is a type of model that defines a standard structure that can be applied to different asset models.</p> </li> </ul>
 
         Args:
             asset_model_name: <p>A unique name for the asset model.</p>
@@ -1079,7 +1079,7 @@ class IoTSiteWiseClient:
             "aws_sdk_iotsitewise.types.asset_model_version_type.AssetModelVersionType"
         ] = None,
     ) -> "aws_sdk_iotsitewise.types.create_asset_model_composite_model_response.CreateAssetModelCompositeModelResponse":
-        """<p>Creates a custom composite model from specified property and hierarchy definitions. There are two types of custom composite models, <code>inline</code> and <code>component-model-based</code>. </p> <p>Use component-model-based custom composite models to define standard, reusable components. A component-model-based custom composite model consists of a name, a description, and the ID of the component model it references. A component-model-based custom composite model has no properties of its own; its referenced component model provides its associated properties to any created assets. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/custom-composite-models.html\">Custom composite models (Components)</a> in the <i>IoT SiteWise User Guide</i>.</p> <p>Use inline custom composite models to organize the properties of an asset model. The properties of inline custom composite models are local to the asset model where they are included and can't be used to create multiple assets.</p> <p>To create a component-model-based model, specify the <code>composedAssetModelId</code> of an existing asset model with <code>assetModelType</code> of <code>COMPONENT_MODEL</code>.</p> <p>To create an inline model, specify the <code>assetModelCompositeModelProperties</code> and don't include an <code>composedAssetModelId</code>.</p>
+        r"""<p>Creates a custom composite model from specified property and hierarchy definitions. There are two types of custom composite models, <code>inline</code> and <code>component-model-based</code>. </p> <p>Use component-model-based custom composite models to define standard, reusable components. A component-model-based custom composite model consists of a name, a description, and the ID of the component model it references. A component-model-based custom composite model has no properties of its own; its referenced component model provides its associated properties to any created assets. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/custom-composite-models.html\">Custom composite models (Components)</a> in the <i>IoT SiteWise User Guide</i>.</p> <p>Use inline custom composite models to organize the properties of an asset model. The properties of inline custom composite models are local to the asset model where they are included and can't be used to create multiple assets.</p> <p>To create a component-model-based model, specify the <code>composedAssetModelId</code> of an existing asset model with <code>assetModelType</code> of <code>COMPONENT_MODEL</code>.</p> <p>To create an inline model, specify the <code>assetModelCompositeModelProperties</code> and don't include an <code>composedAssetModelId</code>.</p>
 
         Args:
             asset_model_id: <p>The ID of the asset model this composite model is a part of.</p>
@@ -1168,7 +1168,7 @@ class IoTSiteWiseClient:
             "aws_sdk_iotsitewise.types.delete_files_after_import.DeleteFilesAfterImport"
         ] = None,
     ) -> "aws_sdk_iotsitewise.types.create_bulk_import_job_response.CreateBulkImportJobResponse":
-        """<p>Defines a job to ingest data to IoT SiteWise from Amazon S3. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/CreateBulkImportJob.html\">Create a bulk import job (CLI)</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p> <important> <p>Before you create a bulk import job, you must enable IoT SiteWise warm tier or IoT SiteWise cold tier. For more information about how to configure storage settings, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_PutStorageConfiguration.html\">PutStorageConfiguration</a>.</p> <p>Bulk import is designed to store historical data to IoT SiteWise.</p> <ul> <li> <p>Newly ingested data in the hot tier triggers notifications and computations.</p> </li> <li> <p>After data moves from the hot tier to the warm or cold tier based on retention settings, it does not trigger computations or notifications.</p> </li> <li> <p>Data older than 7 days does not trigger computations or notifications.</p> </li> </ul> </important>
+        r"""<p>Defines a job to ingest data to IoT SiteWise from Amazon S3. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/CreateBulkImportJob.html\">Create a bulk import job (CLI)</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p> <important> <p>Before you create a bulk import job, you must enable IoT SiteWise warm tier or IoT SiteWise cold tier. For more information about how to configure storage settings, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_PutStorageConfiguration.html\">PutStorageConfiguration</a>.</p> <p>Bulk import is designed to store historical data to IoT SiteWise.</p> <ul> <li> <p>Newly ingested data in the hot tier triggers notifications and computations.</p> </li> <li> <p>After data moves from the hot tier to the warm or cold tier based on retention settings, it does not trigger computations or notifications.</p> </li> <li> <p>Data older than 7 days does not trigger computations or notifications.</p> </li> </ul> </important>
 
         Args:
             job_name: <p>The unique name that helps identify the job request.</p>
@@ -1228,7 +1228,7 @@ class IoTSiteWiseClient:
         ] = None,
         tags: Optional["aws_sdk_iotsitewise.types.tag_map.TagMap"] = None,
     ) -> "aws_sdk_iotsitewise.types.create_computation_model_response.CreateComputationModelResponse":
-        """<p>Create a computation model with a configuration and data binding.</p>
+        r"""<p>Create a computation model with a configuration and data binding.</p>
 
         Args:
             computation_model_name: <p>The name of the computation model.</p>
@@ -1287,7 +1287,7 @@ class IoTSiteWiseClient:
         ] = None,
         tags: Optional["aws_sdk_iotsitewise.types.tag_map.TagMap"] = None,
     ) -> "aws_sdk_iotsitewise.types.create_dashboard_response.CreateDashboardResponse":
-        """<p>Creates a dashboard in an IoT SiteWise Monitor project.</p>
+        r"""<p>Creates a dashboard in an IoT SiteWise Monitor project.</p>
 
         Args:
             project_id: <p>The ID of the project in which to create the dashboard.</p>
@@ -1346,7 +1346,7 @@ class IoTSiteWiseClient:
         ] = None,
         tags: Optional["aws_sdk_iotsitewise.types.tag_map.TagMap"] = None,
     ) -> "aws_sdk_iotsitewise.types.create_dataset_response.CreateDatasetResponse":
-        """<p>Creates a dataset to connect an external datasource.</p>
+        r"""<p>Creates a dataset to connect an external datasource.</p>
 
         Args:
             dataset_id: <p>The ID of the dataset.</p>
@@ -1402,7 +1402,7 @@ class IoTSiteWiseClient:
         ] = None,
         tags: Optional["aws_sdk_iotsitewise.types.tag_map.TagMap"] = None,
     ) -> "aws_sdk_iotsitewise.types.create_gateway_response.CreateGatewayResponse":
-        """<p>Creates a gateway, which is a virtual or edge device that delivers industrial data streams from local servers to IoT SiteWise. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/gateway-connector.html\">Ingesting data using a gateway</a> in the <i>IoT SiteWise User Guide</i>.</p>
+        r"""<p>Creates a gateway, which is a virtual or edge device that delivers industrial data streams from local servers to IoT SiteWise. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/gateway-connector.html\">Ingesting data using a gateway</a> in the <i>IoT SiteWise User Guide</i>.</p>
 
         Args:
             gateway_name: <p>A unique name for the gateway.</p>
@@ -1472,7 +1472,7 @@ class IoTSiteWiseClient:
             "aws_sdk_iotsitewise.types.portal_type_configuration.PortalTypeConfiguration"
         ] = None,
     ) -> "aws_sdk_iotsitewise.types.create_portal_response.CreatePortalResponse":
-        """<p>Creates a portal, which can contain projects and dashboards. IoT SiteWise Monitor uses IAM Identity Center or IAM to authenticate portal users and manage user permissions.</p> <note> <p>Before you can sign in to a new portal, you must add at least one identity to that portal. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/administer-portals.html#portal-change-admins\">Adding or removing portal administrators</a> in the <i>IoT SiteWise User Guide</i>.</p> </note>
+        r"""<p>Creates a portal, which can contain projects and dashboards. IoT SiteWise Monitor uses IAM Identity Center or IAM to authenticate portal users and manage user permissions.</p> <note> <p>Before you can sign in to a new portal, you must add at least one identity to that portal. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/administer-portals.html#portal-change-admins\">Adding or removing portal administrators</a> in the <i>IoT SiteWise User Guide</i>.</p> </note>
 
         Args:
             portal_name: <p>A friendly name for the portal.</p>
@@ -1548,7 +1548,7 @@ class IoTSiteWiseClient:
         ] = None,
         tags: Optional["aws_sdk_iotsitewise.types.tag_map.TagMap"] = None,
     ) -> "aws_sdk_iotsitewise.types.create_project_response.CreateProjectResponse":
-        """<p>Creates a project in the specified portal.</p> <note> <p>Make sure that the project name and description don't contain confidential information.</p> </note>
+        r"""<p>Creates a project in the specified portal.</p> <note> <p>Make sure that the project name and description don't contain confidential information.</p> </note>
 
         Args:
             portal_id: <p>The ID of the portal in which to create the project.</p>
@@ -1642,7 +1642,7 @@ class IoTSiteWiseClient:
             "aws_sdk_iotsitewise.types.client_token.ClientToken"
         ] = None,
     ) -> "aws_sdk_iotsitewise.types.delete_asset_response.DeleteAssetResponse":
-        """<p>Deletes an asset. This action can't be undone. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/delete-assets-and-models.html\">Deleting assets and models</a> in the <i>IoT SiteWise User Guide</i>.</p> <note> <p>You can't delete an asset that's associated to another asset. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DisassociateAssets.html\">DisassociateAssets</a>.</p> </note>
+        r"""<p>Deletes an asset. This action can't be undone. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/delete-assets-and-models.html\">Deleting assets and models</a> in the <i>IoT SiteWise User Guide</i>.</p> <note> <p>You can't delete an asset that's associated to another asset. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DisassociateAssets.html\">DisassociateAssets</a>.</p> </note>
 
         Args:
             asset_id: <p>The ID of the asset to delete. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references\">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
@@ -1694,7 +1694,7 @@ class IoTSiteWiseClient:
     ) -> (
         "aws_sdk_iotsitewise.types.delete_asset_model_response.DeleteAssetModelResponse"
     ):
-        """<p>Deletes an asset model. This action can't be undone. You must delete all assets created from an asset model before you can delete the model. Also, you can't delete an asset model if a parent asset model exists that contains a property formula expression that depends on the asset model that you want to delete. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/delete-assets-and-models.html\">Deleting assets and models</a> in the <i>IoT SiteWise User Guide</i>.</p>
+        r"""<p>Deletes an asset model. This action can't be undone. You must delete all assets created from an asset model before you can delete the model. Also, you can't delete an asset model if a parent asset model exists that contains a property formula expression that depends on the asset model that you want to delete. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/delete-assets-and-models.html\">Deleting assets and models</a> in the <i>IoT SiteWise User Guide</i>.</p>
 
         Args:
             asset_model_id: <p>The ID of the asset model to delete. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references\">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
@@ -1754,7 +1754,7 @@ class IoTSiteWiseClient:
             "aws_sdk_iotsitewise.types.asset_model_version_type.AssetModelVersionType"
         ] = None,
     ) -> "aws_sdk_iotsitewise.types.delete_asset_model_composite_model_response.DeleteAssetModelCompositeModelResponse":
-        """<p>Deletes a composite model. This action can't be undone. You must delete all assets created from a composite model before you can delete the model. Also, you can't delete a composite model if a parent asset model exists that contains a property formula expression that depends on the asset model that you want to delete. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/delete-assets-and-models.html\">Deleting assets and models</a> in the <i>IoT SiteWise User Guide</i>.</p>
+        r"""<p>Deletes a composite model. This action can't be undone. You must delete all assets created from a composite model before you can delete the model. Also, you can't delete a composite model if a parent asset model exists that contains a property formula expression that depends on the asset model that you want to delete. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/delete-assets-and-models.html\">Deleting assets and models</a> in the <i>IoT SiteWise User Guide</i>.</p>
 
         Args:
             asset_model_id: <p>The ID of the asset model, in UUID format.</p>
@@ -2108,7 +2108,7 @@ class IoTSiteWiseClient:
             "aws_sdk_iotsitewise.types.client_token.ClientToken"
         ] = None,
     ) -> None:
-        """<p>Deletes a time series (data stream). If you delete a time series that's associated with an asset property, the asset property still exists, but the time series will no longer be associated with this asset property.</p> <p>To identify a time series, do one of the following:</p> <ul> <li> <p>If the time series isn't associated with an asset property, specify the <code>alias</code> of the time series.</p> </li> <li> <p>If the time series is associated with an asset property, specify one of the following: </p> <ul> <li> <p>The <code>alias</code> of the time series.</p> </li> <li> <p>The <code>assetId</code> and <code>propertyId</code> that identifies the asset property.</p> </li> </ul> </li> </ul>
+        r"""<p>Deletes a time series (data stream). If you delete a time series that's associated with an asset property, the asset property still exists, but the time series will no longer be associated with this asset property.</p> <p>To identify a time series, do one of the following:</p> <ul> <li> <p>If the time series isn't associated with an asset property, specify the <code>alias</code> of the time series.</p> </li> <li> <p>If the time series is associated with an asset property, specify one of the following: </p> <ul> <li> <p>The <code>alias</code> of the time series.</p> </li> <li> <p>The <code>assetId</code> and <code>propertyId</code> that identifies the asset property.</p> </li> </ul> </li> </ul>
 
         Args:
             alias: <p>The alias that identifies the time series.</p>
@@ -2230,7 +2230,7 @@ class IoTSiteWiseClient:
             "aws_sdk_iotsitewise.types.exclude_properties.ExcludeProperties"
         ] = None,
     ) -> "aws_sdk_iotsitewise.types.describe_asset_response.DescribeAssetResponse":
-        """<p>Retrieves information about an asset.</p>
+        r"""<p>Retrieves information about an asset.</p>
 
         Args:
             asset_id: <p>The ID of the asset. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references\">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
@@ -2276,7 +2276,7 @@ class IoTSiteWiseClient:
             "aws_sdk_iotsitewise.types.exclude_properties.ExcludeProperties"
         ] = None,
     ) -> ServiceError:
-        """Wait for asset_not_exists.
+        r"""Wait for asset_not_exists.
 
         Args:
             asset_id: <p>The ID of the asset. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references\">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
@@ -2317,7 +2317,7 @@ class IoTSiteWiseClient:
         *,
         config_overrides: Optional[IoTSiteWiseClientConfig] = None,
     ) -> "aws_sdk_iotsitewise.types.describe_asset_composite_model_response.DescribeAssetCompositeModelResponse":
-        """<p>Retrieves information about an asset composite model (also known as an asset component). An <code>AssetCompositeModel</code> is an instance of an <code>AssetModelCompositeModel</code>. If you want to see information about the model this is based on, call <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeAssetModelCompositeModel.html\">DescribeAssetModelCompositeModel</a>.</p>
+        r"""<p>Retrieves information about an asset composite model (also known as an asset component). An <code>AssetCompositeModel</code> is an instance of an <code>AssetModelCompositeModel</code>. If you want to see information about the model this is based on, call <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeAssetModelCompositeModel.html\">DescribeAssetModelCompositeModel</a>.</p>
 
         Args:
             asset_id: <p>The ID of the asset. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references\">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
@@ -2362,7 +2362,7 @@ class IoTSiteWiseClient:
             "aws_sdk_iotsitewise.types.asset_model_version_filter.AssetModelVersionFilter"
         ] = None,
     ) -> "aws_sdk_iotsitewise.types.describe_asset_model_response.DescribeAssetModelResponse":
-        """<p>Retrieves information about an asset model. This includes details about the asset model's properties, hierarchies, composite models, and any interface relationships if the asset model implements interfaces.</p>
+        r"""<p>Retrieves information about an asset model. This includes details about the asset model's properties, hierarchies, composite models, and any interface relationships if the asset model implements interfaces.</p>
 
         Args:
             asset_model_id: <p>The ID of the asset model. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references\">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
@@ -2414,7 +2414,7 @@ class IoTSiteWiseClient:
             "aws_sdk_iotsitewise.types.asset_model_version_filter.AssetModelVersionFilter"
         ] = None,
     ) -> ServiceError:
-        """Wait for asset_model_not_exists.
+        r"""Wait for asset_model_not_exists.
 
         Args:
             asset_model_id: <p>The ID of the asset model. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references\">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
@@ -2460,7 +2460,7 @@ class IoTSiteWiseClient:
             "aws_sdk_iotsitewise.types.asset_model_version_filter.AssetModelVersionFilter"
         ] = None,
     ) -> "aws_sdk_iotsitewise.types.describe_asset_model_composite_model_response.DescribeAssetModelCompositeModelResponse":
-        """<p>Retrieves information about an asset model composite model (also known as an asset model component). For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/custom-composite-models.html\">Custom composite models (Components)</a> in the <i>IoT SiteWise User Guide</i>.</p>
+        r"""<p>Retrieves information about an asset model composite model (also known as an asset model component). For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/custom-composite-models.html\">Custom composite models (Components)</a> in the <i>IoT SiteWise User Guide</i>.</p>
 
         Args:
             asset_model_id: <p>The ID of the asset model. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references\">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
@@ -2543,7 +2543,7 @@ class IoTSiteWiseClient:
         *,
         config_overrides: Optional[IoTSiteWiseClientConfig] = None,
     ) -> "aws_sdk_iotsitewise.types.describe_asset_property_response.DescribeAssetPropertyResponse":
-        """<p>Retrieves information about an asset property.</p> <note> <p>When you call this operation for an attribute property, this response includes the default attribute value that you define in the asset model. If you update the default value in the model, this operation's response includes the new default value.</p> </note> <p>This operation doesn't return the value of the asset property. To get the value of an asset property, use <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_GetAssetPropertyValue.html\">GetAssetPropertyValue</a>.</p>
+        r"""<p>Retrieves information about an asset property.</p> <note> <p>When you call this operation for an attribute property, this response includes the default attribute value that you define in the asset model. If you update the default value in the model, this operation's response includes the new default value.</p> </note> <p>This operation doesn't return the value of the asset property. To get the value of an asset property, use <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_GetAssetPropertyValue.html\">GetAssetPropertyValue</a>.</p>
 
         Args:
             asset_id: <p>The ID of the asset. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references\">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
@@ -2582,7 +2582,7 @@ class IoTSiteWiseClient:
         *,
         config_overrides: Optional[IoTSiteWiseClientConfig] = None,
     ) -> "aws_sdk_iotsitewise.types.describe_bulk_import_job_response.DescribeBulkImportJobResponse":
-        """<p>Retrieves information about a bulk import job request. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/DescribeBulkImportJob.html\">Describe a bulk import job (CLI)</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p>
+        r"""<p>Retrieves information about a bulk import job request. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/DescribeBulkImportJob.html\">Describe a bulk import job (CLI)</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p>
 
         Args:
             job_id: <p>The ID of the job.</p>
@@ -2780,7 +2780,7 @@ class IoTSiteWiseClient:
     def describe_default_encryption_configuration(
         self, *, config_overrides: Optional[IoTSiteWiseClientConfig] = None
     ) -> "aws_sdk_iotsitewise.types.describe_default_encryption_configuration_response.DescribeDefaultEncryptionConfigurationResponse":
-        """<p>Retrieves information about the default encryption configuration for the Amazon Web Services account in the default or specified Region. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/key-management.html\">Key management</a> in the <i>IoT SiteWise User Guide</i>.</p>"""
+        r"""<p>Retrieves information about the default encryption configuration for the Amazon Web Services account in the default or specified Region. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/key-management.html\">Key management</a> in the <i>IoT SiteWise User Guide</i>.</p>"""
 
         def _handler(
             req: "OperationRequest[aws_sdk_iotsitewise.types.describe_default_encryption_configuration_request.DescribeDefaultEncryptionConfigurationRequest]",
@@ -3102,7 +3102,7 @@ class IoTSiteWiseClient:
         asset_id: Optional["aws_sdk_iotsitewise.types.custom_id.CustomID"] = None,
         property_id: Optional["aws_sdk_iotsitewise.types.custom_id.CustomID"] = None,
     ) -> "aws_sdk_iotsitewise.types.describe_time_series_response.DescribeTimeSeriesResponse":
-        """<p>Retrieves information about a time series (data stream).</p> <p>To identify a time series, do one of the following:</p> <ul> <li> <p>If the time series isn't associated with an asset property, specify the <code>alias</code> of the time series.</p> </li> <li> <p>If the time series is associated with an asset property, specify one of the following: </p> <ul> <li> <p>The <code>alias</code> of the time series.</p> </li> <li> <p>The <code>assetId</code> and <code>propertyId</code> that identifies the asset property.</p> </li> </ul> </li> </ul>
+        r"""<p>Retrieves information about a time series (data stream).</p> <p>To identify a time series, do one of the following:</p> <ul> <li> <p>If the time series isn't associated with an asset property, specify the <code>alias</code> of the time series.</p> </li> <li> <p>If the time series is associated with an asset property, specify one of the following: </p> <ul> <li> <p>The <code>alias</code> of the time series.</p> </li> <li> <p>The <code>assetId</code> and <code>propertyId</code> that identifies the asset property.</p> </li> </ul> </li> </ul>
 
         Args:
             alias: <p>The alias that identifies the time series.</p>
@@ -3151,7 +3151,7 @@ class IoTSiteWiseClient:
             "aws_sdk_iotsitewise.types.client_token.ClientToken"
         ] = None,
     ) -> None:
-        """<p>Disassociates a child asset from the given parent asset through a hierarchy defined in the parent asset's model.</p>
+        r"""<p>Disassociates a child asset from the given parent asset through a hierarchy defined in the parent asset's model.</p>
 
         Args:
             asset_id: <p>The ID of the parent asset from which to disassociate the child asset. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references\">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
@@ -3198,7 +3198,7 @@ class IoTSiteWiseClient:
             "aws_sdk_iotsitewise.types.client_token.ClientToken"
         ] = None,
     ) -> None:
-        """<p>Disassociates a time series (data stream) from an asset property.</p>
+        r"""<p>Disassociates a time series (data stream) from an asset property.</p>
 
         Args:
             alias: <p>The alias that identifies the time series.</p>
@@ -3395,7 +3395,7 @@ class IoTSiteWiseClient:
             "aws_sdk_iotsitewise.types.get_asset_property_value_aggregates_max_results.GetAssetPropertyValueAggregatesMaxResults"
         ] = None,
     ) -> "aws_sdk_iotsitewise.types.get_asset_property_aggregates_response.GetAssetPropertyAggregatesResponse":
-        """<p>Gets aggregated values for an asset property. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#aggregates\">Querying aggregates</a> in the <i>IoT SiteWise User Guide</i>.</p> <p>To identify an asset property, you must specify one of the following:</p> <ul> <li> <p>The <code>assetId</code> and <code>propertyId</code> of an asset property.</p> </li> <li> <p>A <code>propertyAlias</code>, which is a data stream alias (for example, <code>/company/windfarm/3/turbine/7/temperature</code>). To define an asset property's alias, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html\">UpdateAssetProperty</a>.</p> </li> </ul>
+        r"""<p>Gets aggregated values for an asset property. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#aggregates\">Querying aggregates</a> in the <i>IoT SiteWise User Guide</i>.</p> <p>To identify an asset property, you must specify one of the following:</p> <ul> <li> <p>The <code>assetId</code> and <code>propertyId</code> of an asset property.</p> </li> <li> <p>A <code>propertyAlias</code>, which is a data stream alias (for example, <code>/company/windfarm/3/turbine/7/temperature</code>). To define an asset property's alias, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html\">UpdateAssetProperty</a>.</p> </li> </ul>
 
         Args:
             asset_id: <p>The ID of the asset, in UUID format.</p>
@@ -3508,7 +3508,7 @@ class IoTSiteWiseClient:
             "aws_sdk_iotsitewise.types.asset_property_alias.AssetPropertyAlias"
         ] = None,
     ) -> "aws_sdk_iotsitewise.types.get_asset_property_value_response.GetAssetPropertyValueResponse":
-        """<p>Gets an asset property's current value. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#current-values\">Querying current values</a> in the <i>IoT SiteWise User Guide</i>.</p> <p>To identify an asset property, you must specify one of the following:</p> <ul> <li> <p>The <code>assetId</code> and <code>propertyId</code> of an asset property.</p> </li> <li> <p>A <code>propertyAlias</code>, which is a data stream alias (for example, <code>/company/windfarm/3/turbine/7/temperature</code>). To define an asset property's alias, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html\">UpdateAssetProperty</a>.</p> </li> </ul>
+        r"""<p>Gets an asset property's current value. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#current-values\">Querying current values</a> in the <i>IoT SiteWise User Guide</i>.</p> <p>To identify an asset property, you must specify one of the following:</p> <ul> <li> <p>The <code>assetId</code> and <code>propertyId</code> of an asset property.</p> </li> <li> <p>A <code>propertyAlias</code>, which is a data stream alias (for example, <code>/company/windfarm/3/turbine/7/temperature</code>). To define an asset property's alias, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html\">UpdateAssetProperty</a>.</p> </li> </ul>
 
         Args:
             asset_id: <p>The ID of the asset, in UUID format.</p>
@@ -3566,7 +3566,7 @@ class IoTSiteWiseClient:
             "aws_sdk_iotsitewise.types.get_asset_property_value_history_max_results.GetAssetPropertyValueHistoryMaxResults"
         ] = None,
     ) -> "aws_sdk_iotsitewise.types.get_asset_property_value_history_response.GetAssetPropertyValueHistoryResponse":
-        """<p>Gets the history of an asset property's values. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#historical-values\">Querying historical values</a> in the <i>IoT SiteWise User Guide</i>.</p> <p>To identify an asset property, you must specify one of the following:</p> <ul> <li> <p>The <code>assetId</code> and <code>propertyId</code> of an asset property.</p> </li> <li> <p>A <code>propertyAlias</code>, which is a data stream alias (for example, <code>/company/windfarm/3/turbine/7/temperature</code>). To define an asset property's alias, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html\">UpdateAssetProperty</a>.</p> </li> </ul>
+        r"""<p>Gets the history of an asset property's values. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#historical-values\">Querying historical values</a> in the <i>IoT SiteWise User Guide</i>.</p> <p>To identify an asset property, you must specify one of the following:</p> <ul> <li> <p>The <code>assetId</code> and <code>propertyId</code> of an asset property.</p> </li> <li> <p>A <code>propertyAlias</code>, which is a data stream alias (for example, <code>/company/windfarm/3/turbine/7/temperature</code>). To define an asset property's alias, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html\">UpdateAssetProperty</a>.</p> </li> </ul>
 
         Args:
             asset_id: <p>The ID of the asset, in UUID format.</p>
@@ -3691,7 +3691,7 @@ class IoTSiteWiseClient:
             "aws_sdk_iotsitewise.types.interval_window_in_seconds.IntervalWindowInSeconds"
         ] = None,
     ) -> "aws_sdk_iotsitewise.types.get_interpolated_asset_property_values_response.GetInterpolatedAssetPropertyValuesResponse":
-        """<p>Get interpolated values for an asset property for a specified time interval, during a period of time. If your time series is missing data points during the specified time interval, you can use interpolation to estimate the missing data.</p> <p>For example, you can use this operation to return the interpolated temperature values for a wind turbine every 24 hours over a duration of 7 days.</p> <p>To identify an asset property, you must specify one of the following:</p> <ul> <li> <p>The <code>assetId</code> and <code>propertyId</code> of an asset property.</p> </li> <li> <p>A <code>propertyAlias</code>, which is a data stream alias (for example, <code>/company/windfarm/3/turbine/7/temperature</code>). To define an asset property's alias, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html\">UpdateAssetProperty</a>.</p> </li> </ul>
+        r"""<p>Get interpolated values for an asset property for a specified time interval, during a period of time. If your time series is missing data points during the specified time interval, you can use interpolation to estimate the missing data.</p> <p>For example, you can use this operation to return the interpolated temperature values for a wind turbine every 24 hours over a duration of 7 days.</p> <p>To identify an asset property, you must specify one of the following:</p> <ul> <li> <p>The <code>assetId</code> and <code>propertyId</code> of an asset property.</p> </li> <li> <p>A <code>propertyAlias</code>, which is a data stream alias (for example, <code>/company/windfarm/3/turbine/7/temperature</code>). To define an asset property's alias, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html\">UpdateAssetProperty</a>.</p> </li> </ul>
 
         Args:
             asset_id: <p>The ID of the asset, in UUID format.</p>
@@ -3874,7 +3874,7 @@ class IoTSiteWiseClient:
             "aws_sdk_iotsitewise.types.max_results.MaxResults"
         ] = None,
     ) -> "aws_sdk_iotsitewise.types.list_access_policies_response.ListAccessPoliciesResponse":
-        """<p>Retrieves a paginated list of access policies for an identity (an IAM Identity Center user, an IAM Identity Center group, or an IAM user) or an IoT SiteWise Monitor resource (a portal or project).</p>
+        r"""<p>Retrieves a paginated list of access policies for an identity (an IAM Identity Center user, an IAM Identity Center group, or an IAM user) or an IoT SiteWise Monitor resource (a portal or project).</p>
 
         Args:
             identity_type: <p>The type of identity (IAM Identity Center user, IAM Identity Center group, or IAM user). This parameter is required if you specify <code>identityId</code>.</p>
@@ -4071,7 +4071,7 @@ class IoTSiteWiseClient:
             "aws_sdk_iotsitewise.types.asset_model_version_filter.AssetModelVersionFilter"
         ] = None,
     ) -> "aws_sdk_iotsitewise.types.list_asset_model_composite_models_response.ListAssetModelCompositeModelsResponse":
-        """<p>Retrieves a paginated list of composite models associated with the asset model</p>
+        r"""<p>Retrieves a paginated list of composite models associated with the asset model</p>
 
         Args:
             asset_model_id: <p>The ID of the asset model. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references\">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
@@ -4156,7 +4156,7 @@ class IoTSiteWiseClient:
             "aws_sdk_iotsitewise.types.asset_model_version_filter.AssetModelVersionFilter"
         ] = None,
     ) -> "aws_sdk_iotsitewise.types.list_asset_model_properties_response.ListAssetModelPropertiesResponse":
-        """<p>Retrieves a paginated list of properties associated with an asset model. If you update properties associated with the model before you finish listing all the properties, you need to start all over again.</p>
+        r"""<p>Retrieves a paginated list of properties associated with an asset model. If you update properties associated with the model before you finish listing all the properties, you need to start all over again.</p>
 
         Args:
             asset_model_id: <p>The ID of the asset model. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references\">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
@@ -4247,7 +4247,7 @@ class IoTSiteWiseClient:
             "aws_sdk_iotsitewise.types.asset_model_version_filter.AssetModelVersionFilter"
         ] = None,
     ) -> "aws_sdk_iotsitewise.types.list_asset_models_response.ListAssetModelsResponse":
-        """<p>Retrieves a paginated list of summaries of all asset models.</p>
+        r"""<p>Retrieves a paginated list of summaries of all asset models.</p>
 
         Args:
             asset_model_types: <p>The type of asset model. If you don't provide an <code>assetModelTypes</code>, all types of asset models are returned.</p> <ul> <li> <p> <b>ASSET_MODEL</b> – An asset model that you can use to create assets. Can't be included as a component in another asset model.</p> </li> <li> <p> <b>COMPONENT_MODEL</b> – A reusable component that you can include in the composite models of other asset models. You can't create assets directly from this type of asset model. </p> </li> <li> <p> <b>INTERFACE</b> – An interface is a type of model that defines a standard structure that can be applied to different asset models.</p> </li> </ul>
@@ -4332,7 +4332,7 @@ class IoTSiteWiseClient:
             "aws_sdk_iotsitewise.types.list_asset_properties_filter.ListAssetPropertiesFilter"
         ] = None,
     ) -> "aws_sdk_iotsitewise.types.list_asset_properties_response.ListAssetPropertiesResponse":
-        """<p>Retrieves a paginated list of properties associated with an asset. If you update properties associated with the model before you finish listing all the properties, you need to start all over again.</p>
+        r"""<p>Retrieves a paginated list of properties associated with an asset. If you update properties associated with the model before you finish listing all the properties, you need to start all over again.</p>
 
         Args:
             asset_id: <p>The ID of the asset. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references\">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
@@ -4412,7 +4412,7 @@ class IoTSiteWiseClient:
             "aws_sdk_iotsitewise.types.max_results.MaxResults"
         ] = None,
     ) -> "aws_sdk_iotsitewise.types.list_asset_relationships_response.ListAssetRelationshipsResponse":
-        """<p>Retrieves a paginated list of asset relationships for an asset. You can use this operation to identify an asset's root asset and all associated assets between that asset and its root.</p>
+        r"""<p>Retrieves a paginated list of asset relationships for an asset. You can use this operation to identify an asset's root asset and all associated assets between that asset and its root.</p>
 
         Args:
             asset_id: <p>The ID of the asset. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references\">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
@@ -4491,7 +4491,7 @@ class IoTSiteWiseClient:
             "aws_sdk_iotsitewise.types.list_assets_filter.ListAssetsFilter"
         ] = None,
     ) -> "aws_sdk_iotsitewise.types.list_assets_response.ListAssetsResponse":
-        """<p>Retrieves a paginated list of asset summaries.</p> <p>You can use this operation to do the following:</p> <ul> <li> <p>List assets based on a specific asset model.</p> </li> <li> <p>List top-level assets.</p> </li> </ul> <p>You can't use this operation to list all assets. To retrieve summaries for all of your assets, use <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_ListAssetModels.html\">ListAssetModels</a> to get all of your asset model IDs. Then, use ListAssets to get all assets for each asset model.</p>
+        r"""<p>Retrieves a paginated list of asset summaries.</p> <p>You can use this operation to do the following:</p> <ul> <li> <p>List assets based on a specific asset model.</p> </li> <li> <p>List top-level assets.</p> </li> </ul> <p>You can't use this operation to list all assets. To retrieve summaries for all of your assets, use <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_ListAssetModels.html\">ListAssetModels</a> to get all of your asset model IDs. Then, use ListAssets to get all assets for each asset model.</p>
 
         Args:
             next_token: <p>The token to be used for the next set of paginated results.</p>
@@ -4575,7 +4575,7 @@ class IoTSiteWiseClient:
             "aws_sdk_iotsitewise.types.max_results.MaxResults"
         ] = None,
     ) -> "aws_sdk_iotsitewise.types.list_associated_assets_response.ListAssociatedAssetsResponse":
-        """<p>Retrieves a paginated list of associated assets.</p> <p>You can use this operation to do the following:</p> <ul> <li> <p> <code>CHILD</code> - List all child assets associated to the asset.</p> </li> <li> <p> <code>PARENT</code> - List the asset's parent asset.</p> </li> </ul>
+        r"""<p>Retrieves a paginated list of associated assets.</p> <p>You can use this operation to do the following:</p> <ul> <li> <p> <code>CHILD</code> - List all child assets associated to the asset.</p> </li> <li> <p> <code>PARENT</code> - List the asset's parent asset.</p> </li> </ul>
 
         Args:
             asset_id: <p>The ID of the asset to query. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references\">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
@@ -4661,7 +4661,7 @@ class IoTSiteWiseClient:
             "aws_sdk_iotsitewise.types.list_bulk_import_jobs_filter.ListBulkImportJobsFilter"
         ] = None,
     ) -> "aws_sdk_iotsitewise.types.list_bulk_import_jobs_response.ListBulkImportJobsResponse":
-        """<p>Retrieves a paginated list of bulk import job requests. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/ListBulkImportJobs.html\">List bulk import jobs (CLI)</a> in the <i>IoT SiteWise User Guide</i>.</p>
+        r"""<p>Retrieves a paginated list of bulk import job requests. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/ListBulkImportJobs.html\">List bulk import jobs (CLI)</a> in the <i>IoT SiteWise User Guide</i>.</p>
 
         Args:
             next_token: <p>The token to be used for the next set of paginated results.</p>
@@ -4736,7 +4736,7 @@ class IoTSiteWiseClient:
             "aws_sdk_iotsitewise.types.max_results.MaxResults"
         ] = None,
     ) -> "aws_sdk_iotsitewise.types.list_composition_relationships_response.ListCompositionRelationshipsResponse":
-        """<p>Retrieves a paginated list of composition relationships for an asset model of type <code>COMPONENT_MODEL</code>.</p>
+        r"""<p>Retrieves a paginated list of composition relationships for an asset model of type <code>COMPONENT_MODEL</code>.</p>
 
         Args:
             asset_model_id: <p>The ID of the asset model. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references\">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
@@ -5620,7 +5620,7 @@ class IoTSiteWiseClient:
         *,
         config_overrides: Optional[IoTSiteWiseClientConfig] = None,
     ) -> "aws_sdk_iotsitewise.types.list_tags_for_resource_response.ListTagsForResourceResponse":
-        """<p>Retrieves the list of tags for an IoT SiteWise resource.</p>
+        r"""<p>Retrieves the list of tags for an IoT SiteWise resource.</p>
 
         Args:
             resource_arn: <p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the resource.</p>
@@ -5667,7 +5667,7 @@ class IoTSiteWiseClient:
             "aws_sdk_iotsitewise.types.list_time_series_type.ListTimeSeriesType"
         ] = None,
     ) -> "aws_sdk_iotsitewise.types.list_time_series_response.ListTimeSeriesResponse":
-        """<p>Retrieves a paginated list of time series (data streams).</p>
+        r"""<p>Retrieves a paginated list of time series (data streams).</p>
 
         Args:
             next_token: <p>The token to be used for the next set of paginated results.</p>
@@ -5800,7 +5800,7 @@ class IoTSiteWiseClient:
         config_overrides: Optional[IoTSiteWiseClientConfig] = None,
         kms_key_id: Optional["aws_sdk_iotsitewise.types.kms_key_id.KmsKeyId"] = None,
     ) -> "aws_sdk_iotsitewise.types.put_default_encryption_configuration_response.PutDefaultEncryptionConfigurationResponse":
-        """<p>Sets the default encryption configuration for the Amazon Web Services account. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/key-management.html\">Key management</a> in the <i>IoT SiteWise User Guide</i>.</p>
+        r"""<p>Sets the default encryption configuration for the Amazon Web Services account. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/key-management.html\">Key management</a> in the <i>IoT SiteWise User Guide</i>.</p>
 
         Args:
             encryption_type: <p>The type of encryption used for the encryption configuration.</p>
@@ -5895,7 +5895,7 @@ class IoTSiteWiseClient:
             "aws_sdk_iotsitewise.types.disallow_ingest_null_na_n.DisallowIngestNullNaN"
         ] = None,
     ) -> "aws_sdk_iotsitewise.types.put_storage_configuration_response.PutStorageConfigurationResponse":
-        """<p>Configures storage settings for IoT SiteWise.</p>
+        r"""<p>Configures storage settings for IoT SiteWise.</p>
 
         Args:
             storage_type: <p>The storage tier that you specified for your data. The <code>storageType</code> parameter can be one of the following values:</p> <ul> <li> <p> <code>SITEWISE_DEFAULT_STORAGE</code> – IoT SiteWise saves your data into the hot tier. The hot tier is a service-managed database.</p> </li> <li> <p> <code>MULTI_LAYER_STORAGE</code> – IoT SiteWise saves your data in both the cold tier and the hot tier. The cold tier is a customer-managed Amazon S3 bucket.</p> </li> </ul>
@@ -5950,7 +5950,7 @@ class IoTSiteWiseClient:
         *,
         config_overrides: Optional[IoTSiteWiseClientConfig] = None,
     ) -> "aws_sdk_iotsitewise.types.tag_resource_response.TagResourceResponse":
-        """<p>Adds tags to an IoT SiteWise resource. If a tag already exists for the resource, this operation updates the tag's value.</p>
+        r"""<p>Adds tags to an IoT SiteWise resource. If a tag already exists for the resource, this operation updates the tag's value.</p>
 
         Args:
             resource_arn: <p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the resource to tag.</p>
@@ -5990,7 +5990,7 @@ class IoTSiteWiseClient:
         *,
         config_overrides: Optional[IoTSiteWiseClientConfig] = None,
     ) -> "aws_sdk_iotsitewise.types.untag_resource_response.UntagResourceResponse":
-        """<p>Removes a tag from an IoT SiteWise resource.</p>
+        r"""<p>Removes a tag from an IoT SiteWise resource.</p>
 
         Args:
             resource_arn: <p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the resource to untag.</p>
@@ -6091,7 +6091,7 @@ class IoTSiteWiseClient:
             "aws_sdk_iotsitewise.types.description.Description"
         ] = None,
     ) -> "aws_sdk_iotsitewise.types.update_asset_response.UpdateAssetResponse":
-        """<p>Updates an asset's name. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/update-assets-and-models.html\">Updating assets and models</a> in the <i>IoT SiteWise User Guide</i>.</p>
+        r"""<p>Updates an asset's name. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/update-assets-and-models.html\">Updating assets and models</a> in the <i>IoT SiteWise User Guide</i>.</p>
 
         Args:
             asset_id: <p>The ID of the asset to update. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references\">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
@@ -6167,7 +6167,7 @@ class IoTSiteWiseClient:
     ) -> (
         "aws_sdk_iotsitewise.types.update_asset_model_response.UpdateAssetModelResponse"
     ):
-        """<p>Updates an asset model and all of the assets that were created from the model. Each asset created from the model inherits the updated asset model's property and hierarchy definitions. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/update-assets-and-models.html\">Updating assets and models</a> in the <i>IoT SiteWise User Guide</i>.</p> <important> <p>If you remove a property from an asset model, IoT SiteWise deletes all previous data for that property. You can’t change the type or data type of an existing property.</p> <p>To replace an existing asset model property with a new one with the same <code>name</code>, do the following:</p> <ol> <li> <p>Submit an <code>UpdateAssetModel</code> request with the entire existing property removed.</p> </li> <li> <p>Submit a second <code>UpdateAssetModel</code> request that includes the new property. The new asset property will have the same <code>name</code> as the previous one and IoT SiteWise will generate a new unique <code>id</code>.</p> </li> </ol> </important>
+        r"""<p>Updates an asset model and all of the assets that were created from the model. Each asset created from the model inherits the updated asset model's property and hierarchy definitions. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/update-assets-and-models.html\">Updating assets and models</a> in the <i>IoT SiteWise User Guide</i>.</p> <important> <p>If you remove a property from an asset model, IoT SiteWise deletes all previous data for that property. You can’t change the type or data type of an existing property.</p> <p>To replace an existing asset model property with a new one with the same <code>name</code>, do the following:</p> <ol> <li> <p>Submit an <code>UpdateAssetModel</code> request with the entire existing property removed.</p> </li> <li> <p>Submit a second <code>UpdateAssetModel</code> request that includes the new property. The new asset property will have the same <code>name</code> as the previous one and IoT SiteWise will generate a new unique <code>id</code>.</p> </li> </ol> </important>
 
         Args:
             asset_model_id: <p>The ID of the asset model to update. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references\">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
@@ -6254,7 +6254,7 @@ class IoTSiteWiseClient:
             "aws_sdk_iotsitewise.types.asset_model_version_type.AssetModelVersionType"
         ] = None,
     ) -> "aws_sdk_iotsitewise.types.update_asset_model_composite_model_response.UpdateAssetModelCompositeModelResponse":
-        """<p>Updates a composite model and all of the assets that were created from the model. Each asset created from the model inherits the updated asset model's property and hierarchy definitions. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/update-assets-and-models.html\">Updating assets and models</a> in the <i>IoT SiteWise User Guide</i>.</p> <important> <p>If you remove a property from a composite asset model, IoT SiteWise deletes all previous data for that property. You can’t change the type or data type of an existing property.</p> <p>To replace an existing composite asset model property with a new one with the same <code>name</code>, do the following:</p> <ol> <li> <p>Submit an <code>UpdateAssetModelCompositeModel</code> request with the entire existing property removed.</p> </li> <li> <p>Submit a second <code>UpdateAssetModelCompositeModel</code> request that includes the new property. The new asset property will have the same <code>name</code> as the previous one and IoT SiteWise will generate a new unique <code>id</code>.</p> </li> </ol> </important>
+        r"""<p>Updates a composite model and all of the assets that were created from the model. Each asset created from the model inherits the updated asset model's property and hierarchy definitions. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/update-assets-and-models.html\">Updating assets and models</a> in the <i>IoT SiteWise User Guide</i>.</p> <important> <p>If you remove a property from a composite asset model, IoT SiteWise deletes all previous data for that property. You can’t change the type or data type of an existing property.</p> <p>To replace an existing composite asset model property with a new one with the same <code>name</code>, do the following:</p> <ol> <li> <p>Submit an <code>UpdateAssetModelCompositeModel</code> request with the entire existing property removed.</p> </li> <li> <p>Submit a second <code>UpdateAssetModelCompositeModel</code> request that includes the new property. The new asset property will have the same <code>name</code> as the previous one and IoT SiteWise will generate a new unique <code>id</code>.</p> </li> </ol> </important>
 
         Args:
             asset_model_id: <p>The ID of the asset model, in UUID format.</p>
@@ -6335,7 +6335,7 @@ class IoTSiteWiseClient:
             "aws_sdk_iotsitewise.types.property_unit.PropertyUnit"
         ] = None,
     ) -> None:
-        """<p>Updates an asset property's alias and notification state.</p> <important> <p>This operation overwrites the property's existing alias and notification state. To keep your existing property's alias or notification state, you must include the existing values in the UpdateAssetProperty request. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeAssetProperty.html\">DescribeAssetProperty</a>.</p> </important>
+        r"""<p>Updates an asset property's alias and notification state.</p> <important> <p>This operation overwrites the property's existing alias and notification state. To keep your existing property's alias or notification state, you must include the existing values in the UpdateAssetProperty request. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeAssetProperty.html\">DescribeAssetProperty</a>.</p> </important>
 
         Args:
             asset_id: <p>The ID of the asset to be updated. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references\">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
@@ -6450,7 +6450,7 @@ class IoTSiteWiseClient:
             "aws_sdk_iotsitewise.types.client_token.ClientToken"
         ] = None,
     ) -> "aws_sdk_iotsitewise.types.update_dashboard_response.UpdateDashboardResponse":
-        """<p>Updates an IoT SiteWise Monitor dashboard.</p>
+        r"""<p>Updates an IoT SiteWise Monitor dashboard.</p>
 
         Args:
             dashboard_id: <p>The ID of the dashboard to update.</p>
@@ -6592,7 +6592,7 @@ class IoTSiteWiseClient:
         *,
         config_overrides: Optional[IoTSiteWiseClientConfig] = None,
     ) -> "aws_sdk_iotsitewise.types.update_gateway_capability_configuration_response.UpdateGatewayCapabilityConfigurationResponse":
-        """<p>Updates a gateway capability configuration or defines a new capability configuration. Each gateway capability defines data sources for a gateway.</p> <p>Important workflow notes:</p> <p>Each gateway capability defines data sources for a gateway. This is the namespace of the gateway capability.</p> <p>. The namespace follows the format <code>service:capability:version</code>, where:</p> <ul> <li> <p> <code>service</code> - The service providing the capability, or <code>iotsitewise</code>.</p> </li> <li> <p> <code>capability</code> - The specific capability type. Options include: <code>opcuacollector</code> for the OPC UA data source collector, or <code>publisher</code> for data publisher capability.</p> </li> <li> <p> <code>version</code> - The version number of the capability. Option include <code>2</code> for Classic streams, V2 gateways, and <code>3</code> for MQTT-enabled, V3 gateways.</p> </li> </ul> <p>After updating a capability configuration, the sync status becomes <code>OUT_OF_SYNC</code> until the gateway processes the configuration.Use <code>DescribeGatewayCapabilityConfiguration</code> to check the sync status and verify the configuration was applied.</p> <p>A gateway can have multiple capability configurations with different namespaces.</p>
+        r"""<p>Updates a gateway capability configuration or defines a new capability configuration. Each gateway capability defines data sources for a gateway.</p> <p>Important workflow notes:</p> <p>Each gateway capability defines data sources for a gateway. This is the namespace of the gateway capability.</p> <p>. The namespace follows the format <code>service:capability:version</code>, where:</p> <ul> <li> <p> <code>service</code> - The service providing the capability, or <code>iotsitewise</code>.</p> </li> <li> <p> <code>capability</code> - The specific capability type. Options include: <code>opcuacollector</code> for the OPC UA data source collector, or <code>publisher</code> for data publisher capability.</p> </li> <li> <p> <code>version</code> - The version number of the capability. Option include <code>2</code> for Classic streams, V2 gateways, and <code>3</code> for MQTT-enabled, V3 gateways.</p> </li> </ul> <p>After updating a capability configuration, the sync status becomes <code>OUT_OF_SYNC</code> until the gateway processes the configuration.Use <code>DescribeGatewayCapabilityConfiguration</code> to check the sync status and verify the configuration was applied.</p> <p>A gateway can have multiple capability configurations with different namespaces.</p>
 
         Args:
             gateway_id: <p>The ID of the gateway to be updated.</p>
@@ -6653,7 +6653,7 @@ class IoTSiteWiseClient:
             "aws_sdk_iotsitewise.types.portal_type_configuration.PortalTypeConfiguration"
         ] = None,
     ) -> "aws_sdk_iotsitewise.types.update_portal_response.UpdatePortalResponse":
-        """<p>Updates an IoT SiteWise Monitor portal.</p>
+        r"""<p>Updates an IoT SiteWise Monitor portal.</p>
 
         Args:
             portal_id: <p>The ID of the portal to update.</p>

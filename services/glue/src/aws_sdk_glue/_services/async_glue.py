@@ -1073,7 +1073,7 @@ class AsyncGlueClient:
             "aws_sdk_glue.types.transaction_id_string.TransactionIdString"
         ] = None,
     ) -> "aws_sdk_glue.types.batch_delete_table_response.BatchDeleteTableResponse":
-        """<p>Deletes multiple tables at once.</p> <note> <p>After completing this operation, you no longer have access to the table versions and partitions that belong to the deleted table. Glue deletes these \"orphaned\" resources asynchronously in a timely manner, at the discretion of the service.</p> <p>To ensure the immediate deletion of all related resources, before calling <code>BatchDeleteTable</code>, use <code>DeleteTableVersion</code> or <code>BatchDeleteTableVersion</code>, and <code>DeletePartition</code> or <code>BatchDeletePartition</code>, to delete any resources that belong to the table.</p> </note>
+        r"""<p>Deletes multiple tables at once.</p> <note> <p>After completing this operation, you no longer have access to the table versions and partitions that belong to the deleted table. Glue deletes these \"orphaned\" resources asynchronously in a timely manner, at the discretion of the service.</p> <p>To ensure the immediate deletion of all related resources, before calling <code>BatchDeleteTable</code>, use <code>DeleteTableVersion</code> or <code>BatchDeleteTableVersion</code>, and <code>DeletePartition</code> or <code>BatchDeletePartition</code>, to delete any resources that belong to the table.</p> </note>
 
         Args:
             catalog_id: <p>The ID of the Data Catalog where the table resides. If none is provided, the Amazon Web Services account ID is used by default.</p>
@@ -2232,7 +2232,7 @@ class AsyncGlueClient:
         ] = None,
         tags: Optional["aws_sdk_glue.types.tags_map.TagsMap"] = None,
     ) -> "aws_sdk_glue.types.create_crawler_response.CreateCrawlerResponse":
-        """<p>Creates a new crawler with specified targets, role, configuration, and optional schedule. At least one crawl target must be specified, in the <code>s3Targets</code> field, the <code>jdbcTargets</code> field, or the <code>DynamoDBTargets</code> field.</p>
+        r"""<p>Creates a new crawler with specified targets, role, configuration, and optional schedule. At least one crawl target must be specified, in the <code>s3Targets</code> field, the <code>jdbcTargets</code> field, or the <code>DynamoDBTargets</code> field.</p>
 
         Args:
             name: <p>Name of the new crawler.</p>
@@ -2506,7 +2506,7 @@ class AsyncGlueClient:
         tags: Optional["aws_sdk_glue.types.tags_map.TagsMap"] = None,
         arguments: Optional["aws_sdk_glue.types.map_value.MapValue"] = None,
     ) -> "aws_sdk_glue.types.create_dev_endpoint_response.CreateDevEndpointResponse":
-        """<p>Creates a new development endpoint.</p>
+        r"""<p>Creates a new development endpoint.</p>
 
         Args:
             endpoint_name: <p>The name to be assigned to the new <code>DevEndpoint</code>.</p>
@@ -2876,7 +2876,7 @@ class AsyncGlueClient:
             "aws_sdk_glue.types.maintenance_window.MaintenanceWindow"
         ] = None,
     ) -> "aws_sdk_glue.types.create_job_response.CreateJobResponse":
-        """<p>Creates a new job definition.</p>
+        r"""<p>Creates a new job definition.</p>
 
         Args:
             name: <p>The name you assign to this job definition. It must be unique in your account.</p>
@@ -3008,7 +3008,7 @@ class AsyncGlueClient:
             "aws_sdk_glue.types.transform_encryption.TransformEncryption"
         ] = None,
     ) -> "aws_sdk_glue.types.create_ml_transform_response.CreateMLTransformResponse":
-        """<p>Creates an Glue machine learning transform. This operation creates the transform and all the necessary parameters to train it.</p> <p>Call this operation as the first step in the process of using a machine learning transform (such as the <code>FindMatches</code> transform) for deduplicating data. You can provide an optional <code>Description</code>, in addition to the parameters that you want to use for your algorithm.</p> <p>You must also specify certain parameters for the tasks that Glue runs on your behalf as part of learning from your data and creating a high-quality machine learning transform. These parameters include <code>Role</code>, and optionally, <code>AllocatedCapacity</code>, <code>Timeout</code>, and <code>MaxRetries</code>. For more information, see <a href=\"https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-job.html\">Jobs</a>.</p>
+        r"""<p>Creates an Glue machine learning transform. This operation creates the transform and all the necessary parameters to train it.</p> <p>Call this operation as the first step in the process of using a machine learning transform (such as the <code>FindMatches</code> transform) for deduplicating data. You can provide an optional <code>Description</code>, in addition to the parameters that you want to use for your algorithm.</p> <p>You must also specify certain parameters for the tasks that Glue runs on your behalf as part of learning from your data and creating a high-quality machine learning transform. These parameters include <code>Role</code>, and optionally, <code>AllocatedCapacity</code>, <code>Timeout</code>, and <code>MaxRetries</code>. For more information, see <a href=\"https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-job.html\">Jobs</a>.</p>
 
         Args:
             name: <p>The unique name that you give the transform when you create it.</p>
@@ -3239,7 +3239,7 @@ class AsyncGlueClient:
             "aws_sdk_glue.types.schema_definition_string.SchemaDefinitionString"
         ] = None,
     ) -> "aws_sdk_glue.types.create_schema_response.CreateSchemaResponse":
-        """<p>Creates a new schema set and registers the schema definition. Returns an error if the schema set already exists without actually registering the version.</p> <p>When the schema set is created, a version checkpoint will be set to the first version. Compatibility mode \"DISABLED\" restricts any additional schema versions from being added after the first schema version. For all other compatibility modes, validation of compatibility settings will be applied only from the second version onwards when the <code>RegisterSchemaVersion</code> API is used.</p> <p>When this API is called without a <code>RegistryId</code>, this will create an entry for a \"default-registry\" in the registry database tables, if it is not already present.</p>
+        r"""<p>Creates a new schema set and registers the schema definition. Returns an error if the schema set already exists without actually registering the version.</p> <p>When the schema set is created, a version checkpoint will be set to the first version. Compatibility mode \"DISABLED\" restricts any additional schema versions from being added after the first schema version. For all other compatibility modes, validation of compatibility settings will be applied only from the second version onwards when the <code>RegisterSchemaVersion</code> API is used.</p> <p>When this API is called without a <code>RegistryId</code>, this will create an entry for a \"default-registry\" in the registry database tables, if it is not already present.</p>
 
         Args:
             registry_id: <p> This is a wrapper shape to contain the registry identity fields. If this is not provided, the default registry will be used. The ARN format for the same will be: <code>arn:aws:glue:us-east-2:<customer id>:registry/default-registry:random-5-letter-id</code>.</p>
@@ -3342,7 +3342,7 @@ class AsyncGlueClient:
         *,
         config_overrides: Optional[AsyncGlueClientConfig] = None,
     ) -> "aws_sdk_glue.types.create_security_configuration_response.CreateSecurityConfigurationResponse":
-        """<p>Creates a new security configuration. A security configuration is a set of security properties that can be used by Glue. You can use a security configuration to encrypt data at rest. For information about using security configurations in Glue, see <a href=\"https://docs.aws.amazon.com/glue/latest/dg/encryption-security-configuration.html\">Encrypting Data Written by Crawlers, Jobs, and Development Endpoints</a>.</p>
+        r"""<p>Creates a new security configuration. A security configuration is a set of security properties that can be used by Glue. You can use a security configuration to encrypt data at rest. For information about using security configurations in Glue, see <a href=\"https://docs.aws.amazon.com/glue/latest/dg/encryption-security-configuration.html\">Encrypting Data Written by Crawlers, Jobs, and Development Endpoints</a>.</p>
 
         Args:
             name: <p>The name for the new security configuration.</p>
@@ -3629,7 +3629,7 @@ class AsyncGlueClient:
             "aws_sdk_glue.types.event_batching_condition.EventBatchingCondition"
         ] = None,
     ) -> "aws_sdk_glue.types.create_trigger_response.CreateTriggerResponse":
-        """<p>Creates a new trigger.</p> <p>Job arguments may be logged. Do not pass plaintext secrets as arguments. Retrieve secrets from a Glue Connection, Amazon Web Services Secrets Manager or other secret management mechanism if you intend to keep them within the Job.</p>
+        r"""<p>Creates a new trigger.</p> <p>Job arguments may be logged. Do not pass plaintext secrets as arguments. Retrieve secrets from a Glue Connection, Amazon Web Services Secrets Manager or other secret management mechanism if you intend to keep them within the Job.</p>
 
         Args:
             name: <p>The name of the trigger.</p>
@@ -3888,7 +3888,7 @@ class AsyncGlueClient:
         *,
         config_overrides: Optional[AsyncGlueClientConfig] = None,
     ) -> "aws_sdk_glue.types.delete_catalog_response.DeleteCatalogResponse":
-        """<p>Removes the specified catalog from the Glue Data Catalog.</p> <p>After completing this operation, you no longer have access to the databases, tables (and all table versions and partitions that might belong to the tables) and the user-defined functions in the deleted catalog. Glue deletes these \"orphaned\" resources asynchronously in a timely manner, at the discretion of the service.</p> <p>To ensure the immediate deletion of all related resources before calling the <code>DeleteCatalog</code> operation, use <code>DeleteTableVersion</code> (or <code>BatchDeleteTableVersion</code>), <code>DeletePartition</code> (or <code>BatchDeletePartition</code>), <code>DeleteTable</code> (or <code>BatchDeleteTable</code>), <code>DeleteUserDefinedFunction</code> and <code>DeleteDatabase</code> to delete any resources that belong to the catalog.</p>
+        r"""<p>Removes the specified catalog from the Glue Data Catalog.</p> <p>After completing this operation, you no longer have access to the databases, tables (and all table versions and partitions that might belong to the tables) and the user-defined functions in the deleted catalog. Glue deletes these \"orphaned\" resources asynchronously in a timely manner, at the discretion of the service.</p> <p>To ensure the immediate deletion of all related resources before calling the <code>DeleteCatalog</code> operation, use <code>DeleteTableVersion</code> (or <code>BatchDeleteTableVersion</code>), <code>DeletePartition</code> (or <code>BatchDeletePartition</code>), <code>DeleteTable</code> (or <code>BatchDeleteTable</code>), <code>DeleteUserDefinedFunction</code> and <code>DeleteDatabase</code> to delete any resources that belong to the catalog.</p>
 
         Args:
             catalog_id: <p>The ID of the catalog.</p>
@@ -4269,7 +4269,7 @@ class AsyncGlueClient:
             "aws_sdk_glue.types.catalog_id_string.CatalogIdString"
         ] = None,
     ) -> "aws_sdk_glue.types.delete_database_response.DeleteDatabaseResponse":
-        """<p>Removes a specified database from a Data Catalog.</p> <note> <p>After completing this operation, you no longer have access to the tables (and all table versions and partitions that might belong to the tables) and the user-defined functions in the deleted database. Glue deletes these \"orphaned\" resources asynchronously in a timely manner, at the discretion of the service.</p> <p>To ensure the immediate deletion of all related resources, before calling <code>DeleteDatabase</code>, use <code>DeleteTableVersion</code> or <code>BatchDeleteTableVersion</code>, <code>DeletePartition</code> or <code>BatchDeletePartition</code>, <code>DeleteUserDefinedFunction</code>, and <code>DeleteTable</code> or <code>BatchDeleteTable</code>, to delete any resources that belong to the database.</p> </note>
+        r"""<p>Removes a specified database from a Data Catalog.</p> <note> <p>After completing this operation, you no longer have access to the tables (and all table versions and partitions that might belong to the tables) and the user-defined functions in the deleted database. Glue deletes these \"orphaned\" resources asynchronously in a timely manner, at the discretion of the service.</p> <p>To ensure the immediate deletion of all related resources, before calling <code>DeleteDatabase</code>, use <code>DeleteTableVersion</code> or <code>BatchDeleteTableVersion</code>, <code>DeletePartition</code> or <code>BatchDeletePartition</code>, <code>DeleteUserDefinedFunction</code>, and <code>DeleteTable</code> or <code>BatchDeleteTable</code>, to delete any resources that belong to the database.</p> </note>
 
         Args:
             catalog_id: <p>The ID of the Data Catalog in which the database resides. If none is provided, the Amazon Web Services account ID is used by default.</p>
@@ -4962,7 +4962,7 @@ class AsyncGlueClient:
             "aws_sdk_glue.types.transaction_id_string.TransactionIdString"
         ] = None,
     ) -> "aws_sdk_glue.types.delete_table_response.DeleteTableResponse":
-        """<p>Removes a table definition from the Data Catalog.</p> <note> <p>After completing this operation, you no longer have access to the table versions and partitions that belong to the deleted table. Glue deletes these \"orphaned\" resources asynchronously in a timely manner, at the discretion of the service.</p> <p>To ensure the immediate deletion of all related resources, before calling <code>DeleteTable</code>, use <code>DeleteTableVersion</code> or <code>BatchDeleteTableVersion</code>, and <code>DeletePartition</code> or <code>BatchDeletePartition</code>, to delete any resources that belong to the table.</p> </note>
+        r"""<p>Removes a table definition from the Data Catalog.</p> <note> <p>After completing this operation, you no longer have access to the table versions and partitions that belong to the deleted table. Glue deletes these \"orphaned\" resources asynchronously in a timely manner, at the discretion of the service.</p> <p>To ensure the immediate deletion of all related resources, before calling <code>DeleteTable</code>, use <code>DeleteTableVersion</code> or <code>BatchDeleteTableVersion</code>, and <code>DeletePartition</code> or <code>BatchDeletePartition</code>, to delete any resources that belong to the table.</p> </note>
 
         Args:
             catalog_id: <p>The ID of the Data Catalog where the table resides. If none is provided, the Amazon Web Services account ID is used by default.</p>
@@ -5456,7 +5456,7 @@ class AsyncGlueClient:
     ) -> (
         "aws_sdk_glue.types.describe_integrations_response.DescribeIntegrationsResponse"
     ):
-        """<p>The API is used to retrieve a list of integrations.</p>
+        r"""<p>The API is used to retrieve a list of integrations.</p>
 
         Args:
             integration_identifier: <p>The Amazon Resource Name (ARN) for the integration.</p>
@@ -7165,7 +7165,7 @@ class AsyncGlueClient:
         config_overrides: Optional[AsyncGlueClientConfig] = None,
         run_id: Optional["aws_sdk_glue.types.run_id.RunId"] = None,
     ) -> "aws_sdk_glue.types.get_job_bookmark_response.GetJobBookmarkResponse":
-        """<p>Returns information on a job bookmark entry.</p> <p>For more information about enabling and using job bookmarks, see:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/glue/latest/dg/monitor-continuations.html\">Tracking processed data using job bookmarks</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html\">Job parameters used by Glue</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-job.html#aws-glue-api-jobs-job-Job\">Job structure</a> </p> </li> </ul>
+        r"""<p>Returns information on a job bookmark entry.</p> <p>For more information about enabling and using job bookmarks, see:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/glue/latest/dg/monitor-continuations.html\">Tracking processed data using job bookmarks</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html\">Job parameters used by Glue</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-job.html#aws-glue-api-jobs-job-Job\">Job structure</a> </p> </li> </ul>
 
         Args:
             job_name: <p>The name of the job in question.</p>
@@ -7826,7 +7826,7 @@ class AsyncGlueClient:
         query_as_of_time: Optional["aws_sdk_glue.types.timestamp.Timestamp"] = None,
         audit_context: Optional["aws_sdk_glue.types.audit_context.AuditContext"] = None,
     ) -> "aws_sdk_glue.types.get_partitions_response.GetPartitionsResponse":
-        """<p>Retrieves information about the partitions in a table.</p>
+        r"""<p>Retrieves information about the partitions in a table.</p>
 
         Args:
             catalog_id: <p>The ID of the Data Catalog where the partitions in question reside. If none is provided, the Amazon Web Services account ID is used by default.</p>
@@ -7899,7 +7899,7 @@ class AsyncGlueClient:
             "aws_sdk_glue.types.additional_plan_options_map.AdditionalPlanOptionsMap"
         ] = None,
     ) -> "aws_sdk_glue.types.get_plan_response.GetPlanResponse":
-        """<p>Gets code to perform a specified mapping.</p>
+        r"""<p>Gets code to perform a specified mapping.</p>
 
         Args:
             mapping: <p>The list of mappings from a source table to target tables.</p>
@@ -8057,7 +8057,7 @@ class AsyncGlueClient:
             "aws_sdk_glue.types.glue_resource_arn.GlueResourceArn"
         ] = None,
     ) -> "aws_sdk_glue.types.get_resource_policy_response.GetResourcePolicyResponse":
-        """<p>Retrieves a specified resource policy.</p>
+        r"""<p>Retrieves a specified resource policy.</p>
 
         Args:
             resource_arn: <p>The ARN of the Glue resource for which to retrieve the resource policy. If not supplied, the Data Catalog resource policy is returned. Use <code>GetResourcePolicies</code> to view all existing resource policies. For more information see <a href=\"https://docs.aws.amazon.com/glue/latest/dg/glue-specifying-resource-arns.html\">Specifying Glue Resource ARNs</a>. </p>
@@ -8518,7 +8518,7 @@ class AsyncGlueClient:
             "aws_sdk_glue.types.boolean_nullable.BooleanNullable"
         ] = None,
     ) -> "aws_sdk_glue.types.get_table_response.GetTableResponse":
-        """<p>Retrieves the <code>Table</code> definition in a Data Catalog for a specified table.</p>
+        r"""<p>Retrieves the <code>Table</code> definition in a Data Catalog for a specified table.</p>
 
         Args:
             catalog_id: <p>The ID of the Data Catalog where the table resides. If none is provided, the Amazon Web Services account ID is used by default.</p>
@@ -8639,7 +8639,7 @@ class AsyncGlueClient:
             "aws_sdk_glue.types.table_attributes_list.TableAttributesList"
         ] = None,
     ) -> "aws_sdk_glue.types.get_tables_response.GetTablesResponse":
-        """<p>Retrieves the definitions of some or all of the tables in a given <code>Database</code>.</p>
+        r"""<p>Retrieves the definitions of some or all of the tables in a given <code>Database</code>.</p>
 
         Args:
             catalog_id: <p>The ID of the Data Catalog where the tables reside. If none is provided, the Amazon Web Services account ID is used by default.</p>
@@ -9050,7 +9050,7 @@ class AsyncGlueClient:
             "aws_sdk_glue.types.query_session_context.QuerySessionContext"
         ] = None,
     ) -> "aws_sdk_glue.types.get_unfiltered_partitions_metadata_response.GetUnfilteredPartitionsMetadataResponse":
-        """<p>Retrieves partition metadata from the Data Catalog that contains unfiltered metadata.</p> <p>For IAM authorization, the public IAM action associated with this API is <code>glue:GetPartitions</code>.</p>
+        r"""<p>Retrieves partition metadata from the Data Catalog that contains unfiltered metadata.</p> <p>For IAM authorization, the public IAM action associated with this API is <code>glue:GetPartitions</code>.</p>
 
         Args:
             region: <p>Specified only if the base tables belong to a different Amazon Web Services Region.</p>
@@ -11682,7 +11682,7 @@ class AsyncGlueClient:
         description: Optional["aws_sdk_glue.types.description.Description"] = None,
         tags: Optional["aws_sdk_glue.types.tags_map.TagsMap"] = None,
     ) -> "aws_sdk_glue.types.register_connection_type_response.RegisterConnectionTypeResponse":
-        """<p>Registers a custom connection type in Glue based on the configuration provided. This operation enables customers to configure custom connectors for any data source with REST-based APIs, eliminating the need for building custom Lambda connectors.</p> <p>The registered connection type stores details about how requests and responses are interpreted by REST sources, including connection properties, authentication configuration, and REST configuration with entity definitions. Once registered, customers can create connections using this connection type and work with them the same way as natively supported Glue connectors.</p> <p>Supports multiple authentication types including Basic, OAuth2 (Client Credentials, JWT Bearer, Authorization Code), and Custom Auth configurations.</p>
+        r"""<p>Registers a custom connection type in Glue based on the configuration provided. This operation enables customers to configure custom connectors for any data source with REST-based APIs, eliminating the need for building custom Lambda connectors.</p> <p>The registered connection type stores details about how requests and responses are interpreted by REST sources, including connection properties, authentication configuration, and REST configuration with entity definitions. Once registered, customers can create connections using this connection type and work with them the same way as natively supported Glue connectors.</p> <p>Supports multiple authentication types including Basic, OAuth2 (Client Credentials, JWT Bearer, Authorization Code), and Custom Auth configurations.</p>
 
         Args:
             connection_type: <p>The name of the connection type. Must be between 1 and 255 characters and must be prefixed with \"REST-\" to indicate it is a REST-based connector.</p>
@@ -11832,7 +11832,7 @@ class AsyncGlueClient:
         config_overrides: Optional[AsyncGlueClientConfig] = None,
         run_id: Optional["aws_sdk_glue.types.run_id.RunId"] = None,
     ) -> "aws_sdk_glue.types.reset_job_bookmark_response.ResetJobBookmarkResponse":
-        """<p>Resets a bookmark entry.</p> <p>For more information about enabling and using job bookmarks, see:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/glue/latest/dg/monitor-continuations.html\">Tracking processed data using job bookmarks</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html\">Job parameters used by Glue</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-job.html#aws-glue-api-jobs-job-Job\">Job structure</a> </p> </li> </ul>
+        r"""<p>Resets a bookmark entry.</p> <p>For more information about enabling and using job bookmarks, see:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/glue/latest/dg/monitor-continuations.html\">Tracking processed data using job bookmarks</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html\">Job parameters used by Glue</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-job.html#aws-glue-api-jobs-job-Job\">Job structure</a> </p> </li> </ul>
 
         Args:
             job_name: <p>The name of the job in question.</p>
@@ -12193,7 +12193,7 @@ class AsyncGlueClient:
         *,
         config_overrides: Optional[AsyncGlueClientConfig] = None,
     ) -> "aws_sdk_glue.types.start_crawler_response.StartCrawlerResponse":
-        """<p>Starts a crawl using the specified crawler, regardless of what is scheduled. If the crawler is already running, returns a <a href=\"https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-exceptions.html#aws-glue-api-exceptions-CrawlerRunningException\">CrawlerRunningException</a>.</p>
+        r"""<p>Starts a crawl using the specified crawler, regardless of what is scheduled. If the crawler is already running, returns a <a href=\"https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-exceptions.html#aws-glue-api-exceptions-CrawlerRunningException\">CrawlerRunningException</a>.</p>
 
         Args:
             name: <p>Name of the crawler to start.</p>
@@ -12524,7 +12524,7 @@ class AsyncGlueClient:
             "aws_sdk_glue.types.orchestration_policy_json_string.OrchestrationPolicyJsonString"
         ] = None,
     ) -> "aws_sdk_glue.types.start_job_run_response.StartJobRunResponse":
-        """<p>Starts a job run using a job definition.</p>
+        r"""<p>Starts a job run using a job definition.</p>
 
         Args:
             job_name: <p>The name of the job definition to use.</p>
@@ -12687,7 +12687,7 @@ class AsyncGlueClient:
         *,
         config_overrides: Optional[AsyncGlueClientConfig] = None,
     ) -> "aws_sdk_glue.types.start_ml_labeling_set_generation_task_run_response.StartMLLabelingSetGenerationTaskRunResponse":
-        """<p>Starts the active learning workflow for your machine learning transform to improve the transform's quality by generating label sets and adding labels.</p> <p>When the <code>StartMLLabelingSetGenerationTaskRun</code> finishes, Glue will have generated a \"labeling set\" or a set of questions for humans to answer.</p> <p>In the case of the <code>FindMatches</code> transform, these questions are of the form, “What is the correct way to group these rows together into groups composed entirely of matching records?” </p> <p>After the labeling process is finished, you can upload your labels with a call to <code>StartImportLabelsTaskRun</code>. After <code>StartImportLabelsTaskRun</code> finishes, all future runs of the machine learning transform will use the new and improved labels and perform a higher-quality transformation.</p> <p>Note: The role used to write the generated labeling set to the <code>OutputS3Path</code> is the role associated with the Machine Learning Transform, specified in the <code>CreateMLTransform</code> API.</p>
+        r"""<p>Starts the active learning workflow for your machine learning transform to improve the transform's quality by generating label sets and adding labels.</p> <p>When the <code>StartMLLabelingSetGenerationTaskRun</code> finishes, Glue will have generated a \"labeling set\" or a set of questions for humans to answer.</p> <p>In the case of the <code>FindMatches</code> transform, these questions are of the form, “What is the correct way to group these rows together into groups composed entirely of matching records?” </p> <p>After the labeling process is finished, you can upload your labels with a call to <code>StartImportLabelsTaskRun</code>. After <code>StartImportLabelsTaskRun</code> finishes, all future runs of the machine learning transform will use the new and improved labels and perform a higher-quality transformation.</p> <p>Note: The role used to write the generated labeling set to the <code>OutputS3Path</code> is the role associated with the Machine Learning Transform, specified in the <code>CreateMLTransform</code> API.</p>
 
         Args:
             transform_id: <p>The unique identifier of the machine learning transform.</p>
@@ -12727,7 +12727,7 @@ class AsyncGlueClient:
         *,
         config_overrides: Optional[AsyncGlueClientConfig] = None,
     ) -> "aws_sdk_glue.types.start_trigger_response.StartTriggerResponse":
-        """<p>Starts an existing trigger. See <a href=\"https://docs.aws.amazon.com/glue/latest/dg/trigger-job.html\">Triggering Jobs</a> for information about how different types of trigger are started.</p>
+        r"""<p>Starts an existing trigger. See <a href=\"https://docs.aws.amazon.com/glue/latest/dg/trigger-job.html\">Triggering Jobs</a> for information about how different types of trigger are started.</p>
 
         Args:
             name: <p>The name of the trigger to start.</p>
@@ -13137,7 +13137,7 @@ class AsyncGlueClient:
         *,
         config_overrides: Optional[AsyncGlueClientConfig] = None,
     ) -> "aws_sdk_glue.types.tag_resource_response.TagResourceResponse":
-        """<p>Adds tags to a resource. A tag is a label you can assign to an Amazon Web Services resource. In Glue, you can tag only certain resources. For information about what resources you can tag, see <a href=\"https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html\">Amazon Web Services Tags in Glue</a>.</p>
+        r"""<p>Adds tags to a resource. A tag is a label you can assign to an Amazon Web Services resource. In Glue, you can tag only certain resources. For information about what resources you can tag, see <a href=\"https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html\">Amazon Web Services Tags in Glue</a>.</p>
 
         Args:
             resource_arn: <p>The ARN of the Glue resource to which to add the tags. For more information about Glue resource ARNs, see the <a href=\"https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-common.html#aws-glue-api-regex-aws-glue-arn-id\">Glue ARN string pattern</a>.</p>
@@ -13666,7 +13666,7 @@ class AsyncGlueClient:
             "aws_sdk_glue.types.crawler_security_configuration.CrawlerSecurityConfiguration"
         ] = None,
     ) -> "aws_sdk_glue.types.update_crawler_response.UpdateCrawlerResponse":
-        """<p>Updates a crawler. If a crawler is running, you must stop it using <code>StopCrawler</code> before updating it.</p>
+        r"""<p>Updates a crawler. If a crawler is running, you must stop it using <code>StopCrawler</code> before updating it.</p>
 
         Args:
             name: <p>Name of the new crawler.</p>
@@ -13744,7 +13744,7 @@ class AsyncGlueClient:
         config_overrides: Optional[AsyncGlueClientConfig] = None,
         schedule: Optional["aws_sdk_glue.types.cron_expression.CronExpression"] = None,
     ) -> "aws_sdk_glue.types.update_crawler_schedule_response.UpdateCrawlerScheduleResponse":
-        """<p>Updates the schedule of a crawler using a <code>cron</code> expression. </p>
+        r"""<p>Updates the schedule of a crawler using a <code>cron</code> expression. </p>
 
         Args:
             crawler_name: <p>The name of the crawler whose schedule to update.</p>
@@ -13897,7 +13897,7 @@ class AsyncGlueClient:
         delete_arguments: Optional["aws_sdk_glue.types.string_list.StringList"] = None,
         add_arguments: Optional["aws_sdk_glue.types.map_value.MapValue"] = None,
     ) -> "aws_sdk_glue.types.update_dev_endpoint_response.UpdateDevEndpointResponse":
-        """<p>Updates a specified development endpoint.</p>
+        r"""<p>Updates a specified development endpoint.</p>
 
         Args:
             endpoint_name: <p>The name of the <code>DevEndpoint</code> to be updated.</p>
@@ -14250,7 +14250,7 @@ class AsyncGlueClient:
             "aws_sdk_glue.types.nullable_integer.NullableInteger"
         ] = None,
     ) -> "aws_sdk_glue.types.update_ml_transform_response.UpdateMLTransformResponse":
-        """<p>Updates an existing machine learning transform. Call this operation to tune the algorithm parameters to achieve better results.</p> <p>After calling this operation, you can call the <code>StartMLEvaluationTaskRun</code> operation to assess how well your new parameters achieved your goals (such as improving the quality of your machine learning transform, or making it more cost-effective).</p>
+        r"""<p>Updates an existing machine learning transform. Call this operation to tune the algorithm parameters to achieve better results.</p> <p>After calling this operation, you can call the <code>StartMLEvaluationTaskRun</code> operation to assess how well your new parameters achieved your goals (such as improving the quality of your machine learning transform, or making it more cost-effective).</p>
 
         Args:
             transform_id: <p>A unique identifier that was generated when the transform was created.</p>

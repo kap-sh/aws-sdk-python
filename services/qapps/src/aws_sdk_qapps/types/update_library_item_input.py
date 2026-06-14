@@ -19,7 +19,7 @@ class UpdateLibraryItemInput(TypedDict):
     library_item_id: "aws_sdk_qapps.types.uuid.UUID"
     """<p>The unique identifier of the library item to update.</p>"""
     status: NotRequired["aws_sdk_qapps.types.library_item_status.LibraryItemStatus"]
-    """<p>The new status to set for the library item, such as \"Published\" or \"Hidden\".</p>"""
+    r"""<p>The new status to set for the library item, such as \"Published\" or \"Hidden\".</p>"""
     categories: NotRequired["aws_sdk_qapps.types.category_id_list.CategoryIdList"]
     """<p>The new categories to associate with the library item.</p>"""
 

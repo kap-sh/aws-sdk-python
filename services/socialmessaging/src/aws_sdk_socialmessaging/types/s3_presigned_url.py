@@ -12,7 +12,7 @@ class S3PresignedUrl(TypedDict):
     url: "str"
     """<p>The presign url to the object.</p>"""
     headers: "aws_sdk_socialmessaging.types.headers.Headers"
-    """<p>A map of headers and their values. You must specify the <code>Content-Type</code> header when using <code>PostWhatsAppMessageMedia</code>. For a list of common headers, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/RESTCommonRequestHeaders.html\">Common Request Headers</a> in the <i>Amazon S3 API Reference</i> </p>"""
+    r"""<p>A map of headers and their values. You must specify the <code>Content-Type</code> header when using <code>PostWhatsAppMessageMedia</code>. For a list of common headers, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/RESTCommonRequestHeaders.html\">Common Request Headers</a> in the <i>Amazon S3 API Reference</i> </p>"""
 
 
 # --- restJson1 ser/de ---

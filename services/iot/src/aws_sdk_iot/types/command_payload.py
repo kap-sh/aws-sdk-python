@@ -13,7 +13,7 @@ class CommandPayload(TypedDict):
     content: NotRequired["aws_sdk_iot.types.command_payload_blob.CommandPayloadBlob"]
     """<p>The static payload file for the command.</p>"""
     content_type: NotRequired["aws_sdk_iot.types.mime_type.MimeType"]
-    """<p>The content type that specifies the format type of the payload file. This field must use a type/subtype format, such as <code>application/json</code>. For information about various content types, see <a href=\"https://developer.mozilla.org/en-US/docs/Web/HTTP/MIME_types/Common_types\">Common MIME types</a>.</p>"""
+    r"""<p>The content type that specifies the format type of the payload file. This field must use a type/subtype format, such as <code>application/json</code>. For information about various content types, see <a href=\"https://developer.mozilla.org/en-US/docs/Web/HTTP/MIME_types/Common_types\">Common MIME types</a>.</p>"""
 
 
 # --- restJson1 ser/de ---

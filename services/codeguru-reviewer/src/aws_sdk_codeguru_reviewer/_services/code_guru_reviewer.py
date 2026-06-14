@@ -139,7 +139,7 @@ class CodeGuruReviewerClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = CodeGuruReviewerClientConfig(
+        self._config = CodeGuruReviewerClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -159,7 +159,7 @@ class CodeGuruReviewerClient:
         overrides: CodeGuruReviewerClientConfig = config_overrides or {}
         interceptors_: list[Interceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             retry(),
         ]
@@ -167,16 +167,16 @@ class CodeGuruReviewerClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            region=overrides.get("region", self.config.get("region")),
+            region=overrides.get("region", self._config.get("region")),
             use_dual_stack=overrides.get(
-                "use_dual_stack", self.config.get("use_dual_stack")
+                "use_dual_stack", self._config.get("use_dual_stack")
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -194,7 +194,7 @@ class CodeGuruReviewerClient:
             "aws_sdk_codeguru_reviewer.types.kms_key_details.KMSKeyDetails"
         ] = None,
     ) -> "aws_sdk_codeguru_reviewer.types.associate_repository_response.AssociateRepositoryResponse":
-        """<p>Use to associate an Amazon Web Services CodeCommit repository or a repository managed by Amazon Web Services CodeStar Connections with Amazon CodeGuru Reviewer. When you associate a repository, CodeGuru Reviewer reviews source code changes in the repository's pull requests and provides automatic recommendations. You can view recommendations using the CodeGuru Reviewer console. For more information, see <a href=\"https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/recommendations.html\">Recommendations in Amazon CodeGuru Reviewer</a> in the <i>Amazon CodeGuru Reviewer User Guide.</i> </p> <p>If you associate a CodeCommit or S3 repository, it must be in the same Amazon Web Services Region and Amazon Web Services account where its CodeGuru Reviewer code reviews are configured.</p> <p>Bitbucket and GitHub Enterprise Server repositories are managed by Amazon Web Services CodeStar Connections to connect to CodeGuru Reviewer. For more information, see <a href=\"https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/getting-started-associate-repository.html\">Associate a repository</a> in the <i>Amazon CodeGuru Reviewer User Guide.</i> </p> <note> <p>You cannot use the CodeGuru Reviewer SDK or the Amazon Web Services CLI to associate a GitHub repository with Amazon CodeGuru Reviewer. To associate a GitHub repository, use the console. For more information, see <a href=\"https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/getting-started-with-guru.html\">Getting started with CodeGuru Reviewer</a> in the <i>CodeGuru Reviewer User Guide.</i> </p> </note>
+        r"""<p>Use to associate an Amazon Web Services CodeCommit repository or a repository managed by Amazon Web Services CodeStar Connections with Amazon CodeGuru Reviewer. When you associate a repository, CodeGuru Reviewer reviews source code changes in the repository's pull requests and provides automatic recommendations. You can view recommendations using the CodeGuru Reviewer console. For more information, see <a href=\"https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/recommendations.html\">Recommendations in Amazon CodeGuru Reviewer</a> in the <i>Amazon CodeGuru Reviewer User Guide.</i> </p> <p>If you associate a CodeCommit or S3 repository, it must be in the same Amazon Web Services Region and Amazon Web Services account where its CodeGuru Reviewer code reviews are configured.</p> <p>Bitbucket and GitHub Enterprise Server repositories are managed by Amazon Web Services CodeStar Connections to connect to CodeGuru Reviewer. For more information, see <a href=\"https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/getting-started-associate-repository.html\">Associate a repository</a> in the <i>Amazon CodeGuru Reviewer User Guide.</i> </p> <note> <p>You cannot use the CodeGuru Reviewer SDK or the Amazon Web Services CLI to associate a GitHub repository with Amazon CodeGuru Reviewer. To associate a GitHub repository, use the console. For more information, see <a href=\"https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/getting-started-with-guru.html\">Getting started with CodeGuru Reviewer</a> in the <i>CodeGuru Reviewer User Guide.</i> </p> </note>
 
         Args:
             repository: <p>The repository to associate.</p>
@@ -245,7 +245,7 @@ class CodeGuruReviewerClient:
             "aws_sdk_codeguru_reviewer.types.client_request_token.ClientRequestToken"
         ] = None,
     ) -> "aws_sdk_codeguru_reviewer.types.create_code_review_response.CreateCodeReviewResponse":
-        """<p>Use to create a code review with a <a href=\"https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReviewType.html\">CodeReviewType</a> of <code>RepositoryAnalysis</code>. This type of code review analyzes all code under a specified branch in an associated repository. <code>PullRequest</code> code reviews are automatically triggered by a pull request.</p>
+        r"""<p>Use to create a code review with a <a href=\"https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReviewType.html\">CodeReviewType</a> of <code>RepositoryAnalysis</code>. This type of code review analyzes all code under a specified branch in an associated repository. <code>PullRequest</code> code reviews are automatically triggered by a pull request.</p>
 
         Args:
             name: <p>The name of the code review. The name of each code review in your Amazon Web Services account must be unique.</p>
@@ -289,7 +289,7 @@ class CodeGuruReviewerClient:
         *,
         config_overrides: Optional[CodeGuruReviewerClientConfig] = None,
     ) -> "aws_sdk_codeguru_reviewer.types.describe_code_review_response.DescribeCodeReviewResponse":
-        """<p>Returns the metadata associated with the code review along with its status.</p>
+        r"""<p>Returns the metadata associated with the code review along with its status.</p>
 
         Args:
             code_review_arn: <p>The Amazon Resource Name (ARN) of the <a href=\"https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html\">CodeReview</a> object. </p>
@@ -328,7 +328,7 @@ class CodeGuruReviewerClient:
         config_overrides: Optional[CodeGuruReviewerClientConfig] = None,
         user_id: Optional["aws_sdk_codeguru_reviewer.types.user_id.UserId"] = None,
     ) -> "aws_sdk_codeguru_reviewer.types.describe_recommendation_feedback_response.DescribeRecommendationFeedbackResponse":
-        """<p>Describes the customer feedback for a CodeGuru Reviewer recommendation.</p>
+        r"""<p>Describes the customer feedback for a CodeGuru Reviewer recommendation.</p>
 
         Args:
             code_review_arn: <p>The Amazon Resource Name (ARN) of the <a href=\"https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html\">CodeReview</a> object. </p>
@@ -370,7 +370,7 @@ class CodeGuruReviewerClient:
         *,
         config_overrides: Optional[CodeGuruReviewerClientConfig] = None,
     ) -> "aws_sdk_codeguru_reviewer.types.describe_repository_association_response.DescribeRepositoryAssociationResponse":
-        """<p>Returns a <a href=\"https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html\">RepositoryAssociation</a> object that contains information about the requested repository association.</p>
+        r"""<p>Returns a <a href=\"https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html\">RepositoryAssociation</a> object that contains information about the requested repository association.</p>
 
         Args:
             association_arn: <p>The Amazon Resource Name (ARN) of the <a href=\"https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html\">RepositoryAssociation</a> object. You can retrieve this ARN by calling <a href=\"https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListRepositoryAssociations.html\">ListRepositoryAssociations</a>.</p>
@@ -407,7 +407,7 @@ class CodeGuruReviewerClient:
         *,
         config_overrides: Optional[CodeGuruReviewerClientConfig] = None,
     ) -> "aws_sdk_codeguru_reviewer.types.disassociate_repository_response.DisassociateRepositoryResponse":
-        """<p>Removes the association between Amazon CodeGuru Reviewer and a repository.</p>
+        r"""<p>Removes the association between Amazon CodeGuru Reviewer and a repository.</p>
 
         Args:
             association_arn: <p>The Amazon Resource Name (ARN) of the <a href=\"https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html\">RepositoryAssociation</a> object. You can retrieve this ARN by calling <a href=\"https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListRepositoryAssociations.html\">ListRepositoryAssociations</a>.</p>
@@ -519,7 +519,7 @@ class CodeGuruReviewerClient:
             "aws_sdk_codeguru_reviewer.types.recommendation_ids.RecommendationIds"
         ] = None,
     ) -> "aws_sdk_codeguru_reviewer.types.list_recommendation_feedback_response.ListRecommendationFeedbackResponse":
-        """<p>Returns a list of <a href=\"https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RecommendationFeedbackSummary.html\">RecommendationFeedbackSummary</a> objects that contain customer recommendation feedback for all CodeGuru Reviewer users.</p>
+        r"""<p>Returns a list of <a href=\"https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RecommendationFeedbackSummary.html\">RecommendationFeedbackSummary</a> objects that contain customer recommendation feedback for all CodeGuru Reviewer users.</p>
 
         Args:
             next_token: <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged.</p>
@@ -574,7 +574,7 @@ class CodeGuruReviewerClient:
             "aws_sdk_codeguru_reviewer.types.list_recommendations_max_results.ListRecommendationsMaxResults"
         ] = None,
     ) -> "aws_sdk_codeguru_reviewer.types.list_recommendations_response.ListRecommendationsResponse":
-        """<p>Returns the list of all recommendations for a completed code review.</p>
+        r"""<p>Returns the list of all recommendations for a completed code review.</p>
 
         Args:
             next_token: <p>Pagination token.</p>
@@ -630,7 +630,7 @@ class CodeGuruReviewerClient:
             "aws_sdk_codeguru_reviewer.types.next_token.NextToken"
         ] = None,
     ) -> "aws_sdk_codeguru_reviewer.types.list_repository_associations_response.ListRepositoryAssociationsResponse":
-        """<p>Returns a list of <a href=\"https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html\">RepositoryAssociationSummary</a> objects that contain summary information about a repository association. You can filter the returned list by <a href=\"https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html#reviewer-Type-RepositoryAssociationSummary-ProviderType\">ProviderType</a>, <a href=\"https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html#reviewer-Type-RepositoryAssociationSummary-Name\">Name</a>, <a href=\"https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html#reviewer-Type-RepositoryAssociationSummary-State\">State</a>, and <a href=\"https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html#reviewer-Type-RepositoryAssociationSummary-Owner\">Owner</a>.</p>
+        r"""<p>Returns a list of <a href=\"https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html\">RepositoryAssociationSummary</a> objects that contain summary information about a repository association. You can filter the returned list by <a href=\"https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html#reviewer-Type-RepositoryAssociationSummary-ProviderType\">ProviderType</a>, <a href=\"https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html#reviewer-Type-RepositoryAssociationSummary-Name\">Name</a>, <a href=\"https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html#reviewer-Type-RepositoryAssociationSummary-State\">State</a>, and <a href=\"https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html#reviewer-Type-RepositoryAssociationSummary-Owner\">Owner</a>.</p>
 
         Args:
             provider_types: <p>List of provider types to use as a filter.</p>
@@ -720,7 +720,7 @@ class CodeGuruReviewerClient:
         *,
         config_overrides: Optional[CodeGuruReviewerClientConfig] = None,
     ) -> "aws_sdk_codeguru_reviewer.types.list_tags_for_resource_response.ListTagsForResourceResponse":
-        """<p>Returns the list of tags associated with an associated repository resource.</p>
+        r"""<p>Returns the list of tags associated with an associated repository resource.</p>
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the <a href=\"https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html\">RepositoryAssociation</a> object. You can retrieve this ARN by calling <a href=\"https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListRepositoryAssociations.html\">ListRepositoryAssociations</a>.</p>
@@ -759,7 +759,7 @@ class CodeGuruReviewerClient:
         *,
         config_overrides: Optional[CodeGuruReviewerClientConfig] = None,
     ) -> "aws_sdk_codeguru_reviewer.types.put_recommendation_feedback_response.PutRecommendationFeedbackResponse":
-        """<p>Stores customer feedback for a CodeGuru Reviewer recommendation. When this API is called again with different reactions the previous feedback is overwritten.</p>
+        r"""<p>Stores customer feedback for a CodeGuru Reviewer recommendation. When this API is called again with different reactions the previous feedback is overwritten.</p>
 
         Args:
             code_review_arn: <p>The Amazon Resource Name (ARN) of the <a href=\"https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html\">CodeReview</a> object. </p>
@@ -801,7 +801,7 @@ class CodeGuruReviewerClient:
         *,
         config_overrides: Optional[CodeGuruReviewerClientConfig] = None,
     ) -> "aws_sdk_codeguru_reviewer.types.tag_resource_response.TagResourceResponse":
-        """<p>Adds one or more tags to an associated repository.</p>
+        r"""<p>Adds one or more tags to an associated repository.</p>
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the <a href=\"https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html\">RepositoryAssociation</a> object. You can retrieve this ARN by calling <a href=\"https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListRepositoryAssociations.html\">ListRepositoryAssociations</a>.</p>
@@ -843,7 +843,7 @@ class CodeGuruReviewerClient:
     ) -> (
         "aws_sdk_codeguru_reviewer.types.untag_resource_response.UntagResourceResponse"
     ):
-        """<p>Removes a tag from an associated repository.</p>
+        r"""<p>Removes a tag from an associated repository.</p>
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the <a href=\"https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html\">RepositoryAssociation</a> object. You can retrieve this ARN by calling <a href=\"https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListRepositoryAssociations.html\">ListRepositoryAssociations</a>.</p>

@@ -17,7 +17,7 @@ class BedrockEmbeddingModelConfiguration(TypedDict):
     embedding_data_type: NotRequired[
         "aws_sdk_bedrock_agent.types.embedding_data_type.EmbeddingDataType"
     ]
-    """<p>The data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings. Floating-point (float32) is the default data type, and is supported by most models for vector embeddings. See <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-supported.html\">Supported embeddings models</a> for information on the available models and their vector data types.</p>"""
+    r"""<p>The data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings. Floating-point (float32) is the default data type, and is supported by most models for vector embeddings. See <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-supported.html\">Supported embeddings models</a> for information on the available models and their vector data types.</p>"""
     audio: NotRequired[
         "aws_sdk_bedrock_agent.types.audio_configurations.AudioConfigurations"
     ]

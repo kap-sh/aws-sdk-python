@@ -168,7 +168,7 @@ class AsyncidentitystoreClient:
         *,
         config_overrides: Optional[AsyncidentitystoreClientConfig] = None,
     ) -> "aws_sdk_identitystore.types.get_group_id_response.GetGroupIdResponse":
-        """<p>Retrieves <code>GroupId</code> in an identity store.</p> <note> <p>If you have access to a member account, you can use this API operation from the member account. For more information, see <a href=\"https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-accounts.html#limiting-access-from-member-accounts\">Limiting access to the identity store from member accounts</a> in the <i> IAM Identity Center User Guide</i>.</p> </note>
+        r"""<p>Retrieves <code>GroupId</code> in an identity store.</p> <note> <p>If you have access to a member account, you can use this API operation from the member account. For more information, see <a href=\"https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-accounts.html#limiting-access-from-member-accounts\">Limiting access to the identity store from member accounts</a> in the <i> IAM Identity Center User Guide</i>.</p> </note>
 
         Args:
             identity_store_id: <p>The globally unique identifier for the identity store.</p>
@@ -210,7 +210,7 @@ class AsyncidentitystoreClient:
         *,
         config_overrides: Optional[AsyncidentitystoreClientConfig] = None,
     ) -> "aws_sdk_identitystore.types.get_group_membership_id_response.GetGroupMembershipIdResponse":
-        """<p>Retrieves the <code>MembershipId</code> in an identity store.</p> <note> <p>If you have access to a member account, you can use this API operation from the member account. For more information, see <a href=\"https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-accounts.html#limiting-access-from-member-accounts\">Limiting access to the identity store from member accounts</a> in the <i> IAM Identity Center User Guide</i>.</p> </note>
+        r"""<p>Retrieves the <code>MembershipId</code> in an identity store.</p> <note> <p>If you have access to a member account, you can use this API operation from the member account. For more information, see <a href=\"https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-accounts.html#limiting-access-from-member-accounts\">Limiting access to the identity store from member accounts</a> in the <i> IAM Identity Center User Guide</i>.</p> </note>
 
         Args:
             identity_store_id: <p>The globally unique identifier for the identity store.</p>
@@ -253,7 +253,7 @@ class AsyncidentitystoreClient:
         *,
         config_overrides: Optional[AsyncidentitystoreClientConfig] = None,
     ) -> "aws_sdk_identitystore.types.get_user_id_response.GetUserIdResponse":
-        """<p>Retrieves the <code>UserId</code> in an identity store.</p> <note> <p>If you have access to a member account, you can use this API operation from the member account. For more information, see <a href=\"https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-accounts.html#limiting-access-from-member-accounts\">Limiting access to the identity store from member accounts</a> in the <i> IAM Identity Center User Guide</i>.</p> </note>
+        r"""<p>Retrieves the <code>UserId</code> in an identity store.</p> <note> <p>If you have access to a member account, you can use this API operation from the member account. For more information, see <a href=\"https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-accounts.html#limiting-access-from-member-accounts\">Limiting access to the identity store from member accounts</a> in the <i> IAM Identity Center User Guide</i>.</p> </note>
 
         Args:
             identity_store_id: <p>The globally unique identifier for the identity store.</p>
@@ -295,7 +295,7 @@ class AsyncidentitystoreClient:
         *,
         config_overrides: Optional[AsyncidentitystoreClientConfig] = None,
     ) -> "aws_sdk_identitystore.types.is_member_in_groups_response.IsMemberInGroupsResponse":
-        """<p>Checks the user's membership in all requested groups and returns if the member exists in all queried groups.</p> <note> <p>If you have access to a member account, you can use this API operation from the member account. For more information, see <a href=\"https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-accounts.html#limiting-access-from-member-accounts\">Limiting access to the identity store from member accounts</a> in the <i> IAM Identity Center User Guide</i>.</p> </note>
+        r"""<p>Checks the user's membership in all requested groups and returns if the member exists in all queried groups.</p> <note> <p>If you have access to a member account, you can use this API operation from the member account. For more information, see <a href=\"https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-accounts.html#limiting-access-from-member-accounts\">Limiting access to the identity store from member accounts</a> in the <i> IAM Identity Center User Guide</i>.</p> </note>
 
         Args:
             identity_store_id: <p>The globally unique identifier for the identity store.</p>
@@ -342,7 +342,7 @@ class AsyncidentitystoreClient:
         ] = None,
         next_token: Optional["aws_sdk_identitystore.types.next_token.NextToken"] = None,
     ) -> "aws_sdk_identitystore.types.list_group_memberships_for_member_response.ListGroupMembershipsForMemberResponse":
-        """<p>For the specified member in the specified identity store, returns the list of all <code> GroupMembership</code> objects and returns results in paginated form.</p> <note> <p>If you have access to a member account, you can use this API operation from the member account. For more information, see <a href=\"https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-accounts.html#limiting-access-from-member-accounts\">Limiting access to the identity store from member accounts</a> in the <i> IAM Identity Center User Guide</i>.</p> </note>
+        r"""<p>For the specified member in the specified identity store, returns the list of all <code> GroupMembership</code> objects and returns results in paginated form.</p> <note> <p>If you have access to a member account, you can use this API operation from the member account. For more information, see <a href=\"https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-accounts.html#limiting-access-from-member-accounts\">Limiting access to the identity store from member accounts</a> in the <i> IAM Identity Center User Guide</i>.</p> </note>
 
         Args:
             identity_store_id: <p>The globally unique identifier for the identity store.</p>

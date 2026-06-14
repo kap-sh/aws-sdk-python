@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_m2._auth._signers
@@ -1121,7 +1123,7 @@ class Application:
         prefix: Optional["aws_sdk_m2.types.string200.String200"] = None,
         name_filter: Optional["aws_sdk_m2.types.string200.String200"] = None,
     ) -> "aws_sdk_m2.types.list_data_sets_response.ListDataSetsResponse":
-        """<p>Lists the data sets imported for a specific application. In Amazon Web Services Mainframe Modernization, data sets are associated with applications deployed on runtime environments. This is known as importing data sets. Currently, Amazon Web Services Mainframe Modernization can import data sets into catalogs using <a href=\"https://docs.aws.amazon.com/m2/latest/APIReference/API_CreateDataSetImportTask.html\">CreateDataSetImportTask</a>.</p>
+        r"""<p>Lists the data sets imported for a specific application. In Amazon Web Services Mainframe Modernization, data sets are associated with applications deployed on runtime environments. This is known as importing data sets. Currently, Amazon Web Services Mainframe Modernization can import data sets into catalogs using <a href=\"https://docs.aws.amazon.com/m2/latest/APIReference/API_CreateDataSetImportTask.html\">CreateDataSetImportTask</a>.</p>
 
         Args:
             application_id: <p>The unique identifier of the application for which you want to list the associated data sets.</p>
@@ -1259,7 +1261,7 @@ class Application:
             "aws_sdk_m2.types.auth_secrets_manager_arn.AuthSecretsManagerArn"
         ] = None,
     ) -> "aws_sdk_m2.types.start_batch_job_response.StartBatchJobResponse":
-        """<p>Starts a batch job and returns the unique identifier of this execution of the batch job. The associated application must be running in order to start the batch job.</p>
+        r"""<p>Starts a batch job and returns the unique identifier of this execution of the batch job. The associated application must be running in order to start the batch job.</p>
 
         Args:
             application_id: <p>The unique identifier of the application associated with this batch job.</p>
@@ -2381,7 +2383,7 @@ class AsyncApplication:
         prefix: Optional["aws_sdk_m2.types.string200.String200"] = None,
         name_filter: Optional["aws_sdk_m2.types.string200.String200"] = None,
     ) -> "aws_sdk_m2.types.list_data_sets_response.ListDataSetsResponse":
-        """<p>Lists the data sets imported for a specific application. In Amazon Web Services Mainframe Modernization, data sets are associated with applications deployed on runtime environments. This is known as importing data sets. Currently, Amazon Web Services Mainframe Modernization can import data sets into catalogs using <a href=\"https://docs.aws.amazon.com/m2/latest/APIReference/API_CreateDataSetImportTask.html\">CreateDataSetImportTask</a>.</p>
+        r"""<p>Lists the data sets imported for a specific application. In Amazon Web Services Mainframe Modernization, data sets are associated with applications deployed on runtime environments. This is known as importing data sets. Currently, Amazon Web Services Mainframe Modernization can import data sets into catalogs using <a href=\"https://docs.aws.amazon.com/m2/latest/APIReference/API_CreateDataSetImportTask.html\">CreateDataSetImportTask</a>.</p>
 
         Args:
             application_id: <p>The unique identifier of the application for which you want to list the associated data sets.</p>
@@ -2522,7 +2524,7 @@ class AsyncApplication:
             "aws_sdk_m2.types.auth_secrets_manager_arn.AuthSecretsManagerArn"
         ] = None,
     ) -> "aws_sdk_m2.types.start_batch_job_response.StartBatchJobResponse":
-        """<p>Starts a batch job and returns the unique identifier of this execution of the batch job. The associated application must be running in order to start the batch job.</p>
+        r"""<p>Starts a batch job and returns the unique identifier of this execution of the batch job. The associated application must be running in order to start the batch job.</p>
 
         Args:
             application_id: <p>The unique identifier of the application associated with this batch job.</p>

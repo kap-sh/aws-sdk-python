@@ -20,7 +20,7 @@ class CreateEngagementResponse(TypedDict):
     ]
     """<p>The Amazon Resource Name (ARN) that identifies the engagement.</p>"""
     modified_at: NotRequired["aws_sdk_partnercentral_selling.types.date_time.DateTime"]
-    """<p>The timestamp indicating when the engagement was last modified, in ISO 8601 format (UTC). For newly created engagements, this value matches the creation timestamp. Example: \"2023-05-01T20:37:46Z\".</p>"""
+    r"""<p>The timestamp indicating when the engagement was last modified, in ISO 8601 format (UTC). For newly created engagements, this value matches the creation timestamp. Example: \"2023-05-01T20:37:46Z\".</p>"""
 
 
 # --- awsJson1_0 ser/de ---

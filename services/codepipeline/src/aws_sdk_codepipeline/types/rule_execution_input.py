@@ -15,7 +15,7 @@ if TYPE_CHECKING:
 
 class RuleExecutionInput(TypedDict):
     rule_type_id: NotRequired["aws_sdk_codepipeline.types.rule_type_id.RuleTypeId"]
-    """<p>The ID for the rule type, which is made up of the combined values for category, owner, provider, and version. For more information about conditions, see <a href=\"https://docs.aws.amazon.com/codepipeline/latest/userguide/stage-conditions.html\">Stage conditions</a>. For more information about rules, see the <a href=\"https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html\">CodePipeline rule reference</a>.</p>"""
+    r"""<p>The ID for the rule type, which is made up of the combined values for category, owner, provider, and version. For more information about conditions, see <a href=\"https://docs.aws.amazon.com/codepipeline/latest/userguide/stage-conditions.html\">Stage conditions</a>. For more information about rules, see the <a href=\"https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html\">CodePipeline rule reference</a>.</p>"""
     configuration: NotRequired[
         "aws_sdk_codepipeline.types.rule_configuration_map.RuleConfigurationMap"
     ]

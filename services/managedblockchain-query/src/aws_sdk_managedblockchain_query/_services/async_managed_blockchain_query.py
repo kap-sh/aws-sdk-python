@@ -308,7 +308,7 @@ class AsyncManagedBlockchainQueryClient:
             "aws_sdk_managedblockchain_query.types.query_transaction_id.QueryTransactionId"
         ] = None,
     ) -> "aws_sdk_managedblockchain_query.types.get_transaction_output.GetTransactionOutput":
-        """<p>Gets the details of a transaction.</p> <note> <p>This action will return transaction details for all transactions that are <i>confirmed</i> on the blockchain, even if they have not reached <a href=\"https://docs.aws.amazon.com/managed-blockchain/latest/ambq-dg/key-concepts.html#finality\">finality</a>. </p> </note>
+        r"""<p>Gets the details of a transaction.</p> <note> <p>This action will return transaction details for all transactions that are <i>confirmed</i> on the blockchain, even if they have not reached <a href=\"https://docs.aws.amazon.com/managed-blockchain/latest/ambq-dg/key-concepts.html#finality\">finality</a>. </p> </note>
 
         Args:
             transaction_hash: <p>The hash of a transaction. It is generated when a transaction is created.</p>
@@ -635,7 +635,7 @@ class AsyncManagedBlockchainQueryClient:
         ] = None,
         max_results: Optional[int] = None,
     ) -> "aws_sdk_managedblockchain_query.types.list_transaction_events_output.ListTransactionEventsOutput":
-        """<p>Lists all the transaction events for a transaction </p> <note> <p>This action will return transaction details for all transactions that are <i>confirmed</i> on the blockchain, even if they have not reached <a href=\"https://docs.aws.amazon.com/managed-blockchain/latest/ambq-dg/key-concepts.html#finality\">finality</a>. </p> </note>
+        r"""<p>Lists all the transaction events for a transaction </p> <note> <p>This action will return transaction details for all transactions that are <i>confirmed</i> on the blockchain, even if they have not reached <a href=\"https://docs.aws.amazon.com/managed-blockchain/latest/ambq-dg/key-concepts.html#finality\">finality</a>. </p> </note>
 
         Args:
             transaction_hash: <p>The hash of a transaction. It is generated when a transaction is created.</p>
@@ -735,7 +735,7 @@ class AsyncManagedBlockchainQueryClient:
             "aws_sdk_managedblockchain_query.types.confirmation_status_filter.ConfirmationStatusFilter"
         ] = None,
     ) -> "aws_sdk_managedblockchain_query.types.list_transactions_output.ListTransactionsOutput":
-        """<p>Lists all the transaction events for a transaction.</p>
+        r"""<p>Lists all the transaction events for a transaction.</p>
 
         Args:
             address: <p>The address (either a contract or wallet), whose transactions are being requested.</p>

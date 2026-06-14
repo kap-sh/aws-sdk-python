@@ -1,12 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#CreateBrowserResponse``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.browser_arn
     import aws_sdk_bedrock_agentcore_control.types.browser_id
     import aws_sdk_bedrock_agentcore_control.types.browser_status
     import aws_sdk_bedrock_agentcore_control.types.date_timestamp
+
 
 class CreateBrowserResponse(TypedDict):
     browser_id: "aws_sdk_bedrock_agentcore_control.types.browser_id.BrowserId"
@@ -18,15 +21,26 @@ class CreateBrowserResponse(TypedDict):
     status: "aws_sdk_bedrock_agentcore_control.types.browser_status.BrowserStatus"
     """<p>The current status of the browser.</p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: CreateBrowserResponse) -> dict:
     out: dict = {}
     out["browserId"] = value["browser_id"]
     out["browserArn"] = value["browser_arn"]
     import aws_sdk_bedrock_agentcore_control.types.date_timestamp
-    out["createdAt"] = aws_sdk_bedrock_agentcore_control.types.date_timestamp.serialize_json(value["created_at"])
+
+    out["createdAt"] = (
+        aws_sdk_bedrock_agentcore_control.types.date_timestamp.serialize_json(
+            value["created_at"]
+        )
+    )
     import aws_sdk_bedrock_agentcore_control.types.browser_status
-    out["status"] = aws_sdk_bedrock_agentcore_control.types.browser_status.serialize_json(value["status"])
+
+    out["status"] = (
+        aws_sdk_bedrock_agentcore_control.types.browser_status.serialize_json(
+            value["status"]
+        )
+    )
     return out
 
 
@@ -42,12 +56,22 @@ def deserialize_json(data: dict) -> CreateBrowserResponse:
         raise DeserializationError("CreateBrowserResponse.browser_arn required")
     if "createdAt" in data:
         import aws_sdk_bedrock_agentcore_control.types.date_timestamp
-        out["created_at"] = aws_sdk_bedrock_agentcore_control.types.date_timestamp.deserialize_json(data["createdAt"])
+
+        out["created_at"] = (
+            aws_sdk_bedrock_agentcore_control.types.date_timestamp.deserialize_json(
+                data["createdAt"]
+            )
+        )
     else:
         raise DeserializationError("CreateBrowserResponse.created_at required")
     if "status" in data:
         import aws_sdk_bedrock_agentcore_control.types.browser_status
-        out["status"] = aws_sdk_bedrock_agentcore_control.types.browser_status.deserialize_json(data["status"])
+
+        out["status"] = (
+            aws_sdk_bedrock_agentcore_control.types.browser_status.deserialize_json(
+                data["status"]
+            )
+        )
     else:
         raise DeserializationError("CreateBrowserResponse.status required")
     return out

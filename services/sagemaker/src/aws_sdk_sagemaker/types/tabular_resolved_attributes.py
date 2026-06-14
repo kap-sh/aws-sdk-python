@@ -10,7 +10,7 @@ if TYPE_CHECKING:
 
 class TabularResolvedAttributes(TypedDict):
     problem_type: NotRequired["aws_sdk_sagemaker.types.problem_type.ProblemType"]
-    """<p>The type of supervised learning problem available for the model candidates of the AutoML job V2 (Binary Classification, Multiclass Classification, Regression). For more information, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-datasets-problem-types.html#autopilot-problem-types\"> SageMaker Autopilot problem types</a>.</p>"""
+    r"""<p>The type of supervised learning problem available for the model candidates of the AutoML job V2 (Binary Classification, Multiclass Classification, Regression). For more information, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-datasets-problem-types.html#autopilot-problem-types\"> SageMaker Autopilot problem types</a>.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

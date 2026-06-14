@@ -21,7 +21,7 @@ class CreateDataSourceFromS3Input(TypedDict):
     ]
     """<p>A user-supplied name or description of the <code>DataSource</code>. </p>"""
     data_spec: "aws_sdk_machine_learning.types.s3_data_spec.S3DataSpec"
-    """<p>The data specification of a <code>DataSource</code>:</p> <ul> <li> <p>DataLocationS3 - The Amazon S3 location of the observation data.</p> </li> <li> <p>DataSchemaLocationS3 - The Amazon S3 location of the <code>DataSchema</code>.</p> </li> <li> <p>DataSchema - A JSON string representing the schema. This is not required if <code>DataSchemaUri</code> is specified. </p> </li> <li> <p>DataRearrangement - A JSON string that represents the splitting and rearrangement requirements for the <code>Datasource</code>. </p> <p> Sample - <code> \"{\\"splitting\\":{\\"percentBegin\\":10,\\"percentEnd\\":60}}\"</code> </p> </li> </ul>"""
+    r"""<p>The data specification of a <code>DataSource</code>:</p> <ul> <li> <p>DataLocationS3 - The Amazon S3 location of the observation data.</p> </li> <li> <p>DataSchemaLocationS3 - The Amazon S3 location of the <code>DataSchema</code>.</p> </li> <li> <p>DataSchema - A JSON string representing the schema. This is not required if <code>DataSchemaUri</code> is specified. </p> </li> <li> <p>DataRearrangement - A JSON string that represents the splitting and rearrangement requirements for the <code>Datasource</code>. </p> <p> Sample - <code> \"{\\"splitting\\":{\\"percentBegin\\":10,\\"percentEnd\\":60}}\"</code> </p> </li> </ul>"""
     compute_statistics: (
         "aws_sdk_machine_learning.types.compute_statistics.ComputeStatistics"
     )

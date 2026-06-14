@@ -20,7 +20,7 @@ class Parameter(TypedDict):
     description: NotRequired["aws_sdk_redshift.types.string.String"]
     """<p>A description of the parameter.</p>"""
     source: NotRequired["aws_sdk_redshift.types.string.String"]
-    """<p>The source of the parameter value, such as \"engine-default\" or \"user\".</p>"""
+    r"""<p>The source of the parameter value, such as \"engine-default\" or \"user\".</p>"""
     data_type: NotRequired["aws_sdk_redshift.types.string.String"]
     """<p>The data type of the parameter.</p>"""
     allowed_values: NotRequired["aws_sdk_redshift.types.string.String"]
@@ -28,7 +28,7 @@ class Parameter(TypedDict):
     apply_type: NotRequired[
         "aws_sdk_redshift.types.parameter_apply_type.ParameterApplyType"
     ]
-    """<p>Specifies how to apply the WLM configuration parameter. Some properties can be applied dynamically, while other properties require that any associated clusters be rebooted for the configuration changes to be applied. For more information about parameters and parameter groups, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html\">Amazon Redshift Parameter Groups</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</p>"""
+    r"""<p>Specifies how to apply the WLM configuration parameter. Some properties can be applied dynamically, while other properties require that any associated clusters be rebooted for the configuration changes to be applied. For more information about parameters and parameter groups, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html\">Amazon Redshift Parameter Groups</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</p>"""
     is_modifiable: NotRequired["aws_sdk_redshift.types.boolean.Boolean"]
     """<p>If <code>true</code>, the parameter can be modified. Some parameters have security or operational implications that prevent them from being changed. </p>"""
     minimum_engine_version: NotRequired["aws_sdk_redshift.types.string.String"]

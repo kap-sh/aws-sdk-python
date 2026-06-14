@@ -13,7 +13,7 @@ class BatchInferenceJobConfig(TypedDict):
     item_exploration_config: NotRequired[
         "aws_sdk_personalize.types.hyper_parameters.HyperParameters"
     ]
-    """<p>A string to string map specifying the exploration configuration hyperparameters, including <code>explorationWeight</code> and <code>explorationItemAgeCutOff</code>, you want to use to configure the amount of item exploration Amazon Personalize uses when recommending items. See <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/native-recipe-new-item-USER_PERSONALIZATION.html\">User-Personalization</a>.</p>"""
+    r"""<p>A string to string map specifying the exploration configuration hyperparameters, including <code>explorationWeight</code> and <code>explorationItemAgeCutOff</code>, you want to use to configure the amount of item exploration Amazon Personalize uses when recommending items. See <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/native-recipe-new-item-USER_PERSONALIZATION.html\">User-Personalization</a>.</p>"""
     ranking_influence: NotRequired[
         "aws_sdk_personalize.types.ranking_influence.RankingInfluence"
     ]

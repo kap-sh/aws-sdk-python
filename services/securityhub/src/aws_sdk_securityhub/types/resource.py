@@ -26,7 +26,7 @@ class Resource(TypedDict):
     ]
     """<p>Identifies the role of the resource in the finding. A resource is either the actor or target of the finding activity,</p>"""
     tags: NotRequired["aws_sdk_securityhub.types.field_map.FieldMap"]
-    """<p>A list of Amazon Web Services tags associated with a resource at the time the finding was processed. Tags must follow <a href=\"https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions\">Amazon Web Services tag naming limits and requirements</a>.</p>"""
+    r"""<p>A list of Amazon Web Services tags associated with a resource at the time the finding was processed. Tags must follow <a href=\"https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions\">Amazon Web Services tag naming limits and requirements</a>.</p>"""
     data_classification: NotRequired[
         "aws_sdk_securityhub.types.data_classification_details.DataClassificationDetails"
     ]

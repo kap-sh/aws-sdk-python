@@ -31,7 +31,7 @@ class UpdateMultiRegionClusterRequest(TypedDict):
     update_strategy: NotRequired[
         "aws_sdk_memorydb.types.update_strategy.UpdateStrategy"
     ]
-    """<p>The strategy to use for the update operation. Supported values are \"coordinated\" or \"uncoordinated\".</p>"""
+    r"""<p>The strategy to use for the update operation. Supported values are \"coordinated\" or \"uncoordinated\".</p>"""
 
 
 # --- awsJson1_1 ser/de ---

@@ -15,11 +15,11 @@ class GroupConfigurationItem(TypedDict):
     type: (
         "aws_sdk_resource_groups.types.group_configuration_type.GroupConfigurationType"
     )
-    """<p>Specifies the type of group configuration item. Each item must have a unique value for <code>type</code>. For the list of types that you can specify for a configuration item, see <a href=\"https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html#about-slg-types\">Supported resource types and parameters</a>.</p>"""
+    r"""<p>Specifies the type of group configuration item. Each item must have a unique value for <code>type</code>. For the list of types that you can specify for a configuration item, see <a href=\"https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html#about-slg-types\">Supported resource types and parameters</a>.</p>"""
     parameters: NotRequired[
         "aws_sdk_resource_groups.types.group_parameter_list.GroupParameterList"
     ]
-    """<p>A collection of parameters for this group configuration item. For the list of parameters that you can use with each configuration item type, see <a href=\"https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html#about-slg-types\">Supported resource types and parameters</a>.</p>"""
+    r"""<p>A collection of parameters for this group configuration item. For the list of parameters that you can use with each configuration item type, see <a href=\"https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html#about-slg-types\">Supported resource types and parameters</a>.</p>"""
 
 
 # --- restJson1 ser/de ---

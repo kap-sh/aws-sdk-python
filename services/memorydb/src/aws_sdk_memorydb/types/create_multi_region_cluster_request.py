@@ -15,7 +15,7 @@ if TYPE_CHECKING:
 
 class CreateMultiRegionClusterRequest(TypedDict):
     multi_region_cluster_name_suffix: "aws_sdk_memorydb.types.string.String"
-    """<p>A suffix to be added to the Multi-Region cluster name. Amazon MemoryDB automatically applies a prefix to the Multi-Region cluster Name when it is created. Each Amazon Region has its own prefix. For instance, a Multi-Region cluster Name created in the US-West-1 region will begin with \"virxk\", along with the suffix name you provide. The suffix guarantees uniqueness of the Multi-Region cluster name across multiple regions.</p>"""
+    r"""<p>A suffix to be added to the Multi-Region cluster name. Amazon MemoryDB automatically applies a prefix to the Multi-Region cluster Name when it is created. Each Amazon Region has its own prefix. For instance, a Multi-Region cluster Name created in the US-West-1 region will begin with \"virxk\", along with the suffix name you provide. The suffix guarantees uniqueness of the Multi-Region cluster name across multiple regions.</p>"""
     description: NotRequired["aws_sdk_memorydb.types.string.String"]
     """<p>A description for the multi-Region cluster.</p>"""
     engine: NotRequired["aws_sdk_memorydb.types.string.String"]

@@ -22,7 +22,7 @@ class PutOrganizationConformancePackRequest(TypedDict):
     template_s3_uri: NotRequired[
         "aws_sdk_config_service.types.template_s3_uri.TemplateS3Uri"
     ]
-    """<p>Location of file containing the template body. The uri must point to the conformance pack template (max size: 300 KB).</p> <note> <p>You must have access to read Amazon S3 bucket. In addition, in order to ensure a successful deployment, the template object must not be in an <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html\">archived storage class</a> if this parameter is passed.</p> </note>"""
+    r"""<p>Location of file containing the template body. The uri must point to the conformance pack template (max size: 300 KB).</p> <note> <p>You must have access to read Amazon S3 bucket. In addition, in order to ensure a successful deployment, the template object must not be in an <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html\">archived storage class</a> if this parameter is passed.</p> </note>"""
     template_body: NotRequired[
         "aws_sdk_config_service.types.template_body.TemplateBody"
     ]

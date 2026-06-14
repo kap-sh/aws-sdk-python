@@ -45,11 +45,11 @@ class AwsEc2LaunchTemplateDataInstanceRequirementsDetails(TypedDict):
     baseline_ebs_bandwidth_mbps: NotRequired[
         "aws_sdk_securityhub.types.aws_ec2_launch_template_data_instance_requirements_baseline_ebs_bandwidth_mbps_details.AwsEc2LaunchTemplateDataInstanceRequirementsBaselineEbsBandwidthMbpsDetails"
     ]
-    """<p> The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html\">Amazon EBS optimized instances</a> in the <i>Amazon EC2 User Guide</i>. </p>"""
+    r"""<p> The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html\">Amazon EBS optimized instances</a> in the <i>Amazon EC2 User Guide</i>. </p>"""
     burstable_performance: NotRequired[
         "aws_sdk_securityhub.types.non_empty_string.NonEmptyString"
     ]
-    """<p> Indicates whether burstable performance T instance types are included, excluded, or required. For more information, <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html\">Burstable performance instances</a> in the <i>Amazon EC2 User Guide</i>. </p>"""
+    r"""<p> Indicates whether burstable performance T instance types are included, excluded, or required. For more information, <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html\">Burstable performance instances</a> in the <i>Amazon EC2 User Guide</i>. </p>"""
     cpu_manufacturers: NotRequired[
         "aws_sdk_securityhub.types.non_empty_string_list.NonEmptyStringList"
     ]
@@ -65,7 +65,7 @@ class AwsEc2LaunchTemplateDataInstanceRequirementsDetails(TypedDict):
     local_storage: NotRequired[
         "aws_sdk_securityhub.types.non_empty_string.NonEmptyString"
     ]
-    """<p> Indicates whether instance types with instance store volumes are included, excluded, or required. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html\">Amazon EC2 instance store</a> in the <i>Amazon EC2 User Guide</i>. </p>"""
+    r"""<p> Indicates whether instance types with instance store volumes are included, excluded, or required. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html\">Amazon EC2 instance store</a> in the <i>Amazon EC2 User Guide</i>. </p>"""
     local_storage_types: NotRequired[
         "aws_sdk_securityhub.types.non_empty_string_list.NonEmptyStringList"
     ]

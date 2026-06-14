@@ -14,7 +14,7 @@ class ListEnabledControlsInput(TypedDict):
     target_identifier: NotRequired[
         "aws_sdk_controltower.types.target_identifier.TargetIdentifier"
     ]
-    """<p>The ARN of the organizational unit. For information on how to find the <code>targetIdentifier</code>, see <a href=\"https://docs.aws.amazon.com/controltower/latest/APIReference/Welcome.html\">the overview page</a>.</p>"""
+    r"""<p>The ARN of the organizational unit. For information on how to find the <code>targetIdentifier</code>, see <a href=\"https://docs.aws.amazon.com/controltower/latest/APIReference/Welcome.html\">the overview page</a>.</p>"""
     next_token: NotRequired["str"]
     """<p>The token to continue the list from a previous API call with the same parameters.</p>"""
     max_results: NotRequired["aws_sdk_controltower.types.max_results.MaxResults"]

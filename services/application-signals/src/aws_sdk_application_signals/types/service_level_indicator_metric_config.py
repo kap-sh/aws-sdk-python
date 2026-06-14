@@ -35,7 +35,7 @@ class ServiceLevelIndicatorMetricConfig(TypedDict):
     statistic: NotRequired[
         "aws_sdk_application_signals.types.service_level_indicator_statistic.ServiceLevelIndicatorStatistic"
     ]
-    """<p>The statistic to use for comparison to the threshold. It can be any CloudWatch statistic or extended statistic. For more information about statistics, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html\">CloudWatch statistics definitions</a>.</p>"""
+    r"""<p>The statistic to use for comparison to the threshold. It can be any CloudWatch statistic or extended statistic. For more information about statistics, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html\">CloudWatch statistics definitions</a>.</p>"""
     period_seconds: NotRequired[
         "aws_sdk_application_signals.types.sli_period_seconds.SLIPeriodSeconds"
     ]

@@ -9,7 +9,7 @@ if TYPE_CHECKING:
 
 class DescribeAssetRequest(TypedDict):
     asset_id: "aws_sdk_iotsitewise.types.custom_id.CustomID"
-    """<p>The ID of the asset. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references\">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>"""
+    r"""<p>The ID of the asset. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references\">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>"""
     exclude_properties: "aws_sdk_iotsitewise.types.exclude_properties.ExcludeProperties"
     """<p> Whether or not to exclude asset properties from the response. </p>"""
 

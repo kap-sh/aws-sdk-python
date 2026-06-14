@@ -18,7 +18,7 @@ class CreateSessionRequest(TypedDict):
     encryption_key_arn: NotRequired[
         "aws_sdk_bedrock_agent_runtime.types.kms_key_arn.KmsKeyArn"
     ]
-    """<p>The Amazon Resource Name (ARN) of the KMS key to use to encrypt the session data. The user or role creating the session must have permission to use the key. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/session-encryption.html\">Amazon Bedrock session encryption</a>. </p>"""
+    r"""<p>The Amazon Resource Name (ARN) of the KMS key to use to encrypt the session data. The user or role creating the session must have permission to use the key. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/session-encryption.html\">Amazon Bedrock session encryption</a>. </p>"""
     tags: NotRequired["aws_sdk_bedrock_agent_runtime.types.tags_map.TagsMap"]
     """<p>Specify the key-value pairs for the tags that you want to attach to the session.</p>"""
 

@@ -7,7 +7,7 @@ from aws_sdk_security_ir.errors import DeserializationError
 
 class CaseMetadataEntry(TypedDict):
     key: "str"
-    """<p>The identifier for the metadata field. This key uniquely identifies the type of metadata being stored, such as \"severity\", \"category\", or \"assignee\".</p>"""
+    r"""<p>The identifier for the metadata field. This key uniquely identifies the type of metadata being stored, such as \"severity\", \"category\", or \"assignee\".</p>"""
     value: "str"
     """<p>The value associated with the metadata key. This contains the actual data for the metadata field identified by the key.</p>"""
 

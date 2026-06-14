@@ -17,31 +17,31 @@ if TYPE_CHECKING:
 
 class RecordHandlerProgressInput(TypedDict):
     bearer_token: NotRequired["aws_sdk_cloudformation.types.client_token.ClientToken"]
-    """<p>Reserved for use by the <a href=\"https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html\">CloudFormation CLI</a>.</p>"""
+    r"""<p>Reserved for use by the <a href=\"https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html\">CloudFormation CLI</a>.</p>"""
     operation_status: NotRequired[
         "aws_sdk_cloudformation.types.operation_status.OperationStatus"
     ]
-    """<p>Reserved for use by the <a href=\"https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html\">CloudFormation CLI</a>.</p>"""
+    r"""<p>Reserved for use by the <a href=\"https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html\">CloudFormation CLI</a>.</p>"""
     current_operation_status: NotRequired[
         "aws_sdk_cloudformation.types.operation_status.OperationStatus"
     ]
-    """<p>Reserved for use by the <a href=\"https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html\">CloudFormation CLI</a>.</p>"""
+    r"""<p>Reserved for use by the <a href=\"https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html\">CloudFormation CLI</a>.</p>"""
     status_message: NotRequired[
         "aws_sdk_cloudformation.types.status_message.StatusMessage"
     ]
-    """<p>Reserved for use by the <a href=\"https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html\">CloudFormation CLI</a>.</p>"""
+    r"""<p>Reserved for use by the <a href=\"https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html\">CloudFormation CLI</a>.</p>"""
     error_code: NotRequired[
         "aws_sdk_cloudformation.types.handler_error_code.HandlerErrorCode"
     ]
-    """<p>Reserved for use by the <a href=\"https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html\">CloudFormation CLI</a>.</p>"""
+    r"""<p>Reserved for use by the <a href=\"https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html\">CloudFormation CLI</a>.</p>"""
     resource_model: NotRequired[
         "aws_sdk_cloudformation.types.resource_model.ResourceModel"
     ]
-    """<p>Reserved for use by the <a href=\"https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html\">CloudFormation CLI</a>.</p>"""
+    r"""<p>Reserved for use by the <a href=\"https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html\">CloudFormation CLI</a>.</p>"""
     client_request_token: NotRequired[
         "aws_sdk_cloudformation.types.client_request_token.ClientRequestToken"
     ]
-    """<p>Reserved for use by the <a href=\"https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html\">CloudFormation CLI</a>.</p>"""
+    r"""<p>Reserved for use by the <a href=\"https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html\">CloudFormation CLI</a>.</p>"""
 
 
 # --- awsQuery ser/de ---

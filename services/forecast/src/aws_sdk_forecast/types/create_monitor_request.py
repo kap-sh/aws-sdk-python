@@ -18,7 +18,7 @@ class CreateMonitorRequest(TypedDict):
     resource_arn: "aws_sdk_forecast.types.arn.Arn"
     """<p>The Amazon Resource Name (ARN) of the predictor to monitor.</p>"""
     tags: NotRequired["aws_sdk_forecast.types.tags.Tags"]
-    """<p>A list of <a href=\"https://docs.aws.amazon.com/forecast/latest/dg/tagging-forecast-resources.html\">tags</a> to apply to the monitor resource.</p>"""
+    r"""<p>A list of <a href=\"https://docs.aws.amazon.com/forecast/latest/dg/tagging-forecast-resources.html\">tags</a> to apply to the monitor resource.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

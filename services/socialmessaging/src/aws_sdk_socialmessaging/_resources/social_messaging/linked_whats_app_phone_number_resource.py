@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_socialmessaging._auth._signers
@@ -47,7 +49,7 @@ class LinkedWhatsAppPhoneNumberResource:
         *,
         config_overrides: Optional[SocialMessagingClientConfig] = None,
     ) -> "aws_sdk_socialmessaging.types.get_linked_whats_app_business_account_phone_number_output.GetLinkedWhatsAppBusinessAccountPhoneNumberOutput":
-        """<p>Retrieve the WABA account id and phone number details of a WhatsApp business account phone number.</p>
+        r"""<p>Retrieve the WABA account id and phone number details of a WhatsApp business account phone number.</p>
 
         Args:
             id: <p>The unique identifier of the phone number. Phone number identifiers are formatted as <code>phone-number-id-01234567890123456789012345678901</code>. Use <a href=\"https://docs.aws.amazon.com/social-messaging/latest/APIReference/API_GetLinkedWhatsAppBusinessAccount.html\">GetLinkedWhatsAppBusinessAccount</a> to find a phone number's id.</p>
@@ -85,7 +87,7 @@ class LinkedWhatsAppPhoneNumberResource:
         *,
         config_overrides: Optional[SocialMessagingClientConfig] = None,
     ) -> "aws_sdk_socialmessaging.types.delete_whats_app_message_media_output.DeleteWhatsAppMessageMediaOutput":
-        """<p>Delete a media object from the WhatsApp service. If the object is still in an Amazon S3 bucket you should delete it from there too.</p>
+        r"""<p>Delete a media object from the WhatsApp service. If the object is still in an Amazon S3 bucket you should delete it from there too.</p>
 
         Args:
             media_id: <p>The unique identifier of the media file to delete. Use the <code>mediaId</code> returned from <a href=\"https://console.aws.amazon.com/social-messaging/latest/APIReference/API_PostWhatsAppMessageMedia.html\">PostWhatsAppMessageMedia</a>.</p>
@@ -132,7 +134,7 @@ class LinkedWhatsAppPhoneNumberResource:
             "aws_sdk_socialmessaging.types.s3_file.S3File"
         ] = None,
     ) -> "aws_sdk_socialmessaging.types.get_whats_app_message_media_output.GetWhatsAppMessageMediaOutput":
-        """<p>Get a media file from the WhatsApp service. On successful completion the media file is retrieved from Meta and stored in the specified Amazon S3 bucket. Use either <code>destinationS3File</code> or <code>destinationS3PresignedUrl</code> for the destination. If both are used then an <code>InvalidParameterException</code> is returned.</p>
+        r"""<p>Get a media file from the WhatsApp service. On successful completion the media file is retrieved from Meta and stored in the specified Amazon S3 bucket. Use either <code>destinationS3File</code> or <code>destinationS3PresignedUrl</code> for the destination. If both are used then an <code>InvalidParameterException</code> is returned.</p>
 
         Args:
             media_id: <p>The unique identifier for the media file.</p>
@@ -184,7 +186,7 @@ class LinkedWhatsAppPhoneNumberResource:
         ] = None,
         source_s3_file: Optional["aws_sdk_socialmessaging.types.s3_file.S3File"] = None,
     ) -> "aws_sdk_socialmessaging.types.post_whats_app_message_media_output.PostWhatsAppMessageMediaOutput":
-        """<p>Upload a media file to the WhatsApp service. Only the specified <code>originationPhoneNumberId</code> has the permissions to send the media file when using <a href=\"https://docs.aws.amazon.com/social-messaging/latest/APIReference/API_SendWhatsAppMessage.html\">SendWhatsAppMessage</a>. You must use either <code>sourceS3File</code> or <code>sourceS3PresignedUrl</code> for the source. If both or neither are specified then an <code>InvalidParameterException</code> is returned.</p>
+        r"""<p>Upload a media file to the WhatsApp service. Only the specified <code>originationPhoneNumberId</code> has the permissions to send the media file when using <a href=\"https://docs.aws.amazon.com/social-messaging/latest/APIReference/API_SendWhatsAppMessage.html\">SendWhatsAppMessage</a>. You must use either <code>sourceS3File</code> or <code>sourceS3PresignedUrl</code> for the source. If both or neither are specified then an <code>InvalidParameterException</code> is returned.</p>
 
         Args:
             origination_phone_number_id: <p>The ID of the phone number to associate with the WhatsApp media file. The phone number identifiers are formatted as <code>phone-number-id-01234567890123456789012345678901</code>. Use <a href=\"https://docs.aws.amazon.com/social-messaging/latest/APIReference/API_GetLinkedWhatsAppBusinessAccount.html\">GetLinkedWhatsAppBusinessAccount</a> to find a phone number's id.</p>
@@ -229,7 +231,7 @@ class LinkedWhatsAppPhoneNumberResource:
         *,
         config_overrides: Optional[SocialMessagingClientConfig] = None,
     ) -> "aws_sdk_socialmessaging.types.send_whats_app_message_output.SendWhatsAppMessageOutput":
-        """<p>Send a WhatsApp message. For examples of sending a message using the Amazon Web Services CLI, see <a href=\"https://docs.aws.amazon.com/social-messaging/latest/userguide/send-message.html\">Sending messages</a> in the <i> <i>Amazon Web Services End User Messaging Social User Guide</i> </i>.</p>
+        r"""<p>Send a WhatsApp message. For examples of sending a message using the Amazon Web Services CLI, see <a href=\"https://docs.aws.amazon.com/social-messaging/latest/userguide/send-message.html\">Sending messages</a> in the <i> <i>Amazon Web Services End User Messaging Social User Guide</i> </i>.</p>
 
         Args:
             origination_phone_number_id: <p>The ID of the phone number used to send the WhatsApp message. If you are sending a media file only the <code>originationPhoneNumberId</code> used to upload the file can be used. Phone number identifiers are formatted as <code>phone-number-id-01234567890123456789012345678901</code>. Use <a href=\"https://docs.aws.amazon.com/social-messaging/latest/APIReference/API_GetLinkedWhatsAppBusinessAccount.html\">GetLinkedWhatsAppBusinessAccount</a> to find a phone number's id.</p>
@@ -275,7 +277,7 @@ class AsyncLinkedWhatsAppPhoneNumberResource:
         *,
         config_overrides: Optional[AsyncSocialMessagingClientConfig] = None,
     ) -> "aws_sdk_socialmessaging.types.get_linked_whats_app_business_account_phone_number_output.GetLinkedWhatsAppBusinessAccountPhoneNumberOutput":
-        """<p>Retrieve the WABA account id and phone number details of a WhatsApp business account phone number.</p>
+        r"""<p>Retrieve the WABA account id and phone number details of a WhatsApp business account phone number.</p>
 
         Args:
             id: <p>The unique identifier of the phone number. Phone number identifiers are formatted as <code>phone-number-id-01234567890123456789012345678901</code>. Use <a href=\"https://docs.aws.amazon.com/social-messaging/latest/APIReference/API_GetLinkedWhatsAppBusinessAccount.html\">GetLinkedWhatsAppBusinessAccount</a> to find a phone number's id.</p>
@@ -314,7 +316,7 @@ class AsyncLinkedWhatsAppPhoneNumberResource:
         *,
         config_overrides: Optional[AsyncSocialMessagingClientConfig] = None,
     ) -> "aws_sdk_socialmessaging.types.delete_whats_app_message_media_output.DeleteWhatsAppMessageMediaOutput":
-        """<p>Delete a media object from the WhatsApp service. If the object is still in an Amazon S3 bucket you should delete it from there too.</p>
+        r"""<p>Delete a media object from the WhatsApp service. If the object is still in an Amazon S3 bucket you should delete it from there too.</p>
 
         Args:
             media_id: <p>The unique identifier of the media file to delete. Use the <code>mediaId</code> returned from <a href=\"https://console.aws.amazon.com/social-messaging/latest/APIReference/API_PostWhatsAppMessageMedia.html\">PostWhatsAppMessageMedia</a>.</p>
@@ -362,7 +364,7 @@ class AsyncLinkedWhatsAppPhoneNumberResource:
             "aws_sdk_socialmessaging.types.s3_file.S3File"
         ] = None,
     ) -> "aws_sdk_socialmessaging.types.get_whats_app_message_media_output.GetWhatsAppMessageMediaOutput":
-        """<p>Get a media file from the WhatsApp service. On successful completion the media file is retrieved from Meta and stored in the specified Amazon S3 bucket. Use either <code>destinationS3File</code> or <code>destinationS3PresignedUrl</code> for the destination. If both are used then an <code>InvalidParameterException</code> is returned.</p>
+        r"""<p>Get a media file from the WhatsApp service. On successful completion the media file is retrieved from Meta and stored in the specified Amazon S3 bucket. Use either <code>destinationS3File</code> or <code>destinationS3PresignedUrl</code> for the destination. If both are used then an <code>InvalidParameterException</code> is returned.</p>
 
         Args:
             media_id: <p>The unique identifier for the media file.</p>
@@ -415,7 +417,7 @@ class AsyncLinkedWhatsAppPhoneNumberResource:
         ] = None,
         source_s3_file: Optional["aws_sdk_socialmessaging.types.s3_file.S3File"] = None,
     ) -> "aws_sdk_socialmessaging.types.post_whats_app_message_media_output.PostWhatsAppMessageMediaOutput":
-        """<p>Upload a media file to the WhatsApp service. Only the specified <code>originationPhoneNumberId</code> has the permissions to send the media file when using <a href=\"https://docs.aws.amazon.com/social-messaging/latest/APIReference/API_SendWhatsAppMessage.html\">SendWhatsAppMessage</a>. You must use either <code>sourceS3File</code> or <code>sourceS3PresignedUrl</code> for the source. If both or neither are specified then an <code>InvalidParameterException</code> is returned.</p>
+        r"""<p>Upload a media file to the WhatsApp service. Only the specified <code>originationPhoneNumberId</code> has the permissions to send the media file when using <a href=\"https://docs.aws.amazon.com/social-messaging/latest/APIReference/API_SendWhatsAppMessage.html\">SendWhatsAppMessage</a>. You must use either <code>sourceS3File</code> or <code>sourceS3PresignedUrl</code> for the source. If both or neither are specified then an <code>InvalidParameterException</code> is returned.</p>
 
         Args:
             origination_phone_number_id: <p>The ID of the phone number to associate with the WhatsApp media file. The phone number identifiers are formatted as <code>phone-number-id-01234567890123456789012345678901</code>. Use <a href=\"https://docs.aws.amazon.com/social-messaging/latest/APIReference/API_GetLinkedWhatsAppBusinessAccount.html\">GetLinkedWhatsAppBusinessAccount</a> to find a phone number's id.</p>
@@ -461,7 +463,7 @@ class AsyncLinkedWhatsAppPhoneNumberResource:
         *,
         config_overrides: Optional[AsyncSocialMessagingClientConfig] = None,
     ) -> "aws_sdk_socialmessaging.types.send_whats_app_message_output.SendWhatsAppMessageOutput":
-        """<p>Send a WhatsApp message. For examples of sending a message using the Amazon Web Services CLI, see <a href=\"https://docs.aws.amazon.com/social-messaging/latest/userguide/send-message.html\">Sending messages</a> in the <i> <i>Amazon Web Services End User Messaging Social User Guide</i> </i>.</p>
+        r"""<p>Send a WhatsApp message. For examples of sending a message using the Amazon Web Services CLI, see <a href=\"https://docs.aws.amazon.com/social-messaging/latest/userguide/send-message.html\">Sending messages</a> in the <i> <i>Amazon Web Services End User Messaging Social User Guide</i> </i>.</p>
 
         Args:
             origination_phone_number_id: <p>The ID of the phone number used to send the WhatsApp message. If you are sending a media file only the <code>originationPhoneNumberId</code> used to upload the file can be used. Phone number identifiers are formatted as <code>phone-number-id-01234567890123456789012345678901</code>. Use <a href=\"https://docs.aws.amazon.com/social-messaging/latest/APIReference/API_GetLinkedWhatsAppBusinessAccount.html\">GetLinkedWhatsAppBusinessAccount</a> to find a phone number's id.</p>

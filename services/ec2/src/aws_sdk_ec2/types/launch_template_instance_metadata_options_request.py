@@ -32,7 +32,7 @@ class LaunchTemplateInstanceMetadataOptionsRequest(TypedDict):
     instance_metadata_tags: NotRequired[
         "aws_sdk_ec2.types.launch_template_instance_metadata_tags_state.LaunchTemplateInstanceMetadataTagsState"
     ]
-    """<p>Set to <code>enabled</code> to allow access to instance tags from the instance metadata. Set to <code>disabled</code> to turn off access to instance tags from the instance metadata. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/work-with-tags-in-IMDS.html\">View tags for your EC2 instances using instance metadata</a>.</p> <p>Default: <code>disabled</code> </p>"""
+    r"""<p>Set to <code>enabled</code> to allow access to instance tags from the instance metadata. Set to <code>disabled</code> to turn off access to instance tags from the instance metadata. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/work-with-tags-in-IMDS.html\">View tags for your EC2 instances using instance metadata</a>.</p> <p>Default: <code>disabled</code> </p>"""
 
 
 # --- ec2Query ser/de ---

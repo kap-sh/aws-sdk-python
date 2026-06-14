@@ -34,7 +34,7 @@ class SupportContainerDefinition(TypedDict):
     environment_override: NotRequired[
         "aws_sdk_gamelift.types.container_environment_list.ContainerEnvironmentList"
     ]
-    """<p>A set of environment variables that's passed to the container on startup. See the <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html#ECS-Type-ContainerDefinition-environment\">ContainerDefinition::environment</a> parameter in the <i>Amazon Elastic Container Service API Reference</i>.</p>"""
+    r"""<p>A set of environment variables that's passed to the container on startup. See the <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html#ECS-Type-ContainerDefinition-environment\">ContainerDefinition::environment</a> parameter in the <i>Amazon Elastic Container Service API Reference</i>.</p>"""
     essential: NotRequired["aws_sdk_gamelift.types.boolean_model.BooleanModel"]
     """<p>Indicates whether the container is vital to the container group. If an essential container fails, the entire container group restarts.</p>"""
     health_check: NotRequired[
@@ -46,7 +46,7 @@ class SupportContainerDefinition(TypedDict):
     memory_hard_limit_mebibytes: NotRequired[
         "aws_sdk_gamelift.types.container_memory_limit.ContainerMemoryLimit"
     ]
-    """<p>The amount of memory that Amazon GameLift Servers makes available to the container. If memory limits aren't set for an individual container, the container shares the container group's total memory allocation.</p> <p> <b>Related data type: </b> <a href=\"https://docs.aws.amazon.com/gamelift/latest/apireference/API_ContainerGroupDefinition.html\">ContainerGroupDefinition TotalMemoryLimitMebibytes</a> </p>"""
+    r"""<p>The amount of memory that Amazon GameLift Servers makes available to the container. If memory limits aren't set for an individual container, the container shares the container group's total memory allocation.</p> <p> <b>Related data type: </b> <a href=\"https://docs.aws.amazon.com/gamelift/latest/apireference/API_ContainerGroupDefinition.html\">ContainerGroupDefinition TotalMemoryLimitMebibytes</a> </p>"""
     port_configuration: NotRequired[
         "aws_sdk_gamelift.types.container_port_configuration.ContainerPortConfiguration"
     ]
@@ -54,7 +54,7 @@ class SupportContainerDefinition(TypedDict):
     resolved_image_digest: NotRequired["aws_sdk_gamelift.types.sha256.Sha256"]
     """<p>A unique and immutable identifier for the container image. The digest is a SHA 256 hash of the container image manifest. </p>"""
     vcpu: NotRequired["aws_sdk_gamelift.types.container_vcpu.ContainerVcpu"]
-    """<p>The number of vCPU units that are reserved for the container. If no resources are reserved, the container shares the total vCPU limit for the container group.</p> <p> <b>Related data type: </b> <a href=\"https://docs.aws.amazon.com/gamelift/latest/apireference/API_ContainerGroupDefinition.html\">ContainerGroupDefinition TotalVcpuLimit</a> </p>"""
+    r"""<p>The number of vCPU units that are reserved for the container. If no resources are reserved, the container shares the total vCPU limit for the container group.</p> <p> <b>Related data type: </b> <a href=\"https://docs.aws.amazon.com/gamelift/latest/apireference/API_ContainerGroupDefinition.html\">ContainerGroupDefinition TotalVcpuLimit</a> </p>"""
 
 
 # --- awsJson1_1 ser/de ---

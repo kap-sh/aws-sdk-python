@@ -15,7 +15,7 @@ class TabularConditions(TypedDict):
     property_filters: NotRequired[
         "aws_sdk_iottwinmaker.types.property_filters.PropertyFilters"
     ]
-    """<p>You can filter the request using various logical operators and a key-value format. For example:</p> <p> <code>{\"key\": \"serverType\", \"value\": \"webServer\"}</code> </p>"""
+    r"""<p>You can filter the request using various logical operators and a key-value format. For example:</p> <p> <code>{\"key\": \"serverType\", \"value\": \"webServer\"}</code> </p>"""
 
 
 # --- restJson1 ser/de ---

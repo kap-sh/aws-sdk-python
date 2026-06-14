@@ -20,7 +20,7 @@ class QueryInfo(TypedDict):
     query_language: NotRequired[
         "aws_sdk_cloudwatch_logs.types.query_language.QueryLanguage"
     ]
-    """<p>The query language used for this query. For more information about the query languages that CloudWatch Logs supports, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_AnalyzeLogData_Languages.html\">Supported query languages</a>.</p>"""
+    r"""<p>The query language used for this query. For more information about the query languages that CloudWatch Logs supports, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_AnalyzeLogData_Languages.html\">Supported query languages</a>.</p>"""
     query_id: NotRequired["aws_sdk_cloudwatch_logs.types.query_id.QueryId"]
     """<p>The unique ID number of this query.</p>"""
     query_string: NotRequired["aws_sdk_cloudwatch_logs.types.query_string.QueryString"]

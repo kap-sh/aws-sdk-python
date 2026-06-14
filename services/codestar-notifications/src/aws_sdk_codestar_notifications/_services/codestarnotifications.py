@@ -132,7 +132,7 @@ class codestarnotificationsClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = codestarnotificationsClientConfig(
+        self._config = codestarnotificationsClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -152,7 +152,7 @@ class codestarnotificationsClient:
         overrides: codestarnotificationsClientConfig = config_overrides or {}
         interceptors_: list[Interceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             retry(),
         ]
@@ -160,16 +160,16 @@ class codestarnotificationsClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            region=overrides.get("region", self.config.get("region")),
+            region=overrides.get("region", self._config.get("region")),
             use_dual_stack=overrides.get(
-                "use_dual_stack", self.config.get("use_dual_stack")
+                "use_dual_stack", self._config.get("use_dual_stack")
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -191,7 +191,7 @@ class codestarnotificationsClient:
             "aws_sdk_codestar_notifications.types.notification_rule_status.NotificationRuleStatus"
         ] = None,
     ) -> "aws_sdk_codestar_notifications.types.create_notification_rule_result.CreateNotificationRuleResult":
-        """<p>Creates a notification rule for a resource. The rule specifies the events you want notifications about and the targets (such as Amazon Q Developer in chat applications topics or Amazon Q Developer in chat applications clients configured for Slack) where you want to receive them.</p>
+        r"""<p>Creates a notification rule for a resource. The rule specifies the events you want notifications about and the targets (such as Amazon Q Developer in chat applications topics or Amazon Q Developer in chat applications clients configured for Slack) where you want to receive them.</p>
 
         Args:
             name: <p>The name for the notification rule. Notification rule names must be unique in your Amazon Web Services account.</p>
@@ -688,7 +688,7 @@ class codestarnotificationsClient:
         *,
         config_overrides: Optional[codestarnotificationsClientConfig] = None,
     ) -> "aws_sdk_codestar_notifications.types.tag_resource_result.TagResourceResult":
-        """<p>Associates a set of provided tags with a notification rule.</p>
+        r"""<p>Associates a set of provided tags with a notification rule.</p>
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the notification rule to tag.</p>
@@ -824,7 +824,7 @@ class codestarnotificationsClient:
             "aws_sdk_codestar_notifications.types.detail_type.DetailType"
         ] = None,
     ) -> "aws_sdk_codestar_notifications.types.update_notification_rule_result.UpdateNotificationRuleResult":
-        """<p>Updates a notification rule for a resource. You can change the events that trigger the notification rule, the status of the rule, and the targets that receive the notifications.</p> <note> <p>To add or remove tags for a notification rule, you must use <a>TagResource</a> and <a>UntagResource</a>.</p> </note>
+        r"""<p>Updates a notification rule for a resource. You can change the events that trigger the notification rule, the status of the rule, and the targets that receive the notifications.</p> <note> <p>To add or remove tags for a notification rule, you must use <a>TagResource</a> and <a>UntagResource</a>.</p> </note>
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the notification rule.</p>

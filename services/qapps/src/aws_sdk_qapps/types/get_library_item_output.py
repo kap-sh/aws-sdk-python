@@ -23,7 +23,7 @@ class GetLibraryItemOutput(TypedDict):
     categories: "aws_sdk_qapps.types.category_list.CategoryList"
     """<p>The categories associated with the library item for discovery.</p>"""
     status: "str"
-    """<p>The status of the library item, such as \"Published\".</p>"""
+    r"""<p>The status of the library item, such as \"Published\".</p>"""
     created_at: "aws_sdk_qapps.types.q_apps_timestamp.QAppsTimestamp"
     """<p>The date and time the library item was created.</p>"""
     created_by: "str"

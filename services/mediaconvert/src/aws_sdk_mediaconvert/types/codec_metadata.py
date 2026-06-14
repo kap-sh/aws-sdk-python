@@ -18,7 +18,7 @@ class CodecMetadata(TypedDict):
     bit_depth: NotRequired["aws_sdk_mediaconvert.types.__integer.__integer"]
     """The number of bits used per color component in the video essence such as 8, 10, or 12 bits. Standard range (SDR) video typically uses 8-bit, while 10-bit is common for high dynamic range (HDR)."""
     chroma_subsampling: NotRequired["aws_sdk_mediaconvert.types.__string.__string"]
-    """The chroma subsampling format used in the video encoding, such as \"4:2:0\" or \"4:4:4\". This describes how color information is sampled relative to brightness information. Different subsampling ratios affect video quality and file size, with \"4:4:4\" providing the highest color fidelity and \"4:2:0\" being most common for standard video."""
+    r"""The chroma subsampling format used in the video encoding, such as \"4:2:0\" or \"4:4:4\". This describes how color information is sampled relative to brightness information. Different subsampling ratios affect video quality and file size, with \"4:4:4\" providing the highest color fidelity and \"4:2:0\" being most common for standard video."""
     coded_frame_rate: NotRequired["aws_sdk_mediaconvert.types.frame_rate.FrameRate"]
     """The frame rate of the video or audio track, expressed as a fraction with numerator and denominator values."""
     color_primaries: NotRequired[

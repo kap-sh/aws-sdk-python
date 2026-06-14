@@ -15,7 +15,7 @@ class LookupAttribute(TypedDict):
     attribute_value: (
         "aws_sdk_cloudtrail.types.lookup_attribute_value.LookupAttributeValue"
     )
-    """<p>Specifies a value for the specified <code>AttributeKey</code>.</p> <p>The maximum length for the <code>AttributeValue</code> is 2000 characters. The following characters ('<code>_</code>', '<code> </code>', '<code>,</code>', '<code>\\n</code>') count as two characters towards the 2000 character limit.</p>"""
+    r"""<p>Specifies a value for the specified <code>AttributeKey</code>.</p> <p>The maximum length for the <code>AttributeValue</code> is 2000 characters. The following characters ('<code>_</code>', '<code> </code>', '<code>,</code>', '<code>\\n</code>') count as two characters towards the 2000 character limit.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

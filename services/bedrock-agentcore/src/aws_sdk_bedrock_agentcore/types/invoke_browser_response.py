@@ -1,0 +1,44 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrockagentcore#InvokeBrowserResponse``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from aws_sdk_bedrock_agentcore.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_bedrock_agentcore.types.browser_action_result
+    import aws_sdk_bedrock_agentcore.types.browser_session_id
+
+
+class InvokeBrowserResponse(TypedDict):
+    result: "aws_sdk_bedrock_agentcore.types.browser_action_result.BrowserActionResult"
+    """<p>The result of the browser action. The member set in the result corresponds to the action that was performed.</p>"""
+    session_id: "aws_sdk_bedrock_agentcore.types.browser_session_id.BrowserSessionId"
+    """<p>The unique identifier of the browser session on which the action was performed.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: InvokeBrowserResponse) -> dict:
+    out: dict = {}
+    import aws_sdk_bedrock_agentcore.types.browser_action_result
+
+    out["result"] = (
+        aws_sdk_bedrock_agentcore.types.browser_action_result.serialize_json(
+            value["result"]
+        )
+    )
+    return out
+
+
+def deserialize_json(data: dict) -> InvokeBrowserResponse:
+    out: InvokeBrowserResponse = {}  # type: ignore[typeddict-item]
+    if "result" in data:
+        import aws_sdk_bedrock_agentcore.types.browser_action_result
+
+        out["result"] = (
+            aws_sdk_bedrock_agentcore.types.browser_action_result.deserialize_json(
+                data["result"]
+            )
+        )
+    else:
+        raise DeserializationError("InvokeBrowserResponse.result required")
+    return out

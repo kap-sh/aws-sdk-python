@@ -19,7 +19,7 @@ class TelemetryRule(TypedDict):
     resource_type: NotRequired[
         "aws_sdk_observabilityadmin.types.resource_type.ResourceType"
     ]
-    """<p> The type of Amazon Web Services resource to configure telemetry for (e.g., \"AWS::EC2::VPC\", \"AWS::EKS::Cluster\", \"AWS::WAFv2::WebACL\"). </p>"""
+    r"""<p> The type of Amazon Web Services resource to configure telemetry for (e.g., \"AWS::EC2::VPC\", \"AWS::EKS::Cluster\", \"AWS::WAFv2::WebACL\"). </p>"""
     telemetry_type: "aws_sdk_observabilityadmin.types.telemetry_type.TelemetryType"
     """<p> The type of telemetry to collect (Logs, Metrics, or Traces). </p>"""
     telemetry_source_types: NotRequired[

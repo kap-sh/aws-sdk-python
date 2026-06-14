@@ -1,28 +1,46 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#DeleteCodeInterpreterResponse``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.code_interpreter_id
     import aws_sdk_bedrock_agentcore_control.types.code_interpreter_status
     import aws_sdk_bedrock_agentcore_control.types.date_timestamp
 
+
 class DeleteCodeInterpreterResponse(TypedDict):
-    code_interpreter_id: "aws_sdk_bedrock_agentcore_control.types.code_interpreter_id.CodeInterpreterId"
+    code_interpreter_id: (
+        "aws_sdk_bedrock_agentcore_control.types.code_interpreter_id.CodeInterpreterId"
+    )
     """<p>The unique identifier of the deleted code interpreter.</p>"""
     status: "aws_sdk_bedrock_agentcore_control.types.code_interpreter_status.CodeInterpreterStatus"
     """<p>The current status of the code interpreter deletion.</p>"""
-    last_updated_at: "aws_sdk_bedrock_agentcore_control.types.date_timestamp.DateTimestamp"
+    last_updated_at: (
+        "aws_sdk_bedrock_agentcore_control.types.date_timestamp.DateTimestamp"
+    )
     """<p>The timestamp when the code interpreter was last updated.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: DeleteCodeInterpreterResponse) -> dict:
     out: dict = {}
     out["codeInterpreterId"] = value["code_interpreter_id"]
     import aws_sdk_bedrock_agentcore_control.types.code_interpreter_status
-    out["status"] = aws_sdk_bedrock_agentcore_control.types.code_interpreter_status.serialize_json(value["status"])
+
+    out["status"] = (
+        aws_sdk_bedrock_agentcore_control.types.code_interpreter_status.serialize_json(
+            value["status"]
+        )
+    )
     import aws_sdk_bedrock_agentcore_control.types.date_timestamp
-    out["lastUpdatedAt"] = aws_sdk_bedrock_agentcore_control.types.date_timestamp.serialize_json(value["last_updated_at"])
+
+    out["lastUpdatedAt"] = (
+        aws_sdk_bedrock_agentcore_control.types.date_timestamp.serialize_json(
+            value["last_updated_at"]
+        )
+    )
     return out
 
 
@@ -31,15 +49,29 @@ def deserialize_json(data: dict) -> DeleteCodeInterpreterResponse:
     if "codeInterpreterId" in data:
         out["code_interpreter_id"] = data["codeInterpreterId"]
     else:
-        raise DeserializationError("DeleteCodeInterpreterResponse.code_interpreter_id required")
+        raise DeserializationError(
+            "DeleteCodeInterpreterResponse.code_interpreter_id required"
+        )
     if "status" in data:
         import aws_sdk_bedrock_agentcore_control.types.code_interpreter_status
-        out["status"] = aws_sdk_bedrock_agentcore_control.types.code_interpreter_status.deserialize_json(data["status"])
+
+        out["status"] = (
+            aws_sdk_bedrock_agentcore_control.types.code_interpreter_status.deserialize_json(
+                data["status"]
+            )
+        )
     else:
         raise DeserializationError("DeleteCodeInterpreterResponse.status required")
     if "lastUpdatedAt" in data:
         import aws_sdk_bedrock_agentcore_control.types.date_timestamp
-        out["last_updated_at"] = aws_sdk_bedrock_agentcore_control.types.date_timestamp.deserialize_json(data["lastUpdatedAt"])
+
+        out["last_updated_at"] = (
+            aws_sdk_bedrock_agentcore_control.types.date_timestamp.deserialize_json(
+                data["lastUpdatedAt"]
+            )
+        )
     else:
-        raise DeserializationError("DeleteCodeInterpreterResponse.last_updated_at required")
+        raise DeserializationError(
+            "DeleteCodeInterpreterResponse.last_updated_at required"
+        )
     return out

@@ -55,7 +55,7 @@ class MLModel(TypedDict):
     ml_model_type: NotRequired[
         "aws_sdk_machine_learning.types.ml_model_type.MLModelType"
     ]
-    """<p>Identifies the <code>MLModel</code> category. The following are the available types:</p> <ul> <li> <p> <code>REGRESSION</code> - Produces a numeric result. For example, \"What price should a house be listed at?\"</p> </li> <li> <p> <code>BINARY</code> - Produces one of two possible results. For example, \"Is this a child-friendly web site?\".</p> </li> <li> <p> <code>MULTICLASS</code> - Produces one of several possible results. For example, \"Is this a HIGH-, LOW-, or MEDIUM-risk trade?\".</p> </li> </ul>"""
+    r"""<p>Identifies the <code>MLModel</code> category. The following are the available types:</p> <ul> <li> <p> <code>REGRESSION</code> - Produces a numeric result. For example, \"What price should a house be listed at?\"</p> </li> <li> <p> <code>BINARY</code> - Produces one of two possible results. For example, \"Is this a child-friendly web site?\".</p> </li> <li> <p> <code>MULTICLASS</code> - Produces one of several possible results. For example, \"Is this a HIGH-, LOW-, or MEDIUM-risk trade?\".</p> </li> </ul>"""
     score_threshold: NotRequired[
         "aws_sdk_machine_learning.types.score_threshold.ScoreThreshold"
     ]

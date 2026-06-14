@@ -28,7 +28,7 @@ class Parameter(TypedDict):
     resolved_value: NotRequired[
         "aws_sdk_cloudformation.types.parameter_value.ParameterValue"
     ]
-    """<p>Read-only. The value that corresponds to a Systems Manager parameter key. This field is returned only for Systems Manager parameter types in the template. For more information, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-supplied-parameter-types.html\">Specify existing resources at runtime with CloudFormation-supplied parameter types</a> in the <i>CloudFormation User Guide</i>.</p>"""
+    r"""<p>Read-only. The value that corresponds to a Systems Manager parameter key. This field is returned only for Systems Manager parameter types in the template. For more information, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-supplied-parameter-types.html\">Specify existing resources at runtime with CloudFormation-supplied parameter types</a> in the <i>CloudFormation User Guide</i>.</p>"""
 
 
 # --- awsQuery ser/de ---

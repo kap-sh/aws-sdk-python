@@ -26,7 +26,7 @@ class CreateCrossAccountAttachmentRequest(TypedDict):
     )
     """<p>A unique, case-sensitive identifier that you provide to ensure the idempotency—that is, the uniqueness—of the request.</p>"""
     tags: NotRequired["aws_sdk_global_accelerator.types.tags.Tags"]
-    """<p>Add tags for a cross-account attachment.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html\">Tagging in Global Accelerator</a> in the <i>Global Accelerator Developer Guide</i>.</p>"""
+    r"""<p>Add tags for a cross-account attachment.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html\">Tagging in Global Accelerator</a> in the <i>Global Accelerator Developer Guide</i>.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

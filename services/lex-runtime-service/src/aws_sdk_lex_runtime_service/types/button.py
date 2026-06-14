@@ -13,7 +13,7 @@ class Button(TypedDict):
     text: "aws_sdk_lex_runtime_service.types.button_text_string_with_length.ButtonTextStringWithLength"
     """<p>Text that is visible to the user on the button.</p>"""
     value: "aws_sdk_lex_runtime_service.types.button_value_string_with_length.ButtonValueStringWithLength"
-    """<p>The value sent to Amazon Lex when a user chooses the button. For example, consider button text \"NYC.\" When the user chooses the button, the value sent can be \"New York City.\"</p>"""
+    r"""<p>The value sent to Amazon Lex when a user chooses the button. For example, consider button text \"NYC.\" When the user chooses the button, the value sent can be \"New York City.\"</p>"""
 
 
 # --- restJson1 ser/de ---

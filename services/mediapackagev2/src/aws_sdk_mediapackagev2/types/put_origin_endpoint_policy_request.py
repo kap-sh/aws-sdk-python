@@ -24,7 +24,7 @@ class PutOriginEndpointPolicyRequest(TypedDict):
     cdn_auth_configuration: NotRequired[
         "aws_sdk_mediapackagev2.types.cdn_auth_configuration.CdnAuthConfiguration"
     ]
-    """<p>The settings for using authorization headers between the MediaPackage endpoint and your CDN. </p> <p>For information about CDN authorization, see <a href=\"https://docs.aws.amazon.com/mediapackage/latest/userguide/cdn-auth.html\">CDN authorization in Elemental MediaPackage</a> in the MediaPackage user guide. </p>"""
+    r"""<p>The settings for using authorization headers between the MediaPackage endpoint and your CDN. </p> <p>For information about CDN authorization, see <a href=\"https://docs.aws.amazon.com/mediapackage/latest/userguide/cdn-auth.html\">CDN authorization in Elemental MediaPackage</a> in the MediaPackage user guide. </p>"""
 
 
 # --- restJson1 ser/de ---

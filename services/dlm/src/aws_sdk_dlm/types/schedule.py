@@ -44,7 +44,7 @@ class Schedule(TypedDict):
     deprecate_rule: NotRequired["aws_sdk_dlm.types.deprecate_rule.DeprecateRule"]
     """<p> <b>[Custom AMI policies only]</b> The AMI deprecation rule for the schedule.</p>"""
     archive_rule: NotRequired["aws_sdk_dlm.types.archive_rule.ArchiveRule"]
-    """<p> <b>[Custom snapshot policies that target volumes only]</b> The snapshot archiving rule for the schedule. When you specify an archiving rule, snapshots are automatically moved from the standard tier to the archive tier once the schedule's retention threshold is met. Snapshots are then retained in the archive tier for the archive retention period that you specify. </p> <p>For more information about using snapshot archiving, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-ami-policy.html#dlm-archive\">Considerations for snapshot lifecycle policies</a>.</p>"""
+    r"""<p> <b>[Custom snapshot policies that target volumes only]</b> The snapshot archiving rule for the schedule. When you specify an archiving rule, snapshots are automatically moved from the standard tier to the archive tier once the schedule's retention threshold is met. Snapshots are then retained in the archive tier for the archive retention period that you specify. </p> <p>For more information about using snapshot archiving, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-ami-policy.html#dlm-archive\">Considerations for snapshot lifecycle policies</a>.</p>"""
 
 
 # --- restJson1 ser/de ---

@@ -24,7 +24,7 @@ class CreateThesaurusRequest(TypedDict):
     description: NotRequired["aws_sdk_kendra.types.description.Description"]
     """<p>A description for the thesaurus.</p>"""
     role_arn: "aws_sdk_kendra.types.role_arn.RoleArn"
-    """<p>The Amazon Resource Name (ARN) of an IAM role with permission to access your S3 bucket that contains the thesaurus file. For more information, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html\">IAM access roles for Amazon Kendra</a>.</p>"""
+    r"""<p>The Amazon Resource Name (ARN) of an IAM role with permission to access your S3 bucket that contains the thesaurus file. For more information, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html\">IAM access roles for Amazon Kendra</a>.</p>"""
     tags: NotRequired["aws_sdk_kendra.types.tag_list.TagList"]
     """<p>A list of key-value pairs that identify or categorize the thesaurus. You can also use tags to help control access to the thesaurus. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.</p>"""
     source_s3_path: "aws_sdk_kendra.types.s3_path.S3Path"

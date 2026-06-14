@@ -1,10 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#AuthorizingClaimMatchValueType``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.claim_match_operator_type
     import aws_sdk_bedrock_agentcore_control.types.claim_match_value_type
+
 
 class AuthorizingClaimMatchValueType(TypedDict):
     claim_match_value: "aws_sdk_bedrock_agentcore_control.types.claim_match_value_type.ClaimMatchValueType"
@@ -12,13 +15,24 @@ class AuthorizingClaimMatchValueType(TypedDict):
     claim_match_operator: "aws_sdk_bedrock_agentcore_control.types.claim_match_operator_type.ClaimMatchOperatorType"
     """<p>Defines the relationship between the claim field value and the value or values you're matching for.</p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: AuthorizingClaimMatchValueType) -> dict:
     out: dict = {}
     import aws_sdk_bedrock_agentcore_control.types.claim_match_value_type
-    out["claimMatchValue"] = aws_sdk_bedrock_agentcore_control.types.claim_match_value_type.serialize_json(value["claim_match_value"])
+
+    out["claimMatchValue"] = (
+        aws_sdk_bedrock_agentcore_control.types.claim_match_value_type.serialize_json(
+            value["claim_match_value"]
+        )
+    )
     import aws_sdk_bedrock_agentcore_control.types.claim_match_operator_type
-    out["claimMatchOperator"] = aws_sdk_bedrock_agentcore_control.types.claim_match_operator_type.serialize_json(value["claim_match_operator"])
+
+    out["claimMatchOperator"] = (
+        aws_sdk_bedrock_agentcore_control.types.claim_match_operator_type.serialize_json(
+            value["claim_match_operator"]
+        )
+    )
     return out
 
 
@@ -26,12 +40,26 @@ def deserialize_json(data: dict) -> AuthorizingClaimMatchValueType:
     out: AuthorizingClaimMatchValueType = {}  # type: ignore[typeddict-item]
     if "claimMatchValue" in data:
         import aws_sdk_bedrock_agentcore_control.types.claim_match_value_type
-        out["claim_match_value"] = aws_sdk_bedrock_agentcore_control.types.claim_match_value_type.deserialize_json(data["claimMatchValue"])
+
+        out["claim_match_value"] = (
+            aws_sdk_bedrock_agentcore_control.types.claim_match_value_type.deserialize_json(
+                data["claimMatchValue"]
+            )
+        )
     else:
-        raise DeserializationError("AuthorizingClaimMatchValueType.claim_match_value required")
+        raise DeserializationError(
+            "AuthorizingClaimMatchValueType.claim_match_value required"
+        )
     if "claimMatchOperator" in data:
         import aws_sdk_bedrock_agentcore_control.types.claim_match_operator_type
-        out["claim_match_operator"] = aws_sdk_bedrock_agentcore_control.types.claim_match_operator_type.deserialize_json(data["claimMatchOperator"])
+
+        out["claim_match_operator"] = (
+            aws_sdk_bedrock_agentcore_control.types.claim_match_operator_type.deserialize_json(
+                data["claimMatchOperator"]
+            )
+        )
     else:
-        raise DeserializationError("AuthorizingClaimMatchValueType.claim_match_operator required")
+        raise DeserializationError(
+            "AuthorizingClaimMatchValueType.claim_match_operator required"
+        )
     return out

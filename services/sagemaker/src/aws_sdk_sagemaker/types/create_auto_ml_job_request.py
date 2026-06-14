@@ -25,17 +25,17 @@ class CreateAutoMLJobRequest(TypedDict):
     input_data_config: NotRequired[
         "aws_sdk_sagemaker.types.auto_ml_input_data_config.AutoMLInputDataConfig"
     ]
-    """<p>An array of channel objects that describes the input data and its location. Each channel is a named input source. Similar to <code>InputDataConfig</code> supported by <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTrainingJobDefinition.html\">HyperParameterTrainingJobDefinition</a>. Format(s) supported: CSV, Parquet. A minimum of 500 rows is required for the training dataset. There is not a minimum number of rows required for the validation dataset.</p>"""
+    r"""<p>An array of channel objects that describes the input data and its location. Each channel is a named input source. Similar to <code>InputDataConfig</code> supported by <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTrainingJobDefinition.html\">HyperParameterTrainingJobDefinition</a>. Format(s) supported: CSV, Parquet. A minimum of 500 rows is required for the training dataset. There is not a minimum number of rows required for the validation dataset.</p>"""
     output_data_config: NotRequired[
         "aws_sdk_sagemaker.types.auto_ml_output_data_config.AutoMLOutputDataConfig"
     ]
     """<p>Provides information about encryption and the Amazon S3 output path needed to store artifacts from an AutoML job. Format(s) supported: CSV.</p>"""
     problem_type: NotRequired["aws_sdk_sagemaker.types.problem_type.ProblemType"]
-    """<p>Defines the type of supervised learning problem available for the candidates. For more information, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-datasets-problem-types.html#autopilot-problem-types\"> SageMaker Autopilot problem types</a>.</p>"""
+    r"""<p>Defines the type of supervised learning problem available for the candidates. For more information, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-datasets-problem-types.html#autopilot-problem-types\"> SageMaker Autopilot problem types</a>.</p>"""
     auto_ml_job_objective: NotRequired[
         "aws_sdk_sagemaker.types.auto_ml_job_objective.AutoMLJobObjective"
     ]
-    """<p>Specifies a metric to minimize or maximize as the objective of a job. If not specified, the default objective metric depends on the problem type. See <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLJobObjective.html\">AutoMLJobObjective</a> for the default values.</p>"""
+    r"""<p>Specifies a metric to minimize or maximize as the objective of a job. If not specified, the default objective metric depends on the problem type. See <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLJobObjective.html\">AutoMLJobObjective</a> for the default values.</p>"""
     auto_ml_job_config: NotRequired[
         "aws_sdk_sagemaker.types.auto_ml_job_config.AutoMLJobConfig"
     ]
@@ -47,7 +47,7 @@ class CreateAutoMLJobRequest(TypedDict):
     ]
     """<p>Generates possible candidates without training the models. A candidate is a combination of data preprocessors, algorithms, and algorithm parameter settings.</p>"""
     tags: NotRequired["aws_sdk_sagemaker.types.tag_list.TagList"]
-    """<p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services resources in different ways, for example, by purpose, owner, or environment. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web ServicesResources</a>. Tag keys must be unique per resource.</p>"""
+    r"""<p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services resources in different ways, for example, by purpose, owner, or environment. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web ServicesResources</a>. Tag keys must be unique per resource.</p>"""
     model_deploy_config: NotRequired[
         "aws_sdk_sagemaker.types.model_deploy_config.ModelDeployConfig"
     ]

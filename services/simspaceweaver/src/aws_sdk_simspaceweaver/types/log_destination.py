@@ -12,7 +12,7 @@ class LogDestination(TypedDict):
     cloud_watch_logs_log_group: NotRequired[
         "aws_sdk_simspaceweaver.types.cloud_watch_logs_log_group.CloudWatchLogsLogGroup"
     ]
-    """<p>An Amazon CloudWatch Logs log group that stores simulation log data. For more information about log groups, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html\">Working with log groups and log streams</a> in the <i>Amazon CloudWatch Logs User Guide</i>.</p>"""
+    r"""<p>An Amazon CloudWatch Logs log group that stores simulation log data. For more information about log groups, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html\">Working with log groups and log streams</a> in the <i>Amazon CloudWatch Logs User Guide</i>.</p>"""
 
 
 # --- restJson1 ser/de ---

@@ -1,12 +1,19 @@
-from typing import Optional, TYPE_CHECKING
-from aws_sdk_bedrock_agentcore_control._services.async_bedrock_agent_core_control import ensure_async_iterator
-from aws_sdk_bedrock_agentcore_control._services.bedrock_agent_core_control import ensure_sync_iterator
-from aws_sdk_bedrock_agentcore_control._services._pipeline import OperationRequest, OperationResponse, execute_pipeline, AsyncOperationRequest, AsyncOperationResponse, aexecute_pipeline
+from __future__ import annotations
+
+from typing import TYPE_CHECKING, Optional
+
 import aws_sdk_bedrock_agentcore_control._auth._signers
 import aws_sdk_bedrock_agentcore_control._auth._sigv4
+from aws_sdk_bedrock_agentcore_control._services._pipeline import (
+    AsyncOperationRequest,
+    AsyncOperationResponse,
+    OperationRequest,
+    OperationResponse,
+    aexecute_pipeline,
+    execute_pipeline,
+)
+
 if TYPE_CHECKING:
-    from aws_sdk_bedrock_agentcore_control._services.bedrock_agent_core_control import BedrockAgentCoreControlClient, BedrockAgentCoreControlClientConfig
-    from aws_sdk_bedrock_agentcore_control._services.async_bedrock_agent_core_control import AsyncBedrockAgentCoreControlClient, AsyncBedrockAgentCoreControlClientConfig
     import aws_sdk_bedrock_agentcore_control.types.add_dataset_examples_request
     import aws_sdk_bedrock_agentcore_control.types.add_dataset_examples_response
     import aws_sdk_bedrock_agentcore_control.types.client_token
@@ -42,12 +49,39 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.update_dataset_examples_response
     import aws_sdk_bedrock_agentcore_control.types.update_dataset_request
     import aws_sdk_bedrock_agentcore_control.types.update_dataset_response
+    from aws_sdk_bedrock_agentcore_control._services.async_bedrock_agent_core_control import (
+        AsyncBedrockAgentCoreControlClient,
+        AsyncBedrockAgentCoreControlClientConfig,
+    )
+    from aws_sdk_bedrock_agentcore_control._services.bedrock_agent_core_control import (
+        BedrockAgentCoreControlClient,
+        BedrockAgentCoreControlClientConfig,
+    )
+
 
 class Dataset:
     def __init__(self, service: BedrockAgentCoreControlClient) -> None:
         self._service = service
-    def create(self, dataset_name: "aws_sdk_bedrock_agentcore_control.types.dataset_name.DatasetName", source: "aws_sdk_bedrock_agentcore_control.types.data_source_type.DataSourceType", schema_type: "aws_sdk_bedrock_agentcore_control.types.dataset_schema_type.DatasetSchemaType", *, config_overrides: Optional[BedrockAgentCoreControlClientConfig] = None, client_token: Optional["aws_sdk_bedrock_agentcore_control.types.client_token.ClientToken"] = None, description: Optional[str] = None, kms_key_arn: Optional["aws_sdk_bedrock_agentcore_control.types.kms_key_arn.KmsKeyArn"] = None, tags: Optional["aws_sdk_bedrock_agentcore_control.types.tags_map.TagsMap"] = None) -> "aws_sdk_bedrock_agentcore_control.types.create_dataset_response.CreateDatasetResponse":
-        """<p> Creates a new dataset resource asynchronously. Returns immediately with status CREATING. Poll <code>GetDataset</code> until status transitions to ACTIVE or CREATE_FAILED. </p>
+
+    def create(
+        self,
+        dataset_name: "aws_sdk_bedrock_agentcore_control.types.dataset_name.DatasetName",
+        source: "aws_sdk_bedrock_agentcore_control.types.data_source_type.DataSourceType",
+        schema_type: "aws_sdk_bedrock_agentcore_control.types.dataset_schema_type.DatasetSchemaType",
+        *,
+        config_overrides: Optional[BedrockAgentCoreControlClientConfig] = None,
+        client_token: Optional[
+            "aws_sdk_bedrock_agentcore_control.types.client_token.ClientToken"
+        ] = None,
+        description: Optional[str] = None,
+        kms_key_arn: Optional[
+            "aws_sdk_bedrock_agentcore_control.types.kms_key_arn.KmsKeyArn"
+        ] = None,
+        tags: Optional[
+            "aws_sdk_bedrock_agentcore_control.types.tags_map.TagsMap"
+        ] = None,
+    ) -> "aws_sdk_bedrock_agentcore_control.types.create_dataset_response.CreateDatasetResponse":
+        r"""<p> Creates a new dataset resource asynchronously. Returns immediately with status CREATING. Poll <code>GetDataset</code> until status transitions to ACTIVE or CREATE_FAILED. </p>
 
         Args:
             client_token: <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring idempotency</a>.</p>
@@ -58,177 +92,364 @@ class Dataset:
             kms_key_arn: <p> Optional KMS key ARN for server-side encryption on service Amazon S3 writes. </p>
             tags: <p> A map of tag keys and values to assign to the dataset. </p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_bedrock_agentcore_control.types.create_dataset_request.CreateDatasetRequest]') -> OperationResponse["aws_sdk_bedrock_agentcore_control.types.create_dataset_response.CreateDatasetResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_bedrock_agentcore_control.types.create_dataset_request.CreateDatasetRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_bedrock_agentcore_control.types.create_dataset_response.CreateDatasetResponse"
+        ]:
             import aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.create_dataset
-            output, http_response = aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.create_dataset.create_dataset(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.create_dataset.create_dataset(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore_control.types.create_dataset_request.CreateDatasetRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock_agentcore_control.types.create_dataset_request.CreateDatasetRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["dataset_name"] = dataset_name
+            input_["client_token"] = client_token
+        input_["dataset_name"] = dataset_name
         if description is not None:
-            input["description"] = description
-        input["source"] = source
-        input["schema_type"] = schema_type
+            input_["description"] = description
+        input_["source"] = source
+        input_["schema_type"] = schema_type
         if kms_key_arn is not None:
-            input["kms_key_arn"] = kms_key_arn
+            input_["kms_key_arn"] = kms_key_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def read(self, dataset_id: "aws_sdk_bedrock_agentcore_control.types.dataset_id.DatasetId", *, config_overrides: Optional[BedrockAgentCoreControlClientConfig] = None, dataset_version: Optional["aws_sdk_bedrock_agentcore_control.types.dataset_version.DatasetVersion"] = None) -> "aws_sdk_bedrock_agentcore_control.types.get_dataset_response.GetDatasetResponse":
-        """<p> Retrieves dataset metadata. Use the <code>datasetVersion</code> query parameter to retrieve a specific version's metadata. If absent, defaults to DRAFT. For paginated example content, use <code>ListDatasetExamples</code>. </p>
+
+    def read(
+        self,
+        dataset_id: "aws_sdk_bedrock_agentcore_control.types.dataset_id.DatasetId",
+        *,
+        config_overrides: Optional[BedrockAgentCoreControlClientConfig] = None,
+        dataset_version: Optional[
+            "aws_sdk_bedrock_agentcore_control.types.dataset_version.DatasetVersion"
+        ] = None,
+    ) -> "aws_sdk_bedrock_agentcore_control.types.get_dataset_response.GetDatasetResponse":
+        r"""<p> Retrieves dataset metadata. Use the <code>datasetVersion</code> query parameter to retrieve a specific version's metadata. If absent, defaults to DRAFT. For paginated example content, use <code>ListDatasetExamples</code>. </p>
 
         Args:
             dataset_id: <p> The unique identifier of the dataset to retrieve. </p>
             dataset_version: <p> Version to retrieve: \"DRAFT\" or a version number. Defaults to DRAFT if absent. </p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_bedrock_agentcore_control.types.get_dataset_request.GetDatasetRequest]') -> OperationResponse["aws_sdk_bedrock_agentcore_control.types.get_dataset_response.GetDatasetResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_bedrock_agentcore_control.types.get_dataset_request.GetDatasetRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_bedrock_agentcore_control.types.get_dataset_response.GetDatasetResponse"
+        ]:
             import aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.get_dataset
-            output, http_response = aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.get_dataset.get_dataset(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.get_dataset.get_dataset(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore_control.types.get_dataset_request.GetDatasetRequest = {}  # type: ignore[typeddict-item]
-        input["dataset_id"] = dataset_id
+        input_: aws_sdk_bedrock_agentcore_control.types.get_dataset_request.GetDatasetRequest = {}  # type: ignore[typeddict-item]
+        input_["dataset_id"] = dataset_id
         if dataset_version is not None:
-            input["dataset_version"] = dataset_version
+            input_["dataset_version"] = dataset_version
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def update(self, dataset_id: "aws_sdk_bedrock_agentcore_control.types.dataset_id.DatasetId", *, config_overrides: Optional[BedrockAgentCoreControlClientConfig] = None, client_token: Optional["aws_sdk_bedrock_agentcore_control.types.client_token.ClientToken"] = None, description: Optional[str] = None) -> "aws_sdk_bedrock_agentcore_control.types.update_dataset_response.UpdateDatasetResponse":
-        """<p> Updates a dataset's metadata. Synchronous operation. Only provided fields are updated; omitted fields remain unchanged. To modify dataset content, use <code>AddDatasetExamples</code>, <code>UpdateDatasetExamples</code>, or <code>DeleteDatasetExamples</code>. </p>
+
+    def update(
+        self,
+        dataset_id: "aws_sdk_bedrock_agentcore_control.types.dataset_id.DatasetId",
+        *,
+        config_overrides: Optional[BedrockAgentCoreControlClientConfig] = None,
+        client_token: Optional[
+            "aws_sdk_bedrock_agentcore_control.types.client_token.ClientToken"
+        ] = None,
+        description: Optional[str] = None,
+    ) -> "aws_sdk_bedrock_agentcore_control.types.update_dataset_response.UpdateDatasetResponse":
+        r"""<p> Updates a dataset's metadata. Synchronous operation. Only provided fields are updated; omitted fields remain unchanged. To modify dataset content, use <code>AddDatasetExamples</code>, <code>UpdateDatasetExamples</code>, or <code>DeleteDatasetExamples</code>. </p>
 
         Args:
             dataset_id: <p> The unique identifier of the dataset to update. </p>
             client_token: <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring idempotency</a>.</p>
             description: <p> The updated description for the dataset. </p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_bedrock_agentcore_control.types.update_dataset_request.UpdateDatasetRequest]') -> OperationResponse["aws_sdk_bedrock_agentcore_control.types.update_dataset_response.UpdateDatasetResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_bedrock_agentcore_control.types.update_dataset_request.UpdateDatasetRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_bedrock_agentcore_control.types.update_dataset_response.UpdateDatasetResponse"
+        ]:
             import aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.update_dataset
-            output, http_response = aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.update_dataset.update_dataset(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.update_dataset.update_dataset(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore_control.types.update_dataset_request.UpdateDatasetRequest = {}  # type: ignore[typeddict-item]
-        input["dataset_id"] = dataset_id
+        input_: aws_sdk_bedrock_agentcore_control.types.update_dataset_request.UpdateDatasetRequest = {}  # type: ignore[typeddict-item]
+        input_["dataset_id"] = dataset_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def delete(self, dataset_id: "aws_sdk_bedrock_agentcore_control.types.dataset_id.DatasetId", *, config_overrides: Optional[BedrockAgentCoreControlClientConfig] = None, dataset_version: Optional["aws_sdk_bedrock_agentcore_control.types.dataset_version.DatasetVersion"] = None) -> "aws_sdk_bedrock_agentcore_control.types.delete_dataset_response.DeleteDatasetResponse":
+
+    def delete(
+        self,
+        dataset_id: "aws_sdk_bedrock_agentcore_control.types.dataset_id.DatasetId",
+        *,
+        config_overrides: Optional[BedrockAgentCoreControlClientConfig] = None,
+        dataset_version: Optional[
+            "aws_sdk_bedrock_agentcore_control.types.dataset_version.DatasetVersion"
+        ] = None,
+    ) -> "aws_sdk_bedrock_agentcore_control.types.delete_dataset_response.DeleteDatasetResponse":
         """<p> Deletes a dataset version or an entire dataset asynchronously. If <code>datasetVersion</code> is absent, deletes all versions and the dataset record itself. If provided, deletes only that specific version. </p>
 
         Args:
             dataset_id: <p> The unique identifier of the dataset to delete. </p>
             dataset_version: <p> Optional version to delete. If absent, deletes the entire dataset. If provided, deletes only that specific version. </p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_bedrock_agentcore_control.types.delete_dataset_request.DeleteDatasetRequest]') -> OperationResponse["aws_sdk_bedrock_agentcore_control.types.delete_dataset_response.DeleteDatasetResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_bedrock_agentcore_control.types.delete_dataset_request.DeleteDatasetRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_bedrock_agentcore_control.types.delete_dataset_response.DeleteDatasetResponse"
+        ]:
             import aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.delete_dataset
-            output, http_response = aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.delete_dataset.delete_dataset(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.delete_dataset.delete_dataset(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore_control.types.delete_dataset_request.DeleteDatasetRequest = {}  # type: ignore[typeddict-item]
-        input["dataset_id"] = dataset_id
+        input_: aws_sdk_bedrock_agentcore_control.types.delete_dataset_request.DeleteDatasetRequest = {}  # type: ignore[typeddict-item]
+        input_["dataset_id"] = dataset_id
         if dataset_version is not None:
-            input["dataset_version"] = dataset_version
+            input_["dataset_version"] = dataset_version
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def list(self, *, config_overrides: Optional[BedrockAgentCoreControlClientConfig] = None, next_token: Optional[str] = None, max_results: Optional[int] = None) -> "aws_sdk_bedrock_agentcore_control.types.list_datasets_response.ListDatasetsResponse":
+
+    def list(
+        self,
+        *,
+        config_overrides: Optional[BedrockAgentCoreControlClientConfig] = None,
+        next_token: Optional[str] = None,
+        max_results: Optional[int] = None,
+    ) -> "aws_sdk_bedrock_agentcore_control.types.list_datasets_response.ListDatasetsResponse":
         """<p> Lists all datasets in the caller's account, paginated. </p>
 
         Args:
             next_token: <p> The token for the next page of results. </p>
             max_results: <p> The maximum number of datasets to return per page. </p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_bedrock_agentcore_control.types.list_datasets_request.ListDatasetsRequest]') -> OperationResponse["aws_sdk_bedrock_agentcore_control.types.list_datasets_response.ListDatasetsResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_bedrock_agentcore_control.types.list_datasets_request.ListDatasetsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_bedrock_agentcore_control.types.list_datasets_response.ListDatasetsResponse"
+        ]:
             import aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.list_datasets
-            output, http_response = aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.list_datasets.list_datasets(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.list_datasets.list_datasets(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore_control.types.list_datasets_request.ListDatasetsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock_agentcore_control.types.list_datasets_request.ListDatasetsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def add_dataset_examples(self, dataset_id: "aws_sdk_bedrock_agentcore_control.types.dataset_id.DatasetId", source: "aws_sdk_bedrock_agentcore_control.types.data_source_type.DataSourceType", *, config_overrides: Optional[BedrockAgentCoreControlClientConfig] = None, client_token: Optional["aws_sdk_bedrock_agentcore_control.types.client_token.ClientToken"] = None) -> "aws_sdk_bedrock_agentcore_control.types.add_dataset_examples_response.AddDatasetExamplesResponse":
-        """<p> Adds examples to the dataset's DRAFT. All examples are validated against the dataset's schema type before any writes occur. If any example fails validation, the entire batch is rejected (all-or-nothing semantics). </p>
+
+    def add_dataset_examples(
+        self,
+        dataset_id: "aws_sdk_bedrock_agentcore_control.types.dataset_id.DatasetId",
+        source: "aws_sdk_bedrock_agentcore_control.types.data_source_type.DataSourceType",
+        *,
+        config_overrides: Optional[BedrockAgentCoreControlClientConfig] = None,
+        client_token: Optional[
+            "aws_sdk_bedrock_agentcore_control.types.client_token.ClientToken"
+        ] = None,
+    ) -> "aws_sdk_bedrock_agentcore_control.types.add_dataset_examples_response.AddDatasetExamplesResponse":
+        r"""<p> Adds examples to the dataset's DRAFT. All examples are validated against the dataset's schema type before any writes occur. If any example fails validation, the entire batch is rejected (all-or-nothing semantics). </p>
 
         Args:
             dataset_id: <p> The unique identifier of the dataset to add examples to. </p>
             client_token: <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring idempotency</a>.</p>
             source: <p> Source of examples to add. Provide either inline examples or an S3 URI pointing to a JSONL file. </p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_bedrock_agentcore_control.types.add_dataset_examples_request.AddDatasetExamplesRequest]') -> OperationResponse["aws_sdk_bedrock_agentcore_control.types.add_dataset_examples_response.AddDatasetExamplesResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_bedrock_agentcore_control.types.add_dataset_examples_request.AddDatasetExamplesRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_bedrock_agentcore_control.types.add_dataset_examples_response.AddDatasetExamplesResponse"
+        ]:
             import aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.add_dataset_examples
-            output, http_response = aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.add_dataset_examples.add_dataset_examples(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.add_dataset_examples.add_dataset_examples(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore_control.types.add_dataset_examples_request.AddDatasetExamplesRequest = {}  # type: ignore[typeddict-item]
-        input["dataset_id"] = dataset_id
+        input_: aws_sdk_bedrock_agentcore_control.types.add_dataset_examples_request.AddDatasetExamplesRequest = {}  # type: ignore[typeddict-item]
+        input_["dataset_id"] = dataset_id
         if client_token is not None:
-            input["client_token"] = client_token
-        input["source"] = source
+            input_["client_token"] = client_token
+        input_["source"] = source
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def create_dataset_version(self, dataset_id: "aws_sdk_bedrock_agentcore_control.types.dataset_id.DatasetId", *, config_overrides: Optional[BedrockAgentCoreControlClientConfig] = None, client_token: Optional["aws_sdk_bedrock_agentcore_control.types.client_token.ClientToken"] = None) -> "aws_sdk_bedrock_agentcore_control.types.create_dataset_version_response.CreateDatasetVersionResponse":
-        """<p> Publishes the current DRAFT as a new numbered version. The DRAFT is preserved and remains editable after publishing. Returns immediately with status UPDATING. Poll <code>GetDataset</code> until status transitions to ACTIVE or UPDATE_FAILED. </p>
+
+    def create_dataset_version(
+        self,
+        dataset_id: "aws_sdk_bedrock_agentcore_control.types.dataset_id.DatasetId",
+        *,
+        config_overrides: Optional[BedrockAgentCoreControlClientConfig] = None,
+        client_token: Optional[
+            "aws_sdk_bedrock_agentcore_control.types.client_token.ClientToken"
+        ] = None,
+    ) -> "aws_sdk_bedrock_agentcore_control.types.create_dataset_version_response.CreateDatasetVersionResponse":
+        r"""<p> Publishes the current DRAFT as a new numbered version. The DRAFT is preserved and remains editable after publishing. Returns immediately with status UPDATING. Poll <code>GetDataset</code> until status transitions to ACTIVE or UPDATE_FAILED. </p>
 
         Args:
             dataset_id: <p> The unique identifier of the dataset to publish a version for. </p>
             client_token: <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring idempotency</a>.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_bedrock_agentcore_control.types.create_dataset_version_request.CreateDatasetVersionRequest]') -> OperationResponse["aws_sdk_bedrock_agentcore_control.types.create_dataset_version_response.CreateDatasetVersionResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_bedrock_agentcore_control.types.create_dataset_version_request.CreateDatasetVersionRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_bedrock_agentcore_control.types.create_dataset_version_response.CreateDatasetVersionResponse"
+        ]:
             import aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.create_dataset_version
-            output, http_response = aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.create_dataset_version.create_dataset_version(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.create_dataset_version.create_dataset_version(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore_control.types.create_dataset_version_request.CreateDatasetVersionRequest = {}  # type: ignore[typeddict-item]
-        input["dataset_id"] = dataset_id
+        input_: aws_sdk_bedrock_agentcore_control.types.create_dataset_version_request.CreateDatasetVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["dataset_id"] = dataset_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def delete_dataset_examples(self, dataset_id: "aws_sdk_bedrock_agentcore_control.types.dataset_id.DatasetId", example_ids: "aws_sdk_bedrock_agentcore_control.types.example_id_list.ExampleIdList", *, config_overrides: Optional[BedrockAgentCoreControlClientConfig] = None, client_token: Optional["aws_sdk_bedrock_agentcore_control.types.client_token.ClientToken"] = None) -> "aws_sdk_bedrock_agentcore_control.types.delete_dataset_examples_response.DeleteDatasetExamplesResponse":
-        """<p> Deletes specific examples by ID from DRAFT. All example IDs are validated before any deletes occur. If any ID does not exist in DRAFT, the entire batch is rejected (all-or-nothing semantics). </p>
+
+    def delete_dataset_examples(
+        self,
+        dataset_id: "aws_sdk_bedrock_agentcore_control.types.dataset_id.DatasetId",
+        example_ids: "aws_sdk_bedrock_agentcore_control.types.example_id_list.ExampleIdList",
+        *,
+        config_overrides: Optional[BedrockAgentCoreControlClientConfig] = None,
+        client_token: Optional[
+            "aws_sdk_bedrock_agentcore_control.types.client_token.ClientToken"
+        ] = None,
+    ) -> "aws_sdk_bedrock_agentcore_control.types.delete_dataset_examples_response.DeleteDatasetExamplesResponse":
+        r"""<p> Deletes specific examples by ID from DRAFT. All example IDs are validated before any deletes occur. If any ID does not exist in DRAFT, the entire batch is rejected (all-or-nothing semantics). </p>
 
         Args:
             dataset_id: <p> The unique identifier of the dataset. </p>
             client_token: <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring idempotency</a>.</p>
             example_ids: <p> The IDs of the examples to delete. </p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_bedrock_agentcore_control.types.delete_dataset_examples_request.DeleteDatasetExamplesRequest]') -> OperationResponse["aws_sdk_bedrock_agentcore_control.types.delete_dataset_examples_response.DeleteDatasetExamplesResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_bedrock_agentcore_control.types.delete_dataset_examples_request.DeleteDatasetExamplesRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_bedrock_agentcore_control.types.delete_dataset_examples_response.DeleteDatasetExamplesResponse"
+        ]:
             import aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.delete_dataset_examples
-            output, http_response = aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.delete_dataset_examples.delete_dataset_examples(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.delete_dataset_examples.delete_dataset_examples(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore_control.types.delete_dataset_examples_request.DeleteDatasetExamplesRequest = {}  # type: ignore[typeddict-item]
-        input["dataset_id"] = dataset_id
+        input_: aws_sdk_bedrock_agentcore_control.types.delete_dataset_examples_request.DeleteDatasetExamplesRequest = {}  # type: ignore[typeddict-item]
+        input_["dataset_id"] = dataset_id
         if client_token is not None:
-            input["client_token"] = client_token
-        input["example_ids"] = example_ids
+            input_["client_token"] = client_token
+        input_["example_ids"] = example_ids
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def list_dataset_examples(self, dataset_id: "aws_sdk_bedrock_agentcore_control.types.dataset_id.DatasetId", *, config_overrides: Optional[BedrockAgentCoreControlClientConfig] = None, dataset_version: Optional["aws_sdk_bedrock_agentcore_control.types.dataset_version.DatasetVersion"] = None, max_results: Optional[int] = None, next_token: Optional[str] = None) -> "aws_sdk_bedrock_agentcore_control.types.list_dataset_examples_response.ListDatasetExamplesResponse":
-        """<p> Returns paginated examples from the dataset. The server embeds the resolved version in the pagination token. Once pagination begins, all subsequent pages are pinned to that version regardless of concurrent mutations. </p>
+
+    def list_dataset_examples(
+        self,
+        dataset_id: "aws_sdk_bedrock_agentcore_control.types.dataset_id.DatasetId",
+        *,
+        config_overrides: Optional[BedrockAgentCoreControlClientConfig] = None,
+        dataset_version: Optional[
+            "aws_sdk_bedrock_agentcore_control.types.dataset_version.DatasetVersion"
+        ] = None,
+        max_results: Optional[int] = None,
+        next_token: Optional[str] = None,
+    ) -> "aws_sdk_bedrock_agentcore_control.types.list_dataset_examples_response.ListDatasetExamplesResponse":
+        r"""<p> Returns paginated examples from the dataset. The server embeds the resolved version in the pagination token. Once pagination begins, all subsequent pages are pinned to that version regardless of concurrent mutations. </p>
 
         Args:
             dataset_id: <p> The unique identifier of the dataset. </p>
@@ -236,24 +457,46 @@ class Dataset:
             max_results: <p> Maximum number of examples to return per page. </p>
             next_token: <p> The token for the next page of results. </p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_bedrock_agentcore_control.types.list_dataset_examples_request.ListDatasetExamplesRequest]') -> OperationResponse["aws_sdk_bedrock_agentcore_control.types.list_dataset_examples_response.ListDatasetExamplesResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_bedrock_agentcore_control.types.list_dataset_examples_request.ListDatasetExamplesRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_bedrock_agentcore_control.types.list_dataset_examples_response.ListDatasetExamplesResponse"
+        ]:
             import aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.list_dataset_examples
-            output, http_response = aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.list_dataset_examples.list_dataset_examples(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.list_dataset_examples.list_dataset_examples(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore_control.types.list_dataset_examples_request.ListDatasetExamplesRequest = {}  # type: ignore[typeddict-item]
-        input["dataset_id"] = dataset_id
+        input_: aws_sdk_bedrock_agentcore_control.types.list_dataset_examples_request.ListDatasetExamplesRequest = {}  # type: ignore[typeddict-item]
+        input_["dataset_id"] = dataset_id
         if dataset_version is not None:
-            input["dataset_version"] = dataset_version
+            input_["dataset_version"] = dataset_version
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def list_dataset_versions(self, dataset_id: "aws_sdk_bedrock_agentcore_control.types.dataset_id.DatasetId", *, config_overrides: Optional[BedrockAgentCoreControlClientConfig] = None, next_token: Optional[str] = None, max_results: Optional[int] = None) -> "aws_sdk_bedrock_agentcore_control.types.list_dataset_versions_response.ListDatasetVersionsResponse":
+
+    def list_dataset_versions(
+        self,
+        dataset_id: "aws_sdk_bedrock_agentcore_control.types.dataset_id.DatasetId",
+        *,
+        config_overrides: Optional[BedrockAgentCoreControlClientConfig] = None,
+        next_token: Optional[str] = None,
+        max_results: Optional[int] = None,
+    ) -> "aws_sdk_bedrock_agentcore_control.types.list_dataset_versions_response.ListDatasetVersionsResponse":
         """<p> Lists all published versions of a dataset, sorted by version number descending (newest first). Does not include the DRAFT working copy. </p>
 
         Args:
@@ -261,49 +504,106 @@ class Dataset:
             next_token: <p> The token for the next page of results. </p>
             max_results: <p> The maximum number of versions to return per page. </p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_bedrock_agentcore_control.types.list_dataset_versions_request.ListDatasetVersionsRequest]') -> OperationResponse["aws_sdk_bedrock_agentcore_control.types.list_dataset_versions_response.ListDatasetVersionsResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_bedrock_agentcore_control.types.list_dataset_versions_request.ListDatasetVersionsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_bedrock_agentcore_control.types.list_dataset_versions_response.ListDatasetVersionsResponse"
+        ]:
             import aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.list_dataset_versions
-            output, http_response = aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.list_dataset_versions.list_dataset_versions(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.list_dataset_versions.list_dataset_versions(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore_control.types.list_dataset_versions_request.ListDatasetVersionsRequest = {}  # type: ignore[typeddict-item]
-        input["dataset_id"] = dataset_id
+        input_: aws_sdk_bedrock_agentcore_control.types.list_dataset_versions_request.ListDatasetVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_["dataset_id"] = dataset_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def update_dataset_examples(self, dataset_id: "aws_sdk_bedrock_agentcore_control.types.dataset_id.DatasetId", examples: "aws_sdk_bedrock_agentcore_control.types.dataset_example_list.DatasetExampleList", *, config_overrides: Optional[BedrockAgentCoreControlClientConfig] = None, client_token: Optional["aws_sdk_bedrock_agentcore_control.types.client_token.ClientToken"] = None) -> "aws_sdk_bedrock_agentcore_control.types.update_dataset_examples_response.UpdateDatasetExamplesResponse":
-        """<p> Updates multiple existing examples in-place on DRAFT. All examples are validated against the dataset's schema type before any writes occur. If any example fails validation, the entire batch is rejected (all-or-nothing semantics). </p>
+
+    def update_dataset_examples(
+        self,
+        dataset_id: "aws_sdk_bedrock_agentcore_control.types.dataset_id.DatasetId",
+        examples: "aws_sdk_bedrock_agentcore_control.types.dataset_example_list.DatasetExampleList",
+        *,
+        config_overrides: Optional[BedrockAgentCoreControlClientConfig] = None,
+        client_token: Optional[
+            "aws_sdk_bedrock_agentcore_control.types.client_token.ClientToken"
+        ] = None,
+    ) -> "aws_sdk_bedrock_agentcore_control.types.update_dataset_examples_response.UpdateDatasetExamplesResponse":
+        r"""<p> Updates multiple existing examples in-place on DRAFT. All examples are validated against the dataset's schema type before any writes occur. If any example fails validation, the entire batch is rejected (all-or-nothing semantics). </p>
 
         Args:
             dataset_id: <p> The unique identifier of the dataset. </p>
             client_token: <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring idempotency</a>.</p>
             examples: <p> Examples to update. Each element is a JSON object containing a required <code>exampleId</code> field identifying the existing example, plus the replacement fields. Maximum 1000 examples per call. </p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_bedrock_agentcore_control.types.update_dataset_examples_request.UpdateDatasetExamplesRequest]') -> OperationResponse["aws_sdk_bedrock_agentcore_control.types.update_dataset_examples_response.UpdateDatasetExamplesResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_bedrock_agentcore_control.types.update_dataset_examples_request.UpdateDatasetExamplesRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_bedrock_agentcore_control.types.update_dataset_examples_response.UpdateDatasetExamplesResponse"
+        ]:
             import aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.update_dataset_examples
-            output, http_response = aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.update_dataset_examples.update_dataset_examples(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.update_dataset_examples.update_dataset_examples(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore_control.types.update_dataset_examples_request.UpdateDatasetExamplesRequest = {}  # type: ignore[typeddict-item]
-        input["dataset_id"] = dataset_id
+        input_: aws_sdk_bedrock_agentcore_control.types.update_dataset_examples_request.UpdateDatasetExamplesRequest = {}  # type: ignore[typeddict-item]
+        input_["dataset_id"] = dataset_id
         if client_token is not None:
-            input["client_token"] = client_token
-        input["examples"] = examples
+            input_["client_token"] = client_token
+        input_["examples"] = examples
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
+
 
 class AsyncDataset:
     def __init__(self, service: AsyncBedrockAgentCoreControlClient) -> None:
         self._service = service
-    async def create(self, dataset_name: "aws_sdk_bedrock_agentcore_control.types.dataset_name.DatasetName", source: "aws_sdk_bedrock_agentcore_control.types.data_source_type.DataSourceType", schema_type: "aws_sdk_bedrock_agentcore_control.types.dataset_schema_type.DatasetSchemaType", *, config_overrides: Optional[AsyncBedrockAgentCoreControlClientConfig] = None, client_token: Optional["aws_sdk_bedrock_agentcore_control.types.client_token.ClientToken"] = None, description: Optional[str] = None, kms_key_arn: Optional["aws_sdk_bedrock_agentcore_control.types.kms_key_arn.KmsKeyArn"] = None, tags: Optional["aws_sdk_bedrock_agentcore_control.types.tags_map.TagsMap"] = None) -> "aws_sdk_bedrock_agentcore_control.types.create_dataset_response.CreateDatasetResponse":
-        """<p> Creates a new dataset resource asynchronously. Returns immediately with status CREATING. Poll <code>GetDataset</code> until status transitions to ACTIVE or CREATE_FAILED. </p>
+
+    async def create(
+        self,
+        dataset_name: "aws_sdk_bedrock_agentcore_control.types.dataset_name.DatasetName",
+        source: "aws_sdk_bedrock_agentcore_control.types.data_source_type.DataSourceType",
+        schema_type: "aws_sdk_bedrock_agentcore_control.types.dataset_schema_type.DatasetSchemaType",
+        *,
+        config_overrides: Optional[AsyncBedrockAgentCoreControlClientConfig] = None,
+        client_token: Optional[
+            "aws_sdk_bedrock_agentcore_control.types.client_token.ClientToken"
+        ] = None,
+        description: Optional[str] = None,
+        kms_key_arn: Optional[
+            "aws_sdk_bedrock_agentcore_control.types.kms_key_arn.KmsKeyArn"
+        ] = None,
+        tags: Optional[
+            "aws_sdk_bedrock_agentcore_control.types.tags_map.TagsMap"
+        ] = None,
+    ) -> "aws_sdk_bedrock_agentcore_control.types.create_dataset_response.CreateDatasetResponse":
+        r"""<p> Creates a new dataset resource asynchronously. Returns immediately with status CREATING. Poll <code>GetDataset</code> until status transitions to ACTIVE or CREATE_FAILED. </p>
 
         Args:
             client_token: <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring idempotency</a>.</p>
@@ -314,177 +614,372 @@ class AsyncDataset:
             kms_key_arn: <p> Optional KMS key ARN for server-side encryption on service Amazon S3 writes. </p>
             tags: <p> A map of tag keys and values to assign to the dataset. </p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_bedrock_agentcore_control.types.create_dataset_request.CreateDatasetRequest]') -> AsyncOperationResponse["aws_sdk_bedrock_agentcore_control.types.create_dataset_response.CreateDatasetResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_bedrock_agentcore_control.types.create_dataset_request.CreateDatasetRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_bedrock_agentcore_control.types.create_dataset_response.CreateDatasetResponse"
+        ]:
             import aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.create_dataset
-            output, http_response = await aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.create_dataset.async_create_dataset(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.create_dataset.async_create_dataset(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore_control.types.create_dataset_request.CreateDatasetRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock_agentcore_control.types.create_dataset_request.CreateDatasetRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["dataset_name"] = dataset_name
+            input_["client_token"] = client_token
+        input_["dataset_name"] = dataset_name
         if description is not None:
-            input["description"] = description
-        input["source"] = source
-        input["schema_type"] = schema_type
+            input_["description"] = description
+        input_["source"] = source
+        input_["schema_type"] = schema_type
         if kms_key_arn is not None:
-            input["kms_key_arn"] = kms_key_arn
+            input_["kms_key_arn"] = kms_key_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def read(self, dataset_id: "aws_sdk_bedrock_agentcore_control.types.dataset_id.DatasetId", *, config_overrides: Optional[AsyncBedrockAgentCoreControlClientConfig] = None, dataset_version: Optional["aws_sdk_bedrock_agentcore_control.types.dataset_version.DatasetVersion"] = None) -> "aws_sdk_bedrock_agentcore_control.types.get_dataset_response.GetDatasetResponse":
-        """<p> Retrieves dataset metadata. Use the <code>datasetVersion</code> query parameter to retrieve a specific version's metadata. If absent, defaults to DRAFT. For paginated example content, use <code>ListDatasetExamples</code>. </p>
+
+    async def read(
+        self,
+        dataset_id: "aws_sdk_bedrock_agentcore_control.types.dataset_id.DatasetId",
+        *,
+        config_overrides: Optional[AsyncBedrockAgentCoreControlClientConfig] = None,
+        dataset_version: Optional[
+            "aws_sdk_bedrock_agentcore_control.types.dataset_version.DatasetVersion"
+        ] = None,
+    ) -> "aws_sdk_bedrock_agentcore_control.types.get_dataset_response.GetDatasetResponse":
+        r"""<p> Retrieves dataset metadata. Use the <code>datasetVersion</code> query parameter to retrieve a specific version's metadata. If absent, defaults to DRAFT. For paginated example content, use <code>ListDatasetExamples</code>. </p>
 
         Args:
             dataset_id: <p> The unique identifier of the dataset to retrieve. </p>
             dataset_version: <p> Version to retrieve: \"DRAFT\" or a version number. Defaults to DRAFT if absent. </p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_bedrock_agentcore_control.types.get_dataset_request.GetDatasetRequest]') -> AsyncOperationResponse["aws_sdk_bedrock_agentcore_control.types.get_dataset_response.GetDatasetResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_bedrock_agentcore_control.types.get_dataset_request.GetDatasetRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_bedrock_agentcore_control.types.get_dataset_response.GetDatasetResponse"
+        ]:
             import aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.get_dataset
-            output, http_response = await aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.get_dataset.async_get_dataset(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.get_dataset.async_get_dataset(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore_control.types.get_dataset_request.GetDatasetRequest = {}  # type: ignore[typeddict-item]
-        input["dataset_id"] = dataset_id
+        input_: aws_sdk_bedrock_agentcore_control.types.get_dataset_request.GetDatasetRequest = {}  # type: ignore[typeddict-item]
+        input_["dataset_id"] = dataset_id
         if dataset_version is not None:
-            input["dataset_version"] = dataset_version
+            input_["dataset_version"] = dataset_version
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def update(self, dataset_id: "aws_sdk_bedrock_agentcore_control.types.dataset_id.DatasetId", *, config_overrides: Optional[AsyncBedrockAgentCoreControlClientConfig] = None, client_token: Optional["aws_sdk_bedrock_agentcore_control.types.client_token.ClientToken"] = None, description: Optional[str] = None) -> "aws_sdk_bedrock_agentcore_control.types.update_dataset_response.UpdateDatasetResponse":
-        """<p> Updates a dataset's metadata. Synchronous operation. Only provided fields are updated; omitted fields remain unchanged. To modify dataset content, use <code>AddDatasetExamples</code>, <code>UpdateDatasetExamples</code>, or <code>DeleteDatasetExamples</code>. </p>
+
+    async def update(
+        self,
+        dataset_id: "aws_sdk_bedrock_agentcore_control.types.dataset_id.DatasetId",
+        *,
+        config_overrides: Optional[AsyncBedrockAgentCoreControlClientConfig] = None,
+        client_token: Optional[
+            "aws_sdk_bedrock_agentcore_control.types.client_token.ClientToken"
+        ] = None,
+        description: Optional[str] = None,
+    ) -> "aws_sdk_bedrock_agentcore_control.types.update_dataset_response.UpdateDatasetResponse":
+        r"""<p> Updates a dataset's metadata. Synchronous operation. Only provided fields are updated; omitted fields remain unchanged. To modify dataset content, use <code>AddDatasetExamples</code>, <code>UpdateDatasetExamples</code>, or <code>DeleteDatasetExamples</code>. </p>
 
         Args:
             dataset_id: <p> The unique identifier of the dataset to update. </p>
             client_token: <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring idempotency</a>.</p>
             description: <p> The updated description for the dataset. </p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_bedrock_agentcore_control.types.update_dataset_request.UpdateDatasetRequest]') -> AsyncOperationResponse["aws_sdk_bedrock_agentcore_control.types.update_dataset_response.UpdateDatasetResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_bedrock_agentcore_control.types.update_dataset_request.UpdateDatasetRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_bedrock_agentcore_control.types.update_dataset_response.UpdateDatasetResponse"
+        ]:
             import aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.update_dataset
-            output, http_response = await aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.update_dataset.async_update_dataset(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.update_dataset.async_update_dataset(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore_control.types.update_dataset_request.UpdateDatasetRequest = {}  # type: ignore[typeddict-item]
-        input["dataset_id"] = dataset_id
+        input_: aws_sdk_bedrock_agentcore_control.types.update_dataset_request.UpdateDatasetRequest = {}  # type: ignore[typeddict-item]
+        input_["dataset_id"] = dataset_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def delete(self, dataset_id: "aws_sdk_bedrock_agentcore_control.types.dataset_id.DatasetId", *, config_overrides: Optional[AsyncBedrockAgentCoreControlClientConfig] = None, dataset_version: Optional["aws_sdk_bedrock_agentcore_control.types.dataset_version.DatasetVersion"] = None) -> "aws_sdk_bedrock_agentcore_control.types.delete_dataset_response.DeleteDatasetResponse":
+
+    async def delete(
+        self,
+        dataset_id: "aws_sdk_bedrock_agentcore_control.types.dataset_id.DatasetId",
+        *,
+        config_overrides: Optional[AsyncBedrockAgentCoreControlClientConfig] = None,
+        dataset_version: Optional[
+            "aws_sdk_bedrock_agentcore_control.types.dataset_version.DatasetVersion"
+        ] = None,
+    ) -> "aws_sdk_bedrock_agentcore_control.types.delete_dataset_response.DeleteDatasetResponse":
         """<p> Deletes a dataset version or an entire dataset asynchronously. If <code>datasetVersion</code> is absent, deletes all versions and the dataset record itself. If provided, deletes only that specific version. </p>
 
         Args:
             dataset_id: <p> The unique identifier of the dataset to delete. </p>
             dataset_version: <p> Optional version to delete. If absent, deletes the entire dataset. If provided, deletes only that specific version. </p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_bedrock_agentcore_control.types.delete_dataset_request.DeleteDatasetRequest]') -> AsyncOperationResponse["aws_sdk_bedrock_agentcore_control.types.delete_dataset_response.DeleteDatasetResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_bedrock_agentcore_control.types.delete_dataset_request.DeleteDatasetRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_bedrock_agentcore_control.types.delete_dataset_response.DeleteDatasetResponse"
+        ]:
             import aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.delete_dataset
-            output, http_response = await aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.delete_dataset.async_delete_dataset(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.delete_dataset.async_delete_dataset(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore_control.types.delete_dataset_request.DeleteDatasetRequest = {}  # type: ignore[typeddict-item]
-        input["dataset_id"] = dataset_id
+        input_: aws_sdk_bedrock_agentcore_control.types.delete_dataset_request.DeleteDatasetRequest = {}  # type: ignore[typeddict-item]
+        input_["dataset_id"] = dataset_id
         if dataset_version is not None:
-            input["dataset_version"] = dataset_version
+            input_["dataset_version"] = dataset_version
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def list(self, *, config_overrides: Optional[AsyncBedrockAgentCoreControlClientConfig] = None, next_token: Optional[str] = None, max_results: Optional[int] = None) -> "aws_sdk_bedrock_agentcore_control.types.list_datasets_response.ListDatasetsResponse":
+
+    async def list(
+        self,
+        *,
+        config_overrides: Optional[AsyncBedrockAgentCoreControlClientConfig] = None,
+        next_token: Optional[str] = None,
+        max_results: Optional[int] = None,
+    ) -> "aws_sdk_bedrock_agentcore_control.types.list_datasets_response.ListDatasetsResponse":
         """<p> Lists all datasets in the caller's account, paginated. </p>
 
         Args:
             next_token: <p> The token for the next page of results. </p>
             max_results: <p> The maximum number of datasets to return per page. </p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_bedrock_agentcore_control.types.list_datasets_request.ListDatasetsRequest]') -> AsyncOperationResponse["aws_sdk_bedrock_agentcore_control.types.list_datasets_response.ListDatasetsResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_bedrock_agentcore_control.types.list_datasets_request.ListDatasetsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_bedrock_agentcore_control.types.list_datasets_response.ListDatasetsResponse"
+        ]:
             import aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.list_datasets
-            output, http_response = await aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.list_datasets.async_list_datasets(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.list_datasets.async_list_datasets(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore_control.types.list_datasets_request.ListDatasetsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock_agentcore_control.types.list_datasets_request.ListDatasetsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def add_dataset_examples(self, dataset_id: "aws_sdk_bedrock_agentcore_control.types.dataset_id.DatasetId", source: "aws_sdk_bedrock_agentcore_control.types.data_source_type.DataSourceType", *, config_overrides: Optional[AsyncBedrockAgentCoreControlClientConfig] = None, client_token: Optional["aws_sdk_bedrock_agentcore_control.types.client_token.ClientToken"] = None) -> "aws_sdk_bedrock_agentcore_control.types.add_dataset_examples_response.AddDatasetExamplesResponse":
-        """<p> Adds examples to the dataset's DRAFT. All examples are validated against the dataset's schema type before any writes occur. If any example fails validation, the entire batch is rejected (all-or-nothing semantics). </p>
+
+    async def add_dataset_examples(
+        self,
+        dataset_id: "aws_sdk_bedrock_agentcore_control.types.dataset_id.DatasetId",
+        source: "aws_sdk_bedrock_agentcore_control.types.data_source_type.DataSourceType",
+        *,
+        config_overrides: Optional[AsyncBedrockAgentCoreControlClientConfig] = None,
+        client_token: Optional[
+            "aws_sdk_bedrock_agentcore_control.types.client_token.ClientToken"
+        ] = None,
+    ) -> "aws_sdk_bedrock_agentcore_control.types.add_dataset_examples_response.AddDatasetExamplesResponse":
+        r"""<p> Adds examples to the dataset's DRAFT. All examples are validated against the dataset's schema type before any writes occur. If any example fails validation, the entire batch is rejected (all-or-nothing semantics). </p>
 
         Args:
             dataset_id: <p> The unique identifier of the dataset to add examples to. </p>
             client_token: <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring idempotency</a>.</p>
             source: <p> Source of examples to add. Provide either inline examples or an S3 URI pointing to a JSONL file. </p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_bedrock_agentcore_control.types.add_dataset_examples_request.AddDatasetExamplesRequest]') -> AsyncOperationResponse["aws_sdk_bedrock_agentcore_control.types.add_dataset_examples_response.AddDatasetExamplesResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_bedrock_agentcore_control.types.add_dataset_examples_request.AddDatasetExamplesRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_bedrock_agentcore_control.types.add_dataset_examples_response.AddDatasetExamplesResponse"
+        ]:
             import aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.add_dataset_examples
-            output, http_response = await aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.add_dataset_examples.async_add_dataset_examples(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.add_dataset_examples.async_add_dataset_examples(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore_control.types.add_dataset_examples_request.AddDatasetExamplesRequest = {}  # type: ignore[typeddict-item]
-        input["dataset_id"] = dataset_id
+        input_: aws_sdk_bedrock_agentcore_control.types.add_dataset_examples_request.AddDatasetExamplesRequest = {}  # type: ignore[typeddict-item]
+        input_["dataset_id"] = dataset_id
         if client_token is not None:
-            input["client_token"] = client_token
-        input["source"] = source
+            input_["client_token"] = client_token
+        input_["source"] = source
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def create_dataset_version(self, dataset_id: "aws_sdk_bedrock_agentcore_control.types.dataset_id.DatasetId", *, config_overrides: Optional[AsyncBedrockAgentCoreControlClientConfig] = None, client_token: Optional["aws_sdk_bedrock_agentcore_control.types.client_token.ClientToken"] = None) -> "aws_sdk_bedrock_agentcore_control.types.create_dataset_version_response.CreateDatasetVersionResponse":
-        """<p> Publishes the current DRAFT as a new numbered version. The DRAFT is preserved and remains editable after publishing. Returns immediately with status UPDATING. Poll <code>GetDataset</code> until status transitions to ACTIVE or UPDATE_FAILED. </p>
+
+    async def create_dataset_version(
+        self,
+        dataset_id: "aws_sdk_bedrock_agentcore_control.types.dataset_id.DatasetId",
+        *,
+        config_overrides: Optional[AsyncBedrockAgentCoreControlClientConfig] = None,
+        client_token: Optional[
+            "aws_sdk_bedrock_agentcore_control.types.client_token.ClientToken"
+        ] = None,
+    ) -> "aws_sdk_bedrock_agentcore_control.types.create_dataset_version_response.CreateDatasetVersionResponse":
+        r"""<p> Publishes the current DRAFT as a new numbered version. The DRAFT is preserved and remains editable after publishing. Returns immediately with status UPDATING. Poll <code>GetDataset</code> until status transitions to ACTIVE or UPDATE_FAILED. </p>
 
         Args:
             dataset_id: <p> The unique identifier of the dataset to publish a version for. </p>
             client_token: <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring idempotency</a>.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_bedrock_agentcore_control.types.create_dataset_version_request.CreateDatasetVersionRequest]') -> AsyncOperationResponse["aws_sdk_bedrock_agentcore_control.types.create_dataset_version_response.CreateDatasetVersionResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_bedrock_agentcore_control.types.create_dataset_version_request.CreateDatasetVersionRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_bedrock_agentcore_control.types.create_dataset_version_response.CreateDatasetVersionResponse"
+        ]:
             import aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.create_dataset_version
-            output, http_response = await aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.create_dataset_version.async_create_dataset_version(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.create_dataset_version.async_create_dataset_version(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore_control.types.create_dataset_version_request.CreateDatasetVersionRequest = {}  # type: ignore[typeddict-item]
-        input["dataset_id"] = dataset_id
+        input_: aws_sdk_bedrock_agentcore_control.types.create_dataset_version_request.CreateDatasetVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["dataset_id"] = dataset_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def delete_dataset_examples(self, dataset_id: "aws_sdk_bedrock_agentcore_control.types.dataset_id.DatasetId", example_ids: "aws_sdk_bedrock_agentcore_control.types.example_id_list.ExampleIdList", *, config_overrides: Optional[AsyncBedrockAgentCoreControlClientConfig] = None, client_token: Optional["aws_sdk_bedrock_agentcore_control.types.client_token.ClientToken"] = None) -> "aws_sdk_bedrock_agentcore_control.types.delete_dataset_examples_response.DeleteDatasetExamplesResponse":
-        """<p> Deletes specific examples by ID from DRAFT. All example IDs are validated before any deletes occur. If any ID does not exist in DRAFT, the entire batch is rejected (all-or-nothing semantics). </p>
+
+    async def delete_dataset_examples(
+        self,
+        dataset_id: "aws_sdk_bedrock_agentcore_control.types.dataset_id.DatasetId",
+        example_ids: "aws_sdk_bedrock_agentcore_control.types.example_id_list.ExampleIdList",
+        *,
+        config_overrides: Optional[AsyncBedrockAgentCoreControlClientConfig] = None,
+        client_token: Optional[
+            "aws_sdk_bedrock_agentcore_control.types.client_token.ClientToken"
+        ] = None,
+    ) -> "aws_sdk_bedrock_agentcore_control.types.delete_dataset_examples_response.DeleteDatasetExamplesResponse":
+        r"""<p> Deletes specific examples by ID from DRAFT. All example IDs are validated before any deletes occur. If any ID does not exist in DRAFT, the entire batch is rejected (all-or-nothing semantics). </p>
 
         Args:
             dataset_id: <p> The unique identifier of the dataset. </p>
             client_token: <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring idempotency</a>.</p>
             example_ids: <p> The IDs of the examples to delete. </p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_bedrock_agentcore_control.types.delete_dataset_examples_request.DeleteDatasetExamplesRequest]') -> AsyncOperationResponse["aws_sdk_bedrock_agentcore_control.types.delete_dataset_examples_response.DeleteDatasetExamplesResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_bedrock_agentcore_control.types.delete_dataset_examples_request.DeleteDatasetExamplesRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_bedrock_agentcore_control.types.delete_dataset_examples_response.DeleteDatasetExamplesResponse"
+        ]:
             import aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.delete_dataset_examples
-            output, http_response = await aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.delete_dataset_examples.async_delete_dataset_examples(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.delete_dataset_examples.async_delete_dataset_examples(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore_control.types.delete_dataset_examples_request.DeleteDatasetExamplesRequest = {}  # type: ignore[typeddict-item]
-        input["dataset_id"] = dataset_id
+        input_: aws_sdk_bedrock_agentcore_control.types.delete_dataset_examples_request.DeleteDatasetExamplesRequest = {}  # type: ignore[typeddict-item]
+        input_["dataset_id"] = dataset_id
         if client_token is not None:
-            input["client_token"] = client_token
-        input["example_ids"] = example_ids
+            input_["client_token"] = client_token
+        input_["example_ids"] = example_ids
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def list_dataset_examples(self, dataset_id: "aws_sdk_bedrock_agentcore_control.types.dataset_id.DatasetId", *, config_overrides: Optional[AsyncBedrockAgentCoreControlClientConfig] = None, dataset_version: Optional["aws_sdk_bedrock_agentcore_control.types.dataset_version.DatasetVersion"] = None, max_results: Optional[int] = None, next_token: Optional[str] = None) -> "aws_sdk_bedrock_agentcore_control.types.list_dataset_examples_response.ListDatasetExamplesResponse":
-        """<p> Returns paginated examples from the dataset. The server embeds the resolved version in the pagination token. Once pagination begins, all subsequent pages are pinned to that version regardless of concurrent mutations. </p>
+
+    async def list_dataset_examples(
+        self,
+        dataset_id: "aws_sdk_bedrock_agentcore_control.types.dataset_id.DatasetId",
+        *,
+        config_overrides: Optional[AsyncBedrockAgentCoreControlClientConfig] = None,
+        dataset_version: Optional[
+            "aws_sdk_bedrock_agentcore_control.types.dataset_version.DatasetVersion"
+        ] = None,
+        max_results: Optional[int] = None,
+        next_token: Optional[str] = None,
+    ) -> "aws_sdk_bedrock_agentcore_control.types.list_dataset_examples_response.ListDatasetExamplesResponse":
+        r"""<p> Returns paginated examples from the dataset. The server embeds the resolved version in the pagination token. Once pagination begins, all subsequent pages are pinned to that version regardless of concurrent mutations. </p>
 
         Args:
             dataset_id: <p> The unique identifier of the dataset. </p>
@@ -492,24 +987,47 @@ class AsyncDataset:
             max_results: <p> Maximum number of examples to return per page. </p>
             next_token: <p> The token for the next page of results. </p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_bedrock_agentcore_control.types.list_dataset_examples_request.ListDatasetExamplesRequest]') -> AsyncOperationResponse["aws_sdk_bedrock_agentcore_control.types.list_dataset_examples_response.ListDatasetExamplesResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_bedrock_agentcore_control.types.list_dataset_examples_request.ListDatasetExamplesRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_bedrock_agentcore_control.types.list_dataset_examples_response.ListDatasetExamplesResponse"
+        ]:
             import aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.list_dataset_examples
-            output, http_response = await aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.list_dataset_examples.async_list_dataset_examples(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.list_dataset_examples.async_list_dataset_examples(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore_control.types.list_dataset_examples_request.ListDatasetExamplesRequest = {}  # type: ignore[typeddict-item]
-        input["dataset_id"] = dataset_id
+        input_: aws_sdk_bedrock_agentcore_control.types.list_dataset_examples_request.ListDatasetExamplesRequest = {}  # type: ignore[typeddict-item]
+        input_["dataset_id"] = dataset_id
         if dataset_version is not None:
-            input["dataset_version"] = dataset_version
+            input_["dataset_version"] = dataset_version
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def list_dataset_versions(self, dataset_id: "aws_sdk_bedrock_agentcore_control.types.dataset_id.DatasetId", *, config_overrides: Optional[AsyncBedrockAgentCoreControlClientConfig] = None, next_token: Optional[str] = None, max_results: Optional[int] = None) -> "aws_sdk_bedrock_agentcore_control.types.list_dataset_versions_response.ListDatasetVersionsResponse":
+
+    async def list_dataset_versions(
+        self,
+        dataset_id: "aws_sdk_bedrock_agentcore_control.types.dataset_id.DatasetId",
+        *,
+        config_overrides: Optional[AsyncBedrockAgentCoreControlClientConfig] = None,
+        next_token: Optional[str] = None,
+        max_results: Optional[int] = None,
+    ) -> "aws_sdk_bedrock_agentcore_control.types.list_dataset_versions_response.ListDatasetVersionsResponse":
         """<p> Lists all published versions of a dataset, sorted by version number descending (newest first). Does not include the DRAFT working copy. </p>
 
         Args:
@@ -517,40 +1035,80 @@ class AsyncDataset:
             next_token: <p> The token for the next page of results. </p>
             max_results: <p> The maximum number of versions to return per page. </p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_bedrock_agentcore_control.types.list_dataset_versions_request.ListDatasetVersionsRequest]') -> AsyncOperationResponse["aws_sdk_bedrock_agentcore_control.types.list_dataset_versions_response.ListDatasetVersionsResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_bedrock_agentcore_control.types.list_dataset_versions_request.ListDatasetVersionsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_bedrock_agentcore_control.types.list_dataset_versions_response.ListDatasetVersionsResponse"
+        ]:
             import aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.list_dataset_versions
-            output, http_response = await aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.list_dataset_versions.async_list_dataset_versions(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.list_dataset_versions.async_list_dataset_versions(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore_control.types.list_dataset_versions_request.ListDatasetVersionsRequest = {}  # type: ignore[typeddict-item]
-        input["dataset_id"] = dataset_id
+        input_: aws_sdk_bedrock_agentcore_control.types.list_dataset_versions_request.ListDatasetVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_["dataset_id"] = dataset_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def update_dataset_examples(self, dataset_id: "aws_sdk_bedrock_agentcore_control.types.dataset_id.DatasetId", examples: "aws_sdk_bedrock_agentcore_control.types.dataset_example_list.DatasetExampleList", *, config_overrides: Optional[AsyncBedrockAgentCoreControlClientConfig] = None, client_token: Optional["aws_sdk_bedrock_agentcore_control.types.client_token.ClientToken"] = None) -> "aws_sdk_bedrock_agentcore_control.types.update_dataset_examples_response.UpdateDatasetExamplesResponse":
-        """<p> Updates multiple existing examples in-place on DRAFT. All examples are validated against the dataset's schema type before any writes occur. If any example fails validation, the entire batch is rejected (all-or-nothing semantics). </p>
+
+    async def update_dataset_examples(
+        self,
+        dataset_id: "aws_sdk_bedrock_agentcore_control.types.dataset_id.DatasetId",
+        examples: "aws_sdk_bedrock_agentcore_control.types.dataset_example_list.DatasetExampleList",
+        *,
+        config_overrides: Optional[AsyncBedrockAgentCoreControlClientConfig] = None,
+        client_token: Optional[
+            "aws_sdk_bedrock_agentcore_control.types.client_token.ClientToken"
+        ] = None,
+    ) -> "aws_sdk_bedrock_agentcore_control.types.update_dataset_examples_response.UpdateDatasetExamplesResponse":
+        r"""<p> Updates multiple existing examples in-place on DRAFT. All examples are validated against the dataset's schema type before any writes occur. If any example fails validation, the entire batch is rejected (all-or-nothing semantics). </p>
 
         Args:
             dataset_id: <p> The unique identifier of the dataset. </p>
             client_token: <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring idempotency</a>.</p>
             examples: <p> Examples to update. Each element is a JSON object containing a required <code>exampleId</code> field identifying the existing example, plus the replacement fields. Maximum 1000 examples per call. </p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_bedrock_agentcore_control.types.update_dataset_examples_request.UpdateDatasetExamplesRequest]') -> AsyncOperationResponse["aws_sdk_bedrock_agentcore_control.types.update_dataset_examples_response.UpdateDatasetExamplesResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_bedrock_agentcore_control.types.update_dataset_examples_request.UpdateDatasetExamplesRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_bedrock_agentcore_control.types.update_dataset_examples_response.UpdateDatasetExamplesResponse"
+        ]:
             import aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.update_dataset_examples
-            output, http_response = await aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.update_dataset_examples.async_update_dataset_examples(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.update_dataset_examples.async_update_dataset_examples(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore_control.types.update_dataset_examples_request.UpdateDatasetExamplesRequest = {}  # type: ignore[typeddict-item]
-        input["dataset_id"] = dataset_id
+        input_: aws_sdk_bedrock_agentcore_control.types.update_dataset_examples_request.UpdateDatasetExamplesRequest = {}  # type: ignore[typeddict-item]
+        input_["dataset_id"] = dataset_id
         if client_token is not None:
-            input["client_token"] = client_token
-        input["examples"] = examples
+            input_["client_token"] = client_token
+        input_["examples"] = examples
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output

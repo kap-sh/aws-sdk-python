@@ -15,7 +15,7 @@ class TagResourceRequest(TypedDict):
     )
     """<p>The Amazon Resource Name (ARN) of the notification rule to tag.</p>"""
     tags: "aws_sdk_codestar_notifications.types.tags.Tags"
-    """<p>The list of tags to associate with the resource. Tag key names cannot start with \"<code>aws</code>\".</p>"""
+    r"""<p>The list of tags to associate with the resource. Tag key names cannot start with \"<code>aws</code>\".</p>"""
 
 
 # --- restJson1 ser/de ---

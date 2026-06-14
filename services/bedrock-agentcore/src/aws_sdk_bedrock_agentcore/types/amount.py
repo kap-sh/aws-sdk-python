@@ -1,9 +1,12 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#Amount``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.currency
+
 
 class Amount(TypedDict):
     value: "str"
@@ -11,12 +14,16 @@ class Amount(TypedDict):
     currency: "aws_sdk_bedrock_agentcore.types.currency.Currency"
     """<p>The currency code for the amount.</p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: Amount) -> dict:
     out: dict = {}
     out["value"] = value["value"]
     import aws_sdk_bedrock_agentcore.types.currency
-    out["currency"] = aws_sdk_bedrock_agentcore.types.currency.serialize_json(value["currency"])
+
+    out["currency"] = aws_sdk_bedrock_agentcore.types.currency.serialize_json(
+        value["currency"]
+    )
     return out
 
 
@@ -28,7 +35,10 @@ def deserialize_json(data: dict) -> Amount:
         raise DeserializationError("Amount.value required")
     if "currency" in data:
         import aws_sdk_bedrock_agentcore.types.currency
-        out["currency"] = aws_sdk_bedrock_agentcore.types.currency.deserialize_json(data["currency"])
+
+        out["currency"] = aws_sdk_bedrock_agentcore.types.currency.deserialize_json(
+            data["currency"]
+        )
     else:
         raise DeserializationError("Amount.currency required")
     return out

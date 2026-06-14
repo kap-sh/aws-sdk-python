@@ -17,7 +17,7 @@ class FMSPolicyUpdateFirewallCreationConfigAction(TypedDict):
     firewall_creation_config: NotRequired[
         "aws_sdk_fms.types.managed_service_data.ManagedServiceData"
     ]
-    """<p>A <code>FirewallCreationConfig</code> that you can copy into your current policy's <a href=\"https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html\">SecurityServiceData</a> in order to remedy scope violations.</p>"""
+    r"""<p>A <code>FirewallCreationConfig</code> that you can copy into your current policy's <a href=\"https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html\">SecurityServiceData</a> in order to remedy scope violations.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

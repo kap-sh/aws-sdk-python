@@ -1,10 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#AllowedStringListValuesList``."""
 
 from typing import TYPE_CHECKING, TypeAlias
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.allowed_string_list_value
 
-AllowedStringListValuesList: TypeAlias = list["aws_sdk_bedrock_agentcore_control.types.allowed_string_list_value.AllowedStringListValue"]
+AllowedStringListValuesList: TypeAlias = list[
+    "aws_sdk_bedrock_agentcore_control.types.allowed_string_list_value.AllowedStringListValue"
+]
 
 
 # --- restJson1 ser/de ---

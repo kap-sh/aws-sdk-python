@@ -1,19 +1,34 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#FilterOperator``."""
 
-import datetime
-import decimal
-from typing import AsyncIterator, Iterator, Literal, TypeAlias, cast
-from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
-from aws_sdk_bedrock_agentcore_control._protocol.xml import Element, SubElement
-import base64
-from email.utils import format_datetime as _fmt_http
-from email.utils import parsedate_to_datetime as _parse_http
+from typing import Literal, TypeAlias, cast
 
-FilterOperator: TypeAlias = Literal["Equals", "NotEquals", "GreaterThan", "LessThan", "GreaterThanOrEqual", "LessThanOrEqual", "Contains", "NotContains",]
+from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
+
+FilterOperator: TypeAlias = Literal[
+    "Equals",
+    "NotEquals",
+    "GreaterThan",
+    "LessThan",
+    "GreaterThanOrEqual",
+    "LessThanOrEqual",
+    "Contains",
+    "NotContains",
+]
 
 
 # --- restJson1 ser/de ---
-_VALUES: frozenset[str] = frozenset(("Equals", "NotEquals", "GreaterThan", "LessThan", "GreaterThanOrEqual", "LessThanOrEqual", "Contains", "NotContains",))
+_VALUES: frozenset[str] = frozenset(
+    (
+        "Equals",
+        "NotEquals",
+        "GreaterThan",
+        "LessThan",
+        "GreaterThanOrEqual",
+        "LessThanOrEqual",
+        "Contains",
+        "NotContains",
+    )
+)
 
 
 def serialize_json(value: FilterOperator) -> str:

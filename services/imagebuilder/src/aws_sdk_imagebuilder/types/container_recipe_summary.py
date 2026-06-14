@@ -20,7 +20,7 @@ class ContainerRecipeSummary(TypedDict):
     container_type: NotRequired[
         "aws_sdk_imagebuilder.types.container_type.ContainerType"
     ]
-    """<p>Specifies the type of container, such as \"Docker\".</p>"""
+    r"""<p>Specifies the type of container, such as \"Docker\".</p>"""
     name: NotRequired["aws_sdk_imagebuilder.types.resource_name.ResourceName"]
     """<p>The name of the container recipe.</p>"""
     platform: NotRequired["aws_sdk_imagebuilder.types.platform.Platform"]

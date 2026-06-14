@@ -19,7 +19,7 @@ class StartPipelineExecutionInput(TypedDict):
     variables: NotRequired[
         "aws_sdk_codepipeline.types.pipeline_variable_list.PipelineVariableList"
     ]
-    """<p>A list that overrides pipeline variables for a pipeline execution that's being started. Variable names must match <code>[A-Za-z0-9@\-_]+</code>, and the values can be anything except an empty string.</p>"""
+    r"""<p>A list that overrides pipeline variables for a pipeline execution that's being started. Variable names must match <code>[A-Za-z0-9@\-_]+</code>, and the values can be anything except an empty string.</p>"""
     client_request_token: NotRequired[
         "aws_sdk_codepipeline.types.client_request_token.ClientRequestToken"
     ]

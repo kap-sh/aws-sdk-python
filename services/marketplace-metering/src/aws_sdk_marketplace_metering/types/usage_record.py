@@ -36,11 +36,11 @@ class UsageRecord(TypedDict):
     customer_aws_account_id: NotRequired[
         "aws_sdk_marketplace_metering.types.customer_aws_account_id.CustomerAWSAccountId"
     ]
-    """<p>The <code>CustomerAWSAccountId</code> parameter specifies the AWS account ID of the buyer.</p> <note> <p>For existing integrations, to access your <code>CustomerIdentifier</code> to <code>CustomerAWSAccountId</code> mapping, see <a href=\"https://docs.aws.amazon.com/marketplace/latest/userguide/data-feed-account.html\">Account Feeds</a>.</p> </note>"""
+    r"""<p>The <code>CustomerAWSAccountId</code> parameter specifies the AWS account ID of the buyer.</p> <note> <p>For existing integrations, to access your <code>CustomerIdentifier</code> to <code>CustomerAWSAccountId</code> mapping, see <a href=\"https://docs.aws.amazon.com/marketplace/latest/userguide/data-feed-account.html\">Account Feeds</a>.</p> </note>"""
     license_arn: NotRequired[
         "aws_sdk_marketplace_metering.types.license_arn.LicenseArn"
     ]
-    """<p>The <code>LicenseArn</code> is a unique identifier for a specific granted license. These are used for software purchased through Amazon Web Services Marketplace.</p> <note> <p>To access your <code>CustomerAWSAccountId</code> and <code>LicenseArn</code> mapping, visit <a href=\"https://docs.aws.amazon.com/marketplace/latest/userguide/data-feed-agreements.html\">Agreements Feeds</a>.</p> </note>"""
+    r"""<p>The <code>LicenseArn</code> is a unique identifier for a specific granted license. These are used for software purchased through Amazon Web Services Marketplace.</p> <note> <p>To access your <code>CustomerAWSAccountId</code> and <code>LicenseArn</code> mapping, visit <a href=\"https://docs.aws.amazon.com/marketplace/latest/userguide/data-feed-agreements.html\">Agreements Feeds</a>.</p> </note>"""
 
 
 # --- awsJson1_1 ser/de ---

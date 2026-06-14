@@ -8,7 +8,7 @@ if TYPE_CHECKING:
 
 class CancelAuditTaskRequest(TypedDict):
     task_id: "aws_sdk_iot.types.audit_task_id.AuditTaskId"
-    """<p>The ID of the audit you want to cancel. You can only cancel an audit that is \"IN_PROGRESS\".</p>"""
+    r"""<p>The ID of the audit you want to cancel. You can only cancel an audit that is \"IN_PROGRESS\".</p>"""
 
 
 # --- restJson1 ser/de ---

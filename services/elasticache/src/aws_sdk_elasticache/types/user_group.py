@@ -19,7 +19,7 @@ class UserGroup(TypedDict):
     user_group_id: NotRequired["aws_sdk_elasticache.types.string.String"]
     """<p>The ID of the user group.</p>"""
     status: NotRequired["aws_sdk_elasticache.types.string.String"]
-    """<p>Indicates user group status. Can be \"creating\", \"active\", \"modifying\", \"deleting\".</p>"""
+    r"""<p>Indicates user group status. Can be \"creating\", \"active\", \"modifying\", \"deleting\".</p>"""
     engine: NotRequired["aws_sdk_elasticache.types.engine_type.EngineType"]
     """<p>The options are valkey or redis.</p>"""
     user_ids: NotRequired["aws_sdk_elasticache.types.user_id_list.UserIdList"]

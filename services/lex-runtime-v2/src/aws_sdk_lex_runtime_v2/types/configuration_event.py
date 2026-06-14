@@ -27,7 +27,7 @@ class ConfigurationEvent(TypedDict):
         "aws_sdk_lex_runtime_v2.types.session_state.SessionState"
     ]
     welcome_messages: NotRequired["aws_sdk_lex_runtime_v2.types.messages.Messages"]
-    """<p>A list of messages to send to the user.</p> <p>If you set the <code>welcomeMessage</code> field, you must also set the <a href=\"https://docs.aws.amazon.com/lexv2/latest/dg/API_runtime_DialogAction.html\"> <code>DialogAction</code> </a> structure's <a href=\"https://docs.aws.amazon.com/lexv2/latest/dg/API_runtime_DialogAction.html#lexv2-Type-runtime_DialogAction-type\"> <code>type</code> </a> field.</p>"""
+    r"""<p>A list of messages to send to the user.</p> <p>If you set the <code>welcomeMessage</code> field, you must also set the <a href=\"https://docs.aws.amazon.com/lexv2/latest/dg/API_runtime_DialogAction.html\"> <code>DialogAction</code> </a> structure's <a href=\"https://docs.aws.amazon.com/lexv2/latest/dg/API_runtime_DialogAction.html#lexv2-Type-runtime_DialogAction-type\"> <code>type</code> </a> field.</p>"""
     disable_playback: "aws_sdk_lex_runtime_v2.types.boolean.Boolean"
     """<p>Determines whether Amazon Lex V2 should send audio responses to the client application. </p> <p>Set this field to false when the client is operating in a playback mode where audio responses are played to the user. If the client isn't operating in playback mode, such as a text chat application, set this to true so that Amazon Lex V2 doesn't wait for the prompt to finish playing on the client.</p>"""
     event_id: NotRequired["aws_sdk_lex_runtime_v2.types.event_id.EventId"]

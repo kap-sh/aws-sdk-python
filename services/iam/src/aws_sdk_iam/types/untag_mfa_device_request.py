@@ -12,7 +12,7 @@ if TYPE_CHECKING:
 
 class UntagMFADeviceRequest(TypedDict):
     serial_number: "aws_sdk_iam.types.serial_number_type.serialNumberType"
-    """<p>The unique identifier for the IAM virtual MFA device from which you want to remove tags. For virtual MFA devices, the serial number is the same as the ARN.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>"""
+    r"""<p>The unique identifier for the IAM virtual MFA device from which you want to remove tags. For virtual MFA devices, the serial number is the same as the ARN.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>"""
     tag_keys: "aws_sdk_iam.types.tag_key_list_type.tagKeyListType"
     """<p>A list of key names as a simple array of strings. The tags with matching keys are removed from the specified instance profile.</p>"""
 

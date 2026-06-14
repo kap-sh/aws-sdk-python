@@ -287,7 +287,7 @@ class CodeCommitClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = CodeCommitClientConfig(
+        self._config = CodeCommitClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -307,7 +307,7 @@ class CodeCommitClient:
         overrides: CodeCommitClientConfig = config_overrides or {}
         interceptors_: list[Interceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             retry(),
         ]
@@ -315,16 +315,16 @@ class CodeCommitClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            region=overrides.get("region", self.config.get("region")),
+            region=overrides.get("region", self._config.get("region")),
             use_dual_stack=overrides.get(
-                "use_dual_stack", self.config.get("use_dual_stack")
+                "use_dual_stack", self._config.get("use_dual_stack")
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -612,7 +612,7 @@ class CodeCommitClient:
             "aws_sdk_codecommit.types.approval_rule_template_description.ApprovalRuleTemplateDescription"
         ] = None,
     ) -> "aws_sdk_codecommit.types.create_approval_rule_template_output.CreateApprovalRuleTemplateOutput":
-        """<p>Creates a template for approval rules that can then be associated with one or more repositories in your Amazon Web Services account. When you associate a template with a repository, CodeCommit creates an approval rule that matches the conditions of the template for all pull requests that meet the conditions of the template. For more information, see <a>AssociateApprovalRuleTemplateWithRepository</a>.</p>
+        r"""<p>Creates a template for approval rules that can then be associated with one or more repositories in your Amazon Web Services account. When you associate a template with a repository, CodeCommit creates an approval rule that matches the conditions of the template for all pull requests that meet the conditions of the template. For more information, see <a>AssociateApprovalRuleTemplateWithRepository</a>.</p>
 
         Args:
             approval_rule_template_name: <p>The name of the approval rule template. Provide descriptive names, because this name is applied to the approval rules created automatically in associated repositories.</p>
@@ -833,7 +833,7 @@ class CodeCommitClient:
         *,
         config_overrides: Optional[CodeCommitClientConfig] = None,
     ) -> "aws_sdk_codecommit.types.create_pull_request_approval_rule_output.CreatePullRequestApprovalRuleOutput":
-        """<p>Creates an approval rule for a pull request.</p>
+        r"""<p>Creates an approval rule for a pull request.</p>
 
         Args:
             pull_request_id: <p>The system-generated ID of the pull request for which you want to create the approval rule.</p>
@@ -879,7 +879,7 @@ class CodeCommitClient:
         tags: Optional["aws_sdk_codecommit.types.tags_map.TagsMap"] = None,
         kms_key_id: Optional["aws_sdk_codecommit.types.kms_key_id.KmsKeyId"] = None,
     ) -> "aws_sdk_codecommit.types.create_repository_output.CreateRepositoryOutput":
-        """<p>Creates a new, empty repository.</p>
+        r"""<p>Creates a new, empty repository.</p>
 
         Args:
             repository_name: <p>The name of the new repository to be created.</p> <note> <p>The repository name must be unique across the calling Amazon Web Services account. Repository names are limited to 100 alphanumeric, dash, and underscore characters, and cannot include certain characters. For more information about the limits on repository names, see <a href=\"https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html\">Quotas</a> in the <i>CodeCommit User Guide</i>. The suffix .git is prohibited.</p> </note>
@@ -2724,7 +2724,7 @@ class CodeCommitClient:
         config_overrides: Optional[CodeCommitClientConfig] = None,
         next_token: Optional["aws_sdk_codecommit.types.next_token.NextToken"] = None,
     ) -> "aws_sdk_codecommit.types.list_tags_for_resource_output.ListTagsForResourceOutput":
-        """<p>Gets information about Amazon Web Servicestags for a specified Amazon Resource Name (ARN) in CodeCommit. For a list of valid resources in CodeCommit, see <a href=\"https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats\">CodeCommit Resources and Operations</a> in the<i> CodeCommit User Guide</i>.</p>
+        r"""<p>Gets information about Amazon Web Servicestags for a specified Amazon Resource Name (ARN) in CodeCommit. For a list of valid resources in CodeCommit, see <a href=\"https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats\">CodeCommit Resources and Operations</a> in the<i> CodeCommit User Guide</i>.</p>
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource for which you want to get information about tags, if any.</p>
@@ -3399,7 +3399,7 @@ class CodeCommitClient:
         *,
         config_overrides: Optional[CodeCommitClientConfig] = None,
     ) -> None:
-        """<p>Adds or updates a reaction to a specified comment for the user whose identity is used to make the request. You can only add or update a reaction for yourself. You cannot add, modify, or delete a reaction for another user.</p>
+        r"""<p>Adds or updates a reaction to a specified comment for the user whose identity is used to make the request. You can only add or update a reaction for yourself. You cannot add, modify, or delete a reaction for another user.</p>
 
         Args:
             comment_id: <p>The ID of the comment to which you want to add or update a reaction.</p>
@@ -3547,7 +3547,7 @@ class CodeCommitClient:
         *,
         config_overrides: Optional[CodeCommitClientConfig] = None,
     ) -> None:
-        """<p>Adds or updates tags for a resource in CodeCommit. For a list of valid resources in CodeCommit, see <a href=\"https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats\">CodeCommit Resources and Operations</a> in the <i>CodeCommit User Guide</i>.</p>
+        r"""<p>Adds or updates tags for a resource in CodeCommit. For a list of valid resources in CodeCommit, see <a href=\"https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats\">CodeCommit Resources and Operations</a> in the <i>CodeCommit User Guide</i>.</p>
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource to which you want to add or update tags.</p>
@@ -3625,7 +3625,7 @@ class CodeCommitClient:
         *,
         config_overrides: Optional[CodeCommitClientConfig] = None,
     ) -> None:
-        """<p>Removes tags for a resource in CodeCommit. For a list of valid resources in CodeCommit, see <a href=\"https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats\">CodeCommit Resources and Operations</a> in the <i>CodeCommit User Guide</i>.</p>
+        r"""<p>Removes tags for a resource in CodeCommit. For a list of valid resources in CodeCommit, see <a href=\"https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats\">CodeCommit Resources and Operations</a> in the <i>CodeCommit User Guide</i>.</p>
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource to which you want to remove tags.</p>
@@ -3873,7 +3873,7 @@ class CodeCommitClient:
             "aws_sdk_codecommit.types.rule_content_sha256.RuleContentSha256"
         ] = None,
     ) -> "aws_sdk_codecommit.types.update_pull_request_approval_rule_content_output.UpdatePullRequestApprovalRuleContentOutput":
-        """<p>Updates the structure of an approval rule created specifically for a pull request. For example, you can change the number of required approvers and the approval pool for approvers. </p>
+        r"""<p>Updates the structure of an approval rule created specifically for a pull request. For example, you can change the number of required approvers and the approval pool for approvers. </p>
 
         Args:
             pull_request_id: <p>The system-generated ID of the pull request.</p>
@@ -4120,7 +4120,7 @@ class CodeCommitClient:
         *,
         config_overrides: Optional[CodeCommitClientConfig] = None,
     ) -> "aws_sdk_codecommit.types.update_repository_encryption_key_output.UpdateRepositoryEncryptionKeyOutput":
-        """<p>Updates the Key Management Service encryption key used to encrypt and decrypt a CodeCommit repository.</p>
+        r"""<p>Updates the Key Management Service encryption key used to encrypt and decrypt a CodeCommit repository.</p>
 
         Args:
             repository_name: <p>The name of the repository for which you want to update the KMS encryption key used to encrypt and decrypt the repository.</p>
@@ -4160,7 +4160,7 @@ class CodeCommitClient:
         *,
         config_overrides: Optional[CodeCommitClientConfig] = None,
     ) -> None:
-        """<p>Renames a repository. The repository name must be unique across the calling Amazon Web Services account. Repository names are limited to 100 alphanumeric, dash, and underscore characters, and cannot include certain characters. The suffix .git is prohibited. For more information about the limits on repository names, see <a href=\"https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html\">Quotas</a> in the CodeCommit User Guide.</p>
+        r"""<p>Renames a repository. The repository name must be unique across the calling Amazon Web Services account. Repository names are limited to 100 alphanumeric, dash, and underscore characters, and cannot include certain characters. The suffix .git is prohibited. For more information about the limits on repository names, see <a href=\"https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html\">Quotas</a> in the CodeCommit User Guide.</p>
 
         Args:
             old_name: <p>The current name of the repository.</p>

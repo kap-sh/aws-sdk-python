@@ -26,7 +26,7 @@ class CSVOutput(TypedDict):
     field_delimiter: NotRequired["aws_sdk_s3.types.field_delimiter.FieldDelimiter"]
     """<p>The value used to separate individual fields in a record. You can specify an arbitrary delimiter.</p>"""
     quote_character: NotRequired["aws_sdk_s3.types.quote_character.QuoteCharacter"]
-    """<p>A single character used for escaping when the field delimiter is part of the value. For example, if the value is <code>a, b</code>, Amazon S3 wraps this field value in quotation marks, as follows: <code>\" a , b \"</code>.</p>"""
+    r"""<p>A single character used for escaping when the field delimiter is part of the value. For example, if the value is <code>a, b</code>, Amazon S3 wraps this field value in quotation marks, as follows: <code>\" a , b \"</code>.</p>"""
 
 
 # --- restXml ser/de ---

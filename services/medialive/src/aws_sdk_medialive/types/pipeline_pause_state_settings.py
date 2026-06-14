@@ -10,7 +10,7 @@ if TYPE_CHECKING:
 
 class PipelinePauseStateSettings(TypedDict):
     pipeline_id: NotRequired["aws_sdk_medialive.types.pipeline_id.PipelineId"]
-    """Pipeline ID to pause (\"PIPELINE_0\" or \"PIPELINE_1\")."""
+    r"""Pipeline ID to pause (\"PIPELINE_0\" or \"PIPELINE_1\")."""
 
 
 # --- restJson1 ser/de ---

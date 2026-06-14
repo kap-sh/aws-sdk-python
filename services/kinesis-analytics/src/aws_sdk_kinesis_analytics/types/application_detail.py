@@ -42,19 +42,19 @@ class ApplicationDetail(TypedDict):
     input_descriptions: NotRequired[
         "aws_sdk_kinesis_analytics.types.input_descriptions.InputDescriptions"
     ]
-    """<p>Describes the application input configuration. For more information, see <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html\">Configuring Application Input</a>. </p>"""
+    r"""<p>Describes the application input configuration. For more information, see <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html\">Configuring Application Input</a>. </p>"""
     output_descriptions: NotRequired[
         "aws_sdk_kinesis_analytics.types.output_descriptions.OutputDescriptions"
     ]
-    """<p>Describes the application output configuration. For more information, see <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html\">Configuring Application Output</a>. </p>"""
+    r"""<p>Describes the application output configuration. For more information, see <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html\">Configuring Application Output</a>. </p>"""
     reference_data_source_descriptions: NotRequired[
         "aws_sdk_kinesis_analytics.types.reference_data_source_descriptions.ReferenceDataSourceDescriptions"
     ]
-    """<p>Describes reference data sources configured for the application. For more information, see <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html\">Configuring Application Input</a>. </p>"""
+    r"""<p>Describes reference data sources configured for the application. For more information, see <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html\">Configuring Application Input</a>. </p>"""
     cloud_watch_logging_option_descriptions: NotRequired[
         "aws_sdk_kinesis_analytics.types.cloud_watch_logging_option_descriptions.CloudWatchLoggingOptionDescriptions"
     ]
-    """<p>Describes the CloudWatch log streams that are configured to receive application messages. For more information about using CloudWatch log streams with Amazon Kinesis Analytics applications, see <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/cloudwatch-logs.html\">Working with Amazon CloudWatch Logs</a>. </p>"""
+    r"""<p>Describes the CloudWatch log streams that are configured to receive application messages. For more information about using CloudWatch log streams with Amazon Kinesis Analytics applications, see <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/cloudwatch-logs.html\">Working with Amazon CloudWatch Logs</a>. </p>"""
     application_code: NotRequired[
         "aws_sdk_kinesis_analytics.types.application_code.ApplicationCode"
     ]

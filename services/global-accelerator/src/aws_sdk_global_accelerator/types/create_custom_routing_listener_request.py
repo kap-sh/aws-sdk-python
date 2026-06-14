@@ -14,7 +14,7 @@ class CreateCustomRoutingListenerRequest(TypedDict):
     accelerator_arn: "aws_sdk_global_accelerator.types.generic_string.GenericString"
     """<p>The Amazon Resource Name (ARN) of the accelerator for a custom routing listener.</p>"""
     port_ranges: "aws_sdk_global_accelerator.types.port_ranges.PortRanges"
-    """<p>The port range to support for connections from clients to your accelerator.</p> <p>Separately, you set port ranges for endpoints. For more information, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/about-custom-routing-endpoints.html\">About endpoints for custom routing accelerators</a>.</p>"""
+    r"""<p>The port range to support for connections from clients to your accelerator.</p> <p>Separately, you set port ranges for endpoints. For more information, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/about-custom-routing-endpoints.html\">About endpoints for custom routing accelerators</a>.</p>"""
     idempotency_token: (
         "aws_sdk_global_accelerator.types.idempotency_token.IdempotencyToken"
     )

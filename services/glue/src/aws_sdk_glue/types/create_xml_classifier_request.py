@@ -18,7 +18,7 @@ class CreateXMLClassifierRequest(TypedDict):
     name: "aws_sdk_glue.types.name_string.NameString"
     """<p>The name of the classifier.</p>"""
     row_tag: NotRequired["aws_sdk_glue.types.row_tag.RowTag"]
-    """<p>The XML tag designating the element that contains each record in an XML document being parsed. This can't identify a self-closing element (closed by <code>/></code>). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, <code><row item_a=\"A\" item_b=\"B\"></row></code> is okay, but <code><row item_a=\"A\" item_b=\"B\" /></code> is not).</p>"""
+    r"""<p>The XML tag designating the element that contains each record in an XML document being parsed. This can't identify a self-closing element (closed by <code>/></code>). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, <code><row item_a=\"A\" item_b=\"B\"></row></code> is okay, but <code><row item_a=\"A\" item_b=\"B\" /></code> is not).</p>"""
 
 
 # --- awsJson1_1 ser/de ---

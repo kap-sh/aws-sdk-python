@@ -19,7 +19,7 @@ class MetricDatum(TypedDict):
     standard_metric_name: NotRequired[
         "aws_sdk_sagemaker.types.auto_ml_metric_extended_enum.AutoMLMetricExtendedEnum"
     ]
-    """<p>The name of the standard metric. </p> <note> <p>For definitions of the standard metrics, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-model-support-validation.html#autopilot-metrics\"> <code>Autopilot candidate metrics</code> </a>.</p> </note>"""
+    r"""<p>The name of the standard metric. </p> <note> <p>For definitions of the standard metrics, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-model-support-validation.html#autopilot-metrics\"> <code>Autopilot candidate metrics</code> </a>.</p> </note>"""
     value: NotRequired["aws_sdk_sagemaker.types.float.Float"]
     """<p>The value of the metric.</p>"""
     set: NotRequired["aws_sdk_sagemaker.types.metric_set_source.MetricSetSource"]

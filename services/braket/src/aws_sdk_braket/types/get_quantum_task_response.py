@@ -49,7 +49,7 @@ class GetQuantumTaskResponse(TypedDict):
     queue_info: NotRequired[
         "aws_sdk_braket.types.quantum_task_queue_info.QuantumTaskQueueInfo"
     ]
-    """<p>Queue information for the requested quantum task. Only returned if <code>QueueInfo</code> is specified in the <code>additionalAttributeNames\"</code> field in the <code>GetQuantumTask</code> API request.</p>"""
+    r"""<p>Queue information for the requested quantum task. Only returned if <code>QueueInfo</code> is specified in the <code>additionalAttributeNames\"</code> field in the <code>GetQuantumTask</code> API request.</p>"""
     associations: NotRequired["aws_sdk_braket.types.associations.Associations"]
     """<p>The list of Amazon Braket resources associated with the quantum task.</p>"""
     num_successful_shots: NotRequired["int"]

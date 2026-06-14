@@ -12,7 +12,7 @@ if TYPE_CHECKING:
 
 class TagSAMLProviderRequest(TypedDict):
     saml_provider_arn: "aws_sdk_iam.types.arn_type.arnType"
-    """<p>The ARN of the SAML identity provider in IAM to which you want to add tags.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>"""
+    r"""<p>The ARN of the SAML identity provider in IAM to which you want to add tags.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>"""
     tags: "aws_sdk_iam.types.tag_list_type.tagListType"
     """<p>The list of tags that you want to attach to the SAML identity provider in IAM. Each tag consists of a key name and an associated value.</p>"""
 

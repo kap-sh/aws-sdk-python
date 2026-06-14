@@ -10,7 +10,7 @@ if TYPE_CHECKING:
 
 class EventBridgeDataSourceConfig(TypedDict):
     event_bus_arn: "aws_sdk_appsync.types.string.String"
-    """<p>The ARN of the event bus. For more information about event buses, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-bus.html\">Amazon EventBridge event buses</a>.</p>"""
+    r"""<p>The ARN of the event bus. For more information about event buses, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-bus.html\">Amazon EventBridge event buses</a>.</p>"""
 
 
 # --- restJson1 ser/de ---

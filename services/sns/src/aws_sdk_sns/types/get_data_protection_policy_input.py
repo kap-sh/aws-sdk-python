@@ -11,7 +11,7 @@ if TYPE_CHECKING:
 
 class GetDataProtectionPolicyInput(TypedDict):
     resource_arn: "aws_sdk_sns.types.topic_arn.topicARN"
-    """<p>The ARN of the topic whose <code>DataProtectionPolicy</code> you want to get.</p> <p>For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the Amazon Web Services General Reference.</p>"""
+    r"""<p>The ARN of the topic whose <code>DataProtectionPolicy</code> you want to get.</p> <p>For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the Amazon Web Services General Reference.</p>"""
 
 
 # --- awsQuery ser/de ---

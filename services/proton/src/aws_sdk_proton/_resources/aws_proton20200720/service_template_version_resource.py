@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 from aws_sdk_proton._services._pipeline import (
@@ -60,7 +62,7 @@ class ServiceTemplateVersionResource:
             "aws_sdk_proton.types.service_template_supported_component_source_input_list.ServiceTemplateSupportedComponentSourceInputList"
         ] = None,
     ) -> "aws_sdk_proton.types.create_service_template_version_output.CreateServiceTemplateVersionOutput":
-        """<p>Create a new major or minor version of a service template. A major version of a service template is a version that <i>isn't</i> backward compatible. A minor version of a service template is a version that's backward compatible within its major version.</p>
+        r"""<p>Create a new major or minor version of a service template. A major version of a service template is a version that <i>isn't</i> backward compatible. A minor version of a service template is a version that's backward compatible within its major version.</p>
 
         Args:
             client_token: <p>When included, if two identical requests are made with the same client token, Proton returns the service template version that the first request created.</p>
@@ -171,7 +173,7 @@ class ServiceTemplateVersionResource:
             "aws_sdk_proton.types.service_template_supported_component_source_input_list.ServiceTemplateSupportedComponentSourceInputList"
         ] = None,
     ) -> "aws_sdk_proton.types.update_service_template_version_output.UpdateServiceTemplateVersionOutput":
-        """<p>Update a major or minor version of a service template.</p>
+        r"""<p>Update a major or minor version of a service template.</p>
 
         Args:
             template_name: <p>The name of the service template.</p>
@@ -338,7 +340,7 @@ class AsyncServiceTemplateVersionResource:
             "aws_sdk_proton.types.service_template_supported_component_source_input_list.ServiceTemplateSupportedComponentSourceInputList"
         ] = None,
     ) -> "aws_sdk_proton.types.create_service_template_version_output.CreateServiceTemplateVersionOutput":
-        """<p>Create a new major or minor version of a service template. A major version of a service template is a version that <i>isn't</i> backward compatible. A minor version of a service template is a version that's backward compatible within its major version.</p>
+        r"""<p>Create a new major or minor version of a service template. A major version of a service template is a version that <i>isn't</i> backward compatible. A minor version of a service template is a version that's backward compatible within its major version.</p>
 
         Args:
             client_token: <p>When included, if two identical requests are made with the same client token, Proton returns the service template version that the first request created.</p>
@@ -451,7 +453,7 @@ class AsyncServiceTemplateVersionResource:
             "aws_sdk_proton.types.service_template_supported_component_source_input_list.ServiceTemplateSupportedComponentSourceInputList"
         ] = None,
     ) -> "aws_sdk_proton.types.update_service_template_version_output.UpdateServiceTemplateVersionOutput":
-        """<p>Update a major or minor version of a service template.</p>
+        r"""<p>Update a major or minor version of a service template.</p>
 
         Args:
             template_name: <p>The name of the service template.</p>

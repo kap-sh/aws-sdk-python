@@ -22,7 +22,7 @@ class FieldTypeDetails(TypedDict):
     supported_values: NotRequired[
         "aws_sdk_appflow.types.supported_value_list.SupportedValueList"
     ]
-    """<p> The list of values that a field can contain. For example, a Boolean <code>fieldType</code> can have two values: \"true\" and \"false\". </p>"""
+    r"""<p> The list of values that a field can contain. For example, a Boolean <code>fieldType</code> can have two values: \"true\" and \"false\". </p>"""
     value_regex_pattern: NotRequired["aws_sdk_appflow.types.string.String"]
     """<p>The regular expression pattern for the field name.</p>"""
     supported_date_format: NotRequired["aws_sdk_appflow.types.string.String"]

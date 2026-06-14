@@ -10,9 +10,9 @@ if TYPE_CHECKING:
 
 class Identity(TypedDict):
     principal_id: NotRequired["aws_sdk_dynamodb_streams.types.string.String"]
-    """<p>A unique identifier for the entity that made the call. For Time To Live, the principalId is \"dynamodb.amazonaws.com\".</p>"""
+    r"""<p>A unique identifier for the entity that made the call. For Time To Live, the principalId is \"dynamodb.amazonaws.com\".</p>"""
     type: NotRequired["aws_sdk_dynamodb_streams.types.string.String"]
-    """<p>The type of the identity. For Time To Live, the type is \"Service\".</p>"""
+    r"""<p>The type of the identity. For Time To Live, the type is \"Service\".</p>"""
 
 
 # --- awsJson1_0 ser/de ---

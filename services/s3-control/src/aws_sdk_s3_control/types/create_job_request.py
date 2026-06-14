@@ -29,7 +29,7 @@ class CreateJobRequest(TypedDict):
     ]
     """<p>Indicates whether confirmation is required before Amazon S3 runs the job. Confirmation is only required for jobs created through the Amazon S3 console.</p>"""
     operation: "aws_sdk_s3_control.types.job_operation.JobOperation"
-    """<p>The action that you want this job to perform on every object listed in the manifest. For more information about the available actions, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-operations.html\">Operations</a> in the <i>Amazon S3 User Guide</i>.</p>"""
+    r"""<p>The action that you want this job to perform on every object listed in the manifest. For more information about the available actions, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-operations.html\">Operations</a> in the <i>Amazon S3 User Guide</i>.</p>"""
     report: "aws_sdk_s3_control.types.job_report.JobReport"
     """<p>Configuration parameters for the optional job-completion report.</p>"""
     client_request_token: "aws_sdk_s3_control.types.non_empty_max_length64_string.NonEmptyMaxLength64String"

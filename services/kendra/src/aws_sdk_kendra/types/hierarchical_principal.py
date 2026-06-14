@@ -10,7 +10,7 @@ if TYPE_CHECKING:
 
 class HierarchicalPrincipal(TypedDict):
     principal_list: "aws_sdk_kendra.types.principal_list.PrincipalList"
-    """<p>A list of <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/API_Principal.html\">principal</a> lists that define the hierarchy for which documents users should have access to. Each hierarchical list specifies which user or group has allow or deny access for each document.</p>"""
+    r"""<p>A list of <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/API_Principal.html\">principal</a> lists that define the hierarchy for which documents users should have access to. Each hierarchical list specifies which user or group has allow or deny access for each document.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

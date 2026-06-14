@@ -44,7 +44,7 @@ class GetStaticMapRequest(TypedDict):
     geo_json_overlay: NotRequired[
         "aws_sdk_geo_maps.types.geo_json_overlay.GeoJsonOverlay"
     ]
-    """<p>Takes in a string to draw geometries on the image. The input is a valid GeoJSON collection object. </p> <p>Example: <code>{\"type\":\"FeatureCollection\",\"features\": [{\"type\":\"Feature\",\"geometry\":{\"type\":\"MultiPoint\",\"coordinates\": [[-90.076345,51.504107],[-0.074451,51.506892]]},\"properties\": {\"color\":\"#00DD00\"}}]}</code> </p>"""
+    r"""<p>Takes in a string to draw geometries on the image. The input is a valid GeoJSON collection object. </p> <p>Example: <code>{\"type\":\"FeatureCollection\",\"features\": [{\"type\":\"Feature\",\"geometry\":{\"type\":\"MultiPoint\",\"coordinates\": [[-90.076345,51.504107],[-0.074451,51.506892]]},\"properties\": {\"color\":\"#00DD00\"}}]}</code> </p>"""
     height: "aws_sdk_geo_maps.types.sensitive_integer.SensitiveInteger"
     """<p>Specifies the height of the map image.</p>"""
     key: NotRequired["aws_sdk_geo_maps.types.api_key.ApiKey"]

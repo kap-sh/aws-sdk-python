@@ -10,7 +10,7 @@ if TYPE_CHECKING:
 
 class DeleteHomeRegionControlRequest(TypedDict):
     control_id: "aws_sdk_migrationhub_config.types.control_id.ControlId"
-    """<p>A unique identifier that's generated for each home region control. It's always a string that begins with \"hrc-\" followed by 12 lowercase letters and numbers.</p>"""
+    r"""<p>A unique identifier that's generated for each home region control. It's always a string that begins with \"hrc-\" followed by 12 lowercase letters and numbers.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

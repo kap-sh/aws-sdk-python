@@ -26,7 +26,7 @@ class HlsAkamaiSettings(TypedDict):
     ]
     """Specify whether or not to use chunked transfer encoding to Akamai. User should contact Akamai to enable this feature."""
     num_retries: NotRequired["aws_sdk_medialive.types.__integer_min0.__integerMin0"]
-    """Number of retry attempts that will be made before the Live Event is put into an error state. Applies only if the CDN destination URI begins with \"s3\" or \"mediastore\". For other URIs, the value is always 3."""
+    r"""Number of retry attempts that will be made before the Live Event is put into an error state. Applies only if the CDN destination URI begins with \"s3\" or \"mediastore\". For other URIs, the value is always 3."""
     restart_delay: NotRequired[
         "aws_sdk_medialive.types.__integer_min0_max15.__integerMin0Max15"
     ]

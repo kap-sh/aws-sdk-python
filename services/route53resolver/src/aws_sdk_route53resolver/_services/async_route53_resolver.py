@@ -420,7 +420,7 @@ class AsyncRoute53ResolverClient:
         *,
         config_overrides: Optional[AsyncRoute53ResolverClientConfig] = None,
     ) -> "aws_sdk_route53resolver.types.associate_resolver_endpoint_ip_address_response.AssociateResolverEndpointIpAddressResponse":
-        """<p>Adds IP addresses to an inbound or an outbound Resolver endpoint. If you want to add more than one IP address, submit one <code>AssociateResolverEndpointIpAddress</code> request for each IP address.</p> <p>To remove an IP address from an endpoint, see <a href=\"https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DisassociateResolverEndpointIpAddress.html\">DisassociateResolverEndpointIpAddress</a>. </p>
+        r"""<p>Adds IP addresses to an inbound or an outbound Resolver endpoint. If you want to add more than one IP address, submit one <code>AssociateResolverEndpointIpAddress</code> request for each IP address.</p> <p>To remove an IP address from an endpoint, see <a href=\"https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DisassociateResolverEndpointIpAddress.html\">DisassociateResolverEndpointIpAddress</a>. </p>
 
         Args:
             resolver_endpoint_id: <p>The ID of the Resolver endpoint that you want to associate IP addresses with.</p>
@@ -461,7 +461,7 @@ class AsyncRoute53ResolverClient:
         *,
         config_overrides: Optional[AsyncRoute53ResolverClientConfig] = None,
     ) -> "aws_sdk_route53resolver.types.associate_resolver_query_log_config_response.AssociateResolverQueryLogConfigResponse":
-        """<p>Associates an Amazon VPC with a specified query logging configuration. Route 53 Resolver logs DNS queries that originate in all of the Amazon VPCs that are associated with a specified query logging configuration. To associate more than one VPC with a configuration, submit one <code>AssociateResolverQueryLogConfig</code> request for each VPC.</p> <note> <p>The VPCs that you associate with a query logging configuration must be in the same Region as the configuration.</p> </note> <p>To remove a VPC from a query logging configuration, see <a href=\"https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DisassociateResolverQueryLogConfig.html\">DisassociateResolverQueryLogConfig</a>. </p>
+        r"""<p>Associates an Amazon VPC with a specified query logging configuration. Route 53 Resolver logs DNS queries that originate in all of the Amazon VPCs that are associated with a specified query logging configuration. To associate more than one VPC with a configuration, submit one <code>AssociateResolverQueryLogConfig</code> request for each VPC.</p> <note> <p>The VPCs that you associate with a query logging configuration must be in the same Region as the configuration.</p> </note> <p>To remove a VPC from a query logging configuration, see <a href=\"https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DisassociateResolverQueryLogConfig.html\">DisassociateResolverQueryLogConfig</a>. </p>
 
         Args:
             resolver_query_log_config_id: <p>The ID of the query logging configuration that you want to associate a VPC with.</p>
@@ -503,7 +503,7 @@ class AsyncRoute53ResolverClient:
         config_overrides: Optional[AsyncRoute53ResolverClientConfig] = None,
         name: Optional["aws_sdk_route53resolver.types.name.Name"] = None,
     ) -> "aws_sdk_route53resolver.types.associate_resolver_rule_response.AssociateResolverRuleResponse":
-        """<p>Associates a Resolver rule with a VPC. When you associate a rule with a VPC, Resolver forwards all DNS queries for the domain name that is specified in the rule and that originate in the VPC. The queries are forwarded to the IP addresses for the DNS resolvers that are specified in the rule. For more information about rules, see <a href=\"https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_CreateResolverRule.html\">CreateResolverRule</a>. </p>
+        r"""<p>Associates a Resolver rule with a VPC. When you associate a rule with a VPC, Resolver forwards all DNS queries for the domain name that is specified in the rule and that originate in the VPC. The queries are forwarded to the IP addresses for the DNS resolvers that are specified in the rule. For more information about rules, see <a href=\"https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_CreateResolverRule.html\">CreateResolverRule</a>. </p>
 
         Args:
             resolver_rule_id: <p>The ID of the Resolver rule that you want to associate with the VPC. To list the existing Resolver rules, use <a href=\"https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverRules.html\">ListResolverRules</a>.</p>
@@ -737,7 +737,7 @@ class AsyncRoute53ResolverClient:
             "aws_sdk_route53resolver.types.firewall_rule_type.FirewallRuleType"
         ] = None,
     ) -> "aws_sdk_route53resolver.types.create_firewall_rule_response.CreateFirewallRuleResponse":
-        """<p>Creates a single DNS Firewall rule in the specified rule group, using the specified domain list.</p>
+        r"""<p>Creates a single DNS Firewall rule in the specified rule group, using the specified domain list.</p>
 
         Args:
             creator_request_id: <p>A unique string that identifies the request and that allows you to retry failed requests without the risk of running the operation twice. <code>CreatorRequestId</code> can be any unique string, for example, a date/time stamp. </p>
@@ -946,7 +946,7 @@ class AsyncRoute53ResolverClient:
             "aws_sdk_route53resolver.types.ipv6_internet_access_enabled.Ipv6InternetAccessEnabled"
         ] = None,
     ) -> "aws_sdk_route53resolver.types.create_resolver_endpoint_response.CreateResolverEndpointResponse":
-        """<p>Creates a Resolver endpoint. There are two types of Resolver endpoints, inbound and outbound:</p> <ul> <li> <p>An <i>inbound Resolver endpoint</i> forwards DNS queries to the DNS service for a VPC from your network.</p> </li> <li> <p>An <i>outbound Resolver endpoint</i> forwards DNS queries from the DNS service for a VPC to your network.</p> </li> </ul>
+        r"""<p>Creates a Resolver endpoint. There are two types of Resolver endpoints, inbound and outbound:</p> <ul> <li> <p>An <i>inbound Resolver endpoint</i> forwards DNS queries to the DNS service for a VPC from your network.</p> </li> <li> <p>An <i>outbound Resolver endpoint</i> forwards DNS queries from the DNS service for a VPC to your network.</p> </li> </ul>
 
         Args:
             creator_request_id: <p>A unique string that identifies the request and that allows failed requests to be retried without the risk of running the operation twice. <code>CreatorRequestId</code> can be any unique string, for example, a date/time stamp. </p>
@@ -1025,7 +1025,7 @@ class AsyncRoute53ResolverClient:
         config_overrides: Optional[AsyncRoute53ResolverClientConfig] = None,
         tags: Optional["aws_sdk_route53resolver.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_route53resolver.types.create_resolver_query_log_config_response.CreateResolverQueryLogConfigResponse":
-        """<p>Creates a Resolver query logging configuration, which defines where you want Resolver to save DNS query logs that originate in your VPCs. Resolver can log queries only for VPCs that are in the same Region as the query logging configuration.</p> <p>To specify which VPCs you want to log queries for, you use <code>AssociateResolverQueryLogConfig</code>. For more information, see <a href=\"https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_AssociateResolverQueryLogConfig.html\">AssociateResolverQueryLogConfig</a>. </p> <p>You can optionally use Resource Access Manager (RAM) to share a query logging configuration with other Amazon Web Services accounts. The other accounts can then associate VPCs with the configuration. The query logs that Resolver creates for a configuration include all DNS queries that originate in all VPCs that are associated with the configuration.</p>
+        r"""<p>Creates a Resolver query logging configuration, which defines where you want Resolver to save DNS query logs that originate in your VPCs. Resolver can log queries only for VPCs that are in the same Region as the query logging configuration.</p> <p>To specify which VPCs you want to log queries for, you use <code>AssociateResolverQueryLogConfig</code>. For more information, see <a href=\"https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_AssociateResolverQueryLogConfig.html\">AssociateResolverQueryLogConfig</a>. </p> <p>You can optionally use Resource Access Manager (RAM) to share a query logging configuration with other Amazon Web Services accounts. The other accounts can then associate VPCs with the configuration. The query logs that Resolver creates for a configuration include all DNS queries that originate in all VPCs that are associated with the configuration.</p>
 
         Args:
             name: <p>The name that you want to give the query logging configuration.</p>
@@ -1085,7 +1085,7 @@ class AsyncRoute53ResolverClient:
             "aws_sdk_route53resolver.types.delegation_record.DelegationRecord"
         ] = None,
     ) -> "aws_sdk_route53resolver.types.create_resolver_rule_response.CreateResolverRuleResponse":
-        """<p>For DNS queries that originate in your VPCs, specifies which Resolver endpoint the queries pass through, one domain name that you want to forward to your network, and the IP addresses of the DNS resolvers in your network.</p>
+        r"""<p>For DNS queries that originate in your VPCs, specifies which Resolver endpoint the queries pass through, one domain name that you want to forward to your network, and the IP addresses of the DNS resolvers in your network.</p>
 
         Args:
             creator_request_id: <p>A unique string that identifies the request and that allows failed requests to be retried without the risk of running the operation twice. <code>CreatorRequestId</code> can be any unique string, for example, a date/time stamp. </p>
@@ -1188,7 +1188,7 @@ class AsyncRoute53ResolverClient:
         ] = None,
         qtype: Optional["aws_sdk_route53resolver.types.qtype.Qtype"] = None,
     ) -> "aws_sdk_route53resolver.types.delete_firewall_rule_response.DeleteFirewallRuleResponse":
-        """<p>Deletes the specified firewall rule.</p>
+        r"""<p>Deletes the specified firewall rule.</p>
 
         Args:
             firewall_rule_group_id: <p>The unique identifier of the firewall rule group that you want to delete the rule from. </p>
@@ -1349,7 +1349,7 @@ class AsyncRoute53ResolverClient:
         *,
         config_overrides: Optional[AsyncRoute53ResolverClientConfig] = None,
     ) -> "aws_sdk_route53resolver.types.delete_resolver_query_log_config_response.DeleteResolverQueryLogConfigResponse":
-        """<p>Deletes a query logging configuration. When you delete a configuration, Resolver stops logging DNS queries for all of the Amazon VPCs that are associated with the configuration. This also applies if the query logging configuration is shared with other Amazon Web Services accounts, and the other accounts have associated VPCs with the shared configuration.</p> <p>Before you can delete a query logging configuration, you must first disassociate all VPCs from the configuration. See <a href=\"https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DisassociateResolverQueryLogConfig.html\">DisassociateResolverQueryLogConfig</a>.</p> <p>If you used Resource Access Manager (RAM) to share a query logging configuration with other accounts, you must stop sharing the configuration before you can delete a configuration. The accounts that you shared the configuration with can first disassociate VPCs that they associated with the configuration, but that's not necessary. If you stop sharing the configuration, those VPCs are automatically disassociated from the configuration.</p>
+        r"""<p>Deletes a query logging configuration. When you delete a configuration, Resolver stops logging DNS queries for all of the Amazon VPCs that are associated with the configuration. This also applies if the query logging configuration is shared with other Amazon Web Services accounts, and the other accounts have associated VPCs with the shared configuration.</p> <p>Before you can delete a query logging configuration, you must first disassociate all VPCs from the configuration. See <a href=\"https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DisassociateResolverQueryLogConfig.html\">DisassociateResolverQueryLogConfig</a>.</p> <p>If you used Resource Access Manager (RAM) to share a query logging configuration with other accounts, you must stop sharing the configuration before you can delete a configuration. The accounts that you shared the configuration with can first disassociate VPCs that they associated with the configuration, but that's not necessary. If you stop sharing the configuration, those VPCs are automatically disassociated from the configuration.</p>
 
         Args:
             resolver_query_log_config_id: <p>The ID of the query logging configuration that you want to delete.</p>
@@ -1387,7 +1387,7 @@ class AsyncRoute53ResolverClient:
         *,
         config_overrides: Optional[AsyncRoute53ResolverClientConfig] = None,
     ) -> "aws_sdk_route53resolver.types.delete_resolver_rule_response.DeleteResolverRuleResponse":
-        """<p>Deletes a Resolver rule. Before you can delete a Resolver rule, you must disassociate it from all the VPCs that you associated the Resolver rule with. For more information, see <a href=\"https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DisassociateResolverRule.html\">DisassociateResolverRule</a>.</p>
+        r"""<p>Deletes a Resolver rule. Before you can delete a Resolver rule, you must disassociate it from all the VPCs that you associated the Resolver rule with. For more information, see <a href=\"https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DisassociateResolverRule.html\">DisassociateResolverRule</a>.</p>
 
         Args:
             resolver_rule_id: <p>The ID of the Resolver rule that you want to delete.</p>
@@ -1466,7 +1466,7 @@ class AsyncRoute53ResolverClient:
         *,
         config_overrides: Optional[AsyncRoute53ResolverClientConfig] = None,
     ) -> "aws_sdk_route53resolver.types.disassociate_resolver_endpoint_ip_address_response.DisassociateResolverEndpointIpAddressResponse":
-        """<p>Removes IP addresses from an inbound or an outbound Resolver endpoint. If you want to remove more than one IP address, submit one <code>DisassociateResolverEndpointIpAddress</code> request for each IP address.</p> <p>To add an IP address to an endpoint, see <a href=\"https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_AssociateResolverEndpointIpAddress.html\">AssociateResolverEndpointIpAddress</a>. </p>
+        r"""<p>Removes IP addresses from an inbound or an outbound Resolver endpoint. If you want to remove more than one IP address, submit one <code>DisassociateResolverEndpointIpAddress</code> request for each IP address.</p> <p>To add an IP address to an endpoint, see <a href=\"https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_AssociateResolverEndpointIpAddress.html\">AssociateResolverEndpointIpAddress</a>. </p>
 
         Args:
             resolver_endpoint_id: <p>The ID of the Resolver endpoint that you want to disassociate an IP address from.</p>
@@ -2086,7 +2086,7 @@ class AsyncRoute53ResolverClient:
         *,
         config_overrides: Optional[AsyncRoute53ResolverClientConfig] = None,
     ) -> "aws_sdk_route53resolver.types.get_resolver_rule_association_response.GetResolverRuleAssociationResponse":
-        """<p>Gets information about an association between a specified Resolver rule and a VPC. You associate a Resolver rule and a VPC using <a href=\"https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_AssociateResolverRule.html\">AssociateResolverRule</a>. </p>
+        r"""<p>Gets information about an association between a specified Resolver rule and a VPC. You associate a Resolver rule and a VPC using <a href=\"https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_AssociateResolverRule.html\">AssociateResolverRule</a>. </p>
 
         Args:
             resolver_rule_association_id: <p>The ID of the Resolver rule association that you want to get information about.</p>
@@ -3710,7 +3710,7 @@ class AsyncRoute53ResolverClient:
         *,
         config_overrides: Optional[AsyncRoute53ResolverClientConfig] = None,
     ) -> "aws_sdk_route53resolver.types.tag_resource_response.TagResourceResponse":
-        """<p>Adds one or more tags to a specified resource.</p>
+        r"""<p>Adds one or more tags to a specified resource.</p>
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) for the resource that you want to add tags to. To get the ARN for a resource, use the applicable <code>Get</code> or <code>List</code> command: </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverEndpoint.html\">GetResolverEndpoint</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverRule.html\">GetResolverRule</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverRuleAssociation.html\">GetResolverRuleAssociation</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverEndpoints.html\">ListResolverEndpoints</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverRuleAssociations.html\">ListResolverRuleAssociations</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverRules.html\">ListResolverRules</a> </p> </li> </ul>
@@ -3751,7 +3751,7 @@ class AsyncRoute53ResolverClient:
         *,
         config_overrides: Optional[AsyncRoute53ResolverClientConfig] = None,
     ) -> "aws_sdk_route53resolver.types.untag_resource_response.UntagResourceResponse":
-        """<p>Removes one or more tags from a specified resource.</p>
+        r"""<p>Removes one or more tags from a specified resource.</p>
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) for the resource that you want to remove tags from. To get the ARN for a resource, use the applicable <code>Get</code> or <code>List</code> command: </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverEndpoint.html\">GetResolverEndpoint</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverRule.html\">GetResolverRule</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverRuleAssociation.html\">GetResolverRuleAssociation</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverEndpoints.html\">ListResolverEndpoints</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverRuleAssociations.html\">ListResolverRuleAssociations</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverRules.html\">ListResolverRules</a> </p> </li> </ul>
@@ -3910,7 +3910,7 @@ class AsyncRoute53ResolverClient:
             "aws_sdk_route53resolver.types.firewall_rule_type.FirewallRuleType"
         ] = None,
     ) -> "aws_sdk_route53resolver.types.update_firewall_rule_response.UpdateFirewallRuleResponse":
-        """<p>Updates the specified firewall rule. </p>
+        r"""<p>Updates the specified firewall rule. </p>
 
         Args:
             firewall_rule_group_id: <p>The unique identifier of the firewall rule group for the rule. </p>
@@ -4103,7 +4103,7 @@ class AsyncRoute53ResolverClient:
         *,
         config_overrides: Optional[AsyncRoute53ResolverClientConfig] = None,
     ) -> "aws_sdk_route53resolver.types.update_resolver_config_response.UpdateResolverConfigResponse":
-        """<p>Updates the behavior configuration of Route 53 Resolver behavior for a single VPC from Amazon Virtual Private Cloud.</p>
+        r"""<p>Updates the behavior configuration of Route 53 Resolver behavior for a single VPC from Amazon Virtual Private Cloud.</p>
 
         Args:
             resource_id: <p>The ID of the Amazon Virtual Private Cloud VPC or a Route 53 Profile that you're configuring Resolver for.</p>
@@ -4206,7 +4206,7 @@ class AsyncRoute53ResolverClient:
             "aws_sdk_route53resolver.types.ipv6_internet_access_enabled.Ipv6InternetAccessEnabled"
         ] = None,
     ) -> "aws_sdk_route53resolver.types.update_resolver_endpoint_response.UpdateResolverEndpointResponse":
-        """<p>Updates the name, or endpoint type for an inbound or an outbound Resolver endpoint. You can only update between IPV4 and DUALSTACK, IPV6 endpoint type can't be updated to other type. </p>
+        r"""<p>Updates the name, or endpoint type for an inbound or an outbound Resolver endpoint. You can only update between IPV4 and DUALSTACK, IPV6 endpoint type can't be updated to other type. </p>
 
         Args:
             resolver_endpoint_id: <p>The ID of the Resolver endpoint that you want to update.</p>

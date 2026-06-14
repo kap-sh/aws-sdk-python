@@ -3,8 +3,8 @@
 from typing import TYPE_CHECKING, TypeAlias
 
 if TYPE_CHECKING:
-    import aws_sdk_appconfigdata.types.string
     import aws_sdk_appconfigdata.types.invalid_parameter_detail
+    import aws_sdk_appconfigdata.types.string
 
 InvalidParameterMap: TypeAlias = dict[
     "aws_sdk_appconfigdata.types.string.String",

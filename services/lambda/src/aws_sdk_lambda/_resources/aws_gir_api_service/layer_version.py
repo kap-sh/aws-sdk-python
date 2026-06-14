@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_lambda._auth._signers
@@ -66,7 +68,7 @@ class LayerVersion:
             "aws_sdk_lambda.types.architecture.Architecture"
         ] = None,
     ) -> "aws_sdk_lambda.types.list_layer_versions_response.ListLayerVersionsResponse":
-        """<p>Lists the versions of an <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html\">Lambda layer</a>. Versions that have been deleted aren't listed. Specify a <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html\">runtime identifier</a> to list only versions that indicate that they're compatible with that runtime. Specify a compatible architecture to include only layer versions that are compatible with that architecture.</p>
+        r"""<p>Lists the versions of an <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html\">Lambda layer</a>. Versions that have been deleted aren't listed. Specify a <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html\">runtime identifier</a> to list only versions that indicate that they're compatible with that runtime. Specify a compatible architecture to include only layer versions that are compatible with that architecture.</p>
 
         Args:
             compatible_runtime: <p>A runtime identifier.</p> <p>The following list includes deprecated runtimes. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels\">Runtime use after deprecation</a>.</p> <p>For a list of all currently supported runtimes, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported\">Supported runtimes</a>.</p>
@@ -129,7 +131,7 @@ class LayerVersion:
         ] = None,
         revision_id: Optional["aws_sdk_lambda.types.string.String"] = None,
     ) -> "aws_sdk_lambda.types.add_layer_version_permission_response.AddLayerVersionPermissionResponse":
-        """<p>Adds permissions to the resource-based policy of a version of an <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html\">Lambda layer</a>. Use this action to grant layer usage permission to other accounts. You can grant permission to a single account, all accounts in an organization, or all Amazon Web Services accounts. </p> <p>To revoke permission, call <a>RemoveLayerVersionPermission</a> with the statement ID that you specified when you added it.</p>
+        r"""<p>Adds permissions to the resource-based policy of a version of an <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html\">Lambda layer</a>. Use this action to grant layer usage permission to other accounts. You can grant permission to a single account, all accounts in an organization, or all Amazon Web Services accounts. </p> <p>To revoke permission, call <a>RemoveLayerVersionPermission</a> with the statement ID that you specified when you added it.</p>
 
         Args:
             layer_name: <p>The name or Amazon Resource Name (ARN) of the layer.</p>
@@ -187,7 +189,7 @@ class LayerVersion:
         *,
         config_overrides: Optional[LambdaClientConfig] = None,
     ) -> None:
-        """<p>Deletes a version of an <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html\">Lambda layer</a>. Deleted versions can no longer be viewed or added to functions. To avoid breaking functions, a copy of the version remains in Lambda until no functions refer to it.</p>
+        r"""<p>Deletes a version of an <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html\">Lambda layer</a>. Deleted versions can no longer be viewed or added to functions. To avoid breaking functions, a copy of the version remains in Lambda until no functions refer to it.</p>
 
         Args:
             layer_name: <p>The name or Amazon Resource Name (ARN) of the layer.</p>
@@ -231,7 +233,7 @@ class LayerVersion:
         *,
         config_overrides: Optional[LambdaClientConfig] = None,
     ) -> "aws_sdk_lambda.types.get_layer_version_response.GetLayerVersionResponse":
-        """<p>Returns information about a version of an <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html\">Lambda layer</a>, with a link to download the layer archive that's valid for 10 minutes.</p>
+        r"""<p>Returns information about a version of an <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html\">Lambda layer</a>, with a link to download the layer archive that's valid for 10 minutes.</p>
 
         Args:
             layer_name: <p>The name or Amazon Resource Name (ARN) of the layer.</p>
@@ -276,7 +278,7 @@ class LayerVersion:
         *,
         config_overrides: Optional[LambdaClientConfig] = None,
     ) -> "aws_sdk_lambda.types.get_layer_version_response.GetLayerVersionResponse":
-        """<p>Returns information about a version of an <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html\">Lambda layer</a>, with a link to download the layer archive that's valid for 10 minutes.</p>
+        r"""<p>Returns information about a version of an <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html\">Lambda layer</a>, with a link to download the layer archive that's valid for 10 minutes.</p>
 
         Args:
             arn: <p>The ARN of the layer version.</p>
@@ -320,7 +322,7 @@ class LayerVersion:
         *,
         config_overrides: Optional[LambdaClientConfig] = None,
     ) -> "aws_sdk_lambda.types.get_layer_version_policy_response.GetLayerVersionPolicyResponse":
-        """<p>Returns the permission policy for a version of an <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html\">Lambda layer</a>. For more information, see <a>AddLayerVersionPermission</a>.</p>
+        r"""<p>Returns the permission policy for a version of an <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html\">Lambda layer</a>. For more information, see <a>AddLayerVersionPermission</a>.</p>
 
         Args:
             layer_name: <p>The name or Amazon Resource Name (ARN) of the layer.</p>
@@ -368,7 +370,7 @@ class LayerVersion:
             "aws_sdk_lambda.types.compatible_architectures.CompatibleArchitectures"
         ] = None,
     ) -> "aws_sdk_lambda.types.publish_layer_version_response.PublishLayerVersionResponse":
-        """<p>Creates an <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html\">Lambda layer</a> from a ZIP archive. Each time you call <code>PublishLayerVersion</code> with the same layer name, a new version is created.</p> <p>Add layers to your function with <a>CreateFunction</a> or <a>UpdateFunctionConfiguration</a>.</p>
+        r"""<p>Creates an <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html\">Lambda layer</a> from a ZIP archive. Each time you call <code>PublishLayerVersion</code> with the same layer name, a new version is created.</p> <p>Add layers to your function with <a>CreateFunction</a> or <a>UpdateFunctionConfiguration</a>.</p>
 
         Args:
             layer_name: <p>The name or Amazon Resource Name (ARN) of the layer.</p>
@@ -428,7 +430,7 @@ class LayerVersion:
         config_overrides: Optional[LambdaClientConfig] = None,
         revision_id: Optional["aws_sdk_lambda.types.string.String"] = None,
     ) -> None:
-        """<p>Removes a statement from the permissions policy for a version of an <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html\">Lambda layer</a>. For more information, see <a>AddLayerVersionPermission</a>.</p>
+        r"""<p>Removes a statement from the permissions policy for a version of an <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html\">Lambda layer</a>. For more information, see <a>AddLayerVersionPermission</a>.</p>
 
         Args:
             layer_name: <p>The name or Amazon Resource Name (ARN) of the layer.</p>
@@ -489,7 +491,7 @@ class AsyncLayerVersion:
             "aws_sdk_lambda.types.architecture.Architecture"
         ] = None,
     ) -> "aws_sdk_lambda.types.list_layer_versions_response.ListLayerVersionsResponse":
-        """<p>Lists the versions of an <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html\">Lambda layer</a>. Versions that have been deleted aren't listed. Specify a <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html\">runtime identifier</a> to list only versions that indicate that they're compatible with that runtime. Specify a compatible architecture to include only layer versions that are compatible with that architecture.</p>
+        r"""<p>Lists the versions of an <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html\">Lambda layer</a>. Versions that have been deleted aren't listed. Specify a <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html\">runtime identifier</a> to list only versions that indicate that they're compatible with that runtime. Specify a compatible architecture to include only layer versions that are compatible with that architecture.</p>
 
         Args:
             compatible_runtime: <p>A runtime identifier.</p> <p>The following list includes deprecated runtimes. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels\">Runtime use after deprecation</a>.</p> <p>For a list of all currently supported runtimes, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported\">Supported runtimes</a>.</p>
@@ -553,7 +555,7 @@ class AsyncLayerVersion:
         ] = None,
         revision_id: Optional["aws_sdk_lambda.types.string.String"] = None,
     ) -> "aws_sdk_lambda.types.add_layer_version_permission_response.AddLayerVersionPermissionResponse":
-        """<p>Adds permissions to the resource-based policy of a version of an <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html\">Lambda layer</a>. Use this action to grant layer usage permission to other accounts. You can grant permission to a single account, all accounts in an organization, or all Amazon Web Services accounts. </p> <p>To revoke permission, call <a>RemoveLayerVersionPermission</a> with the statement ID that you specified when you added it.</p>
+        r"""<p>Adds permissions to the resource-based policy of a version of an <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html\">Lambda layer</a>. Use this action to grant layer usage permission to other accounts. You can grant permission to a single account, all accounts in an organization, or all Amazon Web Services accounts. </p> <p>To revoke permission, call <a>RemoveLayerVersionPermission</a> with the statement ID that you specified when you added it.</p>
 
         Args:
             layer_name: <p>The name or Amazon Resource Name (ARN) of the layer.</p>
@@ -612,7 +614,7 @@ class AsyncLayerVersion:
         *,
         config_overrides: Optional[AsyncLambdaClientConfig] = None,
     ) -> None:
-        """<p>Deletes a version of an <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html\">Lambda layer</a>. Deleted versions can no longer be viewed or added to functions. To avoid breaking functions, a copy of the version remains in Lambda until no functions refer to it.</p>
+        r"""<p>Deletes a version of an <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html\">Lambda layer</a>. Deleted versions can no longer be viewed or added to functions. To avoid breaking functions, a copy of the version remains in Lambda until no functions refer to it.</p>
 
         Args:
             layer_name: <p>The name or Amazon Resource Name (ARN) of the layer.</p>
@@ -657,7 +659,7 @@ class AsyncLayerVersion:
         *,
         config_overrides: Optional[AsyncLambdaClientConfig] = None,
     ) -> "aws_sdk_lambda.types.get_layer_version_response.GetLayerVersionResponse":
-        """<p>Returns information about a version of an <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html\">Lambda layer</a>, with a link to download the layer archive that's valid for 10 minutes.</p>
+        r"""<p>Returns information about a version of an <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html\">Lambda layer</a>, with a link to download the layer archive that's valid for 10 minutes.</p>
 
         Args:
             layer_name: <p>The name or Amazon Resource Name (ARN) of the layer.</p>
@@ -703,7 +705,7 @@ class AsyncLayerVersion:
         *,
         config_overrides: Optional[AsyncLambdaClientConfig] = None,
     ) -> "aws_sdk_lambda.types.get_layer_version_response.GetLayerVersionResponse":
-        """<p>Returns information about a version of an <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html\">Lambda layer</a>, with a link to download the layer archive that's valid for 10 minutes.</p>
+        r"""<p>Returns information about a version of an <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html\">Lambda layer</a>, with a link to download the layer archive that's valid for 10 minutes.</p>
 
         Args:
             arn: <p>The ARN of the layer version.</p>
@@ -748,7 +750,7 @@ class AsyncLayerVersion:
         *,
         config_overrides: Optional[AsyncLambdaClientConfig] = None,
     ) -> "aws_sdk_lambda.types.get_layer_version_policy_response.GetLayerVersionPolicyResponse":
-        """<p>Returns the permission policy for a version of an <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html\">Lambda layer</a>. For more information, see <a>AddLayerVersionPermission</a>.</p>
+        r"""<p>Returns the permission policy for a version of an <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html\">Lambda layer</a>. For more information, see <a>AddLayerVersionPermission</a>.</p>
 
         Args:
             layer_name: <p>The name or Amazon Resource Name (ARN) of the layer.</p>
@@ -797,7 +799,7 @@ class AsyncLayerVersion:
             "aws_sdk_lambda.types.compatible_architectures.CompatibleArchitectures"
         ] = None,
     ) -> "aws_sdk_lambda.types.publish_layer_version_response.PublishLayerVersionResponse":
-        """<p>Creates an <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html\">Lambda layer</a> from a ZIP archive. Each time you call <code>PublishLayerVersion</code> with the same layer name, a new version is created.</p> <p>Add layers to your function with <a>CreateFunction</a> or <a>UpdateFunctionConfiguration</a>.</p>
+        r"""<p>Creates an <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html\">Lambda layer</a> from a ZIP archive. Each time you call <code>PublishLayerVersion</code> with the same layer name, a new version is created.</p> <p>Add layers to your function with <a>CreateFunction</a> or <a>UpdateFunctionConfiguration</a>.</p>
 
         Args:
             layer_name: <p>The name or Amazon Resource Name (ARN) of the layer.</p>
@@ -858,7 +860,7 @@ class AsyncLayerVersion:
         config_overrides: Optional[AsyncLambdaClientConfig] = None,
         revision_id: Optional["aws_sdk_lambda.types.string.String"] = None,
     ) -> None:
-        """<p>Removes a statement from the permissions policy for a version of an <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html\">Lambda layer</a>. For more information, see <a>AddLayerVersionPermission</a>.</p>
+        r"""<p>Removes a statement from the permissions policy for a version of an <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html\">Lambda layer</a>. For more information, see <a>AddLayerVersionPermission</a>.</p>
 
         Args:
             layer_name: <p>The name or Amazon Resource Name (ARN) of the layer.</p>

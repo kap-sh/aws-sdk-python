@@ -211,7 +211,7 @@ class ChimeSDKMessagingClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = ChimeSDKMessagingClientConfig(
+        self._config = ChimeSDKMessagingClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -231,7 +231,7 @@ class ChimeSDKMessagingClient:
         overrides: ChimeSDKMessagingClientConfig = config_overrides or {}
         interceptors_: list[Interceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             retry(),
         ]
@@ -239,16 +239,16 @@ class ChimeSDKMessagingClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            region=overrides.get("region", self.config.get("region")),
+            region=overrides.get("region", self._config.get("region")),
             use_dual_stack=overrides.get(
-                "use_dual_stack", self.config.get("use_dual_stack")
+                "use_dual_stack", self._config.get("use_dual_stack")
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -549,7 +549,7 @@ class ChimeSDKMessagingClient:
         config_overrides: Optional[ChimeSDKMessagingClientConfig] = None,
         tags: Optional["aws_sdk_chime_sdk_messaging.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_chime_sdk_messaging.types.create_channel_flow_response.CreateChannelFlowResponse":
-        """<p>Creates a channel flow, a container for processors. Processors are AWS Lambda functions that perform actions on chat messages, such as stripping out profanity. You can associate channel flows with channels, and the processors in the channel flow then take action on all messages sent to that channel. This is a developer API.</p> <p>Channel flows process the following items:</p> <ol> <li> <p>New and updated messages</p> </li> <li> <p>Persistent and non-persistent messages</p> </li> <li> <p>The Standard message type</p> </li> </ol> <note> <p>Channel flows don't process Control or System messages. For more information about the message types provided by Chime SDK messaging, refer to <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/dg/using-the-messaging-sdk.html#msg-types\">Message types</a> in the <i>Amazon Chime developer guide</i>.</p> </note>
+        r"""<p>Creates a channel flow, a container for processors. Processors are AWS Lambda functions that perform actions on chat messages, such as stripping out profanity. You can associate channel flows with channels, and the processors in the channel flow then take action on all messages sent to that channel. This is a developer API.</p> <p>Channel flows process the following items:</p> <ol> <li> <p>New and updated messages</p> </li> <li> <p>Persistent and non-persistent messages</p> </li> <li> <p>The Standard message type</p> </li> </ol> <note> <p>Channel flows don't process Control or System messages. For more information about the message types provided by Chime SDK messaging, refer to <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/dg/using-the-messaging-sdk.html#msg-types\">Message types</a> in the <i>Amazon Chime developer guide</i>.</p> </note>
 
         Args:
             app_instance_arn: <p>The ARN of the channel flow request.</p>
@@ -939,7 +939,7 @@ class ChimeSDKMessagingClient:
         *,
         config_overrides: Optional[ChimeSDKMessagingClientConfig] = None,
     ) -> None:
-        """<p>Deletes the streaming configurations for an <code>AppInstance</code>. For more information, see <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/dg/streaming-export.html\">Streaming messaging data</a> in the <i>Amazon Chime SDK Developer Guide</i>.</p>
+        r"""<p>Deletes the streaming configurations for an <code>AppInstance</code>. For more information, see <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/dg/streaming-export.html\">Streaming messaging data</a> in the <i>Amazon Chime SDK Developer Guide</i>.</p>
 
         Args:
             app_instance_arn: <p>The ARN of the streaming configurations being deleted.</p>
@@ -1494,7 +1494,7 @@ class ChimeSDKMessagingClient:
         *,
         config_overrides: Optional[ChimeSDKMessagingClientConfig] = None,
     ) -> "aws_sdk_chime_sdk_messaging.types.get_messaging_streaming_configurations_response.GetMessagingStreamingConfigurationsResponse":
-        """<p>Retrieves the data streaming configuration for an <code>AppInstance</code>. For more information, see <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/dg/streaming-export.html\">Streaming messaging data</a> in the <i>Amazon Chime SDK Developer Guide</i>.</p>
+        r"""<p>Retrieves the data streaming configuration for an <code>AppInstance</code>. For more information, see <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/dg/streaming-export.html\">Streaming messaging data</a> in the <i>Amazon Chime SDK Developer Guide</i>.</p>
 
         Args:
             app_instance_arn: <p>The ARN of the streaming configurations.</p>
@@ -1645,7 +1645,7 @@ class ChimeSDKMessagingClient:
             "aws_sdk_chime_sdk_messaging.types.sub_channel_id.SubChannelId"
         ] = None,
     ) -> "aws_sdk_chime_sdk_messaging.types.list_channel_memberships_response.ListChannelMembershipsResponse":
-        """<p>Lists all channel memberships in a channel.</p> <note> <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p> </note> <p>If you want to list the channels to which a specific app instance user belongs, see the <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_ListChannelMembershipsForAppInstanceUser.html\">ListChannelMembershipsForAppInstanceUser</a> API.</p>
+        r"""<p>Lists all channel memberships in a channel.</p> <note> <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p> </note> <p>If you want to list the channels to which a specific app instance user belongs, see the <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_ListChannelMembershipsForAppInstanceUser.html\">ListChannelMembershipsForAppInstanceUser</a> API.</p>
 
         Args:
             channel_arn: <p>The maximum number of channel memberships that you want returned.</p>
@@ -1891,7 +1891,7 @@ class ChimeSDKMessagingClient:
     ) -> (
         "aws_sdk_chime_sdk_messaging.types.list_channels_response.ListChannelsResponse"
     ):
-        """<p>Lists all Channels created under a single Chime App as a paginated list. You can specify filters to narrow results.</p> <p class=\"title\"> <b>Functionality & restrictions</b> </p> <ul> <li> <p>Use privacy = <code>PUBLIC</code> to retrieve all public channels in the account.</p> </li> <li> <p>Only an <code>AppInstanceAdmin</code> can set privacy = <code>PRIVATE</code> to list the private channels in an account.</p> </li> </ul> <note> <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p> </note>
+        r"""<p>Lists all Channels created under a single Chime App as a paginated list. You can specify filters to narrow results.</p> <p class=\"title\"> <b>Functionality & restrictions</b> </p> <ul> <li> <p>Use privacy = <code>PUBLIC</code> to retrieve all public channels in the account.</p> </li> <li> <p>Only an <code>AppInstanceAdmin</code> can set privacy = <code>PRIVATE</code> to list the private channels in an account.</p> </li> </ul> <note> <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p> </note>
 
         Args:
             app_instance_arn: <p>The ARN of the <code>AppInstance</code>.</p>
@@ -2228,7 +2228,7 @@ class ChimeSDKMessagingClient:
         *,
         config_overrides: Optional[ChimeSDKMessagingClientConfig] = None,
     ) -> "aws_sdk_chime_sdk_messaging.types.put_messaging_streaming_configurations_response.PutMessagingStreamingConfigurationsResponse":
-        """<p>Sets the data streaming configuration for an <code>AppInstance</code>. For more information, see <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/dg/streaming-export.html\">Streaming messaging data</a> in the <i>Amazon Chime SDK Developer Guide</i>.</p>
+        r"""<p>Sets the data streaming configuration for an <code>AppInstance</code>. For more information, see <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/dg/streaming-export.html\">Streaming messaging data</a> in the <i>Amazon Chime SDK Developer Guide</i>.</p>
 
         Args:
             app_instance_arn: <p>The ARN of the streaming configuration.</p>

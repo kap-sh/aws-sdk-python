@@ -26,7 +26,7 @@ class DeletePipeResponse(TypedDict):
     creation_time: NotRequired["aws_sdk_pipes.types.timestamp.Timestamp"]
     """<p>The time the pipe was created.</p>"""
     last_modified_time: NotRequired["aws_sdk_pipes.types.timestamp.Timestamp"]
-    """<p>When the pipe was last updated, in <a href=\"https://www.w3.org/TR/NOTE-datetime\">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>"""
+    r"""<p>When the pipe was last updated, in <a href=\"https://www.w3.org/TR/NOTE-datetime\">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>"""
 
 
 # --- restJson1 ser/de ---

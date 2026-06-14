@@ -52,7 +52,7 @@ class H265Settings(TypedDict):
     ]
     """Enables or disables adaptive quantization (AQ), which is a technique MediaLive can apply to video on a frame-by-frame basis to produce more compression without losing quality. There are three types of adaptive quantization: spatial, temporal, and flicker. Flicker is the only type that you can customize. We recommend that you set the field to Auto. For more information about all the options, see the topic about video adaptive quantization in the MediaLive user guide."""
     afd_signaling: NotRequired["aws_sdk_medialive.types.afd_signaling.AfdSignaling"]
-    """Indicates that AFD values will be written into the output stream. If afdSignaling is \"auto\", the system will try to preserve the input AFD value (in cases where multiple AFD values are valid). If set to \"fixed\", the AFD value will be the value configured in the fixedAfd parameter."""
+    r"""Indicates that AFD values will be written into the output stream. If afdSignaling is \"auto\", the system will try to preserve the input AFD value (in cases where multiple AFD values are valid). If set to \"fixed\", the AFD value will be the value configured in the fixedAfd parameter."""
     alternative_transfer_function: NotRequired[
         "aws_sdk_medialive.types.h265_alternative_transfer_function.H265AlternativeTransferFunction"
     ]
@@ -150,11 +150,11 @@ class H265Settings(TypedDict):
     mv_over_picture_boundaries: NotRequired[
         "aws_sdk_medialive.types.h265_mv_over_picture_boundaries.H265MvOverPictureBoundaries"
     ]
-    """If you are setting up the picture as a tile, you must set this to \"disabled\". In all other configurations, you typically enter \"enabled\"."""
+    r"""If you are setting up the picture as a tile, you must set this to \"disabled\". In all other configurations, you typically enter \"enabled\"."""
     mv_temporal_predictor: NotRequired[
         "aws_sdk_medialive.types.h265_mv_temporal_predictor.H265MvTemporalPredictor"
     ]
-    """If you are setting up the picture as a tile, you must set this to \"disabled\". In other configurations, you typically enter \"enabled\"."""
+    r"""If you are setting up the picture as a tile, you must set this to \"disabled\". In other configurations, you typically enter \"enabled\"."""
     tile_height: NotRequired[
         "aws_sdk_medialive.types.__integer_min64_max2160.__integerMin64Max2160"
     ]
@@ -162,7 +162,7 @@ class H265Settings(TypedDict):
     tile_padding: NotRequired[
         "aws_sdk_medialive.types.h265_tile_padding.H265TilePadding"
     ]
-    """Set to \"padded\" to force MediaLive to add padding to the frame, to obtain a frame that is a whole multiple of the tile size. If you are setting up the picture as a tile, you must enter \"padded\". In all other configurations, you typically enter \"none\"."""
+    r"""Set to \"padded\" to force MediaLive to add padding to the frame, to obtain a frame that is a whole multiple of the tile size. If you are setting up the picture as a tile, you must enter \"padded\". In all other configurations, you typically enter \"none\"."""
     tile_width: NotRequired[
         "aws_sdk_medialive.types.__integer_min256_max3840.__integerMin256Max3840"
     ]
@@ -170,7 +170,7 @@ class H265Settings(TypedDict):
     treeblock_size: NotRequired[
         "aws_sdk_medialive.types.h265_treeblock_size.H265TreeblockSize"
     ]
-    """Select the tree block size used for encoding. If you enter \"auto\", the encoder will pick the best size. If you are setting up the picture as a tile, you must set this to 32x32. In all other configurations, you typically enter \"auto\"."""
+    r"""Select the tree block size used for encoding. If you enter \"auto\", the encoder will pick the best size. If you are setting up the picture as a tile, you must set this to 32x32. In all other configurations, you typically enter \"auto\"."""
     min_qp: NotRequired[
         "aws_sdk_medialive.types.__integer_min1_max51.__integerMin1Max51"
     ]

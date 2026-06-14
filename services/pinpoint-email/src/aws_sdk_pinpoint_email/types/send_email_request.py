@@ -19,13 +19,13 @@ class SendEmailRequest(TypedDict):
     from_email_address: NotRequired[
         "aws_sdk_pinpoint_email.types.email_address.EmailAddress"
     ]
-    """<p>The email address that you want to use as the \"From\" address for the email. The address that you specify has to be verified. </p>"""
+    r"""<p>The email address that you want to use as the \"From\" address for the email. The address that you specify has to be verified. </p>"""
     destination: "aws_sdk_pinpoint_email.types.destination.Destination"
     """<p>An object that contains the recipients of the email message.</p>"""
     reply_to_addresses: NotRequired[
         "aws_sdk_pinpoint_email.types.email_address_list.EmailAddressList"
     ]
-    """<p>The \"Reply-to\" email addresses for the message. When the recipient replies to the message, each Reply-to address receives the reply.</p>"""
+    r"""<p>The \"Reply-to\" email addresses for the message. When the recipient replies to the message, each Reply-to address receives the reply.</p>"""
     feedback_forwarding_email_address: NotRequired[
         "aws_sdk_pinpoint_email.types.email_address.EmailAddress"
     ]

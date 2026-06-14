@@ -59,7 +59,7 @@ class UpdateDataSetRequest(TypedDict):
     column_level_permission_rules: NotRequired[
         "aws_sdk_quicksight.types.column_level_permission_rule_list.ColumnLevelPermissionRuleList"
     ]
-    """<p>A set of one or more definitions of a <code> <a href=\"https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html\">ColumnLevelPermissionRule</a> </code>.</p>"""
+    r"""<p>A set of one or more definitions of a <code> <a href=\"https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html\">ColumnLevelPermissionRule</a> </code>.</p>"""
     data_set_usage_configuration: NotRequired[
         "aws_sdk_quicksight.types.data_set_usage_configuration.DataSetUsageConfiguration"
     ]

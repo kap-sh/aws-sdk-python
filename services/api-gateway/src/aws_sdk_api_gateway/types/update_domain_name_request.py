@@ -17,7 +17,7 @@ class UpdateDomainNameRequest(TypedDict):
     patch_operations: NotRequired[
         "aws_sdk_api_gateway.types.list_of_patch_operation.ListOfPatchOperation"
     ]
-    """<p>For more information about supported patch operations, see <a href=\"https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html\">Patch Operations</a>.</p>"""
+    r"""<p>For more information about supported patch operations, see <a href=\"https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html\">Patch Operations</a>.</p>"""
 
 
 # --- restJson1 ser/de ---

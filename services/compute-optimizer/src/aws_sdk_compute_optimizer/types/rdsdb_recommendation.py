@@ -63,11 +63,11 @@ class RDSDBRecommendation(TypedDict):
     instance_finding: NotRequired[
         "aws_sdk_compute_optimizer.types.rds_instance_finding.RDSInstanceFinding"
     ]
-    """<p> The finding classification of an Amazon Aurora and RDS DB instance. </p> <p>For more information about finding classifications, see <a href=\"https://docs.aws.amazon.com/compute-optimizer/latest/ug/view-rds-recommendations.html#rds-recommendations-findings\"> Finding classifications for Aurora and RDS databases</a> in the <i>Compute Optimizer User Guide</i>.</p>"""
+    r"""<p> The finding classification of an Amazon Aurora and RDS DB instance. </p> <p>For more information about finding classifications, see <a href=\"https://docs.aws.amazon.com/compute-optimizer/latest/ug/view-rds-recommendations.html#rds-recommendations-findings\"> Finding classifications for Aurora and RDS databases</a> in the <i>Compute Optimizer User Guide</i>.</p>"""
     storage_finding: NotRequired[
         "aws_sdk_compute_optimizer.types.rds_storage_finding.RDSStorageFinding"
     ]
-    """<p> The finding classification of Amazon RDS DB instance storage. </p> <p>For more information about finding classifications, see <a href=\"https://docs.aws.amazon.com/compute-optimizer/latest/ug/view-rds-recommendations.html#rds-recommendations-findings\"> Finding classifications for Aurora and RDS databases</a> in the <i>Compute Optimizer User Guide</i>.</p>"""
+    r"""<p> The finding classification of Amazon RDS DB instance storage. </p> <p>For more information about finding classifications, see <a href=\"https://docs.aws.amazon.com/compute-optimizer/latest/ug/view-rds-recommendations.html#rds-recommendations-findings\"> Finding classifications for Aurora and RDS databases</a> in the <i>Compute Optimizer User Guide</i>.</p>"""
     instance_finding_reason_codes: NotRequired[
         "aws_sdk_compute_optimizer.types.rds_instance_finding_reason_codes.RDSInstanceFindingReasonCodes"
     ]

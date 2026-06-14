@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import BaseHandler, Client
 
+import aws_sdk_cloudtrail._auth._signers
+import aws_sdk_cloudtrail._auth._sigv4
 from aws_sdk_cloudtrail._auth._identity import Credentials
 from aws_sdk_cloudtrail._auth._providers import (
     CredentialsProvider,
@@ -278,7 +280,7 @@ class CloudTrailClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = CloudTrailClientConfig(
+        self._config = CloudTrailClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -298,7 +300,7 @@ class CloudTrailClient:
         overrides: CloudTrailClientConfig = config_overrides or {}
         interceptors_: list[Interceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             retry(),
         ]
@@ -306,16 +308,16 @@ class CloudTrailClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            region=overrides.get("region", self.config.get("region")),
+            region=overrides.get("region", self._config.get("region")),
             use_dual_stack=overrides.get(
-                "use_dual_stack", self.config.get("use_dual_stack")
+                "use_dual_stack", self._config.get("use_dual_stack")
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -349,12 +351,12 @@ class CloudTrailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudtrail.types.add_tags_request.AddTagsRequest = {}  # type: ignore[typeddict-item]
-        input["resource_id"] = resource_id
-        input["tags_list"] = tags_list
+        input_: aws_sdk_cloudtrail.types.add_tags_request.AddTagsRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_id"] = resource_id
+        input_["tags_list"] = tags_list
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -395,17 +397,17 @@ class CloudTrailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudtrail.types.cancel_query_request.CancelQueryRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudtrail.types.cancel_query_request.CancelQueryRequest = {}  # type: ignore[typeddict-item]
         if event_data_store is not None:
-            input["event_data_store"] = event_data_store
-        input["query_id"] = query_id
+            input_["event_data_store"] = event_data_store
+        input_["query_id"] = query_id
         if event_data_store_owner_account_id is not None:
-            input["event_data_store_owner_account_id"] = (
+            input_["event_data_store_owner_account_id"] = (
                 event_data_store_owner_account_id
             )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -420,7 +422,7 @@ class CloudTrailClient:
         config_overrides: Optional[CloudTrailClientConfig] = None,
         tags: Optional["aws_sdk_cloudtrail.types.tags_list.TagsList"] = None,
     ) -> "aws_sdk_cloudtrail.types.create_channel_response.CreateChannelResponse":
-        """<p>Creates a channel for CloudTrail to ingest events from a partner or external source. After you create a channel, a CloudTrail Lake event data store can log events from the partner or source that you specify.</p>
+        r"""<p>Creates a channel for CloudTrail to ingest events from a partner or external source. After you create a channel, a CloudTrail Lake event data store can log events from the partner or source that you specify.</p>
 
         Args:
             name: <p>The name of the channel.</p>
@@ -443,15 +445,15 @@ class CloudTrailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudtrail.types.create_channel_request.CreateChannelRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["source"] = source
-        input["destinations"] = destinations
+        input_: aws_sdk_cloudtrail.types.create_channel_request.CreateChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["source"] = source
+        input_["destinations"] = destinations
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -473,7 +475,7 @@ class CloudTrailClient:
             "aws_sdk_cloudtrail.types.request_widget_list.RequestWidgetList"
         ] = None,
     ) -> "aws_sdk_cloudtrail.types.create_dashboard_response.CreateDashboardResponse":
-        """<p> Creates a custom dashboard or the Highlights dashboard. </p> <ul> <li> <p> <b>Custom dashboards</b> - Custom dashboards allow you to query events in any event data store type. You can add up to 10 widgets to a custom dashboard. You can manually refresh a custom dashboard, or you can set a refresh schedule.</p> </li> <li> <p> <b>Highlights dashboard</b> - You can create the Highlights dashboard to see a summary of key user activities and API usage across all your event data stores. CloudTrail Lake manages the Highlights dashboard and refreshes the dashboard every 6 hours. To create the Highlights dashboard, you must set and enable a refresh schedule.</p> </li> </ul> <p> CloudTrail runs queries to populate the dashboard's widgets during a manual or scheduled refresh. CloudTrail must be granted permissions to run the <code>StartQuery</code> operation on your behalf. To provide permissions, run the <code>PutResourcePolicy</code> operation to attach a resource-based policy to each event data store. For more information, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/security_iam_resource-based-policy-examples.html#security_iam_resource-based-policy-examples-eds-dashboard\">Example: Allow CloudTrail to run queries to populate a dashboard</a> in the <i>CloudTrail User Guide</i>. </p> <p> To set a refresh schedule, CloudTrail must be granted permissions to run the <code>StartDashboardRefresh</code> operation to refresh the dashboard on your behalf. To provide permissions, run the <code>PutResourcePolicy</code> operation to attach a resource-based policy to the dashboard. For more information, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/security_iam_resource-based-policy-examples.html#security_iam_resource-based-policy-examples-dashboards\"> Resource-based policy example for a dashboard</a> in the <i>CloudTrail User Guide</i>. </p> <p>For more information about dashboards, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/lake-dashboard.html\">CloudTrail Lake dashboards</a> in the <i>CloudTrail User Guide</i>.</p>
+        r"""<p> Creates a custom dashboard or the Highlights dashboard. </p> <ul> <li> <p> <b>Custom dashboards</b> - Custom dashboards allow you to query events in any event data store type. You can add up to 10 widgets to a custom dashboard. You can manually refresh a custom dashboard, or you can set a refresh schedule.</p> </li> <li> <p> <b>Highlights dashboard</b> - You can create the Highlights dashboard to see a summary of key user activities and API usage across all your event data stores. CloudTrail Lake manages the Highlights dashboard and refreshes the dashboard every 6 hours. To create the Highlights dashboard, you must set and enable a refresh schedule.</p> </li> </ul> <p> CloudTrail runs queries to populate the dashboard's widgets during a manual or scheduled refresh. CloudTrail must be granted permissions to run the <code>StartQuery</code> operation on your behalf. To provide permissions, run the <code>PutResourcePolicy</code> operation to attach a resource-based policy to each event data store. For more information, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/security_iam_resource-based-policy-examples.html#security_iam_resource-based-policy-examples-eds-dashboard\">Example: Allow CloudTrail to run queries to populate a dashboard</a> in the <i>CloudTrail User Guide</i>. </p> <p> To set a refresh schedule, CloudTrail must be granted permissions to run the <code>StartDashboardRefresh</code> operation to refresh the dashboard on your behalf. To provide permissions, run the <code>PutResourcePolicy</code> operation to attach a resource-based policy to the dashboard. For more information, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/security_iam_resource-based-policy-examples.html#security_iam_resource-based-policy-examples-dashboards\"> Resource-based policy example for a dashboard</a> in the <i>CloudTrail User Guide</i>. </p> <p>For more information about dashboards, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/lake-dashboard.html\">CloudTrail Lake dashboards</a> in the <i>CloudTrail User Guide</i>.</p>
 
         Args:
             name: <p> The name of the dashboard. The name must be unique to your account. </p> <p>To create the Highlights dashboard, the name must be <code>AWSCloudTrail-Highlights</code>.</p>
@@ -497,19 +499,19 @@ class CloudTrailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudtrail.types.create_dashboard_request.CreateDashboardRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_cloudtrail.types.create_dashboard_request.CreateDashboardRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if refresh_schedule is not None:
-            input["refresh_schedule"] = refresh_schedule
+            input_["refresh_schedule"] = refresh_schedule
         if tags_list is not None:
-            input["tags_list"] = tags_list
+            input_["tags_list"] = tags_list
         if termination_protection_enabled is not None:
-            input["termination_protection_enabled"] = termination_protection_enabled
+            input_["termination_protection_enabled"] = termination_protection_enabled
         if widgets is not None:
-            input["widgets"] = widgets
+            input_["widgets"] = widgets
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -544,7 +546,7 @@ class CloudTrailClient:
             "aws_sdk_cloudtrail.types.billing_mode.BillingMode"
         ] = None,
     ) -> "aws_sdk_cloudtrail.types.create_event_data_store_response.CreateEventDataStoreResponse":
-        """<p>Creates a new event data store.</p>
+        r"""<p>Creates a new event data store.</p>
 
         Args:
             name: <p>The name of the event data store.</p>
@@ -573,29 +575,29 @@ class CloudTrailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudtrail.types.create_event_data_store_request.CreateEventDataStoreRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_cloudtrail.types.create_event_data_store_request.CreateEventDataStoreRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if advanced_event_selectors is not None:
-            input["advanced_event_selectors"] = advanced_event_selectors
+            input_["advanced_event_selectors"] = advanced_event_selectors
         if multi_region_enabled is not None:
-            input["multi_region_enabled"] = multi_region_enabled
+            input_["multi_region_enabled"] = multi_region_enabled
         if organization_enabled is not None:
-            input["organization_enabled"] = organization_enabled
+            input_["organization_enabled"] = organization_enabled
         if retention_period is not None:
-            input["retention_period"] = retention_period
+            input_["retention_period"] = retention_period
         if termination_protection_enabled is not None:
-            input["termination_protection_enabled"] = termination_protection_enabled
+            input_["termination_protection_enabled"] = termination_protection_enabled
         if tags_list is not None:
-            input["tags_list"] = tags_list
+            input_["tags_list"] = tags_list
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if start_ingestion is not None:
-            input["start_ingestion"] = start_ingestion
+            input_["start_ingestion"] = start_ingestion
         if billing_mode is not None:
-            input["billing_mode"] = billing_mode
+            input_["billing_mode"] = billing_mode
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -630,7 +632,7 @@ class CloudTrailClient:
         ] = None,
         tags_list: Optional["aws_sdk_cloudtrail.types.tags_list.TagsList"] = None,
     ) -> "aws_sdk_cloudtrail.types.create_trail_response.CreateTrailResponse":
-        """<p>Creates a trail that specifies the settings for delivery of log data to an Amazon S3 bucket. </p>
+        r"""<p>Creates a trail that specifies the settings for delivery of log data to an Amazon S3 bucket. </p>
 
         Args:
             name: <p>Specifies the name of the trail. The name must meet the following requirements:</p> <ul> <li> <p>Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)</p> </li> <li> <p>Start with a letter or number, and end with a letter or number</p> </li> <li> <p>Be between 3 and 128 characters</p> </li> <li> <p>Have no adjacent periods, underscores or dashes. Names like <code>my-_namespace</code> and <code>my--namespace</code> are not valid.</p> </li> <li> <p>Not be in IP address format (for example, 192.168.5.4)</p> </li> </ul>
@@ -661,32 +663,32 @@ class CloudTrailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudtrail.types.create_trail_request.CreateTrailRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["s3_bucket_name"] = s3_bucket_name
+        input_: aws_sdk_cloudtrail.types.create_trail_request.CreateTrailRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["s3_bucket_name"] = s3_bucket_name
         if s3_key_prefix is not None:
-            input["s3_key_prefix"] = s3_key_prefix
+            input_["s3_key_prefix"] = s3_key_prefix
         if sns_topic_name is not None:
-            input["sns_topic_name"] = sns_topic_name
+            input_["sns_topic_name"] = sns_topic_name
         if include_global_service_events is not None:
-            input["include_global_service_events"] = include_global_service_events
+            input_["include_global_service_events"] = include_global_service_events
         if is_multi_region_trail is not None:
-            input["is_multi_region_trail"] = is_multi_region_trail
+            input_["is_multi_region_trail"] = is_multi_region_trail
         if enable_log_file_validation is not None:
-            input["enable_log_file_validation"] = enable_log_file_validation
+            input_["enable_log_file_validation"] = enable_log_file_validation
         if cloud_watch_logs_log_group_arn is not None:
-            input["cloud_watch_logs_log_group_arn"] = cloud_watch_logs_log_group_arn
+            input_["cloud_watch_logs_log_group_arn"] = cloud_watch_logs_log_group_arn
         if cloud_watch_logs_role_arn is not None:
-            input["cloud_watch_logs_role_arn"] = cloud_watch_logs_role_arn
+            input_["cloud_watch_logs_role_arn"] = cloud_watch_logs_role_arn
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if is_organization_trail is not None:
-            input["is_organization_trail"] = is_organization_trail
+            input_["is_organization_trail"] = is_organization_trail
         if tags_list is not None:
-            input["tags_list"] = tags_list
+            input_["tags_list"] = tags_list
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -719,11 +721,11 @@ class CloudTrailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudtrail.types.delete_channel_request.DeleteChannelRequest = {}  # type: ignore[typeddict-item]
-        input["channel"] = channel
+        input_: aws_sdk_cloudtrail.types.delete_channel_request.DeleteChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["channel"] = channel
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -756,11 +758,11 @@ class CloudTrailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudtrail.types.delete_dashboard_request.DeleteDashboardRequest = {}  # type: ignore[typeddict-item]
-        input["dashboard_id"] = dashboard_id
+        input_: aws_sdk_cloudtrail.types.delete_dashboard_request.DeleteDashboardRequest = {}  # type: ignore[typeddict-item]
+        input_["dashboard_id"] = dashboard_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -793,11 +795,11 @@ class CloudTrailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudtrail.types.delete_event_data_store_request.DeleteEventDataStoreRequest = {}  # type: ignore[typeddict-item]
-        input["event_data_store"] = event_data_store
+        input_: aws_sdk_cloudtrail.types.delete_event_data_store_request.DeleteEventDataStoreRequest = {}  # type: ignore[typeddict-item]
+        input_["event_data_store"] = event_data_store
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -830,11 +832,11 @@ class CloudTrailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudtrail.types.delete_resource_policy_request.DeleteResourcePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_cloudtrail.types.delete_resource_policy_request.DeleteResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -846,7 +848,7 @@ class CloudTrailClient:
         *,
         config_overrides: Optional[CloudTrailClientConfig] = None,
     ) -> "aws_sdk_cloudtrail.types.delete_trail_response.DeleteTrailResponse":
-        """<p>Deletes a trail. This operation must be called from the Region in which the trail was created. <code>DeleteTrail</code> cannot be called on the shadow trails (replicated trails in other Regions) of a trail that is enabled in all Regions.</p> <important> <p> While deleting a CloudTrail trail is an irreversible action, CloudTrail does not delete log files in the Amazon S3 bucket for that trail, the Amazon S3 bucket itself, or the CloudWatchlog group to which the trail delivers events. Deleting a multi-Region trail will stop logging of events in all Amazon Web Services Regions enabled in your Amazon Web Services account. Deleting a single-Region trail will stop logging of events in that Region only. It will not stop logging of events in other Regions even if the trails in those other Regions have identical names to the deleted trail. </p> <p>For information about account closure and deletion of CloudTrail trails, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-account-closure.html\">https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-account-closure.html</a>.</p> </important>
+        r"""<p>Deletes a trail. This operation must be called from the Region in which the trail was created. <code>DeleteTrail</code> cannot be called on the shadow trails (replicated trails in other Regions) of a trail that is enabled in all Regions.</p> <important> <p> While deleting a CloudTrail trail is an irreversible action, CloudTrail does not delete log files in the Amazon S3 bucket for that trail, the Amazon S3 bucket itself, or the CloudWatchlog group to which the trail delivers events. Deleting a multi-Region trail will stop logging of events in all Amazon Web Services Regions enabled in your Amazon Web Services account. Deleting a single-Region trail will stop logging of events in that Region only. It will not stop logging of events in other Regions even if the trails in those other Regions have identical names to the deleted trail. </p> <p>For information about account closure and deletion of CloudTrail trails, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-account-closure.html\">https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-account-closure.html</a>.</p> </important>
 
         Args:
             name: <p>Specifies the name or the CloudTrail ARN of the trail to be deleted. The following is the format of a trail ARN. <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code> </p>
@@ -867,11 +869,11 @@ class CloudTrailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudtrail.types.delete_trail_request.DeleteTrailRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_cloudtrail.types.delete_trail_request.DeleteTrailRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -904,11 +906,11 @@ class CloudTrailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudtrail.types.deregister_organization_delegated_admin_request.DeregisterOrganizationDelegatedAdminRequest = {}  # type: ignore[typeddict-item]
-        input["delegated_admin_account_id"] = delegated_admin_account_id
+        input_: aws_sdk_cloudtrail.types.deregister_organization_delegated_admin_request.DeregisterOrganizationDelegatedAdminRequest = {}  # type: ignore[typeddict-item]
+        input_["delegated_admin_account_id"] = delegated_admin_account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -953,22 +955,22 @@ class CloudTrailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudtrail.types.describe_query_request.DescribeQueryRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudtrail.types.describe_query_request.DescribeQueryRequest = {}  # type: ignore[typeddict-item]
         if event_data_store is not None:
-            input["event_data_store"] = event_data_store
+            input_["event_data_store"] = event_data_store
         if query_id is not None:
-            input["query_id"] = query_id
+            input_["query_id"] = query_id
         if query_alias is not None:
-            input["query_alias"] = query_alias
+            input_["query_alias"] = query_alias
         if refresh_id is not None:
-            input["refresh_id"] = refresh_id
+            input_["refresh_id"] = refresh_id
         if event_data_store_owner_account_id is not None:
-            input["event_data_store_owner_account_id"] = (
+            input_["event_data_store_owner_account_id"] = (
                 event_data_store_owner_account_id
             )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1007,14 +1009,14 @@ class CloudTrailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudtrail.types.describe_trails_request.DescribeTrailsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudtrail.types.describe_trails_request.DescribeTrailsRequest = {}  # type: ignore[typeddict-item]
         if trail_name_list is not None:
-            input["trail_name_list"] = trail_name_list
+            input_["trail_name_list"] = trail_name_list
         if include_shadow_trails is not None:
-            input["include_shadow_trails"] = include_shadow_trails
+            input_["include_shadow_trails"] = include_shadow_trails
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1049,11 +1051,11 @@ class CloudTrailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudtrail.types.disable_federation_request.DisableFederationRequest = {}  # type: ignore[typeddict-item]
-        input["event_data_store"] = event_data_store
+        input_: aws_sdk_cloudtrail.types.disable_federation_request.DisableFederationRequest = {}  # type: ignore[typeddict-item]
+        input_["event_data_store"] = event_data_store
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1066,7 +1068,7 @@ class CloudTrailClient:
         *,
         config_overrides: Optional[CloudTrailClientConfig] = None,
     ) -> "aws_sdk_cloudtrail.types.enable_federation_response.EnableFederationResponse":
-        """<p> Enables Lake query federation on the specified event data store. Federating an event data store lets you view the metadata associated with the event data store in the Glue <a href=\"https://docs.aws.amazon.com/glue/latest/dg/components-overview.html#data-catalog-intro\">Data Catalog</a> and run SQL queries against your event data using Amazon Athena. The table metadata stored in the Glue Data Catalog lets the Athena query engine know how to find, read, and process the data that you want to query.</p> <p>When you enable Lake query federation, CloudTrail creates a managed database named <code>aws:cloudtrail</code> (if the database doesn't already exist) and a managed federated table in the Glue Data Catalog. The event data store ID is used for the table name. CloudTrail registers the role ARN and event data store in <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-federation-lake-formation.html\">Lake Formation</a>, the service responsible for allowing fine-grained access control of the federated resources in the Glue Data Catalog.</p> <p>For more information about Lake query federation, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-federation.html\">Federate an event data store</a>.</p>
+        r"""<p> Enables Lake query federation on the specified event data store. Federating an event data store lets you view the metadata associated with the event data store in the Glue <a href=\"https://docs.aws.amazon.com/glue/latest/dg/components-overview.html#data-catalog-intro\">Data Catalog</a> and run SQL queries against your event data using Amazon Athena. The table metadata stored in the Glue Data Catalog lets the Athena query engine know how to find, read, and process the data that you want to query.</p> <p>When you enable Lake query federation, CloudTrail creates a managed database named <code>aws:cloudtrail</code> (if the database doesn't already exist) and a managed federated table in the Glue Data Catalog. The event data store ID is used for the table name. CloudTrail registers the role ARN and event data store in <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-federation-lake-formation.html\">Lake Formation</a>, the service responsible for allowing fine-grained access control of the federated resources in the Glue Data Catalog.</p> <p>For more information about Lake query federation, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-federation.html\">Federate an event data store</a>.</p>
 
         Args:
             event_data_store: <p>The ARN (or ID suffix of the ARN) of the event data store for which you want to enable Lake query federation.</p>
@@ -1088,12 +1090,12 @@ class CloudTrailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudtrail.types.enable_federation_request.EnableFederationRequest = {}  # type: ignore[typeddict-item]
-        input["event_data_store"] = event_data_store
-        input["federation_role_arn"] = federation_role_arn
+        input_: aws_sdk_cloudtrail.types.enable_federation_request.EnableFederationRequest = {}  # type: ignore[typeddict-item]
+        input_["event_data_store"] = event_data_store
+        input_["federation_role_arn"] = federation_role_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1106,7 +1108,7 @@ class CloudTrailClient:
         *,
         config_overrides: Optional[CloudTrailClientConfig] = None,
     ) -> "aws_sdk_cloudtrail.types.generate_query_response.GenerateQueryResponse":
-        """<p> Generates a query from a natural language prompt. This operation uses generative artificial intelligence (generative AI) to produce a ready-to-use SQL query from the prompt. </p> <p>The prompt can be a question or a statement about the event data in your event data store. For example, you can enter prompts like \"What are my top errors in the past month?\" and “Give me a list of users that used SNS.”</p> <p>The prompt must be in English. For information about limitations, permissions, and supported Regions, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/lake-query-generator.html\">Create CloudTrail Lake queries from natural language prompts</a> in the <i>CloudTrail </i> user guide.</p> <note> <p>Do not include any personally identifying, confidential, or sensitive information in your prompts.</p> <p>This feature uses generative AI large language models (LLMs); we recommend double-checking the LLM response.</p> </note>
+        r"""<p> Generates a query from a natural language prompt. This operation uses generative artificial intelligence (generative AI) to produce a ready-to-use SQL query from the prompt. </p> <p>The prompt can be a question or a statement about the event data in your event data store. For example, you can enter prompts like \"What are my top errors in the past month?\" and “Give me a list of users that used SNS.”</p> <p>The prompt must be in English. For information about limitations, permissions, and supported Regions, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/lake-query-generator.html\">Create CloudTrail Lake queries from natural language prompts</a> in the <i>CloudTrail </i> user guide.</p> <note> <p>Do not include any personally identifying, confidential, or sensitive information in your prompts.</p> <p>This feature uses generative AI large language models (LLMs); we recommend double-checking the LLM response.</p> </note>
 
         Args:
             event_data_stores: <p> The ARN (or ID suffix of the ARN) of the event data store that you want to query. You can only specify one event data store. </p>
@@ -1128,12 +1130,12 @@ class CloudTrailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudtrail.types.generate_query_request.GenerateQueryRequest = {}  # type: ignore[typeddict-item]
-        input["event_data_stores"] = event_data_stores
-        input["prompt"] = prompt
+        input_: aws_sdk_cloudtrail.types.generate_query_request.GenerateQueryRequest = {}  # type: ignore[typeddict-item]
+        input_["event_data_stores"] = event_data_stores
+        input_["prompt"] = prompt
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1166,11 +1168,11 @@ class CloudTrailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudtrail.types.get_channel_request.GetChannelRequest = {}  # type: ignore[typeddict-item]
-        input["channel"] = channel
+        input_: aws_sdk_cloudtrail.types.get_channel_request.GetChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["channel"] = channel
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1203,11 +1205,11 @@ class CloudTrailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudtrail.types.get_dashboard_request.GetDashboardRequest = {}  # type: ignore[typeddict-item]
-        input["dashboard_id"] = dashboard_id
+        input_: aws_sdk_cloudtrail.types.get_dashboard_request.GetDashboardRequest = {}  # type: ignore[typeddict-item]
+        input_["dashboard_id"] = dashboard_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1242,14 +1244,14 @@ class CloudTrailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudtrail.types.get_event_configuration_request.GetEventConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudtrail.types.get_event_configuration_request.GetEventConfigurationRequest = {}  # type: ignore[typeddict-item]
         if trail_name is not None:
-            input["trail_name"] = trail_name
+            input_["trail_name"] = trail_name
         if event_data_store is not None:
-            input["event_data_store"] = event_data_store
+            input_["event_data_store"] = event_data_store
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1282,11 +1284,11 @@ class CloudTrailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudtrail.types.get_event_data_store_request.GetEventDataStoreRequest = {}  # type: ignore[typeddict-item]
-        input["event_data_store"] = event_data_store
+        input_: aws_sdk_cloudtrail.types.get_event_data_store_request.GetEventDataStoreRequest = {}  # type: ignore[typeddict-item]
+        input_["event_data_store"] = event_data_store
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1298,7 +1300,7 @@ class CloudTrailClient:
         *,
         config_overrides: Optional[CloudTrailClientConfig] = None,
     ) -> "aws_sdk_cloudtrail.types.get_event_selectors_response.GetEventSelectorsResponse":
-        """<p>Describes the settings for the event selectors that you configured for your trail. The information returned for your event selectors includes the following:</p> <ul> <li> <p>If your event selector includes read-only events, write-only events, or all events. This applies to management events, data events, and network activity events.</p> </li> <li> <p>If your event selector includes management events.</p> </li> <li> <p>If your event selector includes network activity events, the event sources for which you are logging network activity events.</p> </li> <li> <p>If your event selector includes data events, the resources on which you are logging data events.</p> </li> </ul> <p>For more information about logging management, data, and network activity events, see the following topics in the <i>CloudTrail User Guide</i>:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html\">Logging management events</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html\">Logging data events</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-network-events-with-cloudtrail.html\">Logging network activity events</a> </p> </li> </ul>
+        r"""<p>Describes the settings for the event selectors that you configured for your trail. The information returned for your event selectors includes the following:</p> <ul> <li> <p>If your event selector includes read-only events, write-only events, or all events. This applies to management events, data events, and network activity events.</p> </li> <li> <p>If your event selector includes management events.</p> </li> <li> <p>If your event selector includes network activity events, the event sources for which you are logging network activity events.</p> </li> <li> <p>If your event selector includes data events, the resources on which you are logging data events.</p> </li> </ul> <p>For more information about logging management, data, and network activity events, see the following topics in the <i>CloudTrail User Guide</i>:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html\">Logging management events</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html\">Logging data events</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-network-events-with-cloudtrail.html\">Logging network activity events</a> </p> </li> </ul>
 
         Args:
             trail_name: <p>Specifies the name of the trail or trail ARN. If you specify a trail name, the string must meet the following requirements:</p> <ul> <li> <p>Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)</p> </li> <li> <p>Start with a letter or number, and end with a letter or number</p> </li> <li> <p>Be between 3 and 128 characters</p> </li> <li> <p>Have no adjacent periods, underscores or dashes. Names like <code>my-_namespace</code> and <code>my--namespace</code> are not valid.</p> </li> <li> <p>Not be in IP address format (for example, 192.168.5.4)</p> </li> </ul> <p>If you specify a trail ARN, it must be in the format:</p> <p> <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code> </p>
@@ -1319,11 +1321,11 @@ class CloudTrailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudtrail.types.get_event_selectors_request.GetEventSelectorsRequest = {}  # type: ignore[typeddict-item]
-        input["trail_name"] = trail_name
+        input_: aws_sdk_cloudtrail.types.get_event_selectors_request.GetEventSelectorsRequest = {}  # type: ignore[typeddict-item]
+        input_["trail_name"] = trail_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1356,11 +1358,11 @@ class CloudTrailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudtrail.types.get_import_request.GetImportRequest = {}  # type: ignore[typeddict-item]
-        input["import_id"] = import_id
+        input_: aws_sdk_cloudtrail.types.get_import_request.GetImportRequest = {}  # type: ignore[typeddict-item]
+        input_["import_id"] = import_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1375,7 +1377,7 @@ class CloudTrailClient:
             "aws_sdk_cloudtrail.types.event_data_store_arn.EventDataStoreArn"
         ] = None,
     ) -> "aws_sdk_cloudtrail.types.get_insight_selectors_response.GetInsightSelectorsResponse":
-        """<p>Describes the settings for the Insights event selectors that you configured for your trail or event data store. <code>GetInsightSelectors</code> shows if CloudTrail Insights logging is enabled and which Insights types are configured with corresponding event categories. If you run <code>GetInsightSelectors</code> on a trail or event data store that does not have Insights events enabled, the operation throws the exception <code>InsightNotEnabledException</code> </p> <p>Specify either the <code>EventDataStore</code> parameter to get Insights event selectors for an event data store, or the <code>TrailName</code> parameter to the get Insights event selectors for a trail. You cannot specify these parameters together.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-insights-events-with-cloudtrail.html\">Working with CloudTrail Insights</a> in the <i>CloudTrail User Guide</i>.</p>
+        r"""<p>Describes the settings for the Insights event selectors that you configured for your trail or event data store. <code>GetInsightSelectors</code> shows if CloudTrail Insights logging is enabled and which Insights types are configured with corresponding event categories. If you run <code>GetInsightSelectors</code> on a trail or event data store that does not have Insights events enabled, the operation throws the exception <code>InsightNotEnabledException</code> </p> <p>Specify either the <code>EventDataStore</code> parameter to get Insights event selectors for an event data store, or the <code>TrailName</code> parameter to the get Insights event selectors for a trail. You cannot specify these parameters together.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-insights-events-with-cloudtrail.html\">Working with CloudTrail Insights</a> in the <i>CloudTrail User Guide</i>.</p>
 
         Args:
             trail_name: <p>Specifies the name of the trail or trail ARN. If you specify a trail name, the string must meet the following requirements:</p> <ul> <li> <p>Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)</p> </li> <li> <p>Start with a letter or number, and end with a letter or number</p> </li> <li> <p>Be between 3 and 128 characters</p> </li> <li> <p>Have no adjacent periods, underscores or dashes. Names like <code>my-_namespace</code> and <code>my--namespace</code> are not valid.</p> </li> <li> <p>Not be in IP address format (for example, 192.168.5.4)</p> </li> </ul> <p>If you specify a trail ARN, it must be in the format:</p> <p> <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code> </p> <p>You cannot use this parameter with the <code>EventDataStore</code> parameter.</p>
@@ -1397,14 +1399,14 @@ class CloudTrailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudtrail.types.get_insight_selectors_request.GetInsightSelectorsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudtrail.types.get_insight_selectors_request.GetInsightSelectorsRequest = {}  # type: ignore[typeddict-item]
         if trail_name is not None:
-            input["trail_name"] = trail_name
+            input_["trail_name"] = trail_name
         if event_data_store is not None:
-            input["event_data_store"] = event_data_store
+            input_["event_data_store"] = event_data_store
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1453,21 +1455,21 @@ class CloudTrailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudtrail.types.get_query_results_request.GetQueryResultsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudtrail.types.get_query_results_request.GetQueryResultsRequest = {}  # type: ignore[typeddict-item]
         if event_data_store is not None:
-            input["event_data_store"] = event_data_store
-        input["query_id"] = query_id
+            input_["event_data_store"] = event_data_store
+        input_["query_id"] = query_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_query_results is not None:
-            input["max_query_results"] = max_query_results
+            input_["max_query_results"] = max_query_results
         if event_data_store_owner_account_id is not None:
-            input["event_data_store_owner_account_id"] = (
+            input_["event_data_store_owner_account_id"] = (
                 event_data_store_owner_account_id
             )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1500,11 +1502,11 @@ class CloudTrailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudtrail.types.get_resource_policy_request.GetResourcePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_cloudtrail.types.get_resource_policy_request.GetResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1537,11 +1539,11 @@ class CloudTrailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudtrail.types.get_trail_request.GetTrailRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_cloudtrail.types.get_trail_request.GetTrailRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1574,11 +1576,11 @@ class CloudTrailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudtrail.types.get_trail_status_request.GetTrailStatusRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_cloudtrail.types.get_trail_status_request.GetTrailStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1617,14 +1619,14 @@ class CloudTrailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudtrail.types.list_channels_request.ListChannelsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudtrail.types.list_channels_request.ListChannelsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1669,18 +1671,18 @@ class CloudTrailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudtrail.types.list_dashboards_request.ListDashboardsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudtrail.types.list_dashboards_request.ListDashboardsRequest = {}  # type: ignore[typeddict-item]
         if name_prefix is not None:
-            input["name_prefix"] = name_prefix
+            input_["name_prefix"] = name_prefix
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1719,14 +1721,14 @@ class CloudTrailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudtrail.types.list_event_data_stores_request.ListEventDataStoresRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudtrail.types.list_event_data_stores_request.ListEventDataStoresRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1767,15 +1769,15 @@ class CloudTrailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudtrail.types.list_import_failures_request.ListImportFailuresRequest = {}  # type: ignore[typeddict-item]
-        input["import_id"] = import_id
+        input_: aws_sdk_cloudtrail.types.list_import_failures_request.ListImportFailuresRequest = {}  # type: ignore[typeddict-item]
+        input_["import_id"] = import_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1849,18 +1851,18 @@ class CloudTrailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudtrail.types.list_imports_request.ListImportsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudtrail.types.list_imports_request.ListImportsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if destination is not None:
-            input["destination"] = destination
+            input_["destination"] = destination
         if import_status is not None:
-            input["import_status"] = import_status
+            input_["import_status"] = import_status
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1946,22 +1948,22 @@ class CloudTrailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudtrail.types.list_insights_data_request.ListInsightsDataRequest = {}  # type: ignore[typeddict-item]
-        input["insight_source"] = insight_source
-        input["data_type"] = data_type
+        input_: aws_sdk_cloudtrail.types.list_insights_data_request.ListInsightsDataRequest = {}  # type: ignore[typeddict-item]
+        input_["insight_source"] = insight_source
+        input_["data_type"] = data_type
         if dimensions is not None:
-            input["dimensions"] = dimensions
+            input_["dimensions"] = dimensions
         if start_time is not None:
-            input["start_time"] = start_time
+            input_["start_time"] = start_time
         if end_time is not None:
-            input["end_time"] = end_time
+            input_["end_time"] = end_time
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2059,29 +2061,29 @@ class CloudTrailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudtrail.types.list_insights_metric_data_request.ListInsightsMetricDataRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudtrail.types.list_insights_metric_data_request.ListInsightsMetricDataRequest = {}  # type: ignore[typeddict-item]
         if trail_name is not None:
-            input["trail_name"] = trail_name
-        input["event_source"] = event_source
-        input["event_name"] = event_name
-        input["insight_type"] = insight_type
+            input_["trail_name"] = trail_name
+        input_["event_source"] = event_source
+        input_["event_name"] = event_name
+        input_["insight_type"] = insight_type
         if error_code is not None:
-            input["error_code"] = error_code
+            input_["error_code"] = error_code
         if start_time is not None:
-            input["start_time"] = start_time
+            input_["start_time"] = start_time
         if end_time is not None:
-            input["end_time"] = end_time
+            input_["end_time"] = end_time
         if period is not None:
-            input["period"] = period
+            input_["period"] = period
         if data_type is not None:
-            input["data_type"] = data_type
+            input_["data_type"] = data_type
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2118,16 +2120,16 @@ class CloudTrailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudtrail.types.list_public_keys_request.ListPublicKeysRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudtrail.types.list_public_keys_request.ListPublicKeysRequest = {}  # type: ignore[typeddict-item]
         if start_time is not None:
-            input["start_time"] = start_time
+            input_["start_time"] = start_time
         if end_time is not None:
-            input["end_time"] = end_time
+            input_["end_time"] = end_time
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2199,21 +2201,21 @@ class CloudTrailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudtrail.types.list_queries_request.ListQueriesRequest = {}  # type: ignore[typeddict-item]
-        input["event_data_store"] = event_data_store
+        input_: aws_sdk_cloudtrail.types.list_queries_request.ListQueriesRequest = {}  # type: ignore[typeddict-item]
+        input_["event_data_store"] = event_data_store
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if start_time is not None:
-            input["start_time"] = start_time
+            input_["start_time"] = start_time
         if end_time is not None:
-            input["end_time"] = end_time
+            input_["end_time"] = end_time
         if query_status is not None:
-            input["query_status"] = query_status
+            input_["query_status"] = query_status
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2248,13 +2250,13 @@ class CloudTrailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudtrail.types.list_tags_request.ListTagsRequest = {}  # type: ignore[typeddict-item]
-        input["resource_id_list"] = resource_id_list
+        input_: aws_sdk_cloudtrail.types.list_tags_request.ListTagsRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_id_list"] = resource_id_list
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2308,12 +2310,12 @@ class CloudTrailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudtrail.types.list_trails_request.ListTrailsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudtrail.types.list_trails_request.ListTrailsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2353,7 +2355,7 @@ class CloudTrailClient:
         max_results: Optional["aws_sdk_cloudtrail.types.max_results.MaxResults"] = None,
         next_token: Optional["aws_sdk_cloudtrail.types.next_token.NextToken"] = None,
     ) -> "aws_sdk_cloudtrail.types.lookup_events_response.LookupEventsResponse":
-        """<p>Looks up <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-concepts.html#cloudtrail-concepts-management-events\">management events</a> or <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-concepts.html#cloudtrail-concepts-insights-events\">CloudTrail Insights events</a> that are captured by CloudTrail. You can look up events that occurred in a Region within the last 90 days.</p> <note> <p> <code>LookupEvents</code> returns recent Insights events for trails that enable Insights. To view Insights events for an event data store, you can run queries on your Insights event data store, and you can also view the Lake dashboard for Insights.</p> </note> <p>Lookup supports the following attributes for management events:</p> <ul> <li> <p>Amazon Web Services access key</p> </li> <li> <p>Event ID</p> </li> <li> <p>Event name</p> </li> <li> <p>Event source</p> </li> <li> <p>Read only</p> </li> <li> <p>Resource name</p> </li> <li> <p>Resource type</p> </li> <li> <p>User name</p> </li> </ul> <p>Lookup supports the following attributes for Insights events:</p> <ul> <li> <p>Event ID</p> </li> <li> <p>Event name</p> </li> <li> <p>Event source</p> </li> </ul> <p>All attributes are optional. The default number of results returned is 50, with a maximum of 50 possible. The response includes a token that you can use to get the next page of results.</p> <important> <p>The rate of lookup requests is limited to two per second, per account, per Region. If this limit is exceeded, a throttling error occurs.</p> </important>
+        r"""<p>Looks up <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-concepts.html#cloudtrail-concepts-management-events\">management events</a> or <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-concepts.html#cloudtrail-concepts-insights-events\">CloudTrail Insights events</a> that are captured by CloudTrail. You can look up events that occurred in a Region within the last 90 days.</p> <note> <p> <code>LookupEvents</code> returns recent Insights events for trails that enable Insights. To view Insights events for an event data store, you can run queries on your Insights event data store, and you can also view the Lake dashboard for Insights.</p> </note> <p>Lookup supports the following attributes for management events:</p> <ul> <li> <p>Amazon Web Services access key</p> </li> <li> <p>Event ID</p> </li> <li> <p>Event name</p> </li> <li> <p>Event source</p> </li> <li> <p>Read only</p> </li> <li> <p>Resource name</p> </li> <li> <p>Resource type</p> </li> <li> <p>User name</p> </li> </ul> <p>Lookup supports the following attributes for Insights events:</p> <ul> <li> <p>Event ID</p> </li> <li> <p>Event name</p> </li> <li> <p>Event source</p> </li> </ul> <p>All attributes are optional. The default number of results returned is 50, with a maximum of 50 possible. The response includes a token that you can use to get the next page of results.</p> <important> <p>The rate of lookup requests is limited to two per second, per account, per Region. If this limit is exceeded, a throttling error occurs.</p> </important>
 
         Args:
             lookup_attributes: <p>Contains a list of lookup attributes. Currently the list can contain only one item.</p>
@@ -2379,22 +2381,22 @@ class CloudTrailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudtrail.types.lookup_events_request.LookupEventsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudtrail.types.lookup_events_request.LookupEventsRequest = {}  # type: ignore[typeddict-item]
         if lookup_attributes is not None:
-            input["lookup_attributes"] = lookup_attributes
+            input_["lookup_attributes"] = lookup_attributes
         if start_time is not None:
-            input["start_time"] = start_time
+            input_["start_time"] = start_time
         if end_time is not None:
-            input["end_time"] = end_time
+            input_["end_time"] = end_time
         if event_category is not None:
-            input["event_category"] = event_category
+            input_["event_category"] = event_category
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2474,20 +2476,20 @@ class CloudTrailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudtrail.types.put_event_configuration_request.PutEventConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudtrail.types.put_event_configuration_request.PutEventConfigurationRequest = {}  # type: ignore[typeddict-item]
         if trail_name is not None:
-            input["trail_name"] = trail_name
+            input_["trail_name"] = trail_name
         if event_data_store is not None:
-            input["event_data_store"] = event_data_store
+            input_["event_data_store"] = event_data_store
         if max_event_size is not None:
-            input["max_event_size"] = max_event_size
+            input_["max_event_size"] = max_event_size
         if context_key_selectors is not None:
-            input["context_key_selectors"] = context_key_selectors
+            input_["context_key_selectors"] = context_key_selectors
         if aggregation_configurations is not None:
-            input["aggregation_configurations"] = aggregation_configurations
+            input_["aggregation_configurations"] = aggregation_configurations
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2505,7 +2507,7 @@ class CloudTrailClient:
             "aws_sdk_cloudtrail.types.advanced_event_selectors.AdvancedEventSelectors"
         ] = None,
     ) -> "aws_sdk_cloudtrail.types.put_event_selectors_response.PutEventSelectorsResponse":
-        """<p>Configures event selectors (also referred to as <i>basic event selectors</i>) or advanced event selectors for your trail. You can use either <code>AdvancedEventSelectors</code> or <code>EventSelectors</code>, but not both. If you apply <code>AdvancedEventSelectors</code> to a trail, any existing <code>EventSelectors</code> are overwritten.</p> <p>You can use <code>AdvancedEventSelectors</code> to log management events, data events for all resource types, and network activity events.</p> <p>You can use <code>EventSelectors</code> to log management events and data events for the following resource types:</p> <ul> <li> <p> <code>AWS::DynamoDB::Table</code> </p> </li> <li> <p> <code>AWS::Lambda::Function</code> </p> </li> <li> <p> <code>AWS::S3::Object</code> </p> </li> </ul> <p>You can't use <code>EventSelectors</code> to log network activity events.</p> <p>If you want your trail to log Insights events, be sure the event selector or advanced event selector enables logging of the Insights event types you want configured for your trail. For more information about logging Insights events, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-insights-events-with-cloudtrail.html\">Working with CloudTrail Insights</a> in the <i>CloudTrail User Guide</i>. By default, trails created without specific event selectors are configured to log all read and write management events, and no data events or network activity events.</p> <p>When an event occurs in your account, CloudTrail evaluates the event selectors or advanced event selectors in all trails. For each trail, if the event matches any event selector, the trail processes and logs the event. If the event doesn't match any event selector, the trail doesn't log the event.</p> <p>Example</p> <ol> <li> <p>You create an event selector for a trail and specify that you want to log write-only events.</p> </li> <li> <p>The EC2 <code>GetConsoleOutput</code> and <code>RunInstances</code> API operations occur in your account.</p> </li> <li> <p>CloudTrail evaluates whether the events match your event selectors.</p> </li> <li> <p>The <code>RunInstances</code> is a write-only event and it matches your event selector. The trail logs the event.</p> </li> <li> <p>The <code>GetConsoleOutput</code> is a read-only event that doesn't match your event selector. The trail doesn't log the event. </p> </li> </ol> <p>The <code>PutEventSelectors</code> operation must be called from the Region in which the trail was created; otherwise, an <code>InvalidHomeRegionException</code> exception is thrown.</p> <p>You can configure up to five event selectors for each trail.</p> <p>You can add advanced event selectors, and conditions for your advanced event selectors, up to a maximum of 500 values for all conditions and selectors on a trail. For more information, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html\">Logging management events</a>, <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html\">Logging data events</a>, <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-network-events-with-cloudtrail.html\">Logging network activity events</a>, and <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html\">Quotas in CloudTrail</a> in the <i>CloudTrail User Guide</i>.</p>
+        r"""<p>Configures event selectors (also referred to as <i>basic event selectors</i>) or advanced event selectors for your trail. You can use either <code>AdvancedEventSelectors</code> or <code>EventSelectors</code>, but not both. If you apply <code>AdvancedEventSelectors</code> to a trail, any existing <code>EventSelectors</code> are overwritten.</p> <p>You can use <code>AdvancedEventSelectors</code> to log management events, data events for all resource types, and network activity events.</p> <p>You can use <code>EventSelectors</code> to log management events and data events for the following resource types:</p> <ul> <li> <p> <code>AWS::DynamoDB::Table</code> </p> </li> <li> <p> <code>AWS::Lambda::Function</code> </p> </li> <li> <p> <code>AWS::S3::Object</code> </p> </li> </ul> <p>You can't use <code>EventSelectors</code> to log network activity events.</p> <p>If you want your trail to log Insights events, be sure the event selector or advanced event selector enables logging of the Insights event types you want configured for your trail. For more information about logging Insights events, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-insights-events-with-cloudtrail.html\">Working with CloudTrail Insights</a> in the <i>CloudTrail User Guide</i>. By default, trails created without specific event selectors are configured to log all read and write management events, and no data events or network activity events.</p> <p>When an event occurs in your account, CloudTrail evaluates the event selectors or advanced event selectors in all trails. For each trail, if the event matches any event selector, the trail processes and logs the event. If the event doesn't match any event selector, the trail doesn't log the event.</p> <p>Example</p> <ol> <li> <p>You create an event selector for a trail and specify that you want to log write-only events.</p> </li> <li> <p>The EC2 <code>GetConsoleOutput</code> and <code>RunInstances</code> API operations occur in your account.</p> </li> <li> <p>CloudTrail evaluates whether the events match your event selectors.</p> </li> <li> <p>The <code>RunInstances</code> is a write-only event and it matches your event selector. The trail logs the event.</p> </li> <li> <p>The <code>GetConsoleOutput</code> is a read-only event that doesn't match your event selector. The trail doesn't log the event. </p> </li> </ol> <p>The <code>PutEventSelectors</code> operation must be called from the Region in which the trail was created; otherwise, an <code>InvalidHomeRegionException</code> exception is thrown.</p> <p>You can configure up to five event selectors for each trail.</p> <p>You can add advanced event selectors, and conditions for your advanced event selectors, up to a maximum of 500 values for all conditions and selectors on a trail. For more information, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html\">Logging management events</a>, <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html\">Logging data events</a>, <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-network-events-with-cloudtrail.html\">Logging network activity events</a>, and <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html\">Quotas in CloudTrail</a> in the <i>CloudTrail User Guide</i>.</p>
 
         Args:
             trail_name: <p>Specifies the name of the trail or trail ARN. If you specify a trail name, the string must meet the following requirements:</p> <ul> <li> <p>Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)</p> </li> <li> <p>Start with a letter or number, and end with a letter or number</p> </li> <li> <p>Be between 3 and 128 characters</p> </li> <li> <p>Have no adjacent periods, underscores or dashes. Names like <code>my-_namespace</code> and <code>my--namespace</code> are not valid.</p> </li> <li> <p>Not be in IP address format (for example, 192.168.5.4)</p> </li> </ul> <p>If you specify a trail ARN, it must be in the following format.</p> <p> <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code> </p>
@@ -2528,15 +2530,15 @@ class CloudTrailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudtrail.types.put_event_selectors_request.PutEventSelectorsRequest = {}  # type: ignore[typeddict-item]
-        input["trail_name"] = trail_name
+        input_: aws_sdk_cloudtrail.types.put_event_selectors_request.PutEventSelectorsRequest = {}  # type: ignore[typeddict-item]
+        input_["trail_name"] = trail_name
         if event_selectors is not None:
-            input["event_selectors"] = event_selectors
+            input_["event_selectors"] = event_selectors
         if advanced_event_selectors is not None:
-            input["advanced_event_selectors"] = advanced_event_selectors
+            input_["advanced_event_selectors"] = advanced_event_selectors
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2555,7 +2557,7 @@ class CloudTrailClient:
             "aws_sdk_cloudtrail.types.event_data_store_arn.EventDataStoreArn"
         ] = None,
     ) -> "aws_sdk_cloudtrail.types.put_insight_selectors_response.PutInsightSelectorsResponse":
-        """<p>Lets you enable Insights event logging on specific event categories by specifying the Insights selectors that you want to enable on an existing trail or event data store. You also use <code>PutInsightSelectors</code> to turn off Insights event logging, by passing an empty list of Insights types. The valid Insights event types are <code>ApiErrorRateInsight</code> and <code>ApiCallRateInsight</code>, and valid EventCategories are <code>Management</code> and <code>Data</code>.</p> <note> <p> Insights on data events are not supported on event data stores. For event data stores, you can only enable Insights on management events. </p> </note> <p>To enable Insights on an event data store, you must specify the ARNs (or ID suffix of the ARNs) for the source event data store (<code>EventDataStore</code>) and the destination event data store (<code>InsightsDestination</code>). The source event data store logs management events and enables Insights. The destination event data store logs Insights events based upon the management event activity of the source event data store. The source and destination event data stores must belong to the same Amazon Web Services account.</p> <p>To log Insights events for a trail, you must specify the name (<code>TrailName</code>) of the CloudTrail trail for which you want to change or add Insights selectors.</p> <ul> <li> <p> For Management events Insights: To log CloudTrail Insights on the API call rate, the trail or event data store must log <code>write</code> management events. To log CloudTrail Insights on the API error rate, the trail or event data store must log <code>read</code> or <code>write</code> management events. </p> </li> <li> <p> For Data events Insights: To log CloudTrail Insights on the API call rate or API error rate, the trail must log <code>read</code> or <code>write</code> data events. Data events Insights are not supported on event data store. </p> </li> </ul> <p>To log CloudTrail Insights events on API call volume, the trail or event data store must log <code>write</code> management events. To log CloudTrail Insights events on API error rate, the trail or event data store must log <code>read</code> or <code>write</code> management events. You can call <code>GetEventSelectors</code> on a trail to check whether the trail logs management events. You can call <code>GetEventDataStore</code> on an event data store to check whether the event data store logs management events.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-insights-events-with-cloudtrail.html\">Working with CloudTrail Insights</a> in the <i>CloudTrail User Guide</i>.</p>
+        r"""<p>Lets you enable Insights event logging on specific event categories by specifying the Insights selectors that you want to enable on an existing trail or event data store. You also use <code>PutInsightSelectors</code> to turn off Insights event logging, by passing an empty list of Insights types. The valid Insights event types are <code>ApiErrorRateInsight</code> and <code>ApiCallRateInsight</code>, and valid EventCategories are <code>Management</code> and <code>Data</code>.</p> <note> <p> Insights on data events are not supported on event data stores. For event data stores, you can only enable Insights on management events. </p> </note> <p>To enable Insights on an event data store, you must specify the ARNs (or ID suffix of the ARNs) for the source event data store (<code>EventDataStore</code>) and the destination event data store (<code>InsightsDestination</code>). The source event data store logs management events and enables Insights. The destination event data store logs Insights events based upon the management event activity of the source event data store. The source and destination event data stores must belong to the same Amazon Web Services account.</p> <p>To log Insights events for a trail, you must specify the name (<code>TrailName</code>) of the CloudTrail trail for which you want to change or add Insights selectors.</p> <ul> <li> <p> For Management events Insights: To log CloudTrail Insights on the API call rate, the trail or event data store must log <code>write</code> management events. To log CloudTrail Insights on the API error rate, the trail or event data store must log <code>read</code> or <code>write</code> management events. </p> </li> <li> <p> For Data events Insights: To log CloudTrail Insights on the API call rate or API error rate, the trail must log <code>read</code> or <code>write</code> data events. Data events Insights are not supported on event data store. </p> </li> </ul> <p>To log CloudTrail Insights events on API call volume, the trail or event data store must log <code>write</code> management events. To log CloudTrail Insights events on API error rate, the trail or event data store must log <code>read</code> or <code>write</code> management events. You can call <code>GetEventSelectors</code> on a trail to check whether the trail logs management events. You can call <code>GetEventDataStore</code> on an event data store to check whether the event data store logs management events.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-insights-events-with-cloudtrail.html\">Working with CloudTrail Insights</a> in the <i>CloudTrail User Guide</i>.</p>
 
         Args:
             trail_name: <p>The name of the CloudTrail trail for which you want to change or add Insights selectors.</p> <p>You cannot use this parameter with the <code>EventDataStore</code> and <code>InsightsDestination</code> parameters.</p>
@@ -2579,17 +2581,17 @@ class CloudTrailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudtrail.types.put_insight_selectors_request.PutInsightSelectorsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudtrail.types.put_insight_selectors_request.PutInsightSelectorsRequest = {}  # type: ignore[typeddict-item]
         if trail_name is not None:
-            input["trail_name"] = trail_name
-        input["insight_selectors"] = insight_selectors
+            input_["trail_name"] = trail_name
+        input_["insight_selectors"] = insight_selectors
         if event_data_store is not None:
-            input["event_data_store"] = event_data_store
+            input_["event_data_store"] = event_data_store
         if insights_destination is not None:
-            input["insights_destination"] = insights_destination
+            input_["insights_destination"] = insights_destination
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2602,7 +2604,7 @@ class CloudTrailClient:
         *,
         config_overrides: Optional[CloudTrailClientConfig] = None,
     ) -> "aws_sdk_cloudtrail.types.put_resource_policy_response.PutResourcePolicyResponse":
-        """<p> Attaches a resource-based permission policy to a CloudTrail event data store, dashboard, or channel. For more information about resource-based policies, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/security_iam_resource-based-policy-examples.html\">CloudTrail resource-based policy examples</a> in the <i>CloudTrail User Guide</i>. </p>
+        r"""<p> Attaches a resource-based permission policy to a CloudTrail event data store, dashboard, or channel. For more information about resource-based policies, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/security_iam_resource-based-policy-examples.html\">CloudTrail resource-based policy examples</a> in the <i>CloudTrail User Guide</i>. </p>
 
         Args:
             resource_arn: <p> The Amazon Resource Name (ARN) of the CloudTrail event data store, dashboard, or channel attached to the resource-based policy.</p> <p>Example event data store ARN format: <code>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code> </p> <p>Example dashboard ARN format: <code>arn:aws:cloudtrail:us-east-1:123456789012:dashboard/exampleDash</code> </p> <p>Example channel ARN format: <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code> </p>
@@ -2624,12 +2626,12 @@ class CloudTrailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudtrail.types.put_resource_policy_request.PutResourcePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["resource_policy"] = resource_policy
+        input_: aws_sdk_cloudtrail.types.put_resource_policy_request.PutResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["resource_policy"] = resource_policy
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2641,7 +2643,7 @@ class CloudTrailClient:
         *,
         config_overrides: Optional[CloudTrailClientConfig] = None,
     ) -> "aws_sdk_cloudtrail.types.register_organization_delegated_admin_response.RegisterOrganizationDelegatedAdminResponse":
-        """<p>Registers an organization’s member account as the CloudTrail <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-delegated-administrator.html\">delegated administrator</a>.</p>
+        r"""<p>Registers an organization’s member account as the CloudTrail <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-delegated-administrator.html\">delegated administrator</a>.</p>
 
         Args:
             member_account_id: <p>An organization member account ID that you want to designate as a delegated administrator.</p>
@@ -2662,11 +2664,11 @@ class CloudTrailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudtrail.types.register_organization_delegated_admin_request.RegisterOrganizationDelegatedAdminRequest = {}  # type: ignore[typeddict-item]
-        input["member_account_id"] = member_account_id
+        input_: aws_sdk_cloudtrail.types.register_organization_delegated_admin_request.RegisterOrganizationDelegatedAdminRequest = {}  # type: ignore[typeddict-item]
+        input_["member_account_id"] = member_account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2701,12 +2703,12 @@ class CloudTrailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudtrail.types.remove_tags_request.RemoveTagsRequest = {}  # type: ignore[typeddict-item]
-        input["resource_id"] = resource_id
-        input["tags_list"] = tags_list
+        input_: aws_sdk_cloudtrail.types.remove_tags_request.RemoveTagsRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_id"] = resource_id
+        input_["tags_list"] = tags_list
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2739,11 +2741,11 @@ class CloudTrailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudtrail.types.restore_event_data_store_request.RestoreEventDataStoreRequest = {}  # type: ignore[typeddict-item]
-        input["event_data_store"] = event_data_store
+        input_: aws_sdk_cloudtrail.types.restore_event_data_store_request.RestoreEventDataStoreRequest = {}  # type: ignore[typeddict-item]
+        input_["event_data_store"] = event_data_store
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2784,15 +2786,15 @@ class CloudTrailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudtrail.types.search_sample_queries_request.SearchSampleQueriesRequest = {}  # type: ignore[typeddict-item]
-        input["search_phrase"] = search_phrase
+        input_: aws_sdk_cloudtrail.types.search_sample_queries_request.SearchSampleQueriesRequest = {}  # type: ignore[typeddict-item]
+        input_["search_phrase"] = search_phrase
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2807,7 +2809,7 @@ class CloudTrailClient:
             "aws_sdk_cloudtrail.types.query_parameter_values.QueryParameterValues"
         ] = None,
     ) -> "aws_sdk_cloudtrail.types.start_dashboard_refresh_response.StartDashboardRefreshResponse":
-        """<p> Starts a refresh of the specified dashboard. </p> <p> Each time a dashboard is refreshed, CloudTrail runs queries to populate the dashboard's widgets. CloudTrail must be granted permissions to run the <code>StartQuery</code> operation on your behalf. To provide permissions, run the <code>PutResourcePolicy</code> operation to attach a resource-based policy to each event data store. For more information, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/security_iam_resource-based-policy-examples.html#security_iam_resource-based-policy-examples-eds-dashboard\">Example: Allow CloudTrail to run queries to populate a dashboard</a> in the <i>CloudTrail User Guide</i>. </p>
+        r"""<p> Starts a refresh of the specified dashboard. </p> <p> Each time a dashboard is refreshed, CloudTrail runs queries to populate the dashboard's widgets. CloudTrail must be granted permissions to run the <code>StartQuery</code> operation on your behalf. To provide permissions, run the <code>PutResourcePolicy</code> operation to attach a resource-based policy to each event data store. For more information, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/security_iam_resource-based-policy-examples.html#security_iam_resource-based-policy-examples-eds-dashboard\">Example: Allow CloudTrail to run queries to populate a dashboard</a> in the <i>CloudTrail User Guide</i>. </p>
 
         Args:
             dashboard_id: <p> The name or ARN of the dashboard. </p>
@@ -2829,13 +2831,13 @@ class CloudTrailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudtrail.types.start_dashboard_refresh_request.StartDashboardRefreshRequest = {}  # type: ignore[typeddict-item]
-        input["dashboard_id"] = dashboard_id
+        input_: aws_sdk_cloudtrail.types.start_dashboard_refresh_request.StartDashboardRefreshRequest = {}  # type: ignore[typeddict-item]
+        input_["dashboard_id"] = dashboard_id
         if query_parameter_values is not None:
-            input["query_parameter_values"] = query_parameter_values
+            input_["query_parameter_values"] = query_parameter_values
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2868,11 +2870,11 @@ class CloudTrailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudtrail.types.start_event_data_store_ingestion_request.StartEventDataStoreIngestionRequest = {}  # type: ignore[typeddict-item]
-        input["event_data_store"] = event_data_store
+        input_: aws_sdk_cloudtrail.types.start_event_data_store_ingestion_request.StartEventDataStoreIngestionRequest = {}  # type: ignore[typeddict-item]
+        input_["event_data_store"] = event_data_store
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2892,7 +2894,7 @@ class CloudTrailClient:
         end_event_time: Optional["aws_sdk_cloudtrail.types.date.Date"] = None,
         import_id: Optional["aws_sdk_cloudtrail.types.uuid.UUID"] = None,
     ) -> "aws_sdk_cloudtrail.types.start_import_response.StartImportResponse":
-        """<p> Starts an import of logged trail events from a source S3 bucket to a destination event data store. By default, CloudTrail only imports events contained in the S3 bucket's <code>CloudTrail</code> prefix and the prefixes inside the <code>CloudTrail</code> prefix, and does not check prefixes for other Amazon Web Services services. If you want to import CloudTrail events contained in another prefix, you must include the prefix in the <code>S3LocationUri</code>. For more considerations about importing trail events, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-copy-trail-to-lake.html#cloudtrail-trail-copy-considerations\">Considerations for copying trail events</a> in the <i>CloudTrail User Guide</i>. </p> <p> When you start a new import, the <code>Destinations</code> and <code>ImportSource</code> parameters are required. Before starting a new import, disable any access control lists (ACLs) attached to the source S3 bucket. For more information about disabling ACLs, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html\">Controlling ownership of objects and disabling ACLs for your bucket</a>. </p> <p> When you retry an import, the <code>ImportID</code> parameter is required. </p> <note> <p> If the destination event data store is for an organization, you must use the management account to import trail events. You cannot use the delegated administrator account for the organization. </p> </note>
+        r"""<p> Starts an import of logged trail events from a source S3 bucket to a destination event data store. By default, CloudTrail only imports events contained in the S3 bucket's <code>CloudTrail</code> prefix and the prefixes inside the <code>CloudTrail</code> prefix, and does not check prefixes for other Amazon Web Services services. If you want to import CloudTrail events contained in another prefix, you must include the prefix in the <code>S3LocationUri</code>. For more considerations about importing trail events, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-copy-trail-to-lake.html#cloudtrail-trail-copy-considerations\">Considerations for copying trail events</a> in the <i>CloudTrail User Guide</i>. </p> <p> When you start a new import, the <code>Destinations</code> and <code>ImportSource</code> parameters are required. Before starting a new import, disable any access control lists (ACLs) attached to the source S3 bucket. For more information about disabling ACLs, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html\">Controlling ownership of objects and disabling ACLs for your bucket</a>. </p> <p> When you retry an import, the <code>ImportID</code> parameter is required. </p> <note> <p> If the destination event data store is for an organization, you must use the management account to import trail events. You cannot use the delegated administrator account for the organization. </p> </note>
 
         Args:
             destinations: <p> The ARN of the destination event data store. Use this parameter for a new import. </p>
@@ -2917,20 +2919,20 @@ class CloudTrailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudtrail.types.start_import_request.StartImportRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudtrail.types.start_import_request.StartImportRequest = {}  # type: ignore[typeddict-item]
         if destinations is not None:
-            input["destinations"] = destinations
+            input_["destinations"] = destinations
         if import_source is not None:
-            input["import_source"] = import_source
+            input_["import_source"] = import_source
         if start_event_time is not None:
-            input["start_event_time"] = start_event_time
+            input_["start_event_time"] = start_event_time
         if end_event_time is not None:
-            input["end_event_time"] = end_event_time
+            input_["end_event_time"] = end_event_time
         if import_id is not None:
-            input["import_id"] = import_id
+            input_["import_id"] = import_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2963,11 +2965,11 @@ class CloudTrailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudtrail.types.start_logging_request.StartLoggingRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_cloudtrail.types.start_logging_request.StartLoggingRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3016,22 +3018,22 @@ class CloudTrailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudtrail.types.start_query_request.StartQueryRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudtrail.types.start_query_request.StartQueryRequest = {}  # type: ignore[typeddict-item]
         if query_statement is not None:
-            input["query_statement"] = query_statement
+            input_["query_statement"] = query_statement
         if delivery_s3_uri is not None:
-            input["delivery_s3_uri"] = delivery_s3_uri
+            input_["delivery_s3_uri"] = delivery_s3_uri
         if query_alias is not None:
-            input["query_alias"] = query_alias
+            input_["query_alias"] = query_alias
         if query_parameters is not None:
-            input["query_parameters"] = query_parameters
+            input_["query_parameters"] = query_parameters
         if event_data_store_owner_account_id is not None:
-            input["event_data_store_owner_account_id"] = (
+            input_["event_data_store_owner_account_id"] = (
                 event_data_store_owner_account_id
             )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3064,11 +3066,11 @@ class CloudTrailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudtrail.types.stop_event_data_store_ingestion_request.StopEventDataStoreIngestionRequest = {}  # type: ignore[typeddict-item]
-        input["event_data_store"] = event_data_store
+        input_: aws_sdk_cloudtrail.types.stop_event_data_store_ingestion_request.StopEventDataStoreIngestionRequest = {}  # type: ignore[typeddict-item]
+        input_["event_data_store"] = event_data_store
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3101,11 +3103,11 @@ class CloudTrailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudtrail.types.stop_import_request.StopImportRequest = {}  # type: ignore[typeddict-item]
-        input["import_id"] = import_id
+        input_: aws_sdk_cloudtrail.types.stop_import_request.StopImportRequest = {}  # type: ignore[typeddict-item]
+        input_["import_id"] = import_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3138,11 +3140,11 @@ class CloudTrailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudtrail.types.stop_logging_request.StopLoggingRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_cloudtrail.types.stop_logging_request.StopLoggingRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3181,15 +3183,15 @@ class CloudTrailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudtrail.types.update_channel_request.UpdateChannelRequest = {}  # type: ignore[typeddict-item]
-        input["channel"] = channel
+        input_: aws_sdk_cloudtrail.types.update_channel_request.UpdateChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["channel"] = channel
         if destinations is not None:
-            input["destinations"] = destinations
+            input_["destinations"] = destinations
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3210,7 +3212,7 @@ class CloudTrailClient:
             "aws_sdk_cloudtrail.types.termination_protection_enabled.TerminationProtectionEnabled"
         ] = None,
     ) -> "aws_sdk_cloudtrail.types.update_dashboard_response.UpdateDashboardResponse":
-        """<p> Updates the specified dashboard. </p> <p> To set a refresh schedule, CloudTrail must be granted permissions to run the <code>StartDashboardRefresh</code> operation to refresh the dashboard on your behalf. To provide permissions, run the <code>PutResourcePolicy</code> operation to attach a resource-based policy to the dashboard. For more information, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/security_iam_resource-based-policy-examples.html#security_iam_resource-based-policy-examples-dashboards\"> Resource-based policy example for a dashboard</a> in the <i>CloudTrail User Guide</i>. </p> <p> CloudTrail runs queries to populate the dashboard's widgets during a manual or scheduled refresh. CloudTrail must be granted permissions to run the <code>StartQuery</code> operation on your behalf. To provide permissions, run the <code>PutResourcePolicy</code> operation to attach a resource-based policy to each event data store. For more information, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/security_iam_resource-based-policy-examples.html#security_iam_resource-based-policy-examples-eds-dashboard\">Example: Allow CloudTrail to run queries to populate a dashboard</a> in the <i>CloudTrail User Guide</i>. </p>
+        r"""<p> Updates the specified dashboard. </p> <p> To set a refresh schedule, CloudTrail must be granted permissions to run the <code>StartDashboardRefresh</code> operation to refresh the dashboard on your behalf. To provide permissions, run the <code>PutResourcePolicy</code> operation to attach a resource-based policy to the dashboard. For more information, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/security_iam_resource-based-policy-examples.html#security_iam_resource-based-policy-examples-dashboards\"> Resource-based policy example for a dashboard</a> in the <i>CloudTrail User Guide</i>. </p> <p> CloudTrail runs queries to populate the dashboard's widgets during a manual or scheduled refresh. CloudTrail must be granted permissions to run the <code>StartQuery</code> operation on your behalf. To provide permissions, run the <code>PutResourcePolicy</code> operation to attach a resource-based policy to each event data store. For more information, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/security_iam_resource-based-policy-examples.html#security_iam_resource-based-policy-examples-eds-dashboard\">Example: Allow CloudTrail to run queries to populate a dashboard</a> in the <i>CloudTrail User Guide</i>. </p>
 
         Args:
             dashboard_id: <p> The name or ARN of the dashboard. </p>
@@ -3234,17 +3236,17 @@ class CloudTrailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudtrail.types.update_dashboard_request.UpdateDashboardRequest = {}  # type: ignore[typeddict-item]
-        input["dashboard_id"] = dashboard_id
+        input_: aws_sdk_cloudtrail.types.update_dashboard_request.UpdateDashboardRequest = {}  # type: ignore[typeddict-item]
+        input_["dashboard_id"] = dashboard_id
         if widgets is not None:
-            input["widgets"] = widgets
+            input_["widgets"] = widgets
         if refresh_schedule is not None:
-            input["refresh_schedule"] = refresh_schedule
+            input_["refresh_schedule"] = refresh_schedule
         if termination_protection_enabled is not None:
-            input["termination_protection_enabled"] = termination_protection_enabled
+            input_["termination_protection_enabled"] = termination_protection_enabled
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3280,7 +3282,7 @@ class CloudTrailClient:
             "aws_sdk_cloudtrail.types.billing_mode.BillingMode"
         ] = None,
     ) -> "aws_sdk_cloudtrail.types.update_event_data_store_response.UpdateEventDataStoreResponse":
-        """<p>Updates an event data store. The required <code>EventDataStore</code> value is an ARN or the ID portion of the ARN. Other parameters are optional, but at least one optional parameter must be specified, or CloudTrail throws an error. <code>RetentionPeriod</code> is in days, and valid values are integers between 7 and 3653 if the <code>BillingMode</code> is set to <code>EXTENDABLE_RETENTION_PRICING</code>, or between 7 and 2557 if <code>BillingMode</code> is set to <code>FIXED_RETENTION_PRICING</code>. By default, <code>TerminationProtection</code> is enabled.</p> <p>For event data stores for CloudTrail events, <code>AdvancedEventSelectors</code> includes or excludes management, data, or network activity events in your event data store. For more information about <code>AdvancedEventSelectors</code>, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedEventSelector.html\">AdvancedEventSelectors</a>.</p> <p> For event data stores for CloudTrail Insights events, Config configuration items, Audit Manager evidence, or non-Amazon Web Services events, <code>AdvancedEventSelectors</code> includes events of that type in your event data store.</p>
+        r"""<p>Updates an event data store. The required <code>EventDataStore</code> value is an ARN or the ID portion of the ARN. Other parameters are optional, but at least one optional parameter must be specified, or CloudTrail throws an error. <code>RetentionPeriod</code> is in days, and valid values are integers between 7 and 3653 if the <code>BillingMode</code> is set to <code>EXTENDABLE_RETENTION_PRICING</code>, or between 7 and 2557 if <code>BillingMode</code> is set to <code>FIXED_RETENTION_PRICING</code>. By default, <code>TerminationProtection</code> is enabled.</p> <p>For event data stores for CloudTrail events, <code>AdvancedEventSelectors</code> includes or excludes management, data, or network activity events in your event data store. For more information about <code>AdvancedEventSelectors</code>, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedEventSelector.html\">AdvancedEventSelectors</a>.</p> <p> For event data stores for CloudTrail Insights events, Config configuration items, Audit Manager evidence, or non-Amazon Web Services events, <code>AdvancedEventSelectors</code> includes events of that type in your event data store.</p>
 
         Args:
             event_data_store: <p>The ARN (or the ID suffix of the ARN) of the event data store that you want to update.</p>
@@ -3309,27 +3311,27 @@ class CloudTrailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudtrail.types.update_event_data_store_request.UpdateEventDataStoreRequest = {}  # type: ignore[typeddict-item]
-        input["event_data_store"] = event_data_store
+        input_: aws_sdk_cloudtrail.types.update_event_data_store_request.UpdateEventDataStoreRequest = {}  # type: ignore[typeddict-item]
+        input_["event_data_store"] = event_data_store
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if advanced_event_selectors is not None:
-            input["advanced_event_selectors"] = advanced_event_selectors
+            input_["advanced_event_selectors"] = advanced_event_selectors
         if multi_region_enabled is not None:
-            input["multi_region_enabled"] = multi_region_enabled
+            input_["multi_region_enabled"] = multi_region_enabled
         if organization_enabled is not None:
-            input["organization_enabled"] = organization_enabled
+            input_["organization_enabled"] = organization_enabled
         if retention_period is not None:
-            input["retention_period"] = retention_period
+            input_["retention_period"] = retention_period
         if termination_protection_enabled is not None:
-            input["termination_protection_enabled"] = termination_protection_enabled
+            input_["termination_protection_enabled"] = termination_protection_enabled
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if billing_mode is not None:
-            input["billing_mode"] = billing_mode
+            input_["billing_mode"] = billing_mode
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3363,7 +3365,7 @@ class CloudTrailClient:
             "aws_sdk_cloudtrail.types.boolean.Boolean"
         ] = None,
     ) -> "aws_sdk_cloudtrail.types.update_trail_response.UpdateTrailResponse":
-        """<p>Updates trail settings that control what events you are logging, and how to handle log files. Changes to a trail do not require stopping the CloudTrail service. Use this action to designate an existing bucket for log delivery. If the existing bucket has previously been a target for CloudTrail log files, an IAM policy exists for the bucket. <code>UpdateTrail</code> must be called from the Region in which the trail was created; otherwise, an <code>InvalidHomeRegionException</code> is thrown.</p>
+        r"""<p>Updates trail settings that control what events you are logging, and how to handle log files. Changes to a trail do not require stopping the CloudTrail service. Use this action to designate an existing bucket for log delivery. If the existing bucket has previously been a target for CloudTrail log files, an IAM policy exists for the bucket. <code>UpdateTrail</code> must be called from the Region in which the trail was created; otherwise, an <code>InvalidHomeRegionException</code> is thrown.</p>
 
         Args:
             name: <p>Specifies the name of the trail or trail ARN. If <code>Name</code> is a trail name, the string must meet the following requirements:</p> <ul> <li> <p>Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)</p> </li> <li> <p>Start with a letter or number, and end with a letter or number</p> </li> <li> <p>Be between 3 and 128 characters</p> </li> <li> <p>Have no adjacent periods, underscores or dashes. Names like <code>my-_namespace</code> and <code>my--namespace</code> are not valid.</p> </li> <li> <p>Not be in IP address format (for example, 192.168.5.4)</p> </li> </ul> <p>If <code>Name</code> is a trail ARN, it must be in the following format.</p> <p> <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code> </p>
@@ -3394,31 +3396,31 @@ class CloudTrailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudtrail.types.update_trail_request.UpdateTrailRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_cloudtrail.types.update_trail_request.UpdateTrailRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if s3_bucket_name is not None:
-            input["s3_bucket_name"] = s3_bucket_name
+            input_["s3_bucket_name"] = s3_bucket_name
         if s3_key_prefix is not None:
-            input["s3_key_prefix"] = s3_key_prefix
+            input_["s3_key_prefix"] = s3_key_prefix
         if sns_topic_name is not None:
-            input["sns_topic_name"] = sns_topic_name
+            input_["sns_topic_name"] = sns_topic_name
         if include_global_service_events is not None:
-            input["include_global_service_events"] = include_global_service_events
+            input_["include_global_service_events"] = include_global_service_events
         if is_multi_region_trail is not None:
-            input["is_multi_region_trail"] = is_multi_region_trail
+            input_["is_multi_region_trail"] = is_multi_region_trail
         if enable_log_file_validation is not None:
-            input["enable_log_file_validation"] = enable_log_file_validation
+            input_["enable_log_file_validation"] = enable_log_file_validation
         if cloud_watch_logs_log_group_arn is not None:
-            input["cloud_watch_logs_log_group_arn"] = cloud_watch_logs_log_group_arn
+            input_["cloud_watch_logs_log_group_arn"] = cloud_watch_logs_log_group_arn
         if cloud_watch_logs_role_arn is not None:
-            input["cloud_watch_logs_role_arn"] = cloud_watch_logs_role_arn
+            input_["cloud_watch_logs_role_arn"] = cloud_watch_logs_role_arn
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if is_organization_trail is not None:
-            input["is_organization_trail"] = is_organization_trail
+            input_["is_organization_trail"] = is_organization_trail
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

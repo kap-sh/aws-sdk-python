@@ -25,11 +25,11 @@ class UpdateScalingPlanRequest(TypedDict):
     application_source: NotRequired[
         "aws_sdk_auto_scaling_plans.types.application_source.ApplicationSource"
     ]
-    """<p>A CloudFormation stack or set of tags.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ApplicationSource.html\">ApplicationSource</a> in the <i>AWS Auto Scaling API Reference</i>.</p>"""
+    r"""<p>A CloudFormation stack or set of tags.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ApplicationSource.html\">ApplicationSource</a> in the <i>AWS Auto Scaling API Reference</i>.</p>"""
     scaling_instructions: NotRequired[
         "aws_sdk_auto_scaling_plans.types.scaling_instructions.ScalingInstructions"
     ]
-    """<p>The scaling instructions.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html\">ScalingInstruction</a> in the <i>AWS Auto Scaling API Reference</i>.</p>"""
+    r"""<p>The scaling instructions.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html\">ScalingInstruction</a> in the <i>AWS Auto Scaling API Reference</i>.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

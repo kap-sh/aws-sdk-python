@@ -67,7 +67,7 @@ def get_signer(
     options: AsyncOperationOptions | OperationOptions,
     auth_schemes: list[dict[str, Any]] | None = None,
 ) -> aws_sdk_backup._auth._signers.Signer | None:
-    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}
+    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}  # noqa: F841
     if options.credentials_provider is not None:
         sigv4_config = (
             name_to_schema.get("sigv4")
@@ -86,7 +86,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_backup.types.get_backup_plan_from_template_input.GetBackupPlanFromTemplateInput,
+    input_: aws_sdk_backup.types.get_backup_plan_from_template_input.GetBackupPlanFromTemplateInput,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -101,7 +101,7 @@ def build_request(
         + "/backup/template/plans/{BackupPlanTemplateId}/toPlan"
     )
     url = url.replace(
-        "{BackupPlanTemplateId}", quote(str(input["backup_plan_template_id"]), safe="")
+        "{BackupPlanTemplateId}", quote(str(input_["backup_plan_template_id"]), safe="")
     )
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
@@ -116,12 +116,12 @@ def build_request(
 
 def get_backup_plan_from_template(
     options: OperationOptions,
-    input: aws_sdk_backup.types.get_backup_plan_from_template_input.GetBackupPlanFromTemplateInput,
+    input_: aws_sdk_backup.types.get_backup_plan_from_template_input.GetBackupPlanFromTemplateInput,
 ) -> tuple[
     aws_sdk_backup.types.get_backup_plan_from_template_output.GetBackupPlanFromTemplateOutput,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -135,12 +135,12 @@ def get_backup_plan_from_template(
 
 async def async_get_backup_plan_from_template(
     options: AsyncOperationOptions,
-    input: aws_sdk_backup.types.get_backup_plan_from_template_input.GetBackupPlanFromTemplateInput,
+    input_: aws_sdk_backup.types.get_backup_plan_from_template_input.GetBackupPlanFromTemplateInput,
 ) -> tuple[
     aws_sdk_backup.types.get_backup_plan_from_template_output.GetBackupPlanFromTemplateOutput,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

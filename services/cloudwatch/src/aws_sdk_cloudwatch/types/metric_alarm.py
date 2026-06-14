@@ -104,7 +104,7 @@ class MetricAlarm(TypedDict):
     treat_missing_data: NotRequired[
         "aws_sdk_cloudwatch.types.treat_missing_data.TreatMissingData"
     ]
-    """<p>Sets how this alarm is to handle missing data points. The valid values are <code>breaching</code>, <code>notBreaching</code>, <code>ignore</code>, and <code>missing</code>. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarms-and-missing-data\">Configuring how CloudWatch alarms treat missing data</a>.</p> <p>If this parameter is omitted, the default behavior of <code>missing</code> is used.</p> <note> <p>This parameter is not applicable to PromQL alarms.</p> </note>"""
+    r"""<p>Sets how this alarm is to handle missing data points. The valid values are <code>breaching</code>, <code>notBreaching</code>, <code>ignore</code>, and <code>missing</code>. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarms-and-missing-data\">Configuring how CloudWatch alarms treat missing data</a>.</p> <p>If this parameter is omitted, the default behavior of <code>missing</code> is used.</p> <note> <p>This parameter is not applicable to PromQL alarms.</p> </note>"""
     evaluate_low_sample_count_percentile: NotRequired[
         "aws_sdk_cloudwatch.types.evaluate_low_sample_count_percentile.EvaluateLowSampleCountPercentile"
     ]
@@ -118,7 +118,7 @@ class MetricAlarm(TypedDict):
     evaluation_state: NotRequired[
         "aws_sdk_cloudwatch.types.evaluation_state.EvaluationState"
     ]
-    """<p>If the value of this field is <code>PARTIAL_DATA</code>, it indicates that not all the available data was able to be retrieved due to quota limitations. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Metrics_Insights_Alarm.html\">Create alarms on Metrics Insights queries</a>.</p> <p>If the value of this field is <code>EVALUATION_ERROR</code>, it indicates configuration errors in alarm setup that require review and correction. Refer to StateReason field of the alarm for more details.</p> <p>If the value of this field is <code>EVALUATION_FAILURE</code>, it indicates temporary CloudWatch issues. We recommend manual monitoring until the issue is resolved </p>"""
+    r"""<p>If the value of this field is <code>PARTIAL_DATA</code>, it indicates that not all the available data was able to be retrieved due to quota limitations. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Metrics_Insights_Alarm.html\">Create alarms on Metrics Insights queries</a>.</p> <p>If the value of this field is <code>EVALUATION_ERROR</code>, it indicates configuration errors in alarm setup that require review and correction. Refer to StateReason field of the alarm for more details.</p> <p>If the value of this field is <code>EVALUATION_FAILURE</code>, it indicates temporary CloudWatch issues. We recommend manual monitoring until the issue is resolved </p>"""
     state_transitioned_timestamp: NotRequired[
         "aws_sdk_cloudwatch.types.timestamp.Timestamp"
     ]

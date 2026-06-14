@@ -15,7 +15,7 @@ class CreateLibraryItemOutput(TypedDict):
     library_item_id: "aws_sdk_qapps.types.uuid.UUID"
     """<p>The unique identifier of the new library item.</p>"""
     status: "str"
-    """<p>The status of the new library item, such as \"Published\".</p>"""
+    r"""<p>The status of the new library item, such as \"Published\".</p>"""
     created_at: "aws_sdk_qapps.types.q_apps_timestamp.QAppsTimestamp"
     """<p>The date and time the library item was created.</p>"""
     created_by: "str"

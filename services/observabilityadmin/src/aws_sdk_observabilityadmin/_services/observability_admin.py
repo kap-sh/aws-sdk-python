@@ -876,7 +876,7 @@ class ObservabilityAdminClient:
             "aws_sdk_observabilityadmin.types.next_token.NextToken"
         ] = None,
     ) -> "aws_sdk_observabilityadmin.types.list_resource_telemetry_output.ListResourceTelemetryOutput":
-        """<p> Returns a list of telemetry configurations for Amazon Web Services resources supported by telemetry config. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/telemetry-config-cloudwatch.html\">Auditing CloudWatch telemetry configurations</a>. </p>
+        r"""<p> Returns a list of telemetry configurations for Amazon Web Services resources supported by telemetry config. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/telemetry-config-cloudwatch.html\">Auditing CloudWatch telemetry configurations</a>. </p>
 
         Args:
             resource_identifier_prefix: <p> A string used to filter resources which have a <code>ResourceIdentifier</code> starting with the <code>ResourceIdentifierPrefix</code>. </p>
@@ -990,7 +990,7 @@ class ObservabilityAdminClient:
             "aws_sdk_observabilityadmin.types.next_token.NextToken"
         ] = None,
     ) -> "aws_sdk_observabilityadmin.types.list_resource_telemetry_for_organization_output.ListResourceTelemetryForOrganizationOutput":
-        """<p> Returns a list of telemetry configurations for Amazon Web Services resources supported by telemetry config in the organization. </p>
+        r"""<p> Returns a list of telemetry configurations for Amazon Web Services resources supported by telemetry config in the organization. </p>
 
         Args:
             account_identifiers: <p> A list of Amazon Web Services accounts used to filter the resources to those associated with the specified accounts. </p>

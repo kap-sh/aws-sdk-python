@@ -1,9 +1,12 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#EvaluationJobResults``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.evaluator_summary_list
+
 
 class EvaluationJobResults(TypedDict):
     number_of_sessions_completed: NotRequired["int"]
@@ -16,8 +19,11 @@ class EvaluationJobResults(TypedDict):
     """<p>The total number of sessions included in the batch evaluation.</p>"""
     number_of_sessions_ignored: NotRequired["int"]
     """<p>The number of sessions that were ignored during evaluation.</p>"""
-    evaluator_summaries: NotRequired["aws_sdk_bedrock_agentcore.types.evaluator_summary_list.EvaluatorSummaryList"]
+    evaluator_summaries: NotRequired[
+        "aws_sdk_bedrock_agentcore.types.evaluator_summary_list.EvaluatorSummaryList"
+    ]
     """<p>A list of per-evaluator summary statistics.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: EvaluationJobResults) -> dict:
@@ -34,7 +40,12 @@ def serialize_json(value: EvaluationJobResults) -> dict:
         out["numberOfSessionsIgnored"] = value["number_of_sessions_ignored"]
     if "evaluator_summaries" in value:
         import aws_sdk_bedrock_agentcore.types.evaluator_summary_list
-        out["evaluatorSummaries"] = aws_sdk_bedrock_agentcore.types.evaluator_summary_list.serialize_json(value["evaluator_summaries"])
+
+        out["evaluatorSummaries"] = (
+            aws_sdk_bedrock_agentcore.types.evaluator_summary_list.serialize_json(
+                value["evaluator_summaries"]
+            )
+        )
     return out
 
 
@@ -52,5 +63,10 @@ def deserialize_json(data: dict) -> EvaluationJobResults:
         out["number_of_sessions_ignored"] = data["numberOfSessionsIgnored"]
     if "evaluatorSummaries" in data:
         import aws_sdk_bedrock_agentcore.types.evaluator_summary_list
-        out["evaluator_summaries"] = aws_sdk_bedrock_agentcore.types.evaluator_summary_list.deserialize_json(data["evaluatorSummaries"])
+
+        out["evaluator_summaries"] = (
+            aws_sdk_bedrock_agentcore.types.evaluator_summary_list.deserialize_json(
+                data["evaluatorSummaries"]
+            )
+        )
     return out

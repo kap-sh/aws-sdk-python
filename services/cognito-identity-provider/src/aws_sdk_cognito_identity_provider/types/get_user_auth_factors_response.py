@@ -27,7 +27,7 @@ class GetUserAuthFactorsResponse(TypedDict):
     configured_user_auth_factors: NotRequired[
         "aws_sdk_cognito_identity_provider.types.configured_user_auth_factors_list_type.ConfiguredUserAuthFactorsListType"
     ]
-    """<p>The authentication types that are available to the user with <code>USER_AUTH</code> sign-in, for example <code>[\"PASSWORD\", \"WEB_AUTHN\"]</code>.</p>"""
+    r"""<p>The authentication types that are available to the user with <code>USER_AUTH</code> sign-in, for example <code>[\"PASSWORD\", \"WEB_AUTHN\"]</code>.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

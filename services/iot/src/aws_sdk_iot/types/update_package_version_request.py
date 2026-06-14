@@ -31,7 +31,7 @@ class UpdatePackageVersionRequest(TypedDict):
     ]
     """<p>The various components that make up a software package version.</p>"""
     action: NotRequired["aws_sdk_iot.types.package_version_action.PackageVersionAction"]
-    """<p>The status that the package version should be assigned. For more information, see <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle\">Package version lifecycle</a>.</p>"""
+    r"""<p>The status that the package version should be assigned. For more information, see <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle\">Package version lifecycle</a>.</p>"""
     recipe: NotRequired["aws_sdk_iot.types.package_version_recipe.PackageVersionRecipe"]
     """<p>The inline job document associated with a software package version used for a quick job deployment.</p>"""
     client_token: NotRequired["aws_sdk_iot.types.client_token.ClientToken"]

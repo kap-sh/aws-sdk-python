@@ -21,7 +21,7 @@ class JobExecutionSummary(TypedDict):
     last_updated_at: NotRequired["aws_sdk_iot.types.date_type.DateType"]
     """<p>The time, in seconds since the epoch, when the job execution was last updated.</p>"""
     execution_number: NotRequired["aws_sdk_iot.types.execution_number.ExecutionNumber"]
-    """<p>A string (consisting of the digits \"0\" through \"9\") which identifies this particular job execution on this particular device. It can be used later in commands which return or update job execution information.</p>"""
+    r"""<p>A string (consisting of the digits \"0\" through \"9\") which identifies this particular job execution on this particular device. It can be used later in commands which return or update job execution information.</p>"""
     retry_attempt: NotRequired["aws_sdk_iot.types.retry_attempt.RetryAttempt"]
     """<p>The number that indicates how many retry attempts have been completed for this job on this device.</p>"""
 

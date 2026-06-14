@@ -1,14 +1,19 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#ConfigurationBundleSummary``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
+
 if TYPE_CHECKING:
+    import datetime
+
     import aws_sdk_bedrock_agentcore_control.types.configuration_bundle_arn
     import aws_sdk_bedrock_agentcore_control.types.configuration_bundle_description
     import aws_sdk_bedrock_agentcore_control.types.configuration_bundle_id
     import aws_sdk_bedrock_agentcore_control.types.configuration_bundle_name
-    import datetime
+
 
 class ConfigurationBundleSummary(TypedDict):
     bundle_arn: "aws_sdk_bedrock_agentcore_control.types.configuration_bundle_arn.ConfigurationBundleArn"
@@ -17,10 +22,13 @@ class ConfigurationBundleSummary(TypedDict):
     """<p>The unique identifier of the configuration bundle.</p>"""
     bundle_name: "aws_sdk_bedrock_agentcore_control.types.configuration_bundle_name.ConfigurationBundleName"
     """<p>The name of the configuration bundle.</p>"""
-    description: NotRequired["aws_sdk_bedrock_agentcore_control.types.configuration_bundle_description.ConfigurationBundleDescription"]
+    description: NotRequired[
+        "aws_sdk_bedrock_agentcore_control.types.configuration_bundle_description.ConfigurationBundleDescription"
+    ]
     """<p>The description of the configuration bundle.</p>"""
     created_at: NotRequired["datetime.datetime"]
     """<p>The timestamp when the configuration bundle was created.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: ConfigurationBundleSummary) -> dict:
@@ -32,7 +40,12 @@ def serialize_json(value: ConfigurationBundleSummary) -> dict:
         out["description"] = value["description"]
     if "created_at" in value:
         import aws_sdk_bedrock_agentcore_control.types._prelude.timestamp
-        out["createdAt"] = aws_sdk_bedrock_agentcore_control.types._prelude.timestamp.serialize_json(value["created_at"])
+
+        out["createdAt"] = (
+            aws_sdk_bedrock_agentcore_control.types._prelude.timestamp.serialize_json(
+                value["created_at"]
+            )
+        )
     return out
 
 
@@ -54,5 +67,10 @@ def deserialize_json(data: dict) -> ConfigurationBundleSummary:
         out["description"] = data["description"]
     if "createdAt" in data:
         import aws_sdk_bedrock_agentcore_control.types._prelude.timestamp
-        out["created_at"] = aws_sdk_bedrock_agentcore_control.types._prelude.timestamp.deserialize_json(data["createdAt"])
+
+        out["created_at"] = (
+            aws_sdk_bedrock_agentcore_control.types._prelude.timestamp.deserialize_json(
+                data["createdAt"]
+            )
+        )
     return out

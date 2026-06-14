@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import datetime
 from typing import TYPE_CHECKING, Optional
 
@@ -82,7 +84,7 @@ class MonitorResource:
             "aws_sdk_internetmonitor.types.health_events_config.HealthEventsConfig"
         ] = None,
     ) -> "aws_sdk_internetmonitor.types.create_monitor_output.CreateMonitorOutput":
-        """<p>Creates a monitor in Amazon CloudWatch Internet Monitor. A monitor is built based on information from the application resources that you add: VPCs, Network Load Balancers (NLBs), Amazon CloudFront distributions, and Amazon WorkSpaces directories. Internet Monitor then publishes internet measurements from Amazon Web Services that are specific to the <i>city-networks</i>. That is, the locations and ASNs (typically internet service providers or ISPs), where clients access your application. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-InternetMonitor.html\">Using Amazon CloudWatch Internet Monitor</a> in the <i>Amazon CloudWatch User Guide</i>.</p> <p>When you create a monitor, you choose the percentage of traffic that you want to monitor. You can also set a maximum limit for the number of city-networks where client traffic is monitored, that caps the total traffic that Internet Monitor monitors. A city-network maximum is the limit of city-networks, but you only pay for the number of city-networks that are actually monitored. You can update your monitor at any time to change the percentage of traffic to monitor or the city-networks maximum. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/IMCityNetworksMaximum.html\">Choosing a city-network maximum value</a> in the <i>Amazon CloudWatch User Guide</i>.</p>
+        r"""<p>Creates a monitor in Amazon CloudWatch Internet Monitor. A monitor is built based on information from the application resources that you add: VPCs, Network Load Balancers (NLBs), Amazon CloudFront distributions, and Amazon WorkSpaces directories. Internet Monitor then publishes internet measurements from Amazon Web Services that are specific to the <i>city-networks</i>. That is, the locations and ASNs (typically internet service providers or ISPs), where clients access your application. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-InternetMonitor.html\">Using Amazon CloudWatch Internet Monitor</a> in the <i>Amazon CloudWatch User Guide</i>.</p> <p>When you create a monitor, you choose the percentage of traffic that you want to monitor. You can also set a maximum limit for the number of city-networks where client traffic is monitored, that caps the total traffic that Internet Monitor monitors. A city-network maximum is the limit of city-networks, but you only pay for the number of city-networks that are actually monitored. You can update your monitor at any time to change the percentage of traffic to monitor or the city-networks maximum. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/IMCityNetworksMaximum.html\">Choosing a city-network maximum value</a> in the <i>Amazon CloudWatch User Guide</i>.</p>
 
         Args:
             monitor_name: <p>The name of the monitor. </p>
@@ -145,7 +147,7 @@ class MonitorResource:
             "aws_sdk_internetmonitor.types.account_id.AccountId"
         ] = None,
     ) -> "aws_sdk_internetmonitor.types.get_monitor_output.GetMonitorOutput":
-        """<p>Gets information about a monitor in Amazon CloudWatch Internet Monitor based on a monitor name. The information returned includes the Amazon Resource Name (ARN), create time, modified time, resources included in the monitor, and status information.</p>
+        r"""<p>Gets information about a monitor in Amazon CloudWatch Internet Monitor based on a monitor name. The information returned includes the Amazon Resource Name (ARN), create time, modified time, resources included in the monitor, and status information.</p>
 
         Args:
             monitor_name: <p>The name of the monitor.</p>
@@ -207,7 +209,7 @@ class MonitorResource:
             "aws_sdk_internetmonitor.types.health_events_config.HealthEventsConfig"
         ] = None,
     ) -> "aws_sdk_internetmonitor.types.update_monitor_output.UpdateMonitorOutput":
-        """<p>Updates a monitor. You can update a monitor to change the percentage of traffic to monitor or the maximum number of city-networks (locations and ASNs), to add or remove resources, or to change the status of the monitor. Note that you can't change the name of a monitor.</p> <p>The city-network maximum that you choose is the limit, but you only pay for the number of city-networks that are actually monitored. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/IMCityNetworksMaximum.html\">Choosing a city-network maximum value</a> in the <i>Amazon CloudWatch User Guide</i>.</p>
+        r"""<p>Updates a monitor. You can update a monitor to change the percentage of traffic to monitor or the maximum number of city-networks (locations and ASNs), to add or remove resources, or to change the status of the monitor. Note that you can't change the name of a monitor.</p> <p>The city-network maximum that you choose is the limit, but you only pay for the number of city-networks that are actually monitored. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/IMCityNetworksMaximum.html\">Choosing a city-network maximum value</a> in the <i>Amazon CloudWatch User Guide</i>.</p>
 
         Args:
             monitor_name: <p>The name of the monitor. </p>
@@ -312,7 +314,7 @@ class MonitorResource:
         monitor_status: Optional[str] = None,
         include_linked_accounts: Optional[bool] = None,
     ) -> "aws_sdk_internetmonitor.types.list_monitors_output.ListMonitorsOutput":
-        """<p>Lists all of your monitors for Amazon CloudWatch Internet Monitor and their statuses, along with the Amazon Resource Name (ARN) and name of each monitor.</p>
+        r"""<p>Lists all of your monitors for Amazon CloudWatch Internet Monitor and their statuses, along with the Amazon Resource Name (ARN) and name of each monitor.</p>
 
         Args:
             next_token: <p>The token for the next set of results. You receive this token from a previous call.</p>
@@ -364,7 +366,7 @@ class MonitorResource:
             "aws_sdk_internetmonitor.types.query_max_results.QueryMaxResults"
         ] = None,
     ) -> "aws_sdk_internetmonitor.types.get_query_results_output.GetQueryResultsOutput":
-        """<p>Return the data for a query with the Amazon CloudWatch Internet Monitor query interface. Specify the query that you want to return results for by providing a <code>QueryId</code> and a monitor name.</p> <p>For more information about using the query interface, including examples, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-IM-view-cw-tools-cwim-query.html\">Using the Amazon CloudWatch Internet Monitor query interface</a> in the Amazon CloudWatch Internet Monitor User Guide.</p>
+        r"""<p>Return the data for a query with the Amazon CloudWatch Internet Monitor query interface. Specify the query that you want to return results for by providing a <code>QueryId</code> and a monitor name.</p> <p>For more information about using the query interface, including examples, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-IM-view-cw-tools-cwim-query.html\">Using the Amazon CloudWatch Internet Monitor query interface</a> in the Amazon CloudWatch Internet Monitor User Guide.</p>
 
         Args:
             monitor_name: <p>The name of the monitor to return data for.</p>
@@ -458,7 +460,7 @@ class MonitorResource:
             "aws_sdk_internetmonitor.types.account_id.AccountId"
         ] = None,
     ) -> "aws_sdk_internetmonitor.types.start_query_output.StartQueryOutput":
-        """<p>Start a query to return data for a specific query type for the Amazon CloudWatch Internet Monitor query interface. Specify a time period for the data that you want returned by using <code>StartTime</code> and <code>EndTime</code>. You filter the query results to return by providing parameters that you specify with <code>FilterParameters</code>.</p> <p>For more information about using the query interface, including examples, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-IM-view-cw-tools-cwim-query.html\">Using the Amazon CloudWatch Internet Monitor query interface</a> in the Amazon CloudWatch Internet Monitor User Guide.</p>
+        r"""<p>Start a query to return data for a specific query type for the Amazon CloudWatch Internet Monitor query interface. Specify a time period for the data that you want returned by using <code>StartTime</code> and <code>EndTime</code>. You filter the query results to return by providing parameters that you specify with <code>FilterParameters</code>.</p> <p>For more information about using the query interface, including examples, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-IM-view-cw-tools-cwim-query.html\">Using the Amazon CloudWatch Internet Monitor query interface</a> in the Amazon CloudWatch Internet Monitor User Guide.</p>
 
         Args:
             monitor_name: <p>The name of the monitor to query.</p>
@@ -569,7 +571,7 @@ class AsyncMonitorResource:
             "aws_sdk_internetmonitor.types.health_events_config.HealthEventsConfig"
         ] = None,
     ) -> "aws_sdk_internetmonitor.types.create_monitor_output.CreateMonitorOutput":
-        """<p>Creates a monitor in Amazon CloudWatch Internet Monitor. A monitor is built based on information from the application resources that you add: VPCs, Network Load Balancers (NLBs), Amazon CloudFront distributions, and Amazon WorkSpaces directories. Internet Monitor then publishes internet measurements from Amazon Web Services that are specific to the <i>city-networks</i>. That is, the locations and ASNs (typically internet service providers or ISPs), where clients access your application. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-InternetMonitor.html\">Using Amazon CloudWatch Internet Monitor</a> in the <i>Amazon CloudWatch User Guide</i>.</p> <p>When you create a monitor, you choose the percentage of traffic that you want to monitor. You can also set a maximum limit for the number of city-networks where client traffic is monitored, that caps the total traffic that Internet Monitor monitors. A city-network maximum is the limit of city-networks, but you only pay for the number of city-networks that are actually monitored. You can update your monitor at any time to change the percentage of traffic to monitor or the city-networks maximum. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/IMCityNetworksMaximum.html\">Choosing a city-network maximum value</a> in the <i>Amazon CloudWatch User Guide</i>.</p>
+        r"""<p>Creates a monitor in Amazon CloudWatch Internet Monitor. A monitor is built based on information from the application resources that you add: VPCs, Network Load Balancers (NLBs), Amazon CloudFront distributions, and Amazon WorkSpaces directories. Internet Monitor then publishes internet measurements from Amazon Web Services that are specific to the <i>city-networks</i>. That is, the locations and ASNs (typically internet service providers or ISPs), where clients access your application. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-InternetMonitor.html\">Using Amazon CloudWatch Internet Monitor</a> in the <i>Amazon CloudWatch User Guide</i>.</p> <p>When you create a monitor, you choose the percentage of traffic that you want to monitor. You can also set a maximum limit for the number of city-networks where client traffic is monitored, that caps the total traffic that Internet Monitor monitors. A city-network maximum is the limit of city-networks, but you only pay for the number of city-networks that are actually monitored. You can update your monitor at any time to change the percentage of traffic to monitor or the city-networks maximum. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/IMCityNetworksMaximum.html\">Choosing a city-network maximum value</a> in the <i>Amazon CloudWatch User Guide</i>.</p>
 
         Args:
             monitor_name: <p>The name of the monitor. </p>
@@ -633,7 +635,7 @@ class AsyncMonitorResource:
             "aws_sdk_internetmonitor.types.account_id.AccountId"
         ] = None,
     ) -> "aws_sdk_internetmonitor.types.get_monitor_output.GetMonitorOutput":
-        """<p>Gets information about a monitor in Amazon CloudWatch Internet Monitor based on a monitor name. The information returned includes the Amazon Resource Name (ARN), create time, modified time, resources included in the monitor, and status information.</p>
+        r"""<p>Gets information about a monitor in Amazon CloudWatch Internet Monitor based on a monitor name. The information returned includes the Amazon Resource Name (ARN), create time, modified time, resources included in the monitor, and status information.</p>
 
         Args:
             monitor_name: <p>The name of the monitor.</p>
@@ -696,7 +698,7 @@ class AsyncMonitorResource:
             "aws_sdk_internetmonitor.types.health_events_config.HealthEventsConfig"
         ] = None,
     ) -> "aws_sdk_internetmonitor.types.update_monitor_output.UpdateMonitorOutput":
-        """<p>Updates a monitor. You can update a monitor to change the percentage of traffic to monitor or the maximum number of city-networks (locations and ASNs), to add or remove resources, or to change the status of the monitor. Note that you can't change the name of a monitor.</p> <p>The city-network maximum that you choose is the limit, but you only pay for the number of city-networks that are actually monitored. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/IMCityNetworksMaximum.html\">Choosing a city-network maximum value</a> in the <i>Amazon CloudWatch User Guide</i>.</p>
+        r"""<p>Updates a monitor. You can update a monitor to change the percentage of traffic to monitor or the maximum number of city-networks (locations and ASNs), to add or remove resources, or to change the status of the monitor. Note that you can't change the name of a monitor.</p> <p>The city-network maximum that you choose is the limit, but you only pay for the number of city-networks that are actually monitored. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/IMCityNetworksMaximum.html\">Choosing a city-network maximum value</a> in the <i>Amazon CloudWatch User Guide</i>.</p>
 
         Args:
             monitor_name: <p>The name of the monitor. </p>
@@ -803,7 +805,7 @@ class AsyncMonitorResource:
         monitor_status: Optional[str] = None,
         include_linked_accounts: Optional[bool] = None,
     ) -> "aws_sdk_internetmonitor.types.list_monitors_output.ListMonitorsOutput":
-        """<p>Lists all of your monitors for Amazon CloudWatch Internet Monitor and their statuses, along with the Amazon Resource Name (ARN) and name of each monitor.</p>
+        r"""<p>Lists all of your monitors for Amazon CloudWatch Internet Monitor and their statuses, along with the Amazon Resource Name (ARN) and name of each monitor.</p>
 
         Args:
             next_token: <p>The token for the next set of results. You receive this token from a previous call.</p>
@@ -856,7 +858,7 @@ class AsyncMonitorResource:
             "aws_sdk_internetmonitor.types.query_max_results.QueryMaxResults"
         ] = None,
     ) -> "aws_sdk_internetmonitor.types.get_query_results_output.GetQueryResultsOutput":
-        """<p>Return the data for a query with the Amazon CloudWatch Internet Monitor query interface. Specify the query that you want to return results for by providing a <code>QueryId</code> and a monitor name.</p> <p>For more information about using the query interface, including examples, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-IM-view-cw-tools-cwim-query.html\">Using the Amazon CloudWatch Internet Monitor query interface</a> in the Amazon CloudWatch Internet Monitor User Guide.</p>
+        r"""<p>Return the data for a query with the Amazon CloudWatch Internet Monitor query interface. Specify the query that you want to return results for by providing a <code>QueryId</code> and a monitor name.</p> <p>For more information about using the query interface, including examples, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-IM-view-cw-tools-cwim-query.html\">Using the Amazon CloudWatch Internet Monitor query interface</a> in the Amazon CloudWatch Internet Monitor User Guide.</p>
 
         Args:
             monitor_name: <p>The name of the monitor to return data for.</p>
@@ -952,7 +954,7 @@ class AsyncMonitorResource:
             "aws_sdk_internetmonitor.types.account_id.AccountId"
         ] = None,
     ) -> "aws_sdk_internetmonitor.types.start_query_output.StartQueryOutput":
-        """<p>Start a query to return data for a specific query type for the Amazon CloudWatch Internet Monitor query interface. Specify a time period for the data that you want returned by using <code>StartTime</code> and <code>EndTime</code>. You filter the query results to return by providing parameters that you specify with <code>FilterParameters</code>.</p> <p>For more information about using the query interface, including examples, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-IM-view-cw-tools-cwim-query.html\">Using the Amazon CloudWatch Internet Monitor query interface</a> in the Amazon CloudWatch Internet Monitor User Guide.</p>
+        r"""<p>Start a query to return data for a specific query type for the Amazon CloudWatch Internet Monitor query interface. Specify a time period for the data that you want returned by using <code>StartTime</code> and <code>EndTime</code>. You filter the query results to return by providing parameters that you specify with <code>FilterParameters</code>.</p> <p>For more information about using the query interface, including examples, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-IM-view-cw-tools-cwim-query.html\">Using the Amazon CloudWatch Internet Monitor query interface</a> in the Amazon CloudWatch Internet Monitor User Guide.</p>
 
         Args:
             monitor_name: <p>The name of the monitor to query.</p>

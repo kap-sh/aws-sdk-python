@@ -23,7 +23,7 @@ if TYPE_CHECKING:
 
 class GetTaskTemplateResponse(TypedDict):
     instance_id: NotRequired["aws_sdk_connect.types.instance_id.InstanceId"]
-    """<p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>"""
+    r"""<p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>"""
     id: "aws_sdk_connect.types.task_template_id.TaskTemplateId"
     """<p>A unique identifier for the task template.</p>"""
     arn: "aws_sdk_connect.types.task_template_arn.TaskTemplateArn"
@@ -57,7 +57,7 @@ class GetTaskTemplateResponse(TypedDict):
     created_time: NotRequired["aws_sdk_connect.types.timestamp.Timestamp"]
     """<p>The timestamp when the task template was created.</p>"""
     tags: NotRequired["aws_sdk_connect.types.tag_map.TagMap"]
-    """<p>The tags used to organize, track, or control access for this resource. For example, { \"Tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.</p>"""
+    r"""<p>The tags used to organize, track, or control access for this resource. For example, { \"Tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.</p>"""
 
 
 # --- restJson1 ser/de ---

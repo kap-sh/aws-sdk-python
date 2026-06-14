@@ -11,7 +11,7 @@ class DescribeAddonRequest(TypedDict):
     cluster_name: "aws_sdk_eks.types.cluster_name.ClusterName"
     """<p>The name of your cluster.</p>"""
     addon_name: "aws_sdk_eks.types.string.String"
-    """<p>The name of the add-on. The name must match one of the names returned by <a href=\"https://docs.aws.amazon.com/eks/latest/APIReference/API_ListAddons.html\"> <code>ListAddons</code> </a>.</p>"""
+    r"""<p>The name of the add-on. The name must match one of the names returned by <a href=\"https://docs.aws.amazon.com/eks/latest/APIReference/API_ListAddons.html\"> <code>ListAddons</code> </a>.</p>"""
 
 
 # --- restJson1 ser/de ---

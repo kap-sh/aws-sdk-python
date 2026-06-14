@@ -36,7 +36,7 @@ class Connection(TypedDict):
     bandwidth: "aws_sdk_interconnect.types.connection_bandwidth.ConnectionBandwidth"
     """<p>The specific selected bandwidth of this connection.</p>"""
     attach_point: "aws_sdk_interconnect.types.attach_point.AttachPoint"
-    """<p>The Attach Point to which the connection should be associated.\"</p>"""
+    r"""<p>The Attach Point to which the connection should be associated.\"</p>"""
     environment_id: "aws_sdk_interconnect.types.environment_id.EnvironmentId"
     """<p>The specific <a>Environment</a> this connection is placed upon.</p>"""
     provider: "aws_sdk_interconnect.types.provider.Provider"

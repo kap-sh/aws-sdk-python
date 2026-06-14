@@ -325,7 +325,7 @@ class AsyncComprehendClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = AsyncComprehendClientConfig(
+        self._config = AsyncComprehendClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -345,7 +345,7 @@ class AsyncComprehendClient:
         overrides: AsyncComprehendClientConfig = config_overrides or {}
         interceptors_: list[AsyncInterceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             aretry(),
         ]
@@ -353,16 +353,16 @@ class AsyncComprehendClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            region=overrides.get("region", self.config.get("region")),
+            region=overrides.get("region", self._config.get("region")),
             use_dual_stack=overrides.get(
-                "use_dual_stack", self.config.get("use_dual_stack")
+                "use_dual_stack", self._config.get("use_dual_stack")
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -373,7 +373,7 @@ class AsyncComprehendClient:
         *,
         config_overrides: Optional[AsyncComprehendClientConfig] = None,
     ) -> "aws_sdk_comprehend.types.batch_detect_dominant_language_response.BatchDetectDominantLanguageResponse":
-        """<p>Determines the dominant language of the input text for a batch of documents. For a list of languages that Amazon Comprehend can detect, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/how-languages.html\">Amazon Comprehend Supported Languages</a>. </p>
+        r"""<p>Determines the dominant language of the input text for a batch of documents. For a list of languages that Amazon Comprehend can detect, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/how-languages.html\">Amazon Comprehend Supported Languages</a>. </p>
 
         Args:
             text_list: <p>A list containing the UTF-8 encoded text of the input documents. The list can contain a maximum of 25 documents. Each document should contain at least 20 characters. The maximum size of each document is 5 KB.</p>
@@ -412,7 +412,7 @@ class AsyncComprehendClient:
         *,
         config_overrides: Optional[AsyncComprehendClientConfig] = None,
     ) -> "aws_sdk_comprehend.types.batch_detect_entities_response.BatchDetectEntitiesResponse":
-        """<p>Inspects the text of a batch of documents for named entities and returns information about them. For more information about named entities, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/how-entities.html\">Entities</a> in the Comprehend Developer Guide. </p>
+        r"""<p>Inspects the text of a batch of documents for named entities and returns information about them. For more information about named entities, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/how-entities.html\">Entities</a> in the Comprehend Developer Guide. </p>
 
         Args:
             text_list: <p>A list containing the UTF-8 encoded text of the input documents. The list can contain a maximum of 25 documents. The maximum size of each document is 5 KB.</p>
@@ -535,7 +535,7 @@ class AsyncComprehendClient:
         *,
         config_overrides: Optional[AsyncComprehendClientConfig] = None,
     ) -> "aws_sdk_comprehend.types.batch_detect_syntax_response.BatchDetectSyntaxResponse":
-        """<p>Inspects the text of a batch of documents for the syntax and part of speech of the words in the document and returns information about them. For more information, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/how-syntax.html\">Syntax</a> in the Comprehend Developer Guide. </p>
+        r"""<p>Inspects the text of a batch of documents for the syntax and part of speech of the words in the document and returns information about them. For more information, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/how-syntax.html\">Syntax</a> in the Comprehend Developer Guide. </p>
 
         Args:
             text_list: <p>A list containing the UTF-8 encoded text of the input documents. The list can contain a maximum of 25 documents. The maximum size for each document is 5 KB.</p>
@@ -576,7 +576,7 @@ class AsyncComprehendClient:
         *,
         config_overrides: Optional[AsyncComprehendClientConfig] = None,
     ) -> "aws_sdk_comprehend.types.batch_detect_targeted_sentiment_response.BatchDetectTargetedSentimentResponse":
-        """<p>Inspects a batch of documents and returns a sentiment analysis for each entity identified in the documents.</p> <p>For more information about targeted sentiment, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html\">Targeted sentiment</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
+        r"""<p>Inspects a batch of documents and returns a sentiment analysis for each entity identified in the documents.</p> <p>For more information about targeted sentiment, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html\">Targeted sentiment</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
 
         Args:
             text_list: <p>A list containing the UTF-8 encoded text of the input documents. The list can contain a maximum of 25 documents. The maximum size of each document is 5 KB.</p>
@@ -625,7 +625,7 @@ class AsyncComprehendClient:
             "aws_sdk_comprehend.types.document_reader_config.DocumentReaderConfig"
         ] = None,
     ) -> "aws_sdk_comprehend.types.classify_document_response.ClassifyDocumentResponse":
-        """<p>Creates a classification request to analyze a single document in real-time. <code>ClassifyDocument</code> supports the following model types:</p> <ul> <li> <p>Custom classifier - a custom model that you have created and trained. For input, you can provide plain text, a single-page document (PDF, Word, or image), or Amazon Textract API output. For more information, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/how-document-classification.html\">Custom classification</a> in the <i>Amazon Comprehend Developer Guide</i>.</p> </li> <li> <p>Prompt safety classifier - Amazon Comprehend provides a pre-trained model for classifying input prompts for generative AI applications. For input, you provide English plain text input. For prompt safety classification, the response includes only the <code>Classes</code> field. For more information about prompt safety classifiers, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/trust-safety.html#prompt-classification\">Prompt safety classification</a> in the <i>Amazon Comprehend Developer Guide</i>.</p> </li> </ul> <p>If the system detects errors while processing a page in the input document, the API response includes an <code>Errors</code> field that describes the errors.</p> <p>If the system detects a document-level error in your input document, the API returns an <code>InvalidRequestException</code> error response. For details about this exception, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/idp-inputs-sync-err.html\"> Errors in semi-structured documents</a> in the Comprehend Developer Guide. </p>
+        r"""<p>Creates a classification request to analyze a single document in real-time. <code>ClassifyDocument</code> supports the following model types:</p> <ul> <li> <p>Custom classifier - a custom model that you have created and trained. For input, you can provide plain text, a single-page document (PDF, Word, or image), or Amazon Textract API output. For more information, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/how-document-classification.html\">Custom classification</a> in the <i>Amazon Comprehend Developer Guide</i>.</p> </li> <li> <p>Prompt safety classifier - Amazon Comprehend provides a pre-trained model for classifying input prompts for generative AI applications. For input, you provide English plain text input. For prompt safety classification, the response includes only the <code>Classes</code> field. For more information about prompt safety classifiers, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/trust-safety.html#prompt-classification\">Prompt safety classification</a> in the <i>Amazon Comprehend Developer Guide</i>.</p> </li> </ul> <p>If the system detects errors while processing a page in the input document, the API response includes an <code>Errors</code> field that describes the errors.</p> <p>If the system detects a document-level error in your input document, the API returns an <code>InvalidRequestException</code> error response. For details about this exception, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/idp-inputs-sync-err.html\"> Errors in semi-structured documents</a> in the Comprehend Developer Guide. </p>
 
         Args:
             text: <p>The document text to be analyzed. If you enter text using this parameter, do not use the <code>Bytes</code> parameter.</p>
@@ -725,7 +725,7 @@ class AsyncComprehendClient:
         ] = None,
         tags: Optional["aws_sdk_comprehend.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_comprehend.types.create_dataset_response.CreateDatasetResponse":
-        """<p>Creates a dataset to upload training or test data for a model associated with a flywheel. For more information about datasets, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html\"> Flywheel overview</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
+        r"""<p>Creates a dataset to upload training or test data for a model associated with a flywheel. For more information about datasets, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html\"> Flywheel overview</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
 
         Args:
             flywheel_arn: <p>The Amazon Resource Number (ARN) of the flywheel of the flywheel to receive the data.</p>
@@ -803,7 +803,7 @@ class AsyncComprehendClient:
         ] = None,
         model_policy: Optional["aws_sdk_comprehend.types.policy.Policy"] = None,
     ) -> "aws_sdk_comprehend.types.create_document_classifier_response.CreateDocumentClassifierResponse":
-        """<p>Creates a new document classifier that you can use to categorize documents. To create a classifier, you provide a set of training documents that are labeled with the categories that you want to use. For more information, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/training-classifier-model.html\">Training classifier models</a> in the Comprehend Developer Guide. </p>
+        r"""<p>Creates a new document classifier that you can use to categorize documents. To create a classifier, you provide a set of training documents that are labeled with the categories that you want to use. For more information, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/training-classifier-model.html\">Training classifier models</a> in the Comprehend Developer Guide. </p>
 
         Args:
             document_classifier_name: <p>The name of the document classifier.</p>
@@ -888,7 +888,7 @@ class AsyncComprehendClient:
             "aws_sdk_comprehend.types.comprehend_flywheel_arn.ComprehendFlywheelArn"
         ] = None,
     ) -> "aws_sdk_comprehend.types.create_endpoint_response.CreateEndpointResponse":
-        """<p>Creates a model-specific endpoint for synchronous inference for a previously trained custom model For information about endpoints, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html\">Managing endpoints</a>.</p>
+        r"""<p>Creates a model-specific endpoint for synchronous inference for a previously trained custom model For information about endpoints, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html\">Managing endpoints</a>.</p>
 
         Args:
             endpoint_name: <p>This is the descriptive suffix that becomes part of the <code>EndpointArn</code> used for all subsequent requests to this resource. </p>
@@ -961,7 +961,7 @@ class AsyncComprehendClient:
         ] = None,
         model_policy: Optional["aws_sdk_comprehend.types.policy.Policy"] = None,
     ) -> "aws_sdk_comprehend.types.create_entity_recognizer_response.CreateEntityRecognizerResponse":
-        """<p>Creates an entity recognizer using submitted files. After your <code>CreateEntityRecognizer</code> request is submitted, you can check job status using the <code>DescribeEntityRecognizer</code> API. </p>
+        r"""<p>Creates an entity recognizer using submitted files. After your <code>CreateEntityRecognizer</code> request is submitted, you can check job status using the <code>DescribeEntityRecognizer</code> API. </p>
 
         Args:
             recognizer_name: <p>The name given to the newly created recognizer. Recognizer names can be a maximum of 256 characters. Alphanumeric characters, hyphens (-) and underscores (_) are allowed. The name must be unique in the account/Region.</p>
@@ -1040,7 +1040,7 @@ class AsyncComprehendClient:
         ] = None,
         tags: Optional["aws_sdk_comprehend.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_comprehend.types.create_flywheel_response.CreateFlywheelResponse":
-        """<p>A flywheel is an Amazon Web Services resource that orchestrates the ongoing training of a model for custom classification or custom entity recognition. You can create a flywheel to start with an existing trained model, or Comprehend can create and train a new model.</p> <p>When you create the flywheel, Comprehend creates a data lake in your account. The data lake holds the training data and test data for all versions of the model.</p> <p>To use a flywheel with an existing trained model, you specify the active model version. Comprehend copies the model's training data and test data into the flywheel's data lake.</p> <p>To use the flywheel with a new model, you need to provide a dataset for training data (and optional test data) when you create the flywheel.</p> <p>For more information about flywheels, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html\"> Flywheel overview</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
+        r"""<p>A flywheel is an Amazon Web Services resource that orchestrates the ongoing training of a model for custom classification or custom entity recognition. You can create a flywheel to start with an existing trained model, or Comprehend can create and train a new model.</p> <p>When you create the flywheel, Comprehend creates a data lake in your account. The data lake holds the training data and test data for all versions of the model.</p> <p>To use a flywheel with an existing trained model, you specify the active model version. Comprehend copies the model's training data and test data into the flywheel's data lake.</p> <p>To use the flywheel with a new model, you need to provide a dataset for training data (and optional test data) when you create the flywheel.</p> <p>For more information about flywheels, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html\"> Flywheel overview</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
 
         Args:
             flywheel_name: <p>Name for the flywheel.</p>
@@ -1138,7 +1138,7 @@ class AsyncComprehendClient:
         *,
         config_overrides: Optional[AsyncComprehendClientConfig] = None,
     ) -> "aws_sdk_comprehend.types.delete_endpoint_response.DeleteEndpointResponse":
-        """<p>Deletes a model-specific endpoint for a previously-trained custom model. All endpoints must be deleted in order for the model to be deleted. For information about endpoints, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html\">Managing endpoints</a>.</p>
+        r"""<p>Deletes a model-specific endpoint for a previously-trained custom model. All endpoints must be deleted in order for the model to be deleted. For information about endpoints, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html\">Managing endpoints</a>.</p>
 
         Args:
             endpoint_arn: <p>The Amazon Resource Number (ARN) of the endpoint being deleted.</p>
@@ -1214,7 +1214,7 @@ class AsyncComprehendClient:
         *,
         config_overrides: Optional[AsyncComprehendClientConfig] = None,
     ) -> "aws_sdk_comprehend.types.delete_flywheel_response.DeleteFlywheelResponse":
-        """<p>Deletes a flywheel. When you delete the flywheel, Amazon Comprehend does not delete the data lake or the model associated with the flywheel.</p> <p>For more information about flywheels, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html\"> Flywheel overview</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
+        r"""<p>Deletes a flywheel. When you delete the flywheel, Amazon Comprehend does not delete the data lake or the model associated with the flywheel.</p> <p>For more information about flywheels, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html\"> Flywheel overview</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
 
         Args:
             flywheel_arn: <p>The Amazon Resource Number (ARN) of the flywheel to delete.</p>
@@ -1296,7 +1296,7 @@ class AsyncComprehendClient:
         *,
         config_overrides: Optional[AsyncComprehendClientConfig] = None,
     ) -> "aws_sdk_comprehend.types.describe_dataset_response.DescribeDatasetResponse":
-        """<p>Returns information about the dataset that you specify. For more information about datasets, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html\"> Flywheel overview</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
+        r"""<p>Returns information about the dataset that you specify. For more information about datasets, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html\"> Flywheel overview</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
 
         Args:
             dataset_arn: <p>The ARN of the dataset.</p>
@@ -1448,7 +1448,7 @@ class AsyncComprehendClient:
         *,
         config_overrides: Optional[AsyncComprehendClientConfig] = None,
     ) -> "aws_sdk_comprehend.types.describe_endpoint_response.DescribeEndpointResponse":
-        """<p>Gets the properties associated with a specific endpoint. Use this operation to get the status of an endpoint. For information about endpoints, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html\">Managing endpoints</a>.</p>
+        r"""<p>Gets the properties associated with a specific endpoint. Use this operation to get the status of an endpoint. For information about endpoints, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html\">Managing endpoints</a>.</p>
 
         Args:
             endpoint_arn: <p>The Amazon Resource Number (ARN) of the endpoint being described.</p>
@@ -1600,7 +1600,7 @@ class AsyncComprehendClient:
         *,
         config_overrides: Optional[AsyncComprehendClientConfig] = None,
     ) -> "aws_sdk_comprehend.types.describe_flywheel_response.DescribeFlywheelResponse":
-        """<p>Provides configuration information about the flywheel. For more information about flywheels, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html\"> Flywheel overview</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
+        r"""<p>Provides configuration information about the flywheel. For more information about flywheels, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html\"> Flywheel overview</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
 
         Args:
             flywheel_arn: <p>The Amazon Resource Number (ARN) of the flywheel.</p>
@@ -1639,7 +1639,7 @@ class AsyncComprehendClient:
         *,
         config_overrides: Optional[AsyncComprehendClientConfig] = None,
     ) -> "aws_sdk_comprehend.types.describe_flywheel_iteration_response.DescribeFlywheelIterationResponse":
-        """<p>Retrieve the configuration properties of a flywheel iteration. For more information about flywheels, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html\"> Flywheel overview</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
+        r"""<p>Retrieve the configuration properties of a flywheel iteration. For more information about flywheels, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html\"> Flywheel overview</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
 
         Args:
             flywheel_arn: <p></p>
@@ -1907,7 +1907,7 @@ class AsyncComprehendClient:
         *,
         config_overrides: Optional[AsyncComprehendClientConfig] = None,
     ) -> "aws_sdk_comprehend.types.detect_dominant_language_response.DetectDominantLanguageResponse":
-        """<p>Determines the dominant language of the input text. For a list of languages that Amazon Comprehend can detect, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/how-languages.html\">Amazon Comprehend Supported Languages</a>. </p>
+        r"""<p>Determines the dominant language of the input text. For a list of languages that Amazon Comprehend can detect, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/how-languages.html\">Amazon Comprehend Supported Languages</a>. </p>
 
         Args:
             text: <p>A UTF-8 text string. The string must contain at least 20 characters. The maximum string size is 100 KB.</p>
@@ -1959,7 +1959,7 @@ class AsyncComprehendClient:
             "aws_sdk_comprehend.types.document_reader_config.DocumentReaderConfig"
         ] = None,
     ) -> "aws_sdk_comprehend.types.detect_entities_response.DetectEntitiesResponse":
-        """<p>Detects named entities in input text when you use the pre-trained model. Detects custom entities if you have a custom entity recognition model. </p> <p> When detecting named entities using the pre-trained model, use plain text as the input. For more information about named entities, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/how-entities.html\">Entities</a> in the Comprehend Developer Guide.</p> <p>When you use a custom entity recognition model, you can input plain text or you can upload a single-page input document (text, PDF, Word, or image). </p> <p>If the system detects errors while processing a page in the input document, the API response includes an entry in <code>Errors</code> for each error. </p> <p>If the system detects a document-level error in your input document, the API returns an <code>InvalidRequestException</code> error response. For details about this exception, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/idp-inputs-sync-err.html\"> Errors in semi-structured documents</a> in the Comprehend Developer Guide. </p>
+        r"""<p>Detects named entities in input text when you use the pre-trained model. Detects custom entities if you have a custom entity recognition model. </p> <p> When detecting named entities using the pre-trained model, use plain text as the input. For more information about named entities, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/how-entities.html\">Entities</a> in the Comprehend Developer Guide.</p> <p>When you use a custom entity recognition model, you can input plain text or you can upload a single-page input document (text, PDF, Word, or image). </p> <p>If the system detects errors while processing a page in the input document, the API response includes an entry in <code>Errors</code> for each error. </p> <p>If the system detects a document-level error in your input document, the API returns an <code>InvalidRequestException</code> error response. For details about this exception, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/idp-inputs-sync-err.html\"> Errors in semi-structured documents</a> in the Comprehend Developer Guide. </p>
 
         Args:
             text: <p>A UTF-8 text string. The maximum string size is 100 KB. If you enter text using this parameter, do not use the <code>Bytes</code> parameter.</p>
@@ -2136,7 +2136,7 @@ class AsyncComprehendClient:
         *,
         config_overrides: Optional[AsyncComprehendClientConfig] = None,
     ) -> "aws_sdk_comprehend.types.detect_syntax_response.DetectSyntaxResponse":
-        """<p>Inspects text for syntax and the part of speech of words in the document. For more information, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/how-syntax.html\">Syntax</a> in the Comprehend Developer Guide. </p>
+        r"""<p>Inspects text for syntax and the part of speech of words in the document. For more information, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/how-syntax.html\">Syntax</a> in the Comprehend Developer Guide. </p>
 
         Args:
             text: <p>A UTF-8 string. The maximum string size is 5 KB.</p>
@@ -2177,7 +2177,7 @@ class AsyncComprehendClient:
         *,
         config_overrides: Optional[AsyncComprehendClientConfig] = None,
     ) -> "aws_sdk_comprehend.types.detect_targeted_sentiment_response.DetectTargetedSentimentResponse":
-        """<p>Inspects the input text and returns a sentiment analysis for each entity identified in the text.</p> <p>For more information about targeted sentiment, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html\">Targeted sentiment</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
+        r"""<p>Inspects the input text and returns a sentiment analysis for each entity identified in the text.</p> <p>For more information about targeted sentiment, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html\">Targeted sentiment</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
 
         Args:
             text: <p>A UTF-8 text string. The maximum string length is 5 KB.</p>
@@ -2218,7 +2218,7 @@ class AsyncComprehendClient:
         *,
         config_overrides: Optional[AsyncComprehendClientConfig] = None,
     ) -> "aws_sdk_comprehend.types.detect_toxic_content_response.DetectToxicContentResponse":
-        """<p>Performs toxicity analysis on the list of text strings that you provide as input. The API response contains a results list that matches the size of the input list. For more information about toxicity detection, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/toxicity-detection.html\">Toxicity detection</a> in the <i>Amazon Comprehend Developer Guide</i>. </p>
+        r"""<p>Performs toxicity analysis on the list of text strings that you provide as input. The API response contains a results list that matches the size of the input list. For more information about toxicity detection, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/toxicity-detection.html\">Toxicity detection</a> in the <i>Amazon Comprehend Developer Guide</i>. </p>
 
         Args:
             text_segments: <p>A list of up to 10 text strings. Each string has a maximum size of 1 KB, and the maximum size of the list is 10 KB.</p>
@@ -2271,7 +2271,7 @@ class AsyncComprehendClient:
         ] = None,
         tags: Optional["aws_sdk_comprehend.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_comprehend.types.import_model_response.ImportModelResponse":
-        """<p>Creates a new custom model that replicates a source custom model that you import. The source model can be in your Amazon Web Services account or another one.</p> <p>If the source model is in another Amazon Web Services account, then it must have a resource-based policy that authorizes you to import it.</p> <p>The source model must be in the same Amazon Web Services Region that you're using when you import. You can't import a model that's in a different Region.</p>
+        r"""<p>Creates a new custom model that replicates a source custom model that you import. The source model can be in your Amazon Web Services account or another one.</p> <p>If the source model is in another Amazon Web Services account, then it must have a resource-based policy that authorizes you to import it.</p> <p>The source model must be in the same Amazon Web Services Region that you're using when you import. You can't import a model that's in a different Region.</p>
 
         Args:
             source_model_arn: <p>The Amazon Resource Name (ARN) of the custom model to import.</p>
@@ -2333,7 +2333,7 @@ class AsyncComprehendClient:
             "aws_sdk_comprehend.types.max_results_integer.MaxResultsInteger"
         ] = None,
     ) -> "aws_sdk_comprehend.types.list_datasets_response.ListDatasetsResponse":
-        """<p>List the datasets that you have configured in this Region. For more information about datasets, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html\"> Flywheel overview</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
+        r"""<p>List the datasets that you have configured in this Region. For more information about datasets, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html\"> Flywheel overview</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
 
         Args:
             flywheel_arn: <p>The Amazon Resource Number (ARN) of the flywheel.</p>
@@ -2585,7 +2585,7 @@ class AsyncComprehendClient:
             "aws_sdk_comprehend.types.max_results_integer.MaxResultsInteger"
         ] = None,
     ) -> "aws_sdk_comprehend.types.list_endpoints_response.ListEndpointsResponse":
-        """<p>Gets a list of all existing endpoints that you've created. For information about endpoints, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html\">Managing endpoints</a>.</p>
+        r"""<p>Gets a list of all existing endpoints that you've created. For information about endpoints, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html\">Managing endpoints</a>.</p>
 
         Args:
             filter: <p>Filters the endpoints that are returned. You can filter endpoints on their name, model, status, or the date and time that they were created. You can only set one filter at a time. </p>
@@ -2864,7 +2864,7 @@ class AsyncComprehendClient:
             "aws_sdk_comprehend.types.max_results_integer.MaxResultsInteger"
         ] = None,
     ) -> "aws_sdk_comprehend.types.list_flywheel_iteration_history_response.ListFlywheelIterationHistoryResponse":
-        """<p>Information about the history of a flywheel iteration. For more information about flywheels, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html\"> Flywheel overview</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
+        r"""<p>Information about the history of a flywheel iteration. For more information about flywheels, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html\"> Flywheel overview</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
 
         Args:
             flywheel_arn: <p>The ARN of the flywheel.</p>
@@ -3288,7 +3288,7 @@ class AsyncComprehendClient:
             "aws_sdk_comprehend.types.policy_revision_id.PolicyRevisionId"
         ] = None,
     ) -> "aws_sdk_comprehend.types.put_resource_policy_response.PutResourcePolicyResponse":
-        """<p>Attaches a resource-based policy to a custom model. You can use this policy to authorize an entity in another Amazon Web Services account to import the custom model, which replicates it in Amazon Comprehend in their account.</p>
+        r"""<p>Attaches a resource-based policy to a custom model. You can use this policy to authorize an entity in another Amazon Web Services account to import the custom model, which replicates it in Amazon Comprehend in their account.</p>
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the custom model to attach the policy to.</p>
@@ -3348,7 +3348,7 @@ class AsyncComprehendClient:
             "aws_sdk_comprehend.types.comprehend_flywheel_arn.ComprehendFlywheelArn"
         ] = None,
     ) -> "aws_sdk_comprehend.types.start_document_classification_job_response.StartDocumentClassificationJobResponse":
-        """<p>Starts an asynchronous document classification job using a custom classification model. Use the <code>DescribeDocumentClassificationJob</code> operation to track the progress of the job.</p>
+        r"""<p>Starts an asynchronous document classification job using a custom classification model. Use the <code>DescribeDocumentClassificationJob</code> operation to track the progress of the job.</p>
 
         Args:
             job_name: <p>The identifier of the job.</p>
@@ -3422,7 +3422,7 @@ class AsyncComprehendClient:
         vpc_config: Optional["aws_sdk_comprehend.types.vpc_config.VpcConfig"] = None,
         tags: Optional["aws_sdk_comprehend.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_comprehend.types.start_dominant_language_detection_job_response.StartDominantLanguageDetectionJobResponse":
-        """<p>Starts an asynchronous dominant language detection job for a collection of documents. Use the operation to track the status of a job.</p>
+        r"""<p>Starts an asynchronous dominant language detection job for a collection of documents. Use the operation to track the status of a job.</p>
 
         Args:
             input_data_config: <p>Specifies the format and location of the input data for the job.</p>
@@ -3497,7 +3497,7 @@ class AsyncComprehendClient:
             "aws_sdk_comprehend.types.comprehend_flywheel_arn.ComprehendFlywheelArn"
         ] = None,
     ) -> "aws_sdk_comprehend.types.start_entities_detection_job_response.StartEntitiesDetectionJobResponse":
-        """<p>Starts an asynchronous entity detection job for a collection of documents. Use the operation to track the status of a job.</p> <p>This API can be used for either standard entity detection or custom entity recognition. In order to be used for custom entity recognition, the optional <code>EntityRecognizerArn</code> must be used in order to provide access to the recognizer being used to detect the custom entity.</p>
+        r"""<p>Starts an asynchronous entity detection job for a collection of documents. Use the operation to track the status of a job.</p> <p>This API can be used for either standard entity detection or custom entity recognition. In order to be used for custom entity recognition, the optional <code>EntityRecognizerArn</code> must be used in order to provide access to the recognizer being used to detect the custom entity.</p>
 
         Args:
             input_data_config: <p>Specifies the format and location of the input data for the job.</p>
@@ -3571,7 +3571,7 @@ class AsyncComprehendClient:
         ] = None,
         tags: Optional["aws_sdk_comprehend.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_comprehend.types.start_events_detection_job_response.StartEventsDetectionJobResponse":
-        """<p>Starts an asynchronous event detection job for a collection of documents.</p>
+        r"""<p>Starts an asynchronous event detection job for a collection of documents.</p>
 
         Args:
             input_data_config: <p>Specifies the format and location of the input data for the job.</p>
@@ -3629,7 +3629,7 @@ class AsyncComprehendClient:
             "aws_sdk_comprehend.types.client_request_token_string.ClientRequestTokenString"
         ] = None,
     ) -> "aws_sdk_comprehend.types.start_flywheel_iteration_response.StartFlywheelIterationResponse":
-        """<p>Start the flywheel iteration.This operation uses any new datasets to train a new model version. For more information about flywheels, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html\"> Flywheel overview</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
+        r"""<p>Start the flywheel iteration.This operation uses any new datasets to train a new model version. For more information about flywheels, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html\"> Flywheel overview</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
 
         Args:
             flywheel_arn: <p>The ARN of the flywheel.</p>
@@ -3682,7 +3682,7 @@ class AsyncComprehendClient:
         vpc_config: Optional["aws_sdk_comprehend.types.vpc_config.VpcConfig"] = None,
         tags: Optional["aws_sdk_comprehend.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_comprehend.types.start_key_phrases_detection_job_response.StartKeyPhrasesDetectionJobResponse":
-        """<p>Starts an asynchronous key phrase detection job for a collection of documents. Use the operation to track the status of a job.</p>
+        r"""<p>Starts an asynchronous key phrase detection job for a collection of documents. Use the operation to track the status of a job.</p>
 
         Args:
             input_data_config: <p>Specifies the format and location of the input data for the job.</p>
@@ -3753,7 +3753,7 @@ class AsyncComprehendClient:
         ] = None,
         tags: Optional["aws_sdk_comprehend.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_comprehend.types.start_pii_entities_detection_job_response.StartPiiEntitiesDetectionJobResponse":
-        """<p>Starts an asynchronous PII entity detection job for a collection of documents.</p>
+        r"""<p>Starts an asynchronous PII entity detection job for a collection of documents.</p>
 
         Args:
             input_data_config: <p>The input properties for a PII entities detection job.</p>
@@ -3823,7 +3823,7 @@ class AsyncComprehendClient:
         vpc_config: Optional["aws_sdk_comprehend.types.vpc_config.VpcConfig"] = None,
         tags: Optional["aws_sdk_comprehend.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_comprehend.types.start_sentiment_detection_job_response.StartSentimentDetectionJobResponse":
-        """<p>Starts an asynchronous sentiment detection job for a collection of documents. Use the operation to track the status of a job.</p>
+        r"""<p>Starts an asynchronous sentiment detection job for a collection of documents. Use the operation to track the status of a job.</p>
 
         Args:
             input_data_config: <p>Specifies the format and location of the input data for the job.</p>
@@ -3894,7 +3894,7 @@ class AsyncComprehendClient:
         vpc_config: Optional["aws_sdk_comprehend.types.vpc_config.VpcConfig"] = None,
         tags: Optional["aws_sdk_comprehend.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_comprehend.types.start_targeted_sentiment_detection_job_response.StartTargetedSentimentDetectionJobResponse":
-        """<p>Starts an asynchronous targeted sentiment detection job for a collection of documents. Use the <code>DescribeTargetedSentimentDetectionJob</code> operation to track the status of a job.</p>
+        r"""<p>Starts an asynchronous targeted sentiment detection job for a collection of documents. Use the <code>DescribeTargetedSentimentDetectionJob</code> operation to track the status of a job.</p>
 
         Args:
             output_data_config: <p>Specifies where to send the output files. </p>
@@ -3965,7 +3965,7 @@ class AsyncComprehendClient:
         vpc_config: Optional["aws_sdk_comprehend.types.vpc_config.VpcConfig"] = None,
         tags: Optional["aws_sdk_comprehend.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_comprehend.types.start_topics_detection_job_response.StartTopicsDetectionJobResponse":
-        """<p>Starts an asynchronous topic detection job. Use the <code>DescribeTopicDetectionJob</code> operation to track the status of a job.</p>
+        r"""<p>Starts an asynchronous topic detection job. Use the <code>DescribeTopicDetectionJob</code> operation to track the status of a job.</p>
 
         Args:
             input_data_config: <p>Specifies the format and location of the input data for the job.</p>
@@ -4368,7 +4368,7 @@ class AsyncComprehendClient:
         *,
         config_overrides: Optional[AsyncComprehendClientConfig] = None,
     ) -> "aws_sdk_comprehend.types.tag_resource_response.TagResourceResponse":
-        """<p>Associates a specific tag with an Amazon Comprehend resource. A tag is a key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with \"Sales\" as the key might be added to a resource to indicate its use by the sales department. </p>
+        r"""<p>Associates a specific tag with an Amazon Comprehend resource. A tag is a key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with \"Sales\" as the key might be added to a resource to indicate its use by the sales department. </p>
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the given Amazon Comprehend resource to which you want to associate the tags. </p>
@@ -4409,7 +4409,7 @@ class AsyncComprehendClient:
         *,
         config_overrides: Optional[AsyncComprehendClientConfig] = None,
     ) -> "aws_sdk_comprehend.types.untag_resource_response.UntagResourceResponse":
-        """<p>Removes a specific tag associated with an Amazon Comprehend resource. </p>
+        r"""<p>Removes a specific tag associated with an Amazon Comprehend resource. </p>
 
         Args:
             resource_arn: <p> The Amazon Resource Name (ARN) of the given Amazon Comprehend resource from which you want to remove the tags. </p>
@@ -4461,7 +4461,7 @@ class AsyncComprehendClient:
             "aws_sdk_comprehend.types.comprehend_flywheel_arn.ComprehendFlywheelArn"
         ] = None,
     ) -> "aws_sdk_comprehend.types.update_endpoint_response.UpdateEndpointResponse":
-        """<p>Updates information about the specified endpoint. For information about endpoints, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html\">Managing endpoints</a>.</p>
+        r"""<p>Updates information about the specified endpoint. For information about endpoints, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html\">Managing endpoints</a>.</p>
 
         Args:
             endpoint_arn: <p>The Amazon Resource Number (ARN) of the endpoint being updated.</p>

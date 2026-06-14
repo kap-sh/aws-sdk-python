@@ -185,7 +185,7 @@ class AsyncIoTDataPlaneClient:
             "aws_sdk_iot_data_plane.types.prevent_will_message.PreventWillMessage"
         ] = None,
     ) -> None:
-        """<p>Disconnects a connected MQTT client from Amazon Web Services IoT Core. When you disconnect a client, Amazon Web Services IoT Core closes the client's network connection and optionally cleans the session state.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">DeleteConnection</a> action.</p>
+        r"""<p>Disconnects a connected MQTT client from Amazon Web Services IoT Core. When you disconnect a client, Amazon Web Services IoT Core closes the client's network connection and optionally cleans the session state.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">DeleteConnection</a> action.</p>
 
         Args:
             client_id: <p>The unique identifier of the MQTT client to disconnect. The client ID can't start with a dollar sign ($).</p> <p>MQTT client IDs must be URL encoded (percent-encoded) when they contain characters that are not valid in HTTP requests, such as spaces, forward slashes (/), and UTF-8 characters.</p>
@@ -230,7 +230,7 @@ class AsyncIoTDataPlaneClient:
             "aws_sdk_iot_data_plane.types.shadow_name.ShadowName"
         ] = None,
     ) -> "aws_sdk_iot_data_plane.types.delete_thing_shadow_response.DeleteThingShadowResponse":
-        """<p>Deletes the shadow for the specified thing.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">DeleteThingShadow</a> action.</p> <p>For more information, see <a href=\"http://docs.aws.amazon.com/iot/latest/developerguide/API_DeleteThingShadow.html\">DeleteThingShadow</a> in the IoT Developer Guide.</p>
+        r"""<p>Deletes the shadow for the specified thing.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">DeleteThingShadow</a> action.</p> <p>For more information, see <a href=\"http://docs.aws.amazon.com/iot/latest/developerguide/API_DeleteThingShadow.html\">DeleteThingShadow</a> in the IoT Developer Guide.</p>
 
         Args:
             thing_name: <p>The name of the thing.</p>
@@ -274,7 +274,7 @@ class AsyncIoTDataPlaneClient:
             "aws_sdk_iot_data_plane.types.include_socket_information.IncludeSocketInformation"
         ] = None,
     ) -> "aws_sdk_iot_data_plane.types.get_connection_response.GetConnectionResponse":
-        """<p>Retrieves connection information for the specified MQTT client.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">GetConnection</a> action.</p>
+        r"""<p>Retrieves connection information for the specified MQTT client.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">GetConnection</a> action.</p>
 
         Args:
             client_id: <p>The unique identifier of the MQTT client to retrieve connection information. The client ID can't start with a dollar sign ($).</p> <p>MQTT client IDs must be URL encoded (percent-encoded) when they contain characters that are not valid in HTTP requests, such as spaces, forward slashes (/), and UTF-8 characters.</p>
@@ -315,7 +315,7 @@ class AsyncIoTDataPlaneClient:
         *,
         config_overrides: Optional[AsyncIoTDataPlaneClientConfig] = None,
     ) -> "aws_sdk_iot_data_plane.types.get_retained_message_response.GetRetainedMessageResponse":
-        """<p>Gets the details of a single retained message for the specified topic.</p> <p>This action returns the message payload of the retained message, which can incur messaging costs. To list only the topic names of the retained messages, call <a href=\"https://docs.aws.amazon.com/iot/latest/apireference/API_iotdata_ListRetainedMessages.html\">ListRetainedMessages</a>.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html\">GetRetainedMessage</a> action.</p> <p>For more information about messaging costs, see <a href=\"http://aws.amazon.com/iot-core/pricing/#Messaging\">Amazon Web Services IoT Core pricing - Messaging</a>.</p>
+        r"""<p>Gets the details of a single retained message for the specified topic.</p> <p>This action returns the message payload of the retained message, which can incur messaging costs. To list only the topic names of the retained messages, call <a href=\"https://docs.aws.amazon.com/iot/latest/apireference/API_iotdata_ListRetainedMessages.html\">ListRetainedMessages</a>.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html\">GetRetainedMessage</a> action.</p> <p>For more information about messaging costs, see <a href=\"http://aws.amazon.com/iot-core/pricing/#Messaging\">Amazon Web Services IoT Core pricing - Messaging</a>.</p>
 
         Args:
             topic: <p>The topic name of the retained message to retrieve.</p>
@@ -358,7 +358,7 @@ class AsyncIoTDataPlaneClient:
     ) -> (
         "aws_sdk_iot_data_plane.types.get_thing_shadow_response.GetThingShadowResponse"
     ):
-        """<p>Gets the shadow for the specified thing.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">GetThingShadow</a> action.</p> <p>For more information, see <a href=\"http://docs.aws.amazon.com/iot/latest/developerguide/API_GetThingShadow.html\">GetThingShadow</a> in the IoT Developer Guide.</p>
+        r"""<p>Gets the shadow for the specified thing.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">GetThingShadow</a> action.</p> <p>For more information, see <a href=\"http://docs.aws.amazon.com/iot/latest/developerguide/API_GetThingShadow.html\">GetThingShadow</a> in the IoT Developer Guide.</p>
 
         Args:
             thing_name: <p>The name of the thing.</p>
@@ -403,7 +403,7 @@ class AsyncIoTDataPlaneClient:
         ] = None,
         page_size: Optional["aws_sdk_iot_data_plane.types.page_size.PageSize"] = None,
     ) -> "aws_sdk_iot_data_plane.types.list_named_shadows_for_thing_response.ListNamedShadowsForThingResponse":
-        """<p>Lists the shadows for the specified thing.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">ListNamedShadowsForThing</a> action.</p>
+        r"""<p>Lists the shadows for the specified thing.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">ListNamedShadowsForThing</a> action.</p>
 
         Args:
             thing_name: <p>The name of the thing.</p>
@@ -452,7 +452,7 @@ class AsyncIoTDataPlaneClient:
             "aws_sdk_iot_data_plane.types.max_results.MaxResults"
         ] = None,
     ) -> "aws_sdk_iot_data_plane.types.list_retained_messages_response.ListRetainedMessagesResponse":
-        """<p>Lists summary information about the retained messages stored for the account.</p> <p>This action returns only the topic names of the retained messages. It doesn't return any message payloads. Although this action doesn't return a message payload, it can still incur messaging costs.</p> <p>To get the message payload of a retained message, call <a href=\"https://docs.aws.amazon.com/iot/latest/apireference/API_iotdata_GetRetainedMessage.html\">GetRetainedMessage</a> with the topic name of the retained message.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html\">ListRetainedMessages</a> action.</p> <p>For more information about messaging costs, see <a href=\"http://aws.amazon.com/iot-core/pricing/#Messaging\">Amazon Web Services IoT Core pricing - Messaging</a>.</p>
+        r"""<p>Lists summary information about the retained messages stored for the account.</p> <p>This action returns only the topic names of the retained messages. It doesn't return any message payloads. Although this action doesn't return a message payload, it can still incur messaging costs.</p> <p>To get the message payload of a retained message, call <a href=\"https://docs.aws.amazon.com/iot/latest/apireference/API_iotdata_GetRetainedMessage.html\">GetRetainedMessage</a> with the topic name of the retained message.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html\">ListRetainedMessages</a> action.</p> <p>For more information about messaging costs, see <a href=\"http://aws.amazon.com/iot-core/pricing/#Messaging\">Amazon Web Services IoT Core pricing - Messaging</a>.</p>
 
         Args:
             next_token: <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>
@@ -525,7 +525,7 @@ class AsyncIoTDataPlaneClient:
             "aws_sdk_iot_data_plane.types.max_results.MaxResults"
         ] = None,
     ) -> "aws_sdk_iot_data_plane.types.list_subscriptions_response.ListSubscriptionsResponse":
-        """<p>Returns a list of all subscriptions for MQTT clients with active sessions, including offline clients with persistent sessions.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">ListSubscriptions</a> action.</p>
+        r"""<p>Returns a list of all subscriptions for MQTT clients with active sessions, including offline clients with persistent sessions.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">ListSubscriptions</a> action.</p>
 
         Args:
             client_id: <p>The unique identifier of the MQTT client to list subscriptions for. The client ID can't start with a dollar sign ($).</p> <p>MQTT client IDs must be URL encoded (percent-encoded) when they contain characters that are not valid in HTTP requests, such as spaces, forward slashes (/), and UTF-8 characters.</p>
@@ -617,7 +617,7 @@ class AsyncIoTDataPlaneClient:
             "aws_sdk_iot_data_plane.types.message_expiry.MessageExpiry"
         ] = None,
     ) -> None:
-        """<p>Publishes an MQTT message.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">Publish</a> action.</p> <p>For more information about MQTT messages, see <a href=\"http://docs.aws.amazon.com/iot/latest/developerguide/mqtt.html\">MQTT Protocol</a> in the IoT Developer Guide.</p> <p>For more information about messaging costs, see <a href=\"http://aws.amazon.com/iot-core/pricing/#Messaging\">Amazon Web Services IoT Core pricing - Messaging</a>.</p>
+        r"""<p>Publishes an MQTT message.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">Publish</a> action.</p> <p>For more information about MQTT messages, see <a href=\"http://docs.aws.amazon.com/iot/latest/developerguide/mqtt.html\">MQTT Protocol</a> in the IoT Developer Guide.</p> <p>For more information about messaging costs, see <a href=\"http://aws.amazon.com/iot-core/pricing/#Messaging\">Amazon Web Services IoT Core pricing - Messaging</a>.</p>
 
         Args:
             topic: <p>The name of the MQTT topic.</p>
@@ -703,7 +703,7 @@ class AsyncIoTDataPlaneClient:
             "aws_sdk_iot_data_plane.types.correlation_data.CorrelationData"
         ] = None,
     ) -> "aws_sdk_iot_data_plane.types.send_direct_message_response.SendDirectMessageResponse":
-        """<p>Sends an MQTT message directly to a specific client identified by its client ID.</p> <p> <code>SendDirectMessage</code> targets a single client ID. The receiving client does not need to subscribe to the topic, but the receiver's policy must allow <code>iot:Receive</code> on the specified topic.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">SendDirectMessage</a> action.</p> <p>For more information about messaging costs, see <a href=\"http://aws.amazon.com/iot-core/pricing/\">Amazon Web Services IoT Core pricing</a>.</p>
+        r"""<p>Sends an MQTT message directly to a specific client identified by its client ID.</p> <p> <code>SendDirectMessage</code> targets a single client ID. The receiving client does not need to subscribe to the topic, but the receiver's policy must allow <code>iot:Receive</code> on the specified topic.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">SendDirectMessage</a> action.</p> <p>For more information about messaging costs, see <a href=\"http://aws.amazon.com/iot-core/pricing/\">Amazon Web Services IoT Core pricing</a>.</p>
 
         Args:
             client_id: <p>The unique identifier of the MQTT client to send the message to.</p> <p>Client IDs must not exceed 128 characters and can't start with a dollar sign ($). MQTT client IDs must be URL encoded (percent-encoded) when they contain characters that are not valid in HTTP requests, such as spaces, forward slashes (/), and UTF-8 characters. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/iot-core.html#message-broker-limits\">Amazon Web Services IoT Core message broker and protocol limits and quotas</a>.</p>
@@ -771,7 +771,7 @@ class AsyncIoTDataPlaneClient:
             "aws_sdk_iot_data_plane.types.shadow_name.ShadowName"
         ] = None,
     ) -> "aws_sdk_iot_data_plane.types.update_thing_shadow_response.UpdateThingShadowResponse":
-        """<p>Updates the shadow for the specified thing.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">UpdateThingShadow</a> action.</p> <p>For more information, see <a href=\"http://docs.aws.amazon.com/iot/latest/developerguide/API_UpdateThingShadow.html\">UpdateThingShadow</a> in the IoT Developer Guide.</p>
+        r"""<p>Updates the shadow for the specified thing.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">UpdateThingShadow</a> action.</p> <p>For more information, see <a href=\"http://docs.aws.amazon.com/iot/latest/developerguide/API_UpdateThingShadow.html\">UpdateThingShadow</a> in the IoT Developer Guide.</p>
 
         Args:
             thing_name: <p>The name of the thing.</p>

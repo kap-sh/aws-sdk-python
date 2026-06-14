@@ -33,7 +33,7 @@ class StartChangeSetRequest(TypedDict):
     change_set_tags: NotRequired["aws_sdk_marketplace_catalog.types.tag_list.TagList"]
     """<p>A list of objects specifying each key name and value for the <code>ChangeSetTags</code> property.</p>"""
     intent: NotRequired["aws_sdk_marketplace_catalog.types.intent.Intent"]
-    """<p>The intent related to the request. The default is <code>APPLY</code>. To test your request before applying changes to your entities, use <code>VALIDATE</code>. This feature is currently available for adding versions to single-AMI products. For more information, see <a href=\"https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/ami-products.html#ami-add-version\">Add a new version</a>.</p>"""
+    r"""<p>The intent related to the request. The default is <code>APPLY</code>. To test your request before applying changes to your entities, use <code>VALIDATE</code>. This feature is currently available for adding versions to single-AMI products. For more information, see <a href=\"https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/ami-products.html#ami-add-version\">Add a new version</a>.</p>"""
 
 
 # --- restJson1 ser/de ---

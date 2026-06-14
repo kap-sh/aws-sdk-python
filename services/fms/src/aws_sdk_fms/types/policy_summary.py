@@ -22,7 +22,7 @@ class PolicySummary(TypedDict):
     policy_name: NotRequired["aws_sdk_fms.types.resource_name.ResourceName"]
     """<p>The name of the specified policy.</p>"""
     resource_type: NotRequired["aws_sdk_fms.types.resource_type.ResourceType"]
-    """<p>The type of resource protected by or in scope of the policy. This is in the format shown in the <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html\">Amazon Web Services Resource Types Reference</a>. </p>"""
+    r"""<p>The type of resource protected by or in scope of the policy. This is in the format shown in the <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html\">Amazon Web Services Resource Types Reference</a>. </p>"""
     security_service_type: NotRequired[
         "aws_sdk_fms.types.security_service_type.SecurityServiceType"
     ]

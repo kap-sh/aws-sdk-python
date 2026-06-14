@@ -20,27 +20,27 @@ class KeySigningKey(TypedDict):
     name: NotRequired["aws_sdk_route_53.types.signing_key_name.SigningKeyName"]
     """<p>A string used to identify a key-signing key (KSK). <code>Name</code> can include numbers, letters, and underscores (_). <code>Name</code> must be unique for each key-signing key in the same hosted zone.</p>"""
     kms_arn: NotRequired["aws_sdk_route_53.types.signing_key_string.SigningKeyString"]
-    """<p>The Amazon resource name (ARN) used to identify the customer managed key in Key Management Service (KMS). The <code>KmsArn</code> must be unique for each key-signing key (KSK) in a single hosted zone.</p> <p>You must configure the customer managed key as follows:</p> <dl> <dt>Status</dt> <dd> <p>Enabled</p> </dd> <dt>Key spec</dt> <dd> <p>ECC_NIST_P256</p> </dd> <dt>Key usage</dt> <dd> <p>Sign and verify</p> </dd> <dt>Key policy</dt> <dd> <p>The key policy must give permission for the following actions:</p> <ul> <li> <p>DescribeKey</p> </li> <li> <p>GetPublicKey</p> </li> <li> <p>Sign</p> </li> </ul> <p>The key policy must also include the Amazon Route 53 service in the principal for your account. Specify the following:</p> <ul> <li> <p> <code>\"Service\": \"dnssec-route53.amazonaws.com\"</code> </p> </li> </ul> </dd> </dl> <p>For more information about working with the customer managed key in KMS, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html\">Key Management Service concepts</a>.</p>"""
+    r"""<p>The Amazon resource name (ARN) used to identify the customer managed key in Key Management Service (KMS). The <code>KmsArn</code> must be unique for each key-signing key (KSK) in a single hosted zone.</p> <p>You must configure the customer managed key as follows:</p> <dl> <dt>Status</dt> <dd> <p>Enabled</p> </dd> <dt>Key spec</dt> <dd> <p>ECC_NIST_P256</p> </dd> <dt>Key usage</dt> <dd> <p>Sign and verify</p> </dd> <dt>Key policy</dt> <dd> <p>The key policy must give permission for the following actions:</p> <ul> <li> <p>DescribeKey</p> </li> <li> <p>GetPublicKey</p> </li> <li> <p>Sign</p> </li> </ul> <p>The key policy must also include the Amazon Route 53 service in the principal for your account. Specify the following:</p> <ul> <li> <p> <code>\"Service\": \"dnssec-route53.amazonaws.com\"</code> </p> </li> </ul> </dd> </dl> <p>For more information about working with the customer managed key in KMS, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html\">Key Management Service concepts</a>.</p>"""
     flag: "aws_sdk_route_53.types.signing_key_integer.SigningKeyInteger"
     """<p>An integer that specifies how the key is used. For key-signing key (KSK), this value is always 257.</p>"""
     signing_algorithm_mnemonic: NotRequired[
         "aws_sdk_route_53.types.signing_key_string.SigningKeyString"
     ]
-    """<p>A string used to represent the signing algorithm. This value must follow the guidelines provided by <a href=\"https://tools.ietf.org/html/rfc8624#section-3.1\">RFC-8624 Section 3.1</a>. </p>"""
+    r"""<p>A string used to represent the signing algorithm. This value must follow the guidelines provided by <a href=\"https://tools.ietf.org/html/rfc8624#section-3.1\">RFC-8624 Section 3.1</a>. </p>"""
     signing_algorithm_type: (
         "aws_sdk_route_53.types.signing_key_integer.SigningKeyInteger"
     )
-    """<p>An integer used to represent the signing algorithm. This value must follow the guidelines provided by <a href=\"https://tools.ietf.org/html/rfc8624#section-3.1\">RFC-8624 Section 3.1</a>. </p>"""
+    r"""<p>An integer used to represent the signing algorithm. This value must follow the guidelines provided by <a href=\"https://tools.ietf.org/html/rfc8624#section-3.1\">RFC-8624 Section 3.1</a>. </p>"""
     digest_algorithm_mnemonic: NotRequired[
         "aws_sdk_route_53.types.signing_key_string.SigningKeyString"
     ]
-    """<p>A string used to represent the delegation signer digest algorithm. This value must follow the guidelines provided by <a href=\"https://tools.ietf.org/html/rfc8624#section-3.3\">RFC-8624 Section 3.3</a>. </p>"""
+    r"""<p>A string used to represent the delegation signer digest algorithm. This value must follow the guidelines provided by <a href=\"https://tools.ietf.org/html/rfc8624#section-3.3\">RFC-8624 Section 3.3</a>. </p>"""
     digest_algorithm_type: (
         "aws_sdk_route_53.types.signing_key_integer.SigningKeyInteger"
     )
-    """<p>An integer used to represent the delegation signer digest algorithm. This value must follow the guidelines provided by <a href=\"https://tools.ietf.org/html/rfc8624#section-3.3\">RFC-8624 Section 3.3</a>.</p>"""
+    r"""<p>An integer used to represent the delegation signer digest algorithm. This value must follow the guidelines provided by <a href=\"https://tools.ietf.org/html/rfc8624#section-3.3\">RFC-8624 Section 3.3</a>.</p>"""
     key_tag: "aws_sdk_route_53.types.signing_key_tag.SigningKeyTag"
-    """<p>An integer used to identify the DNSSEC record for the domain name. The process used to calculate the value is described in <a href=\"https://tools.ietf.org/rfc/rfc4034.txt\">RFC-4034 Appendix B</a>.</p>"""
+    r"""<p>An integer used to identify the DNSSEC record for the domain name. The process used to calculate the value is described in <a href=\"https://tools.ietf.org/rfc/rfc4034.txt\">RFC-4034 Appendix B</a>.</p>"""
     digest_value: NotRequired[
         "aws_sdk_route_53.types.signing_key_string.SigningKeyString"
     ]
@@ -48,7 +48,7 @@ class KeySigningKey(TypedDict):
     public_key: NotRequired[
         "aws_sdk_route_53.types.signing_key_string.SigningKeyString"
     ]
-    """<p>The public key, represented as a Base64 encoding, as required by <a href=\"https://tools.ietf.org/rfc/rfc4034.txt\"> RFC-4034 Page 5</a>.</p>"""
+    r"""<p>The public key, represented as a Base64 encoding, as required by <a href=\"https://tools.ietf.org/rfc/rfc4034.txt\"> RFC-4034 Page 5</a>.</p>"""
     ds_record: NotRequired["aws_sdk_route_53.types.signing_key_string.SigningKeyString"]
     """<p>A string that represents a delegation signer (DS) record.</p>"""
     dnskey_record: NotRequired[

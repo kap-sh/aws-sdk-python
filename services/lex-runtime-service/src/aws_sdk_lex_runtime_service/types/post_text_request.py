@@ -25,11 +25,11 @@ class PostTextRequest(TypedDict):
     session_attributes: NotRequired[
         "aws_sdk_lex_runtime_service.types.string_map.StringMap"
     ]
-    """<p>Application-specific information passed between Amazon Lex and a client application.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html#context-mgmt-session-attribs\">Setting Session Attributes</a>.</p>"""
+    r"""<p>Application-specific information passed between Amazon Lex and a client application.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html#context-mgmt-session-attribs\">Setting Session Attributes</a>.</p>"""
     request_attributes: NotRequired[
         "aws_sdk_lex_runtime_service.types.string_map.StringMap"
     ]
-    """<p>Request-specific information passed between Amazon Lex and a client application.</p> <p>The namespace <code>x-amz-lex:</code> is reserved for special attributes. Don't create any request attributes with the prefix <code>x-amz-lex:</code>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html#context-mgmt-request-attribs\">Setting Request Attributes</a>.</p>"""
+    r"""<p>Request-specific information passed between Amazon Lex and a client application.</p> <p>The namespace <code>x-amz-lex:</code> is reserved for special attributes. Don't create any request attributes with the prefix <code>x-amz-lex:</code>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html#context-mgmt-request-attribs\">Setting Request Attributes</a>.</p>"""
     input_text: "aws_sdk_lex_runtime_service.types.text.Text"
     """<p>The text that the user entered (Amazon Lex interprets this text).</p>"""
     active_contexts: NotRequired[

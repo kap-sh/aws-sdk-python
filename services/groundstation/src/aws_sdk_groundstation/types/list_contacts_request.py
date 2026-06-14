@@ -46,7 +46,7 @@ class ListContactsRequest(TypedDict):
     ephemeris: NotRequired[
         "aws_sdk_groundstation.types.ephemeris_filter.EphemerisFilter"
     ]
-    """<p>Filter for selecting contacts that use a specific ephemeris\".</p>"""
+    r"""<p>Filter for selecting contacts that use a specific ephemeris\".</p>"""
 
 
 # --- restJson1 ser/de ---

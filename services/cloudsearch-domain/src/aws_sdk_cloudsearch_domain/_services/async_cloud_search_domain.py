@@ -1,29 +1,29 @@
 """Generated from Smithy shape ``com.amazonaws.cloudsearchdomain#AmazonCloudSearch2013``."""
 
-from aws_sdk_cloudsearch_domain._auth._signers import SigV4Signer
-from aws_sdk_cloudsearch_domain._auth._sigv4 import presign_sigv4
-import datetime
-from collections.abc import AsyncIterator
-from collections.abc import AsyncGenerator
-from contextlib import asynccontextmanager
-from aws_sdk_cloudsearch_domain._pagination import resolve_path as _resolve_path
-from typing import Any, Iterable, TypedDict, Unpack, TYPE_CHECKING
-from typing_extensions import Self
-from typing import Optional
-from zapros import URL, AsyncBaseHandler, AsyncClient
-from aws_sdk_cloudsearch_domain._auth._zapros_handler import AuthMiddleware
-from aws_sdk_cloudsearch_domain._services._pipeline import AsyncInterceptor, AsyncOperationOptions, AsyncOperationRequest, AsyncOperationResponse, aexecute_pipeline, aretry
-from aws_sdk_cloudsearch_domain._async import anysleep
-import time
-from aws_sdk_cloudsearch_domain.errors import ServiceError, WaiterFailedError, WaiterTimeoutError
 import warnings
+from collections.abc import AsyncIterator
+from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+
+from typing_extensions import Self
+from zapros import AsyncBaseHandler, AsyncClient
+
 import aws_sdk_cloudsearch_domain._auth._signers
 import aws_sdk_cloudsearch_domain._auth._sigv4
 from aws_sdk_cloudsearch_domain._auth._identity import Credentials
-from aws_sdk_cloudsearch_domain._auth._providers import CredentialsProvider, StaticAwsCredentialsProvider
-from aws_sdk_cloudsearch_domain._auth._providers import BearerTokenProvider, StaticBearerTokenProvider
-from aws_sdk_cloudsearch_domain._auth._providers import BasicCredentialsProvider, StaticBasicCredentialsProvider
-from aws_sdk_cloudsearch_domain._auth._providers import ApiKeyProvider, StaticApiKeyProvider
+from aws_sdk_cloudsearch_domain._auth._providers import (
+    CredentialsProvider,
+    StaticAwsCredentialsProvider,
+)
+from aws_sdk_cloudsearch_domain._auth._zapros_handler import AuthMiddleware
+from aws_sdk_cloudsearch_domain._services._pipeline import (
+    AsyncInterceptor,
+    AsyncOperationOptions,
+    AsyncOperationRequest,
+    AsyncOperationResponse,
+    aexecute_pipeline,
+    aretry,
+)
+
 if TYPE_CHECKING:
     import aws_sdk_cloudsearch_domain.types.blob
     import aws_sdk_cloudsearch_domain.types.content_type
@@ -36,7 +36,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudsearch_domain.types.query
     import aws_sdk_cloudsearch_domain.types.query_options
     import aws_sdk_cloudsearch_domain.types.query_parser
-    import aws_sdk_cloudsearch_domain.types.return
+    import aws_sdk_cloudsearch_domain.types.return_
     import aws_sdk_cloudsearch_domain.types.search_request
     import aws_sdk_cloudsearch_domain.types.search_response
     import aws_sdk_cloudsearch_domain.types.size
@@ -50,6 +50,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudsearch_domain.types.upload_documents_request
     import aws_sdk_cloudsearch_domain.types.upload_documents_response
 
+
 class AsyncCloudSearchDomainClientConfig(TypedDict, total=False):
     operation_interceptors: Iterable[AsyncInterceptor[Any, Any]]
     retry_max_attempts: int
@@ -59,14 +60,19 @@ class AsyncCloudSearchDomainClientConfig(TypedDict, total=False):
     endpoint: str | None
     credentials_provider: CredentialsProvider | None
 
+
 DEFAULT_RETRY_MAX_ATTEMPTS = 3
 
-async def ensure_async_iterator(it: AsyncIterator[bytes] | bytes) -> AsyncIterator[bytes]:
+
+async def ensure_async_iterator(
+    it: AsyncIterator[bytes] | bytes,
+) -> AsyncIterator[bytes]:
     if isinstance(it, bytes):
         yield it
     else:
         async for chunk in it:
             yield chunk
+
 
 class AsyncCloudSearchDomainClient:
     """A client for the ``CloudSearchDomain`` service.
@@ -82,20 +88,98 @@ class AsyncCloudSearchDomainClient:
         credentials: AWS credentials for request signing.
         credentials_provider: Provider that resolves AWS credentials. Takes precedence over ``credentials``.
     """
-    def __init__(self, http_handler: AsyncBaseHandler | None = None, operation_interceptors: Iterable[AsyncInterceptor[Any, Any]] | None = None, retry_max_attempts: int | None = None, region: str | None = None, use_dual_stack: bool | None = None, use_fips: bool | None = None, endpoint: str | None = None, credentials: Credentials | None = None, credentials_provider: CredentialsProvider | None = None):
-        self._client = AsyncClient(http_handler).wrap_with_middleware(lambda next: AuthMiddleware(next))
+
+    def __init__(
+        self,
+        http_handler: AsyncBaseHandler | None = None,
+        operation_interceptors: Iterable[AsyncInterceptor[Any, Any]] | None = None,
+        retry_max_attempts: int | None = None,
+        region: str | None = None,
+        use_dual_stack: bool | None = None,
+        use_fips: bool | None = None,
+        endpoint: str | None = None,
+        credentials: Credentials | None = None,
+        credentials_provider: CredentialsProvider | None = None,
+    ):
+        self._client = AsyncClient(http_handler).wrap_with_middleware(
+            lambda next: AuthMiddleware(next)
+        )
         if credentials is not None and credentials_provider is not None:
-            warnings.warn("Both credentials and credentials_provider given; provider takes precedence")
+            warnings.warn(
+                "Both credentials and credentials_provider given; provider takes precedence"
+            )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = AsyncCloudSearchDomainClientConfig({"operation_interceptors": operation_interceptors or [], "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS if retry_max_attempts is None else retry_max_attempts, "region": region, "use_dual_stack": use_dual_stack, "use_fips": use_fips, "endpoint": endpoint, "credentials_provider": credentials_provider})
-    def operation_options(self, config_overrides: Optional[AsyncCloudSearchDomainClientConfig] = None) -> tuple[Iterable[AsyncInterceptor[Any, Any]], AsyncOperationOptions]:
+        self._config = AsyncCloudSearchDomainClientConfig(
+            {
+                "operation_interceptors": operation_interceptors or [],
+                "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
+                if retry_max_attempts is None
+                else retry_max_attempts,
+                "region": region,
+                "use_dual_stack": use_dual_stack,
+                "use_fips": use_fips,
+                "endpoint": endpoint,
+                "credentials_provider": credentials_provider,
+            }
+        )
+
+    def operation_options(
+        self, config_overrides: Optional[AsyncCloudSearchDomainClientConfig] = None
+    ) -> tuple[Iterable[AsyncInterceptor[Any, Any]], AsyncOperationOptions]:
         overrides: AsyncCloudSearchDomainClientConfig = config_overrides or {}
-        interceptors_: list[AsyncInterceptor[Any, Any]] = [*overrides.get("operation_interceptors", self.config.get("operation_interceptors", [])), aretry()]
-        options_: AsyncOperationOptions = AsyncOperationOptions(client=self._client, retry_max_attempts=overrides.get("retry_max_attempts", self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS)), region=overrides.get("region", self.config.get("region")), use_dual_stack=overrides.get("use_dual_stack", self.config.get("use_dual_stack")), use_fips=overrides.get("use_fips", self.config.get("use_fips")), endpoint=overrides.get("endpoint", self.config.get("endpoint")), credentials_provider=overrides.get("credentials_provider", self.config.get("credentials_provider")))
+        interceptors_: list[AsyncInterceptor[Any, Any]] = [
+            *overrides.get(
+                "operation_interceptors", self._config.get("operation_interceptors", [])
+            ),
+            aretry(),
+        ]
+        options_: AsyncOperationOptions = AsyncOperationOptions(
+            client=self._client,
+            retry_max_attempts=overrides.get(
+                "retry_max_attempts",
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+            ),
+            region=overrides.get("region", self._config.get("region")),
+            use_dual_stack=overrides.get(
+                "use_dual_stack", self._config.get("use_dual_stack")
+            ),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
+            credentials_provider=overrides.get(
+                "credentials_provider", self._config.get("credentials_provider")
+            ),
+        )
         return interceptors_, options_
-    async def search(self, query: "aws_sdk_cloudsearch_domain.types.query.Query", *, config_overrides: Optional[AsyncCloudSearchDomainClientConfig] = None, cursor: Optional["aws_sdk_cloudsearch_domain.types.cursor.Cursor"] = None, expr: Optional["aws_sdk_cloudsearch_domain.types.expr.Expr"] = None, facet: Optional["aws_sdk_cloudsearch_domain.types.facet.Facet"] = None, filter_query: Optional["aws_sdk_cloudsearch_domain.types.filter_query.FilterQuery"] = None, highlight: Optional["aws_sdk_cloudsearch_domain.types.highlight.Highlight"] = None, partial: Optional["aws_sdk_cloudsearch_domain.types.partial.Partial"] = None, query_options: Optional["aws_sdk_cloudsearch_domain.types.query_options.QueryOptions"] = None, query_parser: Optional["aws_sdk_cloudsearch_domain.types.query_parser.QueryParser"] = None, return_: Optional["aws_sdk_cloudsearch_domain.types.return.Return"] = None, size: Optional["aws_sdk_cloudsearch_domain.types.size.Size"] = None, sort: Optional["aws_sdk_cloudsearch_domain.types.sort.Sort"] = None, start: Optional["aws_sdk_cloudsearch_domain.types.start.Start"] = None, stats: Optional["aws_sdk_cloudsearch_domain.types.stat.Stat"] = None) -> "aws_sdk_cloudsearch_domain.types.search_response.SearchResponse":
-        """<p>Retrieves a list of documents that match the specified search criteria. How you specify the search criteria depends on which query parser you use. Amazon CloudSearch supports four query parsers:</p> <ul> <li><code>simple</code>: search all <code>text</code> and <code>text-array</code> fields for the specified string. Search for phrases, individual terms, and prefixes. </li> <li><code>structured</code>: search specific fields, construct compound queries using Boolean operators, and use advanced features such as term boosting and proximity searching.</li> <li><code>lucene</code>: specify search criteria using the Apache Lucene query parser syntax.</li> <li><code>dismax</code>: specify search criteria using the simplified subset of the Apache Lucene query parser syntax defined by the DisMax query parser.</li> </ul> <p>For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/searching.html\">Searching Your Data</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p> <p>The endpoint for submitting <code>Search</code> requests is domain-specific. You submit search requests to a domain's search endpoint. To get the search endpoint for your domain, use the Amazon CloudSearch configuration service <code>DescribeDomains</code> action. A domain's endpoints are also displayed on the domain dashboard in the Amazon CloudSearch console. </p>
+
+    async def search(
+        self,
+        query: "aws_sdk_cloudsearch_domain.types.query.Query",
+        *,
+        config_overrides: Optional[AsyncCloudSearchDomainClientConfig] = None,
+        cursor: Optional["aws_sdk_cloudsearch_domain.types.cursor.Cursor"] = None,
+        expr: Optional["aws_sdk_cloudsearch_domain.types.expr.Expr"] = None,
+        facet: Optional["aws_sdk_cloudsearch_domain.types.facet.Facet"] = None,
+        filter_query: Optional[
+            "aws_sdk_cloudsearch_domain.types.filter_query.FilterQuery"
+        ] = None,
+        highlight: Optional[
+            "aws_sdk_cloudsearch_domain.types.highlight.Highlight"
+        ] = None,
+        partial: Optional["aws_sdk_cloudsearch_domain.types.partial.Partial"] = None,
+        query_options: Optional[
+            "aws_sdk_cloudsearch_domain.types.query_options.QueryOptions"
+        ] = None,
+        query_parser: Optional[
+            "aws_sdk_cloudsearch_domain.types.query_parser.QueryParser"
+        ] = None,
+        return_: Optional["aws_sdk_cloudsearch_domain.types.return_.Return"] = None,
+        size: Optional["aws_sdk_cloudsearch_domain.types.size.Size"] = None,
+        sort: Optional["aws_sdk_cloudsearch_domain.types.sort.Sort"] = None,
+        start: Optional["aws_sdk_cloudsearch_domain.types.start.Start"] = None,
+        stats: Optional["aws_sdk_cloudsearch_domain.types.stat.Stat"] = None,
+    ) -> "aws_sdk_cloudsearch_domain.types.search_response.SearchResponse":
+        r"""<p>Retrieves a list of documents that match the specified search criteria. How you specify the search criteria depends on which query parser you use. Amazon CloudSearch supports four query parsers:</p> <ul> <li><code>simple</code>: search all <code>text</code> and <code>text-array</code> fields for the specified string. Search for phrases, individual terms, and prefixes. </li> <li><code>structured</code>: search specific fields, construct compound queries using Boolean operators, and use advanced features such as term boosting and proximity searching.</li> <li><code>lucene</code>: specify search criteria using the Apache Lucene query parser syntax.</li> <li><code>dismax</code>: specify search criteria using the simplified subset of the Apache Lucene query parser syntax defined by the DisMax query parser.</li> </ul> <p>For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/searching.html\">Searching Your Data</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p> <p>The endpoint for submitting <code>Search</code> requests is domain-specific. You submit search requests to a domain's search endpoint. To get the search endpoint for your domain, use the Amazon CloudSearch configuration service <code>DescribeDomains</code> action. A domain's endpoints are also displayed on the domain dashboard in the Amazon CloudSearch console. </p>
 
         Args:
             cursor: <p>Retrieves a cursor value you can use to page through large result sets. Use the <code>size</code> parameter to control the number of hits to include in each response. You can specify either the <code>cursor</code> or <code>start</code> parameter in a request; they are mutually exclusive. To get the first cursor, set the cursor value to <code>initial</code>. In subsequent requests, specify the cursor value returned in the hits section of the response. </p> <p>For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/paginating-results.html\">Paginating Results</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
@@ -113,9 +197,20 @@ class AsyncCloudSearchDomainClient:
             start: <p>Specifies the offset of the first search hit you want to return. Note that the result set is zero-based; the first result is at index 0. You can specify either the <code>start</code> or <code>cursor</code> parameter in a request, they are mutually exclusive. </p> <p>For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/paginating-results.html\">Paginating Results</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
             stats: <p>Specifies one or more fields for which to get statistics information. Each specified field must be facet-enabled in the domain configuration. The fields are specified in JSON using the form:</p> <code>{\"FIELD-A\":{},\"FIELD-B\":{}}</code> <p>There are currently no options supported for statistics.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_cloudsearch_domain.types.search_request.SearchRequest]') -> AsyncOperationResponse["aws_sdk_cloudsearch_domain.types.search_response.SearchResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_cloudsearch_domain.types.search_request.SearchRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_cloudsearch_domain.types.search_response.SearchResponse"
+        ]:
             import aws_sdk_cloudsearch_domain._operations.amazon_cloud_search2013.search
-            output, http_response = await aws_sdk_cloudsearch_domain._operations.amazon_cloud_search2013.search.async_search(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_cloudsearch_domain._operations.amazon_cloud_search2013.search.async_search(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -148,19 +243,44 @@ class AsyncCloudSearchDomainClient:
         if stats is not None:
             input_["stats"] = stats
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def suggest(self, query: "aws_sdk_cloudsearch_domain.types.query.Query", suggester: "aws_sdk_cloudsearch_domain.types.suggester.Suggester", *, config_overrides: Optional[AsyncCloudSearchDomainClientConfig] = None, size: Optional["aws_sdk_cloudsearch_domain.types.suggestions_size.SuggestionsSize"] = None) -> "aws_sdk_cloudsearch_domain.types.suggest_response.SuggestResponse":
-        """<p>Retrieves autocomplete suggestions for a partial query string. You can use suggestions enable you to display likely matches before users finish typing. In Amazon CloudSearch, suggestions are based on the contents of a particular text field. When you request suggestions, Amazon CloudSearch finds all of the documents whose values in the suggester field start with the specified query string. The beginning of the field must match the query string to be considered a match. </p> <p>For more information about configuring suggesters and retrieving suggestions, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html\">Getting Suggestions</a> in the <i>Amazon CloudSearch Developer Guide</i>. </p> <p>The endpoint for submitting <code>Suggest</code> requests is domain-specific. You submit suggest requests to a domain's search endpoint. To get the search endpoint for your domain, use the Amazon CloudSearch configuration service <code>DescribeDomains</code> action. A domain's endpoints are also displayed on the domain dashboard in the Amazon CloudSearch console. </p>
+
+    async def suggest(
+        self,
+        query: "aws_sdk_cloudsearch_domain.types.query.Query",
+        suggester: "aws_sdk_cloudsearch_domain.types.suggester.Suggester",
+        *,
+        config_overrides: Optional[AsyncCloudSearchDomainClientConfig] = None,
+        size: Optional[
+            "aws_sdk_cloudsearch_domain.types.suggestions_size.SuggestionsSize"
+        ] = None,
+    ) -> "aws_sdk_cloudsearch_domain.types.suggest_response.SuggestResponse":
+        r"""<p>Retrieves autocomplete suggestions for a partial query string. You can use suggestions enable you to display likely matches before users finish typing. In Amazon CloudSearch, suggestions are based on the contents of a particular text field. When you request suggestions, Amazon CloudSearch finds all of the documents whose values in the suggester field start with the specified query string. The beginning of the field must match the query string to be considered a match. </p> <p>For more information about configuring suggesters and retrieving suggestions, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html\">Getting Suggestions</a> in the <i>Amazon CloudSearch Developer Guide</i>. </p> <p>The endpoint for submitting <code>Suggest</code> requests is domain-specific. You submit suggest requests to a domain's search endpoint. To get the search endpoint for your domain, use the Amazon CloudSearch configuration service <code>DescribeDomains</code> action. A domain's endpoints are also displayed on the domain dashboard in the Amazon CloudSearch console. </p>
 
         Args:
             query: <p>Specifies the string for which you want to get suggestions.</p>
             suggester: <p>Specifies the name of the suggester to use to find suggested matches.</p>
             size: <p>Specifies the maximum number of suggestions to return. </p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_cloudsearch_domain.types.suggest_request.SuggestRequest]') -> AsyncOperationResponse["aws_sdk_cloudsearch_domain.types.suggest_response.SuggestResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_cloudsearch_domain.types.suggest_request.SuggestRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_cloudsearch_domain.types.suggest_response.SuggestResponse"
+        ]:
             import aws_sdk_cloudsearch_domain._operations.amazon_cloud_search2013.suggest
-            output, http_response = await aws_sdk_cloudsearch_domain._operations.amazon_cloud_search2013.suggest.async_suggest(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_cloudsearch_domain._operations.amazon_cloud_search2013.suggest.async_suggest(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
@@ -170,28 +290,56 @@ class AsyncCloudSearchDomainClient:
         if size is not None:
             input_["size"] = size
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def upload_documents(self, documents: AsyncIterator[bytes] | bytes, content_type: "aws_sdk_cloudsearch_domain.types.content_type.ContentType", *, config_overrides: Optional[AsyncCloudSearchDomainClientConfig] = None) -> "aws_sdk_cloudsearch_domain.types.upload_documents_response.UploadDocumentsResponse":
-        """<p>Posts a batch of documents to a search domain for indexing. A document batch is a collection of add and delete operations that represent the documents you want to add, update, or delete from your domain. Batches can be described in either JSON or XML. Each item that you want Amazon CloudSearch to return as a search result (such as a product) is represented as a document. Every document has a unique ID and one or more fields that contain the data that you want to search and return in results. Individual documents cannot contain more than 1 MB of data. The entire batch cannot exceed 5 MB. To get the best possible upload performance, group add and delete operations in batches that are close the 5 MB limit. Submitting a large volume of single-document batches can overload a domain's document service. </p> <p>The endpoint for submitting <code>UploadDocuments</code> requests is domain-specific. To get the document endpoint for your domain, use the Amazon CloudSearch configuration service <code>DescribeDomains</code> action. A domain's endpoints are also displayed on the domain dashboard in the Amazon CloudSearch console. </p> <p>For more information about formatting your data for Amazon CloudSearch, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/preparing-data.html\">Preparing Your Data</a> in the <i>Amazon CloudSearch Developer Guide</i>. For more information about uploading data for indexing, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/uploading-data.html\">Uploading Data</a> in the <i>Amazon CloudSearch Developer Guide</i>. </p>
+
+    async def upload_documents(
+        self,
+        documents: AsyncIterator[bytes] | bytes,
+        content_type: "aws_sdk_cloudsearch_domain.types.content_type.ContentType",
+        *,
+        config_overrides: Optional[AsyncCloudSearchDomainClientConfig] = None,
+    ) -> "aws_sdk_cloudsearch_domain.types.upload_documents_response.UploadDocumentsResponse":
+        r"""<p>Posts a batch of documents to a search domain for indexing. A document batch is a collection of add and delete operations that represent the documents you want to add, update, or delete from your domain. Batches can be described in either JSON or XML. Each item that you want Amazon CloudSearch to return as a search result (such as a product) is represented as a document. Every document has a unique ID and one or more fields that contain the data that you want to search and return in results. Individual documents cannot contain more than 1 MB of data. The entire batch cannot exceed 5 MB. To get the best possible upload performance, group add and delete operations in batches that are close the 5 MB limit. Submitting a large volume of single-document batches can overload a domain's document service. </p> <p>The endpoint for submitting <code>UploadDocuments</code> requests is domain-specific. To get the document endpoint for your domain, use the Amazon CloudSearch configuration service <code>DescribeDomains</code> action. A domain's endpoints are also displayed on the domain dashboard in the Amazon CloudSearch console. </p> <p>For more information about formatting your data for Amazon CloudSearch, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/preparing-data.html\">Preparing Your Data</a> in the <i>Amazon CloudSearch Developer Guide</i>. For more information about uploading data for indexing, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/uploading-data.html\">Uploading Data</a> in the <i>Amazon CloudSearch Developer Guide</i>. </p>
 
         Args:
             documents: <p>A batch of documents formatted in JSON or HTML.</p>
             content_type: <p>The format of the batch you are uploading. Amazon CloudSearch supports two document batch formats:</p> <ul> <li>application/json</li> <li>application/xml</li> </ul>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_cloudsearch_domain.types.upload_documents_request.UploadDocumentsRequest]') -> AsyncOperationResponse["aws_sdk_cloudsearch_domain.types.upload_documents_response.UploadDocumentsResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_cloudsearch_domain.types.upload_documents_request.UploadDocumentsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_cloudsearch_domain.types.upload_documents_response.UploadDocumentsResponse"
+        ]:
             import aws_sdk_cloudsearch_domain._operations.amazon_cloud_search2013.upload_documents
-            output, http_response = await aws_sdk_cloudsearch_domain._operations.amazon_cloud_search2013.upload_documents.async_upload_documents(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_cloudsearch_domain._operations.amazon_cloud_search2013.upload_documents.async_upload_documents(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: aws_sdk_cloudsearch_domain.types.upload_documents_request.UploadDocumentsRequest = {}  # type: ignore[typeddict-item]
-        input_["documents"] = ensure_async_iterator(documents) # type: ignore
+        input_["documents"] = ensure_async_iterator(documents)  # type: ignore
         input_["content_type"] = content_type
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
+
     async def __aenter__(self) -> Self:
         return self
+
     async def __aexit__(self, exc_type: Any, exc: Any, tb: Any):
         await self._client.aclose()

@@ -13,7 +13,7 @@ if TYPE_CHECKING:
 
 class ListAnalyticsDataAssociationsRequest(TypedDict):
     instance_id: "aws_sdk_connect.types.instance_id.InstanceId"
-    """<p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>"""
+    r"""<p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>"""
     data_set_id: NotRequired["aws_sdk_connect.types.data_set_id.DataSetId"]
     """<p>The identifier of the dataset to get the association status.</p>"""
     next_token: NotRequired["aws_sdk_connect.types.next_token.NextToken"]

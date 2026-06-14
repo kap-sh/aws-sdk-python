@@ -13,7 +13,7 @@ class CreateServiceResponse(TypedDict):
     service: "aws_sdk_apprunner.types.service.Service"
     """<p>A description of the App Runner service that's created by this request.</p>"""
     operation_id: "aws_sdk_apprunner.types.uuid.UUID"
-    """<p>The unique ID of the asynchronous operation that this request started. You can use it combined with the <a href=\"https://docs.aws.amazon.com/apprunner/latest/api/API_ListOperations.html\">ListOperations</a> call to track the operation's progress.</p>"""
+    r"""<p>The unique ID of the asynchronous operation that this request started. You can use it combined with the <a href=\"https://docs.aws.amazon.com/apprunner/latest/api/API_ListOperations.html\">ListOperations</a> call to track the operation's progress.</p>"""
 
 
 # --- awsJson1_0 ser/de ---

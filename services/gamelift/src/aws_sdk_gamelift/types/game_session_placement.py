@@ -37,7 +37,7 @@ class GameSessionPlacement(TypedDict):
     game_properties: NotRequired[
         "aws_sdk_gamelift.types.game_property_list.GamePropertyList"
     ]
-    """<p>A set of key-value pairs that can store custom data in a game session. For example: <code>{\"Key\": \"difficulty\", \"Value\": \"novice\"}</code>.</p> <note> <ul> <li> <p>Avoid using periods (\".\") in property keys if you plan to search for game sessions by properties. Property keys containing periods cannot be searched and will be filtered out from search results due to search index limitations.</p> </li> <li> <p>If you use SearchGameSessions API, there is a limit of 500 game property keys across all game sessions and all fleets per region. If the limit is exceeded, there will potentially be game session entries missing from SearchGameSessions API results.</p> </li> </ul> </note>"""
+    r"""<p>A set of key-value pairs that can store custom data in a game session. For example: <code>{\"Key\": \"difficulty\", \"Value\": \"novice\"}</code>.</p> <note> <ul> <li> <p>Avoid using periods (\".\") in property keys if you plan to search for game sessions by properties. Property keys containing periods cannot be searched and will be filtered out from search results due to search index limitations.</p> </li> <li> <p>If you use SearchGameSessions API, there is a limit of 500 game property keys across all game sessions and all fleets per region. If the limit is exceeded, there will potentially be game session entries missing from SearchGameSessions API results.</p> </li> </ul> </note>"""
     maximum_player_session_count: NotRequired[
         "aws_sdk_gamelift.types.whole_number.WholeNumber"
     ]
@@ -63,13 +63,13 @@ class GameSessionPlacement(TypedDict):
     ]
     """<p>A set of values, expressed in milliseconds, that indicates the amount of latency that a player experiences when connected to Amazon Web Services Regions.</p>"""
     start_time: NotRequired["aws_sdk_gamelift.types.timestamp.Timestamp"]
-    """<p>Time stamp indicating when this request was placed in the queue. Format is a number expressed in Unix time as milliseconds (for example <code>\"1469498468.057\"</code>).</p>"""
+    r"""<p>Time stamp indicating when this request was placed in the queue. Format is a number expressed in Unix time as milliseconds (for example <code>\"1469498468.057\"</code>).</p>"""
     end_time: NotRequired["aws_sdk_gamelift.types.timestamp.Timestamp"]
     """<p>Time stamp indicating when this request was completed, canceled, or timed out.</p>"""
     ip_address: NotRequired["aws_sdk_gamelift.types.ip_address.IpAddress"]
     """<p>The IP address of the game session. To connect to a Amazon GameLift Servers game server, an app needs both the IP address and port number. This value isn't final until placement status is <code>FULFILLED</code>. </p>"""
     dns_name: NotRequired["aws_sdk_gamelift.types.dns_name.DnsName"]
-    """<p>The DNS identifier assigned to the instance that is running the game session. Values have the following format:</p> <ul> <li> <p>TLS-enabled fleets: <code><unique identifier>.<region identifier>.amazongamelift.com</code>.</p> </li> <li> <p>Non-TLS-enabled fleets: <code>ec2-<unique identifier>.compute.amazonaws.com</code>. (See <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-instance-addressing.html#concepts-public-addresses\">Amazon EC2 Instance IP Addressing</a>.)</p> </li> </ul> <p>When connecting to a game session that is running on a TLS-enabled fleet, you must use the DNS name, not the IP address.</p>"""
+    r"""<p>The DNS identifier assigned to the instance that is running the game session. Values have the following format:</p> <ul> <li> <p>TLS-enabled fleets: <code><unique identifier>.<region identifier>.amazongamelift.com</code>.</p> </li> <li> <p>Non-TLS-enabled fleets: <code>ec2-<unique identifier>.compute.amazonaws.com</code>. (See <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-instance-addressing.html#concepts-public-addresses\">Amazon EC2 Instance IP Addressing</a>.)</p> </li> </ul> <p>When connecting to a game session that is running on a TLS-enabled fleet, you must use the DNS name, not the IP address.</p>"""
     port: NotRequired["aws_sdk_gamelift.types.port_number.PortNumber"]
     """<p>The port number for the game session. To connect to a Amazon GameLift Servers game server, an app needs both the IP address and port number. This value isn't final until placement status is <code>FULFILLED</code>.</p>"""
     placed_player_sessions: NotRequired[
@@ -79,11 +79,11 @@ class GameSessionPlacement(TypedDict):
     game_session_data: NotRequired[
         "aws_sdk_gamelift.types.large_game_session_data.LargeGameSessionData"
     ]
-    """<p>A set of custom game session properties, formatted as a single string value. This data is passed to a game server process with a request to start a new game session. For more information, see <a href=\"https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession\">Start a game session</a>.</p>"""
+    r"""<p>A set of custom game session properties, formatted as a single string value. This data is passed to a game server process with a request to start a new game session. For more information, see <a href=\"https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession\">Start a game session</a>.</p>"""
     matchmaker_data: NotRequired[
         "aws_sdk_gamelift.types.matchmaker_data.MatchmakerData"
     ]
-    """<p>Information on the matchmaking process for this game. Data is in JSON syntax, formatted as a string. It identifies the matchmaking configuration used to create the match, and contains data on all players assigned to the match, including player attributes and team assignments. For more details on matchmaker data, see <a href=\"https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-server.html#match-server-data\">Match Data</a>.</p>"""
+    r"""<p>Information on the matchmaking process for this game. Data is in JSON syntax, formatted as a string. It identifies the matchmaking configuration used to create the match, and contains data on all players assigned to the match, including player attributes and team assignments. For more details on matchmaker data, see <a href=\"https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-server.html#match-server-data\">Match Data</a>.</p>"""
     priority_configuration_override: NotRequired[
         "aws_sdk_gamelift.types.priority_configuration_override.PriorityConfigurationOverride"
     ]
@@ -91,7 +91,7 @@ class GameSessionPlacement(TypedDict):
     player_gateway_status: NotRequired[
         "aws_sdk_gamelift.types.player_gateway_status.PlayerGatewayStatus"
     ]
-    """<p>The current status of player gateway for the game session placement. Note, even if a fleet has PlayerGatewayMode configured as <code>ENABLED</code>, player gateway might not be available in a specific location. For more information about locations where player gateway is supported, see <a href=\"https://docs.aws.amazon.com/gameliftservers/latest/developerguide/gamelift-regions.html\">Amazon GameLift Servers service locations</a>.</p> <p>Possible values include:</p> <ul> <li> <p> <code>ENABLED</code> -- Player gateway is available for this game session placement.</p> </li> <li> <p> <code>DISABLED</code> -- Player gateway is not available for this game session placement.</p> </li> </ul>"""
+    r"""<p>The current status of player gateway for the game session placement. Note, even if a fleet has PlayerGatewayMode configured as <code>ENABLED</code>, player gateway might not be available in a specific location. For more information about locations where player gateway is supported, see <a href=\"https://docs.aws.amazon.com/gameliftservers/latest/developerguide/gamelift-regions.html\">Amazon GameLift Servers service locations</a>.</p> <p>Possible values include:</p> <ul> <li> <p> <code>ENABLED</code> -- Player gateway is available for this game session placement.</p> </li> <li> <p> <code>DISABLED</code> -- Player gateway is not available for this game session placement.</p> </li> </ul>"""
 
 
 # --- awsJson1_1 ser/de ---

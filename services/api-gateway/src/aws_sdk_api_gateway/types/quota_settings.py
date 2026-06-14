@@ -15,7 +15,7 @@ class QuotaSettings(TypedDict):
     offset: "aws_sdk_api_gateway.types.integer.Integer"
     """<p>The number of requests subtracted from the given limit in the initial time period.</p>"""
     period: NotRequired["aws_sdk_api_gateway.types.quota_period_type.QuotaPeriodType"]
-    """<p>The time period in which the limit applies. Valid values are \"DAY\", \"WEEK\" or \"MONTH\".</p>"""
+    r"""<p>The time period in which the limit applies. Valid values are \"DAY\", \"WEEK\" or \"MONTH\".</p>"""
 
 
 # --- restJson1 ser/de ---

@@ -12,7 +12,7 @@ class ValidatePipelineRequest(TypedDict):
     pipeline_configuration_body: (
         "aws_sdk_osis.types.pipeline_configuration_body.PipelineConfigurationBody"
     )
-    """<p>The pipeline configuration in YAML format. The command accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with <code>\n</code>.</p>"""
+    r"""<p>The pipeline configuration in YAML format. The command accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with <code>\n</code>.</p>"""
 
 
 # --- restJson1 ser/de ---

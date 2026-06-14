@@ -73,7 +73,7 @@ def get_signer(
     options: AsyncOperationOptions | OperationOptions,
     auth_schemes: list[dict[str, Any]] | None = None,
 ) -> aws_sdk_applicationcostprofiler._auth._signers.Signer | None:
-    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}
+    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}  # noqa: F841
     if options.credentials_provider is not None:
         sigv4_config = (
             name_to_schema.get("sigv4")
@@ -92,7 +92,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_applicationcostprofiler.types.update_report_definition_request.UpdateReportDefinitionRequest,
+    input_: aws_sdk_applicationcostprofiler.types.update_report_definition_request.UpdateReportDefinitionRequest,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -103,14 +103,14 @@ def build_request(
         )
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/reportDefinition/{reportId}"
-    url = url.replace("{reportId}", quote(str(input["report_id"]), safe=""))
+    url = url.replace("{reportId}", quote(str(input_["report_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     import aws_sdk_applicationcostprofiler.types.update_report_definition_request
 
     body: bytes | None = json.dumps(
         aws_sdk_applicationcostprofiler.types.update_report_definition_request.serialize_json(
-            input
+            input_
         )
     ).encode()
     headers["content-type"] = "application/json"
@@ -124,12 +124,12 @@ def build_request(
 
 def update_report_definition(
     options: OperationOptions,
-    input: aws_sdk_applicationcostprofiler.types.update_report_definition_request.UpdateReportDefinitionRequest,
+    input_: aws_sdk_applicationcostprofiler.types.update_report_definition_request.UpdateReportDefinitionRequest,
 ) -> tuple[
     aws_sdk_applicationcostprofiler.types.update_report_definition_result.UpdateReportDefinitionResult,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -143,12 +143,12 @@ def update_report_definition(
 
 async def async_update_report_definition(
     options: AsyncOperationOptions,
-    input: aws_sdk_applicationcostprofiler.types.update_report_definition_request.UpdateReportDefinitionRequest,
+    input_: aws_sdk_applicationcostprofiler.types.update_report_definition_request.UpdateReportDefinitionRequest,
 ) -> tuple[
     aws_sdk_applicationcostprofiler.types.update_report_definition_result.UpdateReportDefinitionResult,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

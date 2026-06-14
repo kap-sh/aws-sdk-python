@@ -15,7 +15,7 @@ if TYPE_CHECKING:
 
 class SearchVocabulariesRequest(TypedDict):
     instance_id: "aws_sdk_connect.types.instance_id.InstanceId"
-    """<p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>"""
+    r"""<p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>"""
     max_results: NotRequired["aws_sdk_connect.types.max_result100.MaxResult100"]
     """<p>The maximum number of results to return per page.</p>"""
     next_token: NotRequired[
@@ -31,7 +31,7 @@ class SearchVocabulariesRequest(TypedDict):
     language_code: NotRequired[
         "aws_sdk_connect.types.vocabulary_language_code.VocabularyLanguageCode"
     ]
-    """<p>The language code of the vocabulary entries. For a list of languages and their corresponding language codes, see <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html\">What is Amazon Transcribe?</a> </p>"""
+    r"""<p>The language code of the vocabulary entries. For a list of languages and their corresponding language codes, see <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html\">What is Amazon Transcribe?</a> </p>"""
 
 
 # --- restJson1 ser/de ---

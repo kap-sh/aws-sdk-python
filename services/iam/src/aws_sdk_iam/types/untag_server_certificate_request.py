@@ -14,7 +14,7 @@ class UntagServerCertificateRequest(TypedDict):
     server_certificate_name: (
         "aws_sdk_iam.types.server_certificate_name_type.serverCertificateNameType"
     )
-    """<p>The name of the IAM server certificate from which you want to remove tags.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>"""
+    r"""<p>The name of the IAM server certificate from which you want to remove tags.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>"""
     tag_keys: "aws_sdk_iam.types.tag_key_list_type.tagKeyListType"
     """<p>A list of key names as a simple array of strings. The tags with matching keys are removed from the specified IAM server certificate.</p>"""
 

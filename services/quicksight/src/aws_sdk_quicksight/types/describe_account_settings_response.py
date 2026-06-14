@@ -14,7 +14,7 @@ class DescribeAccountSettingsResponse(TypedDict):
     account_settings: NotRequired[
         "aws_sdk_quicksight.types.account_settings.AccountSettings"
     ]
-    """<p>The Amazon Quick Sight settings for this Amazon Web Services account. This information includes the edition of Amazon Quick Sight that you subscribed to (Standard or Enterprise) and the notification email for the Amazon Quick Sight subscription. </p> <p>In the Quick Sight console, the Amazon Quick Sight subscription is sometimes referred to as a Quick Sight \"account\" even though it's technically not an account by itself. Instead, it's a subscription to the Amazon Quick Sight service for your Amazon Web Services account. The edition that you subscribe to applies to Quick in every Amazon Web Services Region where you use it.</p>"""
+    r"""<p>The Amazon Quick Sight settings for this Amazon Web Services account. This information includes the edition of Amazon Quick Sight that you subscribed to (Standard or Enterprise) and the notification email for the Amazon Quick Sight subscription. </p> <p>In the Quick Sight console, the Amazon Quick Sight subscription is sometimes referred to as a Quick Sight \"account\" even though it's technically not an account by itself. Instead, it's a subscription to the Amazon Quick Sight service for your Amazon Web Services account. The edition that you subscribe to applies to Quick in every Amazon Web Services Region where you use it.</p>"""
     request_id: NotRequired["aws_sdk_quicksight.types.string.String"]
     """<p>The Amazon Web Services request ID for this operation.</p>"""
     status: "aws_sdk_quicksight.types.status_code.StatusCode"

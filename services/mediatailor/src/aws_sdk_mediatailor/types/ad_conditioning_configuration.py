@@ -10,7 +10,7 @@ if TYPE_CHECKING:
 
 class AdConditioningConfiguration(TypedDict):
     streaming_media_file_conditioning: "aws_sdk_mediatailor.types.streaming_media_file_conditioning.StreamingMediaFileConditioning"
-    """<p>For ads that have media files with streaming delivery and supported file extensions, indicates what transcoding action MediaTailor takes when it first receives these ads from the ADS. <code>TRANSCODE</code> indicates that MediaTailor must transcode the ads. <code>NONE</code> indicates that you have already transcoded the ads outside of MediaTailor and don't need them transcoded as part of the ad insertion workflow. For more information about ad conditioning see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/precondition-ads.html\">Using preconditioned ads</a> in the Elemental MediaTailor user guide.</p>"""
+    r"""<p>For ads that have media files with streaming delivery and supported file extensions, indicates what transcoding action MediaTailor takes when it first receives these ads from the ADS. <code>TRANSCODE</code> indicates that MediaTailor must transcode the ads. <code>NONE</code> indicates that you have already transcoded the ads outside of MediaTailor and don't need them transcoded as part of the ad insertion workflow. For more information about ad conditioning see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/precondition-ads.html\">Using preconditioned ads</a> in the Elemental MediaTailor user guide.</p>"""
 
 
 # --- restJson1 ser/de ---
