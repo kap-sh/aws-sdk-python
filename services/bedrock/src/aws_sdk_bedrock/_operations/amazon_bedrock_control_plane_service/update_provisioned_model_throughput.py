@@ -90,7 +90,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.update_provisioned_model_throughput_request.UpdateProvisionedModelThroughputRequest,
+    input_: aws_sdk_bedrock.types.update_provisioned_model_throughput_request.UpdateProvisionedModelThroughputRequest,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -104,7 +104,7 @@ def build_request(
         endpoint.url.rstrip("/") + "/provisioned-model-throughput/{provisionedModelId}"
     )
     url = url.replace(
-        "{provisionedModelId}", quote(str(input["provisioned_model_id"]), safe="")
+        "{provisionedModelId}", quote(str(input_["provisioned_model_id"]), safe="")
     )
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
@@ -112,7 +112,7 @@ def build_request(
 
     body: bytes | None = json.dumps(
         aws_sdk_bedrock.types.update_provisioned_model_throughput_request.serialize_json(
-            input
+            input_
         )
     ).encode()
     headers["content-type"] = "application/json"
@@ -126,12 +126,12 @@ def build_request(
 
 def update_provisioned_model_throughput(
     options: OperationOptions,
-    input: aws_sdk_bedrock.types.update_provisioned_model_throughput_request.UpdateProvisionedModelThroughputRequest,
+    input_: aws_sdk_bedrock.types.update_provisioned_model_throughput_request.UpdateProvisionedModelThroughputRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.update_provisioned_model_throughput_response.UpdateProvisionedModelThroughputResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -145,12 +145,12 @@ def update_provisioned_model_throughput(
 
 async def async_update_provisioned_model_throughput(
     options: AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.update_provisioned_model_throughput_request.UpdateProvisionedModelThroughputRequest,
+    input_: aws_sdk_bedrock.types.update_provisioned_model_throughput_request.UpdateProvisionedModelThroughputRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.update_provisioned_model_throughput_response.UpdateProvisionedModelThroughputResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

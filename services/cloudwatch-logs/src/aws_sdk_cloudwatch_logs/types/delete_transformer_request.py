@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#DeleteTransformerRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_cloudwatch_logs.errors import DeserializationError
 
 if TYPE_CHECKING:

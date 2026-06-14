@@ -115,6 +115,7 @@ class EMRServerlessClient:
                 "credentials_provider": credentials_provider,
             }
         )
+
         # resources
         self.application_resource = ApplicationResource(self)
         self.job_run_resource = JobRunResource(self)

@@ -96,7 +96,7 @@ class AsyncuxcClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = AsyncuxcClientConfig(
+        self._config = AsyncuxcClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -115,7 +115,7 @@ class AsyncuxcClient:
         overrides: AsyncuxcClientConfig = config_overrides or {}
         interceptors_: list[AsyncInterceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             aretry(),
         ]
@@ -123,13 +123,13 @@ class AsyncuxcClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
-            region=overrides.get("region", self.config.get("region")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
+            region=overrides.get("region", self._config.get("region")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -178,7 +178,7 @@ class AsyncuxcClient:
         next_token: Optional["aws_sdk_uxc.types.next_token.NextToken"] = None,
         max_results: Optional["aws_sdk_uxc.types.max_results.MaxResults"] = None,
     ) -> "aws_sdk_uxc.types.list_services_output.ListServicesOutput":
-        """<p>Returns a paginated list of Amazon Web Services service identifiers that you can use as values for the <code>visibleServices</code> setting in <a href=\"https://docs.aws.amazon.com/awsconsolehelpdocs/latest/APIReference/API_UpdateAccountCustomizations.html\">UpdateAccountCustomizations</a>. The available services vary by Amazon Web Services partition. Use pagination to retrieve all results.</p> <note> <p>The <code>visibleServices</code> setting controls only the appearance of services in the Amazon Web Services Management Console. It does not restrict access through the CLI, SDKs, or other APIs.</p> </note>
+        r"""<p>Returns a paginated list of Amazon Web Services service identifiers that you can use as values for the <code>visibleServices</code> setting in <a href=\"https://docs.aws.amazon.com/awsconsolehelpdocs/latest/APIReference/API_UpdateAccountCustomizations.html\">UpdateAccountCustomizations</a>. The available services vary by Amazon Web Services partition. Use pagination to retrieve all results.</p> <note> <p>The <code>visibleServices</code> setting controls only the appearance of services in the Amazon Web Services Management Console. It does not restrict access through the CLI, SDKs, or other APIs.</p> </note>
 
         Args:
             next_token: <p>The token for retrieving the next page of results. Use the <code>nextToken</code> value from a previous response.</p>
@@ -249,7 +249,7 @@ class AsyncuxcClient:
         visible_services: Optional["aws_sdk_uxc.types.service_list.ServiceList"] = None,
         visible_regions: Optional["aws_sdk_uxc.types.regions_list.RegionsList"] = None,
     ) -> "aws_sdk_uxc.types.update_account_customizations_output.UpdateAccountCustomizationsOutput":
-        """<p>Updates one or more account customization settings. You can update account color, visible services, and visible Regions in a single request. Only the settings that you include in the request body are modified. Omitted settings remain unchanged. To reset a setting to its default behavior, set the value to <code>null</code> for visible Regions and visible services, or <code>none</code> for account color. This operation is idempotent.</p> <note> <p>The <code>visibleServices</code> and <code>visibleRegions</code> settings control only the appearance of services and Regions in the Amazon Web Services Management Console. They do not restrict access through the CLI, SDKs, or other APIs.</p> </note>
+        r"""<p>Updates one or more account customization settings. You can update account color, visible services, and visible Regions in a single request. Only the settings that you include in the request body are modified. Omitted settings remain unchanged. To reset a setting to its default behavior, set the value to <code>null</code> for visible Regions and visible services, or <code>none</code> for account color. This operation is idempotent.</p> <note> <p>The <code>visibleServices</code> and <code>visibleRegions</code> settings control only the appearance of services and Regions in the Amazon Web Services Management Console. They do not restrict access through the CLI, SDKs, or other APIs.</p> </note>
 
         Args:
             account_color: <p>The account color preference to set. Set to <code>none</code> to reset to the default (no color).</p>

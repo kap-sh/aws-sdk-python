@@ -96,7 +96,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.delete_custom_model_request.DeleteCustomModelRequest,
+    input_: aws_sdk_bedrock.types.delete_custom_model_request.DeleteCustomModelRequest,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -108,7 +108,7 @@ def build_request(
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/custom-models/{modelIdentifier}"
     url = url.replace(
-        "{modelIdentifier}", quote(str(input["model_identifier"]), safe="")
+        "{modelIdentifier}", quote(str(input_["model_identifier"]), safe="")
     )
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
@@ -123,12 +123,12 @@ def build_request(
 
 def delete_custom_model(
     options: OperationOptions,
-    input: aws_sdk_bedrock.types.delete_custom_model_request.DeleteCustomModelRequest,
+    input_: aws_sdk_bedrock.types.delete_custom_model_request.DeleteCustomModelRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.delete_custom_model_response.DeleteCustomModelResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -142,12 +142,12 @@ def delete_custom_model(
 
 async def async_delete_custom_model(
     options: AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.delete_custom_model_request.DeleteCustomModelRequest,
+    input_: aws_sdk_bedrock.types.delete_custom_model_request.DeleteCustomModelRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.delete_custom_model_response.DeleteCustomModelResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

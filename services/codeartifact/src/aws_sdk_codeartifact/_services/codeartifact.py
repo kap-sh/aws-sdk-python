@@ -312,15 +312,15 @@ class codeartifactClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeartifact.types.associate_external_connection_request.AssociateExternalConnectionRequest = {}  # type: ignore[typeddict-item]
-        input["domain"] = domain
+        input_: aws_sdk_codeartifact.types.associate_external_connection_request.AssociateExternalConnectionRequest = {}  # type: ignore[typeddict-item]
+        input_["domain"] = domain
         if domain_owner is not None:
-            input["domain_owner"] = domain_owner
-        input["repository"] = repository
-        input["external_connection"] = external_connection
+            input_["domain_owner"] = domain_owner
+        input_["repository"] = repository
+        input_["external_connection"] = external_connection
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -385,27 +385,27 @@ class codeartifactClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeartifact.types.copy_package_versions_request.CopyPackageVersionsRequest = {}  # type: ignore[typeddict-item]
-        input["domain"] = domain
+        input_: aws_sdk_codeartifact.types.copy_package_versions_request.CopyPackageVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_["domain"] = domain
         if domain_owner is not None:
-            input["domain_owner"] = domain_owner
-        input["source_repository"] = source_repository
-        input["destination_repository"] = destination_repository
-        input["format"] = format
+            input_["domain_owner"] = domain_owner
+        input_["source_repository"] = source_repository
+        input_["destination_repository"] = destination_repository
+        input_["format"] = format
         if namespace is not None:
-            input["namespace"] = namespace
-        input["package"] = package
+            input_["namespace"] = namespace
+        input_["package"] = package
         if versions is not None:
-            input["versions"] = versions
+            input_["versions"] = versions
         if version_revisions is not None:
-            input["version_revisions"] = version_revisions
+            input_["version_revisions"] = version_revisions
         if allow_overwrite is not None:
-            input["allow_overwrite"] = allow_overwrite
+            input_["allow_overwrite"] = allow_overwrite
         if include_from_upstream is not None:
-            input["include_from_upstream"] = include_from_upstream
+            input_["include_from_upstream"] = include_from_upstream
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -442,15 +442,15 @@ class codeartifactClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeartifact.types.create_domain_request.CreateDomainRequest = {}  # type: ignore[typeddict-item]
-        input["domain"] = domain
+        input_: aws_sdk_codeartifact.types.create_domain_request.CreateDomainRequest = {}  # type: ignore[typeddict-item]
+        input_["domain"] = domain
         if encryption_key is not None:
-            input["encryption_key"] = encryption_key
+            input_["encryption_key"] = encryption_key
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -499,20 +499,20 @@ class codeartifactClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeartifact.types.create_package_group_request.CreatePackageGroupRequest = {}  # type: ignore[typeddict-item]
-        input["domain"] = domain
+        input_: aws_sdk_codeartifact.types.create_package_group_request.CreatePackageGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["domain"] = domain
         if domain_owner is not None:
-            input["domain_owner"] = domain_owner
-        input["package_group"] = package_group
+            input_["domain_owner"] = domain_owner
+        input_["package_group"] = package_group
         if contact_info is not None:
-            input["contact_info"] = contact_info
+            input_["contact_info"] = contact_info
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -561,20 +561,20 @@ class codeartifactClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeartifact.types.create_repository_request.CreateRepositoryRequest = {}  # type: ignore[typeddict-item]
-        input["domain"] = domain
+        input_: aws_sdk_codeartifact.types.create_repository_request.CreateRepositoryRequest = {}  # type: ignore[typeddict-item]
+        input_["domain"] = domain
         if domain_owner is not None:
-            input["domain_owner"] = domain_owner
-        input["repository"] = repository
+            input_["domain_owner"] = domain_owner
+        input_["repository"] = repository
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if upstreams is not None:
-            input["upstreams"] = upstreams
+            input_["upstreams"] = upstreams
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -611,13 +611,13 @@ class codeartifactClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeartifact.types.delete_domain_request.DeleteDomainRequest = {}  # type: ignore[typeddict-item]
-        input["domain"] = domain
+        input_: aws_sdk_codeartifact.types.delete_domain_request.DeleteDomainRequest = {}  # type: ignore[typeddict-item]
+        input_["domain"] = domain
         if domain_owner is not None:
-            input["domain_owner"] = domain_owner
+            input_["domain_owner"] = domain_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -658,15 +658,15 @@ class codeartifactClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeartifact.types.delete_domain_permissions_policy_request.DeleteDomainPermissionsPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["domain"] = domain
+        input_: aws_sdk_codeartifact.types.delete_domain_permissions_policy_request.DeleteDomainPermissionsPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["domain"] = domain
         if domain_owner is not None:
-            input["domain_owner"] = domain_owner
+            input_["domain_owner"] = domain_owner
         if policy_revision is not None:
-            input["policy_revision"] = policy_revision
+            input_["policy_revision"] = policy_revision
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -713,18 +713,18 @@ class codeartifactClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeartifact.types.delete_package_request.DeletePackageRequest = {}  # type: ignore[typeddict-item]
-        input["domain"] = domain
+        input_: aws_sdk_codeartifact.types.delete_package_request.DeletePackageRequest = {}  # type: ignore[typeddict-item]
+        input_["domain"] = domain
         if domain_owner is not None:
-            input["domain_owner"] = domain_owner
-        input["repository"] = repository
-        input["format"] = format
+            input_["domain_owner"] = domain_owner
+        input_["repository"] = repository
+        input_["format"] = format
         if namespace is not None:
-            input["namespace"] = namespace
-        input["package"] = package
+            input_["namespace"] = namespace
+        input_["package"] = package
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -763,14 +763,14 @@ class codeartifactClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeartifact.types.delete_package_group_request.DeletePackageGroupRequest = {}  # type: ignore[typeddict-item]
-        input["domain"] = domain
+        input_: aws_sdk_codeartifact.types.delete_package_group_request.DeletePackageGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["domain"] = domain
         if domain_owner is not None:
-            input["domain_owner"] = domain_owner
-        input["package_group"] = package_group
+            input_["domain_owner"] = domain_owner
+        input_["package_group"] = package_group
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -823,21 +823,21 @@ class codeartifactClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeartifact.types.delete_package_versions_request.DeletePackageVersionsRequest = {}  # type: ignore[typeddict-item]
-        input["domain"] = domain
+        input_: aws_sdk_codeartifact.types.delete_package_versions_request.DeletePackageVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_["domain"] = domain
         if domain_owner is not None:
-            input["domain_owner"] = domain_owner
-        input["repository"] = repository
-        input["format"] = format
+            input_["domain_owner"] = domain_owner
+        input_["repository"] = repository
+        input_["format"] = format
         if namespace is not None:
-            input["namespace"] = namespace
-        input["package"] = package
-        input["versions"] = versions
+            input_["namespace"] = namespace
+        input_["package"] = package
+        input_["versions"] = versions
         if expected_status is not None:
-            input["expected_status"] = expected_status
+            input_["expected_status"] = expected_status
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -876,14 +876,14 @@ class codeartifactClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeartifact.types.delete_repository_request.DeleteRepositoryRequest = {}  # type: ignore[typeddict-item]
-        input["domain"] = domain
+        input_: aws_sdk_codeartifact.types.delete_repository_request.DeleteRepositoryRequest = {}  # type: ignore[typeddict-item]
+        input_["domain"] = domain
         if domain_owner is not None:
-            input["domain_owner"] = domain_owner
-        input["repository"] = repository
+            input_["domain_owner"] = domain_owner
+        input_["repository"] = repository
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -926,16 +926,16 @@ class codeartifactClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeartifact.types.delete_repository_permissions_policy_request.DeleteRepositoryPermissionsPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["domain"] = domain
+        input_: aws_sdk_codeartifact.types.delete_repository_permissions_policy_request.DeleteRepositoryPermissionsPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["domain"] = domain
         if domain_owner is not None:
-            input["domain_owner"] = domain_owner
-        input["repository"] = repository
+            input_["domain_owner"] = domain_owner
+        input_["repository"] = repository
         if policy_revision is not None:
-            input["policy_revision"] = policy_revision
+            input_["policy_revision"] = policy_revision
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -972,13 +972,13 @@ class codeartifactClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeartifact.types.describe_domain_request.DescribeDomainRequest = {}  # type: ignore[typeddict-item]
-        input["domain"] = domain
+        input_: aws_sdk_codeartifact.types.describe_domain_request.DescribeDomainRequest = {}  # type: ignore[typeddict-item]
+        input_["domain"] = domain
         if domain_owner is not None:
-            input["domain_owner"] = domain_owner
+            input_["domain_owner"] = domain_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1025,18 +1025,18 @@ class codeartifactClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeartifact.types.describe_package_request.DescribePackageRequest = {}  # type: ignore[typeddict-item]
-        input["domain"] = domain
+        input_: aws_sdk_codeartifact.types.describe_package_request.DescribePackageRequest = {}  # type: ignore[typeddict-item]
+        input_["domain"] = domain
         if domain_owner is not None:
-            input["domain_owner"] = domain_owner
-        input["repository"] = repository
-        input["format"] = format
+            input_["domain_owner"] = domain_owner
+        input_["repository"] = repository
+        input_["format"] = format
         if namespace is not None:
-            input["namespace"] = namespace
-        input["package"] = package
+            input_["namespace"] = namespace
+        input_["package"] = package
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1075,14 +1075,14 @@ class codeartifactClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeartifact.types.describe_package_group_request.DescribePackageGroupRequest = {}  # type: ignore[typeddict-item]
-        input["domain"] = domain
+        input_: aws_sdk_codeartifact.types.describe_package_group_request.DescribePackageGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["domain"] = domain
         if domain_owner is not None:
-            input["domain_owner"] = domain_owner
-        input["package_group"] = package_group
+            input_["domain_owner"] = domain_owner
+        input_["package_group"] = package_group
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1131,19 +1131,19 @@ class codeartifactClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeartifact.types.describe_package_version_request.DescribePackageVersionRequest = {}  # type: ignore[typeddict-item]
-        input["domain"] = domain
+        input_: aws_sdk_codeartifact.types.describe_package_version_request.DescribePackageVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["domain"] = domain
         if domain_owner is not None:
-            input["domain_owner"] = domain_owner
-        input["repository"] = repository
-        input["format"] = format
+            input_["domain_owner"] = domain_owner
+        input_["repository"] = repository
+        input_["format"] = format
         if namespace is not None:
-            input["namespace"] = namespace
-        input["package"] = package
-        input["package_version"] = package_version
+            input_["namespace"] = namespace
+        input_["package"] = package
+        input_["package_version"] = package_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1184,14 +1184,14 @@ class codeartifactClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeartifact.types.describe_repository_request.DescribeRepositoryRequest = {}  # type: ignore[typeddict-item]
-        input["domain"] = domain
+        input_: aws_sdk_codeartifact.types.describe_repository_request.DescribeRepositoryRequest = {}  # type: ignore[typeddict-item]
+        input_["domain"] = domain
         if domain_owner is not None:
-            input["domain_owner"] = domain_owner
-        input["repository"] = repository
+            input_["domain_owner"] = domain_owner
+        input_["repository"] = repository
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1232,15 +1232,15 @@ class codeartifactClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeartifact.types.disassociate_external_connection_request.DisassociateExternalConnectionRequest = {}  # type: ignore[typeddict-item]
-        input["domain"] = domain
+        input_: aws_sdk_codeartifact.types.disassociate_external_connection_request.DisassociateExternalConnectionRequest = {}  # type: ignore[typeddict-item]
+        input_["domain"] = domain
         if domain_owner is not None:
-            input["domain_owner"] = domain_owner
-        input["repository"] = repository
-        input["external_connection"] = external_connection
+            input_["domain_owner"] = domain_owner
+        input_["repository"] = repository
+        input_["external_connection"] = external_connection
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1297,23 +1297,23 @@ class codeartifactClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeartifact.types.dispose_package_versions_request.DisposePackageVersionsRequest = {}  # type: ignore[typeddict-item]
-        input["domain"] = domain
+        input_: aws_sdk_codeartifact.types.dispose_package_versions_request.DisposePackageVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_["domain"] = domain
         if domain_owner is not None:
-            input["domain_owner"] = domain_owner
-        input["repository"] = repository
-        input["format"] = format
+            input_["domain_owner"] = domain_owner
+        input_["repository"] = repository
+        input_["format"] = format
         if namespace is not None:
-            input["namespace"] = namespace
-        input["package"] = package
-        input["versions"] = versions
+            input_["namespace"] = namespace
+        input_["package"] = package
+        input_["versions"] = versions
         if version_revisions is not None:
-            input["version_revisions"] = version_revisions
+            input_["version_revisions"] = version_revisions
         if expected_status is not None:
-            input["expected_status"] = expected_status
+            input_["expected_status"] = expected_status
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1358,17 +1358,17 @@ class codeartifactClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeartifact.types.get_associated_package_group_request.GetAssociatedPackageGroupRequest = {}  # type: ignore[typeddict-item]
-        input["domain"] = domain
+        input_: aws_sdk_codeartifact.types.get_associated_package_group_request.GetAssociatedPackageGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["domain"] = domain
         if domain_owner is not None:
-            input["domain_owner"] = domain_owner
-        input["format"] = format
+            input_["domain_owner"] = domain_owner
+        input_["format"] = format
         if namespace is not None:
-            input["namespace"] = namespace
-        input["package"] = package
+            input_["namespace"] = namespace
+        input_["package"] = package
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1409,15 +1409,15 @@ class codeartifactClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeartifact.types.get_authorization_token_request.GetAuthorizationTokenRequest = {}  # type: ignore[typeddict-item]
-        input["domain"] = domain
+        input_: aws_sdk_codeartifact.types.get_authorization_token_request.GetAuthorizationTokenRequest = {}  # type: ignore[typeddict-item]
+        input_["domain"] = domain
         if domain_owner is not None:
-            input["domain_owner"] = domain_owner
+            input_["domain_owner"] = domain_owner
         if duration_seconds is not None:
-            input["duration_seconds"] = duration_seconds
+            input_["duration_seconds"] = duration_seconds
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1454,13 +1454,13 @@ class codeartifactClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeartifact.types.get_domain_permissions_policy_request.GetDomainPermissionsPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["domain"] = domain
+        input_: aws_sdk_codeartifact.types.get_domain_permissions_policy_request.GetDomainPermissionsPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["domain"] = domain
         if domain_owner is not None:
-            input["domain_owner"] = domain_owner
+            input_["domain_owner"] = domain_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1516,22 +1516,22 @@ class codeartifactClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeartifact.types.get_package_version_asset_request.GetPackageVersionAssetRequest = {}  # type: ignore[typeddict-item]
-        input["domain"] = domain
+        input_: aws_sdk_codeartifact.types.get_package_version_asset_request.GetPackageVersionAssetRequest = {}  # type: ignore[typeddict-item]
+        input_["domain"] = domain
         if domain_owner is not None:
-            input["domain_owner"] = domain_owner
-        input["repository"] = repository
-        input["format"] = format
+            input_["domain_owner"] = domain_owner
+        input_["repository"] = repository
+        input_["format"] = format
         if namespace is not None:
-            input["namespace"] = namespace
-        input["package"] = package
-        input["package_version"] = package_version
-        input["asset"] = asset
+            input_["namespace"] = namespace
+        input_["package"] = package
+        input_["package_version"] = package_version
+        input_["asset"] = asset
         if package_version_revision is not None:
-            input["package_version_revision"] = package_version_revision
+            input_["package_version_revision"] = package_version_revision
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1580,19 +1580,19 @@ class codeartifactClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeartifact.types.get_package_version_readme_request.GetPackageVersionReadmeRequest = {}  # type: ignore[typeddict-item]
-        input["domain"] = domain
+        input_: aws_sdk_codeartifact.types.get_package_version_readme_request.GetPackageVersionReadmeRequest = {}  # type: ignore[typeddict-item]
+        input_["domain"] = domain
         if domain_owner is not None:
-            input["domain_owner"] = domain_owner
-        input["repository"] = repository
-        input["format"] = format
+            input_["domain_owner"] = domain_owner
+        input_["repository"] = repository
+        input_["format"] = format
         if namespace is not None:
-            input["namespace"] = namespace
-        input["package"] = package
-        input["package_version"] = package_version
+            input_["namespace"] = namespace
+        input_["package"] = package
+        input_["package_version"] = package_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1637,17 +1637,17 @@ class codeartifactClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeartifact.types.get_repository_endpoint_request.GetRepositoryEndpointRequest = {}  # type: ignore[typeddict-item]
-        input["domain"] = domain
+        input_: aws_sdk_codeartifact.types.get_repository_endpoint_request.GetRepositoryEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_["domain"] = domain
         if domain_owner is not None:
-            input["domain_owner"] = domain_owner
-        input["repository"] = repository
-        input["format"] = format
+            input_["domain_owner"] = domain_owner
+        input_["repository"] = repository
+        input_["format"] = format
         if endpoint_type is not None:
-            input["endpoint_type"] = endpoint_type
+            input_["endpoint_type"] = endpoint_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1686,14 +1686,14 @@ class codeartifactClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeartifact.types.get_repository_permissions_policy_request.GetRepositoryPermissionsPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["domain"] = domain
+        input_: aws_sdk_codeartifact.types.get_repository_permissions_policy_request.GetRepositoryPermissionsPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["domain"] = domain
         if domain_owner is not None:
-            input["domain_owner"] = domain_owner
-        input["repository"] = repository
+            input_["domain_owner"] = domain_owner
+        input_["repository"] = repository
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1742,19 +1742,19 @@ class codeartifactClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeartifact.types.list_allowed_repositories_for_group_request.ListAllowedRepositoriesForGroupRequest = {}  # type: ignore[typeddict-item]
-        input["domain"] = domain
+        input_: aws_sdk_codeartifact.types.list_allowed_repositories_for_group_request.ListAllowedRepositoriesForGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["domain"] = domain
         if domain_owner is not None:
-            input["domain_owner"] = domain_owner
-        input["package_group"] = package_group
-        input["origin_restriction_type"] = origin_restriction_type
+            input_["domain_owner"] = domain_owner
+        input_["package_group"] = package_group
+        input_["origin_restriction_type"] = origin_restriction_type
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1840,20 +1840,20 @@ class codeartifactClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeartifact.types.list_associated_packages_request.ListAssociatedPackagesRequest = {}  # type: ignore[typeddict-item]
-        input["domain"] = domain
+        input_: aws_sdk_codeartifact.types.list_associated_packages_request.ListAssociatedPackagesRequest = {}  # type: ignore[typeddict-item]
+        input_["domain"] = domain
         if domain_owner is not None:
-            input["domain_owner"] = domain_owner
-        input["package_group"] = package_group
+            input_["domain_owner"] = domain_owner
+        input_["package_group"] = package_group
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if preview is not None:
-            input["preview"] = preview
+            input_["preview"] = preview
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1929,14 +1929,14 @@ class codeartifactClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeartifact.types.list_domains_request.ListDomainsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_codeartifact.types.list_domains_request.ListDomainsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2012,19 +2012,19 @@ class codeartifactClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeartifact.types.list_package_groups_request.ListPackageGroupsRequest = {}  # type: ignore[typeddict-item]
-        input["domain"] = domain
+        input_: aws_sdk_codeartifact.types.list_package_groups_request.ListPackageGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_["domain"] = domain
         if domain_owner is not None:
-            input["domain_owner"] = domain_owner
+            input_["domain_owner"] = domain_owner
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if prefix is not None:
-            input["prefix"] = prefix
+            input_["prefix"] = prefix
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2128,28 +2128,28 @@ class codeartifactClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeartifact.types.list_packages_request.ListPackagesRequest = {}  # type: ignore[typeddict-item]
-        input["domain"] = domain
+        input_: aws_sdk_codeartifact.types.list_packages_request.ListPackagesRequest = {}  # type: ignore[typeddict-item]
+        input_["domain"] = domain
         if domain_owner is not None:
-            input["domain_owner"] = domain_owner
-        input["repository"] = repository
+            input_["domain_owner"] = domain_owner
+        input_["repository"] = repository
         if format is not None:
-            input["format"] = format
+            input_["format"] = format
         if namespace is not None:
-            input["namespace"] = namespace
+            input_["namespace"] = namespace
         if package_prefix is not None:
-            input["package_prefix"] = package_prefix
+            input_["package_prefix"] = package_prefix
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if publish is not None:
-            input["publish"] = publish
+            input_["publish"] = publish
         if upstream is not None:
-            input["upstream"] = upstream
+            input_["upstream"] = upstream
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2259,23 +2259,23 @@ class codeartifactClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeartifact.types.list_package_version_assets_request.ListPackageVersionAssetsRequest = {}  # type: ignore[typeddict-item]
-        input["domain"] = domain
+        input_: aws_sdk_codeartifact.types.list_package_version_assets_request.ListPackageVersionAssetsRequest = {}  # type: ignore[typeddict-item]
+        input_["domain"] = domain
         if domain_owner is not None:
-            input["domain_owner"] = domain_owner
-        input["repository"] = repository
-        input["format"] = format
+            input_["domain_owner"] = domain_owner
+        input_["repository"] = repository
+        input_["format"] = format
         if namespace is not None:
-            input["namespace"] = namespace
-        input["package"] = package
-        input["package_version"] = package_version
+            input_["namespace"] = namespace
+        input_["package"] = package
+        input_["package_version"] = package_version
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2371,21 +2371,21 @@ class codeartifactClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeartifact.types.list_package_version_dependencies_request.ListPackageVersionDependenciesRequest = {}  # type: ignore[typeddict-item]
-        input["domain"] = domain
+        input_: aws_sdk_codeartifact.types.list_package_version_dependencies_request.ListPackageVersionDependenciesRequest = {}  # type: ignore[typeddict-item]
+        input_["domain"] = domain
         if domain_owner is not None:
-            input["domain_owner"] = domain_owner
-        input["repository"] = repository
-        input["format"] = format
+            input_["domain_owner"] = domain_owner
+        input_["repository"] = repository
+        input_["format"] = format
         if namespace is not None:
-            input["namespace"] = namespace
-        input["package"] = package
-        input["package_version"] = package_version
+            input_["namespace"] = namespace
+        input_["package"] = package
+        input_["package_version"] = package_version
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2452,28 +2452,28 @@ class codeartifactClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeartifact.types.list_package_versions_request.ListPackageVersionsRequest = {}  # type: ignore[typeddict-item]
-        input["domain"] = domain
+        input_: aws_sdk_codeartifact.types.list_package_versions_request.ListPackageVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_["domain"] = domain
         if domain_owner is not None:
-            input["domain_owner"] = domain_owner
-        input["repository"] = repository
-        input["format"] = format
+            input_["domain_owner"] = domain_owner
+        input_["repository"] = repository
+        input_["format"] = format
         if namespace is not None:
-            input["namespace"] = namespace
-        input["package"] = package
+            input_["namespace"] = namespace
+        input_["package"] = package
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if origin_type is not None:
-            input["origin_type"] = origin_type
+            input_["origin_type"] = origin_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2569,16 +2569,16 @@ class codeartifactClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeartifact.types.list_repositories_request.ListRepositoriesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_codeartifact.types.list_repositories_request.ListRepositoriesRequest = {}  # type: ignore[typeddict-item]
         if repository_prefix is not None:
-            input["repository_prefix"] = repository_prefix
+            input_["repository_prefix"] = repository_prefix
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2660,21 +2660,21 @@ class codeartifactClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeartifact.types.list_repositories_in_domain_request.ListRepositoriesInDomainRequest = {}  # type: ignore[typeddict-item]
-        input["domain"] = domain
+        input_: aws_sdk_codeartifact.types.list_repositories_in_domain_request.ListRepositoriesInDomainRequest = {}  # type: ignore[typeddict-item]
+        input_["domain"] = domain
         if domain_owner is not None:
-            input["domain_owner"] = domain_owner
+            input_["domain_owner"] = domain_owner
         if administrator_account is not None:
-            input["administrator_account"] = administrator_account
+            input_["administrator_account"] = administrator_account
         if repository_prefix is not None:
-            input["repository_prefix"] = repository_prefix
+            input_["repository_prefix"] = repository_prefix
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2760,18 +2760,18 @@ class codeartifactClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeartifact.types.list_sub_package_groups_request.ListSubPackageGroupsRequest = {}  # type: ignore[typeddict-item]
-        input["domain"] = domain
+        input_: aws_sdk_codeartifact.types.list_sub_package_groups_request.ListSubPackageGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_["domain"] = domain
         if domain_owner is not None:
-            input["domain_owner"] = domain_owner
-        input["package_group"] = package_group
+            input_["domain_owner"] = domain_owner
+        input_["package_group"] = package_group
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2839,11 +2839,11 @@ class codeartifactClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeartifact.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_codeartifact.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2902,24 +2902,24 @@ class codeartifactClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeartifact.types.publish_package_version_request.PublishPackageVersionRequest = {}  # type: ignore[typeddict-item]
-        input["domain"] = domain
+        input_: aws_sdk_codeartifact.types.publish_package_version_request.PublishPackageVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["domain"] = domain
         if domain_owner is not None:
-            input["domain_owner"] = domain_owner
-        input["repository"] = repository
-        input["format"] = format
+            input_["domain_owner"] = domain_owner
+        input_["repository"] = repository
+        input_["format"] = format
         if namespace is not None:
-            input["namespace"] = namespace
-        input["package"] = package
-        input["package_version"] = package_version
-        input["asset_content"] = ensure_sync_iterator(asset_content)  # type: ignore
-        input["asset_name"] = asset_name
-        input["asset_sha256"] = asset_sha256
+            input_["namespace"] = namespace
+        input_["package"] = package
+        input_["package_version"] = package_version
+        input_["asset_content"] = ensure_sync_iterator(asset_content)  # type: ignore
+        input_["asset_name"] = asset_name
+        input_["asset_sha256"] = asset_sha256
         if unfinished is not None:
-            input["unfinished"] = unfinished
+            input_["unfinished"] = unfinished
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2962,16 +2962,16 @@ class codeartifactClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeartifact.types.put_domain_permissions_policy_request.PutDomainPermissionsPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["domain"] = domain
+        input_: aws_sdk_codeartifact.types.put_domain_permissions_policy_request.PutDomainPermissionsPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["domain"] = domain
         if domain_owner is not None:
-            input["domain_owner"] = domain_owner
+            input_["domain_owner"] = domain_owner
         if policy_revision is not None:
-            input["policy_revision"] = policy_revision
-        input["policy_document"] = policy_document
+            input_["policy_revision"] = policy_revision
+        input_["policy_document"] = policy_document
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3020,19 +3020,19 @@ class codeartifactClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeartifact.types.put_package_origin_configuration_request.PutPackageOriginConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["domain"] = domain
+        input_: aws_sdk_codeartifact.types.put_package_origin_configuration_request.PutPackageOriginConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["domain"] = domain
         if domain_owner is not None:
-            input["domain_owner"] = domain_owner
-        input["repository"] = repository
-        input["format"] = format
+            input_["domain_owner"] = domain_owner
+        input_["repository"] = repository
+        input_["format"] = format
         if namespace is not None:
-            input["namespace"] = namespace
-        input["package"] = package
-        input["restrictions"] = restrictions
+            input_["namespace"] = namespace
+        input_["package"] = package
+        input_["restrictions"] = restrictions
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3077,17 +3077,17 @@ class codeartifactClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeartifact.types.put_repository_permissions_policy_request.PutRepositoryPermissionsPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["domain"] = domain
+        input_: aws_sdk_codeartifact.types.put_repository_permissions_policy_request.PutRepositoryPermissionsPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["domain"] = domain
         if domain_owner is not None:
-            input["domain_owner"] = domain_owner
-        input["repository"] = repository
+            input_["domain_owner"] = domain_owner
+        input_["repository"] = repository
         if policy_revision is not None:
-            input["policy_revision"] = policy_revision
-        input["policy_document"] = policy_document
+            input_["policy_revision"] = policy_revision
+        input_["policy_document"] = policy_document
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3122,12 +3122,12 @@ class codeartifactClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeartifact.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_codeartifact.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3162,12 +3162,12 @@ class codeartifactClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeartifact.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_codeartifact.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3214,18 +3214,18 @@ class codeartifactClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeartifact.types.update_package_group_request.UpdatePackageGroupRequest = {}  # type: ignore[typeddict-item]
-        input["domain"] = domain
+        input_: aws_sdk_codeartifact.types.update_package_group_request.UpdatePackageGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["domain"] = domain
         if domain_owner is not None:
-            input["domain_owner"] = domain_owner
-        input["package_group"] = package_group
+            input_["domain_owner"] = domain_owner
+        input_["package_group"] = package_group
         if contact_info is not None:
-            input["contact_info"] = contact_info
+            input_["contact_info"] = contact_info
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3276,20 +3276,20 @@ class codeartifactClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeartifact.types.update_package_group_origin_configuration_request.UpdatePackageGroupOriginConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["domain"] = domain
+        input_: aws_sdk_codeartifact.types.update_package_group_origin_configuration_request.UpdatePackageGroupOriginConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["domain"] = domain
         if domain_owner is not None:
-            input["domain_owner"] = domain_owner
-        input["package_group"] = package_group
+            input_["domain_owner"] = domain_owner
+        input_["package_group"] = package_group
         if restrictions is not None:
-            input["restrictions"] = restrictions
+            input_["restrictions"] = restrictions
         if add_allowed_repositories is not None:
-            input["add_allowed_repositories"] = add_allowed_repositories
+            input_["add_allowed_repositories"] = add_allowed_repositories
         if remove_allowed_repositories is not None:
-            input["remove_allowed_repositories"] = remove_allowed_repositories
+            input_["remove_allowed_repositories"] = remove_allowed_repositories
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3348,24 +3348,24 @@ class codeartifactClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeartifact.types.update_package_versions_status_request.UpdatePackageVersionsStatusRequest = {}  # type: ignore[typeddict-item]
-        input["domain"] = domain
+        input_: aws_sdk_codeartifact.types.update_package_versions_status_request.UpdatePackageVersionsStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["domain"] = domain
         if domain_owner is not None:
-            input["domain_owner"] = domain_owner
-        input["repository"] = repository
-        input["format"] = format
+            input_["domain_owner"] = domain_owner
+        input_["repository"] = repository
+        input_["format"] = format
         if namespace is not None:
-            input["namespace"] = namespace
-        input["package"] = package
-        input["versions"] = versions
+            input_["namespace"] = namespace
+        input_["package"] = package
+        input_["versions"] = versions
         if version_revisions is not None:
-            input["version_revisions"] = version_revisions
+            input_["version_revisions"] = version_revisions
         if expected_status is not None:
-            input["expected_status"] = expected_status
-        input["target_status"] = target_status
+            input_["expected_status"] = expected_status
+        input_["target_status"] = target_status
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3412,18 +3412,18 @@ class codeartifactClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeartifact.types.update_repository_request.UpdateRepositoryRequest = {}  # type: ignore[typeddict-item]
-        input["domain"] = domain
+        input_: aws_sdk_codeartifact.types.update_repository_request.UpdateRepositoryRequest = {}  # type: ignore[typeddict-item]
+        input_["domain"] = domain
         if domain_owner is not None:
-            input["domain_owner"] = domain_owner
-        input["repository"] = repository
+            input_["domain_owner"] = domain_owner
+        input_["repository"] = repository
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if upstreams is not None:
-            input["upstreams"] = upstreams
+            input_["upstreams"] = upstreams
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

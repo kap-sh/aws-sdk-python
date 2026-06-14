@@ -63,7 +63,7 @@ class Service:
         ] = None,
         auth_type: Optional["aws_sdk_vpc_lattice.types.auth_type.AuthType"] = None,
     ) -> "aws_sdk_vpc_lattice.types.create_service_response.CreateServiceResponse":
-        """<p>Creates a service. A service is any software application that can run on instances containers, or serverless functions within an account or virtual private cloud (VPC).</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc-lattice/latest/ug/services.html\">Services</a> in the <i>Amazon VPC Lattice User Guide</i>.</p>
+        r"""<p>Creates a service. A service is any software application that can run on instances containers, or serverless functions within an account or virtual private cloud (VPC).</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc-lattice/latest/ug/services.html\">Services</a> in the <i>Amazon VPC Lattice User Guide</i>.</p>
 
         Args:
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you retry a request that completed successfully using the same client token and parameters, the retry succeeds without performing any actions. If the parameters aren't identical, the retry fails.</p>
@@ -199,7 +199,7 @@ class Service:
         *,
         config_overrides: Optional[VPCLatticeClientConfig] = None,
     ) -> "aws_sdk_vpc_lattice.types.delete_service_response.DeleteServiceResponse":
-        """<p>Deletes a service. A service can't be deleted if it's associated with a service network. If you delete a service, all resources related to the service, such as the resource policy, auth policy, listeners, listener rules, and access log subscriptions, are also deleted. For more information, see <a href=\"https://docs.aws.amazon.com/vpc-lattice/latest/ug/services.html#delete-service\">Delete a service</a> in the <i>Amazon VPC Lattice User Guide</i>.</p>
+        r"""<p>Deletes a service. A service can't be deleted if it's associated with a service network. If you delete a service, all resources related to the service, such as the resource policy, auth policy, listeners, listener rules, and access log subscriptions, are also deleted. For more information, see <a href=\"https://docs.aws.amazon.com/vpc-lattice/latest/ug/services.html#delete-service\">Delete a service</a> in the <i>Amazon VPC Lattice User Guide</i>.</p>
 
         Args:
             service_identifier: <p>The ID or ARN of the service.</p>
@@ -296,7 +296,7 @@ class AsyncService:
         ] = None,
         auth_type: Optional["aws_sdk_vpc_lattice.types.auth_type.AuthType"] = None,
     ) -> "aws_sdk_vpc_lattice.types.create_service_response.CreateServiceResponse":
-        """<p>Creates a service. A service is any software application that can run on instances containers, or serverless functions within an account or virtual private cloud (VPC).</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc-lattice/latest/ug/services.html\">Services</a> in the <i>Amazon VPC Lattice User Guide</i>.</p>
+        r"""<p>Creates a service. A service is any software application that can run on instances containers, or serverless functions within an account or virtual private cloud (VPC).</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc-lattice/latest/ug/services.html\">Services</a> in the <i>Amazon VPC Lattice User Guide</i>.</p>
 
         Args:
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you retry a request that completed successfully using the same client token and parameters, the retry succeeds without performing any actions. If the parameters aren't identical, the retry fails.</p>
@@ -435,7 +435,7 @@ class AsyncService:
         *,
         config_overrides: Optional[AsyncVPCLatticeClientConfig] = None,
     ) -> "aws_sdk_vpc_lattice.types.delete_service_response.DeleteServiceResponse":
-        """<p>Deletes a service. A service can't be deleted if it's associated with a service network. If you delete a service, all resources related to the service, such as the resource policy, auth policy, listeners, listener rules, and access log subscriptions, are also deleted. For more information, see <a href=\"https://docs.aws.amazon.com/vpc-lattice/latest/ug/services.html#delete-service\">Delete a service</a> in the <i>Amazon VPC Lattice User Guide</i>.</p>
+        r"""<p>Deletes a service. A service can't be deleted if it's associated with a service network. If you delete a service, all resources related to the service, such as the resource policy, auth policy, listeners, listener rules, and access log subscriptions, are also deleted. For more information, see <a href=\"https://docs.aws.amazon.com/vpc-lattice/latest/ug/services.html#delete-service\">Delete a service</a> in the <i>Amazon VPC Lattice User Guide</i>.</p>
 
         Args:
             service_identifier: <p>The ID or ARN of the service.</p>

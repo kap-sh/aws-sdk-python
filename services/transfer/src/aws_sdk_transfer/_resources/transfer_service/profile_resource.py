@@ -49,7 +49,7 @@ class ProfileResource:
         ] = None,
         tags: Optional["aws_sdk_transfer.types.tags.Tags"] = None,
     ) -> "aws_sdk_transfer.types.create_profile_response.CreateProfileResponse":
-        """<p>Creates the local or partner profile to use for AS2 transfers.</p>
+        r"""<p>Creates the local or partner profile to use for AS2 transfers.</p>
 
         Args:
             as2_id: <p>The <code>As2Id</code> is the <i>AS2-name</i>, as defined in the <a href=\"https://datatracker.ietf.org/doc/html/rfc4130\">RFC 4130</a>. For inbound transfers, this is the <code>AS2-From</code> header for the AS2 messages sent from the partner. For outbound connectors, this is the <code>AS2-To</code> header for the AS2 messages sent to the partner using the <code>StartFileTransfer</code> API operation. This ID cannot include spaces.</p>
@@ -267,7 +267,7 @@ class AsyncProfileResource:
         ] = None,
         tags: Optional["aws_sdk_transfer.types.tags.Tags"] = None,
     ) -> "aws_sdk_transfer.types.create_profile_response.CreateProfileResponse":
-        """<p>Creates the local or partner profile to use for AS2 transfers.</p>
+        r"""<p>Creates the local or partner profile to use for AS2 transfers.</p>
 
         Args:
             as2_id: <p>The <code>As2Id</code> is the <i>AS2-name</i>, as defined in the <a href=\"https://datatracker.ietf.org/doc/html/rfc4130\">RFC 4130</a>. For inbound transfers, this is the <code>AS2-From</code> header for the AS2 messages sent from the partner. For outbound connectors, this is the <code>AS2-To</code> header for the AS2 messages sent to the partner using the <code>StartFileTransfer</code> API operation. This ID cannot include spaces.</p>

@@ -48,10 +48,10 @@ class AllowlistResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.get_use_case_for_model_access_request.GetUseCaseForModelAccessRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock.types.get_use_case_for_model_access_request.GetUseCaseForModelAccessRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -84,11 +84,11 @@ class AllowlistResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.put_use_case_for_model_access_request.PutUseCaseForModelAccessRequest = {}  # type: ignore[typeddict-item]
-        input["form_data"] = form_data
+        input_: aws_sdk_bedrock.types.put_use_case_for_model_access_request.PutUseCaseForModelAccessRequest = {}  # type: ignore[typeddict-item]
+        input_["form_data"] = form_data
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -120,10 +120,10 @@ class AsyncAllowlistResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.get_use_case_for_model_access_request.GetUseCaseForModelAccessRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock.types.get_use_case_for_model_access_request.GetUseCaseForModelAccessRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -157,11 +157,11 @@ class AsyncAllowlistResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.put_use_case_for_model_access_request.PutUseCaseForModelAccessRequest = {}  # type: ignore[typeddict-item]
-        input["form_data"] = form_data
+        input_: aws_sdk_bedrock.types.put_use_case_for_model_access_request.PutUseCaseForModelAccessRequest = {}  # type: ignore[typeddict-item]
+        input_["form_data"] = form_data
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

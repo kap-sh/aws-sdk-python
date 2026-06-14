@@ -1,22 +1,29 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesweb#CustomPattern``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_workspaces_web.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_workspaces_web.types.description_safe
     import aws_sdk_workspaces_web.types.pattern_name
     import aws_sdk_workspaces_web.types.regex
+
 
 class CustomPattern(TypedDict):
     pattern_name: "aws_sdk_workspaces_web.types.pattern_name.PatternName"
     """<p>The pattern name for the custom pattern.</p>"""
     pattern_regex: "aws_sdk_workspaces_web.types.regex.Regex"
     """<p>The pattern regex for the customer pattern. The format must follow JavaScript regex format. The pattern must be enclosed between slashes, and can have flags behind the second slash. For example: “/ab+c/gi”.</p>"""
-    pattern_description: NotRequired["aws_sdk_workspaces_web.types.description_safe.DescriptionSafe"]
+    pattern_description: NotRequired[
+        "aws_sdk_workspaces_web.types.description_safe.DescriptionSafe"
+    ]
     """<p>The pattern description for the customer pattern.</p>"""
     keyword_regex: NotRequired["aws_sdk_workspaces_web.types.regex.Regex"]
     """<p>The keyword regex for the customer pattern. After there is a match to the pattern regex, the keyword regex is used to search within the proximity of the match. If there is a keyword match, then the match is confirmed. If no keyword regex is provided, the pattern regex match will automatically be confirmed. The format must follow JavaScript regex format. The pattern must be enclosed between slashes, and can have flags behind the second slash. For example, “/ab+c/gi”</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: CustomPattern) -> dict:

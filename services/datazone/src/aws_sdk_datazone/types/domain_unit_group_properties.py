@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#DomainUnitGroupProperties``."""
 
 from typing import TypedDict
+
 from typing_extensions import NotRequired
 
 

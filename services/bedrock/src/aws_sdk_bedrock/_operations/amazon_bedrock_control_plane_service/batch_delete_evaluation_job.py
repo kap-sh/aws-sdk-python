@@ -99,7 +99,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.batch_delete_evaluation_job_request.BatchDeleteEvaluationJobRequest,
+    input_: aws_sdk_bedrock.types.batch_delete_evaluation_job_request.BatchDeleteEvaluationJobRequest,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -115,7 +115,7 @@ def build_request(
     import aws_sdk_bedrock.types.batch_delete_evaluation_job_request
 
     body: bytes | None = json.dumps(
-        aws_sdk_bedrock.types.batch_delete_evaluation_job_request.serialize_json(input)
+        aws_sdk_bedrock.types.batch_delete_evaluation_job_request.serialize_json(input_)
     ).encode()
     headers["content-type"] = "application/json"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
@@ -128,12 +128,12 @@ def build_request(
 
 def batch_delete_evaluation_job(
     options: OperationOptions,
-    input: aws_sdk_bedrock.types.batch_delete_evaluation_job_request.BatchDeleteEvaluationJobRequest,
+    input_: aws_sdk_bedrock.types.batch_delete_evaluation_job_request.BatchDeleteEvaluationJobRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.batch_delete_evaluation_job_response.BatchDeleteEvaluationJobResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -147,12 +147,12 @@ def batch_delete_evaluation_job(
 
 async def async_batch_delete_evaluation_job(
     options: AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.batch_delete_evaluation_job_request.BatchDeleteEvaluationJobRequest,
+    input_: aws_sdk_bedrock.types.batch_delete_evaluation_job_request.BatchDeleteEvaluationJobRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.batch_delete_evaluation_job_response.BatchDeleteEvaluationJobResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

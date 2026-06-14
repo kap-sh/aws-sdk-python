@@ -97,6 +97,7 @@ class CodeCatalystClient:
                 "bearer_provider": bearer_provider,
             }
         )
+
         # resources
         self.access_token = AccessToken(self)
         self.space = Space(self)

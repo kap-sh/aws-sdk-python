@@ -222,7 +222,7 @@ class AsyncWorkDocsClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = AsyncWorkDocsClientConfig(
+        self._config = AsyncWorkDocsClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -242,7 +242,7 @@ class AsyncWorkDocsClient:
         overrides: AsyncWorkDocsClientConfig = config_overrides or {}
         interceptors_: list[AsyncInterceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             aretry(),
         ]
@@ -250,16 +250,16 @@ class AsyncWorkDocsClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            region=overrides.get("region", self.config.get("region")),
+            region=overrides.get("region", self._config.get("region")),
             use_dual_stack=overrides.get(
-                "use_dual_stack", self.config.get("use_dual_stack")
+                "use_dual_stack", self._config.get("use_dual_stack")
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -639,7 +639,7 @@ class AsyncWorkDocsClient:
         *,
         config_overrides: Optional[AsyncWorkDocsClientConfig] = None,
     ) -> "aws_sdk_workdocs.types.create_notification_subscription_response.CreateNotificationSubscriptionResponse":
-        """<p>Configure Amazon WorkDocs to use Amazon SNS notifications. The endpoint receives a confirmation message, and must confirm the subscription.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/workdocs/latest/developerguide/manage-notifications.html\">Setting up notifications for an IAM user or role</a> in the <i>Amazon WorkDocs Developer Guide</i>.</p>
+        r"""<p>Configure Amazon WorkDocs to use Amazon SNS notifications. The endpoint receives a confirmation message, and must confirm the subscription.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/workdocs/latest/developerguide/manage-notifications.html\">Setting up notifications for an IAM user or role</a> in the <i>Amazon WorkDocs Developer Guide</i>.</p>
 
         Args:
             organization_id: <p>The ID of the organization.</p>
@@ -699,7 +699,7 @@ class AsyncWorkDocsClient:
             "aws_sdk_workdocs.types.authentication_header_type.AuthenticationHeaderType"
         ] = None,
     ) -> "aws_sdk_workdocs.types.create_user_response.CreateUserResponse":
-        """<p>Creates a user in a Simple AD or Microsoft AD directory. The status of a newly created user is \"ACTIVE\". New users can access Amazon WorkDocs.</p>
+        r"""<p>Creates a user in a Simple AD or Microsoft AD directory. The status of a newly created user is \"ACTIVE\". New users can access Amazon WorkDocs.</p>
 
         Args:
             organization_id: <p>The ID of the organization.</p>
@@ -1450,7 +1450,7 @@ class AsyncWorkDocsClient:
             "aws_sdk_workdocs.types.field_names_type.FieldNamesType"
         ] = None,
     ) -> "aws_sdk_workdocs.types.describe_document_versions_response.DescribeDocumentVersionsResponse":
-        """<p>Retrieves the document versions for the specified document.</p> <p>By default, only active versions are returned.</p>
+        r"""<p>Retrieves the document versions for the specified document.</p> <p>By default, only active versions are returned.</p>
 
         Args:
             authentication_token: <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
@@ -1557,7 +1557,7 @@ class AsyncWorkDocsClient:
             "aws_sdk_workdocs.types.field_names_type.FieldNamesType"
         ] = None,
     ) -> "aws_sdk_workdocs.types.describe_folder_contents_response.DescribeFolderContentsResponse":
-        """<p>Describes the contents of the specified folder, including its documents and subfolders.</p> <p>By default, Amazon WorkDocs returns the first 100 active document and folder metadata items. If there are more results, the response includes a marker that you can use to request the next set of results. You can also request initialized documents.</p>
+        r"""<p>Describes the contents of the specified folder, including its documents and subfolders.</p> <p>By default, Amazon WorkDocs returns the first 100 active document and folder metadata items. If there are more results, the response includes a marker that you can use to request the next set of results. You can also request initialized documents.</p>
 
         Args:
             authentication_token: <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
@@ -1871,7 +1871,7 @@ class AsyncWorkDocsClient:
             "aws_sdk_workdocs.types.page_marker_type.PageMarkerType"
         ] = None,
     ) -> "aws_sdk_workdocs.types.describe_root_folders_response.DescribeRootFoldersResponse":
-        """<p>Describes the current user's special folders; the <code>RootFolder</code> and the <code>RecycleBin</code>. <code>RootFolder</code> is the root of user's files and folders and <code>RecycleBin</code> is the root of recycled items. This is not a valid action for SigV4 (administrative API) clients.</p> <p>This action requires an authentication token. To get an authentication token, register an application with Amazon WorkDocs. For more information, see <a href=\"https://docs.aws.amazon.com/workdocs/latest/developerguide/wd-auth-user.html\">Authentication and Access Control for User Applications</a> in the <i>Amazon WorkDocs Developer Guide</i>.</p>
+        r"""<p>Describes the current user's special folders; the <code>RootFolder</code> and the <code>RecycleBin</code>. <code>RootFolder</code> is the root of user's files and folders and <code>RecycleBin</code> is the root of recycled items. This is not a valid action for SigV4 (administrative API) clients.</p> <p>This action requires an authentication token. To get an authentication token, register an application with Amazon WorkDocs. For more information, see <a href=\"https://docs.aws.amazon.com/workdocs/latest/developerguide/wd-auth-user.html\">Authentication and Access Control for User Applications</a> in the <i>Amazon WorkDocs Developer Guide</i>.</p>
 
         Args:
             authentication_token: <p>Amazon WorkDocs authentication token.</p>
@@ -1959,7 +1959,7 @@ class AsyncWorkDocsClient:
             "aws_sdk_workdocs.types.field_names_type.FieldNamesType"
         ] = None,
     ) -> "aws_sdk_workdocs.types.describe_users_response.DescribeUsersResponse":
-        """<p>Describes the specified users. You can describe all users or filter the results (for example, by status or organization).</p> <p>By default, Amazon WorkDocs returns the first 24 active or pending users. If there are more results, the response includes a marker that you can use to request the next set of results.</p>
+        r"""<p>Describes the specified users. You can describe all users or filter the results (for example, by status or organization).</p> <p>By default, Amazon WorkDocs returns the first 24 active or pending users. If there are more results, the response includes a marker that you can use to request the next set of results.</p>
 
         Args:
             authentication_token: <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
@@ -2072,7 +2072,7 @@ class AsyncWorkDocsClient:
         *,
         config_overrides: Optional[AsyncWorkDocsClientConfig] = None,
     ) -> "aws_sdk_workdocs.types.get_current_user_response.GetCurrentUserResponse":
-        """<p>Retrieves details of the current user for whom the authentication token was generated. This is not a valid action for SigV4 (administrative API) clients.</p> <p>This action requires an authentication token. To get an authentication token, register an application with Amazon WorkDocs. For more information, see <a href=\"https://docs.aws.amazon.com/workdocs/latest/developerguide/wd-auth-user.html\">Authentication and Access Control for User Applications</a> in the <i>Amazon WorkDocs Developer Guide</i>.</p>
+        r"""<p>Retrieves details of the current user for whom the authentication token was generated. This is not a valid action for SigV4 (administrative API) clients.</p> <p>This action requires an authentication token. To get an authentication token, register an application with Amazon WorkDocs. For more information, see <a href=\"https://docs.aws.amazon.com/workdocs/latest/developerguide/wd-auth-user.html\">Authentication and Access Control for User Applications</a> in the <i>Amazon WorkDocs Developer Guide</i>.</p>
 
         Args:
             authentication_token: <p>Amazon WorkDocs authentication token.</p>
@@ -2230,7 +2230,7 @@ class AsyncWorkDocsClient:
             "aws_sdk_workdocs.types.boolean_type.BooleanType"
         ] = None,
     ) -> "aws_sdk_workdocs.types.get_document_version_response.GetDocumentVersionResponse":
-        """<p>Retrieves version metadata for the specified document.</p>
+        r"""<p>Retrieves version metadata for the specified document.</p>
 
         Args:
             authentication_token: <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
@@ -2339,7 +2339,7 @@ class AsyncWorkDocsClient:
             "aws_sdk_workdocs.types.page_marker_type.PageMarkerType"
         ] = None,
     ) -> "aws_sdk_workdocs.types.get_folder_path_response.GetFolderPathResponse":
-        """<p>Retrieves the path information (the hierarchy from the root folder) for the specified folder.</p> <p>By default, Amazon WorkDocs returns a maximum of 100 levels upwards from the requested folder and only includes the IDs of the parent folders in the path. You can limit the maximum number of levels. You can also request the parent folder names.</p>
+        r"""<p>Retrieves the path information (the hierarchy from the root folder) for the specified folder.</p> <p>By default, Amazon WorkDocs returns a maximum of 100 levels upwards from the requested folder and only includes the IDs of the parent folders in the path. You can limit the maximum number of levels. You can also request the parent folder names.</p>
 
         Args:
             authentication_token: <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>

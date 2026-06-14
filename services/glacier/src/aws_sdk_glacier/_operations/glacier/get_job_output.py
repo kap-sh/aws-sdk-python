@@ -66,7 +66,7 @@ def handle_response(
     )
     out: aws_sdk_glacier.types.get_job_output_output.GetJobOutputOutput = {
         "body": _iter
-    }
+    }  # type: ignore[reportAssignmentType]
     if "x-amz-sha256-tree-hash" in response.headers:
         out["checksum"] = str(response.headers["x-amz-sha256-tree-hash"])
     if "Content-Range" in response.headers:
@@ -85,7 +85,7 @@ def get_signer(
     options: AsyncOperationOptions | OperationOptions,
     auth_schemes: list[dict[str, Any]] | None = None,
 ) -> aws_sdk_glacier._auth._signers.Signer | None:
-    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}
+    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}  # noqa: F841
     if options.credentials_provider is not None:
         sigv4_config = (
             name_to_schema.get("sigv4")

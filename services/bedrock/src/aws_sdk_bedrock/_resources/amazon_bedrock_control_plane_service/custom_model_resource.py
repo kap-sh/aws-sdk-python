@@ -100,23 +100,23 @@ class CustomModelResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.create_custom_model_request.CreateCustomModelRequest = {}  # type: ignore[typeddict-item]
-        input["model_name"] = model_name
+        input_: aws_sdk_bedrock.types.create_custom_model_request.CreateCustomModelRequest = {}  # type: ignore[typeddict-item]
+        input_["model_name"] = model_name
         if model_source_config is not None:
-            input["model_source_config"] = model_source_config
+            input_["model_source_config"] = model_source_config
         if custom_model_data_source is not None:
-            input["custom_model_data_source"] = custom_model_data_source
+            input_["custom_model_data_source"] = custom_model_data_source
         if model_kms_key_arn is not None:
-            input["model_kms_key_arn"] = model_kms_key_arn
+            input_["model_kms_key_arn"] = model_kms_key_arn
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
         if model_tags is not None:
-            input["model_tags"] = model_tags
+            input_["model_tags"] = model_tags
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -149,11 +149,11 @@ class CustomModelResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.delete_custom_model_request.DeleteCustomModelRequest = {}  # type: ignore[typeddict-item]
-        input["model_identifier"] = model_identifier
+        input_: aws_sdk_bedrock.types.delete_custom_model_request.DeleteCustomModelRequest = {}  # type: ignore[typeddict-item]
+        input_["model_identifier"] = model_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -186,11 +186,11 @@ class CustomModelResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.get_custom_model_request.GetCustomModelRequest = {}  # type: ignore[typeddict-item]
-        input["model_identifier"] = model_identifier
+        input_: aws_sdk_bedrock.types.get_custom_model_request.GetCustomModelRequest = {}  # type: ignore[typeddict-item]
+        input_["model_identifier"] = model_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -255,32 +255,32 @@ class CustomModelResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.list_custom_models_request.ListCustomModelsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock.types.list_custom_models_request.ListCustomModelsRequest = {}  # type: ignore[typeddict-item]
         if creation_time_before is not None:
-            input["creation_time_before"] = creation_time_before
+            input_["creation_time_before"] = creation_time_before
         if creation_time_after is not None:
-            input["creation_time_after"] = creation_time_after
+            input_["creation_time_after"] = creation_time_after
         if name_contains is not None:
-            input["name_contains"] = name_contains
+            input_["name_contains"] = name_contains
         if base_model_arn_equals is not None:
-            input["base_model_arn_equals"] = base_model_arn_equals
+            input_["base_model_arn_equals"] = base_model_arn_equals
         if foundation_model_arn_equals is not None:
-            input["foundation_model_arn_equals"] = foundation_model_arn_equals
+            input_["foundation_model_arn_equals"] = foundation_model_arn_equals
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if is_owned is not None:
-            input["is_owned"] = is_owned
+            input_["is_owned"] = is_owned
         if model_status is not None:
-            input["model_status"] = model_status
+            input_["model_status"] = model_status
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -344,23 +344,23 @@ class AsyncCustomModelResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.create_custom_model_request.CreateCustomModelRequest = {}  # type: ignore[typeddict-item]
-        input["model_name"] = model_name
+        input_: aws_sdk_bedrock.types.create_custom_model_request.CreateCustomModelRequest = {}  # type: ignore[typeddict-item]
+        input_["model_name"] = model_name
         if model_source_config is not None:
-            input["model_source_config"] = model_source_config
+            input_["model_source_config"] = model_source_config
         if custom_model_data_source is not None:
-            input["custom_model_data_source"] = custom_model_data_source
+            input_["custom_model_data_source"] = custom_model_data_source
         if model_kms_key_arn is not None:
-            input["model_kms_key_arn"] = model_kms_key_arn
+            input_["model_kms_key_arn"] = model_kms_key_arn
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
         if model_tags is not None:
-            input["model_tags"] = model_tags
+            input_["model_tags"] = model_tags
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -394,11 +394,11 @@ class AsyncCustomModelResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.delete_custom_model_request.DeleteCustomModelRequest = {}  # type: ignore[typeddict-item]
-        input["model_identifier"] = model_identifier
+        input_: aws_sdk_bedrock.types.delete_custom_model_request.DeleteCustomModelRequest = {}  # type: ignore[typeddict-item]
+        input_["model_identifier"] = model_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -432,11 +432,11 @@ class AsyncCustomModelResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.get_custom_model_request.GetCustomModelRequest = {}  # type: ignore[typeddict-item]
-        input["model_identifier"] = model_identifier
+        input_: aws_sdk_bedrock.types.get_custom_model_request.GetCustomModelRequest = {}  # type: ignore[typeddict-item]
+        input_["model_identifier"] = model_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -502,32 +502,32 @@ class AsyncCustomModelResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.list_custom_models_request.ListCustomModelsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock.types.list_custom_models_request.ListCustomModelsRequest = {}  # type: ignore[typeddict-item]
         if creation_time_before is not None:
-            input["creation_time_before"] = creation_time_before
+            input_["creation_time_before"] = creation_time_before
         if creation_time_after is not None:
-            input["creation_time_after"] = creation_time_after
+            input_["creation_time_after"] = creation_time_after
         if name_contains is not None:
-            input["name_contains"] = name_contains
+            input_["name_contains"] = name_contains
         if base_model_arn_equals is not None:
-            input["base_model_arn_equals"] = base_model_arn_equals
+            input_["base_model_arn_equals"] = base_model_arn_equals
         if foundation_model_arn_equals is not None:
-            input["foundation_model_arn_equals"] = foundation_model_arn_equals
+            input_["foundation_model_arn_equals"] = foundation_model_arn_equals
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if is_owned is not None:
-            input["is_owned"] = is_owned
+            input_["is_owned"] = is_owned
         if model_status is not None:
-            input["model_status"] = model_status
+            input_["model_status"] = model_status
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

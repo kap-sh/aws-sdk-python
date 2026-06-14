@@ -1,8 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#StartLiveTail``."""
 
 from __future__ import annotations
+
 from typing import TYPE_CHECKING
+
 import zapros
+
 from aws_sdk_cloudwatch_logs._services._pipeline import (
     AsyncOperationOptions,
     OperationOptions,

@@ -17,7 +17,7 @@ class AssumeRootResponse(TypedDict):
     source_identity: NotRequired[
         "aws_sdk_sts.types.source_identity_type.sourceIdentityType"
     ]
-    """<p>The source identity specified by the principal that is calling the <code>AssumeRoot</code> operation.</p> <p>You can use the <code>aws:SourceIdentity</code> condition key to control access based on the value of source identity. For more information about using source identity, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html\">Monitor and control actions taken with assumed roles</a> in the <i>IAM User Guide</i>.</p> <p>The regex used to validate this parameter is a string of characters consisting of upper- and lower-case alphanumeric characters with no spaces. You can also include underscores or any of the following characters: =,.@-</p>"""
+    r"""<p>The source identity specified by the principal that is calling the <code>AssumeRoot</code> operation.</p> <p>You can use the <code>aws:SourceIdentity</code> condition key to control access based on the value of source identity. For more information about using source identity, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html\">Monitor and control actions taken with assumed roles</a> in the <i>IAM User Guide</i>.</p> <p>The regex used to validate this parameter is a string of characters consisting of upper- and lower-case alphanumeric characters with no spaces. You can also include underscores or any of the following characters: =,.@-</p>"""
 
 
 # --- awsQuery ser/de ---

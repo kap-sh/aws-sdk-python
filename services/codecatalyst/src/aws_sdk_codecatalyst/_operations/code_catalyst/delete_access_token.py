@@ -78,7 +78,7 @@ def get_signer(
     options: AsyncOperationOptions | OperationOptions,
     auth_schemes: list[dict[str, Any]] | None = None,
 ) -> aws_sdk_codecatalyst._auth._signers.Signer | None:
-    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}
+    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}  # noqa: F841
     if options.bearer_provider is not None:
         return aws_sdk_codecatalyst._auth._signers.HttpBearerSigner(
             options.bearer_provider

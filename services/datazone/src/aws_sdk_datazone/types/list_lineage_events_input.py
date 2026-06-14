@@ -1,15 +1,17 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#ListLineageEventsInput``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
 
 if TYPE_CHECKING:
+    import datetime
+
     import aws_sdk_datazone.types.domain_id
     import aws_sdk_datazone.types.lineage_event_processing_status
     import aws_sdk_datazone.types.max_results
     import aws_sdk_datazone.types.pagination_token
     import aws_sdk_datazone.types.sort_order
-    import datetime
 
 
 class ListLineageEventsInput(TypedDict):

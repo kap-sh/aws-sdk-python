@@ -1,8 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#CreateSMBFileShareInput``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_storage_gateway.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.audit_destination_arn
     import aws_sdk_storage_gateway.types.authentication
@@ -24,12 +27,15 @@ if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.tags
     import aws_sdk_storage_gateway.types.user_list
 
+
 class CreateSMBFileShareInput(TypedDict):
     client_token: "aws_sdk_storage_gateway.types.client_token.ClientToken"
     """<p>A unique string value that you supply that is used by S3 File Gateway to ensure idempotent file share creation.</p>"""
     gateway_arn: "aws_sdk_storage_gateway.types.gateway_arn.GatewayARN"
     """<p>The ARN of the S3 File Gateway on which you want to create a file share.</p>"""
-    encryption_type: NotRequired["aws_sdk_storage_gateway.types.encryption_type.EncryptionType"]
+    encryption_type: NotRequired[
+        "aws_sdk_storage_gateway.types.encryption_type.EncryptionType"
+    ]
     """<p>A value that specifies the type of server-side encryption that the file share will use for the data that it stores in Amazon S3.</p> <note> <p>We recommend using <code>EncryptionType</code> instead of <code>KMSEncrypted</code> to set the file share encryption method. You do not need to provide values for both parameters.</p> <p>If values for both parameters exist in the same request, then the specified encryption methods must not conflict. For example, if <code>EncryptionType</code> is <code>SseS3</code>, then <code>KMSEncrypted</code> must be <code>false</code>. If <code>EncryptionType</code> is <code>SseKms</code> or <code>DsseKms</code>, then <code>KMSEncrypted</code> must be <code>true</code>.</p> </note>"""
     kms_encrypted: NotRequired["aws_sdk_storage_gateway.types.boolean.Boolean"]
     """<p>Optional. Set to <code>true</code> to use Amazon S3 server-side encryption with your own KMS key (SSE-KMS), or <code>false</code> to use a key managed by Amazon S3 (SSE-S3). To use dual-layer encryption (DSSE-KMS), set the <code>EncryptionType</code> parameter instead.</p> <note> <p>We recommend using <code>EncryptionType</code> instead of <code>KMSEncrypted</code> to set the file share encryption method. You do not need to provide values for both parameters.</p> <p>If values for both parameters exist in the same request, then the specified encryption methods must not conflict. For example, if <code>EncryptionType</code> is <code>SseS3</code>, then <code>KMSEncrypted</code> must be <code>false</code>. If <code>EncryptionType</code> is <code>SseKms</code> or <code>DsseKms</code>, then <code>KMSEncrypted</code> must be <code>true</code>.</p> </note> <p>Valid Values: <code>true</code> | <code>false</code> </p>"""
@@ -38,47 +44,68 @@ class CreateSMBFileShareInput(TypedDict):
     role: "aws_sdk_storage_gateway.types.role.Role"
     """<p>The ARN of the Identity and Access Management (IAM) role that an S3 File Gateway assumes when it accesses the underlying storage.</p>"""
     location_arn: "aws_sdk_storage_gateway.types.location_arn.LocationARN"
-    """<p>A custom ARN for the backend storage used for storing data for file shares. It includes a resource ARN with an optional prefix concatenation. The prefix must end with a forward slash (/).</p> <note> <p>You can specify LocationARN as a bucket ARN, access point ARN or access point alias, as shown in the following examples.</p> <p>Bucket ARN:</p> <p> <code>arn:aws:s3:::amzn-s3-demo-bucket/prefix/</code> </p> <p>Access point ARN:</p> <p> <code>arn:aws:s3:region:account-id:accesspoint/access-point-name/prefix/</code> </p> <p>If you specify an access point, the bucket policy must be configured to delegate access control to the access point. For information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-policies.html#access-points-delegating-control\">Delegating access control to access points</a> in the <i>Amazon S3 User Guide</i>.</p> <p>Access point alias:</p> <p> <code>test-ap-ab123cdef4gehijklmn5opqrstuvuse1a-s3alias</code> </p> </note>"""
-    default_storage_class: NotRequired["aws_sdk_storage_gateway.types.storage_class.StorageClass"]
+    r"""<p>A custom ARN for the backend storage used for storing data for file shares. It includes a resource ARN with an optional prefix concatenation. The prefix must end with a forward slash (/).</p> <note> <p>You can specify LocationARN as a bucket ARN, access point ARN or access point alias, as shown in the following examples.</p> <p>Bucket ARN:</p> <p> <code>arn:aws:s3:::amzn-s3-demo-bucket/prefix/</code> </p> <p>Access point ARN:</p> <p> <code>arn:aws:s3:region:account-id:accesspoint/access-point-name/prefix/</code> </p> <p>If you specify an access point, the bucket policy must be configured to delegate access control to the access point. For information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-policies.html#access-points-delegating-control\">Delegating access control to access points</a> in the <i>Amazon S3 User Guide</i>.</p> <p>Access point alias:</p> <p> <code>test-ap-ab123cdef4gehijklmn5opqrstuvuse1a-s3alias</code> </p> </note>"""
+    default_storage_class: NotRequired[
+        "aws_sdk_storage_gateway.types.storage_class.StorageClass"
+    ]
     """<p>The default storage class for objects put into an Amazon S3 bucket by the S3 File Gateway. The default value is <code>S3_STANDARD</code>. Optional.</p> <p>Valid Values: <code>S3_STANDARD</code> | <code>S3_INTELLIGENT_TIERING</code> | <code>S3_STANDARD_IA</code> | <code>S3_ONEZONE_IA</code> </p>"""
     object_acl: NotRequired["aws_sdk_storage_gateway.types.object_acl.ObjectACL"]
     """<p>A value that sets the access control list (ACL) permission for objects in the S3 bucket that a S3 File Gateway puts objects into. The default value is <code>private</code>.</p>"""
     read_only: NotRequired["aws_sdk_storage_gateway.types.boolean.Boolean"]
     """<p>A value that sets the write status of a file share. Set this value to <code>true</code> to set the write status to read-only, otherwise set to <code>false</code>.</p> <p>Valid Values: <code>true</code> | <code>false</code> </p>"""
-    guess_mime_type_enabled: NotRequired["aws_sdk_storage_gateway.types.boolean.Boolean"]
+    guess_mime_type_enabled: NotRequired[
+        "aws_sdk_storage_gateway.types.boolean.Boolean"
+    ]
     """<p>A value that enables guessing of the MIME type for uploaded objects based on file extensions. Set this value to <code>true</code> to enable MIME type guessing, otherwise set to <code>false</code>. The default value is <code>true</code>.</p> <p>Valid Values: <code>true</code> | <code>false</code> </p>"""
     requester_pays: NotRequired["aws_sdk_storage_gateway.types.boolean.Boolean"]
     """<p>A value that sets who pays the cost of the request and the cost associated with data download from the S3 bucket. If this value is set to <code>true</code>, the requester pays the costs; otherwise, the S3 bucket owner pays. However, the S3 bucket owner always pays the cost of storing data.</p> <note> <p> <code>RequesterPays</code> is a configuration for the S3 bucket that backs the file share, so make sure that the configuration on the file share is the same as the S3 bucket configuration.</p> </note> <p>Valid Values: <code>true</code> | <code>false</code> </p>"""
     smbacl_enabled: NotRequired["aws_sdk_storage_gateway.types.boolean.Boolean"]
-    """<p>Set this value to <code>true</code> to enable access control list (ACL) on the SMB file share. Set it to <code>false</code> to map file and directory permissions to the POSIX permissions.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/filegateway/latest/files3/smb-acl.html\">Using Windows ACLs to limit SMB file share access</a> in the <i>Amazon S3 File Gateway User Guide</i>.</p> <p>Valid Values: <code>true</code> | <code>false</code> </p>"""
-    access_based_enumeration: NotRequired["aws_sdk_storage_gateway.types.boolean.Boolean"]
+    r"""<p>Set this value to <code>true</code> to enable access control list (ACL) on the SMB file share. Set it to <code>false</code> to map file and directory permissions to the POSIX permissions.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/filegateway/latest/files3/smb-acl.html\">Using Windows ACLs to limit SMB file share access</a> in the <i>Amazon S3 File Gateway User Guide</i>.</p> <p>Valid Values: <code>true</code> | <code>false</code> </p>"""
+    access_based_enumeration: NotRequired[
+        "aws_sdk_storage_gateway.types.boolean.Boolean"
+    ]
     """<p>The files and folders on this share will only be visible to users with read access.</p>"""
     admin_user_list: NotRequired["aws_sdk_storage_gateway.types.user_list.UserList"]
-    """<p>A list of users or groups in the Active Directory that will be granted administrator privileges on the file share. These users can do all file operations as the super-user. Acceptable formats include: <code>DOMAIN\User1</code>, <code>user1</code>, <code>@group1</code>, and <code>@DOMAIN\group1</code>.</p> <important> <p>Use this option very carefully, because any user in this list can do anything they like on the file share, regardless of file permissions.</p> </important>"""
+    r"""<p>A list of users or groups in the Active Directory that will be granted administrator privileges on the file share. These users can do all file operations as the super-user. Acceptable formats include: <code>DOMAIN\User1</code>, <code>user1</code>, <code>@group1</code>, and <code>@DOMAIN\group1</code>.</p> <important> <p>Use this option very carefully, because any user in this list can do anything they like on the file share, regardless of file permissions.</p> </important>"""
     valid_user_list: NotRequired["aws_sdk_storage_gateway.types.user_list.UserList"]
-    """<p>A list of users or groups in the Active Directory that are allowed to access the file <a href=\"\"></a> share. A group must be prefixed with the @ character. Acceptable formats include: <code>DOMAIN\User1</code>, <code>user1</code>, <code>@group1</code>, and <code>@DOMAIN\group1</code>. Can only be set if Authentication is set to <code>ActiveDirectory</code>.</p>"""
+    r"""<p>A list of users or groups in the Active Directory that are allowed to access the file <a href=\"\"></a> share. A group must be prefixed with the @ character. Acceptable formats include: <code>DOMAIN\User1</code>, <code>user1</code>, <code>@group1</code>, and <code>@DOMAIN\group1</code>. Can only be set if Authentication is set to <code>ActiveDirectory</code>.</p>"""
     invalid_user_list: NotRequired["aws_sdk_storage_gateway.types.user_list.UserList"]
-    """<p>A list of users or groups in the Active Directory that are not allowed to access the file share. A group must be prefixed with the @ character. Acceptable formats include: <code>DOMAIN\User1</code>, <code>user1</code>, <code>@group1</code>, and <code>@DOMAIN\group1</code>. Can only be set if Authentication is set to <code>ActiveDirectory</code>.</p>"""
-    audit_destination_arn: NotRequired["aws_sdk_storage_gateway.types.audit_destination_arn.AuditDestinationARN"]
+    r"""<p>A list of users or groups in the Active Directory that are not allowed to access the file share. A group must be prefixed with the @ character. Acceptable formats include: <code>DOMAIN\User1</code>, <code>user1</code>, <code>@group1</code>, and <code>@DOMAIN\group1</code>. Can only be set if Authentication is set to <code>ActiveDirectory</code>.</p>"""
+    audit_destination_arn: NotRequired[
+        "aws_sdk_storage_gateway.types.audit_destination_arn.AuditDestinationARN"
+    ]
     """<p>The Amazon Resource Name (ARN) of the storage used for audit logs.</p>"""
-    authentication: NotRequired["aws_sdk_storage_gateway.types.authentication.Authentication"]
+    authentication: NotRequired[
+        "aws_sdk_storage_gateway.types.authentication.Authentication"
+    ]
     """<p>The authentication method that users use to access the file share. The default is <code>ActiveDirectory</code>.</p> <p>Valid Values: <code>ActiveDirectory</code> | <code>GuestAccess</code> </p>"""
-    case_sensitivity: NotRequired["aws_sdk_storage_gateway.types.case_sensitivity.CaseSensitivity"]
+    case_sensitivity: NotRequired[
+        "aws_sdk_storage_gateway.types.case_sensitivity.CaseSensitivity"
+    ]
     """<p>The case of an object name in an Amazon S3 bucket. For <code>ClientSpecified</code>, the client determines the case sensitivity. For <code>CaseSensitive</code>, the gateway determines the case sensitivity. The default value is <code>ClientSpecified</code>.</p>"""
     tags: NotRequired["aws_sdk_storage_gateway.types.tags.Tags"]
     """<p>A list of up to 50 tags that can be assigned to the NFS file share. Each tag is a key-value pair.</p> <note> <p>Valid characters for key and value are letters, spaces, and numbers representable in UTF-8 format, and the following special characters: + - = . _ : / @. The maximum length of a tag's key is 128 characters, and the maximum length for a tag's value is 256.</p> </note>"""
-    file_share_name: NotRequired["aws_sdk_storage_gateway.types.file_share_name.FileShareName"]
-    """<p>The name of the file share. Optional.</p> <note> <p> <code>FileShareName</code> must be set if an S3 prefix name is set in <code>LocationARN</code>, or if an access point or access point alias is used.</p> <p>A valid SMB file share name cannot contain the following characters: <code>[</code>,<code>]</code>,<code>#</code>,<code>;</code>,<code><</code>,<code>></code>,<code>:</code>,<code>\"</code>,<code>\</code>,<code>/</code>,<code>|</code>,<code>?</code>,<code>*</code>,<code>+</code>, or ASCII control characters <code>1-31</code>.</p> </note>"""
-    cache_attributes: NotRequired["aws_sdk_storage_gateway.types.cache_attributes.CacheAttributes"]
+    file_share_name: NotRequired[
+        "aws_sdk_storage_gateway.types.file_share_name.FileShareName"
+    ]
+    r"""<p>The name of the file share. Optional.</p> <note> <p> <code>FileShareName</code> must be set if an S3 prefix name is set in <code>LocationARN</code>, or if an access point or access point alias is used.</p> <p>A valid SMB file share name cannot contain the following characters: <code>[</code>,<code>]</code>,<code>#</code>,<code>;</code>,<code><</code>,<code>></code>,<code>:</code>,<code>\"</code>,<code>\</code>,<code>/</code>,<code>|</code>,<code>?</code>,<code>*</code>,<code>+</code>, or ASCII control characters <code>1-31</code>.</p> </note>"""
+    cache_attributes: NotRequired[
+        "aws_sdk_storage_gateway.types.cache_attributes.CacheAttributes"
+    ]
     """<p>Specifies refresh cache information for the file share.</p>"""
-    notification_policy: NotRequired["aws_sdk_storage_gateway.types.notification_policy.NotificationPolicy"]
-    """<p>The notification policy of the file share. <code>SettlingTimeInSeconds</code> controls the number of seconds to wait after the last point in time a client wrote to a file before generating an <code>ObjectUploaded</code> notification. Because clients can make many small writes to files, it's best to set this parameter for as long as possible to avoid generating multiple notifications for the same file in a small time period.</p> <note> <p> <code>SettlingTimeInSeconds</code> has no effect on the timing of the object uploading to Amazon S3, only the timing of the notification.</p> <p>This setting is not meant to specify an exact time at which the notification will be sent. In some cases, the gateway might require more than the specified delay time to generate and send notifications.</p> </note> <p>The following example sets <code>NotificationPolicy</code> on with <code>SettlingTimeInSeconds</code> set to 60.</p> <p> <code>{\\"Upload\\": {\\"SettlingTimeInSeconds\\": 60}}</code> </p> <p>The following example sets <code>NotificationPolicy</code> off.</p> <p> <code>{}</code> </p>"""
-    vpc_endpoint_dns_name: NotRequired["aws_sdk_storage_gateway.types.dns_host_name.DNSHostName"]
+    notification_policy: NotRequired[
+        "aws_sdk_storage_gateway.types.notification_policy.NotificationPolicy"
+    ]
+    r"""<p>The notification policy of the file share. <code>SettlingTimeInSeconds</code> controls the number of seconds to wait after the last point in time a client wrote to a file before generating an <code>ObjectUploaded</code> notification. Because clients can make many small writes to files, it's best to set this parameter for as long as possible to avoid generating multiple notifications for the same file in a small time period.</p> <note> <p> <code>SettlingTimeInSeconds</code> has no effect on the timing of the object uploading to Amazon S3, only the timing of the notification.</p> <p>This setting is not meant to specify an exact time at which the notification will be sent. In some cases, the gateway might require more than the specified delay time to generate and send notifications.</p> </note> <p>The following example sets <code>NotificationPolicy</code> on with <code>SettlingTimeInSeconds</code> set to 60.</p> <p> <code>{\\"Upload\\": {\\"SettlingTimeInSeconds\\": 60}}</code> </p> <p>The following example sets <code>NotificationPolicy</code> off.</p> <p> <code>{}</code> </p>"""
+    vpc_endpoint_dns_name: NotRequired[
+        "aws_sdk_storage_gateway.types.dns_host_name.DNSHostName"
+    ]
     """<p>Specifies the DNS name for the VPC endpoint that the SMB file share uses to connect to Amazon S3.</p> <note> <p>This parameter is required for SMB file shares that connect to Amazon S3 through a VPC endpoint, a VPC access point, or an access point alias that points to a VPC access point.</p> </note>"""
     bucket_region: NotRequired["aws_sdk_storage_gateway.types.region_id.RegionId"]
     """<p>Specifies the Region of the S3 bucket where the SMB file share stores files.</p> <note> <p>This parameter is required for SMB file shares that connect to Amazon S3 through a VPC endpoint, a VPC access point, or an access point alias that points to a VPC access point.</p> </note>"""
     oplocks_enabled: NotRequired["aws_sdk_storage_gateway.types.boolean.Boolean"]
     """<p>Specifies whether opportunistic locking is enabled for the SMB file share.</p> <note> <p>Enabling opportunistic locking on case-sensitive shares is not recommended for workloads that involve access to files with the same name in different case.</p> </note> <p>Valid Values: <code>true</code> | <code>false</code> </p>"""
+
 
 # --- awsJson1_1 ser/de ---
 def serialize_aws_json_1_1(value: CreateSMBFileShareInput) -> dict:
@@ -87,7 +114,12 @@ def serialize_aws_json_1_1(value: CreateSMBFileShareInput) -> dict:
     out["GatewayARN"] = value["gateway_arn"]
     if "encryption_type" in value:
         import aws_sdk_storage_gateway.types.encryption_type
-        out["EncryptionType"] = aws_sdk_storage_gateway.types.encryption_type.serialize_aws_json_1_1(value["encryption_type"])
+
+        out["EncryptionType"] = (
+            aws_sdk_storage_gateway.types.encryption_type.serialize_aws_json_1_1(
+                value["encryption_type"]
+            )
+        )
     if "kms_encrypted" in value:
         out["KMSEncrypted"] = value["kms_encrypted"]
     if "kms_key" in value:
@@ -98,7 +130,12 @@ def serialize_aws_json_1_1(value: CreateSMBFileShareInput) -> dict:
         out["DefaultStorageClass"] = value["default_storage_class"]
     if "object_acl" in value:
         import aws_sdk_storage_gateway.types.object_acl
-        out["ObjectACL"] = aws_sdk_storage_gateway.types.object_acl.serialize_aws_json_1_1(value["object_acl"])
+
+        out["ObjectACL"] = (
+            aws_sdk_storage_gateway.types.object_acl.serialize_aws_json_1_1(
+                value["object_acl"]
+            )
+        )
     if "read_only" in value:
         out["ReadOnly"] = value["read_only"]
     if "guess_mime_type_enabled" in value:
@@ -111,28 +148,56 @@ def serialize_aws_json_1_1(value: CreateSMBFileShareInput) -> dict:
         out["AccessBasedEnumeration"] = value["access_based_enumeration"]
     if "admin_user_list" in value:
         import aws_sdk_storage_gateway.types.user_list
-        out["AdminUserList"] = aws_sdk_storage_gateway.types.user_list.serialize_aws_json_1_1(value["admin_user_list"])
+
+        out["AdminUserList"] = (
+            aws_sdk_storage_gateway.types.user_list.serialize_aws_json_1_1(
+                value["admin_user_list"]
+            )
+        )
     if "valid_user_list" in value:
         import aws_sdk_storage_gateway.types.user_list
-        out["ValidUserList"] = aws_sdk_storage_gateway.types.user_list.serialize_aws_json_1_1(value["valid_user_list"])
+
+        out["ValidUserList"] = (
+            aws_sdk_storage_gateway.types.user_list.serialize_aws_json_1_1(
+                value["valid_user_list"]
+            )
+        )
     if "invalid_user_list" in value:
         import aws_sdk_storage_gateway.types.user_list
-        out["InvalidUserList"] = aws_sdk_storage_gateway.types.user_list.serialize_aws_json_1_1(value["invalid_user_list"])
+
+        out["InvalidUserList"] = (
+            aws_sdk_storage_gateway.types.user_list.serialize_aws_json_1_1(
+                value["invalid_user_list"]
+            )
+        )
     if "audit_destination_arn" in value:
         out["AuditDestinationARN"] = value["audit_destination_arn"]
     if "authentication" in value:
         out["Authentication"] = value["authentication"]
     if "case_sensitivity" in value:
         import aws_sdk_storage_gateway.types.case_sensitivity
-        out["CaseSensitivity"] = aws_sdk_storage_gateway.types.case_sensitivity.serialize_aws_json_1_1(value["case_sensitivity"])
+
+        out["CaseSensitivity"] = (
+            aws_sdk_storage_gateway.types.case_sensitivity.serialize_aws_json_1_1(
+                value["case_sensitivity"]
+            )
+        )
     if "tags" in value:
         import aws_sdk_storage_gateway.types.tags
-        out["Tags"] = aws_sdk_storage_gateway.types.tags.serialize_aws_json_1_1(value["tags"])
+
+        out["Tags"] = aws_sdk_storage_gateway.types.tags.serialize_aws_json_1_1(
+            value["tags"]
+        )
     if "file_share_name" in value:
         out["FileShareName"] = value["file_share_name"]
     if "cache_attributes" in value:
         import aws_sdk_storage_gateway.types.cache_attributes
-        out["CacheAttributes"] = aws_sdk_storage_gateway.types.cache_attributes.serialize_aws_json_1_1(value["cache_attributes"])
+
+        out["CacheAttributes"] = (
+            aws_sdk_storage_gateway.types.cache_attributes.serialize_aws_json_1_1(
+                value["cache_attributes"]
+            )
+        )
     if "notification_policy" in value:
         out["NotificationPolicy"] = value["notification_policy"]
     if "vpc_endpoint_dns_name" in value:
@@ -156,7 +221,12 @@ def deserialize_aws_json_1_1(data: dict) -> CreateSMBFileShareInput:
         raise DeserializationError("CreateSMBFileShareInput.gateway_arn required")
     if "EncryptionType" in data:
         import aws_sdk_storage_gateway.types.encryption_type
-        out["encryption_type"] = aws_sdk_storage_gateway.types.encryption_type.deserialize_aws_json_1_1(data["EncryptionType"])
+
+        out["encryption_type"] = (
+            aws_sdk_storage_gateway.types.encryption_type.deserialize_aws_json_1_1(
+                data["EncryptionType"]
+            )
+        )
     if "KMSEncrypted" in data:
         out["kms_encrypted"] = data["KMSEncrypted"]
     if "KMSKey" in data:
@@ -173,7 +243,12 @@ def deserialize_aws_json_1_1(data: dict) -> CreateSMBFileShareInput:
         out["default_storage_class"] = data["DefaultStorageClass"]
     if "ObjectACL" in data:
         import aws_sdk_storage_gateway.types.object_acl
-        out["object_acl"] = aws_sdk_storage_gateway.types.object_acl.deserialize_aws_json_1_1(data["ObjectACL"])
+
+        out["object_acl"] = (
+            aws_sdk_storage_gateway.types.object_acl.deserialize_aws_json_1_1(
+                data["ObjectACL"]
+            )
+        )
     if "ReadOnly" in data:
         out["read_only"] = data["ReadOnly"]
     if "GuessMIMETypeEnabled" in data:
@@ -186,28 +261,56 @@ def deserialize_aws_json_1_1(data: dict) -> CreateSMBFileShareInput:
         out["access_based_enumeration"] = data["AccessBasedEnumeration"]
     if "AdminUserList" in data:
         import aws_sdk_storage_gateway.types.user_list
-        out["admin_user_list"] = aws_sdk_storage_gateway.types.user_list.deserialize_aws_json_1_1(data["AdminUserList"])
+
+        out["admin_user_list"] = (
+            aws_sdk_storage_gateway.types.user_list.deserialize_aws_json_1_1(
+                data["AdminUserList"]
+            )
+        )
     if "ValidUserList" in data:
         import aws_sdk_storage_gateway.types.user_list
-        out["valid_user_list"] = aws_sdk_storage_gateway.types.user_list.deserialize_aws_json_1_1(data["ValidUserList"])
+
+        out["valid_user_list"] = (
+            aws_sdk_storage_gateway.types.user_list.deserialize_aws_json_1_1(
+                data["ValidUserList"]
+            )
+        )
     if "InvalidUserList" in data:
         import aws_sdk_storage_gateway.types.user_list
-        out["invalid_user_list"] = aws_sdk_storage_gateway.types.user_list.deserialize_aws_json_1_1(data["InvalidUserList"])
+
+        out["invalid_user_list"] = (
+            aws_sdk_storage_gateway.types.user_list.deserialize_aws_json_1_1(
+                data["InvalidUserList"]
+            )
+        )
     if "AuditDestinationARN" in data:
         out["audit_destination_arn"] = data["AuditDestinationARN"]
     if "Authentication" in data:
         out["authentication"] = data["Authentication"]
     if "CaseSensitivity" in data:
         import aws_sdk_storage_gateway.types.case_sensitivity
-        out["case_sensitivity"] = aws_sdk_storage_gateway.types.case_sensitivity.deserialize_aws_json_1_1(data["CaseSensitivity"])
+
+        out["case_sensitivity"] = (
+            aws_sdk_storage_gateway.types.case_sensitivity.deserialize_aws_json_1_1(
+                data["CaseSensitivity"]
+            )
+        )
     if "Tags" in data:
         import aws_sdk_storage_gateway.types.tags
-        out["tags"] = aws_sdk_storage_gateway.types.tags.deserialize_aws_json_1_1(data["Tags"])
+
+        out["tags"] = aws_sdk_storage_gateway.types.tags.deserialize_aws_json_1_1(
+            data["Tags"]
+        )
     if "FileShareName" in data:
         out["file_share_name"] = data["FileShareName"]
     if "CacheAttributes" in data:
         import aws_sdk_storage_gateway.types.cache_attributes
-        out["cache_attributes"] = aws_sdk_storage_gateway.types.cache_attributes.deserialize_aws_json_1_1(data["CacheAttributes"])
+
+        out["cache_attributes"] = (
+            aws_sdk_storage_gateway.types.cache_attributes.deserialize_aws_json_1_1(
+                data["CacheAttributes"]
+            )
+        )
     if "NotificationPolicy" in data:
         out["notification_policy"] = data["NotificationPolicy"]
     if "VPCEndpointDNSName" in data:

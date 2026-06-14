@@ -120,34 +120,34 @@ class TrainingResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.create_model_customization_job_request.CreateModelCustomizationJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_name"] = job_name
-        input["custom_model_name"] = custom_model_name
-        input["role_arn"] = role_arn
+        input_: aws_sdk_bedrock.types.create_model_customization_job_request.CreateModelCustomizationJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_name"] = job_name
+        input_["custom_model_name"] = custom_model_name
+        input_["role_arn"] = role_arn
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
-        input["base_model_identifier"] = base_model_identifier
+            input_["client_request_token"] = client_request_token
+        input_["base_model_identifier"] = base_model_identifier
         if customization_type is not None:
-            input["customization_type"] = customization_type
+            input_["customization_type"] = customization_type
         if custom_model_kms_key_id is not None:
-            input["custom_model_kms_key_id"] = custom_model_kms_key_id
+            input_["custom_model_kms_key_id"] = custom_model_kms_key_id
         if job_tags is not None:
-            input["job_tags"] = job_tags
+            input_["job_tags"] = job_tags
         if custom_model_tags is not None:
-            input["custom_model_tags"] = custom_model_tags
-        input["training_data_config"] = training_data_config
+            input_["custom_model_tags"] = custom_model_tags
+        input_["training_data_config"] = training_data_config
         if validation_data_config is not None:
-            input["validation_data_config"] = validation_data_config
-        input["output_data_config"] = output_data_config
+            input_["validation_data_config"] = validation_data_config
+        input_["output_data_config"] = output_data_config
         if hyper_parameters is not None:
-            input["hyper_parameters"] = hyper_parameters
+            input_["hyper_parameters"] = hyper_parameters
         if vpc_config is not None:
-            input["vpc_config"] = vpc_config
+            input_["vpc_config"] = vpc_config
         if customization_config is not None:
-            input["customization_config"] = customization_config
+            input_["customization_config"] = customization_config
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -180,11 +180,11 @@ class TrainingResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.get_model_customization_job_request.GetModelCustomizationJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_identifier"] = job_identifier
+        input_: aws_sdk_bedrock.types.get_model_customization_job_request.GetModelCustomizationJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_identifier"] = job_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -239,26 +239,26 @@ class TrainingResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.list_model_customization_jobs_request.ListModelCustomizationJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock.types.list_model_customization_jobs_request.ListModelCustomizationJobsRequest = {}  # type: ignore[typeddict-item]
         if creation_time_after is not None:
-            input["creation_time_after"] = creation_time_after
+            input_["creation_time_after"] = creation_time_after
         if creation_time_before is not None:
-            input["creation_time_before"] = creation_time_before
+            input_["creation_time_before"] = creation_time_before
         if status_equals is not None:
-            input["status_equals"] = status_equals
+            input_["status_equals"] = status_equals
         if name_contains is not None:
-            input["name_contains"] = name_contains
+            input_["name_contains"] = name_contains
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -291,11 +291,11 @@ class TrainingResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.stop_model_customization_job_request.StopModelCustomizationJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_identifier"] = job_identifier
+        input_: aws_sdk_bedrock.types.stop_model_customization_job_request.StopModelCustomizationJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_identifier"] = job_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -374,34 +374,34 @@ class AsyncTrainingResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.create_model_customization_job_request.CreateModelCustomizationJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_name"] = job_name
-        input["custom_model_name"] = custom_model_name
-        input["role_arn"] = role_arn
+        input_: aws_sdk_bedrock.types.create_model_customization_job_request.CreateModelCustomizationJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_name"] = job_name
+        input_["custom_model_name"] = custom_model_name
+        input_["role_arn"] = role_arn
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
-        input["base_model_identifier"] = base_model_identifier
+            input_["client_request_token"] = client_request_token
+        input_["base_model_identifier"] = base_model_identifier
         if customization_type is not None:
-            input["customization_type"] = customization_type
+            input_["customization_type"] = customization_type
         if custom_model_kms_key_id is not None:
-            input["custom_model_kms_key_id"] = custom_model_kms_key_id
+            input_["custom_model_kms_key_id"] = custom_model_kms_key_id
         if job_tags is not None:
-            input["job_tags"] = job_tags
+            input_["job_tags"] = job_tags
         if custom_model_tags is not None:
-            input["custom_model_tags"] = custom_model_tags
-        input["training_data_config"] = training_data_config
+            input_["custom_model_tags"] = custom_model_tags
+        input_["training_data_config"] = training_data_config
         if validation_data_config is not None:
-            input["validation_data_config"] = validation_data_config
-        input["output_data_config"] = output_data_config
+            input_["validation_data_config"] = validation_data_config
+        input_["output_data_config"] = output_data_config
         if hyper_parameters is not None:
-            input["hyper_parameters"] = hyper_parameters
+            input_["hyper_parameters"] = hyper_parameters
         if vpc_config is not None:
-            input["vpc_config"] = vpc_config
+            input_["vpc_config"] = vpc_config
         if customization_config is not None:
-            input["customization_config"] = customization_config
+            input_["customization_config"] = customization_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -435,11 +435,11 @@ class AsyncTrainingResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.get_model_customization_job_request.GetModelCustomizationJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_identifier"] = job_identifier
+        input_: aws_sdk_bedrock.types.get_model_customization_job_request.GetModelCustomizationJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_identifier"] = job_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -495,26 +495,26 @@ class AsyncTrainingResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.list_model_customization_jobs_request.ListModelCustomizationJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock.types.list_model_customization_jobs_request.ListModelCustomizationJobsRequest = {}  # type: ignore[typeddict-item]
         if creation_time_after is not None:
-            input["creation_time_after"] = creation_time_after
+            input_["creation_time_after"] = creation_time_after
         if creation_time_before is not None:
-            input["creation_time_before"] = creation_time_before
+            input_["creation_time_before"] = creation_time_before
         if status_equals is not None:
-            input["status_equals"] = status_equals
+            input_["status_equals"] = status_equals
         if name_contains is not None:
-            input["name_contains"] = name_contains
+            input_["name_contains"] = name_contains
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -548,11 +548,11 @@ class AsyncTrainingResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.stop_model_customization_job_request.StopModelCustomizationJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_identifier"] = job_identifier
+        input_: aws_sdk_bedrock.types.stop_model_customization_job_request.StopModelCustomizationJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_identifier"] = job_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

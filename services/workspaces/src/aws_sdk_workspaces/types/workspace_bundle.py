@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#WorkspaceBundle``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
 
 if TYPE_CHECKING:
@@ -35,7 +36,7 @@ class WorkspaceBundle(TypedDict):
     user_storage: NotRequired["aws_sdk_workspaces.types.user_storage.UserStorage"]
     """<p>The size of the user volume.</p>"""
     compute_type: NotRequired["aws_sdk_workspaces.types.compute_type.ComputeType"]
-    """<p>The compute type of the bundle. For more information, see <a href=\"http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles\">Amazon WorkSpaces Bundles</a>.</p>"""
+    r"""<p>The compute type of the bundle. For more information, see <a href=\"http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles\">Amazon WorkSpaces Bundles</a>.</p>"""
     last_updated_time: NotRequired["aws_sdk_workspaces.types.timestamp.Timestamp"]
     """<p>The last time that the bundle was updated.</p>"""
     creation_time: NotRequired["aws_sdk_workspaces.types.timestamp.Timestamp"]

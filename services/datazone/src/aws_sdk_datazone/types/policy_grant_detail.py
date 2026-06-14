@@ -1,20 +1,21 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#PolicyGrantDetail``."""
 
 from typing import TYPE_CHECKING, TypeAlias, TypedDict
+
 from aws_sdk_datazone.errors import DeserializationError, SerializationError
 
 if TYPE_CHECKING:
-    import aws_sdk_datazone.types.create_domain_unit_policy_grant_detail
-    import aws_sdk_datazone.types.override_domain_unit_owners_policy_grant_detail
     import aws_sdk_datazone.types.add_to_project_member_pool_policy_grant_detail
-    import aws_sdk_datazone.types.override_project_owners_policy_grant_detail
-    import aws_sdk_datazone.types.create_glossary_policy_grant_detail
-    import aws_sdk_datazone.types.create_form_type_policy_grant_detail
     import aws_sdk_datazone.types.create_asset_type_policy_grant_detail
-    import aws_sdk_datazone.types.create_project_policy_grant_detail
+    import aws_sdk_datazone.types.create_domain_unit_policy_grant_detail
     import aws_sdk_datazone.types.create_environment_profile_policy_grant_detail
-    import aws_sdk_datazone.types.unit
+    import aws_sdk_datazone.types.create_form_type_policy_grant_detail
+    import aws_sdk_datazone.types.create_glossary_policy_grant_detail
     import aws_sdk_datazone.types.create_project_from_project_profile_policy_grant_detail
+    import aws_sdk_datazone.types.create_project_policy_grant_detail
+    import aws_sdk_datazone.types.override_domain_unit_owners_policy_grant_detail
+    import aws_sdk_datazone.types.override_project_owners_policy_grant_detail
+    import aws_sdk_datazone.types.unit
     import aws_sdk_datazone.types.use_asset_type_policy_grant_detail
 
 

@@ -63,7 +63,7 @@ class Rule:
         ] = None,
         tags: Optional["aws_sdk_vpc_lattice.types.tag_map.TagMap"] = None,
     ) -> "aws_sdk_vpc_lattice.types.create_rule_response.CreateRuleResponse":
-        """<p>Creates a listener rule. Each listener has a default rule for checking connection requests, but you can define additional rules. Each rule consists of a priority, one or more actions, and one or more conditions. For more information, see <a href=\"https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules\">Listener rules</a> in the <i>Amazon VPC Lattice User Guide</i>.</p>
+        r"""<p>Creates a listener rule. Each listener has a default rule for checking connection requests, but you can define additional rules. Each rule consists of a priority, one or more actions, and one or more conditions. For more information, see <a href=\"https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules\">Listener rules</a> in the <i>Amazon VPC Lattice User Guide</i>.</p>
 
         Args:
             service_identifier: <p>The ID or ARN of the service.</p>
@@ -118,7 +118,7 @@ class Rule:
         *,
         config_overrides: Optional[VPCLatticeClientConfig] = None,
     ) -> "aws_sdk_vpc_lattice.types.get_rule_response.GetRuleResponse":
-        """<p>Retrieves information about the specified listener rules. You can also retrieve information about the default listener rule. For more information, see <a href=\"https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules\">Listener rules</a> in the <i>Amazon VPC Lattice User Guide</i>.</p>
+        r"""<p>Retrieves information about the specified listener rules. You can also retrieve information about the default listener rule. For more information, see <a href=\"https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules\">Listener rules</a> in the <i>Amazon VPC Lattice User Guide</i>.</p>
 
         Args:
             service_identifier: <p>The ID or ARN of the service.</p>
@@ -218,7 +218,7 @@ class Rule:
         *,
         config_overrides: Optional[VPCLatticeClientConfig] = None,
     ) -> "aws_sdk_vpc_lattice.types.delete_rule_response.DeleteRuleResponse":
-        """<p>Deletes a listener rule. Each listener has a default rule for checking connection requests, but you can define additional rules. Each rule consists of a priority, one or more actions, and one or more conditions. You can delete additional listener rules, but you cannot delete the default rule.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules\">Listener rules</a> in the <i>Amazon VPC Lattice User Guide</i>.</p>
+        r"""<p>Deletes a listener rule. Each listener has a default rule for checking connection requests, but you can define additional rules. Each rule consists of a priority, one or more actions, and one or more conditions. You can delete additional listener rules, but you cannot delete the default rule.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules\">Listener rules</a> in the <i>Amazon VPC Lattice User Guide</i>.</p>
 
         Args:
             service_identifier: <p>The ID or ARN of the service.</p>
@@ -323,7 +323,7 @@ class AsyncRule:
         ] = None,
         tags: Optional["aws_sdk_vpc_lattice.types.tag_map.TagMap"] = None,
     ) -> "aws_sdk_vpc_lattice.types.create_rule_response.CreateRuleResponse":
-        """<p>Creates a listener rule. Each listener has a default rule for checking connection requests, but you can define additional rules. Each rule consists of a priority, one or more actions, and one or more conditions. For more information, see <a href=\"https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules\">Listener rules</a> in the <i>Amazon VPC Lattice User Guide</i>.</p>
+        r"""<p>Creates a listener rule. Each listener has a default rule for checking connection requests, but you can define additional rules. Each rule consists of a priority, one or more actions, and one or more conditions. For more information, see <a href=\"https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules\">Listener rules</a> in the <i>Amazon VPC Lattice User Guide</i>.</p>
 
         Args:
             service_identifier: <p>The ID or ARN of the service.</p>
@@ -379,7 +379,7 @@ class AsyncRule:
         *,
         config_overrides: Optional[AsyncVPCLatticeClientConfig] = None,
     ) -> "aws_sdk_vpc_lattice.types.get_rule_response.GetRuleResponse":
-        """<p>Retrieves information about the specified listener rules. You can also retrieve information about the default listener rule. For more information, see <a href=\"https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules\">Listener rules</a> in the <i>Amazon VPC Lattice User Guide</i>.</p>
+        r"""<p>Retrieves information about the specified listener rules. You can also retrieve information about the default listener rule. For more information, see <a href=\"https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules\">Listener rules</a> in the <i>Amazon VPC Lattice User Guide</i>.</p>
 
         Args:
             service_identifier: <p>The ID or ARN of the service.</p>
@@ -481,7 +481,7 @@ class AsyncRule:
         *,
         config_overrides: Optional[AsyncVPCLatticeClientConfig] = None,
     ) -> "aws_sdk_vpc_lattice.types.delete_rule_response.DeleteRuleResponse":
-        """<p>Deletes a listener rule. Each listener has a default rule for checking connection requests, but you can define additional rules. Each rule consists of a priority, one or more actions, and one or more conditions. You can delete additional listener rules, but you cannot delete the default rule.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules\">Listener rules</a> in the <i>Amazon VPC Lattice User Guide</i>.</p>
+        r"""<p>Deletes a listener rule. Each listener has a default rule for checking connection requests, but you can define additional rules. Each rule consists of a priority, one or more actions, and one or more conditions. You can delete additional listener rules, but you cannot delete the default rule.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules\">Listener rules</a> in the <i>Amazon VPC Lattice User Guide</i>.</p>
 
         Args:
             service_identifier: <p>The ID or ARN of the service.</p>

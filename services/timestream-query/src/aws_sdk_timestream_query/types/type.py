@@ -12,7 +12,7 @@ if TYPE_CHECKING:
 
 class Type(TypedDict):
     scalar_type: NotRequired["aws_sdk_timestream_query.types.scalar_type.ScalarType"]
-    """<p>Indicates if the column is of type string, integer, Boolean, double, timestamp, date, time. For more information, see <a href=\"https://docs.aws.amazon.com/timestream/latest/developerguide/supported-data-types.html\">Supported data types</a>.</p>"""
+    r"""<p>Indicates if the column is of type string, integer, Boolean, double, timestamp, date, time. For more information, see <a href=\"https://docs.aws.amazon.com/timestream/latest/developerguide/supported-data-types.html\">Supported data types</a>.</p>"""
     array_column_info: NotRequired[
         "aws_sdk_timestream_query.types.column_info.ColumnInfo"
     ]

@@ -6,9 +6,6 @@ from collections.abc import Sequence
 from dataclasses import dataclass
 from typing import Awaitable, Callable, Generic, TypeVar
 
-from aws_sdk_workspaces._async import anysleep
-from aws_sdk_workspaces._auth._providers import CredentialsProvider
-from aws_sdk_workspaces.errors import ServiceError
 from zapros import (
     AsyncClient,
     Client,
@@ -17,6 +14,10 @@ from zapros import (
     SSLError,
     TimeoutError,
 )
+
+from aws_sdk_workspaces._async import anysleep
+from aws_sdk_workspaces._auth._providers import CredentialsProvider
+from aws_sdk_workspaces.errors import ServiceError
 
 TInput = TypeVar("TInput")
 TOutput = TypeVar("TOutput")

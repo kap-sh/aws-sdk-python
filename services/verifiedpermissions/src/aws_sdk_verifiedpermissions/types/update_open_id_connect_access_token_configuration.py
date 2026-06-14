@@ -1,0 +1,48 @@
+"""Generated from Smithy shape ``com.amazonaws.verifiedpermissions#UpdateOpenIdConnectAccessTokenConfiguration``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_verifiedpermissions.types.audiences
+    import aws_sdk_verifiedpermissions.types.claim
+
+
+class UpdateOpenIdConnectAccessTokenConfiguration(TypedDict):
+    principal_id_claim: "aws_sdk_verifiedpermissions.types.claim.Claim"
+    """<p>The claim that determines the principal in OIDC access tokens. For example, <code>sub</code>.</p>"""
+    audiences: NotRequired["aws_sdk_verifiedpermissions.types.audiences.Audiences"]
+    """<p>The access token <code>aud</code> claim values that you want to accept in your policy store. For example, <code>https://myapp.example.com, https://myapp2.example.com</code>.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: UpdateOpenIdConnectAccessTokenConfiguration) -> dict:
+    out: dict = {}
+    out["principalIdClaim"] = value.get("principal_id_claim", "sub")
+    if "audiences" in value:
+        import aws_sdk_verifiedpermissions.types.audiences
+
+        out["audiences"] = (
+            aws_sdk_verifiedpermissions.types.audiences.serialize_aws_json_1_0(
+                value["audiences"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> UpdateOpenIdConnectAccessTokenConfiguration:
+    out: UpdateOpenIdConnectAccessTokenConfiguration = {}  # type: ignore[typeddict-item]
+    if "principalIdClaim" in data:
+        out["principal_id_claim"] = data["principalIdClaim"]
+    else:
+        out["principal_id_claim"] = "sub"
+    if "audiences" in data:
+        import aws_sdk_verifiedpermissions.types.audiences
+
+        out["audiences"] = (
+            aws_sdk_verifiedpermissions.types.audiences.deserialize_aws_json_1_0(
+                data["audiences"]
+            )
+        )
+    return out

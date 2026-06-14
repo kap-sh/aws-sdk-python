@@ -24,7 +24,7 @@ class SearchQuickResponsesRequest(TypedDict):
     max_results: NotRequired["aws_sdk_wisdom.types.max_results.MaxResults"]
     """<p>The maximum number of results to return per page.</p>"""
     attributes: NotRequired["aws_sdk_wisdom.types.contact_attributes.ContactAttributes"]
-    """<p>The <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/connect-attrib-list.html#user-defined-attributes\">user-defined Amazon Connect contact attributes</a> to be resolved when search results are returned.</p>"""
+    r"""<p>The <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/connect-attrib-list.html#user-defined-attributes\">user-defined Amazon Connect contact attributes</a> to be resolved when search results are returned.</p>"""
 
 
 # --- restJson1 ser/de ---

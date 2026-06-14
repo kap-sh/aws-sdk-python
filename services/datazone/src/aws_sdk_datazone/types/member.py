@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#Member``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TypeAlias, TypedDict
+
 from aws_sdk_datazone.errors import DeserializationError, SerializationError
 
 

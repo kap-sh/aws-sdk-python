@@ -77,7 +77,7 @@ def handle_response(
     )
     out: aws_sdk_neptune_graph.types.execute_query_output.ExecuteQueryOutput = {
         "payload": _iter
-    }
+    }  # type: ignore[reportAssignmentType]
     return out
 
 
@@ -85,7 +85,7 @@ def get_signer(
     options: AsyncOperationOptions | OperationOptions,
     auth_schemes: list[dict[str, Any]] | None = None,
 ) -> aws_sdk_neptune_graph._auth._signers.Signer | None:
-    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}
+    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}  # noqa: F841
     if options.credentials_provider is not None:
         sigv4_config = (
             name_to_schema.get("sigv4")

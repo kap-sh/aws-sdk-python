@@ -172,6 +172,7 @@ class AsyncBedrockClient:
                 "bearer_provider": bearer_provider,
             }
         )
+
         # resources
         self.advanced_prompt_optimization_job_resource = (
             AsyncAdvancedPromptOptimizationJobResource(self)

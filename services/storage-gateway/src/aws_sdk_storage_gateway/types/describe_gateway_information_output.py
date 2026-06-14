@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#DescribeGatewayInformationOutput``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
 
 if TYPE_CHECKING:
@@ -46,7 +47,7 @@ class DescribeGatewayInformationOutput(TypedDict):
     ]
     """<p>A <a>NetworkInterface</a> array that contains descriptions of the gateway network interfaces.</p>"""
     gateway_type: NotRequired["aws_sdk_storage_gateway.types.gateway_type.GatewayType"]
-    """<p>The type of the gateway.</p> <important> <p>Amazon FSx File Gateway is no longer available to new customers. Existing customers of FSx File Gateway can continue to use the service normally. For capabilities similar to FSx File Gateway, visit <a href=\"https://aws.amazon.com/blogs/storage/switch-your-file-share-access-from-amazon-fsx-file-gateway-to-amazon-fsx-for-windows-file-server/\">this blog post</a>.</p> </important>"""
+    r"""<p>The type of the gateway.</p> <important> <p>Amazon FSx File Gateway is no longer available to new customers. Existing customers of FSx File Gateway can continue to use the service normally. For capabilities similar to FSx File Gateway, visit <a href=\"https://aws.amazon.com/blogs/storage/switch-your-file-share-access-from-amazon-fsx-file-gateway-to-amazon-fsx-for-windows-file-server/\">this blog post</a>.</p> </important>"""
     next_update_availability_date: NotRequired[
         "aws_sdk_storage_gateway.types.next_update_availability_date.NextUpdateAvailabilityDate"
     ]

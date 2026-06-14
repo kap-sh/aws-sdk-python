@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#LakehousePropertiesPatch``."""
 
 from typing import TypedDict
+
 from typing_extensions import NotRequired
 
 

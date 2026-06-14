@@ -81,7 +81,7 @@ def get_signer(
     options: AsyncOperationOptions | OperationOptions,
     auth_schemes: list[dict[str, Any]] | None = None,
 ) -> aws_sdk_codeartifact._auth._signers.Signer | None:
-    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}
+    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}  # noqa: F841
     if options.credentials_provider is not None:
         sigv4_config = (
             name_to_schema.get("sigv4")
@@ -100,56 +100,53 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_codeartifact.types.list_allowed_repositories_for_group_request.ListAllowedRepositoriesForGroupRequest,
+    input_: aws_sdk_codeartifact.types.list_allowed_repositories_for_group_request.ListAllowedRepositoriesForGroupRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/v1/package-group-allowed-repositories"
     params: dict[str, str] = {}
-    if "domain" in input:
-        params["domain"] = str(input["domain"])
-    if "domain_owner" in input:
-        params["domain-owner"] = str(input["domain_owner"])
-    if "package_group" in input:
-        params["package-group"] = str(input["package_group"])
-    if "origin_restriction_type" in input:
-        params["originRestrictionType"] = str(input["origin_restriction_type"])
-    if "max_results" in input:
-        params["max-results"] = str(input["max_results"])
-    if "next_token" in input:
-        params["next-token"] = str(input["next_token"])
+    if "domain" in input_:
+        params["domain"] = str(input_["domain"])
+    if "domain_owner" in input_:
+        params["domain-owner"] = str(input_["domain_owner"])
+    if "package_group" in input_:
+        params["package-group"] = str(input_["package_group"])
+    if "origin_restriction_type" in input_:
+        params["originRestrictionType"] = str(input_["origin_restriction_type"])
+    if "max_results" in input_:
+        params["max-results"] = str(input_["max_results"])
+    if "next_token" in input_:
+        params["next-token"] = str(input_["next_token"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "GET",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def list_allowed_repositories_for_group(
     options: OperationOptions,
-    input: aws_sdk_codeartifact.types.list_allowed_repositories_for_group_request.ListAllowedRepositoriesForGroupRequest,
+    input_: aws_sdk_codeartifact.types.list_allowed_repositories_for_group_request.ListAllowedRepositoriesForGroupRequest,
 ) -> tuple[
     aws_sdk_codeartifact.types.list_allowed_repositories_for_group_result.ListAllowedRepositoriesForGroupResult,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -158,16 +155,17 @@ def list_allowed_repositories_for_group(
 
 async def async_list_allowed_repositories_for_group(
     options: AsyncOperationOptions,
-    input: aws_sdk_codeartifact.types.list_allowed_repositories_for_group_request.ListAllowedRepositoriesForGroupRequest,
+    input_: aws_sdk_codeartifact.types.list_allowed_repositories_for_group_request.ListAllowedRepositoriesForGroupRequest,
 ) -> tuple[
     aws_sdk_codeartifact.types.list_allowed_repositories_for_group_result.ListAllowedRepositoriesForGroupResult,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

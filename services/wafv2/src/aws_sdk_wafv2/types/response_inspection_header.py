@@ -12,11 +12,11 @@ if TYPE_CHECKING:
 
 class ResponseInspectionHeader(TypedDict):
     name: "aws_sdk_wafv2.types.response_inspection_header_name.ResponseInspectionHeaderName"
-    """<p>The name of the header to match against. The name must be an exact match, including case.</p> <p>JSON example: <code>\"Name\": [ \"RequestResult\" ]</code> </p>"""
+    r"""<p>The name of the header to match against. The name must be an exact match, including case.</p> <p>JSON example: <code>\"Name\": [ \"RequestResult\" ]</code> </p>"""
     success_values: "aws_sdk_wafv2.types.response_inspection_header_success_values.ResponseInspectionHeaderSuccessValues"
-    """<p>Values in the response header with the specified name that indicate a successful login or account creation attempt. To be counted as a success, the value must be an exact match, including case. Each value must be unique among the success and failure values. </p> <p>JSON examples: <code>\"SuccessValues\": [ \"LoginPassed\", \"Successful login\" ]</code> and <code>\"SuccessValues\": [ \"AccountCreated\", \"Successful account creation\" ]</code> </p>"""
+    r"""<p>Values in the response header with the specified name that indicate a successful login or account creation attempt. To be counted as a success, the value must be an exact match, including case. Each value must be unique among the success and failure values. </p> <p>JSON examples: <code>\"SuccessValues\": [ \"LoginPassed\", \"Successful login\" ]</code> and <code>\"SuccessValues\": [ \"AccountCreated\", \"Successful account creation\" ]</code> </p>"""
     failure_values: "aws_sdk_wafv2.types.response_inspection_header_failure_values.ResponseInspectionHeaderFailureValues"
-    """<p>Values in the response header with the specified name that indicate a failed login or account creation attempt. To be counted as a failure, the value must be an exact match, including case. Each value must be unique among the success and failure values. </p> <p>JSON examples: <code>\"FailureValues\": [ \"LoginFailed\", \"Failed login\" ]</code> and <code>\"FailureValues\": [ \"AccountCreationFailed\" ]</code> </p>"""
+    r"""<p>Values in the response header with the specified name that indicate a failed login or account creation attempt. To be counted as a failure, the value must be an exact match, including case. Each value must be unique among the success and failure values. </p> <p>JSON examples: <code>\"FailureValues\": [ \"LoginFailed\", \"Failed login\" ]</code> and <code>\"FailureValues\": [ \"AccountCreationFailed\" ]</code> </p>"""
 
 
 # --- awsJson1_1 ser/de ---

@@ -158,7 +158,7 @@ class VoiceIDClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = VoiceIDClientConfig(
+        self._config = VoiceIDClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -171,6 +171,7 @@ class VoiceIDClient:
                 "credentials_provider": credentials_provider,
             }
         )
+
         # resources
         self.domain_resource = DomainResource(self)
 
@@ -180,7 +181,7 @@ class VoiceIDClient:
         overrides: VoiceIDClientConfig = config_overrides or {}
         interceptors_: list[Interceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             retry(),
         ]
@@ -188,16 +189,16 @@ class VoiceIDClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            region=overrides.get("region", self.config.get("region")),
+            region=overrides.get("region", self._config.get("region")),
             use_dual_stack=overrides.get(
-                "use_dual_stack", self.config.get("use_dual_stack")
+                "use_dual_stack", self._config.get("use_dual_stack")
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -260,7 +261,7 @@ class VoiceIDClient:
             "aws_sdk_voice_id.types.client_token_string.ClientTokenString"
         ] = None,
     ) -> "aws_sdk_voice_id.types.create_watchlist_response.CreateWatchlistResponse":
-        """<p>Creates a watchlist that fraudsters can be a part of.</p>
+        r"""<p>Creates a watchlist that fraudsters can be a part of.</p>
 
         Args:
             domain_id: <p>The identifier of the domain that contains the watchlist.</p>
@@ -1179,7 +1180,7 @@ class VoiceIDClient:
             "aws_sdk_voice_id.types.registration_config.RegistrationConfig"
         ] = None,
     ) -> "aws_sdk_voice_id.types.start_fraudster_registration_job_response.StartFraudsterRegistrationJobResponse":
-        """<p>Starts a new batch fraudster registration job using provided details.</p>
+        r"""<p>Starts a new batch fraudster registration job using provided details.</p>
 
         Args:
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>
@@ -1241,7 +1242,7 @@ class VoiceIDClient:
             "aws_sdk_voice_id.types.enrollment_config.EnrollmentConfig"
         ] = None,
     ) -> "aws_sdk_voice_id.types.start_speaker_enrollment_job_response.StartSpeakerEnrollmentJobResponse":
-        """<p>Starts a new batch speaker enrollment job using specified details.</p>
+        r"""<p>Starts a new batch speaker enrollment job using specified details.</p>
 
         Args:
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>

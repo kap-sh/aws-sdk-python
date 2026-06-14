@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#DefaultWorkspaceCreationProperties``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
 
 if TYPE_CHECKING:
@@ -14,13 +15,13 @@ class DefaultWorkspaceCreationProperties(TypedDict):
     enable_internet_access: NotRequired[
         "aws_sdk_workspaces.types.boolean_object.BooleanObject"
     ]
-    """<p>Specifies whether to automatically assign an Elastic public IP address to WorkSpaces in this directory by default. If enabled, the Elastic public IP address allows outbound internet access from your WorkSpaces when you’re using an internet gateway in the Amazon VPC in which your WorkSpaces are located. If you're using a Network Address Translation (NAT) gateway for outbound internet access from your VPC, or if your WorkSpaces are in public subnets and you manually assign them Elastic IP addresses, you should disable this setting. This setting applies to new WorkSpaces that you launch or to existing WorkSpaces that you rebuild. For more information, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces-vpc.html\"> Configure a VPC for Amazon WorkSpaces</a>.</p>"""
+    r"""<p>Specifies whether to automatically assign an Elastic public IP address to WorkSpaces in this directory by default. If enabled, the Elastic public IP address allows outbound internet access from your WorkSpaces when you’re using an internet gateway in the Amazon VPC in which your WorkSpaces are located. If you're using a Network Address Translation (NAT) gateway for outbound internet access from your VPC, or if your WorkSpaces are in public subnets and you manually assign them Elastic IP addresses, you should disable this setting. This setting applies to new WorkSpaces that you launch or to existing WorkSpaces that you rebuild. For more information, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces-vpc.html\"> Configure a VPC for Amazon WorkSpaces</a>.</p>"""
     default_ou: NotRequired["aws_sdk_workspaces.types.default_ou.DefaultOu"]
     """<p>The organizational unit (OU) in the directory for the WorkSpace machine accounts.</p>"""
     custom_security_group_id: NotRequired[
         "aws_sdk_workspaces.types.security_group_id.SecurityGroupId"
     ]
-    """<p>The identifier of the default security group to apply to WorkSpaces when they are created. For more information, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces-security-groups.html\"> Security Groups for Your WorkSpaces</a>.</p>"""
+    r"""<p>The identifier of the default security group to apply to WorkSpaces when they are created. For more information, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces-security-groups.html\"> Security Groups for Your WorkSpaces</a>.</p>"""
     user_enabled_as_local_administrator: NotRequired[
         "aws_sdk_workspaces.types.boolean_object.BooleanObject"
     ]
@@ -28,7 +29,7 @@ class DefaultWorkspaceCreationProperties(TypedDict):
     enable_maintenance_mode: NotRequired[
         "aws_sdk_workspaces.types.boolean_object.BooleanObject"
     ]
-    """<p>Specifies whether maintenance mode is enabled for WorkSpaces. For more information, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html\">WorkSpace Maintenance</a>.</p>"""
+    r"""<p>Specifies whether maintenance mode is enabled for WorkSpaces. For more information, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html\">WorkSpace Maintenance</a>.</p>"""
     instance_iam_role_arn: NotRequired["aws_sdk_workspaces.types.arn.ARN"]
     """<p>Indicates the IAM role ARN of the instance.</p>"""
 

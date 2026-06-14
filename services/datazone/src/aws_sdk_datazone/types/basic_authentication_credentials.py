@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#BasicAuthenticationCredentials``."""
 
 from typing import TypedDict
+
 from typing_extensions import NotRequired
 
 

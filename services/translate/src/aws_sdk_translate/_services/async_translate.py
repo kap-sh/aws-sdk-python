@@ -149,7 +149,7 @@ class AsyncTranslateClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = AsyncTranslateClientConfig(
+        self._config = AsyncTranslateClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -169,7 +169,7 @@ class AsyncTranslateClient:
         overrides: AsyncTranslateClientConfig = config_overrides or {}
         interceptors_: list[AsyncInterceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             aretry(),
         ]
@@ -177,16 +177,16 @@ class AsyncTranslateClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            region=overrides.get("region", self.config.get("region")),
+            region=overrides.get("region", self._config.get("region")),
             use_dual_stack=overrides.get(
-                "use_dual_stack", self.config.get("use_dual_stack")
+                "use_dual_stack", self._config.get("use_dual_stack")
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -204,7 +204,7 @@ class AsyncTranslateClient:
         ] = None,
         tags: Optional["aws_sdk_translate.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_translate.types.create_parallel_data_response.CreateParallelDataResponse":
-        """<p>Creates a parallel data resource in Amazon Translate by importing an input file from Amazon S3. Parallel data files contain examples that show how you want segments of text to be translated. By adding parallel data, you can influence the style, tone, and word choice in your translation output.</p>
+        r"""<p>Creates a parallel data resource in Amazon Translate by importing an input file from Amazon S3. Parallel data files contain examples that show how you want segments of text to be translated. By adding parallel data, you can influence the style, tone, and word choice in your translation output.</p>
 
         Args:
             name: <p>A custom name for the parallel data resource in Amazon Translate. You must assign a name that is unique in the account and region.</p>
@@ -457,7 +457,7 @@ class AsyncTranslateClient:
     ) -> (
         "aws_sdk_translate.types.import_terminology_response.ImportTerminologyResponse"
     ):
-        """<p>Creates or updates a custom terminology, depending on whether one already exists for the given terminology name. Importing a terminology with the same name as an existing one will merge the terminologies based on the chosen merge strategy. The only supported merge strategy is OVERWRITE, where the imported terminology overwrites the existing terminology of the same name.</p> <p>If you import a terminology that overwrites an existing one, the new terminology takes up to 10 minutes to fully propagate. After that, translations have access to the new terminology.</p>
+        r"""<p>Creates or updates a custom terminology, depending on whether one already exists for the given terminology name. Importing a terminology with the same name as an existing one will merge the terminologies based on the chosen merge strategy. The only supported merge strategy is OVERWRITE, where the imported terminology overwrites the existing terminology of the same name.</p> <p>If you import a terminology that overwrites an existing one, the new terminology takes up to 10 minutes to fully propagate. After that, translations have access to the new terminology.</p>
 
         Args:
             name: <p>The name of the custom terminology being imported.</p>
@@ -604,7 +604,7 @@ class AsyncTranslateClient:
         *,
         config_overrides: Optional[AsyncTranslateClientConfig] = None,
     ) -> "aws_sdk_translate.types.list_tags_for_resource_response.ListTagsForResourceResponse":
-        """<p>Lists all tags associated with a given Amazon Translate resource. For more information, see <a href=\"https://docs.aws.amazon.com/translate/latest/dg/tagging.html\"> Tagging your resources</a>.</p>
+        r"""<p>Lists all tags associated with a given Amazon Translate resource. For more information, see <a href=\"https://docs.aws.amazon.com/translate/latest/dg/tagging.html\"> Tagging your resources</a>.</p>
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the given Amazon Translate resource you are querying. </p>
@@ -755,7 +755,7 @@ class AsyncTranslateClient:
             "aws_sdk_translate.types.translation_settings.TranslationSettings"
         ] = None,
     ) -> "aws_sdk_translate.types.start_text_translation_job_response.StartTextTranslationJobResponse":
-        """<p>Starts an asynchronous batch translation job. Use batch translation jobs to translate large volumes of text across multiple documents at once. For batch translation, you can input documents with different source languages (specify <code>auto</code> as the source language). You can specify one or more target languages. Batch translation translates each input document into each of the target languages. For more information, see <a href=\"https://docs.aws.amazon.com/translate/latest/dg/async.html\">Asynchronous batch processing</a>.</p> <p>Batch translation jobs can be described with the <a>DescribeTextTranslationJob</a> operation, listed with the <a>ListTextTranslationJobs</a> operation, and stopped with the <a>StopTextTranslationJob</a> operation.</p>
+        r"""<p>Starts an asynchronous batch translation job. Use batch translation jobs to translate large volumes of text across multiple documents at once. For batch translation, you can input documents with different source languages (specify <code>auto</code> as the source language). You can specify one or more target languages. Batch translation translates each input document into each of the target languages. For more information, see <a href=\"https://docs.aws.amazon.com/translate/latest/dg/async.html\">Asynchronous batch processing</a>.</p> <p>Batch translation jobs can be described with the <a>DescribeTextTranslationJob</a> operation, listed with the <a>ListTextTranslationJobs</a> operation, and stopped with the <a>StopTextTranslationJob</a> operation.</p>
 
         Args:
             job_name: <p>The name of the batch translation job to be performed.</p>
@@ -854,7 +854,7 @@ class AsyncTranslateClient:
         *,
         config_overrides: Optional[AsyncTranslateClientConfig] = None,
     ) -> "aws_sdk_translate.types.tag_resource_response.TagResourceResponse":
-        """<p>Associates a specific tag with a resource. A tag is a key-value pair that adds as a metadata to a resource. For more information, see <a href=\"https://docs.aws.amazon.com/translate/latest/dg/tagging.html\"> Tagging your resources</a>.</p>
+        r"""<p>Associates a specific tag with a resource. A tag is a key-value pair that adds as a metadata to a resource. For more information, see <a href=\"https://docs.aws.amazon.com/translate/latest/dg/tagging.html\"> Tagging your resources</a>.</p>
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the given Amazon Translate resource to which you want to associate the tags. </p>
@@ -904,7 +904,7 @@ class AsyncTranslateClient:
     ) -> (
         "aws_sdk_translate.types.translate_document_response.TranslateDocumentResponse"
     ):
-        """<p>Translates the input document from the source language to the target language. This synchronous operation supports text, HTML, or Word documents as the input document. <code>TranslateDocument</code> supports translations from English to any supported language, and from any supported language to English. Therefore, specify either the source language code or the target language code as “en” (English). </p> <p> If you set the <code>Formality</code> parameter, the request will fail if the target language does not support formality. For a list of target languages that support formality, see <a href=\"https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-formality.html\">Setting formality</a>. </p>
+        r"""<p>Translates the input document from the source language to the target language. This synchronous operation supports text, HTML, or Word documents as the input document. <code>TranslateDocument</code> supports translations from English to any supported language, and from any supported language to English. Therefore, specify either the source language code or the target language code as “en” (English). </p> <p> If you set the <code>Formality</code> parameter, the request will fail if the target language does not support formality. For a list of target languages that support formality, see <a href=\"https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-formality.html\">Setting formality</a>. </p>
 
         Args:
             document: <p>The content and content type for the document to be translated. The document size must not exceed 100 KB.</p>
@@ -960,7 +960,7 @@ class AsyncTranslateClient:
             "aws_sdk_translate.types.translation_settings.TranslationSettings"
         ] = None,
     ) -> "aws_sdk_translate.types.translate_text_response.TranslateTextResponse":
-        """<p>Translates input text from the source language to the target language. For a list of available languages and language codes, see <a href=\"https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html\">Supported languages</a>.</p>
+        r"""<p>Translates input text from the source language to the target language. For a list of available languages and language codes, see <a href=\"https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html\">Supported languages</a>.</p>
 
         Args:
             text: <p>The text to translate. The text string can be a maximum of 10,000 bytes long. Depending on your character set, this may be fewer than 10,000 characters.</p>
@@ -1009,7 +1009,7 @@ class AsyncTranslateClient:
         *,
         config_overrides: Optional[AsyncTranslateClientConfig] = None,
     ) -> "aws_sdk_translate.types.untag_resource_response.UntagResourceResponse":
-        """<p>Removes a specific tag associated with an Amazon Translate resource. For more information, see <a href=\"https://docs.aws.amazon.com/translate/latest/dg/tagging.html\"> Tagging your resources</a>.</p>
+        r"""<p>Removes a specific tag associated with an Amazon Translate resource. For more information, see <a href=\"https://docs.aws.amazon.com/translate/latest/dg/tagging.html\"> Tagging your resources</a>.</p>
 
         Args:
             resource_arn: <p> The Amazon Resource Name (ARN) of the given Amazon Translate resource from which you want to remove the tags. </p>

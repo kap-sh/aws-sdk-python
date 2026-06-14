@@ -33,7 +33,7 @@ class MedicalScribeConfigurationEvent(TypedDict):
     resource_access_role_arn: (
         "aws_sdk_transcribe_streaming.types.iam_role_arn.IamRoleArn"
     )
-    """<p>The Amazon Resource Name (ARN) of an IAM role that has permissions to access the Amazon S3 output bucket you specified, and use your KMS key if supplied. If the role that you specify doesn’t have the appropriate permissions, your request fails. </p> <p> IAM role ARNs have the format <code>arn:partition:iam::account:role/role-name-with-path</code>. For example: <code>arn:aws:iam::111122223333:role/Admin</code>. </p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/health-scribe-streaming.html\">Amazon Web Services HealthScribe</a>.</p>"""
+    r"""<p>The Amazon Resource Name (ARN) of an IAM role that has permissions to access the Amazon S3 output bucket you specified, and use your KMS key if supplied. If the role that you specify doesn’t have the appropriate permissions, your request fails. </p> <p> IAM role ARNs have the format <code>arn:partition:iam::account:role/role-name-with-path</code>. For example: <code>arn:aws:iam::111122223333:role/Admin</code>. </p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/health-scribe-streaming.html\">Amazon Web Services HealthScribe</a>.</p>"""
     channel_definitions: NotRequired[
         "aws_sdk_transcribe_streaming.types.medical_scribe_channel_definitions.MedicalScribeChannelDefinitions"
     ]

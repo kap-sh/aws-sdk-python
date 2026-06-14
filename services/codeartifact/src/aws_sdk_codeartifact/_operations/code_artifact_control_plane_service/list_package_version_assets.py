@@ -75,7 +75,7 @@ def get_signer(
     options: AsyncOperationOptions | OperationOptions,
     auth_schemes: list[dict[str, Any]] | None = None,
 ) -> aws_sdk_codeartifact._auth._signers.Signer | None:
-    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}
+    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}  # noqa: F841
     if options.credentials_provider is not None:
         sigv4_config = (
             name_to_schema.get("sigv4")
@@ -94,62 +94,59 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_codeartifact.types.list_package_version_assets_request.ListPackageVersionAssetsRequest,
+    input_: aws_sdk_codeartifact.types.list_package_version_assets_request.ListPackageVersionAssetsRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/v1/package/version/assets"
     params: dict[str, str] = {}
-    if "domain" in input:
-        params["domain"] = str(input["domain"])
-    if "domain_owner" in input:
-        params["domain-owner"] = str(input["domain_owner"])
-    if "repository" in input:
-        params["repository"] = str(input["repository"])
-    if "format" in input:
-        params["format"] = str(input["format"])
-    if "namespace" in input:
-        params["namespace"] = str(input["namespace"])
-    if "package" in input:
-        params["package"] = str(input["package"])
-    if "package_version" in input:
-        params["version"] = str(input["package_version"])
-    if "max_results" in input:
-        params["max-results"] = str(input["max_results"])
-    if "next_token" in input:
-        params["next-token"] = str(input["next_token"])
+    if "domain" in input_:
+        params["domain"] = str(input_["domain"])
+    if "domain_owner" in input_:
+        params["domain-owner"] = str(input_["domain_owner"])
+    if "repository" in input_:
+        params["repository"] = str(input_["repository"])
+    if "format" in input_:
+        params["format"] = str(input_["format"])
+    if "namespace" in input_:
+        params["namespace"] = str(input_["namespace"])
+    if "package" in input_:
+        params["package"] = str(input_["package"])
+    if "package_version" in input_:
+        params["version"] = str(input_["package_version"])
+    if "max_results" in input_:
+        params["max-results"] = str(input_["max_results"])
+    if "next_token" in input_:
+        params["next-token"] = str(input_["next_token"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "POST",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def list_package_version_assets(
     options: OperationOptions,
-    input: aws_sdk_codeartifact.types.list_package_version_assets_request.ListPackageVersionAssetsRequest,
+    input_: aws_sdk_codeartifact.types.list_package_version_assets_request.ListPackageVersionAssetsRequest,
 ) -> tuple[
     aws_sdk_codeartifact.types.list_package_version_assets_result.ListPackageVersionAssetsResult,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -158,16 +155,17 @@ def list_package_version_assets(
 
 async def async_list_package_version_assets(
     options: AsyncOperationOptions,
-    input: aws_sdk_codeartifact.types.list_package_version_assets_request.ListPackageVersionAssetsRequest,
+    input_: aws_sdk_codeartifact.types.list_package_version_assets_request.ListPackageVersionAssetsRequest,
 ) -> tuple[
     aws_sdk_codeartifact.types.list_package_version_assets_result.ListPackageVersionAssetsResult,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

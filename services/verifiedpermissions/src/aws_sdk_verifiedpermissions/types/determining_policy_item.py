@@ -1,13 +1,17 @@
 """Generated from Smithy shape ``com.amazonaws.verifiedpermissions#DeterminingPolicyItem``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_verifiedpermissions.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_verifiedpermissions.types.policy_id
 
+
 class DeterminingPolicyItem(TypedDict):
     policy_id: "aws_sdk_verifiedpermissions.types.policy_id.PolicyId"
-    """<p>The Id of a policy that determined to an authorization decision.</p> <p>Example: <code>\"policyId\":\"SPEXAMPLEabcdefg111111\"</code> </p>"""
+    r"""<p>The Id of a policy that determined to an authorization decision.</p> <p>Example: <code>\"policyId\":\"SPEXAMPLEabcdefg111111\"</code> </p>"""
+
 
 # --- awsJson1_0 ser/de ---
 def serialize_aws_json_1_0(value: DeterminingPolicyItem) -> dict:

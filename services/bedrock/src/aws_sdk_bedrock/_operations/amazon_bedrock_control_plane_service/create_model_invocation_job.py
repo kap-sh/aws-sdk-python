@@ -105,7 +105,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.create_model_invocation_job_request.CreateModelInvocationJobRequest,
+    input_: aws_sdk_bedrock.types.create_model_invocation_job_request.CreateModelInvocationJobRequest,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -121,7 +121,7 @@ def build_request(
     import aws_sdk_bedrock.types.create_model_invocation_job_request
 
     body: bytes | None = json.dumps(
-        aws_sdk_bedrock.types.create_model_invocation_job_request.serialize_json(input)
+        aws_sdk_bedrock.types.create_model_invocation_job_request.serialize_json(input_)
     ).encode()
     headers["content-type"] = "application/json"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
@@ -134,12 +134,12 @@ def build_request(
 
 def create_model_invocation_job(
     options: OperationOptions,
-    input: aws_sdk_bedrock.types.create_model_invocation_job_request.CreateModelInvocationJobRequest,
+    input_: aws_sdk_bedrock.types.create_model_invocation_job_request.CreateModelInvocationJobRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.create_model_invocation_job_response.CreateModelInvocationJobResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -153,12 +153,12 @@ def create_model_invocation_job(
 
 async def async_create_model_invocation_job(
     options: AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.create_model_invocation_job_request.CreateModelInvocationJobRequest,
+    input_: aws_sdk_bedrock.types.create_model_invocation_job_request.CreateModelInvocationJobRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.create_model_invocation_job_response.CreateModelInvocationJobResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

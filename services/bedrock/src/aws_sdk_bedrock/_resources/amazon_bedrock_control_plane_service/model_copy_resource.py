@@ -80,18 +80,18 @@ class ModelCopyResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.create_model_copy_job_request.CreateModelCopyJobRequest = {}  # type: ignore[typeddict-item]
-        input["source_model_arn"] = source_model_arn
-        input["target_model_name"] = target_model_name
+        input_: aws_sdk_bedrock.types.create_model_copy_job_request.CreateModelCopyJobRequest = {}  # type: ignore[typeddict-item]
+        input_["source_model_arn"] = source_model_arn
+        input_["target_model_name"] = target_model_name
         if model_kms_key_id is not None:
-            input["model_kms_key_id"] = model_kms_key_id
+            input_["model_kms_key_id"] = model_kms_key_id
         if target_model_tags is not None:
-            input["target_model_tags"] = target_model_tags
+            input_["target_model_tags"] = target_model_tags
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -124,11 +124,11 @@ class ModelCopyResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.get_model_copy_job_request.GetModelCopyJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_arn"] = job_arn
+        input_: aws_sdk_bedrock.types.get_model_copy_job_request.GetModelCopyJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_arn"] = job_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -195,30 +195,30 @@ class ModelCopyResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.list_model_copy_jobs_request.ListModelCopyJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock.types.list_model_copy_jobs_request.ListModelCopyJobsRequest = {}  # type: ignore[typeddict-item]
         if creation_time_after is not None:
-            input["creation_time_after"] = creation_time_after
+            input_["creation_time_after"] = creation_time_after
         if creation_time_before is not None:
-            input["creation_time_before"] = creation_time_before
+            input_["creation_time_before"] = creation_time_before
         if status_equals is not None:
-            input["status_equals"] = status_equals
+            input_["status_equals"] = status_equals
         if source_account_equals is not None:
-            input["source_account_equals"] = source_account_equals
+            input_["source_account_equals"] = source_account_equals
         if source_model_arn_equals is not None:
-            input["source_model_arn_equals"] = source_model_arn_equals
+            input_["source_model_arn_equals"] = source_model_arn_equals
         if target_model_name_contains is not None:
-            input["target_model_name_contains"] = target_model_name_contains
+            input_["target_model_name_contains"] = target_model_name_contains
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -267,18 +267,18 @@ class AsyncModelCopyResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.create_model_copy_job_request.CreateModelCopyJobRequest = {}  # type: ignore[typeddict-item]
-        input["source_model_arn"] = source_model_arn
-        input["target_model_name"] = target_model_name
+        input_: aws_sdk_bedrock.types.create_model_copy_job_request.CreateModelCopyJobRequest = {}  # type: ignore[typeddict-item]
+        input_["source_model_arn"] = source_model_arn
+        input_["target_model_name"] = target_model_name
         if model_kms_key_id is not None:
-            input["model_kms_key_id"] = model_kms_key_id
+            input_["model_kms_key_id"] = model_kms_key_id
         if target_model_tags is not None:
-            input["target_model_tags"] = target_model_tags
+            input_["target_model_tags"] = target_model_tags
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -312,11 +312,11 @@ class AsyncModelCopyResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.get_model_copy_job_request.GetModelCopyJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_arn"] = job_arn
+        input_: aws_sdk_bedrock.types.get_model_copy_job_request.GetModelCopyJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_arn"] = job_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -384,30 +384,30 @@ class AsyncModelCopyResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.list_model_copy_jobs_request.ListModelCopyJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock.types.list_model_copy_jobs_request.ListModelCopyJobsRequest = {}  # type: ignore[typeddict-item]
         if creation_time_after is not None:
-            input["creation_time_after"] = creation_time_after
+            input_["creation_time_after"] = creation_time_after
         if creation_time_before is not None:
-            input["creation_time_before"] = creation_time_before
+            input_["creation_time_before"] = creation_time_before
         if status_equals is not None:
-            input["status_equals"] = status_equals
+            input_["status_equals"] = status_equals
         if source_account_equals is not None:
-            input["source_account_equals"] = source_account_equals
+            input_["source_account_equals"] = source_account_equals
         if source_model_arn_equals is not None:
-            input["source_model_arn_equals"] = source_model_arn_equals
+            input_["source_model_arn_equals"] = source_model_arn_equals
         if target_model_name_contains is not None:
-            input["target_model_name_contains"] = target_model_name_contains
+            input_["target_model_name_contains"] = target_model_name_contains
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -1,11 +1,12 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#OwnerPropertiesOutput``."""
 
 from typing import TYPE_CHECKING, TypeAlias, TypedDict
+
 from aws_sdk_datazone.errors import DeserializationError, SerializationError
 
 if TYPE_CHECKING:
-    import aws_sdk_datazone.types.owner_user_properties_output
     import aws_sdk_datazone.types.owner_group_properties_output
+    import aws_sdk_datazone.types.owner_user_properties_output
 
 
 class _OwnerPropertiesOutput_user(TypedDict):

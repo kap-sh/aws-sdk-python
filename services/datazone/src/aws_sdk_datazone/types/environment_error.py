@@ -1,7 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#EnvironmentError``."""
 
 from typing import TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_datazone.errors import DeserializationError
 
 

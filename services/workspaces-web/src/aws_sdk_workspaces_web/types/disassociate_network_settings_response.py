@@ -2,8 +2,10 @@
 
 from typing import TypedDict
 
+
 class DisassociateNetworkSettingsResponse(TypedDict):
     pass
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: DisassociateNetworkSettingsResponse) -> dict:

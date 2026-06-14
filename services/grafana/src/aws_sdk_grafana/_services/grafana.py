@@ -127,6 +127,7 @@ class grafanaClient:
                 "credentials_provider": credentials_provider,
             }
         )
+
         # resources
         self.api_key = ApiKey(self)
         self.authentication = Authentication(self)

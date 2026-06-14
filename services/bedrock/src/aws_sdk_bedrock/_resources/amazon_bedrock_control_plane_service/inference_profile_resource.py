@@ -80,18 +80,18 @@ class InferenceProfileResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.create_inference_profile_request.CreateInferenceProfileRequest = {}  # type: ignore[typeddict-item]
-        input["inference_profile_name"] = inference_profile_name
+        input_: aws_sdk_bedrock.types.create_inference_profile_request.CreateInferenceProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["inference_profile_name"] = inference_profile_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
-        input["model_source"] = model_source
+            input_["client_request_token"] = client_request_token
+        input_["model_source"] = model_source
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -124,11 +124,11 @@ class InferenceProfileResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.get_inference_profile_request.GetInferenceProfileRequest = {}  # type: ignore[typeddict-item]
-        input["inference_profile_identifier"] = inference_profile_identifier
+        input_: aws_sdk_bedrock.types.get_inference_profile_request.GetInferenceProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["inference_profile_identifier"] = inference_profile_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -161,11 +161,11 @@ class InferenceProfileResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.delete_inference_profile_request.DeleteInferenceProfileRequest = {}  # type: ignore[typeddict-item]
-        input["inference_profile_identifier"] = inference_profile_identifier
+        input_: aws_sdk_bedrock.types.delete_inference_profile_request.DeleteInferenceProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["inference_profile_identifier"] = inference_profile_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -206,16 +206,16 @@ class InferenceProfileResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.list_inference_profiles_request.ListInferenceProfilesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock.types.list_inference_profiles_request.ListInferenceProfilesRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if type_equals is not None:
-            input["type_equals"] = type_equals
+            input_["type_equals"] = type_equals
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -266,18 +266,18 @@ class AsyncInferenceProfileResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.create_inference_profile_request.CreateInferenceProfileRequest = {}  # type: ignore[typeddict-item]
-        input["inference_profile_name"] = inference_profile_name
+        input_: aws_sdk_bedrock.types.create_inference_profile_request.CreateInferenceProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["inference_profile_name"] = inference_profile_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
-        input["model_source"] = model_source
+            input_["client_request_token"] = client_request_token
+        input_["model_source"] = model_source
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -311,11 +311,11 @@ class AsyncInferenceProfileResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.get_inference_profile_request.GetInferenceProfileRequest = {}  # type: ignore[typeddict-item]
-        input["inference_profile_identifier"] = inference_profile_identifier
+        input_: aws_sdk_bedrock.types.get_inference_profile_request.GetInferenceProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["inference_profile_identifier"] = inference_profile_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -349,11 +349,11 @@ class AsyncInferenceProfileResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.delete_inference_profile_request.DeleteInferenceProfileRequest = {}  # type: ignore[typeddict-item]
-        input["inference_profile_identifier"] = inference_profile_identifier
+        input_: aws_sdk_bedrock.types.delete_inference_profile_request.DeleteInferenceProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["inference_profile_identifier"] = inference_profile_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -395,16 +395,16 @@ class AsyncInferenceProfileResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.list_inference_profiles_request.ListInferenceProfilesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock.types.list_inference_profiles_request.ListInferenceProfilesRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if type_equals is not None:
-            input["type_equals"] = type_equals
+            input_["type_equals"] = type_equals
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

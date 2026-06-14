@@ -112,7 +112,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.create_automated_reasoning_policy_version_request.CreateAutomatedReasoningPolicyVersionRequest,
+    input_: aws_sdk_bedrock.types.create_automated_reasoning_policy_version_request.CreateAutomatedReasoningPolicyVersionRequest,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -125,14 +125,14 @@ def build_request(
     url = (
         endpoint.url.rstrip("/") + "/automated-reasoning-policies/{policyArn}/versions"
     )
-    url = url.replace("{policyArn}", quote(str(input["policy_arn"]), safe=""))
+    url = url.replace("{policyArn}", quote(str(input_["policy_arn"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     import aws_sdk_bedrock.types.create_automated_reasoning_policy_version_request
 
     body: bytes | None = json.dumps(
         aws_sdk_bedrock.types.create_automated_reasoning_policy_version_request.serialize_json(
-            input
+            input_
         )
     ).encode()
     headers["content-type"] = "application/json"
@@ -146,12 +146,12 @@ def build_request(
 
 def create_automated_reasoning_policy_version(
     options: OperationOptions,
-    input: aws_sdk_bedrock.types.create_automated_reasoning_policy_version_request.CreateAutomatedReasoningPolicyVersionRequest,
+    input_: aws_sdk_bedrock.types.create_automated_reasoning_policy_version_request.CreateAutomatedReasoningPolicyVersionRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.create_automated_reasoning_policy_version_response.CreateAutomatedReasoningPolicyVersionResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -165,12 +165,12 @@ def create_automated_reasoning_policy_version(
 
 async def async_create_automated_reasoning_policy_version(
     options: AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.create_automated_reasoning_policy_version_request.CreateAutomatedReasoningPolicyVersionRequest,
+    input_: aws_sdk_bedrock.types.create_automated_reasoning_policy_version_request.CreateAutomatedReasoningPolicyVersionRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.create_automated_reasoning_policy_version_response.CreateAutomatedReasoningPolicyVersionResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

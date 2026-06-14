@@ -1,10 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#ProjectSummary``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_datazone.errors import DeserializationError
 
 if TYPE_CHECKING:
+    import datetime
+
     import aws_sdk_datazone.types.created_by
     import aws_sdk_datazone.types.description
     import aws_sdk_datazone.types.domain_id
@@ -13,7 +17,6 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.project_id
     import aws_sdk_datazone.types.project_name
     import aws_sdk_datazone.types.project_status
-    import datetime
 
 
 class ProjectSummary(TypedDict):

@@ -111,7 +111,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.create_automated_reasoning_policy_request.CreateAutomatedReasoningPolicyRequest,
+    input_: aws_sdk_bedrock.types.create_automated_reasoning_policy_request.CreateAutomatedReasoningPolicyRequest,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -128,7 +128,7 @@ def build_request(
 
     body: bytes | None = json.dumps(
         aws_sdk_bedrock.types.create_automated_reasoning_policy_request.serialize_json(
-            input
+            input_
         )
     ).encode()
     headers["content-type"] = "application/json"
@@ -142,12 +142,12 @@ def build_request(
 
 def create_automated_reasoning_policy(
     options: OperationOptions,
-    input: aws_sdk_bedrock.types.create_automated_reasoning_policy_request.CreateAutomatedReasoningPolicyRequest,
+    input_: aws_sdk_bedrock.types.create_automated_reasoning_policy_request.CreateAutomatedReasoningPolicyRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.create_automated_reasoning_policy_response.CreateAutomatedReasoningPolicyResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -161,12 +161,12 @@ def create_automated_reasoning_policy(
 
 async def async_create_automated_reasoning_policy(
     options: AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.create_automated_reasoning_policy_request.CreateAutomatedReasoningPolicyRequest,
+    input_: aws_sdk_bedrock.types.create_automated_reasoning_policy_request.CreateAutomatedReasoningPolicyRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.create_automated_reasoning_policy_response.CreateAutomatedReasoningPolicyResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

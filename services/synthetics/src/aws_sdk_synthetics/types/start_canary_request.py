@@ -8,7 +8,7 @@ if TYPE_CHECKING:
 
 class StartCanaryRequest(TypedDict):
     name: "aws_sdk_synthetics.types.canary_name.CanaryName"
-    """<p>The name of the canary that you want to run. To find canary names, use <a href=\"https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DescribeCanaries.html\">DescribeCanaries</a>.</p>"""
+    r"""<p>The name of the canary that you want to run. To find canary names, use <a href=\"https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DescribeCanaries.html\">DescribeCanaries</a>.</p>"""
 
 
 # --- restJson1 ser/de ---

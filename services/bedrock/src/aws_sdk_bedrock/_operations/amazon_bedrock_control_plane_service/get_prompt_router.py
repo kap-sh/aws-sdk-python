@@ -96,7 +96,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.get_prompt_router_request.GetPromptRouterRequest,
+    input_: aws_sdk_bedrock.types.get_prompt_router_request.GetPromptRouterRequest,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -108,7 +108,7 @@ def build_request(
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/prompt-routers/{promptRouterArn}"
     url = url.replace(
-        "{promptRouterArn}", quote(str(input["prompt_router_arn"]), safe="")
+        "{promptRouterArn}", quote(str(input_["prompt_router_arn"]), safe="")
     )
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
@@ -123,12 +123,12 @@ def build_request(
 
 def get_prompt_router(
     options: OperationOptions,
-    input: aws_sdk_bedrock.types.get_prompt_router_request.GetPromptRouterRequest,
+    input_: aws_sdk_bedrock.types.get_prompt_router_request.GetPromptRouterRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.get_prompt_router_response.GetPromptRouterResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -142,12 +142,12 @@ def get_prompt_router(
 
 async def async_get_prompt_router(
     options: AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.get_prompt_router_request.GetPromptRouterRequest,
+    input_: aws_sdk_bedrock.types.get_prompt_router_request.GetPromptRouterRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.get_prompt_router_response.GetPromptRouterResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

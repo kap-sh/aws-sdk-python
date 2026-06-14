@@ -95,6 +95,7 @@ class AsyncGeoPlacesClient:
                 "credentials_provider": credentials_provider,
             }
         )
+
         # resources
         self.provider_resource = AsyncProviderResource(self)
 

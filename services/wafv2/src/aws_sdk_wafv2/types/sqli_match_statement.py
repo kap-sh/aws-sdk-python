@@ -20,7 +20,7 @@ class SqliMatchStatement(TypedDict):
     sensitivity_level: NotRequired[
         "aws_sdk_wafv2.types.sensitivity_level.SensitivityLevel"
     ]
-    """<p>The sensitivity that you want WAF to use to inspect for SQL injection attacks. </p> <p> <code>HIGH</code> detects more attacks, but might generate more false positives, especially if your web requests frequently contain unusual strings. For information about identifying and mitigating false positives, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/web-acl-testing.html\">Testing and tuning</a> in the <i>WAF Developer Guide</i>.</p> <p> <code>LOW</code> is generally a better choice for resources that already have other protections against SQL injection attacks or that have a low tolerance for false positives. </p> <p>Default: <code>LOW</code> </p>"""
+    r"""<p>The sensitivity that you want WAF to use to inspect for SQL injection attacks. </p> <p> <code>HIGH</code> detects more attacks, but might generate more false positives, especially if your web requests frequently contain unusual strings. For information about identifying and mitigating false positives, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/web-acl-testing.html\">Testing and tuning</a> in the <i>WAF Developer Guide</i>.</p> <p> <code>LOW</code> is generally a better choice for resources that already have other protections against SQL injection attacks or that have a low tolerance for false positives. </p> <p>Default: <code>LOW</code> </p>"""
 
 
 # --- awsJson1_1 ser/de ---

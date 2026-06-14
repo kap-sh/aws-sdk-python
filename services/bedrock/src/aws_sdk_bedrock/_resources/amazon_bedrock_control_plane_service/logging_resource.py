@@ -50,10 +50,10 @@ class LoggingResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.delete_model_invocation_logging_configuration_request.DeleteModelInvocationLoggingConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock.types.delete_model_invocation_logging_configuration_request.DeleteModelInvocationLoggingConfigurationRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -79,10 +79,10 @@ class LoggingResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.get_model_invocation_logging_configuration_request.GetModelInvocationLoggingConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock.types.get_model_invocation_logging_configuration_request.GetModelInvocationLoggingConfigurationRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -115,11 +115,11 @@ class LoggingResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.put_model_invocation_logging_configuration_request.PutModelInvocationLoggingConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["logging_config"] = logging_config
+        input_: aws_sdk_bedrock.types.put_model_invocation_logging_configuration_request.PutModelInvocationLoggingConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["logging_config"] = logging_config
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -151,10 +151,10 @@ class AsyncLoggingResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.delete_model_invocation_logging_configuration_request.DeleteModelInvocationLoggingConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock.types.delete_model_invocation_logging_configuration_request.DeleteModelInvocationLoggingConfigurationRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -181,10 +181,10 @@ class AsyncLoggingResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.get_model_invocation_logging_configuration_request.GetModelInvocationLoggingConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock.types.get_model_invocation_logging_configuration_request.GetModelInvocationLoggingConfigurationRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -218,11 +218,11 @@ class AsyncLoggingResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.put_model_invocation_logging_configuration_request.PutModelInvocationLoggingConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["logging_config"] = logging_config
+        input_: aws_sdk_bedrock.types.put_model_invocation_logging_configuration_request.PutModelInvocationLoggingConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["logging_config"] = logging_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

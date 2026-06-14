@@ -24,9 +24,9 @@ class DescribeDocumentVersionsRequest(TypedDict):
     limit: NotRequired["aws_sdk_workdocs.types.limit_type.LimitType"]
     """<p>The maximum number of versions to return with this call.</p>"""
     include: NotRequired["aws_sdk_workdocs.types.field_names_type.FieldNamesType"]
-    """<p>A comma-separated list of values. Specify \"INITIALIZED\" to include incomplete versions.</p>"""
+    r"""<p>A comma-separated list of values. Specify \"INITIALIZED\" to include incomplete versions.</p>"""
     fields: NotRequired["aws_sdk_workdocs.types.field_names_type.FieldNamesType"]
-    """<p>Specify \"SOURCE\" to include initialized versions and a URL for the source document.</p>"""
+    r"""<p>Specify \"SOURCE\" to include initialized versions and a URL for the source document.</p>"""
 
 
 # --- restJson1 ser/de ---

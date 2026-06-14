@@ -100,25 +100,25 @@ class ModelInvocationJobResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.create_model_invocation_job_request.CreateModelInvocationJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_name"] = job_name
-        input["role_arn"] = role_arn
+        input_: aws_sdk_bedrock.types.create_model_invocation_job_request.CreateModelInvocationJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_name"] = job_name
+        input_["role_arn"] = role_arn
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
-        input["model_id"] = model_id
-        input["input_data_config"] = input_data_config
-        input["output_data_config"] = output_data_config
+            input_["client_request_token"] = client_request_token
+        input_["model_id"] = model_id
+        input_["input_data_config"] = input_data_config
+        input_["output_data_config"] = output_data_config
         if vpc_config is not None:
-            input["vpc_config"] = vpc_config
+            input_["vpc_config"] = vpc_config
         if timeout_duration_in_hours is not None:
-            input["timeout_duration_in_hours"] = timeout_duration_in_hours
+            input_["timeout_duration_in_hours"] = timeout_duration_in_hours
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if model_invocation_type is not None:
-            input["model_invocation_type"] = model_invocation_type
+            input_["model_invocation_type"] = model_invocation_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -151,11 +151,11 @@ class ModelInvocationJobResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.get_model_invocation_job_request.GetModelInvocationJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_identifier"] = job_identifier
+        input_: aws_sdk_bedrock.types.get_model_invocation_job_request.GetModelInvocationJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_identifier"] = job_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -210,26 +210,26 @@ class ModelInvocationJobResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.list_model_invocation_jobs_request.ListModelInvocationJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock.types.list_model_invocation_jobs_request.ListModelInvocationJobsRequest = {}  # type: ignore[typeddict-item]
         if submit_time_after is not None:
-            input["submit_time_after"] = submit_time_after
+            input_["submit_time_after"] = submit_time_after
         if submit_time_before is not None:
-            input["submit_time_before"] = submit_time_before
+            input_["submit_time_before"] = submit_time_before
         if status_equals is not None:
-            input["status_equals"] = status_equals
+            input_["status_equals"] = status_equals
         if name_contains is not None:
-            input["name_contains"] = name_contains
+            input_["name_contains"] = name_contains
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -262,11 +262,11 @@ class ModelInvocationJobResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.stop_model_invocation_job_request.StopModelInvocationJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_identifier"] = job_identifier
+        input_: aws_sdk_bedrock.types.stop_model_invocation_job_request.StopModelInvocationJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_identifier"] = job_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -329,25 +329,25 @@ class AsyncModelInvocationJobResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.create_model_invocation_job_request.CreateModelInvocationJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_name"] = job_name
-        input["role_arn"] = role_arn
+        input_: aws_sdk_bedrock.types.create_model_invocation_job_request.CreateModelInvocationJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_name"] = job_name
+        input_["role_arn"] = role_arn
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
-        input["model_id"] = model_id
-        input["input_data_config"] = input_data_config
-        input["output_data_config"] = output_data_config
+            input_["client_request_token"] = client_request_token
+        input_["model_id"] = model_id
+        input_["input_data_config"] = input_data_config
+        input_["output_data_config"] = output_data_config
         if vpc_config is not None:
-            input["vpc_config"] = vpc_config
+            input_["vpc_config"] = vpc_config
         if timeout_duration_in_hours is not None:
-            input["timeout_duration_in_hours"] = timeout_duration_in_hours
+            input_["timeout_duration_in_hours"] = timeout_duration_in_hours
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if model_invocation_type is not None:
-            input["model_invocation_type"] = model_invocation_type
+            input_["model_invocation_type"] = model_invocation_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -381,11 +381,11 @@ class AsyncModelInvocationJobResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.get_model_invocation_job_request.GetModelInvocationJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_identifier"] = job_identifier
+        input_: aws_sdk_bedrock.types.get_model_invocation_job_request.GetModelInvocationJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_identifier"] = job_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -441,26 +441,26 @@ class AsyncModelInvocationJobResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.list_model_invocation_jobs_request.ListModelInvocationJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock.types.list_model_invocation_jobs_request.ListModelInvocationJobsRequest = {}  # type: ignore[typeddict-item]
         if submit_time_after is not None:
-            input["submit_time_after"] = submit_time_after
+            input_["submit_time_after"] = submit_time_after
         if submit_time_before is not None:
-            input["submit_time_before"] = submit_time_before
+            input_["submit_time_before"] = submit_time_before
         if status_equals is not None:
-            input["status_equals"] = status_equals
+            input_["status_equals"] = status_equals
         if name_contains is not None:
-            input["name_contains"] = name_contains
+            input_["name_contains"] = name_contains
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -494,11 +494,11 @@ class AsyncModelInvocationJobResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.stop_model_invocation_job_request.StopModelInvocationJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_identifier"] = job_identifier
+        input_: aws_sdk_bedrock.types.stop_model_invocation_job_request.StopModelInvocationJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_identifier"] = job_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

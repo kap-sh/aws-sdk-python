@@ -94,7 +94,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.get_foundation_model_availability_request.GetFoundationModelAvailabilityRequest,
+    input_: aws_sdk_bedrock.types.get_foundation_model_availability_request.GetFoundationModelAvailabilityRequest,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -105,7 +105,7 @@ def build_request(
         )
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/foundation-model-availability/{modelId}"
-    url = url.replace("{modelId}", quote(str(input["model_id"]), safe=""))
+    url = url.replace("{modelId}", quote(str(input_["model_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
@@ -119,12 +119,12 @@ def build_request(
 
 def get_foundation_model_availability(
     options: OperationOptions,
-    input: aws_sdk_bedrock.types.get_foundation_model_availability_request.GetFoundationModelAvailabilityRequest,
+    input_: aws_sdk_bedrock.types.get_foundation_model_availability_request.GetFoundationModelAvailabilityRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.get_foundation_model_availability_response.GetFoundationModelAvailabilityResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -138,12 +138,12 @@ def get_foundation_model_availability(
 
 async def async_get_foundation_model_availability(
     options: AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.get_foundation_model_availability_request.GetFoundationModelAvailabilityRequest,
+    input_: aws_sdk_bedrock.types.get_foundation_model_availability_request.GetFoundationModelAvailabilityRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.get_foundation_model_availability_response.GetFoundationModelAvailabilityResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

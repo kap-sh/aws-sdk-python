@@ -113,6 +113,7 @@ class AsyncevsClient:
                 "credentials_provider": credentials_provider,
             }
         )
+
         # resources
         self.environment_resource = AsyncEnvironmentResource(self)
 

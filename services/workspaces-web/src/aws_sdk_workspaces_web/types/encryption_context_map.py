@@ -1,10 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesweb#EncryptionContextMap``."""
 
 from typing import TYPE_CHECKING, TypeAlias
+
 if TYPE_CHECKING:
     import aws_sdk_workspaces_web.types.string_type
 
-EncryptionContextMap: TypeAlias = dict["aws_sdk_workspaces_web.types.string_type.StringType", "aws_sdk_workspaces_web.types.string_type.StringType"]
+EncryptionContextMap: TypeAlias = dict[
+    "aws_sdk_workspaces_web.types.string_type.StringType",
+    "aws_sdk_workspaces_web.types.string_type.StringType",
+]
 
 
 # --- restJson1 ser/de ---

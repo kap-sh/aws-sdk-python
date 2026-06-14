@@ -3,8 +3,8 @@
 from typing import TYPE_CHECKING, TypeAlias
 
 if TYPE_CHECKING:
-    import aws_sdk_cloudwatch_logs.types.time
     import aws_sdk_cloudwatch_logs.types.count
+    import aws_sdk_cloudwatch_logs.types.time
 
 Histogram: TypeAlias = dict[
     "aws_sdk_cloudwatch_logs.types.time.Time",

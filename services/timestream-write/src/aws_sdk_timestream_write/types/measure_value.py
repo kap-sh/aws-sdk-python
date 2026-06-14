@@ -12,9 +12,9 @@ if TYPE_CHECKING:
 
 class MeasureValue(TypedDict):
     name: "aws_sdk_timestream_write.types.schema_name.SchemaName"
-    """<p> The name of the MeasureValue. </p> <p> For constraints on MeasureValue names, see <a href=\"https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html#limits.naming\"> Naming Constraints</a> in the Amazon Timestream Developer Guide.</p>"""
+    r"""<p> The name of the MeasureValue. </p> <p> For constraints on MeasureValue names, see <a href=\"https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html#limits.naming\"> Naming Constraints</a> in the Amazon Timestream Developer Guide.</p>"""
     value: "aws_sdk_timestream_write.types.string_value2048.StringValue2048"
-    """<p> The value for the MeasureValue. For information, see <a href=\"https://docs.aws.amazon.com/timestream/latest/developerguide/writes.html#writes.data-types\">Data types</a>.</p>"""
+    r"""<p> The value for the MeasureValue. For information, see <a href=\"https://docs.aws.amazon.com/timestream/latest/developerguide/writes.html#writes.data-types\">Data types</a>.</p>"""
     type: "aws_sdk_timestream_write.types.measure_value_type.MeasureValueType"
     """<p>Contains the data type of the MeasureValue for the time-series data point.</p>"""
 

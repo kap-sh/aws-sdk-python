@@ -1,11 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#LineageSqlQueryRunDetails``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
 
 if TYPE_CHECKING:
-    import aws_sdk_datazone.types.failed_query_processing_error_messages
     import datetime
+
+    import aws_sdk_datazone.types.failed_query_processing_error_messages
 
 
 class LineageSqlQueryRunDetails(TypedDict):

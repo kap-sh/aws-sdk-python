@@ -106,7 +106,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.update_marketplace_model_endpoint_request.UpdateMarketplaceModelEndpointRequest,
+    input_: aws_sdk_bedrock.types.update_marketplace_model_endpoint_request.UpdateMarketplaceModelEndpointRequest,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -117,14 +117,14 @@ def build_request(
         )
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/marketplace-model/endpoints/{endpointArn}"
-    url = url.replace("{endpointArn}", quote(str(input["endpoint_arn"]), safe=""))
+    url = url.replace("{endpointArn}", quote(str(input_["endpoint_arn"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     import aws_sdk_bedrock.types.update_marketplace_model_endpoint_request
 
     body: bytes | None = json.dumps(
         aws_sdk_bedrock.types.update_marketplace_model_endpoint_request.serialize_json(
-            input
+            input_
         )
     ).encode()
     headers["content-type"] = "application/json"
@@ -138,12 +138,12 @@ def build_request(
 
 def update_marketplace_model_endpoint(
     options: OperationOptions,
-    input: aws_sdk_bedrock.types.update_marketplace_model_endpoint_request.UpdateMarketplaceModelEndpointRequest,
+    input_: aws_sdk_bedrock.types.update_marketplace_model_endpoint_request.UpdateMarketplaceModelEndpointRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.update_marketplace_model_endpoint_response.UpdateMarketplaceModelEndpointResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -157,12 +157,12 @@ def update_marketplace_model_endpoint(
 
 async def async_update_marketplace_model_endpoint(
     options: AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.update_marketplace_model_endpoint_request.UpdateMarketplaceModelEndpointRequest,
+    input_: aws_sdk_bedrock.types.update_marketplace_model_endpoint_request.UpdateMarketplaceModelEndpointRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.update_marketplace_model_endpoint_response.UpdateMarketplaceModelEndpointResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

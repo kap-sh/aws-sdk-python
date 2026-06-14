@@ -1,9 +1,12 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#GlueConnection``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
 
 if TYPE_CHECKING:
+    import datetime
+
     import aws_sdk_datazone.types.authentication_configuration
     import aws_sdk_datazone.types.compute_environments_list
     import aws_sdk_datazone.types.connection_properties
@@ -12,7 +15,6 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.match_criteria
     import aws_sdk_datazone.types.physical_connection_requirements
     import aws_sdk_datazone.types.property_map
-    import datetime
 
 
 class GlueConnection(TypedDict):

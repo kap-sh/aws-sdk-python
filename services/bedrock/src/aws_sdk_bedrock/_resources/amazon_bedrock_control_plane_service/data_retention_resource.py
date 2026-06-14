@@ -48,10 +48,10 @@ class DataRetentionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.get_account_data_retention_request.GetAccountDataRetentionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock.types.get_account_data_retention_request.GetAccountDataRetentionRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -84,11 +84,11 @@ class DataRetentionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.put_account_data_retention_request.PutAccountDataRetentionRequest = {}  # type: ignore[typeddict-item]
-        input["mode"] = mode
+        input_: aws_sdk_bedrock.types.put_account_data_retention_request.PutAccountDataRetentionRequest = {}  # type: ignore[typeddict-item]
+        input_["mode"] = mode
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -120,10 +120,10 @@ class AsyncDataRetentionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.get_account_data_retention_request.GetAccountDataRetentionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock.types.get_account_data_retention_request.GetAccountDataRetentionRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -157,11 +157,11 @@ class AsyncDataRetentionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.put_account_data_retention_request.PutAccountDataRetentionRequest = {}  # type: ignore[typeddict-item]
-        input["mode"] = mode
+        input_: aws_sdk_bedrock.types.put_account_data_retention_request.PutAccountDataRetentionRequest = {}  # type: ignore[typeddict-item]
+        input_["mode"] = mode
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

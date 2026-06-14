@@ -1,7 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#CreateStorediSCSIVolumeInput``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_storage_gateway.errors import DeserializationError
 
 if TYPE_CHECKING:
@@ -19,9 +21,9 @@ if TYPE_CHECKING:
 class CreateStorediSCSIVolumeInput(TypedDict):
     gateway_arn: "aws_sdk_storage_gateway.types.gateway_arn.GatewayARN"
     disk_id: "aws_sdk_storage_gateway.types.disk_id.DiskId"
-    """<p>The unique identifier for the gateway local disk that is configured as a stored volume. Use <a href=\"https://docs.aws.amazon.com/storagegateway/latest/userguide/API_ListLocalDisks.html\">ListLocalDisks</a> to list disk IDs for a gateway.</p>"""
+    r"""<p>The unique identifier for the gateway local disk that is configured as a stored volume. Use <a href=\"https://docs.aws.amazon.com/storagegateway/latest/userguide/API_ListLocalDisks.html\">ListLocalDisks</a> to list disk IDs for a gateway.</p>"""
     snapshot_id: NotRequired["aws_sdk_storage_gateway.types.snapshot_id.SnapshotId"]
-    """<p>The snapshot ID (e.g., \"snap-1122aabb\") of the snapshot to restore as the new stored volume. Specify this field if you want to create the iSCSI storage volume from a snapshot; otherwise, do not include this field. To list snapshots for your account use <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html\">DescribeSnapshots</a> in the <i>Amazon Elastic Compute Cloud API Reference</i>.</p>"""
+    r"""<p>The snapshot ID (e.g., \"snap-1122aabb\") of the snapshot to restore as the new stored volume. Specify this field if you want to create the iSCSI storage volume from a snapshot; otherwise, do not include this field. To list snapshots for your account use <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html\">DescribeSnapshots</a> in the <i>Amazon Elastic Compute Cloud API Reference</i>.</p>"""
     preserve_existing_data: "aws_sdk_storage_gateway.types.boolean2.Boolean2"
     """<p>Set to <code>true</code> if you want to preserve the data on the local disk. Otherwise, set to <code>false</code> to create an empty volume.</p> <p>Valid Values: <code>true</code> | <code>false</code> </p>"""
     target_name: "aws_sdk_storage_gateway.types.target_name.TargetName"

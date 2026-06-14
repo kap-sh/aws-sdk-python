@@ -1,16 +1,20 @@
 """Generated from Smithy shape ``com.amazonaws.verifiedpermissions#DeletePolicyInput``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_verifiedpermissions.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_verifiedpermissions.types.policy_id
     import aws_sdk_verifiedpermissions.types.policy_store_id
 
+
 class DeletePolicyInput(TypedDict):
     policy_store_id: "aws_sdk_verifiedpermissions.types.policy_store_id.PolicyStoreId"
-    """<p>Specifies the ID of the policy store that contains the policy that you want to delete.</p> <p>To specify a policy store, use its ID or alias name. When using an alias name, prefix it with <code>policy-store-alias/</code>. For example:</p> <ul> <li> <p>ID: <code>PSEXAMPLEabcdefg111111</code> </p> </li> <li> <p>Alias name: <code>policy-store-alias/example-policy-store</code> </p> </li> </ul> <p>To view aliases, use <a href=\"https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListPolicyStoreAliases.html\">ListPolicyStoreAliases</a>.</p>"""
+    r"""<p>Specifies the ID of the policy store that contains the policy that you want to delete.</p> <p>To specify a policy store, use its ID or alias name. When using an alias name, prefix it with <code>policy-store-alias/</code>. For example:</p> <ul> <li> <p>ID: <code>PSEXAMPLEabcdefg111111</code> </p> </li> <li> <p>Alias name: <code>policy-store-alias/example-policy-store</code> </p> </li> </ul> <p>To view aliases, use <a href=\"https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListPolicyStoreAliases.html\">ListPolicyStoreAliases</a>.</p>"""
     policy_id: "aws_sdk_verifiedpermissions.types.policy_id.PolicyId"
     """<p>Specifies the ID of the policy that you want to delete.</p> <p>You can use the policy name in place of the policy ID. When using a name, prefix it with <code>name/</code>. For example:</p> <ul> <li> <p>ID: <code>SPEXAMPLEabcdefg111111</code> </p> </li> <li> <p>Name: <code>name/example-policy</code> </p> </li> </ul>"""
+
 
 # --- awsJson1_0 ser/de ---
 def serialize_aws_json_1_0(value: DeletePolicyInput) -> dict:

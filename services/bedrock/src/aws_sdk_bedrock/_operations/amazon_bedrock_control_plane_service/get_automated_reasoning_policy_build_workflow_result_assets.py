@@ -94,7 +94,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.get_automated_reasoning_policy_build_workflow_result_assets_request.GetAutomatedReasoningPolicyBuildWorkflowResultAssetsRequest,
+    input_: aws_sdk_bedrock.types.get_automated_reasoning_policy_build_workflow_result_assets_request.GetAutomatedReasoningPolicyBuildWorkflowResultAssetsRequest,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -108,15 +108,15 @@ def build_request(
         endpoint.url.rstrip("/")
         + "/automated-reasoning-policies/{policyArn}/build-workflows/{buildWorkflowId}/result-assets"
     )
-    url = url.replace("{policyArn}", quote(str(input["policy_arn"]), safe=""))
+    url = url.replace("{policyArn}", quote(str(input_["policy_arn"]), safe=""))
     url = url.replace(
-        "{buildWorkflowId}", quote(str(input["build_workflow_id"]), safe="")
+        "{buildWorkflowId}", quote(str(input_["build_workflow_id"]), safe="")
     )
     params: dict[str, str] = {}
-    if "asset_type" in input:
-        params["assetType"] = str(input["asset_type"])
-    if "asset_id" in input:
-        params["assetId"] = str(input["asset_id"])
+    if "asset_type" in input_:
+        params["assetType"] = str(input_["asset_type"])
+    if "asset_id" in input_:
+        params["assetId"] = str(input_["asset_id"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
@@ -129,12 +129,12 @@ def build_request(
 
 def get_automated_reasoning_policy_build_workflow_result_assets(
     options: OperationOptions,
-    input: aws_sdk_bedrock.types.get_automated_reasoning_policy_build_workflow_result_assets_request.GetAutomatedReasoningPolicyBuildWorkflowResultAssetsRequest,
+    input_: aws_sdk_bedrock.types.get_automated_reasoning_policy_build_workflow_result_assets_request.GetAutomatedReasoningPolicyBuildWorkflowResultAssetsRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.get_automated_reasoning_policy_build_workflow_result_assets_response.GetAutomatedReasoningPolicyBuildWorkflowResultAssetsResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -148,12 +148,12 @@ def get_automated_reasoning_policy_build_workflow_result_assets(
 
 async def async_get_automated_reasoning_policy_build_workflow_result_assets(
     options: AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.get_automated_reasoning_policy_build_workflow_result_assets_request.GetAutomatedReasoningPolicyBuildWorkflowResultAssetsRequest,
+    input_: aws_sdk_bedrock.types.get_automated_reasoning_policy_build_workflow_result_assets_request.GetAutomatedReasoningPolicyBuildWorkflowResultAssetsRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.get_automated_reasoning_policy_build_workflow_result_assets_response.GetAutomatedReasoningPolicyBuildWorkflowResultAssetsResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

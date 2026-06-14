@@ -13,7 +13,7 @@ if TYPE_CHECKING:
 
 class DocumentGroup(TypedDict):
     type: NotRequired["aws_sdk_textract.types.non_empty_string.NonEmptyString"]
-    """<p>The type of document that Amazon Textract has detected. See <a href=\"https://docs.aws.amazon.com/textract/latest/dg/lending-response-objects.html\">Analyze Lending Response Objects</a> for a list of all types returned by Textract.</p>"""
+    r"""<p>The type of document that Amazon Textract has detected. See <a href=\"https://docs.aws.amazon.com/textract/latest/dg/lending-response-objects.html\">Analyze Lending Response Objects</a> for a list of all types returned by Textract.</p>"""
     split_documents: NotRequired[
         "aws_sdk_textract.types.split_document_list.SplitDocumentList"
     ]

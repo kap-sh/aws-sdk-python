@@ -85,11 +85,11 @@ class EvaluationJobResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.batch_delete_evaluation_job_request.BatchDeleteEvaluationJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_identifiers"] = job_identifiers
+        input_: aws_sdk_bedrock.types.batch_delete_evaluation_job_request.BatchDeleteEvaluationJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_identifiers"] = job_identifiers
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -148,25 +148,25 @@ class EvaluationJobResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.create_evaluation_job_request.CreateEvaluationJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_name"] = job_name
+        input_: aws_sdk_bedrock.types.create_evaluation_job_request.CreateEvaluationJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_name"] = job_name
         if job_description is not None:
-            input["job_description"] = job_description
+            input_["job_description"] = job_description
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
-        input["role_arn"] = role_arn
+            input_["client_request_token"] = client_request_token
+        input_["role_arn"] = role_arn
         if customer_encryption_key_id is not None:
-            input["customer_encryption_key_id"] = customer_encryption_key_id
+            input_["customer_encryption_key_id"] = customer_encryption_key_id
         if job_tags is not None:
-            input["job_tags"] = job_tags
+            input_["job_tags"] = job_tags
         if application_type is not None:
-            input["application_type"] = application_type
-        input["evaluation_config"] = evaluation_config
-        input["inference_config"] = inference_config
-        input["output_data_config"] = output_data_config
+            input_["application_type"] = application_type
+        input_["evaluation_config"] = evaluation_config
+        input_["inference_config"] = inference_config
+        input_["output_data_config"] = output_data_config
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -199,11 +199,11 @@ class EvaluationJobResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.get_evaluation_job_request.GetEvaluationJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_identifier"] = job_identifier
+        input_: aws_sdk_bedrock.types.get_evaluation_job_request.GetEvaluationJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_identifier"] = job_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -266,28 +266,28 @@ class EvaluationJobResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.list_evaluation_jobs_request.ListEvaluationJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock.types.list_evaluation_jobs_request.ListEvaluationJobsRequest = {}  # type: ignore[typeddict-item]
         if creation_time_after is not None:
-            input["creation_time_after"] = creation_time_after
+            input_["creation_time_after"] = creation_time_after
         if creation_time_before is not None:
-            input["creation_time_before"] = creation_time_before
+            input_["creation_time_before"] = creation_time_before
         if status_equals is not None:
-            input["status_equals"] = status_equals
+            input_["status_equals"] = status_equals
         if application_type_equals is not None:
-            input["application_type_equals"] = application_type_equals
+            input_["application_type_equals"] = application_type_equals
         if name_contains is not None:
-            input["name_contains"] = name_contains
+            input_["name_contains"] = name_contains
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -320,11 +320,11 @@ class EvaluationJobResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.stop_evaluation_job_request.StopEvaluationJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_identifier"] = job_identifier
+        input_: aws_sdk_bedrock.types.stop_evaluation_job_request.StopEvaluationJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_identifier"] = job_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -369,11 +369,11 @@ class AsyncEvaluationJobResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.batch_delete_evaluation_job_request.BatchDeleteEvaluationJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_identifiers"] = job_identifiers
+        input_: aws_sdk_bedrock.types.batch_delete_evaluation_job_request.BatchDeleteEvaluationJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_identifiers"] = job_identifiers
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -433,25 +433,25 @@ class AsyncEvaluationJobResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.create_evaluation_job_request.CreateEvaluationJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_name"] = job_name
+        input_: aws_sdk_bedrock.types.create_evaluation_job_request.CreateEvaluationJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_name"] = job_name
         if job_description is not None:
-            input["job_description"] = job_description
+            input_["job_description"] = job_description
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
-        input["role_arn"] = role_arn
+            input_["client_request_token"] = client_request_token
+        input_["role_arn"] = role_arn
         if customer_encryption_key_id is not None:
-            input["customer_encryption_key_id"] = customer_encryption_key_id
+            input_["customer_encryption_key_id"] = customer_encryption_key_id
         if job_tags is not None:
-            input["job_tags"] = job_tags
+            input_["job_tags"] = job_tags
         if application_type is not None:
-            input["application_type"] = application_type
-        input["evaluation_config"] = evaluation_config
-        input["inference_config"] = inference_config
-        input["output_data_config"] = output_data_config
+            input_["application_type"] = application_type
+        input_["evaluation_config"] = evaluation_config
+        input_["inference_config"] = inference_config
+        input_["output_data_config"] = output_data_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -485,11 +485,11 @@ class AsyncEvaluationJobResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.get_evaluation_job_request.GetEvaluationJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_identifier"] = job_identifier
+        input_: aws_sdk_bedrock.types.get_evaluation_job_request.GetEvaluationJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_identifier"] = job_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -553,28 +553,28 @@ class AsyncEvaluationJobResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.list_evaluation_jobs_request.ListEvaluationJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock.types.list_evaluation_jobs_request.ListEvaluationJobsRequest = {}  # type: ignore[typeddict-item]
         if creation_time_after is not None:
-            input["creation_time_after"] = creation_time_after
+            input_["creation_time_after"] = creation_time_after
         if creation_time_before is not None:
-            input["creation_time_before"] = creation_time_before
+            input_["creation_time_before"] = creation_time_before
         if status_equals is not None:
-            input["status_equals"] = status_equals
+            input_["status_equals"] = status_equals
         if application_type_equals is not None:
-            input["application_type_equals"] = application_type_equals
+            input_["application_type_equals"] = application_type_equals
         if name_contains is not None:
-            input["name_contains"] = name_contains
+            input_["name_contains"] = name_contains
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -608,11 +608,11 @@ class AsyncEvaluationJobResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.stop_evaluation_job_request.StopEvaluationJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_identifier"] = job_identifier
+        input_: aws_sdk_bedrock.types.stop_evaluation_job_request.StopEvaluationJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_identifier"] = job_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

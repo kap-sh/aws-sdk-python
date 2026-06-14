@@ -101,24 +101,24 @@ class ModelImportResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.create_model_import_job_request.CreateModelImportJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_name"] = job_name
-        input["imported_model_name"] = imported_model_name
-        input["role_arn"] = role_arn
-        input["model_data_source"] = model_data_source
+        input_: aws_sdk_bedrock.types.create_model_import_job_request.CreateModelImportJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_name"] = job_name
+        input_["imported_model_name"] = imported_model_name
+        input_["role_arn"] = role_arn
+        input_["model_data_source"] = model_data_source
         if job_tags is not None:
-            input["job_tags"] = job_tags
+            input_["job_tags"] = job_tags
         if imported_model_tags is not None:
-            input["imported_model_tags"] = imported_model_tags
+            input_["imported_model_tags"] = imported_model_tags
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if vpc_config is not None:
-            input["vpc_config"] = vpc_config
+            input_["vpc_config"] = vpc_config
         if imported_model_kms_key_id is not None:
-            input["imported_model_kms_key_id"] = imported_model_kms_key_id
+            input_["imported_model_kms_key_id"] = imported_model_kms_key_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -151,11 +151,11 @@ class ModelImportResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.delete_imported_model_request.DeleteImportedModelRequest = {}  # type: ignore[typeddict-item]
-        input["model_identifier"] = model_identifier
+        input_: aws_sdk_bedrock.types.delete_imported_model_request.DeleteImportedModelRequest = {}  # type: ignore[typeddict-item]
+        input_["model_identifier"] = model_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -188,11 +188,11 @@ class ModelImportResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.get_imported_model_request.GetImportedModelRequest = {}  # type: ignore[typeddict-item]
-        input["model_identifier"] = model_identifier
+        input_: aws_sdk_bedrock.types.get_imported_model_request.GetImportedModelRequest = {}  # type: ignore[typeddict-item]
+        input_["model_identifier"] = model_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -227,11 +227,11 @@ class ModelImportResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.get_model_import_job_request.GetModelImportJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_identifier"] = job_identifier
+        input_: aws_sdk_bedrock.types.get_model_import_job_request.GetModelImportJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_identifier"] = job_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -286,24 +286,24 @@ class ModelImportResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.list_imported_models_request.ListImportedModelsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock.types.list_imported_models_request.ListImportedModelsRequest = {}  # type: ignore[typeddict-item]
         if creation_time_before is not None:
-            input["creation_time_before"] = creation_time_before
+            input_["creation_time_before"] = creation_time_before
         if creation_time_after is not None:
-            input["creation_time_after"] = creation_time_after
+            input_["creation_time_after"] = creation_time_after
         if name_contains is not None:
-            input["name_contains"] = name_contains
+            input_["name_contains"] = name_contains
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -358,26 +358,26 @@ class ModelImportResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.list_model_import_jobs_request.ListModelImportJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock.types.list_model_import_jobs_request.ListModelImportJobsRequest = {}  # type: ignore[typeddict-item]
         if creation_time_after is not None:
-            input["creation_time_after"] = creation_time_after
+            input_["creation_time_after"] = creation_time_after
         if creation_time_before is not None:
-            input["creation_time_before"] = creation_time_before
+            input_["creation_time_before"] = creation_time_before
         if status_equals is not None:
-            input["status_equals"] = status_equals
+            input_["status_equals"] = status_equals
         if name_contains is not None:
-            input["name_contains"] = name_contains
+            input_["name_contains"] = name_contains
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -436,24 +436,24 @@ class AsyncModelImportResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.create_model_import_job_request.CreateModelImportJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_name"] = job_name
-        input["imported_model_name"] = imported_model_name
-        input["role_arn"] = role_arn
-        input["model_data_source"] = model_data_source
+        input_: aws_sdk_bedrock.types.create_model_import_job_request.CreateModelImportJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_name"] = job_name
+        input_["imported_model_name"] = imported_model_name
+        input_["role_arn"] = role_arn
+        input_["model_data_source"] = model_data_source
         if job_tags is not None:
-            input["job_tags"] = job_tags
+            input_["job_tags"] = job_tags
         if imported_model_tags is not None:
-            input["imported_model_tags"] = imported_model_tags
+            input_["imported_model_tags"] = imported_model_tags
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if vpc_config is not None:
-            input["vpc_config"] = vpc_config
+            input_["vpc_config"] = vpc_config
         if imported_model_kms_key_id is not None:
-            input["imported_model_kms_key_id"] = imported_model_kms_key_id
+            input_["imported_model_kms_key_id"] = imported_model_kms_key_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -487,11 +487,11 @@ class AsyncModelImportResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.delete_imported_model_request.DeleteImportedModelRequest = {}  # type: ignore[typeddict-item]
-        input["model_identifier"] = model_identifier
+        input_: aws_sdk_bedrock.types.delete_imported_model_request.DeleteImportedModelRequest = {}  # type: ignore[typeddict-item]
+        input_["model_identifier"] = model_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -525,11 +525,11 @@ class AsyncModelImportResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.get_imported_model_request.GetImportedModelRequest = {}  # type: ignore[typeddict-item]
-        input["model_identifier"] = model_identifier
+        input_: aws_sdk_bedrock.types.get_imported_model_request.GetImportedModelRequest = {}  # type: ignore[typeddict-item]
+        input_["model_identifier"] = model_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -565,11 +565,11 @@ class AsyncModelImportResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.get_model_import_job_request.GetModelImportJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_identifier"] = job_identifier
+        input_: aws_sdk_bedrock.types.get_model_import_job_request.GetModelImportJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_identifier"] = job_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -625,24 +625,24 @@ class AsyncModelImportResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.list_imported_models_request.ListImportedModelsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock.types.list_imported_models_request.ListImportedModelsRequest = {}  # type: ignore[typeddict-item]
         if creation_time_before is not None:
-            input["creation_time_before"] = creation_time_before
+            input_["creation_time_before"] = creation_time_before
         if creation_time_after is not None:
-            input["creation_time_after"] = creation_time_after
+            input_["creation_time_after"] = creation_time_after
         if name_contains is not None:
-            input["name_contains"] = name_contains
+            input_["name_contains"] = name_contains
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -698,26 +698,26 @@ class AsyncModelImportResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.list_model_import_jobs_request.ListModelImportJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock.types.list_model_import_jobs_request.ListModelImportJobsRequest = {}  # type: ignore[typeddict-item]
         if creation_time_after is not None:
-            input["creation_time_after"] = creation_time_after
+            input_["creation_time_after"] = creation_time_after
         if creation_time_before is not None:
-            input["creation_time_before"] = creation_time_before
+            input_["creation_time_before"] = creation_time_before
         if status_equals is not None:
-            input["status_equals"] = status_equals
+            input_["status_equals"] = status_equals
         if name_contains is not None:
-            input["name_contains"] = name_contains
+            input_["name_contains"] = name_contains
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

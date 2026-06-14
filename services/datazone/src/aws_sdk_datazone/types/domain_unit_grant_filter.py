@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#DomainUnitGrantFilter``."""
 
 from typing import TYPE_CHECKING, TypeAlias, TypedDict
+
 from aws_sdk_datazone.errors import DeserializationError, SerializationError
 
 if TYPE_CHECKING:

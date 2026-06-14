@@ -1,18 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.appintegrations#ResourceQuotaExceededException``."""
 
 from typing import TYPE_CHECKING, TypedDict
-
 from typing_extensions import NotRequired
-
 from aws_sdk_appintegrations.errors import ServiceError
-
 if TYPE_CHECKING:
     import aws_sdk_appintegrations.types.message
 
-
 class ResourceQuotaExceededException_(TypedDict):
     message: NotRequired["aws_sdk_appintegrations.types.message.Message"]
-
 
 # --- restJson1 ser/de ---
 def serialize_json(value: ResourceQuotaExceededException_) -> dict:
@@ -31,16 +26,10 @@ def deserialize_json(data: dict) -> ResourceQuotaExceededException_:
 
 class ResourceQuotaExceededException(ServiceError):
     """Modeled error for Smithy shape ``com.amazonaws.appintegrations#ResourceQuotaExceededException``."""
-
-    code: str | None = "ResourceQuotaExceededException"
+    code: str | None = 'ResourceQuotaExceededException'
 
     def __init__(self, data: ResourceQuotaExceededException_):
-        super().__init__(
-            "client",
-            is_throttling_error=False,
-            is_retryable=False,
-            code="ResourceQuotaExceededException",
-        )
+        super().__init__('client', is_throttling_error=False, is_retryable=False, code='ResourceQuotaExceededException')
         self.data = data
 
     @classmethod

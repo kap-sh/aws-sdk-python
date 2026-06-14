@@ -83,7 +83,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.put_use_case_for_model_access_request.PutUseCaseForModelAccessRequest,
+    input_: aws_sdk_bedrock.types.put_use_case_for_model_access_request.PutUseCaseForModelAccessRequest,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -100,7 +100,7 @@ def build_request(
 
     body: bytes | None = json.dumps(
         aws_sdk_bedrock.types.put_use_case_for_model_access_request.serialize_json(
-            input
+            input_
         )
     ).encode()
     headers["content-type"] = "application/json"
@@ -114,12 +114,12 @@ def build_request(
 
 def put_use_case_for_model_access(
     options: OperationOptions,
-    input: aws_sdk_bedrock.types.put_use_case_for_model_access_request.PutUseCaseForModelAccessRequest,
+    input_: aws_sdk_bedrock.types.put_use_case_for_model_access_request.PutUseCaseForModelAccessRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.put_use_case_for_model_access_response.PutUseCaseForModelAccessResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -133,12 +133,12 @@ def put_use_case_for_model_access(
 
 async def async_put_use_case_for_model_access(
     options: AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.put_use_case_for_model_access_request.PutUseCaseForModelAccessRequest,
+    input_: aws_sdk_bedrock.types.put_use_case_for_model_access_request.PutUseCaseForModelAccessRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.put_use_case_for_model_access_response.PutUseCaseForModelAccessResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

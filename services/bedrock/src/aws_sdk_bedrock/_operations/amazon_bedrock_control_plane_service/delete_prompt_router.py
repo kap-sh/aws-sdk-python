@@ -90,7 +90,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.delete_prompt_router_request.DeletePromptRouterRequest,
+    input_: aws_sdk_bedrock.types.delete_prompt_router_request.DeletePromptRouterRequest,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -102,7 +102,7 @@ def build_request(
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/prompt-routers/{promptRouterArn}"
     url = url.replace(
-        "{promptRouterArn}", quote(str(input["prompt_router_arn"]), safe="")
+        "{promptRouterArn}", quote(str(input_["prompt_router_arn"]), safe="")
     )
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
@@ -117,12 +117,12 @@ def build_request(
 
 def delete_prompt_router(
     options: OperationOptions,
-    input: aws_sdk_bedrock.types.delete_prompt_router_request.DeletePromptRouterRequest,
+    input_: aws_sdk_bedrock.types.delete_prompt_router_request.DeletePromptRouterRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.delete_prompt_router_response.DeletePromptRouterResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -136,12 +136,12 @@ def delete_prompt_router(
 
 async def async_delete_prompt_router(
     options: AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.delete_prompt_router_request.DeletePromptRouterRequest,
+    input_: aws_sdk_bedrock.types.delete_prompt_router_request.DeletePromptRouterRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.delete_prompt_router_response.DeletePromptRouterResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

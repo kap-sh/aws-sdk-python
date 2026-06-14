@@ -1,13 +1,17 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesweb#BrandingConfiguration``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_workspaces_web.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_workspaces_web.types.color_theme
     import aws_sdk_workspaces_web.types.image_metadata
     import aws_sdk_workspaces_web.types.localized_branding_string_map
     import aws_sdk_workspaces_web.types.markdown
+
 
 class BrandingConfiguration(TypedDict):
     logo: "aws_sdk_workspaces_web.types.image_metadata.ImageMetadata"
@@ -23,20 +27,38 @@ class BrandingConfiguration(TypedDict):
     terms_of_service: NotRequired["aws_sdk_workspaces_web.types.markdown.Markdown"]
     """<p>The terms of service text in Markdown format that users must accept before accessing the portal.</p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: BrandingConfiguration) -> dict:
     out: dict = {}
     import aws_sdk_workspaces_web.types.image_metadata
-    out["logo"] = aws_sdk_workspaces_web.types.image_metadata.serialize_json(value["logo"])
+
+    out["logo"] = aws_sdk_workspaces_web.types.image_metadata.serialize_json(
+        value["logo"]
+    )
     if "wallpaper" in value:
         import aws_sdk_workspaces_web.types.image_metadata
-        out["wallpaper"] = aws_sdk_workspaces_web.types.image_metadata.serialize_json(value["wallpaper"])
+
+        out["wallpaper"] = aws_sdk_workspaces_web.types.image_metadata.serialize_json(
+            value["wallpaper"]
+        )
     import aws_sdk_workspaces_web.types.image_metadata
-    out["favicon"] = aws_sdk_workspaces_web.types.image_metadata.serialize_json(value["favicon"])
+
+    out["favicon"] = aws_sdk_workspaces_web.types.image_metadata.serialize_json(
+        value["favicon"]
+    )
     import aws_sdk_workspaces_web.types.localized_branding_string_map
-    out["localizedStrings"] = aws_sdk_workspaces_web.types.localized_branding_string_map.serialize_json(value["localized_strings"])
+
+    out["localizedStrings"] = (
+        aws_sdk_workspaces_web.types.localized_branding_string_map.serialize_json(
+            value["localized_strings"]
+        )
+    )
     import aws_sdk_workspaces_web.types.color_theme
-    out["colorTheme"] = aws_sdk_workspaces_web.types.color_theme.serialize_json(value["color_theme"])
+
+    out["colorTheme"] = aws_sdk_workspaces_web.types.color_theme.serialize_json(
+        value["color_theme"]
+    )
     if "terms_of_service" in value:
         out["termsOfService"] = value["terms_of_service"]
     return out
@@ -46,25 +68,42 @@ def deserialize_json(data: dict) -> BrandingConfiguration:
     out: BrandingConfiguration = {}  # type: ignore[typeddict-item]
     if "logo" in data:
         import aws_sdk_workspaces_web.types.image_metadata
-        out["logo"] = aws_sdk_workspaces_web.types.image_metadata.deserialize_json(data["logo"])
+
+        out["logo"] = aws_sdk_workspaces_web.types.image_metadata.deserialize_json(
+            data["logo"]
+        )
     else:
         raise DeserializationError("BrandingConfiguration.logo required")
     if "wallpaper" in data:
         import aws_sdk_workspaces_web.types.image_metadata
-        out["wallpaper"] = aws_sdk_workspaces_web.types.image_metadata.deserialize_json(data["wallpaper"])
+
+        out["wallpaper"] = aws_sdk_workspaces_web.types.image_metadata.deserialize_json(
+            data["wallpaper"]
+        )
     if "favicon" in data:
         import aws_sdk_workspaces_web.types.image_metadata
-        out["favicon"] = aws_sdk_workspaces_web.types.image_metadata.deserialize_json(data["favicon"])
+
+        out["favicon"] = aws_sdk_workspaces_web.types.image_metadata.deserialize_json(
+            data["favicon"]
+        )
     else:
         raise DeserializationError("BrandingConfiguration.favicon required")
     if "localizedStrings" in data:
         import aws_sdk_workspaces_web.types.localized_branding_string_map
-        out["localized_strings"] = aws_sdk_workspaces_web.types.localized_branding_string_map.deserialize_json(data["localizedStrings"])
+
+        out["localized_strings"] = (
+            aws_sdk_workspaces_web.types.localized_branding_string_map.deserialize_json(
+                data["localizedStrings"]
+            )
+        )
     else:
         raise DeserializationError("BrandingConfiguration.localized_strings required")
     if "colorTheme" in data:
         import aws_sdk_workspaces_web.types.color_theme
-        out["color_theme"] = aws_sdk_workspaces_web.types.color_theme.deserialize_json(data["colorTheme"])
+
+        out["color_theme"] = aws_sdk_workspaces_web.types.color_theme.deserialize_json(
+            data["colorTheme"]
+        )
     else:
         raise DeserializationError("BrandingConfiguration.color_theme required")
     if "termsOfService" in data:

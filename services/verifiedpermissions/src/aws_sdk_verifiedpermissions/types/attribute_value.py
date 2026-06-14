@@ -1,25 +1,30 @@
 """Generated from Smithy shape ``com.amazonaws.verifiedpermissions#AttributeValue``."""
 
 from typing import TYPE_CHECKING, TypeAlias, TypedDict
+
 from aws_sdk_verifiedpermissions.errors import DeserializationError, SerializationError
+
 if TYPE_CHECKING:
     import aws_sdk_verifiedpermissions.types.boolean_attribute
-    import aws_sdk_verifiedpermissions.types.entity_identifier
-    import aws_sdk_verifiedpermissions.types.long_attribute
-    import aws_sdk_verifiedpermissions.types.string_attribute
-    import aws_sdk_verifiedpermissions.types.set_attribute
-    import aws_sdk_verifiedpermissions.types.record_attribute
-    import aws_sdk_verifiedpermissions.types.ip_addr
-    import aws_sdk_verifiedpermissions.types.decimal
     import aws_sdk_verifiedpermissions.types.datetime_attribute
+    import aws_sdk_verifiedpermissions.types.decimal
     import aws_sdk_verifiedpermissions.types.duration
+    import aws_sdk_verifiedpermissions.types.entity_identifier
+    import aws_sdk_verifiedpermissions.types.ip_addr
+    import aws_sdk_verifiedpermissions.types.long_attribute
+    import aws_sdk_verifiedpermissions.types.record_attribute
+    import aws_sdk_verifiedpermissions.types.set_attribute
+    import aws_sdk_verifiedpermissions.types.string_attribute
+
 
 class _AttributeValue_boolean(TypedDict):
     boolean: "aws_sdk_verifiedpermissions.types.boolean_attribute.BooleanAttribute"
 
 
 class _AttributeValue_entityIdentifier(TypedDict):
-    entityIdentifier: "aws_sdk_verifiedpermissions.types.entity_identifier.EntityIdentifier"
+    entityIdentifier: (
+        "aws_sdk_verifiedpermissions.types.entity_identifier.EntityIdentifier"
+    )
 
 
 class _AttributeValue_long(TypedDict):
@@ -53,7 +58,20 @@ class _AttributeValue_datetime(TypedDict):
 class _AttributeValue_duration(TypedDict):
     duration: "aws_sdk_verifiedpermissions.types.duration.Duration"
 
-AttributeValue: TypeAlias = _AttributeValue_boolean | _AttributeValue_entityIdentifier | _AttributeValue_long | _AttributeValue_string | _AttributeValue_set | _AttributeValue_record | _AttributeValue_ipaddr | _AttributeValue_decimal | _AttributeValue_datetime | _AttributeValue_duration
+
+AttributeValue: TypeAlias = (
+    _AttributeValue_boolean
+    | _AttributeValue_entityIdentifier
+    | _AttributeValue_long
+    | _AttributeValue_string
+    | _AttributeValue_set
+    | _AttributeValue_record
+    | _AttributeValue_ipaddr
+    | _AttributeValue_decimal
+    | _AttributeValue_datetime
+    | _AttributeValue_duration
+)
+
 
 # --- awsJson1_0 ser/de ---
 def serialize_aws_json_1_0(value: AttributeValue) -> dict:
@@ -61,17 +79,32 @@ def serialize_aws_json_1_0(value: AttributeValue) -> dict:
         return {"boolean": value["boolean"]}
     elif "entityIdentifier" in value:
         import aws_sdk_verifiedpermissions.types.entity_identifier
-        return {"entityIdentifier": aws_sdk_verifiedpermissions.types.entity_identifier.serialize_aws_json_1_0(value["entityIdentifier"])}
+
+        return {
+            "entityIdentifier": aws_sdk_verifiedpermissions.types.entity_identifier.serialize_aws_json_1_0(
+                value["entityIdentifier"]
+            )
+        }
     elif "long" in value:
         return {"long": value["long"]}
     elif "string" in value:
         return {"string": value["string"]}
     elif "set" in value:
         import aws_sdk_verifiedpermissions.types.set_attribute
-        return {"set": aws_sdk_verifiedpermissions.types.set_attribute.serialize_aws_json_1_0(value["set"])}
+
+        return {
+            "set": aws_sdk_verifiedpermissions.types.set_attribute.serialize_aws_json_1_0(
+                value["set"]
+            )
+        }
     elif "record" in value:
         import aws_sdk_verifiedpermissions.types.record_attribute
-        return {"record": aws_sdk_verifiedpermissions.types.record_attribute.serialize_aws_json_1_0(value["record"])}
+
+        return {
+            "record": aws_sdk_verifiedpermissions.types.record_attribute.serialize_aws_json_1_0(
+                value["record"]
+            )
+        }
     elif "ipaddr" in value:
         return {"ipaddr": value["ipaddr"]}
     elif "decimal" in value:
@@ -89,17 +122,32 @@ def deserialize_aws_json_1_0(data: dict) -> AttributeValue:
         return {"boolean": data["boolean"]}
     elif "entityIdentifier" in data:
         import aws_sdk_verifiedpermissions.types.entity_identifier
-        return {"entityIdentifier": aws_sdk_verifiedpermissions.types.entity_identifier.deserialize_aws_json_1_0(data["entityIdentifier"])}
+
+        return {
+            "entityIdentifier": aws_sdk_verifiedpermissions.types.entity_identifier.deserialize_aws_json_1_0(
+                data["entityIdentifier"]
+            )
+        }
     elif "long" in data:
         return {"long": data["long"]}
     elif "string" in data:
         return {"string": data["string"]}
     elif "set" in data:
         import aws_sdk_verifiedpermissions.types.set_attribute
-        return {"set": aws_sdk_verifiedpermissions.types.set_attribute.deserialize_aws_json_1_0(data["set"])}
+
+        return {
+            "set": aws_sdk_verifiedpermissions.types.set_attribute.deserialize_aws_json_1_0(
+                data["set"]
+            )
+        }
     elif "record" in data:
         import aws_sdk_verifiedpermissions.types.record_attribute
-        return {"record": aws_sdk_verifiedpermissions.types.record_attribute.deserialize_aws_json_1_0(data["record"])}
+
+        return {
+            "record": aws_sdk_verifiedpermissions.types.record_attribute.deserialize_aws_json_1_0(
+                data["record"]
+            )
+        }
     elif "ipaddr" in data:
         return {"ipaddr": data["ipaddr"]}
     elif "decimal" in data:

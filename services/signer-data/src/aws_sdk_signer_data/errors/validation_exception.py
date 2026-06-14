@@ -1,12 +1,16 @@
 """Generated from Smithy shape ``com.amazonaws.signerdata#ValidationException``."""
 
 from typing import TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_signer_data.errors import ServiceError
+
 
 class ValidationException_(TypedDict):
     message: NotRequired["str"]
     code: NotRequired["str"]
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: ValidationException_) -> dict:
@@ -29,10 +33,16 @@ def deserialize_json(data: dict) -> ValidationException_:
 
 class ValidationException(ServiceError):
     """Modeled error for Smithy shape ``com.amazonaws.signerdata#ValidationException``."""
-    code: str | None = 'ValidationException'
+
+    code: str | None = "ValidationException"
 
     def __init__(self, data: ValidationException_):
-        super().__init__('client', is_throttling_error=False, is_retryable=False, code='ValidationException')
+        super().__init__(
+            "client",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="ValidationException",
+        )
         self.data = data
 
     @classmethod

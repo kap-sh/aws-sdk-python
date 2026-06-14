@@ -87,7 +87,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.get_use_case_for_model_access_request.GetUseCaseForModelAccessRequest,
+    input_: aws_sdk_bedrock.types.get_use_case_for_model_access_request.GetUseCaseForModelAccessRequest,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -111,12 +111,12 @@ def build_request(
 
 def get_use_case_for_model_access(
     options: OperationOptions,
-    input: aws_sdk_bedrock.types.get_use_case_for_model_access_request.GetUseCaseForModelAccessRequest,
+    input_: aws_sdk_bedrock.types.get_use_case_for_model_access_request.GetUseCaseForModelAccessRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.get_use_case_for_model_access_response.GetUseCaseForModelAccessResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -130,12 +130,12 @@ def get_use_case_for_model_access(
 
 async def async_get_use_case_for_model_access(
     options: AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.get_use_case_for_model_access_request.GetUseCaseForModelAccessRequest,
+    input_: aws_sdk_bedrock.types.get_use_case_for_model_access_request.GetUseCaseForModelAccessRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.get_use_case_for_model_access_response.GetUseCaseForModelAccessResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

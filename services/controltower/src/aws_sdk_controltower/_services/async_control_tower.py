@@ -128,6 +128,7 @@ class AsyncControlTowerClient:
                 "credentials_provider": credentials_provider,
             }
         )
+
         # resources
         self.baseline_operation_resource = AsyncBaselineOperationResource(self)
         self.baseline_resource = AsyncBaselineResource(self)

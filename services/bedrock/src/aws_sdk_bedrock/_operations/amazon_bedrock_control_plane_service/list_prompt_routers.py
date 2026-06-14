@@ -87,7 +87,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.list_prompt_routers_request.ListPromptRoutersRequest,
+    input_: aws_sdk_bedrock.types.list_prompt_routers_request.ListPromptRoutersRequest,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -99,11 +99,11 @@ def build_request(
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/prompt-routers"
     params: dict[str, str] = {}
-    if "max_results" in input:
-        params["maxResults"] = str(input["max_results"])
-    if "next_token" in input:
-        params["nextToken"] = str(input["next_token"])
-    params["type"] = str(input.get("type", "default"))
+    if "max_results" in input_:
+        params["maxResults"] = str(input_["max_results"])
+    if "next_token" in input_:
+        params["nextToken"] = str(input_["next_token"])
+    params["type"] = str(input_.get("type", "default"))
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
@@ -116,12 +116,12 @@ def build_request(
 
 def list_prompt_routers(
     options: OperationOptions,
-    input: aws_sdk_bedrock.types.list_prompt_routers_request.ListPromptRoutersRequest,
+    input_: aws_sdk_bedrock.types.list_prompt_routers_request.ListPromptRoutersRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.list_prompt_routers_response.ListPromptRoutersResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -135,12 +135,12 @@ def list_prompt_routers(
 
 async def async_list_prompt_routers(
     options: AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.list_prompt_routers_request.ListPromptRoutersRequest,
+    input_: aws_sdk_bedrock.types.list_prompt_routers_request.ListPromptRoutersRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.list_prompt_routers_response.ListPromptRoutersResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

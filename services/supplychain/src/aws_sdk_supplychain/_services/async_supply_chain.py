@@ -135,7 +135,7 @@ class AsyncSupplyChainClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = AsyncSupplyChainClientConfig(
+        self._config = AsyncSupplyChainClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -148,6 +148,7 @@ class AsyncSupplyChainClient:
                 "credentials_provider": credentials_provider,
             }
         )
+
         # resources
         self.bill_of_materials_import_job_resource = (
             AsyncBillOfMaterialsImportJobResource(self)
@@ -163,7 +164,7 @@ class AsyncSupplyChainClient:
         overrides: AsyncSupplyChainClientConfig = config_overrides or {}
         interceptors_: list[AsyncInterceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             aretry(),
         ]
@@ -171,16 +172,16 @@ class AsyncSupplyChainClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            region=overrides.get("region", self.config.get("region")),
+            region=overrides.get("region", self._config.get("region")),
             use_dual_stack=overrides.get(
-                "use_dual_stack", self.config.get("use_dual_stack")
+                "use_dual_stack", self._config.get("use_dual_stack")
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -521,7 +522,7 @@ class AsyncSupplyChainClient:
             "aws_sdk_supplychain.types.data_integration_event_dataset_target_configuration.DataIntegrationEventDatasetTargetConfiguration"
         ] = None,
     ) -> "aws_sdk_supplychain.types.send_data_integration_event_response.SendDataIntegrationEventResponse":
-        """<p>Send the data payload for the event with real-time data for analysis or monitoring. The real-time data events are stored in an Amazon Web Services service before being processed and stored in data lake.</p>
+        r"""<p>Send the data payload for the event with real-time data for analysis or monitoring. The real-time data events are stored in an Amazon Web Services service before being processed and stored in data lake.</p>
 
         Args:
             instance_id: <p>The AWS Supply Chain instance identifier.</p>

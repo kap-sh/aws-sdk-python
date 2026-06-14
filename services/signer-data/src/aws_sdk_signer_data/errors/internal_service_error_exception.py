@@ -1,12 +1,16 @@
 """Generated from Smithy shape ``com.amazonaws.signerdata#InternalServiceErrorException``."""
 
 from typing import TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_signer_data.errors import ServiceError
+
 
 class InternalServiceErrorException_(TypedDict):
     message: NotRequired["str"]
     code: NotRequired["str"]
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: InternalServiceErrorException_) -> dict:
@@ -29,10 +33,16 @@ def deserialize_json(data: dict) -> InternalServiceErrorException_:
 
 class InternalServiceErrorException(ServiceError):
     """Modeled error for Smithy shape ``com.amazonaws.signerdata#InternalServiceErrorException``."""
-    code: str | None = 'InternalServiceErrorException'
+
+    code: str | None = "InternalServiceErrorException"
 
     def __init__(self, data: InternalServiceErrorException_):
-        super().__init__('server', is_throttling_error=False, is_retryable=False, code='InternalServiceErrorException')
+        super().__init__(
+            "server",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="InternalServiceErrorException",
+        )
         self.data = data
 
     @classmethod

@@ -1,26 +1,24 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#CreateTapeWithBarcode``."""
 
 from __future__ import annotations
-from typing import TYPE_CHECKING, Never, Any, cast
+
+import json
+from typing import TYPE_CHECKING, Any, Never
+
+import zapros
+
+import aws_sdk_storage_gateway._auth._signers
+import aws_sdk_storage_gateway._auth._sigv4
+from aws_sdk_storage_gateway._protocol.errors import parse_error_metadata_json
 from aws_sdk_storage_gateway._rule_engine._endpoint_rule_set import (
     EndpointParams,
     resolve,
 )
-from aws_sdk_storage_gateway._rule_engine._endpoint_runtime import apply_label
-import jmespath
-import zapros
-from urllib.parse import quote, urlencode
-from aws_sdk_storage_gateway.errors import ServiceError, UnknownServiceError
-from aws_sdk_storage_gateway._protocol.errors import parse_error_metadata_json
-import json
-import aws_sdk_storage_gateway._auth._signers
-import aws_sdk_storage_gateway._auth._sigv4
 from aws_sdk_storage_gateway._services._pipeline import (
     AsyncOperationOptions,
     OperationOptions,
 )
-import datetime
-from email.utils import parsedate_to_datetime as _parse_http_date
+from aws_sdk_storage_gateway.errors import UnknownServiceError
 
 if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.create_tape_with_barcode_input
@@ -62,7 +60,7 @@ def get_signer(
     options: AsyncOperationOptions | OperationOptions,
     auth_schemes: list[dict[str, Any]] | None = None,
 ) -> aws_sdk_storage_gateway._auth._signers.Signer | None:
-    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}
+    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}  # noqa: F841
     if options.credentials_provider is not None:
         sigv4_config = (
             name_to_schema.get("sigv4")

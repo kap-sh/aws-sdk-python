@@ -94,7 +94,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.get_automated_reasoning_policy_request.GetAutomatedReasoningPolicyRequest,
+    input_: aws_sdk_bedrock.types.get_automated_reasoning_policy_request.GetAutomatedReasoningPolicyRequest,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -105,7 +105,7 @@ def build_request(
         )
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/automated-reasoning-policies/{policyArn}"
-    url = url.replace("{policyArn}", quote(str(input["policy_arn"]), safe=""))
+    url = url.replace("{policyArn}", quote(str(input_["policy_arn"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
@@ -119,12 +119,12 @@ def build_request(
 
 def get_automated_reasoning_policy(
     options: OperationOptions,
-    input: aws_sdk_bedrock.types.get_automated_reasoning_policy_request.GetAutomatedReasoningPolicyRequest,
+    input_: aws_sdk_bedrock.types.get_automated_reasoning_policy_request.GetAutomatedReasoningPolicyRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.get_automated_reasoning_policy_response.GetAutomatedReasoningPolicyResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -138,12 +138,12 @@ def get_automated_reasoning_policy(
 
 async def async_get_automated_reasoning_policy(
     options: AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.get_automated_reasoning_policy_request.GetAutomatedReasoningPolicyRequest,
+    input_: aws_sdk_bedrock.types.get_automated_reasoning_policy_request.GetAutomatedReasoningPolicyRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.get_automated_reasoning_policy_response.GetAutomatedReasoningPolicyResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

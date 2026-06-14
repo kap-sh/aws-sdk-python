@@ -75,11 +75,11 @@ class AdvancedPromptOptimizationJobResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.batch_delete_advanced_prompt_optimization_job_request.BatchDeleteAdvancedPromptOptimizationJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_identifiers"] = job_identifiers
+        input_: aws_sdk_bedrock.types.batch_delete_advanced_prompt_optimization_job_request.BatchDeleteAdvancedPromptOptimizationJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_identifiers"] = job_identifiers
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -132,22 +132,22 @@ class AdvancedPromptOptimizationJobResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.create_advanced_prompt_optimization_job_request.CreateAdvancedPromptOptimizationJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_name"] = job_name
+        input_: aws_sdk_bedrock.types.create_advanced_prompt_optimization_job_request.CreateAdvancedPromptOptimizationJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_name"] = job_name
         if job_description is not None:
-            input["job_description"] = job_description
+            input_["job_description"] = job_description
         if client_token is not None:
-            input["client_token"] = client_token
-        input["input_config"] = input_config
-        input["output_config"] = output_config
+            input_["client_token"] = client_token
+        input_["input_config"] = input_config
+        input_["output_config"] = output_config
         if encryption_key_arn is not None:
-            input["encryption_key_arn"] = encryption_key_arn
+            input_["encryption_key_arn"] = encryption_key_arn
         if tags is not None:
-            input["tags"] = tags
-        input["model_configurations"] = model_configurations
+            input_["tags"] = tags
+        input_["model_configurations"] = model_configurations
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -180,11 +180,11 @@ class AdvancedPromptOptimizationJobResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.get_advanced_prompt_optimization_job_request.GetAdvancedPromptOptimizationJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_identifier"] = job_identifier
+        input_: aws_sdk_bedrock.types.get_advanced_prompt_optimization_job_request.GetAdvancedPromptOptimizationJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_identifier"] = job_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -225,18 +225,18 @@ class AdvancedPromptOptimizationJobResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.list_advanced_prompt_optimization_jobs_request.ListAdvancedPromptOptimizationJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock.types.list_advanced_prompt_optimization_jobs_request.ListAdvancedPromptOptimizationJobsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -269,11 +269,11 @@ class AdvancedPromptOptimizationJobResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.stop_advanced_prompt_optimization_job_request.StopAdvancedPromptOptimizationJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_identifier"] = job_identifier
+        input_: aws_sdk_bedrock.types.stop_advanced_prompt_optimization_job_request.StopAdvancedPromptOptimizationJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_identifier"] = job_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -312,11 +312,11 @@ class AsyncAdvancedPromptOptimizationJobResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.batch_delete_advanced_prompt_optimization_job_request.BatchDeleteAdvancedPromptOptimizationJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_identifiers"] = job_identifiers
+        input_: aws_sdk_bedrock.types.batch_delete_advanced_prompt_optimization_job_request.BatchDeleteAdvancedPromptOptimizationJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_identifiers"] = job_identifiers
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -370,22 +370,22 @@ class AsyncAdvancedPromptOptimizationJobResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.create_advanced_prompt_optimization_job_request.CreateAdvancedPromptOptimizationJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_name"] = job_name
+        input_: aws_sdk_bedrock.types.create_advanced_prompt_optimization_job_request.CreateAdvancedPromptOptimizationJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_name"] = job_name
         if job_description is not None:
-            input["job_description"] = job_description
+            input_["job_description"] = job_description
         if client_token is not None:
-            input["client_token"] = client_token
-        input["input_config"] = input_config
-        input["output_config"] = output_config
+            input_["client_token"] = client_token
+        input_["input_config"] = input_config
+        input_["output_config"] = output_config
         if encryption_key_arn is not None:
-            input["encryption_key_arn"] = encryption_key_arn
+            input_["encryption_key_arn"] = encryption_key_arn
         if tags is not None:
-            input["tags"] = tags
-        input["model_configurations"] = model_configurations
+            input_["tags"] = tags
+        input_["model_configurations"] = model_configurations
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -419,11 +419,11 @@ class AsyncAdvancedPromptOptimizationJobResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.get_advanced_prompt_optimization_job_request.GetAdvancedPromptOptimizationJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_identifier"] = job_identifier
+        input_: aws_sdk_bedrock.types.get_advanced_prompt_optimization_job_request.GetAdvancedPromptOptimizationJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_identifier"] = job_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -465,18 +465,18 @@ class AsyncAdvancedPromptOptimizationJobResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.list_advanced_prompt_optimization_jobs_request.ListAdvancedPromptOptimizationJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock.types.list_advanced_prompt_optimization_jobs_request.ListAdvancedPromptOptimizationJobsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -510,11 +510,11 @@ class AsyncAdvancedPromptOptimizationJobResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.stop_advanced_prompt_optimization_job_request.StopAdvancedPromptOptimizationJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_identifier"] = job_identifier
+        input_: aws_sdk_bedrock.types.stop_advanced_prompt_optimization_job_request.StopAdvancedPromptOptimizationJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_identifier"] = job_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

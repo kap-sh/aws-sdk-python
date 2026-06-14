@@ -1,17 +1,20 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#SubscribedAsset``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_datazone.errors import DeserializationError
 
 if TYPE_CHECKING:
+    import datetime
+
     import aws_sdk_datazone.types.asset_id
     import aws_sdk_datazone.types.asset_scope
     import aws_sdk_datazone.types.failure_cause
     import aws_sdk_datazone.types.permissions
     import aws_sdk_datazone.types.revision
     import aws_sdk_datazone.types.subscription_grant_status
-    import datetime
 
 
 class SubscribedAsset(TypedDict):

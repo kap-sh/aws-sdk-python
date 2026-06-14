@@ -141,21 +141,21 @@ class AutomatedReasoningPolicyResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.create_automated_reasoning_policy_request.CreateAutomatedReasoningPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_bedrock.types.create_automated_reasoning_policy_request.CreateAutomatedReasoningPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if policy_definition is not None:
-            input["policy_definition"] = policy_definition
+            input_["policy_definition"] = policy_definition
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -188,11 +188,11 @@ class AutomatedReasoningPolicyResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.get_automated_reasoning_policy_request.GetAutomatedReasoningPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["policy_arn"] = policy_arn
+        input_: aws_sdk_bedrock.types.get_automated_reasoning_policy_request.GetAutomatedReasoningPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_arn"] = policy_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -235,16 +235,16 @@ class AutomatedReasoningPolicyResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.update_automated_reasoning_policy_request.UpdateAutomatedReasoningPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["policy_arn"] = policy_arn
-        input["policy_definition"] = policy_definition
+        input_: aws_sdk_bedrock.types.update_automated_reasoning_policy_request.UpdateAutomatedReasoningPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_arn"] = policy_arn
+        input_["policy_definition"] = policy_definition
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -279,13 +279,13 @@ class AutomatedReasoningPolicyResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.delete_automated_reasoning_policy_request.DeleteAutomatedReasoningPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["policy_arn"] = policy_arn
+        input_: aws_sdk_bedrock.types.delete_automated_reasoning_policy_request.DeleteAutomatedReasoningPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_arn"] = policy_arn
         if force is not None:
-            input["force"] = force
+            input_["force"] = force
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -326,16 +326,16 @@ class AutomatedReasoningPolicyResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.list_automated_reasoning_policies_request.ListAutomatedReasoningPoliciesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock.types.list_automated_reasoning_policies_request.ListAutomatedReasoningPoliciesRequest = {}  # type: ignore[typeddict-item]
         if policy_arn is not None:
-            input["policy_arn"] = policy_arn
+            input_["policy_arn"] = policy_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -370,12 +370,12 @@ class AutomatedReasoningPolicyResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.cancel_automated_reasoning_policy_build_workflow_request.CancelAutomatedReasoningPolicyBuildWorkflowRequest = {}  # type: ignore[typeddict-item]
-        input["policy_arn"] = policy_arn
-        input["build_workflow_id"] = build_workflow_id
+        input_: aws_sdk_bedrock.types.cancel_automated_reasoning_policy_build_workflow_request.CancelAutomatedReasoningPolicyBuildWorkflowRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_arn"] = policy_arn
+        input_["build_workflow_id"] = build_workflow_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -424,21 +424,21 @@ class AutomatedReasoningPolicyResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.create_automated_reasoning_policy_test_case_request.CreateAutomatedReasoningPolicyTestCaseRequest = {}  # type: ignore[typeddict-item]
-        input["policy_arn"] = policy_arn
-        input["guard_content"] = guard_content
+        input_: aws_sdk_bedrock.types.create_automated_reasoning_policy_test_case_request.CreateAutomatedReasoningPolicyTestCaseRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_arn"] = policy_arn
+        input_["guard_content"] = guard_content
         if query_content is not None:
-            input["query_content"] = query_content
-        input["expected_aggregated_findings_result"] = (
+            input_["query_content"] = query_content
+        input_["expected_aggregated_findings_result"] = (
             expected_aggregated_findings_result
         )
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if confidence_threshold is not None:
-            input["confidence_threshold"] = confidence_threshold
+            input_["confidence_threshold"] = confidence_threshold
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -479,16 +479,16 @@ class AutomatedReasoningPolicyResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.create_automated_reasoning_policy_version_request.CreateAutomatedReasoningPolicyVersionRequest = {}  # type: ignore[typeddict-item]
-        input["policy_arn"] = policy_arn
+        input_: aws_sdk_bedrock.types.create_automated_reasoning_policy_version_request.CreateAutomatedReasoningPolicyVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_arn"] = policy_arn
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
-        input["last_updated_definition_hash"] = last_updated_definition_hash
+            input_["client_request_token"] = client_request_token
+        input_["last_updated_definition_hash"] = last_updated_definition_hash
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -525,13 +525,13 @@ class AutomatedReasoningPolicyResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.delete_automated_reasoning_policy_build_workflow_request.DeleteAutomatedReasoningPolicyBuildWorkflowRequest = {}  # type: ignore[typeddict-item]
-        input["policy_arn"] = policy_arn
-        input["build_workflow_id"] = build_workflow_id
-        input["last_updated_at"] = last_updated_at
+        input_: aws_sdk_bedrock.types.delete_automated_reasoning_policy_build_workflow_request.DeleteAutomatedReasoningPolicyBuildWorkflowRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_arn"] = policy_arn
+        input_["build_workflow_id"] = build_workflow_id
+        input_["last_updated_at"] = last_updated_at
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -568,13 +568,13 @@ class AutomatedReasoningPolicyResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.delete_automated_reasoning_policy_test_case_request.DeleteAutomatedReasoningPolicyTestCaseRequest = {}  # type: ignore[typeddict-item]
-        input["policy_arn"] = policy_arn
-        input["test_case_id"] = test_case_id
-        input["last_updated_at"] = last_updated_at
+        input_: aws_sdk_bedrock.types.delete_automated_reasoning_policy_test_case_request.DeleteAutomatedReasoningPolicyTestCaseRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_arn"] = policy_arn
+        input_["test_case_id"] = test_case_id
+        input_["last_updated_at"] = last_updated_at
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -607,11 +607,11 @@ class AutomatedReasoningPolicyResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.export_automated_reasoning_policy_version_request.ExportAutomatedReasoningPolicyVersionRequest = {}  # type: ignore[typeddict-item]
-        input["policy_arn"] = policy_arn
+        input_: aws_sdk_bedrock.types.export_automated_reasoning_policy_version_request.ExportAutomatedReasoningPolicyVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_arn"] = policy_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -646,12 +646,12 @@ class AutomatedReasoningPolicyResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.get_automated_reasoning_policy_annotations_request.GetAutomatedReasoningPolicyAnnotationsRequest = {}  # type: ignore[typeddict-item]
-        input["policy_arn"] = policy_arn
-        input["build_workflow_id"] = build_workflow_id
+        input_: aws_sdk_bedrock.types.get_automated_reasoning_policy_annotations_request.GetAutomatedReasoningPolicyAnnotationsRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_arn"] = policy_arn
+        input_["build_workflow_id"] = build_workflow_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -686,12 +686,12 @@ class AutomatedReasoningPolicyResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.get_automated_reasoning_policy_build_workflow_request.GetAutomatedReasoningPolicyBuildWorkflowRequest = {}  # type: ignore[typeddict-item]
-        input["policy_arn"] = policy_arn
-        input["build_workflow_id"] = build_workflow_id
+        input_: aws_sdk_bedrock.types.get_automated_reasoning_policy_build_workflow_request.GetAutomatedReasoningPolicyBuildWorkflowRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_arn"] = policy_arn
+        input_["build_workflow_id"] = build_workflow_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -732,15 +732,15 @@ class AutomatedReasoningPolicyResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.get_automated_reasoning_policy_build_workflow_result_assets_request.GetAutomatedReasoningPolicyBuildWorkflowResultAssetsRequest = {}  # type: ignore[typeddict-item]
-        input["policy_arn"] = policy_arn
-        input["build_workflow_id"] = build_workflow_id
-        input["asset_type"] = asset_type
+        input_: aws_sdk_bedrock.types.get_automated_reasoning_policy_build_workflow_result_assets_request.GetAutomatedReasoningPolicyBuildWorkflowResultAssetsRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_arn"] = policy_arn
+        input_["build_workflow_id"] = build_workflow_id
+        input_["asset_type"] = asset_type
         if asset_id is not None:
-            input["asset_id"] = asset_id
+            input_["asset_id"] = asset_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -775,12 +775,12 @@ class AutomatedReasoningPolicyResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.get_automated_reasoning_policy_next_scenario_request.GetAutomatedReasoningPolicyNextScenarioRequest = {}  # type: ignore[typeddict-item]
-        input["policy_arn"] = policy_arn
-        input["build_workflow_id"] = build_workflow_id
+        input_: aws_sdk_bedrock.types.get_automated_reasoning_policy_next_scenario_request.GetAutomatedReasoningPolicyNextScenarioRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_arn"] = policy_arn
+        input_["build_workflow_id"] = build_workflow_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -815,12 +815,12 @@ class AutomatedReasoningPolicyResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.get_automated_reasoning_policy_test_case_request.GetAutomatedReasoningPolicyTestCaseRequest = {}  # type: ignore[typeddict-item]
-        input["policy_arn"] = policy_arn
-        input["test_case_id"] = test_case_id
+        input_: aws_sdk_bedrock.types.get_automated_reasoning_policy_test_case_request.GetAutomatedReasoningPolicyTestCaseRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_arn"] = policy_arn
+        input_["test_case_id"] = test_case_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -857,13 +857,13 @@ class AutomatedReasoningPolicyResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.get_automated_reasoning_policy_test_result_request.GetAutomatedReasoningPolicyTestResultRequest = {}  # type: ignore[typeddict-item]
-        input["policy_arn"] = policy_arn
-        input["build_workflow_id"] = build_workflow_id
-        input["test_case_id"] = test_case_id
+        input_: aws_sdk_bedrock.types.get_automated_reasoning_policy_test_result_request.GetAutomatedReasoningPolicyTestResultRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_arn"] = policy_arn
+        input_["build_workflow_id"] = build_workflow_id
+        input_["test_case_id"] = test_case_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -902,15 +902,15 @@ class AutomatedReasoningPolicyResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.list_automated_reasoning_policy_build_workflows_request.ListAutomatedReasoningPolicyBuildWorkflowsRequest = {}  # type: ignore[typeddict-item]
-        input["policy_arn"] = policy_arn
+        input_: aws_sdk_bedrock.types.list_automated_reasoning_policy_build_workflows_request.ListAutomatedReasoningPolicyBuildWorkflowsRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_arn"] = policy_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -949,15 +949,15 @@ class AutomatedReasoningPolicyResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.list_automated_reasoning_policy_test_cases_request.ListAutomatedReasoningPolicyTestCasesRequest = {}  # type: ignore[typeddict-item]
-        input["policy_arn"] = policy_arn
+        input_: aws_sdk_bedrock.types.list_automated_reasoning_policy_test_cases_request.ListAutomatedReasoningPolicyTestCasesRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_arn"] = policy_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -998,16 +998,16 @@ class AutomatedReasoningPolicyResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.list_automated_reasoning_policy_test_results_request.ListAutomatedReasoningPolicyTestResultsRequest = {}  # type: ignore[typeddict-item]
-        input["policy_arn"] = policy_arn
-        input["build_workflow_id"] = build_workflow_id
+        input_: aws_sdk_bedrock.types.list_automated_reasoning_policy_test_results_request.ListAutomatedReasoningPolicyTestResultsRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_arn"] = policy_arn
+        input_["build_workflow_id"] = build_workflow_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1048,15 +1048,15 @@ class AutomatedReasoningPolicyResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.start_automated_reasoning_policy_build_workflow_request.StartAutomatedReasoningPolicyBuildWorkflowRequest = {}  # type: ignore[typeddict-item]
-        input["policy_arn"] = policy_arn
-        input["build_workflow_type"] = build_workflow_type
+        input_: aws_sdk_bedrock.types.start_automated_reasoning_policy_build_workflow_request.StartAutomatedReasoningPolicyBuildWorkflowRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_arn"] = policy_arn
+        input_["build_workflow_type"] = build_workflow_type
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
-        input["source_content"] = source_content
+            input_["client_request_token"] = client_request_token
+        input_["source_content"] = source_content
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1099,16 +1099,16 @@ class AutomatedReasoningPolicyResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.start_automated_reasoning_policy_test_workflow_request.StartAutomatedReasoningPolicyTestWorkflowRequest = {}  # type: ignore[typeddict-item]
-        input["policy_arn"] = policy_arn
-        input["build_workflow_id"] = build_workflow_id
+        input_: aws_sdk_bedrock.types.start_automated_reasoning_policy_test_workflow_request.StartAutomatedReasoningPolicyTestWorkflowRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_arn"] = policy_arn
+        input_["build_workflow_id"] = build_workflow_id
         if test_case_ids is not None:
-            input["test_case_ids"] = test_case_ids
+            input_["test_case_ids"] = test_case_ids
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1147,14 +1147,14 @@ class AutomatedReasoningPolicyResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.update_automated_reasoning_policy_annotations_request.UpdateAutomatedReasoningPolicyAnnotationsRequest = {}  # type: ignore[typeddict-item]
-        input["policy_arn"] = policy_arn
-        input["build_workflow_id"] = build_workflow_id
-        input["annotations"] = annotations
-        input["last_updated_annotation_set_hash"] = last_updated_annotation_set_hash
+        input_: aws_sdk_bedrock.types.update_automated_reasoning_policy_annotations_request.UpdateAutomatedReasoningPolicyAnnotationsRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_arn"] = policy_arn
+        input_["build_workflow_id"] = build_workflow_id
+        input_["annotations"] = annotations
+        input_["last_updated_annotation_set_hash"] = last_updated_annotation_set_hash
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1207,23 +1207,23 @@ class AutomatedReasoningPolicyResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.update_automated_reasoning_policy_test_case_request.UpdateAutomatedReasoningPolicyTestCaseRequest = {}  # type: ignore[typeddict-item]
-        input["policy_arn"] = policy_arn
-        input["test_case_id"] = test_case_id
-        input["guard_content"] = guard_content
+        input_: aws_sdk_bedrock.types.update_automated_reasoning_policy_test_case_request.UpdateAutomatedReasoningPolicyTestCaseRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_arn"] = policy_arn
+        input_["test_case_id"] = test_case_id
+        input_["guard_content"] = guard_content
         if query_content is not None:
-            input["query_content"] = query_content
-        input["last_updated_at"] = last_updated_at
-        input["expected_aggregated_findings_result"] = (
+            input_["query_content"] = query_content
+        input_["last_updated_at"] = last_updated_at
+        input_["expected_aggregated_findings_result"] = (
             expected_aggregated_findings_result
         )
         if confidence_threshold is not None:
-            input["confidence_threshold"] = confidence_threshold
+            input_["confidence_threshold"] = confidence_threshold
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1278,21 +1278,21 @@ class AsyncAutomatedReasoningPolicyResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.create_automated_reasoning_policy_request.CreateAutomatedReasoningPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_bedrock.types.create_automated_reasoning_policy_request.CreateAutomatedReasoningPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if policy_definition is not None:
-            input["policy_definition"] = policy_definition
+            input_["policy_definition"] = policy_definition
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1326,11 +1326,11 @@ class AsyncAutomatedReasoningPolicyResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.get_automated_reasoning_policy_request.GetAutomatedReasoningPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["policy_arn"] = policy_arn
+        input_: aws_sdk_bedrock.types.get_automated_reasoning_policy_request.GetAutomatedReasoningPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_arn"] = policy_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1374,16 +1374,16 @@ class AsyncAutomatedReasoningPolicyResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.update_automated_reasoning_policy_request.UpdateAutomatedReasoningPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["policy_arn"] = policy_arn
-        input["policy_definition"] = policy_definition
+        input_: aws_sdk_bedrock.types.update_automated_reasoning_policy_request.UpdateAutomatedReasoningPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_arn"] = policy_arn
+        input_["policy_definition"] = policy_definition
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1419,13 +1419,13 @@ class AsyncAutomatedReasoningPolicyResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.delete_automated_reasoning_policy_request.DeleteAutomatedReasoningPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["policy_arn"] = policy_arn
+        input_: aws_sdk_bedrock.types.delete_automated_reasoning_policy_request.DeleteAutomatedReasoningPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_arn"] = policy_arn
         if force is not None:
-            input["force"] = force
+            input_["force"] = force
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1467,16 +1467,16 @@ class AsyncAutomatedReasoningPolicyResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.list_automated_reasoning_policies_request.ListAutomatedReasoningPoliciesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock.types.list_automated_reasoning_policies_request.ListAutomatedReasoningPoliciesRequest = {}  # type: ignore[typeddict-item]
         if policy_arn is not None:
-            input["policy_arn"] = policy_arn
+            input_["policy_arn"] = policy_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1512,12 +1512,12 @@ class AsyncAutomatedReasoningPolicyResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.cancel_automated_reasoning_policy_build_workflow_request.CancelAutomatedReasoningPolicyBuildWorkflowRequest = {}  # type: ignore[typeddict-item]
-        input["policy_arn"] = policy_arn
-        input["build_workflow_id"] = build_workflow_id
+        input_: aws_sdk_bedrock.types.cancel_automated_reasoning_policy_build_workflow_request.CancelAutomatedReasoningPolicyBuildWorkflowRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_arn"] = policy_arn
+        input_["build_workflow_id"] = build_workflow_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1567,21 +1567,21 @@ class AsyncAutomatedReasoningPolicyResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.create_automated_reasoning_policy_test_case_request.CreateAutomatedReasoningPolicyTestCaseRequest = {}  # type: ignore[typeddict-item]
-        input["policy_arn"] = policy_arn
-        input["guard_content"] = guard_content
+        input_: aws_sdk_bedrock.types.create_automated_reasoning_policy_test_case_request.CreateAutomatedReasoningPolicyTestCaseRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_arn"] = policy_arn
+        input_["guard_content"] = guard_content
         if query_content is not None:
-            input["query_content"] = query_content
-        input["expected_aggregated_findings_result"] = (
+            input_["query_content"] = query_content
+        input_["expected_aggregated_findings_result"] = (
             expected_aggregated_findings_result
         )
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if confidence_threshold is not None:
-            input["confidence_threshold"] = confidence_threshold
+            input_["confidence_threshold"] = confidence_threshold
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1623,16 +1623,16 @@ class AsyncAutomatedReasoningPolicyResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.create_automated_reasoning_policy_version_request.CreateAutomatedReasoningPolicyVersionRequest = {}  # type: ignore[typeddict-item]
-        input["policy_arn"] = policy_arn
+        input_: aws_sdk_bedrock.types.create_automated_reasoning_policy_version_request.CreateAutomatedReasoningPolicyVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_arn"] = policy_arn
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
-        input["last_updated_definition_hash"] = last_updated_definition_hash
+            input_["client_request_token"] = client_request_token
+        input_["last_updated_definition_hash"] = last_updated_definition_hash
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1670,13 +1670,13 @@ class AsyncAutomatedReasoningPolicyResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.delete_automated_reasoning_policy_build_workflow_request.DeleteAutomatedReasoningPolicyBuildWorkflowRequest = {}  # type: ignore[typeddict-item]
-        input["policy_arn"] = policy_arn
-        input["build_workflow_id"] = build_workflow_id
-        input["last_updated_at"] = last_updated_at
+        input_: aws_sdk_bedrock.types.delete_automated_reasoning_policy_build_workflow_request.DeleteAutomatedReasoningPolicyBuildWorkflowRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_arn"] = policy_arn
+        input_["build_workflow_id"] = build_workflow_id
+        input_["last_updated_at"] = last_updated_at
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1714,13 +1714,13 @@ class AsyncAutomatedReasoningPolicyResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.delete_automated_reasoning_policy_test_case_request.DeleteAutomatedReasoningPolicyTestCaseRequest = {}  # type: ignore[typeddict-item]
-        input["policy_arn"] = policy_arn
-        input["test_case_id"] = test_case_id
-        input["last_updated_at"] = last_updated_at
+        input_: aws_sdk_bedrock.types.delete_automated_reasoning_policy_test_case_request.DeleteAutomatedReasoningPolicyTestCaseRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_arn"] = policy_arn
+        input_["test_case_id"] = test_case_id
+        input_["last_updated_at"] = last_updated_at
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1754,11 +1754,11 @@ class AsyncAutomatedReasoningPolicyResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.export_automated_reasoning_policy_version_request.ExportAutomatedReasoningPolicyVersionRequest = {}  # type: ignore[typeddict-item]
-        input["policy_arn"] = policy_arn
+        input_: aws_sdk_bedrock.types.export_automated_reasoning_policy_version_request.ExportAutomatedReasoningPolicyVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_arn"] = policy_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1794,12 +1794,12 @@ class AsyncAutomatedReasoningPolicyResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.get_automated_reasoning_policy_annotations_request.GetAutomatedReasoningPolicyAnnotationsRequest = {}  # type: ignore[typeddict-item]
-        input["policy_arn"] = policy_arn
-        input["build_workflow_id"] = build_workflow_id
+        input_: aws_sdk_bedrock.types.get_automated_reasoning_policy_annotations_request.GetAutomatedReasoningPolicyAnnotationsRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_arn"] = policy_arn
+        input_["build_workflow_id"] = build_workflow_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1835,12 +1835,12 @@ class AsyncAutomatedReasoningPolicyResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.get_automated_reasoning_policy_build_workflow_request.GetAutomatedReasoningPolicyBuildWorkflowRequest = {}  # type: ignore[typeddict-item]
-        input["policy_arn"] = policy_arn
-        input["build_workflow_id"] = build_workflow_id
+        input_: aws_sdk_bedrock.types.get_automated_reasoning_policy_build_workflow_request.GetAutomatedReasoningPolicyBuildWorkflowRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_arn"] = policy_arn
+        input_["build_workflow_id"] = build_workflow_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1882,15 +1882,15 @@ class AsyncAutomatedReasoningPolicyResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.get_automated_reasoning_policy_build_workflow_result_assets_request.GetAutomatedReasoningPolicyBuildWorkflowResultAssetsRequest = {}  # type: ignore[typeddict-item]
-        input["policy_arn"] = policy_arn
-        input["build_workflow_id"] = build_workflow_id
-        input["asset_type"] = asset_type
+        input_: aws_sdk_bedrock.types.get_automated_reasoning_policy_build_workflow_result_assets_request.GetAutomatedReasoningPolicyBuildWorkflowResultAssetsRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_arn"] = policy_arn
+        input_["build_workflow_id"] = build_workflow_id
+        input_["asset_type"] = asset_type
         if asset_id is not None:
-            input["asset_id"] = asset_id
+            input_["asset_id"] = asset_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1926,12 +1926,12 @@ class AsyncAutomatedReasoningPolicyResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.get_automated_reasoning_policy_next_scenario_request.GetAutomatedReasoningPolicyNextScenarioRequest = {}  # type: ignore[typeddict-item]
-        input["policy_arn"] = policy_arn
-        input["build_workflow_id"] = build_workflow_id
+        input_: aws_sdk_bedrock.types.get_automated_reasoning_policy_next_scenario_request.GetAutomatedReasoningPolicyNextScenarioRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_arn"] = policy_arn
+        input_["build_workflow_id"] = build_workflow_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1967,12 +1967,12 @@ class AsyncAutomatedReasoningPolicyResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.get_automated_reasoning_policy_test_case_request.GetAutomatedReasoningPolicyTestCaseRequest = {}  # type: ignore[typeddict-item]
-        input["policy_arn"] = policy_arn
-        input["test_case_id"] = test_case_id
+        input_: aws_sdk_bedrock.types.get_automated_reasoning_policy_test_case_request.GetAutomatedReasoningPolicyTestCaseRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_arn"] = policy_arn
+        input_["test_case_id"] = test_case_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2010,13 +2010,13 @@ class AsyncAutomatedReasoningPolicyResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.get_automated_reasoning_policy_test_result_request.GetAutomatedReasoningPolicyTestResultRequest = {}  # type: ignore[typeddict-item]
-        input["policy_arn"] = policy_arn
-        input["build_workflow_id"] = build_workflow_id
-        input["test_case_id"] = test_case_id
+        input_: aws_sdk_bedrock.types.get_automated_reasoning_policy_test_result_request.GetAutomatedReasoningPolicyTestResultRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_arn"] = policy_arn
+        input_["build_workflow_id"] = build_workflow_id
+        input_["test_case_id"] = test_case_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2056,15 +2056,15 @@ class AsyncAutomatedReasoningPolicyResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.list_automated_reasoning_policy_build_workflows_request.ListAutomatedReasoningPolicyBuildWorkflowsRequest = {}  # type: ignore[typeddict-item]
-        input["policy_arn"] = policy_arn
+        input_: aws_sdk_bedrock.types.list_automated_reasoning_policy_build_workflows_request.ListAutomatedReasoningPolicyBuildWorkflowsRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_arn"] = policy_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2104,15 +2104,15 @@ class AsyncAutomatedReasoningPolicyResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.list_automated_reasoning_policy_test_cases_request.ListAutomatedReasoningPolicyTestCasesRequest = {}  # type: ignore[typeddict-item]
-        input["policy_arn"] = policy_arn
+        input_: aws_sdk_bedrock.types.list_automated_reasoning_policy_test_cases_request.ListAutomatedReasoningPolicyTestCasesRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_arn"] = policy_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2154,16 +2154,16 @@ class AsyncAutomatedReasoningPolicyResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.list_automated_reasoning_policy_test_results_request.ListAutomatedReasoningPolicyTestResultsRequest = {}  # type: ignore[typeddict-item]
-        input["policy_arn"] = policy_arn
-        input["build_workflow_id"] = build_workflow_id
+        input_: aws_sdk_bedrock.types.list_automated_reasoning_policy_test_results_request.ListAutomatedReasoningPolicyTestResultsRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_arn"] = policy_arn
+        input_["build_workflow_id"] = build_workflow_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2205,15 +2205,15 @@ class AsyncAutomatedReasoningPolicyResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.start_automated_reasoning_policy_build_workflow_request.StartAutomatedReasoningPolicyBuildWorkflowRequest = {}  # type: ignore[typeddict-item]
-        input["policy_arn"] = policy_arn
-        input["build_workflow_type"] = build_workflow_type
+        input_: aws_sdk_bedrock.types.start_automated_reasoning_policy_build_workflow_request.StartAutomatedReasoningPolicyBuildWorkflowRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_arn"] = policy_arn
+        input_["build_workflow_type"] = build_workflow_type
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
-        input["source_content"] = source_content
+            input_["client_request_token"] = client_request_token
+        input_["source_content"] = source_content
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2257,16 +2257,16 @@ class AsyncAutomatedReasoningPolicyResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.start_automated_reasoning_policy_test_workflow_request.StartAutomatedReasoningPolicyTestWorkflowRequest = {}  # type: ignore[typeddict-item]
-        input["policy_arn"] = policy_arn
-        input["build_workflow_id"] = build_workflow_id
+        input_: aws_sdk_bedrock.types.start_automated_reasoning_policy_test_workflow_request.StartAutomatedReasoningPolicyTestWorkflowRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_arn"] = policy_arn
+        input_["build_workflow_id"] = build_workflow_id
         if test_case_ids is not None:
-            input["test_case_ids"] = test_case_ids
+            input_["test_case_ids"] = test_case_ids
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2306,14 +2306,14 @@ class AsyncAutomatedReasoningPolicyResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.update_automated_reasoning_policy_annotations_request.UpdateAutomatedReasoningPolicyAnnotationsRequest = {}  # type: ignore[typeddict-item]
-        input["policy_arn"] = policy_arn
-        input["build_workflow_id"] = build_workflow_id
-        input["annotations"] = annotations
-        input["last_updated_annotation_set_hash"] = last_updated_annotation_set_hash
+        input_: aws_sdk_bedrock.types.update_automated_reasoning_policy_annotations_request.UpdateAutomatedReasoningPolicyAnnotationsRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_arn"] = policy_arn
+        input_["build_workflow_id"] = build_workflow_id
+        input_["annotations"] = annotations
+        input_["last_updated_annotation_set_hash"] = last_updated_annotation_set_hash
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2367,23 +2367,23 @@ class AsyncAutomatedReasoningPolicyResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.update_automated_reasoning_policy_test_case_request.UpdateAutomatedReasoningPolicyTestCaseRequest = {}  # type: ignore[typeddict-item]
-        input["policy_arn"] = policy_arn
-        input["test_case_id"] = test_case_id
-        input["guard_content"] = guard_content
+        input_: aws_sdk_bedrock.types.update_automated_reasoning_policy_test_case_request.UpdateAutomatedReasoningPolicyTestCaseRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_arn"] = policy_arn
+        input_["test_case_id"] = test_case_id
+        input_["guard_content"] = guard_content
         if query_content is not None:
-            input["query_content"] = query_content
-        input["last_updated_at"] = last_updated_at
-        input["expected_aggregated_findings_result"] = (
+            input_["query_content"] = query_content
+        input_["last_updated_at"] = last_updated_at
+        input_["expected_aggregated_findings_result"] = (
             expected_aggregated_findings_result
         )
         if confidence_threshold is not None:
-            input["confidence_threshold"] = confidence_threshold
+            input_["confidence_threshold"] = confidence_threshold
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

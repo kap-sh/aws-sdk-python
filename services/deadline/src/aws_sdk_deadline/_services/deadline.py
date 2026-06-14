@@ -196,6 +196,7 @@ class deadlineClient:
                 "credentials_provider": credentials_provider,
             }
         )
+
         # resources
         self.farm_resource = FarmResource(self)
         self.license_endpoint_resource = LicenseEndpointResource(self)

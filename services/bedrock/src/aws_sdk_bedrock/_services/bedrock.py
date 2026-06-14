@@ -170,6 +170,7 @@ class BedrockClient:
                 "bearer_provider": bearer_provider,
             }
         )
+
         # resources
         self.advanced_prompt_optimization_job_resource = (
             AdvancedPromptOptimizationJobResource(self)

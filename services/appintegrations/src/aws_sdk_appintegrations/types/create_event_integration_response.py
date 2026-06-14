@@ -1,17 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.appintegrations#CreateEventIntegrationResponse``."""
 
 from typing import TYPE_CHECKING, TypedDict
-
 from typing_extensions import NotRequired
-
 if TYPE_CHECKING:
     import aws_sdk_appintegrations.types.arn
-
 
 class CreateEventIntegrationResponse(TypedDict):
     event_integration_arn: NotRequired["aws_sdk_appintegrations.types.arn.Arn"]
     """<p>The Amazon Resource Name (ARN) of the event integration. </p>"""
-
 
 # --- restJson1 ser/de ---
 def serialize_json(value: CreateEventIntegrationResponse) -> dict:

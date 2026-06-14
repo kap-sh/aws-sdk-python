@@ -110,6 +110,7 @@ class ElementalInferenceClient:
                 "credentials_provider": credentials_provider,
             }
         )
+
         # resources
         self.dictionary_resource = DictionaryResource(self)
         self.feed_resource = FeedResource(self)

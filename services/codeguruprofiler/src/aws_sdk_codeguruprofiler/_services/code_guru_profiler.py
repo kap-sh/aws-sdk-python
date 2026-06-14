@@ -113,6 +113,7 @@ class CodeGuruProfilerClient:
                 "credentials_provider": credentials_provider,
             }
         )
+
         # resources
         self.profiling_group = ProfilingGroup(self)
 

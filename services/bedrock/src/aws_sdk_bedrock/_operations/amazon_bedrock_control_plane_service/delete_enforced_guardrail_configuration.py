@@ -90,7 +90,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.delete_enforced_guardrail_configuration_request.DeleteEnforcedGuardrailConfigurationRequest,
+    input_: aws_sdk_bedrock.types.delete_enforced_guardrail_configuration_request.DeleteEnforcedGuardrailConfigurationRequest,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -101,7 +101,7 @@ def build_request(
         )
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/enforcedGuardrailsConfiguration/{configId}"
-    url = url.replace("{configId}", quote(str(input["config_id"]), safe=""))
+    url = url.replace("{configId}", quote(str(input_["config_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
@@ -115,12 +115,12 @@ def build_request(
 
 def delete_enforced_guardrail_configuration(
     options: OperationOptions,
-    input: aws_sdk_bedrock.types.delete_enforced_guardrail_configuration_request.DeleteEnforcedGuardrailConfigurationRequest,
+    input_: aws_sdk_bedrock.types.delete_enforced_guardrail_configuration_request.DeleteEnforcedGuardrailConfigurationRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.delete_enforced_guardrail_configuration_response.DeleteEnforcedGuardrailConfigurationResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -134,12 +134,12 @@ def delete_enforced_guardrail_configuration(
 
 async def async_delete_enforced_guardrail_configuration(
     options: AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.delete_enforced_guardrail_configuration_request.DeleteEnforcedGuardrailConfigurationRequest,
+    input_: aws_sdk_bedrock.types.delete_enforced_guardrail_configuration_request.DeleteEnforcedGuardrailConfigurationRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.delete_enforced_guardrail_configuration_response.DeleteEnforcedGuardrailConfigurationResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

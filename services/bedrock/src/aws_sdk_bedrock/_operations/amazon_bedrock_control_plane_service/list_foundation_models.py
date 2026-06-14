@@ -87,7 +87,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.list_foundation_models_request.ListFoundationModelsRequest,
+    input_: aws_sdk_bedrock.types.list_foundation_models_request.ListFoundationModelsRequest,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -99,14 +99,14 @@ def build_request(
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/foundation-models"
     params: dict[str, str] = {}
-    if "by_provider" in input:
-        params["byProvider"] = str(input["by_provider"])
-    if "by_customization_type" in input:
-        params["byCustomizationType"] = str(input["by_customization_type"])
-    if "by_output_modality" in input:
-        params["byOutputModality"] = str(input["by_output_modality"])
-    if "by_inference_type" in input:
-        params["byInferenceType"] = str(input["by_inference_type"])
+    if "by_provider" in input_:
+        params["byProvider"] = str(input_["by_provider"])
+    if "by_customization_type" in input_:
+        params["byCustomizationType"] = str(input_["by_customization_type"])
+    if "by_output_modality" in input_:
+        params["byOutputModality"] = str(input_["by_output_modality"])
+    if "by_inference_type" in input_:
+        params["byInferenceType"] = str(input_["by_inference_type"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
@@ -119,12 +119,12 @@ def build_request(
 
 def list_foundation_models(
     options: OperationOptions,
-    input: aws_sdk_bedrock.types.list_foundation_models_request.ListFoundationModelsRequest,
+    input_: aws_sdk_bedrock.types.list_foundation_models_request.ListFoundationModelsRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.list_foundation_models_response.ListFoundationModelsResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -138,12 +138,12 @@ def list_foundation_models(
 
 async def async_list_foundation_models(
     options: AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.list_foundation_models_request.ListFoundationModelsRequest,
+    input_: aws_sdk_bedrock.types.list_foundation_models_request.ListFoundationModelsRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.list_foundation_models_response.ListFoundationModelsResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

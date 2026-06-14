@@ -87,7 +87,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.batch_delete_advanced_prompt_optimization_job_request.BatchDeleteAdvancedPromptOptimizationJobRequest,
+    input_: aws_sdk_bedrock.types.batch_delete_advanced_prompt_optimization_job_request.BatchDeleteAdvancedPromptOptimizationJobRequest,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -104,7 +104,7 @@ def build_request(
 
     body: bytes | None = json.dumps(
         aws_sdk_bedrock.types.batch_delete_advanced_prompt_optimization_job_request.serialize_json(
-            input
+            input_
         )
     ).encode()
     headers["content-type"] = "application/json"
@@ -118,12 +118,12 @@ def build_request(
 
 def batch_delete_advanced_prompt_optimization_job(
     options: OperationOptions,
-    input: aws_sdk_bedrock.types.batch_delete_advanced_prompt_optimization_job_request.BatchDeleteAdvancedPromptOptimizationJobRequest,
+    input_: aws_sdk_bedrock.types.batch_delete_advanced_prompt_optimization_job_request.BatchDeleteAdvancedPromptOptimizationJobRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.batch_delete_advanced_prompt_optimization_job_response.BatchDeleteAdvancedPromptOptimizationJobResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -137,12 +137,12 @@ def batch_delete_advanced_prompt_optimization_job(
 
 async def async_batch_delete_advanced_prompt_optimization_job(
     options: AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.batch_delete_advanced_prompt_optimization_job_request.BatchDeleteAdvancedPromptOptimizationJobRequest,
+    input_: aws_sdk_bedrock.types.batch_delete_advanced_prompt_optimization_job_request.BatchDeleteAdvancedPromptOptimizationJobRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.batch_delete_advanced_prompt_optimization_job_response.BatchDeleteAdvancedPromptOptimizationJobResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#LakeFormationConfiguration``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
 
 if TYPE_CHECKING:

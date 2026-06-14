@@ -51,7 +51,7 @@ class DomainResource:
         ] = None,
         tags: Optional["aws_sdk_voice_id.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_voice_id.types.create_domain_response.CreateDomainResponse":
-        """<p>Creates a domain that contains all Amazon Connect Voice ID data, such as speakers, fraudsters, customer audio, and voiceprints. Every domain is created with a default watchlist that fraudsters can be a part of.</p>
+        r"""<p>Creates a domain that contains all Amazon Connect Voice ID data, such as speakers, fraudsters, customer audio, and voiceprints. Every domain is created with a default watchlist that fraudsters can be a part of.</p>
 
         Args:
             name: <p>The name of the domain.</p>
@@ -277,7 +277,7 @@ class AsyncDomainResource:
         ] = None,
         tags: Optional["aws_sdk_voice_id.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_voice_id.types.create_domain_response.CreateDomainResponse":
-        """<p>Creates a domain that contains all Amazon Connect Voice ID data, such as speakers, fraudsters, customer audio, and voiceprints. Every domain is created with a default watchlist that fraudsters can be a part of.</p>
+        r"""<p>Creates a domain that contains all Amazon Connect Voice ID data, such as speakers, fraudsters, customer audio, and voiceprints. Every domain is created with a default watchlist that fraudsters can be a part of.</p>
 
         Args:
             name: <p>The name of the domain.</p>

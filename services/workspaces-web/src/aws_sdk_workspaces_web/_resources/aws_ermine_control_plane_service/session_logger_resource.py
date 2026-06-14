@@ -1,13 +1,17 @@
-from typing import Optional, TYPE_CHECKING
-from aws_sdk_workspaces_web._services.async_work_spaces_web import ensure_async_iterator
-from aws_sdk_workspaces_web._services.work_spaces_web import ensure_sync_iterator
-import datetime
-from aws_sdk_workspaces_web._services._pipeline import OperationRequest, OperationResponse, execute_pipeline, AsyncOperationRequest, AsyncOperationResponse, aexecute_pipeline
+from typing import TYPE_CHECKING, Optional
+
 import aws_sdk_workspaces_web._auth._signers
 import aws_sdk_workspaces_web._auth._sigv4
+from aws_sdk_workspaces_web._services._pipeline import (
+    AsyncOperationRequest,
+    AsyncOperationResponse,
+    OperationRequest,
+    OperationResponse,
+    aexecute_pipeline,
+    execute_pipeline,
+)
+
 if TYPE_CHECKING:
-    from aws_sdk_workspaces_web._services.work_spaces_web import WorkSpacesWebClient, WorkSpacesWebClientConfig
-    from aws_sdk_workspaces_web._services.async_work_spaces_web import AsyncWorkSpacesWebClient, AsyncWorkSpacesWebClientConfig
     import aws_sdk_workspaces_web.types.arn
     import aws_sdk_workspaces_web.types.client_token
     import aws_sdk_workspaces_web.types.create_session_logger_request
@@ -29,11 +33,40 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces_web.types.tag_list
     import aws_sdk_workspaces_web.types.update_session_logger_request
     import aws_sdk_workspaces_web.types.update_session_logger_response
+    from aws_sdk_workspaces_web._services.async_work_spaces_web import (
+        AsyncWorkSpacesWebClient,
+        AsyncWorkSpacesWebClientConfig,
+    )
+    from aws_sdk_workspaces_web._services.work_spaces_web import (
+        WorkSpacesWebClient,
+        WorkSpacesWebClientConfig,
+    )
+
 
 class SessionLoggerResource:
     def __init__(self, service: WorkSpacesWebClient) -> None:
         self._service = service
-    def create(self, event_filter: "aws_sdk_workspaces_web.types.event_filter.EventFilter", log_configuration: "aws_sdk_workspaces_web.types.log_configuration.LogConfiguration", *, config_overrides: Optional[WorkSpacesWebClientConfig] = None, display_name: Optional["aws_sdk_workspaces_web.types.display_name_safe.DisplayNameSafe"] = None, customer_managed_key: Optional["aws_sdk_workspaces_web.types.key_arn.keyArn"] = None, additional_encryption_context: Optional["aws_sdk_workspaces_web.types.encryption_context_map.EncryptionContextMap"] = None, tags: Optional["aws_sdk_workspaces_web.types.tag_list.TagList"] = None, client_token: Optional["aws_sdk_workspaces_web.types.client_token.ClientToken"] = None) -> "aws_sdk_workspaces_web.types.create_session_logger_response.CreateSessionLoggerResponse":
+
+    def create(
+        self,
+        event_filter: "aws_sdk_workspaces_web.types.event_filter.EventFilter",
+        log_configuration: "aws_sdk_workspaces_web.types.log_configuration.LogConfiguration",
+        *,
+        config_overrides: Optional[WorkSpacesWebClientConfig] = None,
+        display_name: Optional[
+            "aws_sdk_workspaces_web.types.display_name_safe.DisplayNameSafe"
+        ] = None,
+        customer_managed_key: Optional[
+            "aws_sdk_workspaces_web.types.key_arn.keyArn"
+        ] = None,
+        additional_encryption_context: Optional[
+            "aws_sdk_workspaces_web.types.encryption_context_map.EncryptionContextMap"
+        ] = None,
+        tags: Optional["aws_sdk_workspaces_web.types.tag_list.TagList"] = None,
+        client_token: Optional[
+            "aws_sdk_workspaces_web.types.client_token.ClientToken"
+        ] = None,
+    ) -> "aws_sdk_workspaces_web.types.create_session_logger_response.CreateSessionLoggerResponse":
         """<p>Creates a session logger.</p>
 
         Args:
@@ -55,9 +88,19 @@ class SessionLoggerResource:
 
             >>> client.create(event_filter={'include': ['SessionStart', 'SessionEnd', 'UrlLoad', 'WebsiteInteract']}, log_configuration={'s3': {'bucket': 'my-session-logs-bucket', 'keyPrefix': 'session-logs/each/event', 'bucketOwner': '123456789012', 'logFileFormat': 'JSONLines', 'folderStructure': 'NestedByDate'}}, display_name='Session Logger with Each Events', customer_managed_key='arn:aws:kms:us-west-2:123456789012:key/12345678-1234-1234-1234-123456789012', additional_encryption_context={'EncryptionContextKey': 'EncryptionContextValue'}, tags=[{'Key': 'KEY-1', 'Value': 'VALUE-1'}, {'Key': 'KEY-2', 'Value': 'VALUE-2'}])
         """
-        def _handler(req: 'OperationRequest[aws_sdk_workspaces_web.types.create_session_logger_request.CreateSessionLoggerRequest]') -> OperationResponse["aws_sdk_workspaces_web.types.create_session_logger_response.CreateSessionLoggerResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_workspaces_web.types.create_session_logger_request.CreateSessionLoggerRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_workspaces_web.types.create_session_logger_response.CreateSessionLoggerResponse"
+        ]:
             import aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.create_session_logger
-            output, http_response = aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.create_session_logger.create_session_logger(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.create_session_logger.create_session_logger(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -75,9 +118,19 @@ class SessionLoggerResource:
         if client_token is not None:
             input_["client_token"] = client_token
 
-        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def read(self, session_logger_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[WorkSpacesWebClientConfig] = None) -> "aws_sdk_workspaces_web.types.get_session_logger_response.GetSessionLoggerResponse":
+
+    def read(
+        self,
+        session_logger_arn: "aws_sdk_workspaces_web.types.arn.ARN",
+        *,
+        config_overrides: Optional[WorkSpacesWebClientConfig] = None,
+    ) -> "aws_sdk_workspaces_web.types.get_session_logger_response.GetSessionLoggerResponse":
         """<p>Gets details about a specific session logger resource.</p>
 
         Args:
@@ -93,18 +146,47 @@ class SessionLoggerResource:
 
             >>> client.read(session_logger_arn='arn:aws:workspaces-web:us-west-2:123456789012:sessionLogger/87654321-4321-4321-4321-210987654321')
         """
-        def _handler(req: 'OperationRequest[aws_sdk_workspaces_web.types.get_session_logger_request.GetSessionLoggerRequest]') -> OperationResponse["aws_sdk_workspaces_web.types.get_session_logger_response.GetSessionLoggerResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_workspaces_web.types.get_session_logger_request.GetSessionLoggerRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_workspaces_web.types.get_session_logger_response.GetSessionLoggerResponse"
+        ]:
             import aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.get_session_logger
-            output, http_response = aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.get_session_logger.get_session_logger(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.get_session_logger.get_session_logger(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: aws_sdk_workspaces_web.types.get_session_logger_request.GetSessionLoggerRequest = {}  # type: ignore[typeddict-item]
         input_["session_logger_arn"] = session_logger_arn
 
-        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def update(self, session_logger_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[WorkSpacesWebClientConfig] = None, event_filter: Optional["aws_sdk_workspaces_web.types.event_filter.EventFilter"] = None, log_configuration: Optional["aws_sdk_workspaces_web.types.log_configuration.LogConfiguration"] = None, display_name: Optional["aws_sdk_workspaces_web.types.display_name_safe.DisplayNameSafe"] = None) -> "aws_sdk_workspaces_web.types.update_session_logger_response.UpdateSessionLoggerResponse":
+
+    def update(
+        self,
+        session_logger_arn: "aws_sdk_workspaces_web.types.arn.ARN",
+        *,
+        config_overrides: Optional[WorkSpacesWebClientConfig] = None,
+        event_filter: Optional[
+            "aws_sdk_workspaces_web.types.event_filter.EventFilter"
+        ] = None,
+        log_configuration: Optional[
+            "aws_sdk_workspaces_web.types.log_configuration.LogConfiguration"
+        ] = None,
+        display_name: Optional[
+            "aws_sdk_workspaces_web.types.display_name_safe.DisplayNameSafe"
+        ] = None,
+    ) -> "aws_sdk_workspaces_web.types.update_session_logger_response.UpdateSessionLoggerResponse":
         """<p>Updates the details of a session logger.</p>
 
         Args:
@@ -123,9 +205,19 @@ class SessionLoggerResource:
 
             >>> client.update(session_logger_arn='arn:aws:workspaces-web:us-west-2:123456789012:sessionLogger/87654321-4321-4321-4321-210987654321', log_configuration={'s3': {'bucket': 'updated-my-session-logs-bucket-2', 'keyPrefix': 'updated/key/prefix', 'bucketOwner': '123456789012', 'logFileFormat': 'Json', 'folderStructure': 'Flat'}})
         """
-        def _handler(req: 'OperationRequest[aws_sdk_workspaces_web.types.update_session_logger_request.UpdateSessionLoggerRequest]') -> OperationResponse["aws_sdk_workspaces_web.types.update_session_logger_response.UpdateSessionLoggerResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_workspaces_web.types.update_session_logger_request.UpdateSessionLoggerRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_workspaces_web.types.update_session_logger_response.UpdateSessionLoggerResponse"
+        ]:
             import aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.update_session_logger
-            output, http_response = aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.update_session_logger.update_session_logger(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.update_session_logger.update_session_logger(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -138,9 +230,19 @@ class SessionLoggerResource:
         if display_name is not None:
             input_["display_name"] = display_name
 
-        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def delete(self, session_logger_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[WorkSpacesWebClientConfig] = None) -> "aws_sdk_workspaces_web.types.delete_session_logger_response.DeleteSessionLoggerResponse":
+
+    def delete(
+        self,
+        session_logger_arn: "aws_sdk_workspaces_web.types.arn.ARN",
+        *,
+        config_overrides: Optional[WorkSpacesWebClientConfig] = None,
+    ) -> "aws_sdk_workspaces_web.types.delete_session_logger_response.DeleteSessionLoggerResponse":
         """<p>Deletes a session logger resource.</p>
 
         Args:
@@ -152,18 +254,43 @@ class SessionLoggerResource:
 
             >>> client.delete(session_logger_arn='arn:aws:workspaces-web:us-west-2:123456789012:sessionLogger/12345678-1234-1234-1234-123456789012')
         """
-        def _handler(req: 'OperationRequest[aws_sdk_workspaces_web.types.delete_session_logger_request.DeleteSessionLoggerRequest]') -> OperationResponse["aws_sdk_workspaces_web.types.delete_session_logger_response.DeleteSessionLoggerResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_workspaces_web.types.delete_session_logger_request.DeleteSessionLoggerRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_workspaces_web.types.delete_session_logger_response.DeleteSessionLoggerResponse"
+        ]:
             import aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.delete_session_logger
-            output, http_response = aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.delete_session_logger.delete_session_logger(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.delete_session_logger.delete_session_logger(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: aws_sdk_workspaces_web.types.delete_session_logger_request.DeleteSessionLoggerRequest = {}  # type: ignore[typeddict-item]
         input_["session_logger_arn"] = session_logger_arn
 
-        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def list(self, *, config_overrides: Optional[WorkSpacesWebClientConfig] = None, next_token: Optional["aws_sdk_workspaces_web.types.pagination_token.PaginationToken"] = None, max_results: Optional["aws_sdk_workspaces_web.types.max_results.MaxResults"] = None) -> "aws_sdk_workspaces_web.types.list_session_loggers_response.ListSessionLoggersResponse":
+
+    def list(
+        self,
+        *,
+        config_overrides: Optional[WorkSpacesWebClientConfig] = None,
+        next_token: Optional[
+            "aws_sdk_workspaces_web.types.pagination_token.PaginationToken"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_workspaces_web.types.max_results.MaxResults"
+        ] = None,
+    ) -> "aws_sdk_workspaces_web.types.list_session_loggers_response.ListSessionLoggersResponse":
         """<p>Lists all available session logger resources.</p>
 
         Args:
@@ -180,9 +307,19 @@ class SessionLoggerResource:
 
             >>> client.list(max_results=1, next_token='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9')
         """
-        def _handler(req: 'OperationRequest[aws_sdk_workspaces_web.types.list_session_loggers_request.ListSessionLoggersRequest]') -> OperationResponse["aws_sdk_workspaces_web.types.list_session_loggers_response.ListSessionLoggersResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_workspaces_web.types.list_session_loggers_request.ListSessionLoggersRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_workspaces_web.types.list_session_loggers_response.ListSessionLoggersResponse"
+        ]:
             import aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.list_session_loggers
-            output, http_response = aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.list_session_loggers.list_session_loggers(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.list_session_loggers.list_session_loggers(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -192,13 +329,38 @@ class SessionLoggerResource:
         if max_results is not None:
             input_["max_results"] = max_results
 
-        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
+
 
 class AsyncSessionLoggerResource:
     def __init__(self, service: AsyncWorkSpacesWebClient) -> None:
         self._service = service
-    async def create(self, event_filter: "aws_sdk_workspaces_web.types.event_filter.EventFilter", log_configuration: "aws_sdk_workspaces_web.types.log_configuration.LogConfiguration", *, config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None, display_name: Optional["aws_sdk_workspaces_web.types.display_name_safe.DisplayNameSafe"] = None, customer_managed_key: Optional["aws_sdk_workspaces_web.types.key_arn.keyArn"] = None, additional_encryption_context: Optional["aws_sdk_workspaces_web.types.encryption_context_map.EncryptionContextMap"] = None, tags: Optional["aws_sdk_workspaces_web.types.tag_list.TagList"] = None, client_token: Optional["aws_sdk_workspaces_web.types.client_token.ClientToken"] = None) -> "aws_sdk_workspaces_web.types.create_session_logger_response.CreateSessionLoggerResponse":
+
+    async def create(
+        self,
+        event_filter: "aws_sdk_workspaces_web.types.event_filter.EventFilter",
+        log_configuration: "aws_sdk_workspaces_web.types.log_configuration.LogConfiguration",
+        *,
+        config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None,
+        display_name: Optional[
+            "aws_sdk_workspaces_web.types.display_name_safe.DisplayNameSafe"
+        ] = None,
+        customer_managed_key: Optional[
+            "aws_sdk_workspaces_web.types.key_arn.keyArn"
+        ] = None,
+        additional_encryption_context: Optional[
+            "aws_sdk_workspaces_web.types.encryption_context_map.EncryptionContextMap"
+        ] = None,
+        tags: Optional["aws_sdk_workspaces_web.types.tag_list.TagList"] = None,
+        client_token: Optional[
+            "aws_sdk_workspaces_web.types.client_token.ClientToken"
+        ] = None,
+    ) -> "aws_sdk_workspaces_web.types.create_session_logger_response.CreateSessionLoggerResponse":
         """<p>Creates a session logger.</p>
 
         Args:
@@ -220,9 +382,20 @@ class AsyncSessionLoggerResource:
 
             >>> await client.create(event_filter={'include': ['SessionStart', 'SessionEnd', 'UrlLoad', 'WebsiteInteract']}, log_configuration={'s3': {'bucket': 'my-session-logs-bucket', 'keyPrefix': 'session-logs/each/event', 'bucketOwner': '123456789012', 'logFileFormat': 'JSONLines', 'folderStructure': 'NestedByDate'}}, display_name='Session Logger with Each Events', customer_managed_key='arn:aws:kms:us-west-2:123456789012:key/12345678-1234-1234-1234-123456789012', additional_encryption_context={'EncryptionContextKey': 'EncryptionContextValue'}, tags=[{'Key': 'KEY-1', 'Value': 'VALUE-1'}, {'Key': 'KEY-2', 'Value': 'VALUE-2'}])
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces_web.types.create_session_logger_request.CreateSessionLoggerRequest]') -> AsyncOperationResponse["aws_sdk_workspaces_web.types.create_session_logger_response.CreateSessionLoggerResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_workspaces_web.types.create_session_logger_request.CreateSessionLoggerRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_workspaces_web.types.create_session_logger_response.CreateSessionLoggerResponse"
+        ]:
             import aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.create_session_logger
-            output, http_response = await aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.create_session_logger.async_create_session_logger(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.create_session_logger.async_create_session_logger(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -240,9 +413,19 @@ class AsyncSessionLoggerResource:
         if client_token is not None:
             input_["client_token"] = client_token
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def read(self, session_logger_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None) -> "aws_sdk_workspaces_web.types.get_session_logger_response.GetSessionLoggerResponse":
+
+    async def read(
+        self,
+        session_logger_arn: "aws_sdk_workspaces_web.types.arn.ARN",
+        *,
+        config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None,
+    ) -> "aws_sdk_workspaces_web.types.get_session_logger_response.GetSessionLoggerResponse":
         """<p>Gets details about a specific session logger resource.</p>
 
         Args:
@@ -258,18 +441,48 @@ class AsyncSessionLoggerResource:
 
             >>> await client.read(session_logger_arn='arn:aws:workspaces-web:us-west-2:123456789012:sessionLogger/87654321-4321-4321-4321-210987654321')
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces_web.types.get_session_logger_request.GetSessionLoggerRequest]') -> AsyncOperationResponse["aws_sdk_workspaces_web.types.get_session_logger_response.GetSessionLoggerResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_workspaces_web.types.get_session_logger_request.GetSessionLoggerRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_workspaces_web.types.get_session_logger_response.GetSessionLoggerResponse"
+        ]:
             import aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.get_session_logger
-            output, http_response = await aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.get_session_logger.async_get_session_logger(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.get_session_logger.async_get_session_logger(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: aws_sdk_workspaces_web.types.get_session_logger_request.GetSessionLoggerRequest = {}  # type: ignore[typeddict-item]
         input_["session_logger_arn"] = session_logger_arn
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def update(self, session_logger_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None, event_filter: Optional["aws_sdk_workspaces_web.types.event_filter.EventFilter"] = None, log_configuration: Optional["aws_sdk_workspaces_web.types.log_configuration.LogConfiguration"] = None, display_name: Optional["aws_sdk_workspaces_web.types.display_name_safe.DisplayNameSafe"] = None) -> "aws_sdk_workspaces_web.types.update_session_logger_response.UpdateSessionLoggerResponse":
+
+    async def update(
+        self,
+        session_logger_arn: "aws_sdk_workspaces_web.types.arn.ARN",
+        *,
+        config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None,
+        event_filter: Optional[
+            "aws_sdk_workspaces_web.types.event_filter.EventFilter"
+        ] = None,
+        log_configuration: Optional[
+            "aws_sdk_workspaces_web.types.log_configuration.LogConfiguration"
+        ] = None,
+        display_name: Optional[
+            "aws_sdk_workspaces_web.types.display_name_safe.DisplayNameSafe"
+        ] = None,
+    ) -> "aws_sdk_workspaces_web.types.update_session_logger_response.UpdateSessionLoggerResponse":
         """<p>Updates the details of a session logger.</p>
 
         Args:
@@ -288,9 +501,20 @@ class AsyncSessionLoggerResource:
 
             >>> await client.update(session_logger_arn='arn:aws:workspaces-web:us-west-2:123456789012:sessionLogger/87654321-4321-4321-4321-210987654321', log_configuration={'s3': {'bucket': 'updated-my-session-logs-bucket-2', 'keyPrefix': 'updated/key/prefix', 'bucketOwner': '123456789012', 'logFileFormat': 'Json', 'folderStructure': 'Flat'}})
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces_web.types.update_session_logger_request.UpdateSessionLoggerRequest]') -> AsyncOperationResponse["aws_sdk_workspaces_web.types.update_session_logger_response.UpdateSessionLoggerResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_workspaces_web.types.update_session_logger_request.UpdateSessionLoggerRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_workspaces_web.types.update_session_logger_response.UpdateSessionLoggerResponse"
+        ]:
             import aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.update_session_logger
-            output, http_response = await aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.update_session_logger.async_update_session_logger(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.update_session_logger.async_update_session_logger(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -303,9 +527,19 @@ class AsyncSessionLoggerResource:
         if display_name is not None:
             input_["display_name"] = display_name
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def delete(self, session_logger_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None) -> "aws_sdk_workspaces_web.types.delete_session_logger_response.DeleteSessionLoggerResponse":
+
+    async def delete(
+        self,
+        session_logger_arn: "aws_sdk_workspaces_web.types.arn.ARN",
+        *,
+        config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None,
+    ) -> "aws_sdk_workspaces_web.types.delete_session_logger_response.DeleteSessionLoggerResponse":
         """<p>Deletes a session logger resource.</p>
 
         Args:
@@ -317,18 +551,44 @@ class AsyncSessionLoggerResource:
 
             >>> await client.delete(session_logger_arn='arn:aws:workspaces-web:us-west-2:123456789012:sessionLogger/12345678-1234-1234-1234-123456789012')
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces_web.types.delete_session_logger_request.DeleteSessionLoggerRequest]') -> AsyncOperationResponse["aws_sdk_workspaces_web.types.delete_session_logger_response.DeleteSessionLoggerResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_workspaces_web.types.delete_session_logger_request.DeleteSessionLoggerRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_workspaces_web.types.delete_session_logger_response.DeleteSessionLoggerResponse"
+        ]:
             import aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.delete_session_logger
-            output, http_response = await aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.delete_session_logger.async_delete_session_logger(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.delete_session_logger.async_delete_session_logger(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: aws_sdk_workspaces_web.types.delete_session_logger_request.DeleteSessionLoggerRequest = {}  # type: ignore[typeddict-item]
         input_["session_logger_arn"] = session_logger_arn
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def list(self, *, config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None, next_token: Optional["aws_sdk_workspaces_web.types.pagination_token.PaginationToken"] = None, max_results: Optional["aws_sdk_workspaces_web.types.max_results.MaxResults"] = None) -> "aws_sdk_workspaces_web.types.list_session_loggers_response.ListSessionLoggersResponse":
+
+    async def list(
+        self,
+        *,
+        config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None,
+        next_token: Optional[
+            "aws_sdk_workspaces_web.types.pagination_token.PaginationToken"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_workspaces_web.types.max_results.MaxResults"
+        ] = None,
+    ) -> "aws_sdk_workspaces_web.types.list_session_loggers_response.ListSessionLoggersResponse":
         """<p>Lists all available session logger resources.</p>
 
         Args:
@@ -345,9 +605,20 @@ class AsyncSessionLoggerResource:
 
             >>> await client.list(max_results=1, next_token='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9')
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces_web.types.list_session_loggers_request.ListSessionLoggersRequest]') -> AsyncOperationResponse["aws_sdk_workspaces_web.types.list_session_loggers_response.ListSessionLoggersResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_workspaces_web.types.list_session_loggers_request.ListSessionLoggersRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_workspaces_web.types.list_session_loggers_response.ListSessionLoggersResponse"
+        ]:
             import aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.list_session_loggers
-            output, http_response = await aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.list_session_loggers.async_list_session_loggers(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.list_session_loggers.async_list_session_loggers(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -357,5 +628,9 @@ class AsyncSessionLoggerResource:
         if max_results is not None:
             input_["max_results"] = max_results
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output

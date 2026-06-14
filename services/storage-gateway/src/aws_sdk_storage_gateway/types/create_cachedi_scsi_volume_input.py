@@ -1,7 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#CreateCachediSCSIVolumeInput``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_storage_gateway.errors import DeserializationError
 
 if TYPE_CHECKING:
@@ -22,7 +24,7 @@ class CreateCachediSCSIVolumeInput(TypedDict):
     volume_size_in_bytes: "aws_sdk_storage_gateway.types.long.long"
     """<p>The size of the volume in bytes.</p>"""
     snapshot_id: NotRequired["aws_sdk_storage_gateway.types.snapshot_id.SnapshotId"]
-    """<p>The snapshot ID (e.g. \"snap-1122aabb\") of the snapshot to restore as the new cached volume. Specify this field if you want to create the iSCSI storage volume from a snapshot; otherwise, do not include this field. To list snapshots for your account use <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html\">DescribeSnapshots</a> in the <i>Amazon Elastic Compute Cloud API Reference</i>.</p>"""
+    r"""<p>The snapshot ID (e.g. \"snap-1122aabb\") of the snapshot to restore as the new cached volume. Specify this field if you want to create the iSCSI storage volume from a snapshot; otherwise, do not include this field. To list snapshots for your account use <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html\">DescribeSnapshots</a> in the <i>Amazon Elastic Compute Cloud API Reference</i>.</p>"""
     target_name: "aws_sdk_storage_gateway.types.target_name.TargetName"
     """<p>The name of the iSCSI target used by an initiator to connect to a volume and used as a suffix for the target ARN. For example, specifying <code>TargetName</code> as <i>myvolume</i> results in the target ARN of <code>arn:aws:storagegateway:us-east-2:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume</code>. The target name must be unique across all volumes on a gateway.</p> <p>If you don't specify a value, Storage Gateway uses the value that was previously used for this volume as the new target name.</p>"""
     source_volume_arn: NotRequired["aws_sdk_storage_gateway.types.volume_arn.VolumeARN"]

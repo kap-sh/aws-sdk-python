@@ -10,7 +10,7 @@ if TYPE_CHECKING:
 
 class CustomRequestHandling(TypedDict):
     insert_headers: "aws_sdk_wafv2.types.custom_http_headers.CustomHTTPHeaders"
-    """<p>The HTTP headers to insert into the request. Duplicate header names are not allowed. </p> <p>For information about the limits on count and size for custom request and response settings, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/limits.html\">WAF quotas</a> in the <i>WAF Developer Guide</i>. </p>"""
+    r"""<p>The HTTP headers to insert into the request. Duplicate header names are not allowed. </p> <p>For information about the limits on count and size for custom request and response settings, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/limits.html\">WAF quotas</a> in the <i>WAF Developer Guide</i>. </p>"""
 
 
 # --- awsJson1_1 ser/de ---

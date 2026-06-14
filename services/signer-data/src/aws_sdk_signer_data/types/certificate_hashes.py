@@ -1,10 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.signerdata#CertificateHashes``."""
 
 from typing import TYPE_CHECKING, TypeAlias
+
 if TYPE_CHECKING:
     import aws_sdk_signer_data.types.certificate_hash
 
-CertificateHashes: TypeAlias = list["aws_sdk_signer_data.types.certificate_hash.CertificateHash"]
+CertificateHashes: TypeAlias = list[
+    "aws_sdk_signer_data.types.certificate_hash.CertificateHash"
+]
 
 
 # --- restJson1 ser/de ---

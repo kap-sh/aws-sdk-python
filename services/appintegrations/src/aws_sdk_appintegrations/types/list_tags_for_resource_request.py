@@ -1,15 +1,12 @@
 """Generated from Smithy shape ``com.amazonaws.appintegrations#ListTagsForResourceRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
-
 if TYPE_CHECKING:
     import aws_sdk_appintegrations.types.arn
-
 
 class ListTagsForResourceRequest(TypedDict):
     resource_arn: "aws_sdk_appintegrations.types.arn.Arn"
     """<p>The Amazon Resource Name (ARN) of the resource. </p>"""
-
 
 # --- restJson1 ser/de ---
 def serialize_json(value: ListTagsForResourceRequest) -> dict:

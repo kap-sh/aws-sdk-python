@@ -112,6 +112,7 @@ class AsyncElementalInferenceClient:
                 "credentials_provider": credentials_provider,
             }
         )
+
         # resources
         self.dictionary_resource = AsyncDictionaryResource(self)
         self.feed_resource = AsyncFeedResource(self)

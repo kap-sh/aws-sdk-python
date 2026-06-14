@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.verifiedpermissions#ClientIds``."""
 
 from typing import TYPE_CHECKING, TypeAlias
+
 if TYPE_CHECKING:
     import aws_sdk_verifiedpermissions.types.client_id
 

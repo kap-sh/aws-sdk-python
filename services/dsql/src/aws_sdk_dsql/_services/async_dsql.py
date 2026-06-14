@@ -104,6 +104,7 @@ class AsyncDSQLClient:
                 "credentials_provider": credentials_provider,
             }
         )
+
         # resources
         self.cluster = AsyncCluster(self)
         self.stream = AsyncStream(self)

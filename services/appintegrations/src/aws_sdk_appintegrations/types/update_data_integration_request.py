@@ -1,14 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.appintegrations#UpdateDataIntegrationRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
-
 from typing_extensions import NotRequired
-
 if TYPE_CHECKING:
     import aws_sdk_appintegrations.types.description
     import aws_sdk_appintegrations.types.identifier
     import aws_sdk_appintegrations.types.name
-
 
 class UpdateDataIntegrationRequest(TypedDict):
     identifier: "aws_sdk_appintegrations.types.identifier.Identifier"
@@ -17,7 +14,6 @@ class UpdateDataIntegrationRequest(TypedDict):
     """<p>The name of the DataIntegration.</p>"""
     description: NotRequired["aws_sdk_appintegrations.types.description.Description"]
     """<p>A description of the DataIntegration.</p>"""
-
 
 # --- restJson1 ser/de ---
 def serialize_json(value: UpdateDataIntegrationRequest) -> dict:

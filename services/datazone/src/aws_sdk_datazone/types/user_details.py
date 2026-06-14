@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#UserDetails``."""
 
 from typing import TypedDict
+
 from aws_sdk_datazone.errors import DeserializationError
 
 

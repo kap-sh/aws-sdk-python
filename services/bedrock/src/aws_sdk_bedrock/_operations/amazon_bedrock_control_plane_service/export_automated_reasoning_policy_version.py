@@ -96,7 +96,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.export_automated_reasoning_policy_version_request.ExportAutomatedReasoningPolicyVersionRequest,
+    input_: aws_sdk_bedrock.types.export_automated_reasoning_policy_version_request.ExportAutomatedReasoningPolicyVersionRequest,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -107,7 +107,7 @@ def build_request(
         )
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/automated-reasoning-policies/{policyArn}/export"
-    url = url.replace("{policyArn}", quote(str(input["policy_arn"]), safe=""))
+    url = url.replace("{policyArn}", quote(str(input_["policy_arn"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
@@ -121,12 +121,12 @@ def build_request(
 
 def export_automated_reasoning_policy_version(
     options: OperationOptions,
-    input: aws_sdk_bedrock.types.export_automated_reasoning_policy_version_request.ExportAutomatedReasoningPolicyVersionRequest,
+    input_: aws_sdk_bedrock.types.export_automated_reasoning_policy_version_request.ExportAutomatedReasoningPolicyVersionRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.export_automated_reasoning_policy_version_response.ExportAutomatedReasoningPolicyVersionResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -140,12 +140,12 @@ def export_automated_reasoning_policy_version(
 
 async def async_export_automated_reasoning_policy_version(
     options: AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.export_automated_reasoning_policy_version_request.ExportAutomatedReasoningPolicyVersionRequest,
+    input_: aws_sdk_bedrock.types.export_automated_reasoning_policy_version_request.ExportAutomatedReasoningPolicyVersionRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.export_automated_reasoning_policy_version_response.ExportAutomatedReasoningPolicyVersionResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

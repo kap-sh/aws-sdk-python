@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#OperatingSystemNotCompatibleException``."""
 
 from typing import TypedDict
+
 from aws_sdk_workspaces.errors import ServiceError
 
 

@@ -200,7 +200,7 @@ class AsyncTransferClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = AsyncTransferClientConfig(
+        self._config = AsyncTransferClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -213,6 +213,7 @@ class AsyncTransferClient:
                 "credentials_provider": credentials_provider,
             }
         )
+
         # resources
         self.agreement_resource = AsyncAgreementResource(self)
         self.certificate_resource = AsyncCertificateResource(self)
@@ -230,7 +231,7 @@ class AsyncTransferClient:
         overrides: AsyncTransferClientConfig = config_overrides or {}
         interceptors_: list[AsyncInterceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             aretry(),
         ]
@@ -238,16 +239,16 @@ class AsyncTransferClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            region=overrides.get("region", self.config.get("region")),
+            region=overrides.get("region", self._config.get("region")),
             use_dual_stack=overrides.get(
-                "use_dual_stack", self.config.get("use_dual_stack")
+                "use_dual_stack", self._config.get("use_dual_stack")
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -273,7 +274,7 @@ class AsyncTransferClient:
             "aws_sdk_transfer.types.posix_profile.PosixProfile"
         ] = None,
     ) -> "aws_sdk_transfer.types.create_access_response.CreateAccessResponse":
-        """<p>Used by administrators to choose which groups in the directory should have access to upload and download files over the enabled protocols using Transfer Family. For example, a Microsoft Active Directory might contain 50,000 users, but only a small fraction might need the ability to transfer files to the server. An administrator can use <code>CreateAccess</code> to limit the access to the correct set of users who need this ability.</p>
+        r"""<p>Used by administrators to choose which groups in the directory should have access to upload and download files over the enabled protocols using Transfer Family. For example, a Microsoft Active Directory might contain 50,000 users, but only a small fraction might need the ability to transfer files to the server. An administrator can use <code>CreateAccess</code> to limit the access to the correct set of users who need this ability.</p>
 
         Args:
             home_directory: <p>The landing directory (folder) for a user when they log in to the server using the client.</p> <p>A <code>HomeDirectory</code> example is <code>/bucket_name/home/mydirectory</code>.</p> <note> <p>You can use the <code>HomeDirectory</code> parameter for <code>HomeDirectoryType</code> when it is set to either <code>PATH</code> or <code>LOGICAL</code>.</p> </note>
@@ -330,7 +331,7 @@ class AsyncTransferClient:
         *,
         config_overrides: Optional[AsyncTransferClientConfig] = None,
     ) -> None:
-        """<p>Allows you to delete the access specified in the <code>ServerID</code> and <code>ExternalID</code> parameters.</p>
+        r"""<p>Allows you to delete the access specified in the <code>ServerID</code> and <code>ExternalID</code> parameters.</p>
 
         Args:
             server_id: <p>A system-assigned unique identifier for a server that has this user assigned.</p>
@@ -450,7 +451,7 @@ class AsyncTransferClient:
         *,
         config_overrides: Optional[AsyncTransferClientConfig] = None,
     ) -> "aws_sdk_transfer.types.describe_access_response.DescribeAccessResponse":
-        """<p>Describes the access that is assigned to the specific file transfer protocol-enabled server, as identified by its <code>ServerId</code> property and its <code>ExternalId</code>.</p> <p>The response from this call returns the properties of the access that is associated with the <code>ServerId</code> value that was specified.</p>
+        r"""<p>Describes the access that is assigned to the specific file transfer protocol-enabled server, as identified by its <code>ServerId</code> property and its <code>ExternalId</code>.</p> <p>The response from this call returns the properties of the access that is associated with the <code>ServerId</code> value that was specified.</p>
 
         Args:
             server_id: <p>A system-assigned unique identifier for a server that has this access assigned.</p>
@@ -572,7 +573,7 @@ class AsyncTransferClient:
         *,
         config_overrides: Optional[AsyncTransferClientConfig] = None,
     ) -> "aws_sdk_transfer.types.describe_security_policy_response.DescribeSecurityPolicyResponse":
-        """<p>Describes the security policy that is attached to your server or SFTP connector. The response contains a description of the security policy's properties. For more information about security policies, see <a href=\"https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html\">Working with security policies for servers</a> or <a href=\"https://docs.aws.amazon.com/transfer/latest/userguide/security-policies-connectors.html\">Working with security policies for SFTP connectors</a>.</p>
+        r"""<p>Describes the security policy that is attached to your server or SFTP connector. The response contains a description of the security policy's properties. For more information about security policies, see <a href=\"https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html\">Working with security policies for servers</a> or <a href=\"https://docs.aws.amazon.com/transfer/latest/userguide/security-policies-connectors.html\">Working with security policies for SFTP connectors</a>.</p>
 
         Args:
             security_policy_name: <p>Specify the text name of the security policy for which you want the details.</p>
@@ -846,7 +847,7 @@ class AsyncTransferClient:
         next_token: Optional["aws_sdk_transfer.types.next_token.NextToken"] = None,
         max_results: Optional["aws_sdk_transfer.types.max_results.MaxResults"] = None,
     ) -> "aws_sdk_transfer.types.list_file_transfer_results_response.ListFileTransferResultsResponse":
-        """<p> Returns real-time updates and detailed information on the status of each individual file being transferred in a specific file transfer operation. You specify the file transfer by providing its <code>ConnectorId</code> and its <code>TransferId</code>.</p> <note> <p>File transfer results are available up to 7 days after an operation has been requested.</p> </note>
+        r"""<p> Returns real-time updates and detailed information on the status of each individual file being transferred in a specific file transfer operation. You specify the file transfer by providing its <code>ConnectorId</code> and its <code>TransferId</code>.</p> <note> <p>File transfer results are available up to 7 days after an operation has been requested.</p> </note>
 
         Args:
             connector_id: <p>A unique identifier for a connector. This value should match the value supplied to the corresponding <code>StartFileTransfer</code> call.</p>
@@ -964,7 +965,7 @@ class AsyncTransferClient:
         max_results: Optional["aws_sdk_transfer.types.max_results.MaxResults"] = None,
         next_token: Optional["aws_sdk_transfer.types.next_token.NextToken"] = None,
     ) -> "aws_sdk_transfer.types.list_security_policies_response.ListSecurityPoliciesResponse":
-        """<p>Lists the security policies that are attached to your servers and SFTP connectors. For more information about security policies, see <a href=\"https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html\">Working with security policies for servers</a> or <a href=\"https://docs.aws.amazon.com/transfer/latest/userguide/security-policies-connectors.html\">Working with security policies for SFTP connectors</a>.</p>
+        r"""<p>Lists the security policies that are attached to your servers and SFTP connectors. For more information about security policies, see <a href=\"https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html\">Working with security policies for servers</a> or <a href=\"https://docs.aws.amazon.com/transfer/latest/userguide/security-policies-connectors.html\">Working with security policies for SFTP connectors</a>.</p>
 
         Args:
             max_results: <p>Specifies the number of security policies to return as a response to the <code>ListSecurityPolicies</code> query.</p>
@@ -1606,7 +1607,7 @@ class AsyncTransferClient:
         ] = None,
         role: Optional["aws_sdk_transfer.types.role.Role"] = None,
     ) -> "aws_sdk_transfer.types.update_access_response.UpdateAccessResponse":
-        """<p>Allows you to update parameters for the access specified in the <code>ServerID</code> and <code>ExternalID</code> parameters.</p>
+        r"""<p>Allows you to update parameters for the access specified in the <code>ServerID</code> and <code>ExternalID</code> parameters.</p>
 
         Args:
             home_directory: <p>The landing directory (folder) for a user when they log in to the server using the client.</p> <p>A <code>HomeDirectory</code> example is <code>/bucket_name/home/mydirectory</code>.</p> <note> <p>You can use the <code>HomeDirectory</code> parameter for <code>HomeDirectoryType</code> when it is set to either <code>PATH</code> or <code>LOGICAL</code>.</p> </note>

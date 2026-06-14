@@ -1,20 +1,21 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#RowFilterExpression``."""
 
 from typing import TYPE_CHECKING, TypeAlias, TypedDict
+
 from aws_sdk_datazone.errors import DeserializationError, SerializationError
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.equal_to_expression
-    import aws_sdk_datazone.types.not_equal_to_expression
     import aws_sdk_datazone.types.greater_than_expression
-    import aws_sdk_datazone.types.less_than_expression
     import aws_sdk_datazone.types.greater_than_or_equal_to_expression
-    import aws_sdk_datazone.types.less_than_or_equal_to_expression
-    import aws_sdk_datazone.types.is_null_expression
-    import aws_sdk_datazone.types.is_not_null_expression
     import aws_sdk_datazone.types.in_expression
-    import aws_sdk_datazone.types.not_in_expression
+    import aws_sdk_datazone.types.is_not_null_expression
+    import aws_sdk_datazone.types.is_null_expression
+    import aws_sdk_datazone.types.less_than_expression
+    import aws_sdk_datazone.types.less_than_or_equal_to_expression
     import aws_sdk_datazone.types.like_expression
+    import aws_sdk_datazone.types.not_equal_to_expression
+    import aws_sdk_datazone.types.not_in_expression
     import aws_sdk_datazone.types.not_like_expression
 
 

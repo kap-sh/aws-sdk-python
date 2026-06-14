@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import BaseHandler, Client
 
+import aws_sdk_health._auth._signers
+import aws_sdk_health._auth._sigv4
 from aws_sdk_health._auth._identity import Credentials
 from aws_sdk_health._auth._providers import (
     CredentialsProvider,
@@ -129,7 +131,7 @@ class HealthClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = HealthClientConfig(
+        self._config = HealthClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -149,7 +151,7 @@ class HealthClient:
         overrides: HealthClientConfig = config_overrides or {}
         interceptors_: list[Interceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             retry(),
         ]
@@ -157,16 +159,16 @@ class HealthClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            region=overrides.get("region", self.config.get("region")),
+            region=overrides.get("region", self._config.get("region")),
             use_dual_stack=overrides.get(
-                "use_dual_stack", self.config.get("use_dual_stack")
+                "use_dual_stack", self._config.get("use_dual_stack")
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -202,15 +204,15 @@ class HealthClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_health.types.describe_affected_accounts_for_organization_request.DescribeAffectedAccountsForOrganizationRequest = {}  # type: ignore[typeddict-item]
-        input["event_arn"] = event_arn
+        input_: aws_sdk_health.types.describe_affected_accounts_for_organization_request.DescribeAffectedAccountsForOrganizationRequest = {}  # type: ignore[typeddict-item]
+        input_["event_arn"] = event_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -274,17 +276,17 @@ class HealthClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_health.types.describe_affected_entities_request.DescribeAffectedEntitiesRequest = {}  # type: ignore[typeddict-item]
-        input["filter"] = filter
+        input_: aws_sdk_health.types.describe_affected_entities_request.DescribeAffectedEntitiesRequest = {}  # type: ignore[typeddict-item]
+        input_["filter"] = filter
         if locale is not None:
-            input["locale"] = locale
+            input_["locale"] = locale
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -358,22 +360,22 @@ class HealthClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_health.types.describe_affected_entities_for_organization_request.DescribeAffectedEntitiesForOrganizationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_health.types.describe_affected_entities_for_organization_request.DescribeAffectedEntitiesForOrganizationRequest = {}  # type: ignore[typeddict-item]
         if organization_entity_filters is not None:
-            input["organization_entity_filters"] = organization_entity_filters
+            input_["organization_entity_filters"] = organization_entity_filters
         if locale is not None:
-            input["locale"] = locale
+            input_["locale"] = locale
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if organization_entity_account_filters is not None:
-            input["organization_entity_account_filters"] = (
+            input_["organization_entity_account_filters"] = (
                 organization_entity_account_filters
             )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -441,12 +443,12 @@ class HealthClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_health.types.describe_entity_aggregates_request.DescribeEntityAggregatesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_health.types.describe_entity_aggregates_request.DescribeEntityAggregatesRequest = {}  # type: ignore[typeddict-item]
         if event_arns is not None:
-            input["event_arns"] = event_arns
+            input_["event_arns"] = event_arns
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -483,13 +485,13 @@ class HealthClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_health.types.describe_entity_aggregates_for_organization_request.DescribeEntityAggregatesForOrganizationRequest = {}  # type: ignore[typeddict-item]
-        input["event_arns"] = event_arns
+        input_: aws_sdk_health.types.describe_entity_aggregates_for_organization_request.DescribeEntityAggregatesForOrganizationRequest = {}  # type: ignore[typeddict-item]
+        input_["event_arns"] = event_arns
         if aws_account_ids is not None:
-            input["aws_account_ids"] = aws_account_ids
+            input_["aws_account_ids"] = aws_account_ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -528,17 +530,17 @@ class HealthClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_health.types.describe_event_aggregates_request.DescribeEventAggregatesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_health.types.describe_event_aggregates_request.DescribeEventAggregatesRequest = {}  # type: ignore[typeddict-item]
         if filter is not None:
-            input["filter"] = filter
-        input["aggregate_field"] = aggregate_field
+            input_["filter"] = filter
+        input_["aggregate_field"] = aggregate_field
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -598,13 +600,13 @@ class HealthClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_health.types.describe_event_details_request.DescribeEventDetailsRequest = {}  # type: ignore[typeddict-item]
-        input["event_arns"] = event_arns
+        input_: aws_sdk_health.types.describe_event_details_request.DescribeEventDetailsRequest = {}  # type: ignore[typeddict-item]
+        input_["event_arns"] = event_arns
         if locale is not None:
-            input["locale"] = locale
+            input_["locale"] = locale
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -639,13 +641,13 @@ class HealthClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_health.types.describe_event_details_for_organization_request.DescribeEventDetailsForOrganizationRequest = {}  # type: ignore[typeddict-item]
-        input["organization_event_detail_filters"] = organization_event_detail_filters
+        input_: aws_sdk_health.types.describe_event_details_for_organization_request.DescribeEventDetailsForOrganizationRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_event_detail_filters"] = organization_event_detail_filters
         if locale is not None:
-            input["locale"] = locale
+            input_["locale"] = locale
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -686,18 +688,18 @@ class HealthClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_health.types.describe_events_request.DescribeEventsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_health.types.describe_events_request.DescribeEventsRequest = {}  # type: ignore[typeddict-item]
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if locale is not None:
-            input["locale"] = locale
+            input_["locale"] = locale
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -767,18 +769,18 @@ class HealthClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_health.types.describe_events_for_organization_request.DescribeEventsForOrganizationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_health.types.describe_events_for_organization_request.DescribeEventsForOrganizationRequest = {}  # type: ignore[typeddict-item]
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if locale is not None:
-            input["locale"] = locale
+            input_["locale"] = locale
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -850,18 +852,18 @@ class HealthClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_health.types.describe_event_types_request.DescribeEventTypesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_health.types.describe_event_types_request.DescribeEventTypesRequest = {}  # type: ignore[typeddict-item]
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if locale is not None:
-            input["locale"] = locale
+            input_["locale"] = locale
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

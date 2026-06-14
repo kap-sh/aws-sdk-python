@@ -1,20 +1,23 @@
 """Generated from Smithy shape ``com.amazonaws.verifiedpermissions#DeletionMode``."""
 
-import datetime
-import decimal
-from typing import AsyncIterator, Iterator, Literal, TypeAlias, cast
+from typing import Literal, TypeAlias, cast
+
 from aws_sdk_verifiedpermissions.errors import DeserializationError
-from aws_sdk_verifiedpermissions._protocol.xml import Element, SubElement
-import base64
-from email.utils import format_datetime as _fmt_http
-from email.utils import parsedate_to_datetime as _parse_http
 
 """<p>The deletion mode for a resource. The valid values are:</p> <ul> <li> <p> <b>SoftDelete</b> – The resource enters the <code>PendingDeletion</code> state. This is the default behavior.</p> </li> <li> <p> <b>HardDelete</b> – The resource is immediately deleted, bypassing the <code>PendingDeletion</code> state.</p> </li> </ul>"""
-DeletionMode: TypeAlias = Literal["SoftDelete", "HardDelete",]
+DeletionMode: TypeAlias = Literal[
+    "SoftDelete",
+    "HardDelete",
+]
 
 
 # --- awsJson1_0 ser/de ---
-_VALUES: frozenset[str] = frozenset(("SoftDelete", "HardDelete",))
+_VALUES: frozenset[str] = frozenset(
+    (
+        "SoftDelete",
+        "HardDelete",
+    )
+)
 
 
 def serialize_aws_json_1_0(value: DeletionMode) -> str:

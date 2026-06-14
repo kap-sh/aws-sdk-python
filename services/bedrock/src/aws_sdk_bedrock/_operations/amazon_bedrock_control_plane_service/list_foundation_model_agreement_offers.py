@@ -94,7 +94,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.list_foundation_model_agreement_offers_request.ListFoundationModelAgreementOffersRequest,
+    input_: aws_sdk_bedrock.types.list_foundation_model_agreement_offers_request.ListFoundationModelAgreementOffersRequest,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -105,10 +105,10 @@ def build_request(
         )
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/list-foundation-model-agreement-offers/{modelId}"
-    url = url.replace("{modelId}", quote(str(input["model_id"]), safe=""))
+    url = url.replace("{modelId}", quote(str(input_["model_id"]), safe=""))
     params: dict[str, str] = {}
-    if "offer_type" in input:
-        params["offerType"] = str(input["offer_type"])
+    if "offer_type" in input_:
+        params["offerType"] = str(input_["offer_type"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
@@ -121,12 +121,12 @@ def build_request(
 
 def list_foundation_model_agreement_offers(
     options: OperationOptions,
-    input: aws_sdk_bedrock.types.list_foundation_model_agreement_offers_request.ListFoundationModelAgreementOffersRequest,
+    input_: aws_sdk_bedrock.types.list_foundation_model_agreement_offers_request.ListFoundationModelAgreementOffersRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.list_foundation_model_agreement_offers_response.ListFoundationModelAgreementOffersResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -140,12 +140,12 @@ def list_foundation_model_agreement_offers(
 
 async def async_list_foundation_model_agreement_offers(
     options: AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.list_foundation_model_agreement_offers_request.ListFoundationModelAgreementOffersRequest,
+    input_: aws_sdk_bedrock.types.list_foundation_model_agreement_offers_request.ListFoundationModelAgreementOffersRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.list_foundation_model_agreement_offers_response.ListFoundationModelAgreementOffersResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

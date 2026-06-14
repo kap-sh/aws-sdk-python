@@ -1,0 +1,50 @@
+"""Generated from Smithy shape ``com.amazonaws.workspacesweb#TrustStore``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_workspaces_web.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_workspaces_web.types.arn
+    import aws_sdk_workspaces_web.types.arn_list
+
+
+class TrustStore(TypedDict):
+    associated_portal_arns: NotRequired["aws_sdk_workspaces_web.types.arn_list.ArnList"]
+    """<p>A list of web portal ARNs that this trust store is associated with.</p>"""
+    trust_store_arn: "aws_sdk_workspaces_web.types.arn.ARN"
+    """<p>The ARN of the trust store.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: TrustStore) -> dict:
+    out: dict = {}
+    if "associated_portal_arns" in value:
+        import aws_sdk_workspaces_web.types.arn_list
+
+        out["associatedPortalArns"] = (
+            aws_sdk_workspaces_web.types.arn_list.serialize_json(
+                value["associated_portal_arns"]
+            )
+        )
+    out["trustStoreArn"] = value["trust_store_arn"]
+    return out
+
+
+def deserialize_json(data: dict) -> TrustStore:
+    out: TrustStore = {}  # type: ignore[typeddict-item]
+    if "associatedPortalArns" in data:
+        import aws_sdk_workspaces_web.types.arn_list
+
+        out["associated_portal_arns"] = (
+            aws_sdk_workspaces_web.types.arn_list.deserialize_json(
+                data["associatedPortalArns"]
+            )
+        )
+    if "trustStoreArn" in data:
+        out["trust_store_arn"] = data["trustStoreArn"]
+    else:
+        raise DeserializationError("TrustStore.trust_store_arn required")
+    return out

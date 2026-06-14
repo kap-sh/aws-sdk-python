@@ -93,7 +93,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.list_tags_for_resource_request.ListTagsForResourceRequest,
+    input_: aws_sdk_bedrock.types.list_tags_for_resource_request.ListTagsForResourceRequest,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -109,7 +109,7 @@ def build_request(
     import aws_sdk_bedrock.types.list_tags_for_resource_request
 
     body: bytes | None = json.dumps(
-        aws_sdk_bedrock.types.list_tags_for_resource_request.serialize_json(input)
+        aws_sdk_bedrock.types.list_tags_for_resource_request.serialize_json(input_)
     ).encode()
     headers["content-type"] = "application/json"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
@@ -122,12 +122,12 @@ def build_request(
 
 def list_tags_for_resource(
     options: OperationOptions,
-    input: aws_sdk_bedrock.types.list_tags_for_resource_request.ListTagsForResourceRequest,
+    input_: aws_sdk_bedrock.types.list_tags_for_resource_request.ListTagsForResourceRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.list_tags_for_resource_response.ListTagsForResourceResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -141,12 +141,12 @@ def list_tags_for_resource(
 
 async def async_list_tags_for_resource(
     options: AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.list_tags_for_resource_request.ListTagsForResourceRequest,
+    input_: aws_sdk_bedrock.types.list_tags_for_resource_request.ListTagsForResourceRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.list_tags_for_resource_response.ListTagsForResourceResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

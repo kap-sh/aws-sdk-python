@@ -1,10 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#GetProjectProfileOutput``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_datazone.errors import DeserializationError
 
 if TYPE_CHECKING:
+    import datetime
+
     import aws_sdk_datazone.types.created_by
     import aws_sdk_datazone.types.description
     import aws_sdk_datazone.types.domain_id
@@ -14,7 +18,6 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.project_profile_name
     import aws_sdk_datazone.types.project_resource_tag_parameters
     import aws_sdk_datazone.types.status
-    import datetime
 
 
 class GetProjectProfileOutput(TypedDict):

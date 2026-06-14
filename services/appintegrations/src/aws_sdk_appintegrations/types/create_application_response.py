@@ -1,20 +1,16 @@
 """Generated from Smithy shape ``com.amazonaws.appintegrations#CreateApplicationResponse``."""
 
 from typing import TYPE_CHECKING, TypedDict
-
 from typing_extensions import NotRequired
-
 if TYPE_CHECKING:
     import aws_sdk_appintegrations.types.arn
     import aws_sdk_appintegrations.types.uuid
-
 
 class CreateApplicationResponse(TypedDict):
     arn: NotRequired["aws_sdk_appintegrations.types.arn.Arn"]
     """<p>The Amazon Resource Name (ARN) of the Application.</p>"""
     id: NotRequired["aws_sdk_appintegrations.types.uuid.UUID"]
     """<p>A unique identifier for the Application.</p>"""
-
 
 # --- restJson1 ser/de ---
 def serialize_json(value: CreateApplicationResponse) -> dict:

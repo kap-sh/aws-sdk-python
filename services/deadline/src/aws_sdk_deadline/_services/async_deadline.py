@@ -198,6 +198,7 @@ class AsyncdeadlineClient:
                 "credentials_provider": credentials_provider,
             }
         )
+
         # resources
         self.farm_resource = AsyncFarmResource(self)
         self.license_endpoint_resource = AsyncLicenseEndpointResource(self)

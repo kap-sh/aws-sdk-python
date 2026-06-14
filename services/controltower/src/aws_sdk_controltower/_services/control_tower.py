@@ -126,6 +126,7 @@ class ControlTowerClient:
                 "credentials_provider": credentials_provider,
             }
         )
+
         # resources
         self.baseline_operation_resource = BaselineOperationResource(self)
         self.baseline_resource = BaselineResource(self)

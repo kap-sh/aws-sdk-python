@@ -1,15 +1,18 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#EnvironmentBlueprintSummary``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_datazone.errors import DeserializationError
 
 if TYPE_CHECKING:
+    import datetime
+
     import aws_sdk_datazone.types.description
     import aws_sdk_datazone.types.environment_blueprint_id
     import aws_sdk_datazone.types.environment_blueprint_name
     import aws_sdk_datazone.types.provisioning_properties
-    import datetime
 
 
 class EnvironmentBlueprintSummary(TypedDict):

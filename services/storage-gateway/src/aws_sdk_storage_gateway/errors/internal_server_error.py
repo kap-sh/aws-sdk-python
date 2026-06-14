@@ -1,7 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#InternalServerError``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_storage_gateway.errors import ServiceError
 
 if TYPE_CHECKING:

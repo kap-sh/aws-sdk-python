@@ -1,15 +1,19 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesweb#AssociateUserSettingsResponse``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_workspaces_web.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_workspaces_web.types.arn
+
 
 class AssociateUserSettingsResponse(TypedDict):
     portal_arn: "aws_sdk_workspaces_web.types.arn.ARN"
     """<p>The ARN of the web portal.</p>"""
     user_settings_arn: "aws_sdk_workspaces_web.types.arn.ARN"
     """<p>The ARN of the user settings.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: AssociateUserSettingsResponse) -> dict:
@@ -28,5 +32,7 @@ def deserialize_json(data: dict) -> AssociateUserSettingsResponse:
     if "userSettingsArn" in data:
         out["user_settings_arn"] = data["userSettingsArn"]
     else:
-        raise DeserializationError("AssociateUserSettingsResponse.user_settings_arn required")
+        raise DeserializationError(
+            "AssociateUserSettingsResponse.user_settings_arn required"
+        )
     return out

@@ -33,7 +33,7 @@ class DescribeFolderContentsRequest(TypedDict):
     type: NotRequired["aws_sdk_workdocs.types.folder_content_type.FolderContentType"]
     """<p>The type of items.</p>"""
     include: NotRequired["aws_sdk_workdocs.types.field_names_type.FieldNamesType"]
-    """<p>The contents to include. Specify \"INITIALIZED\" to include initialized documents.</p>"""
+    r"""<p>The contents to include. Specify \"INITIALIZED\" to include initialized documents.</p>"""
 
 
 # --- restJson1 ser/de ---

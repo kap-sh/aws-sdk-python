@@ -96,7 +96,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.deregister_marketplace_model_endpoint_request.DeregisterMarketplaceModelEndpointRequest,
+    input_: aws_sdk_bedrock.types.deregister_marketplace_model_endpoint_request.DeregisterMarketplaceModelEndpointRequest,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -110,7 +110,7 @@ def build_request(
         endpoint.url.rstrip("/")
         + "/marketplace-model/endpoints/{endpointArn}/registration"
     )
-    url = url.replace("{endpointArn}", quote(str(input["endpoint_arn"]), safe=""))
+    url = url.replace("{endpointArn}", quote(str(input_["endpoint_arn"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
@@ -124,12 +124,12 @@ def build_request(
 
 def deregister_marketplace_model_endpoint(
     options: OperationOptions,
-    input: aws_sdk_bedrock.types.deregister_marketplace_model_endpoint_request.DeregisterMarketplaceModelEndpointRequest,
+    input_: aws_sdk_bedrock.types.deregister_marketplace_model_endpoint_request.DeregisterMarketplaceModelEndpointRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.deregister_marketplace_model_endpoint_response.DeregisterMarketplaceModelEndpointResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -143,12 +143,12 @@ def deregister_marketplace_model_endpoint(
 
 async def async_deregister_marketplace_model_endpoint(
     options: AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.deregister_marketplace_model_endpoint_request.DeregisterMarketplaceModelEndpointRequest,
+    input_: aws_sdk_bedrock.types.deregister_marketplace_model_endpoint_request.DeregisterMarketplaceModelEndpointRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.deregister_marketplace_model_endpoint_response.DeregisterMarketplaceModelEndpointResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

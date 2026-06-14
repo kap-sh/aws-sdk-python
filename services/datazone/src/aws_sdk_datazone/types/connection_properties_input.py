@@ -1,23 +1,24 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#ConnectionPropertiesInput``."""
 
 from typing import TYPE_CHECKING, TypeAlias, TypedDict
+
 from aws_sdk_datazone.errors import DeserializationError, SerializationError
 
 if TYPE_CHECKING:
+    import aws_sdk_datazone.types.amazon_q_properties_input
     import aws_sdk_datazone.types.athena_properties_input
     import aws_sdk_datazone.types.glue_properties_input
     import aws_sdk_datazone.types.hyper_pod_properties_input
     import aws_sdk_datazone.types.iam_properties_input
+    import aws_sdk_datazone.types.lakehouse_properties_input
+    import aws_sdk_datazone.types.mlflow_properties_input
     import aws_sdk_datazone.types.redshift_properties_input
+    import aws_sdk_datazone.types.s3_properties_input
     import aws_sdk_datazone.types.spark_emr_properties_input
     import aws_sdk_datazone.types.spark_glue_properties_input
-    import aws_sdk_datazone.types.s3_properties_input
-    import aws_sdk_datazone.types.amazon_q_properties_input
-    import aws_sdk_datazone.types.mlflow_properties_input
+    import aws_sdk_datazone.types.vpc_properties_input
     import aws_sdk_datazone.types.workflows_mwaa_properties_input
     import aws_sdk_datazone.types.workflows_serverless_properties_input
-    import aws_sdk_datazone.types.lakehouse_properties_input
-    import aws_sdk_datazone.types.vpc_properties_input
 
 
 class _ConnectionPropertiesInput_athenaProperties(TypedDict):

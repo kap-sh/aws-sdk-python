@@ -1,13 +1,17 @@
-from typing import Optional, TYPE_CHECKING
-from aws_sdk_workspaces_web._services.async_work_spaces_web import ensure_async_iterator
-from aws_sdk_workspaces_web._services.work_spaces_web import ensure_sync_iterator
-import datetime
-from aws_sdk_workspaces_web._services._pipeline import OperationRequest, OperationResponse, execute_pipeline, AsyncOperationRequest, AsyncOperationResponse, aexecute_pipeline
+from typing import TYPE_CHECKING, Optional
+
 import aws_sdk_workspaces_web._auth._signers
 import aws_sdk_workspaces_web._auth._sigv4
+from aws_sdk_workspaces_web._services._pipeline import (
+    AsyncOperationRequest,
+    AsyncOperationResponse,
+    OperationRequest,
+    OperationResponse,
+    aexecute_pipeline,
+    execute_pipeline,
+)
+
 if TYPE_CHECKING:
-    from aws_sdk_workspaces_web._services.work_spaces_web import WorkSpacesWebClient, WorkSpacesWebClientConfig
-    from aws_sdk_workspaces_web._services.async_work_spaces_web import AsyncWorkSpacesWebClient, AsyncWorkSpacesWebClientConfig
     import aws_sdk_workspaces_web.types.arn
     import aws_sdk_workspaces_web.types.associate_browser_settings_request
     import aws_sdk_workspaces_web.types.associate_browser_settings_response
@@ -64,11 +68,50 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces_web.types.tag_list
     import aws_sdk_workspaces_web.types.update_portal_request
     import aws_sdk_workspaces_web.types.update_portal_response
+    from aws_sdk_workspaces_web._services.async_work_spaces_web import (
+        AsyncWorkSpacesWebClient,
+        AsyncWorkSpacesWebClientConfig,
+    )
+    from aws_sdk_workspaces_web._services.work_spaces_web import (
+        WorkSpacesWebClient,
+        WorkSpacesWebClientConfig,
+    )
+
 
 class PortalResource:
     def __init__(self, service: WorkSpacesWebClient) -> None:
         self._service = service
-    def create(self, *, config_overrides: Optional[WorkSpacesWebClientConfig] = None, display_name: Optional["aws_sdk_workspaces_web.types.display_name.DisplayName"] = None, tags: Optional["aws_sdk_workspaces_web.types.tag_list.TagList"] = None, customer_managed_key: Optional["aws_sdk_workspaces_web.types.key_arn.keyArn"] = None, additional_encryption_context: Optional["aws_sdk_workspaces_web.types.encryption_context_map.EncryptionContextMap"] = None, client_token: Optional["aws_sdk_workspaces_web.types.client_token.ClientToken"] = None, authentication_type: Optional["aws_sdk_workspaces_web.types.authentication_type.AuthenticationType"] = None, instance_type: Optional["aws_sdk_workspaces_web.types.instance_type.InstanceType"] = None, max_concurrent_sessions: Optional["aws_sdk_workspaces_web.types.max_concurrent_sessions.MaxConcurrentSessions"] = None, portal_custom_domain: Optional["aws_sdk_workspaces_web.types.portal_custom_domain.PortalCustomDomain"] = None) -> "aws_sdk_workspaces_web.types.create_portal_response.CreatePortalResponse":
+
+    def create(
+        self,
+        *,
+        config_overrides: Optional[WorkSpacesWebClientConfig] = None,
+        display_name: Optional[
+            "aws_sdk_workspaces_web.types.display_name.DisplayName"
+        ] = None,
+        tags: Optional["aws_sdk_workspaces_web.types.tag_list.TagList"] = None,
+        customer_managed_key: Optional[
+            "aws_sdk_workspaces_web.types.key_arn.keyArn"
+        ] = None,
+        additional_encryption_context: Optional[
+            "aws_sdk_workspaces_web.types.encryption_context_map.EncryptionContextMap"
+        ] = None,
+        client_token: Optional[
+            "aws_sdk_workspaces_web.types.client_token.ClientToken"
+        ] = None,
+        authentication_type: Optional[
+            "aws_sdk_workspaces_web.types.authentication_type.AuthenticationType"
+        ] = None,
+        instance_type: Optional[
+            "aws_sdk_workspaces_web.types.instance_type.InstanceType"
+        ] = None,
+        max_concurrent_sessions: Optional[
+            "aws_sdk_workspaces_web.types.max_concurrent_sessions.MaxConcurrentSessions"
+        ] = None,
+        portal_custom_domain: Optional[
+            "aws_sdk_workspaces_web.types.portal_custom_domain.PortalCustomDomain"
+        ] = None,
+    ) -> "aws_sdk_workspaces_web.types.create_portal_response.CreatePortalResponse":
         """<p>Creates a web portal.</p>
 
         Args:
@@ -82,9 +125,19 @@ class PortalResource:
             max_concurrent_sessions: <p>The maximum number of concurrent sessions for the portal.</p>
             portal_custom_domain: <p>The custom domain of the web portal that users access in order to start streaming sessions.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_workspaces_web.types.create_portal_request.CreatePortalRequest]') -> OperationResponse["aws_sdk_workspaces_web.types.create_portal_response.CreatePortalResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_workspaces_web.types.create_portal_request.CreatePortalRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_workspaces_web.types.create_portal_response.CreatePortalResponse"
+        ]:
             import aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.create_portal
-            output, http_response = aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.create_portal.create_portal(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.create_portal.create_portal(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -108,26 +161,71 @@ class PortalResource:
         if portal_custom_domain is not None:
             input_["portal_custom_domain"] = portal_custom_domain
 
-        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def read(self, portal_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[WorkSpacesWebClientConfig] = None) -> "aws_sdk_workspaces_web.types.get_portal_response.GetPortalResponse":
+
+    def read(
+        self,
+        portal_arn: "aws_sdk_workspaces_web.types.arn.ARN",
+        *,
+        config_overrides: Optional[WorkSpacesWebClientConfig] = None,
+    ) -> "aws_sdk_workspaces_web.types.get_portal_response.GetPortalResponse":
         """<p>Gets the web portal.</p>
 
         Args:
             portal_arn: <p>The ARN of the web portal.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_workspaces_web.types.get_portal_request.GetPortalRequest]') -> OperationResponse["aws_sdk_workspaces_web.types.get_portal_response.GetPortalResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_workspaces_web.types.get_portal_request.GetPortalRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_workspaces_web.types.get_portal_response.GetPortalResponse"
+        ]:
             import aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.get_portal
-            output, http_response = aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.get_portal.get_portal(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.get_portal.get_portal(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: aws_sdk_workspaces_web.types.get_portal_request.GetPortalRequest = {}  # type: ignore[typeddict-item]
         input_["portal_arn"] = portal_arn
 
-        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def update(self, portal_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[WorkSpacesWebClientConfig] = None, display_name: Optional["aws_sdk_workspaces_web.types.display_name.DisplayName"] = None, authentication_type: Optional["aws_sdk_workspaces_web.types.authentication_type.AuthenticationType"] = None, instance_type: Optional["aws_sdk_workspaces_web.types.instance_type.InstanceType"] = None, max_concurrent_sessions: Optional["aws_sdk_workspaces_web.types.max_concurrent_sessions.MaxConcurrentSessions"] = None, portal_custom_domain: Optional["aws_sdk_workspaces_web.types.portal_custom_domain.PortalCustomDomain"] = None) -> "aws_sdk_workspaces_web.types.update_portal_response.UpdatePortalResponse":
+
+    def update(
+        self,
+        portal_arn: "aws_sdk_workspaces_web.types.arn.ARN",
+        *,
+        config_overrides: Optional[WorkSpacesWebClientConfig] = None,
+        display_name: Optional[
+            "aws_sdk_workspaces_web.types.display_name.DisplayName"
+        ] = None,
+        authentication_type: Optional[
+            "aws_sdk_workspaces_web.types.authentication_type.AuthenticationType"
+        ] = None,
+        instance_type: Optional[
+            "aws_sdk_workspaces_web.types.instance_type.InstanceType"
+        ] = None,
+        max_concurrent_sessions: Optional[
+            "aws_sdk_workspaces_web.types.max_concurrent_sessions.MaxConcurrentSessions"
+        ] = None,
+        portal_custom_domain: Optional[
+            "aws_sdk_workspaces_web.types.portal_custom_domain.PortalCustomDomain"
+        ] = None,
+    ) -> "aws_sdk_workspaces_web.types.update_portal_response.UpdatePortalResponse":
         """<p>Updates a web portal.</p>
 
         Args:
@@ -138,9 +236,19 @@ class PortalResource:
             max_concurrent_sessions: <p>The maximum number of concurrent sessions for the portal.</p>
             portal_custom_domain: <p>The custom domain of the web portal that users access in order to start streaming sessions. </p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_workspaces_web.types.update_portal_request.UpdatePortalRequest]') -> OperationResponse["aws_sdk_workspaces_web.types.update_portal_response.UpdatePortalResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_workspaces_web.types.update_portal_request.UpdatePortalRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_workspaces_web.types.update_portal_response.UpdatePortalResponse"
+        ]:
             import aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.update_portal
-            output, http_response = aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.update_portal.update_portal(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.update_portal.update_portal(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -157,35 +265,80 @@ class PortalResource:
         if portal_custom_domain is not None:
             input_["portal_custom_domain"] = portal_custom_domain
 
-        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def delete(self, portal_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[WorkSpacesWebClientConfig] = None) -> "aws_sdk_workspaces_web.types.delete_portal_response.DeletePortalResponse":
+
+    def delete(
+        self,
+        portal_arn: "aws_sdk_workspaces_web.types.arn.ARN",
+        *,
+        config_overrides: Optional[WorkSpacesWebClientConfig] = None,
+    ) -> "aws_sdk_workspaces_web.types.delete_portal_response.DeletePortalResponse":
         """<p>Deletes a web portal.</p>
 
         Args:
             portal_arn: <p>The ARN of the web portal.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_workspaces_web.types.delete_portal_request.DeletePortalRequest]') -> OperationResponse["aws_sdk_workspaces_web.types.delete_portal_response.DeletePortalResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_workspaces_web.types.delete_portal_request.DeletePortalRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_workspaces_web.types.delete_portal_response.DeletePortalResponse"
+        ]:
             import aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.delete_portal
-            output, http_response = aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.delete_portal.delete_portal(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.delete_portal.delete_portal(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: aws_sdk_workspaces_web.types.delete_portal_request.DeletePortalRequest = {}  # type: ignore[typeddict-item]
         input_["portal_arn"] = portal_arn
 
-        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def list(self, *, config_overrides: Optional[WorkSpacesWebClientConfig] = None, next_token: Optional["aws_sdk_workspaces_web.types.pagination_token.PaginationToken"] = None, max_results: Optional["aws_sdk_workspaces_web.types.max_results.MaxResults"] = None) -> "aws_sdk_workspaces_web.types.list_portals_response.ListPortalsResponse":
+
+    def list(
+        self,
+        *,
+        config_overrides: Optional[WorkSpacesWebClientConfig] = None,
+        next_token: Optional[
+            "aws_sdk_workspaces_web.types.pagination_token.PaginationToken"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_workspaces_web.types.max_results.MaxResults"
+        ] = None,
+    ) -> "aws_sdk_workspaces_web.types.list_portals_response.ListPortalsResponse":
         """<p>Retrieves a list or web portals.</p>
 
         Args:
             next_token: <p>The pagination token used to retrieve the next page of results for this operation. </p>
             max_results: <p>The maximum number of results to be included in the next page.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_workspaces_web.types.list_portals_request.ListPortalsRequest]') -> OperationResponse["aws_sdk_workspaces_web.types.list_portals_response.ListPortalsResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_workspaces_web.types.list_portals_request.ListPortalsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_workspaces_web.types.list_portals_response.ListPortalsResponse"
+        ]:
             import aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.list_portals
-            output, http_response = aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.list_portals.list_portals(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.list_portals.list_portals(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -195,18 +348,39 @@ class PortalResource:
         if max_results is not None:
             input_["max_results"] = max_results
 
-        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def associate_browser_settings(self, portal_arn: "aws_sdk_workspaces_web.types.arn.ARN", browser_settings_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[WorkSpacesWebClientConfig] = None) -> "aws_sdk_workspaces_web.types.associate_browser_settings_response.AssociateBrowserSettingsResponse":
+
+    def associate_browser_settings(
+        self,
+        portal_arn: "aws_sdk_workspaces_web.types.arn.ARN",
+        browser_settings_arn: "aws_sdk_workspaces_web.types.arn.ARN",
+        *,
+        config_overrides: Optional[WorkSpacesWebClientConfig] = None,
+    ) -> "aws_sdk_workspaces_web.types.associate_browser_settings_response.AssociateBrowserSettingsResponse":
         """<p>Associates a browser settings resource with a web portal.</p>
 
         Args:
             portal_arn: <p>The ARN of the web portal.</p>
             browser_settings_arn: <p>The ARN of the browser settings.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_workspaces_web.types.associate_browser_settings_request.AssociateBrowserSettingsRequest]') -> OperationResponse["aws_sdk_workspaces_web.types.associate_browser_settings_response.AssociateBrowserSettingsResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_workspaces_web.types.associate_browser_settings_request.AssociateBrowserSettingsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_workspaces_web.types.associate_browser_settings_response.AssociateBrowserSettingsResponse"
+        ]:
             import aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.associate_browser_settings
-            output, http_response = aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.associate_browser_settings.associate_browser_settings(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.associate_browser_settings.associate_browser_settings(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -214,18 +388,39 @@ class PortalResource:
         input_["portal_arn"] = portal_arn
         input_["browser_settings_arn"] = browser_settings_arn
 
-        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def associate_data_protection_settings(self, portal_arn: "aws_sdk_workspaces_web.types.arn.ARN", data_protection_settings_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[WorkSpacesWebClientConfig] = None) -> "aws_sdk_workspaces_web.types.associate_data_protection_settings_response.AssociateDataProtectionSettingsResponse":
+
+    def associate_data_protection_settings(
+        self,
+        portal_arn: "aws_sdk_workspaces_web.types.arn.ARN",
+        data_protection_settings_arn: "aws_sdk_workspaces_web.types.arn.ARN",
+        *,
+        config_overrides: Optional[WorkSpacesWebClientConfig] = None,
+    ) -> "aws_sdk_workspaces_web.types.associate_data_protection_settings_response.AssociateDataProtectionSettingsResponse":
         """<p>Associates a data protection settings resource with a web portal.</p>
 
         Args:
             portal_arn: <p>The ARN of the web portal.</p>
             data_protection_settings_arn: <p>The ARN of the data protection settings.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_workspaces_web.types.associate_data_protection_settings_request.AssociateDataProtectionSettingsRequest]') -> OperationResponse["aws_sdk_workspaces_web.types.associate_data_protection_settings_response.AssociateDataProtectionSettingsResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_workspaces_web.types.associate_data_protection_settings_request.AssociateDataProtectionSettingsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_workspaces_web.types.associate_data_protection_settings_response.AssociateDataProtectionSettingsResponse"
+        ]:
             import aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.associate_data_protection_settings
-            output, http_response = aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.associate_data_protection_settings.associate_data_protection_settings(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.associate_data_protection_settings.associate_data_protection_settings(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -233,18 +428,39 @@ class PortalResource:
         input_["portal_arn"] = portal_arn
         input_["data_protection_settings_arn"] = data_protection_settings_arn
 
-        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def associate_ip_access_settings(self, portal_arn: "aws_sdk_workspaces_web.types.arn.ARN", ip_access_settings_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[WorkSpacesWebClientConfig] = None) -> "aws_sdk_workspaces_web.types.associate_ip_access_settings_response.AssociateIpAccessSettingsResponse":
+
+    def associate_ip_access_settings(
+        self,
+        portal_arn: "aws_sdk_workspaces_web.types.arn.ARN",
+        ip_access_settings_arn: "aws_sdk_workspaces_web.types.arn.ARN",
+        *,
+        config_overrides: Optional[WorkSpacesWebClientConfig] = None,
+    ) -> "aws_sdk_workspaces_web.types.associate_ip_access_settings_response.AssociateIpAccessSettingsResponse":
         """<p>Associates an IP access settings resource with a web portal.</p>
 
         Args:
             portal_arn: <p>The ARN of the web portal.</p>
             ip_access_settings_arn: <p>The ARN of the IP access settings.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_workspaces_web.types.associate_ip_access_settings_request.AssociateIpAccessSettingsRequest]') -> OperationResponse["aws_sdk_workspaces_web.types.associate_ip_access_settings_response.AssociateIpAccessSettingsResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_workspaces_web.types.associate_ip_access_settings_request.AssociateIpAccessSettingsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_workspaces_web.types.associate_ip_access_settings_response.AssociateIpAccessSettingsResponse"
+        ]:
             import aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.associate_ip_access_settings
-            output, http_response = aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.associate_ip_access_settings.associate_ip_access_settings(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.associate_ip_access_settings.associate_ip_access_settings(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -252,18 +468,39 @@ class PortalResource:
         input_["portal_arn"] = portal_arn
         input_["ip_access_settings_arn"] = ip_access_settings_arn
 
-        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def associate_network_settings(self, portal_arn: "aws_sdk_workspaces_web.types.arn.ARN", network_settings_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[WorkSpacesWebClientConfig] = None) -> "aws_sdk_workspaces_web.types.associate_network_settings_response.AssociateNetworkSettingsResponse":
+
+    def associate_network_settings(
+        self,
+        portal_arn: "aws_sdk_workspaces_web.types.arn.ARN",
+        network_settings_arn: "aws_sdk_workspaces_web.types.arn.ARN",
+        *,
+        config_overrides: Optional[WorkSpacesWebClientConfig] = None,
+    ) -> "aws_sdk_workspaces_web.types.associate_network_settings_response.AssociateNetworkSettingsResponse":
         """<p>Associates a network settings resource with a web portal.</p>
 
         Args:
             portal_arn: <p>The ARN of the web portal.</p>
             network_settings_arn: <p>The ARN of the network settings.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_workspaces_web.types.associate_network_settings_request.AssociateNetworkSettingsRequest]') -> OperationResponse["aws_sdk_workspaces_web.types.associate_network_settings_response.AssociateNetworkSettingsResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_workspaces_web.types.associate_network_settings_request.AssociateNetworkSettingsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_workspaces_web.types.associate_network_settings_response.AssociateNetworkSettingsResponse"
+        ]:
             import aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.associate_network_settings
-            output, http_response = aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.associate_network_settings.associate_network_settings(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.associate_network_settings.associate_network_settings(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -271,9 +508,20 @@ class PortalResource:
         input_["portal_arn"] = portal_arn
         input_["network_settings_arn"] = network_settings_arn
 
-        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def associate_session_logger(self, portal_arn: "aws_sdk_workspaces_web.types.arn.ARN", session_logger_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[WorkSpacesWebClientConfig] = None) -> "aws_sdk_workspaces_web.types.associate_session_logger_response.AssociateSessionLoggerResponse":
+
+    def associate_session_logger(
+        self,
+        portal_arn: "aws_sdk_workspaces_web.types.arn.ARN",
+        session_logger_arn: "aws_sdk_workspaces_web.types.arn.ARN",
+        *,
+        config_overrides: Optional[WorkSpacesWebClientConfig] = None,
+    ) -> "aws_sdk_workspaces_web.types.associate_session_logger_response.AssociateSessionLoggerResponse":
         """<p>Associates a session logger with a portal.</p>
 
         Args:
@@ -286,9 +534,19 @@ class PortalResource:
 
             >>> client.associate_session_logger(portal_arn='arn:aws:workspaces-web:us-west-2:123456789012:portal/12345678-1234-1234-1234-123456789012', session_logger_arn='arn:aws:workspaces-web:us-west-2:123456789012:sessionLogger/11111111-1111-1111-1111-111111111111')
         """
-        def _handler(req: 'OperationRequest[aws_sdk_workspaces_web.types.associate_session_logger_request.AssociateSessionLoggerRequest]') -> OperationResponse["aws_sdk_workspaces_web.types.associate_session_logger_response.AssociateSessionLoggerResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_workspaces_web.types.associate_session_logger_request.AssociateSessionLoggerRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_workspaces_web.types.associate_session_logger_response.AssociateSessionLoggerResponse"
+        ]:
             import aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.associate_session_logger
-            output, http_response = aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.associate_session_logger.associate_session_logger(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.associate_session_logger.associate_session_logger(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -296,18 +554,39 @@ class PortalResource:
         input_["portal_arn"] = portal_arn
         input_["session_logger_arn"] = session_logger_arn
 
-        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def associate_trust_store(self, portal_arn: "aws_sdk_workspaces_web.types.arn.ARN", trust_store_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[WorkSpacesWebClientConfig] = None) -> "aws_sdk_workspaces_web.types.associate_trust_store_response.AssociateTrustStoreResponse":
+
+    def associate_trust_store(
+        self,
+        portal_arn: "aws_sdk_workspaces_web.types.arn.ARN",
+        trust_store_arn: "aws_sdk_workspaces_web.types.arn.ARN",
+        *,
+        config_overrides: Optional[WorkSpacesWebClientConfig] = None,
+    ) -> "aws_sdk_workspaces_web.types.associate_trust_store_response.AssociateTrustStoreResponse":
         """<p>Associates a trust store with a web portal.</p>
 
         Args:
             portal_arn: <p>The ARN of the web portal.</p>
             trust_store_arn: <p>The ARN of the trust store.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_workspaces_web.types.associate_trust_store_request.AssociateTrustStoreRequest]') -> OperationResponse["aws_sdk_workspaces_web.types.associate_trust_store_response.AssociateTrustStoreResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_workspaces_web.types.associate_trust_store_request.AssociateTrustStoreRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_workspaces_web.types.associate_trust_store_response.AssociateTrustStoreResponse"
+        ]:
             import aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.associate_trust_store
-            output, http_response = aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.associate_trust_store.associate_trust_store(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.associate_trust_store.associate_trust_store(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -315,18 +594,39 @@ class PortalResource:
         input_["portal_arn"] = portal_arn
         input_["trust_store_arn"] = trust_store_arn
 
-        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def associate_user_access_logging_settings(self, portal_arn: "aws_sdk_workspaces_web.types.arn.ARN", user_access_logging_settings_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[WorkSpacesWebClientConfig] = None) -> "aws_sdk_workspaces_web.types.associate_user_access_logging_settings_response.AssociateUserAccessLoggingSettingsResponse":
+
+    def associate_user_access_logging_settings(
+        self,
+        portal_arn: "aws_sdk_workspaces_web.types.arn.ARN",
+        user_access_logging_settings_arn: "aws_sdk_workspaces_web.types.arn.ARN",
+        *,
+        config_overrides: Optional[WorkSpacesWebClientConfig] = None,
+    ) -> "aws_sdk_workspaces_web.types.associate_user_access_logging_settings_response.AssociateUserAccessLoggingSettingsResponse":
         """<p>Associates a user access logging settings resource with a web portal.</p>
 
         Args:
             portal_arn: <p>The ARN of the web portal.</p>
             user_access_logging_settings_arn: <p>The ARN of the user access logging settings.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_workspaces_web.types.associate_user_access_logging_settings_request.AssociateUserAccessLoggingSettingsRequest]') -> OperationResponse["aws_sdk_workspaces_web.types.associate_user_access_logging_settings_response.AssociateUserAccessLoggingSettingsResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_workspaces_web.types.associate_user_access_logging_settings_request.AssociateUserAccessLoggingSettingsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_workspaces_web.types.associate_user_access_logging_settings_response.AssociateUserAccessLoggingSettingsResponse"
+        ]:
             import aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.associate_user_access_logging_settings
-            output, http_response = aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.associate_user_access_logging_settings.associate_user_access_logging_settings(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.associate_user_access_logging_settings.associate_user_access_logging_settings(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -334,18 +634,39 @@ class PortalResource:
         input_["portal_arn"] = portal_arn
         input_["user_access_logging_settings_arn"] = user_access_logging_settings_arn
 
-        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def associate_user_settings(self, portal_arn: "aws_sdk_workspaces_web.types.arn.ARN", user_settings_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[WorkSpacesWebClientConfig] = None) -> "aws_sdk_workspaces_web.types.associate_user_settings_response.AssociateUserSettingsResponse":
+
+    def associate_user_settings(
+        self,
+        portal_arn: "aws_sdk_workspaces_web.types.arn.ARN",
+        user_settings_arn: "aws_sdk_workspaces_web.types.arn.ARN",
+        *,
+        config_overrides: Optional[WorkSpacesWebClientConfig] = None,
+    ) -> "aws_sdk_workspaces_web.types.associate_user_settings_response.AssociateUserSettingsResponse":
         """<p>Associates a user settings resource with a web portal.</p>
 
         Args:
             portal_arn: <p>The ARN of the web portal.</p>
             user_settings_arn: <p>The ARN of the user settings.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_workspaces_web.types.associate_user_settings_request.AssociateUserSettingsRequest]') -> OperationResponse["aws_sdk_workspaces_web.types.associate_user_settings_response.AssociateUserSettingsResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_workspaces_web.types.associate_user_settings_request.AssociateUserSettingsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_workspaces_web.types.associate_user_settings_response.AssociateUserSettingsResponse"
+        ]:
             import aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.associate_user_settings
-            output, http_response = aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.associate_user_settings.associate_user_settings(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.associate_user_settings.associate_user_settings(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -353,77 +674,167 @@ class PortalResource:
         input_["portal_arn"] = portal_arn
         input_["user_settings_arn"] = user_settings_arn
 
-        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def disassociate_browser_settings(self, portal_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[WorkSpacesWebClientConfig] = None) -> "aws_sdk_workspaces_web.types.disassociate_browser_settings_response.DisassociateBrowserSettingsResponse":
+
+    def disassociate_browser_settings(
+        self,
+        portal_arn: "aws_sdk_workspaces_web.types.arn.ARN",
+        *,
+        config_overrides: Optional[WorkSpacesWebClientConfig] = None,
+    ) -> "aws_sdk_workspaces_web.types.disassociate_browser_settings_response.DisassociateBrowserSettingsResponse":
         """<p>Disassociates browser settings from a web portal.</p>
 
         Args:
             portal_arn: <p>The ARN of the web portal.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_workspaces_web.types.disassociate_browser_settings_request.DisassociateBrowserSettingsRequest]') -> OperationResponse["aws_sdk_workspaces_web.types.disassociate_browser_settings_response.DisassociateBrowserSettingsResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_workspaces_web.types.disassociate_browser_settings_request.DisassociateBrowserSettingsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_workspaces_web.types.disassociate_browser_settings_response.DisassociateBrowserSettingsResponse"
+        ]:
             import aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.disassociate_browser_settings
-            output, http_response = aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.disassociate_browser_settings.disassociate_browser_settings(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.disassociate_browser_settings.disassociate_browser_settings(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: aws_sdk_workspaces_web.types.disassociate_browser_settings_request.DisassociateBrowserSettingsRequest = {}  # type: ignore[typeddict-item]
         input_["portal_arn"] = portal_arn
 
-        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def disassociate_data_protection_settings(self, portal_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[WorkSpacesWebClientConfig] = None) -> "aws_sdk_workspaces_web.types.disassociate_data_protection_settings_response.DisassociateDataProtectionSettingsResponse":
+
+    def disassociate_data_protection_settings(
+        self,
+        portal_arn: "aws_sdk_workspaces_web.types.arn.ARN",
+        *,
+        config_overrides: Optional[WorkSpacesWebClientConfig] = None,
+    ) -> "aws_sdk_workspaces_web.types.disassociate_data_protection_settings_response.DisassociateDataProtectionSettingsResponse":
         """<p>Disassociates data protection settings from a web portal.</p>
 
         Args:
             portal_arn: <p>The ARN of the web portal.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_workspaces_web.types.disassociate_data_protection_settings_request.DisassociateDataProtectionSettingsRequest]') -> OperationResponse["aws_sdk_workspaces_web.types.disassociate_data_protection_settings_response.DisassociateDataProtectionSettingsResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_workspaces_web.types.disassociate_data_protection_settings_request.DisassociateDataProtectionSettingsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_workspaces_web.types.disassociate_data_protection_settings_response.DisassociateDataProtectionSettingsResponse"
+        ]:
             import aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.disassociate_data_protection_settings
-            output, http_response = aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.disassociate_data_protection_settings.disassociate_data_protection_settings(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.disassociate_data_protection_settings.disassociate_data_protection_settings(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: aws_sdk_workspaces_web.types.disassociate_data_protection_settings_request.DisassociateDataProtectionSettingsRequest = {}  # type: ignore[typeddict-item]
         input_["portal_arn"] = portal_arn
 
-        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def disassociate_ip_access_settings(self, portal_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[WorkSpacesWebClientConfig] = None) -> "aws_sdk_workspaces_web.types.disassociate_ip_access_settings_response.DisassociateIpAccessSettingsResponse":
+
+    def disassociate_ip_access_settings(
+        self,
+        portal_arn: "aws_sdk_workspaces_web.types.arn.ARN",
+        *,
+        config_overrides: Optional[WorkSpacesWebClientConfig] = None,
+    ) -> "aws_sdk_workspaces_web.types.disassociate_ip_access_settings_response.DisassociateIpAccessSettingsResponse":
         """<p>Disassociates IP access settings from a web portal.</p>
 
         Args:
             portal_arn: <p>The ARN of the web portal.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_workspaces_web.types.disassociate_ip_access_settings_request.DisassociateIpAccessSettingsRequest]') -> OperationResponse["aws_sdk_workspaces_web.types.disassociate_ip_access_settings_response.DisassociateIpAccessSettingsResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_workspaces_web.types.disassociate_ip_access_settings_request.DisassociateIpAccessSettingsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_workspaces_web.types.disassociate_ip_access_settings_response.DisassociateIpAccessSettingsResponse"
+        ]:
             import aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.disassociate_ip_access_settings
-            output, http_response = aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.disassociate_ip_access_settings.disassociate_ip_access_settings(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.disassociate_ip_access_settings.disassociate_ip_access_settings(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: aws_sdk_workspaces_web.types.disassociate_ip_access_settings_request.DisassociateIpAccessSettingsRequest = {}  # type: ignore[typeddict-item]
         input_["portal_arn"] = portal_arn
 
-        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def disassociate_network_settings(self, portal_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[WorkSpacesWebClientConfig] = None) -> "aws_sdk_workspaces_web.types.disassociate_network_settings_response.DisassociateNetworkSettingsResponse":
+
+    def disassociate_network_settings(
+        self,
+        portal_arn: "aws_sdk_workspaces_web.types.arn.ARN",
+        *,
+        config_overrides: Optional[WorkSpacesWebClientConfig] = None,
+    ) -> "aws_sdk_workspaces_web.types.disassociate_network_settings_response.DisassociateNetworkSettingsResponse":
         """<p>Disassociates network settings from a web portal.</p>
 
         Args:
             portal_arn: <p>The ARN of the web portal.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_workspaces_web.types.disassociate_network_settings_request.DisassociateNetworkSettingsRequest]') -> OperationResponse["aws_sdk_workspaces_web.types.disassociate_network_settings_response.DisassociateNetworkSettingsResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_workspaces_web.types.disassociate_network_settings_request.DisassociateNetworkSettingsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_workspaces_web.types.disassociate_network_settings_response.DisassociateNetworkSettingsResponse"
+        ]:
             import aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.disassociate_network_settings
-            output, http_response = aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.disassociate_network_settings.disassociate_network_settings(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.disassociate_network_settings.disassociate_network_settings(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: aws_sdk_workspaces_web.types.disassociate_network_settings_request.DisassociateNetworkSettingsRequest = {}  # type: ignore[typeddict-item]
         input_["portal_arn"] = portal_arn
 
-        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def disassociate_session_logger(self, portal_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[WorkSpacesWebClientConfig] = None) -> "aws_sdk_workspaces_web.types.disassociate_session_logger_response.DisassociateSessionLoggerResponse":
+
+    def disassociate_session_logger(
+        self,
+        portal_arn: "aws_sdk_workspaces_web.types.arn.ARN",
+        *,
+        config_overrides: Optional[WorkSpacesWebClientConfig] = None,
+    ) -> "aws_sdk_workspaces_web.types.disassociate_session_logger_response.DisassociateSessionLoggerResponse":
         """<p>Disassociates a session logger from a portal.</p>
 
         Args:
@@ -435,90 +846,215 @@ class PortalResource:
 
             >>> client.disassociate_session_logger(portal_arn='arn:aws:workspaces-web:us-west-2:123456789012:portal/12345678-1234-1234-1234-123456789012')
         """
-        def _handler(req: 'OperationRequest[aws_sdk_workspaces_web.types.disassociate_session_logger_request.DisassociateSessionLoggerRequest]') -> OperationResponse["aws_sdk_workspaces_web.types.disassociate_session_logger_response.DisassociateSessionLoggerResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_workspaces_web.types.disassociate_session_logger_request.DisassociateSessionLoggerRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_workspaces_web.types.disassociate_session_logger_response.DisassociateSessionLoggerResponse"
+        ]:
             import aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.disassociate_session_logger
-            output, http_response = aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.disassociate_session_logger.disassociate_session_logger(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.disassociate_session_logger.disassociate_session_logger(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: aws_sdk_workspaces_web.types.disassociate_session_logger_request.DisassociateSessionLoggerRequest = {}  # type: ignore[typeddict-item]
         input_["portal_arn"] = portal_arn
 
-        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def disassociate_trust_store(self, portal_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[WorkSpacesWebClientConfig] = None) -> "aws_sdk_workspaces_web.types.disassociate_trust_store_response.DisassociateTrustStoreResponse":
+
+    def disassociate_trust_store(
+        self,
+        portal_arn: "aws_sdk_workspaces_web.types.arn.ARN",
+        *,
+        config_overrides: Optional[WorkSpacesWebClientConfig] = None,
+    ) -> "aws_sdk_workspaces_web.types.disassociate_trust_store_response.DisassociateTrustStoreResponse":
         """<p>Disassociates a trust store from a web portal.</p>
 
         Args:
             portal_arn: <p>The ARN of the web portal.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_workspaces_web.types.disassociate_trust_store_request.DisassociateTrustStoreRequest]') -> OperationResponse["aws_sdk_workspaces_web.types.disassociate_trust_store_response.DisassociateTrustStoreResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_workspaces_web.types.disassociate_trust_store_request.DisassociateTrustStoreRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_workspaces_web.types.disassociate_trust_store_response.DisassociateTrustStoreResponse"
+        ]:
             import aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.disassociate_trust_store
-            output, http_response = aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.disassociate_trust_store.disassociate_trust_store(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.disassociate_trust_store.disassociate_trust_store(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: aws_sdk_workspaces_web.types.disassociate_trust_store_request.DisassociateTrustStoreRequest = {}  # type: ignore[typeddict-item]
         input_["portal_arn"] = portal_arn
 
-        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def disassociate_user_access_logging_settings(self, portal_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[WorkSpacesWebClientConfig] = None) -> "aws_sdk_workspaces_web.types.disassociate_user_access_logging_settings_response.DisassociateUserAccessLoggingSettingsResponse":
+
+    def disassociate_user_access_logging_settings(
+        self,
+        portal_arn: "aws_sdk_workspaces_web.types.arn.ARN",
+        *,
+        config_overrides: Optional[WorkSpacesWebClientConfig] = None,
+    ) -> "aws_sdk_workspaces_web.types.disassociate_user_access_logging_settings_response.DisassociateUserAccessLoggingSettingsResponse":
         """<p>Disassociates user access logging settings from a web portal.</p>
 
         Args:
             portal_arn: <p>The ARN of the web portal.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_workspaces_web.types.disassociate_user_access_logging_settings_request.DisassociateUserAccessLoggingSettingsRequest]') -> OperationResponse["aws_sdk_workspaces_web.types.disassociate_user_access_logging_settings_response.DisassociateUserAccessLoggingSettingsResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_workspaces_web.types.disassociate_user_access_logging_settings_request.DisassociateUserAccessLoggingSettingsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_workspaces_web.types.disassociate_user_access_logging_settings_response.DisassociateUserAccessLoggingSettingsResponse"
+        ]:
             import aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.disassociate_user_access_logging_settings
-            output, http_response = aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.disassociate_user_access_logging_settings.disassociate_user_access_logging_settings(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.disassociate_user_access_logging_settings.disassociate_user_access_logging_settings(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: aws_sdk_workspaces_web.types.disassociate_user_access_logging_settings_request.DisassociateUserAccessLoggingSettingsRequest = {}  # type: ignore[typeddict-item]
         input_["portal_arn"] = portal_arn
 
-        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def disassociate_user_settings(self, portal_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[WorkSpacesWebClientConfig] = None) -> "aws_sdk_workspaces_web.types.disassociate_user_settings_response.DisassociateUserSettingsResponse":
+
+    def disassociate_user_settings(
+        self,
+        portal_arn: "aws_sdk_workspaces_web.types.arn.ARN",
+        *,
+        config_overrides: Optional[WorkSpacesWebClientConfig] = None,
+    ) -> "aws_sdk_workspaces_web.types.disassociate_user_settings_response.DisassociateUserSettingsResponse":
         """<p>Disassociates user settings from a web portal.</p>
 
         Args:
             portal_arn: <p>The ARN of the web portal.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_workspaces_web.types.disassociate_user_settings_request.DisassociateUserSettingsRequest]') -> OperationResponse["aws_sdk_workspaces_web.types.disassociate_user_settings_response.DisassociateUserSettingsResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_workspaces_web.types.disassociate_user_settings_request.DisassociateUserSettingsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_workspaces_web.types.disassociate_user_settings_response.DisassociateUserSettingsResponse"
+        ]:
             import aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.disassociate_user_settings
-            output, http_response = aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.disassociate_user_settings.disassociate_user_settings(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.disassociate_user_settings.disassociate_user_settings(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: aws_sdk_workspaces_web.types.disassociate_user_settings_request.DisassociateUserSettingsRequest = {}  # type: ignore[typeddict-item]
         input_["portal_arn"] = portal_arn
 
-        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def get_portal_service_provider_metadata(self, portal_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[WorkSpacesWebClientConfig] = None) -> "aws_sdk_workspaces_web.types.get_portal_service_provider_metadata_response.GetPortalServiceProviderMetadataResponse":
+
+    def get_portal_service_provider_metadata(
+        self,
+        portal_arn: "aws_sdk_workspaces_web.types.arn.ARN",
+        *,
+        config_overrides: Optional[WorkSpacesWebClientConfig] = None,
+    ) -> "aws_sdk_workspaces_web.types.get_portal_service_provider_metadata_response.GetPortalServiceProviderMetadataResponse":
         """<p>Gets the service provider metadata.</p>
 
         Args:
             portal_arn: <p>The ARN of the web portal.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_workspaces_web.types.get_portal_service_provider_metadata_request.GetPortalServiceProviderMetadataRequest]') -> OperationResponse["aws_sdk_workspaces_web.types.get_portal_service_provider_metadata_response.GetPortalServiceProviderMetadataResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_workspaces_web.types.get_portal_service_provider_metadata_request.GetPortalServiceProviderMetadataRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_workspaces_web.types.get_portal_service_provider_metadata_response.GetPortalServiceProviderMetadataResponse"
+        ]:
             import aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.get_portal_service_provider_metadata
-            output, http_response = aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.get_portal_service_provider_metadata.get_portal_service_provider_metadata(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.get_portal_service_provider_metadata.get_portal_service_provider_metadata(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: aws_sdk_workspaces_web.types.get_portal_service_provider_metadata_request.GetPortalServiceProviderMetadataRequest = {}  # type: ignore[typeddict-item]
         input_["portal_arn"] = portal_arn
 
-        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
+
 
 class AsyncPortalResource:
     def __init__(self, service: AsyncWorkSpacesWebClient) -> None:
         self._service = service
-    async def create(self, *, config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None, display_name: Optional["aws_sdk_workspaces_web.types.display_name.DisplayName"] = None, tags: Optional["aws_sdk_workspaces_web.types.tag_list.TagList"] = None, customer_managed_key: Optional["aws_sdk_workspaces_web.types.key_arn.keyArn"] = None, additional_encryption_context: Optional["aws_sdk_workspaces_web.types.encryption_context_map.EncryptionContextMap"] = None, client_token: Optional["aws_sdk_workspaces_web.types.client_token.ClientToken"] = None, authentication_type: Optional["aws_sdk_workspaces_web.types.authentication_type.AuthenticationType"] = None, instance_type: Optional["aws_sdk_workspaces_web.types.instance_type.InstanceType"] = None, max_concurrent_sessions: Optional["aws_sdk_workspaces_web.types.max_concurrent_sessions.MaxConcurrentSessions"] = None, portal_custom_domain: Optional["aws_sdk_workspaces_web.types.portal_custom_domain.PortalCustomDomain"] = None) -> "aws_sdk_workspaces_web.types.create_portal_response.CreatePortalResponse":
+
+    async def create(
+        self,
+        *,
+        config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None,
+        display_name: Optional[
+            "aws_sdk_workspaces_web.types.display_name.DisplayName"
+        ] = None,
+        tags: Optional["aws_sdk_workspaces_web.types.tag_list.TagList"] = None,
+        customer_managed_key: Optional[
+            "aws_sdk_workspaces_web.types.key_arn.keyArn"
+        ] = None,
+        additional_encryption_context: Optional[
+            "aws_sdk_workspaces_web.types.encryption_context_map.EncryptionContextMap"
+        ] = None,
+        client_token: Optional[
+            "aws_sdk_workspaces_web.types.client_token.ClientToken"
+        ] = None,
+        authentication_type: Optional[
+            "aws_sdk_workspaces_web.types.authentication_type.AuthenticationType"
+        ] = None,
+        instance_type: Optional[
+            "aws_sdk_workspaces_web.types.instance_type.InstanceType"
+        ] = None,
+        max_concurrent_sessions: Optional[
+            "aws_sdk_workspaces_web.types.max_concurrent_sessions.MaxConcurrentSessions"
+        ] = None,
+        portal_custom_domain: Optional[
+            "aws_sdk_workspaces_web.types.portal_custom_domain.PortalCustomDomain"
+        ] = None,
+    ) -> "aws_sdk_workspaces_web.types.create_portal_response.CreatePortalResponse":
         """<p>Creates a web portal.</p>
 
         Args:
@@ -532,9 +1068,20 @@ class AsyncPortalResource:
             max_concurrent_sessions: <p>The maximum number of concurrent sessions for the portal.</p>
             portal_custom_domain: <p>The custom domain of the web portal that users access in order to start streaming sessions.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces_web.types.create_portal_request.CreatePortalRequest]') -> AsyncOperationResponse["aws_sdk_workspaces_web.types.create_portal_response.CreatePortalResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_workspaces_web.types.create_portal_request.CreatePortalRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_workspaces_web.types.create_portal_response.CreatePortalResponse"
+        ]:
             import aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.create_portal
-            output, http_response = await aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.create_portal.async_create_portal(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.create_portal.async_create_portal(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -558,26 +1105,72 @@ class AsyncPortalResource:
         if portal_custom_domain is not None:
             input_["portal_custom_domain"] = portal_custom_domain
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def read(self, portal_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None) -> "aws_sdk_workspaces_web.types.get_portal_response.GetPortalResponse":
+
+    async def read(
+        self,
+        portal_arn: "aws_sdk_workspaces_web.types.arn.ARN",
+        *,
+        config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None,
+    ) -> "aws_sdk_workspaces_web.types.get_portal_response.GetPortalResponse":
         """<p>Gets the web portal.</p>
 
         Args:
             portal_arn: <p>The ARN of the web portal.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces_web.types.get_portal_request.GetPortalRequest]') -> AsyncOperationResponse["aws_sdk_workspaces_web.types.get_portal_response.GetPortalResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_workspaces_web.types.get_portal_request.GetPortalRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_workspaces_web.types.get_portal_response.GetPortalResponse"
+        ]:
             import aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.get_portal
-            output, http_response = await aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.get_portal.async_get_portal(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.get_portal.async_get_portal(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: aws_sdk_workspaces_web.types.get_portal_request.GetPortalRequest = {}  # type: ignore[typeddict-item]
         input_["portal_arn"] = portal_arn
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def update(self, portal_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None, display_name: Optional["aws_sdk_workspaces_web.types.display_name.DisplayName"] = None, authentication_type: Optional["aws_sdk_workspaces_web.types.authentication_type.AuthenticationType"] = None, instance_type: Optional["aws_sdk_workspaces_web.types.instance_type.InstanceType"] = None, max_concurrent_sessions: Optional["aws_sdk_workspaces_web.types.max_concurrent_sessions.MaxConcurrentSessions"] = None, portal_custom_domain: Optional["aws_sdk_workspaces_web.types.portal_custom_domain.PortalCustomDomain"] = None) -> "aws_sdk_workspaces_web.types.update_portal_response.UpdatePortalResponse":
+
+    async def update(
+        self,
+        portal_arn: "aws_sdk_workspaces_web.types.arn.ARN",
+        *,
+        config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None,
+        display_name: Optional[
+            "aws_sdk_workspaces_web.types.display_name.DisplayName"
+        ] = None,
+        authentication_type: Optional[
+            "aws_sdk_workspaces_web.types.authentication_type.AuthenticationType"
+        ] = None,
+        instance_type: Optional[
+            "aws_sdk_workspaces_web.types.instance_type.InstanceType"
+        ] = None,
+        max_concurrent_sessions: Optional[
+            "aws_sdk_workspaces_web.types.max_concurrent_sessions.MaxConcurrentSessions"
+        ] = None,
+        portal_custom_domain: Optional[
+            "aws_sdk_workspaces_web.types.portal_custom_domain.PortalCustomDomain"
+        ] = None,
+    ) -> "aws_sdk_workspaces_web.types.update_portal_response.UpdatePortalResponse":
         """<p>Updates a web portal.</p>
 
         Args:
@@ -588,9 +1181,20 @@ class AsyncPortalResource:
             max_concurrent_sessions: <p>The maximum number of concurrent sessions for the portal.</p>
             portal_custom_domain: <p>The custom domain of the web portal that users access in order to start streaming sessions. </p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces_web.types.update_portal_request.UpdatePortalRequest]') -> AsyncOperationResponse["aws_sdk_workspaces_web.types.update_portal_response.UpdatePortalResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_workspaces_web.types.update_portal_request.UpdatePortalRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_workspaces_web.types.update_portal_response.UpdatePortalResponse"
+        ]:
             import aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.update_portal
-            output, http_response = await aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.update_portal.async_update_portal(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.update_portal.async_update_portal(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -607,35 +1211,82 @@ class AsyncPortalResource:
         if portal_custom_domain is not None:
             input_["portal_custom_domain"] = portal_custom_domain
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def delete(self, portal_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None) -> "aws_sdk_workspaces_web.types.delete_portal_response.DeletePortalResponse":
+
+    async def delete(
+        self,
+        portal_arn: "aws_sdk_workspaces_web.types.arn.ARN",
+        *,
+        config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None,
+    ) -> "aws_sdk_workspaces_web.types.delete_portal_response.DeletePortalResponse":
         """<p>Deletes a web portal.</p>
 
         Args:
             portal_arn: <p>The ARN of the web portal.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces_web.types.delete_portal_request.DeletePortalRequest]') -> AsyncOperationResponse["aws_sdk_workspaces_web.types.delete_portal_response.DeletePortalResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_workspaces_web.types.delete_portal_request.DeletePortalRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_workspaces_web.types.delete_portal_response.DeletePortalResponse"
+        ]:
             import aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.delete_portal
-            output, http_response = await aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.delete_portal.async_delete_portal(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.delete_portal.async_delete_portal(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: aws_sdk_workspaces_web.types.delete_portal_request.DeletePortalRequest = {}  # type: ignore[typeddict-item]
         input_["portal_arn"] = portal_arn
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def list(self, *, config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None, next_token: Optional["aws_sdk_workspaces_web.types.pagination_token.PaginationToken"] = None, max_results: Optional["aws_sdk_workspaces_web.types.max_results.MaxResults"] = None) -> "aws_sdk_workspaces_web.types.list_portals_response.ListPortalsResponse":
+
+    async def list(
+        self,
+        *,
+        config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None,
+        next_token: Optional[
+            "aws_sdk_workspaces_web.types.pagination_token.PaginationToken"
+        ] = None,
+        max_results: Optional[
+            "aws_sdk_workspaces_web.types.max_results.MaxResults"
+        ] = None,
+    ) -> "aws_sdk_workspaces_web.types.list_portals_response.ListPortalsResponse":
         """<p>Retrieves a list or web portals.</p>
 
         Args:
             next_token: <p>The pagination token used to retrieve the next page of results for this operation. </p>
             max_results: <p>The maximum number of results to be included in the next page.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces_web.types.list_portals_request.ListPortalsRequest]') -> AsyncOperationResponse["aws_sdk_workspaces_web.types.list_portals_response.ListPortalsResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_workspaces_web.types.list_portals_request.ListPortalsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_workspaces_web.types.list_portals_response.ListPortalsResponse"
+        ]:
             import aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.list_portals
-            output, http_response = await aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.list_portals.async_list_portals(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.list_portals.async_list_portals(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -645,18 +1296,40 @@ class AsyncPortalResource:
         if max_results is not None:
             input_["max_results"] = max_results
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def associate_browser_settings(self, portal_arn: "aws_sdk_workspaces_web.types.arn.ARN", browser_settings_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None) -> "aws_sdk_workspaces_web.types.associate_browser_settings_response.AssociateBrowserSettingsResponse":
+
+    async def associate_browser_settings(
+        self,
+        portal_arn: "aws_sdk_workspaces_web.types.arn.ARN",
+        browser_settings_arn: "aws_sdk_workspaces_web.types.arn.ARN",
+        *,
+        config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None,
+    ) -> "aws_sdk_workspaces_web.types.associate_browser_settings_response.AssociateBrowserSettingsResponse":
         """<p>Associates a browser settings resource with a web portal.</p>
 
         Args:
             portal_arn: <p>The ARN of the web portal.</p>
             browser_settings_arn: <p>The ARN of the browser settings.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces_web.types.associate_browser_settings_request.AssociateBrowserSettingsRequest]') -> AsyncOperationResponse["aws_sdk_workspaces_web.types.associate_browser_settings_response.AssociateBrowserSettingsResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_workspaces_web.types.associate_browser_settings_request.AssociateBrowserSettingsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_workspaces_web.types.associate_browser_settings_response.AssociateBrowserSettingsResponse"
+        ]:
             import aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.associate_browser_settings
-            output, http_response = await aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.associate_browser_settings.async_associate_browser_settings(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.associate_browser_settings.async_associate_browser_settings(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -664,18 +1337,40 @@ class AsyncPortalResource:
         input_["portal_arn"] = portal_arn
         input_["browser_settings_arn"] = browser_settings_arn
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def associate_data_protection_settings(self, portal_arn: "aws_sdk_workspaces_web.types.arn.ARN", data_protection_settings_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None) -> "aws_sdk_workspaces_web.types.associate_data_protection_settings_response.AssociateDataProtectionSettingsResponse":
+
+    async def associate_data_protection_settings(
+        self,
+        portal_arn: "aws_sdk_workspaces_web.types.arn.ARN",
+        data_protection_settings_arn: "aws_sdk_workspaces_web.types.arn.ARN",
+        *,
+        config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None,
+    ) -> "aws_sdk_workspaces_web.types.associate_data_protection_settings_response.AssociateDataProtectionSettingsResponse":
         """<p>Associates a data protection settings resource with a web portal.</p>
 
         Args:
             portal_arn: <p>The ARN of the web portal.</p>
             data_protection_settings_arn: <p>The ARN of the data protection settings.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces_web.types.associate_data_protection_settings_request.AssociateDataProtectionSettingsRequest]') -> AsyncOperationResponse["aws_sdk_workspaces_web.types.associate_data_protection_settings_response.AssociateDataProtectionSettingsResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_workspaces_web.types.associate_data_protection_settings_request.AssociateDataProtectionSettingsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_workspaces_web.types.associate_data_protection_settings_response.AssociateDataProtectionSettingsResponse"
+        ]:
             import aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.associate_data_protection_settings
-            output, http_response = await aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.associate_data_protection_settings.async_associate_data_protection_settings(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.associate_data_protection_settings.async_associate_data_protection_settings(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -683,18 +1378,40 @@ class AsyncPortalResource:
         input_["portal_arn"] = portal_arn
         input_["data_protection_settings_arn"] = data_protection_settings_arn
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def associate_ip_access_settings(self, portal_arn: "aws_sdk_workspaces_web.types.arn.ARN", ip_access_settings_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None) -> "aws_sdk_workspaces_web.types.associate_ip_access_settings_response.AssociateIpAccessSettingsResponse":
+
+    async def associate_ip_access_settings(
+        self,
+        portal_arn: "aws_sdk_workspaces_web.types.arn.ARN",
+        ip_access_settings_arn: "aws_sdk_workspaces_web.types.arn.ARN",
+        *,
+        config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None,
+    ) -> "aws_sdk_workspaces_web.types.associate_ip_access_settings_response.AssociateIpAccessSettingsResponse":
         """<p>Associates an IP access settings resource with a web portal.</p>
 
         Args:
             portal_arn: <p>The ARN of the web portal.</p>
             ip_access_settings_arn: <p>The ARN of the IP access settings.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces_web.types.associate_ip_access_settings_request.AssociateIpAccessSettingsRequest]') -> AsyncOperationResponse["aws_sdk_workspaces_web.types.associate_ip_access_settings_response.AssociateIpAccessSettingsResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_workspaces_web.types.associate_ip_access_settings_request.AssociateIpAccessSettingsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_workspaces_web.types.associate_ip_access_settings_response.AssociateIpAccessSettingsResponse"
+        ]:
             import aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.associate_ip_access_settings
-            output, http_response = await aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.associate_ip_access_settings.async_associate_ip_access_settings(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.associate_ip_access_settings.async_associate_ip_access_settings(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -702,18 +1419,40 @@ class AsyncPortalResource:
         input_["portal_arn"] = portal_arn
         input_["ip_access_settings_arn"] = ip_access_settings_arn
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def associate_network_settings(self, portal_arn: "aws_sdk_workspaces_web.types.arn.ARN", network_settings_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None) -> "aws_sdk_workspaces_web.types.associate_network_settings_response.AssociateNetworkSettingsResponse":
+
+    async def associate_network_settings(
+        self,
+        portal_arn: "aws_sdk_workspaces_web.types.arn.ARN",
+        network_settings_arn: "aws_sdk_workspaces_web.types.arn.ARN",
+        *,
+        config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None,
+    ) -> "aws_sdk_workspaces_web.types.associate_network_settings_response.AssociateNetworkSettingsResponse":
         """<p>Associates a network settings resource with a web portal.</p>
 
         Args:
             portal_arn: <p>The ARN of the web portal.</p>
             network_settings_arn: <p>The ARN of the network settings.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces_web.types.associate_network_settings_request.AssociateNetworkSettingsRequest]') -> AsyncOperationResponse["aws_sdk_workspaces_web.types.associate_network_settings_response.AssociateNetworkSettingsResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_workspaces_web.types.associate_network_settings_request.AssociateNetworkSettingsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_workspaces_web.types.associate_network_settings_response.AssociateNetworkSettingsResponse"
+        ]:
             import aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.associate_network_settings
-            output, http_response = await aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.associate_network_settings.async_associate_network_settings(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.associate_network_settings.async_associate_network_settings(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -721,9 +1460,20 @@ class AsyncPortalResource:
         input_["portal_arn"] = portal_arn
         input_["network_settings_arn"] = network_settings_arn
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def associate_session_logger(self, portal_arn: "aws_sdk_workspaces_web.types.arn.ARN", session_logger_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None) -> "aws_sdk_workspaces_web.types.associate_session_logger_response.AssociateSessionLoggerResponse":
+
+    async def associate_session_logger(
+        self,
+        portal_arn: "aws_sdk_workspaces_web.types.arn.ARN",
+        session_logger_arn: "aws_sdk_workspaces_web.types.arn.ARN",
+        *,
+        config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None,
+    ) -> "aws_sdk_workspaces_web.types.associate_session_logger_response.AssociateSessionLoggerResponse":
         """<p>Associates a session logger with a portal.</p>
 
         Args:
@@ -736,9 +1486,20 @@ class AsyncPortalResource:
 
             >>> await client.associate_session_logger(portal_arn='arn:aws:workspaces-web:us-west-2:123456789012:portal/12345678-1234-1234-1234-123456789012', session_logger_arn='arn:aws:workspaces-web:us-west-2:123456789012:sessionLogger/11111111-1111-1111-1111-111111111111')
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces_web.types.associate_session_logger_request.AssociateSessionLoggerRequest]') -> AsyncOperationResponse["aws_sdk_workspaces_web.types.associate_session_logger_response.AssociateSessionLoggerResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_workspaces_web.types.associate_session_logger_request.AssociateSessionLoggerRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_workspaces_web.types.associate_session_logger_response.AssociateSessionLoggerResponse"
+        ]:
             import aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.associate_session_logger
-            output, http_response = await aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.associate_session_logger.async_associate_session_logger(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.associate_session_logger.async_associate_session_logger(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -746,18 +1507,40 @@ class AsyncPortalResource:
         input_["portal_arn"] = portal_arn
         input_["session_logger_arn"] = session_logger_arn
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def associate_trust_store(self, portal_arn: "aws_sdk_workspaces_web.types.arn.ARN", trust_store_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None) -> "aws_sdk_workspaces_web.types.associate_trust_store_response.AssociateTrustStoreResponse":
+
+    async def associate_trust_store(
+        self,
+        portal_arn: "aws_sdk_workspaces_web.types.arn.ARN",
+        trust_store_arn: "aws_sdk_workspaces_web.types.arn.ARN",
+        *,
+        config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None,
+    ) -> "aws_sdk_workspaces_web.types.associate_trust_store_response.AssociateTrustStoreResponse":
         """<p>Associates a trust store with a web portal.</p>
 
         Args:
             portal_arn: <p>The ARN of the web portal.</p>
             trust_store_arn: <p>The ARN of the trust store.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces_web.types.associate_trust_store_request.AssociateTrustStoreRequest]') -> AsyncOperationResponse["aws_sdk_workspaces_web.types.associate_trust_store_response.AssociateTrustStoreResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_workspaces_web.types.associate_trust_store_request.AssociateTrustStoreRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_workspaces_web.types.associate_trust_store_response.AssociateTrustStoreResponse"
+        ]:
             import aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.associate_trust_store
-            output, http_response = await aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.associate_trust_store.async_associate_trust_store(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.associate_trust_store.async_associate_trust_store(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -765,18 +1548,40 @@ class AsyncPortalResource:
         input_["portal_arn"] = portal_arn
         input_["trust_store_arn"] = trust_store_arn
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def associate_user_access_logging_settings(self, portal_arn: "aws_sdk_workspaces_web.types.arn.ARN", user_access_logging_settings_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None) -> "aws_sdk_workspaces_web.types.associate_user_access_logging_settings_response.AssociateUserAccessLoggingSettingsResponse":
+
+    async def associate_user_access_logging_settings(
+        self,
+        portal_arn: "aws_sdk_workspaces_web.types.arn.ARN",
+        user_access_logging_settings_arn: "aws_sdk_workspaces_web.types.arn.ARN",
+        *,
+        config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None,
+    ) -> "aws_sdk_workspaces_web.types.associate_user_access_logging_settings_response.AssociateUserAccessLoggingSettingsResponse":
         """<p>Associates a user access logging settings resource with a web portal.</p>
 
         Args:
             portal_arn: <p>The ARN of the web portal.</p>
             user_access_logging_settings_arn: <p>The ARN of the user access logging settings.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces_web.types.associate_user_access_logging_settings_request.AssociateUserAccessLoggingSettingsRequest]') -> AsyncOperationResponse["aws_sdk_workspaces_web.types.associate_user_access_logging_settings_response.AssociateUserAccessLoggingSettingsResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_workspaces_web.types.associate_user_access_logging_settings_request.AssociateUserAccessLoggingSettingsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_workspaces_web.types.associate_user_access_logging_settings_response.AssociateUserAccessLoggingSettingsResponse"
+        ]:
             import aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.associate_user_access_logging_settings
-            output, http_response = await aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.associate_user_access_logging_settings.async_associate_user_access_logging_settings(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.associate_user_access_logging_settings.async_associate_user_access_logging_settings(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -784,18 +1589,40 @@ class AsyncPortalResource:
         input_["portal_arn"] = portal_arn
         input_["user_access_logging_settings_arn"] = user_access_logging_settings_arn
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def associate_user_settings(self, portal_arn: "aws_sdk_workspaces_web.types.arn.ARN", user_settings_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None) -> "aws_sdk_workspaces_web.types.associate_user_settings_response.AssociateUserSettingsResponse":
+
+    async def associate_user_settings(
+        self,
+        portal_arn: "aws_sdk_workspaces_web.types.arn.ARN",
+        user_settings_arn: "aws_sdk_workspaces_web.types.arn.ARN",
+        *,
+        config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None,
+    ) -> "aws_sdk_workspaces_web.types.associate_user_settings_response.AssociateUserSettingsResponse":
         """<p>Associates a user settings resource with a web portal.</p>
 
         Args:
             portal_arn: <p>The ARN of the web portal.</p>
             user_settings_arn: <p>The ARN of the user settings.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces_web.types.associate_user_settings_request.AssociateUserSettingsRequest]') -> AsyncOperationResponse["aws_sdk_workspaces_web.types.associate_user_settings_response.AssociateUserSettingsResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_workspaces_web.types.associate_user_settings_request.AssociateUserSettingsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_workspaces_web.types.associate_user_settings_response.AssociateUserSettingsResponse"
+        ]:
             import aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.associate_user_settings
-            output, http_response = await aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.associate_user_settings.async_associate_user_settings(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.associate_user_settings.async_associate_user_settings(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
@@ -803,77 +1630,171 @@ class AsyncPortalResource:
         input_["portal_arn"] = portal_arn
         input_["user_settings_arn"] = user_settings_arn
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def disassociate_browser_settings(self, portal_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None) -> "aws_sdk_workspaces_web.types.disassociate_browser_settings_response.DisassociateBrowserSettingsResponse":
+
+    async def disassociate_browser_settings(
+        self,
+        portal_arn: "aws_sdk_workspaces_web.types.arn.ARN",
+        *,
+        config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None,
+    ) -> "aws_sdk_workspaces_web.types.disassociate_browser_settings_response.DisassociateBrowserSettingsResponse":
         """<p>Disassociates browser settings from a web portal.</p>
 
         Args:
             portal_arn: <p>The ARN of the web portal.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces_web.types.disassociate_browser_settings_request.DisassociateBrowserSettingsRequest]') -> AsyncOperationResponse["aws_sdk_workspaces_web.types.disassociate_browser_settings_response.DisassociateBrowserSettingsResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_workspaces_web.types.disassociate_browser_settings_request.DisassociateBrowserSettingsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_workspaces_web.types.disassociate_browser_settings_response.DisassociateBrowserSettingsResponse"
+        ]:
             import aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.disassociate_browser_settings
-            output, http_response = await aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.disassociate_browser_settings.async_disassociate_browser_settings(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.disassociate_browser_settings.async_disassociate_browser_settings(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: aws_sdk_workspaces_web.types.disassociate_browser_settings_request.DisassociateBrowserSettingsRequest = {}  # type: ignore[typeddict-item]
         input_["portal_arn"] = portal_arn
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def disassociate_data_protection_settings(self, portal_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None) -> "aws_sdk_workspaces_web.types.disassociate_data_protection_settings_response.DisassociateDataProtectionSettingsResponse":
+
+    async def disassociate_data_protection_settings(
+        self,
+        portal_arn: "aws_sdk_workspaces_web.types.arn.ARN",
+        *,
+        config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None,
+    ) -> "aws_sdk_workspaces_web.types.disassociate_data_protection_settings_response.DisassociateDataProtectionSettingsResponse":
         """<p>Disassociates data protection settings from a web portal.</p>
 
         Args:
             portal_arn: <p>The ARN of the web portal.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces_web.types.disassociate_data_protection_settings_request.DisassociateDataProtectionSettingsRequest]') -> AsyncOperationResponse["aws_sdk_workspaces_web.types.disassociate_data_protection_settings_response.DisassociateDataProtectionSettingsResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_workspaces_web.types.disassociate_data_protection_settings_request.DisassociateDataProtectionSettingsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_workspaces_web.types.disassociate_data_protection_settings_response.DisassociateDataProtectionSettingsResponse"
+        ]:
             import aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.disassociate_data_protection_settings
-            output, http_response = await aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.disassociate_data_protection_settings.async_disassociate_data_protection_settings(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.disassociate_data_protection_settings.async_disassociate_data_protection_settings(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: aws_sdk_workspaces_web.types.disassociate_data_protection_settings_request.DisassociateDataProtectionSettingsRequest = {}  # type: ignore[typeddict-item]
         input_["portal_arn"] = portal_arn
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def disassociate_ip_access_settings(self, portal_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None) -> "aws_sdk_workspaces_web.types.disassociate_ip_access_settings_response.DisassociateIpAccessSettingsResponse":
+
+    async def disassociate_ip_access_settings(
+        self,
+        portal_arn: "aws_sdk_workspaces_web.types.arn.ARN",
+        *,
+        config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None,
+    ) -> "aws_sdk_workspaces_web.types.disassociate_ip_access_settings_response.DisassociateIpAccessSettingsResponse":
         """<p>Disassociates IP access settings from a web portal.</p>
 
         Args:
             portal_arn: <p>The ARN of the web portal.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces_web.types.disassociate_ip_access_settings_request.DisassociateIpAccessSettingsRequest]') -> AsyncOperationResponse["aws_sdk_workspaces_web.types.disassociate_ip_access_settings_response.DisassociateIpAccessSettingsResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_workspaces_web.types.disassociate_ip_access_settings_request.DisassociateIpAccessSettingsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_workspaces_web.types.disassociate_ip_access_settings_response.DisassociateIpAccessSettingsResponse"
+        ]:
             import aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.disassociate_ip_access_settings
-            output, http_response = await aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.disassociate_ip_access_settings.async_disassociate_ip_access_settings(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.disassociate_ip_access_settings.async_disassociate_ip_access_settings(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: aws_sdk_workspaces_web.types.disassociate_ip_access_settings_request.DisassociateIpAccessSettingsRequest = {}  # type: ignore[typeddict-item]
         input_["portal_arn"] = portal_arn
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def disassociate_network_settings(self, portal_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None) -> "aws_sdk_workspaces_web.types.disassociate_network_settings_response.DisassociateNetworkSettingsResponse":
+
+    async def disassociate_network_settings(
+        self,
+        portal_arn: "aws_sdk_workspaces_web.types.arn.ARN",
+        *,
+        config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None,
+    ) -> "aws_sdk_workspaces_web.types.disassociate_network_settings_response.DisassociateNetworkSettingsResponse":
         """<p>Disassociates network settings from a web portal.</p>
 
         Args:
             portal_arn: <p>The ARN of the web portal.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces_web.types.disassociate_network_settings_request.DisassociateNetworkSettingsRequest]') -> AsyncOperationResponse["aws_sdk_workspaces_web.types.disassociate_network_settings_response.DisassociateNetworkSettingsResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_workspaces_web.types.disassociate_network_settings_request.DisassociateNetworkSettingsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_workspaces_web.types.disassociate_network_settings_response.DisassociateNetworkSettingsResponse"
+        ]:
             import aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.disassociate_network_settings
-            output, http_response = await aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.disassociate_network_settings.async_disassociate_network_settings(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.disassociate_network_settings.async_disassociate_network_settings(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: aws_sdk_workspaces_web.types.disassociate_network_settings_request.DisassociateNetworkSettingsRequest = {}  # type: ignore[typeddict-item]
         input_["portal_arn"] = portal_arn
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def disassociate_session_logger(self, portal_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None) -> "aws_sdk_workspaces_web.types.disassociate_session_logger_response.DisassociateSessionLoggerResponse":
+
+    async def disassociate_session_logger(
+        self,
+        portal_arn: "aws_sdk_workspaces_web.types.arn.ARN",
+        *,
+        config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None,
+    ) -> "aws_sdk_workspaces_web.types.disassociate_session_logger_response.DisassociateSessionLoggerResponse":
         """<p>Disassociates a session logger from a portal.</p>
 
         Args:
@@ -885,82 +1806,181 @@ class AsyncPortalResource:
 
             >>> await client.disassociate_session_logger(portal_arn='arn:aws:workspaces-web:us-west-2:123456789012:portal/12345678-1234-1234-1234-123456789012')
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces_web.types.disassociate_session_logger_request.DisassociateSessionLoggerRequest]') -> AsyncOperationResponse["aws_sdk_workspaces_web.types.disassociate_session_logger_response.DisassociateSessionLoggerResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_workspaces_web.types.disassociate_session_logger_request.DisassociateSessionLoggerRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_workspaces_web.types.disassociate_session_logger_response.DisassociateSessionLoggerResponse"
+        ]:
             import aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.disassociate_session_logger
-            output, http_response = await aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.disassociate_session_logger.async_disassociate_session_logger(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.disassociate_session_logger.async_disassociate_session_logger(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: aws_sdk_workspaces_web.types.disassociate_session_logger_request.DisassociateSessionLoggerRequest = {}  # type: ignore[typeddict-item]
         input_["portal_arn"] = portal_arn
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def disassociate_trust_store(self, portal_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None) -> "aws_sdk_workspaces_web.types.disassociate_trust_store_response.DisassociateTrustStoreResponse":
+
+    async def disassociate_trust_store(
+        self,
+        portal_arn: "aws_sdk_workspaces_web.types.arn.ARN",
+        *,
+        config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None,
+    ) -> "aws_sdk_workspaces_web.types.disassociate_trust_store_response.DisassociateTrustStoreResponse":
         """<p>Disassociates a trust store from a web portal.</p>
 
         Args:
             portal_arn: <p>The ARN of the web portal.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces_web.types.disassociate_trust_store_request.DisassociateTrustStoreRequest]') -> AsyncOperationResponse["aws_sdk_workspaces_web.types.disassociate_trust_store_response.DisassociateTrustStoreResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_workspaces_web.types.disassociate_trust_store_request.DisassociateTrustStoreRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_workspaces_web.types.disassociate_trust_store_response.DisassociateTrustStoreResponse"
+        ]:
             import aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.disassociate_trust_store
-            output, http_response = await aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.disassociate_trust_store.async_disassociate_trust_store(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.disassociate_trust_store.async_disassociate_trust_store(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: aws_sdk_workspaces_web.types.disassociate_trust_store_request.DisassociateTrustStoreRequest = {}  # type: ignore[typeddict-item]
         input_["portal_arn"] = portal_arn
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def disassociate_user_access_logging_settings(self, portal_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None) -> "aws_sdk_workspaces_web.types.disassociate_user_access_logging_settings_response.DisassociateUserAccessLoggingSettingsResponse":
+
+    async def disassociate_user_access_logging_settings(
+        self,
+        portal_arn: "aws_sdk_workspaces_web.types.arn.ARN",
+        *,
+        config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None,
+    ) -> "aws_sdk_workspaces_web.types.disassociate_user_access_logging_settings_response.DisassociateUserAccessLoggingSettingsResponse":
         """<p>Disassociates user access logging settings from a web portal.</p>
 
         Args:
             portal_arn: <p>The ARN of the web portal.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces_web.types.disassociate_user_access_logging_settings_request.DisassociateUserAccessLoggingSettingsRequest]') -> AsyncOperationResponse["aws_sdk_workspaces_web.types.disassociate_user_access_logging_settings_response.DisassociateUserAccessLoggingSettingsResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_workspaces_web.types.disassociate_user_access_logging_settings_request.DisassociateUserAccessLoggingSettingsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_workspaces_web.types.disassociate_user_access_logging_settings_response.DisassociateUserAccessLoggingSettingsResponse"
+        ]:
             import aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.disassociate_user_access_logging_settings
-            output, http_response = await aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.disassociate_user_access_logging_settings.async_disassociate_user_access_logging_settings(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.disassociate_user_access_logging_settings.async_disassociate_user_access_logging_settings(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: aws_sdk_workspaces_web.types.disassociate_user_access_logging_settings_request.DisassociateUserAccessLoggingSettingsRequest = {}  # type: ignore[typeddict-item]
         input_["portal_arn"] = portal_arn
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def disassociate_user_settings(self, portal_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None) -> "aws_sdk_workspaces_web.types.disassociate_user_settings_response.DisassociateUserSettingsResponse":
+
+    async def disassociate_user_settings(
+        self,
+        portal_arn: "aws_sdk_workspaces_web.types.arn.ARN",
+        *,
+        config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None,
+    ) -> "aws_sdk_workspaces_web.types.disassociate_user_settings_response.DisassociateUserSettingsResponse":
         """<p>Disassociates user settings from a web portal.</p>
 
         Args:
             portal_arn: <p>The ARN of the web portal.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces_web.types.disassociate_user_settings_request.DisassociateUserSettingsRequest]') -> AsyncOperationResponse["aws_sdk_workspaces_web.types.disassociate_user_settings_response.DisassociateUserSettingsResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_workspaces_web.types.disassociate_user_settings_request.DisassociateUserSettingsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_workspaces_web.types.disassociate_user_settings_response.DisassociateUserSettingsResponse"
+        ]:
             import aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.disassociate_user_settings
-            output, http_response = await aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.disassociate_user_settings.async_disassociate_user_settings(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.disassociate_user_settings.async_disassociate_user_settings(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: aws_sdk_workspaces_web.types.disassociate_user_settings_request.DisassociateUserSettingsRequest = {}  # type: ignore[typeddict-item]
         input_["portal_arn"] = portal_arn
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def get_portal_service_provider_metadata(self, portal_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None) -> "aws_sdk_workspaces_web.types.get_portal_service_provider_metadata_response.GetPortalServiceProviderMetadataResponse":
+
+    async def get_portal_service_provider_metadata(
+        self,
+        portal_arn: "aws_sdk_workspaces_web.types.arn.ARN",
+        *,
+        config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None,
+    ) -> "aws_sdk_workspaces_web.types.get_portal_service_provider_metadata_response.GetPortalServiceProviderMetadataResponse":
         """<p>Gets the service provider metadata.</p>
 
         Args:
             portal_arn: <p>The ARN of the web portal.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_workspaces_web.types.get_portal_service_provider_metadata_request.GetPortalServiceProviderMetadataRequest]') -> AsyncOperationResponse["aws_sdk_workspaces_web.types.get_portal_service_provider_metadata_response.GetPortalServiceProviderMetadataResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_workspaces_web.types.get_portal_service_provider_metadata_request.GetPortalServiceProviderMetadataRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_workspaces_web.types.get_portal_service_provider_metadata_response.GetPortalServiceProviderMetadataResponse"
+        ]:
             import aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.get_portal_service_provider_metadata
-            output, http_response = await aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.get_portal_service_provider_metadata.async_get_portal_service_provider_metadata(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_workspaces_web._operations.aws_ermine_control_plane_service.get_portal_service_provider_metadata.async_get_portal_service_provider_metadata(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: aws_sdk_workspaces_web.types.get_portal_service_provider_metadata_request.GetPortalServiceProviderMetadataRequest = {}  # type: ignore[typeddict-item]
         input_["portal_arn"] = portal_arn
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output

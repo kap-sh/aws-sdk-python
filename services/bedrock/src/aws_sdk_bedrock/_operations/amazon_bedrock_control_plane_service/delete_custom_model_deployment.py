@@ -96,7 +96,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.delete_custom_model_deployment_request.DeleteCustomModelDeploymentRequest,
+    input_: aws_sdk_bedrock.types.delete_custom_model_deployment_request.DeleteCustomModelDeploymentRequest,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -112,7 +112,7 @@ def build_request(
     )
     url = url.replace(
         "{customModelDeploymentIdentifier}",
-        quote(str(input["custom_model_deployment_identifier"]), safe=""),
+        quote(str(input_["custom_model_deployment_identifier"]), safe=""),
     )
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
@@ -127,12 +127,12 @@ def build_request(
 
 def delete_custom_model_deployment(
     options: OperationOptions,
-    input: aws_sdk_bedrock.types.delete_custom_model_deployment_request.DeleteCustomModelDeploymentRequest,
+    input_: aws_sdk_bedrock.types.delete_custom_model_deployment_request.DeleteCustomModelDeploymentRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.delete_custom_model_deployment_response.DeleteCustomModelDeploymentResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -146,12 +146,12 @@ def delete_custom_model_deployment(
 
 async def async_delete_custom_model_deployment(
     options: AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.delete_custom_model_deployment_request.DeleteCustomModelDeploymentRequest,
+    input_: aws_sdk_bedrock.types.delete_custom_model_deployment_request.DeleteCustomModelDeploymentRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.delete_custom_model_deployment_response.DeleteCustomModelDeploymentResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

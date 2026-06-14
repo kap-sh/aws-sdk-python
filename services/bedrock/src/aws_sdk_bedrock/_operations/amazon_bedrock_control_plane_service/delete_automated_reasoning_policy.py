@@ -102,7 +102,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.delete_automated_reasoning_policy_request.DeleteAutomatedReasoningPolicyRequest,
+    input_: aws_sdk_bedrock.types.delete_automated_reasoning_policy_request.DeleteAutomatedReasoningPolicyRequest,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -113,9 +113,9 @@ def build_request(
         )
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/automated-reasoning-policies/{policyArn}"
-    url = url.replace("{policyArn}", quote(str(input["policy_arn"]), safe=""))
+    url = url.replace("{policyArn}", quote(str(input_["policy_arn"]), safe=""))
     params: dict[str, str] = {}
-    params["force"] = str(input.get("force", False))
+    params["force"] = str(input_.get("force", False))
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
@@ -128,12 +128,12 @@ def build_request(
 
 def delete_automated_reasoning_policy(
     options: OperationOptions,
-    input: aws_sdk_bedrock.types.delete_automated_reasoning_policy_request.DeleteAutomatedReasoningPolicyRequest,
+    input_: aws_sdk_bedrock.types.delete_automated_reasoning_policy_request.DeleteAutomatedReasoningPolicyRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.delete_automated_reasoning_policy_response.DeleteAutomatedReasoningPolicyResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -147,12 +147,12 @@ def delete_automated_reasoning_policy(
 
 async def async_delete_automated_reasoning_policy(
     options: AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.delete_automated_reasoning_policy_request.DeleteAutomatedReasoningPolicyRequest,
+    input_: aws_sdk_bedrock.types.delete_automated_reasoning_policy_request.DeleteAutomatedReasoningPolicyRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.delete_automated_reasoning_policy_response.DeleteAutomatedReasoningPolicyResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

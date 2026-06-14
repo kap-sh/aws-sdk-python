@@ -1,0 +1,64 @@
+"""Generated from Smithy shape ``com.amazonaws.verifiedpermissions#ListPoliciesInput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_verifiedpermissions.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_verifiedpermissions.types.max_results
+    import aws_sdk_verifiedpermissions.types.next_token
+    import aws_sdk_verifiedpermissions.types.policy_filter
+    import aws_sdk_verifiedpermissions.types.policy_store_id
+
+
+class ListPoliciesInput(TypedDict):
+    policy_store_id: "aws_sdk_verifiedpermissions.types.policy_store_id.PolicyStoreId"
+    r"""<p>Specifies the ID of the policy store you want to list policies from.</p> <p>To specify a policy store, use its ID or alias name. When using an alias name, prefix it with <code>policy-store-alias/</code>. For example:</p> <ul> <li> <p>ID: <code>PSEXAMPLEabcdefg111111</code> </p> </li> <li> <p>Alias name: <code>policy-store-alias/example-policy-store</code> </p> </li> </ul> <p>To view aliases, use <a href=\"https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListPolicyStoreAliases.html\">ListPolicyStoreAliases</a>.</p>"""
+    next_token: NotRequired["aws_sdk_verifiedpermissions.types.next_token.NextToken"]
+    """<p>Specifies that you want to receive the next page of results. Valid only if you received a <code>NextToken</code> response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's <code>NextToken</code> response to request the next page of results.</p>"""
+    max_results: NotRequired["aws_sdk_verifiedpermissions.types.max_results.MaxResults"]
+    """<p>Specifies the total number of results that you want included in each response. If additional items exist beyond the number you specify, the <code>NextToken</code> response element is returned with a value (not null). Include the specified value as the <code>NextToken</code> request parameter in the next call to the operation to get the next set of results. Note that the service might return fewer results than the maximum even when there are more results available. You should check <code>NextToken</code> after every operation to ensure that you receive all of the results.</p> <p>If you do not specify this parameter, the operation defaults to 10 policies per response. You can specify a maximum of 50 policies per response.</p>"""
+    filter: NotRequired["aws_sdk_verifiedpermissions.types.policy_filter.PolicyFilter"]
+    """<p>Specifies a filter that limits the response to only policies that match the specified criteria. For example, you list only the policies that reference a specified principal.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: ListPoliciesInput) -> dict:
+    out: dict = {}
+    out["policyStoreId"] = value["policy_store_id"]
+    if "next_token" in value:
+        out["nextToken"] = value["next_token"]
+    if "max_results" in value:
+        out["maxResults"] = value["max_results"]
+    if "filter" in value:
+        import aws_sdk_verifiedpermissions.types.policy_filter
+
+        out["filter"] = (
+            aws_sdk_verifiedpermissions.types.policy_filter.serialize_aws_json_1_0(
+                value["filter"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> ListPoliciesInput:
+    out: ListPoliciesInput = {}  # type: ignore[typeddict-item]
+    if "policyStoreId" in data:
+        out["policy_store_id"] = data["policyStoreId"]
+    else:
+        raise DeserializationError("ListPoliciesInput.policy_store_id required")
+    if "nextToken" in data:
+        out["next_token"] = data["nextToken"]
+    if "maxResults" in data:
+        out["max_results"] = data["maxResults"]
+    if "filter" in data:
+        import aws_sdk_verifiedpermissions.types.policy_filter
+
+        out["filter"] = (
+            aws_sdk_verifiedpermissions.types.policy_filter.deserialize_aws_json_1_0(
+                data["filter"]
+            )
+        )
+    return out

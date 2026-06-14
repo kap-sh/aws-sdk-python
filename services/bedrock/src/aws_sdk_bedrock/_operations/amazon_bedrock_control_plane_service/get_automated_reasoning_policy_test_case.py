@@ -94,7 +94,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.get_automated_reasoning_policy_test_case_request.GetAutomatedReasoningPolicyTestCaseRequest,
+    input_: aws_sdk_bedrock.types.get_automated_reasoning_policy_test_case_request.GetAutomatedReasoningPolicyTestCaseRequest,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -108,8 +108,8 @@ def build_request(
         endpoint.url.rstrip("/")
         + "/automated-reasoning-policies/{policyArn}/test-cases/{testCaseId}"
     )
-    url = url.replace("{policyArn}", quote(str(input["policy_arn"]), safe=""))
-    url = url.replace("{testCaseId}", quote(str(input["test_case_id"]), safe=""))
+    url = url.replace("{policyArn}", quote(str(input_["policy_arn"]), safe=""))
+    url = url.replace("{testCaseId}", quote(str(input_["test_case_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
@@ -123,12 +123,12 @@ def build_request(
 
 def get_automated_reasoning_policy_test_case(
     options: OperationOptions,
-    input: aws_sdk_bedrock.types.get_automated_reasoning_policy_test_case_request.GetAutomatedReasoningPolicyTestCaseRequest,
+    input_: aws_sdk_bedrock.types.get_automated_reasoning_policy_test_case_request.GetAutomatedReasoningPolicyTestCaseRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.get_automated_reasoning_policy_test_case_response.GetAutomatedReasoningPolicyTestCaseResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -142,12 +142,12 @@ def get_automated_reasoning_policy_test_case(
 
 async def async_get_automated_reasoning_policy_test_case(
     options: AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.get_automated_reasoning_policy_test_case_request.GetAutomatedReasoningPolicyTestCaseRequest,
+    input_: aws_sdk_bedrock.types.get_automated_reasoning_policy_test_case_request.GetAutomatedReasoningPolicyTestCaseRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.get_automated_reasoning_policy_test_case_response.GetAutomatedReasoningPolicyTestCaseResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

@@ -116,6 +116,7 @@ class ControlCatalogClient:
                 "credentials_provider": credentials_provider,
             }
         )
+
         # resources
         self.common_control_resource = CommonControlResource(self)
         self.control_resource = ControlResource(self)

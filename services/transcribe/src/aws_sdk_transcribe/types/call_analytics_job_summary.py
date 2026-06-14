@@ -35,7 +35,7 @@ class CallAnalyticsJobSummary(TypedDict):
     ]
     """<p>Provides detailed information about a call analytics job, including information about skipped analytics features.</p>"""
     failure_reason: NotRequired["aws_sdk_transcribe.types.failure_reason.FailureReason"]
-    """<p>If <code>CallAnalyticsJobStatus</code> is <code>FAILED</code>, <code>FailureReason</code> contains information about why the Call Analytics job failed. See also: <a href=\"https://docs.aws.amazon.com/transcribe/latest/APIReference/CommonErrors.html\">Common Errors</a>.</p>"""
+    r"""<p>If <code>CallAnalyticsJobStatus</code> is <code>FAILED</code>, <code>FailureReason</code> contains information about why the Call Analytics job failed. See also: <a href=\"https://docs.aws.amazon.com/transcribe/latest/APIReference/CommonErrors.html\">Common Errors</a>.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

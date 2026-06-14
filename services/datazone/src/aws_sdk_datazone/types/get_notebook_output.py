@@ -1,10 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#GetNotebookOutput``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_datazone.errors import DeserializationError
 
 if TYPE_CHECKING:
+    import datetime
+
     import aws_sdk_datazone.types.cell_order
     import aws_sdk_datazone.types.compute_id
     import aws_sdk_datazone.types.created_at
@@ -21,7 +25,6 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.project_id
     import aws_sdk_datazone.types.updated_at
     import aws_sdk_datazone.types.updated_by
-    import datetime
 
 
 class GetNotebookOutput(TypedDict):

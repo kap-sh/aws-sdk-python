@@ -67,7 +67,7 @@ def handle_response(
     )
     out: aws_sdk_mediastore_data.types.get_object_response.GetObjectResponse = {
         "body": _iter
-    }
+    }  # type: ignore[reportAssignmentType]
     if "Cache-Control" in response.headers:
         out["cache_control"] = str(response.headers["Cache-Control"])
     if "Content-Range" in response.headers:
@@ -88,7 +88,7 @@ def get_signer(
     options: AsyncOperationOptions | OperationOptions,
     auth_schemes: list[dict[str, Any]] | None = None,
 ) -> aws_sdk_mediastore_data._auth._signers.Signer | None:
-    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}
+    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}  # noqa: F841
     if options.credentials_provider is not None:
         sigv4_config = (
             name_to_schema.get("sigv4")

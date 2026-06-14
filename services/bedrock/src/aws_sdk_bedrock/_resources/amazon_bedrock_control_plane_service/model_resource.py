@@ -61,11 +61,11 @@ class ModelResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.get_foundation_model_request.GetFoundationModelRequest = {}  # type: ignore[typeddict-item]
-        input["model_identifier"] = model_identifier
+        input_: aws_sdk_bedrock.types.get_foundation_model_request.GetFoundationModelRequest = {}  # type: ignore[typeddict-item]
+        input_["model_identifier"] = model_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -110,18 +110,18 @@ class ModelResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.list_foundation_models_request.ListFoundationModelsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock.types.list_foundation_models_request.ListFoundationModelsRequest = {}  # type: ignore[typeddict-item]
         if by_provider is not None:
-            input["by_provider"] = by_provider
+            input_["by_provider"] = by_provider
         if by_customization_type is not None:
-            input["by_customization_type"] = by_customization_type
+            input_["by_customization_type"] = by_customization_type
         if by_output_modality is not None:
-            input["by_output_modality"] = by_output_modality
+            input_["by_output_modality"] = by_output_modality
         if by_inference_type is not None:
-            input["by_inference_type"] = by_inference_type
+            input_["by_inference_type"] = by_inference_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -162,11 +162,11 @@ class AsyncModelResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.get_foundation_model_request.GetFoundationModelRequest = {}  # type: ignore[typeddict-item]
-        input["model_identifier"] = model_identifier
+        input_: aws_sdk_bedrock.types.get_foundation_model_request.GetFoundationModelRequest = {}  # type: ignore[typeddict-item]
+        input_["model_identifier"] = model_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -212,18 +212,18 @@ class AsyncModelResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.list_foundation_models_request.ListFoundationModelsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock.types.list_foundation_models_request.ListFoundationModelsRequest = {}  # type: ignore[typeddict-item]
         if by_provider is not None:
-            input["by_provider"] = by_provider
+            input_["by_provider"] = by_provider
         if by_customization_type is not None:
-            input["by_customization_type"] = by_customization_type
+            input_["by_customization_type"] = by_customization_type
         if by_output_modality is not None:
-            input["by_output_modality"] = by_output_modality
+            input_["by_output_modality"] = by_output_modality
         if by_inference_type is not None:
-            input["by_inference_type"] = by_inference_type
+            input_["by_inference_type"] = by_inference_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

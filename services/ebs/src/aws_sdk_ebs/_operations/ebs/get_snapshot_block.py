@@ -80,8 +80,10 @@ def handle_response(
     if "x-amz-Checksum-Algorithm" in response.headers:
         import aws_sdk_ebs.types.checksum_algorithm
 
-        out["checksum_algorithm"] = aws_sdk_ebs.types.checksum_algorithm.from_xml_text(
-            response.headers["x-amz-Checksum-Algorithm"]
+        out["checksum_algorithm"] = (
+            aws_sdk_ebs.types.checksum_algorithm.deserialize_json(
+                response.headers["x-amz-Checksum-Algorithm"]
+            )
         )
     return out
 
@@ -90,7 +92,7 @@ def get_signer(
     options: AsyncOperationOptions | OperationOptions,
     auth_schemes: list[dict[str, Any]] | None = None,
 ) -> aws_sdk_ebs._auth._signers.Signer | None:
-    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}
+    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}  # noqa: F841
     if options.credentials_provider is not None:
         sigv4_config = (
             name_to_schema.get("sigv4")

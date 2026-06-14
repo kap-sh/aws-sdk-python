@@ -110,6 +110,7 @@ class ConnectCasesClient:
                 "credentials_provider": credentials_provider,
             }
         )
+
         # resources
         self.case = Case(self)
         self.case_rule = CaseRule(self)

@@ -1,11 +1,12 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#MatchClause``."""
 
 from typing import TYPE_CHECKING, TypeAlias, TypedDict
+
 from aws_sdk_datazone.errors import DeserializationError, SerializationError
 
 if TYPE_CHECKING:
-    import aws_sdk_datazone.types.relation_pattern
     import aws_sdk_datazone.types.entity_pattern
+    import aws_sdk_datazone.types.relation_pattern
 
 
 class _MatchClause_relationPattern(TypedDict):

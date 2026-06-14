@@ -1,16 +1,18 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#ListTimeSeriesDataPointsInput``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
 
 if TYPE_CHECKING:
+    import datetime
+
     import aws_sdk_datazone.types.domain_id
     import aws_sdk_datazone.types.entity_identifier
     import aws_sdk_datazone.types.max_results
     import aws_sdk_datazone.types.pagination_token
     import aws_sdk_datazone.types.time_series_entity_type
     import aws_sdk_datazone.types.time_series_form_name
-    import datetime
 
 
 class ListTimeSeriesDataPointsInput(TypedDict):

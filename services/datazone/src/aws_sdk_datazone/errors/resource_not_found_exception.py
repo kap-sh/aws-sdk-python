@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#ResourceNotFoundException``."""
 
 from typing import TYPE_CHECKING, TypedDict
-from aws_sdk_datazone.errors import DeserializationError
-from aws_sdk_datazone.errors import ServiceError
+
+from aws_sdk_datazone.errors import DeserializationError, ServiceError
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.error_message

@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import BaseHandler, Client
 
+import aws_sdk_dax._auth._signers
+import aws_sdk_dax._auth._sigv4
 from aws_sdk_dax._auth._identity import Credentials
 from aws_sdk_dax._auth._providers import (
     CredentialsProvider,
@@ -249,36 +251,38 @@ class DAXClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dax.types.create_cluster_request.CreateClusterRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_name"] = cluster_name
-        input["node_type"] = node_type
+        input_: aws_sdk_dax.types.create_cluster_request.CreateClusterRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_name"] = cluster_name
+        input_["node_type"] = node_type
         if description is not None:
-            input["description"] = description
-        input["replication_factor"] = replication_factor
+            input_["description"] = description
+        input_["replication_factor"] = replication_factor
         if availability_zones is not None:
-            input["availability_zones"] = availability_zones
+            input_["availability_zones"] = availability_zones
         if subnet_group_name is not None:
-            input["subnet_group_name"] = subnet_group_name
+            input_["subnet_group_name"] = subnet_group_name
         if security_group_ids is not None:
-            input["security_group_ids"] = security_group_ids
+            input_["security_group_ids"] = security_group_ids
         if preferred_maintenance_window is not None:
-            input["preferred_maintenance_window"] = preferred_maintenance_window
+            input_["preferred_maintenance_window"] = preferred_maintenance_window
         if notification_topic_arn is not None:
-            input["notification_topic_arn"] = notification_topic_arn
-        input["iam_role_arn"] = iam_role_arn
+            input_["notification_topic_arn"] = notification_topic_arn
+        input_["iam_role_arn"] = iam_role_arn
         if parameter_group_name is not None:
-            input["parameter_group_name"] = parameter_group_name
+            input_["parameter_group_name"] = parameter_group_name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if sse_specification is not None:
-            input["sse_specification"] = sse_specification
+            input_["sse_specification"] = sse_specification
         if cluster_endpoint_encryption_type is not None:
-            input["cluster_endpoint_encryption_type"] = cluster_endpoint_encryption_type
+            input_["cluster_endpoint_encryption_type"] = (
+                cluster_endpoint_encryption_type
+            )
         if network_type is not None:
-            input["network_type"] = network_type
+            input_["network_type"] = network_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -315,13 +319,13 @@ class DAXClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dax.types.create_parameter_group_request.CreateParameterGroupRequest = {}  # type: ignore[typeddict-item]
-        input["parameter_group_name"] = parameter_group_name
+        input_: aws_sdk_dax.types.create_parameter_group_request.CreateParameterGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["parameter_group_name"] = parameter_group_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -358,14 +362,14 @@ class DAXClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dax.types.create_subnet_group_request.CreateSubnetGroupRequest = {}  # type: ignore[typeddict-item]
-        input["subnet_group_name"] = subnet_group_name
+        input_: aws_sdk_dax.types.create_subnet_group_request.CreateSubnetGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["subnet_group_name"] = subnet_group_name
         if description is not None:
-            input["description"] = description
-        input["subnet_ids"] = subnet_ids
+            input_["description"] = description
+        input_["subnet_ids"] = subnet_ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -408,16 +412,16 @@ class DAXClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dax.types.decrease_replication_factor_request.DecreaseReplicationFactorRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_name"] = cluster_name
-        input["new_replication_factor"] = new_replication_factor
+        input_: aws_sdk_dax.types.decrease_replication_factor_request.DecreaseReplicationFactorRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_name"] = cluster_name
+        input_["new_replication_factor"] = new_replication_factor
         if availability_zones is not None:
-            input["availability_zones"] = availability_zones
+            input_["availability_zones"] = availability_zones
         if node_ids_to_remove is not None:
-            input["node_ids_to_remove"] = node_ids_to_remove
+            input_["node_ids_to_remove"] = node_ids_to_remove
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -450,11 +454,11 @@ class DAXClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dax.types.delete_cluster_request.DeleteClusterRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_name"] = cluster_name
+        input_: aws_sdk_dax.types.delete_cluster_request.DeleteClusterRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_name"] = cluster_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -489,11 +493,11 @@ class DAXClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dax.types.delete_parameter_group_request.DeleteParameterGroupRequest = {}  # type: ignore[typeddict-item]
-        input["parameter_group_name"] = parameter_group_name
+        input_: aws_sdk_dax.types.delete_parameter_group_request.DeleteParameterGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["parameter_group_name"] = parameter_group_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -526,11 +530,11 @@ class DAXClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dax.types.delete_subnet_group_request.DeleteSubnetGroupRequest = {}  # type: ignore[typeddict-item]
-        input["subnet_group_name"] = subnet_group_name
+        input_: aws_sdk_dax.types.delete_subnet_group_request.DeleteSubnetGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["subnet_group_name"] = subnet_group_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -571,16 +575,16 @@ class DAXClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dax.types.describe_clusters_request.DescribeClustersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_dax.types.describe_clusters_request.DescribeClustersRequest = {}  # type: ignore[typeddict-item]
         if cluster_names is not None:
-            input["cluster_names"] = cluster_names
+            input_["cluster_names"] = cluster_names
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -617,14 +621,14 @@ class DAXClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dax.types.describe_default_parameters_request.DescribeDefaultParametersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_dax.types.describe_default_parameters_request.DescribeDefaultParametersRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -671,24 +675,24 @@ class DAXClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dax.types.describe_events_request.DescribeEventsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_dax.types.describe_events_request.DescribeEventsRequest = {}  # type: ignore[typeddict-item]
         if source_name is not None:
-            input["source_name"] = source_name
+            input_["source_name"] = source_name
         if source_type is not None:
-            input["source_type"] = source_type
+            input_["source_type"] = source_type
         if start_time is not None:
-            input["start_time"] = start_time
+            input_["start_time"] = start_time
         if end_time is not None:
-            input["end_time"] = end_time
+            input_["end_time"] = end_time
         if duration is not None:
-            input["duration"] = duration
+            input_["duration"] = duration
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -729,16 +733,16 @@ class DAXClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dax.types.describe_parameter_groups_request.DescribeParameterGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_dax.types.describe_parameter_groups_request.DescribeParameterGroupsRequest = {}  # type: ignore[typeddict-item]
         if parameter_group_names is not None:
-            input["parameter_group_names"] = parameter_group_names
+            input_["parameter_group_names"] = parameter_group_names
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -779,17 +783,17 @@ class DAXClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dax.types.describe_parameters_request.DescribeParametersRequest = {}  # type: ignore[typeddict-item]
-        input["parameter_group_name"] = parameter_group_name
+        input_: aws_sdk_dax.types.describe_parameters_request.DescribeParametersRequest = {}  # type: ignore[typeddict-item]
+        input_["parameter_group_name"] = parameter_group_name
         if source is not None:
-            input["source"] = source
+            input_["source"] = source
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -832,16 +836,16 @@ class DAXClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dax.types.describe_subnet_groups_request.DescribeSubnetGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_dax.types.describe_subnet_groups_request.DescribeSubnetGroupsRequest = {}  # type: ignore[typeddict-item]
         if subnet_group_names is not None:
-            input["subnet_group_names"] = subnet_group_names
+            input_["subnet_group_names"] = subnet_group_names
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -880,14 +884,14 @@ class DAXClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dax.types.increase_replication_factor_request.IncreaseReplicationFactorRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_name"] = cluster_name
-        input["new_replication_factor"] = new_replication_factor
+        input_: aws_sdk_dax.types.increase_replication_factor_request.IncreaseReplicationFactorRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_name"] = cluster_name
+        input_["new_replication_factor"] = new_replication_factor
         if availability_zones is not None:
-            input["availability_zones"] = availability_zones
+            input_["availability_zones"] = availability_zones
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -920,13 +924,13 @@ class DAXClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dax.types.list_tags_request.ListTagsRequest = {}  # type: ignore[typeddict-item]
-        input["resource_name"] = resource_name
+        input_: aws_sdk_dax.types.list_tags_request.ListTagsRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_name"] = resource_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -961,12 +965,12 @@ class DAXClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dax.types.reboot_node_request.RebootNodeRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_name"] = cluster_name
-        input["node_id"] = node_id
+        input_: aws_sdk_dax.types.reboot_node_request.RebootNodeRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_name"] = cluster_name
+        input_["node_id"] = node_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1001,12 +1005,12 @@ class DAXClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dax.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_name"] = resource_name
-        input["tags"] = tags
+        input_: aws_sdk_dax.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_name"] = resource_name
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1041,12 +1045,12 @@ class DAXClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dax.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_name"] = resource_name
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_dax.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_name"] = resource_name
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1095,23 +1099,23 @@ class DAXClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dax.types.update_cluster_request.UpdateClusterRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_name"] = cluster_name
+        input_: aws_sdk_dax.types.update_cluster_request.UpdateClusterRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_name"] = cluster_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if preferred_maintenance_window is not None:
-            input["preferred_maintenance_window"] = preferred_maintenance_window
+            input_["preferred_maintenance_window"] = preferred_maintenance_window
         if notification_topic_arn is not None:
-            input["notification_topic_arn"] = notification_topic_arn
+            input_["notification_topic_arn"] = notification_topic_arn
         if notification_topic_status is not None:
-            input["notification_topic_status"] = notification_topic_status
+            input_["notification_topic_status"] = notification_topic_status
         if parameter_group_name is not None:
-            input["parameter_group_name"] = parameter_group_name
+            input_["parameter_group_name"] = parameter_group_name
         if security_group_ids is not None:
-            input["security_group_ids"] = security_group_ids
+            input_["security_group_ids"] = security_group_ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1148,12 +1152,12 @@ class DAXClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dax.types.update_parameter_group_request.UpdateParameterGroupRequest = {}  # type: ignore[typeddict-item]
-        input["parameter_group_name"] = parameter_group_name
-        input["parameter_name_values"] = parameter_name_values
+        input_: aws_sdk_dax.types.update_parameter_group_request.UpdateParameterGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["parameter_group_name"] = parameter_group_name
+        input_["parameter_name_values"] = parameter_name_values
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1192,15 +1196,15 @@ class DAXClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dax.types.update_subnet_group_request.UpdateSubnetGroupRequest = {}  # type: ignore[typeddict-item]
-        input["subnet_group_name"] = subnet_group_name
+        input_: aws_sdk_dax.types.update_subnet_group_request.UpdateSubnetGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["subnet_group_name"] = subnet_group_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if subnet_ids is not None:
-            input["subnet_ids"] = subnet_ids
+            input_["subnet_ids"] = subnet_ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

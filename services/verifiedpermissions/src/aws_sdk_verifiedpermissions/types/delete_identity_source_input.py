@@ -1,16 +1,22 @@
 """Generated from Smithy shape ``com.amazonaws.verifiedpermissions#DeleteIdentitySourceInput``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_verifiedpermissions.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_verifiedpermissions.types.identity_source_id
     import aws_sdk_verifiedpermissions.types.policy_store_id
 
+
 class DeleteIdentitySourceInput(TypedDict):
     policy_store_id: "aws_sdk_verifiedpermissions.types.policy_store_id.PolicyStoreId"
-    """<p>Specifies the ID of the policy store that contains the identity source that you want to delete.</p> <p>To specify a policy store, use its ID or alias name. When using an alias name, prefix it with <code>policy-store-alias/</code>. For example:</p> <ul> <li> <p>ID: <code>PSEXAMPLEabcdefg111111</code> </p> </li> <li> <p>Alias name: <code>policy-store-alias/example-policy-store</code> </p> </li> </ul> <p>To view aliases, use <a href=\"https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListPolicyStoreAliases.html\">ListPolicyStoreAliases</a>.</p>"""
-    identity_source_id: "aws_sdk_verifiedpermissions.types.identity_source_id.IdentitySourceId"
+    r"""<p>Specifies the ID of the policy store that contains the identity source that you want to delete.</p> <p>To specify a policy store, use its ID or alias name. When using an alias name, prefix it with <code>policy-store-alias/</code>. For example:</p> <ul> <li> <p>ID: <code>PSEXAMPLEabcdefg111111</code> </p> </li> <li> <p>Alias name: <code>policy-store-alias/example-policy-store</code> </p> </li> </ul> <p>To view aliases, use <a href=\"https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListPolicyStoreAliases.html\">ListPolicyStoreAliases</a>.</p>"""
+    identity_source_id: (
+        "aws_sdk_verifiedpermissions.types.identity_source_id.IdentitySourceId"
+    )
     """<p>Specifies the ID of the identity source that you want to delete.</p>"""
+
 
 # --- awsJson1_0 ser/de ---
 def serialize_aws_json_1_0(value: DeleteIdentitySourceInput) -> dict:
@@ -29,5 +35,7 @@ def deserialize_aws_json_1_0(data: dict) -> DeleteIdentitySourceInput:
     if "identitySourceId" in data:
         out["identity_source_id"] = data["identitySourceId"]
     else:
-        raise DeserializationError("DeleteIdentitySourceInput.identity_source_id required")
+        raise DeserializationError(
+            "DeleteIdentitySourceInput.identity_source_id required"
+        )
     return out

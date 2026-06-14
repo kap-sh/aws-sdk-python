@@ -1,16 +1,20 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesweb#CreatePortalResponse``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_workspaces_web.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_workspaces_web.types.arn
     import aws_sdk_workspaces_web.types.portal_endpoint
+
 
 class CreatePortalResponse(TypedDict):
     portal_arn: "aws_sdk_workspaces_web.types.arn.ARN"
     """<p>The ARN of the web portal.</p>"""
     portal_endpoint: "aws_sdk_workspaces_web.types.portal_endpoint.PortalEndpoint"
     """<p>The endpoint URL of the web portal that users access in order to start streaming sessions.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: CreatePortalResponse) -> dict:

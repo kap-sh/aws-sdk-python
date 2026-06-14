@@ -16,7 +16,7 @@ class PollForActivityTaskInput(TypedDict):
     domain: "aws_sdk_swf.types.domain_name.DomainName"
     """<p>The name of the domain that contains the task lists being polled.</p>"""
     task_list: "aws_sdk_swf.types.task_list.TaskList"
-    """<p>Specifies the task list to poll for activity tasks.</p> <p>The specified string must not start or end with whitespace. It must not contain a <code>:</code> (colon), <code>/</code> (slash), <code>|</code> (vertical bar), or any control characters (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>). Also, it must <i>not</i> be the literal string <code>arn</code>.</p>"""
+    r"""<p>Specifies the task list to poll for activity tasks.</p> <p>The specified string must not start or end with whitespace. It must not contain a <code>:</code> (colon), <code>/</code> (slash), <code>|</code> (vertical bar), or any control characters (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>). Also, it must <i>not</i> be the literal string <code>arn</code>.</p>"""
     identity: NotRequired["aws_sdk_swf.types.identity.Identity"]
     """<p>Identity of the worker making the request, recorded in the <code>ActivityTaskStarted</code> event in the workflow history. This enables diagnostic tracing when problems arise. The form of this identity is user defined.</p>"""
 

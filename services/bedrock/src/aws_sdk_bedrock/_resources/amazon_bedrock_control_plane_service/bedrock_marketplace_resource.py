@@ -86,19 +86,19 @@ class BedrockMarketplaceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.create_marketplace_model_endpoint_request.CreateMarketplaceModelEndpointRequest = {}  # type: ignore[typeddict-item]
-        input["model_source_identifier"] = model_source_identifier
-        input["endpoint_config"] = endpoint_config
+        input_: aws_sdk_bedrock.types.create_marketplace_model_endpoint_request.CreateMarketplaceModelEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_["model_source_identifier"] = model_source_identifier
+        input_["endpoint_config"] = endpoint_config
         if accept_eula is not None:
-            input["accept_eula"] = accept_eula
-        input["endpoint_name"] = endpoint_name
+            input_["accept_eula"] = accept_eula
+        input_["endpoint_name"] = endpoint_name
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -131,11 +131,11 @@ class BedrockMarketplaceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.delete_marketplace_model_endpoint_request.DeleteMarketplaceModelEndpointRequest = {}  # type: ignore[typeddict-item]
-        input["endpoint_arn"] = endpoint_arn
+        input_: aws_sdk_bedrock.types.delete_marketplace_model_endpoint_request.DeleteMarketplaceModelEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_["endpoint_arn"] = endpoint_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -168,11 +168,11 @@ class BedrockMarketplaceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.deregister_marketplace_model_endpoint_request.DeregisterMarketplaceModelEndpointRequest = {}  # type: ignore[typeddict-item]
-        input["endpoint_arn"] = endpoint_arn
+        input_: aws_sdk_bedrock.types.deregister_marketplace_model_endpoint_request.DeregisterMarketplaceModelEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_["endpoint_arn"] = endpoint_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -205,11 +205,11 @@ class BedrockMarketplaceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.get_marketplace_model_endpoint_request.GetMarketplaceModelEndpointRequest = {}  # type: ignore[typeddict-item]
-        input["endpoint_arn"] = endpoint_arn
+        input_: aws_sdk_bedrock.types.get_marketplace_model_endpoint_request.GetMarketplaceModelEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_["endpoint_arn"] = endpoint_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -250,16 +250,16 @@ class BedrockMarketplaceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.list_marketplace_model_endpoints_request.ListMarketplaceModelEndpointsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock.types.list_marketplace_model_endpoints_request.ListMarketplaceModelEndpointsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if model_source_equals is not None:
-            input["model_source_equals"] = model_source_equals
+            input_["model_source_equals"] = model_source_equals
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -294,12 +294,12 @@ class BedrockMarketplaceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.register_marketplace_model_endpoint_request.RegisterMarketplaceModelEndpointRequest = {}  # type: ignore[typeddict-item]
-        input["endpoint_identifier"] = endpoint_identifier
-        input["model_source_identifier"] = model_source_identifier
+        input_: aws_sdk_bedrock.types.register_marketplace_model_endpoint_request.RegisterMarketplaceModelEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_["endpoint_identifier"] = endpoint_identifier
+        input_["model_source_identifier"] = model_source_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -338,14 +338,14 @@ class BedrockMarketplaceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.update_marketplace_model_endpoint_request.UpdateMarketplaceModelEndpointRequest = {}  # type: ignore[typeddict-item]
-        input["endpoint_arn"] = endpoint_arn
-        input["endpoint_config"] = endpoint_config
+        input_: aws_sdk_bedrock.types.update_marketplace_model_endpoint_request.UpdateMarketplaceModelEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_["endpoint_arn"] = endpoint_arn
+        input_["endpoint_config"] = endpoint_config
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -396,19 +396,19 @@ class AsyncBedrockMarketplaceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.create_marketplace_model_endpoint_request.CreateMarketplaceModelEndpointRequest = {}  # type: ignore[typeddict-item]
-        input["model_source_identifier"] = model_source_identifier
-        input["endpoint_config"] = endpoint_config
+        input_: aws_sdk_bedrock.types.create_marketplace_model_endpoint_request.CreateMarketplaceModelEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_["model_source_identifier"] = model_source_identifier
+        input_["endpoint_config"] = endpoint_config
         if accept_eula is not None:
-            input["accept_eula"] = accept_eula
-        input["endpoint_name"] = endpoint_name
+            input_["accept_eula"] = accept_eula
+        input_["endpoint_name"] = endpoint_name
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -442,11 +442,11 @@ class AsyncBedrockMarketplaceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.delete_marketplace_model_endpoint_request.DeleteMarketplaceModelEndpointRequest = {}  # type: ignore[typeddict-item]
-        input["endpoint_arn"] = endpoint_arn
+        input_: aws_sdk_bedrock.types.delete_marketplace_model_endpoint_request.DeleteMarketplaceModelEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_["endpoint_arn"] = endpoint_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -480,11 +480,11 @@ class AsyncBedrockMarketplaceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.deregister_marketplace_model_endpoint_request.DeregisterMarketplaceModelEndpointRequest = {}  # type: ignore[typeddict-item]
-        input["endpoint_arn"] = endpoint_arn
+        input_: aws_sdk_bedrock.types.deregister_marketplace_model_endpoint_request.DeregisterMarketplaceModelEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_["endpoint_arn"] = endpoint_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -518,11 +518,11 @@ class AsyncBedrockMarketplaceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.get_marketplace_model_endpoint_request.GetMarketplaceModelEndpointRequest = {}  # type: ignore[typeddict-item]
-        input["endpoint_arn"] = endpoint_arn
+        input_: aws_sdk_bedrock.types.get_marketplace_model_endpoint_request.GetMarketplaceModelEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_["endpoint_arn"] = endpoint_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -564,16 +564,16 @@ class AsyncBedrockMarketplaceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.list_marketplace_model_endpoints_request.ListMarketplaceModelEndpointsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock.types.list_marketplace_model_endpoints_request.ListMarketplaceModelEndpointsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if model_source_equals is not None:
-            input["model_source_equals"] = model_source_equals
+            input_["model_source_equals"] = model_source_equals
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -609,12 +609,12 @@ class AsyncBedrockMarketplaceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.register_marketplace_model_endpoint_request.RegisterMarketplaceModelEndpointRequest = {}  # type: ignore[typeddict-item]
-        input["endpoint_identifier"] = endpoint_identifier
-        input["model_source_identifier"] = model_source_identifier
+        input_: aws_sdk_bedrock.types.register_marketplace_model_endpoint_request.RegisterMarketplaceModelEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_["endpoint_identifier"] = endpoint_identifier
+        input_["model_source_identifier"] = model_source_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -654,14 +654,14 @@ class AsyncBedrockMarketplaceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.update_marketplace_model_endpoint_request.UpdateMarketplaceModelEndpointRequest = {}  # type: ignore[typeddict-item]
-        input["endpoint_arn"] = endpoint_arn
-        input["endpoint_config"] = endpoint_config
+        input_: aws_sdk_bedrock.types.update_marketplace_model_endpoint_request.UpdateMarketplaceModelEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_["endpoint_arn"] = endpoint_arn
+        input_["endpoint_config"] = endpoint_config
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

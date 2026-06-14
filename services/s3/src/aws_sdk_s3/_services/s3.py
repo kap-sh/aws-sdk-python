@@ -455,7 +455,7 @@ class S3Client:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = S3ClientConfig(
+        self._config = S3ClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -481,7 +481,7 @@ class S3Client:
         overrides: S3ClientConfig = config_overrides or {}
         interceptors_: list[Interceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             retry(),
         ]
@@ -489,34 +489,34 @@ class S3Client:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            region=overrides.get("region", self.config.get("region")),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
+            region=overrides.get("region", self._config.get("region")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
             use_dual_stack=overrides.get(
-                "use_dual_stack", self.config.get("use_dual_stack")
+                "use_dual_stack", self._config.get("use_dual_stack")
             ),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
             use_global_endpoint=overrides.get(
-                "use_global_endpoint", self.config.get("use_global_endpoint")
+                "use_global_endpoint", self._config.get("use_global_endpoint")
             ),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
             force_path_style=overrides.get(
-                "force_path_style", self.config.get("force_path_style")
+                "force_path_style", self._config.get("force_path_style")
             ),
             use_arn_region=overrides.get(
-                "use_arn_region", self.config.get("use_arn_region")
+                "use_arn_region", self._config.get("use_arn_region")
             ),
             disable_multi_region_access_points=overrides.get(
                 "disable_multi_region_access_points",
-                self.config.get("disable_multi_region_access_points"),
+                self._config.get("disable_multi_region_access_points"),
             ),
-            accelerate=overrides.get("accelerate", self.config.get("accelerate")),
+            accelerate=overrides.get("accelerate", self._config.get("accelerate")),
             disable_s3_express_session_auth=overrides.get(
                 "disable_s3_express_session_auth",
-                self.config.get("disable_s3_express_session_auth"),
+                self._config.get("disable_s3_express_session_auth"),
             ),
         )
         return interceptors_, options_

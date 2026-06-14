@@ -1,11 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.verifiedpermissions#EncryptionContext``."""
 
 from typing import TYPE_CHECKING, TypeAlias
+
 if TYPE_CHECKING:
     import aws_sdk_verifiedpermissions.types.encryption_context_key
     import aws_sdk_verifiedpermissions.types.encryption_context_value
 
-EncryptionContext: TypeAlias = dict["aws_sdk_verifiedpermissions.types.encryption_context_key.EncryptionContextKey", "aws_sdk_verifiedpermissions.types.encryption_context_value.EncryptionContextValue"]
+EncryptionContext: TypeAlias = dict[
+    "aws_sdk_verifiedpermissions.types.encryption_context_key.EncryptionContextKey",
+    "aws_sdk_verifiedpermissions.types.encryption_context_value.EncryptionContextValue",
+]
 
 
 # --- awsJson1_0 ser/de ---

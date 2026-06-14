@@ -1,27 +1,17 @@
-from typing import Optional, TYPE_CHECKING
-from aws_sdk_datazone._services.async_data_zone import ensure_async_iterator
-from aws_sdk_datazone._services.data_zone import ensure_sync_iterator
-import datetime
-from aws_sdk_datazone._services._pipeline import (
-    OperationRequest,
-    OperationResponse,
-    execute_pipeline,
-    AsyncOperationRequest,
-    AsyncOperationResponse,
-    aexecute_pipeline,
-)
+from typing import TYPE_CHECKING, Optional
+
 import aws_sdk_datazone._auth._signers
 import aws_sdk_datazone._auth._sigv4
+from aws_sdk_datazone._services._pipeline import (
+    AsyncOperationRequest,
+    AsyncOperationResponse,
+    OperationRequest,
+    OperationResponse,
+    aexecute_pipeline,
+    execute_pipeline,
+)
 
 if TYPE_CHECKING:
-    from aws_sdk_datazone._services.data_zone import (
-        DataZoneClient,
-        DataZoneClientConfig,
-    )
-    from aws_sdk_datazone._services.async_data_zone import (
-        AsyncDataZoneClient,
-        AsyncDataZoneClientConfig,
-    )
     import aws_sdk_datazone.types.client_token
     import aws_sdk_datazone.types.create_glossary_input
     import aws_sdk_datazone.types.create_glossary_output
@@ -38,6 +28,14 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.project_id
     import aws_sdk_datazone.types.update_glossary_input
     import aws_sdk_datazone.types.update_glossary_output
+    from aws_sdk_datazone._services.async_data_zone import (
+        AsyncDataZoneClient,
+        AsyncDataZoneClientConfig,
+    )
+    from aws_sdk_datazone._services.data_zone import (
+        DataZoneClient,
+        DataZoneClientConfig,
+    )
 
 
 class Glossary:

@@ -77,7 +77,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.delete_model_invocation_logging_configuration_request.DeleteModelInvocationLoggingConfigurationRequest,
+    input_: aws_sdk_bedrock.types.delete_model_invocation_logging_configuration_request.DeleteModelInvocationLoggingConfigurationRequest,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -101,12 +101,12 @@ def build_request(
 
 def delete_model_invocation_logging_configuration(
     options: OperationOptions,
-    input: aws_sdk_bedrock.types.delete_model_invocation_logging_configuration_request.DeleteModelInvocationLoggingConfigurationRequest,
+    input_: aws_sdk_bedrock.types.delete_model_invocation_logging_configuration_request.DeleteModelInvocationLoggingConfigurationRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.delete_model_invocation_logging_configuration_response.DeleteModelInvocationLoggingConfigurationResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -120,12 +120,12 @@ def delete_model_invocation_logging_configuration(
 
 async def async_delete_model_invocation_logging_configuration(
     options: AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.delete_model_invocation_logging_configuration_request.DeleteModelInvocationLoggingConfigurationRequest,
+    input_: aws_sdk_bedrock.types.delete_model_invocation_logging_configuration_request.DeleteModelInvocationLoggingConfigurationRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.delete_model_invocation_logging_configuration_response.DeleteModelInvocationLoggingConfigurationResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

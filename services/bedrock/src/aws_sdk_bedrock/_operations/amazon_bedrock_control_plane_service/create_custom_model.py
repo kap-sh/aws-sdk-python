@@ -111,7 +111,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.create_custom_model_request.CreateCustomModelRequest,
+    input_: aws_sdk_bedrock.types.create_custom_model_request.CreateCustomModelRequest,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -127,7 +127,7 @@ def build_request(
     import aws_sdk_bedrock.types.create_custom_model_request
 
     body: bytes | None = json.dumps(
-        aws_sdk_bedrock.types.create_custom_model_request.serialize_json(input)
+        aws_sdk_bedrock.types.create_custom_model_request.serialize_json(input_)
     ).encode()
     headers["content-type"] = "application/json"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
@@ -140,12 +140,12 @@ def build_request(
 
 def create_custom_model(
     options: OperationOptions,
-    input: aws_sdk_bedrock.types.create_custom_model_request.CreateCustomModelRequest,
+    input_: aws_sdk_bedrock.types.create_custom_model_request.CreateCustomModelRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.create_custom_model_response.CreateCustomModelResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -159,12 +159,12 @@ def create_custom_model(
 
 async def async_create_custom_model(
     options: AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.create_custom_model_request.CreateCustomModelRequest,
+    input_: aws_sdk_bedrock.types.create_custom_model_request.CreateCustomModelRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.create_custom_model_response.CreateCustomModelResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#AssociateIpGroupsRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_workspaces.errors import DeserializationError
 
 if TYPE_CHECKING:

@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#AutomaticTapeCreationRule``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_storage_gateway.errors import DeserializationError
 
 if TYPE_CHECKING:
@@ -21,7 +22,7 @@ class AutomaticTapeCreationRule(TypedDict):
     tape_size_in_bytes: "aws_sdk_storage_gateway.types.tape_size.TapeSize"
     """<p>The size, in bytes, of the virtual tape capacity.</p>"""
     minimum_num_tapes: "aws_sdk_storage_gateway.types.minimum_num_tapes.MinimumNumTapes"
-    """<p>The minimum number of available virtual tapes that the gateway maintains at all times. If the number of tapes on the gateway goes below this value, the gateway creates as many new tapes as are needed to have <code>MinimumNumTapes</code> on the gateway. For more information about automatic tape creation, see <a href=\"https://docs.aws.amazon.com/storagegateway/latest/userguide/GettingStartedCreateTapes.html#CreateTapesAutomatically\">Creating Tapes Automatically</a>.</p>"""
+    r"""<p>The minimum number of available virtual tapes that the gateway maintains at all times. If the number of tapes on the gateway goes below this value, the gateway creates as many new tapes as are needed to have <code>MinimumNumTapes</code> on the gateway. For more information about automatic tape creation, see <a href=\"https://docs.aws.amazon.com/storagegateway/latest/userguide/GettingStartedCreateTapes.html#CreateTapesAutomatically\">Creating Tapes Automatically</a>.</p>"""
     worm: "aws_sdk_storage_gateway.types.boolean2.Boolean2"
     """<p>Set to <code>true</code> to indicate that tapes are to be archived as write-once-read-many (WORM). Set to <code>false</code> when WORM is not enabled for tapes.</p>"""
 

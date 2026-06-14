@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#RegisterWorkspaceDirectoryRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
 
 if TYPE_CHECKING:
@@ -28,7 +29,7 @@ class RegisterWorkspaceDirectoryRequest(TypedDict):
     ]
     """<p>Indicates whether self-service capabilities are enabled or disabled.</p>"""
     tenancy: NotRequired["aws_sdk_workspaces.types.tenancy.Tenancy"]
-    """<p>Indicates whether your WorkSpace directory is dedicated or shared. To use Bring Your Own License (BYOL) images, this value must be set to <code>DEDICATED</code> and your Amazon Web Services account must be enabled for BYOL. If your account has not been enabled for BYOL, you will receive an InvalidParameterValuesException error. For more information about BYOL images, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html\">Bring Your Own Windows Desktop Images</a>.</p>"""
+    r"""<p>Indicates whether your WorkSpace directory is dedicated or shared. To use Bring Your Own License (BYOL) images, this value must be set to <code>DEDICATED</code> and your Amazon Web Services account must be enabled for BYOL. If your account has not been enabled for BYOL, you will receive an InvalidParameterValuesException error. For more information about BYOL images, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html\">Bring Your Own Windows Desktop Images</a>.</p>"""
     tags: NotRequired["aws_sdk_workspaces.types.tag_list.TagList"]
     """<p>The tags associated with the directory.</p>"""
     workspace_directory_name: NotRequired[

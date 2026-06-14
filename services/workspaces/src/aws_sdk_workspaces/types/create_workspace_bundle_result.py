@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#CreateWorkspaceBundleResult``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
 
 if TYPE_CHECKING:

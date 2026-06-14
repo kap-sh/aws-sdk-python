@@ -1,22 +1,17 @@
 """Generated from Smithy shape ``com.amazonaws.appintegrations#Subscription``."""
 
 from typing import TYPE_CHECKING, TypedDict
-
 from typing_extensions import NotRequired
-
 from aws_sdk_appintegrations.errors import DeserializationError
-
 if TYPE_CHECKING:
     import aws_sdk_appintegrations.types.description
     import aws_sdk_appintegrations.types.event_name
-
 
 class Subscription(TypedDict):
     event: "aws_sdk_appintegrations.types.event_name.EventName"
     """<p>The name of the subscription.</p>"""
     description: NotRequired["aws_sdk_appintegrations.types.description.Description"]
     """<p>The description of the subscription.</p>"""
-
 
 # --- restJson1 ser/de ---
 def serialize_json(value: Subscription) -> dict:

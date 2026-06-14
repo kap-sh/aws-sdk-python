@@ -83,7 +83,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.put_model_invocation_logging_configuration_request.PutModelInvocationLoggingConfigurationRequest,
+    input_: aws_sdk_bedrock.types.put_model_invocation_logging_configuration_request.PutModelInvocationLoggingConfigurationRequest,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -100,7 +100,7 @@ def build_request(
 
     body: bytes | None = json.dumps(
         aws_sdk_bedrock.types.put_model_invocation_logging_configuration_request.serialize_json(
-            input
+            input_
         )
     ).encode()
     headers["content-type"] = "application/json"
@@ -114,12 +114,12 @@ def build_request(
 
 def put_model_invocation_logging_configuration(
     options: OperationOptions,
-    input: aws_sdk_bedrock.types.put_model_invocation_logging_configuration_request.PutModelInvocationLoggingConfigurationRequest,
+    input_: aws_sdk_bedrock.types.put_model_invocation_logging_configuration_request.PutModelInvocationLoggingConfigurationRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.put_model_invocation_logging_configuration_response.PutModelInvocationLoggingConfigurationResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -133,12 +133,12 @@ def put_model_invocation_logging_configuration(
 
 async def async_put_model_invocation_logging_configuration(
     options: AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.put_model_invocation_logging_configuration_request.PutModelInvocationLoggingConfigurationRequest,
+    input_: aws_sdk_bedrock.types.put_model_invocation_logging_configuration_request.PutModelInvocationLoggingConfigurationRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.put_model_invocation_logging_configuration_response.PutModelInvocationLoggingConfigurationResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

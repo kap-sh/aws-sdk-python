@@ -14,7 +14,7 @@ if TYPE_CHECKING:
 
 class StartTimerDecisionAttributes(TypedDict):
     timer_id: "aws_sdk_swf.types.timer_id.TimerId"
-    """<p> The unique ID of the timer.</p> <p>The specified string must not contain a <code>:</code> (colon), <code>/</code> (slash), <code>|</code> (vertical bar), or any control characters (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>). Also, it must <i>not</i> be the literal string <code>arn</code>.</p>"""
+    r"""<p> The unique ID of the timer.</p> <p>The specified string must not contain a <code>:</code> (colon), <code>/</code> (slash), <code>|</code> (vertical bar), or any control characters (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>). Also, it must <i>not</i> be the literal string <code>arn</code>.</p>"""
     control: NotRequired["aws_sdk_swf.types.data.Data"]
     """<p>The data attached to the event that can be used by the decider in subsequent workflow tasks.</p>"""
     start_to_fire_timeout: "aws_sdk_swf.types.duration_in_seconds.DurationInSeconds"

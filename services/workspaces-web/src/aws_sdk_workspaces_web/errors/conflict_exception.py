@@ -1,19 +1,28 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesweb#ConflictException``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_workspaces_web.errors import ServiceError
+
 if TYPE_CHECKING:
     import aws_sdk_workspaces_web.types.exception_message
     import aws_sdk_workspaces_web.types.resource_id
     import aws_sdk_workspaces_web.types.resource_type
 
+
 class ConflictException_(TypedDict):
-    message: NotRequired["aws_sdk_workspaces_web.types.exception_message.ExceptionMessage"]
+    message: NotRequired[
+        "aws_sdk_workspaces_web.types.exception_message.ExceptionMessage"
+    ]
     resource_id: NotRequired["aws_sdk_workspaces_web.types.resource_id.ResourceId"]
     """<p>Identifier of the resource affected.</p>"""
-    resource_type: NotRequired["aws_sdk_workspaces_web.types.resource_type.ResourceType"]
+    resource_type: NotRequired[
+        "aws_sdk_workspaces_web.types.resource_type.ResourceType"
+    ]
     """<p>Type of the resource affected.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: ConflictException_) -> dict:
@@ -40,10 +49,16 @@ def deserialize_json(data: dict) -> ConflictException_:
 
 class ConflictException(ServiceError):
     """Modeled error for Smithy shape ``com.amazonaws.workspacesweb#ConflictException``."""
-    code: str | None = 'ConflictException'
+
+    code: str | None = "ConflictException"
 
     def __init__(self, data: ConflictException_):
-        super().__init__('client', is_throttling_error=False, is_retryable=False, code='ConflictException')
+        super().__init__(
+            "client",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="ConflictException",
+        )
         self.data = data
 
     @classmethod

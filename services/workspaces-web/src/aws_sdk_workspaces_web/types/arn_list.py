@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesweb#ArnList``."""
 
 from typing import TYPE_CHECKING, TypeAlias
+
 if TYPE_CHECKING:
     import aws_sdk_workspaces_web.types.arn
 

@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#NotebookExportError``."""
 
 from typing import TypedDict
+
 from aws_sdk_datazone.errors import DeserializationError
 
 

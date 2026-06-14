@@ -25,7 +25,7 @@ class LanguageModel(TypedDict):
     language_code: NotRequired[
         "aws_sdk_transcribe.types.clm_language_code.CLMLanguageCode"
     ]
-    """<p>The language code used to create your custom language model. Each custom language model must contain terms in only one language, and the language you select for your custom language model must match the language of your training and tuning data.</p> <p>For a list of supported languages and their associated language codes, refer to the <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html\">Supported languages</a> table. Note that US English (<code>en-US</code>) is the only language supported with Amazon Transcribe Medical.</p>"""
+    r"""<p>The language code used to create your custom language model. Each custom language model must contain terms in only one language, and the language you select for your custom language model must match the language of your training and tuning data.</p> <p>For a list of supported languages and their associated language codes, refer to the <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html\">Supported languages</a> table. Note that US English (<code>en-US</code>) is the only language supported with Amazon Transcribe Medical.</p>"""
     base_model_name: NotRequired[
         "aws_sdk_transcribe.types.base_model_name.BaseModelName"
     ]
@@ -35,7 +35,7 @@ class LanguageModel(TypedDict):
     upgrade_availability: NotRequired["aws_sdk_transcribe.types.boolean.Boolean"]
     """<p>Shows if a more current base model is available for use with the specified custom language model.</p> <p>If <code>false</code>, your custom language model is using the most up-to-date base model.</p> <p>If <code>true</code>, there is a newer base model available than the one your language model is using.</p> <p>Note that to update a base model, you must recreate the custom language model using the new base model. Base model upgrades for existing custom language models are not supported.</p>"""
     failure_reason: NotRequired["aws_sdk_transcribe.types.failure_reason.FailureReason"]
-    """<p>If <code>ModelStatus</code> is <code>FAILED</code>, <code>FailureReason</code> contains information about why the custom language model request failed. See also: <a href=\"https://docs.aws.amazon.com/transcribe/latest/APIReference/CommonErrors.html\">Common Errors</a>.</p>"""
+    r"""<p>If <code>ModelStatus</code> is <code>FAILED</code>, <code>FailureReason</code> contains information about why the custom language model request failed. See also: <a href=\"https://docs.aws.amazon.com/transcribe/latest/APIReference/CommonErrors.html\">Common Errors</a>.</p>"""
     input_data_config: NotRequired[
         "aws_sdk_transcribe.types.input_data_config.InputDataConfig"
     ]

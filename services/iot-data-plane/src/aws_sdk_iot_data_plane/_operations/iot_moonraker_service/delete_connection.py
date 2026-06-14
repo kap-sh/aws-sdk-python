@@ -67,7 +67,7 @@ def get_signer(
     options: AsyncOperationOptions | OperationOptions,
     auth_schemes: list[dict[str, Any]] | None = None,
 ) -> aws_sdk_iot_data_plane._auth._signers.Signer | None:
-    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}
+    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}  # noqa: F841
     if options.credentials_provider is not None:
         sigv4_config = (
             name_to_schema.get("sigv4")
@@ -86,44 +86,41 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_iot_data_plane.types.delete_connection_request.DeleteConnectionRequest,
+    input_: aws_sdk_iot_data_plane.types.delete_connection_request.DeleteConnectionRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/connections/{clientId}"
-    url = url.replace("{clientId}", quote(str(input["client_id"]), safe=""))
+    url = url.replace("{clientId}", quote(str(input_["client_id"]), safe=""))
     params: dict[str, str] = {}
-    params["cleanSession"] = str(input.get("clean_session", False))
-    params["preventWillMessage"] = str(input.get("prevent_will_message", False))
+    params["cleanSession"] = str(input_.get("clean_session", False))
+    params["preventWillMessage"] = str(input_.get("prevent_will_message", False))
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "DELETE",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "DELETE", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def delete_connection(
     options: OperationOptions,
-    input: aws_sdk_iot_data_plane.types.delete_connection_request.DeleteConnectionRequest,
+    input_: aws_sdk_iot_data_plane.types.delete_connection_request.DeleteConnectionRequest,
 ) -> tuple[None, zapros.Response]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return None, response
     except BaseException:
         response.close()
@@ -132,13 +129,14 @@ def delete_connection(
 
 async def async_delete_connection(
     options: AsyncOperationOptions,
-    input: aws_sdk_iot_data_plane.types.delete_connection_request.DeleteConnectionRequest,
+    input_: aws_sdk_iot_data_plane.types.delete_connection_request.DeleteConnectionRequest,
 ) -> tuple[None, zapros.Response]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return None, response
     except BaseException:
         await response.aclose()

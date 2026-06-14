@@ -99,7 +99,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.create_foundation_model_agreement_request.CreateFoundationModelAgreementRequest,
+    input_: aws_sdk_bedrock.types.create_foundation_model_agreement_request.CreateFoundationModelAgreementRequest,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -116,7 +116,7 @@ def build_request(
 
     body: bytes | None = json.dumps(
         aws_sdk_bedrock.types.create_foundation_model_agreement_request.serialize_json(
-            input
+            input_
         )
     ).encode()
     headers["content-type"] = "application/json"
@@ -130,12 +130,12 @@ def build_request(
 
 def create_foundation_model_agreement(
     options: OperationOptions,
-    input: aws_sdk_bedrock.types.create_foundation_model_agreement_request.CreateFoundationModelAgreementRequest,
+    input_: aws_sdk_bedrock.types.create_foundation_model_agreement_request.CreateFoundationModelAgreementRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.create_foundation_model_agreement_response.CreateFoundationModelAgreementResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -149,12 +149,12 @@ def create_foundation_model_agreement(
 
 async def async_create_foundation_model_agreement(
     options: AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.create_foundation_model_agreement_request.CreateFoundationModelAgreementRequest,
+    input_: aws_sdk_bedrock.types.create_foundation_model_agreement_request.CreateFoundationModelAgreementRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.create_foundation_model_agreement_response.CreateFoundationModelAgreementResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

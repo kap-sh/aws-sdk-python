@@ -60,11 +60,11 @@ class EnforcedGuardrailConfigurationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.delete_enforced_guardrail_configuration_request.DeleteEnforcedGuardrailConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["config_id"] = config_id
+        input_: aws_sdk_bedrock.types.delete_enforced_guardrail_configuration_request.DeleteEnforcedGuardrailConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["config_id"] = config_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -99,12 +99,12 @@ class EnforcedGuardrailConfigurationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.list_enforced_guardrails_configuration_request.ListEnforcedGuardrailsConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock.types.list_enforced_guardrails_configuration_request.ListEnforcedGuardrailsConfigurationRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -141,13 +141,13 @@ class EnforcedGuardrailConfigurationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.put_enforced_guardrail_configuration_request.PutEnforcedGuardrailConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock.types.put_enforced_guardrail_configuration_request.PutEnforcedGuardrailConfigurationRequest = {}  # type: ignore[typeddict-item]
         if config_id is not None:
-            input["config_id"] = config_id
-        input["guardrail_inference_config"] = guardrail_inference_config
+            input_["config_id"] = config_id
+        input_["guardrail_inference_config"] = guardrail_inference_config
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -186,11 +186,11 @@ class AsyncEnforcedGuardrailConfigurationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.delete_enforced_guardrail_configuration_request.DeleteEnforcedGuardrailConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["config_id"] = config_id
+        input_: aws_sdk_bedrock.types.delete_enforced_guardrail_configuration_request.DeleteEnforcedGuardrailConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["config_id"] = config_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -226,12 +226,12 @@ class AsyncEnforcedGuardrailConfigurationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.list_enforced_guardrails_configuration_request.ListEnforcedGuardrailsConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock.types.list_enforced_guardrails_configuration_request.ListEnforcedGuardrailsConfigurationRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -269,13 +269,13 @@ class AsyncEnforcedGuardrailConfigurationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.put_enforced_guardrail_configuration_request.PutEnforcedGuardrailConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock.types.put_enforced_guardrail_configuration_request.PutEnforcedGuardrailConfigurationRequest = {}  # type: ignore[typeddict-item]
         if config_id is not None:
-            input["config_id"] = config_id
-        input["guardrail_inference_config"] = guardrail_inference_config
+            input_["config_id"] = config_id
+        input_["guardrail_inference_config"] = guardrail_inference_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

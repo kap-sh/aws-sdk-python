@@ -1,11 +1,12 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#GetLogObjectResponseStream``."""
 
 from typing import TYPE_CHECKING, TypeAlias, TypedDict
+
 from aws_sdk_cloudwatch_logs.errors import DeserializationError, SerializationError
 
 if TYPE_CHECKING:
-    import aws_sdk_cloudwatch_logs.types.fields_data
     import aws_sdk_cloudwatch_logs.errors.internal_streaming_exception
+    import aws_sdk_cloudwatch_logs.types.fields_data
 
 
 class _GetLogObjectResponseStream_fields(TypedDict):

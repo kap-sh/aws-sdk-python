@@ -1,10 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#PutEnvironmentBlueprintConfigurationOutput``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_datazone.errors import DeserializationError
 
 if TYPE_CHECKING:
+    import datetime
+
     import aws_sdk_datazone.types.domain_id
     import aws_sdk_datazone.types.enabled_region_list
     import aws_sdk_datazone.types.environment_blueprint_id
@@ -13,7 +17,6 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.regional_parameter_map
     import aws_sdk_datazone.types.resource_configurations
     import aws_sdk_datazone.types.role_arn
-    import datetime
 
 
 class PutEnvironmentBlueprintConfigurationOutput(TypedDict):

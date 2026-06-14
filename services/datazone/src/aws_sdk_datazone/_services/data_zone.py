@@ -1,28 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#DataZone``."""
 
-from aws_sdk_datazone._auth._signers import SigV4Signer
-from aws_sdk_datazone._auth._sigv4 import presign_sigv4
 import datetime
-from collections.abc import Iterator
-from collections.abc import Generator
-from contextlib import contextmanager
-from aws_sdk_datazone._pagination import resolve_path as _resolve_path
-from typing import Any, Iterable, TypedDict, Unpack, TYPE_CHECKING
-from typing_extensions import Self
-from typing import Optional
-from zapros import URL, BaseHandler, Client
-from aws_sdk_datazone._auth._zapros_handler import AuthMiddleware
-from aws_sdk_datazone._services._pipeline import (
-    Interceptor,
-    OperationOptions,
-    OperationRequest,
-    OperationResponse,
-    execute_pipeline,
-    retry,
-)
-import time
-from aws_sdk_datazone.errors import ServiceError, WaiterFailedError, WaiterTimeoutError
 import warnings
+from collections.abc import Iterator
+from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+
+from typing_extensions import Self
+from zapros import BaseHandler, Client
+
 import aws_sdk_datazone._auth._signers
 import aws_sdk_datazone._auth._sigv4
 from aws_sdk_datazone._auth._identity import Credentials
@@ -30,15 +15,8 @@ from aws_sdk_datazone._auth._providers import (
     CredentialsProvider,
     StaticAwsCredentialsProvider,
 )
-from aws_sdk_datazone._auth._providers import (
-    BearerTokenProvider,
-    StaticBearerTokenProvider,
-)
-from aws_sdk_datazone._auth._providers import (
-    BasicCredentialsProvider,
-    StaticBasicCredentialsProvider,
-)
-from aws_sdk_datazone._auth._providers import ApiKeyProvider, StaticApiKeyProvider
+from aws_sdk_datazone._auth._zapros_handler import AuthMiddleware
+from aws_sdk_datazone._pagination import resolve_path as _resolve_path
 from aws_sdk_datazone._resources.data_zone.asset import Asset
 from aws_sdk_datazone._resources.data_zone.asset_type import AssetType
 from aws_sdk_datazone._resources.data_zone.data_product import DataProduct
@@ -60,6 +38,14 @@ from aws_sdk_datazone._resources.data_zone.notebook import Notebook
 from aws_sdk_datazone._resources.data_zone.notebook_export import NotebookExport
 from aws_sdk_datazone._resources.data_zone.notebook_run import NotebookRun
 from aws_sdk_datazone._resources.data_zone.rule import Rule
+from aws_sdk_datazone._services._pipeline import (
+    Interceptor,
+    OperationOptions,
+    OperationRequest,
+    OperationResponse,
+    execute_pipeline,
+    retry,
+)
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.accept_choices
@@ -544,6 +530,7 @@ class DataZoneClient:
                 "credentials_provider": credentials_provider,
             }
         )
+
         # resources
         self.asset = Asset(self)
         self.asset_type = AssetType(self)

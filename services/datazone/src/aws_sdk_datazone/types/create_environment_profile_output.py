@@ -1,10 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#CreateEnvironmentProfileOutput``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_datazone.errors import DeserializationError
 
 if TYPE_CHECKING:
+    import datetime
+
     import aws_sdk_datazone.types.aws_account_id
     import aws_sdk_datazone.types.aws_region
     import aws_sdk_datazone.types.custom_parameter_list
@@ -14,7 +18,6 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.environment_profile_id
     import aws_sdk_datazone.types.environment_profile_name
     import aws_sdk_datazone.types.project_id
-    import datetime
 
 
 class CreateEnvironmentProfileOutput(TypedDict):

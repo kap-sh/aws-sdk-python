@@ -35,7 +35,7 @@ class StartChildWorkflowExecutionInitiatedEventAttributes(TypedDict):
     task_list: "aws_sdk_swf.types.task_list.TaskList"
     """<p>The name of the task list used for the decision tasks of the child workflow execution.</p>"""
     task_priority: NotRequired["aws_sdk_swf.types.task_priority.TaskPriority"]
-    """<p> The priority assigned for the decision tasks for this workflow execution. Valid values are integers that range from Java's <code>Integer.MIN_VALUE</code> (-2147483648) to <code>Integer.MAX_VALUE</code> (2147483647). Higher numbers indicate higher priority.</p> <p>For more information about setting task priority, see <a href=\"https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html\">Setting Task Priority</a> in the <i>Amazon SWF Developer Guide</i>.</p>"""
+    r"""<p> The priority assigned for the decision tasks for this workflow execution. Valid values are integers that range from Java's <code>Integer.MIN_VALUE</code> (-2147483648) to <code>Integer.MAX_VALUE</code> (2147483647). Higher numbers indicate higher priority.</p> <p>For more information about setting task priority, see <a href=\"https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html\">Setting Task Priority</a> in the <i>Amazon SWF Developer Guide</i>.</p>"""
     decision_task_completed_event_id: "aws_sdk_swf.types.event_id.EventId"
     """<p>The ID of the <code>DecisionTaskCompleted</code> event corresponding to the decision task that resulted in the <code>StartChildWorkflowExecution</code> <a>Decision</a> to request this child workflow execution. This information can be useful for diagnosing problems by tracing back the cause of events.</p>"""
     child_policy: "aws_sdk_swf.types.child_policy.ChildPolicy"

@@ -13,7 +13,7 @@ class ListMailboxPermissionsResponse(TypedDict):
     permissions: NotRequired["aws_sdk_workmail.types.permissions.Permissions"]
     """<p>One page of the user, group, or resource mailbox permissions.</p>"""
     next_token: NotRequired["aws_sdk_workmail.types.next_token.NextToken"]
-    """<p>The token to use to retrieve the next page of results. The value is \"null\" when there are no more results to return.</p>"""
+    r"""<p>The token to use to retrieve the next page of results. The value is \"null\" when there are no more results to return.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

@@ -105,7 +105,7 @@ class DataLakeNamespaceResource:
         *,
         config_overrides: Optional[SupplyChainClientConfig] = None,
     ) -> "aws_sdk_supplychain.types.get_data_lake_namespace_response.GetDataLakeNamespaceResponse":
-        """<p>Enables you to programmatically view an Amazon Web Services Supply Chain data lake namespace. Developers can view the data lake namespace information such as description for a given instance ID and namespace name.</p>
+        r"""<p>Enables you to programmatically view an Amazon Web Services Supply Chain data lake namespace. Developers can view the data lake namespace information such as description for a given instance ID and namespace name.</p>
 
         Args:
             instance_id: <p>The Amazon Web Services Supply Chain instance identifier.</p>
@@ -367,7 +367,7 @@ class AsyncDataLakeNamespaceResource:
         *,
         config_overrides: Optional[AsyncSupplyChainClientConfig] = None,
     ) -> "aws_sdk_supplychain.types.get_data_lake_namespace_response.GetDataLakeNamespaceResponse":
-        """<p>Enables you to programmatically view an Amazon Web Services Supply Chain data lake namespace. Developers can view the data lake namespace information such as description for a given instance ID and namespace name.</p>
+        r"""<p>Enables you to programmatically view an Amazon Web Services Supply Chain data lake namespace. Developers can view the data lake namespace information such as description for a given instance ID and namespace name.</p>
 
         Args:
             instance_id: <p>The Amazon Web Services Supply Chain instance identifier.</p>

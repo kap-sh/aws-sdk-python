@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#StorediSCSIVolume``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
 
 if TYPE_CHECKING:
@@ -35,7 +36,7 @@ class StorediSCSIVolume(TypedDict):
     volume_attachment_status: NotRequired[
         "aws_sdk_storage_gateway.types.volume_attachment_status.VolumeAttachmentStatus"
     ]
-    """<p>A value that indicates whether a storage volume is attached to, detached from, or is in the process of detaching from a gateway. For more information, see <a href=\"https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-volumes.html#attach-detach-volume\">Moving your volumes to a different gateway</a>.</p>"""
+    r"""<p>A value that indicates whether a storage volume is attached to, detached from, or is in the process of detaching from a gateway. For more information, see <a href=\"https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-volumes.html#attach-detach-volume\">Moving your volumes to a different gateway</a>.</p>"""
     volume_size_in_bytes: "aws_sdk_storage_gateway.types.long.long"
     """<p>The size of the volume in bytes.</p>"""
     volume_progress: NotRequired[

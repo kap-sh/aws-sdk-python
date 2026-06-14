@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#ListVolumesOutput``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
 
 if TYPE_CHECKING:
@@ -14,7 +15,7 @@ class ListVolumesOutput(TypedDict):
     marker: NotRequired["aws_sdk_storage_gateway.types.marker.Marker"]
     """<p>Use the marker in your next request to continue pagination of iSCSI volumes. If there are no more volumes to list, this field does not appear in the response body.</p>"""
     volume_infos: NotRequired["aws_sdk_storage_gateway.types.volume_infos.VolumeInfos"]
-    """<p>An array of <a>VolumeInfo</a> objects, where each object describes an iSCSI volume. If no volumes are defined for the gateway, then <code>VolumeInfos</code> is an empty array \"[]\".</p>"""
+    r"""<p>An array of <a>VolumeInfo</a> objects, where each object describes an iSCSI volume. If no volumes are defined for the gateway, then <code>VolumeInfos</code> is an empty array \"[]\".</p>"""
 
 
 # --- awsJson1_1 ser/de ---

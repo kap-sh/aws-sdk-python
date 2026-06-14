@@ -85,18 +85,18 @@ class CustomModelDeploymentResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.create_custom_model_deployment_request.CreateCustomModelDeploymentRequest = {}  # type: ignore[typeddict-item]
-        input["model_deployment_name"] = model_deployment_name
-        input["model_arn"] = model_arn
+        input_: aws_sdk_bedrock.types.create_custom_model_deployment_request.CreateCustomModelDeploymentRequest = {}  # type: ignore[typeddict-item]
+        input_["model_deployment_name"] = model_deployment_name
+        input_["model_arn"] = model_arn
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -129,11 +129,13 @@ class CustomModelDeploymentResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.delete_custom_model_deployment_request.DeleteCustomModelDeploymentRequest = {}  # type: ignore[typeddict-item]
-        input["custom_model_deployment_identifier"] = custom_model_deployment_identifier
+        input_: aws_sdk_bedrock.types.delete_custom_model_deployment_request.DeleteCustomModelDeploymentRequest = {}  # type: ignore[typeddict-item]
+        input_["custom_model_deployment_identifier"] = (
+            custom_model_deployment_identifier
+        )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -166,11 +168,13 @@ class CustomModelDeploymentResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.get_custom_model_deployment_request.GetCustomModelDeploymentRequest = {}  # type: ignore[typeddict-item]
-        input["custom_model_deployment_identifier"] = custom_model_deployment_identifier
+        input_: aws_sdk_bedrock.types.get_custom_model_deployment_request.GetCustomModelDeploymentRequest = {}  # type: ignore[typeddict-item]
+        input_["custom_model_deployment_identifier"] = (
+            custom_model_deployment_identifier
+        )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -227,28 +231,28 @@ class CustomModelDeploymentResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.list_custom_model_deployments_request.ListCustomModelDeploymentsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock.types.list_custom_model_deployments_request.ListCustomModelDeploymentsRequest = {}  # type: ignore[typeddict-item]
         if created_before is not None:
-            input["created_before"] = created_before
+            input_["created_before"] = created_before
         if created_after is not None:
-            input["created_after"] = created_after
+            input_["created_after"] = created_after
         if name_contains is not None:
-            input["name_contains"] = name_contains
+            input_["name_contains"] = name_contains
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if status_equals is not None:
-            input["status_equals"] = status_equals
+            input_["status_equals"] = status_equals
         if model_arn_equals is not None:
-            input["model_arn_equals"] = model_arn_equals
+            input_["model_arn_equals"] = model_arn_equals
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -283,12 +287,14 @@ class CustomModelDeploymentResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.update_custom_model_deployment_request.UpdateCustomModelDeploymentRequest = {}  # type: ignore[typeddict-item]
-        input["model_arn"] = model_arn
-        input["custom_model_deployment_identifier"] = custom_model_deployment_identifier
+        input_: aws_sdk_bedrock.types.update_custom_model_deployment_request.UpdateCustomModelDeploymentRequest = {}  # type: ignore[typeddict-item]
+        input_["model_arn"] = model_arn
+        input_["custom_model_deployment_identifier"] = (
+            custom_model_deployment_identifier
+        )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -339,18 +345,18 @@ class AsyncCustomModelDeploymentResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.create_custom_model_deployment_request.CreateCustomModelDeploymentRequest = {}  # type: ignore[typeddict-item]
-        input["model_deployment_name"] = model_deployment_name
-        input["model_arn"] = model_arn
+        input_: aws_sdk_bedrock.types.create_custom_model_deployment_request.CreateCustomModelDeploymentRequest = {}  # type: ignore[typeddict-item]
+        input_["model_deployment_name"] = model_deployment_name
+        input_["model_arn"] = model_arn
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -384,11 +390,13 @@ class AsyncCustomModelDeploymentResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.delete_custom_model_deployment_request.DeleteCustomModelDeploymentRequest = {}  # type: ignore[typeddict-item]
-        input["custom_model_deployment_identifier"] = custom_model_deployment_identifier
+        input_: aws_sdk_bedrock.types.delete_custom_model_deployment_request.DeleteCustomModelDeploymentRequest = {}  # type: ignore[typeddict-item]
+        input_["custom_model_deployment_identifier"] = (
+            custom_model_deployment_identifier
+        )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -422,11 +430,13 @@ class AsyncCustomModelDeploymentResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.get_custom_model_deployment_request.GetCustomModelDeploymentRequest = {}  # type: ignore[typeddict-item]
-        input["custom_model_deployment_identifier"] = custom_model_deployment_identifier
+        input_: aws_sdk_bedrock.types.get_custom_model_deployment_request.GetCustomModelDeploymentRequest = {}  # type: ignore[typeddict-item]
+        input_["custom_model_deployment_identifier"] = (
+            custom_model_deployment_identifier
+        )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -484,28 +494,28 @@ class AsyncCustomModelDeploymentResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.list_custom_model_deployments_request.ListCustomModelDeploymentsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock.types.list_custom_model_deployments_request.ListCustomModelDeploymentsRequest = {}  # type: ignore[typeddict-item]
         if created_before is not None:
-            input["created_before"] = created_before
+            input_["created_before"] = created_before
         if created_after is not None:
-            input["created_after"] = created_after
+            input_["created_after"] = created_after
         if name_contains is not None:
-            input["name_contains"] = name_contains
+            input_["name_contains"] = name_contains
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if status_equals is not None:
-            input["status_equals"] = status_equals
+            input_["status_equals"] = status_equals
         if model_arn_equals is not None:
-            input["model_arn_equals"] = model_arn_equals
+            input_["model_arn_equals"] = model_arn_equals
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -541,12 +551,14 @@ class AsyncCustomModelDeploymentResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.update_custom_model_deployment_request.UpdateCustomModelDeploymentRequest = {}  # type: ignore[typeddict-item]
-        input["model_arn"] = model_arn
-        input["custom_model_deployment_identifier"] = custom_model_deployment_identifier
+        input_: aws_sdk_bedrock.types.update_custom_model_deployment_request.UpdateCustomModelDeploymentRequest = {}  # type: ignore[typeddict-item]
+        input_["model_arn"] = model_arn
+        input_["custom_model_deployment_identifier"] = (
+            custom_model_deployment_identifier
+        )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

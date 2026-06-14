@@ -27,7 +27,7 @@ class ImportTerminologyRequest(TypedDict):
     encryption_key: NotRequired["aws_sdk_translate.types.encryption_key.EncryptionKey"]
     """<p>The encryption key for the custom terminology being imported.</p>"""
     tags: NotRequired["aws_sdk_translate.types.tag_list.TagList"]
-    """<p>Tags to be associated with this resource. A tag is a key-value pair that adds metadata to a resource. Each tag key for the resource must be unique. For more information, see <a href=\"https://docs.aws.amazon.com/translate/latest/dg/tagging.html\"> Tagging your resources</a>.</p>"""
+    r"""<p>Tags to be associated with this resource. A tag is a key-value pair that adds metadata to a resource. Each tag key for the resource must be unique. For more information, see <a href=\"https://docs.aws.amazon.com/translate/latest/dg/tagging.html\"> Tagging your resources</a>.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

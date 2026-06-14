@@ -158,6 +158,7 @@ class drsClient:
                 "credentials_provider": credentials_provider,
             }
         )
+
         # resources
         self.account_resource = AccountResource(self)
         self.job_resource = JobResource(self)

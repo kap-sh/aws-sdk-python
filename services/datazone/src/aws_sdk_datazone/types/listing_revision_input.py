@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#ListingRevisionInput``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_datazone.errors import DeserializationError
 
 if TYPE_CHECKING:

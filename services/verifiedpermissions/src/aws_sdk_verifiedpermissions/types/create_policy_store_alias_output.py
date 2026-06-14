@@ -1,12 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.verifiedpermissions#CreatePolicyStoreAliasOutput``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_verifiedpermissions.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_verifiedpermissions.types.alias
     import aws_sdk_verifiedpermissions.types.policy_store_id
     import aws_sdk_verifiedpermissions.types.resource_arn
     import aws_sdk_verifiedpermissions.types.timestamp_format
+
 
 class CreatePolicyStoreAliasOutput(TypedDict):
     alias_name: "aws_sdk_verifiedpermissions.types.alias.Alias"
@@ -18,6 +21,7 @@ class CreatePolicyStoreAliasOutput(TypedDict):
     created_at: "aws_sdk_verifiedpermissions.types.timestamp_format.TimestampFormat"
     """<p>The date and time the policy store alias was created.</p>"""
 
+
 # --- awsJson1_0 ser/de ---
 def serialize_aws_json_1_0(value: CreatePolicyStoreAliasOutput) -> dict:
     out: dict = {}
@@ -25,7 +29,12 @@ def serialize_aws_json_1_0(value: CreatePolicyStoreAliasOutput) -> dict:
     out["policyStoreId"] = value["policy_store_id"]
     out["aliasArn"] = value["alias_arn"]
     import aws_sdk_verifiedpermissions.types.timestamp_format
-    out["createdAt"] = aws_sdk_verifiedpermissions.types.timestamp_format.serialize_aws_json_1_0(value["created_at"])
+
+    out["createdAt"] = (
+        aws_sdk_verifiedpermissions.types.timestamp_format.serialize_aws_json_1_0(
+            value["created_at"]
+        )
+    )
     return out
 
 
@@ -38,14 +47,21 @@ def deserialize_aws_json_1_0(data: dict) -> CreatePolicyStoreAliasOutput:
     if "policyStoreId" in data:
         out["policy_store_id"] = data["policyStoreId"]
     else:
-        raise DeserializationError("CreatePolicyStoreAliasOutput.policy_store_id required")
+        raise DeserializationError(
+            "CreatePolicyStoreAliasOutput.policy_store_id required"
+        )
     if "aliasArn" in data:
         out["alias_arn"] = data["aliasArn"]
     else:
         raise DeserializationError("CreatePolicyStoreAliasOutput.alias_arn required")
     if "createdAt" in data:
         import aws_sdk_verifiedpermissions.types.timestamp_format
-        out["created_at"] = aws_sdk_verifiedpermissions.types.timestamp_format.deserialize_aws_json_1_0(data["createdAt"])
+
+        out["created_at"] = (
+            aws_sdk_verifiedpermissions.types.timestamp_format.deserialize_aws_json_1_0(
+                data["createdAt"]
+            )
+        )
     else:
         raise DeserializationError("CreatePolicyStoreAliasOutput.created_at required")
     return out

@@ -108,7 +108,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.update_guardrail_request.UpdateGuardrailRequest,
+    input_: aws_sdk_bedrock.types.update_guardrail_request.UpdateGuardrailRequest,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -120,14 +120,14 @@ def build_request(
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/guardrails/{guardrailIdentifier}"
     url = url.replace(
-        "{guardrailIdentifier}", quote(str(input["guardrail_identifier"]), safe="")
+        "{guardrailIdentifier}", quote(str(input_["guardrail_identifier"]), safe="")
     )
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     import aws_sdk_bedrock.types.update_guardrail_request
 
     body: bytes | None = json.dumps(
-        aws_sdk_bedrock.types.update_guardrail_request.serialize_json(input)
+        aws_sdk_bedrock.types.update_guardrail_request.serialize_json(input_)
     ).encode()
     headers["content-type"] = "application/json"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
@@ -140,12 +140,12 @@ def build_request(
 
 def update_guardrail(
     options: OperationOptions,
-    input: aws_sdk_bedrock.types.update_guardrail_request.UpdateGuardrailRequest,
+    input_: aws_sdk_bedrock.types.update_guardrail_request.UpdateGuardrailRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.update_guardrail_response.UpdateGuardrailResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -159,12 +159,12 @@ def update_guardrail(
 
 async def async_update_guardrail(
     options: AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.update_guardrail_request.UpdateGuardrailRequest,
+    input_: aws_sdk_bedrock.types.update_guardrail_request.UpdateGuardrailRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.update_guardrail_response.UpdateGuardrailResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

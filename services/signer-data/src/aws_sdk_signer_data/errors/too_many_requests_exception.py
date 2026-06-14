@@ -1,12 +1,16 @@
 """Generated from Smithy shape ``com.amazonaws.signerdata#TooManyRequestsException``."""
 
 from typing import TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_signer_data.errors import ServiceError
+
 
 class TooManyRequestsException_(TypedDict):
     message: NotRequired["str"]
     code: NotRequired["str"]
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: TooManyRequestsException_) -> dict:
@@ -29,10 +33,16 @@ def deserialize_json(data: dict) -> TooManyRequestsException_:
 
 class TooManyRequestsException(ServiceError):
     """Modeled error for Smithy shape ``com.amazonaws.signerdata#TooManyRequestsException``."""
-    code: str | None = 'TooManyRequestsException'
+
+    code: str | None = "TooManyRequestsException"
 
     def __init__(self, data: TooManyRequestsException_):
-        super().__init__('client', is_throttling_error=False, is_retryable=False, code='TooManyRequestsException')
+        super().__init__(
+            "client",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="TooManyRequestsException",
+        )
         self.data = data
 
     @classmethod

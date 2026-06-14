@@ -117,6 +117,7 @@ class AsyncEMRServerlessClient:
                 "credentials_provider": credentials_provider,
             }
         )
+
         # resources
         self.application_resource = AsyncApplicationResource(self)
         self.job_run_resource = AsyncJobRunResource(self)

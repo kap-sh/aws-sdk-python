@@ -88,20 +88,20 @@ class PromptRouterResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.create_prompt_router_request.CreatePromptRouterRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock.types.create_prompt_router_request.CreatePromptRouterRequest = {}  # type: ignore[typeddict-item]
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
-        input["prompt_router_name"] = prompt_router_name
-        input["models"] = models
+            input_["client_request_token"] = client_request_token
+        input_["prompt_router_name"] = prompt_router_name
+        input_["models"] = models
         if description is not None:
-            input["description"] = description
-        input["routing_criteria"] = routing_criteria
-        input["fallback_model"] = fallback_model
+            input_["description"] = description
+        input_["routing_criteria"] = routing_criteria
+        input_["fallback_model"] = fallback_model
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -134,11 +134,11 @@ class PromptRouterResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.get_prompt_router_request.GetPromptRouterRequest = {}  # type: ignore[typeddict-item]
-        input["prompt_router_arn"] = prompt_router_arn
+        input_: aws_sdk_bedrock.types.get_prompt_router_request.GetPromptRouterRequest = {}  # type: ignore[typeddict-item]
+        input_["prompt_router_arn"] = prompt_router_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -173,11 +173,11 @@ class PromptRouterResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.delete_prompt_router_request.DeletePromptRouterRequest = {}  # type: ignore[typeddict-item]
-        input["prompt_router_arn"] = prompt_router_arn
+        input_: aws_sdk_bedrock.types.delete_prompt_router_request.DeletePromptRouterRequest = {}  # type: ignore[typeddict-item]
+        input_["prompt_router_arn"] = prompt_router_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -218,16 +218,16 @@ class PromptRouterResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.list_prompt_routers_request.ListPromptRoutersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock.types.list_prompt_routers_request.ListPromptRoutersRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -284,20 +284,20 @@ class AsyncPromptRouterResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.create_prompt_router_request.CreatePromptRouterRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock.types.create_prompt_router_request.CreatePromptRouterRequest = {}  # type: ignore[typeddict-item]
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
-        input["prompt_router_name"] = prompt_router_name
-        input["models"] = models
+            input_["client_request_token"] = client_request_token
+        input_["prompt_router_name"] = prompt_router_name
+        input_["models"] = models
         if description is not None:
-            input["description"] = description
-        input["routing_criteria"] = routing_criteria
-        input["fallback_model"] = fallback_model
+            input_["description"] = description
+        input_["routing_criteria"] = routing_criteria
+        input_["fallback_model"] = fallback_model
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -331,11 +331,11 @@ class AsyncPromptRouterResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.get_prompt_router_request.GetPromptRouterRequest = {}  # type: ignore[typeddict-item]
-        input["prompt_router_arn"] = prompt_router_arn
+        input_: aws_sdk_bedrock.types.get_prompt_router_request.GetPromptRouterRequest = {}  # type: ignore[typeddict-item]
+        input_["prompt_router_arn"] = prompt_router_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -371,11 +371,11 @@ class AsyncPromptRouterResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.delete_prompt_router_request.DeletePromptRouterRequest = {}  # type: ignore[typeddict-item]
-        input["prompt_router_arn"] = prompt_router_arn
+        input_: aws_sdk_bedrock.types.delete_prompt_router_request.DeletePromptRouterRequest = {}  # type: ignore[typeddict-item]
+        input_["prompt_router_arn"] = prompt_router_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -417,16 +417,16 @@ class AsyncPromptRouterResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.list_prompt_routers_request.ListPromptRoutersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock.types.list_prompt_routers_request.ListPromptRoutersRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

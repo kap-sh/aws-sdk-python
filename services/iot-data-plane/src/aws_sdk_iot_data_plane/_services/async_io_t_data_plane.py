@@ -131,7 +131,7 @@ class AsyncIoTDataPlaneClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = AsyncIoTDataPlaneClientConfig(
+        self._config = AsyncIoTDataPlaneClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -151,7 +151,7 @@ class AsyncIoTDataPlaneClient:
         overrides: AsyncIoTDataPlaneClientConfig = config_overrides or {}
         interceptors_: list[AsyncInterceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             aretry(),
         ]
@@ -159,16 +159,16 @@ class AsyncIoTDataPlaneClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            region=overrides.get("region", self.config.get("region")),
+            region=overrides.get("region", self._config.get("region")),
             use_dual_stack=overrides.get(
-                "use_dual_stack", self.config.get("use_dual_stack")
+                "use_dual_stack", self._config.get("use_dual_stack")
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -207,15 +207,15 @@ class AsyncIoTDataPlaneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_data_plane.types.delete_connection_request.DeleteConnectionRequest = {}  # type: ignore[typeddict-item]
-        input["client_id"] = client_id
+        input_: aws_sdk_iot_data_plane.types.delete_connection_request.DeleteConnectionRequest = {}  # type: ignore[typeddict-item]
+        input_["client_id"] = client_id
         if clean_session is not None:
-            input["clean_session"] = clean_session
+            input_["clean_session"] = clean_session
         if prevent_will_message is not None:
-            input["prevent_will_message"] = prevent_will_message
+            input_["prevent_will_message"] = prevent_will_message
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -253,13 +253,13 @@ class AsyncIoTDataPlaneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_data_plane.types.delete_thing_shadow_request.DeleteThingShadowRequest = {}  # type: ignore[typeddict-item]
-        input["thing_name"] = thing_name
+        input_: aws_sdk_iot_data_plane.types.delete_thing_shadow_request.DeleteThingShadowRequest = {}  # type: ignore[typeddict-item]
+        input_["thing_name"] = thing_name
         if shadow_name is not None:
-            input["shadow_name"] = shadow_name
+            input_["shadow_name"] = shadow_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -297,13 +297,13 @@ class AsyncIoTDataPlaneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_data_plane.types.get_connection_request.GetConnectionRequest = {}  # type: ignore[typeddict-item]
-        input["client_id"] = client_id
+        input_: aws_sdk_iot_data_plane.types.get_connection_request.GetConnectionRequest = {}  # type: ignore[typeddict-item]
+        input_["client_id"] = client_id
         if include_socket_information is not None:
-            input["include_socket_information"] = include_socket_information
+            input_["include_socket_information"] = include_socket_information
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -337,11 +337,11 @@ class AsyncIoTDataPlaneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_data_plane.types.get_retained_message_request.GetRetainedMessageRequest = {}  # type: ignore[typeddict-item]
-        input["topic"] = topic
+        input_: aws_sdk_iot_data_plane.types.get_retained_message_request.GetRetainedMessageRequest = {}  # type: ignore[typeddict-item]
+        input_["topic"] = topic
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -381,13 +381,13 @@ class AsyncIoTDataPlaneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_data_plane.types.get_thing_shadow_request.GetThingShadowRequest = {}  # type: ignore[typeddict-item]
-        input["thing_name"] = thing_name
+        input_: aws_sdk_iot_data_plane.types.get_thing_shadow_request.GetThingShadowRequest = {}  # type: ignore[typeddict-item]
+        input_["thing_name"] = thing_name
         if shadow_name is not None:
-            input["shadow_name"] = shadow_name
+            input_["shadow_name"] = shadow_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -427,15 +427,15 @@ class AsyncIoTDataPlaneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_data_plane.types.list_named_shadows_for_thing_request.ListNamedShadowsForThingRequest = {}  # type: ignore[typeddict-item]
-        input["thing_name"] = thing_name
+        input_: aws_sdk_iot_data_plane.types.list_named_shadows_for_thing_request.ListNamedShadowsForThingRequest = {}  # type: ignore[typeddict-item]
+        input_["thing_name"] = thing_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -475,14 +475,14 @@ class AsyncIoTDataPlaneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_data_plane.types.list_retained_messages_request.ListRetainedMessagesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot_data_plane.types.list_retained_messages_request.ListRetainedMessagesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -549,15 +549,15 @@ class AsyncIoTDataPlaneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_data_plane.types.list_subscriptions_request.ListSubscriptionsRequest = {}  # type: ignore[typeddict-item]
-        input["client_id"] = client_id
+        input_: aws_sdk_iot_data_plane.types.list_subscriptions_request.ListSubscriptionsRequest = {}  # type: ignore[typeddict-item]
+        input_["client_id"] = client_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -646,29 +646,29 @@ class AsyncIoTDataPlaneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_data_plane.types.publish_request.PublishRequest = {}  # type: ignore[typeddict-item]
-        input["topic"] = topic
+        input_: aws_sdk_iot_data_plane.types.publish_request.PublishRequest = {}  # type: ignore[typeddict-item]
+        input_["topic"] = topic
         if qos is not None:
-            input["qos"] = qos
+            input_["qos"] = qos
         if retain is not None:
-            input["retain"] = retain
+            input_["retain"] = retain
         if payload is not None:
-            input["payload"] = payload
+            input_["payload"] = payload
         if user_properties is not None:
-            input["user_properties"] = user_properties
+            input_["user_properties"] = user_properties
         if payload_format_indicator is not None:
-            input["payload_format_indicator"] = payload_format_indicator
+            input_["payload_format_indicator"] = payload_format_indicator
         if content_type is not None:
-            input["content_type"] = content_type
+            input_["content_type"] = content_type
         if response_topic is not None:
-            input["response_topic"] = response_topic
+            input_["response_topic"] = response_topic
         if correlation_data is not None:
-            input["correlation_data"] = correlation_data
+            input_["correlation_data"] = correlation_data
         if message_expiry is not None:
-            input["message_expiry"] = message_expiry
+            input_["message_expiry"] = message_expiry
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -734,28 +734,28 @@ class AsyncIoTDataPlaneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_data_plane.types.send_direct_message_request.SendDirectMessageRequest = {}  # type: ignore[typeddict-item]
-        input["client_id"] = client_id
-        input["topic"] = topic
+        input_: aws_sdk_iot_data_plane.types.send_direct_message_request.SendDirectMessageRequest = {}  # type: ignore[typeddict-item]
+        input_["client_id"] = client_id
+        input_["topic"] = topic
         if content_type is not None:
-            input["content_type"] = content_type
+            input_["content_type"] = content_type
         if response_topic is not None:
-            input["response_topic"] = response_topic
+            input_["response_topic"] = response_topic
         if confirmation is not None:
-            input["confirmation"] = confirmation
+            input_["confirmation"] = confirmation
         if timeout is not None:
-            input["timeout"] = timeout
+            input_["timeout"] = timeout
         if payload is not None:
-            input["payload"] = payload
+            input_["payload"] = payload
         if user_properties is not None:
-            input["user_properties"] = user_properties
+            input_["user_properties"] = user_properties
         if payload_format_indicator is not None:
-            input["payload_format_indicator"] = payload_format_indicator
+            input_["payload_format_indicator"] = payload_format_indicator
         if correlation_data is not None:
-            input["correlation_data"] = correlation_data
+            input_["correlation_data"] = correlation_data
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -795,14 +795,14 @@ class AsyncIoTDataPlaneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_data_plane.types.update_thing_shadow_request.UpdateThingShadowRequest = {}  # type: ignore[typeddict-item]
-        input["thing_name"] = thing_name
+        input_: aws_sdk_iot_data_plane.types.update_thing_shadow_request.UpdateThingShadowRequest = {}  # type: ignore[typeddict-item]
+        input_["thing_name"] = thing_name
         if shadow_name is not None:
-            input["shadow_name"] = shadow_name
-        input["payload"] = payload
+            input_["shadow_name"] = shadow_name
+        input_["payload"] = payload
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

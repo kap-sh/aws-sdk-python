@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#ResourceConfig``."""
 
 from typing import TYPE_CHECKING, TypeAlias, TypedDict
+
 from aws_sdk_cloudwatch_logs.errors import DeserializationError, SerializationError
 
 if TYPE_CHECKING:

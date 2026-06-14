@@ -176,6 +176,7 @@ class AsyncECSClient:
                 "credentials_provider": credentials_provider,
             }
         )
+
         # resources
         self.capacity_provider_resource = AsyncCapacityProviderResource(self)
         self.cluster_resource = AsyncClusterResource(self)

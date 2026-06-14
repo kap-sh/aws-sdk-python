@@ -1,29 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#DataZone``."""
 
-from aws_sdk_datazone._auth._signers import SigV4Signer
-from aws_sdk_datazone._auth._sigv4 import presign_sigv4
 import datetime
-from collections.abc import AsyncIterator
-from collections.abc import AsyncGenerator
-from contextlib import asynccontextmanager
-from aws_sdk_datazone._pagination import resolve_path as _resolve_path
-from typing import Any, Iterable, TypedDict, Unpack, TYPE_CHECKING
-from typing_extensions import Self
-from typing import Optional
-from zapros import URL, AsyncBaseHandler, AsyncClient
-from aws_sdk_datazone._auth._zapros_handler import AuthMiddleware
-from aws_sdk_datazone._services._pipeline import (
-    AsyncInterceptor,
-    AsyncOperationOptions,
-    AsyncOperationRequest,
-    AsyncOperationResponse,
-    aexecute_pipeline,
-    aretry,
-)
-from aws_sdk_datazone._async import anysleep
-import time
-from aws_sdk_datazone.errors import ServiceError, WaiterFailedError, WaiterTimeoutError
 import warnings
+from collections.abc import AsyncIterator
+from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+
+from typing_extensions import Self
+from zapros import AsyncBaseHandler, AsyncClient
+
 import aws_sdk_datazone._auth._signers
 import aws_sdk_datazone._auth._sigv4
 from aws_sdk_datazone._auth._identity import Credentials
@@ -31,15 +15,8 @@ from aws_sdk_datazone._auth._providers import (
     CredentialsProvider,
     StaticAwsCredentialsProvider,
 )
-from aws_sdk_datazone._auth._providers import (
-    BearerTokenProvider,
-    StaticBearerTokenProvider,
-)
-from aws_sdk_datazone._auth._providers import (
-    BasicCredentialsProvider,
-    StaticBasicCredentialsProvider,
-)
-from aws_sdk_datazone._auth._providers import ApiKeyProvider, StaticApiKeyProvider
+from aws_sdk_datazone._auth._zapros_handler import AuthMiddleware
+from aws_sdk_datazone._pagination import resolve_path as _resolve_path
 from aws_sdk_datazone._resources.data_zone.asset import AsyncAsset
 from aws_sdk_datazone._resources.data_zone.asset_type import AsyncAssetType
 from aws_sdk_datazone._resources.data_zone.data_product import AsyncDataProduct
@@ -61,6 +38,14 @@ from aws_sdk_datazone._resources.data_zone.notebook import AsyncNotebook
 from aws_sdk_datazone._resources.data_zone.notebook_export import AsyncNotebookExport
 from aws_sdk_datazone._resources.data_zone.notebook_run import AsyncNotebookRun
 from aws_sdk_datazone._resources.data_zone.rule import AsyncRule
+from aws_sdk_datazone._services._pipeline import (
+    AsyncInterceptor,
+    AsyncOperationOptions,
+    AsyncOperationRequest,
+    AsyncOperationResponse,
+    aexecute_pipeline,
+    aretry,
+)
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.accept_choices
@@ -547,6 +532,7 @@ class AsyncDataZoneClient:
                 "credentials_provider": credentials_provider,
             }
         )
+
         # resources
         self.asset = AsyncAsset(self)
         self.asset_type = AsyncAssetType(self)

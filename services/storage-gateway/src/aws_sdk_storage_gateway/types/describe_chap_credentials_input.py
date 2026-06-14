@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#DescribeChapCredentialsInput``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_storage_gateway.errors import DeserializationError
 
 if TYPE_CHECKING:

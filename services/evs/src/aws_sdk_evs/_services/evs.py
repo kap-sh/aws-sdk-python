@@ -111,6 +111,7 @@ class evsClient:
                 "credentials_provider": credentials_provider,
             }
         )
+
         # resources
         self.environment_resource = EnvironmentResource(self)
 

@@ -47,7 +47,7 @@ class CaseDetails(TypedDict):
     ]
     """<p>The email addresses that receive copies of communication about the case.</p>"""
     language: NotRequired["aws_sdk_support.types.language.Language"]
-    """<p>The language in which Amazon Web Services Support handles the case. Amazon Web Services Support currently supports Chinese (“zh”), English (\"en\"), Japanese (\"ja\") and Korean (“ko”). You must specify the ISO 639-1 code for the <code>language</code> parameter if you want support in that language.</p>"""
+    r"""<p>The language in which Amazon Web Services Support handles the case. Amazon Web Services Support currently supports Chinese (“zh”), English (\"en\"), Japanese (\"ja\") and Korean (“ko”). You must specify the ISO 639-1 code for the <code>language</code> parameter if you want support in that language.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

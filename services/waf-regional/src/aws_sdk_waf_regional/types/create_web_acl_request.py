@@ -18,7 +18,7 @@ class CreateWebACLRequest(TypedDict):
     name: "aws_sdk_waf_regional.types.resource_name.ResourceName"
     """<p>A friendly name or description of the <a>WebACL</a>. You can't change <code>Name</code> after you create the <code>WebACL</code>.</p>"""
     metric_name: "aws_sdk_waf_regional.types.metric_name.MetricName"
-    """<p>A friendly name or description for the metrics for this <code>WebACL</code>.The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum length 128 and minimum length one. It can't contain whitespace or metric names reserved for AWS WAF, including \"All\" and \"Default_Action.\" You can't change <code>MetricName</code> after you create the <code>WebACL</code>.</p>"""
+    r"""<p>A friendly name or description for the metrics for this <code>WebACL</code>.The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum length 128 and minimum length one. It can't contain whitespace or metric names reserved for AWS WAF, including \"All\" and \"Default_Action.\" You can't change <code>MetricName</code> after you create the <code>WebACL</code>.</p>"""
     default_action: "aws_sdk_waf_regional.types.waf_action.WafAction"
     """<p>The action that you want AWS WAF to take when a request doesn't match the criteria specified in any of the <code>Rule</code> objects that are associated with the <code>WebACL</code>.</p>"""
     change_token: "aws_sdk_waf_regional.types.change_token.ChangeToken"

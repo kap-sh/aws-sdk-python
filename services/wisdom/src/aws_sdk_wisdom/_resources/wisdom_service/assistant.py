@@ -68,7 +68,7 @@ class Assistant:
             "aws_sdk_wisdom.types.server_side_encryption_configuration.ServerSideEncryptionConfiguration"
         ] = None,
     ) -> "aws_sdk_wisdom.types.create_assistant_response.CreateAssistantResponse":
-        """<p>Creates an Amazon Connect Wisdom assistant.</p>
+        r"""<p>Creates an Amazon Connect Wisdom assistant.</p>
 
         Args:
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>
@@ -242,7 +242,7 @@ class Assistant:
             "aws_sdk_wisdom.types.wait_time_seconds.WaitTimeSeconds"
         ] = None,
     ) -> "aws_sdk_wisdom.types.get_recommendations_response.GetRecommendationsResponse":
-        """<p>Retrieves recommendations for the specified session. To avoid retrieving the same recommendations in subsequent calls, use <a href=\"https://docs.aws.amazon.com/wisdom/latest/APIReference/API_NotifyRecommendationsReceived.html\">NotifyRecommendationsReceived</a>. This API supports long-polling behavior with the <code>waitTimeSeconds</code> parameter. Short poll is the default behavior and only returns recommendations already available. To perform a manual query against an assistant, use <a href=\"https://docs.aws.amazon.com/wisdom/latest/APIReference/API_QueryAssistant.html\">QueryAssistant</a>.</p>
+        r"""<p>Retrieves recommendations for the specified session. To avoid retrieving the same recommendations in subsequent calls, use <a href=\"https://docs.aws.amazon.com/wisdom/latest/APIReference/API_NotifyRecommendationsReceived.html\">NotifyRecommendationsReceived</a>. This API supports long-polling behavior with the <code>waitTimeSeconds</code> parameter. Short poll is the default behavior and only returns recommendations already available. To perform a manual query against an assistant, use <a href=\"https://docs.aws.amazon.com/wisdom/latest/APIReference/API_QueryAssistant.html\">QueryAssistant</a>.</p>
 
         Args:
             assistant_id: <p>The identifier of the Wisdom assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
@@ -289,7 +289,7 @@ class Assistant:
         *,
         config_overrides: Optional[WisdomClientConfig] = None,
     ) -> "aws_sdk_wisdom.types.notify_recommendations_received_response.NotifyRecommendationsReceivedResponse":
-        """<p>Removes the specified recommendations from the specified assistant's queue of newly available recommendations. You can use this API in conjunction with <a href=\"https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetRecommendations.html\">GetRecommendations</a> and a <code>waitTimeSeconds</code> input for long-polling behavior and avoiding duplicate recommendations.</p>
+        r"""<p>Removes the specified recommendations from the specified assistant's queue of newly available recommendations. You can use this API in conjunction with <a href=\"https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetRecommendations.html\">GetRecommendations</a> and a <code>waitTimeSeconds</code> input for long-polling behavior and avoiding duplicate recommendations.</p>
 
         Args:
             assistant_id: <p>The identifier of the Wisdom assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
@@ -333,7 +333,7 @@ class Assistant:
         next_token: Optional["aws_sdk_wisdom.types.next_token.NextToken"] = None,
         max_results: Optional["aws_sdk_wisdom.types.max_results.MaxResults"] = None,
     ) -> "aws_sdk_wisdom.types.query_assistant_response.QueryAssistantResponse":
-        """<p>Performs a manual search against the specified assistant. To retrieve recommendations for an assistant, use <a href=\"https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetRecommendations.html\">GetRecommendations</a>. </p>
+        r"""<p>Performs a manual search against the specified assistant. To retrieve recommendations for an assistant, use <a href=\"https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetRecommendations.html\">GetRecommendations</a>. </p>
 
         Args:
             assistant_id: <p>The identifier of the Wisdom assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
@@ -438,7 +438,7 @@ class AsyncAssistant:
             "aws_sdk_wisdom.types.server_side_encryption_configuration.ServerSideEncryptionConfiguration"
         ] = None,
     ) -> "aws_sdk_wisdom.types.create_assistant_response.CreateAssistantResponse":
-        """<p>Creates an Amazon Connect Wisdom assistant.</p>
+        r"""<p>Creates an Amazon Connect Wisdom assistant.</p>
 
         Args:
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>
@@ -616,7 +616,7 @@ class AsyncAssistant:
             "aws_sdk_wisdom.types.wait_time_seconds.WaitTimeSeconds"
         ] = None,
     ) -> "aws_sdk_wisdom.types.get_recommendations_response.GetRecommendationsResponse":
-        """<p>Retrieves recommendations for the specified session. To avoid retrieving the same recommendations in subsequent calls, use <a href=\"https://docs.aws.amazon.com/wisdom/latest/APIReference/API_NotifyRecommendationsReceived.html\">NotifyRecommendationsReceived</a>. This API supports long-polling behavior with the <code>waitTimeSeconds</code> parameter. Short poll is the default behavior and only returns recommendations already available. To perform a manual query against an assistant, use <a href=\"https://docs.aws.amazon.com/wisdom/latest/APIReference/API_QueryAssistant.html\">QueryAssistant</a>.</p>
+        r"""<p>Retrieves recommendations for the specified session. To avoid retrieving the same recommendations in subsequent calls, use <a href=\"https://docs.aws.amazon.com/wisdom/latest/APIReference/API_NotifyRecommendationsReceived.html\">NotifyRecommendationsReceived</a>. This API supports long-polling behavior with the <code>waitTimeSeconds</code> parameter. Short poll is the default behavior and only returns recommendations already available. To perform a manual query against an assistant, use <a href=\"https://docs.aws.amazon.com/wisdom/latest/APIReference/API_QueryAssistant.html\">QueryAssistant</a>.</p>
 
         Args:
             assistant_id: <p>The identifier of the Wisdom assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
@@ -664,7 +664,7 @@ class AsyncAssistant:
         *,
         config_overrides: Optional[AsyncWisdomClientConfig] = None,
     ) -> "aws_sdk_wisdom.types.notify_recommendations_received_response.NotifyRecommendationsReceivedResponse":
-        """<p>Removes the specified recommendations from the specified assistant's queue of newly available recommendations. You can use this API in conjunction with <a href=\"https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetRecommendations.html\">GetRecommendations</a> and a <code>waitTimeSeconds</code> input for long-polling behavior and avoiding duplicate recommendations.</p>
+        r"""<p>Removes the specified recommendations from the specified assistant's queue of newly available recommendations. You can use this API in conjunction with <a href=\"https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetRecommendations.html\">GetRecommendations</a> and a <code>waitTimeSeconds</code> input for long-polling behavior and avoiding duplicate recommendations.</p>
 
         Args:
             assistant_id: <p>The identifier of the Wisdom assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
@@ -709,7 +709,7 @@ class AsyncAssistant:
         next_token: Optional["aws_sdk_wisdom.types.next_token.NextToken"] = None,
         max_results: Optional["aws_sdk_wisdom.types.max_results.MaxResults"] = None,
     ) -> "aws_sdk_wisdom.types.query_assistant_response.QueryAssistantResponse":
-        """<p>Performs a manual search against the specified assistant. To retrieve recommendations for an assistant, use <a href=\"https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetRecommendations.html\">GetRecommendations</a>. </p>
+        r"""<p>Performs a manual search against the specified assistant. To retrieve recommendations for an assistant, use <a href=\"https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetRecommendations.html\">GetRecommendations</a>. </p>
 
         Args:
             assistant_id: <p>The identifier of the Wisdom assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>

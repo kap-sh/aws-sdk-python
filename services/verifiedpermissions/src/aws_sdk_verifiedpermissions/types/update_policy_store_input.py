@@ -1,0 +1,85 @@
+"""Generated from Smithy shape ``com.amazonaws.verifiedpermissions#UpdatePolicyStoreInput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_verifiedpermissions.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_verifiedpermissions.types.deletion_protection
+    import aws_sdk_verifiedpermissions.types.policy_store_description
+    import aws_sdk_verifiedpermissions.types.policy_store_id
+    import aws_sdk_verifiedpermissions.types.validation_settings
+
+
+class UpdatePolicyStoreInput(TypedDict):
+    policy_store_id: "aws_sdk_verifiedpermissions.types.policy_store_id.PolicyStoreId"
+    r"""<p>Specifies the ID of the policy store that you want to update</p> <p>To specify a policy store, use its ID or alias name. When using an alias name, prefix it with <code>policy-store-alias/</code>. For example:</p> <ul> <li> <p>ID: <code>PSEXAMPLEabcdefg111111</code> </p> </li> <li> <p>Alias name: <code>policy-store-alias/example-policy-store</code> </p> </li> </ul> <p>To view aliases, use <a href=\"https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListPolicyStoreAliases.html\">ListPolicyStoreAliases</a>.</p>"""
+    validation_settings: (
+        "aws_sdk_verifiedpermissions.types.validation_settings.ValidationSettings"
+    )
+    """<p>A structure that defines the validation settings that want to enable for the policy store.</p>"""
+    deletion_protection: NotRequired[
+        "aws_sdk_verifiedpermissions.types.deletion_protection.DeletionProtection"
+    ]
+    """<p>Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted.</p> <p>When you call <code>UpdatePolicyStore</code>, this parameter is unchanged unless explicitly included in the call.</p>"""
+    description: NotRequired[
+        "aws_sdk_verifiedpermissions.types.policy_store_description.PolicyStoreDescription"
+    ]
+    """<p>Descriptive text that you can provide to help with identification of the current policy store.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: UpdatePolicyStoreInput) -> dict:
+    out: dict = {}
+    out["policyStoreId"] = value["policy_store_id"]
+    import aws_sdk_verifiedpermissions.types.validation_settings
+
+    out["validationSettings"] = (
+        aws_sdk_verifiedpermissions.types.validation_settings.serialize_aws_json_1_0(
+            value["validation_settings"]
+        )
+    )
+    if "deletion_protection" in value:
+        import aws_sdk_verifiedpermissions.types.deletion_protection
+
+        out["deletionProtection"] = (
+            aws_sdk_verifiedpermissions.types.deletion_protection.serialize_aws_json_1_0(
+                value["deletion_protection"]
+            )
+        )
+    if "description" in value:
+        out["description"] = value["description"]
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> UpdatePolicyStoreInput:
+    out: UpdatePolicyStoreInput = {}  # type: ignore[typeddict-item]
+    if "policyStoreId" in data:
+        out["policy_store_id"] = data["policyStoreId"]
+    else:
+        raise DeserializationError("UpdatePolicyStoreInput.policy_store_id required")
+    if "validationSettings" in data:
+        import aws_sdk_verifiedpermissions.types.validation_settings
+
+        out["validation_settings"] = (
+            aws_sdk_verifiedpermissions.types.validation_settings.deserialize_aws_json_1_0(
+                data["validationSettings"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "UpdatePolicyStoreInput.validation_settings required"
+        )
+    if "deletionProtection" in data:
+        import aws_sdk_verifiedpermissions.types.deletion_protection
+
+        out["deletion_protection"] = (
+            aws_sdk_verifiedpermissions.types.deletion_protection.deserialize_aws_json_1_0(
+                data["deletionProtection"]
+            )
+        )
+    if "description" in data:
+        out["description"] = data["description"]
+    return out

@@ -94,7 +94,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.get_inference_profile_request.GetInferenceProfileRequest,
+    input_: aws_sdk_bedrock.types.get_inference_profile_request.GetInferenceProfileRequest,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -107,7 +107,7 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/inference-profiles/{inferenceProfileIdentifier}"
     url = url.replace(
         "{inferenceProfileIdentifier}",
-        quote(str(input["inference_profile_identifier"]), safe=""),
+        quote(str(input_["inference_profile_identifier"]), safe=""),
     )
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
@@ -122,12 +122,12 @@ def build_request(
 
 def get_inference_profile(
     options: OperationOptions,
-    input: aws_sdk_bedrock.types.get_inference_profile_request.GetInferenceProfileRequest,
+    input_: aws_sdk_bedrock.types.get_inference_profile_request.GetInferenceProfileRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.get_inference_profile_response.GetInferenceProfileResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -141,12 +141,12 @@ def get_inference_profile(
 
 async def async_get_inference_profile(
     options: AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.get_inference_profile_request.GetInferenceProfileRequest,
+    input_: aws_sdk_bedrock.types.get_inference_profile_request.GetInferenceProfileRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.get_inference_profile_response.GetInferenceProfileResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

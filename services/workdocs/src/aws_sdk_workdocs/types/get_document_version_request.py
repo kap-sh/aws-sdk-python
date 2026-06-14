@@ -22,7 +22,7 @@ class GetDocumentVersionRequest(TypedDict):
     version_id: "aws_sdk_workdocs.types.document_version_id_type.DocumentVersionIdType"
     """<p>The version ID of the document.</p>"""
     fields: NotRequired["aws_sdk_workdocs.types.field_names_type.FieldNamesType"]
-    """<p>A comma-separated list of values. Specify \"SOURCE\" to include a URL for the source document.</p>"""
+    r"""<p>A comma-separated list of values. Specify \"SOURCE\" to include a URL for the source document.</p>"""
     include_custom_metadata: "aws_sdk_workdocs.types.boolean_type.BooleanType"
     """<p>Set this to TRUE to include custom metadata in the response.</p>"""
 

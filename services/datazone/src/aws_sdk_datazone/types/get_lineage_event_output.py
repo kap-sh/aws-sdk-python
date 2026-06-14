@@ -1,16 +1,18 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#GetLineageEventOutput``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
 
 if TYPE_CHECKING:
+    import datetime
+
     import aws_sdk_datazone.types.created_at
     import aws_sdk_datazone.types.created_by
     import aws_sdk_datazone.types.domain_id
     import aws_sdk_datazone.types.lineage_event
     import aws_sdk_datazone.types.lineage_event_identifier
     import aws_sdk_datazone.types.lineage_event_processing_status
-    import datetime
 
 
 class GetLineageEventOutput(TypedDict):

@@ -1,9 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.appintegrations#ApplicationSummary``."""
 
 from typing import TYPE_CHECKING, TypedDict
-
 from typing_extensions import NotRequired
-
 if TYPE_CHECKING:
     import aws_sdk_appintegrations.types.application_name
     import aws_sdk_appintegrations.types.application_namespace
@@ -13,7 +11,6 @@ if TYPE_CHECKING:
     import aws_sdk_appintegrations.types.timestamp
     import aws_sdk_appintegrations.types.uuid
 
-
 class ApplicationSummary(TypedDict):
     arn: NotRequired["aws_sdk_appintegrations.types.arn.Arn"]
     """<p>The Amazon Resource Name (ARN) of the Application.</p>"""
@@ -21,9 +18,7 @@ class ApplicationSummary(TypedDict):
     """<p>A unique identifier for the Application.</p>"""
     name: NotRequired["aws_sdk_appintegrations.types.application_name.ApplicationName"]
     """<p>The name of the application.</p>"""
-    namespace: NotRequired[
-        "aws_sdk_appintegrations.types.application_namespace.ApplicationNamespace"
-    ]
+    namespace: NotRequired["aws_sdk_appintegrations.types.application_namespace.ApplicationNamespace"]
     """<p>The namespace of the application.</p>"""
     created_time: NotRequired["aws_sdk_appintegrations.types.timestamp.Timestamp"]
     """<p>The time when the application was created.</p>"""
@@ -31,11 +26,8 @@ class ApplicationSummary(TypedDict):
     """<p>The time when the application was last modified.</p>"""
     is_service: "aws_sdk_appintegrations.types.boolean.Boolean"
     """<p>Indicates whether the application is a service.</p>"""
-    application_type: NotRequired[
-        "aws_sdk_appintegrations.types.application_type.ApplicationType"
-    ]
+    application_type: NotRequired["aws_sdk_appintegrations.types.application_type.ApplicationType"]
     """<p>The type of application.</p>"""
-
 
 # --- restJson1 ser/de ---
 def serialize_json(value: ApplicationSummary) -> dict:
@@ -50,27 +42,14 @@ def serialize_json(value: ApplicationSummary) -> dict:
         out["Namespace"] = value["namespace"]
     if "created_time" in value:
         import aws_sdk_appintegrations.types.timestamp
-
-        out["CreatedTime"] = aws_sdk_appintegrations.types.timestamp.serialize_json(
-            value["created_time"]
-        )
+        out["CreatedTime"] = aws_sdk_appintegrations.types.timestamp.serialize_json(value["created_time"])
     if "last_modified_time" in value:
         import aws_sdk_appintegrations.types.timestamp
-
-        out["LastModifiedTime"] = (
-            aws_sdk_appintegrations.types.timestamp.serialize_json(
-                value["last_modified_time"]
-            )
-        )
+        out["LastModifiedTime"] = aws_sdk_appintegrations.types.timestamp.serialize_json(value["last_modified_time"])
     out["IsService"] = value.get("is_service", False)
     if "application_type" in value:
         import aws_sdk_appintegrations.types.application_type
-
-        out["ApplicationType"] = (
-            aws_sdk_appintegrations.types.application_type.serialize_json(
-                value["application_type"]
-            )
-        )
+        out["ApplicationType"] = aws_sdk_appintegrations.types.application_type.serialize_json(value["application_type"])
     return out
 
 
@@ -86,28 +65,15 @@ def deserialize_json(data: dict) -> ApplicationSummary:
         out["namespace"] = data["Namespace"]
     if "CreatedTime" in data:
         import aws_sdk_appintegrations.types.timestamp
-
-        out["created_time"] = aws_sdk_appintegrations.types.timestamp.deserialize_json(
-            data["CreatedTime"]
-        )
+        out["created_time"] = aws_sdk_appintegrations.types.timestamp.deserialize_json(data["CreatedTime"])
     if "LastModifiedTime" in data:
         import aws_sdk_appintegrations.types.timestamp
-
-        out["last_modified_time"] = (
-            aws_sdk_appintegrations.types.timestamp.deserialize_json(
-                data["LastModifiedTime"]
-            )
-        )
+        out["last_modified_time"] = aws_sdk_appintegrations.types.timestamp.deserialize_json(data["LastModifiedTime"])
     if "IsService" in data:
         out["is_service"] = data["IsService"]
     else:
         out["is_service"] = False
     if "ApplicationType" in data:
         import aws_sdk_appintegrations.types.application_type
-
-        out["application_type"] = (
-            aws_sdk_appintegrations.types.application_type.deserialize_json(
-                data["ApplicationType"]
-            )
-        )
+        out["application_type"] = aws_sdk_appintegrations.types.application_type.deserialize_json(data["ApplicationType"])
     return out

@@ -17,7 +17,7 @@ class TrustedAdvisorCheckSummary(TypedDict):
     timestamp: "aws_sdk_support.types.string.String"
     """<p>The time of the last refresh of the check.</p>"""
     status: "aws_sdk_support.types.string.String"
-    """<p>The alert status of the check: \"ok\" (green), \"warning\" (yellow), \"error\" (red), or \"not_available\".</p>"""
+    r"""<p>The alert status of the check: \"ok\" (green), \"warning\" (yellow), \"error\" (red), or \"not_available\".</p>"""
     has_flagged_resources: "aws_sdk_support.types.boolean.Boolean"
     """<p>Specifies whether the Trusted Advisor check has flagged resources.</p>"""
     resources_summary: "aws_sdk_support.types.trusted_advisor_resources_summary.TrustedAdvisorResourcesSummary"

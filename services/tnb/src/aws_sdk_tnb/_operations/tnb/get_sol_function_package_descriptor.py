@@ -67,8 +67,10 @@ def handle_response(
     if "Content-Type" in response.headers:
         import aws_sdk_tnb.types.descriptor_content_type
 
-        out["content_type"] = aws_sdk_tnb.types.descriptor_content_type.from_xml_text(
-            response.headers["Content-Type"]
+        out["content_type"] = (
+            aws_sdk_tnb.types.descriptor_content_type.deserialize_json(
+                response.headers["Content-Type"]
+            )
         )
     return out
 
@@ -77,7 +79,7 @@ def get_signer(
     options: AsyncOperationOptions | OperationOptions,
     auth_schemes: list[dict[str, Any]] | None = None,
 ) -> aws_sdk_tnb._auth._signers.Signer | None:
-    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}
+    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}  # noqa: F841
     if options.credentials_provider is not None:
         sigv4_config = (
             name_to_schema.get("sigv4")

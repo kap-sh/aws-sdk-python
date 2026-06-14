@@ -106,7 +106,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.create_guardrail_version_request.CreateGuardrailVersionRequest,
+    input_: aws_sdk_bedrock.types.create_guardrail_version_request.CreateGuardrailVersionRequest,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -118,14 +118,14 @@ def build_request(
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/guardrails/{guardrailIdentifier}"
     url = url.replace(
-        "{guardrailIdentifier}", quote(str(input["guardrail_identifier"]), safe="")
+        "{guardrailIdentifier}", quote(str(input_["guardrail_identifier"]), safe="")
     )
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     import aws_sdk_bedrock.types.create_guardrail_version_request
 
     body: bytes | None = json.dumps(
-        aws_sdk_bedrock.types.create_guardrail_version_request.serialize_json(input)
+        aws_sdk_bedrock.types.create_guardrail_version_request.serialize_json(input_)
     ).encode()
     headers["content-type"] = "application/json"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
@@ -138,12 +138,12 @@ def build_request(
 
 def create_guardrail_version(
     options: OperationOptions,
-    input: aws_sdk_bedrock.types.create_guardrail_version_request.CreateGuardrailVersionRequest,
+    input_: aws_sdk_bedrock.types.create_guardrail_version_request.CreateGuardrailVersionRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.create_guardrail_version_response.CreateGuardrailVersionResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -157,12 +157,12 @@ def create_guardrail_version(
 
 async def async_create_guardrail_version(
     options: AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.create_guardrail_version_request.CreateGuardrailVersionRequest,
+    input_: aws_sdk_bedrock.types.create_guardrail_version_request.CreateGuardrailVersionRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.create_guardrail_version_response.CreateGuardrailVersionResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

@@ -1,10 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#CreateEnvironmentBlueprintOutput``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_datazone.errors import DeserializationError
 
 if TYPE_CHECKING:
+    import datetime
+
     import aws_sdk_datazone.types.custom_parameter_list
     import aws_sdk_datazone.types.deployment_properties
     import aws_sdk_datazone.types.description
@@ -12,7 +16,6 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.environment_blueprint_name
     import aws_sdk_datazone.types.glossary_terms
     import aws_sdk_datazone.types.provisioning_properties
-    import datetime
 
 
 class CreateEnvironmentBlueprintOutput(TypedDict):

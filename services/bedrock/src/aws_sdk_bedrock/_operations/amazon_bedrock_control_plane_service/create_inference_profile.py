@@ -111,7 +111,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.create_inference_profile_request.CreateInferenceProfileRequest,
+    input_: aws_sdk_bedrock.types.create_inference_profile_request.CreateInferenceProfileRequest,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -127,7 +127,7 @@ def build_request(
     import aws_sdk_bedrock.types.create_inference_profile_request
 
     body: bytes | None = json.dumps(
-        aws_sdk_bedrock.types.create_inference_profile_request.serialize_json(input)
+        aws_sdk_bedrock.types.create_inference_profile_request.serialize_json(input_)
     ).encode()
     headers["content-type"] = "application/json"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
@@ -140,12 +140,12 @@ def build_request(
 
 def create_inference_profile(
     options: OperationOptions,
-    input: aws_sdk_bedrock.types.create_inference_profile_request.CreateInferenceProfileRequest,
+    input_: aws_sdk_bedrock.types.create_inference_profile_request.CreateInferenceProfileRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.create_inference_profile_response.CreateInferenceProfileResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -159,12 +159,12 @@ def create_inference_profile(
 
 async def async_create_inference_profile(
     options: AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.create_inference_profile_request.CreateInferenceProfileRequest,
+    input_: aws_sdk_bedrock.types.create_inference_profile_request.CreateInferenceProfileRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.create_inference_profile_response.CreateInferenceProfileResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

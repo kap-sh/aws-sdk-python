@@ -1,13 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#StartLiveTailResponseStream``."""
 
 from typing import TYPE_CHECKING, TypeAlias, TypedDict
+
 from aws_sdk_cloudwatch_logs.errors import DeserializationError, SerializationError
 
 if TYPE_CHECKING:
+    import aws_sdk_cloudwatch_logs.errors.session_streaming_exception
+    import aws_sdk_cloudwatch_logs.errors.session_timeout_exception
     import aws_sdk_cloudwatch_logs.types.live_tail_session_start
     import aws_sdk_cloudwatch_logs.types.live_tail_session_update
-    import aws_sdk_cloudwatch_logs.errors.session_timeout_exception
-    import aws_sdk_cloudwatch_logs.errors.session_streaming_exception
 
 
 class _StartLiveTailResponseStream_sessionStart(TypedDict):

@@ -133,6 +133,7 @@ class AsyncgrafanaClient:
                 "credentials_provider": credentials_provider,
             }
         )
+
         # resources
         self.api_key = AsyncApiKey(self)
         self.authentication = AsyncAuthentication(self)

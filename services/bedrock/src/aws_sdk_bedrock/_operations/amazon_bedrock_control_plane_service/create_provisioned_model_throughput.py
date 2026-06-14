@@ -105,7 +105,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.create_provisioned_model_throughput_request.CreateProvisionedModelThroughputRequest,
+    input_: aws_sdk_bedrock.types.create_provisioned_model_throughput_request.CreateProvisionedModelThroughputRequest,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -122,7 +122,7 @@ def build_request(
 
     body: bytes | None = json.dumps(
         aws_sdk_bedrock.types.create_provisioned_model_throughput_request.serialize_json(
-            input
+            input_
         )
     ).encode()
     headers["content-type"] = "application/json"
@@ -136,12 +136,12 @@ def build_request(
 
 def create_provisioned_model_throughput(
     options: OperationOptions,
-    input: aws_sdk_bedrock.types.create_provisioned_model_throughput_request.CreateProvisionedModelThroughputRequest,
+    input_: aws_sdk_bedrock.types.create_provisioned_model_throughput_request.CreateProvisionedModelThroughputRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.create_provisioned_model_throughput_response.CreateProvisionedModelThroughputResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -155,12 +155,12 @@ def create_provisioned_model_throughput(
 
 async def async_create_provisioned_model_throughput(
     options: AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.create_provisioned_model_throughput_request.CreateProvisionedModelThroughputRequest,
+    input_: aws_sdk_bedrock.types.create_provisioned_model_throughput_request.CreateProvisionedModelThroughputRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.create_provisioned_model_throughput_response.CreateProvisionedModelThroughputResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

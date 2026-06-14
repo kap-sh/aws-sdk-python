@@ -10,7 +10,7 @@ if TYPE_CHECKING:
 
 class BlockAction(TypedDict):
     custom_response: NotRequired["aws_sdk_wafv2.types.custom_response.CustomResponse"]
-    """<p>Defines a custom response for the web request.</p> <p>For information about customizing web requests and responses, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html\">Customizing web requests and responses in WAF</a> in the <i>WAF Developer Guide</i>. </p>"""
+    r"""<p>Defines a custom response for the web request.</p> <p>For information about customizing web requests and responses, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html\">Customizing web requests and responses in WAF</a> in the <i>WAF Developer Guide</i>. </p>"""
 
 
 # --- awsJson1_1 ser/de ---

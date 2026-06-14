@@ -99,6 +99,7 @@ class AsyncCodeCatalystClient:
                 "bearer_provider": bearer_provider,
             }
         )
+
         # resources
         self.access_token = AsyncAccessToken(self)
         self.space = AsyncSpace(self)

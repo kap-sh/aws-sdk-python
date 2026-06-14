@@ -15,7 +15,7 @@ class OutputConfig(TypedDict):
     s3_bucket: "aws_sdk_textract.types.s3_bucket.S3Bucket"
     """<p>The name of the bucket your output will go to.</p>"""
     s3_prefix: NotRequired["aws_sdk_textract.types.s3_object_name.S3ObjectName"]
-    """<p>The prefix of the object key that the output will be saved to. When not enabled, the prefix will be “textract_output\".</p>"""
+    r"""<p>The prefix of the object key that the output will be saved to. When not enabled, the prefix will be “textract_output\".</p>"""
 
 
 # --- awsJson1_1 ser/de ---

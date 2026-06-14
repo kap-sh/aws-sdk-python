@@ -100,7 +100,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.list_automated_reasoning_policy_test_results_request.ListAutomatedReasoningPolicyTestResultsRequest,
+    input_: aws_sdk_bedrock.types.list_automated_reasoning_policy_test_results_request.ListAutomatedReasoningPolicyTestResultsRequest,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -114,14 +114,14 @@ def build_request(
         endpoint.url.rstrip("/")
         + "/automated-reasoning-policies/{policyArn}/build-workflows/{buildWorkflowId}/test-results"
     )
-    url = url.replace("{policyArn}", quote(str(input["policy_arn"]), safe=""))
+    url = url.replace("{policyArn}", quote(str(input_["policy_arn"]), safe=""))
     url = url.replace(
-        "{buildWorkflowId}", quote(str(input["build_workflow_id"]), safe="")
+        "{buildWorkflowId}", quote(str(input_["build_workflow_id"]), safe="")
     )
     params: dict[str, str] = {}
-    if "next_token" in input:
-        params["nextToken"] = str(input["next_token"])
-    params["maxResults"] = str(input.get("max_results", 25))
+    if "next_token" in input_:
+        params["nextToken"] = str(input_["next_token"])
+    params["maxResults"] = str(input_.get("max_results", 25))
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
@@ -134,12 +134,12 @@ def build_request(
 
 def list_automated_reasoning_policy_test_results(
     options: OperationOptions,
-    input: aws_sdk_bedrock.types.list_automated_reasoning_policy_test_results_request.ListAutomatedReasoningPolicyTestResultsRequest,
+    input_: aws_sdk_bedrock.types.list_automated_reasoning_policy_test_results_request.ListAutomatedReasoningPolicyTestResultsRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.list_automated_reasoning_policy_test_results_response.ListAutomatedReasoningPolicyTestResultsResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -153,12 +153,12 @@ def list_automated_reasoning_policy_test_results(
 
 async def async_list_automated_reasoning_policy_test_results(
     options: AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.list_automated_reasoning_policy_test_results_request.ListAutomatedReasoningPolicyTestResultsRequest,
+    input_: aws_sdk_bedrock.types.list_automated_reasoning_policy_test_results_request.ListAutomatedReasoningPolicyTestResultsRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.list_automated_reasoning_policy_test_results_response.ListAutomatedReasoningPolicyTestResultsResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#IamUserProfileDetails``."""
 
 from typing import TypedDict
+
 from typing_extensions import NotRequired
 
 

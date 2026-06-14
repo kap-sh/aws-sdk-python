@@ -1,12 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesweb#DisassociateSessionLoggerRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 if TYPE_CHECKING:
     import aws_sdk_workspaces_web.types.arn
+
 
 class DisassociateSessionLoggerRequest(TypedDict):
     portal_arn: "aws_sdk_workspaces_web.types.arn.ARN"
     """<p>The ARN of the portal to disassociate from the a session logger.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: DisassociateSessionLoggerRequest) -> dict:

@@ -205,6 +205,7 @@ class DevOpsAgentClient:
                 "credentials_provider": credentials_provider,
             }
         )
+
         # resources
         self.agent_space_resource = AgentSpaceResource(self)
         self.private_connection_resource = PrivateConnectionResource(self)

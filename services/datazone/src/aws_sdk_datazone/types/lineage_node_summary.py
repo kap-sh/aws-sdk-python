@@ -1,10 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#LineageNodeSummary``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_datazone.errors import DeserializationError
 
 if TYPE_CHECKING:
+    import datetime
+
     import aws_sdk_datazone.types.created_at
     import aws_sdk_datazone.types.created_by
     import aws_sdk_datazone.types.domain_id
@@ -12,7 +16,6 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.revision
     import aws_sdk_datazone.types.updated_at
     import aws_sdk_datazone.types.updated_by
-    import datetime
 
 
 class LineageNodeSummary(TypedDict):

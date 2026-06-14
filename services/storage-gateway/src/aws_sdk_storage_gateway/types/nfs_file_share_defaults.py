@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#NFSFileShareDefaults``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
 
 if TYPE_CHECKING:
@@ -12,11 +13,11 @@ class NFSFileShareDefaults(TypedDict):
     file_mode: NotRequired[
         "aws_sdk_storage_gateway.types.permission_mode.PermissionMode"
     ]
-    """<p>The Unix file mode in the form \"nnnn\". For example, <code>0666</code> represents the default file mode inside the file share. The default value is <code>0666</code>.</p>"""
+    r"""<p>The Unix file mode in the form \"nnnn\". For example, <code>0666</code> represents the default file mode inside the file share. The default value is <code>0666</code>.</p>"""
     directory_mode: NotRequired[
         "aws_sdk_storage_gateway.types.permission_mode.PermissionMode"
     ]
-    """<p>The Unix directory mode in the form \"nnnn\". For example, <code>0666</code> represents the default access mode for all directories inside the file share. The default value is <code>0777</code>.</p>"""
+    r"""<p>The Unix directory mode in the form \"nnnn\". For example, <code>0666</code> represents the default access mode for all directories inside the file share. The default value is <code>0777</code>.</p>"""
     group_id: NotRequired["aws_sdk_storage_gateway.types.permission_id.PermissionId"]
     """<p>The default group ID for the file share (unless the files have another group ID specified). The default value is <code>nfsnobody</code>.</p>"""
     owner_id: NotRequired["aws_sdk_storage_gateway.types.permission_id.PermissionId"]

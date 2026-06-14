@@ -125,41 +125,41 @@ class GuardrailsResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.create_guardrail_request.CreateGuardrailRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_bedrock.types.create_guardrail_request.CreateGuardrailRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if topic_policy_config is not None:
-            input["topic_policy_config"] = topic_policy_config
+            input_["topic_policy_config"] = topic_policy_config
         if content_policy_config is not None:
-            input["content_policy_config"] = content_policy_config
+            input_["content_policy_config"] = content_policy_config
         if word_policy_config is not None:
-            input["word_policy_config"] = word_policy_config
+            input_["word_policy_config"] = word_policy_config
         if sensitive_information_policy_config is not None:
-            input["sensitive_information_policy_config"] = (
+            input_["sensitive_information_policy_config"] = (
                 sensitive_information_policy_config
             )
         if contextual_grounding_policy_config is not None:
-            input["contextual_grounding_policy_config"] = (
+            input_["contextual_grounding_policy_config"] = (
                 contextual_grounding_policy_config
             )
         if automated_reasoning_policy_config is not None:
-            input["automated_reasoning_policy_config"] = (
+            input_["automated_reasoning_policy_config"] = (
                 automated_reasoning_policy_config
             )
         if cross_region_config is not None:
-            input["cross_region_config"] = cross_region_config
-        input["blocked_input_messaging"] = blocked_input_messaging
-        input["blocked_outputs_messaging"] = blocked_outputs_messaging
+            input_["cross_region_config"] = cross_region_config
+        input_["blocked_input_messaging"] = blocked_input_messaging
+        input_["blocked_outputs_messaging"] = blocked_outputs_messaging
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -196,13 +196,13 @@ class GuardrailsResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.get_guardrail_request.GetGuardrailRequest = {}  # type: ignore[typeddict-item]
-        input["guardrail_identifier"] = guardrail_identifier
+        input_: aws_sdk_bedrock.types.get_guardrail_request.GetGuardrailRequest = {}  # type: ignore[typeddict-item]
+        input_["guardrail_identifier"] = guardrail_identifier
         if guardrail_version is not None:
-            input["guardrail_version"] = guardrail_version
+            input_["guardrail_version"] = guardrail_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -275,38 +275,38 @@ class GuardrailsResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.update_guardrail_request.UpdateGuardrailRequest = {}  # type: ignore[typeddict-item]
-        input["guardrail_identifier"] = guardrail_identifier
-        input["name"] = name
+        input_: aws_sdk_bedrock.types.update_guardrail_request.UpdateGuardrailRequest = {}  # type: ignore[typeddict-item]
+        input_["guardrail_identifier"] = guardrail_identifier
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if topic_policy_config is not None:
-            input["topic_policy_config"] = topic_policy_config
+            input_["topic_policy_config"] = topic_policy_config
         if content_policy_config is not None:
-            input["content_policy_config"] = content_policy_config
+            input_["content_policy_config"] = content_policy_config
         if word_policy_config is not None:
-            input["word_policy_config"] = word_policy_config
+            input_["word_policy_config"] = word_policy_config
         if sensitive_information_policy_config is not None:
-            input["sensitive_information_policy_config"] = (
+            input_["sensitive_information_policy_config"] = (
                 sensitive_information_policy_config
             )
         if contextual_grounding_policy_config is not None:
-            input["contextual_grounding_policy_config"] = (
+            input_["contextual_grounding_policy_config"] = (
                 contextual_grounding_policy_config
             )
         if automated_reasoning_policy_config is not None:
-            input["automated_reasoning_policy_config"] = (
+            input_["automated_reasoning_policy_config"] = (
                 automated_reasoning_policy_config
             )
         if cross_region_config is not None:
-            input["cross_region_config"] = cross_region_config
-        input["blocked_input_messaging"] = blocked_input_messaging
-        input["blocked_outputs_messaging"] = blocked_outputs_messaging
+            input_["cross_region_config"] = cross_region_config
+        input_["blocked_input_messaging"] = blocked_input_messaging
+        input_["blocked_outputs_messaging"] = blocked_outputs_messaging
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -343,13 +343,13 @@ class GuardrailsResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.delete_guardrail_request.DeleteGuardrailRequest = {}  # type: ignore[typeddict-item]
-        input["guardrail_identifier"] = guardrail_identifier
+        input_: aws_sdk_bedrock.types.delete_guardrail_request.DeleteGuardrailRequest = {}  # type: ignore[typeddict-item]
+        input_["guardrail_identifier"] = guardrail_identifier
         if guardrail_version is not None:
-            input["guardrail_version"] = guardrail_version
+            input_["guardrail_version"] = guardrail_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -390,16 +390,16 @@ class GuardrailsResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.list_guardrails_request.ListGuardrailsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock.types.list_guardrails_request.ListGuardrailsRequest = {}  # type: ignore[typeddict-item]
         if guardrail_identifier is not None:
-            input["guardrail_identifier"] = guardrail_identifier
+            input_["guardrail_identifier"] = guardrail_identifier
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -440,15 +440,15 @@ class GuardrailsResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.create_guardrail_version_request.CreateGuardrailVersionRequest = {}  # type: ignore[typeddict-item]
-        input["guardrail_identifier"] = guardrail_identifier
+        input_: aws_sdk_bedrock.types.create_guardrail_version_request.CreateGuardrailVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["guardrail_identifier"] = guardrail_identifier
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -531,41 +531,41 @@ class AsyncGuardrailsResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.create_guardrail_request.CreateGuardrailRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_bedrock.types.create_guardrail_request.CreateGuardrailRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if topic_policy_config is not None:
-            input["topic_policy_config"] = topic_policy_config
+            input_["topic_policy_config"] = topic_policy_config
         if content_policy_config is not None:
-            input["content_policy_config"] = content_policy_config
+            input_["content_policy_config"] = content_policy_config
         if word_policy_config is not None:
-            input["word_policy_config"] = word_policy_config
+            input_["word_policy_config"] = word_policy_config
         if sensitive_information_policy_config is not None:
-            input["sensitive_information_policy_config"] = (
+            input_["sensitive_information_policy_config"] = (
                 sensitive_information_policy_config
             )
         if contextual_grounding_policy_config is not None:
-            input["contextual_grounding_policy_config"] = (
+            input_["contextual_grounding_policy_config"] = (
                 contextual_grounding_policy_config
             )
         if automated_reasoning_policy_config is not None:
-            input["automated_reasoning_policy_config"] = (
+            input_["automated_reasoning_policy_config"] = (
                 automated_reasoning_policy_config
             )
         if cross_region_config is not None:
-            input["cross_region_config"] = cross_region_config
-        input["blocked_input_messaging"] = blocked_input_messaging
-        input["blocked_outputs_messaging"] = blocked_outputs_messaging
+            input_["cross_region_config"] = cross_region_config
+        input_["blocked_input_messaging"] = blocked_input_messaging
+        input_["blocked_outputs_messaging"] = blocked_outputs_messaging
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -603,13 +603,13 @@ class AsyncGuardrailsResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.get_guardrail_request.GetGuardrailRequest = {}  # type: ignore[typeddict-item]
-        input["guardrail_identifier"] = guardrail_identifier
+        input_: aws_sdk_bedrock.types.get_guardrail_request.GetGuardrailRequest = {}  # type: ignore[typeddict-item]
+        input_["guardrail_identifier"] = guardrail_identifier
         if guardrail_version is not None:
-            input["guardrail_version"] = guardrail_version
+            input_["guardrail_version"] = guardrail_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -683,38 +683,38 @@ class AsyncGuardrailsResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.update_guardrail_request.UpdateGuardrailRequest = {}  # type: ignore[typeddict-item]
-        input["guardrail_identifier"] = guardrail_identifier
-        input["name"] = name
+        input_: aws_sdk_bedrock.types.update_guardrail_request.UpdateGuardrailRequest = {}  # type: ignore[typeddict-item]
+        input_["guardrail_identifier"] = guardrail_identifier
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if topic_policy_config is not None:
-            input["topic_policy_config"] = topic_policy_config
+            input_["topic_policy_config"] = topic_policy_config
         if content_policy_config is not None:
-            input["content_policy_config"] = content_policy_config
+            input_["content_policy_config"] = content_policy_config
         if word_policy_config is not None:
-            input["word_policy_config"] = word_policy_config
+            input_["word_policy_config"] = word_policy_config
         if sensitive_information_policy_config is not None:
-            input["sensitive_information_policy_config"] = (
+            input_["sensitive_information_policy_config"] = (
                 sensitive_information_policy_config
             )
         if contextual_grounding_policy_config is not None:
-            input["contextual_grounding_policy_config"] = (
+            input_["contextual_grounding_policy_config"] = (
                 contextual_grounding_policy_config
             )
         if automated_reasoning_policy_config is not None:
-            input["automated_reasoning_policy_config"] = (
+            input_["automated_reasoning_policy_config"] = (
                 automated_reasoning_policy_config
             )
         if cross_region_config is not None:
-            input["cross_region_config"] = cross_region_config
-        input["blocked_input_messaging"] = blocked_input_messaging
-        input["blocked_outputs_messaging"] = blocked_outputs_messaging
+            input_["cross_region_config"] = cross_region_config
+        input_["blocked_input_messaging"] = blocked_input_messaging
+        input_["blocked_outputs_messaging"] = blocked_outputs_messaging
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -752,13 +752,13 @@ class AsyncGuardrailsResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.delete_guardrail_request.DeleteGuardrailRequest = {}  # type: ignore[typeddict-item]
-        input["guardrail_identifier"] = guardrail_identifier
+        input_: aws_sdk_bedrock.types.delete_guardrail_request.DeleteGuardrailRequest = {}  # type: ignore[typeddict-item]
+        input_["guardrail_identifier"] = guardrail_identifier
         if guardrail_version is not None:
-            input["guardrail_version"] = guardrail_version
+            input_["guardrail_version"] = guardrail_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -800,16 +800,16 @@ class AsyncGuardrailsResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.list_guardrails_request.ListGuardrailsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock.types.list_guardrails_request.ListGuardrailsRequest = {}  # type: ignore[typeddict-item]
         if guardrail_identifier is not None:
-            input["guardrail_identifier"] = guardrail_identifier
+            input_["guardrail_identifier"] = guardrail_identifier
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -851,15 +851,15 @@ class AsyncGuardrailsResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.create_guardrail_version_request.CreateGuardrailVersionRequest = {}  # type: ignore[typeddict-item]
-        input["guardrail_identifier"] = guardrail_identifier
+        input_: aws_sdk_bedrock.types.create_guardrail_version_request.CreateGuardrailVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["guardrail_identifier"] = guardrail_identifier
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

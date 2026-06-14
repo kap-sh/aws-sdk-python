@@ -207,6 +207,7 @@ class AsyncDevOpsAgentClient:
                 "credentials_provider": credentials_provider,
             }
         )
+
         # resources
         self.agent_space_resource = AsyncAgentSpaceResource(self)
         self.private_connection_resource = AsyncPrivateConnectionResource(self)

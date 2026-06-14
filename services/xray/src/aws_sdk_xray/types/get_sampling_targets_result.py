@@ -16,15 +16,15 @@ class GetSamplingTargetsResult(TypedDict):
     ]
     """<p>Updated rules that the service should use to sample requests.</p>"""
     last_rule_modification: NotRequired["aws_sdk_xray.types.timestamp.Timestamp"]
-    """<p>The last time a user changed the sampling rule configuration. If the sampling rule configuration changed since the service last retrieved it, the service should call <a href=\"https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingRules.html\">GetSamplingRules</a> to get the latest version.</p>"""
+    r"""<p>The last time a user changed the sampling rule configuration. If the sampling rule configuration changed since the service last retrieved it, the service should call <a href=\"https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingRules.html\">GetSamplingRules</a> to get the latest version.</p>"""
     unprocessed_statistics: NotRequired[
         "aws_sdk_xray.types.unprocessed_statistics_list.UnprocessedStatisticsList"
     ]
-    """<p>Information about <a href=\"https://docs.aws.amazon.com/xray/latest/api/API_SamplingStatisticsDocument.html\">SamplingStatisticsDocument</a> that X-Ray could not process.</p>"""
+    r"""<p>Information about <a href=\"https://docs.aws.amazon.com/xray/latest/api/API_SamplingStatisticsDocument.html\">SamplingStatisticsDocument</a> that X-Ray could not process.</p>"""
     unprocessed_boost_statistics: NotRequired[
         "aws_sdk_xray.types.unprocessed_statistics_list.UnprocessedStatisticsList"
     ]
-    """<p>Information about <a href=\"https://docs.aws.amazon.com/xray/latest/api/API_SamplingBoostStatisticsDocument.html\">SamplingBoostStatisticsDocument</a> that X-Ray could not process.</p>"""
+    r"""<p>Information about <a href=\"https://docs.aws.amazon.com/xray/latest/api/API_SamplingBoostStatisticsDocument.html\">SamplingBoostStatisticsDocument</a> that X-Ray could not process.</p>"""
 
 
 # --- restJson1 ser/de ---

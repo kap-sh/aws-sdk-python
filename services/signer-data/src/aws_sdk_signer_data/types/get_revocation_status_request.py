@@ -1,11 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.signerdata#GetRevocationStatusRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 if TYPE_CHECKING:
+    import datetime
+
     import aws_sdk_signer_data.types.arn
     import aws_sdk_signer_data.types.certificate_hashes
     import aws_sdk_signer_data.types.platform_id
-    import datetime
+
 
 class GetRevocationStatusRequest(TypedDict):
     signature_timestamp: "datetime.datetime"
@@ -18,6 +21,7 @@ class GetRevocationStatusRequest(TypedDict):
     """<p>The ARN of the signing job that produced the signature.</p>"""
     certificate_hashes: "aws_sdk_signer_data.types.certificate_hashes.CertificateHashes"
     """<p>List of certificate hashes to check for revocation.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: GetRevocationStatusRequest) -> dict:

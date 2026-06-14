@@ -112,6 +112,7 @@ class AsyncConnectCasesClient:
                 "credentials_provider": credentials_provider,
             }
         )
+
         # resources
         self.case = AsyncCase(self)
         self.case_rule = AsyncCaseRule(self)

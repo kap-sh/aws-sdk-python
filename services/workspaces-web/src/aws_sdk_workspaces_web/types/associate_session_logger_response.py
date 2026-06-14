@@ -1,15 +1,19 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesweb#AssociateSessionLoggerResponse``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_workspaces_web.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_workspaces_web.types.arn
+
 
 class AssociateSessionLoggerResponse(TypedDict):
     portal_arn: "aws_sdk_workspaces_web.types.arn.ARN"
     """<p>The ARN of the portal.</p>"""
     session_logger_arn: "aws_sdk_workspaces_web.types.arn.ARN"
     """<p>The ARN of the session logger.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: AssociateSessionLoggerResponse) -> dict:
@@ -28,5 +32,7 @@ def deserialize_json(data: dict) -> AssociateSessionLoggerResponse:
     if "sessionLoggerArn" in data:
         out["session_logger_arn"] = data["sessionLoggerArn"]
     else:
-        raise DeserializationError("AssociateSessionLoggerResponse.session_logger_arn required")
+        raise DeserializationError(
+            "AssociateSessionLoggerResponse.session_logger_arn required"
+        )
     return out

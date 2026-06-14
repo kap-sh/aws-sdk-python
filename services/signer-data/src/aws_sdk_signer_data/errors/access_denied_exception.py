@@ -1,12 +1,16 @@
 """Generated from Smithy shape ``com.amazonaws.signerdata#AccessDeniedException``."""
 
 from typing import TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_signer_data.errors import ServiceError
+
 
 class AccessDeniedException_(TypedDict):
     message: NotRequired["str"]
     code: NotRequired["str"]
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: AccessDeniedException_) -> dict:
@@ -29,10 +33,16 @@ def deserialize_json(data: dict) -> AccessDeniedException_:
 
 class AccessDeniedException(ServiceError):
     """Modeled error for Smithy shape ``com.amazonaws.signerdata#AccessDeniedException``."""
-    code: str | None = 'AccessDeniedException'
+
+    code: str | None = "AccessDeniedException"
 
     def __init__(self, data: AccessDeniedException_):
-        super().__init__('client', is_throttling_error=False, is_retryable=False, code='AccessDeniedException')
+        super().__init__(
+            "client",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="AccessDeniedException",
+        )
         self.data = data
 
     @classmethod

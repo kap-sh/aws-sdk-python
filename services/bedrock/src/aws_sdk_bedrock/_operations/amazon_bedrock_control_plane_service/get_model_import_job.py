@@ -94,7 +94,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.get_model_import_job_request.GetModelImportJobRequest,
+    input_: aws_sdk_bedrock.types.get_model_import_job_request.GetModelImportJobRequest,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -105,7 +105,7 @@ def build_request(
         )
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/model-import-jobs/{jobIdentifier}"
-    url = url.replace("{jobIdentifier}", quote(str(input["job_identifier"]), safe=""))
+    url = url.replace("{jobIdentifier}", quote(str(input_["job_identifier"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
@@ -119,12 +119,12 @@ def build_request(
 
 def get_model_import_job(
     options: OperationOptions,
-    input: aws_sdk_bedrock.types.get_model_import_job_request.GetModelImportJobRequest,
+    input_: aws_sdk_bedrock.types.get_model_import_job_request.GetModelImportJobRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.get_model_import_job_response.GetModelImportJobResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -138,12 +138,12 @@ def get_model_import_job(
 
 async def async_get_model_import_job(
     options: AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.get_model_import_job_request.GetModelImportJobRequest,
+    input_: aws_sdk_bedrock.types.get_model_import_job_request.GetModelImportJobRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.get_model_import_job_response.GetModelImportJobResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

@@ -100,7 +100,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.register_marketplace_model_endpoint_request.RegisterMarketplaceModelEndpointRequest,
+    input_: aws_sdk_bedrock.types.register_marketplace_model_endpoint_request.RegisterMarketplaceModelEndpointRequest,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -115,7 +115,7 @@ def build_request(
         + "/marketplace-model/endpoints/{endpointIdentifier}/registration"
     )
     url = url.replace(
-        "{endpointIdentifier}", quote(str(input["endpoint_identifier"]), safe="")
+        "{endpointIdentifier}", quote(str(input_["endpoint_identifier"]), safe="")
     )
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
@@ -123,7 +123,7 @@ def build_request(
 
     body: bytes | None = json.dumps(
         aws_sdk_bedrock.types.register_marketplace_model_endpoint_request.serialize_json(
-            input
+            input_
         )
     ).encode()
     headers["content-type"] = "application/json"
@@ -137,12 +137,12 @@ def build_request(
 
 def register_marketplace_model_endpoint(
     options: OperationOptions,
-    input: aws_sdk_bedrock.types.register_marketplace_model_endpoint_request.RegisterMarketplaceModelEndpointRequest,
+    input_: aws_sdk_bedrock.types.register_marketplace_model_endpoint_request.RegisterMarketplaceModelEndpointRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.register_marketplace_model_endpoint_response.RegisterMarketplaceModelEndpointResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -156,12 +156,12 @@ def register_marketplace_model_endpoint(
 
 async def async_register_marketplace_model_endpoint(
     options: AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.register_marketplace_model_endpoint_request.RegisterMarketplaceModelEndpointRequest,
+    input_: aws_sdk_bedrock.types.register_marketplace_model_endpoint_request.RegisterMarketplaceModelEndpointRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.register_marketplace_model_endpoint_response.RegisterMarketplaceModelEndpointResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

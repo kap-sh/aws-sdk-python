@@ -160,6 +160,7 @@ class AsyncdrsClient:
                 "credentials_provider": credentials_provider,
             }
         )
+
         # resources
         self.account_resource = AsyncAccountResource(self)
         self.job_resource = AsyncJobResource(self)

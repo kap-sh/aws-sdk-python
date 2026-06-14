@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import AsyncBaseHandler, AsyncClient
 
+import aws_sdk_glue._auth._signers
+import aws_sdk_glue._auth._sigv4
 from aws_sdk_glue._auth._identity import Credentials
 from aws_sdk_glue._auth._providers import (
     CredentialsProvider,
@@ -872,7 +874,7 @@ class AsyncGlueClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = AsyncGlueClientConfig(
+        self._config = AsyncGlueClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -892,7 +894,7 @@ class AsyncGlueClient:
         overrides: AsyncGlueClientConfig = config_overrides or {}
         interceptors_: list[AsyncInterceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             aretry(),
         ]
@@ -900,16 +902,16 @@ class AsyncGlueClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            region=overrides.get("region", self.config.get("region")),
+            region=overrides.get("region", self._config.get("region")),
             use_dual_stack=overrides.get(
-                "use_dual_stack", self.config.get("use_dual_stack")
+                "use_dual_stack", self._config.get("use_dual_stack")
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -950,15 +952,15 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.batch_create_partition_request.BatchCreatePartitionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.batch_create_partition_request.BatchCreatePartitionRequest = {}  # type: ignore[typeddict-item]
         if catalog_id is not None:
-            input["catalog_id"] = catalog_id
-        input["database_name"] = database_name
-        input["table_name"] = table_name
-        input["partition_input_list"] = partition_input_list
+            input_["catalog_id"] = catalog_id
+        input_["database_name"] = database_name
+        input_["table_name"] = table_name
+        input_["partition_input_list"] = partition_input_list
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -996,13 +998,13 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.batch_delete_connection_request.BatchDeleteConnectionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.batch_delete_connection_request.BatchDeleteConnectionRequest = {}  # type: ignore[typeddict-item]
         if catalog_id is not None:
-            input["catalog_id"] = catalog_id
-        input["connection_name_list"] = connection_name_list
+            input_["catalog_id"] = catalog_id
+        input_["connection_name_list"] = connection_name_list
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1044,15 +1046,15 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.batch_delete_partition_request.BatchDeletePartitionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.batch_delete_partition_request.BatchDeletePartitionRequest = {}  # type: ignore[typeddict-item]
         if catalog_id is not None:
-            input["catalog_id"] = catalog_id
-        input["database_name"] = database_name
-        input["table_name"] = table_name
-        input["partitions_to_delete"] = partitions_to_delete
+            input_["catalog_id"] = catalog_id
+        input_["database_name"] = database_name
+        input_["table_name"] = table_name
+        input_["partitions_to_delete"] = partitions_to_delete
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1096,16 +1098,16 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.batch_delete_table_request.BatchDeleteTableRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.batch_delete_table_request.BatchDeleteTableRequest = {}  # type: ignore[typeddict-item]
         if catalog_id is not None:
-            input["catalog_id"] = catalog_id
-        input["database_name"] = database_name
-        input["tables_to_delete"] = tables_to_delete
+            input_["catalog_id"] = catalog_id
+        input_["database_name"] = database_name
+        input_["tables_to_delete"] = tables_to_delete
         if transaction_id is not None:
-            input["transaction_id"] = transaction_id
+            input_["transaction_id"] = transaction_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1147,15 +1149,15 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.batch_delete_table_version_request.BatchDeleteTableVersionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.batch_delete_table_version_request.BatchDeleteTableVersionRequest = {}  # type: ignore[typeddict-item]
         if catalog_id is not None:
-            input["catalog_id"] = catalog_id
-        input["database_name"] = database_name
-        input["table_name"] = table_name
-        input["version_ids"] = version_ids
+            input_["catalog_id"] = catalog_id
+        input_["database_name"] = database_name
+        input_["table_name"] = table_name
+        input_["version_ids"] = version_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1197,15 +1199,15 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.batch_get_blueprints_request.BatchGetBlueprintsRequest = {}  # type: ignore[typeddict-item]
-        input["names"] = names
+        input_: aws_sdk_glue.types.batch_get_blueprints_request.BatchGetBlueprintsRequest = {}  # type: ignore[typeddict-item]
+        input_["names"] = names
         if include_blueprint is not None:
-            input["include_blueprint"] = include_blueprint
+            input_["include_blueprint"] = include_blueprint
         if include_parameter_spec is not None:
-            input["include_parameter_spec"] = include_parameter_spec
+            input_["include_parameter_spec"] = include_parameter_spec
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1239,11 +1241,11 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.batch_get_crawlers_request.BatchGetCrawlersRequest = {}  # type: ignore[typeddict-item]
-        input["crawler_names"] = crawler_names
+        input_: aws_sdk_glue.types.batch_get_crawlers_request.BatchGetCrawlersRequest = {}  # type: ignore[typeddict-item]
+        input_["crawler_names"] = crawler_names
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1277,11 +1279,11 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.batch_get_custom_entity_types_request.BatchGetCustomEntityTypesRequest = {}  # type: ignore[typeddict-item]
-        input["names"] = names
+        input_: aws_sdk_glue.types.batch_get_custom_entity_types_request.BatchGetCustomEntityTypesRequest = {}  # type: ignore[typeddict-item]
+        input_["names"] = names
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1315,11 +1317,11 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.batch_get_data_quality_result_request.BatchGetDataQualityResultRequest = {}  # type: ignore[typeddict-item]
-        input["result_ids"] = result_ids
+        input_: aws_sdk_glue.types.batch_get_data_quality_result_request.BatchGetDataQualityResultRequest = {}  # type: ignore[typeddict-item]
+        input_["result_ids"] = result_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1353,11 +1355,11 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.batch_get_dev_endpoints_request.BatchGetDevEndpointsRequest = {}  # type: ignore[typeddict-item]
-        input["dev_endpoint_names"] = dev_endpoint_names
+        input_: aws_sdk_glue.types.batch_get_dev_endpoints_request.BatchGetDevEndpointsRequest = {}  # type: ignore[typeddict-item]
+        input_["dev_endpoint_names"] = dev_endpoint_names
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1391,11 +1393,11 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.batch_get_jobs_request.BatchGetJobsRequest = {}  # type: ignore[typeddict-item]
-        input["job_names"] = job_names
+        input_: aws_sdk_glue.types.batch_get_jobs_request.BatchGetJobsRequest = {}  # type: ignore[typeddict-item]
+        input_["job_names"] = job_names
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1441,19 +1443,19 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.batch_get_partition_request.BatchGetPartitionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.batch_get_partition_request.BatchGetPartitionRequest = {}  # type: ignore[typeddict-item]
         if catalog_id is not None:
-            input["catalog_id"] = catalog_id
-        input["database_name"] = database_name
-        input["table_name"] = table_name
-        input["partitions_to_get"] = partitions_to_get
+            input_["catalog_id"] = catalog_id
+        input_["database_name"] = database_name
+        input_["table_name"] = table_name
+        input_["partitions_to_get"] = partitions_to_get
         if audit_context is not None:
-            input["audit_context"] = audit_context
+            input_["audit_context"] = audit_context
         if query_session_context is not None:
-            input["query_session_context"] = query_session_context
+            input_["query_session_context"] = query_session_context
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1487,11 +1489,11 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.batch_get_table_optimizer_request.BatchGetTableOptimizerRequest = {}  # type: ignore[typeddict-item]
-        input["entries"] = entries
+        input_: aws_sdk_glue.types.batch_get_table_optimizer_request.BatchGetTableOptimizerRequest = {}  # type: ignore[typeddict-item]
+        input_["entries"] = entries
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1525,11 +1527,11 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.batch_get_triggers_request.BatchGetTriggersRequest = {}  # type: ignore[typeddict-item]
-        input["trigger_names"] = trigger_names
+        input_: aws_sdk_glue.types.batch_get_triggers_request.BatchGetTriggersRequest = {}  # type: ignore[typeddict-item]
+        input_["trigger_names"] = trigger_names
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1567,13 +1569,13 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.batch_get_workflows_request.BatchGetWorkflowsRequest = {}  # type: ignore[typeddict-item]
-        input["names"] = names
+        input_: aws_sdk_glue.types.batch_get_workflows_request.BatchGetWorkflowsRequest = {}  # type: ignore[typeddict-item]
+        input_["names"] = names
         if include_graph is not None:
-            input["include_graph"] = include_graph
+            input_["include_graph"] = include_graph
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1609,13 +1611,13 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.batch_put_data_quality_statistic_annotation_request.BatchPutDataQualityStatisticAnnotationRequest = {}  # type: ignore[typeddict-item]
-        input["inclusion_annotations"] = inclusion_annotations
+        input_: aws_sdk_glue.types.batch_put_data_quality_statistic_annotation_request.BatchPutDataQualityStatisticAnnotationRequest = {}  # type: ignore[typeddict-item]
+        input_["inclusion_annotations"] = inclusion_annotations
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1651,12 +1653,12 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.batch_stop_job_run_request.BatchStopJobRunRequest = {}  # type: ignore[typeddict-item]
-        input["job_name"] = job_name
-        input["job_run_ids"] = job_run_ids
+        input_: aws_sdk_glue.types.batch_stop_job_run_request.BatchStopJobRunRequest = {}  # type: ignore[typeddict-item]
+        input_["job_name"] = job_name
+        input_["job_run_ids"] = job_run_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1698,15 +1700,15 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.batch_update_partition_request.BatchUpdatePartitionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.batch_update_partition_request.BatchUpdatePartitionRequest = {}  # type: ignore[typeddict-item]
         if catalog_id is not None:
-            input["catalog_id"] = catalog_id
-        input["database_name"] = database_name
-        input["table_name"] = table_name
-        input["entries"] = entries
+            input_["catalog_id"] = catalog_id
+        input_["database_name"] = database_name
+        input_["table_name"] = table_name
+        input_["entries"] = entries
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1740,11 +1742,11 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.cancel_data_quality_rule_recommendation_run_request.CancelDataQualityRuleRecommendationRunRequest = {}  # type: ignore[typeddict-item]
-        input["run_id"] = run_id
+        input_: aws_sdk_glue.types.cancel_data_quality_rule_recommendation_run_request.CancelDataQualityRuleRecommendationRunRequest = {}  # type: ignore[typeddict-item]
+        input_["run_id"] = run_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1778,11 +1780,11 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.cancel_data_quality_ruleset_evaluation_run_request.CancelDataQualityRulesetEvaluationRunRequest = {}  # type: ignore[typeddict-item]
-        input["run_id"] = run_id
+        input_: aws_sdk_glue.types.cancel_data_quality_ruleset_evaluation_run_request.CancelDataQualityRulesetEvaluationRunRequest = {}  # type: ignore[typeddict-item]
+        input_["run_id"] = run_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1818,12 +1820,12 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.cancel_ml_task_run_request.CancelMLTaskRunRequest = {}  # type: ignore[typeddict-item]
-        input["transform_id"] = transform_id
-        input["task_run_id"] = task_run_id
+        input_: aws_sdk_glue.types.cancel_ml_task_run_request.CancelMLTaskRunRequest = {}  # type: ignore[typeddict-item]
+        input_["transform_id"] = transform_id
+        input_["task_run_id"] = task_run_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1863,14 +1865,14 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.cancel_statement_request.CancelStatementRequest = {}  # type: ignore[typeddict-item]
-        input["session_id"] = session_id
-        input["id"] = id
+        input_: aws_sdk_glue.types.cancel_statement_request.CancelStatementRequest = {}  # type: ignore[typeddict-item]
+        input_["session_id"] = session_id
+        input_["id"] = id
         if request_origin is not None:
-            input["request_origin"] = request_origin
+            input_["request_origin"] = request_origin
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1906,12 +1908,12 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.check_schema_version_validity_input.CheckSchemaVersionValidityInput = {}  # type: ignore[typeddict-item]
-        input["data_format"] = data_format
-        input["schema_definition"] = schema_definition
+        input_: aws_sdk_glue.types.check_schema_version_validity_input.CheckSchemaVersionValidityInput = {}  # type: ignore[typeddict-item]
+        input_["data_format"] = data_format
+        input_["schema_definition"] = schema_definition
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1953,16 +1955,16 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.create_blueprint_request.CreateBlueprintRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_glue.types.create_blueprint_request.CreateBlueprintRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["blueprint_location"] = blueprint_location
+            input_["description"] = description
+        input_["blueprint_location"] = blueprint_location
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2000,14 +2002,14 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.create_catalog_request.CreateCatalogRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["catalog_input"] = catalog_input
+        input_: aws_sdk_glue.types.create_catalog_request.CreateCatalogRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["catalog_input"] = catalog_input
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2055,18 +2057,18 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.create_classifier_request.CreateClassifierRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.create_classifier_request.CreateClassifierRequest = {}  # type: ignore[typeddict-item]
         if grok_classifier is not None:
-            input["grok_classifier"] = grok_classifier
+            input_["grok_classifier"] = grok_classifier
         if xml_classifier is not None:
-            input["xml_classifier"] = xml_classifier
+            input_["xml_classifier"] = xml_classifier
         if json_classifier is not None:
-            input["json_classifier"] = json_classifier
+            input_["json_classifier"] = json_classifier
         if csv_classifier is not None:
-            input["csv_classifier"] = csv_classifier
+            input_["csv_classifier"] = csv_classifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2122,25 +2124,25 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.create_column_statistics_task_settings_request.CreateColumnStatisticsTaskSettingsRequest = {}  # type: ignore[typeddict-item]
-        input["database_name"] = database_name
-        input["table_name"] = table_name
-        input["role"] = role
+        input_: aws_sdk_glue.types.create_column_statistics_task_settings_request.CreateColumnStatisticsTaskSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_["database_name"] = database_name
+        input_["table_name"] = table_name
+        input_["role"] = role
         if schedule is not None:
-            input["schedule"] = schedule
+            input_["schedule"] = schedule
         if column_name_list is not None:
-            input["column_name_list"] = column_name_list
+            input_["column_name_list"] = column_name_list
         if sample_size is not None:
-            input["sample_size"] = sample_size
+            input_["sample_size"] = sample_size
         if catalog_id is not None:
-            input["catalog_id"] = catalog_id
+            input_["catalog_id"] = catalog_id
         if security_configuration is not None:
-            input["security_configuration"] = security_configuration
+            input_["security_configuration"] = security_configuration
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2180,15 +2182,15 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.create_connection_request.CreateConnectionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.create_connection_request.CreateConnectionRequest = {}  # type: ignore[typeddict-item]
         if catalog_id is not None:
-            input["catalog_id"] = catalog_id
-        input["connection_input"] = connection_input
+            input_["catalog_id"] = catalog_id
+        input_["connection_input"] = connection_input
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2266,37 +2268,37 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.create_crawler_request.CreateCrawlerRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["role"] = role
+        input_: aws_sdk_glue.types.create_crawler_request.CreateCrawlerRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["role"] = role
         if database_name is not None:
-            input["database_name"] = database_name
+            input_["database_name"] = database_name
         if description is not None:
-            input["description"] = description
-        input["targets"] = targets
+            input_["description"] = description
+        input_["targets"] = targets
         if schedule is not None:
-            input["schedule"] = schedule
+            input_["schedule"] = schedule
         if classifiers is not None:
-            input["classifiers"] = classifiers
+            input_["classifiers"] = classifiers
         if table_prefix is not None:
-            input["table_prefix"] = table_prefix
+            input_["table_prefix"] = table_prefix
         if schema_change_policy is not None:
-            input["schema_change_policy"] = schema_change_policy
+            input_["schema_change_policy"] = schema_change_policy
         if recrawl_policy is not None:
-            input["recrawl_policy"] = recrawl_policy
+            input_["recrawl_policy"] = recrawl_policy
         if lineage_configuration is not None:
-            input["lineage_configuration"] = lineage_configuration
+            input_["lineage_configuration"] = lineage_configuration
         if lake_formation_configuration is not None:
-            input["lake_formation_configuration"] = lake_formation_configuration
+            input_["lake_formation_configuration"] = lake_formation_configuration
         if configuration is not None:
-            input["configuration"] = configuration
+            input_["configuration"] = configuration
         if crawler_security_configuration is not None:
-            input["crawler_security_configuration"] = crawler_security_configuration
+            input_["crawler_security_configuration"] = crawler_security_configuration
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2336,16 +2338,16 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.create_custom_entity_type_request.CreateCustomEntityTypeRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["regex_string"] = regex_string
+        input_: aws_sdk_glue.types.create_custom_entity_type_request.CreateCustomEntityTypeRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["regex_string"] = regex_string
         if context_words is not None:
-            input["context_words"] = context_words
+            input_["context_words"] = context_words
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2385,15 +2387,15 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.create_database_request.CreateDatabaseRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.create_database_request.CreateDatabaseRequest = {}  # type: ignore[typeddict-item]
         if catalog_id is not None:
-            input["catalog_id"] = catalog_id
-        input["database_input"] = database_input
+            input_["catalog_id"] = catalog_id
+        input_["database_input"] = database_input
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2445,24 +2447,24 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.create_data_quality_ruleset_request.CreateDataQualityRulesetRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_glue.types.create_data_quality_ruleset_request.CreateDataQualityRulesetRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["ruleset"] = ruleset
+            input_["description"] = description
+        input_["ruleset"] = ruleset
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if target_table is not None:
-            input["target_table"] = target_table
+            input_["target_table"] = target_table
         if data_quality_security_configuration is not None:
-            input["data_quality_security_configuration"] = (
+            input_["data_quality_security_configuration"] = (
                 data_quality_security_configuration
             )
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2540,38 +2542,38 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.create_dev_endpoint_request.CreateDevEndpointRequest = {}  # type: ignore[typeddict-item]
-        input["endpoint_name"] = endpoint_name
-        input["role_arn"] = role_arn
+        input_: aws_sdk_glue.types.create_dev_endpoint_request.CreateDevEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_["endpoint_name"] = endpoint_name
+        input_["role_arn"] = role_arn
         if security_group_ids is not None:
-            input["security_group_ids"] = security_group_ids
+            input_["security_group_ids"] = security_group_ids
         if subnet_id is not None:
-            input["subnet_id"] = subnet_id
+            input_["subnet_id"] = subnet_id
         if public_key is not None:
-            input["public_key"] = public_key
+            input_["public_key"] = public_key
         if public_keys is not None:
-            input["public_keys"] = public_keys
+            input_["public_keys"] = public_keys
         if number_of_nodes is not None:
-            input["number_of_nodes"] = number_of_nodes
+            input_["number_of_nodes"] = number_of_nodes
         if worker_type is not None:
-            input["worker_type"] = worker_type
+            input_["worker_type"] = worker_type
         if glue_version is not None:
-            input["glue_version"] = glue_version
+            input_["glue_version"] = glue_version
         if number_of_workers is not None:
-            input["number_of_workers"] = number_of_workers
+            input_["number_of_workers"] = number_of_workers
         if extra_python_libs_s3_path is not None:
-            input["extra_python_libs_s3_path"] = extra_python_libs_s3_path
+            input_["extra_python_libs_s3_path"] = extra_python_libs_s3_path
         if extra_jars_s3_path is not None:
-            input["extra_jars_s3_path"] = extra_jars_s3_path
+            input_["extra_jars_s3_path"] = extra_jars_s3_path
         if security_configuration is not None:
-            input["security_configuration"] = security_configuration
+            input_["security_configuration"] = security_configuration
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if arguments is not None:
-            input["arguments"] = arguments
+            input_["arguments"] = arguments
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2613,15 +2615,17 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.create_glue_identity_center_configuration_request.CreateGlueIdentityCenterConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["instance_arn"] = instance_arn
+        input_: aws_sdk_glue.types.create_glue_identity_center_configuration_request.CreateGlueIdentityCenterConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_arn"] = instance_arn
         if scopes is not None:
-            input["scopes"] = scopes
+            input_["scopes"] = scopes
         if user_background_sessions_enabled is not None:
-            input["user_background_sessions_enabled"] = user_background_sessions_enabled
+            input_["user_background_sessions_enabled"] = (
+                user_background_sessions_enabled
+            )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2679,25 +2683,25 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.create_integration_request.CreateIntegrationRequest = {}  # type: ignore[typeddict-item]
-        input["integration_name"] = integration_name
-        input["source_arn"] = source_arn
-        input["target_arn"] = target_arn
+        input_: aws_sdk_glue.types.create_integration_request.CreateIntegrationRequest = {}  # type: ignore[typeddict-item]
+        input_["integration_name"] = integration_name
+        input_["source_arn"] = source_arn
+        input_["target_arn"] = target_arn
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if data_filter is not None:
-            input["data_filter"] = data_filter
+            input_["data_filter"] = data_filter
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if additional_encryption_context is not None:
-            input["additional_encryption_context"] = additional_encryption_context
+            input_["additional_encryption_context"] = additional_encryption_context
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if integration_config is not None:
-            input["integration_config"] = integration_config
+            input_["integration_config"] = integration_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2743,17 +2747,17 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.create_integration_resource_property_request.CreateIntegrationResourcePropertyRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_glue.types.create_integration_resource_property_request.CreateIntegrationResourcePropertyRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
         if source_processing_properties is not None:
-            input["source_processing_properties"] = source_processing_properties
+            input_["source_processing_properties"] = source_processing_properties
         if target_processing_properties is not None:
-            input["target_processing_properties"] = target_processing_properties
+            input_["target_processing_properties"] = target_processing_properties
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2797,16 +2801,16 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.create_integration_table_properties_request.CreateIntegrationTablePropertiesRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["table_name"] = table_name
+        input_: aws_sdk_glue.types.create_integration_table_properties_request.CreateIntegrationTablePropertiesRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["table_name"] = table_name
         if source_table_config is not None:
-            input["source_table_config"] = source_table_config
+            input_["source_table_config"] = source_table_config
         if target_table_config is not None:
-            input["target_table_config"] = target_table_config
+            input_["target_table_config"] = target_table_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2918,57 +2922,57 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.create_job_request.CreateJobRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_glue.types.create_job_request.CreateJobRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if job_mode is not None:
-            input["job_mode"] = job_mode
+            input_["job_mode"] = job_mode
         if job_run_queuing_enabled is not None:
-            input["job_run_queuing_enabled"] = job_run_queuing_enabled
+            input_["job_run_queuing_enabled"] = job_run_queuing_enabled
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if log_uri is not None:
-            input["log_uri"] = log_uri
-        input["role"] = role
+            input_["log_uri"] = log_uri
+        input_["role"] = role
         if execution_property is not None:
-            input["execution_property"] = execution_property
-        input["command"] = command
+            input_["execution_property"] = execution_property
+        input_["command"] = command
         if default_arguments is not None:
-            input["default_arguments"] = default_arguments
+            input_["default_arguments"] = default_arguments
         if non_overridable_arguments is not None:
-            input["non_overridable_arguments"] = non_overridable_arguments
+            input_["non_overridable_arguments"] = non_overridable_arguments
         if connections is not None:
-            input["connections"] = connections
+            input_["connections"] = connections
         if max_retries is not None:
-            input["max_retries"] = max_retries
+            input_["max_retries"] = max_retries
         if allocated_capacity is not None:
-            input["allocated_capacity"] = allocated_capacity
+            input_["allocated_capacity"] = allocated_capacity
         if timeout is not None:
-            input["timeout"] = timeout
+            input_["timeout"] = timeout
         if max_capacity is not None:
-            input["max_capacity"] = max_capacity
+            input_["max_capacity"] = max_capacity
         if security_configuration is not None:
-            input["security_configuration"] = security_configuration
+            input_["security_configuration"] = security_configuration
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if notification_property is not None:
-            input["notification_property"] = notification_property
+            input_["notification_property"] = notification_property
         if glue_version is not None:
-            input["glue_version"] = glue_version
+            input_["glue_version"] = glue_version
         if number_of_workers is not None:
-            input["number_of_workers"] = number_of_workers
+            input_["number_of_workers"] = number_of_workers
         if worker_type is not None:
-            input["worker_type"] = worker_type
+            input_["worker_type"] = worker_type
         if code_gen_configuration_nodes is not None:
-            input["code_gen_configuration_nodes"] = code_gen_configuration_nodes
+            input_["code_gen_configuration_nodes"] = code_gen_configuration_nodes
         if execution_class is not None:
-            input["execution_class"] = execution_class
+            input_["execution_class"] = execution_class
         if source_control_details is not None:
-            input["source_control_details"] = source_control_details
+            input_["source_control_details"] = source_control_details
         if maintenance_window is not None:
-            input["maintenance_window"] = maintenance_window
+            input_["maintenance_window"] = maintenance_window
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3038,32 +3042,32 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.create_ml_transform_request.CreateMLTransformRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_glue.types.create_ml_transform_request.CreateMLTransformRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["input_record_tables"] = input_record_tables
-        input["parameters"] = parameters
-        input["role"] = role
+            input_["description"] = description
+        input_["input_record_tables"] = input_record_tables
+        input_["parameters"] = parameters
+        input_["role"] = role
         if glue_version is not None:
-            input["glue_version"] = glue_version
+            input_["glue_version"] = glue_version
         if max_capacity is not None:
-            input["max_capacity"] = max_capacity
+            input_["max_capacity"] = max_capacity
         if worker_type is not None:
-            input["worker_type"] = worker_type
+            input_["worker_type"] = worker_type
         if number_of_workers is not None:
-            input["number_of_workers"] = number_of_workers
+            input_["number_of_workers"] = number_of_workers
         if timeout is not None:
-            input["timeout"] = timeout
+            input_["timeout"] = timeout
         if max_retries is not None:
-            input["max_retries"] = max_retries
+            input_["max_retries"] = max_retries
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if transform_encryption is not None:
-            input["transform_encryption"] = transform_encryption
+            input_["transform_encryption"] = transform_encryption
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3105,15 +3109,15 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.create_partition_request.CreatePartitionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.create_partition_request.CreatePartitionRequest = {}  # type: ignore[typeddict-item]
         if catalog_id is not None:
-            input["catalog_id"] = catalog_id
-        input["database_name"] = database_name
-        input["table_name"] = table_name
-        input["partition_input"] = partition_input
+            input_["catalog_id"] = catalog_id
+        input_["database_name"] = database_name
+        input_["table_name"] = table_name
+        input_["partition_input"] = partition_input
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3155,15 +3159,15 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.create_partition_index_request.CreatePartitionIndexRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.create_partition_index_request.CreatePartitionIndexRequest = {}  # type: ignore[typeddict-item]
         if catalog_id is not None:
-            input["catalog_id"] = catalog_id
-        input["database_name"] = database_name
-        input["table_name"] = table_name
-        input["partition_index"] = partition_index
+            input_["catalog_id"] = catalog_id
+        input_["database_name"] = database_name
+        input_["table_name"] = table_name
+        input_["partition_index"] = partition_index
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3203,15 +3207,15 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.create_registry_input.CreateRegistryInput = {}  # type: ignore[typeddict-item]
-        input["registry_name"] = registry_name
+        input_: aws_sdk_glue.types.create_registry_input.CreateRegistryInput = {}  # type: ignore[typeddict-item]
+        input_["registry_name"] = registry_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3263,22 +3267,22 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.create_schema_input.CreateSchemaInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.create_schema_input.CreateSchemaInput = {}  # type: ignore[typeddict-item]
         if registry_id is not None:
-            input["registry_id"] = registry_id
-        input["schema_name"] = schema_name
-        input["data_format"] = data_format
+            input_["registry_id"] = registry_id
+        input_["schema_name"] = schema_name
+        input_["data_format"] = data_format
         if compatibility is not None:
-            input["compatibility"] = compatibility
+            input_["compatibility"] = compatibility
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if schema_definition is not None:
-            input["schema_definition"] = schema_definition
+            input_["schema_definition"] = schema_definition
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3316,16 +3320,16 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.create_script_request.CreateScriptRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.create_script_request.CreateScriptRequest = {}  # type: ignore[typeddict-item]
         if dag_nodes is not None:
-            input["dag_nodes"] = dag_nodes
+            input_["dag_nodes"] = dag_nodes
         if dag_edges is not None:
-            input["dag_edges"] = dag_edges
+            input_["dag_edges"] = dag_edges
         if language is not None:
-            input["language"] = language
+            input_["language"] = language
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3361,12 +3365,12 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.create_security_configuration_request.CreateSecurityConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["encryption_configuration"] = encryption_configuration
+        input_: aws_sdk_glue.types.create_security_configuration_request.CreateSecurityConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["encryption_configuration"] = encryption_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3446,39 +3450,39 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.create_session_request.CreateSessionRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_glue.types.create_session_request.CreateSessionRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if description is not None:
-            input["description"] = description
-        input["role"] = role
-        input["command"] = command
+            input_["description"] = description
+        input_["role"] = role
+        input_["command"] = command
         if timeout is not None:
-            input["timeout"] = timeout
+            input_["timeout"] = timeout
         if idle_timeout is not None:
-            input["idle_timeout"] = idle_timeout
+            input_["idle_timeout"] = idle_timeout
         if default_arguments is not None:
-            input["default_arguments"] = default_arguments
+            input_["default_arguments"] = default_arguments
         if connections is not None:
-            input["connections"] = connections
+            input_["connections"] = connections
         if max_capacity is not None:
-            input["max_capacity"] = max_capacity
+            input_["max_capacity"] = max_capacity
         if number_of_workers is not None:
-            input["number_of_workers"] = number_of_workers
+            input_["number_of_workers"] = number_of_workers
         if worker_type is not None:
-            input["worker_type"] = worker_type
+            input_["worker_type"] = worker_type
         if security_configuration is not None:
-            input["security_configuration"] = security_configuration
+            input_["security_configuration"] = security_configuration
         if glue_version is not None:
-            input["glue_version"] = glue_version
+            input_["glue_version"] = glue_version
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if request_origin is not None:
-            input["request_origin"] = request_origin
+            input_["request_origin"] = request_origin
         if session_type is not None:
-            input["session_type"] = session_type
+            input_["session_type"] = session_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3532,23 +3536,23 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.create_table_request.CreateTableRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.create_table_request.CreateTableRequest = {}  # type: ignore[typeddict-item]
         if catalog_id is not None:
-            input["catalog_id"] = catalog_id
-        input["database_name"] = database_name
+            input_["catalog_id"] = catalog_id
+        input_["database_name"] = database_name
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if table_input is not None:
-            input["table_input"] = table_input
+            input_["table_input"] = table_input
         if partition_indexes is not None:
-            input["partition_indexes"] = partition_indexes
+            input_["partition_indexes"] = partition_indexes
         if transaction_id is not None:
-            input["transaction_id"] = transaction_id
+            input_["transaction_id"] = transaction_id
         if open_table_format_input is not None:
-            input["open_table_format_input"] = open_table_format_input
+            input_["open_table_format_input"] = open_table_format_input
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3590,15 +3594,15 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.create_table_optimizer_request.CreateTableOptimizerRequest = {}  # type: ignore[typeddict-item]
-        input["catalog_id"] = catalog_id
-        input["database_name"] = database_name
-        input["table_name"] = table_name
-        input["type"] = type
-        input["table_optimizer_configuration"] = table_optimizer_configuration
+        input_: aws_sdk_glue.types.create_table_optimizer_request.CreateTableOptimizerRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog_id"] = catalog_id
+        input_["database_name"] = database_name
+        input_["table_name"] = table_name
+        input_["type"] = type
+        input_["table_optimizer_configuration"] = table_optimizer_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3656,27 +3660,27 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.create_trigger_request.CreateTriggerRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_glue.types.create_trigger_request.CreateTriggerRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if workflow_name is not None:
-            input["workflow_name"] = workflow_name
-        input["type"] = type
+            input_["workflow_name"] = workflow_name
+        input_["type"] = type
         if schedule is not None:
-            input["schedule"] = schedule
+            input_["schedule"] = schedule
         if predicate is not None:
-            input["predicate"] = predicate
-        input["actions"] = actions
+            input_["predicate"] = predicate
+        input_["actions"] = actions
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if start_on_creation is not None:
-            input["start_on_creation"] = start_on_creation
+            input_["start_on_creation"] = start_on_creation
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if event_batching_condition is not None:
-            input["event_batching_condition"] = event_batching_condition
+            input_["event_batching_condition"] = event_batching_condition
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3718,16 +3722,16 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.create_usage_profile_request.CreateUsageProfileRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_glue.types.create_usage_profile_request.CreateUsageProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["configuration"] = configuration
+            input_["description"] = description
+        input_["configuration"] = configuration
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3767,14 +3771,14 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.create_user_defined_function_request.CreateUserDefinedFunctionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.create_user_defined_function_request.CreateUserDefinedFunctionRequest = {}  # type: ignore[typeddict-item]
         if catalog_id is not None:
-            input["catalog_id"] = catalog_id
-        input["database_name"] = database_name
-        input["function_input"] = function_input
+            input_["catalog_id"] = catalog_id
+        input_["database_name"] = database_name
+        input_["function_input"] = function_input
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3822,19 +3826,19 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.create_workflow_request.CreateWorkflowRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_glue.types.create_workflow_request.CreateWorkflowRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if default_run_properties is not None:
-            input["default_run_properties"] = default_run_properties
+            input_["default_run_properties"] = default_run_properties
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if max_concurrent_runs is not None:
-            input["max_concurrent_runs"] = max_concurrent_runs
+            input_["max_concurrent_runs"] = max_concurrent_runs
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3868,11 +3872,11 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.delete_blueprint_request.DeleteBlueprintRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_glue.types.delete_blueprint_request.DeleteBlueprintRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3906,11 +3910,11 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.delete_catalog_request.DeleteCatalogRequest = {}  # type: ignore[typeddict-item]
-        input["catalog_id"] = catalog_id
+        input_: aws_sdk_glue.types.delete_catalog_request.DeleteCatalogRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog_id"] = catalog_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3944,11 +3948,11 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.delete_classifier_request.DeleteClassifierRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_glue.types.delete_classifier_request.DeleteClassifierRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3992,16 +3996,16 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.delete_column_statistics_for_partition_request.DeleteColumnStatisticsForPartitionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.delete_column_statistics_for_partition_request.DeleteColumnStatisticsForPartitionRequest = {}  # type: ignore[typeddict-item]
         if catalog_id is not None:
-            input["catalog_id"] = catalog_id
-        input["database_name"] = database_name
-        input["table_name"] = table_name
-        input["partition_values"] = partition_values
-        input["column_name"] = column_name
+            input_["catalog_id"] = catalog_id
+        input_["database_name"] = database_name
+        input_["table_name"] = table_name
+        input_["partition_values"] = partition_values
+        input_["column_name"] = column_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4043,15 +4047,15 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.delete_column_statistics_for_table_request.DeleteColumnStatisticsForTableRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.delete_column_statistics_for_table_request.DeleteColumnStatisticsForTableRequest = {}  # type: ignore[typeddict-item]
         if catalog_id is not None:
-            input["catalog_id"] = catalog_id
-        input["database_name"] = database_name
-        input["table_name"] = table_name
-        input["column_name"] = column_name
+            input_["catalog_id"] = catalog_id
+        input_["database_name"] = database_name
+        input_["table_name"] = table_name
+        input_["column_name"] = column_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4087,12 +4091,12 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.delete_column_statistics_task_settings_request.DeleteColumnStatisticsTaskSettingsRequest = {}  # type: ignore[typeddict-item]
-        input["database_name"] = database_name
-        input["table_name"] = table_name
+        input_: aws_sdk_glue.types.delete_column_statistics_task_settings_request.DeleteColumnStatisticsTaskSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_["database_name"] = database_name
+        input_["table_name"] = table_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4130,13 +4134,13 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.delete_connection_request.DeleteConnectionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.delete_connection_request.DeleteConnectionRequest = {}  # type: ignore[typeddict-item]
         if catalog_id is not None:
-            input["catalog_id"] = catalog_id
-        input["connection_name"] = connection_name
+            input_["catalog_id"] = catalog_id
+        input_["connection_name"] = connection_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4170,11 +4174,11 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.delete_connection_type_request.DeleteConnectionTypeRequest = {}  # type: ignore[typeddict-item]
-        input["connection_type"] = connection_type
+        input_: aws_sdk_glue.types.delete_connection_type_request.DeleteConnectionTypeRequest = {}  # type: ignore[typeddict-item]
+        input_["connection_type"] = connection_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4208,11 +4212,11 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.delete_crawler_request.DeleteCrawlerRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_glue.types.delete_crawler_request.DeleteCrawlerRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4246,11 +4250,11 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.delete_custom_entity_type_request.DeleteCustomEntityTypeRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_glue.types.delete_custom_entity_type_request.DeleteCustomEntityTypeRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4288,13 +4292,13 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.delete_database_request.DeleteDatabaseRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.delete_database_request.DeleteDatabaseRequest = {}  # type: ignore[typeddict-item]
         if catalog_id is not None:
-            input["catalog_id"] = catalog_id
-        input["name"] = name
+            input_["catalog_id"] = catalog_id
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4328,11 +4332,11 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.delete_data_quality_ruleset_request.DeleteDataQualityRulesetRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_glue.types.delete_data_quality_ruleset_request.DeleteDataQualityRulesetRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4366,11 +4370,11 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.delete_dev_endpoint_request.DeleteDevEndpointRequest = {}  # type: ignore[typeddict-item]
-        input["endpoint_name"] = endpoint_name
+        input_: aws_sdk_glue.types.delete_dev_endpoint_request.DeleteDevEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_["endpoint_name"] = endpoint_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4397,10 +4401,10 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.delete_glue_identity_center_configuration_request.DeleteGlueIdentityCenterConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.delete_glue_identity_center_configuration_request.DeleteGlueIdentityCenterConfigurationRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4434,11 +4438,11 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.delete_integration_request.DeleteIntegrationRequest = {}  # type: ignore[typeddict-item]
-        input["integration_identifier"] = integration_identifier
+        input_: aws_sdk_glue.types.delete_integration_request.DeleteIntegrationRequest = {}  # type: ignore[typeddict-item]
+        input_["integration_identifier"] = integration_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4472,11 +4476,11 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.delete_integration_resource_property_request.DeleteIntegrationResourcePropertyRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_glue.types.delete_integration_resource_property_request.DeleteIntegrationResourcePropertyRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4512,12 +4516,12 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.delete_integration_table_properties_request.DeleteIntegrationTablePropertiesRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["table_name"] = table_name
+        input_: aws_sdk_glue.types.delete_integration_table_properties_request.DeleteIntegrationTablePropertiesRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["table_name"] = table_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4551,11 +4555,11 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.delete_job_request.DeleteJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_name"] = job_name
+        input_: aws_sdk_glue.types.delete_job_request.DeleteJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_name"] = job_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4589,11 +4593,11 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.delete_ml_transform_request.DeleteMLTransformRequest = {}  # type: ignore[typeddict-item]
-        input["transform_id"] = transform_id
+        input_: aws_sdk_glue.types.delete_ml_transform_request.DeleteMLTransformRequest = {}  # type: ignore[typeddict-item]
+        input_["transform_id"] = transform_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4635,15 +4639,15 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.delete_partition_request.DeletePartitionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.delete_partition_request.DeletePartitionRequest = {}  # type: ignore[typeddict-item]
         if catalog_id is not None:
-            input["catalog_id"] = catalog_id
-        input["database_name"] = database_name
-        input["table_name"] = table_name
-        input["partition_values"] = partition_values
+            input_["catalog_id"] = catalog_id
+        input_["database_name"] = database_name
+        input_["table_name"] = table_name
+        input_["partition_values"] = partition_values
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4685,15 +4689,15 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.delete_partition_index_request.DeletePartitionIndexRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.delete_partition_index_request.DeletePartitionIndexRequest = {}  # type: ignore[typeddict-item]
         if catalog_id is not None:
-            input["catalog_id"] = catalog_id
-        input["database_name"] = database_name
-        input["table_name"] = table_name
-        input["index_name"] = index_name
+            input_["catalog_id"] = catalog_id
+        input_["database_name"] = database_name
+        input_["table_name"] = table_name
+        input_["index_name"] = index_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4727,11 +4731,11 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.delete_registry_input.DeleteRegistryInput = {}  # type: ignore[typeddict-item]
-        input["registry_id"] = registry_id
+        input_: aws_sdk_glue.types.delete_registry_input.DeleteRegistryInput = {}  # type: ignore[typeddict-item]
+        input_["registry_id"] = registry_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4771,14 +4775,14 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.delete_resource_policy_request.DeleteResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.delete_resource_policy_request.DeleteResourcePolicyRequest = {}  # type: ignore[typeddict-item]
         if policy_hash_condition is not None:
-            input["policy_hash_condition"] = policy_hash_condition
+            input_["policy_hash_condition"] = policy_hash_condition
         if resource_arn is not None:
-            input["resource_arn"] = resource_arn
+            input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4812,11 +4816,11 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.delete_schema_input.DeleteSchemaInput = {}  # type: ignore[typeddict-item]
-        input["schema_id"] = schema_id
+        input_: aws_sdk_glue.types.delete_schema_input.DeleteSchemaInput = {}  # type: ignore[typeddict-item]
+        input_["schema_id"] = schema_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4852,12 +4856,12 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.delete_schema_versions_input.DeleteSchemaVersionsInput = {}  # type: ignore[typeddict-item]
-        input["schema_id"] = schema_id
-        input["versions"] = versions
+        input_: aws_sdk_glue.types.delete_schema_versions_input.DeleteSchemaVersionsInput = {}  # type: ignore[typeddict-item]
+        input_["schema_id"] = schema_id
+        input_["versions"] = versions
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4891,11 +4895,11 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.delete_security_configuration_request.DeleteSecurityConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_glue.types.delete_security_configuration_request.DeleteSecurityConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4933,13 +4937,13 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.delete_session_request.DeleteSessionRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_glue.types.delete_session_request.DeleteSessionRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if request_origin is not None:
-            input["request_origin"] = request_origin
+            input_["request_origin"] = request_origin
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4983,16 +4987,16 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.delete_table_request.DeleteTableRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.delete_table_request.DeleteTableRequest = {}  # type: ignore[typeddict-item]
         if catalog_id is not None:
-            input["catalog_id"] = catalog_id
-        input["database_name"] = database_name
-        input["name"] = name
+            input_["catalog_id"] = catalog_id
+        input_["database_name"] = database_name
+        input_["name"] = name
         if transaction_id is not None:
-            input["transaction_id"] = transaction_id
+            input_["transaction_id"] = transaction_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5032,14 +5036,14 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.delete_table_optimizer_request.DeleteTableOptimizerRequest = {}  # type: ignore[typeddict-item]
-        input["catalog_id"] = catalog_id
-        input["database_name"] = database_name
-        input["table_name"] = table_name
-        input["type"] = type
+        input_: aws_sdk_glue.types.delete_table_optimizer_request.DeleteTableOptimizerRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog_id"] = catalog_id
+        input_["database_name"] = database_name
+        input_["table_name"] = table_name
+        input_["type"] = type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5081,15 +5085,15 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.delete_table_version_request.DeleteTableVersionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.delete_table_version_request.DeleteTableVersionRequest = {}  # type: ignore[typeddict-item]
         if catalog_id is not None:
-            input["catalog_id"] = catalog_id
-        input["database_name"] = database_name
-        input["table_name"] = table_name
-        input["version_id"] = version_id
+            input_["catalog_id"] = catalog_id
+        input_["database_name"] = database_name
+        input_["table_name"] = table_name
+        input_["version_id"] = version_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5123,11 +5127,11 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.delete_trigger_request.DeleteTriggerRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_glue.types.delete_trigger_request.DeleteTriggerRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5161,11 +5165,11 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.delete_usage_profile_request.DeleteUsageProfileRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_glue.types.delete_usage_profile_request.DeleteUsageProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5205,14 +5209,14 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.delete_user_defined_function_request.DeleteUserDefinedFunctionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.delete_user_defined_function_request.DeleteUserDefinedFunctionRequest = {}  # type: ignore[typeddict-item]
         if catalog_id is not None:
-            input["catalog_id"] = catalog_id
-        input["database_name"] = database_name
-        input["function_name"] = function_name
+            input_["catalog_id"] = catalog_id
+        input_["database_name"] = database_name
+        input_["function_name"] = function_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5246,11 +5250,11 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.delete_workflow_request.DeleteWorkflowRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_glue.types.delete_workflow_request.DeleteWorkflowRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5284,11 +5288,11 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.describe_connection_type_request.DescribeConnectionTypeRequest = {}  # type: ignore[typeddict-item]
-        input["connection_type"] = connection_type
+        input_: aws_sdk_glue.types.describe_connection_type_request.DescribeConnectionTypeRequest = {}  # type: ignore[typeddict-item]
+        input_["connection_type"] = connection_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5334,18 +5338,18 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.describe_entity_request.DescribeEntityRequest = {}  # type: ignore[typeddict-item]
-        input["connection_name"] = connection_name
+        input_: aws_sdk_glue.types.describe_entity_request.DescribeEntityRequest = {}  # type: ignore[typeddict-item]
+        input_["connection_name"] = connection_name
         if catalog_id is not None:
-            input["catalog_id"] = catalog_id
-        input["entity_name"] = entity_name
+            input_["catalog_id"] = catalog_id
+        input_["entity_name"] = entity_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if data_store_api_version is not None:
-            input["data_store_api_version"] = data_store_api_version
+            input_["data_store_api_version"] = data_store_api_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5418,18 +5422,18 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.describe_inbound_integrations_request.DescribeInboundIntegrationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.describe_inbound_integrations_request.DescribeInboundIntegrationsRequest = {}  # type: ignore[typeddict-item]
         if integration_arn is not None:
-            input["integration_arn"] = integration_arn
+            input_["integration_arn"] = integration_arn
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if target_arn is not None:
-            input["target_arn"] = target_arn
+            input_["target_arn"] = target_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5477,18 +5481,18 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.describe_integrations_request.DescribeIntegrationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.describe_integrations_request.DescribeIntegrationsRequest = {}  # type: ignore[typeddict-item]
         if integration_identifier is not None:
-            input["integration_identifier"] = integration_identifier
+            input_["integration_identifier"] = integration_identifier
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5530,15 +5534,15 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_blueprint_request.GetBlueprintRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_glue.types.get_blueprint_request.GetBlueprintRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if include_blueprint is not None:
-            input["include_blueprint"] = include_blueprint
+            input_["include_blueprint"] = include_blueprint
         if include_parameter_spec is not None:
-            input["include_parameter_spec"] = include_parameter_spec
+            input_["include_parameter_spec"] = include_parameter_spec
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5574,12 +5578,12 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_blueprint_run_request.GetBlueprintRunRequest = {}  # type: ignore[typeddict-item]
-        input["blueprint_name"] = blueprint_name
-        input["run_id"] = run_id
+        input_: aws_sdk_glue.types.get_blueprint_run_request.GetBlueprintRunRequest = {}  # type: ignore[typeddict-item]
+        input_["blueprint_name"] = blueprint_name
+        input_["run_id"] = run_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5617,15 +5621,15 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_blueprint_runs_request.GetBlueprintRunsRequest = {}  # type: ignore[typeddict-item]
-        input["blueprint_name"] = blueprint_name
+        input_: aws_sdk_glue.types.get_blueprint_runs_request.GetBlueprintRunsRequest = {}  # type: ignore[typeddict-item]
+        input_["blueprint_name"] = blueprint_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5659,11 +5663,11 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_catalog_request.GetCatalogRequest = {}  # type: ignore[typeddict-item]
-        input["catalog_id"] = catalog_id
+        input_: aws_sdk_glue.types.get_catalog_request.GetCatalogRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog_id"] = catalog_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5699,12 +5703,12 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_catalog_import_status_request.GetCatalogImportStatusRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.get_catalog_import_status_request.GetCatalogImportStatusRequest = {}  # type: ignore[typeddict-item]
         if catalog_id is not None:
-            input["catalog_id"] = catalog_id
+            input_["catalog_id"] = catalog_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5754,22 +5758,22 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_catalogs_request.GetCatalogsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.get_catalogs_request.GetCatalogsRequest = {}  # type: ignore[typeddict-item]
         if parent_catalog_id is not None:
-            input["parent_catalog_id"] = parent_catalog_id
+            input_["parent_catalog_id"] = parent_catalog_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if recursive is not None:
-            input["recursive"] = recursive
+            input_["recursive"] = recursive
         if include_root is not None:
-            input["include_root"] = include_root
+            input_["include_root"] = include_root
         if has_databases is not None:
-            input["has_databases"] = has_databases
+            input_["has_databases"] = has_databases
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5803,11 +5807,11 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_classifier_request.GetClassifierRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_glue.types.get_classifier_request.GetClassifierRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5843,14 +5847,14 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_classifiers_request.GetClassifiersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.get_classifiers_request.GetClassifiersRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5894,16 +5898,16 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_column_statistics_for_partition_request.GetColumnStatisticsForPartitionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.get_column_statistics_for_partition_request.GetColumnStatisticsForPartitionRequest = {}  # type: ignore[typeddict-item]
         if catalog_id is not None:
-            input["catalog_id"] = catalog_id
-        input["database_name"] = database_name
-        input["table_name"] = table_name
-        input["partition_values"] = partition_values
-        input["column_names"] = column_names
+            input_["catalog_id"] = catalog_id
+        input_["database_name"] = database_name
+        input_["table_name"] = table_name
+        input_["partition_values"] = partition_values
+        input_["column_names"] = column_names
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5945,15 +5949,15 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_column_statistics_for_table_request.GetColumnStatisticsForTableRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.get_column_statistics_for_table_request.GetColumnStatisticsForTableRequest = {}  # type: ignore[typeddict-item]
         if catalog_id is not None:
-            input["catalog_id"] = catalog_id
-        input["database_name"] = database_name
-        input["table_name"] = table_name
-        input["column_names"] = column_names
+            input_["catalog_id"] = catalog_id
+        input_["database_name"] = database_name
+        input_["table_name"] = table_name
+        input_["column_names"] = column_names
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5987,11 +5991,11 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_column_statistics_task_run_request.GetColumnStatisticsTaskRunRequest = {}  # type: ignore[typeddict-item]
-        input["column_statistics_task_run_id"] = column_statistics_task_run_id
+        input_: aws_sdk_glue.types.get_column_statistics_task_run_request.GetColumnStatisticsTaskRunRequest = {}  # type: ignore[typeddict-item]
+        input_["column_statistics_task_run_id"] = column_statistics_task_run_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6031,16 +6035,16 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_column_statistics_task_runs_request.GetColumnStatisticsTaskRunsRequest = {}  # type: ignore[typeddict-item]
-        input["database_name"] = database_name
-        input["table_name"] = table_name
+        input_: aws_sdk_glue.types.get_column_statistics_task_runs_request.GetColumnStatisticsTaskRunsRequest = {}  # type: ignore[typeddict-item]
+        input_["database_name"] = database_name
+        input_["table_name"] = table_name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6076,12 +6080,12 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_column_statistics_task_settings_request.GetColumnStatisticsTaskSettingsRequest = {}  # type: ignore[typeddict-item]
-        input["database_name"] = database_name
-        input["table_name"] = table_name
+        input_: aws_sdk_glue.types.get_column_statistics_task_settings_request.GetColumnStatisticsTaskSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_["database_name"] = database_name
+        input_["table_name"] = table_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6125,19 +6129,19 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_connection_request.GetConnectionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.get_connection_request.GetConnectionRequest = {}  # type: ignore[typeddict-item]
         if catalog_id is not None:
-            input["catalog_id"] = catalog_id
-        input["name"] = name
+            input_["catalog_id"] = catalog_id
+        input_["name"] = name
         if hide_password is not None:
-            input["hide_password"] = hide_password
+            input_["hide_password"] = hide_password
         if apply_override_for_compute_environment is not None:
-            input["apply_override_for_compute_environment"] = (
+            input_["apply_override_for_compute_environment"] = (
                 apply_override_for_compute_environment
             )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6183,20 +6187,20 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_connections_request.GetConnectionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.get_connections_request.GetConnectionsRequest = {}  # type: ignore[typeddict-item]
         if catalog_id is not None:
-            input["catalog_id"] = catalog_id
+            input_["catalog_id"] = catalog_id
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if hide_password is not None:
-            input["hide_password"] = hide_password
+            input_["hide_password"] = hide_password
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6230,11 +6234,11 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_crawler_request.GetCrawlerRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_glue.types.get_crawler_request.GetCrawlerRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6274,16 +6278,16 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_crawler_metrics_request.GetCrawlerMetricsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.get_crawler_metrics_request.GetCrawlerMetricsRequest = {}  # type: ignore[typeddict-item]
         if crawler_name_list is not None:
-            input["crawler_name_list"] = crawler_name_list
+            input_["crawler_name_list"] = crawler_name_list
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6319,14 +6323,14 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_crawlers_request.GetCrawlersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.get_crawlers_request.GetCrawlersRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6362,11 +6366,11 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_custom_entity_type_request.GetCustomEntityTypeRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_glue.types.get_custom_entity_type_request.GetCustomEntityTypeRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6406,14 +6410,14 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_dashboard_url_request.GetDashboardUrlRequest = {}  # type: ignore[typeddict-item]
-        input["resource_id"] = resource_id
-        input["resource_type"] = resource_type
+        input_: aws_sdk_glue.types.get_dashboard_url_request.GetDashboardUrlRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_id"] = resource_id
+        input_["resource_type"] = resource_type
         if request_origin is not None:
-            input["request_origin"] = request_origin
+            input_["request_origin"] = request_origin
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6451,13 +6455,13 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_database_request.GetDatabaseRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.get_database_request.GetDatabaseRequest = {}  # type: ignore[typeddict-item]
         if catalog_id is not None:
-            input["catalog_id"] = catalog_id
-        input["name"] = name
+            input_["catalog_id"] = catalog_id
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6507,20 +6511,20 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_databases_request.GetDatabasesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.get_databases_request.GetDatabasesRequest = {}  # type: ignore[typeddict-item]
         if catalog_id is not None:
-            input["catalog_id"] = catalog_id
+            input_["catalog_id"] = catalog_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if resource_share_type is not None:
-            input["resource_share_type"] = resource_share_type
+            input_["resource_share_type"] = resource_share_type
         if attributes_to_get is not None:
-            input["attributes_to_get"] = attributes_to_get
+            input_["attributes_to_get"] = attributes_to_get
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6556,12 +6560,12 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_data_catalog_encryption_settings_request.GetDataCatalogEncryptionSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.get_data_catalog_encryption_settings_request.GetDataCatalogEncryptionSettingsRequest = {}  # type: ignore[typeddict-item]
         if catalog_id is not None:
-            input["catalog_id"] = catalog_id
+            input_["catalog_id"] = catalog_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6595,12 +6599,12 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_dataflow_graph_request.GetDataflowGraphRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.get_dataflow_graph_request.GetDataflowGraphRequest = {}  # type: ignore[typeddict-item]
         if python_script is not None:
-            input["python_script"] = python_script
+            input_["python_script"] = python_script
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6638,13 +6642,13 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_data_quality_model_request.GetDataQualityModelRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.get_data_quality_model_request.GetDataQualityModelRequest = {}  # type: ignore[typeddict-item]
         if statistic_id is not None:
-            input["statistic_id"] = statistic_id
-        input["profile_id"] = profile_id
+            input_["statistic_id"] = statistic_id
+        input_["profile_id"] = profile_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6680,12 +6684,12 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_data_quality_model_result_request.GetDataQualityModelResultRequest = {}  # type: ignore[typeddict-item]
-        input["statistic_id"] = statistic_id
-        input["profile_id"] = profile_id
+        input_: aws_sdk_glue.types.get_data_quality_model_result_request.GetDataQualityModelResultRequest = {}  # type: ignore[typeddict-item]
+        input_["statistic_id"] = statistic_id
+        input_["profile_id"] = profile_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6719,11 +6723,11 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_data_quality_result_request.GetDataQualityResultRequest = {}  # type: ignore[typeddict-item]
-        input["result_id"] = result_id
+        input_: aws_sdk_glue.types.get_data_quality_result_request.GetDataQualityResultRequest = {}  # type: ignore[typeddict-item]
+        input_["result_id"] = result_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6757,11 +6761,11 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_data_quality_rule_recommendation_run_request.GetDataQualityRuleRecommendationRunRequest = {}  # type: ignore[typeddict-item]
-        input["run_id"] = run_id
+        input_: aws_sdk_glue.types.get_data_quality_rule_recommendation_run_request.GetDataQualityRuleRecommendationRunRequest = {}  # type: ignore[typeddict-item]
+        input_["run_id"] = run_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6795,11 +6799,11 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_data_quality_ruleset_request.GetDataQualityRulesetRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_glue.types.get_data_quality_ruleset_request.GetDataQualityRulesetRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6833,11 +6837,11 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_data_quality_ruleset_evaluation_run_request.GetDataQualityRulesetEvaluationRunRequest = {}  # type: ignore[typeddict-item]
-        input["run_id"] = run_id
+        input_: aws_sdk_glue.types.get_data_quality_ruleset_evaluation_run_request.GetDataQualityRulesetEvaluationRunRequest = {}  # type: ignore[typeddict-item]
+        input_["run_id"] = run_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6871,11 +6875,11 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_dev_endpoint_request.GetDevEndpointRequest = {}  # type: ignore[typeddict-item]
-        input["endpoint_name"] = endpoint_name
+        input_: aws_sdk_glue.types.get_dev_endpoint_request.GetDevEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_["endpoint_name"] = endpoint_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6911,14 +6915,14 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_dev_endpoints_request.GetDevEndpointsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.get_dev_endpoints_request.GetDevEndpointsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6980,28 +6984,28 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_entity_records_request.GetEntityRecordsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.get_entity_records_request.GetEntityRecordsRequest = {}  # type: ignore[typeddict-item]
         if connection_name is not None:
-            input["connection_name"] = connection_name
+            input_["connection_name"] = connection_name
         if catalog_id is not None:
-            input["catalog_id"] = catalog_id
-        input["entity_name"] = entity_name
+            input_["catalog_id"] = catalog_id
+        input_["entity_name"] = entity_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if data_store_api_version is not None:
-            input["data_store_api_version"] = data_store_api_version
+            input_["data_store_api_version"] = data_store_api_version
         if connection_options is not None:
-            input["connection_options"] = connection_options
+            input_["connection_options"] = connection_options
         if filter_predicate is not None:
-            input["filter_predicate"] = filter_predicate
-        input["limit"] = limit
+            input_["filter_predicate"] = filter_predicate
+        input_["limit"] = limit
         if order_by is not None:
-            input["order_by"] = order_by
+            input_["order_by"] = order_by
         if selected_fields is not None:
-            input["selected_fields"] = selected_fields
+            input_["selected_fields"] = selected_fields
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7028,10 +7032,10 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_glue_identity_center_configuration_request.GetGlueIdentityCenterConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.get_glue_identity_center_configuration_request.GetGlueIdentityCenterConfigurationRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7065,11 +7069,11 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_integration_resource_property_request.GetIntegrationResourcePropertyRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_glue.types.get_integration_resource_property_request.GetIntegrationResourcePropertyRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7105,12 +7109,12 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_integration_table_properties_request.GetIntegrationTablePropertiesRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["table_name"] = table_name
+        input_: aws_sdk_glue.types.get_integration_table_properties_request.GetIntegrationTablePropertiesRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["table_name"] = table_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7144,11 +7148,11 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_job_request.GetJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_name"] = job_name
+        input_: aws_sdk_glue.types.get_job_request.GetJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_name"] = job_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7184,13 +7188,13 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_job_bookmark_request.GetJobBookmarkRequest = {}  # type: ignore[typeddict-item]
-        input["job_name"] = job_name
+        input_: aws_sdk_glue.types.get_job_bookmark_request.GetJobBookmarkRequest = {}  # type: ignore[typeddict-item]
+        input_["job_name"] = job_name
         if run_id is not None:
-            input["run_id"] = run_id
+            input_["run_id"] = run_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7230,14 +7234,14 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_job_run_request.GetJobRunRequest = {}  # type: ignore[typeddict-item]
-        input["job_name"] = job_name
-        input["run_id"] = run_id
+        input_: aws_sdk_glue.types.get_job_run_request.GetJobRunRequest = {}  # type: ignore[typeddict-item]
+        input_["job_name"] = job_name
+        input_["run_id"] = run_id
         if predecessors_included is not None:
-            input["predecessors_included"] = predecessors_included
+            input_["predecessors_included"] = predecessors_included
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7277,15 +7281,15 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_job_runs_request.GetJobRunsRequest = {}  # type: ignore[typeddict-item]
-        input["job_name"] = job_name
+        input_: aws_sdk_glue.types.get_job_runs_request.GetJobRunsRequest = {}  # type: ignore[typeddict-item]
+        input_["job_name"] = job_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7346,14 +7350,14 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_jobs_request.GetJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.get_jobs_request.GetJobsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7412,15 +7416,15 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_mapping_request.GetMappingRequest = {}  # type: ignore[typeddict-item]
-        input["source"] = source
+        input_: aws_sdk_glue.types.get_mapping_request.GetMappingRequest = {}  # type: ignore[typeddict-item]
+        input_["source"] = source
         if sinks is not None:
-            input["sinks"] = sinks
+            input_["sinks"] = sinks
         if location is not None:
-            input["location"] = location
+            input_["location"] = location
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7456,14 +7460,14 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_materialized_view_refresh_task_run_request.GetMaterializedViewRefreshTaskRunRequest = {}  # type: ignore[typeddict-item]
-        input["catalog_id"] = catalog_id
-        input["materialized_view_refresh_task_run_id"] = (
+        input_: aws_sdk_glue.types.get_materialized_view_refresh_task_run_request.GetMaterializedViewRefreshTaskRunRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog_id"] = catalog_id
+        input_["materialized_view_refresh_task_run_id"] = (
             materialized_view_refresh_task_run_id
         )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7499,12 +7503,12 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_ml_task_run_request.GetMLTaskRunRequest = {}  # type: ignore[typeddict-item]
-        input["transform_id"] = transform_id
-        input["task_run_id"] = task_run_id
+        input_: aws_sdk_glue.types.get_ml_task_run_request.GetMLTaskRunRequest = {}  # type: ignore[typeddict-item]
+        input_["transform_id"] = transform_id
+        input_["task_run_id"] = task_run_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7552,19 +7556,19 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_ml_task_runs_request.GetMLTaskRunsRequest = {}  # type: ignore[typeddict-item]
-        input["transform_id"] = transform_id
+        input_: aws_sdk_glue.types.get_ml_task_runs_request.GetMLTaskRunsRequest = {}  # type: ignore[typeddict-item]
+        input_["transform_id"] = transform_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if sort is not None:
-            input["sort"] = sort
+            input_["sort"] = sort
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7598,11 +7602,11 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_ml_transform_request.GetMLTransformRequest = {}  # type: ignore[typeddict-item]
-        input["transform_id"] = transform_id
+        input_: aws_sdk_glue.types.get_ml_transform_request.GetMLTransformRequest = {}  # type: ignore[typeddict-item]
+        input_["transform_id"] = transform_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7648,18 +7652,18 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_ml_transforms_request.GetMLTransformsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.get_ml_transforms_request.GetMLTransformsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if sort is not None:
-            input["sort"] = sort
+            input_["sort"] = sort
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7702,17 +7706,17 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_partition_request.GetPartitionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.get_partition_request.GetPartitionRequest = {}  # type: ignore[typeddict-item]
         if catalog_id is not None:
-            input["catalog_id"] = catalog_id
-        input["database_name"] = database_name
-        input["table_name"] = table_name
-        input["partition_values"] = partition_values
+            input_["catalog_id"] = catalog_id
+        input_["database_name"] = database_name
+        input_["table_name"] = table_name
+        input_["partition_values"] = partition_values
         if audit_context is not None:
-            input["audit_context"] = audit_context
+            input_["audit_context"] = audit_context
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7756,16 +7760,16 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_partition_indexes_request.GetPartitionIndexesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.get_partition_indexes_request.GetPartitionIndexesRequest = {}  # type: ignore[typeddict-item]
         if catalog_id is not None:
-            input["catalog_id"] = catalog_id
-        input["database_name"] = database_name
-        input["table_name"] = table_name
+            input_["catalog_id"] = catalog_id
+        input_["database_name"] = database_name
+        input_["table_name"] = table_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7853,30 +7857,30 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_partitions_request.GetPartitionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.get_partitions_request.GetPartitionsRequest = {}  # type: ignore[typeddict-item]
         if catalog_id is not None:
-            input["catalog_id"] = catalog_id
-        input["database_name"] = database_name
-        input["table_name"] = table_name
+            input_["catalog_id"] = catalog_id
+        input_["database_name"] = database_name
+        input_["table_name"] = table_name
         if expression is not None:
-            input["expression"] = expression
+            input_["expression"] = expression
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if segment is not None:
-            input["segment"] = segment
+            input_["segment"] = segment
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if exclude_column_schema is not None:
-            input["exclude_column_schema"] = exclude_column_schema
+            input_["exclude_column_schema"] = exclude_column_schema
         if transaction_id is not None:
-            input["transaction_id"] = transaction_id
+            input_["transaction_id"] = transaction_id
         if query_as_of_time is not None:
-            input["query_as_of_time"] = query_as_of_time
+            input_["query_as_of_time"] = query_as_of_time
         if audit_context is not None:
-            input["audit_context"] = audit_context
+            input_["audit_context"] = audit_context
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7922,20 +7926,20 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_plan_request.GetPlanRequest = {}  # type: ignore[typeddict-item]
-        input["mapping"] = mapping
-        input["source"] = source
+        input_: aws_sdk_glue.types.get_plan_request.GetPlanRequest = {}  # type: ignore[typeddict-item]
+        input_["mapping"] = mapping
+        input_["source"] = source
         if sinks is not None:
-            input["sinks"] = sinks
+            input_["sinks"] = sinks
         if location is not None:
-            input["location"] = location
+            input_["location"] = location
         if language is not None:
-            input["language"] = language
+            input_["language"] = language
         if additional_plan_options_map is not None:
-            input["additional_plan_options_map"] = additional_plan_options_map
+            input_["additional_plan_options_map"] = additional_plan_options_map
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7969,11 +7973,11 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_registry_input.GetRegistryInput = {}  # type: ignore[typeddict-item]
-        input["registry_id"] = registry_id
+        input_: aws_sdk_glue.types.get_registry_input.GetRegistryInput = {}  # type: ignore[typeddict-item]
+        input_["registry_id"] = registry_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8011,14 +8015,14 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_resource_policies_request.GetResourcePoliciesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.get_resource_policies_request.GetResourcePoliciesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8075,12 +8079,12 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_resource_policy_request.GetResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.get_resource_policy_request.GetResourcePolicyRequest = {}  # type: ignore[typeddict-item]
         if resource_arn is not None:
-            input["resource_arn"] = resource_arn
+            input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8114,11 +8118,11 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_schema_input.GetSchemaInput = {}  # type: ignore[typeddict-item]
-        input["schema_id"] = schema_id
+        input_: aws_sdk_glue.types.get_schema_input.GetSchemaInput = {}  # type: ignore[typeddict-item]
+        input_["schema_id"] = schema_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8154,12 +8158,12 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_schema_by_definition_input.GetSchemaByDefinitionInput = {}  # type: ignore[typeddict-item]
-        input["schema_id"] = schema_id
-        input["schema_definition"] = schema_definition
+        input_: aws_sdk_glue.types.get_schema_by_definition_input.GetSchemaByDefinitionInput = {}  # type: ignore[typeddict-item]
+        input_["schema_id"] = schema_id
+        input_["schema_definition"] = schema_definition
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8201,16 +8205,16 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_schema_version_input.GetSchemaVersionInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.get_schema_version_input.GetSchemaVersionInput = {}  # type: ignore[typeddict-item]
         if schema_id is not None:
-            input["schema_id"] = schema_id
+            input_["schema_id"] = schema_id
         if schema_version_id is not None:
-            input["schema_version_id"] = schema_version_id
+            input_["schema_version_id"] = schema_version_id
         if schema_version_number is not None:
-            input["schema_version_number"] = schema_version_number
+            input_["schema_version_number"] = schema_version_number
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8250,14 +8254,14 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_schema_versions_diff_input.GetSchemaVersionsDiffInput = {}  # type: ignore[typeddict-item]
-        input["schema_id"] = schema_id
-        input["first_schema_version_number"] = first_schema_version_number
-        input["second_schema_version_number"] = second_schema_version_number
-        input["schema_diff_type"] = schema_diff_type
+        input_: aws_sdk_glue.types.get_schema_versions_diff_input.GetSchemaVersionsDiffInput = {}  # type: ignore[typeddict-item]
+        input_["schema_id"] = schema_id
+        input_["first_schema_version_number"] = first_schema_version_number
+        input_["second_schema_version_number"] = second_schema_version_number
+        input_["schema_diff_type"] = schema_diff_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8291,11 +8295,11 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_security_configuration_request.GetSecurityConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_glue.types.get_security_configuration_request.GetSecurityConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8331,14 +8335,14 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_security_configurations_request.GetSecurityConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.get_security_configurations_request.GetSecurityConfigurationsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8399,13 +8403,13 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_session_request.GetSessionRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_glue.types.get_session_request.GetSessionRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if request_origin is not None:
-            input["request_origin"] = request_origin
+            input_["request_origin"] = request_origin
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8439,11 +8443,11 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_session_endpoint_request.GetSessionEndpointRequest = {}  # type: ignore[typeddict-item]
-        input["session_id"] = session_id
+        input_: aws_sdk_glue.types.get_session_endpoint_request.GetSessionEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_["session_id"] = session_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8483,14 +8487,14 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_statement_request.GetStatementRequest = {}  # type: ignore[typeddict-item]
-        input["session_id"] = session_id
-        input["id"] = id
+        input_: aws_sdk_glue.types.get_statement_request.GetStatementRequest = {}  # type: ignore[typeddict-item]
+        input_["session_id"] = session_id
+        input_["id"] = id
         if request_origin is not None:
-            input["request_origin"] = request_origin
+            input_["request_origin"] = request_origin
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8542,22 +8546,22 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_table_request.GetTableRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.get_table_request.GetTableRequest = {}  # type: ignore[typeddict-item]
         if catalog_id is not None:
-            input["catalog_id"] = catalog_id
-        input["database_name"] = database_name
-        input["name"] = name
+            input_["catalog_id"] = catalog_id
+        input_["database_name"] = database_name
+        input_["name"] = name
         if transaction_id is not None:
-            input["transaction_id"] = transaction_id
+            input_["transaction_id"] = transaction_id
         if query_as_of_time is not None:
-            input["query_as_of_time"] = query_as_of_time
+            input_["query_as_of_time"] = query_as_of_time
         if audit_context is not None:
-            input["audit_context"] = audit_context
+            input_["audit_context"] = audit_context
         if include_status_details is not None:
-            input["include_status_details"] = include_status_details
+            input_["include_status_details"] = include_status_details
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8597,14 +8601,14 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_table_optimizer_request.GetTableOptimizerRequest = {}  # type: ignore[typeddict-item]
-        input["catalog_id"] = catalog_id
-        input["database_name"] = database_name
-        input["table_name"] = table_name
-        input["type"] = type
+        input_: aws_sdk_glue.types.get_table_optimizer_request.GetTableOptimizerRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog_id"] = catalog_id
+        input_["database_name"] = database_name
+        input_["table_name"] = table_name
+        input_["type"] = type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8666,29 +8670,29 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_tables_request.GetTablesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.get_tables_request.GetTablesRequest = {}  # type: ignore[typeddict-item]
         if catalog_id is not None:
-            input["catalog_id"] = catalog_id
-        input["database_name"] = database_name
+            input_["catalog_id"] = catalog_id
+        input_["database_name"] = database_name
         if expression is not None:
-            input["expression"] = expression
+            input_["expression"] = expression
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if transaction_id is not None:
-            input["transaction_id"] = transaction_id
+            input_["transaction_id"] = transaction_id
         if query_as_of_time is not None:
-            input["query_as_of_time"] = query_as_of_time
+            input_["query_as_of_time"] = query_as_of_time
         if audit_context is not None:
-            input["audit_context"] = audit_context
+            input_["audit_context"] = audit_context
         if include_status_details is not None:
-            input["include_status_details"] = include_status_details
+            input_["include_status_details"] = include_status_details
         if attributes_to_get is not None:
-            input["attributes_to_get"] = attributes_to_get
+            input_["attributes_to_get"] = attributes_to_get
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8731,18 +8735,18 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_table_version_request.GetTableVersionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.get_table_version_request.GetTableVersionRequest = {}  # type: ignore[typeddict-item]
         if catalog_id is not None:
-            input["catalog_id"] = catalog_id
-        input["database_name"] = database_name
-        input["table_name"] = table_name
+            input_["catalog_id"] = catalog_id
+        input_["database_name"] = database_name
+        input_["table_name"] = table_name
         if version_id is not None:
-            input["version_id"] = version_id
+            input_["version_id"] = version_id
         if audit_context is not None:
-            input["audit_context"] = audit_context
+            input_["audit_context"] = audit_context
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8789,20 +8793,20 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_table_versions_request.GetTableVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.get_table_versions_request.GetTableVersionsRequest = {}  # type: ignore[typeddict-item]
         if catalog_id is not None:
-            input["catalog_id"] = catalog_id
-        input["database_name"] = database_name
-        input["table_name"] = table_name
+            input_["catalog_id"] = catalog_id
+        input_["database_name"] = database_name
+        input_["table_name"] = table_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if audit_context is not None:
-            input["audit_context"] = audit_context
+            input_["audit_context"] = audit_context
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8836,11 +8840,11 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_tags_request.GetTagsRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_glue.types.get_tags_request.GetTagsRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8874,11 +8878,11 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_trigger_request.GetTriggerRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_glue.types.get_trigger_request.GetTriggerRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8920,16 +8924,16 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_triggers_request.GetTriggersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.get_triggers_request.GetTriggersRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if dependent_job_name is not None:
-            input["dependent_job_name"] = dependent_job_name
+            input_["dependent_job_name"] = dependent_job_name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9006,21 +9010,21 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_unfiltered_partition_metadata_request.GetUnfilteredPartitionMetadataRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.get_unfiltered_partition_metadata_request.GetUnfilteredPartitionMetadataRequest = {}  # type: ignore[typeddict-item]
         if region is not None:
-            input["region"] = region
-        input["catalog_id"] = catalog_id
-        input["database_name"] = database_name
-        input["table_name"] = table_name
-        input["partition_values"] = partition_values
+            input_["region"] = region
+        input_["catalog_id"] = catalog_id
+        input_["database_name"] = database_name
+        input_["table_name"] = table_name
+        input_["partition_values"] = partition_values
         if audit_context is not None:
-            input["audit_context"] = audit_context
-        input["supported_permission_types"] = supported_permission_types
+            input_["audit_context"] = audit_context
+        input_["supported_permission_types"] = supported_permission_types
         if query_session_context is not None:
-            input["query_session_context"] = query_session_context
+            input_["query_session_context"] = query_session_context
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9078,28 +9082,28 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_unfiltered_partitions_metadata_request.GetUnfilteredPartitionsMetadataRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.get_unfiltered_partitions_metadata_request.GetUnfilteredPartitionsMetadataRequest = {}  # type: ignore[typeddict-item]
         if region is not None:
-            input["region"] = region
-        input["catalog_id"] = catalog_id
-        input["database_name"] = database_name
-        input["table_name"] = table_name
+            input_["region"] = region
+        input_["catalog_id"] = catalog_id
+        input_["database_name"] = database_name
+        input_["table_name"] = table_name
         if expression is not None:
-            input["expression"] = expression
+            input_["expression"] = expression
         if audit_context is not None:
-            input["audit_context"] = audit_context
-        input["supported_permission_types"] = supported_permission_types
+            input_["audit_context"] = audit_context
+        input_["supported_permission_types"] = supported_permission_types
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if segment is not None:
-            input["segment"] = segment
+            input_["segment"] = segment
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if query_session_context is not None:
-            input["query_session_context"] = query_session_context
+            input_["query_session_context"] = query_session_context
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9159,28 +9163,28 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_unfiltered_table_metadata_request.GetUnfilteredTableMetadataRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.get_unfiltered_table_metadata_request.GetUnfilteredTableMetadataRequest = {}  # type: ignore[typeddict-item]
         if region is not None:
-            input["region"] = region
-        input["catalog_id"] = catalog_id
-        input["database_name"] = database_name
-        input["name"] = name
+            input_["region"] = region
+        input_["catalog_id"] = catalog_id
+        input_["database_name"] = database_name
+        input_["name"] = name
         if audit_context is not None:
-            input["audit_context"] = audit_context
-        input["supported_permission_types"] = supported_permission_types
+            input_["audit_context"] = audit_context
+        input_["supported_permission_types"] = supported_permission_types
         if parent_resource_arn is not None:
-            input["parent_resource_arn"] = parent_resource_arn
+            input_["parent_resource_arn"] = parent_resource_arn
         if root_resource_arn is not None:
-            input["root_resource_arn"] = root_resource_arn
+            input_["root_resource_arn"] = root_resource_arn
         if supported_dialect is not None:
-            input["supported_dialect"] = supported_dialect
+            input_["supported_dialect"] = supported_dialect
         if permissions is not None:
-            input["permissions"] = permissions
+            input_["permissions"] = permissions
         if query_session_context is not None:
-            input["query_session_context"] = query_session_context
+            input_["query_session_context"] = query_session_context
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9214,11 +9218,11 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_usage_profile_request.GetUsageProfileRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_glue.types.get_usage_profile_request.GetUsageProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9258,14 +9262,14 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_user_defined_function_request.GetUserDefinedFunctionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.get_user_defined_function_request.GetUserDefinedFunctionRequest = {}  # type: ignore[typeddict-item]
         if catalog_id is not None:
-            input["catalog_id"] = catalog_id
-        input["database_name"] = database_name
-        input["function_name"] = function_name
+            input_["catalog_id"] = catalog_id
+        input_["database_name"] = database_name
+        input_["function_name"] = function_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9313,21 +9317,21 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_user_defined_functions_request.GetUserDefinedFunctionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.get_user_defined_functions_request.GetUserDefinedFunctionsRequest = {}  # type: ignore[typeddict-item]
         if catalog_id is not None:
-            input["catalog_id"] = catalog_id
+            input_["catalog_id"] = catalog_id
         if database_name is not None:
-            input["database_name"] = database_name
-        input["pattern"] = pattern
+            input_["database_name"] = database_name
+        input_["pattern"] = pattern
         if function_type is not None:
-            input["function_type"] = function_type
+            input_["function_type"] = function_type
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9365,13 +9369,13 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_workflow_request.GetWorkflowRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_glue.types.get_workflow_request.GetWorkflowRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if include_graph is not None:
-            input["include_graph"] = include_graph
+            input_["include_graph"] = include_graph
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9411,14 +9415,14 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_workflow_run_request.GetWorkflowRunRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["run_id"] = run_id
+        input_: aws_sdk_glue.types.get_workflow_run_request.GetWorkflowRunRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["run_id"] = run_id
         if include_graph is not None:
-            input["include_graph"] = include_graph
+            input_["include_graph"] = include_graph
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9454,12 +9458,12 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_workflow_run_properties_request.GetWorkflowRunPropertiesRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["run_id"] = run_id
+        input_: aws_sdk_glue.types.get_workflow_run_properties_request.GetWorkflowRunPropertiesRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["run_id"] = run_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9501,17 +9505,17 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.get_workflow_runs_request.GetWorkflowRunsRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_glue.types.get_workflow_runs_request.GetWorkflowRunsRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if include_graph is not None:
-            input["include_graph"] = include_graph
+            input_["include_graph"] = include_graph
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9576,12 +9580,12 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.import_catalog_to_glue_request.ImportCatalogToGlueRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.import_catalog_to_glue_request.ImportCatalogToGlueRequest = {}  # type: ignore[typeddict-item]
         if catalog_id is not None:
-            input["catalog_id"] = catalog_id
+            input_["catalog_id"] = catalog_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9621,16 +9625,16 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.list_blueprints_request.ListBlueprintsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.list_blueprints_request.ListBlueprintsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9691,14 +9695,14 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.list_column_statistics_task_runs_request.ListColumnStatisticsTaskRunsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.list_column_statistics_task_runs_request.ListColumnStatisticsTaskRunsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9736,14 +9740,14 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.list_connection_types_request.ListConnectionTypesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.list_connection_types_request.ListConnectionTypesRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9802,16 +9806,16 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.list_crawlers_request.ListCrawlersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.list_crawlers_request.ListCrawlersRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9853,17 +9857,17 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.list_crawls_request.ListCrawlsRequest = {}  # type: ignore[typeddict-item]
-        input["crawler_name"] = crawler_name
+        input_: aws_sdk_glue.types.list_crawls_request.ListCrawlsRequest = {}  # type: ignore[typeddict-item]
+        input_["crawler_name"] = crawler_name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9903,16 +9907,16 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.list_custom_entity_types_request.ListCustomEntityTypesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.list_custom_entity_types_request.ListCustomEntityTypesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9954,16 +9958,16 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.list_data_quality_results_request.ListDataQualityResultsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.list_data_quality_results_request.ListDataQualityResultsRequest = {}  # type: ignore[typeddict-item]
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10005,16 +10009,16 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.list_data_quality_rule_recommendation_runs_request.ListDataQualityRuleRecommendationRunsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.list_data_quality_rule_recommendation_runs_request.ListDataQualityRuleRecommendationRunsRequest = {}  # type: ignore[typeddict-item]
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10056,16 +10060,16 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.list_data_quality_ruleset_evaluation_runs_request.ListDataQualityRulesetEvaluationRunsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.list_data_quality_ruleset_evaluation_runs_request.ListDataQualityRulesetEvaluationRunsRequest = {}  # type: ignore[typeddict-item]
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10109,18 +10113,18 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.list_data_quality_rulesets_request.ListDataQualityRulesetsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.list_data_quality_rulesets_request.ListDataQualityRulesetsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10166,20 +10170,20 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.list_data_quality_statistic_annotations_request.ListDataQualityStatisticAnnotationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.list_data_quality_statistic_annotations_request.ListDataQualityStatisticAnnotationsRequest = {}  # type: ignore[typeddict-item]
         if statistic_id is not None:
-            input["statistic_id"] = statistic_id
+            input_["statistic_id"] = statistic_id
         if profile_id is not None:
-            input["profile_id"] = profile_id
+            input_["profile_id"] = profile_id
         if timestamp_filter is not None:
-            input["timestamp_filter"] = timestamp_filter
+            input_["timestamp_filter"] = timestamp_filter
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10225,20 +10229,20 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.list_data_quality_statistics_request.ListDataQualityStatisticsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.list_data_quality_statistics_request.ListDataQualityStatisticsRequest = {}  # type: ignore[typeddict-item]
         if statistic_id is not None:
-            input["statistic_id"] = statistic_id
+            input_["statistic_id"] = statistic_id
         if profile_id is not None:
-            input["profile_id"] = profile_id
+            input_["profile_id"] = profile_id
         if timestamp_filter is not None:
-            input["timestamp_filter"] = timestamp_filter
+            input_["timestamp_filter"] = timestamp_filter
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10276,16 +10280,16 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.list_dev_endpoints_request.ListDevEndpointsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.list_dev_endpoints_request.ListDevEndpointsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10333,20 +10337,20 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.list_entities_request.ListEntitiesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.list_entities_request.ListEntitiesRequest = {}  # type: ignore[typeddict-item]
         if connection_name is not None:
-            input["connection_name"] = connection_name
+            input_["connection_name"] = connection_name
         if catalog_id is not None:
-            input["catalog_id"] = catalog_id
+            input_["catalog_id"] = catalog_id
         if parent_entity_name is not None:
-            input["parent_entity_name"] = parent_entity_name
+            input_["parent_entity_name"] = parent_entity_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if data_store_api_version is not None:
-            input["data_store_api_version"] = data_store_api_version
+            input_["data_store_api_version"] = data_store_api_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10421,16 +10425,16 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.list_integration_resource_properties_request.ListIntegrationResourcePropertiesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.list_integration_resource_properties_request.ListIntegrationResourcePropertiesRequest = {}  # type: ignore[typeddict-item]
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10468,16 +10472,16 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.list_jobs_request.ListJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.list_jobs_request.ListJobsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10542,19 +10546,19 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.list_materialized_view_refresh_task_runs_request.ListMaterializedViewRefreshTaskRunsRequest = {}  # type: ignore[typeddict-item]
-        input["catalog_id"] = catalog_id
+        input_: aws_sdk_glue.types.list_materialized_view_refresh_task_runs_request.ListMaterializedViewRefreshTaskRunsRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog_id"] = catalog_id
         if database_name is not None:
-            input["database_name"] = database_name
+            input_["database_name"] = database_name
         if table_name is not None:
-            input["table_name"] = table_name
+            input_["table_name"] = table_name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10629,20 +10633,20 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.list_ml_transforms_request.ListMLTransformsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.list_ml_transforms_request.ListMLTransformsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if sort is not None:
-            input["sort"] = sort
+            input_["sort"] = sort
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10682,14 +10686,14 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.list_registries_input.ListRegistriesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.list_registries_input.ListRegistriesInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10756,16 +10760,16 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.list_schemas_input.ListSchemasInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.list_schemas_input.ListSchemasInput = {}  # type: ignore[typeddict-item]
         if registry_id is not None:
-            input["registry_id"] = registry_id
+            input_["registry_id"] = registry_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10834,15 +10838,15 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.list_schema_versions_input.ListSchemaVersionsInput = {}  # type: ignore[typeddict-item]
-        input["schema_id"] = schema_id
+        input_: aws_sdk_glue.types.list_schema_versions_input.ListSchemaVersionsInput = {}  # type: ignore[typeddict-item]
+        input_["schema_id"] = schema_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10913,18 +10917,18 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.list_sessions_request.ListSessionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.list_sessions_request.ListSessionsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if request_origin is not None:
-            input["request_origin"] = request_origin
+            input_["request_origin"] = request_origin
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10966,15 +10970,15 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.list_statements_request.ListStatementsRequest = {}  # type: ignore[typeddict-item]
-        input["session_id"] = session_id
+        input_: aws_sdk_glue.types.list_statements_request.ListStatementsRequest = {}  # type: ignore[typeddict-item]
+        input_["session_id"] = session_id
         if request_origin is not None:
-            input["request_origin"] = request_origin
+            input_["request_origin"] = request_origin
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11022,18 +11026,18 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.list_table_optimizer_runs_request.ListTableOptimizerRunsRequest = {}  # type: ignore[typeddict-item]
-        input["catalog_id"] = catalog_id
-        input["database_name"] = database_name
-        input["table_name"] = table_name
-        input["type"] = type
+        input_: aws_sdk_glue.types.list_table_optimizer_runs_request.ListTableOptimizerRunsRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog_id"] = catalog_id
+        input_["database_name"] = database_name
+        input_["table_name"] = table_name
+        input_["type"] = type
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11110,18 +11114,18 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.list_triggers_request.ListTriggersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.list_triggers_request.ListTriggersRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if dependent_job_name is not None:
-            input["dependent_job_name"] = dependent_job_name
+            input_["dependent_job_name"] = dependent_job_name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11190,14 +11194,14 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.list_usage_profiles_request.ListUsageProfilesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.list_usage_profiles_request.ListUsageProfilesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11260,14 +11264,14 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.list_workflows_request.ListWorkflowsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.list_workflows_request.ListWorkflowsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11336,19 +11340,19 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.modify_integration_request.ModifyIntegrationRequest = {}  # type: ignore[typeddict-item]
-        input["integration_identifier"] = integration_identifier
+        input_: aws_sdk_glue.types.modify_integration_request.ModifyIntegrationRequest = {}  # type: ignore[typeddict-item]
+        input_["integration_identifier"] = integration_identifier
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if data_filter is not None:
-            input["data_filter"] = data_filter
+            input_["data_filter"] = data_filter
         if integration_config is not None:
-            input["integration_config"] = integration_config
+            input_["integration_config"] = integration_config
         if integration_name is not None:
-            input["integration_name"] = integration_name
+            input_["integration_name"] = integration_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11386,13 +11390,13 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.put_data_catalog_encryption_settings_request.PutDataCatalogEncryptionSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.put_data_catalog_encryption_settings_request.PutDataCatalogEncryptionSettingsRequest = {}  # type: ignore[typeddict-item]
         if catalog_id is not None:
-            input["catalog_id"] = catalog_id
-        input["data_catalog_encryption_settings"] = data_catalog_encryption_settings
+            input_["catalog_id"] = catalog_id
+        input_["data_catalog_encryption_settings"] = data_catalog_encryption_settings
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11428,12 +11432,12 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.put_data_quality_profile_annotation_request.PutDataQualityProfileAnnotationRequest = {}  # type: ignore[typeddict-item]
-        input["profile_id"] = profile_id
-        input["inclusion_annotation"] = inclusion_annotation
+        input_: aws_sdk_glue.types.put_data_quality_profile_annotation_request.PutDataQualityProfileAnnotationRequest = {}  # type: ignore[typeddict-item]
+        input_["profile_id"] = profile_id
+        input_["inclusion_annotation"] = inclusion_annotation
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11483,19 +11487,19 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.put_resource_policy_request.PutResourcePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["policy_in_json"] = policy_in_json
+        input_: aws_sdk_glue.types.put_resource_policy_request.PutResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_in_json"] = policy_in_json
         if resource_arn is not None:
-            input["resource_arn"] = resource_arn
+            input_["resource_arn"] = resource_arn
         if policy_hash_condition is not None:
-            input["policy_hash_condition"] = policy_hash_condition
+            input_["policy_hash_condition"] = policy_hash_condition
         if policy_exists_condition is not None:
-            input["policy_exists_condition"] = policy_exists_condition
+            input_["policy_exists_condition"] = policy_exists_condition
         if enable_hybrid is not None:
-            input["enable_hybrid"] = enable_hybrid
+            input_["enable_hybrid"] = enable_hybrid
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11539,17 +11543,17 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.put_schema_version_metadata_input.PutSchemaVersionMetadataInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.put_schema_version_metadata_input.PutSchemaVersionMetadataInput = {}  # type: ignore[typeddict-item]
         if schema_id is not None:
-            input["schema_id"] = schema_id
+            input_["schema_id"] = schema_id
         if schema_version_number is not None:
-            input["schema_version_number"] = schema_version_number
+            input_["schema_version_number"] = schema_version_number
         if schema_version_id is not None:
-            input["schema_version_id"] = schema_version_id
-        input["metadata_key_value"] = metadata_key_value
+            input_["schema_version_id"] = schema_version_id
+        input_["metadata_key_value"] = metadata_key_value
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11587,13 +11591,13 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.put_workflow_run_properties_request.PutWorkflowRunPropertiesRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["run_id"] = run_id
-        input["run_properties"] = run_properties
+        input_: aws_sdk_glue.types.put_workflow_run_properties_request.PutWorkflowRunPropertiesRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["run_id"] = run_id
+        input_["run_properties"] = run_properties
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11645,22 +11649,22 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.query_schema_version_metadata_input.QuerySchemaVersionMetadataInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.query_schema_version_metadata_input.QuerySchemaVersionMetadataInput = {}  # type: ignore[typeddict-item]
         if schema_id is not None:
-            input["schema_id"] = schema_id
+            input_["schema_id"] = schema_id
         if schema_version_number is not None:
-            input["schema_version_number"] = schema_version_number
+            input_["schema_version_number"] = schema_version_number
         if schema_version_id is not None:
-            input["schema_version_id"] = schema_version_id
+            input_["schema_version_id"] = schema_version_id
         if metadata_list is not None:
-            input["metadata_list"] = metadata_list
+            input_["metadata_list"] = metadata_list
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11706,21 +11710,21 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.register_connection_type_request.RegisterConnectionTypeRequest = {}  # type: ignore[typeddict-item]
-        input["connection_type"] = connection_type
-        input["integration_type"] = integration_type
+        input_: aws_sdk_glue.types.register_connection_type_request.RegisterConnectionTypeRequest = {}  # type: ignore[typeddict-item]
+        input_["connection_type"] = connection_type
+        input_["integration_type"] = integration_type
         if description is not None:
-            input["description"] = description
-        input["connection_properties"] = connection_properties
-        input["connector_authentication_configuration"] = (
+            input_["description"] = description
+        input_["connection_properties"] = connection_properties
+        input_["connector_authentication_configuration"] = (
             connector_authentication_configuration
         )
-        input["rest_configuration"] = rest_configuration
+        input_["rest_configuration"] = rest_configuration
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11756,12 +11760,12 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.register_schema_version_input.RegisterSchemaVersionInput = {}  # type: ignore[typeddict-item]
-        input["schema_id"] = schema_id
-        input["schema_definition"] = schema_definition
+        input_: aws_sdk_glue.types.register_schema_version_input.RegisterSchemaVersionInput = {}  # type: ignore[typeddict-item]
+        input_["schema_id"] = schema_id
+        input_["schema_definition"] = schema_definition
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11805,17 +11809,17 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.remove_schema_version_metadata_input.RemoveSchemaVersionMetadataInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.remove_schema_version_metadata_input.RemoveSchemaVersionMetadataInput = {}  # type: ignore[typeddict-item]
         if schema_id is not None:
-            input["schema_id"] = schema_id
+            input_["schema_id"] = schema_id
         if schema_version_number is not None:
-            input["schema_version_number"] = schema_version_number
+            input_["schema_version_number"] = schema_version_number
         if schema_version_id is not None:
-            input["schema_version_id"] = schema_version_id
-        input["metadata_key_value"] = metadata_key_value
+            input_["schema_version_id"] = schema_version_id
+        input_["metadata_key_value"] = metadata_key_value
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11851,13 +11855,13 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.reset_job_bookmark_request.ResetJobBookmarkRequest = {}  # type: ignore[typeddict-item]
-        input["job_name"] = job_name
+        input_: aws_sdk_glue.types.reset_job_bookmark_request.ResetJobBookmarkRequest = {}  # type: ignore[typeddict-item]
+        input_["job_name"] = job_name
         if run_id is not None:
-            input["run_id"] = run_id
+            input_["run_id"] = run_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11895,13 +11899,13 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.resume_workflow_run_request.ResumeWorkflowRunRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["run_id"] = run_id
-        input["node_ids"] = node_ids
+        input_: aws_sdk_glue.types.resume_workflow_run_request.ResumeWorkflowRunRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["run_id"] = run_id
+        input_["node_ids"] = node_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11941,14 +11945,14 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.run_statement_request.RunStatementRequest = {}  # type: ignore[typeddict-item]
-        input["session_id"] = session_id
-        input["code"] = code
+        input_: aws_sdk_glue.types.run_statement_request.RunStatementRequest = {}  # type: ignore[typeddict-item]
+        input_["session_id"] = session_id
+        input_["code"] = code
         if request_origin is not None:
-            input["request_origin"] = request_origin
+            input_["request_origin"] = request_origin
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12004,26 +12008,26 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.search_tables_request.SearchTablesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.search_tables_request.SearchTablesRequest = {}  # type: ignore[typeddict-item]
         if catalog_id is not None:
-            input["catalog_id"] = catalog_id
+            input_["catalog_id"] = catalog_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if search_text is not None:
-            input["search_text"] = search_text
+            input_["search_text"] = search_text
         if sort_criteria is not None:
-            input["sort_criteria"] = sort_criteria
+            input_["sort_criteria"] = sort_criteria
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if resource_share_type is not None:
-            input["resource_share_type"] = resource_share_type
+            input_["resource_share_type"] = resource_share_type
         if include_status_details is not None:
-            input["include_status_details"] = include_status_details
+            input_["include_status_details"] = include_status_details
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12063,14 +12067,14 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.start_blueprint_run_request.StartBlueprintRunRequest = {}  # type: ignore[typeddict-item]
-        input["blueprint_name"] = blueprint_name
+        input_: aws_sdk_glue.types.start_blueprint_run_request.StartBlueprintRunRequest = {}  # type: ignore[typeddict-item]
+        input_["blueprint_name"] = blueprint_name
         if parameters is not None:
-            input["parameters"] = parameters
-        input["role_arn"] = role_arn
+            input_["parameters"] = parameters
+        input_["role_arn"] = role_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12122,21 +12126,21 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.start_column_statistics_task_run_request.StartColumnStatisticsTaskRunRequest = {}  # type: ignore[typeddict-item]
-        input["database_name"] = database_name
-        input["table_name"] = table_name
+        input_: aws_sdk_glue.types.start_column_statistics_task_run_request.StartColumnStatisticsTaskRunRequest = {}  # type: ignore[typeddict-item]
+        input_["database_name"] = database_name
+        input_["table_name"] = table_name
         if column_name_list is not None:
-            input["column_name_list"] = column_name_list
-        input["role"] = role
+            input_["column_name_list"] = column_name_list
+        input_["role"] = role
         if sample_size is not None:
-            input["sample_size"] = sample_size
+            input_["sample_size"] = sample_size
         if catalog_id is not None:
-            input["catalog_id"] = catalog_id
+            input_["catalog_id"] = catalog_id
         if security_configuration is not None:
-            input["security_configuration"] = security_configuration
+            input_["security_configuration"] = security_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12172,12 +12176,12 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.start_column_statistics_task_run_schedule_request.StartColumnStatisticsTaskRunScheduleRequest = {}  # type: ignore[typeddict-item]
-        input["database_name"] = database_name
-        input["table_name"] = table_name
+        input_: aws_sdk_glue.types.start_column_statistics_task_run_schedule_request.StartColumnStatisticsTaskRunScheduleRequest = {}  # type: ignore[typeddict-item]
+        input_["database_name"] = database_name
+        input_["table_name"] = table_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12211,11 +12215,11 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.start_crawler_request.StartCrawlerRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_glue.types.start_crawler_request.StartCrawlerRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12249,11 +12253,11 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.start_crawler_schedule_request.StartCrawlerScheduleRequest = {}  # type: ignore[typeddict-item]
-        input["crawler_name"] = crawler_name
+        input_: aws_sdk_glue.types.start_crawler_schedule_request.StartCrawlerScheduleRequest = {}  # type: ignore[typeddict-item]
+        input_["crawler_name"] = crawler_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12305,24 +12309,24 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.start_data_quality_rule_recommendation_run_request.StartDataQualityRuleRecommendationRunRequest = {}  # type: ignore[typeddict-item]
-        input["data_source"] = data_source
-        input["role"] = role
+        input_: aws_sdk_glue.types.start_data_quality_rule_recommendation_run_request.StartDataQualityRuleRecommendationRunRequest = {}  # type: ignore[typeddict-item]
+        input_["data_source"] = data_source
+        input_["role"] = role
         if number_of_workers is not None:
-            input["number_of_workers"] = number_of_workers
+            input_["number_of_workers"] = number_of_workers
         if timeout is not None:
-            input["timeout"] = timeout
+            input_["timeout"] = timeout
         if created_ruleset_name is not None:
-            input["created_ruleset_name"] = created_ruleset_name
+            input_["created_ruleset_name"] = created_ruleset_name
         if data_quality_security_configuration is not None:
-            input["data_quality_security_configuration"] = (
+            input_["data_quality_security_configuration"] = (
                 data_quality_security_configuration
             )
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12376,23 +12380,23 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.start_data_quality_ruleset_evaluation_run_request.StartDataQualityRulesetEvaluationRunRequest = {}  # type: ignore[typeddict-item]
-        input["data_source"] = data_source
-        input["role"] = role
+        input_: aws_sdk_glue.types.start_data_quality_ruleset_evaluation_run_request.StartDataQualityRulesetEvaluationRunRequest = {}  # type: ignore[typeddict-item]
+        input_["data_source"] = data_source
+        input_["role"] = role
         if number_of_workers is not None:
-            input["number_of_workers"] = number_of_workers
+            input_["number_of_workers"] = number_of_workers
         if timeout is not None:
-            input["timeout"] = timeout
+            input_["timeout"] = timeout
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if additional_run_options is not None:
-            input["additional_run_options"] = additional_run_options
-        input["ruleset_names"] = ruleset_names
+            input_["additional_run_options"] = additional_run_options
+        input_["ruleset_names"] = ruleset_names
         if additional_data_sources is not None:
-            input["additional_data_sources"] = additional_data_sources
+            input_["additional_data_sources"] = additional_data_sources
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12428,12 +12432,12 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.start_export_labels_task_run_request.StartExportLabelsTaskRunRequest = {}  # type: ignore[typeddict-item]
-        input["transform_id"] = transform_id
-        input["output_s3_path"] = output_s3_path
+        input_: aws_sdk_glue.types.start_export_labels_task_run_request.StartExportLabelsTaskRunRequest = {}  # type: ignore[typeddict-item]
+        input_["transform_id"] = transform_id
+        input_["output_s3_path"] = output_s3_path
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12473,14 +12477,14 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.start_import_labels_task_run_request.StartImportLabelsTaskRunRequest = {}  # type: ignore[typeddict-item]
-        input["transform_id"] = transform_id
-        input["input_s3_path"] = input_s3_path
+        input_: aws_sdk_glue.types.start_import_labels_task_run_request.StartImportLabelsTaskRunRequest = {}  # type: ignore[typeddict-item]
+        input_["transform_id"] = transform_id
+        input_["input_s3_path"] = input_s3_path
         if replace_all_labels is not None:
-            input["replace_all_labels"] = replace_all_labels
+            input_["replace_all_labels"] = replace_all_labels
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12554,35 +12558,35 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.start_job_run_request.StartJobRunRequest = {}  # type: ignore[typeddict-item]
-        input["job_name"] = job_name
+        input_: aws_sdk_glue.types.start_job_run_request.StartJobRunRequest = {}  # type: ignore[typeddict-item]
+        input_["job_name"] = job_name
         if job_run_queuing_enabled is not None:
-            input["job_run_queuing_enabled"] = job_run_queuing_enabled
+            input_["job_run_queuing_enabled"] = job_run_queuing_enabled
         if job_run_id is not None:
-            input["job_run_id"] = job_run_id
+            input_["job_run_id"] = job_run_id
         if arguments is not None:
-            input["arguments"] = arguments
+            input_["arguments"] = arguments
         if allocated_capacity is not None:
-            input["allocated_capacity"] = allocated_capacity
+            input_["allocated_capacity"] = allocated_capacity
         if timeout is not None:
-            input["timeout"] = timeout
+            input_["timeout"] = timeout
         if max_capacity is not None:
-            input["max_capacity"] = max_capacity
+            input_["max_capacity"] = max_capacity
         if security_configuration is not None:
-            input["security_configuration"] = security_configuration
+            input_["security_configuration"] = security_configuration
         if notification_property is not None:
-            input["notification_property"] = notification_property
+            input_["notification_property"] = notification_property
         if worker_type is not None:
-            input["worker_type"] = worker_type
+            input_["worker_type"] = worker_type
         if number_of_workers is not None:
-            input["number_of_workers"] = number_of_workers
+            input_["number_of_workers"] = number_of_workers
         if execution_class is not None:
-            input["execution_class"] = execution_class
+            input_["execution_class"] = execution_class
         if execution_role_session_policy is not None:
-            input["execution_role_session_policy"] = execution_role_session_policy
+            input_["execution_role_session_policy"] = execution_role_session_policy
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12624,15 +12628,15 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.start_materialized_view_refresh_task_run_request.StartMaterializedViewRefreshTaskRunRequest = {}  # type: ignore[typeddict-item]
-        input["catalog_id"] = catalog_id
-        input["database_name"] = database_name
-        input["table_name"] = table_name
+        input_: aws_sdk_glue.types.start_materialized_view_refresh_task_run_request.StartMaterializedViewRefreshTaskRunRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog_id"] = catalog_id
+        input_["database_name"] = database_name
+        input_["table_name"] = table_name
         if full_refresh is not None:
-            input["full_refresh"] = full_refresh
+            input_["full_refresh"] = full_refresh
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12666,11 +12670,11 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.start_ml_evaluation_task_run_request.StartMLEvaluationTaskRunRequest = {}  # type: ignore[typeddict-item]
-        input["transform_id"] = transform_id
+        input_: aws_sdk_glue.types.start_ml_evaluation_task_run_request.StartMLEvaluationTaskRunRequest = {}  # type: ignore[typeddict-item]
+        input_["transform_id"] = transform_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12706,12 +12710,12 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.start_ml_labeling_set_generation_task_run_request.StartMLLabelingSetGenerationTaskRunRequest = {}  # type: ignore[typeddict-item]
-        input["transform_id"] = transform_id
-        input["output_s3_path"] = output_s3_path
+        input_: aws_sdk_glue.types.start_ml_labeling_set_generation_task_run_request.StartMLLabelingSetGenerationTaskRunRequest = {}  # type: ignore[typeddict-item]
+        input_["transform_id"] = transform_id
+        input_["output_s3_path"] = output_s3_path
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12745,11 +12749,11 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.start_trigger_request.StartTriggerRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_glue.types.start_trigger_request.StartTriggerRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12787,13 +12791,13 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.start_workflow_run_request.StartWorkflowRunRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_glue.types.start_workflow_run_request.StartWorkflowRunRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if run_properties is not None:
-            input["run_properties"] = run_properties
+            input_["run_properties"] = run_properties
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12829,12 +12833,12 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.stop_column_statistics_task_run_request.StopColumnStatisticsTaskRunRequest = {}  # type: ignore[typeddict-item]
-        input["database_name"] = database_name
-        input["table_name"] = table_name
+        input_: aws_sdk_glue.types.stop_column_statistics_task_run_request.StopColumnStatisticsTaskRunRequest = {}  # type: ignore[typeddict-item]
+        input_["database_name"] = database_name
+        input_["table_name"] = table_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12870,12 +12874,12 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.stop_column_statistics_task_run_schedule_request.StopColumnStatisticsTaskRunScheduleRequest = {}  # type: ignore[typeddict-item]
-        input["database_name"] = database_name
-        input["table_name"] = table_name
+        input_: aws_sdk_glue.types.stop_column_statistics_task_run_schedule_request.StopColumnStatisticsTaskRunScheduleRequest = {}  # type: ignore[typeddict-item]
+        input_["database_name"] = database_name
+        input_["table_name"] = table_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12909,11 +12913,11 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.stop_crawler_request.StopCrawlerRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_glue.types.stop_crawler_request.StopCrawlerRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12949,11 +12953,11 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.stop_crawler_schedule_request.StopCrawlerScheduleRequest = {}  # type: ignore[typeddict-item]
-        input["crawler_name"] = crawler_name
+        input_: aws_sdk_glue.types.stop_crawler_schedule_request.StopCrawlerScheduleRequest = {}  # type: ignore[typeddict-item]
+        input_["crawler_name"] = crawler_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12991,13 +12995,13 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.stop_materialized_view_refresh_task_run_request.StopMaterializedViewRefreshTaskRunRequest = {}  # type: ignore[typeddict-item]
-        input["catalog_id"] = catalog_id
-        input["database_name"] = database_name
-        input["table_name"] = table_name
+        input_: aws_sdk_glue.types.stop_materialized_view_refresh_task_run_request.StopMaterializedViewRefreshTaskRunRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog_id"] = catalog_id
+        input_["database_name"] = database_name
+        input_["table_name"] = table_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13035,13 +13039,13 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.stop_session_request.StopSessionRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_glue.types.stop_session_request.StopSessionRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if request_origin is not None:
-            input["request_origin"] = request_origin
+            input_["request_origin"] = request_origin
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13075,11 +13079,11 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.stop_trigger_request.StopTriggerRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_glue.types.stop_trigger_request.StopTriggerRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13115,12 +13119,12 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.stop_workflow_run_request.StopWorkflowRunRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["run_id"] = run_id
+        input_: aws_sdk_glue.types.stop_workflow_run_request.StopWorkflowRunRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["run_id"] = run_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13156,12 +13160,12 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags_to_add"] = tags_to_add
+        input_: aws_sdk_glue.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags_to_add"] = tags_to_add
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13203,16 +13207,16 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.test_connection_request.TestConnectionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.test_connection_request.TestConnectionRequest = {}  # type: ignore[typeddict-item]
         if connection_name is not None:
-            input["connection_name"] = connection_name
+            input_["connection_name"] = connection_name
         if catalog_id is not None:
-            input["catalog_id"] = catalog_id
+            input_["catalog_id"] = catalog_id
         if test_connection_input is not None:
-            input["test_connection_input"] = test_connection_input
+            input_["test_connection_input"] = test_connection_input
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13248,12 +13252,12 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags_to_remove"] = tags_to_remove
+        input_: aws_sdk_glue.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags_to_remove"] = tags_to_remove
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13293,14 +13297,14 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.update_blueprint_request.UpdateBlueprintRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_glue.types.update_blueprint_request.UpdateBlueprintRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["blueprint_location"] = blueprint_location
+            input_["description"] = description
+        input_["blueprint_location"] = blueprint_location
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13336,12 +13340,12 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.update_catalog_request.UpdateCatalogRequest = {}  # type: ignore[typeddict-item]
-        input["catalog_id"] = catalog_id
-        input["catalog_input"] = catalog_input
+        input_: aws_sdk_glue.types.update_catalog_request.UpdateCatalogRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog_id"] = catalog_id
+        input_["catalog_input"] = catalog_input
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13389,18 +13393,18 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.update_classifier_request.UpdateClassifierRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.update_classifier_request.UpdateClassifierRequest = {}  # type: ignore[typeddict-item]
         if grok_classifier is not None:
-            input["grok_classifier"] = grok_classifier
+            input_["grok_classifier"] = grok_classifier
         if xml_classifier is not None:
-            input["xml_classifier"] = xml_classifier
+            input_["xml_classifier"] = xml_classifier
         if json_classifier is not None:
-            input["json_classifier"] = json_classifier
+            input_["json_classifier"] = json_classifier
         if csv_classifier is not None:
-            input["csv_classifier"] = csv_classifier
+            input_["csv_classifier"] = csv_classifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13444,16 +13448,16 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.update_column_statistics_for_partition_request.UpdateColumnStatisticsForPartitionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.update_column_statistics_for_partition_request.UpdateColumnStatisticsForPartitionRequest = {}  # type: ignore[typeddict-item]
         if catalog_id is not None:
-            input["catalog_id"] = catalog_id
-        input["database_name"] = database_name
-        input["table_name"] = table_name
-        input["partition_values"] = partition_values
-        input["column_statistics_list"] = column_statistics_list
+            input_["catalog_id"] = catalog_id
+        input_["database_name"] = database_name
+        input_["table_name"] = table_name
+        input_["partition_values"] = partition_values
+        input_["column_statistics_list"] = column_statistics_list
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13495,15 +13499,15 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.update_column_statistics_for_table_request.UpdateColumnStatisticsForTableRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.update_column_statistics_for_table_request.UpdateColumnStatisticsForTableRequest = {}  # type: ignore[typeddict-item]
         if catalog_id is not None:
-            input["catalog_id"] = catalog_id
-        input["database_name"] = database_name
-        input["table_name"] = table_name
-        input["column_statistics_list"] = column_statistics_list
+            input_["catalog_id"] = catalog_id
+        input_["database_name"] = database_name
+        input_["table_name"] = table_name
+        input_["column_statistics_list"] = column_statistics_list
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13557,24 +13561,24 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.update_column_statistics_task_settings_request.UpdateColumnStatisticsTaskSettingsRequest = {}  # type: ignore[typeddict-item]
-        input["database_name"] = database_name
-        input["table_name"] = table_name
+        input_: aws_sdk_glue.types.update_column_statistics_task_settings_request.UpdateColumnStatisticsTaskSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_["database_name"] = database_name
+        input_["table_name"] = table_name
         if role is not None:
-            input["role"] = role
+            input_["role"] = role
         if schedule is not None:
-            input["schedule"] = schedule
+            input_["schedule"] = schedule
         if column_name_list is not None:
-            input["column_name_list"] = column_name_list
+            input_["column_name_list"] = column_name_list
         if sample_size is not None:
-            input["sample_size"] = sample_size
+            input_["sample_size"] = sample_size
         if catalog_id is not None:
-            input["catalog_id"] = catalog_id
+            input_["catalog_id"] = catalog_id
         if security_configuration is not None:
-            input["security_configuration"] = security_configuration
+            input_["security_configuration"] = security_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13614,14 +13618,14 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.update_connection_request.UpdateConnectionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.update_connection_request.UpdateConnectionRequest = {}  # type: ignore[typeddict-item]
         if catalog_id is not None:
-            input["catalog_id"] = catalog_id
-        input["name"] = name
-        input["connection_input"] = connection_input
+            input_["catalog_id"] = catalog_id
+        input_["name"] = name
+        input_["connection_input"] = connection_input
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13697,37 +13701,37 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.update_crawler_request.UpdateCrawlerRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_glue.types.update_crawler_request.UpdateCrawlerRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if role is not None:
-            input["role"] = role
+            input_["role"] = role
         if database_name is not None:
-            input["database_name"] = database_name
+            input_["database_name"] = database_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if targets is not None:
-            input["targets"] = targets
+            input_["targets"] = targets
         if schedule is not None:
-            input["schedule"] = schedule
+            input_["schedule"] = schedule
         if classifiers is not None:
-            input["classifiers"] = classifiers
+            input_["classifiers"] = classifiers
         if table_prefix is not None:
-            input["table_prefix"] = table_prefix
+            input_["table_prefix"] = table_prefix
         if schema_change_policy is not None:
-            input["schema_change_policy"] = schema_change_policy
+            input_["schema_change_policy"] = schema_change_policy
         if recrawl_policy is not None:
-            input["recrawl_policy"] = recrawl_policy
+            input_["recrawl_policy"] = recrawl_policy
         if lineage_configuration is not None:
-            input["lineage_configuration"] = lineage_configuration
+            input_["lineage_configuration"] = lineage_configuration
         if lake_formation_configuration is not None:
-            input["lake_formation_configuration"] = lake_formation_configuration
+            input_["lake_formation_configuration"] = lake_formation_configuration
         if configuration is not None:
-            input["configuration"] = configuration
+            input_["configuration"] = configuration
         if crawler_security_configuration is not None:
-            input["crawler_security_configuration"] = crawler_security_configuration
+            input_["crawler_security_configuration"] = crawler_security_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13763,13 +13767,13 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.update_crawler_schedule_request.UpdateCrawlerScheduleRequest = {}  # type: ignore[typeddict-item]
-        input["crawler_name"] = crawler_name
+        input_: aws_sdk_glue.types.update_crawler_schedule_request.UpdateCrawlerScheduleRequest = {}  # type: ignore[typeddict-item]
+        input_["crawler_name"] = crawler_name
         if schedule is not None:
-            input["schedule"] = schedule
+            input_["schedule"] = schedule
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13809,14 +13813,14 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.update_database_request.UpdateDatabaseRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.update_database_request.UpdateDatabaseRequest = {}  # type: ignore[typeddict-item]
         if catalog_id is not None:
-            input["catalog_id"] = catalog_id
-        input["name"] = name
-        input["database_input"] = database_input
+            input_["catalog_id"] = catalog_id
+        input_["name"] = name
+        input_["database_input"] = database_input
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13858,15 +13862,15 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.update_data_quality_ruleset_request.UpdateDataQualityRulesetRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_glue.types.update_data_quality_ruleset_request.UpdateDataQualityRulesetRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if ruleset is not None:
-            input["ruleset"] = ruleset
+            input_["ruleset"] = ruleset
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13922,25 +13926,25 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.update_dev_endpoint_request.UpdateDevEndpointRequest = {}  # type: ignore[typeddict-item]
-        input["endpoint_name"] = endpoint_name
+        input_: aws_sdk_glue.types.update_dev_endpoint_request.UpdateDevEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_["endpoint_name"] = endpoint_name
         if public_key is not None:
-            input["public_key"] = public_key
+            input_["public_key"] = public_key
         if add_public_keys is not None:
-            input["add_public_keys"] = add_public_keys
+            input_["add_public_keys"] = add_public_keys
         if delete_public_keys is not None:
-            input["delete_public_keys"] = delete_public_keys
+            input_["delete_public_keys"] = delete_public_keys
         if custom_libraries is not None:
-            input["custom_libraries"] = custom_libraries
+            input_["custom_libraries"] = custom_libraries
         if update_etl_libraries is not None:
-            input["update_etl_libraries"] = update_etl_libraries
+            input_["update_etl_libraries"] = update_etl_libraries
         if delete_arguments is not None:
-            input["delete_arguments"] = delete_arguments
+            input_["delete_arguments"] = delete_arguments
         if add_arguments is not None:
-            input["add_arguments"] = add_arguments
+            input_["add_arguments"] = add_arguments
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13980,14 +13984,16 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.update_glue_identity_center_configuration_request.UpdateGlueIdentityCenterConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.update_glue_identity_center_configuration_request.UpdateGlueIdentityCenterConfigurationRequest = {}  # type: ignore[typeddict-item]
         if scopes is not None:
-            input["scopes"] = scopes
+            input_["scopes"] = scopes
         if user_background_sessions_enabled is not None:
-            input["user_background_sessions_enabled"] = user_background_sessions_enabled
+            input_["user_background_sessions_enabled"] = (
+                user_background_sessions_enabled
+            )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14029,15 +14035,15 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.update_integration_resource_property_request.UpdateIntegrationResourcePropertyRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_glue.types.update_integration_resource_property_request.UpdateIntegrationResourcePropertyRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
         if source_processing_properties is not None:
-            input["source_processing_properties"] = source_processing_properties
+            input_["source_processing_properties"] = source_processing_properties
         if target_processing_properties is not None:
-            input["target_processing_properties"] = target_processing_properties
+            input_["target_processing_properties"] = target_processing_properties
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14081,16 +14087,16 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.update_integration_table_properties_request.UpdateIntegrationTablePropertiesRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["table_name"] = table_name
+        input_: aws_sdk_glue.types.update_integration_table_properties_request.UpdateIntegrationTablePropertiesRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["table_name"] = table_name
         if source_table_config is not None:
-            input["source_table_config"] = source_table_config
+            input_["source_table_config"] = source_table_config
         if target_table_config is not None:
-            input["target_table_config"] = target_table_config
+            input_["target_table_config"] = target_table_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14126,12 +14132,12 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.update_job_request.UpdateJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_name"] = job_name
-        input["job_update"] = job_update
+        input_: aws_sdk_glue.types.update_job_request.UpdateJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_name"] = job_name
+        input_["job_update"] = job_update
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14189,28 +14195,28 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.update_job_from_source_control_request.UpdateJobFromSourceControlRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.update_job_from_source_control_request.UpdateJobFromSourceControlRequest = {}  # type: ignore[typeddict-item]
         if job_name is not None:
-            input["job_name"] = job_name
+            input_["job_name"] = job_name
         if provider is not None:
-            input["provider"] = provider
+            input_["provider"] = provider
         if repository_name is not None:
-            input["repository_name"] = repository_name
+            input_["repository_name"] = repository_name
         if repository_owner is not None:
-            input["repository_owner"] = repository_owner
+            input_["repository_owner"] = repository_owner
         if branch_name is not None:
-            input["branch_name"] = branch_name
+            input_["branch_name"] = branch_name
         if folder is not None:
-            input["folder"] = folder
+            input_["folder"] = folder
         if commit_id is not None:
-            input["commit_id"] = commit_id
+            input_["commit_id"] = commit_id
         if auth_strategy is not None:
-            input["auth_strategy"] = auth_strategy
+            input_["auth_strategy"] = auth_strategy
         if auth_token is not None:
-            input["auth_token"] = auth_token
+            input_["auth_token"] = auth_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14276,31 +14282,31 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.update_ml_transform_request.UpdateMLTransformRequest = {}  # type: ignore[typeddict-item]
-        input["transform_id"] = transform_id
+        input_: aws_sdk_glue.types.update_ml_transform_request.UpdateMLTransformRequest = {}  # type: ignore[typeddict-item]
+        input_["transform_id"] = transform_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if parameters is not None:
-            input["parameters"] = parameters
+            input_["parameters"] = parameters
         if role is not None:
-            input["role"] = role
+            input_["role"] = role
         if glue_version is not None:
-            input["glue_version"] = glue_version
+            input_["glue_version"] = glue_version
         if max_capacity is not None:
-            input["max_capacity"] = max_capacity
+            input_["max_capacity"] = max_capacity
         if worker_type is not None:
-            input["worker_type"] = worker_type
+            input_["worker_type"] = worker_type
         if number_of_workers is not None:
-            input["number_of_workers"] = number_of_workers
+            input_["number_of_workers"] = number_of_workers
         if timeout is not None:
-            input["timeout"] = timeout
+            input_["timeout"] = timeout
         if max_retries is not None:
-            input["max_retries"] = max_retries
+            input_["max_retries"] = max_retries
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14344,16 +14350,16 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.update_partition_request.UpdatePartitionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.update_partition_request.UpdatePartitionRequest = {}  # type: ignore[typeddict-item]
         if catalog_id is not None:
-            input["catalog_id"] = catalog_id
-        input["database_name"] = database_name
-        input["table_name"] = table_name
-        input["partition_value_list"] = partition_value_list
-        input["partition_input"] = partition_input
+            input_["catalog_id"] = catalog_id
+        input_["database_name"] = database_name
+        input_["table_name"] = table_name
+        input_["partition_value_list"] = partition_value_list
+        input_["partition_input"] = partition_input
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14389,12 +14395,12 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.update_registry_input.UpdateRegistryInput = {}  # type: ignore[typeddict-item]
-        input["registry_id"] = registry_id
-        input["description"] = description
+        input_: aws_sdk_glue.types.update_registry_input.UpdateRegistryInput = {}  # type: ignore[typeddict-item]
+        input_["registry_id"] = registry_id
+        input_["description"] = description
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14440,17 +14446,17 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.update_schema_input.UpdateSchemaInput = {}  # type: ignore[typeddict-item]
-        input["schema_id"] = schema_id
+        input_: aws_sdk_glue.types.update_schema_input.UpdateSchemaInput = {}  # type: ignore[typeddict-item]
+        input_["schema_id"] = schema_id
         if schema_version_number is not None:
-            input["schema_version_number"] = schema_version_number
+            input_["schema_version_number"] = schema_version_number
         if compatibility is not None:
-            input["compatibility"] = compatibility
+            input_["compatibility"] = compatibility
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14508,28 +14514,28 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.update_source_control_from_job_request.UpdateSourceControlFromJobRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.update_source_control_from_job_request.UpdateSourceControlFromJobRequest = {}  # type: ignore[typeddict-item]
         if job_name is not None:
-            input["job_name"] = job_name
+            input_["job_name"] = job_name
         if provider is not None:
-            input["provider"] = provider
+            input_["provider"] = provider
         if repository_name is not None:
-            input["repository_name"] = repository_name
+            input_["repository_name"] = repository_name
         if repository_owner is not None:
-            input["repository_owner"] = repository_owner
+            input_["repository_owner"] = repository_owner
         if branch_name is not None:
-            input["branch_name"] = branch_name
+            input_["branch_name"] = branch_name
         if folder is not None:
-            input["folder"] = folder
+            input_["folder"] = folder
         if commit_id is not None:
-            input["commit_id"] = commit_id
+            input_["commit_id"] = commit_id
         if auth_strategy is not None:
-            input["auth_strategy"] = auth_strategy
+            input_["auth_strategy"] = auth_strategy
         if auth_token is not None:
-            input["auth_token"] = auth_token
+            input_["auth_token"] = auth_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14591,29 +14597,29 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.update_table_request.UpdateTableRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.update_table_request.UpdateTableRequest = {}  # type: ignore[typeddict-item]
         if catalog_id is not None:
-            input["catalog_id"] = catalog_id
-        input["database_name"] = database_name
+            input_["catalog_id"] = catalog_id
+        input_["database_name"] = database_name
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if table_input is not None:
-            input["table_input"] = table_input
+            input_["table_input"] = table_input
         if skip_archive is not None:
-            input["skip_archive"] = skip_archive
+            input_["skip_archive"] = skip_archive
         if transaction_id is not None:
-            input["transaction_id"] = transaction_id
+            input_["transaction_id"] = transaction_id
         if version_id is not None:
-            input["version_id"] = version_id
+            input_["version_id"] = version_id
         if view_update_action is not None:
-            input["view_update_action"] = view_update_action
+            input_["view_update_action"] = view_update_action
         if force is not None:
-            input["force"] = force
+            input_["force"] = force
         if update_open_table_format_input is not None:
-            input["update_open_table_format_input"] = update_open_table_format_input
+            input_["update_open_table_format_input"] = update_open_table_format_input
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14655,15 +14661,15 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.update_table_optimizer_request.UpdateTableOptimizerRequest = {}  # type: ignore[typeddict-item]
-        input["catalog_id"] = catalog_id
-        input["database_name"] = database_name
-        input["table_name"] = table_name
-        input["type"] = type
-        input["table_optimizer_configuration"] = table_optimizer_configuration
+        input_: aws_sdk_glue.types.update_table_optimizer_request.UpdateTableOptimizerRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog_id"] = catalog_id
+        input_["database_name"] = database_name
+        input_["table_name"] = table_name
+        input_["type"] = type
+        input_["table_optimizer_configuration"] = table_optimizer_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14699,12 +14705,12 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.update_trigger_request.UpdateTriggerRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["trigger_update"] = trigger_update
+        input_: aws_sdk_glue.types.update_trigger_request.UpdateTriggerRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["trigger_update"] = trigger_update
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14744,14 +14750,14 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.update_usage_profile_request.UpdateUsageProfileRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_glue.types.update_usage_profile_request.UpdateUsageProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["configuration"] = configuration
+            input_["description"] = description
+        input_["configuration"] = configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14793,15 +14799,15 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.update_user_defined_function_request.UpdateUserDefinedFunctionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_glue.types.update_user_defined_function_request.UpdateUserDefinedFunctionRequest = {}  # type: ignore[typeddict-item]
         if catalog_id is not None:
-            input["catalog_id"] = catalog_id
-        input["database_name"] = database_name
-        input["function_name"] = function_name
-        input["function_input"] = function_input
+            input_["catalog_id"] = catalog_id
+        input_["database_name"] = database_name
+        input_["function_name"] = function_name
+        input_["function_input"] = function_input
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14847,17 +14853,17 @@ class AsyncGlueClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glue.types.update_workflow_request.UpdateWorkflowRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_glue.types.update_workflow_request.UpdateWorkflowRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if default_run_properties is not None:
-            input["default_run_properties"] = default_run_properties
+            input_["default_run_properties"] = default_run_properties
         if max_concurrent_runs is not None:
-            input["max_concurrent_runs"] = max_concurrent_runs
+            input_["max_concurrent_runs"] = max_concurrent_runs
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

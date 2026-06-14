@@ -1,14 +1,17 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesweb#AssociateDataProtectionSettingsRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 if TYPE_CHECKING:
     import aws_sdk_workspaces_web.types.arn
+
 
 class AssociateDataProtectionSettingsRequest(TypedDict):
     portal_arn: "aws_sdk_workspaces_web.types.arn.ARN"
     """<p>The ARN of the web portal.</p>"""
     data_protection_settings_arn: "aws_sdk_workspaces_web.types.arn.ARN"
     """<p>The ARN of the data protection settings.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: AssociateDataProtectionSettingsRequest) -> dict:

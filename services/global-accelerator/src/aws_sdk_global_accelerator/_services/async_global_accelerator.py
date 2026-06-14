@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import AsyncBaseHandler, AsyncClient
 
+import aws_sdk_global_accelerator._auth._signers
+import aws_sdk_global_accelerator._auth._sigv4
 from aws_sdk_global_accelerator._auth._identity import Credentials
 from aws_sdk_global_accelerator._auth._providers import (
     CredentialsProvider,
@@ -229,7 +231,7 @@ class AsyncGlobalAcceleratorClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = AsyncGlobalAcceleratorClientConfig(
+        self._config = AsyncGlobalAcceleratorClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -249,7 +251,7 @@ class AsyncGlobalAcceleratorClient:
         overrides: AsyncGlobalAcceleratorClientConfig = config_overrides or {}
         interceptors_: list[AsyncInterceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             aretry(),
         ]
@@ -257,16 +259,16 @@ class AsyncGlobalAcceleratorClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            region=overrides.get("region", self.config.get("region")),
+            region=overrides.get("region", self._config.get("region")),
             use_dual_stack=overrides.get(
-                "use_dual_stack", self.config.get("use_dual_stack")
+                "use_dual_stack", self._config.get("use_dual_stack")
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -301,12 +303,12 @@ class AsyncGlobalAcceleratorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_global_accelerator.types.add_custom_routing_endpoints_request.AddCustomRoutingEndpointsRequest = {}  # type: ignore[typeddict-item]
-        input["endpoint_configurations"] = endpoint_configurations
-        input["endpoint_group_arn"] = endpoint_group_arn
+        input_: aws_sdk_global_accelerator.types.add_custom_routing_endpoints_request.AddCustomRoutingEndpointsRequest = {}  # type: ignore[typeddict-item]
+        input_["endpoint_configurations"] = endpoint_configurations
+        input_["endpoint_group_arn"] = endpoint_group_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -342,12 +344,12 @@ class AsyncGlobalAcceleratorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_global_accelerator.types.add_endpoints_request.AddEndpointsRequest = {}  # type: ignore[typeddict-item]
-        input["endpoint_configurations"] = endpoint_configurations
-        input["endpoint_group_arn"] = endpoint_group_arn
+        input_: aws_sdk_global_accelerator.types.add_endpoints_request.AddEndpointsRequest = {}  # type: ignore[typeddict-item]
+        input_["endpoint_configurations"] = endpoint_configurations
+        input_["endpoint_group_arn"] = endpoint_group_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -381,11 +383,11 @@ class AsyncGlobalAcceleratorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_global_accelerator.types.advertise_byoip_cidr_request.AdvertiseByoipCidrRequest = {}  # type: ignore[typeddict-item]
-        input["cidr"] = cidr
+        input_: aws_sdk_global_accelerator.types.advertise_byoip_cidr_request.AdvertiseByoipCidrRequest = {}  # type: ignore[typeddict-item]
+        input_["cidr"] = cidr
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -431,18 +433,18 @@ class AsyncGlobalAcceleratorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_global_accelerator.types.allow_custom_routing_traffic_request.AllowCustomRoutingTrafficRequest = {}  # type: ignore[typeddict-item]
-        input["endpoint_group_arn"] = endpoint_group_arn
-        input["endpoint_id"] = endpoint_id
+        input_: aws_sdk_global_accelerator.types.allow_custom_routing_traffic_request.AllowCustomRoutingTrafficRequest = {}  # type: ignore[typeddict-item]
+        input_["endpoint_group_arn"] = endpoint_group_arn
+        input_["endpoint_id"] = endpoint_id
         if destination_addresses is not None:
-            input["destination_addresses"] = destination_addresses
+            input_["destination_addresses"] = destination_addresses
         if destination_ports is not None:
-            input["destination_ports"] = destination_ports
+            input_["destination_ports"] = destination_ports
         if allow_all_traffic_to_endpoint is not None:
-            input["allow_all_traffic_to_endpoint"] = allow_all_traffic_to_endpoint
+            input_["allow_all_traffic_to_endpoint"] = allow_all_traffic_to_endpoint
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -492,20 +494,20 @@ class AsyncGlobalAcceleratorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_global_accelerator.types.create_accelerator_request.CreateAcceleratorRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_global_accelerator.types.create_accelerator_request.CreateAcceleratorRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if ip_address_type is not None:
-            input["ip_address_type"] = ip_address_type
+            input_["ip_address_type"] = ip_address_type
         if ip_addresses is not None:
-            input["ip_addresses"] = ip_addresses
+            input_["ip_addresses"] = ip_addresses
         if enabled is not None:
-            input["enabled"] = enabled
-        input["idempotency_token"] = idempotency_token
+            input_["enabled"] = enabled
+        input_["idempotency_token"] = idempotency_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -551,18 +553,18 @@ class AsyncGlobalAcceleratorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_global_accelerator.types.create_cross_account_attachment_request.CreateCrossAccountAttachmentRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_global_accelerator.types.create_cross_account_attachment_request.CreateCrossAccountAttachmentRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if principals is not None:
-            input["principals"] = principals
+            input_["principals"] = principals
         if resources is not None:
-            input["resources"] = resources
-        input["idempotency_token"] = idempotency_token
+            input_["resources"] = resources
+        input_["idempotency_token"] = idempotency_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -612,20 +614,20 @@ class AsyncGlobalAcceleratorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_global_accelerator.types.create_custom_routing_accelerator_request.CreateCustomRoutingAcceleratorRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_global_accelerator.types.create_custom_routing_accelerator_request.CreateCustomRoutingAcceleratorRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if ip_address_type is not None:
-            input["ip_address_type"] = ip_address_type
+            input_["ip_address_type"] = ip_address_type
         if ip_addresses is not None:
-            input["ip_addresses"] = ip_addresses
+            input_["ip_addresses"] = ip_addresses
         if enabled is not None:
-            input["enabled"] = enabled
-        input["idempotency_token"] = idempotency_token
+            input_["enabled"] = enabled
+        input_["idempotency_token"] = idempotency_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -665,14 +667,14 @@ class AsyncGlobalAcceleratorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_global_accelerator.types.create_custom_routing_endpoint_group_request.CreateCustomRoutingEndpointGroupRequest = {}  # type: ignore[typeddict-item]
-        input["listener_arn"] = listener_arn
-        input["endpoint_group_region"] = endpoint_group_region
-        input["destination_configurations"] = destination_configurations
-        input["idempotency_token"] = idempotency_token
+        input_: aws_sdk_global_accelerator.types.create_custom_routing_endpoint_group_request.CreateCustomRoutingEndpointGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["listener_arn"] = listener_arn
+        input_["endpoint_group_region"] = endpoint_group_region
+        input_["destination_configurations"] = destination_configurations
+        input_["idempotency_token"] = idempotency_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -710,13 +712,13 @@ class AsyncGlobalAcceleratorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_global_accelerator.types.create_custom_routing_listener_request.CreateCustomRoutingListenerRequest = {}  # type: ignore[typeddict-item]
-        input["accelerator_arn"] = accelerator_arn
-        input["port_ranges"] = port_ranges
-        input["idempotency_token"] = idempotency_token
+        input_: aws_sdk_global_accelerator.types.create_custom_routing_listener_request.CreateCustomRoutingListenerRequest = {}  # type: ignore[typeddict-item]
+        input_["accelerator_arn"] = accelerator_arn
+        input_["port_ranges"] = port_ranges
+        input_["idempotency_token"] = idempotency_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -786,29 +788,29 @@ class AsyncGlobalAcceleratorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_global_accelerator.types.create_endpoint_group_request.CreateEndpointGroupRequest = {}  # type: ignore[typeddict-item]
-        input["listener_arn"] = listener_arn
-        input["endpoint_group_region"] = endpoint_group_region
+        input_: aws_sdk_global_accelerator.types.create_endpoint_group_request.CreateEndpointGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["listener_arn"] = listener_arn
+        input_["endpoint_group_region"] = endpoint_group_region
         if endpoint_configurations is not None:
-            input["endpoint_configurations"] = endpoint_configurations
+            input_["endpoint_configurations"] = endpoint_configurations
         if traffic_dial_percentage is not None:
-            input["traffic_dial_percentage"] = traffic_dial_percentage
+            input_["traffic_dial_percentage"] = traffic_dial_percentage
         if health_check_port is not None:
-            input["health_check_port"] = health_check_port
+            input_["health_check_port"] = health_check_port
         if health_check_protocol is not None:
-            input["health_check_protocol"] = health_check_protocol
+            input_["health_check_protocol"] = health_check_protocol
         if health_check_path is not None:
-            input["health_check_path"] = health_check_path
+            input_["health_check_path"] = health_check_path
         if health_check_interval_seconds is not None:
-            input["health_check_interval_seconds"] = health_check_interval_seconds
+            input_["health_check_interval_seconds"] = health_check_interval_seconds
         if threshold_count is not None:
-            input["threshold_count"] = threshold_count
-        input["idempotency_token"] = idempotency_token
+            input_["threshold_count"] = threshold_count
+        input_["idempotency_token"] = idempotency_token
         if port_overrides is not None:
-            input["port_overrides"] = port_overrides
+            input_["port_overrides"] = port_overrides
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -852,16 +854,16 @@ class AsyncGlobalAcceleratorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_global_accelerator.types.create_listener_request.CreateListenerRequest = {}  # type: ignore[typeddict-item]
-        input["accelerator_arn"] = accelerator_arn
-        input["port_ranges"] = port_ranges
-        input["protocol"] = protocol
+        input_: aws_sdk_global_accelerator.types.create_listener_request.CreateListenerRequest = {}  # type: ignore[typeddict-item]
+        input_["accelerator_arn"] = accelerator_arn
+        input_["port_ranges"] = port_ranges
+        input_["protocol"] = protocol
         if client_affinity is not None:
-            input["client_affinity"] = client_affinity
-        input["idempotency_token"] = idempotency_token
+            input_["client_affinity"] = client_affinity
+        input_["idempotency_token"] = idempotency_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -893,11 +895,11 @@ class AsyncGlobalAcceleratorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_global_accelerator.types.delete_accelerator_request.DeleteAcceleratorRequest = {}  # type: ignore[typeddict-item]
-        input["accelerator_arn"] = accelerator_arn
+        input_: aws_sdk_global_accelerator.types.delete_accelerator_request.DeleteAcceleratorRequest = {}  # type: ignore[typeddict-item]
+        input_["accelerator_arn"] = accelerator_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -929,11 +931,11 @@ class AsyncGlobalAcceleratorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_global_accelerator.types.delete_cross_account_attachment_request.DeleteCrossAccountAttachmentRequest = {}  # type: ignore[typeddict-item]
-        input["attachment_arn"] = attachment_arn
+        input_: aws_sdk_global_accelerator.types.delete_cross_account_attachment_request.DeleteCrossAccountAttachmentRequest = {}  # type: ignore[typeddict-item]
+        input_["attachment_arn"] = attachment_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -965,11 +967,11 @@ class AsyncGlobalAcceleratorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_global_accelerator.types.delete_custom_routing_accelerator_request.DeleteCustomRoutingAcceleratorRequest = {}  # type: ignore[typeddict-item]
-        input["accelerator_arn"] = accelerator_arn
+        input_: aws_sdk_global_accelerator.types.delete_custom_routing_accelerator_request.DeleteCustomRoutingAcceleratorRequest = {}  # type: ignore[typeddict-item]
+        input_["accelerator_arn"] = accelerator_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1001,11 +1003,11 @@ class AsyncGlobalAcceleratorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_global_accelerator.types.delete_custom_routing_endpoint_group_request.DeleteCustomRoutingEndpointGroupRequest = {}  # type: ignore[typeddict-item]
-        input["endpoint_group_arn"] = endpoint_group_arn
+        input_: aws_sdk_global_accelerator.types.delete_custom_routing_endpoint_group_request.DeleteCustomRoutingEndpointGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["endpoint_group_arn"] = endpoint_group_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1037,11 +1039,11 @@ class AsyncGlobalAcceleratorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_global_accelerator.types.delete_custom_routing_listener_request.DeleteCustomRoutingListenerRequest = {}  # type: ignore[typeddict-item]
-        input["listener_arn"] = listener_arn
+        input_: aws_sdk_global_accelerator.types.delete_custom_routing_listener_request.DeleteCustomRoutingListenerRequest = {}  # type: ignore[typeddict-item]
+        input_["listener_arn"] = listener_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1073,11 +1075,11 @@ class AsyncGlobalAcceleratorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_global_accelerator.types.delete_endpoint_group_request.DeleteEndpointGroupRequest = {}  # type: ignore[typeddict-item]
-        input["endpoint_group_arn"] = endpoint_group_arn
+        input_: aws_sdk_global_accelerator.types.delete_endpoint_group_request.DeleteEndpointGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["endpoint_group_arn"] = endpoint_group_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1109,11 +1111,11 @@ class AsyncGlobalAcceleratorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_global_accelerator.types.delete_listener_request.DeleteListenerRequest = {}  # type: ignore[typeddict-item]
-        input["listener_arn"] = listener_arn
+        input_: aws_sdk_global_accelerator.types.delete_listener_request.DeleteListenerRequest = {}  # type: ignore[typeddict-item]
+        input_["listener_arn"] = listener_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1159,18 +1161,18 @@ class AsyncGlobalAcceleratorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_global_accelerator.types.deny_custom_routing_traffic_request.DenyCustomRoutingTrafficRequest = {}  # type: ignore[typeddict-item]
-        input["endpoint_group_arn"] = endpoint_group_arn
-        input["endpoint_id"] = endpoint_id
+        input_: aws_sdk_global_accelerator.types.deny_custom_routing_traffic_request.DenyCustomRoutingTrafficRequest = {}  # type: ignore[typeddict-item]
+        input_["endpoint_group_arn"] = endpoint_group_arn
+        input_["endpoint_id"] = endpoint_id
         if destination_addresses is not None:
-            input["destination_addresses"] = destination_addresses
+            input_["destination_addresses"] = destination_addresses
         if destination_ports is not None:
-            input["destination_ports"] = destination_ports
+            input_["destination_ports"] = destination_ports
         if deny_all_traffic_to_endpoint is not None:
-            input["deny_all_traffic_to_endpoint"] = deny_all_traffic_to_endpoint
+            input_["deny_all_traffic_to_endpoint"] = deny_all_traffic_to_endpoint
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1204,11 +1206,11 @@ class AsyncGlobalAcceleratorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_global_accelerator.types.deprovision_byoip_cidr_request.DeprovisionByoipCidrRequest = {}  # type: ignore[typeddict-item]
-        input["cidr"] = cidr
+        input_: aws_sdk_global_accelerator.types.deprovision_byoip_cidr_request.DeprovisionByoipCidrRequest = {}  # type: ignore[typeddict-item]
+        input_["cidr"] = cidr
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1242,11 +1244,11 @@ class AsyncGlobalAcceleratorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_global_accelerator.types.describe_accelerator_request.DescribeAcceleratorRequest = {}  # type: ignore[typeddict-item]
-        input["accelerator_arn"] = accelerator_arn
+        input_: aws_sdk_global_accelerator.types.describe_accelerator_request.DescribeAcceleratorRequest = {}  # type: ignore[typeddict-item]
+        input_["accelerator_arn"] = accelerator_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1280,11 +1282,11 @@ class AsyncGlobalAcceleratorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_global_accelerator.types.describe_accelerator_attributes_request.DescribeAcceleratorAttributesRequest = {}  # type: ignore[typeddict-item]
-        input["accelerator_arn"] = accelerator_arn
+        input_: aws_sdk_global_accelerator.types.describe_accelerator_attributes_request.DescribeAcceleratorAttributesRequest = {}  # type: ignore[typeddict-item]
+        input_["accelerator_arn"] = accelerator_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1318,11 +1320,11 @@ class AsyncGlobalAcceleratorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_global_accelerator.types.describe_cross_account_attachment_request.DescribeCrossAccountAttachmentRequest = {}  # type: ignore[typeddict-item]
-        input["attachment_arn"] = attachment_arn
+        input_: aws_sdk_global_accelerator.types.describe_cross_account_attachment_request.DescribeCrossAccountAttachmentRequest = {}  # type: ignore[typeddict-item]
+        input_["attachment_arn"] = attachment_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1356,11 +1358,11 @@ class AsyncGlobalAcceleratorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_global_accelerator.types.describe_custom_routing_accelerator_request.DescribeCustomRoutingAcceleratorRequest = {}  # type: ignore[typeddict-item]
-        input["accelerator_arn"] = accelerator_arn
+        input_: aws_sdk_global_accelerator.types.describe_custom_routing_accelerator_request.DescribeCustomRoutingAcceleratorRequest = {}  # type: ignore[typeddict-item]
+        input_["accelerator_arn"] = accelerator_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1394,11 +1396,11 @@ class AsyncGlobalAcceleratorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_global_accelerator.types.describe_custom_routing_accelerator_attributes_request.DescribeCustomRoutingAcceleratorAttributesRequest = {}  # type: ignore[typeddict-item]
-        input["accelerator_arn"] = accelerator_arn
+        input_: aws_sdk_global_accelerator.types.describe_custom_routing_accelerator_attributes_request.DescribeCustomRoutingAcceleratorAttributesRequest = {}  # type: ignore[typeddict-item]
+        input_["accelerator_arn"] = accelerator_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1432,11 +1434,11 @@ class AsyncGlobalAcceleratorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_global_accelerator.types.describe_custom_routing_endpoint_group_request.DescribeCustomRoutingEndpointGroupRequest = {}  # type: ignore[typeddict-item]
-        input["endpoint_group_arn"] = endpoint_group_arn
+        input_: aws_sdk_global_accelerator.types.describe_custom_routing_endpoint_group_request.DescribeCustomRoutingEndpointGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["endpoint_group_arn"] = endpoint_group_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1470,11 +1472,11 @@ class AsyncGlobalAcceleratorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_global_accelerator.types.describe_custom_routing_listener_request.DescribeCustomRoutingListenerRequest = {}  # type: ignore[typeddict-item]
-        input["listener_arn"] = listener_arn
+        input_: aws_sdk_global_accelerator.types.describe_custom_routing_listener_request.DescribeCustomRoutingListenerRequest = {}  # type: ignore[typeddict-item]
+        input_["listener_arn"] = listener_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1508,11 +1510,11 @@ class AsyncGlobalAcceleratorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_global_accelerator.types.describe_endpoint_group_request.DescribeEndpointGroupRequest = {}  # type: ignore[typeddict-item]
-        input["endpoint_group_arn"] = endpoint_group_arn
+        input_: aws_sdk_global_accelerator.types.describe_endpoint_group_request.DescribeEndpointGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["endpoint_group_arn"] = endpoint_group_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1546,11 +1548,11 @@ class AsyncGlobalAcceleratorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_global_accelerator.types.describe_listener_request.DescribeListenerRequest = {}  # type: ignore[typeddict-item]
-        input["listener_arn"] = listener_arn
+        input_: aws_sdk_global_accelerator.types.describe_listener_request.DescribeListenerRequest = {}  # type: ignore[typeddict-item]
+        input_["listener_arn"] = listener_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1590,14 +1592,14 @@ class AsyncGlobalAcceleratorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_global_accelerator.types.list_accelerators_request.ListAcceleratorsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_global_accelerator.types.list_accelerators_request.ListAcceleratorsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1662,14 +1664,14 @@ class AsyncGlobalAcceleratorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_global_accelerator.types.list_byoip_cidrs_request.ListByoipCidrsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_global_accelerator.types.list_byoip_cidrs_request.ListByoipCidrsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1734,14 +1736,14 @@ class AsyncGlobalAcceleratorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_global_accelerator.types.list_cross_account_attachments_request.ListCrossAccountAttachmentsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_global_accelerator.types.list_cross_account_attachments_request.ListCrossAccountAttachmentsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1793,10 +1795,10 @@ class AsyncGlobalAcceleratorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_global_accelerator.types.list_cross_account_resource_accounts_request.ListCrossAccountResourceAccountsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_global_accelerator.types.list_cross_account_resource_accounts_request.ListCrossAccountResourceAccountsRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1842,17 +1844,17 @@ class AsyncGlobalAcceleratorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_global_accelerator.types.list_cross_account_resources_request.ListCrossAccountResourcesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_global_accelerator.types.list_cross_account_resources_request.ListCrossAccountResourcesRequest = {}  # type: ignore[typeddict-item]
         if accelerator_arn is not None:
-            input["accelerator_arn"] = accelerator_arn
-        input["resource_owner_aws_account_id"] = resource_owner_aws_account_id
+            input_["accelerator_arn"] = accelerator_arn
+        input_["resource_owner_aws_account_id"] = resource_owner_aws_account_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1923,14 +1925,14 @@ class AsyncGlobalAcceleratorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_global_accelerator.types.list_custom_routing_accelerators_request.ListCustomRoutingAcceleratorsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_global_accelerator.types.list_custom_routing_accelerators_request.ListCustomRoutingAcceleratorsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1997,15 +1999,15 @@ class AsyncGlobalAcceleratorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_global_accelerator.types.list_custom_routing_endpoint_groups_request.ListCustomRoutingEndpointGroupsRequest = {}  # type: ignore[typeddict-item]
-        input["listener_arn"] = listener_arn
+        input_: aws_sdk_global_accelerator.types.list_custom_routing_endpoint_groups_request.ListCustomRoutingEndpointGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_["listener_arn"] = listener_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2074,15 +2076,15 @@ class AsyncGlobalAcceleratorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_global_accelerator.types.list_custom_routing_listeners_request.ListCustomRoutingListenersRequest = {}  # type: ignore[typeddict-item]
-        input["accelerator_arn"] = accelerator_arn
+        input_: aws_sdk_global_accelerator.types.list_custom_routing_listeners_request.ListCustomRoutingListenersRequest = {}  # type: ignore[typeddict-item]
+        input_["accelerator_arn"] = accelerator_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2155,17 +2157,17 @@ class AsyncGlobalAcceleratorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_global_accelerator.types.list_custom_routing_port_mappings_request.ListCustomRoutingPortMappingsRequest = {}  # type: ignore[typeddict-item]
-        input["accelerator_arn"] = accelerator_arn
+        input_: aws_sdk_global_accelerator.types.list_custom_routing_port_mappings_request.ListCustomRoutingPortMappingsRequest = {}  # type: ignore[typeddict-item]
+        input_["accelerator_arn"] = accelerator_arn
         if endpoint_group_arn is not None:
-            input["endpoint_group_arn"] = endpoint_group_arn
+            input_["endpoint_group_arn"] = endpoint_group_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2240,16 +2242,16 @@ class AsyncGlobalAcceleratorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_global_accelerator.types.list_custom_routing_port_mappings_by_destination_request.ListCustomRoutingPortMappingsByDestinationRequest = {}  # type: ignore[typeddict-item]
-        input["endpoint_id"] = endpoint_id
-        input["destination_address"] = destination_address
+        input_: aws_sdk_global_accelerator.types.list_custom_routing_port_mappings_by_destination_request.ListCustomRoutingPortMappingsByDestinationRequest = {}  # type: ignore[typeddict-item]
+        input_["endpoint_id"] = endpoint_id
+        input_["destination_address"] = destination_address
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2320,15 +2322,15 @@ class AsyncGlobalAcceleratorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_global_accelerator.types.list_endpoint_groups_request.ListEndpointGroupsRequest = {}  # type: ignore[typeddict-item]
-        input["listener_arn"] = listener_arn
+        input_: aws_sdk_global_accelerator.types.list_endpoint_groups_request.ListEndpointGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_["listener_arn"] = listener_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2399,15 +2401,15 @@ class AsyncGlobalAcceleratorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_global_accelerator.types.list_listeners_request.ListListenersRequest = {}  # type: ignore[typeddict-item]
-        input["accelerator_arn"] = accelerator_arn
+        input_: aws_sdk_global_accelerator.types.list_listeners_request.ListListenersRequest = {}  # type: ignore[typeddict-item]
+        input_["accelerator_arn"] = accelerator_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2468,11 +2470,11 @@ class AsyncGlobalAcceleratorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_global_accelerator.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_global_accelerator.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2508,12 +2510,12 @@ class AsyncGlobalAcceleratorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_global_accelerator.types.provision_byoip_cidr_request.ProvisionByoipCidrRequest = {}  # type: ignore[typeddict-item]
-        input["cidr"] = cidr
-        input["cidr_authorization_context"] = cidr_authorization_context
+        input_: aws_sdk_global_accelerator.types.provision_byoip_cidr_request.ProvisionByoipCidrRequest = {}  # type: ignore[typeddict-item]
+        input_["cidr"] = cidr
+        input_["cidr_authorization_context"] = cidr_authorization_context
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2547,12 +2549,12 @@ class AsyncGlobalAcceleratorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_global_accelerator.types.remove_custom_routing_endpoints_request.RemoveCustomRoutingEndpointsRequest = {}  # type: ignore[typeddict-item]
-        input["endpoint_ids"] = endpoint_ids
-        input["endpoint_group_arn"] = endpoint_group_arn
+        input_: aws_sdk_global_accelerator.types.remove_custom_routing_endpoints_request.RemoveCustomRoutingEndpointsRequest = {}  # type: ignore[typeddict-item]
+        input_["endpoint_ids"] = endpoint_ids
+        input_["endpoint_group_arn"] = endpoint_group_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2586,12 +2588,12 @@ class AsyncGlobalAcceleratorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_global_accelerator.types.remove_endpoints_request.RemoveEndpointsRequest = {}  # type: ignore[typeddict-item]
-        input["endpoint_identifiers"] = endpoint_identifiers
-        input["endpoint_group_arn"] = endpoint_group_arn
+        input_: aws_sdk_global_accelerator.types.remove_endpoints_request.RemoveEndpointsRequest = {}  # type: ignore[typeddict-item]
+        input_["endpoint_identifiers"] = endpoint_identifiers
+        input_["endpoint_group_arn"] = endpoint_group_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2627,12 +2629,12 @@ class AsyncGlobalAcceleratorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_global_accelerator.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_global_accelerator.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2670,12 +2672,12 @@ class AsyncGlobalAcceleratorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_global_accelerator.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_global_accelerator.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2725,19 +2727,19 @@ class AsyncGlobalAcceleratorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_global_accelerator.types.update_accelerator_request.UpdateAcceleratorRequest = {}  # type: ignore[typeddict-item]
-        input["accelerator_arn"] = accelerator_arn
+        input_: aws_sdk_global_accelerator.types.update_accelerator_request.UpdateAcceleratorRequest = {}  # type: ignore[typeddict-item]
+        input_["accelerator_arn"] = accelerator_arn
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if ip_address_type is not None:
-            input["ip_address_type"] = ip_address_type
+            input_["ip_address_type"] = ip_address_type
         if ip_addresses is not None:
-            input["ip_addresses"] = ip_addresses
+            input_["ip_addresses"] = ip_addresses
         if enabled is not None:
-            input["enabled"] = enabled
+            input_["enabled"] = enabled
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2783,17 +2785,17 @@ class AsyncGlobalAcceleratorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_global_accelerator.types.update_accelerator_attributes_request.UpdateAcceleratorAttributesRequest = {}  # type: ignore[typeddict-item]
-        input["accelerator_arn"] = accelerator_arn
+        input_: aws_sdk_global_accelerator.types.update_accelerator_attributes_request.UpdateAcceleratorAttributesRequest = {}  # type: ignore[typeddict-item]
+        input_["accelerator_arn"] = accelerator_arn
         if flow_logs_enabled is not None:
-            input["flow_logs_enabled"] = flow_logs_enabled
+            input_["flow_logs_enabled"] = flow_logs_enabled
         if flow_logs_s3_bucket is not None:
-            input["flow_logs_s3_bucket"] = flow_logs_s3_bucket
+            input_["flow_logs_s3_bucket"] = flow_logs_s3_bucket
         if flow_logs_s3_prefix is not None:
-            input["flow_logs_s3_prefix"] = flow_logs_s3_prefix
+            input_["flow_logs_s3_prefix"] = flow_logs_s3_prefix
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2847,21 +2849,21 @@ class AsyncGlobalAcceleratorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_global_accelerator.types.update_cross_account_attachment_request.UpdateCrossAccountAttachmentRequest = {}  # type: ignore[typeddict-item]
-        input["attachment_arn"] = attachment_arn
+        input_: aws_sdk_global_accelerator.types.update_cross_account_attachment_request.UpdateCrossAccountAttachmentRequest = {}  # type: ignore[typeddict-item]
+        input_["attachment_arn"] = attachment_arn
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if add_principals is not None:
-            input["add_principals"] = add_principals
+            input_["add_principals"] = add_principals
         if remove_principals is not None:
-            input["remove_principals"] = remove_principals
+            input_["remove_principals"] = remove_principals
         if add_resources is not None:
-            input["add_resources"] = add_resources
+            input_["add_resources"] = add_resources
         if remove_resources is not None:
-            input["remove_resources"] = remove_resources
+            input_["remove_resources"] = remove_resources
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2911,19 +2913,19 @@ class AsyncGlobalAcceleratorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_global_accelerator.types.update_custom_routing_accelerator_request.UpdateCustomRoutingAcceleratorRequest = {}  # type: ignore[typeddict-item]
-        input["accelerator_arn"] = accelerator_arn
+        input_: aws_sdk_global_accelerator.types.update_custom_routing_accelerator_request.UpdateCustomRoutingAcceleratorRequest = {}  # type: ignore[typeddict-item]
+        input_["accelerator_arn"] = accelerator_arn
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if ip_address_type is not None:
-            input["ip_address_type"] = ip_address_type
+            input_["ip_address_type"] = ip_address_type
         if ip_addresses is not None:
-            input["ip_addresses"] = ip_addresses
+            input_["ip_addresses"] = ip_addresses
         if enabled is not None:
-            input["enabled"] = enabled
+            input_["enabled"] = enabled
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2969,17 +2971,17 @@ class AsyncGlobalAcceleratorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_global_accelerator.types.update_custom_routing_accelerator_attributes_request.UpdateCustomRoutingAcceleratorAttributesRequest = {}  # type: ignore[typeddict-item]
-        input["accelerator_arn"] = accelerator_arn
+        input_: aws_sdk_global_accelerator.types.update_custom_routing_accelerator_attributes_request.UpdateCustomRoutingAcceleratorAttributesRequest = {}  # type: ignore[typeddict-item]
+        input_["accelerator_arn"] = accelerator_arn
         if flow_logs_enabled is not None:
-            input["flow_logs_enabled"] = flow_logs_enabled
+            input_["flow_logs_enabled"] = flow_logs_enabled
         if flow_logs_s3_bucket is not None:
-            input["flow_logs_s3_bucket"] = flow_logs_s3_bucket
+            input_["flow_logs_s3_bucket"] = flow_logs_s3_bucket
         if flow_logs_s3_prefix is not None:
-            input["flow_logs_s3_prefix"] = flow_logs_s3_prefix
+            input_["flow_logs_s3_prefix"] = flow_logs_s3_prefix
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3015,12 +3017,12 @@ class AsyncGlobalAcceleratorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_global_accelerator.types.update_custom_routing_listener_request.UpdateCustomRoutingListenerRequest = {}  # type: ignore[typeddict-item]
-        input["listener_arn"] = listener_arn
-        input["port_ranges"] = port_ranges
+        input_: aws_sdk_global_accelerator.types.update_custom_routing_listener_request.UpdateCustomRoutingListenerRequest = {}  # type: ignore[typeddict-item]
+        input_["listener_arn"] = listener_arn
+        input_["port_ranges"] = port_ranges
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3086,27 +3088,27 @@ class AsyncGlobalAcceleratorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_global_accelerator.types.update_endpoint_group_request.UpdateEndpointGroupRequest = {}  # type: ignore[typeddict-item]
-        input["endpoint_group_arn"] = endpoint_group_arn
+        input_: aws_sdk_global_accelerator.types.update_endpoint_group_request.UpdateEndpointGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["endpoint_group_arn"] = endpoint_group_arn
         if endpoint_configurations is not None:
-            input["endpoint_configurations"] = endpoint_configurations
+            input_["endpoint_configurations"] = endpoint_configurations
         if traffic_dial_percentage is not None:
-            input["traffic_dial_percentage"] = traffic_dial_percentage
+            input_["traffic_dial_percentage"] = traffic_dial_percentage
         if health_check_port is not None:
-            input["health_check_port"] = health_check_port
+            input_["health_check_port"] = health_check_port
         if health_check_protocol is not None:
-            input["health_check_protocol"] = health_check_protocol
+            input_["health_check_protocol"] = health_check_protocol
         if health_check_path is not None:
-            input["health_check_path"] = health_check_path
+            input_["health_check_path"] = health_check_path
         if health_check_interval_seconds is not None:
-            input["health_check_interval_seconds"] = health_check_interval_seconds
+            input_["health_check_interval_seconds"] = health_check_interval_seconds
         if threshold_count is not None:
-            input["threshold_count"] = threshold_count
+            input_["threshold_count"] = threshold_count
         if port_overrides is not None:
-            input["port_overrides"] = port_overrides
+            input_["port_overrides"] = port_overrides
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3150,17 +3152,17 @@ class AsyncGlobalAcceleratorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_global_accelerator.types.update_listener_request.UpdateListenerRequest = {}  # type: ignore[typeddict-item]
-        input["listener_arn"] = listener_arn
+        input_: aws_sdk_global_accelerator.types.update_listener_request.UpdateListenerRequest = {}  # type: ignore[typeddict-item]
+        input_["listener_arn"] = listener_arn
         if port_ranges is not None:
-            input["port_ranges"] = port_ranges
+            input_["port_ranges"] = port_ranges
         if protocol is not None:
-            input["protocol"] = protocol
+            input_["protocol"] = protocol
         if client_affinity is not None:
-            input["client_affinity"] = client_affinity
+            input_["client_affinity"] = client_affinity
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3194,11 +3196,11 @@ class AsyncGlobalAcceleratorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_global_accelerator.types.withdraw_byoip_cidr_request.WithdrawByoipCidrRequest = {}  # type: ignore[typeddict-item]
-        input["cidr"] = cidr
+        input_: aws_sdk_global_accelerator.types.withdraw_byoip_cidr_request.WithdrawByoipCidrRequest = {}  # type: ignore[typeddict-item]
+        input_["cidr"] = cidr
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

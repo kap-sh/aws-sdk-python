@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#CreateWorkspaceImageResult``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
 
 if TYPE_CHECKING:
@@ -38,7 +39,7 @@ class CreateWorkspaceImageResult(TypedDict):
     required_tenancy: NotRequired[
         "aws_sdk_workspaces.types.workspace_image_required_tenancy.WorkspaceImageRequiredTenancy"
     ]
-    """<p>Specifies whether the image is running on dedicated hardware. When Bring Your Own License (BYOL) is enabled, this value is set to DEDICATED. For more information, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.htm\"> Bring Your Own Windows Desktop Images.</a>.</p>"""
+    r"""<p>Specifies whether the image is running on dedicated hardware. When Bring Your Own License (BYOL) is enabled, this value is set to DEDICATED. For more information, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.htm\"> Bring Your Own Windows Desktop Images.</a>.</p>"""
     created: NotRequired["aws_sdk_workspaces.types.timestamp.Timestamp"]
     """<p>The date when the image was created.</p>"""
     owner_account_id: NotRequired["aws_sdk_workspaces.types.aws_account.AwsAccount"]

@@ -1,32 +1,12 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#Logs_20140328``."""
 
-from aws_sdk_cloudwatch_logs._auth._signers import SigV4Signer
-from aws_sdk_cloudwatch_logs._auth._sigv4 import presign_sigv4
-import datetime
-from collections.abc import Iterator
-from collections.abc import Generator
-from contextlib import contextmanager
-from aws_sdk_cloudwatch_logs._pagination import resolve_path as _resolve_path
-from typing import Any, Iterable, TypedDict, Unpack, TYPE_CHECKING
-from typing_extensions import Self
-from typing import Optional
-from zapros import URL, BaseHandler, Client
-from aws_sdk_cloudwatch_logs._auth._zapros_handler import AuthMiddleware
-from aws_sdk_cloudwatch_logs._services._pipeline import (
-    Interceptor,
-    OperationOptions,
-    OperationRequest,
-    OperationResponse,
-    execute_pipeline,
-    retry,
-)
-import time
-from aws_sdk_cloudwatch_logs.errors import (
-    ServiceError,
-    WaiterFailedError,
-    WaiterTimeoutError,
-)
 import warnings
+from collections.abc import Iterator
+from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+
+from typing_extensions import Self
+from zapros import BaseHandler, Client
+
 import aws_sdk_cloudwatch_logs._auth._signers
 import aws_sdk_cloudwatch_logs._auth._sigv4
 from aws_sdk_cloudwatch_logs._auth._identity import Credentials
@@ -34,17 +14,15 @@ from aws_sdk_cloudwatch_logs._auth._providers import (
     CredentialsProvider,
     StaticAwsCredentialsProvider,
 )
-from aws_sdk_cloudwatch_logs._auth._providers import (
-    BearerTokenProvider,
-    StaticBearerTokenProvider,
-)
-from aws_sdk_cloudwatch_logs._auth._providers import (
-    BasicCredentialsProvider,
-    StaticBasicCredentialsProvider,
-)
-from aws_sdk_cloudwatch_logs._auth._providers import (
-    ApiKeyProvider,
-    StaticApiKeyProvider,
+from aws_sdk_cloudwatch_logs._auth._zapros_handler import AuthMiddleware
+from aws_sdk_cloudwatch_logs._pagination import resolve_path as _resolve_path
+from aws_sdk_cloudwatch_logs._services._pipeline import (
+    Interceptor,
+    OperationOptions,
+    OperationRequest,
+    OperationResponse,
+    execute_pipeline,
+    retry,
 )
 
 if TYPE_CHECKING:

@@ -1,10 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesweb#CertificateThumbprintList``."""
 
 from typing import TYPE_CHECKING, TypeAlias
+
 if TYPE_CHECKING:
     import aws_sdk_workspaces_web.types.certificate_thumbprint
 
-CertificateThumbprintList: TypeAlias = list["aws_sdk_workspaces_web.types.certificate_thumbprint.CertificateThumbprint"]
+CertificateThumbprintList: TypeAlias = list[
+    "aws_sdk_workspaces_web.types.certificate_thumbprint.CertificateThumbprint"
+]
 
 
 # --- restJson1 ser/de ---

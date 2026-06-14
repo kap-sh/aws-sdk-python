@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#PendingCreateStandbyWorkspacesRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
 
 if TYPE_CHECKING:
@@ -12,7 +13,7 @@ if TYPE_CHECKING:
 
 class PendingCreateStandbyWorkspacesRequest(TypedDict):
     user_name: NotRequired["aws_sdk_workspaces.types.user_name.UserName"]
-    """<p>Describes the standby WorkSpace that was created.</p> <p>Because this operation is asynchronous, the identifier returned is not immediately available for use with other operations. For example, if you call <a href=\"https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaces.html\"> DescribeWorkspaces</a> before the WorkSpace is created, the information returned can be incomplete. </p>"""
+    r"""<p>Describes the standby WorkSpace that was created.</p> <p>Because this operation is asynchronous, the identifier returned is not immediately available for use with other operations. For example, if you call <a href=\"https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaces.html\"> DescribeWorkspaces</a> before the WorkSpace is created, the information returned can be incomplete. </p>"""
     directory_id: NotRequired["aws_sdk_workspaces.types.directory_id.DirectoryId"]
     """<p>The identifier of the directory for the standby WorkSpace.</p>"""
     state: NotRequired["aws_sdk_workspaces.types.workspace_state.WorkspaceState"]

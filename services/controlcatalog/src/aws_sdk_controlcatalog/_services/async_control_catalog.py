@@ -118,6 +118,7 @@ class AsyncControlCatalogClient:
                 "credentials_provider": credentials_provider,
             }
         )
+
         # resources
         self.common_control_resource = AsyncCommonControlResource(self)
         self.control_resource = AsyncControlResource(self)

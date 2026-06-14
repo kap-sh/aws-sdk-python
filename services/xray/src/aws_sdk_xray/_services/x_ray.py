@@ -212,7 +212,7 @@ class XRayClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = XRayClientConfig(
+        self._config = XRayClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -232,7 +232,7 @@ class XRayClient:
         overrides: XRayClientConfig = config_overrides or {}
         interceptors_: list[Interceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             retry(),
         ]
@@ -240,16 +240,16 @@ class XRayClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            region=overrides.get("region", self.config.get("region")),
+            region=overrides.get("region", self._config.get("region")),
             use_dual_stack=overrides.get(
-                "use_dual_stack", self.config.get("use_dual_stack")
+                "use_dual_stack", self._config.get("use_dual_stack")
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -366,7 +366,7 @@ class XRayClient:
         ] = None,
         tags: Optional["aws_sdk_xray.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_xray.types.create_group_result.CreateGroupResult":
-        """<p>Creates a group resource with a name and a filter expression. </p>
+        r"""<p>Creates a group resource with a name and a filter expression. </p>
 
         Args:
             group_name: <p>The case-sensitive name of the new group. Default is a reserved name and names must be unique.</p>
@@ -413,7 +413,7 @@ class XRayClient:
         config_overrides: Optional[XRayClientConfig] = None,
         tags: Optional["aws_sdk_xray.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_xray.types.create_sampling_rule_result.CreateSamplingRuleResult":
-        """<p>Creates a rule to control sampling behavior for instrumented applications. Services retrieve rules with <a href=\"https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingRules.html\">GetSamplingRules</a>, and evaluate each rule in ascending order of <i>priority</i> for each request. If a rule matches, the service records a trace, borrowing it from the reservoir size. After 10 seconds, the service reports back to X-Ray with <a href=\"https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingTargets.html\">GetSamplingTargets</a> to get updated versions of each in-use rule. The updated rule contains a trace quota that the service can use instead of borrowing from the reservoir.</p>
+        r"""<p>Creates a rule to control sampling behavior for instrumented applications. Services retrieve rules with <a href=\"https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingRules.html\">GetSamplingRules</a>, and evaluate each rule in ascending order of <i>priority</i> for each request. If a rule matches, the service records a trace, borrowing it from the reservoir size. After 10 seconds, the service reports back to X-Ray with <a href=\"https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingTargets.html\">GetSamplingTargets</a> to get updated versions of each in-use rule. The updated rule contains a trace quota that the service can use instead of borrowing from the reservoir.</p>
 
         Args:
             sampling_rule: <p>The rule definition.</p>
@@ -708,7 +708,7 @@ class XRayClient:
         config_overrides: Optional[XRayClientConfig] = None,
         next_token: Optional["aws_sdk_xray.types.string.String"] = None,
     ) -> "aws_sdk_xray.types.get_indexing_rules_result.GetIndexingRulesResult":
-        """<p> Retrieves all indexing rules.</p> <p>Indexing rules are used to determine the server-side sampling rate for spans ingested through the CloudWatchLogs destination and indexed by X-Ray. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Transaction-Search.html\">Transaction Search</a>.</p>
+        r"""<p> Retrieves all indexing rules.</p> <p>Indexing rules are used to determine the server-side sampling rate for spans ingested through the CloudWatchLogs destination and indexed by X-Ray. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Transaction-Search.html\">Transaction Search</a>.</p>
 
         Args:
             next_token: <p> Specify the pagination token returned by a previous request to retrieve the next page of indexes. </p>
@@ -944,7 +944,7 @@ class XRayClient:
         config_overrides: Optional[XRayClientConfig] = None,
         next_token: Optional["aws_sdk_xray.types.string.String"] = None,
     ) -> "aws_sdk_xray.types.get_retrieved_traces_graph_result.GetRetrievedTracesGraphResult":
-        """<p> Retrieves a service graph for traces based on the specified <code>RetrievalToken</code> from the CloudWatch log group generated by Transaction Search. This API does not initiate a retrieval job. You must first execute <code>StartTraceRetrieval</code> to obtain the required <code>RetrievalToken</code>. </p> <p>The trace graph describes services that process incoming requests and any downstream services they call, which may include Amazon Web Services resources, external APIs, or databases.</p> <p>The response is empty until the <code>RetrievalStatus</code> is <i>COMPLETE</i>. Retry the request after the status changes from <i>RUNNING</i> or <i>SCHEDULED</i> to <i>COMPLETE</i> to access the full service graph.</p> <p> When CloudWatch log is the destination, this API can support cross-account observability and service graph retrieval across linked accounts.</p> <p>For retrieving graphs from X-Ray directly as opposed to the Transaction-Search Log group, see <a href=\"https://docs.aws.amazon.com/xray/latest/api/API_GetTraceGraph.html\">GetTraceGraph</a>.</p>
+        r"""<p> Retrieves a service graph for traces based on the specified <code>RetrievalToken</code> from the CloudWatch log group generated by Transaction Search. This API does not initiate a retrieval job. You must first execute <code>StartTraceRetrieval</code> to obtain the required <code>RetrievalToken</code>. </p> <p>The trace graph describes services that process incoming requests and any downstream services they call, which may include Amazon Web Services resources, external APIs, or databases.</p> <p>The response is empty until the <code>RetrievalStatus</code> is <i>COMPLETE</i>. Retry the request after the status changes from <i>RUNNING</i> or <i>SCHEDULED</i> to <i>COMPLETE</i> to access the full service graph.</p> <p> When CloudWatch log is the destination, this API can support cross-account observability and service graph retrieval across linked accounts.</p> <p>For retrieving graphs from X-Ray directly as opposed to the Transaction-Search Log group, see <a href=\"https://docs.aws.amazon.com/xray/latest/api/API_GetTraceGraph.html\">GetTraceGraph</a>.</p>
 
         Args:
             retrieval_token: <p> Retrieval token. </p>
@@ -1147,7 +1147,7 @@ class XRayClient:
         group_arn: Optional["aws_sdk_xray.types.group_arn.GroupARN"] = None,
         next_token: Optional["aws_sdk_xray.types.string.String"] = None,
     ) -> "aws_sdk_xray.types.get_service_graph_result.GetServiceGraphResult":
-        """<p>Retrieves a document that describes services that process incoming requests, and downstream services that they call as a result. Root services process incoming requests and make calls to downstream services. Root services are applications that use the <a href=\"https://docs.aws.amazon.com/xray/index.html\">Amazon Web Services X-Ray SDK</a>. Downstream services can be other applications, Amazon Web Services resources, HTTP web APIs, or SQL databases.</p>
+        r"""<p>Retrieves a document that describes services that process incoming requests, and downstream services that they call as a result. Root services process incoming requests and make calls to downstream services. Root services are applications that use the <a href=\"https://docs.aws.amazon.com/xray/index.html\">Amazon Web Services X-Ray SDK</a>. Downstream services can be other applications, Amazon Web Services resources, HTTP web APIs, or SQL databases.</p>
 
         Args:
             start_time: <p>The start of the time frame for which to generate a graph.</p>
@@ -1386,7 +1386,7 @@ class XRayClient:
     def get_trace_segment_destination(
         self, *, config_overrides: Optional[XRayClientConfig] = None
     ) -> "aws_sdk_xray.types.get_trace_segment_destination_result.GetTraceSegmentDestinationResult":
-        """<p> Retrieves the current destination of data sent to <code>PutTraceSegments</code> and <i>OpenTelemetry protocol (OTLP)</i> endpoint. The Transaction Search feature requires a CloudWatchLogs destination. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Transaction-Search.html\">Transaction Search</a> and <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-OpenTelemetry-Sections.html\">OpenTelemetry</a>. </p>"""
+        r"""<p> Retrieves the current destination of data sent to <code>PutTraceSegments</code> and <i>OpenTelemetry protocol (OTLP)</i> endpoint. The Transaction Search feature requires a CloudWatchLogs destination. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Transaction-Search.html\">Transaction Search</a> and <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-OpenTelemetry-Sections.html\">OpenTelemetry</a>. </p>"""
 
         def _handler(
             req: "OperationRequest[aws_sdk_xray.types.get_trace_segment_destination_request.GetTraceSegmentDestinationRequest]",
@@ -1432,7 +1432,7 @@ class XRayClient:
         ] = None,
         next_token: Optional["aws_sdk_xray.types.string.String"] = None,
     ) -> "aws_sdk_xray.types.get_trace_summaries_result.GetTraceSummariesResult":
-        """<p>Retrieves IDs and annotations for traces available for a specified time frame using an optional filter. To get the full traces, pass the trace IDs to <code>BatchGetTraces</code>.</p> <p>A filter expression can target traced requests that hit specific service nodes or edges, have errors, or come from a known user. For example, the following filter expression targets traces that pass through <code>api.example.com</code>:</p> <p> <code>service(\"api.example.com\")</code> </p> <p>This filter expression finds traces that have an annotation named <code>account</code> with the value <code>12345</code>:</p> <p> <code>annotation.account = \"12345\"</code> </p> <p>For a full list of indexed fields and keywords that you can use in filter expressions, see <a href=\"https://docs.aws.amazon.com/xray/latest/devguide/aws-xray-interface-console.html#xray-console-filters\">Use filter expressions</a> in the <i>Amazon Web Services X-Ray Developer Guide</i>.</p>
+        r"""<p>Retrieves IDs and annotations for traces available for a specified time frame using an optional filter. To get the full traces, pass the trace IDs to <code>BatchGetTraces</code>.</p> <p>A filter expression can target traced requests that hit specific service nodes or edges, have errors, or come from a known user. For example, the following filter expression targets traces that pass through <code>api.example.com</code>:</p> <p> <code>service(\"api.example.com\")</code> </p> <p>This filter expression finds traces that have an annotation named <code>account</code> with the value <code>12345</code>:</p> <p> <code>annotation.account = \"12345\"</code> </p> <p>For a full list of indexed fields and keywords that you can use in filter expressions, see <a href=\"https://docs.aws.amazon.com/xray/latest/devguide/aws-xray-interface-console.html#xray-console-filters\">Use filter expressions</a> in the <i>Amazon Web Services X-Ray Developer Guide</i>.</p>
 
         Args:
             start_time: <p>The start of the time frame for which to retrieve traces.</p>
@@ -1590,7 +1590,7 @@ class XRayClient:
         ] = None,
         next_token: Optional["aws_sdk_xray.types.string.String"] = None,
     ) -> "aws_sdk_xray.types.list_retrieved_traces_result.ListRetrievedTracesResult":
-        """<p> Retrieves a list of traces for a given <code>RetrievalToken</code> from the CloudWatch log group generated by Transaction Search. For information on what each trace returns, see <a href=\"https://docs.aws.amazon.com/xray/latest/api/API_BatchGetTraces.html\">BatchGetTraces</a>. </p> <p>This API does not initiate a retrieval process. To start a trace retrieval, use <code>StartTraceRetrieval</code>, which generates the required <code>RetrievalToken</code>.</p> <p> When the <code>RetrievalStatus</code> is not <i>COMPLETE</i>, the API will return an empty response. Retry the request once the retrieval has completed to access the full list of traces.</p> <p>For cross-account observability, this API can retrieve traces from linked accounts when CloudWatch log is set as the destination across relevant accounts. For more details, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html\">CloudWatch cross-account observability</a>.</p> <p>For retrieving data from X-Ray directly as opposed to the Transaction Search generated log group, see <a href=\"https://docs.aws.amazon.com/xray/latest/api/API_BatchGetTraces.html\">BatchGetTraces</a>.</p>
+        r"""<p> Retrieves a list of traces for a given <code>RetrievalToken</code> from the CloudWatch log group generated by Transaction Search. For information on what each trace returns, see <a href=\"https://docs.aws.amazon.com/xray/latest/api/API_BatchGetTraces.html\">BatchGetTraces</a>. </p> <p>This API does not initiate a retrieval process. To start a trace retrieval, use <code>StartTraceRetrieval</code>, which generates the required <code>RetrievalToken</code>.</p> <p> When the <code>RetrievalStatus</code> is not <i>COMPLETE</i>, the API will return an empty response. Retry the request once the retrieval has completed to access the full list of traces.</p> <p>For cross-account observability, this API can retrieve traces from linked accounts when CloudWatch log is set as the destination across relevant accounts. For more details, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html\">CloudWatch cross-account observability</a>.</p> <p>For retrieving data from X-Ray directly as opposed to the Transaction Search generated log group, see <a href=\"https://docs.aws.amazon.com/xray/latest/api/API_BatchGetTraces.html\">BatchGetTraces</a>.</p>
 
         Args:
             retrieval_token: <p> Retrieval token. </p>
@@ -1841,7 +1841,7 @@ class XRayClient:
         *,
         config_overrides: Optional[XRayClientConfig] = None,
     ) -> "aws_sdk_xray.types.put_trace_segments_result.PutTraceSegmentsResult":
-        """<p>Uploads segment documents to Amazon Web Services X-Ray. A segment document can be a completed segment, an in-progress segment, or an array of subsegments.</p> <p>Segments must include the following fields. For the full segment document schema, see <a href=\"https://docs.aws.amazon.com/xray/latest/devguide/aws-xray-interface-api.html#xray-api-segmentdocuments.html\">Amazon Web Services X-Ray Segment Documents</a> in the <i>Amazon Web Services X-Ray Developer Guide</i>.</p> <p class=\"title\"> <b>Required segment document fields</b> </p> <ul> <li> <p> <code>name</code> - The name of the service that handled the request.</p> </li> <li> <p> <code>id</code> - A 64-bit identifier for the segment, unique among segments in the same trace, in 16 hexadecimal digits.</p> </li> <li> <p> <code>trace_id</code> - A unique identifier that connects all segments and subsegments originating from a single client request.</p> </li> <li> <p> <code>start_time</code> - Time the segment or subsegment was created, in floating point seconds in epoch time, accurate to milliseconds. For example, <code>1480615200.010</code> or <code>1.480615200010E9</code>.</p> </li> <li> <p> <code>end_time</code> - Time the segment or subsegment was closed. For example, <code>1480615200.090</code> or <code>1.480615200090E9</code>. Specify either an <code>end_time</code> or <code>in_progress</code>.</p> </li> <li> <p> <code>in_progress</code> - Set to <code>true</code> instead of specifying an <code>end_time</code> to record that a segment has been started, but is not complete. Send an in-progress segment when your application receives a request that will take a long time to serve, to trace that the request was received. When the response is sent, send the complete segment to overwrite the in-progress segment.</p> </li> </ul> <p>A <code>trace_id</code> consists of three numbers separated by hyphens. For example, 1-58406520-a006649127e371903a2de979. For trace IDs created by an X-Ray SDK, or by Amazon Web Services services integrated with X-Ray, a trace ID includes:</p> <p class=\"title\"> <b>Trace ID Format</b> </p> <ul> <li> <p>The version number, for instance, <code>1</code>.</p> </li> <li> <p>The time of the original request, in Unix epoch time, in 8 hexadecimal digits. For example, 10:00AM December 2nd, 2016 PST in epoch time is <code>1480615200</code> seconds, or <code>58406520</code> in hexadecimal.</p> </li> <li> <p>A 96-bit identifier for the trace, globally unique, in 24 hexadecimal digits.</p> </li> </ul> <note> <p>Trace IDs created via OpenTelemetry have a different format based on the <a href=\"https://www.w3.org/TR/trace-context/\">W3C Trace Context specification</a>. A W3C trace ID must be formatted in the X-Ray trace ID format when sending to X-Ray. For example, a W3C trace ID <code>4efaaf4d1e8720b39541901950019ee5</code> should be formatted as <code>1-4efaaf4d-1e8720b39541901950019ee5</code> when sending to X-Ray. While X-Ray trace IDs include the original request timestamp in Unix epoch time, this is not required or validated. </p> </note>
+        r"""<p>Uploads segment documents to Amazon Web Services X-Ray. A segment document can be a completed segment, an in-progress segment, or an array of subsegments.</p> <p>Segments must include the following fields. For the full segment document schema, see <a href=\"https://docs.aws.amazon.com/xray/latest/devguide/aws-xray-interface-api.html#xray-api-segmentdocuments.html\">Amazon Web Services X-Ray Segment Documents</a> in the <i>Amazon Web Services X-Ray Developer Guide</i>.</p> <p class=\"title\"> <b>Required segment document fields</b> </p> <ul> <li> <p> <code>name</code> - The name of the service that handled the request.</p> </li> <li> <p> <code>id</code> - A 64-bit identifier for the segment, unique among segments in the same trace, in 16 hexadecimal digits.</p> </li> <li> <p> <code>trace_id</code> - A unique identifier that connects all segments and subsegments originating from a single client request.</p> </li> <li> <p> <code>start_time</code> - Time the segment or subsegment was created, in floating point seconds in epoch time, accurate to milliseconds. For example, <code>1480615200.010</code> or <code>1.480615200010E9</code>.</p> </li> <li> <p> <code>end_time</code> - Time the segment or subsegment was closed. For example, <code>1480615200.090</code> or <code>1.480615200090E9</code>. Specify either an <code>end_time</code> or <code>in_progress</code>.</p> </li> <li> <p> <code>in_progress</code> - Set to <code>true</code> instead of specifying an <code>end_time</code> to record that a segment has been started, but is not complete. Send an in-progress segment when your application receives a request that will take a long time to serve, to trace that the request was received. When the response is sent, send the complete segment to overwrite the in-progress segment.</p> </li> </ul> <p>A <code>trace_id</code> consists of three numbers separated by hyphens. For example, 1-58406520-a006649127e371903a2de979. For trace IDs created by an X-Ray SDK, or by Amazon Web Services services integrated with X-Ray, a trace ID includes:</p> <p class=\"title\"> <b>Trace ID Format</b> </p> <ul> <li> <p>The version number, for instance, <code>1</code>.</p> </li> <li> <p>The time of the original request, in Unix epoch time, in 8 hexadecimal digits. For example, 10:00AM December 2nd, 2016 PST in epoch time is <code>1480615200</code> seconds, or <code>58406520</code> in hexadecimal.</p> </li> <li> <p>A 96-bit identifier for the trace, globally unique, in 24 hexadecimal digits.</p> </li> </ul> <note> <p>Trace IDs created via OpenTelemetry have a different format based on the <a href=\"https://www.w3.org/TR/trace-context/\">W3C Trace Context specification</a>. A W3C trace ID must be formatted in the X-Ray trace ID format when sending to X-Ray. For example, a W3C trace ID <code>4efaaf4d1e8720b39541901950019ee5</code> should be formatted as <code>1-4efaaf4d-1e8720b39541901950019ee5</code> when sending to X-Ray. While X-Ray trace IDs include the original request timestamp in Unix epoch time, this is not required or validated. </p> </note>
 
         Args:
             trace_segment_documents: <p>A string containing a JSON document defining one or more segments or subsegments.</p>
@@ -1880,7 +1880,7 @@ class XRayClient:
         *,
         config_overrides: Optional[XRayClientConfig] = None,
     ) -> "aws_sdk_xray.types.start_trace_retrieval_result.StartTraceRetrievalResult":
-        """<p> Initiates a trace retrieval process using the specified time range and for the given trace IDs in the Transaction Search generated CloudWatch log group. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Transaction-Search.html\">Transaction Search</a>. </p> <p>API returns a <code>RetrievalToken</code>, which can be used with <code>ListRetrievedTraces</code> or <code>GetRetrievedTracesGraph</code> to fetch results. Retrievals will time out after 60 minutes. To execute long time ranges, consider segmenting into multiple retrievals.</p> <p>If you are using <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html\">CloudWatch cross-account observability</a>, you can use this operation in a monitoring account to retrieve data from a linked source account, as long as both accounts have transaction search enabled.</p> <p>For retrieving data from X-Ray directly as opposed to the Transaction-Search Log group, see <a href=\"https://docs.aws.amazon.com/xray/latest/api/API_BatchGetTraces.html\">BatchGetTraces</a>.</p>
+        r"""<p> Initiates a trace retrieval process using the specified time range and for the given trace IDs in the Transaction Search generated CloudWatch log group. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Transaction-Search.html\">Transaction Search</a>. </p> <p>API returns a <code>RetrievalToken</code>, which can be used with <code>ListRetrievedTraces</code> or <code>GetRetrievedTracesGraph</code> to fetch results. Retrievals will time out after 60 minutes. To execute long time ranges, consider segmenting into multiple retrievals.</p> <p>If you are using <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html\">CloudWatch cross-account observability</a>, you can use this operation in a monitoring account to retrieve data from a linked source account, as long as both accounts have transaction search enabled.</p> <p>For retrieving data from X-Ray directly as opposed to the Transaction-Search Log group, see <a href=\"https://docs.aws.amazon.com/xray/latest/api/API_BatchGetTraces.html\">BatchGetTraces</a>.</p>
 
         Args:
             trace_ids: <p> Specify the trace IDs of the traces to be retrieved. </p>
@@ -1922,7 +1922,7 @@ class XRayClient:
         *,
         config_overrides: Optional[XRayClientConfig] = None,
     ) -> "aws_sdk_xray.types.tag_resource_response.TagResourceResponse":
-        """<p>Applies tags to an existing Amazon Web Services X-Ray group or sampling rule.</p>
+        r"""<p>Applies tags to an existing Amazon Web Services X-Ray group or sampling rule.</p>
 
         Args:
             resource_arn: <p>The Amazon Resource Number (ARN) of an X-Ray group or sampling rule.</p>
@@ -2056,7 +2056,7 @@ class XRayClient:
         *,
         config_overrides: Optional[XRayClientConfig] = None,
     ) -> "aws_sdk_xray.types.update_indexing_rule_result.UpdateIndexingRuleResult":
-        """<p> Modifies an indexing rule’s configuration. </p> <p>Indexing rules are used for determining the sampling rate for spans indexed from CloudWatch Logs. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Transaction-Search.html\">Transaction Search</a>.</p>
+        r"""<p> Modifies an indexing rule’s configuration. </p> <p>Indexing rules are used for determining the sampling rate for spans indexed from CloudWatch Logs. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Transaction-Search.html\">Transaction Search</a>.</p>
 
         Args:
             name: <p> Name of the indexing rule to be updated. </p>
@@ -2134,7 +2134,7 @@ class XRayClient:
             "aws_sdk_xray.types.trace_segment_destination.TraceSegmentDestination"
         ] = None,
     ) -> "aws_sdk_xray.types.update_trace_segment_destination_result.UpdateTraceSegmentDestinationResult":
-        """<p> Modifies the destination of data sent to <code>PutTraceSegments</code>. The Transaction Search feature requires the CloudWatchLogs destination. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Transaction-Search.html\">Transaction Search</a>. </p>
+        r"""<p> Modifies the destination of data sent to <code>PutTraceSegments</code>. The Transaction Search feature requires the CloudWatchLogs destination. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Transaction-Search.html\">Transaction Search</a>. </p>
 
         Args:
             destination: <p> The configured destination of trace segments. </p>

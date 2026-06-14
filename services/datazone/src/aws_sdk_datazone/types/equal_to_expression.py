@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#EqualToExpression``."""
 
 from typing import TypedDict
+
 from aws_sdk_datazone.errors import DeserializationError
 
 

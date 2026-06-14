@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#SparkEmrPropertiesOutput``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
 
 if TYPE_CHECKING:
+    import datetime
+
     import aws_sdk_datazone.types.governance_type
     import aws_sdk_datazone.types.managed_endpoint_credentials
     import aws_sdk_datazone.types.username_password
-    import datetime
 
 
 class SparkEmrPropertiesOutput(TypedDict):

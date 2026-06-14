@@ -3,8 +3,8 @@
 from typing import TYPE_CHECKING, TypeAlias
 
 if TYPE_CHECKING:
-    import aws_sdk_datazone.types.form_name
     import aws_sdk_datazone.types.form_entry_input
+    import aws_sdk_datazone.types.form_name
 
 FormsInputMap: TypeAlias = dict[
     "aws_sdk_datazone.types.form_name.FormName",

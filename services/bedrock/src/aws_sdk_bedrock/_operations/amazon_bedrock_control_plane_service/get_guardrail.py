@@ -96,7 +96,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.get_guardrail_request.GetGuardrailRequest,
+    input_: aws_sdk_bedrock.types.get_guardrail_request.GetGuardrailRequest,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -108,11 +108,11 @@ def build_request(
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/guardrails/{guardrailIdentifier}"
     url = url.replace(
-        "{guardrailIdentifier}", quote(str(input["guardrail_identifier"]), safe="")
+        "{guardrailIdentifier}", quote(str(input_["guardrail_identifier"]), safe="")
     )
     params: dict[str, str] = {}
-    if "guardrail_version" in input:
-        params["guardrailVersion"] = str(input["guardrail_version"])
+    if "guardrail_version" in input_:
+        params["guardrailVersion"] = str(input_["guardrail_version"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
@@ -125,11 +125,11 @@ def build_request(
 
 def get_guardrail(
     options: OperationOptions,
-    input: aws_sdk_bedrock.types.get_guardrail_request.GetGuardrailRequest,
+    input_: aws_sdk_bedrock.types.get_guardrail_request.GetGuardrailRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.get_guardrail_response.GetGuardrailResponse, zapros.Response
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -143,11 +143,11 @@ def get_guardrail(
 
 async def async_get_guardrail(
     options: AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.get_guardrail_request.GetGuardrailRequest,
+    input_: aws_sdk_bedrock.types.get_guardrail_request.GetGuardrailRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.get_guardrail_response.GetGuardrailResponse, zapros.Response
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

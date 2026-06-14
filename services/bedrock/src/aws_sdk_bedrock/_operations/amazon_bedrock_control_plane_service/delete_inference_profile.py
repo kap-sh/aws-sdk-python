@@ -96,7 +96,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.delete_inference_profile_request.DeleteInferenceProfileRequest,
+    input_: aws_sdk_bedrock.types.delete_inference_profile_request.DeleteInferenceProfileRequest,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -109,7 +109,7 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/inference-profiles/{inferenceProfileIdentifier}"
     url = url.replace(
         "{inferenceProfileIdentifier}",
-        quote(str(input["inference_profile_identifier"]), safe=""),
+        quote(str(input_["inference_profile_identifier"]), safe=""),
     )
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
@@ -124,12 +124,12 @@ def build_request(
 
 def delete_inference_profile(
     options: OperationOptions,
-    input: aws_sdk_bedrock.types.delete_inference_profile_request.DeleteInferenceProfileRequest,
+    input_: aws_sdk_bedrock.types.delete_inference_profile_request.DeleteInferenceProfileRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.delete_inference_profile_response.DeleteInferenceProfileResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -143,12 +143,12 @@ def delete_inference_profile(
 
 async def async_delete_inference_profile(
     options: AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.delete_inference_profile_request.DeleteInferenceProfileRequest,
+    input_: aws_sdk_bedrock.types.delete_inference_profile_request.DeleteInferenceProfileRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.delete_inference_profile_response.DeleteInferenceProfileResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

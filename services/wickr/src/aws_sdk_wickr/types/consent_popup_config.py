@@ -18,7 +18,7 @@ class ConsentPopupConfig(TypedDict):
     content: NotRequired["aws_sdk_wickr.types.generic_string.GenericString"]
     """<p>Body content of the consent popup in Markdown format. Maximum 5000 characters.</p>"""
     close_button_label: NotRequired["aws_sdk_wickr.types.generic_string.GenericString"]
-    """<p>Label for the close button on the consent popup. Maximum 20 characters. Defaults to \"Acknowledge\" if not provided.</p>"""
+    r"""<p>Label for the close button on the consent popup. Maximum 20 characters. Defaults to \"Acknowledge\" if not provided.</p>"""
 
 
 # --- restJson1 ser/de ---

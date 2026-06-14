@@ -1,7 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#UpdateGatewayInformationInput``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_storage_gateway.errors import DeserializationError
 
 if TYPE_CHECKING:
@@ -22,11 +24,11 @@ class UpdateGatewayInformationInput(TypedDict):
     cloud_watch_log_group_arn: NotRequired[
         "aws_sdk_storage_gateway.types.cloud_watch_log_group_arn.CloudWatchLogGroupARN"
     ]
-    """<p>The Amazon Resource Name (ARN) of the Amazon CloudWatch log group that you want to use to monitor and log events in the gateway.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html\">What is Amazon CloudWatch Logs?</a> </p>"""
+    r"""<p>The Amazon Resource Name (ARN) of the Amazon CloudWatch log group that you want to use to monitor and log events in the gateway.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html\">What is Amazon CloudWatch Logs?</a> </p>"""
     gateway_capacity: NotRequired[
         "aws_sdk_storage_gateway.types.gateway_capacity.GatewayCapacity"
     ]
-    """<p>Specifies the size of the gateway's metadata cache. This setting impacts gateway performance and hardware recommendations. For more information, see <a href=\"https://docs.aws.amazon.com/filegateway/latest/files3/performance-multiple-file-shares.html\">Performance guidance for gateways with multiple file shares</a> in the <i>Amazon S3 File Gateway User Guide</i>.</p>"""
+    r"""<p>Specifies the size of the gateway's metadata cache. This setting impacts gateway performance and hardware recommendations. For more information, see <a href=\"https://docs.aws.amazon.com/filegateway/latest/files3/performance-multiple-file-shares.html\">Performance guidance for gateways with multiple file shares</a> in the <i>Amazon S3 File Gateway User Guide</i>.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

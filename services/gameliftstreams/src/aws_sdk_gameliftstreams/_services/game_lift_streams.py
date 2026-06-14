@@ -150,6 +150,7 @@ class GameLiftStreamsClient:
                 "credentials_provider": credentials_provider,
             }
         )
+
         # resources
         self.application_resource = ApplicationResource(self)
         self.stream_group_resource = StreamGroupResource(self)

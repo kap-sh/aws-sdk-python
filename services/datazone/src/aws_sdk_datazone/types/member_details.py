@@ -1,11 +1,12 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#MemberDetails``."""
 
 from typing import TYPE_CHECKING, TypeAlias, TypedDict
+
 from aws_sdk_datazone.errors import DeserializationError, SerializationError
 
 if TYPE_CHECKING:
-    import aws_sdk_datazone.types.user_details
     import aws_sdk_datazone.types.group_details
+    import aws_sdk_datazone.types.user_details
 
 
 class _MemberDetails_user(TypedDict):

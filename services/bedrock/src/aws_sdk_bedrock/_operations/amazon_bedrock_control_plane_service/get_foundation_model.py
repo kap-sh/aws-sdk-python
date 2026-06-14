@@ -94,7 +94,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.get_foundation_model_request.GetFoundationModelRequest,
+    input_: aws_sdk_bedrock.types.get_foundation_model_request.GetFoundationModelRequest,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -106,7 +106,7 @@ def build_request(
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/foundation-models/{modelIdentifier}"
     url = url.replace(
-        "{modelIdentifier}", quote(str(input["model_identifier"]), safe="")
+        "{modelIdentifier}", quote(str(input_["model_identifier"]), safe="")
     )
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
@@ -121,12 +121,12 @@ def build_request(
 
 def get_foundation_model(
     options: OperationOptions,
-    input: aws_sdk_bedrock.types.get_foundation_model_request.GetFoundationModelRequest,
+    input_: aws_sdk_bedrock.types.get_foundation_model_request.GetFoundationModelRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.get_foundation_model_response.GetFoundationModelResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -140,12 +140,12 @@ def get_foundation_model(
 
 async def async_get_foundation_model(
     options: AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.get_foundation_model_request.GetFoundationModelRequest,
+    input_: aws_sdk_bedrock.types.get_foundation_model_request.GetFoundationModelRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.get_foundation_model_response.GetFoundationModelResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

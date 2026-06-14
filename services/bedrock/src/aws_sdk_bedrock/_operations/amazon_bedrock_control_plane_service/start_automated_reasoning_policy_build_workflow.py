@@ -112,7 +112,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.start_automated_reasoning_policy_build_workflow_request.StartAutomatedReasoningPolicyBuildWorkflowRequest,
+    input_: aws_sdk_bedrock.types.start_automated_reasoning_policy_build_workflow_request.StartAutomatedReasoningPolicyBuildWorkflowRequest,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -126,20 +126,20 @@ def build_request(
         endpoint.url.rstrip("/")
         + "/automated-reasoning-policies/{policyArn}/build-workflows/{buildWorkflowType}/start"
     )
-    url = url.replace("{policyArn}", quote(str(input["policy_arn"]), safe=""))
+    url = url.replace("{policyArn}", quote(str(input_["policy_arn"]), safe=""))
     url = url.replace(
-        "{buildWorkflowType}", quote(str(input["build_workflow_type"]), safe="")
+        "{buildWorkflowType}", quote(str(input_["build_workflow_type"]), safe="")
     )
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    if "client_request_token" in input:
-        headers["x-amz-client-token"] = str(input["client_request_token"])
-    if "source_content" in input:
+    if "client_request_token" in input_:
+        headers["x-amz-client-token"] = str(input_["client_request_token"])
+    if "source_content" in input_:
         import aws_sdk_bedrock.types.automated_reasoning_policy_build_workflow_source
 
         body: bytes | None = json.dumps(
             aws_sdk_bedrock.types.automated_reasoning_policy_build_workflow_source.serialize_json(
-                input["source_content"]
+                input_["source_content"]
             )
         ).encode()
         headers["content-type"] = "application/json"
@@ -155,12 +155,12 @@ def build_request(
 
 def start_automated_reasoning_policy_build_workflow(
     options: OperationOptions,
-    input: aws_sdk_bedrock.types.start_automated_reasoning_policy_build_workflow_request.StartAutomatedReasoningPolicyBuildWorkflowRequest,
+    input_: aws_sdk_bedrock.types.start_automated_reasoning_policy_build_workflow_request.StartAutomatedReasoningPolicyBuildWorkflowRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.start_automated_reasoning_policy_build_workflow_response.StartAutomatedReasoningPolicyBuildWorkflowResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -174,12 +174,12 @@ def start_automated_reasoning_policy_build_workflow(
 
 async def async_start_automated_reasoning_policy_build_workflow(
     options: AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.start_automated_reasoning_policy_build_workflow_request.StartAutomatedReasoningPolicyBuildWorkflowRequest,
+    input_: aws_sdk_bedrock.types.start_automated_reasoning_policy_build_workflow_request.StartAutomatedReasoningPolicyBuildWorkflowRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.start_automated_reasoning_policy_build_workflow_response.StartAutomatedReasoningPolicyBuildWorkflowResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

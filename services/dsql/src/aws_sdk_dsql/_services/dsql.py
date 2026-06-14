@@ -102,6 +102,7 @@ class DSQLClient:
                 "credentials_provider": credentials_provider,
             }
         )
+
         # resources
         self.cluster = Cluster(self)
         self.stream = Stream(self)

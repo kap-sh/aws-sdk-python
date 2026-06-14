@@ -28,7 +28,7 @@ class CreateParallelDataRequest(TypedDict):
     client_token: "aws_sdk_translate.types.client_token_string.ClientTokenString"
     """<p>A unique identifier for the request. This token is automatically generated when you use Amazon Translate through an AWS SDK.</p>"""
     tags: NotRequired["aws_sdk_translate.types.tag_list.TagList"]
-    """<p>Tags to be associated with this resource. A tag is a key-value pair that adds metadata to a resource. Each tag key for the resource must be unique. For more information, see <a href=\"https://docs.aws.amazon.com/translate/latest/dg/tagging.html\"> Tagging your resources</a>.</p>"""
+    r"""<p>Tags to be associated with this resource. A tag is a key-value pair that adds metadata to a resource. Each tag key for the resource must be unique. For more information, see <a href=\"https://docs.aws.amazon.com/translate/latest/dg/tagging.html\"> Tagging your resources</a>.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

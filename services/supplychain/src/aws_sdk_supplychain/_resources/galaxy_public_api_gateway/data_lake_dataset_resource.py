@@ -64,7 +64,7 @@ class DataLakeDatasetResource:
         ] = None,
         tags: Optional["aws_sdk_supplychain.types.tag_map.TagMap"] = None,
     ) -> "aws_sdk_supplychain.types.create_data_lake_dataset_response.CreateDataLakeDatasetResponse":
-        """<p>Enables you to programmatically create an Amazon Web Services Supply Chain data lake dataset. Developers can create the datasets using their pre-defined or custom schema for a given instance ID, namespace, and dataset name.</p>
+        r"""<p>Enables you to programmatically create an Amazon Web Services Supply Chain data lake dataset. Developers can create the datasets using their pre-defined or custom schema for a given instance ID, namespace, and dataset name.</p>
 
         Args:
             instance_id: <p>The Amazon Web Services Supply Chain instance identifier.</p>
@@ -127,7 +127,7 @@ class DataLakeDatasetResource:
         *,
         config_overrides: Optional[SupplyChainClientConfig] = None,
     ) -> "aws_sdk_supplychain.types.get_data_lake_dataset_response.GetDataLakeDatasetResponse":
-        """<p>Enables you to programmatically view an Amazon Web Services Supply Chain data lake dataset. Developers can view the data lake dataset information such as namespace, schema, and so on for a given instance ID, namespace, and dataset name.</p>
+        r"""<p>Enables you to programmatically view an Amazon Web Services Supply Chain data lake dataset. Developers can view the data lake dataset information such as namespace, schema, and so on for a given instance ID, namespace, and dataset name.</p>
 
         Args:
             instance_id: <p>The Amazon Web Services Supply Chain instance identifier.</p>
@@ -181,7 +181,7 @@ class DataLakeDatasetResource:
             "aws_sdk_supplychain.types.data_lake_dataset_description.DataLakeDatasetDescription"
         ] = None,
     ) -> "aws_sdk_supplychain.types.update_data_lake_dataset_response.UpdateDataLakeDatasetResponse":
-        """<p>Enables you to programmatically update an Amazon Web Services Supply Chain data lake dataset. Developers can update the description of a data lake dataset for a given instance ID, namespace, and dataset name.</p>
+        r"""<p>Enables you to programmatically update an Amazon Web Services Supply Chain data lake dataset. Developers can update the description of a data lake dataset for a given instance ID, namespace, and dataset name.</p>
 
         Args:
             instance_id: <p>The Amazon Web Services Chain instance identifier.</p>
@@ -235,7 +235,7 @@ class DataLakeDatasetResource:
         *,
         config_overrides: Optional[SupplyChainClientConfig] = None,
     ) -> "aws_sdk_supplychain.types.delete_data_lake_dataset_response.DeleteDataLakeDatasetResponse":
-        """<p>Enables you to programmatically delete an Amazon Web Services Supply Chain data lake dataset. Developers can delete the existing datasets for a given instance ID, namespace, and instance name.</p>
+        r"""<p>Enables you to programmatically delete an Amazon Web Services Supply Chain data lake dataset. Developers can delete the existing datasets for a given instance ID, namespace, and instance name.</p>
 
         Args:
             instance_id: <p>The AWS Supply Chain instance identifier.</p>
@@ -291,7 +291,7 @@ class DataLakeDatasetResource:
             "aws_sdk_supplychain.types.data_lake_dataset_max_results.DataLakeDatasetMaxResults"
         ] = None,
     ) -> "aws_sdk_supplychain.types.list_data_lake_datasets_response.ListDataLakeDatasetsResponse":
-        """<p>Enables you to programmatically view the list of Amazon Web Services Supply Chain data lake datasets. Developers can view the datasets and the corresponding information such as namespace, schema, and so on for a given instance ID and namespace.</p>
+        r"""<p>Enables you to programmatically view the list of Amazon Web Services Supply Chain data lake datasets. Developers can view the datasets and the corresponding information such as namespace, schema, and so on for a given instance ID and namespace.</p>
 
         Args:
             instance_id: <p>The Amazon Web Services Supply Chain instance identifier.</p>
@@ -361,7 +361,7 @@ class AsyncDataLakeDatasetResource:
         ] = None,
         tags: Optional["aws_sdk_supplychain.types.tag_map.TagMap"] = None,
     ) -> "aws_sdk_supplychain.types.create_data_lake_dataset_response.CreateDataLakeDatasetResponse":
-        """<p>Enables you to programmatically create an Amazon Web Services Supply Chain data lake dataset. Developers can create the datasets using their pre-defined or custom schema for a given instance ID, namespace, and dataset name.</p>
+        r"""<p>Enables you to programmatically create an Amazon Web Services Supply Chain data lake dataset. Developers can create the datasets using their pre-defined or custom schema for a given instance ID, namespace, and dataset name.</p>
 
         Args:
             instance_id: <p>The Amazon Web Services Supply Chain instance identifier.</p>
@@ -425,7 +425,7 @@ class AsyncDataLakeDatasetResource:
         *,
         config_overrides: Optional[AsyncSupplyChainClientConfig] = None,
     ) -> "aws_sdk_supplychain.types.get_data_lake_dataset_response.GetDataLakeDatasetResponse":
-        """<p>Enables you to programmatically view an Amazon Web Services Supply Chain data lake dataset. Developers can view the data lake dataset information such as namespace, schema, and so on for a given instance ID, namespace, and dataset name.</p>
+        r"""<p>Enables you to programmatically view an Amazon Web Services Supply Chain data lake dataset. Developers can view the data lake dataset information such as namespace, schema, and so on for a given instance ID, namespace, and dataset name.</p>
 
         Args:
             instance_id: <p>The Amazon Web Services Supply Chain instance identifier.</p>
@@ -480,7 +480,7 @@ class AsyncDataLakeDatasetResource:
             "aws_sdk_supplychain.types.data_lake_dataset_description.DataLakeDatasetDescription"
         ] = None,
     ) -> "aws_sdk_supplychain.types.update_data_lake_dataset_response.UpdateDataLakeDatasetResponse":
-        """<p>Enables you to programmatically update an Amazon Web Services Supply Chain data lake dataset. Developers can update the description of a data lake dataset for a given instance ID, namespace, and dataset name.</p>
+        r"""<p>Enables you to programmatically update an Amazon Web Services Supply Chain data lake dataset. Developers can update the description of a data lake dataset for a given instance ID, namespace, and dataset name.</p>
 
         Args:
             instance_id: <p>The Amazon Web Services Chain instance identifier.</p>
@@ -535,7 +535,7 @@ class AsyncDataLakeDatasetResource:
         *,
         config_overrides: Optional[AsyncSupplyChainClientConfig] = None,
     ) -> "aws_sdk_supplychain.types.delete_data_lake_dataset_response.DeleteDataLakeDatasetResponse":
-        """<p>Enables you to programmatically delete an Amazon Web Services Supply Chain data lake dataset. Developers can delete the existing datasets for a given instance ID, namespace, and instance name.</p>
+        r"""<p>Enables you to programmatically delete an Amazon Web Services Supply Chain data lake dataset. Developers can delete the existing datasets for a given instance ID, namespace, and instance name.</p>
 
         Args:
             instance_id: <p>The AWS Supply Chain instance identifier.</p>
@@ -592,7 +592,7 @@ class AsyncDataLakeDatasetResource:
             "aws_sdk_supplychain.types.data_lake_dataset_max_results.DataLakeDatasetMaxResults"
         ] = None,
     ) -> "aws_sdk_supplychain.types.list_data_lake_datasets_response.ListDataLakeDatasetsResponse":
-        """<p>Enables you to programmatically view the list of Amazon Web Services Supply Chain data lake datasets. Developers can view the datasets and the corresponding information such as namespace, schema, and so on for a given instance ID and namespace.</p>
+        r"""<p>Enables you to programmatically view the list of Amazon Web Services Supply Chain data lake datasets. Developers can view the datasets and the corresponding information such as namespace, schema, and so on for a given instance ID and namespace.</p>
 
         Args:
             instance_id: <p>The Amazon Web Services Supply Chain instance identifier.</p>

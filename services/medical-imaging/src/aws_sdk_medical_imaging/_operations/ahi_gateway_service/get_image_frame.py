@@ -90,7 +90,7 @@ def handle_response(
     )
     out: aws_sdk_medical_imaging.types.get_image_frame_response.GetImageFrameResponse = {
         "image_frame_blob": _iter
-    }
+    }  # type: ignore[reportAssignmentType]
     if "Content-Type" in response.headers:
         out["content_type"] = str(response.headers["Content-Type"])
     return out
@@ -100,7 +100,7 @@ def get_signer(
     options: AsyncOperationOptions | OperationOptions,
     auth_schemes: list[dict[str, Any]] | None = None,
 ) -> aws_sdk_medical_imaging._auth._signers.Signer | None:
-    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}
+    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}  # noqa: F841
     if options.credentials_provider is not None:
         sigv4_config = (
             name_to_schema.get("sigv4")

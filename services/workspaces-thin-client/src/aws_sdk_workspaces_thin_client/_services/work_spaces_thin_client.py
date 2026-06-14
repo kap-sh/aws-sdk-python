@@ -140,7 +140,7 @@ class WorkSpacesThinClientClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = WorkSpacesThinClientClientConfig(
+        self._config = WorkSpacesThinClientClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -160,7 +160,7 @@ class WorkSpacesThinClientClient:
         overrides: WorkSpacesThinClientClientConfig = config_overrides or {}
         interceptors_: list[Interceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             retry(),
         ]
@@ -168,16 +168,16 @@ class WorkSpacesThinClientClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            region=overrides.get("region", self.config.get("region")),
+            region=overrides.get("region", self._config.get("region")),
             use_dual_stack=overrides.get(
-                "use_dual_stack", self.config.get("use_dual_stack")
+                "use_dual_stack", self._config.get("use_dual_stack")
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -216,7 +216,7 @@ class WorkSpacesThinClientClient:
             "aws_sdk_workspaces_thin_client.types.device_creation_tags_map.DeviceCreationTagsMap"
         ] = None,
     ) -> "aws_sdk_workspaces_thin_client.types.create_environment_response.CreateEnvironmentResponse":
-        """<p>Creates an environment for your thin client devices.</p>
+        r"""<p>Creates an environment for your thin client devices.</p>
 
         Args:
             name: <p>The name for the environment.</p>
@@ -286,7 +286,7 @@ class WorkSpacesThinClientClient:
             "aws_sdk_workspaces_thin_client.types.client_token.ClientToken"
         ] = None,
     ) -> "aws_sdk_workspaces_thin_client.types.delete_device_response.DeleteDeviceResponse":
-        """<p>Deletes a thin client device.</p>
+        r"""<p>Deletes a thin client device.</p>
 
         Args:
             id: <p>The ID of the device to delete.</p>
@@ -329,7 +329,7 @@ class WorkSpacesThinClientClient:
             "aws_sdk_workspaces_thin_client.types.client_token.ClientToken"
         ] = None,
     ) -> "aws_sdk_workspaces_thin_client.types.delete_environment_response.DeleteEnvironmentResponse":
-        """<p>Deletes an environment.</p>
+        r"""<p>Deletes an environment.</p>
 
         Args:
             id: <p>The ID of the environment to delete.</p>
@@ -375,7 +375,7 @@ class WorkSpacesThinClientClient:
             "aws_sdk_workspaces_thin_client.types.client_token.ClientToken"
         ] = None,
     ) -> "aws_sdk_workspaces_thin_client.types.deregister_device_response.DeregisterDeviceResponse":
-        """<p>Deregisters a thin client device.</p>
+        r"""<p>Deregisters a thin client device.</p>
 
         Args:
             id: <p>The ID of the device to deregister.</p>

@@ -1,16 +1,18 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#ListNotificationsInput``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
 
 if TYPE_CHECKING:
+    import datetime
+
     import aws_sdk_datazone.types.domain_id
     import aws_sdk_datazone.types.max_results
     import aws_sdk_datazone.types.notification_subjects
     import aws_sdk_datazone.types.notification_type
     import aws_sdk_datazone.types.pagination_token
     import aws_sdk_datazone.types.task_status
-    import datetime
 
 
 class ListNotificationsInput(TypedDict):

@@ -1,12 +1,16 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesweb#CookieSpecification``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_workspaces_web.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_workspaces_web.types.cookie_domain
     import aws_sdk_workspaces_web.types.cookie_name
     import aws_sdk_workspaces_web.types.cookie_path
+
 
 class CookieSpecification(TypedDict):
     domain: "aws_sdk_workspaces_web.types.cookie_domain.CookieDomain"
@@ -15,6 +19,7 @@ class CookieSpecification(TypedDict):
     """<p>The name of the cookie.</p>"""
     path: NotRequired["aws_sdk_workspaces_web.types.cookie_path.CookiePath"]
     """<p>The path of the cookie.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: CookieSpecification) -> dict:

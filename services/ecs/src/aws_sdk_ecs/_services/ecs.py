@@ -174,6 +174,7 @@ class ECSClient:
                 "credentials_provider": credentials_provider,
             }
         )
+
         # resources
         self.capacity_provider_resource = CapacityProviderResource(self)
         self.cluster_resource = ClusterResource(self)

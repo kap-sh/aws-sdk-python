@@ -2,10 +2,8 @@
 
 from typing import TypedDict
 
-
 class UpdateDataIntegrationAssociationResponse(TypedDict):
     pass
-
 
 # --- restJson1 ser/de ---
 def serialize_json(value: UpdateDataIntegrationAssociationResponse) -> dict:

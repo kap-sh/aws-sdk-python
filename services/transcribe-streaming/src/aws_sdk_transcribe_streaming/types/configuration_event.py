@@ -17,7 +17,7 @@ class ConfigurationEvent(TypedDict):
     post_call_analytics_settings: NotRequired[
         "aws_sdk_transcribe_streaming.types.post_call_analytics_settings.PostCallAnalyticsSettings"
     ]
-    """<p>Provides additional optional settings for your Call Analytics post-call request, including encryption and output locations for your redacted transcript.</p> <p> <code>PostCallAnalyticsSettings</code> provides you with the same insights as a Call Analytics post-call transcription. Refer to <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/tca-post-call.html\">Post-call analytics</a> for more information on this feature.</p>"""
+    r"""<p>Provides additional optional settings for your Call Analytics post-call request, including encryption and output locations for your redacted transcript.</p> <p> <code>PostCallAnalyticsSettings</code> provides you with the same insights as a Call Analytics post-call transcription. Refer to <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/tca-post-call.html\">Post-call analytics</a> for more information on this feature.</p>"""
 
 
 # --- restJson1 ser/de ---

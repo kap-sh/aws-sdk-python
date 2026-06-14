@@ -1,11 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#LineageNodeReference``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
 
 if TYPE_CHECKING:
-    import aws_sdk_datazone.types.lineage_node_id
     import datetime
+
+    import aws_sdk_datazone.types.lineage_node_id
 
 
 class LineageNodeReference(TypedDict):

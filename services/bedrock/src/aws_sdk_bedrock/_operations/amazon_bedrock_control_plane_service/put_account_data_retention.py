@@ -87,7 +87,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.put_account_data_retention_request.PutAccountDataRetentionRequest,
+    input_: aws_sdk_bedrock.types.put_account_data_retention_request.PutAccountDataRetentionRequest,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -103,7 +103,7 @@ def build_request(
     import aws_sdk_bedrock.types.put_account_data_retention_request
 
     body: bytes | None = json.dumps(
-        aws_sdk_bedrock.types.put_account_data_retention_request.serialize_json(input)
+        aws_sdk_bedrock.types.put_account_data_retention_request.serialize_json(input_)
     ).encode()
     headers["content-type"] = "application/json"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
@@ -116,12 +116,12 @@ def build_request(
 
 def put_account_data_retention(
     options: OperationOptions,
-    input: aws_sdk_bedrock.types.put_account_data_retention_request.PutAccountDataRetentionRequest,
+    input_: aws_sdk_bedrock.types.put_account_data_retention_request.PutAccountDataRetentionRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.put_account_data_retention_response.PutAccountDataRetentionResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -135,12 +135,12 @@ def put_account_data_retention(
 
 async def async_put_account_data_retention(
     options: AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.put_account_data_retention_request.PutAccountDataRetentionRequest,
+    input_: aws_sdk_bedrock.types.put_account_data_retention_request.PutAccountDataRetentionRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.put_account_data_retention_response.PutAccountDataRetentionResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

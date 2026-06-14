@@ -1,22 +1,32 @@
 """Generated from Smithy shape ``com.amazonaws.verifiedpermissions#ConflictException``."""
 
 from typing import TYPE_CHECKING, TypedDict
-from aws_sdk_verifiedpermissions.errors import DeserializationError
-from aws_sdk_verifiedpermissions.errors import ServiceError
+
+from aws_sdk_verifiedpermissions.errors import DeserializationError, ServiceError
+
 if TYPE_CHECKING:
     import aws_sdk_verifiedpermissions.types.resource_conflict_list
 
+
 class ConflictException_(TypedDict):
     message: "str"
-    resources: "aws_sdk_verifiedpermissions.types.resource_conflict_list.ResourceConflictList"
+    resources: (
+        "aws_sdk_verifiedpermissions.types.resource_conflict_list.ResourceConflictList"
+    )
     """<p>The list of resources referenced with this failed request.</p>"""
+
 
 # --- awsJson1_0 ser/de ---
 def serialize_aws_json_1_0(value: ConflictException_) -> dict:
     out: dict = {}
     out["message"] = value["message"]
     import aws_sdk_verifiedpermissions.types.resource_conflict_list
-    out["resources"] = aws_sdk_verifiedpermissions.types.resource_conflict_list.serialize_aws_json_1_0(value["resources"])
+
+    out["resources"] = (
+        aws_sdk_verifiedpermissions.types.resource_conflict_list.serialize_aws_json_1_0(
+            value["resources"]
+        )
+    )
     return out
 
 
@@ -28,7 +38,12 @@ def deserialize_aws_json_1_0(data: dict) -> ConflictException_:
         raise DeserializationError("ConflictException_.message required")
     if "resources" in data:
         import aws_sdk_verifiedpermissions.types.resource_conflict_list
-        out["resources"] = aws_sdk_verifiedpermissions.types.resource_conflict_list.deserialize_aws_json_1_0(data["resources"])
+
+        out["resources"] = (
+            aws_sdk_verifiedpermissions.types.resource_conflict_list.deserialize_aws_json_1_0(
+                data["resources"]
+            )
+        )
     else:
         raise DeserializationError("ConflictException_.resources required")
     return out
@@ -36,10 +51,16 @@ def deserialize_aws_json_1_0(data: dict) -> ConflictException_:
 
 class ConflictException(ServiceError):
     """Modeled error for Smithy shape ``com.amazonaws.verifiedpermissions#ConflictException``."""
-    code: str | None = 'ConflictException'
+
+    code: str | None = "ConflictException"
 
     def __init__(self, data: ConflictException_):
-        super().__init__('client', is_throttling_error=False, is_retryable=False, code='ConflictException')
+        super().__init__(
+            "client",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="ConflictException",
+        )
         self.data = data
 
     @classmethod

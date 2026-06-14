@@ -21,7 +21,7 @@ class ListFileTransferResultsRequest(TypedDict):
     next_token: NotRequired["aws_sdk_transfer.types.next_token.NextToken"]
     """<p>If there are more file details than returned in this call, use this value for a subsequent call to <code>ListFileTransferResults</code> to retrieve them.</p>"""
     max_results: NotRequired["aws_sdk_transfer.types.max_results.MaxResults"]
-    """<p>The maximum number of files to return in a single page. Note that currently you can specify a maximum of 10 file paths in a single <a href=\"https://docs.aws.amazon.com/transfer/latest/APIReference/API_StartFileTransfer.html\">StartFileTransfer</a> operation. Thus, the maximum number of file transfer results that can be returned in a single page is 10. </p>"""
+    r"""<p>The maximum number of files to return in a single page. Note that currently you can specify a maximum of 10 file paths in a single <a href=\"https://docs.aws.amazon.com/transfer/latest/APIReference/API_StartFileTransfer.html\">StartFileTransfer</a> operation. Thus, the maximum number of file transfer results that can be returned in a single page is 10. </p>"""
 
 
 # --- awsJson1_1 ser/de ---

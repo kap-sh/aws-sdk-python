@@ -61,7 +61,7 @@ class WebAppResource:
             "aws_sdk_transfer.types.web_app_endpoint_details.WebAppEndpointDetails"
         ] = None,
     ) -> "aws_sdk_transfer.types.create_web_app_response.CreateWebAppResponse":
-        """<p>Creates a web app based on specified parameters, and returns the ID for the new web app. You can configure the web app to be publicly accessible or hosted within a VPC.</p> <p>For more information about using VPC endpoints with Transfer Family, see <a href=\"https://docs.aws.amazon.com/transfer/latest/userguide/create-webapp-in-vpc.html\">Create a Transfer Family web app in a VPC</a>.</p>
+        r"""<p>Creates a web app based on specified parameters, and returns the ID for the new web app. You can configure the web app to be publicly accessible or hosted within a VPC.</p> <p>For more information about using VPC endpoints with Transfer Family, see <a href=\"https://docs.aws.amazon.com/transfer/latest/userguide/create-webapp-in-vpc.html\">Create a Transfer Family web app in a VPC</a>.</p>
 
         Args:
             identity_provider_details: <p>You can provide a structure that contains the details for the identity provider to use with your web app.</p> <p>For more details about this parameter, see <a href=\"https://docs.aws.amazon.com/transfer/latest/userguide/webapp-identity-center.html\">Configure your identity provider for Transfer Family web apps</a>.</p>
@@ -113,7 +113,7 @@ class WebAppResource:
         *,
         config_overrides: Optional[TransferClientConfig] = None,
     ) -> "aws_sdk_transfer.types.describe_web_app_response.DescribeWebAppResponse":
-        """<p>Describes the web app that's identified by <code>WebAppId</code>. The response includes endpoint configuration details such as whether the web app is publicly accessible or VPC hosted.</p> <p>For more information about using VPC endpoints with Transfer Family, see <a href=\"https://docs.aws.amazon.com/transfer/latest/userguide/create-webapp-in-vpc.html\">Create a Transfer Family web app in a VPC</a>.</p>
+        r"""<p>Describes the web app that's identified by <code>WebAppId</code>. The response includes endpoint configuration details such as whether the web app is publicly accessible or VPC hosted.</p> <p>For more information about using VPC endpoints with Transfer Family, see <a href=\"https://docs.aws.amazon.com/transfer/latest/userguide/create-webapp-in-vpc.html\">Create a Transfer Family web app in a VPC</a>.</p>
 
         Args:
             web_app_id: <p>Provide the unique identifier for the web app.</p>
@@ -162,7 +162,7 @@ class WebAppResource:
             "aws_sdk_transfer.types.update_web_app_endpoint_details.UpdateWebAppEndpointDetails"
         ] = None,
     ) -> "aws_sdk_transfer.types.update_web_app_response.UpdateWebAppResponse":
-        """<p>Assigns new properties to a web app. You can modify the access point, identity provider details, endpoint configuration, and the web app units.</p> <p>For more information about using VPC endpoints with Transfer Family, see <a href=\"https://docs.aws.amazon.com/transfer/latest/userguide/create-webapp-in-vpc.html\">Create a Transfer Family web app in a VPC</a>.</p>
+        r"""<p>Assigns new properties to a web app. You can modify the access point, identity provider details, endpoint configuration, and the web app units.</p> <p>For more information about using VPC endpoints with Transfer Family, see <a href=\"https://docs.aws.amazon.com/transfer/latest/userguide/create-webapp-in-vpc.html\">Create a Transfer Family web app in a VPC</a>.</p>
 
         Args:
             web_app_id: <p>Provide the identifier of the web app that you are updating.</p>
@@ -247,7 +247,7 @@ class WebAppResource:
         max_results: Optional["aws_sdk_transfer.types.max_results.MaxResults"] = None,
         next_token: Optional["aws_sdk_transfer.types.next_token.NextToken"] = None,
     ) -> "aws_sdk_transfer.types.list_web_apps_response.ListWebAppsResponse":
-        """<p>Lists all web apps associated with your Amazon Web Services account for your current region. The response includes the endpoint type for each web app, showing whether it is publicly accessible or VPC hosted.</p> <p>For more information about using VPC endpoints with Transfer Family, see <a href=\"https://docs.aws.amazon.com/transfer/latest/userguide/create-webapp-in-vpc.html\">Create a Transfer Family web app in a VPC</a>.</p>
+        r"""<p>Lists all web apps associated with your Amazon Web Services account for your current region. The response includes the endpoint type for each web app, showing whether it is publicly accessible or VPC hosted.</p> <p>For more information about using VPC endpoints with Transfer Family, see <a href=\"https://docs.aws.amazon.com/transfer/latest/userguide/create-webapp-in-vpc.html\">Create a Transfer Family web app in a VPC</a>.</p>
 
         Args:
             max_results: <p>The maximum number of items to return.</p>
@@ -306,7 +306,7 @@ class AsyncWebAppResource:
             "aws_sdk_transfer.types.web_app_endpoint_details.WebAppEndpointDetails"
         ] = None,
     ) -> "aws_sdk_transfer.types.create_web_app_response.CreateWebAppResponse":
-        """<p>Creates a web app based on specified parameters, and returns the ID for the new web app. You can configure the web app to be publicly accessible or hosted within a VPC.</p> <p>For more information about using VPC endpoints with Transfer Family, see <a href=\"https://docs.aws.amazon.com/transfer/latest/userguide/create-webapp-in-vpc.html\">Create a Transfer Family web app in a VPC</a>.</p>
+        r"""<p>Creates a web app based on specified parameters, and returns the ID for the new web app. You can configure the web app to be publicly accessible or hosted within a VPC.</p> <p>For more information about using VPC endpoints with Transfer Family, see <a href=\"https://docs.aws.amazon.com/transfer/latest/userguide/create-webapp-in-vpc.html\">Create a Transfer Family web app in a VPC</a>.</p>
 
         Args:
             identity_provider_details: <p>You can provide a structure that contains the details for the identity provider to use with your web app.</p> <p>For more details about this parameter, see <a href=\"https://docs.aws.amazon.com/transfer/latest/userguide/webapp-identity-center.html\">Configure your identity provider for Transfer Family web apps</a>.</p>
@@ -359,7 +359,7 @@ class AsyncWebAppResource:
         *,
         config_overrides: Optional[AsyncTransferClientConfig] = None,
     ) -> "aws_sdk_transfer.types.describe_web_app_response.DescribeWebAppResponse":
-        """<p>Describes the web app that's identified by <code>WebAppId</code>. The response includes endpoint configuration details such as whether the web app is publicly accessible or VPC hosted.</p> <p>For more information about using VPC endpoints with Transfer Family, see <a href=\"https://docs.aws.amazon.com/transfer/latest/userguide/create-webapp-in-vpc.html\">Create a Transfer Family web app in a VPC</a>.</p>
+        r"""<p>Describes the web app that's identified by <code>WebAppId</code>. The response includes endpoint configuration details such as whether the web app is publicly accessible or VPC hosted.</p> <p>For more information about using VPC endpoints with Transfer Family, see <a href=\"https://docs.aws.amazon.com/transfer/latest/userguide/create-webapp-in-vpc.html\">Create a Transfer Family web app in a VPC</a>.</p>
 
         Args:
             web_app_id: <p>Provide the unique identifier for the web app.</p>
@@ -409,7 +409,7 @@ class AsyncWebAppResource:
             "aws_sdk_transfer.types.update_web_app_endpoint_details.UpdateWebAppEndpointDetails"
         ] = None,
     ) -> "aws_sdk_transfer.types.update_web_app_response.UpdateWebAppResponse":
-        """<p>Assigns new properties to a web app. You can modify the access point, identity provider details, endpoint configuration, and the web app units.</p> <p>For more information about using VPC endpoints with Transfer Family, see <a href=\"https://docs.aws.amazon.com/transfer/latest/userguide/create-webapp-in-vpc.html\">Create a Transfer Family web app in a VPC</a>.</p>
+        r"""<p>Assigns new properties to a web app. You can modify the access point, identity provider details, endpoint configuration, and the web app units.</p> <p>For more information about using VPC endpoints with Transfer Family, see <a href=\"https://docs.aws.amazon.com/transfer/latest/userguide/create-webapp-in-vpc.html\">Create a Transfer Family web app in a VPC</a>.</p>
 
         Args:
             web_app_id: <p>Provide the identifier of the web app that you are updating.</p>
@@ -496,7 +496,7 @@ class AsyncWebAppResource:
         max_results: Optional["aws_sdk_transfer.types.max_results.MaxResults"] = None,
         next_token: Optional["aws_sdk_transfer.types.next_token.NextToken"] = None,
     ) -> "aws_sdk_transfer.types.list_web_apps_response.ListWebAppsResponse":
-        """<p>Lists all web apps associated with your Amazon Web Services account for your current region. The response includes the endpoint type for each web app, showing whether it is publicly accessible or VPC hosted.</p> <p>For more information about using VPC endpoints with Transfer Family, see <a href=\"https://docs.aws.amazon.com/transfer/latest/userguide/create-webapp-in-vpc.html\">Create a Transfer Family web app in a VPC</a>.</p>
+        r"""<p>Lists all web apps associated with your Amazon Web Services account for your current region. The response includes the endpoint type for each web app, showing whether it is publicly accessible or VPC hosted.</p> <p>For more information about using VPC endpoints with Transfer Family, see <a href=\"https://docs.aws.amazon.com/transfer/latest/userguide/create-webapp-in-vpc.html\">Create a Transfer Family web app in a VPC</a>.</p>
 
         Args:
             max_results: <p>The maximum number of items to return.</p>

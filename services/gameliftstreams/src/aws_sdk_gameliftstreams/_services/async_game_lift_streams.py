@@ -152,6 +152,7 @@ class AsyncGameLiftStreamsClient:
                 "credentials_provider": credentials_provider,
             }
         )
+
         # resources
         self.application_resource = AsyncApplicationResource(self)
         self.stream_group_resource = AsyncStreamGroupResource(self)

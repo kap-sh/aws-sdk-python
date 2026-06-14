@@ -169,7 +169,7 @@ class tnbClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = tnbClientConfig(
+        self._config = tnbClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -189,7 +189,7 @@ class tnbClient:
         overrides: tnbClientConfig = config_overrides or {}
         interceptors_: list[Interceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             retry(),
         ]
@@ -197,16 +197,16 @@ class tnbClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            region=overrides.get("region", self.config.get("region")),
+            region=overrides.get("region", self._config.get("region")),
             use_dual_stack=overrides.get(
-                "use_dual_stack", self.config.get("use_dual_stack")
+                "use_dual_stack", self._config.get("use_dual_stack")
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -257,7 +257,7 @@ class tnbClient:
         config_overrides: Optional[tnbClientConfig] = None,
         tags: Optional["aws_sdk_tnb.types.tag_map.TagMap"] = None,
     ) -> "aws_sdk_tnb.types.create_sol_function_package_output.CreateSolFunctionPackageOutput":
-        """<p>Creates a function package.</p> <p>A function package is a .zip file in CSAR (Cloud Service Archive) format that contains a network function (an ETSI standard telecommunication application) and function package descriptor that uses the TOSCA standard to describe how the network functions should run on your network. For more information, see <a href=\"https://docs.aws.amazon.com/tnb/latest/ug/function-packages.html\">Function packages</a> in the <i>Amazon Web Services Telco Network Builder User Guide</i>. </p> <p>Creating a function package is the first step for creating a network in AWS TNB. This request creates an empty container with an ID. The next step is to upload the actual CSAR zip file into that empty container. To upload function package content, see <a href=\"https://docs.aws.amazon.com/tnb/latest/APIReference/API_PutSolFunctionPackageContent.html\">PutSolFunctionPackageContent</a>.</p>
+        r"""<p>Creates a function package.</p> <p>A function package is a .zip file in CSAR (Cloud Service Archive) format that contains a network function (an ETSI standard telecommunication application) and function package descriptor that uses the TOSCA standard to describe how the network functions should run on your network. For more information, see <a href=\"https://docs.aws.amazon.com/tnb/latest/ug/function-packages.html\">Function packages</a> in the <i>Amazon Web Services Telco Network Builder User Guide</i>. </p> <p>Creating a function package is the first step for creating a network in AWS TNB. This request creates an empty container with an ID. The next step is to upload the actual CSAR zip file into that empty container. To upload function package content, see <a href=\"https://docs.aws.amazon.com/tnb/latest/APIReference/API_PutSolFunctionPackageContent.html\">PutSolFunctionPackageContent</a>.</p>
 
         Args:
             tags: <p>A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key and an optional value. You can use tags to search and filter your resources or track your Amazon Web Services costs.</p>
@@ -303,7 +303,7 @@ class tnbClient:
         ns_description: Optional[str] = None,
         tags: Optional["aws_sdk_tnb.types.tag_map.TagMap"] = None,
     ) -> "aws_sdk_tnb.types.create_sol_network_instance_output.CreateSolNetworkInstanceOutput":
-        """<p>Creates a network instance.</p> <p>A network instance is a single network created in Amazon Web Services TNB that can be deployed and on which life-cycle operations (like terminate, update, and delete) can be performed. Creating a network instance is the third step after creating a network package. For more information about network instances, <a href=\"https://docs.aws.amazon.com/tnb/latest/ug/network-instances.html\">Network instances</a> in the <i>Amazon Web Services Telco Network Builder User Guide</i>.</p> <p>Once you create a network instance, you can instantiate it. To instantiate a network, see <a href=\"https://docs.aws.amazon.com/tnb/latest/APIReference/API_InstantiateSolNetworkInstance.html\">InstantiateSolNetworkInstance</a>.</p>
+        r"""<p>Creates a network instance.</p> <p>A network instance is a single network created in Amazon Web Services TNB that can be deployed and on which life-cycle operations (like terminate, update, and delete) can be performed. Creating a network instance is the third step after creating a network package. For more information about network instances, <a href=\"https://docs.aws.amazon.com/tnb/latest/ug/network-instances.html\">Network instances</a> in the <i>Amazon Web Services Telco Network Builder User Guide</i>.</p> <p>Once you create a network instance, you can instantiate it. To instantiate a network, see <a href=\"https://docs.aws.amazon.com/tnb/latest/APIReference/API_InstantiateSolNetworkInstance.html\">InstantiateSolNetworkInstance</a>.</p>
 
         Args:
             nsd_info_id: <p>ID for network service descriptor.</p>
@@ -353,7 +353,7 @@ class tnbClient:
         config_overrides: Optional[tnbClientConfig] = None,
         tags: Optional["aws_sdk_tnb.types.tag_map.TagMap"] = None,
     ) -> "aws_sdk_tnb.types.create_sol_network_package_output.CreateSolNetworkPackageOutput":
-        """<p>Creates a network package.</p> <p>A network package is a .zip file in CSAR (Cloud Service Archive) format defines the function packages you want to deploy and the Amazon Web Services infrastructure you want to deploy them on. For more information, see <a href=\"https://docs.aws.amazon.com/tnb/latest/ug/network-instances.html\">Network instances</a> in the <i>Amazon Web Services Telco Network Builder User Guide</i>. </p> <p>A network package consists of a network service descriptor (NSD) file (required) and any additional files (optional), such as scripts specific to your needs. For example, if you have multiple function packages in your network package, you can use the NSD to define which network functions should run in certain VPCs, subnets, or EKS clusters.</p> <p>This request creates an empty network package container with an ID. Once you create a network package, you can upload the network package content using <a href=\"https://docs.aws.amazon.com/tnb/latest/APIReference/API_PutSolNetworkPackageContent.html\">PutSolNetworkPackageContent</a>.</p>
+        r"""<p>Creates a network package.</p> <p>A network package is a .zip file in CSAR (Cloud Service Archive) format defines the function packages you want to deploy and the Amazon Web Services infrastructure you want to deploy them on. For more information, see <a href=\"https://docs.aws.amazon.com/tnb/latest/ug/network-instances.html\">Network instances</a> in the <i>Amazon Web Services Telco Network Builder User Guide</i>. </p> <p>A network package consists of a network service descriptor (NSD) file (required) and any additional files (optional), such as scripts specific to your needs. For example, if you have multiple function packages in your network package, you can use the NSD to define which network functions should run in certain VPCs, subnets, or EKS clusters.</p> <p>This request creates an empty network package container with an ID. Once you create a network package, you can upload the network package content using <a href=\"https://docs.aws.amazon.com/tnb/latest/APIReference/API_PutSolNetworkPackageContent.html\">PutSolNetworkPackageContent</a>.</p>
 
         Args:
             tags: <p>A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key and an optional value. You can use tags to search and filter your resources or track your Amazon Web Services costs.</p>
@@ -396,7 +396,7 @@ class tnbClient:
         *,
         config_overrides: Optional[tnbClientConfig] = None,
     ) -> None:
-        """<p>Deletes a function package.</p> <p>A function package is a .zip file in CSAR (Cloud Service Archive) format that contains a network function (an ETSI standard telecommunication application) and function package descriptor that uses the TOSCA standard to describe how the network functions should run on your network.</p> <p>To delete a function package, the package must be in a disabled state. To disable a function package, see <a href=\"https://docs.aws.amazon.com/tnb/latest/APIReference/API_UpdateSolFunctionPackage.html\">UpdateSolFunctionPackage</a>. </p>
+        r"""<p>Deletes a function package.</p> <p>A function package is a .zip file in CSAR (Cloud Service Archive) format that contains a network function (an ETSI standard telecommunication application) and function package descriptor that uses the TOSCA standard to describe how the network functions should run on your network.</p> <p>To delete a function package, the package must be in a disabled state. To disable a function package, see <a href=\"https://docs.aws.amazon.com/tnb/latest/APIReference/API_UpdateSolFunctionPackage.html\">UpdateSolFunctionPackage</a>. </p>
 
         Args:
             vnf_pkg_id: <p>ID of the function package.</p>
@@ -436,7 +436,7 @@ class tnbClient:
         *,
         config_overrides: Optional[tnbClientConfig] = None,
     ) -> None:
-        """<p>Deletes a network instance.</p> <p>A network instance is a single network created in Amazon Web Services TNB that can be deployed and on which life-cycle operations (like terminate, update, and delete) can be performed.</p> <p>To delete a network instance, the instance must be in a stopped or terminated state. To terminate a network instance, see <a href=\"https://docs.aws.amazon.com/tnb/latest/APIReference/API_TerminateSolNetworkInstance.html\">TerminateSolNetworkInstance</a>.</p>
+        r"""<p>Deletes a network instance.</p> <p>A network instance is a single network created in Amazon Web Services TNB that can be deployed and on which life-cycle operations (like terminate, update, and delete) can be performed.</p> <p>To delete a network instance, the instance must be in a stopped or terminated state. To terminate a network instance, see <a href=\"https://docs.aws.amazon.com/tnb/latest/APIReference/API_TerminateSolNetworkInstance.html\">TerminateSolNetworkInstance</a>.</p>
 
         Args:
             ns_instance_id: <p>Network instance ID.</p>
@@ -476,7 +476,7 @@ class tnbClient:
         *,
         config_overrides: Optional[tnbClientConfig] = None,
     ) -> None:
-        """<p>Deletes network package.</p> <p>A network package is a .zip file in CSAR (Cloud Service Archive) format defines the function packages you want to deploy and the Amazon Web Services infrastructure you want to deploy them on.</p> <p>To delete a network package, the package must be in a disable state. To disable a network package, see <a href=\"https://docs.aws.amazon.com/tnb/latest/APIReference/API_UpdateSolNetworkPackage.html\">UpdateSolNetworkPackage</a>.</p>
+        r"""<p>Deletes network package.</p> <p>A network package is a .zip file in CSAR (Cloud Service Archive) format defines the function packages you want to deploy and the Amazon Web Services infrastructure you want to deploy them on.</p> <p>To delete a network package, the package must be in a disable state. To disable a network package, see <a href=\"https://docs.aws.amazon.com/tnb/latest/APIReference/API_UpdateSolNetworkPackage.html\">UpdateSolNetworkPackage</a>.</p>
 
         Args:
             nsd_info_id: <p>ID of the network service descriptor in the network package.</p>
@@ -919,7 +919,7 @@ class tnbClient:
         additional_params_for_ns: Optional[object] = None,
         tags: Optional["aws_sdk_tnb.types.tag_map.TagMap"] = None,
     ) -> "aws_sdk_tnb.types.instantiate_sol_network_instance_output.InstantiateSolNetworkInstanceOutput":
-        """<p>Instantiates a network instance.</p> <p>A network instance is a single network created in Amazon Web Services TNB that can be deployed and on which life-cycle operations (like terminate, update, and delete) can be performed.</p> <p>Before you can instantiate a network instance, you have to create a network instance. For more information, see <a href=\"https://docs.aws.amazon.com/tnb/latest/APIReference/API_CreateSolNetworkInstance.html\">CreateSolNetworkInstance</a>.</p>
+        r"""<p>Instantiates a network instance.</p> <p>A network instance is a single network created in Amazon Web Services TNB that can be deployed and on which life-cycle operations (like terminate, update, and delete) can be performed.</p> <p>Before you can instantiate a network instance, you have to create a network instance. For more information, see <a href=\"https://docs.aws.amazon.com/tnb/latest/APIReference/API_CreateSolNetworkInstance.html\">CreateSolNetworkInstance</a>.</p>
 
         Args:
             ns_instance_id: <p>ID of the network instance.</p>
@@ -1799,7 +1799,7 @@ class tnbClient:
             "aws_sdk_tnb.types.package_content_type.PackageContentType"
         ] = None,
     ) -> "aws_sdk_tnb.types.validate_sol_function_package_content_output.ValidateSolFunctionPackageContentOutput":
-        """<p>Validates function package content. This can be used as a dry run before uploading function package content with <a href=\"https://docs.aws.amazon.com/tnb/latest/APIReference/API_PutSolFunctionPackageContent.html\">PutSolFunctionPackageContent</a>.</p> <p>A function package is a .zip file in CSAR (Cloud Service Archive) format that contains a network function (an ETSI standard telecommunication application) and function package descriptor that uses the TOSCA standard to describe how the network functions should run on your network.</p>
+        r"""<p>Validates function package content. This can be used as a dry run before uploading function package content with <a href=\"https://docs.aws.amazon.com/tnb/latest/APIReference/API_PutSolFunctionPackageContent.html\">PutSolFunctionPackageContent</a>.</p> <p>A function package is a .zip file in CSAR (Cloud Service Archive) format that contains a network function (an ETSI standard telecommunication application) and function package descriptor that uses the TOSCA standard to describe how the network functions should run on your network.</p>
 
         Args:
             vnf_pkg_id: <p>Function package ID.</p>
@@ -1850,7 +1850,7 @@ class tnbClient:
             "aws_sdk_tnb.types.package_content_type.PackageContentType"
         ] = None,
     ) -> "aws_sdk_tnb.types.validate_sol_network_package_content_output.ValidateSolNetworkPackageContentOutput":
-        """<p>Validates network package content. This can be used as a dry run before uploading network package content with <a href=\"https://docs.aws.amazon.com/tnb/latest/APIReference/API_PutSolNetworkPackageContent.html\">PutSolNetworkPackageContent</a>.</p> <p>A network package is a .zip file in CSAR (Cloud Service Archive) format defines the function packages you want to deploy and the Amazon Web Services infrastructure you want to deploy them on.</p>
+        r"""<p>Validates network package content. This can be used as a dry run before uploading network package content with <a href=\"https://docs.aws.amazon.com/tnb/latest/APIReference/API_PutSolNetworkPackageContent.html\">PutSolNetworkPackageContent</a>.</p> <p>A network package is a .zip file in CSAR (Cloud Service Archive) format defines the function packages you want to deploy and the Amazon Web Services infrastructure you want to deploy them on.</p>
 
         Args:
             nsd_info_id: <p>Network service descriptor file.</p>

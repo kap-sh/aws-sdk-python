@@ -87,7 +87,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.get_account_data_retention_request.GetAccountDataRetentionRequest,
+    input_: aws_sdk_bedrock.types.get_account_data_retention_request.GetAccountDataRetentionRequest,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -111,12 +111,12 @@ def build_request(
 
 def get_account_data_retention(
     options: OperationOptions,
-    input: aws_sdk_bedrock.types.get_account_data_retention_request.GetAccountDataRetentionRequest,
+    input_: aws_sdk_bedrock.types.get_account_data_retention_request.GetAccountDataRetentionRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.get_account_data_retention_response.GetAccountDataRetentionResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -130,12 +130,12 @@ def get_account_data_retention(
 
 async def async_get_account_data_retention(
     options: AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.get_account_data_retention_request.GetAccountDataRetentionRequest,
+    input_: aws_sdk_bedrock.types.get_account_data_retention_request.GetAccountDataRetentionRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.get_account_data_retention_response.GetAccountDataRetentionResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

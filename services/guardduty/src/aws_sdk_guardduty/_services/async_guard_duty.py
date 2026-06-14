@@ -322,7 +322,7 @@ class AsyncGuardDutyClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = AsyncGuardDutyClientConfig(
+        self._config = AsyncGuardDutyClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -342,7 +342,7 @@ class AsyncGuardDutyClient:
         overrides: AsyncGuardDutyClientConfig = config_overrides or {}
         interceptors_: list[AsyncInterceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             aretry(),
         ]
@@ -350,16 +350,16 @@ class AsyncGuardDutyClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            region=overrides.get("region", self.config.get("region")),
+            region=overrides.get("region", self._config.get("region")),
             use_dual_stack=overrides.get(
-                "use_dual_stack", self.config.get("use_dual_stack")
+                "use_dual_stack", self._config.get("use_dual_stack")
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -396,13 +396,13 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.accept_administrator_invitation_request.AcceptAdministratorInvitationRequest = {}  # type: ignore[typeddict-item]
-        input["detector_id"] = detector_id
-        input["administrator_id"] = administrator_id
-        input["invitation_id"] = invitation_id
+        input_: aws_sdk_guardduty.types.accept_administrator_invitation_request.AcceptAdministratorInvitationRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_id"] = detector_id
+        input_["administrator_id"] = administrator_id
+        input_["invitation_id"] = invitation_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -440,13 +440,13 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.accept_invitation_request.AcceptInvitationRequest = {}  # type: ignore[typeddict-item]
-        input["detector_id"] = detector_id
-        input["master_id"] = master_id
-        input["invitation_id"] = invitation_id
+        input_: aws_sdk_guardduty.types.accept_invitation_request.AcceptInvitationRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_id"] = detector_id
+        input_["master_id"] = master_id
+        input_["invitation_id"] = invitation_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -482,12 +482,12 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.archive_findings_request.ArchiveFindingsRequest = {}  # type: ignore[typeddict-item]
-        input["detector_id"] = detector_id
-        input["finding_ids"] = finding_ids
+        input_: aws_sdk_guardduty.types.archive_findings_request.ArchiveFindingsRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_id"] = detector_id
+        input_["finding_ids"] = finding_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -539,21 +539,21 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.create_detector_request.CreateDetectorRequest = {}  # type: ignore[typeddict-item]
-        input["enable"] = enable
+        input_: aws_sdk_guardduty.types.create_detector_request.CreateDetectorRequest = {}  # type: ignore[typeddict-item]
+        input_["enable"] = enable
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if finding_publishing_frequency is not None:
-            input["finding_publishing_frequency"] = finding_publishing_frequency
+            input_["finding_publishing_frequency"] = finding_publishing_frequency
         if data_sources is not None:
-            input["data_sources"] = data_sources
+            input_["data_sources"] = data_sources
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if features is not None:
-            input["features"] = features
+            input_["features"] = features
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -605,23 +605,23 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.create_filter_request.CreateFilterRequest = {}  # type: ignore[typeddict-item]
-        input["detector_id"] = detector_id
-        input["name"] = name
+        input_: aws_sdk_guardduty.types.create_filter_request.CreateFilterRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_id"] = detector_id
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if action is not None:
-            input["action"] = action
+            input_["action"] = action
         if rank is not None:
-            input["rank"] = rank
-        input["finding_criteria"] = finding_criteria
+            input_["rank"] = rank
+        input_["finding_criteria"] = finding_criteria
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -673,21 +673,21 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.create_ip_set_request.CreateIPSetRequest = {}  # type: ignore[typeddict-item]
-        input["detector_id"] = detector_id
-        input["name"] = name
-        input["format"] = format
-        input["location"] = location
-        input["activate"] = activate
+        input_: aws_sdk_guardduty.types.create_ip_set_request.CreateIPSetRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_id"] = detector_id
+        input_["name"] = name
+        input_["format"] = format
+        input_["location"] = location
+        input_["activate"] = activate
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -733,18 +733,18 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.create_malware_protection_plan_request.CreateMalwareProtectionPlanRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_guardduty.types.create_malware_protection_plan_request.CreateMalwareProtectionPlanRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["role"] = role
-        input["protected_resource"] = protected_resource
+            input_["client_token"] = client_token
+        input_["role"] = role
+        input_["protected_resource"] = protected_resource
         if actions is not None:
-            input["actions"] = actions
+            input_["actions"] = actions
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -780,12 +780,12 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.create_members_request.CreateMembersRequest = {}  # type: ignore[typeddict-item]
-        input["detector_id"] = detector_id
-        input["account_details"] = account_details
+        input_: aws_sdk_guardduty.types.create_members_request.CreateMembersRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_id"] = detector_id
+        input_["account_details"] = account_details
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -829,17 +829,17 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.create_publishing_destination_request.CreatePublishingDestinationRequest = {}  # type: ignore[typeddict-item]
-        input["detector_id"] = detector_id
-        input["destination_type"] = destination_type
-        input["destination_properties"] = destination_properties
+        input_: aws_sdk_guardduty.types.create_publishing_destination_request.CreatePublishingDestinationRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_id"] = detector_id
+        input_["destination_type"] = destination_type
+        input_["destination_properties"] = destination_properties
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -877,13 +877,13 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.create_sample_findings_request.CreateSampleFindingsRequest = {}  # type: ignore[typeddict-item]
-        input["detector_id"] = detector_id
+        input_: aws_sdk_guardduty.types.create_sample_findings_request.CreateSampleFindingsRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_id"] = detector_id
         if finding_types is not None:
-            input["finding_types"] = finding_types
+            input_["finding_types"] = finding_types
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -935,21 +935,21 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.create_threat_entity_set_request.CreateThreatEntitySetRequest = {}  # type: ignore[typeddict-item]
-        input["detector_id"] = detector_id
-        input["name"] = name
-        input["format"] = format
-        input["location"] = location
+        input_: aws_sdk_guardduty.types.create_threat_entity_set_request.CreateThreatEntitySetRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_id"] = detector_id
+        input_["name"] = name
+        input_["format"] = format
+        input_["location"] = location
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
-        input["activate"] = activate
+            input_["expected_bucket_owner"] = expected_bucket_owner
+        input_["activate"] = activate
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1001,21 +1001,21 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.create_threat_intel_set_request.CreateThreatIntelSetRequest = {}  # type: ignore[typeddict-item]
-        input["detector_id"] = detector_id
-        input["name"] = name
-        input["format"] = format
-        input["location"] = location
-        input["activate"] = activate
+        input_: aws_sdk_guardduty.types.create_threat_intel_set_request.CreateThreatIntelSetRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_id"] = detector_id
+        input_["name"] = name
+        input_["format"] = format
+        input_["location"] = location
+        input_["activate"] = activate
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1067,21 +1067,21 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.create_trusted_entity_set_request.CreateTrustedEntitySetRequest = {}  # type: ignore[typeddict-item]
-        input["detector_id"] = detector_id
-        input["name"] = name
-        input["format"] = format
-        input["location"] = location
+        input_: aws_sdk_guardduty.types.create_trusted_entity_set_request.CreateTrustedEntitySetRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_id"] = detector_id
+        input_["name"] = name
+        input_["format"] = format
+        input_["location"] = location
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
-        input["activate"] = activate
+            input_["expected_bucket_owner"] = expected_bucket_owner
+        input_["activate"] = activate
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1115,11 +1115,11 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.decline_invitations_request.DeclineInvitationsRequest = {}  # type: ignore[typeddict-item]
-        input["account_ids"] = account_ids
+        input_: aws_sdk_guardduty.types.decline_invitations_request.DeclineInvitationsRequest = {}  # type: ignore[typeddict-item]
+        input_["account_ids"] = account_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1153,11 +1153,11 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.delete_detector_request.DeleteDetectorRequest = {}  # type: ignore[typeddict-item]
-        input["detector_id"] = detector_id
+        input_: aws_sdk_guardduty.types.delete_detector_request.DeleteDetectorRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_id"] = detector_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1193,12 +1193,12 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.delete_filter_request.DeleteFilterRequest = {}  # type: ignore[typeddict-item]
-        input["detector_id"] = detector_id
-        input["filter_name"] = filter_name
+        input_: aws_sdk_guardduty.types.delete_filter_request.DeleteFilterRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_id"] = detector_id
+        input_["filter_name"] = filter_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1234,11 +1234,11 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.delete_invitations_request.DeleteInvitationsRequest = {}  # type: ignore[typeddict-item]
-        input["account_ids"] = account_ids
+        input_: aws_sdk_guardduty.types.delete_invitations_request.DeleteInvitationsRequest = {}  # type: ignore[typeddict-item]
+        input_["account_ids"] = account_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1274,12 +1274,12 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.delete_ip_set_request.DeleteIPSetRequest = {}  # type: ignore[typeddict-item]
-        input["detector_id"] = detector_id
-        input["ip_set_id"] = ip_set_id
+        input_: aws_sdk_guardduty.types.delete_ip_set_request.DeleteIPSetRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_id"] = detector_id
+        input_["ip_set_id"] = ip_set_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1311,11 +1311,11 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.delete_malware_protection_plan_request.DeleteMalwareProtectionPlanRequest = {}  # type: ignore[typeddict-item]
-        input["malware_protection_plan_id"] = malware_protection_plan_id
+        input_: aws_sdk_guardduty.types.delete_malware_protection_plan_request.DeleteMalwareProtectionPlanRequest = {}  # type: ignore[typeddict-item]
+        input_["malware_protection_plan_id"] = malware_protection_plan_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1351,12 +1351,12 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.delete_members_request.DeleteMembersRequest = {}  # type: ignore[typeddict-item]
-        input["detector_id"] = detector_id
-        input["account_ids"] = account_ids
+        input_: aws_sdk_guardduty.types.delete_members_request.DeleteMembersRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_id"] = detector_id
+        input_["account_ids"] = account_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1392,12 +1392,12 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.delete_publishing_destination_request.DeletePublishingDestinationRequest = {}  # type: ignore[typeddict-item]
-        input["detector_id"] = detector_id
-        input["destination_id"] = destination_id
+        input_: aws_sdk_guardduty.types.delete_publishing_destination_request.DeletePublishingDestinationRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_id"] = detector_id
+        input_["destination_id"] = destination_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1433,12 +1433,12 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.delete_threat_entity_set_request.DeleteThreatEntitySetRequest = {}  # type: ignore[typeddict-item]
-        input["detector_id"] = detector_id
-        input["threat_entity_set_id"] = threat_entity_set_id
+        input_: aws_sdk_guardduty.types.delete_threat_entity_set_request.DeleteThreatEntitySetRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_id"] = detector_id
+        input_["threat_entity_set_id"] = threat_entity_set_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1474,12 +1474,12 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.delete_threat_intel_set_request.DeleteThreatIntelSetRequest = {}  # type: ignore[typeddict-item]
-        input["detector_id"] = detector_id
-        input["threat_intel_set_id"] = threat_intel_set_id
+        input_: aws_sdk_guardduty.types.delete_threat_intel_set_request.DeleteThreatIntelSetRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_id"] = detector_id
+        input_["threat_intel_set_id"] = threat_intel_set_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1515,12 +1515,12 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.delete_trusted_entity_set_request.DeleteTrustedEntitySetRequest = {}  # type: ignore[typeddict-item]
-        input["detector_id"] = detector_id
-        input["trusted_entity_set_id"] = trusted_entity_set_id
+        input_: aws_sdk_guardduty.types.delete_trusted_entity_set_request.DeleteTrustedEntitySetRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_id"] = detector_id
+        input_["trusted_entity_set_id"] = trusted_entity_set_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1568,19 +1568,19 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.describe_malware_scans_request.DescribeMalwareScansRequest = {}  # type: ignore[typeddict-item]
-        input["detector_id"] = detector_id
+        input_: aws_sdk_guardduty.types.describe_malware_scans_request.DescribeMalwareScansRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_id"] = detector_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if filter_criteria is not None:
-            input["filter_criteria"] = filter_criteria
+            input_["filter_criteria"] = filter_criteria
         if sort_criteria is not None:
-            input["sort_criteria"] = sort_criteria
+            input_["sort_criteria"] = sort_criteria
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1651,15 +1651,15 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.describe_organization_configuration_request.DescribeOrganizationConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["detector_id"] = detector_id
+        input_: aws_sdk_guardduty.types.describe_organization_configuration_request.DescribeOrganizationConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_id"] = detector_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1695,12 +1695,12 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.describe_publishing_destination_request.DescribePublishingDestinationRequest = {}  # type: ignore[typeddict-item]
-        input["detector_id"] = detector_id
-        input["destination_id"] = destination_id
+        input_: aws_sdk_guardduty.types.describe_publishing_destination_request.DescribePublishingDestinationRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_id"] = detector_id
+        input_["destination_id"] = destination_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1734,11 +1734,11 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.disable_organization_admin_account_request.DisableOrganizationAdminAccountRequest = {}  # type: ignore[typeddict-item]
-        input["admin_account_id"] = admin_account_id
+        input_: aws_sdk_guardduty.types.disable_organization_admin_account_request.DisableOrganizationAdminAccountRequest = {}  # type: ignore[typeddict-item]
+        input_["admin_account_id"] = admin_account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1772,11 +1772,11 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.disassociate_from_administrator_account_request.DisassociateFromAdministratorAccountRequest = {}  # type: ignore[typeddict-item]
-        input["detector_id"] = detector_id
+        input_: aws_sdk_guardduty.types.disassociate_from_administrator_account_request.DisassociateFromAdministratorAccountRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_id"] = detector_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1810,11 +1810,11 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.disassociate_from_master_account_request.DisassociateFromMasterAccountRequest = {}  # type: ignore[typeddict-item]
-        input["detector_id"] = detector_id
+        input_: aws_sdk_guardduty.types.disassociate_from_master_account_request.DisassociateFromMasterAccountRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_id"] = detector_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1850,12 +1850,12 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.disassociate_members_request.DisassociateMembersRequest = {}  # type: ignore[typeddict-item]
-        input["detector_id"] = detector_id
-        input["account_ids"] = account_ids
+        input_: aws_sdk_guardduty.types.disassociate_members_request.DisassociateMembersRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_id"] = detector_id
+        input_["account_ids"] = account_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1889,11 +1889,11 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.enable_organization_admin_account_request.EnableOrganizationAdminAccountRequest = {}  # type: ignore[typeddict-item]
-        input["admin_account_id"] = admin_account_id
+        input_: aws_sdk_guardduty.types.enable_organization_admin_account_request.EnableOrganizationAdminAccountRequest = {}  # type: ignore[typeddict-item]
+        input_["admin_account_id"] = admin_account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1927,11 +1927,11 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.get_administrator_account_request.GetAdministratorAccountRequest = {}  # type: ignore[typeddict-item]
-        input["detector_id"] = detector_id
+        input_: aws_sdk_guardduty.types.get_administrator_account_request.GetAdministratorAccountRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_id"] = detector_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1971,14 +1971,14 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.get_coverage_statistics_request.GetCoverageStatisticsRequest = {}  # type: ignore[typeddict-item]
-        input["detector_id"] = detector_id
+        input_: aws_sdk_guardduty.types.get_coverage_statistics_request.GetCoverageStatisticsRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_id"] = detector_id
         if filter_criteria is not None:
-            input["filter_criteria"] = filter_criteria
-        input["statistics_type"] = statistics_type
+            input_["filter_criteria"] = filter_criteria
+        input_["statistics_type"] = statistics_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2012,11 +2012,11 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.get_detector_request.GetDetectorRequest = {}  # type: ignore[typeddict-item]
-        input["detector_id"] = detector_id
+        input_: aws_sdk_guardduty.types.get_detector_request.GetDetectorRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_id"] = detector_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2052,12 +2052,12 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.get_filter_request.GetFilterRequest = {}  # type: ignore[typeddict-item]
-        input["detector_id"] = detector_id
-        input["filter_name"] = filter_name
+        input_: aws_sdk_guardduty.types.get_filter_request.GetFilterRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_id"] = detector_id
+        input_["filter_name"] = filter_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2097,14 +2097,14 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.get_findings_request.GetFindingsRequest = {}  # type: ignore[typeddict-item]
-        input["detector_id"] = detector_id
-        input["finding_ids"] = finding_ids
+        input_: aws_sdk_guardduty.types.get_findings_request.GetFindingsRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_id"] = detector_id
+        input_["finding_ids"] = finding_ids
         if sort_criteria is not None:
-            input["sort_criteria"] = sort_criteria
+            input_["sort_criteria"] = sort_criteria
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2154,21 +2154,21 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.get_findings_statistics_request.GetFindingsStatisticsRequest = {}  # type: ignore[typeddict-item]
-        input["detector_id"] = detector_id
+        input_: aws_sdk_guardduty.types.get_findings_statistics_request.GetFindingsStatisticsRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_id"] = detector_id
         if finding_statistic_types is not None:
-            input["finding_statistic_types"] = finding_statistic_types
+            input_["finding_statistic_types"] = finding_statistic_types
         if finding_criteria is not None:
-            input["finding_criteria"] = finding_criteria
+            input_["finding_criteria"] = finding_criteria
         if group_by is not None:
-            input["group_by"] = group_by
+            input_["group_by"] = group_by
         if order_by is not None:
-            input["order_by"] = order_by
+            input_["order_by"] = order_by
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2195,10 +2195,10 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.get_invitations_count_request.GetInvitationsCountRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_guardduty.types.get_invitations_count_request.GetInvitationsCountRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2234,12 +2234,12 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.get_ip_set_request.GetIPSetRequest = {}  # type: ignore[typeddict-item]
-        input["detector_id"] = detector_id
-        input["ip_set_id"] = ip_set_id
+        input_: aws_sdk_guardduty.types.get_ip_set_request.GetIPSetRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_id"] = detector_id
+        input_["ip_set_id"] = ip_set_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2273,11 +2273,11 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.get_malware_protection_plan_request.GetMalwareProtectionPlanRequest = {}  # type: ignore[typeddict-item]
-        input["malware_protection_plan_id"] = malware_protection_plan_id
+        input_: aws_sdk_guardduty.types.get_malware_protection_plan_request.GetMalwareProtectionPlanRequest = {}  # type: ignore[typeddict-item]
+        input_["malware_protection_plan_id"] = malware_protection_plan_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2311,11 +2311,11 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.get_malware_scan_request.GetMalwareScanRequest = {}  # type: ignore[typeddict-item]
-        input["scan_id"] = scan_id
+        input_: aws_sdk_guardduty.types.get_malware_scan_request.GetMalwareScanRequest = {}  # type: ignore[typeddict-item]
+        input_["scan_id"] = scan_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2349,11 +2349,11 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.get_malware_scan_settings_request.GetMalwareScanSettingsRequest = {}  # type: ignore[typeddict-item]
-        input["detector_id"] = detector_id
+        input_: aws_sdk_guardduty.types.get_malware_scan_settings_request.GetMalwareScanSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_id"] = detector_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2387,11 +2387,11 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.get_master_account_request.GetMasterAccountRequest = {}  # type: ignore[typeddict-item]
-        input["detector_id"] = detector_id
+        input_: aws_sdk_guardduty.types.get_master_account_request.GetMasterAccountRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_id"] = detector_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2427,12 +2427,12 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.get_member_detectors_request.GetMemberDetectorsRequest = {}  # type: ignore[typeddict-item]
-        input["detector_id"] = detector_id
-        input["account_ids"] = account_ids
+        input_: aws_sdk_guardduty.types.get_member_detectors_request.GetMemberDetectorsRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_id"] = detector_id
+        input_["account_ids"] = account_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2468,12 +2468,12 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.get_members_request.GetMembersRequest = {}  # type: ignore[typeddict-item]
-        input["detector_id"] = detector_id
-        input["account_ids"] = account_ids
+        input_: aws_sdk_guardduty.types.get_members_request.GetMembersRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_id"] = detector_id
+        input_["account_ids"] = account_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2538,12 +2538,12 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.get_remaining_free_trial_days_request.GetRemainingFreeTrialDaysRequest = {}  # type: ignore[typeddict-item]
-        input["detector_id"] = detector_id
-        input["account_ids"] = account_ids
+        input_: aws_sdk_guardduty.types.get_remaining_free_trial_days_request.GetRemainingFreeTrialDaysRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_id"] = detector_id
+        input_["account_ids"] = account_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2579,12 +2579,12 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.get_threat_entity_set_request.GetThreatEntitySetRequest = {}  # type: ignore[typeddict-item]
-        input["detector_id"] = detector_id
-        input["threat_entity_set_id"] = threat_entity_set_id
+        input_: aws_sdk_guardduty.types.get_threat_entity_set_request.GetThreatEntitySetRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_id"] = detector_id
+        input_["threat_entity_set_id"] = threat_entity_set_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2620,12 +2620,12 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.get_threat_intel_set_request.GetThreatIntelSetRequest = {}  # type: ignore[typeddict-item]
-        input["detector_id"] = detector_id
-        input["threat_intel_set_id"] = threat_intel_set_id
+        input_: aws_sdk_guardduty.types.get_threat_intel_set_request.GetThreatIntelSetRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_id"] = detector_id
+        input_["threat_intel_set_id"] = threat_intel_set_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2661,12 +2661,12 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.get_trusted_entity_set_request.GetTrustedEntitySetRequest = {}  # type: ignore[typeddict-item]
-        input["detector_id"] = detector_id
-        input["trusted_entity_set_id"] = trusted_entity_set_id
+        input_: aws_sdk_guardduty.types.get_trusted_entity_set_request.GetTrustedEntitySetRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_id"] = detector_id
+        input_["trusted_entity_set_id"] = trusted_entity_set_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2710,19 +2710,19 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.get_usage_statistics_request.GetUsageStatisticsRequest = {}  # type: ignore[typeddict-item]
-        input["detector_id"] = detector_id
-        input["usage_statistic_type"] = usage_statistic_type
-        input["usage_criteria"] = usage_criteria
+        input_: aws_sdk_guardduty.types.get_usage_statistics_request.GetUsageStatisticsRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_id"] = detector_id
+        input_["usage_statistic_type"] = usage_statistic_type
+        input_["usage_criteria"] = usage_criteria
         if unit is not None:
-            input["unit"] = unit
+            input_["unit"] = unit
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2764,16 +2764,16 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.invite_members_request.InviteMembersRequest = {}  # type: ignore[typeddict-item]
-        input["detector_id"] = detector_id
-        input["account_ids"] = account_ids
+        input_: aws_sdk_guardduty.types.invite_members_request.InviteMembersRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_id"] = detector_id
+        input_["account_ids"] = account_ids
         if disable_email_notification is not None:
-            input["disable_email_notification"] = disable_email_notification
+            input_["disable_email_notification"] = disable_email_notification
         if message is not None:
-            input["message"] = message
+            input_["message"] = message
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2819,19 +2819,19 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.list_coverage_request.ListCoverageRequest = {}  # type: ignore[typeddict-item]
-        input["detector_id"] = detector_id
+        input_: aws_sdk_guardduty.types.list_coverage_request.ListCoverageRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_id"] = detector_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if filter_criteria is not None:
-            input["filter_criteria"] = filter_criteria
+            input_["filter_criteria"] = filter_criteria
         if sort_criteria is not None:
-            input["sort_criteria"] = sort_criteria
+            input_["sort_criteria"] = sort_criteria
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2898,14 +2898,14 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.list_detectors_request.ListDetectorsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_guardduty.types.list_detectors_request.ListDetectorsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2964,15 +2964,15 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.list_filters_request.ListFiltersRequest = {}  # type: ignore[typeddict-item]
-        input["detector_id"] = detector_id
+        input_: aws_sdk_guardduty.types.list_filters_request.ListFiltersRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_id"] = detector_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3041,19 +3041,19 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.list_findings_request.ListFindingsRequest = {}  # type: ignore[typeddict-item]
-        input["detector_id"] = detector_id
+        input_: aws_sdk_guardduty.types.list_findings_request.ListFindingsRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_id"] = detector_id
         if finding_criteria is not None:
-            input["finding_criteria"] = finding_criteria
+            input_["finding_criteria"] = finding_criteria
         if sort_criteria is not None:
-            input["sort_criteria"] = sort_criteria
+            input_["sort_criteria"] = sort_criteria
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3120,14 +3120,14 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.list_invitations_request.ListInvitationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_guardduty.types.list_invitations_request.ListInvitationsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3186,15 +3186,15 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.list_ip_sets_request.ListIPSetsRequest = {}  # type: ignore[typeddict-item]
-        input["detector_id"] = detector_id
+        input_: aws_sdk_guardduty.types.list_ip_sets_request.ListIPSetsRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_id"] = detector_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3251,12 +3251,12 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.list_malware_protection_plans_request.ListMalwareProtectionPlansRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_guardduty.types.list_malware_protection_plans_request.ListMalwareProtectionPlansRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3300,18 +3300,18 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.list_malware_scans_request.ListMalwareScansRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_guardduty.types.list_malware_scans_request.ListMalwareScansRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filter_criteria is not None:
-            input["filter_criteria"] = filter_criteria
+            input_["filter_criteria"] = filter_criteria
         if sort_criteria is not None:
-            input["sort_criteria"] = sort_criteria
+            input_["sort_criteria"] = sort_criteria
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3380,17 +3380,17 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.list_members_request.ListMembersRequest = {}  # type: ignore[typeddict-item]
-        input["detector_id"] = detector_id
+        input_: aws_sdk_guardduty.types.list_members_request.ListMembersRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_id"] = detector_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if only_associated is not None:
-            input["only_associated"] = only_associated
+            input_["only_associated"] = only_associated
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3451,14 +3451,14 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.list_organization_admin_accounts_request.ListOrganizationAdminAccountsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_guardduty.types.list_organization_admin_accounts_request.ListOrganizationAdminAccountsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3517,15 +3517,15 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.list_publishing_destinations_request.ListPublishingDestinationsRequest = {}  # type: ignore[typeddict-item]
-        input["detector_id"] = detector_id
+        input_: aws_sdk_guardduty.types.list_publishing_destinations_request.ListPublishingDestinationsRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_id"] = detector_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3559,11 +3559,11 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_guardduty.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3601,15 +3601,15 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.list_threat_entity_sets_request.ListThreatEntitySetsRequest = {}  # type: ignore[typeddict-item]
-        input["detector_id"] = detector_id
+        input_: aws_sdk_guardduty.types.list_threat_entity_sets_request.ListThreatEntitySetsRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_id"] = detector_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3670,15 +3670,15 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.list_threat_intel_sets_request.ListThreatIntelSetsRequest = {}  # type: ignore[typeddict-item]
-        input["detector_id"] = detector_id
+        input_: aws_sdk_guardduty.types.list_threat_intel_sets_request.ListThreatIntelSetsRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_id"] = detector_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3739,15 +3739,15 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.list_trusted_entity_sets_request.ListTrustedEntitySetsRequest = {}  # type: ignore[typeddict-item]
-        input["detector_id"] = detector_id
+        input_: aws_sdk_guardduty.types.list_trusted_entity_sets_request.ListTrustedEntitySetsRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_id"] = detector_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3806,12 +3806,12 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.send_object_malware_scan_request.SendObjectMalwareScanRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_guardduty.types.send_object_malware_scan_request.SendObjectMalwareScanRequest = {}  # type: ignore[typeddict-item]
         if s3_object is not None:
-            input["s3_object"] = s3_object
+            input_["s3_object"] = s3_object
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3853,15 +3853,15 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.start_malware_scan_request.StartMalwareScanRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_guardduty.types.start_malware_scan_request.StartMalwareScanRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if scan_configuration is not None:
-            input["scan_configuration"] = scan_configuration
+            input_["scan_configuration"] = scan_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3897,12 +3897,12 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.start_monitoring_members_request.StartMonitoringMembersRequest = {}  # type: ignore[typeddict-item]
-        input["detector_id"] = detector_id
-        input["account_ids"] = account_ids
+        input_: aws_sdk_guardduty.types.start_monitoring_members_request.StartMonitoringMembersRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_id"] = detector_id
+        input_["account_ids"] = account_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3938,12 +3938,12 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.stop_monitoring_members_request.StopMonitoringMembersRequest = {}  # type: ignore[typeddict-item]
-        input["detector_id"] = detector_id
-        input["account_ids"] = account_ids
+        input_: aws_sdk_guardduty.types.stop_monitoring_members_request.StopMonitoringMembersRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_id"] = detector_id
+        input_["account_ids"] = account_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3979,12 +3979,12 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_guardduty.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4022,12 +4022,12 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.unarchive_findings_request.UnarchiveFindingsRequest = {}  # type: ignore[typeddict-item]
-        input["detector_id"] = detector_id
-        input["finding_ids"] = finding_ids
+        input_: aws_sdk_guardduty.types.unarchive_findings_request.UnarchiveFindingsRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_id"] = detector_id
+        input_["finding_ids"] = finding_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4063,12 +4063,12 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_guardduty.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4116,19 +4116,19 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.update_detector_request.UpdateDetectorRequest = {}  # type: ignore[typeddict-item]
-        input["detector_id"] = detector_id
+        input_: aws_sdk_guardduty.types.update_detector_request.UpdateDetectorRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_id"] = detector_id
         if enable is not None:
-            input["enable"] = enable
+            input_["enable"] = enable
         if finding_publishing_frequency is not None:
-            input["finding_publishing_frequency"] = finding_publishing_frequency
+            input_["finding_publishing_frequency"] = finding_publishing_frequency
         if data_sources is not None:
-            input["data_sources"] = data_sources
+            input_["data_sources"] = data_sources
         if features is not None:
-            input["features"] = features
+            input_["features"] = features
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4176,20 +4176,20 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.update_filter_request.UpdateFilterRequest = {}  # type: ignore[typeddict-item]
-        input["detector_id"] = detector_id
-        input["filter_name"] = filter_name
+        input_: aws_sdk_guardduty.types.update_filter_request.UpdateFilterRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_id"] = detector_id
+        input_["filter_name"] = filter_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if action is not None:
-            input["action"] = action
+            input_["action"] = action
         if rank is not None:
-            input["rank"] = rank
+            input_["rank"] = rank
         if finding_criteria is not None:
-            input["finding_criteria"] = finding_criteria
+            input_["finding_criteria"] = finding_criteria
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4231,15 +4231,15 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.update_findings_feedback_request.UpdateFindingsFeedbackRequest = {}  # type: ignore[typeddict-item]
-        input["detector_id"] = detector_id
-        input["finding_ids"] = finding_ids
-        input["feedback"] = feedback
+        input_: aws_sdk_guardduty.types.update_findings_feedback_request.UpdateFindingsFeedbackRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_id"] = detector_id
+        input_["finding_ids"] = finding_ids
+        input_["feedback"] = feedback
         if comments is not None:
-            input["comments"] = comments
+            input_["comments"] = comments
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4285,20 +4285,20 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.update_ip_set_request.UpdateIPSetRequest = {}  # type: ignore[typeddict-item]
-        input["detector_id"] = detector_id
-        input["ip_set_id"] = ip_set_id
+        input_: aws_sdk_guardduty.types.update_ip_set_request.UpdateIPSetRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_id"] = detector_id
+        input_["ip_set_id"] = ip_set_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if location is not None:
-            input["location"] = location
+            input_["location"] = location
         if activate is not None:
-            input["activate"] = activate
+            input_["activate"] = activate
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4340,17 +4340,17 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.update_malware_protection_plan_request.UpdateMalwareProtectionPlanRequest = {}  # type: ignore[typeddict-item]
-        input["malware_protection_plan_id"] = malware_protection_plan_id
+        input_: aws_sdk_guardduty.types.update_malware_protection_plan_request.UpdateMalwareProtectionPlanRequest = {}  # type: ignore[typeddict-item]
+        input_["malware_protection_plan_id"] = malware_protection_plan_id
         if role is not None:
-            input["role"] = role
+            input_["role"] = role
         if actions is not None:
-            input["actions"] = actions
+            input_["actions"] = actions
         if protected_resource is not None:
-            input["protected_resource"] = protected_resource
+            input_["protected_resource"] = protected_resource
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4392,15 +4392,15 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.update_malware_scan_settings_request.UpdateMalwareScanSettingsRequest = {}  # type: ignore[typeddict-item]
-        input["detector_id"] = detector_id
+        input_: aws_sdk_guardduty.types.update_malware_scan_settings_request.UpdateMalwareScanSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_id"] = detector_id
         if scan_resource_criteria is not None:
-            input["scan_resource_criteria"] = scan_resource_criteria
+            input_["scan_resource_criteria"] = scan_resource_criteria
         if ebs_snapshot_preservation is not None:
-            input["ebs_snapshot_preservation"] = ebs_snapshot_preservation
+            input_["ebs_snapshot_preservation"] = ebs_snapshot_preservation
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4444,16 +4444,16 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.update_member_detectors_request.UpdateMemberDetectorsRequest = {}  # type: ignore[typeddict-item]
-        input["detector_id"] = detector_id
-        input["account_ids"] = account_ids
+        input_: aws_sdk_guardduty.types.update_member_detectors_request.UpdateMemberDetectorsRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_id"] = detector_id
+        input_["account_ids"] = account_ids
         if data_sources is not None:
-            input["data_sources"] = data_sources
+            input_["data_sources"] = data_sources
         if features is not None:
-            input["features"] = features
+            input_["features"] = features
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4501,19 +4501,21 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.update_organization_configuration_request.UpdateOrganizationConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["detector_id"] = detector_id
+        input_: aws_sdk_guardduty.types.update_organization_configuration_request.UpdateOrganizationConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_id"] = detector_id
         if auto_enable is not None:
-            input["auto_enable"] = auto_enable
+            input_["auto_enable"] = auto_enable
         if data_sources is not None:
-            input["data_sources"] = data_sources
+            input_["data_sources"] = data_sources
         if features is not None:
-            input["features"] = features
+            input_["features"] = features
         if auto_enable_organization_members is not None:
-            input["auto_enable_organization_members"] = auto_enable_organization_members
+            input_["auto_enable_organization_members"] = (
+                auto_enable_organization_members
+            )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4553,14 +4555,14 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.update_publishing_destination_request.UpdatePublishingDestinationRequest = {}  # type: ignore[typeddict-item]
-        input["detector_id"] = detector_id
-        input["destination_id"] = destination_id
+        input_: aws_sdk_guardduty.types.update_publishing_destination_request.UpdatePublishingDestinationRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_id"] = detector_id
+        input_["destination_id"] = destination_id
         if destination_properties is not None:
-            input["destination_properties"] = destination_properties
+            input_["destination_properties"] = destination_properties
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4606,20 +4608,20 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.update_threat_entity_set_request.UpdateThreatEntitySetRequest = {}  # type: ignore[typeddict-item]
-        input["detector_id"] = detector_id
-        input["threat_entity_set_id"] = threat_entity_set_id
+        input_: aws_sdk_guardduty.types.update_threat_entity_set_request.UpdateThreatEntitySetRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_id"] = detector_id
+        input_["threat_entity_set_id"] = threat_entity_set_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if location is not None:
-            input["location"] = location
+            input_["location"] = location
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
         if activate is not None:
-            input["activate"] = activate
+            input_["activate"] = activate
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4665,20 +4667,20 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.update_threat_intel_set_request.UpdateThreatIntelSetRequest = {}  # type: ignore[typeddict-item]
-        input["detector_id"] = detector_id
-        input["threat_intel_set_id"] = threat_intel_set_id
+        input_: aws_sdk_guardduty.types.update_threat_intel_set_request.UpdateThreatIntelSetRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_id"] = detector_id
+        input_["threat_intel_set_id"] = threat_intel_set_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if location is not None:
-            input["location"] = location
+            input_["location"] = location
         if activate is not None:
-            input["activate"] = activate
+            input_["activate"] = activate
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4724,20 +4726,20 @@ class AsyncGuardDutyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_guardduty.types.update_trusted_entity_set_request.UpdateTrustedEntitySetRequest = {}  # type: ignore[typeddict-item]
-        input["detector_id"] = detector_id
-        input["trusted_entity_set_id"] = trusted_entity_set_id
+        input_: aws_sdk_guardduty.types.update_trusted_entity_set_request.UpdateTrustedEntitySetRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_id"] = detector_id
+        input_["trusted_entity_set_id"] = trusted_entity_set_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if location is not None:
-            input["location"] = location
+            input_["location"] = location
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
         if activate is not None:
-            input["activate"] = activate
+            input_["activate"] = activate
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

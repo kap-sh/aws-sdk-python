@@ -96,7 +96,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.stop_advanced_prompt_optimization_job_request.StopAdvancedPromptOptimizationJobRequest,
+    input_: aws_sdk_bedrock.types.stop_advanced_prompt_optimization_job_request.StopAdvancedPromptOptimizationJobRequest,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -110,7 +110,7 @@ def build_request(
         endpoint.url.rstrip("/")
         + "/advanced-prompt-optimization-jobs/{jobIdentifier}/stop"
     )
-    url = url.replace("{jobIdentifier}", quote(str(input["job_identifier"]), safe=""))
+    url = url.replace("{jobIdentifier}", quote(str(input_["job_identifier"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
@@ -124,12 +124,12 @@ def build_request(
 
 def stop_advanced_prompt_optimization_job(
     options: OperationOptions,
-    input: aws_sdk_bedrock.types.stop_advanced_prompt_optimization_job_request.StopAdvancedPromptOptimizationJobRequest,
+    input_: aws_sdk_bedrock.types.stop_advanced_prompt_optimization_job_request.StopAdvancedPromptOptimizationJobRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.stop_advanced_prompt_optimization_job_response.StopAdvancedPromptOptimizationJobResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -143,12 +143,12 @@ def stop_advanced_prompt_optimization_job(
 
 async def async_stop_advanced_prompt_optimization_job(
     options: AsyncOperationOptions,
-    input: aws_sdk_bedrock.types.stop_advanced_prompt_optimization_job_request.StopAdvancedPromptOptimizationJobRequest,
+    input_: aws_sdk_bedrock.types.stop_advanced_prompt_optimization_job_request.StopAdvancedPromptOptimizationJobRequest,
 ) -> tuple[
     aws_sdk_bedrock.types.stop_advanced_prompt_optimization_job_response.StopAdvancedPromptOptimizationJobResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

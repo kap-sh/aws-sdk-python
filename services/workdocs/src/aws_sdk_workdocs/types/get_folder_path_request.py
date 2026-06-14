@@ -22,7 +22,7 @@ class GetFolderPathRequest(TypedDict):
     limit: NotRequired["aws_sdk_workdocs.types.limit_type.LimitType"]
     """<p>The maximum number of levels in the hierarchy to return.</p>"""
     fields: NotRequired["aws_sdk_workdocs.types.field_names_type.FieldNamesType"]
-    """<p>A comma-separated list of values. Specify \"NAME\" to include the names of the parent folders.</p>"""
+    r"""<p>A comma-separated list of values. Specify \"NAME\" to include the names of the parent folders.</p>"""
     marker: NotRequired["aws_sdk_workdocs.types.page_marker_type.PageMarkerType"]
     """<p>This value is not supported.</p>"""
 

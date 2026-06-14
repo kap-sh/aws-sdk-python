@@ -89,19 +89,19 @@ class ProvisionedModelThroughputResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.create_provisioned_model_throughput_request.CreateProvisionedModelThroughputRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock.types.create_provisioned_model_throughput_request.CreateProvisionedModelThroughputRequest = {}  # type: ignore[typeddict-item]
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
-        input["model_units"] = model_units
-        input["provisioned_model_name"] = provisioned_model_name
-        input["model_id"] = model_id
+            input_["client_request_token"] = client_request_token
+        input_["model_units"] = model_units
+        input_["provisioned_model_name"] = provisioned_model_name
+        input_["model_id"] = model_id
         if commitment_duration is not None:
-            input["commitment_duration"] = commitment_duration
+            input_["commitment_duration"] = commitment_duration
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -134,11 +134,11 @@ class ProvisionedModelThroughputResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.delete_provisioned_model_throughput_request.DeleteProvisionedModelThroughputRequest = {}  # type: ignore[typeddict-item]
-        input["provisioned_model_id"] = provisioned_model_id
+        input_: aws_sdk_bedrock.types.delete_provisioned_model_throughput_request.DeleteProvisionedModelThroughputRequest = {}  # type: ignore[typeddict-item]
+        input_["provisioned_model_id"] = provisioned_model_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -171,11 +171,11 @@ class ProvisionedModelThroughputResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.get_provisioned_model_throughput_request.GetProvisionedModelThroughputRequest = {}  # type: ignore[typeddict-item]
-        input["provisioned_model_id"] = provisioned_model_id
+        input_: aws_sdk_bedrock.types.get_provisioned_model_throughput_request.GetProvisionedModelThroughputRequest = {}  # type: ignore[typeddict-item]
+        input_["provisioned_model_id"] = provisioned_model_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -236,28 +236,28 @@ class ProvisionedModelThroughputResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.list_provisioned_model_throughputs_request.ListProvisionedModelThroughputsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock.types.list_provisioned_model_throughputs_request.ListProvisionedModelThroughputsRequest = {}  # type: ignore[typeddict-item]
         if creation_time_after is not None:
-            input["creation_time_after"] = creation_time_after
+            input_["creation_time_after"] = creation_time_after
         if creation_time_before is not None:
-            input["creation_time_before"] = creation_time_before
+            input_["creation_time_before"] = creation_time_before
         if status_equals is not None:
-            input["status_equals"] = status_equals
+            input_["status_equals"] = status_equals
         if model_arn_equals is not None:
-            input["model_arn_equals"] = model_arn_equals
+            input_["model_arn_equals"] = model_arn_equals
         if name_contains is not None:
-            input["name_contains"] = name_contains
+            input_["name_contains"] = name_contains
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -298,15 +298,15 @@ class ProvisionedModelThroughputResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.update_provisioned_model_throughput_request.UpdateProvisionedModelThroughputRequest = {}  # type: ignore[typeddict-item]
-        input["provisioned_model_id"] = provisioned_model_id
+        input_: aws_sdk_bedrock.types.update_provisioned_model_throughput_request.UpdateProvisionedModelThroughputRequest = {}  # type: ignore[typeddict-item]
+        input_["provisioned_model_id"] = provisioned_model_id
         if desired_provisioned_model_name is not None:
-            input["desired_provisioned_model_name"] = desired_provisioned_model_name
+            input_["desired_provisioned_model_name"] = desired_provisioned_model_name
         if desired_model_id is not None:
-            input["desired_model_id"] = desired_model_id
+            input_["desired_model_id"] = desired_model_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -359,19 +359,19 @@ class AsyncProvisionedModelThroughputResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.create_provisioned_model_throughput_request.CreateProvisionedModelThroughputRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock.types.create_provisioned_model_throughput_request.CreateProvisionedModelThroughputRequest = {}  # type: ignore[typeddict-item]
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
-        input["model_units"] = model_units
-        input["provisioned_model_name"] = provisioned_model_name
-        input["model_id"] = model_id
+            input_["client_request_token"] = client_request_token
+        input_["model_units"] = model_units
+        input_["provisioned_model_name"] = provisioned_model_name
+        input_["model_id"] = model_id
         if commitment_duration is not None:
-            input["commitment_duration"] = commitment_duration
+            input_["commitment_duration"] = commitment_duration
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -405,11 +405,11 @@ class AsyncProvisionedModelThroughputResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.delete_provisioned_model_throughput_request.DeleteProvisionedModelThroughputRequest = {}  # type: ignore[typeddict-item]
-        input["provisioned_model_id"] = provisioned_model_id
+        input_: aws_sdk_bedrock.types.delete_provisioned_model_throughput_request.DeleteProvisionedModelThroughputRequest = {}  # type: ignore[typeddict-item]
+        input_["provisioned_model_id"] = provisioned_model_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -443,11 +443,11 @@ class AsyncProvisionedModelThroughputResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.get_provisioned_model_throughput_request.GetProvisionedModelThroughputRequest = {}  # type: ignore[typeddict-item]
-        input["provisioned_model_id"] = provisioned_model_id
+        input_: aws_sdk_bedrock.types.get_provisioned_model_throughput_request.GetProvisionedModelThroughputRequest = {}  # type: ignore[typeddict-item]
+        input_["provisioned_model_id"] = provisioned_model_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -509,28 +509,28 @@ class AsyncProvisionedModelThroughputResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.list_provisioned_model_throughputs_request.ListProvisionedModelThroughputsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock.types.list_provisioned_model_throughputs_request.ListProvisionedModelThroughputsRequest = {}  # type: ignore[typeddict-item]
         if creation_time_after is not None:
-            input["creation_time_after"] = creation_time_after
+            input_["creation_time_after"] = creation_time_after
         if creation_time_before is not None:
-            input["creation_time_before"] = creation_time_before
+            input_["creation_time_before"] = creation_time_before
         if status_equals is not None:
-            input["status_equals"] = status_equals
+            input_["status_equals"] = status_equals
         if model_arn_equals is not None:
-            input["model_arn_equals"] = model_arn_equals
+            input_["model_arn_equals"] = model_arn_equals
         if name_contains is not None:
-            input["name_contains"] = name_contains
+            input_["name_contains"] = name_contains
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -572,15 +572,15 @@ class AsyncProvisionedModelThroughputResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock.types.update_provisioned_model_throughput_request.UpdateProvisionedModelThroughputRequest = {}  # type: ignore[typeddict-item]
-        input["provisioned_model_id"] = provisioned_model_id
+        input_: aws_sdk_bedrock.types.update_provisioned_model_throughput_request.UpdateProvisionedModelThroughputRequest = {}  # type: ignore[typeddict-item]
+        input_["provisioned_model_id"] = provisioned_model_id
         if desired_provisioned_model_name is not None:
-            input["desired_provisioned_model_name"] = desired_provisioned_model_name
+            input_["desired_provisioned_model_name"] = desired_provisioned_model_name
         if desired_model_id is not None:
-            input["desired_model_id"] = desired_model_id
+            input_["desired_model_id"] = desired_model_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
