@@ -1,7 +1,7 @@
 {
   "services/accessanalyzer": "0.1.0",
   "services/account": "0.1.0",
-  "services/acm": "0.1.0",
+  "services/acm": "0.1.1",
   "services/acm-pca": "0.1.0",
   "services/aiops": "0.1.0",
   "services/amp": "0.1.0",
@@ -128,7 +128,7 @@
   "services/docdb-elastic": "0.1.0",
   "services/drs": "0.1.0",
   "services/dsql": "0.1.0",
-  "services/dynamodb": "0.4.0",
+  "services/dynamodb": "0.4.1",
   "services/dynamodb-streams": "0.1.0",
   "services/ebs": "0.1.0",
   "services/ec2": "0.4.0",
