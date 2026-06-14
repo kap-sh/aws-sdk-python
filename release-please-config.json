@@ -2984,5 +2984,6 @@
       "type": "revert",
       "section": "Reverts"
     }
-  ]
+  ],
+  "skip-github-release": true
 }
