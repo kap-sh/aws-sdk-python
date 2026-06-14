@@ -4,6 +4,9 @@
   "workspaces": [
     "services/*"
   ],
+  "scripts": {
+    "version:packages": "changeset version && python scripts/sync_pyproject.py && python scripts/aggregate_changelog.py"
+  },
   "devDependencies": {
     "@changesets/changelog-github": "^0.7.0",
     "@changesets/cli": "^2.31.0",
