@@ -9,16 +9,42 @@ on:
 permissions:
   contents: read
 
+env:
+  BATCH_SIZE: 10
+
 jobs:
-  ci:
+  discover:
+    runs-on: ubuntu-latest
+    outputs:
+      batches: ${{ steps.set.outputs.batches }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build service batches
+        id: set
+        run: |
+          python3 - <<'EOF' >> "$GITHUB_OUTPUT"
+          import json, os
+          services = sorted(
+              d for d in os.listdir("services")
+              if os.path.isfile(os.path.join("services", d, "scripts", "test"))
+          )
+          size = int(os.environ["BATCH_SIZE"])
+          batches = [
+              " ".join(services[i:i + size])
+              for i in range(0, len(services), size)
+          ]
+          print("batches=" + json.dumps(batches))
+          EOF
+
+  test:
+    needs: discover
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: true
       matrix:
-        service: [dynamodb, ec2, ecs, eks, iam, kms, lambda, s3, secrets-manager]
         python-version: ["3.10", "3.11", "3.12", "3.13"]
-    defaults:
-      run:
-        working-directory: services/${{ matrix.service }}
+        batch: ${{ fromJson(needs.discover.outputs.batches) }}
     steps:
       - uses: actions/checkout@v4
 
@@ -27,8 +53,11 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
-      - name: Run lint
-        run: ./scripts/lint
-
-      - name: Run tests
-        run: ./scripts/test
+      - name: Lint and test batch
+        run: |
+          set -euo pipefail
+          for service in ${{ matrix.batch }}; do
+            echo "::group::$service"
+            (cd "services/$service" && ./scripts/lint && ./scripts/test)
+            echo "::endgroup::"
+          done
