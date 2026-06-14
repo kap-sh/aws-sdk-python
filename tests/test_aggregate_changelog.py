@@ -1,38 +1,33 @@
 # tests/test_aggregate_changelog.py
-import json
+import subprocess
 import tempfile
 from pathlib import Path
 from datetime import date
 import sys
 sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
 
-from aggregate_changelog import read_manifest_changes, generate_root_changelog
+from aggregate_changelog import changed_services, generate_root_changelog
 
 
-def test_read_manifest_changes():
-    """Test detecting version changes between commits"""
-    with tempfile.TemporaryDirectory() as tmpdir:
-        manifest_old = Path(tmpdir) / "manifest_old.json"
-        manifest_new = Path(tmpdir) / "manifest_new.json"
+def _git(repo: Path, *args: str) -> None:
+    subprocess.run(["git", *args], cwd=repo, check=True, capture_output=True)
 
-        manifest_old.write_text(json.dumps({
-            "services/dynamodb": "0.1.0",
-            "services/s3": "0.2.0",
-            "services/iam": "0.1.0"
-        }))
 
-        manifest_new.write_text(json.dumps({
-            "services/dynamodb": "0.2.0",  # Changed
-            "services/s3": "0.2.0",        # Unchanged
-            "services/iam": "0.1.1"        # Changed
-        }))
+def test_changed_services_diffs_working_tree_vs_head(tmp_path):
+    repo = tmp_path
+    _git(repo, "init", "-q")
+    _git(repo, "config", "user.email", "t@t")
+    _git(repo, "config", "user.name", "t")
+    svc = repo / "services" / "acm"
+    svc.mkdir(parents=True)
+    (svc / "pyproject.toml").write_text('[project]\nversion = "0.1.0"\n')
+    _git(repo, "add", "-A")
+    _git(repo, "commit", "-qm", "init")
 
-        changes = read_manifest_changes(manifest_old, manifest_new)
+    # uncommitted working-tree bump (mirrors `changeset version` + sync)
+    (svc / "pyproject.toml").write_text('[project]\nversion = "0.2.0"\n')
 
-        assert changes == {
-            "dynamodb": "0.2.0",
-            "iam": "0.1.1"
-        }
+    assert changed_services(repo) == {"acm": "0.2.0"}
 
 
 def test_generate_root_changelog():
@@ -67,3 +62,11 @@ def test_generate_root_changelog():
         # Check existing content preserved
         assert "## 2024-06-10" in content
         assert "[aws-sdk-iam v0.1.2](services/iam/CHANGELOG.md)" in content
+
+
+def test_generate_prepends_newest(tmp_path):
+    out = tmp_path / "CHANGELOG.md"
+    generate_root_changelog({"acm": "0.2.0"}, out, "2026-06-01")
+    generate_root_changelog({"s3": "0.3.0"}, out, "2026-06-14")
+    text = out.read_text()
+    assert text.index("2026-06-14") < text.index("2026-06-01")

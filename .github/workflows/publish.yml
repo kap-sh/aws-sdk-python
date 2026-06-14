@@ -1,41 +1,78 @@
-name: Publish Service to PyPI
+name: Publish to PyPI
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - 'services/**/pyproject.toml'
   workflow_dispatch:
     inputs:
       service:
-        description: AWS service to publish
-        required: true
-        type: choice
-        options:
-          - dynamodb
-          - ec2
-          - ecs
-          - eks
-          - iam
-          - kms
-          - lambda
-          - s3
-          - secrets-manager
+        description: Single service to publish (leave blank for auto-detect)
+        required: false
+        type: string
 
 permissions:
   contents: read
   id-token: write
 
 jobs:
-  publish:
+  detect:
     runs-on: ubuntu-latest
+    outputs:
+      batches: ${{ steps.detect.outputs.batches }}
+      has-changes: ${{ steps.detect.outputs.has-changes }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # Full history so github.event.before is reachable for the diff below.
+          fetch-depth: 0
+
+      - name: Detect changed services
+        id: detect
+        run: |
+          if [ -n "${{ inputs.service }}" ]; then
+            CHANGED="${{ inputs.service }}"
+          else
+            CHANGED=$(git diff ${{ github.event.before }} ${{ github.event.after }} \
+              --name-only -- 'services/*/pyproject.toml' \
+              | awk -F/ '{print $2}' | sort -u)
+          fi
+          # Chunk into batches of 50 to stay under GitHub's 256 matrix-row cap
+          # (a wide release can touch all ~427 services at once).
+          BATCHES=$(printf '%s' "$CHANGED" | jq -R -s -c \
+            'split("\n") | map(select(length>0)) | [range(0; length; 50) as $i | .[$i:$i+50]]')
+          echo "batches=$BATCHES" >> "$GITHUB_OUTPUT"
+          if [ "$BATCHES" = "[]" ]; then
+            echo "has-changes=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "has-changes=true" >> "$GITHUB_OUTPUT"
+          fi
+          echo "Batches: $BATCHES"
+
+  publish:
+    needs: detect
+    if: needs.detect.outputs.has-changes == 'true'
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        batch: ${{ fromJson(needs.detect.outputs.batches) }}
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install uv
-        uses: astral-sh/setup-uv@v5
+      - uses: astral-sh/setup-uv@v5
 
-      - name: Build package
-        run: uv build
-        working-directory: services/${{ inputs.service }}
-
-      - name: Publish to PyPI
-        uses: pypa/gh-action-pypi-publish@release/v1
-        with:
-          packages-dir: services/${{ inputs.service }}/dist/
+      - name: Build and publish batch
+        run: |
+          for svc in $(printf '%s' '${{ toJson(matrix.batch) }}' | jq -r '.[]'); do
+            dir="services/$svc"
+            name="aws-sdk-$svc"
+            version=$(grep -m1 '^version' "$dir/pyproject.toml" | sed 's/.*"\(.*\)".*/\1/')
+            if curl -sf "https://pypi.org/pypi/${name}/${version}/json" > /dev/null; then
+              echo "${name} ${version} already on PyPI — skipping"
+              continue
+            fi
+            echo "Building and publishing ${name} ${version}"
+            ( cd "$dir" && uv build && uv publish --trusted-publishing always )
+          done
