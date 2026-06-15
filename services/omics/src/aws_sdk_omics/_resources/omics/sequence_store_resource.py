@@ -5,6 +5,7 @@ from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_omics._auth._signers
 import aws_sdk_omics._auth._sigv4
+from aws_sdk_omics._iter import ensure_async_iterator, ensure_sync_iterator
 from aws_sdk_omics._services._pipeline import (
     AsyncOperationRequest,
     AsyncOperationResponse,
@@ -13,8 +14,6 @@ from aws_sdk_omics._services._pipeline import (
     aexecute_pipeline,
     execute_pipeline,
 )
-from aws_sdk_omics._services.async_omics import ensure_async_iterator
-from aws_sdk_omics._services.omics import ensure_sync_iterator
 
 if TYPE_CHECKING:
     import aws_sdk_omics.types.abort_multipart_read_set_upload_request

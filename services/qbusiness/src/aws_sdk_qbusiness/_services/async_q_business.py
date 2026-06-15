@@ -15,6 +15,7 @@ from aws_sdk_qbusiness._auth._providers import (
     StaticAwsCredentialsProvider,
 )
 from aws_sdk_qbusiness._auth._zapros_handler import AuthMiddleware
+from aws_sdk_qbusiness._iter import ensure_async_iterator
 from aws_sdk_qbusiness._pagination import resolve_path as _resolve_path
 from aws_sdk_qbusiness._resources.expert_q.application_resource import (
     AsyncApplicationResource,
@@ -221,16 +222,6 @@ class AsyncQBusinessClientConfig(TypedDict, total=False):
 
 
 DEFAULT_RETRY_MAX_ATTEMPTS = 3
-
-
-async def ensure_async_iterator(
-    it: AsyncIterator[bytes] | bytes,
-) -> AsyncIterator[bytes]:
-    if isinstance(it, bytes):
-        yield it
-    else:
-        async for chunk in it:
-            yield chunk
 
 
 class AsyncQBusinessClient:

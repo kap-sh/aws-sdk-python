@@ -15,6 +15,7 @@ from aws_sdk_connecthealth._auth._providers import (
     StaticAwsCredentialsProvider,
 )
 from aws_sdk_connecthealth._auth._zapros_handler import AuthMiddleware
+from aws_sdk_connecthealth._iter import ensure_sync_iterator
 from aws_sdk_connecthealth._pagination import resolve_path as _resolve_path
 from aws_sdk_connecthealth._services._pipeline import (
     Interceptor,
@@ -91,14 +92,6 @@ class ConnectHealthClientConfig(TypedDict, total=False):
 
 
 DEFAULT_RETRY_MAX_ATTEMPTS = 3
-
-
-def ensure_sync_iterator(it: Iterator[bytes] | bytes) -> Iterator[bytes]:
-    if isinstance(it, bytes):
-        yield it
-    else:
-        for chunk in it:
-            yield chunk
 
 
 class ConnectHealthClient:

@@ -1,7 +1,6 @@
 """Generated from Smithy shape ``com.amazonaws.cognitosync#AWSCognitoSyncService``."""
 
 import warnings
-from collections.abc import Iterator
 from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 
 from typing_extensions import Self
@@ -86,14 +85,6 @@ class CognitoSyncClientConfig(TypedDict, total=False):
 
 
 DEFAULT_RETRY_MAX_ATTEMPTS = 3
-
-
-def ensure_sync_iterator(it: Iterator[bytes] | bytes) -> Iterator[bytes]:
-    if isinstance(it, bytes):
-        yield it
-    else:
-        for chunk in it:
-            yield chunk
 
 
 class CognitoSyncClient:

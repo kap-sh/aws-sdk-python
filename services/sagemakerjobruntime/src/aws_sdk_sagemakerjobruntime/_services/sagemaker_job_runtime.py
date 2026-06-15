@@ -1,7 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakerjobruntime#AgenticRFTRuntimeService``."""
 
 import warnings
-from collections.abc import Generator, Iterator
+from collections.abc import Generator
 from contextlib import contextmanager
 from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 
@@ -51,14 +51,6 @@ class SagemakerJobRuntimeClientConfig(TypedDict, total=False):
 
 
 DEFAULT_RETRY_MAX_ATTEMPTS = 3
-
-
-def ensure_sync_iterator(it: Iterator[bytes] | bytes) -> Iterator[bytes]:
-    if isinstance(it, bytes):
-        yield it
-    else:
-        for chunk in it:
-            yield chunk
 
 
 class SagemakerJobRuntimeClient:

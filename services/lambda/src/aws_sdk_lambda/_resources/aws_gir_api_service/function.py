@@ -5,7 +5,7 @@ from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_lambda._auth._signers
 import aws_sdk_lambda._auth._sigv4
-from aws_sdk_lambda._services._lambda import ensure_sync_iterator
+from aws_sdk_lambda._iter import ensure_async_iterator, ensure_sync_iterator
 from aws_sdk_lambda._services._pipeline import (
     AsyncOperationRequest,
     AsyncOperationResponse,
@@ -14,7 +14,6 @@ from aws_sdk_lambda._services._pipeline import (
     aexecute_pipeline,
     execute_pipeline,
 )
-from aws_sdk_lambda._services.async__lambda import ensure_async_iterator
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.architectures_list

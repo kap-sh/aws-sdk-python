@@ -16,6 +16,7 @@ from aws_sdk_codeartifact._auth._providers import (
     StaticAwsCredentialsProvider,
 )
 from aws_sdk_codeartifact._auth._zapros_handler import AuthMiddleware
+from aws_sdk_codeartifact._iter import ensure_sync_iterator
 from aws_sdk_codeartifact._pagination import resolve_path as _resolve_path
 from aws_sdk_codeartifact._services._pipeline import (
     Interceptor,
@@ -189,14 +190,6 @@ class codeartifactClientConfig(TypedDict, total=False):
 
 
 DEFAULT_RETRY_MAX_ATTEMPTS = 3
-
-
-def ensure_sync_iterator(it: Iterator[bytes] | bytes) -> Iterator[bytes]:
-    if isinstance(it, bytes):
-        yield it
-    else:
-        for chunk in it:
-            yield chunk
 
 
 class codeartifactClient:

@@ -1,7 +1,6 @@
 """Generated from Smithy shape ``com.amazonaws.sts#AWSSecurityTokenServiceV20110615``."""
 
 import warnings
-from collections.abc import AsyncIterator
 from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 
 from typing_extensions import Self
@@ -88,16 +87,6 @@ class AsyncSTSClientConfig(TypedDict, total=False):
 
 
 DEFAULT_RETRY_MAX_ATTEMPTS = 3
-
-
-async def ensure_async_iterator(
-    it: AsyncIterator[bytes] | bytes,
-) -> AsyncIterator[bytes]:
-    if isinstance(it, bytes):
-        yield it
-    else:
-        async for chunk in it:
-            yield chunk
 
 
 class AsyncSTSClient:

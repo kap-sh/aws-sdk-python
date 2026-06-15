@@ -185,16 +185,6 @@ class AsyncGlobalAcceleratorClientConfig(TypedDict, total=False):
 DEFAULT_RETRY_MAX_ATTEMPTS = 3
 
 
-async def ensure_async_iterator(
-    it: AsyncIterator[bytes] | bytes,
-) -> AsyncIterator[bytes]:
-    if isinstance(it, bytes):
-        yield it
-    else:
-        async for chunk in it:
-            yield chunk
-
-
 class AsyncGlobalAcceleratorClient:
     """A client for the ``GlobalAccelerator`` service.
 
