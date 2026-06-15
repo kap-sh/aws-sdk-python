@@ -5,6 +5,7 @@ from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_bedrock_runtime._auth._signers
 import aws_sdk_bedrock_runtime._auth._sigv4
+from aws_sdk_bedrock_runtime._iter import ensure_async_iterator, ensure_sync_iterator
 from aws_sdk_bedrock_runtime._services._pipeline import (
     AsyncOperationRequest,
     AsyncOperationResponse,
@@ -13,10 +14,6 @@ from aws_sdk_bedrock_runtime._services._pipeline import (
     aexecute_pipeline,
     execute_pipeline,
 )
-from aws_sdk_bedrock_runtime._services.async_bedrock_runtime import (
-    ensure_async_iterator,
-)
-from aws_sdk_bedrock_runtime._services.bedrock_runtime import ensure_sync_iterator
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.additional_model_response_field_paths

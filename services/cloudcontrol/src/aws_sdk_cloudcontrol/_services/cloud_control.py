@@ -71,14 +71,6 @@ class CloudControlClientConfig(TypedDict, total=False):
 DEFAULT_RETRY_MAX_ATTEMPTS = 3
 
 
-def ensure_sync_iterator(it: Iterator[bytes] | bytes) -> Iterator[bytes]:
-    if isinstance(it, bytes):
-        yield it
-    else:
-        for chunk in it:
-            yield chunk
-
-
 class CloudControlClient:
     """A client for the ``CloudControl`` service.
 

@@ -20,6 +20,7 @@ from aws_sdk_s3._auth._providers import (
 from aws_sdk_s3._auth._signers import SigV4Signer
 from aws_sdk_s3._auth._sigv4 import presign_sigv4
 from aws_sdk_s3._auth._zapros_handler import AuthMiddleware
+from aws_sdk_s3._iter import ensure_async_iterator
 from aws_sdk_s3._pagination import resolve_path as _resolve_path
 from aws_sdk_s3._services._pipeline import (
     AsyncInterceptor,
@@ -398,16 +399,6 @@ class AsyncS3ClientConfig(TypedDict, total=False):
 
 
 DEFAULT_RETRY_MAX_ATTEMPTS = 3
-
-
-async def ensure_async_iterator(
-    it: AsyncIterator[bytes] | bytes,
-) -> AsyncIterator[bytes]:
-    if isinstance(it, bytes):
-        yield it
-    else:
-        async for chunk in it:
-            yield chunk
 
 
 class AsyncS3Client:

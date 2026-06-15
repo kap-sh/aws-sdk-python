@@ -1,7 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.neptunegraph#AmazonNeptuneGraph``."""
 
 import warnings
-from collections.abc import AsyncGenerator, AsyncIterator
+from collections.abc import AsyncGenerator
 from contextlib import asynccontextmanager
 from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 
@@ -76,16 +76,6 @@ class AsyncNeptuneGraphClientConfig(TypedDict, total=False):
 
 
 DEFAULT_RETRY_MAX_ATTEMPTS = 3
-
-
-async def ensure_async_iterator(
-    it: AsyncIterator[bytes] | bytes,
-) -> AsyncIterator[bytes]:
-    if isinstance(it, bytes):
-        yield it
-    else:
-        async for chunk in it:
-            yield chunk
 
 
 class AsyncNeptuneGraphClient:
