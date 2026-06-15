@@ -23,6 +23,7 @@ from aws_sdk_bcm_pricing_calculator._resources.awsbcm_pricing_calculator.bill_sc
 from aws_sdk_bcm_pricing_calculator._resources.awsbcm_pricing_calculator.workload_estimate import (
     AsyncWorkloadEstimate,
 )
+from aws_sdk_bcm_pricing_calculator._services._aws_config import aaws_config
 from aws_sdk_bcm_pricing_calculator._services._pipeline import (
     AsyncInterceptor,
     AsyncOperationOptions,
@@ -51,14 +52,11 @@ if TYPE_CHECKING:
 
 class AsyncBCMPricingCalculatorClientConfig(TypedDict, total=False):
     operation_interceptors: Iterable[AsyncInterceptor[Any, Any]]
-    retry_max_attempts: int
+    retry_max_attempts: int | None
     use_fips: bool | None
     endpoint: str | None
     region: str | None
     credentials_provider: CredentialsProvider | None
-
-
-DEFAULT_RETRY_MAX_ATTEMPTS = 3
 
 
 class AsyncBCMPricingCalculatorClient:
@@ -98,9 +96,7 @@ class AsyncBCMPricingCalculatorClient:
         self._config = AsyncBCMPricingCalculatorClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
-                "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
-                if retry_max_attempts is None
-                else retry_max_attempts,
+                "retry_max_attempts": retry_max_attempts,
                 "use_fips": use_fips,
                 "endpoint": endpoint,
                 "region": region,
@@ -121,13 +117,13 @@ class AsyncBCMPricingCalculatorClient:
             *overrides.get(
                 "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
+            aaws_config(),
             aretry(),
         ]
         options_: AsyncOperationOptions = AsyncOperationOptions(
             client=self._client,
             retry_max_attempts=overrides.get(
-                "retry_max_attempts",
-                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                "retry_max_attempts", self._config.get("retry_max_attempts")
             ),
             use_fips=overrides.get("use_fips", self._config.get("use_fips")),
             endpoint=overrides.get("endpoint", self._config.get("endpoint")),
