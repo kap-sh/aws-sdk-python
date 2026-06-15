@@ -19,6 +19,7 @@ from aws_sdk_bcm_data_exports._pagination import resolve_path as _resolve_path
 from aws_sdk_bcm_data_exports._resources.aws_billing_and_cost_management_data_exports.data_export import (
     DataExport,
 )
+from aws_sdk_bcm_data_exports._services._aws_config import aws_config
 from aws_sdk_bcm_data_exports._services._pipeline import (
     Interceptor,
     OperationOptions,
@@ -57,14 +58,11 @@ if TYPE_CHECKING:
 
 class BCMDataExportsClientConfig(TypedDict, total=False):
     operation_interceptors: Iterable[Interceptor[Any, Any]]
-    retry_max_attempts: int
+    retry_max_attempts: int | None
     use_fips: bool | None
     endpoint: str | None
     region: str | None
     credentials_provider: CredentialsProvider | None
-
-
-DEFAULT_RETRY_MAX_ATTEMPTS = 3
 
 
 class BCMDataExportsClient:
@@ -104,9 +102,7 @@ class BCMDataExportsClient:
         self._config = BCMDataExportsClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
-                "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
-                if retry_max_attempts is None
-                else retry_max_attempts,
+                "retry_max_attempts": retry_max_attempts,
                 "use_fips": use_fips,
                 "endpoint": endpoint,
                 "region": region,
@@ -125,13 +121,13 @@ class BCMDataExportsClient:
             *overrides.get(
                 "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
+            aws_config(),
             retry(),
         ]
         options_: OperationOptions = OperationOptions(
             client=self._client,
             retry_max_attempts=overrides.get(
-                "retry_max_attempts",
-                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                "retry_max_attempts", self._config.get("retry_max_attempts")
             ),
             use_fips=overrides.get("use_fips", self._config.get("use_fips")),
             endpoint=overrides.get("endpoint", self._config.get("endpoint")),
