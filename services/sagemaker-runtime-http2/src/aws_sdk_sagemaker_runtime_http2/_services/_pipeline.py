@@ -30,7 +30,7 @@ class OperationOptions:
     use_fips: bool | None = None
     endpoint: str | None = None
     region: str | None = None
-    retry_max_attempts: int = 3
+    retry_max_attempts: int | None = None
     credentials_provider: CredentialsProvider | None = None
 
 
@@ -41,7 +41,7 @@ class AsyncOperationOptions:
     use_fips: bool | None = None
     endpoint: str | None = None
     region: str | None = None
-    retry_max_attempts: int = 3
+    retry_max_attempts: int | None = None
     credentials_provider: CredentialsProvider | None = None
 
 
@@ -149,7 +149,7 @@ def retry() -> Interceptor[TInput, TOutput]:
     def interceptor(
         request: OperationRequest[TInput], next: NextFn[TInput, TOutput]
     ) -> OperationResponse[TOutput]:
-        max_attempts = request.options.retry_max_attempts
+        max_attempts = request.options.retry_max_attempts or 3
         last_exc: Exception | None = None
         for attempt in range(1, max_attempts + 1):
             try:
@@ -174,7 +174,7 @@ def aretry() -> AsyncInterceptor[TInput, TOutput]:
     async def interceptor(
         request: AsyncOperationRequest[TInput], next: AsyncNextFn[TInput, TOutput]
     ) -> AsyncOperationResponse[TOutput]:
-        max_attempts = request.options.retry_max_attempts
+        max_attempts = request.options.retry_max_attempts or 3
         last_exc: Exception | None = None
         for attempt in range(1, max_attempts + 1):
             try:
