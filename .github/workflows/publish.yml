@@ -17,6 +17,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          sparse-checkout: services/${{ inputs.service }}
+          sparse-checkout-cone-mode: false
 
       - uses: astral-sh/setup-uv@v5
 
