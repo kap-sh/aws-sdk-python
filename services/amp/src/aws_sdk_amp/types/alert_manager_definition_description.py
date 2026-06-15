@@ -17,7 +17,7 @@ class AlertManagerDefinitionDescription(TypedDict):
     )
     """<p>A structure that displays the current status of the alert manager definition..</p>"""
     data: "aws_sdk_amp.types.alert_manager_definition_data.AlertManagerDefinitionData"
-    """<p>The actual alert manager definition.</p> <p>For details about the alert manager definition, see <a href=\"https://docs.aws.amazon.com/prometheus/latest/APIReference/yaml-AlertManagerDefinitionData.html\">AlertManagedDefinitionData</a>.</p>"""
+    r"""<p>The actual alert manager definition.</p> <p>For details about the alert manager definition, see <a href=\"https://docs.aws.amazon.com/prometheus/latest/APIReference/yaml-AlertManagerDefinitionData.html\">AlertManagedDefinitionData</a>.</p>"""
     created_at: "datetime.datetime"
     """<p>The date and time that the alert manager definition was created.</p>"""
     modified_at: "datetime.datetime"

@@ -22,7 +22,7 @@ class DescribeIntegrationsRequest(TypedDict):
     filters: NotRequired[
         "aws_sdk_glue.types.integration_filter_list.IntegrationFilterList"
     ]
-    """<p>A list of key and values, to filter down the results. Supported keys are \"Status\", \"IntegrationName\", and \"SourceArn\". IntegrationName is limited to only one value.</p>"""
+    r"""<p>A list of key and values, to filter down the results. Supported keys are \"Status\", \"IntegrationName\", and \"SourceArn\". IntegrationName is limited to only one value.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

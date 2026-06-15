@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 from aws_sdk_partnercentral_selling._services._pipeline import (
@@ -166,7 +168,7 @@ class Engagement:
             "aws_sdk_partnercentral_selling.types.engagement_identifiers.EngagementIdentifiers"
         ] = None,
     ) -> "aws_sdk_partnercentral_selling.types.list_engagements_response.ListEngagementsResponse":
-        """<p>This action allows users to retrieve a list of Engagement records from Partner Central. This action can be used to manage and track various engagements across different stages of the partner selling process. </p>
+        r"""<p>This action allows users to retrieve a list of Engagement records from Partner Central. This action can be used to manage and track various engagements across different stages of the partner selling process. </p>
 
         Args:
             catalog: <p> Specifies the catalog related to the request. </p>
@@ -397,7 +399,7 @@ class AsyncEngagement:
             "aws_sdk_partnercentral_selling.types.engagement_identifiers.EngagementIdentifiers"
         ] = None,
     ) -> "aws_sdk_partnercentral_selling.types.list_engagements_response.ListEngagementsResponse":
-        """<p>This action allows users to retrieve a list of Engagement records from Partner Central. This action can be used to manage and track various engagements across different stages of the partner selling process. </p>
+        r"""<p>This action allows users to retrieve a list of Engagement records from Partner Central. This action can be used to manage and track various engagements across different stages of the partner selling process. </p>
 
         Args:
             catalog: <p> Specifies the catalog related to the request. </p>

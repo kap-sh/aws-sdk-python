@@ -14,7 +14,7 @@ if TYPE_CHECKING:
 
 class ExternalSourcesRetrieveAndGenerateConfiguration(TypedDict):
     model_arn: "aws_sdk_bedrock.types.bedrock_model_arn.BedrockModelArn"
-    """<p>The Amazon Resource Name (ARN) of the foundation model or <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html\">inference profile</a> used to generate responses. </p>"""
+    r"""<p>The Amazon Resource Name (ARN) of the foundation model or <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html\">inference profile</a> used to generate responses. </p>"""
     sources: "aws_sdk_bedrock.types.external_sources.ExternalSources"
     """<p>The document for the external source wrapper object in the <code>retrieveAndGenerate</code> function.</p>"""
     generation_configuration: NotRequired[

@@ -13,13 +13,13 @@ if TYPE_CHECKING:
 
 class StreetComponents(TypedDict):
     base_name: NotRequired["aws_sdk_geo_places.types.sensitive_string.SensitiveString"]
-    """<p>Base name part of the street name. </p> <p>Example: Younge from the \"Younge street\".</p>"""
+    r"""<p>Base name part of the street name. </p> <p>Example: Younge from the \"Younge street\".</p>"""
     type: NotRequired["aws_sdk_geo_places.types.sensitive_string.SensitiveString"]
-    """<p>Street type part of the street name. </p> <p>Example: <code>\"avenue\"</code>.</p>"""
+    r"""<p>Street type part of the street name. </p> <p>Example: <code>\"avenue\"</code>.</p>"""
     type_placement: NotRequired["aws_sdk_geo_places.types.type_placement.TypePlacement"]
     """<p>Defines if the street type is before or after the base name.</p>"""
     type_separator: NotRequired["aws_sdk_geo_places.types.type_separator.TypeSeparator"]
-    """<p>Defines a separator character such as <code>\"\"</code> or <code>\" \"</code> between the base name and type.</p>"""
+    r"""<p>Defines a separator character such as <code>\"\"</code> or <code>\" \"</code> between the base name and type.</p>"""
     prefix: NotRequired["aws_sdk_geo_places.types.sensitive_string.SensitiveString"]
     """<p>A prefix is a directional identifier that precedes, but is not included in, the base name of a road. </p> <p>Example: E for East.</p>"""
     suffix: NotRequired["aws_sdk_geo_places.types.sensitive_string.SensitiveString"]
@@ -27,7 +27,7 @@ class StreetComponents(TypedDict):
     direction: NotRequired["aws_sdk_geo_places.types.sensitive_string.SensitiveString"]
     """<p>Indicates the official directional identifiers assigned to highways.</p>"""
     language: NotRequired["aws_sdk_geo_places.types.language_tag.LanguageTag"]
-    """<p>A <a href=\"https://en.wikipedia.org/wiki/IETF_language_tag\">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry.</p>"""
+    r"""<p>A <a href=\"https://en.wikipedia.org/wiki/IETF_language_tag\">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry.</p>"""
 
 
 # --- restJson1 ser/de ---

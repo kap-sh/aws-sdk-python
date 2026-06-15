@@ -26,7 +26,7 @@ if TYPE_CHECKING:
 
 class CreateUserRequest(TypedDict):
     username: "aws_sdk_connect.types.agent_username.AgentUsername"
-    """<p>The user name for the account. For instances not using SAML for identity management, the user name can include up to 20 characters. If you are using SAML for identity management, the user name can include up to 64 characters from [a-zA-Z0-9_-.\@]+.</p> <p>Username can include @ only if used in an email format. For example:</p> <ul> <li> <p>Correct: testuser</p> </li> <li> <p>Correct: testuser@example.com</p> </li> <li> <p>Incorrect: testuser@example</p> </li> </ul>"""
+    r"""<p>The user name for the account. For instances not using SAML for identity management, the user name can include up to 20 characters. If you are using SAML for identity management, the user name can include up to 64 characters from [a-zA-Z0-9_-.\@]+.</p> <p>Username can include @ only if used in an email format. For example:</p> <ul> <li> <p>Correct: testuser</p> </li> <li> <p>Correct: testuser@example.com</p> </li> <li> <p>Incorrect: testuser@example</p> </li> </ul>"""
     password: NotRequired["aws_sdk_connect.types.password.Password"]
     """<p>The password for the user account. A password is required if you are using Connect Customer for identity management. Otherwise, it is an error to include a password.</p>"""
     identity_info: NotRequired[
@@ -50,7 +50,7 @@ class CreateUserRequest(TypedDict):
     ]
     """<p>The identifier of the hierarchy group for the user.</p>"""
     instance_id: "aws_sdk_connect.types.instance_id.InstanceId"
-    """<p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>"""
+    r"""<p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>"""
     auto_accept_configs: NotRequired[
         "aws_sdk_connect.types.auto_accept_configs.AutoAcceptConfigs"
     ]
@@ -72,7 +72,7 @@ class CreateUserRequest(TypedDict):
     ]
     """<p>The list of voice enhancement configuration settings for each channel.</p>"""
     tags: NotRequired["aws_sdk_connect.types.tag_map.TagMap"]
-    """<p>The tags used to organize, track, or control access for this resource. For example, { \"Tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.</p>"""
+    r"""<p>The tags used to organize, track, or control access for this resource. For example, { \"Tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.</p>"""
 
 
 # --- restJson1 ser/de ---

@@ -15,11 +15,11 @@ class GCMChannelRequest(TypedDict):
     default_authentication_method: NotRequired[
         "aws_sdk_pinpoint.types.__string.__string"
     ]
-    """<p>The default authentication method used for GCM. Values are either \"TOKEN\" or \"KEY\". Defaults to \"KEY\".</p>"""
+    r"""<p>The default authentication method used for GCM. Values are either \"TOKEN\" or \"KEY\". Defaults to \"KEY\".</p>"""
     enabled: NotRequired["aws_sdk_pinpoint.types.__boolean.__boolean"]
     """<p>Specifies whether to enable the GCM channel for the application.</p>"""
     service_json: NotRequired["aws_sdk_pinpoint.types.__string.__string"]
-    """<p>The contents of the JSON file provided by Google during registration in order to generate an access token for authentication. For more information see <a href=\"https://firebase.google.com/docs/cloud-messaging/migrate-v1\">Migrate from legacy FCM APIs to HTTP v1</a>.</p>"""
+    r"""<p>The contents of the JSON file provided by Google during registration in order to generate an access token for authentication. For more information see <a href=\"https://firebase.google.com/docs/cloud-messaging/migrate-v1\">Migrate from legacy FCM APIs to HTTP v1</a>.</p>"""
 
 
 # --- restJson1 ser/de ---

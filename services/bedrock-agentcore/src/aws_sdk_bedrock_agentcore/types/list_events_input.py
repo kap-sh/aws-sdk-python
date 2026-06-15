@@ -1,0 +1,69 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrockagentcore#ListEventsInput``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_bedrock_agentcore.types.actor_id
+    import aws_sdk_bedrock_agentcore.types.filter_input
+    import aws_sdk_bedrock_agentcore.types.max_results
+    import aws_sdk_bedrock_agentcore.types.memory_id
+    import aws_sdk_bedrock_agentcore.types.pagination_token
+    import aws_sdk_bedrock_agentcore.types.session_id
+
+
+class ListEventsInput(TypedDict):
+    memory_id: "aws_sdk_bedrock_agentcore.types.memory_id.MemoryId"
+    """<p>The identifier of the AgentCore Memory resource for which to list events.</p>"""
+    session_id: "aws_sdk_bedrock_agentcore.types.session_id.SessionId"
+    """<p>The identifier of the session for which to list events.</p>"""
+    actor_id: "aws_sdk_bedrock_agentcore.types.actor_id.ActorId"
+    """<p>The identifier of the actor for which to list events.</p>"""
+    include_payloads: "bool"
+    """<p>Specifies whether to include event payloads in the response. Set to true to include payloads, or false to exclude them.</p>"""
+    filter: NotRequired["aws_sdk_bedrock_agentcore.types.filter_input.FilterInput"]
+    """<p>Filter criteria to apply when listing events.</p>"""
+    max_results: "aws_sdk_bedrock_agentcore.types.max_results.MaxResults"
+    """<p>The maximum number of results to return in a single call. The default value is 20.</p>"""
+    next_token: NotRequired[
+        "aws_sdk_bedrock_agentcore.types.pagination_token.PaginationToken"
+    ]
+    """<p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ListEventsInput) -> dict:
+    out: dict = {}
+    out["includePayloads"] = value.get("include_payloads", True)
+    if "filter" in value:
+        import aws_sdk_bedrock_agentcore.types.filter_input
+
+        out["filter"] = aws_sdk_bedrock_agentcore.types.filter_input.serialize_json(
+            value["filter"]
+        )
+    out["maxResults"] = value.get("max_results", 100)
+    if "next_token" in value:
+        out["nextToken"] = value["next_token"]
+    return out
+
+
+def deserialize_json(data: dict) -> ListEventsInput:
+    out: ListEventsInput = {}  # type: ignore[typeddict-item]
+    if "includePayloads" in data:
+        out["include_payloads"] = data["includePayloads"]
+    else:
+        out["include_payloads"] = True
+    if "filter" in data:
+        import aws_sdk_bedrock_agentcore.types.filter_input
+
+        out["filter"] = aws_sdk_bedrock_agentcore.types.filter_input.deserialize_json(
+            data["filter"]
+        )
+    if "maxResults" in data:
+        out["max_results"] = data["maxResults"]
+    else:
+        out["max_results"] = 100
+    if "nextToken" in data:
+        out["next_token"] = data["nextToken"]
+    return out

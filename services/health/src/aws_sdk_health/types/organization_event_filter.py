@@ -26,7 +26,7 @@ class OrganizationEventFilter(TypedDict):
     event_type_codes: NotRequired[
         "aws_sdk_health.types.event_type_list2.eventTypeList2"
     ]
-    """<p>A list of unique identifiers for event types. For example, <code>\"AWS_EC2_SYSTEM_MAINTENANCE_EVENT\",\"AWS_RDS_MAINTENANCE_SCHEDULED\".</code> </p>"""
+    r"""<p>A list of unique identifiers for event types. For example, <code>\"AWS_EC2_SYSTEM_MAINTENANCE_EVENT\",\"AWS_RDS_MAINTENANCE_SCHEDULED\".</code> </p>"""
     aws_account_ids: NotRequired[
         "aws_sdk_health.types.aws_account_ids_list.awsAccountIdsList"
     ]

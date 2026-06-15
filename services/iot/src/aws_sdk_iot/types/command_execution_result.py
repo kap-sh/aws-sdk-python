@@ -14,11 +14,11 @@ class CommandExecutionResult(TypedDict):
     s: NotRequired[
         "aws_sdk_iot.types.string_command_execution_result.StringCommandExecutionResult"
     ]
-    """<p>An attribute of type String. For example:</p> <p> <code>\"S\": \"Hello\"</code> </p>"""
+    r"""<p>An attribute of type String. For example:</p> <p> <code>\"S\": \"Hello\"</code> </p>"""
     b: NotRequired[
         "aws_sdk_iot.types.boolean_command_execution_result.BooleanCommandExecutionResult"
     ]
-    """<p>An attribute of type Boolean. For example:</p> <p> <code>\"BOOL\": true</code> </p>"""
+    r"""<p>An attribute of type Boolean. For example:</p> <p> <code>\"BOOL\": true</code> </p>"""
     bin: NotRequired[
         "aws_sdk_iot.types.binary_command_execution_result.BinaryCommandExecutionResult"
     ]

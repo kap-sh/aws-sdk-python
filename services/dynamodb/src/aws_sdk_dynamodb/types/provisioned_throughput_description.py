@@ -18,7 +18,7 @@ class ProvisionedThroughputDescription(TypedDict):
     number_of_decreases_today: NotRequired[
         "aws_sdk_dynamodb.types.positive_long_object.PositiveLongObject"
     ]
-    """<p>The number of provisioned throughput decreases for this table during this UTC calendar day. For current maximums on provisioned throughput decreases, see <a href=\"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html\">Service, Account, and Table Quotas</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>"""
+    r"""<p>The number of provisioned throughput decreases for this table during this UTC calendar day. For current maximums on provisioned throughput decreases, see <a href=\"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html\">Service, Account, and Table Quotas</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>"""
     read_capacity_units: NotRequired[
         "aws_sdk_dynamodb.types.non_negative_long_object.NonNegativeLongObject"
     ]

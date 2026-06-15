@@ -15,7 +15,7 @@ class AttachmentItem(TypedDict):
     content_type: NotRequired[
         "aws_sdk_connectparticipant.types.content_type.ContentType"
     ]
-    """<p>Describes the MIME file type of the attachment. For a list of supported file types, see <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/feature-limits.html\">Feature specifications</a> in the <i>Amazon Connect Administrator Guide</i>.</p>"""
+    r"""<p>Describes the MIME file type of the attachment. For a list of supported file types, see <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/feature-limits.html\">Feature specifications</a> in the <i>Amazon Connect Administrator Guide</i>.</p>"""
     attachment_id: NotRequired[
         "aws_sdk_connectparticipant.types.artifact_id.ArtifactId"
     ]

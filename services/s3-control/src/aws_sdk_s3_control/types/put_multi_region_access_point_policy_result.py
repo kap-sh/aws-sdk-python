@@ -14,7 +14,7 @@ class PutMultiRegionAccessPointPolicyResult(TypedDict):
     request_token_arn: NotRequired[
         "aws_sdk_s3_control.types.async_request_token_arn.AsyncRequestTokenARN"
     ]
-    """<p>The request token associated with the request. You can use this token with <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DescribeMultiRegionAccessPointOperation.html\">DescribeMultiRegionAccessPointOperation</a> to determine the status of asynchronous requests.</p>"""
+    r"""<p>The request token associated with the request. You can use this token with <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DescribeMultiRegionAccessPointOperation.html\">DescribeMultiRegionAccessPointOperation</a> to determine the status of asynchronous requests.</p>"""
 
 
 # --- restXml ser/de ---

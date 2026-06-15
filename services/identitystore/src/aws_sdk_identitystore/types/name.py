@@ -28,11 +28,11 @@ class Name(TypedDict):
     honorific_prefix: NotRequired[
         "aws_sdk_identitystore.types.sensitive_string_type.SensitiveStringType"
     ]
-    """<p>The honorific prefix of the user. For example, \"Dr.\"</p>"""
+    r"""<p>The honorific prefix of the user. For example, \"Dr.\"</p>"""
     honorific_suffix: NotRequired[
         "aws_sdk_identitystore.types.sensitive_string_type.SensitiveStringType"
     ]
-    """<p>The honorific suffix of the user. For example, \"M.D.\"</p>"""
+    r"""<p>The honorific suffix of the user. For example, \"M.D.\"</p>"""
 
 
 # --- awsJson1_1 ser/de ---

@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import datetime
 from typing import TYPE_CHECKING, Optional
 
@@ -48,7 +50,7 @@ class RecoveryPointResource:
         retention_period: Optional[int] = None,
         tags: Optional["aws_sdk_redshift_serverless.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_redshift_serverless.types.convert_recovery_point_to_snapshot_response.ConvertRecoveryPointToSnapshotResponse":
-        """<p>Converts a recovery point to a snapshot. For more information about recovery points and snapshots, see <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-snapshots-recovery-points.html\">Working with snapshots and recovery points</a>.</p>
+        r"""<p>Converts a recovery point to a snapshot. For more information about recovery points and snapshots, see <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-snapshots-recovery-points.html\">Working with snapshots and recovery points</a>.</p>
 
         Args:
             recovery_point_id: <p>The unique identifier of the recovery point.</p>
@@ -311,7 +313,7 @@ class AsyncRecoveryPointResource:
         retention_period: Optional[int] = None,
         tags: Optional["aws_sdk_redshift_serverless.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_redshift_serverless.types.convert_recovery_point_to_snapshot_response.ConvertRecoveryPointToSnapshotResponse":
-        """<p>Converts a recovery point to a snapshot. For more information about recovery points and snapshots, see <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-snapshots-recovery-points.html\">Working with snapshots and recovery points</a>.</p>
+        r"""<p>Converts a recovery point to a snapshot. For more information about recovery points and snapshots, see <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-snapshots-recovery-points.html\">Working with snapshots and recovery points</a>.</p>
 
         Args:
             recovery_point_id: <p>The unique identifier of the recovery point.</p>

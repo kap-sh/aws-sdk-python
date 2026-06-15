@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_aiops._auth._signers
@@ -38,7 +40,7 @@ class InvestigationGroupPolicy:
         *,
         config_overrides: Optional[AIOpsClientConfig] = None,
     ) -> "aws_sdk_aiops.types.put_investigation_group_policy_response.PutInvestigationGroupPolicyResponse":
-        """<p>Creates an IAM resource policy and assigns it to the specified investigation group.</p> <p>If you create your investigation group with <code>CreateInvestigationGroup</code> and you want to enable CloudWatch alarms to create investigations and add events to investigations, you must use this operation to create a policy similar to this example.</p> <p> <code> { \"Version\": \"2008-10-17\", \"Statement\": [ { \"Effect\": \"Allow\", \"Principal\": { \"Service\": \"aiops.alarms.cloudwatch.amazonaws.com\" }, \"Action\": [ \"aiops:CreateInvestigation\", \"aiops:CreateInvestigationEvent\" ], \"Resource\": \"*\", \"Condition\": { \"StringEquals\": { \"aws:SourceAccount\": \"account-id\" }, \"ArnLike\": { \"aws:SourceArn\": \"arn:aws:cloudwatch:region:account-id:alarm:*\" } } } ] } </code> </p>
+        r"""<p>Creates an IAM resource policy and assigns it to the specified investigation group.</p> <p>If you create your investigation group with <code>CreateInvestigationGroup</code> and you want to enable CloudWatch alarms to create investigations and add events to investigations, you must use this operation to create a policy similar to this example.</p> <p> <code> { \"Version\": \"2008-10-17\", \"Statement\": [ { \"Effect\": \"Allow\", \"Principal\": { \"Service\": \"aiops.alarms.cloudwatch.amazonaws.com\" }, \"Action\": [ \"aiops:CreateInvestigation\", \"aiops:CreateInvestigationEvent\" ], \"Resource\": \"*\", \"Condition\": { \"StringEquals\": { \"aws:SourceAccount\": \"account-id\" }, \"ArnLike\": { \"aws:SourceArn\": \"arn:aws:cloudwatch:region:account-id:alarm:*\" } } } ] } </code> </p>
 
         Args:
             identifier: <p>Specify either the name or the ARN of the investigation group that you want to assign the policy to.</p>
@@ -77,7 +79,7 @@ class InvestigationGroupPolicy:
         *,
         config_overrides: Optional[AIOpsClientConfig] = None,
     ) -> "aws_sdk_aiops.types.get_investigation_group_policy_response.GetInvestigationGroupPolicyResponse":
-        """<p>Returns the JSON of the IAM resource policy associated with the specified investigation group in a string. For example, <code>{\\"Version\\":\\"2012-10-17\\",\\"Statement\\":[{\\"Effect\\":\\"Allow\\",\\"Principal\\":{\\"Service\\":\\"aiops.alarms.cloudwatch.amazonaws.com\\"},\\"Action\\":[\\"aiops:CreateInvestigation\\",\\"aiops:CreateInvestigationEvent\\"],\\"Resource\\":\\"*\\",\\"Condition\\":{\\"StringEquals\\":{\\"aws:SourceAccount\\":\\"111122223333\\"},\\"ArnLike\\":{\\"aws:SourceArn\\":\\"arn:aws:cloudwatch:us-east-1:111122223333:alarm:*\\"}}}]}</code>.</p>
+        r"""<p>Returns the JSON of the IAM resource policy associated with the specified investigation group in a string. For example, <code>{\\"Version\\":\\"2012-10-17\\",\\"Statement\\":[{\\"Effect\\":\\"Allow\\",\\"Principal\\":{\\"Service\\":\\"aiops.alarms.cloudwatch.amazonaws.com\\"},\\"Action\\":[\\"aiops:CreateInvestigation\\",\\"aiops:CreateInvestigationEvent\\"],\\"Resource\\":\\"*\\",\\"Condition\\":{\\"StringEquals\\":{\\"aws:SourceAccount\\":\\"111122223333\\"},\\"ArnLike\\":{\\"aws:SourceArn\\":\\"arn:aws:cloudwatch:us-east-1:111122223333:alarm:*\\"}}}]}</code>.</p>
 
         Args:
             identifier: <p>Specify either the name or the ARN of the investigation group that you want to view the policy of.</p>
@@ -157,7 +159,7 @@ class AsyncInvestigationGroupPolicy:
         *,
         config_overrides: Optional[AsyncAIOpsClientConfig] = None,
     ) -> "aws_sdk_aiops.types.put_investigation_group_policy_response.PutInvestigationGroupPolicyResponse":
-        """<p>Creates an IAM resource policy and assigns it to the specified investigation group.</p> <p>If you create your investigation group with <code>CreateInvestigationGroup</code> and you want to enable CloudWatch alarms to create investigations and add events to investigations, you must use this operation to create a policy similar to this example.</p> <p> <code> { \"Version\": \"2008-10-17\", \"Statement\": [ { \"Effect\": \"Allow\", \"Principal\": { \"Service\": \"aiops.alarms.cloudwatch.amazonaws.com\" }, \"Action\": [ \"aiops:CreateInvestigation\", \"aiops:CreateInvestigationEvent\" ], \"Resource\": \"*\", \"Condition\": { \"StringEquals\": { \"aws:SourceAccount\": \"account-id\" }, \"ArnLike\": { \"aws:SourceArn\": \"arn:aws:cloudwatch:region:account-id:alarm:*\" } } } ] } </code> </p>
+        r"""<p>Creates an IAM resource policy and assigns it to the specified investigation group.</p> <p>If you create your investigation group with <code>CreateInvestigationGroup</code> and you want to enable CloudWatch alarms to create investigations and add events to investigations, you must use this operation to create a policy similar to this example.</p> <p> <code> { \"Version\": \"2008-10-17\", \"Statement\": [ { \"Effect\": \"Allow\", \"Principal\": { \"Service\": \"aiops.alarms.cloudwatch.amazonaws.com\" }, \"Action\": [ \"aiops:CreateInvestigation\", \"aiops:CreateInvestigationEvent\" ], \"Resource\": \"*\", \"Condition\": { \"StringEquals\": { \"aws:SourceAccount\": \"account-id\" }, \"ArnLike\": { \"aws:SourceArn\": \"arn:aws:cloudwatch:region:account-id:alarm:*\" } } } ] } </code> </p>
 
         Args:
             identifier: <p>Specify either the name or the ARN of the investigation group that you want to assign the policy to.</p>
@@ -197,7 +199,7 @@ class AsyncInvestigationGroupPolicy:
         *,
         config_overrides: Optional[AsyncAIOpsClientConfig] = None,
     ) -> "aws_sdk_aiops.types.get_investigation_group_policy_response.GetInvestigationGroupPolicyResponse":
-        """<p>Returns the JSON of the IAM resource policy associated with the specified investigation group in a string. For example, <code>{\\"Version\\":\\"2012-10-17\\",\\"Statement\\":[{\\"Effect\\":\\"Allow\\",\\"Principal\\":{\\"Service\\":\\"aiops.alarms.cloudwatch.amazonaws.com\\"},\\"Action\\":[\\"aiops:CreateInvestigation\\",\\"aiops:CreateInvestigationEvent\\"],\\"Resource\\":\\"*\\",\\"Condition\\":{\\"StringEquals\\":{\\"aws:SourceAccount\\":\\"111122223333\\"},\\"ArnLike\\":{\\"aws:SourceArn\\":\\"arn:aws:cloudwatch:us-east-1:111122223333:alarm:*\\"}}}]}</code>.</p>
+        r"""<p>Returns the JSON of the IAM resource policy associated with the specified investigation group in a string. For example, <code>{\\"Version\\":\\"2012-10-17\\",\\"Statement\\":[{\\"Effect\\":\\"Allow\\",\\"Principal\\":{\\"Service\\":\\"aiops.alarms.cloudwatch.amazonaws.com\\"},\\"Action\\":[\\"aiops:CreateInvestigation\\",\\"aiops:CreateInvestigationEvent\\"],\\"Resource\\":\\"*\\",\\"Condition\\":{\\"StringEquals\\":{\\"aws:SourceAccount\\":\\"111122223333\\"},\\"ArnLike\\":{\\"aws:SourceArn\\":\\"arn:aws:cloudwatch:us-east-1:111122223333:alarm:*\\"}}}]}</code>.</p>
 
         Args:
             identifier: <p>Specify either the name or the ARN of the investigation group that you want to view the policy of.</p>

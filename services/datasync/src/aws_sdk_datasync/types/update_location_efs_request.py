@@ -18,15 +18,15 @@ class UpdateLocationEfsRequest(TypedDict):
     location_arn: "aws_sdk_datasync.types.location_arn.LocationArn"
     """<p>Specifies the Amazon Resource Name (ARN) of the Amazon EFS transfer location that you're updating.</p>"""
     subdirectory: NotRequired["aws_sdk_datasync.types.efs_subdirectory.EfsSubdirectory"]
-    """<p>Specifies a mount path for your Amazon EFS file system. This is where DataSync reads or writes data on your file system (depending on if this is a source or destination location).</p> <p>By default, DataSync uses the root directory (or <a href=\"https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html\">access point</a> if you provide one by using <code>AccessPointArn</code>). You can also include subdirectories using forward slashes (for example, <code>/path/to/folder</code>).</p>"""
+    r"""<p>Specifies a mount path for your Amazon EFS file system. This is where DataSync reads or writes data on your file system (depending on if this is a source or destination location).</p> <p>By default, DataSync uses the root directory (or <a href=\"https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html\">access point</a> if you provide one by using <code>AccessPointArn</code>). You can also include subdirectories using forward slashes (for example, <code>/path/to/folder</code>).</p>"""
     access_point_arn: NotRequired[
         "aws_sdk_datasync.types.updated_efs_access_point_arn.UpdatedEfsAccessPointArn"
     ]
-    """<p>Specifies the Amazon Resource Name (ARN) of the access point that DataSync uses to mount your Amazon EFS file system.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/create-efs-location.html#create-efs-location-iam\">Accessing restricted Amazon EFS file systems</a>.</p>"""
+    r"""<p>Specifies the Amazon Resource Name (ARN) of the access point that DataSync uses to mount your Amazon EFS file system.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/create-efs-location.html#create-efs-location-iam\">Accessing restricted Amazon EFS file systems</a>.</p>"""
     file_system_access_role_arn: NotRequired[
         "aws_sdk_datasync.types.updated_efs_iam_role_arn.UpdatedEfsIamRoleArn"
     ]
-    """<p>Specifies an Identity and Access Management (IAM) role that allows DataSync to access your Amazon EFS file system.</p> <p>For information on creating this role, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/create-efs-location.html#create-efs-location-iam-role\">Creating a DataSync IAM role for Amazon EFS file system access</a>.</p>"""
+    r"""<p>Specifies an Identity and Access Management (IAM) role that allows DataSync to access your Amazon EFS file system.</p> <p>For information on creating this role, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/create-efs-location.html#create-efs-location-iam-role\">Creating a DataSync IAM role for Amazon EFS file system access</a>.</p>"""
     in_transit_encryption: NotRequired[
         "aws_sdk_datasync.types.efs_in_transit_encryption.EfsInTransitEncryption"
     ]

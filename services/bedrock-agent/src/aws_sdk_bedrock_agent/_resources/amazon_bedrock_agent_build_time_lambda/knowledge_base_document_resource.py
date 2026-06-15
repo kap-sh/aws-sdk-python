@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_bedrock_agent._auth._signers
@@ -52,7 +54,7 @@ class KnowledgeBaseDocumentResource:
             "aws_sdk_bedrock_agent.types.client_token.ClientToken"
         ] = None,
     ) -> "aws_sdk_bedrock_agent.types.delete_knowledge_base_documents_response.DeleteKnowledgeBaseDocumentsResponse":
-        """<p>Deletes documents from a data source and syncs the changes to the knowledge base that is connected to it. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/kb-direct-ingestion.html\">Ingest changes directly into a knowledge base</a> in the Amazon Bedrock User Guide.</p>
+        r"""<p>Deletes documents from a data source and syncs the changes to the knowledge base that is connected to it. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/kb-direct-ingestion.html\">Ingest changes directly into a knowledge base</a> in the Amazon Bedrock User Guide.</p>
 
         Args:
             knowledge_base_id: <p>The unique identifier of the knowledge base that is connected to the data source.</p>
@@ -98,7 +100,7 @@ class KnowledgeBaseDocumentResource:
         *,
         config_overrides: Optional[BedrockAgentClientConfig] = None,
     ) -> "aws_sdk_bedrock_agent.types.get_knowledge_base_documents_response.GetKnowledgeBaseDocumentsResponse":
-        """<p>Retrieves specific documents from a data source that is connected to a knowledge base. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/kb-direct-ingestion.html\">Ingest changes directly into a knowledge base</a> in the Amazon Bedrock User Guide.</p>
+        r"""<p>Retrieves specific documents from a data source that is connected to a knowledge base. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/kb-direct-ingestion.html\">Ingest changes directly into a knowledge base</a> in the Amazon Bedrock User Guide.</p>
 
         Args:
             knowledge_base_id: <p>The unique identifier of the knowledge base that is connected to the data source.</p>
@@ -144,7 +146,7 @@ class KnowledgeBaseDocumentResource:
             "aws_sdk_bedrock_agent.types.client_token.ClientToken"
         ] = None,
     ) -> "aws_sdk_bedrock_agent.types.ingest_knowledge_base_documents_response.IngestKnowledgeBaseDocumentsResponse":
-        """<p>Ingests documents directly into the knowledge base that is connected to the data source. The <code>dataSourceType</code> specified in the content for each document must match the type of the data source that you specify in the header. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/kb-direct-ingestion.html\">Ingest changes directly into a knowledge base</a> in the Amazon Bedrock User Guide.</p>
+        r"""<p>Ingests documents directly into the knowledge base that is connected to the data source. The <code>dataSourceType</code> specified in the content for each document must match the type of the data source that you specify in the header. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/kb-direct-ingestion.html\">Ingest changes directly into a knowledge base</a> in the Amazon Bedrock User Guide.</p>
 
         Args:
             knowledge_base_id: <p>The unique identifier of the knowledge base to ingest the documents into.</p>
@@ -193,7 +195,7 @@ class KnowledgeBaseDocumentResource:
         ] = None,
         next_token: Optional["aws_sdk_bedrock_agent.types.next_token.NextToken"] = None,
     ) -> "aws_sdk_bedrock_agent.types.list_knowledge_base_documents_response.ListKnowledgeBaseDocumentsResponse":
-        """<p>Retrieves all the documents contained in a data source that is connected to a knowledge base. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/kb-direct-ingestion.html\">Ingest changes directly into a knowledge base</a> in the Amazon Bedrock User Guide.</p>
+        r"""<p>Retrieves all the documents contained in a data source that is connected to a knowledge base. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/kb-direct-ingestion.html\">Ingest changes directly into a knowledge base</a> in the Amazon Bedrock User Guide.</p>
 
         Args:
             knowledge_base_id: <p>The unique identifier of the knowledge base that is connected to the data source.</p>
@@ -248,7 +250,7 @@ class AsyncKnowledgeBaseDocumentResource:
             "aws_sdk_bedrock_agent.types.client_token.ClientToken"
         ] = None,
     ) -> "aws_sdk_bedrock_agent.types.delete_knowledge_base_documents_response.DeleteKnowledgeBaseDocumentsResponse":
-        """<p>Deletes documents from a data source and syncs the changes to the knowledge base that is connected to it. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/kb-direct-ingestion.html\">Ingest changes directly into a knowledge base</a> in the Amazon Bedrock User Guide.</p>
+        r"""<p>Deletes documents from a data source and syncs the changes to the knowledge base that is connected to it. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/kb-direct-ingestion.html\">Ingest changes directly into a knowledge base</a> in the Amazon Bedrock User Guide.</p>
 
         Args:
             knowledge_base_id: <p>The unique identifier of the knowledge base that is connected to the data source.</p>
@@ -295,7 +297,7 @@ class AsyncKnowledgeBaseDocumentResource:
         *,
         config_overrides: Optional[AsyncBedrockAgentClientConfig] = None,
     ) -> "aws_sdk_bedrock_agent.types.get_knowledge_base_documents_response.GetKnowledgeBaseDocumentsResponse":
-        """<p>Retrieves specific documents from a data source that is connected to a knowledge base. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/kb-direct-ingestion.html\">Ingest changes directly into a knowledge base</a> in the Amazon Bedrock User Guide.</p>
+        r"""<p>Retrieves specific documents from a data source that is connected to a knowledge base. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/kb-direct-ingestion.html\">Ingest changes directly into a knowledge base</a> in the Amazon Bedrock User Guide.</p>
 
         Args:
             knowledge_base_id: <p>The unique identifier of the knowledge base that is connected to the data source.</p>
@@ -342,7 +344,7 @@ class AsyncKnowledgeBaseDocumentResource:
             "aws_sdk_bedrock_agent.types.client_token.ClientToken"
         ] = None,
     ) -> "aws_sdk_bedrock_agent.types.ingest_knowledge_base_documents_response.IngestKnowledgeBaseDocumentsResponse":
-        """<p>Ingests documents directly into the knowledge base that is connected to the data source. The <code>dataSourceType</code> specified in the content for each document must match the type of the data source that you specify in the header. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/kb-direct-ingestion.html\">Ingest changes directly into a knowledge base</a> in the Amazon Bedrock User Guide.</p>
+        r"""<p>Ingests documents directly into the knowledge base that is connected to the data source. The <code>dataSourceType</code> specified in the content for each document must match the type of the data source that you specify in the header. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/kb-direct-ingestion.html\">Ingest changes directly into a knowledge base</a> in the Amazon Bedrock User Guide.</p>
 
         Args:
             knowledge_base_id: <p>The unique identifier of the knowledge base to ingest the documents into.</p>
@@ -392,7 +394,7 @@ class AsyncKnowledgeBaseDocumentResource:
         ] = None,
         next_token: Optional["aws_sdk_bedrock_agent.types.next_token.NextToken"] = None,
     ) -> "aws_sdk_bedrock_agent.types.list_knowledge_base_documents_response.ListKnowledgeBaseDocumentsResponse":
-        """<p>Retrieves all the documents contained in a data source that is connected to a knowledge base. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/kb-direct-ingestion.html\">Ingest changes directly into a knowledge base</a> in the Amazon Bedrock User Guide.</p>
+        r"""<p>Retrieves all the documents contained in a data source that is connected to a knowledge base. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/kb-direct-ingestion.html\">Ingest changes directly into a knowledge base</a> in the Amazon Bedrock User Guide.</p>
 
         Args:
             knowledge_base_id: <p>The unique identifier of the knowledge base that is connected to the data source.</p>

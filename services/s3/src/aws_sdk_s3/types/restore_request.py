@@ -24,7 +24,7 @@ class RestoreRequest(TypedDict):
     ]
     """<p>S3 Glacier related parameters pertaining to this job. Do not use with restores that specify <code>OutputLocation</code>.</p>"""
     type: NotRequired["aws_sdk_s3.types.restore_request_type.RestoreRequestType"]
-    """<important> <p>Amazon S3 Select is no longer available to new customers. Existing customers of Amazon S3 Select can continue to use the feature as usual. <a href=\"http://aws.amazon.com/blogs/storage/how-to-optimize-querying-your-data-in-amazon-s3/\">Learn more</a> </p> </important> <p>Type of restore request.</p>"""
+    r"""<important> <p>Amazon S3 Select is no longer available to new customers. Existing customers of Amazon S3 Select can continue to use the feature as usual. <a href=\"http://aws.amazon.com/blogs/storage/how-to-optimize-querying-your-data-in-amazon-s3/\">Learn more</a> </p> </important> <p>Type of restore request.</p>"""
     tier: NotRequired["aws_sdk_s3.types.tier.Tier"]
     """<p>Retrieval tier at which the restore will be processed.</p>"""
     description: NotRequired["aws_sdk_s3.types.description.Description"]
@@ -32,7 +32,7 @@ class RestoreRequest(TypedDict):
     select_parameters: NotRequired[
         "aws_sdk_s3.types.select_parameters.SelectParameters"
     ]
-    """<important> <p>Amazon S3 Select is no longer available to new customers. Existing customers of Amazon S3 Select can continue to use the feature as usual. <a href=\"http://aws.amazon.com/blogs/storage/how-to-optimize-querying-your-data-in-amazon-s3/\">Learn more</a> </p> </important> <p>Describes the parameters for Select job types.</p>"""
+    r"""<important> <p>Amazon S3 Select is no longer available to new customers. Existing customers of Amazon S3 Select can continue to use the feature as usual. <a href=\"http://aws.amazon.com/blogs/storage/how-to-optimize-querying-your-data-in-amazon-s3/\">Learn more</a> </p> </important> <p>Describes the parameters for Select job types.</p>"""
     output_location: NotRequired["aws_sdk_s3.types.output_location.OutputLocation"]
     """<p>Describes the location where the restore job's output is stored.</p>"""
 

@@ -21,7 +21,7 @@ class DeploymentLifecycleHook(TypedDict):
     hook_target_arn: NotRequired["aws_sdk_ecs.types.string.String"]
     """<p>The Amazon Resource Name (ARN) of the hook target. Currently, only Lambda function ARNs are supported.</p> <p>You must provide this parameter when configuring a deployment lifecycle hook.</p>"""
     role_arn: NotRequired["aws_sdk_ecs.types.iam_role_arn.IAMRoleArn"]
-    """<p>The Amazon Resource Name (ARN) of the IAM role that grants Amazon ECS permission to call Lambda functions on your behalf.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/blue-green-permissions.html\">Permissions required for Lambda functions in Amazon ECS blue/green deployments</a> in the <i> Amazon Elastic Container Service Developer Guide</i>.</p>"""
+    r"""<p>The Amazon Resource Name (ARN) of the IAM role that grants Amazon ECS permission to call Lambda functions on your behalf.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/blue-green-permissions.html\">Permissions required for Lambda functions in Amazon ECS blue/green deployments</a> in the <i> Amazon Elastic Container Service Developer Guide</i>.</p>"""
     lifecycle_stages: NotRequired[
         "aws_sdk_ecs.types.deployment_lifecycle_hook_stage_list.DeploymentLifecycleHookStageList"
     ]

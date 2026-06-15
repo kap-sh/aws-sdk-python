@@ -17,7 +17,7 @@ class AudioOnlyHlsSettings(TypedDict):
     audio_only_image: NotRequired[
         "aws_sdk_medialive.types.input_location.InputLocation"
     ]
-    """Optional. Specifies the .jpg or .png image to use as the cover art for an audio-only output. We recommend a low bit-size file because the image increases the output audio bandwidth. The image is attached to the audio as an ID3 tag, frame type APIC, picture type 0x10, as per the \"ID3 tag version 2.4.0 - Native Frames\" standard."""
+    r"""Optional. Specifies the .jpg or .png image to use as the cover art for an audio-only output. We recommend a low bit-size file because the image increases the output audio bandwidth. The image is attached to the audio as an ID3 tag, frame type APIC, picture type 0x10, as per the \"ID3 tag version 2.4.0 - Native Frames\" standard."""
     audio_track_type: NotRequired[
         "aws_sdk_medialive.types.audio_only_hls_track_type.AudioOnlyHlsTrackType"
     ]

@@ -15,7 +15,7 @@ class DocumentAttributeValue(TypedDict):
     string_value: NotRequired[
         "aws_sdk_kendra.types.document_attribute_string_value.DocumentAttributeStringValue"
     ]
-    """<p>A string, such as \"department\".</p>"""
+    r"""<p>A string, such as \"department\".</p>"""
     string_list_value: NotRequired[
         "aws_sdk_kendra.types.document_attribute_string_list_value.DocumentAttributeStringListValue"
     ]

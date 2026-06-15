@@ -1,16 +1,20 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#GetWorkloadAccessTokenForJWTRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.user_token_type
     import aws_sdk_bedrock_agentcore.types.workload_identity_name_type
+
 
 class GetWorkloadAccessTokenForJWTRequest(TypedDict):
     workload_name: "aws_sdk_bedrock_agentcore.types.workload_identity_name_type.WorkloadIdentityNameType"
     """<p>The unique identifier for the registered workload.</p>"""
     user_token: "aws_sdk_bedrock_agentcore.types.user_token_type.UserTokenType"
     """<p>The OAuth 2.0 token issued by the user's identity provider.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: GetWorkloadAccessTokenForJWTRequest) -> dict:
@@ -25,9 +29,13 @@ def deserialize_json(data: dict) -> GetWorkloadAccessTokenForJWTRequest:
     if "workloadName" in data:
         out["workload_name"] = data["workloadName"]
     else:
-        raise DeserializationError("GetWorkloadAccessTokenForJWTRequest.workload_name required")
+        raise DeserializationError(
+            "GetWorkloadAccessTokenForJWTRequest.workload_name required"
+        )
     if "userToken" in data:
         out["user_token"] = data["userToken"]
     else:
-        raise DeserializationError("GetWorkloadAccessTokenForJWTRequest.user_token required")
+        raise DeserializationError(
+            "GetWorkloadAccessTokenForJWTRequest.user_token required"
+        )
     return out

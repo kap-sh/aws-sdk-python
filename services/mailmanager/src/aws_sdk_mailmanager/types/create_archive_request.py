@@ -28,7 +28,7 @@ class CreateArchiveRequest(TypedDict):
     kms_key_arn: NotRequired["aws_sdk_mailmanager.types.kms_key_arn.KmsKeyArn"]
     """<p>The Amazon Resource Name (ARN) of the KMS key for encrypting emails in the archive.</p>"""
     tags: NotRequired["aws_sdk_mailmanager.types.tag_list.TagList"]
-    """<p>The tags used to organize, track, or control access for the resource. For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.</p>"""
+    r"""<p>The tags used to organize, track, or control access for the resource. For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.</p>"""
 
 
 # --- awsJson1_0 ser/de ---

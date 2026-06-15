@@ -16,7 +16,7 @@ class GetAssessmentReportRequest(TypedDict):
     report_file_format: "aws_sdk_inspector.types.report_file_format.ReportFileFormat"
     """<p>Specifies the file format (html or pdf) of the assessment report that you want to generate.</p>"""
     report_type: "aws_sdk_inspector.types.report_type.ReportType"
-    """<p>Specifies the type of the assessment report that you want to generate. There are two types of assessment reports: a finding report and a full report. For more information, see <a href=\"https://docs.aws.amazon.com/inspector/latest/userguide/inspector_reports.html\">Assessment Reports</a>. </p>"""
+    r"""<p>Specifies the type of the assessment report that you want to generate. There are two types of assessment reports: a finding report and a full report. For more information, see <a href=\"https://docs.aws.amazon.com/inspector/latest/userguide/inspector_reports.html\">Assessment Reports</a>. </p>"""
 
 
 # --- awsJson1_1 ser/de ---

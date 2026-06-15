@@ -14,7 +14,7 @@ class DeleteApplicationAssignmentRequest(TypedDict):
     application_arn: "aws_sdk_sso_admin.types.application_arn.ApplicationArn"
     """<p>Specifies the ARN of the application.</p>"""
     principal_id: "aws_sdk_sso_admin.types.principal_id.PrincipalId"
-    """<p>An identifier for an object in IAM Identity Center, such as a user or group. PrincipalIds are GUIDs (For example, f81d4fae-7dec-11d0-a765-00a0c91e6bf6). For more information about PrincipalIds in IAM Identity Center, see the <a href=\"https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/welcome.html\">IAM Identity Center Identity Store API Reference</a>.</p>"""
+    r"""<p>An identifier for an object in IAM Identity Center, such as a user or group. PrincipalIds are GUIDs (For example, f81d4fae-7dec-11d0-a765-00a0c91e6bf6). For more information about PrincipalIds in IAM Identity Center, see the <a href=\"https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/welcome.html\">IAM Identity Center Identity Store API Reference</a>.</p>"""
     principal_type: "aws_sdk_sso_admin.types.principal_type.PrincipalType"
     """<p>The entity type for which the assignment will be deleted.</p>"""
 

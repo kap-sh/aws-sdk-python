@@ -14,7 +14,7 @@ class ExportFilter(TypedDict):
     name: "aws_sdk_application_discovery_service.types.filter_name.FilterName"
     """<p>A single <code>ExportFilter</code> name. Supported filters: <code>agentIds</code>.</p>"""
     values: "aws_sdk_application_discovery_service.types.filter_values.FilterValues"
-    """<p>A single agent ID for a Discovery Agent. An agent ID can be found using the <a href=\"http://docs.aws.amazon.com/application-discovery/latest/APIReference/API_DescribeAgents.html\">DescribeAgents</a> action. Typically an ADS agent ID is in the form <code>o-0123456789abcdef0</code>.</p>"""
+    r"""<p>A single agent ID for a Discovery Agent. An agent ID can be found using the <a href=\"http://docs.aws.amazon.com/application-discovery/latest/APIReference/API_DescribeAgents.html\">DescribeAgents</a> action. Typically an ADS agent ID is in the form <code>o-0123456789abcdef0</code>.</p>"""
     condition: "aws_sdk_application_discovery_service.types.condition.Condition"
     """<p>Supported condition: <code>EQUALS</code> </p>"""
 

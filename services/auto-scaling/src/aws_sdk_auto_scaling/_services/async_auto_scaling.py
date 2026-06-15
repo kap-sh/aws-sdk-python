@@ -298,7 +298,7 @@ class AsyncAutoScalingClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = AsyncAutoScalingClientConfig(
+        self._config = AsyncAutoScalingClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -318,7 +318,7 @@ class AsyncAutoScalingClient:
         overrides: AsyncAutoScalingClientConfig = config_overrides or {}
         interceptors_: list[AsyncInterceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             aretry(),
         ]
@@ -326,16 +326,16 @@ class AsyncAutoScalingClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            region=overrides.get("region", self.config.get("region")),
+            region=overrides.get("region", self._config.get("region")),
             use_dual_stack=overrides.get(
-                "use_dual_stack", self.config.get("use_dual_stack")
+                "use_dual_stack", self._config.get("use_dual_stack")
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -349,7 +349,7 @@ class AsyncAutoScalingClient:
             "aws_sdk_auto_scaling.types.instance_ids.InstanceIds"
         ] = None,
     ) -> None:
-        """<p>Attaches one or more EC2 instances to the specified Auto Scaling group.</p> <p>When you attach instances, Amazon EC2 Auto Scaling increases the desired capacity of the group by the number of instances being attached. If the number of instances being attached plus the desired capacity of the group exceeds the maximum size of the group, the operation fails.</p> <p>If there is a Classic Load Balancer attached to your Auto Scaling group, the instances are also registered with the load balancer. If there are target groups attached to your Auto Scaling group, the instances are also registered with the target groups.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-detach-attach-instances.html\">Detach or attach instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+        r"""<p>Attaches one or more EC2 instances to the specified Auto Scaling group.</p> <p>When you attach instances, Amazon EC2 Auto Scaling increases the desired capacity of the group by the number of instances being attached. If the number of instances being attached plus the desired capacity of the group exceeds the maximum size of the group, the operation fails.</p> <p>If there is a Classic Load Balancer attached to your Auto Scaling group, the instances are also registered with the load balancer. If there are target groups attached to your Auto Scaling group, the instances are also registered with the target groups.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-detach-attach-instances.html\">Detach or attach instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
 
         Args:
             instance_ids: <p>The IDs of the instances. You can specify up to 20 instances.</p>
@@ -376,13 +376,13 @@ class AsyncAutoScalingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auto_scaling.types.attach_instances_query.AttachInstancesQuery = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_auto_scaling.types.attach_instances_query.AttachInstancesQuery = {}  # type: ignore[typeddict-item]
         if instance_ids is not None:
-            input["instance_ids"] = instance_ids
-        input["auto_scaling_group_name"] = auto_scaling_group_name
+            input_["instance_ids"] = instance_ids
+        input_["auto_scaling_group_name"] = auto_scaling_group_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -395,7 +395,7 @@ class AsyncAutoScalingClient:
         *,
         config_overrides: Optional[AsyncAutoScalingClientConfig] = None,
     ) -> "aws_sdk_auto_scaling.types.attach_load_balancers_result_type.AttachLoadBalancersResultType":
-        """<note> <p>This API operation is superseded by <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_AttachTrafficSources.html\">AttachTrafficSources</a>, which can attach multiple traffic sources types. We recommend using <code>AttachTrafficSources</code> to simplify how you manage traffic sources. However, we continue to support <code>AttachLoadBalancers</code>. You can use both the original <code>AttachLoadBalancers</code> API operation and <code>AttachTrafficSources</code> on the same Auto Scaling group.</p> </note> <p>Attaches one or more Classic Load Balancers to the specified Auto Scaling group. Amazon EC2 Auto Scaling registers the running instances with these Classic Load Balancers.</p> <p>To describe the load balancers for an Auto Scaling group, call the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeLoadBalancers.html\">DescribeLoadBalancers</a> API. To detach a load balancer from the Auto Scaling group, call the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DetachLoadBalancers.html\">DetachLoadBalancers</a> API.</p> <p>This operation is additive and does not detach existing Classic Load Balancers or target groups from the Auto Scaling group.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html\">Use Elastic Load Balancing to distribute traffic across the instances in your Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+        r"""<note> <p>This API operation is superseded by <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_AttachTrafficSources.html\">AttachTrafficSources</a>, which can attach multiple traffic sources types. We recommend using <code>AttachTrafficSources</code> to simplify how you manage traffic sources. However, we continue to support <code>AttachLoadBalancers</code>. You can use both the original <code>AttachLoadBalancers</code> API operation and <code>AttachTrafficSources</code> on the same Auto Scaling group.</p> </note> <p>Attaches one or more Classic Load Balancers to the specified Auto Scaling group. Amazon EC2 Auto Scaling registers the running instances with these Classic Load Balancers.</p> <p>To describe the load balancers for an Auto Scaling group, call the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeLoadBalancers.html\">DescribeLoadBalancers</a> API. To detach a load balancer from the Auto Scaling group, call the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DetachLoadBalancers.html\">DetachLoadBalancers</a> API.</p> <p>This operation is additive and does not detach existing Classic Load Balancers or target groups from the Auto Scaling group.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html\">Use Elastic Load Balancing to distribute traffic across the instances in your Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
 
         Args:
             auto_scaling_group_name: <p>The name of the Auto Scaling group.</p>
@@ -424,12 +424,12 @@ class AsyncAutoScalingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auto_scaling.types.attach_load_balancers_type.AttachLoadBalancersType = {}  # type: ignore[typeddict-item]
-        input["auto_scaling_group_name"] = auto_scaling_group_name
-        input["load_balancer_names"] = load_balancer_names
+        input_: aws_sdk_auto_scaling.types.attach_load_balancers_type.AttachLoadBalancersType = {}  # type: ignore[typeddict-item]
+        input_["auto_scaling_group_name"] = auto_scaling_group_name
+        input_["load_balancer_names"] = load_balancer_names
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -442,7 +442,7 @@ class AsyncAutoScalingClient:
         *,
         config_overrides: Optional[AsyncAutoScalingClientConfig] = None,
     ) -> "aws_sdk_auto_scaling.types.attach_load_balancer_target_groups_result_type.AttachLoadBalancerTargetGroupsResultType":
-        """<note> <p>This API operation is superseded by <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_AttachTrafficSources.html\">AttachTrafficSources</a>, which can attach multiple traffic sources types. We recommend using <code>AttachTrafficSources</code> to simplify how you manage traffic sources. However, we continue to support <code>AttachLoadBalancerTargetGroups</code>. You can use both the original <code>AttachLoadBalancerTargetGroups</code> API operation and <code>AttachTrafficSources</code> on the same Auto Scaling group.</p> </note> <p>Attaches one or more target groups to the specified Auto Scaling group.</p> <p>This operation is used with the following load balancer types: </p> <ul> <li> <p>Application Load Balancer - Operates at the application layer (layer 7) and supports HTTP and HTTPS. </p> </li> <li> <p>Network Load Balancer - Operates at the transport layer (layer 4) and supports TCP, TLS, and UDP. </p> </li> <li> <p>Gateway Load Balancer - Operates at the network layer (layer 3).</p> </li> </ul> <p>To describe the target groups for an Auto Scaling group, call the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeLoadBalancerTargetGroups.html\">DescribeLoadBalancerTargetGroups</a> API. To detach the target group from the Auto Scaling group, call the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DetachLoadBalancerTargetGroups.html\">DetachLoadBalancerTargetGroups</a> API.</p> <p>This operation is additive and does not detach existing target groups or Classic Load Balancers from the Auto Scaling group.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html\">Use Elastic Load Balancing to distribute traffic across the instances in your Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p>
+        r"""<note> <p>This API operation is superseded by <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_AttachTrafficSources.html\">AttachTrafficSources</a>, which can attach multiple traffic sources types. We recommend using <code>AttachTrafficSources</code> to simplify how you manage traffic sources. However, we continue to support <code>AttachLoadBalancerTargetGroups</code>. You can use both the original <code>AttachLoadBalancerTargetGroups</code> API operation and <code>AttachTrafficSources</code> on the same Auto Scaling group.</p> </note> <p>Attaches one or more target groups to the specified Auto Scaling group.</p> <p>This operation is used with the following load balancer types: </p> <ul> <li> <p>Application Load Balancer - Operates at the application layer (layer 7) and supports HTTP and HTTPS. </p> </li> <li> <p>Network Load Balancer - Operates at the transport layer (layer 4) and supports TCP, TLS, and UDP. </p> </li> <li> <p>Gateway Load Balancer - Operates at the network layer (layer 3).</p> </li> </ul> <p>To describe the target groups for an Auto Scaling group, call the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeLoadBalancerTargetGroups.html\">DescribeLoadBalancerTargetGroups</a> API. To detach the target group from the Auto Scaling group, call the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DetachLoadBalancerTargetGroups.html\">DetachLoadBalancerTargetGroups</a> API.</p> <p>This operation is additive and does not detach existing target groups or Classic Load Balancers from the Auto Scaling group.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html\">Use Elastic Load Balancing to distribute traffic across the instances in your Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p>
 
         Args:
             auto_scaling_group_name: <p>The name of the Auto Scaling group.</p>
@@ -471,12 +471,12 @@ class AsyncAutoScalingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auto_scaling.types.attach_load_balancer_target_groups_type.AttachLoadBalancerTargetGroupsType = {}  # type: ignore[typeddict-item]
-        input["auto_scaling_group_name"] = auto_scaling_group_name
-        input["target_group_ar_ns"] = target_group_ar_ns
+        input_: aws_sdk_auto_scaling.types.attach_load_balancer_target_groups_type.AttachLoadBalancerTargetGroupsType = {}  # type: ignore[typeddict-item]
+        input_["auto_scaling_group_name"] = auto_scaling_group_name
+        input_["target_group_ar_ns"] = target_group_ar_ns
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -492,7 +492,7 @@ class AsyncAutoScalingClient:
             "aws_sdk_auto_scaling.types.skip_zonal_shift_validation.SkipZonalShiftValidation"
         ] = None,
     ) -> "aws_sdk_auto_scaling.types.attach_traffic_sources_result_type.AttachTrafficSourcesResultType":
-        """<p>Attaches one or more traffic sources to the specified Auto Scaling group.</p> <p>You can use any of the following as traffic sources for an Auto Scaling group:</p> <ul> <li> <p>Application Load Balancer</p> </li> <li> <p>Classic Load Balancer</p> </li> <li> <p>Gateway Load Balancer</p> </li> <li> <p>Network Load Balancer</p> </li> <li> <p>VPC Lattice</p> </li> </ul> <p>This operation is additive and does not detach existing traffic sources from the Auto Scaling group. </p> <p>After the operation completes, use the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeTrafficSources.html\">DescribeTrafficSources</a> API to return details about the state of the attachments between traffic sources and your Auto Scaling group. To detach a traffic source from the Auto Scaling group, call the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DetachTrafficSources.html\">DetachTrafficSources</a> API.</p>
+        r"""<p>Attaches one or more traffic sources to the specified Auto Scaling group.</p> <p>You can use any of the following as traffic sources for an Auto Scaling group:</p> <ul> <li> <p>Application Load Balancer</p> </li> <li> <p>Classic Load Balancer</p> </li> <li> <p>Gateway Load Balancer</p> </li> <li> <p>Network Load Balancer</p> </li> <li> <p>VPC Lattice</p> </li> </ul> <p>This operation is additive and does not detach existing traffic sources from the Auto Scaling group. </p> <p>After the operation completes, use the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeTrafficSources.html\">DescribeTrafficSources</a> API to return details about the state of the attachments between traffic sources and your Auto Scaling group. To detach a traffic source from the Auto Scaling group, call the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DetachTrafficSources.html\">DetachTrafficSources</a> API.</p>
 
         Args:
             auto_scaling_group_name: <p>The name of the Auto Scaling group.</p>
@@ -522,14 +522,14 @@ class AsyncAutoScalingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auto_scaling.types.attach_traffic_sources_type.AttachTrafficSourcesType = {}  # type: ignore[typeddict-item]
-        input["auto_scaling_group_name"] = auto_scaling_group_name
-        input["traffic_sources"] = traffic_sources
+        input_: aws_sdk_auto_scaling.types.attach_traffic_sources_type.AttachTrafficSourcesType = {}  # type: ignore[typeddict-item]
+        input_["auto_scaling_group_name"] = auto_scaling_group_name
+        input_["traffic_sources"] = traffic_sources
         if skip_zonal_shift_validation is not None:
-            input["skip_zonal_shift_validation"] = skip_zonal_shift_validation
+            input_["skip_zonal_shift_validation"] = skip_zonal_shift_validation
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -565,12 +565,12 @@ class AsyncAutoScalingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auto_scaling.types.batch_delete_scheduled_action_type.BatchDeleteScheduledActionType = {}  # type: ignore[typeddict-item]
-        input["auto_scaling_group_name"] = auto_scaling_group_name
-        input["scheduled_action_names"] = scheduled_action_names
+        input_: aws_sdk_auto_scaling.types.batch_delete_scheduled_action_type.BatchDeleteScheduledActionType = {}  # type: ignore[typeddict-item]
+        input_["auto_scaling_group_name"] = auto_scaling_group_name
+        input_["scheduled_action_names"] = scheduled_action_names
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -606,12 +606,12 @@ class AsyncAutoScalingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auto_scaling.types.batch_put_scheduled_update_group_action_type.BatchPutScheduledUpdateGroupActionType = {}  # type: ignore[typeddict-item]
-        input["auto_scaling_group_name"] = auto_scaling_group_name
-        input["scheduled_update_group_actions"] = scheduled_update_group_actions
+        input_: aws_sdk_auto_scaling.types.batch_put_scheduled_update_group_action_type.BatchPutScheduledUpdateGroupActionType = {}  # type: ignore[typeddict-item]
+        input_["auto_scaling_group_name"] = auto_scaling_group_name
+        input_["scheduled_update_group_actions"] = scheduled_update_group_actions
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -626,7 +626,7 @@ class AsyncAutoScalingClient:
             "aws_sdk_auto_scaling.types.boolean_type.BooleanType"
         ] = None,
     ) -> "aws_sdk_auto_scaling.types.cancel_instance_refresh_answer.CancelInstanceRefreshAnswer":
-        """<p>Cancels an instance refresh or rollback that is in progress. If an instance refresh or rollback is not in progress, an <code>ActiveInstanceRefreshNotFound</code> error occurs.</p> <p>This operation is part of the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html\">instance refresh feature</a> in Amazon EC2 Auto Scaling, which helps you update instances in your Auto Scaling group after you make configuration changes.</p> <p>When you cancel an instance refresh, this does not roll back any changes that it made. Use the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_RollbackInstanceRefresh.html\">RollbackInstanceRefresh</a> API to roll back instead.</p>
+        r"""<p>Cancels an instance refresh or rollback that is in progress. If an instance refresh or rollback is not in progress, an <code>ActiveInstanceRefreshNotFound</code> error occurs.</p> <p>This operation is part of the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html\">instance refresh feature</a> in Amazon EC2 Auto Scaling, which helps you update instances in your Auto Scaling group after you make configuration changes.</p> <p>When you cancel an instance refresh, this does not roll back any changes that it made. Use the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_RollbackInstanceRefresh.html\">RollbackInstanceRefresh</a> API to roll back instead.</p>
 
         Args:
             auto_scaling_group_name: <p>The name of the Auto Scaling group.</p>
@@ -655,13 +655,15 @@ class AsyncAutoScalingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auto_scaling.types.cancel_instance_refresh_type.CancelInstanceRefreshType = {}  # type: ignore[typeddict-item]
-        input["auto_scaling_group_name"] = auto_scaling_group_name
+        input_: aws_sdk_auto_scaling.types.cancel_instance_refresh_type.CancelInstanceRefreshType = {}  # type: ignore[typeddict-item]
+        input_["auto_scaling_group_name"] = auto_scaling_group_name
         if wait_for_transitioning_instances is not None:
-            input["wait_for_transitioning_instances"] = wait_for_transitioning_instances
+            input_["wait_for_transitioning_instances"] = (
+                wait_for_transitioning_instances
+            )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -681,7 +683,7 @@ class AsyncAutoScalingClient:
             "aws_sdk_auto_scaling.types.xml_string_max_len19.XmlStringMaxLen19"
         ] = None,
     ) -> "aws_sdk_auto_scaling.types.complete_lifecycle_action_answer.CompleteLifecycleActionAnswer":
-        """<p>Completes the lifecycle action for the specified token or instance with the specified result.</p> <p>This step is a part of the procedure for adding a lifecycle hook to an Auto Scaling group:</p> <ol> <li> <p>(Optional) Create a launch template or launch configuration with a user data script that runs while an instance is in a wait state due to a lifecycle hook.</p> </li> <li> <p>(Optional) Create a Lambda function and a rule that allows Amazon EventBridge to invoke your Lambda function when an instance is put into a wait state due to a lifecycle hook.</p> </li> <li> <p>(Optional) Create a notification target and an IAM role. The target can be either an Amazon SQS queue or an Amazon SNS topic. The role allows Amazon EC2 Auto Scaling to publish lifecycle notifications to the target.</p> </li> <li> <p>Create the lifecycle hook. Specify whether the hook is used when the instances launch or terminate.</p> </li> <li> <p>If you need more time, record the lifecycle action heartbeat to keep the instance in a wait state.</p> </li> <li> <p> <b>If you finish before the timeout period ends, send a callback by using the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CompleteLifecycleAction.html\">CompleteLifecycleAction</a> API call.</b> </p> </li> </ol> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/completing-lifecycle-hooks.html\">Complete a lifecycle action</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+        r"""<p>Completes the lifecycle action for the specified token or instance with the specified result.</p> <p>This step is a part of the procedure for adding a lifecycle hook to an Auto Scaling group:</p> <ol> <li> <p>(Optional) Create a launch template or launch configuration with a user data script that runs while an instance is in a wait state due to a lifecycle hook.</p> </li> <li> <p>(Optional) Create a Lambda function and a rule that allows Amazon EventBridge to invoke your Lambda function when an instance is put into a wait state due to a lifecycle hook.</p> </li> <li> <p>(Optional) Create a notification target and an IAM role. The target can be either an Amazon SQS queue or an Amazon SNS topic. The role allows Amazon EC2 Auto Scaling to publish lifecycle notifications to the target.</p> </li> <li> <p>Create the lifecycle hook. Specify whether the hook is used when the instances launch or terminate.</p> </li> <li> <p>If you need more time, record the lifecycle action heartbeat to keep the instance in a wait state.</p> </li> <li> <p> <b>If you finish before the timeout period ends, send a callback by using the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CompleteLifecycleAction.html\">CompleteLifecycleAction</a> API call.</b> </p> </li> </ol> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/completing-lifecycle-hooks.html\">Complete a lifecycle action</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
 
         Args:
             lifecycle_hook_name: <p>The name of the lifecycle hook.</p>
@@ -713,17 +715,17 @@ class AsyncAutoScalingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auto_scaling.types.complete_lifecycle_action_type.CompleteLifecycleActionType = {}  # type: ignore[typeddict-item]
-        input["lifecycle_hook_name"] = lifecycle_hook_name
-        input["auto_scaling_group_name"] = auto_scaling_group_name
+        input_: aws_sdk_auto_scaling.types.complete_lifecycle_action_type.CompleteLifecycleActionType = {}  # type: ignore[typeddict-item]
+        input_["lifecycle_hook_name"] = lifecycle_hook_name
+        input_["auto_scaling_group_name"] = auto_scaling_group_name
         if lifecycle_action_token is not None:
-            input["lifecycle_action_token"] = lifecycle_action_token
-        input["lifecycle_action_result"] = lifecycle_action_result
+            input_["lifecycle_action_token"] = lifecycle_action_token
+        input_["lifecycle_action_result"] = lifecycle_action_result
         if instance_id is not None:
-            input["instance_id"] = instance_id
+            input_["instance_id"] = instance_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -829,7 +831,7 @@ class AsyncAutoScalingClient:
             "aws_sdk_auto_scaling.types.instance_lifecycle_policy.InstanceLifecyclePolicy"
         ] = None,
     ) -> None:
-        """<p> <b>We strongly recommend using a launch template when calling this operation to ensure full functionality for Amazon EC2 Auto Scaling and Amazon EC2.</b> </p> <p>Creates an Auto Scaling group with the specified name and attributes. </p> <p>If you exceed your maximum limit of Auto Scaling groups, the call fails. To query this limit, call the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeAccountLimits.html\">DescribeAccountLimits</a> API. For information about updating this limit, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-quotas.html\">Quotas for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>If you're new to Amazon EC2 Auto Scaling, see the introductory tutorials in <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html\">Get started with Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>Every Auto Scaling group has three size properties (<code>DesiredCapacity</code>, <code>MaxSize</code>, and <code>MinSize</code>). Usually, you set these sizes based on a specific number of instances. However, if you configure a mixed instances policy that defines weights for the instance types, you must specify these sizes with the same units that you use for weighting instances.</p>
+        r"""<p> <b>We strongly recommend using a launch template when calling this operation to ensure full functionality for Amazon EC2 Auto Scaling and Amazon EC2.</b> </p> <p>Creates an Auto Scaling group with the specified name and attributes. </p> <p>If you exceed your maximum limit of Auto Scaling groups, the call fails. To query this limit, call the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeAccountLimits.html\">DescribeAccountLimits</a> API. For information about updating this limit, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-quotas.html\">Quotas for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>If you're new to Amazon EC2 Auto Scaling, see the introductory tutorials in <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html\">Get started with Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>Every Auto Scaling group has three size properties (<code>DesiredCapacity</code>, <code>MaxSize</code>, and <code>MinSize</code>). Usually, you set these sizes based on a specific number of instances. However, if you configure a mixed instances policy that defines weights for the instance types, you must specify these sizes with the same units that you use for weighting instances.</p>
 
         Args:
             auto_scaling_group_name: <p>The name of the Auto Scaling group. This name must be unique per Region per account.</p> <p>The name can contain any ASCII character 33 to 126 including most punctuation characters, digits, and upper and lowercased letters.</p> <note> <p>You cannot use a colon (:) in the name.</p> </note>
@@ -901,85 +903,85 @@ class AsyncAutoScalingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auto_scaling.types.create_auto_scaling_group_type.CreateAutoScalingGroupType = {}  # type: ignore[typeddict-item]
-        input["auto_scaling_group_name"] = auto_scaling_group_name
+        input_: aws_sdk_auto_scaling.types.create_auto_scaling_group_type.CreateAutoScalingGroupType = {}  # type: ignore[typeddict-item]
+        input_["auto_scaling_group_name"] = auto_scaling_group_name
         if launch_configuration_name is not None:
-            input["launch_configuration_name"] = launch_configuration_name
+            input_["launch_configuration_name"] = launch_configuration_name
         if launch_template is not None:
-            input["launch_template"] = launch_template
+            input_["launch_template"] = launch_template
         if mixed_instances_policy is not None:
-            input["mixed_instances_policy"] = mixed_instances_policy
+            input_["mixed_instances_policy"] = mixed_instances_policy
         if instance_id is not None:
-            input["instance_id"] = instance_id
-        input["min_size"] = min_size
-        input["max_size"] = max_size
+            input_["instance_id"] = instance_id
+        input_["min_size"] = min_size
+        input_["max_size"] = max_size
         if desired_capacity is not None:
-            input["desired_capacity"] = desired_capacity
+            input_["desired_capacity"] = desired_capacity
         if default_cooldown is not None:
-            input["default_cooldown"] = default_cooldown
+            input_["default_cooldown"] = default_cooldown
         if availability_zones is not None:
-            input["availability_zones"] = availability_zones
+            input_["availability_zones"] = availability_zones
         if availability_zone_ids is not None:
-            input["availability_zone_ids"] = availability_zone_ids
+            input_["availability_zone_ids"] = availability_zone_ids
         if load_balancer_names is not None:
-            input["load_balancer_names"] = load_balancer_names
+            input_["load_balancer_names"] = load_balancer_names
         if target_group_ar_ns is not None:
-            input["target_group_ar_ns"] = target_group_ar_ns
+            input_["target_group_ar_ns"] = target_group_ar_ns
         if health_check_type is not None:
-            input["health_check_type"] = health_check_type
+            input_["health_check_type"] = health_check_type
         if health_check_grace_period is not None:
-            input["health_check_grace_period"] = health_check_grace_period
+            input_["health_check_grace_period"] = health_check_grace_period
         if placement_group is not None:
-            input["placement_group"] = placement_group
+            input_["placement_group"] = placement_group
         if vpc_zone_identifier is not None:
-            input["vpc_zone_identifier"] = vpc_zone_identifier
+            input_["vpc_zone_identifier"] = vpc_zone_identifier
         if termination_policies is not None:
-            input["termination_policies"] = termination_policies
+            input_["termination_policies"] = termination_policies
         if new_instances_protected_from_scale_in is not None:
-            input["new_instances_protected_from_scale_in"] = (
+            input_["new_instances_protected_from_scale_in"] = (
                 new_instances_protected_from_scale_in
             )
         if capacity_rebalance is not None:
-            input["capacity_rebalance"] = capacity_rebalance
+            input_["capacity_rebalance"] = capacity_rebalance
         if lifecycle_hook_specification_list is not None:
-            input["lifecycle_hook_specification_list"] = (
+            input_["lifecycle_hook_specification_list"] = (
                 lifecycle_hook_specification_list
             )
         if deletion_protection is not None:
-            input["deletion_protection"] = deletion_protection
+            input_["deletion_protection"] = deletion_protection
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if service_linked_role_arn is not None:
-            input["service_linked_role_arn"] = service_linked_role_arn
+            input_["service_linked_role_arn"] = service_linked_role_arn
         if max_instance_lifetime is not None:
-            input["max_instance_lifetime"] = max_instance_lifetime
+            input_["max_instance_lifetime"] = max_instance_lifetime
         if context is not None:
-            input["context"] = context
+            input_["context"] = context
         if desired_capacity_type is not None:
-            input["desired_capacity_type"] = desired_capacity_type
+            input_["desired_capacity_type"] = desired_capacity_type
         if default_instance_warmup is not None:
-            input["default_instance_warmup"] = default_instance_warmup
+            input_["default_instance_warmup"] = default_instance_warmup
         if traffic_sources is not None:
-            input["traffic_sources"] = traffic_sources
+            input_["traffic_sources"] = traffic_sources
         if instance_maintenance_policy is not None:
-            input["instance_maintenance_policy"] = instance_maintenance_policy
+            input_["instance_maintenance_policy"] = instance_maintenance_policy
         if availability_zone_distribution is not None:
-            input["availability_zone_distribution"] = availability_zone_distribution
+            input_["availability_zone_distribution"] = availability_zone_distribution
         if availability_zone_impairment_policy is not None:
-            input["availability_zone_impairment_policy"] = (
+            input_["availability_zone_impairment_policy"] = (
                 availability_zone_impairment_policy
             )
         if skip_zonal_shift_validation is not None:
-            input["skip_zonal_shift_validation"] = skip_zonal_shift_validation
+            input_["skip_zonal_shift_validation"] = skip_zonal_shift_validation
         if capacity_reservation_specification is not None:
-            input["capacity_reservation_specification"] = (
+            input_["capacity_reservation_specification"] = (
                 capacity_reservation_specification
             )
         if instance_lifecycle_policy is not None:
-            input["instance_lifecycle_policy"] = instance_lifecycle_policy
+            input_["instance_lifecycle_policy"] = instance_lifecycle_policy
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1043,7 +1045,7 @@ class AsyncAutoScalingClient:
             "aws_sdk_auto_scaling.types.instance_metadata_options.InstanceMetadataOptions"
         ] = None,
     ) -> None:
-        """<p>Creates a launch configuration.</p> <p>If you exceed your maximum limit of launch configurations, the call fails. To query this limit, call the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeAccountLimits.html\">DescribeAccountLimits</a> API. For information about updating this limit, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-quotas.html\">Quotas for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/launch-configurations.html\">Launch configurations</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <note> <p>Amazon EC2 Auto Scaling configures instances launched as part of an Auto Scaling group using either a launch template or a launch configuration. We strongly recommend that you do not use launch configurations. They do not provide full functionality for Amazon EC2 Auto Scaling or Amazon EC2. For information about using launch templates, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/launch-templates.html\">Launch templates</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> </note>
+        r"""<p>Creates a launch configuration.</p> <p>If you exceed your maximum limit of launch configurations, the call fails. To query this limit, call the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeAccountLimits.html\">DescribeAccountLimits</a> API. For information about updating this limit, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-quotas.html\">Quotas for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/launch-configurations.html\">Launch configurations</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <note> <p>Amazon EC2 Auto Scaling configures instances launched as part of an Auto Scaling group using either a launch template or a launch configuration. We strongly recommend that you do not use launch configurations. They do not provide full functionality for Amazon EC2 Auto Scaling or Amazon EC2. For information about using launch templates, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/launch-templates.html\">Launch templates</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> </note>
 
         Args:
             launch_configuration_name: <p>The name of the launch configuration. This name must be unique per Region per account.</p>
@@ -1087,47 +1089,49 @@ class AsyncAutoScalingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auto_scaling.types.create_launch_configuration_type.CreateLaunchConfigurationType = {}  # type: ignore[typeddict-item]
-        input["launch_configuration_name"] = launch_configuration_name
+        input_: aws_sdk_auto_scaling.types.create_launch_configuration_type.CreateLaunchConfigurationType = {}  # type: ignore[typeddict-item]
+        input_["launch_configuration_name"] = launch_configuration_name
         if image_id is not None:
-            input["image_id"] = image_id
+            input_["image_id"] = image_id
         if key_name is not None:
-            input["key_name"] = key_name
+            input_["key_name"] = key_name
         if security_groups is not None:
-            input["security_groups"] = security_groups
+            input_["security_groups"] = security_groups
         if classic_link_vpc_id is not None:
-            input["classic_link_vpc_id"] = classic_link_vpc_id
+            input_["classic_link_vpc_id"] = classic_link_vpc_id
         if classic_link_vpc_security_groups is not None:
-            input["classic_link_vpc_security_groups"] = classic_link_vpc_security_groups
+            input_["classic_link_vpc_security_groups"] = (
+                classic_link_vpc_security_groups
+            )
         if user_data is not None:
-            input["user_data"] = user_data
+            input_["user_data"] = user_data
         if instance_id is not None:
-            input["instance_id"] = instance_id
+            input_["instance_id"] = instance_id
         if instance_type is not None:
-            input["instance_type"] = instance_type
+            input_["instance_type"] = instance_type
         if kernel_id is not None:
-            input["kernel_id"] = kernel_id
+            input_["kernel_id"] = kernel_id
         if ramdisk_id is not None:
-            input["ramdisk_id"] = ramdisk_id
+            input_["ramdisk_id"] = ramdisk_id
         if block_device_mappings is not None:
-            input["block_device_mappings"] = block_device_mappings
+            input_["block_device_mappings"] = block_device_mappings
         if instance_monitoring is not None:
-            input["instance_monitoring"] = instance_monitoring
+            input_["instance_monitoring"] = instance_monitoring
         if spot_price is not None:
-            input["spot_price"] = spot_price
+            input_["spot_price"] = spot_price
         if iam_instance_profile is not None:
-            input["iam_instance_profile"] = iam_instance_profile
+            input_["iam_instance_profile"] = iam_instance_profile
         if ebs_optimized is not None:
-            input["ebs_optimized"] = ebs_optimized
+            input_["ebs_optimized"] = ebs_optimized
         if associate_public_ip_address is not None:
-            input["associate_public_ip_address"] = associate_public_ip_address
+            input_["associate_public_ip_address"] = associate_public_ip_address
         if placement_tenancy is not None:
-            input["placement_tenancy"] = placement_tenancy
+            input_["placement_tenancy"] = placement_tenancy
         if metadata_options is not None:
-            input["metadata_options"] = metadata_options
+            input_["metadata_options"] = metadata_options
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1139,7 +1143,7 @@ class AsyncAutoScalingClient:
         *,
         config_overrides: Optional[AsyncAutoScalingClientConfig] = None,
     ) -> None:
-        """<p>Creates or updates tags for the specified Auto Scaling group.</p> <p>When you specify a tag with a key that already exists, the operation overwrites the previous tag definition, and you do not get an error message.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-tagging.html\">Tag Auto Scaling groups and instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+        r"""<p>Creates or updates tags for the specified Auto Scaling group.</p> <p>When you specify a tag with a key that already exists, the operation overwrites the previous tag definition, and you do not get an error message.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-tagging.html\">Tag Auto Scaling groups and instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
 
         Args:
             tags: <p>One or more tags.</p>
@@ -1165,11 +1169,11 @@ class AsyncAutoScalingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auto_scaling.types.create_or_update_tags_type.CreateOrUpdateTagsType = {}  # type: ignore[typeddict-item]
-        input["tags"] = tags
+        input_: aws_sdk_auto_scaling.types.create_or_update_tags_type.CreateOrUpdateTagsType = {}  # type: ignore[typeddict-item]
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1184,7 +1188,7 @@ class AsyncAutoScalingClient:
             "aws_sdk_auto_scaling.types.force_delete.ForceDelete"
         ] = None,
     ) -> None:
-        """<p>Deletes the specified Auto Scaling group.</p> <p>If the group has instances or scaling activities in progress, you must specify the option to force the deletion in order for it to succeed. The force delete operation will also terminate the EC2 instances. If the group has a warm pool, the force delete option also deletes the warm pool.</p> <p>To remove instances from the Auto Scaling group before deleting it, call the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DetachInstances.html\">DetachInstances</a> API with the list of instances and the option to decrement the desired capacity. This ensures that Amazon EC2 Auto Scaling does not launch replacement instances.</p> <p>To terminate all instances before deleting the Auto Scaling group, call the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_UpdateAutoScalingGroup.html\">UpdateAutoScalingGroup</a> API and set the minimum size and desired capacity of the Auto Scaling group to zero.</p> <p>If the group has scaling policies, deleting the group deletes the policies, the underlying alarm actions, and any alarm that no longer has an associated action.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-process-shutdown.html\">Delete your Auto Scaling infrastructure</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+        r"""<p>Deletes the specified Auto Scaling group.</p> <p>If the group has instances or scaling activities in progress, you must specify the option to force the deletion in order for it to succeed. The force delete operation will also terminate the EC2 instances. If the group has a warm pool, the force delete option also deletes the warm pool.</p> <p>To remove instances from the Auto Scaling group before deleting it, call the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DetachInstances.html\">DetachInstances</a> API with the list of instances and the option to decrement the desired capacity. This ensures that Amazon EC2 Auto Scaling does not launch replacement instances.</p> <p>To terminate all instances before deleting the Auto Scaling group, call the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_UpdateAutoScalingGroup.html\">UpdateAutoScalingGroup</a> API and set the minimum size and desired capacity of the Auto Scaling group to zero.</p> <p>If the group has scaling policies, deleting the group deletes the policies, the underlying alarm actions, and any alarm that no longer has an associated action.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-process-shutdown.html\">Delete your Auto Scaling infrastructure</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
 
         Args:
             auto_scaling_group_name: <p>The name of the Auto Scaling group.</p>
@@ -1215,13 +1219,13 @@ class AsyncAutoScalingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auto_scaling.types.delete_auto_scaling_group_type.DeleteAutoScalingGroupType = {}  # type: ignore[typeddict-item]
-        input["auto_scaling_group_name"] = auto_scaling_group_name
+        input_: aws_sdk_auto_scaling.types.delete_auto_scaling_group_type.DeleteAutoScalingGroupType = {}  # type: ignore[typeddict-item]
+        input_["auto_scaling_group_name"] = auto_scaling_group_name
         if force_delete is not None:
-            input["force_delete"] = force_delete
+            input_["force_delete"] = force_delete
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1259,11 +1263,11 @@ class AsyncAutoScalingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auto_scaling.types.launch_configuration_name_type.LaunchConfigurationNameType = {}  # type: ignore[typeddict-item]
-        input["launch_configuration_name"] = launch_configuration_name
+        input_: aws_sdk_auto_scaling.types.launch_configuration_name_type.LaunchConfigurationNameType = {}  # type: ignore[typeddict-item]
+        input_["launch_configuration_name"] = launch_configuration_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1305,12 +1309,12 @@ class AsyncAutoScalingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auto_scaling.types.delete_lifecycle_hook_type.DeleteLifecycleHookType = {}  # type: ignore[typeddict-item]
-        input["lifecycle_hook_name"] = lifecycle_hook_name
-        input["auto_scaling_group_name"] = auto_scaling_group_name
+        input_: aws_sdk_auto_scaling.types.delete_lifecycle_hook_type.DeleteLifecycleHookType = {}  # type: ignore[typeddict-item]
+        input_["lifecycle_hook_name"] = lifecycle_hook_name
+        input_["auto_scaling_group_name"] = auto_scaling_group_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1350,12 +1354,12 @@ class AsyncAutoScalingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auto_scaling.types.delete_notification_configuration_type.DeleteNotificationConfigurationType = {}  # type: ignore[typeddict-item]
-        input["auto_scaling_group_name"] = auto_scaling_group_name
-        input["topic_arn"] = topic_arn
+        input_: aws_sdk_auto_scaling.types.delete_notification_configuration_type.DeleteNotificationConfigurationType = {}  # type: ignore[typeddict-item]
+        input_["auto_scaling_group_name"] = auto_scaling_group_name
+        input_["topic_arn"] = topic_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1370,7 +1374,7 @@ class AsyncAutoScalingClient:
             "aws_sdk_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255"
         ] = None,
     ) -> None:
-        """<p>Deletes the specified scaling policy.</p> <p>Deleting either a step scaling policy or a simple scaling policy deletes the underlying alarm action, but does not delete the alarm, even if it no longer has an associated action.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/deleting-scaling-policy.html\">Delete a scaling policy</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+        r"""<p>Deletes the specified scaling policy.</p> <p>Deleting either a step scaling policy or a simple scaling policy deletes the underlying alarm action, but does not delete the alarm, even if it no longer has an associated action.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/deleting-scaling-policy.html\">Delete a scaling policy</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
 
         Args:
             auto_scaling_group_name: <p>The name of the Auto Scaling group.</p>
@@ -1397,13 +1401,13 @@ class AsyncAutoScalingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auto_scaling.types.delete_policy_type.DeletePolicyType = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_auto_scaling.types.delete_policy_type.DeletePolicyType = {}  # type: ignore[typeddict-item]
         if auto_scaling_group_name is not None:
-            input["auto_scaling_group_name"] = auto_scaling_group_name
-        input["policy_name"] = policy_name
+            input_["auto_scaling_group_name"] = auto_scaling_group_name
+        input_["policy_name"] = policy_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1443,12 +1447,12 @@ class AsyncAutoScalingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auto_scaling.types.delete_scheduled_action_type.DeleteScheduledActionType = {}  # type: ignore[typeddict-item]
-        input["auto_scaling_group_name"] = auto_scaling_group_name
-        input["scheduled_action_name"] = scheduled_action_name
+        input_: aws_sdk_auto_scaling.types.delete_scheduled_action_type.DeleteScheduledActionType = {}  # type: ignore[typeddict-item]
+        input_["auto_scaling_group_name"] = auto_scaling_group_name
+        input_["scheduled_action_name"] = scheduled_action_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1486,11 +1490,11 @@ class AsyncAutoScalingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auto_scaling.types.delete_tags_type.DeleteTagsType = {}  # type: ignore[typeddict-item]
-        input["tags"] = tags
+        input_: aws_sdk_auto_scaling.types.delete_tags_type.DeleteTagsType = {}  # type: ignore[typeddict-item]
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1505,7 +1509,7 @@ class AsyncAutoScalingClient:
             "aws_sdk_auto_scaling.types.force_delete.ForceDelete"
         ] = None,
     ) -> "aws_sdk_auto_scaling.types.delete_warm_pool_answer.DeleteWarmPoolAnswer":
-        """<p>Deletes the warm pool for the specified Auto Scaling group.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html\">Warm pools for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+        r"""<p>Deletes the warm pool for the specified Auto Scaling group.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html\">Warm pools for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
 
         Args:
             auto_scaling_group_name: <p>The name of the Auto Scaling group.</p>
@@ -1528,13 +1532,13 @@ class AsyncAutoScalingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auto_scaling.types.delete_warm_pool_type.DeleteWarmPoolType = {}  # type: ignore[typeddict-item]
-        input["auto_scaling_group_name"] = auto_scaling_group_name
+        input_: aws_sdk_auto_scaling.types.delete_warm_pool_type.DeleteWarmPoolType = {}  # type: ignore[typeddict-item]
+        input_["auto_scaling_group_name"] = auto_scaling_group_name
         if force_delete is not None:
-            input["force_delete"] = force_delete
+            input_["force_delete"] = force_delete
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1543,7 +1547,7 @@ class AsyncAutoScalingClient:
     async def describe_account_limits(
         self, *, config_overrides: Optional[AsyncAutoScalingClientConfig] = None
     ) -> "aws_sdk_auto_scaling.types.describe_account_limits_answer.DescribeAccountLimitsAnswer":
-        """<p>Describes the current Amazon EC2 Auto Scaling resource quotas for your account.</p> <p>When you establish an Amazon Web Services account, the account has initial quotas on the maximum number of Auto Scaling groups and launch configurations that you can create in a given Region. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-quotas.html\">Quotas for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+        r"""<p>Describes the current Amazon EC2 Auto Scaling resource quotas for your account.</p> <p>When you establish an Amazon Web Services account, the account has initial quotas on the maximum number of Auto Scaling groups and launch configurations that you can create in a given Region. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-quotas.html\">Quotas for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
 
         Examples:
             To describe your Auto Scaling account limits
@@ -1628,7 +1632,7 @@ class AsyncAutoScalingClient:
         ] = None,
         filters: Optional["aws_sdk_auto_scaling.types.filters.Filters"] = None,
     ) -> "aws_sdk_auto_scaling.types.auto_scaling_groups_type.AutoScalingGroupsType":
-        """<p>Gets information about the Auto Scaling groups in the account and Region.</p> <p>If you specify Auto Scaling group names, the output includes information for only the specified Auto Scaling groups. If you specify filters, the output includes information for only those Auto Scaling groups that meet the filter criteria. If you do not specify group names or filters, the output includes information for all Auto Scaling groups. </p> <p>This operation also returns information about instances in Auto Scaling groups. To retrieve information about the instances in a warm pool, you must call the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeWarmPool.html\">DescribeWarmPool</a> API. </p>
+        r"""<p>Gets information about the Auto Scaling groups in the account and Region.</p> <p>If you specify Auto Scaling group names, the output includes information for only the specified Auto Scaling groups. If you specify filters, the output includes information for only those Auto Scaling groups that meet the filter criteria. If you do not specify group names or filters, the output includes information for all Auto Scaling groups. </p> <p>This operation also returns information about instances in Auto Scaling groups. To retrieve information about the instances in a warm pool, you must call the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeWarmPool.html\">DescribeWarmPool</a> API. </p>
 
         Args:
             auto_scaling_group_names: <p>The names of the Auto Scaling groups. By default, you can only specify up to 50 names. You can optionally increase this limit using the <code>MaxRecords</code> property.</p> <p>If you omit this property, all Auto Scaling groups are described.</p>
@@ -1660,20 +1664,20 @@ class AsyncAutoScalingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auto_scaling.types.auto_scaling_group_names_type.AutoScalingGroupNamesType = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_auto_scaling.types.auto_scaling_group_names_type.AutoScalingGroupNamesType = {}  # type: ignore[typeddict-item]
         if auto_scaling_group_names is not None:
-            input["auto_scaling_group_names"] = auto_scaling_group_names
+            input_["auto_scaling_group_names"] = auto_scaling_group_names
         if include_instances is not None:
-            input["include_instances"] = include_instances
+            input_["include_instances"] = include_instances
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1756,16 +1760,16 @@ class AsyncAutoScalingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auto_scaling.types.describe_auto_scaling_instances_type.DescribeAutoScalingInstancesType = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_auto_scaling.types.describe_auto_scaling_instances_type.DescribeAutoScalingInstancesType = {}  # type: ignore[typeddict-item]
         if instance_ids is not None:
-            input["instance_ids"] = instance_ids
+            input_["instance_ids"] = instance_ids
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1847,7 +1851,7 @@ class AsyncAutoScalingClient:
             "aws_sdk_auto_scaling.types.max_records.MaxRecords"
         ] = None,
     ) -> "aws_sdk_auto_scaling.types.describe_instance_refreshes_answer.DescribeInstanceRefreshesAnswer":
-        """<p>Gets information about the instance refreshes for the specified Auto Scaling group from the previous six weeks.</p> <p>This operation is part of the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html\">instance refresh feature</a> in Amazon EC2 Auto Scaling, which helps you update instances in your Auto Scaling group after you make configuration changes.</p> <p>To help you determine the status of an instance refresh, Amazon EC2 Auto Scaling returns information about the instance refreshes you previously initiated, including their status, start time, end time, the percentage of the instance refresh that is complete, and the number of instances remaining to update before the instance refresh is complete. If a rollback is initiated while an instance refresh is in progress, Amazon EC2 Auto Scaling also returns information about the rollback of the instance refresh.</p>
+        r"""<p>Gets information about the instance refreshes for the specified Auto Scaling group from the previous six weeks.</p> <p>This operation is part of the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html\">instance refresh feature</a> in Amazon EC2 Auto Scaling, which helps you update instances in your Auto Scaling group after you make configuration changes.</p> <p>To help you determine the status of an instance refresh, Amazon EC2 Auto Scaling returns information about the instance refreshes you previously initiated, including their status, start time, end time, the percentage of the instance refresh that is complete, and the number of instances remaining to update before the instance refresh is complete. If a rollback is initiated while an instance refresh is in progress, Amazon EC2 Auto Scaling also returns information about the rollback of the instance refresh.</p>
 
         Args:
             auto_scaling_group_name: <p>The name of the Auto Scaling group.</p>
@@ -1872,17 +1876,17 @@ class AsyncAutoScalingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auto_scaling.types.describe_instance_refreshes_type.DescribeInstanceRefreshesType = {}  # type: ignore[typeddict-item]
-        input["auto_scaling_group_name"] = auto_scaling_group_name
+        input_: aws_sdk_auto_scaling.types.describe_instance_refreshes_type.DescribeInstanceRefreshesType = {}  # type: ignore[typeddict-item]
+        input_["auto_scaling_group_name"] = auto_scaling_group_name
         if instance_refresh_ids is not None:
-            input["instance_refresh_ids"] = instance_refresh_ids
+            input_["instance_refresh_ids"] = instance_refresh_ids
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1932,16 +1936,16 @@ class AsyncAutoScalingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auto_scaling.types.launch_configuration_names_type.LaunchConfigurationNamesType = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_auto_scaling.types.launch_configuration_names_type.LaunchConfigurationNamesType = {}  # type: ignore[typeddict-item]
         if launch_configuration_names is not None:
-            input["launch_configuration_names"] = launch_configuration_names
+            input_["launch_configuration_names"] = launch_configuration_names
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2012,13 +2016,13 @@ class AsyncAutoScalingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auto_scaling.types.describe_lifecycle_hooks_type.DescribeLifecycleHooksType = {}  # type: ignore[typeddict-item]
-        input["auto_scaling_group_name"] = auto_scaling_group_name
+        input_: aws_sdk_auto_scaling.types.describe_lifecycle_hooks_type.DescribeLifecycleHooksType = {}  # type: ignore[typeddict-item]
+        input_["auto_scaling_group_name"] = auto_scaling_group_name
         if lifecycle_hook_names is not None:
-            input["lifecycle_hook_names"] = lifecycle_hook_names
+            input_["lifecycle_hook_names"] = lifecycle_hook_names
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2070,7 +2074,7 @@ class AsyncAutoScalingClient:
             "aws_sdk_auto_scaling.types.max_records.MaxRecords"
         ] = None,
     ) -> "aws_sdk_auto_scaling.types.describe_load_balancers_response.DescribeLoadBalancersResponse":
-        """<note> <p>This API operation is superseded by <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeTrafficSources.html\">DescribeTrafficSources</a>, which can describe multiple traffic sources types. We recommend using <code>DescribeTrafficSources</code> to simplify how you manage traffic sources. However, we continue to support <code>DescribeLoadBalancers</code>. You can use both the original <code>DescribeLoadBalancers</code> API operation and <code>DescribeTrafficSources</code> on the same Auto Scaling group.</p> </note> <p>Gets information about the load balancers for the specified Auto Scaling group.</p> <p>This operation describes only Classic Load Balancers. If you have Application Load Balancers, Network Load Balancers, or Gateway Load Balancers, use the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeLoadBalancerTargetGroups.html\">DescribeLoadBalancerTargetGroups</a> API instead.</p> <p>To determine the attachment status of the load balancer, use the <code>State</code> element in the response. When you attach a load balancer to an Auto Scaling group, the initial <code>State</code> value is <code>Adding</code>. The state transitions to <code>Added</code> after all Auto Scaling instances are registered with the load balancer. If Elastic Load Balancing health checks are enabled for the Auto Scaling group, the state transitions to <code>InService</code> after at least one Auto Scaling instance passes the health check. When the load balancer is in the <code>InService</code> state, Amazon EC2 Auto Scaling can terminate and replace any instances that are reported as unhealthy. If no registered instances pass the health checks, the load balancer doesn't enter the <code>InService</code> state. </p> <p>Load balancers also have an <code>InService</code> state if you attach them in the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CreateAutoScalingGroup.html\">CreateAutoScalingGroup</a> API call. If your load balancer state is <code>InService</code>, but it is not working properly, check the scaling activities by calling <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeScalingActivities.html\">DescribeScalingActivities</a> and take any corrective actions necessary.</p> <p>For help with failed health checks, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ts-as-healthchecks.html\">Troubleshooting Amazon EC2 Auto Scaling: Health checks</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html\">Use Elastic Load Balancing to distribute traffic across the instances in your Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p>
+        r"""<note> <p>This API operation is superseded by <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeTrafficSources.html\">DescribeTrafficSources</a>, which can describe multiple traffic sources types. We recommend using <code>DescribeTrafficSources</code> to simplify how you manage traffic sources. However, we continue to support <code>DescribeLoadBalancers</code>. You can use both the original <code>DescribeLoadBalancers</code> API operation and <code>DescribeTrafficSources</code> on the same Auto Scaling group.</p> </note> <p>Gets information about the load balancers for the specified Auto Scaling group.</p> <p>This operation describes only Classic Load Balancers. If you have Application Load Balancers, Network Load Balancers, or Gateway Load Balancers, use the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeLoadBalancerTargetGroups.html\">DescribeLoadBalancerTargetGroups</a> API instead.</p> <p>To determine the attachment status of the load balancer, use the <code>State</code> element in the response. When you attach a load balancer to an Auto Scaling group, the initial <code>State</code> value is <code>Adding</code>. The state transitions to <code>Added</code> after all Auto Scaling instances are registered with the load balancer. If Elastic Load Balancing health checks are enabled for the Auto Scaling group, the state transitions to <code>InService</code> after at least one Auto Scaling instance passes the health check. When the load balancer is in the <code>InService</code> state, Amazon EC2 Auto Scaling can terminate and replace any instances that are reported as unhealthy. If no registered instances pass the health checks, the load balancer doesn't enter the <code>InService</code> state. </p> <p>Load balancers also have an <code>InService</code> state if you attach them in the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CreateAutoScalingGroup.html\">CreateAutoScalingGroup</a> API call. If your load balancer state is <code>InService</code>, but it is not working properly, check the scaling activities by calling <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeScalingActivities.html\">DescribeScalingActivities</a> and take any corrective actions necessary.</p> <p>For help with failed health checks, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ts-as-healthchecks.html\">Troubleshooting Amazon EC2 Auto Scaling: Health checks</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html\">Use Elastic Load Balancing to distribute traffic across the instances in your Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p>
 
         Args:
             auto_scaling_group_name: <p>The name of the Auto Scaling group.</p>
@@ -2100,15 +2104,15 @@ class AsyncAutoScalingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auto_scaling.types.describe_load_balancers_request.DescribeLoadBalancersRequest = {}  # type: ignore[typeddict-item]
-        input["auto_scaling_group_name"] = auto_scaling_group_name
+        input_: aws_sdk_auto_scaling.types.describe_load_balancers_request.DescribeLoadBalancersRequest = {}  # type: ignore[typeddict-item]
+        input_["auto_scaling_group_name"] = auto_scaling_group_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2124,7 +2128,7 @@ class AsyncAutoScalingClient:
             "aws_sdk_auto_scaling.types.max_records.MaxRecords"
         ] = None,
     ) -> "aws_sdk_auto_scaling.types.describe_load_balancer_target_groups_response.DescribeLoadBalancerTargetGroupsResponse":
-        """<note> <p>This API operation is superseded by <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeTrafficSources.html\">DescribeTrafficSources</a>, which can describe multiple traffic sources types. We recommend using <code>DetachTrafficSources</code> to simplify how you manage traffic sources. However, we continue to support <code>DescribeLoadBalancerTargetGroups</code>. You can use both the original <code>DescribeLoadBalancerTargetGroups</code> API operation and <code>DescribeTrafficSources</code> on the same Auto Scaling group.</p> </note> <p>Gets information about the Elastic Load Balancing target groups for the specified Auto Scaling group.</p> <p>To determine the attachment status of the target group, use the <code>State</code> element in the response. When you attach a target group to an Auto Scaling group, the initial <code>State</code> value is <code>Adding</code>. The state transitions to <code>Added</code> after all Auto Scaling instances are registered with the target group. If Elastic Load Balancing health checks are enabled for the Auto Scaling group, the state transitions to <code>InService</code> after at least one Auto Scaling instance passes the health check. When the target group is in the <code>InService</code> state, Amazon EC2 Auto Scaling can terminate and replace any instances that are reported as unhealthy. If no registered instances pass the health checks, the target group doesn't enter the <code>InService</code> state. </p> <p>Target groups also have an <code>InService</code> state if you attach them in the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CreateAutoScalingGroup.html\">CreateAutoScalingGroup</a> API call. If your target group state is <code>InService</code>, but it is not working properly, check the scaling activities by calling <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeScalingActivities.html\">DescribeScalingActivities</a> and take any corrective actions necessary.</p> <p>For help with failed health checks, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ts-as-healthchecks.html\">Troubleshooting Amazon EC2 Auto Scaling: Health checks</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html\">Use Elastic Load Balancing to distribute traffic across the instances in your Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p> <note> <p>You can use this operation to describe target groups that were attached by using <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_AttachLoadBalancerTargetGroups.html\">AttachLoadBalancerTargetGroups</a>, but not for target groups that were attached by using <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_AttachTrafficSources.html\">AttachTrafficSources</a>.</p> </note>
+        r"""<note> <p>This API operation is superseded by <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeTrafficSources.html\">DescribeTrafficSources</a>, which can describe multiple traffic sources types. We recommend using <code>DetachTrafficSources</code> to simplify how you manage traffic sources. However, we continue to support <code>DescribeLoadBalancerTargetGroups</code>. You can use both the original <code>DescribeLoadBalancerTargetGroups</code> API operation and <code>DescribeTrafficSources</code> on the same Auto Scaling group.</p> </note> <p>Gets information about the Elastic Load Balancing target groups for the specified Auto Scaling group.</p> <p>To determine the attachment status of the target group, use the <code>State</code> element in the response. When you attach a target group to an Auto Scaling group, the initial <code>State</code> value is <code>Adding</code>. The state transitions to <code>Added</code> after all Auto Scaling instances are registered with the target group. If Elastic Load Balancing health checks are enabled for the Auto Scaling group, the state transitions to <code>InService</code> after at least one Auto Scaling instance passes the health check. When the target group is in the <code>InService</code> state, Amazon EC2 Auto Scaling can terminate and replace any instances that are reported as unhealthy. If no registered instances pass the health checks, the target group doesn't enter the <code>InService</code> state. </p> <p>Target groups also have an <code>InService</code> state if you attach them in the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CreateAutoScalingGroup.html\">CreateAutoScalingGroup</a> API call. If your target group state is <code>InService</code>, but it is not working properly, check the scaling activities by calling <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeScalingActivities.html\">DescribeScalingActivities</a> and take any corrective actions necessary.</p> <p>For help with failed health checks, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ts-as-healthchecks.html\">Troubleshooting Amazon EC2 Auto Scaling: Health checks</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html\">Use Elastic Load Balancing to distribute traffic across the instances in your Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p> <note> <p>You can use this operation to describe target groups that were attached by using <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_AttachLoadBalancerTargetGroups.html\">AttachLoadBalancerTargetGroups</a>, but not for target groups that were attached by using <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_AttachTrafficSources.html\">AttachTrafficSources</a>.</p> </note>
 
         Args:
             auto_scaling_group_name: <p>The name of the Auto Scaling group.</p>
@@ -2154,15 +2158,15 @@ class AsyncAutoScalingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auto_scaling.types.describe_load_balancer_target_groups_request.DescribeLoadBalancerTargetGroupsRequest = {}  # type: ignore[typeddict-item]
-        input["auto_scaling_group_name"] = auto_scaling_group_name
+        input_: aws_sdk_auto_scaling.types.describe_load_balancer_target_groups_request.DescribeLoadBalancerTargetGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_["auto_scaling_group_name"] = auto_scaling_group_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2246,16 +2250,16 @@ class AsyncAutoScalingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auto_scaling.types.describe_notification_configurations_type.DescribeNotificationConfigurationsType = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_auto_scaling.types.describe_notification_configurations_type.DescribeNotificationConfigurationsType = {}  # type: ignore[typeddict-item]
         if auto_scaling_group_names is not None:
-            input["auto_scaling_group_names"] = auto_scaling_group_names
+            input_["auto_scaling_group_names"] = auto_scaling_group_names
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2338,20 +2342,20 @@ class AsyncAutoScalingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auto_scaling.types.describe_policies_type.DescribePoliciesType = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_auto_scaling.types.describe_policies_type.DescribePoliciesType = {}  # type: ignore[typeddict-item]
         if auto_scaling_group_name is not None:
-            input["auto_scaling_group_name"] = auto_scaling_group_name
+            input_["auto_scaling_group_name"] = auto_scaling_group_name
         if policy_names is not None:
-            input["policy_names"] = policy_names
+            input_["policy_names"] = policy_names
         if policy_types is not None:
-            input["policy_types"] = policy_types
+            input_["policy_types"] = policy_types
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2411,7 +2415,7 @@ class AsyncAutoScalingClient:
         next_token: Optional["aws_sdk_auto_scaling.types.xml_string.XmlString"] = None,
         filters: Optional["aws_sdk_auto_scaling.types.filters.Filters"] = None,
     ) -> "aws_sdk_auto_scaling.types.activities_type.ActivitiesType":
-        """<p>Gets information about the scaling activities in the account and Region.</p> <p>When scaling events occur, you see a record of the scaling activity in the scaling activities. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html\">Verify a scaling activity for an Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>If the scaling event succeeds, the value of the <code>StatusCode</code> element in the response is <code>Successful</code>. If an attempt to launch instances failed, the <code>StatusCode</code> value is <code>Failed</code> or <code>Cancelled</code> and the <code>StatusMessage</code> element in the response indicates the cause of the failure. For help interpreting the <code>StatusMessage</code>, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/CHAP_Troubleshooting.html\">Troubleshooting Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p>
+        r"""<p>Gets information about the scaling activities in the account and Region.</p> <p>When scaling events occur, you see a record of the scaling activity in the scaling activities. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html\">Verify a scaling activity for an Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>If the scaling event succeeds, the value of the <code>StatusCode</code> element in the response is <code>Successful</code>. If an attempt to launch instances failed, the <code>StatusCode</code> value is <code>Failed</code> or <code>Cancelled</code> and the <code>StatusMessage</code> element in the response indicates the cause of the failure. For help interpreting the <code>StatusMessage</code>, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/CHAP_Troubleshooting.html\">Troubleshooting Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p>
 
         Args:
             activity_ids: <p> The activity IDs of the desired scaling activities. If unknown activity IDs are requested, they are ignored with no error. Only activities started within the last six weeks can be returned regardless of the activity IDs specified. If other filters are specified with the request, only results matching all filter criteria can be returned. </p> <p>Array Members: Maximum number of 50 IDs.</p>
@@ -2444,22 +2448,22 @@ class AsyncAutoScalingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auto_scaling.types.describe_scaling_activities_type.DescribeScalingActivitiesType = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_auto_scaling.types.describe_scaling_activities_type.DescribeScalingActivitiesType = {}  # type: ignore[typeddict-item]
         if activity_ids is not None:
-            input["activity_ids"] = activity_ids
+            input_["activity_ids"] = activity_ids
         if auto_scaling_group_name is not None:
-            input["auto_scaling_group_name"] = auto_scaling_group_name
+            input_["auto_scaling_group_name"] = auto_scaling_group_name
         if include_deleted_groups is not None:
-            input["include_deleted_groups"] = include_deleted_groups
+            input_["include_deleted_groups"] = include_deleted_groups
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2505,7 +2509,7 @@ class AsyncAutoScalingClient:
     async def describe_scaling_process_types(
         self, *, config_overrides: Optional[AsyncAutoScalingClientConfig] = None
     ) -> "aws_sdk_auto_scaling.types.processes_type.ProcessesType":
-        """<p>Describes the scaling process types for use with the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_ResumeProcesses.html\">ResumeProcesses</a> and <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_SuspendProcesses.html\">SuspendProcesses</a> APIs.</p>
+        r"""<p>Describes the scaling process types for use with the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_ResumeProcesses.html\">ResumeProcesses</a> and <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_SuspendProcesses.html\">SuspendProcesses</a> APIs.</p>
 
         Examples:
             To describe the Auto Scaling process types
@@ -2559,7 +2563,7 @@ class AsyncAutoScalingClient:
             "aws_sdk_auto_scaling.types.max_records.MaxRecords"
         ] = None,
     ) -> "aws_sdk_auto_scaling.types.scheduled_actions_type.ScheduledActionsType":
-        """<p>Gets information about the scheduled actions that haven't run or that have not reached their end time.</p> <p>To describe the scaling activities for scheduled actions that have already run, call the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeScalingActivities.html\">DescribeScalingActivities</a> API.</p>
+        r"""<p>Gets information about the scheduled actions that haven't run or that have not reached their end time.</p> <p>To describe the scaling activities for scheduled actions that have already run, call the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeScalingActivities.html\">DescribeScalingActivities</a> API.</p>
 
         Args:
             auto_scaling_group_name: <p>The name of the Auto Scaling group.</p>
@@ -2592,22 +2596,22 @@ class AsyncAutoScalingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auto_scaling.types.describe_scheduled_actions_type.DescribeScheduledActionsType = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_auto_scaling.types.describe_scheduled_actions_type.DescribeScheduledActionsType = {}  # type: ignore[typeddict-item]
         if auto_scaling_group_name is not None:
-            input["auto_scaling_group_name"] = auto_scaling_group_name
+            input_["auto_scaling_group_name"] = auto_scaling_group_name
         if scheduled_action_names is not None:
-            input["scheduled_action_names"] = scheduled_action_names
+            input_["scheduled_action_names"] = scheduled_action_names
         if start_time is not None:
-            input["start_time"] = start_time
+            input_["start_time"] = start_time
         if end_time is not None:
-            input["end_time"] = end_time
+            input_["end_time"] = end_time
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2662,7 +2666,7 @@ class AsyncAutoScalingClient:
             "aws_sdk_auto_scaling.types.max_records.MaxRecords"
         ] = None,
     ) -> "aws_sdk_auto_scaling.types.tags_type.TagsType":
-        """<p>Describes the specified tags.</p> <p>You can use filters to limit the results. For example, you can query for the tags for a specific Auto Scaling group. You can specify multiple values for a filter. A tag must match at least one of the specified values for it to be included in the results.</p> <p>You can also specify multiple filters. The result includes information for a particular tag only if it matches all the filters. If there's no match, no special message is returned.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-tagging.html\">Tag Auto Scaling groups and instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+        r"""<p>Describes the specified tags.</p> <p>You can use filters to limit the results. For example, you can query for the tags for a specific Auto Scaling group. You can specify multiple values for a filter. A tag must match at least one of the specified values for it to be included in the results.</p> <p>You can also specify multiple filters. The result includes information for a particular tag only if it matches all the filters. If there's no match, no special message is returned.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-tagging.html\">Tag Auto Scaling groups and instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
 
         Args:
             filters: <p>One or more filters to scope the tags to return. The maximum number of filters per filter type (for example, <code>auto-scaling-group</code>) is 1000.</p>
@@ -2690,16 +2694,16 @@ class AsyncAutoScalingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auto_scaling.types.describe_tags_type.DescribeTagsType = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_auto_scaling.types.describe_tags_type.DescribeTagsType = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2733,7 +2737,7 @@ class AsyncAutoScalingClient:
     async def describe_termination_policy_types(
         self, *, config_overrides: Optional[AsyncAutoScalingClientConfig] = None
     ) -> "aws_sdk_auto_scaling.types.describe_termination_policy_types_answer.DescribeTerminationPolicyTypesAnswer":
-        """<p>Describes the termination policies supported by Amazon EC2 Auto Scaling.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-termination-policies.html\">Configure termination policies for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+        r"""<p>Describes the termination policies supported by Amazon EC2 Auto Scaling.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-termination-policies.html\">Configure termination policies for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
 
         Examples:
             To describe termination policy types
@@ -2810,17 +2814,17 @@ class AsyncAutoScalingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auto_scaling.types.describe_traffic_sources_request.DescribeTrafficSourcesRequest = {}  # type: ignore[typeddict-item]
-        input["auto_scaling_group_name"] = auto_scaling_group_name
+        input_: aws_sdk_auto_scaling.types.describe_traffic_sources_request.DescribeTrafficSourcesRequest = {}  # type: ignore[typeddict-item]
+        input_["auto_scaling_group_name"] = auto_scaling_group_name
         if traffic_source_type is not None:
-            input["traffic_source_type"] = traffic_source_type
+            input_["traffic_source_type"] = traffic_source_type
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2836,7 +2840,7 @@ class AsyncAutoScalingClient:
         ] = None,
         next_token: Optional["aws_sdk_auto_scaling.types.xml_string.XmlString"] = None,
     ) -> "aws_sdk_auto_scaling.types.describe_warm_pool_answer.DescribeWarmPoolAnswer":
-        """<p>Gets information about a warm pool and its instances.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html\">Warm pools for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+        r"""<p>Gets information about a warm pool and its instances.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html\">Warm pools for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
 
         Args:
             auto_scaling_group_name: <p>The name of the Auto Scaling group.</p>
@@ -2860,15 +2864,15 @@ class AsyncAutoScalingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auto_scaling.types.describe_warm_pool_type.DescribeWarmPoolType = {}  # type: ignore[typeddict-item]
-        input["auto_scaling_group_name"] = auto_scaling_group_name
+        input_: aws_sdk_auto_scaling.types.describe_warm_pool_type.DescribeWarmPoolType = {}  # type: ignore[typeddict-item]
+        input_["auto_scaling_group_name"] = auto_scaling_group_name
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2909,7 +2913,7 @@ class AsyncAutoScalingClient:
             "aws_sdk_auto_scaling.types.instance_ids.InstanceIds"
         ] = None,
     ) -> "aws_sdk_auto_scaling.types.detach_instances_answer.DetachInstancesAnswer":
-        """<p>Removes one or more instances from the specified Auto Scaling group.</p> <p>After the instances are detached, you can manage them independent of the Auto Scaling group.</p> <p>If you do not specify the option to decrement the desired capacity, Amazon EC2 Auto Scaling launches instances to replace the ones that are detached.</p> <p>If there is a Classic Load Balancer attached to the Auto Scaling group, the instances are deregistered from the load balancer. If there are target groups attached to the Auto Scaling group, the instances are deregistered from the target groups.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-detach-attach-instances.html\">Detach or attach instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+        r"""<p>Removes one or more instances from the specified Auto Scaling group.</p> <p>After the instances are detached, you can manage them independent of the Auto Scaling group.</p> <p>If you do not specify the option to decrement the desired capacity, Amazon EC2 Auto Scaling launches instances to replace the ones that are detached.</p> <p>If there is a Classic Load Balancer attached to the Auto Scaling group, the instances are deregistered from the load balancer. If there are target groups attached to the Auto Scaling group, the instances are deregistered from the target groups.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-detach-attach-instances.html\">Detach or attach instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
 
         Args:
             instance_ids: <p>The IDs of the instances. You can specify up to 20 instances.</p>
@@ -2939,14 +2943,14 @@ class AsyncAutoScalingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auto_scaling.types.detach_instances_query.DetachInstancesQuery = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_auto_scaling.types.detach_instances_query.DetachInstancesQuery = {}  # type: ignore[typeddict-item]
         if instance_ids is not None:
-            input["instance_ids"] = instance_ids
-        input["auto_scaling_group_name"] = auto_scaling_group_name
-        input["should_decrement_desired_capacity"] = should_decrement_desired_capacity
+            input_["instance_ids"] = instance_ids
+        input_["auto_scaling_group_name"] = auto_scaling_group_name
+        input_["should_decrement_desired_capacity"] = should_decrement_desired_capacity
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2959,7 +2963,7 @@ class AsyncAutoScalingClient:
         *,
         config_overrides: Optional[AsyncAutoScalingClientConfig] = None,
     ) -> "aws_sdk_auto_scaling.types.detach_load_balancers_result_type.DetachLoadBalancersResultType":
-        """<note> <p>This API operation is superseded by <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DetachTrafficSources.html\">DetachTrafficSources</a>, which can detach multiple traffic sources types. We recommend using <code>DetachTrafficSources</code> to simplify how you manage traffic sources. However, we continue to support <code>DetachLoadBalancers</code>. You can use both the original <code>DetachLoadBalancers</code> API operation and <code>DetachTrafficSources</code> on the same Auto Scaling group.</p> </note> <p>Detaches one or more Classic Load Balancers from the specified Auto Scaling group.</p> <p>This operation detaches only Classic Load Balancers. If you have Application Load Balancers, Network Load Balancers, or Gateway Load Balancers, use the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DetachLoadBalancerTargetGroups.html\">DetachLoadBalancerTargetGroups</a> API instead.</p> <p>When you detach a load balancer, it enters the <code>Removing</code> state while deregistering the instances in the group. When all instances are deregistered, then you can no longer describe the load balancer using the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeLoadBalancers.html\">DescribeLoadBalancers</a> API call. The instances remain running.</p>
+        r"""<note> <p>This API operation is superseded by <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DetachTrafficSources.html\">DetachTrafficSources</a>, which can detach multiple traffic sources types. We recommend using <code>DetachTrafficSources</code> to simplify how you manage traffic sources. However, we continue to support <code>DetachLoadBalancers</code>. You can use both the original <code>DetachLoadBalancers</code> API operation and <code>DetachTrafficSources</code> on the same Auto Scaling group.</p> </note> <p>Detaches one or more Classic Load Balancers from the specified Auto Scaling group.</p> <p>This operation detaches only Classic Load Balancers. If you have Application Load Balancers, Network Load Balancers, or Gateway Load Balancers, use the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DetachLoadBalancerTargetGroups.html\">DetachLoadBalancerTargetGroups</a> API instead.</p> <p>When you detach a load balancer, it enters the <code>Removing</code> state while deregistering the instances in the group. When all instances are deregistered, then you can no longer describe the load balancer using the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeLoadBalancers.html\">DescribeLoadBalancers</a> API call. The instances remain running.</p>
 
         Args:
             auto_scaling_group_name: <p>The name of the Auto Scaling group.</p>
@@ -2988,12 +2992,12 @@ class AsyncAutoScalingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auto_scaling.types.detach_load_balancers_type.DetachLoadBalancersType = {}  # type: ignore[typeddict-item]
-        input["auto_scaling_group_name"] = auto_scaling_group_name
-        input["load_balancer_names"] = load_balancer_names
+        input_: aws_sdk_auto_scaling.types.detach_load_balancers_type.DetachLoadBalancersType = {}  # type: ignore[typeddict-item]
+        input_["auto_scaling_group_name"] = auto_scaling_group_name
+        input_["load_balancer_names"] = load_balancer_names
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3006,7 +3010,7 @@ class AsyncAutoScalingClient:
         *,
         config_overrides: Optional[AsyncAutoScalingClientConfig] = None,
     ) -> "aws_sdk_auto_scaling.types.detach_load_balancer_target_groups_result_type.DetachLoadBalancerTargetGroupsResultType":
-        """<note> <p>This API operation is superseded by <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DetachTrafficSources.html\">DetachTrafficSources</a>, which can detach multiple traffic sources types. We recommend using <code>DetachTrafficSources</code> to simplify how you manage traffic sources. However, we continue to support <code>DetachLoadBalancerTargetGroups</code>. You can use both the original <code>DetachLoadBalancerTargetGroups</code> API operation and <code>DetachTrafficSources</code> on the same Auto Scaling group.</p> </note> <p>Detaches one or more target groups from the specified Auto Scaling group.</p> <p>When you detach a target group, it enters the <code>Removing</code> state while deregistering the instances in the group. When all instances are deregistered, then you can no longer describe the target group using the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeLoadBalancerTargetGroups.html\">DescribeLoadBalancerTargetGroups</a> API call. The instances remain running.</p> <note> <p>You can use this operation to detach target groups that were attached by using <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_AttachLoadBalancerTargetGroups.html\">AttachLoadBalancerTargetGroups</a>, but not for target groups that were attached by using <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_AttachTrafficSources.html\">AttachTrafficSources</a>.</p> </note>
+        r"""<note> <p>This API operation is superseded by <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DetachTrafficSources.html\">DetachTrafficSources</a>, which can detach multiple traffic sources types. We recommend using <code>DetachTrafficSources</code> to simplify how you manage traffic sources. However, we continue to support <code>DetachLoadBalancerTargetGroups</code>. You can use both the original <code>DetachLoadBalancerTargetGroups</code> API operation and <code>DetachTrafficSources</code> on the same Auto Scaling group.</p> </note> <p>Detaches one or more target groups from the specified Auto Scaling group.</p> <p>When you detach a target group, it enters the <code>Removing</code> state while deregistering the instances in the group. When all instances are deregistered, then you can no longer describe the target group using the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeLoadBalancerTargetGroups.html\">DescribeLoadBalancerTargetGroups</a> API call. The instances remain running.</p> <note> <p>You can use this operation to detach target groups that were attached by using <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_AttachLoadBalancerTargetGroups.html\">AttachLoadBalancerTargetGroups</a>, but not for target groups that were attached by using <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_AttachTrafficSources.html\">AttachTrafficSources</a>.</p> </note>
 
         Args:
             auto_scaling_group_name: <p>The name of the Auto Scaling group.</p>
@@ -3035,12 +3039,12 @@ class AsyncAutoScalingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auto_scaling.types.detach_load_balancer_target_groups_type.DetachLoadBalancerTargetGroupsType = {}  # type: ignore[typeddict-item]
-        input["auto_scaling_group_name"] = auto_scaling_group_name
-        input["target_group_ar_ns"] = target_group_ar_ns
+        input_: aws_sdk_auto_scaling.types.detach_load_balancer_target_groups_type.DetachLoadBalancerTargetGroupsType = {}  # type: ignore[typeddict-item]
+        input_["auto_scaling_group_name"] = auto_scaling_group_name
+        input_["target_group_ar_ns"] = target_group_ar_ns
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3053,7 +3057,7 @@ class AsyncAutoScalingClient:
         *,
         config_overrides: Optional[AsyncAutoScalingClientConfig] = None,
     ) -> "aws_sdk_auto_scaling.types.detach_traffic_sources_result_type.DetachTrafficSourcesResultType":
-        """<p>Detaches one or more traffic sources from the specified Auto Scaling group.</p> <p>When you detach a traffic source, it enters the <code>Removing</code> state while deregistering the instances in the group. When all instances are deregistered, then you can no longer describe the traffic source using the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeTrafficSources.html\">DescribeTrafficSources</a> API call. The instances continue to run.</p>
+        r"""<p>Detaches one or more traffic sources from the specified Auto Scaling group.</p> <p>When you detach a traffic source, it enters the <code>Removing</code> state while deregistering the instances in the group. When all instances are deregistered, then you can no longer describe the traffic source using the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeTrafficSources.html\">DescribeTrafficSources</a> API call. The instances continue to run.</p>
 
         Args:
             auto_scaling_group_name: <p>The name of the Auto Scaling group.</p>
@@ -3082,12 +3086,12 @@ class AsyncAutoScalingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auto_scaling.types.detach_traffic_sources_type.DetachTrafficSourcesType = {}  # type: ignore[typeddict-item]
-        input["auto_scaling_group_name"] = auto_scaling_group_name
-        input["traffic_sources"] = traffic_sources
+        input_: aws_sdk_auto_scaling.types.detach_traffic_sources_type.DetachTrafficSourcesType = {}  # type: ignore[typeddict-item]
+        input_["auto_scaling_group_name"] = auto_scaling_group_name
+        input_["traffic_sources"] = traffic_sources
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3100,7 +3104,7 @@ class AsyncAutoScalingClient:
         config_overrides: Optional[AsyncAutoScalingClientConfig] = None,
         metrics: Optional["aws_sdk_auto_scaling.types.metrics.Metrics"] = None,
     ) -> None:
-        """<p>Disables group metrics collection for the specified Auto Scaling group.</p>
+        r"""<p>Disables group metrics collection for the specified Auto Scaling group.</p>
 
         Args:
             auto_scaling_group_name: <p>The name of the Auto Scaling group.</p>
@@ -3127,13 +3131,13 @@ class AsyncAutoScalingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auto_scaling.types.disable_metrics_collection_query.DisableMetricsCollectionQuery = {}  # type: ignore[typeddict-item]
-        input["auto_scaling_group_name"] = auto_scaling_group_name
+        input_: aws_sdk_auto_scaling.types.disable_metrics_collection_query.DisableMetricsCollectionQuery = {}  # type: ignore[typeddict-item]
+        input_["auto_scaling_group_name"] = auto_scaling_group_name
         if metrics is not None:
-            input["metrics"] = metrics
+            input_["metrics"] = metrics
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3147,7 +3151,7 @@ class AsyncAutoScalingClient:
         config_overrides: Optional[AsyncAutoScalingClientConfig] = None,
         metrics: Optional["aws_sdk_auto_scaling.types.metrics.Metrics"] = None,
     ) -> None:
-        """<p>Enables group metrics collection for the specified Auto Scaling group.</p> <p>You can use these metrics to track changes in an Auto Scaling group and to set alarms on threshold values. You can view group metrics using the Amazon EC2 Auto Scaling console or the CloudWatch console. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-cloudwatch-monitoring.html\">Monitor CloudWatch metrics for your Auto Scaling groups and instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+        r"""<p>Enables group metrics collection for the specified Auto Scaling group.</p> <p>You can use these metrics to track changes in an Auto Scaling group and to set alarms on threshold values. You can view group metrics using the Amazon EC2 Auto Scaling console or the CloudWatch console. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-cloudwatch-monitoring.html\">Monitor CloudWatch metrics for your Auto Scaling groups and instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
 
         Args:
             auto_scaling_group_name: <p>The name of the Auto Scaling group.</p>
@@ -3175,14 +3179,14 @@ class AsyncAutoScalingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auto_scaling.types.enable_metrics_collection_query.EnableMetricsCollectionQuery = {}  # type: ignore[typeddict-item]
-        input["auto_scaling_group_name"] = auto_scaling_group_name
+        input_: aws_sdk_auto_scaling.types.enable_metrics_collection_query.EnableMetricsCollectionQuery = {}  # type: ignore[typeddict-item]
+        input_["auto_scaling_group_name"] = auto_scaling_group_name
         if metrics is not None:
-            input["metrics"] = metrics
-        input["granularity"] = granularity
+            input_["metrics"] = metrics
+        input_["granularity"] = granularity
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3198,7 +3202,7 @@ class AsyncAutoScalingClient:
             "aws_sdk_auto_scaling.types.instance_ids.InstanceIds"
         ] = None,
     ) -> "aws_sdk_auto_scaling.types.enter_standby_answer.EnterStandbyAnswer":
-        """<p>Moves the specified instances into the standby state.</p> <p>If you choose to decrement the desired capacity of the Auto Scaling group, the instances can enter standby as long as the desired capacity of the Auto Scaling group after the instances are placed into standby is equal to or greater than the minimum capacity of the group.</p> <p>If you choose not to decrement the desired capacity of the Auto Scaling group, the Auto Scaling group launches new instances to replace the instances on standby.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-enter-exit-standby.html\">Temporarily removing instances from your Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+        r"""<p>Moves the specified instances into the standby state.</p> <p>If you choose to decrement the desired capacity of the Auto Scaling group, the instances can enter standby as long as the desired capacity of the Auto Scaling group after the instances are placed into standby is equal to or greater than the minimum capacity of the group.</p> <p>If you choose not to decrement the desired capacity of the Auto Scaling group, the Auto Scaling group launches new instances to replace the instances on standby.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-enter-exit-standby.html\">Temporarily removing instances from your Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
 
         Args:
             instance_ids: <p>The IDs of the instances. You can specify up to 20 instances.</p>
@@ -3228,14 +3232,14 @@ class AsyncAutoScalingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auto_scaling.types.enter_standby_query.EnterStandbyQuery = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_auto_scaling.types.enter_standby_query.EnterStandbyQuery = {}  # type: ignore[typeddict-item]
         if instance_ids is not None:
-            input["instance_ids"] = instance_ids
-        input["auto_scaling_group_name"] = auto_scaling_group_name
-        input["should_decrement_desired_capacity"] = should_decrement_desired_capacity
+            input_["instance_ids"] = instance_ids
+        input_["auto_scaling_group_name"] = auto_scaling_group_name
+        input_["should_decrement_desired_capacity"] = should_decrement_desired_capacity
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3259,7 +3263,7 @@ class AsyncAutoScalingClient:
             "aws_sdk_auto_scaling.types.metric_scale.MetricScale"
         ] = None,
     ) -> None:
-        """<p>Executes the specified policy. This can be useful for testing the design of your scaling policy.</p>
+        r"""<p>Executes the specified policy. This can be useful for testing the design of your scaling policy.</p>
 
         Args:
             auto_scaling_group_name: <p>The name of the Auto Scaling group.</p>
@@ -3289,19 +3293,19 @@ class AsyncAutoScalingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auto_scaling.types.execute_policy_type.ExecutePolicyType = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_auto_scaling.types.execute_policy_type.ExecutePolicyType = {}  # type: ignore[typeddict-item]
         if auto_scaling_group_name is not None:
-            input["auto_scaling_group_name"] = auto_scaling_group_name
-        input["policy_name"] = policy_name
+            input_["auto_scaling_group_name"] = auto_scaling_group_name
+        input_["policy_name"] = policy_name
         if honor_cooldown is not None:
-            input["honor_cooldown"] = honor_cooldown
+            input_["honor_cooldown"] = honor_cooldown
         if metric_value is not None:
-            input["metric_value"] = metric_value
+            input_["metric_value"] = metric_value
         if breach_threshold is not None:
-            input["breach_threshold"] = breach_threshold
+            input_["breach_threshold"] = breach_threshold
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3316,7 +3320,7 @@ class AsyncAutoScalingClient:
             "aws_sdk_auto_scaling.types.instance_ids.InstanceIds"
         ] = None,
     ) -> "aws_sdk_auto_scaling.types.exit_standby_answer.ExitStandbyAnswer":
-        """<p>Moves the specified instances out of the standby state.</p> <p>After you put the instances back in service, the desired capacity is incremented.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-enter-exit-standby.html\">Temporarily removing instances from your Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+        r"""<p>Moves the specified instances out of the standby state.</p> <p>After you put the instances back in service, the desired capacity is incremented.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-enter-exit-standby.html\">Temporarily removing instances from your Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
 
         Args:
             instance_ids: <p>The IDs of the instances. You can specify up to 20 instances.</p>
@@ -3345,13 +3349,13 @@ class AsyncAutoScalingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auto_scaling.types.exit_standby_query.ExitStandbyQuery = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_auto_scaling.types.exit_standby_query.ExitStandbyQuery = {}  # type: ignore[typeddict-item]
         if instance_ids is not None:
-            input["instance_ids"] = instance_ids
-        input["auto_scaling_group_name"] = auto_scaling_group_name
+            input_["instance_ids"] = instance_ids
+        input_["auto_scaling_group_name"] = auto_scaling_group_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3366,7 +3370,7 @@ class AsyncAutoScalingClient:
         *,
         config_overrides: Optional[AsyncAutoScalingClientConfig] = None,
     ) -> "aws_sdk_auto_scaling.types.get_predictive_scaling_forecast_answer.GetPredictiveScalingForecastAnswer":
-        """<p>Retrieves the forecast data for a predictive scaling policy.</p> <p>Load forecasts are predictions of the hourly load values using historical load data from CloudWatch and an analysis of historical trends. Capacity forecasts are represented as predicted values for the minimum capacity that is needed on an hourly basis, based on the hourly load forecast.</p> <p>A minimum of 24 hours of data is required to create the initial forecasts. However, having a full 14 days of historical data results in more accurate forecasts.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-predictive-scaling.html\">Predictive scaling for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+        r"""<p>Retrieves the forecast data for a predictive scaling policy.</p> <p>Load forecasts are predictions of the hourly load values using historical load data from CloudWatch and an analysis of historical trends. Capacity forecasts are represented as predicted values for the minimum capacity that is needed on an hourly basis, based on the hourly load forecast.</p> <p>A minimum of 24 hours of data is required to create the initial forecasts. However, having a full 14 days of historical data results in more accurate forecasts.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-predictive-scaling.html\">Predictive scaling for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
 
         Args:
             auto_scaling_group_name: <p>The name of the Auto Scaling group.</p>
@@ -3391,14 +3395,14 @@ class AsyncAutoScalingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auto_scaling.types.get_predictive_scaling_forecast_type.GetPredictiveScalingForecastType = {}  # type: ignore[typeddict-item]
-        input["auto_scaling_group_name"] = auto_scaling_group_name
-        input["policy_name"] = policy_name
-        input["start_time"] = start_time
-        input["end_time"] = end_time
+        input_: aws_sdk_auto_scaling.types.get_predictive_scaling_forecast_type.GetPredictiveScalingForecastType = {}  # type: ignore[typeddict-item]
+        input_["auto_scaling_group_name"] = auto_scaling_group_name
+        input_["policy_name"] = policy_name
+        input_["start_time"] = start_time
+        input_["end_time"] = end_time
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3452,21 +3456,21 @@ class AsyncAutoScalingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auto_scaling.types.launch_instances_request.LaunchInstancesRequest = {}  # type: ignore[typeddict-item]
-        input["auto_scaling_group_name"] = auto_scaling_group_name
-        input["requested_capacity"] = requested_capacity
-        input["client_token"] = client_token
+        input_: aws_sdk_auto_scaling.types.launch_instances_request.LaunchInstancesRequest = {}  # type: ignore[typeddict-item]
+        input_["auto_scaling_group_name"] = auto_scaling_group_name
+        input_["requested_capacity"] = requested_capacity
+        input_["client_token"] = client_token
         if availability_zones is not None:
-            input["availability_zones"] = availability_zones
+            input_["availability_zones"] = availability_zones
         if availability_zone_ids is not None:
-            input["availability_zone_ids"] = availability_zone_ids
+            input_["availability_zone_ids"] = availability_zone_ids
         if subnet_ids is not None:
-            input["subnet_ids"] = subnet_ids
+            input_["subnet_ids"] = subnet_ids
         if retry_strategy is not None:
-            input["retry_strategy"] = retry_strategy
+            input_["retry_strategy"] = retry_strategy
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3497,7 +3501,7 @@ class AsyncAutoScalingClient:
             "aws_sdk_auto_scaling.types.lifecycle_action_result.LifecycleActionResult"
         ] = None,
     ) -> "aws_sdk_auto_scaling.types.put_lifecycle_hook_answer.PutLifecycleHookAnswer":
-        """<p>Creates or updates a lifecycle hook for the specified Auto Scaling group.</p> <p>Lifecycle hooks let you create solutions that are aware of events in the Auto Scaling instance lifecycle, and then perform a custom action on instances when the corresponding lifecycle event occurs.</p> <p>This step is a part of the procedure for adding a lifecycle hook to an Auto Scaling group:</p> <ol> <li> <p>(Optional) Create a launch template or launch configuration with a user data script that runs while an instance is in a wait state due to a lifecycle hook.</p> </li> <li> <p>(Optional) Create a Lambda function and a rule that allows Amazon EventBridge to invoke your Lambda function when an instance is put into a wait state due to a lifecycle hook.</p> </li> <li> <p>(Optional) Create a notification target and an IAM role. The target can be either an Amazon SQS queue or an Amazon SNS topic. The role allows Amazon EC2 Auto Scaling to publish lifecycle notifications to the target.</p> </li> <li> <p> <b>Create the lifecycle hook. Specify whether the hook is used when the instances launch or terminate.</b> </p> </li> <li> <p>If you need more time, record the lifecycle action heartbeat to keep the instance in a wait state using the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_RecordLifecycleActionHeartbeat.html\">RecordLifecycleActionHeartbeat</a> API call.</p> </li> <li> <p>If you finish before the timeout period ends, send a callback by using the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CompleteLifecycleAction.html\">CompleteLifecycleAction</a> API call.</p> </li> </ol> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/lifecycle-hooks.html\">Amazon EC2 Auto Scaling lifecycle hooks</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>If you exceed your maximum limit of lifecycle hooks, which by default is 50 per Auto Scaling group, the call fails.</p> <p>You can view the lifecycle hooks for an Auto Scaling group using the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeLifecycleHooks.html\">DescribeLifecycleHooks</a> API call. If you are no longer using a lifecycle hook, you can delete it by calling the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DeleteLifecycleHook.html\">DeleteLifecycleHook</a> API.</p>
+        r"""<p>Creates or updates a lifecycle hook for the specified Auto Scaling group.</p> <p>Lifecycle hooks let you create solutions that are aware of events in the Auto Scaling instance lifecycle, and then perform a custom action on instances when the corresponding lifecycle event occurs.</p> <p>This step is a part of the procedure for adding a lifecycle hook to an Auto Scaling group:</p> <ol> <li> <p>(Optional) Create a launch template or launch configuration with a user data script that runs while an instance is in a wait state due to a lifecycle hook.</p> </li> <li> <p>(Optional) Create a Lambda function and a rule that allows Amazon EventBridge to invoke your Lambda function when an instance is put into a wait state due to a lifecycle hook.</p> </li> <li> <p>(Optional) Create a notification target and an IAM role. The target can be either an Amazon SQS queue or an Amazon SNS topic. The role allows Amazon EC2 Auto Scaling to publish lifecycle notifications to the target.</p> </li> <li> <p> <b>Create the lifecycle hook. Specify whether the hook is used when the instances launch or terminate.</b> </p> </li> <li> <p>If you need more time, record the lifecycle action heartbeat to keep the instance in a wait state using the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_RecordLifecycleActionHeartbeat.html\">RecordLifecycleActionHeartbeat</a> API call.</p> </li> <li> <p>If you finish before the timeout period ends, send a callback by using the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CompleteLifecycleAction.html\">CompleteLifecycleAction</a> API call.</p> </li> </ol> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/lifecycle-hooks.html\">Amazon EC2 Auto Scaling lifecycle hooks</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>If you exceed your maximum limit of lifecycle hooks, which by default is 50 per Auto Scaling group, the call fails.</p> <p>You can view the lifecycle hooks for an Auto Scaling group using the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeLifecycleHooks.html\">DescribeLifecycleHooks</a> API call. If you are no longer using a lifecycle hook, you can delete it by calling the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DeleteLifecycleHook.html\">DeleteLifecycleHook</a> API.</p>
 
         Args:
             lifecycle_hook_name: <p>The name of the lifecycle hook.</p>
@@ -3532,24 +3536,24 @@ class AsyncAutoScalingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auto_scaling.types.put_lifecycle_hook_type.PutLifecycleHookType = {}  # type: ignore[typeddict-item]
-        input["lifecycle_hook_name"] = lifecycle_hook_name
-        input["auto_scaling_group_name"] = auto_scaling_group_name
+        input_: aws_sdk_auto_scaling.types.put_lifecycle_hook_type.PutLifecycleHookType = {}  # type: ignore[typeddict-item]
+        input_["lifecycle_hook_name"] = lifecycle_hook_name
+        input_["auto_scaling_group_name"] = auto_scaling_group_name
         if lifecycle_transition is not None:
-            input["lifecycle_transition"] = lifecycle_transition
+            input_["lifecycle_transition"] = lifecycle_transition
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
         if notification_target_arn is not None:
-            input["notification_target_arn"] = notification_target_arn
+            input_["notification_target_arn"] = notification_target_arn
         if notification_metadata is not None:
-            input["notification_metadata"] = notification_metadata
+            input_["notification_metadata"] = notification_metadata
         if heartbeat_timeout is not None:
-            input["heartbeat_timeout"] = heartbeat_timeout
+            input_["heartbeat_timeout"] = heartbeat_timeout
         if default_result is not None:
-            input["default_result"] = default_result
+            input_["default_result"] = default_result
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3563,7 +3567,7 @@ class AsyncAutoScalingClient:
         *,
         config_overrides: Optional[AsyncAutoScalingClientConfig] = None,
     ) -> None:
-        """<p>Configures an Auto Scaling group to send notifications when specified events take place. Subscribers to the specified topic can have messages delivered to an endpoint such as a web server or an email address.</p> <p>This configuration overwrites any existing configuration.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-sns-notifications.html\">Amazon SNS notification options for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>If you exceed your maximum limit of SNS topics, which is 10 per Auto Scaling group, the call fails.</p>
+        r"""<p>Configures an Auto Scaling group to send notifications when specified events take place. Subscribers to the specified topic can have messages delivered to an endpoint such as a web server or an email address.</p> <p>This configuration overwrites any existing configuration.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-sns-notifications.html\">Amazon SNS notification options for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>If you exceed your maximum limit of SNS topics, which is 10 per Auto Scaling group, the call fails.</p>
 
         Args:
             auto_scaling_group_name: <p>The name of the Auto Scaling group.</p>
@@ -3591,13 +3595,13 @@ class AsyncAutoScalingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auto_scaling.types.put_notification_configuration_type.PutNotificationConfigurationType = {}  # type: ignore[typeddict-item]
-        input["auto_scaling_group_name"] = auto_scaling_group_name
-        input["topic_arn"] = topic_arn
-        input["notification_types"] = notification_types
+        input_: aws_sdk_auto_scaling.types.put_notification_configuration_type.PutNotificationConfigurationType = {}  # type: ignore[typeddict-item]
+        input_["auto_scaling_group_name"] = auto_scaling_group_name
+        input_["topic_arn"] = topic_arn
+        input_["notification_types"] = notification_types
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3644,7 +3648,7 @@ class AsyncAutoScalingClient:
             "aws_sdk_auto_scaling.types.predictive_scaling_configuration.PredictiveScalingConfiguration"
         ] = None,
     ) -> "aws_sdk_auto_scaling.types.policy_arn_type.PolicyARNType":
-        """<p>Creates or updates a scaling policy for an Auto Scaling group. Scaling policies are used to scale an Auto Scaling group based on configurable metrics. If no policies are defined, the dynamic scaling and predictive scaling features are not used. </p> <p>For more information about using dynamic scaling, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-target-tracking.html\">Target tracking scaling policies</a> and <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html\">Step and simple scaling policies</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>For more information about using predictive scaling, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-predictive-scaling.html\">Predictive scaling for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>You can view the scaling policies for an Auto Scaling group using the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribePolicies.html\">DescribePolicies</a> API call. If you are no longer using a scaling policy, you can delete it by calling the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DeletePolicy.html\">DeletePolicy</a> API.</p>
+        r"""<p>Creates or updates a scaling policy for an Auto Scaling group. Scaling policies are used to scale an Auto Scaling group based on configurable metrics. If no policies are defined, the dynamic scaling and predictive scaling features are not used. </p> <p>For more information about using dynamic scaling, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-target-tracking.html\">Target tracking scaling policies</a> and <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html\">Step and simple scaling policies</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>For more information about using predictive scaling, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-predictive-scaling.html\">Predictive scaling for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>You can view the scaling policies for an Auto Scaling group using the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribePolicies.html\">DescribePolicies</a> API call. If you are no longer using a scaling policy, you can delete it by calling the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DeletePolicy.html\">DeletePolicy</a> API.</p>
 
         Args:
             auto_scaling_group_name: <p>The name of the Auto Scaling group.</p>
@@ -3685,36 +3689,38 @@ class AsyncAutoScalingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auto_scaling.types.put_scaling_policy_type.PutScalingPolicyType = {}  # type: ignore[typeddict-item]
-        input["auto_scaling_group_name"] = auto_scaling_group_name
-        input["policy_name"] = policy_name
+        input_: aws_sdk_auto_scaling.types.put_scaling_policy_type.PutScalingPolicyType = {}  # type: ignore[typeddict-item]
+        input_["auto_scaling_group_name"] = auto_scaling_group_name
+        input_["policy_name"] = policy_name
         if policy_type is not None:
-            input["policy_type"] = policy_type
+            input_["policy_type"] = policy_type
         if adjustment_type is not None:
-            input["adjustment_type"] = adjustment_type
+            input_["adjustment_type"] = adjustment_type
         if min_adjustment_step is not None:
-            input["min_adjustment_step"] = min_adjustment_step
+            input_["min_adjustment_step"] = min_adjustment_step
         if min_adjustment_magnitude is not None:
-            input["min_adjustment_magnitude"] = min_adjustment_magnitude
+            input_["min_adjustment_magnitude"] = min_adjustment_magnitude
         if scaling_adjustment is not None:
-            input["scaling_adjustment"] = scaling_adjustment
+            input_["scaling_adjustment"] = scaling_adjustment
         if cooldown is not None:
-            input["cooldown"] = cooldown
+            input_["cooldown"] = cooldown
         if metric_aggregation_type is not None:
-            input["metric_aggregation_type"] = metric_aggregation_type
+            input_["metric_aggregation_type"] = metric_aggregation_type
         if step_adjustments is not None:
-            input["step_adjustments"] = step_adjustments
+            input_["step_adjustments"] = step_adjustments
         if estimated_instance_warmup is not None:
-            input["estimated_instance_warmup"] = estimated_instance_warmup
+            input_["estimated_instance_warmup"] = estimated_instance_warmup
         if target_tracking_configuration is not None:
-            input["target_tracking_configuration"] = target_tracking_configuration
+            input_["target_tracking_configuration"] = target_tracking_configuration
         if enabled is not None:
-            input["enabled"] = enabled
+            input_["enabled"] = enabled
         if predictive_scaling_configuration is not None:
-            input["predictive_scaling_configuration"] = predictive_scaling_configuration
+            input_["predictive_scaling_configuration"] = (
+                predictive_scaling_configuration
+            )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3751,7 +3757,7 @@ class AsyncAutoScalingClient:
             "aws_sdk_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255"
         ] = None,
     ) -> None:
-        """<p>Creates or updates a scheduled scaling action for an Auto Scaling group.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-scheduled-scaling.html\">Scheduled scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>You can view the scheduled actions for an Auto Scaling group using the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeScheduledActions.html\">DescribeScheduledActions</a> API call. If you are no longer using a scheduled action, you can delete it by calling the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DeleteScheduledAction.html\">DeleteScheduledAction</a> API.</p> <p>If you try to schedule your action in the past, Amazon EC2 Auto Scaling returns an error message.</p>
+        r"""<p>Creates or updates a scheduled scaling action for an Auto Scaling group.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-scheduled-scaling.html\">Scheduled scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>You can view the scheduled actions for an Auto Scaling group using the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeScheduledActions.html\">DescribeScheduledActions</a> API call. If you are no longer using a scheduled action, you can delete it by calling the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DeleteScheduledAction.html\">DeleteScheduledAction</a> API.</p> <p>If you try to schedule your action in the past, Amazon EC2 Auto Scaling returns an error message.</p>
 
         Args:
             auto_scaling_group_name: <p>The name of the Auto Scaling group.</p>
@@ -3786,28 +3792,28 @@ class AsyncAutoScalingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auto_scaling.types.put_scheduled_update_group_action_type.PutScheduledUpdateGroupActionType = {}  # type: ignore[typeddict-item]
-        input["auto_scaling_group_name"] = auto_scaling_group_name
-        input["scheduled_action_name"] = scheduled_action_name
+        input_: aws_sdk_auto_scaling.types.put_scheduled_update_group_action_type.PutScheduledUpdateGroupActionType = {}  # type: ignore[typeddict-item]
+        input_["auto_scaling_group_name"] = auto_scaling_group_name
+        input_["scheduled_action_name"] = scheduled_action_name
         if time is not None:
-            input["time"] = time
+            input_["time"] = time
         if start_time is not None:
-            input["start_time"] = start_time
+            input_["start_time"] = start_time
         if end_time is not None:
-            input["end_time"] = end_time
+            input_["end_time"] = end_time
         if recurrence is not None:
-            input["recurrence"] = recurrence
+            input_["recurrence"] = recurrence
         if min_size is not None:
-            input["min_size"] = min_size
+            input_["min_size"] = min_size
         if max_size is not None:
-            input["max_size"] = max_size
+            input_["max_size"] = max_size
         if desired_capacity is not None:
-            input["desired_capacity"] = desired_capacity
+            input_["desired_capacity"] = desired_capacity
         if time_zone is not None:
-            input["time_zone"] = time_zone
+            input_["time_zone"] = time_zone
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3831,7 +3837,7 @@ class AsyncAutoScalingClient:
             "aws_sdk_auto_scaling.types.instance_reuse_policy.InstanceReusePolicy"
         ] = None,
     ) -> "aws_sdk_auto_scaling.types.put_warm_pool_answer.PutWarmPoolAnswer":
-        """<p>Creates or updates a warm pool for the specified Auto Scaling group. A warm pool is a pool of pre-initialized EC2 instances that sits alongside the Auto Scaling group. Whenever your application needs to scale out, the Auto Scaling group can draw on the warm pool to meet its new desired capacity.</p> <p>This operation must be called from the Region in which the Auto Scaling group was created.</p> <p>You can view the instances in the warm pool using the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeWarmPool.html\">DescribeWarmPool</a> API call. If you are no longer using a warm pool, you can delete it by calling the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DeleteWarmPool.html\">DeleteWarmPool</a> API.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html\">Warm pools for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+        r"""<p>Creates or updates a warm pool for the specified Auto Scaling group. A warm pool is a pool of pre-initialized EC2 instances that sits alongside the Auto Scaling group. Whenever your application needs to scale out, the Auto Scaling group can draw on the warm pool to meet its new desired capacity.</p> <p>This operation must be called from the Region in which the Auto Scaling group was created.</p> <p>You can view the instances in the warm pool using the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeWarmPool.html\">DescribeWarmPool</a> API call. If you are no longer using a warm pool, you can delete it by calling the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DeleteWarmPool.html\">DeleteWarmPool</a> API.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html\">Warm pools for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
 
         Args:
             auto_scaling_group_name: <p>The name of the Auto Scaling group.</p>
@@ -3863,19 +3869,19 @@ class AsyncAutoScalingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auto_scaling.types.put_warm_pool_type.PutWarmPoolType = {}  # type: ignore[typeddict-item]
-        input["auto_scaling_group_name"] = auto_scaling_group_name
+        input_: aws_sdk_auto_scaling.types.put_warm_pool_type.PutWarmPoolType = {}  # type: ignore[typeddict-item]
+        input_["auto_scaling_group_name"] = auto_scaling_group_name
         if max_group_prepared_capacity is not None:
-            input["max_group_prepared_capacity"] = max_group_prepared_capacity
+            input_["max_group_prepared_capacity"] = max_group_prepared_capacity
         if min_size is not None:
-            input["min_size"] = min_size
+            input_["min_size"] = min_size
         if pool_state is not None:
-            input["pool_state"] = pool_state
+            input_["pool_state"] = pool_state
         if instance_reuse_policy is not None:
-            input["instance_reuse_policy"] = instance_reuse_policy
+            input_["instance_reuse_policy"] = instance_reuse_policy
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3894,7 +3900,7 @@ class AsyncAutoScalingClient:
             "aws_sdk_auto_scaling.types.xml_string_max_len19.XmlStringMaxLen19"
         ] = None,
     ) -> "aws_sdk_auto_scaling.types.record_lifecycle_action_heartbeat_answer.RecordLifecycleActionHeartbeatAnswer":
-        """<p>Records a heartbeat for the lifecycle action associated with the specified token or instance. This extends the timeout by the length of time defined using the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PutLifecycleHook.html\">PutLifecycleHook</a> API call.</p> <p>This step is a part of the procedure for adding a lifecycle hook to an Auto Scaling group:</p> <ol> <li> <p>(Optional) Create a launch template or launch configuration with a user data script that runs while an instance is in a wait state due to a lifecycle hook.</p> </li> <li> <p>(Optional) Create a Lambda function and a rule that allows Amazon EventBridge to invoke your Lambda function when an instance is put into a wait state due to a lifecycle hook.</p> </li> <li> <p>(Optional) Create a notification target and an IAM role. The target can be either an Amazon SQS queue or an Amazon SNS topic. The role allows Amazon EC2 Auto Scaling to publish lifecycle notifications to the target.</p> </li> <li> <p>Create the lifecycle hook. Specify whether the hook is used when the instances launch or terminate.</p> </li> <li> <p> <b>If you need more time, record the lifecycle action heartbeat to keep the instance in a wait state.</b> </p> </li> <li> <p>If you finish before the timeout period ends, send a callback by using the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CompleteLifecycleAction.html\">CompleteLifecycleAction</a> API call.</p> </li> </ol> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/lifecycle-hooks.html\">Amazon EC2 Auto Scaling lifecycle hooks</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+        r"""<p>Records a heartbeat for the lifecycle action associated with the specified token or instance. This extends the timeout by the length of time defined using the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PutLifecycleHook.html\">PutLifecycleHook</a> API call.</p> <p>This step is a part of the procedure for adding a lifecycle hook to an Auto Scaling group:</p> <ol> <li> <p>(Optional) Create a launch template or launch configuration with a user data script that runs while an instance is in a wait state due to a lifecycle hook.</p> </li> <li> <p>(Optional) Create a Lambda function and a rule that allows Amazon EventBridge to invoke your Lambda function when an instance is put into a wait state due to a lifecycle hook.</p> </li> <li> <p>(Optional) Create a notification target and an IAM role. The target can be either an Amazon SQS queue or an Amazon SNS topic. The role allows Amazon EC2 Auto Scaling to publish lifecycle notifications to the target.</p> </li> <li> <p>Create the lifecycle hook. Specify whether the hook is used when the instances launch or terminate.</p> </li> <li> <p> <b>If you need more time, record the lifecycle action heartbeat to keep the instance in a wait state.</b> </p> </li> <li> <p>If you finish before the timeout period ends, send a callback by using the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CompleteLifecycleAction.html\">CompleteLifecycleAction</a> API call.</p> </li> </ol> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/lifecycle-hooks.html\">Amazon EC2 Auto Scaling lifecycle hooks</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
 
         Args:
             lifecycle_hook_name: <p>The name of the lifecycle hook.</p>
@@ -3925,16 +3931,16 @@ class AsyncAutoScalingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auto_scaling.types.record_lifecycle_action_heartbeat_type.RecordLifecycleActionHeartbeatType = {}  # type: ignore[typeddict-item]
-        input["lifecycle_hook_name"] = lifecycle_hook_name
-        input["auto_scaling_group_name"] = auto_scaling_group_name
+        input_: aws_sdk_auto_scaling.types.record_lifecycle_action_heartbeat_type.RecordLifecycleActionHeartbeatType = {}  # type: ignore[typeddict-item]
+        input_["lifecycle_hook_name"] = lifecycle_hook_name
+        input_["auto_scaling_group_name"] = auto_scaling_group_name
         if lifecycle_action_token is not None:
-            input["lifecycle_action_token"] = lifecycle_action_token
+            input_["lifecycle_action_token"] = lifecycle_action_token
         if instance_id is not None:
-            input["instance_id"] = instance_id
+            input_["instance_id"] = instance_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3949,7 +3955,7 @@ class AsyncAutoScalingClient:
             "aws_sdk_auto_scaling.types.process_names.ProcessNames"
         ] = None,
     ) -> None:
-        """<p>Resumes the specified suspended auto scaling processes, or all suspended process, for the specified Auto Scaling group.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-suspend-resume-processes.html\">Suspend and resume Amazon EC2 Auto Scaling processes</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+        r"""<p>Resumes the specified suspended auto scaling processes, or all suspended process, for the specified Auto Scaling group.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-suspend-resume-processes.html\">Suspend and resume Amazon EC2 Auto Scaling processes</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
 
         Args:
             auto_scaling_group_name: <p>The name of the Auto Scaling group.</p>
@@ -3976,13 +3982,13 @@ class AsyncAutoScalingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auto_scaling.types.scaling_process_query.ScalingProcessQuery = {}  # type: ignore[typeddict-item]
-        input["auto_scaling_group_name"] = auto_scaling_group_name
+        input_: aws_sdk_auto_scaling.types.scaling_process_query.ScalingProcessQuery = {}  # type: ignore[typeddict-item]
+        input_["auto_scaling_group_name"] = auto_scaling_group_name
         if scaling_processes is not None:
-            input["scaling_processes"] = scaling_processes
+            input_["scaling_processes"] = scaling_processes
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3994,7 +4000,7 @@ class AsyncAutoScalingClient:
         *,
         config_overrides: Optional[AsyncAutoScalingClientConfig] = None,
     ) -> "aws_sdk_auto_scaling.types.rollback_instance_refresh_answer.RollbackInstanceRefreshAnswer":
-        """<p>Cancels an instance refresh that is in progress and rolls back any changes that it made. Amazon EC2 Auto Scaling replaces any instances that were replaced during the instance refresh. This restores your Auto Scaling group to the configuration that it was using before the start of the instance refresh. </p> <p>This operation is part of the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html\">instance refresh feature</a> in Amazon EC2 Auto Scaling, which helps you update instances in your Auto Scaling group after you make configuration changes.</p> <p>A rollback is not supported in the following situations: </p> <ul> <li> <p>There is no desired configuration specified for the instance refresh.</p> </li> <li> <p>The Auto Scaling group has a launch template that uses an Amazon Web Services Systems Manager parameter instead of an AMI ID for the <code>ImageId</code> property.</p> </li> <li> <p>The Auto Scaling group uses the launch template's <code>$Latest</code> or <code>$Default</code> version.</p> </li> </ul> <p>When you receive a successful response from this operation, Amazon EC2 Auto Scaling immediately begins replacing instances. You can check the status of this operation through the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeInstanceRefreshes.html\">DescribeInstanceRefreshes</a> API operation. </p>
+        r"""<p>Cancels an instance refresh that is in progress and rolls back any changes that it made. Amazon EC2 Auto Scaling replaces any instances that were replaced during the instance refresh. This restores your Auto Scaling group to the configuration that it was using before the start of the instance refresh. </p> <p>This operation is part of the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html\">instance refresh feature</a> in Amazon EC2 Auto Scaling, which helps you update instances in your Auto Scaling group after you make configuration changes.</p> <p>A rollback is not supported in the following situations: </p> <ul> <li> <p>There is no desired configuration specified for the instance refresh.</p> </li> <li> <p>The Auto Scaling group has a launch template that uses an Amazon Web Services Systems Manager parameter instead of an AMI ID for the <code>ImageId</code> property.</p> </li> <li> <p>The Auto Scaling group uses the launch template's <code>$Latest</code> or <code>$Default</code> version.</p> </li> </ul> <p>When you receive a successful response from this operation, Amazon EC2 Auto Scaling immediately begins replacing instances. You can check the status of this operation through the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeInstanceRefreshes.html\">DescribeInstanceRefreshes</a> API operation. </p>
 
         Args:
             auto_scaling_group_name: <p>The name of the Auto Scaling group.</p>
@@ -4016,11 +4022,11 @@ class AsyncAutoScalingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auto_scaling.types.rollback_instance_refresh_type.RollbackInstanceRefreshType = {}  # type: ignore[typeddict-item]
-        input["auto_scaling_group_name"] = auto_scaling_group_name
+        input_: aws_sdk_auto_scaling.types.rollback_instance_refresh_type.RollbackInstanceRefreshType = {}  # type: ignore[typeddict-item]
+        input_["auto_scaling_group_name"] = auto_scaling_group_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4036,7 +4042,7 @@ class AsyncAutoScalingClient:
             "aws_sdk_auto_scaling.types.honor_cooldown.HonorCooldown"
         ] = None,
     ) -> None:
-        """<p>Sets the size of the specified Auto Scaling group.</p> <p>If a scale-in activity occurs as a result of a new <code>DesiredCapacity</code> value that is lower than the current size of the group, the Auto Scaling group uses its termination policy to determine which instances to terminate. </p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-scaling-manually.html\">Manual scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+        r"""<p>Sets the size of the specified Auto Scaling group.</p> <p>If a scale-in activity occurs as a result of a new <code>DesiredCapacity</code> value that is lower than the current size of the group, the Auto Scaling group uses its termination policy to determine which instances to terminate. </p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-scaling-manually.html\">Manual scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
 
         Args:
             auto_scaling_group_name: <p>The name of the Auto Scaling group.</p>
@@ -4064,14 +4070,14 @@ class AsyncAutoScalingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auto_scaling.types.set_desired_capacity_type.SetDesiredCapacityType = {}  # type: ignore[typeddict-item]
-        input["auto_scaling_group_name"] = auto_scaling_group_name
-        input["desired_capacity"] = desired_capacity
+        input_: aws_sdk_auto_scaling.types.set_desired_capacity_type.SetDesiredCapacityType = {}  # type: ignore[typeddict-item]
+        input_["auto_scaling_group_name"] = auto_scaling_group_name
+        input_["desired_capacity"] = desired_capacity
         if honor_cooldown is not None:
-            input["honor_cooldown"] = honor_cooldown
+            input_["honor_cooldown"] = honor_cooldown
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4087,7 +4093,7 @@ class AsyncAutoScalingClient:
             "aws_sdk_auto_scaling.types.should_respect_grace_period.ShouldRespectGracePeriod"
         ] = None,
     ) -> None:
-        """<p>Sets the health status of the specified instance.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/set-up-a-custom-health-check.html\">Set up a custom health check for your Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+        r"""<p>Sets the health status of the specified instance.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/set-up-a-custom-health-check.html\">Set up a custom health check for your Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
 
         Args:
             instance_id: <p>The ID of the instance.</p>
@@ -4115,14 +4121,14 @@ class AsyncAutoScalingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auto_scaling.types.set_instance_health_query.SetInstanceHealthQuery = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["health_status"] = health_status
+        input_: aws_sdk_auto_scaling.types.set_instance_health_query.SetInstanceHealthQuery = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["health_status"] = health_status
         if should_respect_grace_period is not None:
-            input["should_respect_grace_period"] = should_respect_grace_period
+            input_["should_respect_grace_period"] = should_respect_grace_period
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4136,7 +4142,7 @@ class AsyncAutoScalingClient:
         *,
         config_overrides: Optional[AsyncAutoScalingClientConfig] = None,
     ) -> "aws_sdk_auto_scaling.types.set_instance_protection_answer.SetInstanceProtectionAnswer":
-        """<p>Updates the instance protection settings of the specified instances. This operation cannot be called on instances in a warm pool.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html\">Use instance scale-in protection</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>If you exceed your maximum limit of instance IDs, which is 50 per Auto Scaling group, the call fails.</p>
+        r"""<p>Updates the instance protection settings of the specified instances. This operation cannot be called on instances in a warm pool.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html\">Use instance scale-in protection</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>If you exceed your maximum limit of instance IDs, which is 50 per Auto Scaling group, the call fails.</p>
 
         Args:
             instance_ids: <p>One or more instance IDs. You can specify up to 50 instances.</p>
@@ -4170,13 +4176,13 @@ class AsyncAutoScalingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auto_scaling.types.set_instance_protection_query.SetInstanceProtectionQuery = {}  # type: ignore[typeddict-item]
-        input["instance_ids"] = instance_ids
-        input["auto_scaling_group_name"] = auto_scaling_group_name
-        input["protected_from_scale_in"] = protected_from_scale_in
+        input_: aws_sdk_auto_scaling.types.set_instance_protection_query.SetInstanceProtectionQuery = {}  # type: ignore[typeddict-item]
+        input_["instance_ids"] = instance_ids
+        input_["auto_scaling_group_name"] = auto_scaling_group_name
+        input_["protected_from_scale_in"] = protected_from_scale_in
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4197,7 +4203,7 @@ class AsyncAutoScalingClient:
             "aws_sdk_auto_scaling.types.refresh_preferences.RefreshPreferences"
         ] = None,
     ) -> "aws_sdk_auto_scaling.types.start_instance_refresh_answer.StartInstanceRefreshAnswer":
-        """<p>Starts an instance refresh.</p> <p>This operation is part of the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html\">instance refresh feature</a> in Amazon EC2 Auto Scaling, which helps you update instances in your Auto Scaling group. This feature is helpful, for example, when you have a new AMI or a new user data script. You just need to create a new launch template that specifies the new AMI or user data script. Then start an instance refresh to immediately begin the process of updating instances in the group. </p> <p>If successful, the request's response contains a unique ID that you can use to track the progress of the instance refresh. To query its status, call the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeInstanceRefreshes.html\">DescribeInstanceRefreshes</a> API. To describe the instance refreshes that have already run, call the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeInstanceRefreshes.html\">DescribeInstanceRefreshes</a> API. To cancel an instance refresh that is in progress, use the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CancelInstanceRefresh.html\">CancelInstanceRefresh</a> API. </p> <p>An instance refresh might fail for several reasons, such as EC2 launch failures, misconfigured health checks, or not ignoring or allowing the termination of instances that are in <code>Standby</code> state or protected from scale in. You can monitor for failed EC2 launches using the scaling activities. To find the scaling activities, call the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeScalingActivities.html\">DescribeScalingActivities</a> API.</p> <p>If you enable auto rollback, your Auto Scaling group will be rolled back automatically when the instance refresh fails. You can enable this feature before starting an instance refresh by specifying the <code>AutoRollback</code> property in the instance refresh preferences. Otherwise, to roll back an instance refresh before it finishes, use the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_RollbackInstanceRefresh.html\">RollbackInstanceRefresh</a> API. </p>
+        r"""<p>Starts an instance refresh.</p> <p>This operation is part of the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html\">instance refresh feature</a> in Amazon EC2 Auto Scaling, which helps you update instances in your Auto Scaling group. This feature is helpful, for example, when you have a new AMI or a new user data script. You just need to create a new launch template that specifies the new AMI or user data script. Then start an instance refresh to immediately begin the process of updating instances in the group. </p> <p>If successful, the request's response contains a unique ID that you can use to track the progress of the instance refresh. To query its status, call the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeInstanceRefreshes.html\">DescribeInstanceRefreshes</a> API. To describe the instance refreshes that have already run, call the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeInstanceRefreshes.html\">DescribeInstanceRefreshes</a> API. To cancel an instance refresh that is in progress, use the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CancelInstanceRefresh.html\">CancelInstanceRefresh</a> API. </p> <p>An instance refresh might fail for several reasons, such as EC2 launch failures, misconfigured health checks, or not ignoring or allowing the termination of instances that are in <code>Standby</code> state or protected from scale in. You can monitor for failed EC2 launches using the scaling activities. To find the scaling activities, call the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeScalingActivities.html\">DescribeScalingActivities</a> API.</p> <p>If you enable auto rollback, your Auto Scaling group will be rolled back automatically when the instance refresh fails. You can enable this feature before starting an instance refresh by specifying the <code>AutoRollback</code> property in the instance refresh preferences. Otherwise, to roll back an instance refresh before it finishes, use the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_RollbackInstanceRefresh.html\">RollbackInstanceRefresh</a> API. </p>
 
         Args:
             auto_scaling_group_name: <p>The name of the Auto Scaling group.</p>
@@ -4228,17 +4234,17 @@ class AsyncAutoScalingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auto_scaling.types.start_instance_refresh_type.StartInstanceRefreshType = {}  # type: ignore[typeddict-item]
-        input["auto_scaling_group_name"] = auto_scaling_group_name
+        input_: aws_sdk_auto_scaling.types.start_instance_refresh_type.StartInstanceRefreshType = {}  # type: ignore[typeddict-item]
+        input_["auto_scaling_group_name"] = auto_scaling_group_name
         if strategy is not None:
-            input["strategy"] = strategy
+            input_["strategy"] = strategy
         if desired_configuration is not None:
-            input["desired_configuration"] = desired_configuration
+            input_["desired_configuration"] = desired_configuration
         if preferences is not None:
-            input["preferences"] = preferences
+            input_["preferences"] = preferences
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4253,7 +4259,7 @@ class AsyncAutoScalingClient:
             "aws_sdk_auto_scaling.types.process_names.ProcessNames"
         ] = None,
     ) -> None:
-        """<p>Suspends the specified auto scaling processes, or all processes, for the specified Auto Scaling group.</p> <p>If you suspend either the <code>Launch</code> or <code>Terminate</code> process types, it can prevent other process types from functioning properly. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-suspend-resume-processes.html\">Suspend and resume Amazon EC2 Auto Scaling processes</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>To resume processes that have been suspended, call the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_ResumeProcesses.html\">ResumeProcesses</a> API.</p>
+        r"""<p>Suspends the specified auto scaling processes, or all processes, for the specified Auto Scaling group.</p> <p>If you suspend either the <code>Launch</code> or <code>Terminate</code> process types, it can prevent other process types from functioning properly. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-suspend-resume-processes.html\">Suspend and resume Amazon EC2 Auto Scaling processes</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>To resume processes that have been suspended, call the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_ResumeProcesses.html\">ResumeProcesses</a> API.</p>
 
         Args:
             auto_scaling_group_name: <p>The name of the Auto Scaling group.</p>
@@ -4280,13 +4286,13 @@ class AsyncAutoScalingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auto_scaling.types.scaling_process_query.ScalingProcessQuery = {}  # type: ignore[typeddict-item]
-        input["auto_scaling_group_name"] = auto_scaling_group_name
+        input_: aws_sdk_auto_scaling.types.scaling_process_query.ScalingProcessQuery = {}  # type: ignore[typeddict-item]
+        input_["auto_scaling_group_name"] = auto_scaling_group_name
         if scaling_processes is not None:
-            input["scaling_processes"] = scaling_processes
+            input_["scaling_processes"] = scaling_processes
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4299,7 +4305,7 @@ class AsyncAutoScalingClient:
         *,
         config_overrides: Optional[AsyncAutoScalingClientConfig] = None,
     ) -> "aws_sdk_auto_scaling.types.activity_type.ActivityType":
-        """<p>Terminates the specified instance and optionally adjusts the desired group size. This operation cannot be called on instances in a warm pool.</p> <p>This call simply makes a termination request. The instance is not terminated immediately. When an instance is terminated, the instance status changes to <code>terminated</code>. You can't connect to or start an instance after you've terminated it.</p> <p>If you do not specify the option to decrement the desired capacity, Amazon EC2 Auto Scaling launches instances to replace the ones that are terminated. </p> <p>By default, Amazon EC2 Auto Scaling balances instances across all Availability Zones. If you decrement the desired capacity, your Auto Scaling group can become unbalanced between Availability Zones. Amazon EC2 Auto Scaling tries to rebalance the group, and rebalancing might terminate instances in other zones. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-scaling-manually.html\">Manual scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+        r"""<p>Terminates the specified instance and optionally adjusts the desired group size. This operation cannot be called on instances in a warm pool.</p> <p>This call simply makes a termination request. The instance is not terminated immediately. When an instance is terminated, the instance status changes to <code>terminated</code>. You can't connect to or start an instance after you've terminated it.</p> <p>If you do not specify the option to decrement the desired capacity, Amazon EC2 Auto Scaling launches instances to replace the ones that are terminated. </p> <p>By default, Amazon EC2 Auto Scaling balances instances across all Availability Zones. If you decrement the desired capacity, your Auto Scaling group can become unbalanced between Availability Zones. Amazon EC2 Auto Scaling tries to rebalance the group, and rebalancing might terminate instances in other zones. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-scaling-manually.html\">Manual scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
 
         Args:
             instance_id: <p>The ID of the instance.</p>
@@ -4328,12 +4334,12 @@ class AsyncAutoScalingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auto_scaling.types.terminate_instance_in_auto_scaling_group_type.TerminateInstanceInAutoScalingGroupType = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["should_decrement_desired_capacity"] = should_decrement_desired_capacity
+        input_: aws_sdk_auto_scaling.types.terminate_instance_in_auto_scaling_group_type.TerminateInstanceInAutoScalingGroupType = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["should_decrement_desired_capacity"] = should_decrement_desired_capacity
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4427,7 +4433,7 @@ class AsyncAutoScalingClient:
             "aws_sdk_auto_scaling.types.deletion_protection.DeletionProtection"
         ] = None,
     ) -> None:
-        """<p> <b>We strongly recommend that all Auto Scaling groups use launch templates to ensure full functionality for Amazon EC2 Auto Scaling and Amazon EC2.</b> </p> <p>Updates the configuration for the specified Auto Scaling group.</p> <p>To update an Auto Scaling group, specify the name of the group and the property that you want to change. Any properties that you don't specify are not changed by this update request. The new settings take effect on any scaling activities after this call returns. </p> <p>If you associate a new launch configuration or template with an Auto Scaling group, all new instances will get the updated configuration. Existing instances continue to run with the configuration that they were originally launched with. When you update a group to specify a mixed instances policy instead of a launch configuration or template, existing instances may be replaced to match the new purchasing options that you specified in the policy. For example, if the group currently has 100% On-Demand capacity and the policy specifies 50% Spot capacity, this means that half of your instances will be gradually terminated and relaunched as Spot Instances. When replacing instances, Amazon EC2 Auto Scaling launches new instances before terminating the old ones, so that updating your group does not compromise the performance or availability of your application.</p> <p>Note the following about changing <code>DesiredCapacity</code>, <code>MaxSize</code>, or <code>MinSize</code>:</p> <ul> <li> <p>If a scale-in activity occurs as a result of a new <code>DesiredCapacity</code> value that is lower than the current size of the group, the Auto Scaling group uses its termination policy to determine which instances to terminate.</p> </li> <li> <p>If you specify a new value for <code>MinSize</code> without specifying a value for <code>DesiredCapacity</code>, and the new <code>MinSize</code> is larger than the current size of the group, this sets the group's <code>DesiredCapacity</code> to the new <code>MinSize</code> value.</p> </li> <li> <p>If you specify a new value for <code>MaxSize</code> without specifying a value for <code>DesiredCapacity</code>, and the new <code>MaxSize</code> is smaller than the current size of the group, this sets the group's <code>DesiredCapacity</code> to the new <code>MaxSize</code> value.</p> </li> </ul> <p>To see which properties have been set, call the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeAutoScalingGroups.html\">DescribeAutoScalingGroups</a> API. To view the scaling policies for an Auto Scaling group, call the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribePolicies.html\">DescribePolicies</a> API. If the group has scaling policies, you can update them by calling the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PutScalingPolicy.html\">PutScalingPolicy</a> API.</p>
+        r"""<p> <b>We strongly recommend that all Auto Scaling groups use launch templates to ensure full functionality for Amazon EC2 Auto Scaling and Amazon EC2.</b> </p> <p>Updates the configuration for the specified Auto Scaling group.</p> <p>To update an Auto Scaling group, specify the name of the group and the property that you want to change. Any properties that you don't specify are not changed by this update request. The new settings take effect on any scaling activities after this call returns. </p> <p>If you associate a new launch configuration or template with an Auto Scaling group, all new instances will get the updated configuration. Existing instances continue to run with the configuration that they were originally launched with. When you update a group to specify a mixed instances policy instead of a launch configuration or template, existing instances may be replaced to match the new purchasing options that you specified in the policy. For example, if the group currently has 100% On-Demand capacity and the policy specifies 50% Spot capacity, this means that half of your instances will be gradually terminated and relaunched as Spot Instances. When replacing instances, Amazon EC2 Auto Scaling launches new instances before terminating the old ones, so that updating your group does not compromise the performance or availability of your application.</p> <p>Note the following about changing <code>DesiredCapacity</code>, <code>MaxSize</code>, or <code>MinSize</code>:</p> <ul> <li> <p>If a scale-in activity occurs as a result of a new <code>DesiredCapacity</code> value that is lower than the current size of the group, the Auto Scaling group uses its termination policy to determine which instances to terminate.</p> </li> <li> <p>If you specify a new value for <code>MinSize</code> without specifying a value for <code>DesiredCapacity</code>, and the new <code>MinSize</code> is larger than the current size of the group, this sets the group's <code>DesiredCapacity</code> to the new <code>MinSize</code> value.</p> </li> <li> <p>If you specify a new value for <code>MaxSize</code> without specifying a value for <code>DesiredCapacity</code>, and the new <code>MaxSize</code> is smaller than the current size of the group, this sets the group's <code>DesiredCapacity</code> to the new <code>MaxSize</code> value.</p> </li> </ul> <p>To see which properties have been set, call the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeAutoScalingGroups.html\">DescribeAutoScalingGroups</a> API. To view the scaling policies for an Auto Scaling group, call the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribePolicies.html\">DescribePolicies</a> API. If the group has scaling policies, you can update them by calling the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PutScalingPolicy.html\">PutScalingPolicy</a> API.</p>
 
         Args:
             auto_scaling_group_name: <p>The name of the Auto Scaling group.</p>
@@ -4481,73 +4487,73 @@ class AsyncAutoScalingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auto_scaling.types.update_auto_scaling_group_type.UpdateAutoScalingGroupType = {}  # type: ignore[typeddict-item]
-        input["auto_scaling_group_name"] = auto_scaling_group_name
+        input_: aws_sdk_auto_scaling.types.update_auto_scaling_group_type.UpdateAutoScalingGroupType = {}  # type: ignore[typeddict-item]
+        input_["auto_scaling_group_name"] = auto_scaling_group_name
         if launch_configuration_name is not None:
-            input["launch_configuration_name"] = launch_configuration_name
+            input_["launch_configuration_name"] = launch_configuration_name
         if launch_template is not None:
-            input["launch_template"] = launch_template
+            input_["launch_template"] = launch_template
         if mixed_instances_policy is not None:
-            input["mixed_instances_policy"] = mixed_instances_policy
+            input_["mixed_instances_policy"] = mixed_instances_policy
         if min_size is not None:
-            input["min_size"] = min_size
+            input_["min_size"] = min_size
         if max_size is not None:
-            input["max_size"] = max_size
+            input_["max_size"] = max_size
         if desired_capacity is not None:
-            input["desired_capacity"] = desired_capacity
+            input_["desired_capacity"] = desired_capacity
         if default_cooldown is not None:
-            input["default_cooldown"] = default_cooldown
+            input_["default_cooldown"] = default_cooldown
         if availability_zones is not None:
-            input["availability_zones"] = availability_zones
+            input_["availability_zones"] = availability_zones
         if availability_zone_ids is not None:
-            input["availability_zone_ids"] = availability_zone_ids
+            input_["availability_zone_ids"] = availability_zone_ids
         if health_check_type is not None:
-            input["health_check_type"] = health_check_type
+            input_["health_check_type"] = health_check_type
         if health_check_grace_period is not None:
-            input["health_check_grace_period"] = health_check_grace_period
+            input_["health_check_grace_period"] = health_check_grace_period
         if placement_group is not None:
-            input["placement_group"] = placement_group
+            input_["placement_group"] = placement_group
         if vpc_zone_identifier is not None:
-            input["vpc_zone_identifier"] = vpc_zone_identifier
+            input_["vpc_zone_identifier"] = vpc_zone_identifier
         if termination_policies is not None:
-            input["termination_policies"] = termination_policies
+            input_["termination_policies"] = termination_policies
         if new_instances_protected_from_scale_in is not None:
-            input["new_instances_protected_from_scale_in"] = (
+            input_["new_instances_protected_from_scale_in"] = (
                 new_instances_protected_from_scale_in
             )
         if service_linked_role_arn is not None:
-            input["service_linked_role_arn"] = service_linked_role_arn
+            input_["service_linked_role_arn"] = service_linked_role_arn
         if max_instance_lifetime is not None:
-            input["max_instance_lifetime"] = max_instance_lifetime
+            input_["max_instance_lifetime"] = max_instance_lifetime
         if capacity_rebalance is not None:
-            input["capacity_rebalance"] = capacity_rebalance
+            input_["capacity_rebalance"] = capacity_rebalance
         if context is not None:
-            input["context"] = context
+            input_["context"] = context
         if desired_capacity_type is not None:
-            input["desired_capacity_type"] = desired_capacity_type
+            input_["desired_capacity_type"] = desired_capacity_type
         if default_instance_warmup is not None:
-            input["default_instance_warmup"] = default_instance_warmup
+            input_["default_instance_warmup"] = default_instance_warmup
         if instance_maintenance_policy is not None:
-            input["instance_maintenance_policy"] = instance_maintenance_policy
+            input_["instance_maintenance_policy"] = instance_maintenance_policy
         if availability_zone_distribution is not None:
-            input["availability_zone_distribution"] = availability_zone_distribution
+            input_["availability_zone_distribution"] = availability_zone_distribution
         if availability_zone_impairment_policy is not None:
-            input["availability_zone_impairment_policy"] = (
+            input_["availability_zone_impairment_policy"] = (
                 availability_zone_impairment_policy
             )
         if skip_zonal_shift_validation is not None:
-            input["skip_zonal_shift_validation"] = skip_zonal_shift_validation
+            input_["skip_zonal_shift_validation"] = skip_zonal_shift_validation
         if capacity_reservation_specification is not None:
-            input["capacity_reservation_specification"] = (
+            input_["capacity_reservation_specification"] = (
                 capacity_reservation_specification
             )
         if instance_lifecycle_policy is not None:
-            input["instance_lifecycle_policy"] = instance_lifecycle_policy
+            input_["instance_lifecycle_policy"] = instance_lifecycle_policy
         if deletion_protection is not None:
-            input["deletion_protection"] = deletion_protection
+            input_["deletion_protection"] = deletion_protection
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

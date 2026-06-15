@@ -48,9 +48,9 @@ class DashPackage(TypedDict):
     period_triggers: NotRequired[
         "aws_sdk_mediapackage.types.__list_of__period_triggers_element.__listOf__PeriodTriggersElement"
     ]
-    """A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not be partitioned into more than one period. If the list contains \"ADS\", new periods will be created where the Channel source contains SCTE-35 ad markers."""
+    r"""A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not be partitioned into more than one period. If the list contains \"ADS\", new periods will be created where the Channel source contains SCTE-35 ad markers."""
     profile: NotRequired["aws_sdk_mediapackage.types.profile.Profile"]
-    """The Dynamic Adaptive Streaming over HTTP (DASH) profile type. When set to \"HBBTV_1_5\", HbbTV 1.5 compliant output is enabled. When set to \"DVB-DASH_2014\", DVB-DASH 2014 compliant output is enabled."""
+    r"""The Dynamic Adaptive Streaming over HTTP (DASH) profile type. When set to \"HBBTV_1_5\", HbbTV 1.5 compliant output is enabled. When set to \"DVB-DASH_2014\", DVB-DASH 2014 compliant output is enabled."""
     segment_duration_seconds: NotRequired[
         "aws_sdk_mediapackage.types.__integer.__integer"
     ]

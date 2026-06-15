@@ -337,7 +337,7 @@ class LookoutEquipmentClient:
         ] = None,
         tags: Optional["aws_sdk_lookoutequipment.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_lookoutequipment.types.create_inference_scheduler_response.CreateInferenceSchedulerResponse":
-        """<p> Creates a scheduled inference. Scheduling an inference is setting up a continuous real-time inference plan to analyze new measurement data. When setting up the schedule, you provide an S3 bucket location for the input data, assign it a delimiter between separate entries in the data, set an offset delay if desired, and set the frequency of inferencing. You must also provide an S3 bucket location for the output data. </p>
+        r"""<p> Creates a scheduled inference. Scheduling an inference is setting up a continuous real-time inference plan to analyze new measurement data. When setting up the schedule, you provide an S3 bucket location for the input data, assign it a delimiter between separate entries in the data, set an offset delay if desired, and set the frequency of inferencing. You must also provide an S3 bucket location for the output data. </p>
 
         Args:
             model_name: <p>The name of the previously trained machine learning model being used to create the inference scheduler. </p>
@@ -546,7 +546,7 @@ class LookoutEquipmentClient:
             "aws_sdk_lookoutequipment.types.model_diagnostics_output_configuration.ModelDiagnosticsOutputConfiguration"
         ] = None,
     ) -> "aws_sdk_lookoutequipment.types.create_model_response.CreateModelResponse":
-        """<p>Creates a machine learning model for data inference. </p> <p>A machine-learning (ML) model is a mathematical model that finds patterns in your data. In Amazon Lookout for Equipment, the model learns the patterns of normal behavior and detects abnormal behavior that could be potential equipment failure (or maintenance events). The models are made by analyzing normal data and abnormalities in machine behavior that have already occurred.</p> <p>Your model is trained using a portion of the data from your dataset and uses that data to learn patterns of normal behavior and abnormal patterns that lead to equipment failure. Another portion of the data is used to evaluate the model's accuracy. </p>
+        r"""<p>Creates a machine learning model for data inference. </p> <p>A machine-learning (ML) model is a mathematical model that finds patterns in your data. In Amazon Lookout for Equipment, the model learns the patterns of normal behavior and detects abnormal behavior that could be potential equipment failure (or maintenance events). The models are made by analyzing normal data and abnormalities in machine behavior that have already occurred.</p> <p>Your model is trained using a portion of the data from your dataset and uses that data to learn patterns of normal behavior and abnormal patterns that lead to equipment failure. Another portion of the data is used to evaluate the model's accuracy. </p>
 
         Args:
             model_name: <p>The name for the machine learning model to be created.</p>
@@ -636,7 +636,7 @@ class LookoutEquipmentClient:
             "aws_sdk_lookoutequipment.types.model_promote_mode.ModelPromoteMode"
         ] = None,
     ) -> "aws_sdk_lookoutequipment.types.create_retraining_scheduler_response.CreateRetrainingSchedulerResponse":
-        """<p>Creates a retraining scheduler on the specified model. </p>
+        r"""<p>Creates a retraining scheduler on the specified model. </p>
 
         Args:
             model_name: <p>The name of the model to add the retraining scheduler to. </p>
@@ -2699,7 +2699,7 @@ class LookoutEquipmentClient:
             "aws_sdk_lookoutequipment.types.model_promote_mode.ModelPromoteMode"
         ] = None,
     ) -> None:
-        """<p>Updates a retraining scheduler. </p>
+        r"""<p>Updates a retraining scheduler. </p>
 
         Args:
             model_name: <p>The name of the model whose retraining scheduler you want to update. </p>

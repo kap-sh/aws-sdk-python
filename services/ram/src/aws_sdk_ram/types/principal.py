@@ -14,7 +14,7 @@ class Principal(TypedDict):
     id: NotRequired["aws_sdk_ram.types.string.String"]
     """<p>The ID of the principal that can be associated with a resource share.</p>"""
     resource_share_arn: NotRequired["aws_sdk_ram.types.string.String"]
-    """<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of a resource share the principal is associated with.</p>"""
+    r"""<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of a resource share the principal is associated with.</p>"""
     creation_time: NotRequired["aws_sdk_ram.types.date_time.DateTime"]
     """<p>The date and time when the principal was associated with the resource share.</p>"""
     last_updated_time: NotRequired["aws_sdk_ram.types.date_time.DateTime"]

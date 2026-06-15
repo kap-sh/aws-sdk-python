@@ -33,7 +33,7 @@ class GetSessionResponse(TypedDict):
     encryption_key_arn: NotRequired[
         "aws_sdk_bedrock_agent_runtime.types.kms_key_arn.KmsKeyArn"
     ]
-    """<p>The Amazon Resource Name (ARN) of the Key Management Service key used to encrypt the session data. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/session-encryption.html\">Amazon Bedrock session encryption</a>.</p>"""
+    r"""<p>The Amazon Resource Name (ARN) of the Key Management Service key used to encrypt the session data. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/session-encryption.html\">Amazon Bedrock session encryption</a>.</p>"""
 
 
 # --- restJson1 ser/de ---

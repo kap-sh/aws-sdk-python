@@ -16,7 +16,7 @@ class S3Target(TypedDict):
     path: NotRequired["aws_sdk_glue.types.path.Path"]
     """<p>The path to the Amazon S3 target.</p>"""
     exclusions: NotRequired["aws_sdk_glue.types.path_list.PathList"]
-    """<p>A list of glob patterns used to exclude from the crawl. For more information, see <a href=\"https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html\">Catalog Tables with a Crawler</a>.</p>"""
+    r"""<p>A list of glob patterns used to exclude from the crawl. For more information, see <a href=\"https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html\">Catalog Tables with a Crawler</a>.</p>"""
     connection_name: NotRequired["aws_sdk_glue.types.connection_name.ConnectionName"]
     """<p>The name of a connection which allows a job or crawler to access data in Amazon S3 within an Amazon Virtual Private Cloud environment (Amazon VPC).</p>"""
     sample_size: NotRequired["aws_sdk_glue.types.nullable_integer.NullableInteger"]

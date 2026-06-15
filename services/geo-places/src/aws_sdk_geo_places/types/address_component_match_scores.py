@@ -32,7 +32,7 @@ class AddressComponentMatchScores(TypedDict):
     intersection: NotRequired[
         "aws_sdk_geo_places.types.match_score_list.MatchScoreList"
     ]
-    """<p>Name of the streets in the intersection. </p> <p>Example: <code>[\"Friedrichstraße\",\"Unter den Linden\"]</code> </p>"""
+    r"""<p>Name of the streets in the intersection. </p> <p>Example: <code>[\"Friedrichstraße\",\"Unter den Linden\"]</code> </p>"""
     address_number: "aws_sdk_geo_places.types.match_score.MatchScore"
     """<p>The house number or address results should have. </p>"""
     building: "aws_sdk_geo_places.types.match_score.MatchScore"

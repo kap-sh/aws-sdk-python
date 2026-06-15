@@ -14,7 +14,7 @@ class PhonemeTranscription(TypedDict):
     value: NotRequired["aws_sdk_geo_places.types.sensitive_string.SensitiveString"]
     """<p>Value which indicates how to pronounce the value.</p>"""
     language: NotRequired["aws_sdk_geo_places.types.language_tag.LanguageTag"]
-    """<p>A list of <a href=\"https://en.wikipedia.org/wiki/IETF_language_tag\">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry.</p>"""
+    r"""<p>A list of <a href=\"https://en.wikipedia.org/wiki/IETF_language_tag\">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry.</p>"""
     preferred: NotRequired[
         "aws_sdk_geo_places.types.sensitive_boolean.SensitiveBoolean"
     ]

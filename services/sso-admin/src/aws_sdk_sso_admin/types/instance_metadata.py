@@ -16,7 +16,7 @@ if TYPE_CHECKING:
 
 class InstanceMetadata(TypedDict):
     instance_arn: NotRequired["aws_sdk_sso_admin.types.instance_arn.InstanceArn"]
-    """<p>The ARN of the Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>"""
+    r"""<p>The ARN of the Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>"""
     identity_store_id: NotRequired["aws_sdk_sso_admin.types.id.Id"]
     """<p>The identifier of the identity store that is connected to the Identity Center instance.</p>"""
     owner_account_id: NotRequired["aws_sdk_sso_admin.types.account_id.AccountId"]

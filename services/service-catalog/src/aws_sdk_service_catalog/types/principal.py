@@ -13,7 +13,7 @@ class Principal(TypedDict):
     principal_arn: NotRequired[
         "aws_sdk_service_catalog.types.principal_arn.PrincipalARN"
     ]
-    """<p>The ARN of the principal (user, role, or group). This field allows for an ARN with no <code>accountID</code>, with or without wildcard characters if the <code>PrincipalType</code> is an <code>IAM_PATTERN</code>. </p> <p>For more information, review <a href=\"https://docs.aws.amazon.com/cli/latest/reference/servicecatalog/associate-principal-with-portfolio.html#options\">associate-principal-with-portfolio</a> in the Amazon Web Services CLI Command Reference. </p>"""
+    r"""<p>The ARN of the principal (user, role, or group). This field allows for an ARN with no <code>accountID</code>, with or without wildcard characters if the <code>PrincipalType</code> is an <code>IAM_PATTERN</code>. </p> <p>For more information, review <a href=\"https://docs.aws.amazon.com/cli/latest/reference/servicecatalog/associate-principal-with-portfolio.html#options\">associate-principal-with-portfolio</a> in the Amazon Web Services CLI Command Reference. </p>"""
     principal_type: NotRequired[
         "aws_sdk_service_catalog.types.principal_type.PrincipalType"
     ]

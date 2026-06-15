@@ -21,7 +21,7 @@ class UpdateEventBusResponse(TypedDict):
     kms_key_identifier: NotRequired[
         "aws_sdk_eventbridge.types.kms_key_identifier.KmsKeyIdentifier"
     ]
-    """<p>The identifier of the KMS customer managed key for EventBridge to use to encrypt events on this event bus, if one has been specified.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-encryption.html\">Data encryption in EventBridge</a> in the <i>Amazon EventBridge User Guide</i>.</p>"""
+    r"""<p>The identifier of the KMS customer managed key for EventBridge to use to encrypt events on this event bus, if one has been specified.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-encryption.html\">Data encryption in EventBridge</a> in the <i>Amazon EventBridge User Guide</i>.</p>"""
     description: NotRequired[
         "aws_sdk_eventbridge.types.event_bus_description.EventBusDescription"
     ]
@@ -30,7 +30,7 @@ class UpdateEventBusResponse(TypedDict):
         "aws_sdk_eventbridge.types.dead_letter_config.DeadLetterConfig"
     ]
     log_config: NotRequired["aws_sdk_eventbridge.types.log_config.LogConfig"]
-    """<p>The logging configuration settings for the event bus.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/eb-event-bus-logs.html\">Configuring logs for event buses</a> in the <i>EventBridge User Guide</i>.</p>"""
+    r"""<p>The logging configuration settings for the event bus.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/eb-event-bus-logs.html\">Configuring logs for event buses</a> in the <i>EventBridge User Guide</i>.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

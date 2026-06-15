@@ -67,7 +67,7 @@ class CreateOriginEndpointRequest(TypedDict):
     ]
     """<p>The separator character to use in generated URIs for this origin endpoint. This setting applies to all manifest types on the endpoint. If you don't specify a value, the default is <code>UNDERSCORE</code>.</p>"""
     tags: NotRequired["aws_sdk_mediapackagev2.types.tag_map.TagMap"]
-    """<p>A comma-separated list of tag key:value pairs that you define. For example:</p> <p> <code>\"Key1\": \"Value1\",</code> </p> <p> <code>\"Key2\": \"Value2\"</code> </p>"""
+    r"""<p>A comma-separated list of tag key:value pairs that you define. For example:</p> <p> <code>\"Key1\": \"Value1\",</code> </p> <p> <code>\"Key2\": \"Value2\"</code> </p>"""
 
 
 # --- restJson1 ser/de ---

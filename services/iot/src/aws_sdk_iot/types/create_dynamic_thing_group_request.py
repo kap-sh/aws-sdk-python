@@ -25,9 +25,9 @@ class CreateDynamicThingGroupRequest(TypedDict):
     index_name: NotRequired["aws_sdk_iot.types.index_name.IndexName"]
     """<p>The dynamic thing group index name.</p> <note> <p>Currently one index is supported: <code>AWS_Things</code>.</p> </note>"""
     query_string: "aws_sdk_iot.types.query_string.QueryString"
-    """<p>The dynamic thing group search query string.</p> <p>See <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/query-syntax.html\">Query Syntax</a> for information about query string syntax.</p>"""
+    r"""<p>The dynamic thing group search query string.</p> <p>See <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/query-syntax.html\">Query Syntax</a> for information about query string syntax.</p>"""
     query_version: NotRequired["aws_sdk_iot.types.query_version.QueryVersion"]
-    """<p>The dynamic thing group query version.</p> <note> <p>Currently one query version is supported: \"2017-09-30\". If not specified, the query version defaults to this value.</p> </note>"""
+    r"""<p>The dynamic thing group query version.</p> <note> <p>Currently one query version is supported: \"2017-09-30\". If not specified, the query version defaults to this value.</p> </note>"""
     tags: NotRequired["aws_sdk_iot.types.tag_list.TagList"]
     """<p>Metadata which can be used to manage the dynamic thing group.</p>"""
 

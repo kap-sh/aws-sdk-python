@@ -15,11 +15,11 @@ if TYPE_CHECKING:
 
 class RenewalSummary(TypedDict):
     renewal_status: "aws_sdk_acm.types.renewal_status.RenewalStatus"
-    """<p>The status of ACM's <a href=\"https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html\">managed renewal</a> of the certificate.</p>"""
+    r"""<p>The status of ACM's <a href=\"https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html\">managed renewal</a> of the certificate.</p>"""
     domain_validation_options: (
         "aws_sdk_acm.types.domain_validation_list.DomainValidationList"
     )
-    """<p>Contains information about the validation of each domain name in the certificate, as it pertains to ACM's <a href=\"https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html\">managed renewal</a>. This is different from the initial validation that occurs as a result of the <a>RequestCertificate</a> request. This field exists only when the certificate type is <code>AMAZON_ISSUED</code>.</p>"""
+    r"""<p>Contains information about the validation of each domain name in the certificate, as it pertains to ACM's <a href=\"https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html\">managed renewal</a>. This is different from the initial validation that occurs as a result of the <a>RequestCertificate</a> request. This field exists only when the certificate type is <code>AMAZON_ISSUED</code>.</p>"""
     renewal_status_reason: NotRequired["aws_sdk_acm.types.failure_reason.FailureReason"]
     """<p>The reason that a renewal request was unsuccessful.</p>"""
     updated_at: "aws_sdk_acm.types.t_stamp.TStamp"

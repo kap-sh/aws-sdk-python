@@ -49,7 +49,7 @@ class UserSearchSummary(TypedDict):
     ]
     """<p>The identifiers of the user's security profiles.</p>"""
     tags: NotRequired["aws_sdk_connect.types.tag_map.TagMap"]
-    """<p>The tags used to organize, track, or control access for this resource. For example, { \"Tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.</p>"""
+    r"""<p>The tags used to organize, track, or control access for this resource. For example, { \"Tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.</p>"""
     username: NotRequired["aws_sdk_connect.types.agent_username.AgentUsername"]
     """<p>The name of the user.</p>"""
     auto_accept_configs: NotRequired[

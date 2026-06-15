@@ -43,7 +43,7 @@ class AnalyzerSummary(TypedDict):
     configuration: NotRequired[
         "aws_sdk_accessanalyzer.types.analyzer_configuration.AnalyzerConfiguration"
     ]
-    """<p>Specifies if the analyzer is an external access, unused access, or internal access analyzer. The <a href=\"https://docs.aws.amazon.com/access-analyzer/latest/APIReference/API_GetAnalyzer.html\">GetAnalyzer</a> action includes this property in its response if a configuration is specified, while the <a href=\"https://docs.aws.amazon.com/access-analyzer/latest/APIReference/API_ListAnalyzers.html\">ListAnalyzers</a> action omits it.</p>"""
+    r"""<p>Specifies if the analyzer is an external access, unused access, or internal access analyzer. The <a href=\"https://docs.aws.amazon.com/access-analyzer/latest/APIReference/API_GetAnalyzer.html\">GetAnalyzer</a> action includes this property in its response if a configuration is specified, while the <a href=\"https://docs.aws.amazon.com/access-analyzer/latest/APIReference/API_ListAnalyzers.html\">ListAnalyzers</a> action omits it.</p>"""
     managed_by: NotRequired["str"]
     """<p>The service principal that manages this analyzer (for example, <code>securityhubv2.amazonaws.com</code>). This field is only present for service-linked analyzers and is not included for customer-managed analyzers.</p>"""
 

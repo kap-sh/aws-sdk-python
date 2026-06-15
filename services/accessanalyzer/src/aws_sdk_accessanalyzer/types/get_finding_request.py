@@ -9,7 +9,7 @@ if TYPE_CHECKING:
 
 class GetFindingRequest(TypedDict):
     analyzer_arn: "aws_sdk_accessanalyzer.types.analyzer_arn.AnalyzerArn"
-    """<p>The <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources\">ARN of the analyzer</a> that generated the finding.</p>"""
+    r"""<p>The <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources\">ARN of the analyzer</a> that generated the finding.</p>"""
     id: "aws_sdk_accessanalyzer.types.finding_id.FindingId"
     """<p>The ID of the finding to retrieve.</p>"""
 

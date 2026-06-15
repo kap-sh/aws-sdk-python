@@ -15,7 +15,7 @@ if TYPE_CHECKING:
 
 class NodeConfigurationOption(TypedDict):
     node_type: NotRequired["aws_sdk_redshift.types.string.String"]
-    """<p>The node type, such as, \"ra3.4xlarge\".</p>"""
+    r"""<p>The node type, such as, \"ra3.4xlarge\".</p>"""
     number_of_nodes: NotRequired["aws_sdk_redshift.types.integer.Integer"]
     """<p>The number of nodes.</p>"""
     estimated_disk_utilization_percent: NotRequired[

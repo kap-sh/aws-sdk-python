@@ -25,7 +25,7 @@ class CreateBillingViewRequest(TypedDict):
     source_views: "aws_sdk_billing.types.billing_view_source_views_list.BillingViewSourceViewsList"
     """<p>A list of billing views used as the data source for the custom billing view.</p>"""
     data_filter_expression: NotRequired["aws_sdk_billing.types.expression.Expression"]
-    """<p> See <a href=\"https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_Expression.html\">Expression</a>. Billing view only supports <code>LINKED_ACCOUNT</code>, <code>Tags</code>, and <code>CostCategories</code>. </p>"""
+    r"""<p> See <a href=\"https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_Expression.html\">Expression</a>. Billing view only supports <code>LINKED_ACCOUNT</code>, <code>Tags</code>, and <code>CostCategories</code>. </p>"""
     client_token: NotRequired["aws_sdk_billing.types.client_token.ClientToken"]
     """<p>A unique, case-sensitive identifier you specify to ensure idempotency of the request. Idempotency ensures that an API request completes no more than one time. If the original request completes successfully, any subsequent retries complete successfully without performing any further actions with an idempotent request. </p>"""
     resource_tags: NotRequired[

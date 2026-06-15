@@ -10,7 +10,7 @@ if TYPE_CHECKING:
 
 class WithdrawByoipCidrRequest(TypedDict):
     cidr: "aws_sdk_global_accelerator.types.generic_string.GenericString"
-    """<p>The address range, in CIDR notation.</p> <p> For more information, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html\">Bring your own IP addresses (BYOIP)</a> in the Global Accelerator Developer Guide.</p>"""
+    r"""<p>The address range, in CIDR notation.</p> <p> For more information, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html\">Bring your own IP addresses (BYOIP)</a> in the Global Accelerator Developer Guide.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

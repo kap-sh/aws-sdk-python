@@ -13,7 +13,7 @@ class TagResourceInput(TypedDict):
     resource_arn: "aws_sdk_backup.types.arn.ARN"
     """<p>The ARN that uniquely identifies the resource.</p>"""
     tags: "aws_sdk_backup.types.tags.Tags"
-    """<p>Key-value pairs that are used to help organize your resources. You can assign your own metadata to the resources you create. For clarity, this is the structure to assign tags: <code>[{\"Key\":\"string\",\"Value\":\"string\"}]</code>.</p>"""
+    r"""<p>Key-value pairs that are used to help organize your resources. You can assign your own metadata to the resources you create. For clarity, this is the structure to assign tags: <code>[{\"Key\":\"string\",\"Value\":\"string\"}]</code>.</p>"""
 
 
 # --- restJson1 ser/de ---

@@ -1,16 +1,22 @@
 """Generated from Smithy shape ``com.amazonaws.appintegrations#CreateDataIntegrationAssociationResponse``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_appintegrations.types.arn
     import aws_sdk_appintegrations.types.uuid
 
+
 class CreateDataIntegrationAssociationResponse(TypedDict):
-    data_integration_association_id: NotRequired["aws_sdk_appintegrations.types.uuid.UUID"]
+    data_integration_association_id: NotRequired[
+        "aws_sdk_appintegrations.types.uuid.UUID"
+    ]
     """<p>A unique identifier. for the DataIntegrationAssociation.</p>"""
     data_integration_arn: NotRequired["aws_sdk_appintegrations.types.arn.Arn"]
     """<p>The Amazon Resource Name (ARN) for the DataIntegration.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: CreateDataIntegrationAssociationResponse) -> dict:

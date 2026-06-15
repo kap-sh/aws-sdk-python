@@ -389,7 +389,7 @@ class imagebuilderClient:
         *,
         config_overrides: Optional[imagebuilderClientConfig] = None,
     ) -> "aws_sdk_imagebuilder.types.cancel_image_creation_response.CancelImageCreationResponse":
-        """<p>CancelImageCreation cancels the creation of Image. This operation can only be used on images in a non-terminal state.</p>
+        r"""<p>CancelImageCreation cancels the creation of Image. This operation can only be used on images in a non-terminal state.</p>
 
         Args:
             image_build_version_arn: <p>The Amazon Resource Name (ARN) of the image that you want to cancel creation for.</p>
@@ -429,7 +429,7 @@ class imagebuilderClient:
         *,
         config_overrides: Optional[imagebuilderClientConfig] = None,
     ) -> "aws_sdk_imagebuilder.types.cancel_lifecycle_execution_response.CancelLifecycleExecutionResponse":
-        """<p>Cancel a specific image lifecycle policy runtime instance.</p>
+        r"""<p>Cancel a specific image lifecycle policy runtime instance.</p>
 
         Args:
             lifecycle_execution_id: <p>Identifies the specific runtime instance of the image lifecycle to cancel.</p>
@@ -489,7 +489,7 @@ class imagebuilderClient:
         tags: Optional["aws_sdk_imagebuilder.types.tag_map.TagMap"] = None,
         dry_run: Optional["aws_sdk_imagebuilder.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_imagebuilder.types.create_component_response.CreateComponentResponse":
-        """<p>Creates a new component that can be used to build, validate, test, and assess your image. The component is based on a YAML document that you specify using exactly one of the following methods:</p> <ul> <li> <p>Inline, using the <code>data</code> property in the request body.</p> </li> <li> <p>A URL that points to a YAML document file stored in Amazon S3, using the <code>uri</code> property in the request body.</p> </li> </ul>
+        r"""<p>Creates a new component that can be used to build, validate, test, and assess your image. The component is based on a YAML document that you specify using exactly one of the following methods:</p> <ul> <li> <p>Inline, using the <code>data</code> property in the request body.</p> </li> <li> <p>A URL that points to a YAML document file stored in Amazon S3, using the <code>uri</code> property in the request body.</p> </li> </ul>
 
         Args:
             name: <p>The name of the component.</p>
@@ -587,7 +587,7 @@ class imagebuilderClient:
             "aws_sdk_imagebuilder.types.non_empty_string.NonEmptyString"
         ] = None,
     ) -> "aws_sdk_imagebuilder.types.create_container_recipe_response.CreateContainerRecipeResponse":
-        """<p>Creates a new container recipe. Container recipes define how images are configured, tested, and assessed.</p>
+        r"""<p>Creates a new container recipe. Container recipes define how images are configured, tested, and assessed.</p>
 
         Args:
             container_type: <p>The type of container to create.</p>
@@ -670,7 +670,7 @@ class imagebuilderClient:
         ] = None,
         tags: Optional["aws_sdk_imagebuilder.types.tag_map.TagMap"] = None,
     ) -> "aws_sdk_imagebuilder.types.create_distribution_configuration_response.CreateDistributionConfigurationResponse":
-        """<p>Creates a new distribution configuration. Distribution configurations define and configure the outputs of your pipeline.</p>
+        r"""<p>Creates a new distribution configuration. Distribution configurations define and configure the outputs of your pipeline.</p>
 
         Args:
             name: <p>The name of the distribution configuration.</p>
@@ -746,7 +746,7 @@ class imagebuilderClient:
             "aws_sdk_imagebuilder.types.image_logging_configuration.ImageLoggingConfiguration"
         ] = None,
     ) -> "aws_sdk_imagebuilder.types.create_image_response.CreateImageResponse":
-        """<p>Creates a new image. This request will create a new image along with all of the configured output resources defined in the distribution configuration. You must specify exactly one recipe for your image, using either a ContainerRecipeArn or an ImageRecipeArn.</p>
+        r"""<p>Creates a new image. This request will create a new image along with all of the configured output resources defined in the distribution configuration. You must specify exactly one recipe for your image, using either a ContainerRecipeArn or an ImageRecipeArn.</p>
 
         Args:
             image_recipe_arn: <p>The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.</p>
@@ -853,7 +853,7 @@ class imagebuilderClient:
             "aws_sdk_imagebuilder.types.pipeline_logging_configuration.PipelineLoggingConfiguration"
         ] = None,
     ) -> "aws_sdk_imagebuilder.types.create_image_pipeline_response.CreateImagePipelineResponse":
-        """<p>Creates a new image pipeline. Image pipelines enable you to automate the creation and distribution of images.</p>
+        r"""<p>Creates a new image pipeline. Image pipelines enable you to automate the creation and distribution of images.</p>
 
         Args:
             name: <p>The name of the image pipeline.</p>
@@ -956,7 +956,7 @@ class imagebuilderClient:
         ] = None,
         ami_tags: Optional["aws_sdk_imagebuilder.types.tag_map.TagMap"] = None,
     ) -> "aws_sdk_imagebuilder.types.create_image_recipe_response.CreateImageRecipeResponse":
-        """<p>Creates a new image recipe. Image recipes define how images are configured, tested, and assessed.</p>
+        r"""<p>Creates a new image recipe. Image recipes define how images are configured, tested, and assessed.</p>
 
         Args:
             name: <p>The name of the image recipe.</p>
@@ -1054,7 +1054,7 @@ class imagebuilderClient:
         tags: Optional["aws_sdk_imagebuilder.types.tag_map.TagMap"] = None,
         placement: Optional["aws_sdk_imagebuilder.types.placement.Placement"] = None,
     ) -> "aws_sdk_imagebuilder.types.create_infrastructure_configuration_response.CreateInfrastructureConfigurationResponse":
-        """<p>Creates a new infrastructure configuration. An infrastructure configuration defines the environment in which your image will be built and tested.</p>
+        r"""<p>Creates a new infrastructure configuration. An infrastructure configuration defines the environment in which your image will be built and tested.</p>
 
         Args:
             name: <p>The name of the infrastructure configuration.</p>
@@ -1143,7 +1143,7 @@ class imagebuilderClient:
         ] = None,
         tags: Optional["aws_sdk_imagebuilder.types.tag_map.TagMap"] = None,
     ) -> "aws_sdk_imagebuilder.types.create_lifecycle_policy_response.CreateLifecyclePolicyResponse":
-        """<p>Create a lifecycle policy resource.</p>
+        r"""<p>Create a lifecycle policy resource.</p>
 
         Args:
             name: <p>The name of the lifecycle policy to create.</p>
@@ -1217,7 +1217,7 @@ class imagebuilderClient:
         tags: Optional["aws_sdk_imagebuilder.types.tag_map.TagMap"] = None,
         dry_run: Optional["aws_sdk_imagebuilder.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_imagebuilder.types.create_workflow_response.CreateWorkflowResponse":
-        """<p>Create a new workflow or a new version of an existing workflow.</p>
+        r"""<p>Create a new workflow or a new version of an existing workflow.</p>
 
         Args:
             name: <p>The name of the workflow to create.</p>
@@ -1392,7 +1392,7 @@ class imagebuilderClient:
         *,
         config_overrides: Optional[imagebuilderClientConfig] = None,
     ) -> "aws_sdk_imagebuilder.types.delete_image_response.DeleteImageResponse":
-        """<p>Deletes an Image Builder image resource. This does not delete any EC2 AMIs or ECR container images that are created during the image build process. You must clean those up separately, using the appropriate Amazon EC2 or Amazon ECR console actions, or API or CLI commands.</p> <ul> <li> <p>To deregister an EC2 Linux AMI, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/deregister-ami.html\">Deregister your Linux AMI</a> in the <i> <i>Amazon EC2 User Guide</i> </i>.</p> </li> <li> <p>To deregister an EC2 Windows AMI, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/deregister-ami.html\">Deregister your Windows AMI</a> in the <i> <i>Amazon EC2 Windows Guide</i> </i>.</p> </li> <li> <p>To delete a container image from Amazon ECR, see <a href=\"https://docs.aws.amazon.com/AmazonECR/latest/userguide/delete_image.html\">Deleting an image</a> in the <i>Amazon ECR User Guide</i>.</p> </li> </ul>
+        r"""<p>Deletes an Image Builder image resource. This does not delete any EC2 AMIs or ECR container images that are created during the image build process. You must clean those up separately, using the appropriate Amazon EC2 or Amazon ECR console actions, or API or CLI commands.</p> <ul> <li> <p>To deregister an EC2 Linux AMI, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/deregister-ami.html\">Deregister your Linux AMI</a> in the <i> <i>Amazon EC2 User Guide</i> </i>.</p> </li> <li> <p>To deregister an EC2 Windows AMI, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/deregister-ami.html\">Deregister your Windows AMI</a> in the <i> <i>Amazon EC2 Windows Guide</i> </i>.</p> </li> <li> <p>To delete a container image from Amazon ECR, see <a href=\"https://docs.aws.amazon.com/AmazonECR/latest/userguide/delete_image.html\">Deleting an image</a> in the <i>Amazon ECR User Guide</i>.</p> </li> </ul>
 
         Args:
             image_build_version_arn: <p>The Amazon Resource Name (ARN) of the Image Builder image resource to delete.</p>
@@ -1621,7 +1621,7 @@ class imagebuilderClient:
             "aws_sdk_imagebuilder.types.image_logging_configuration.ImageLoggingConfiguration"
         ] = None,
     ) -> "aws_sdk_imagebuilder.types.distribute_image_response.DistributeImageResponse":
-        """<p>DistributeImage distributes existing AMIs to additional regions and accounts without rebuilding the image.</p>
+        r"""<p>DistributeImage distributes existing AMIs to additional regions and accounts without rebuilding the image.</p>
 
         Args:
             source_image: <p>The source image Amazon Resource Name (ARN) to distribute.</p>
@@ -1670,7 +1670,7 @@ class imagebuilderClient:
         *,
         config_overrides: Optional[imagebuilderClientConfig] = None,
     ) -> "aws_sdk_imagebuilder.types.get_component_response.GetComponentResponse":
-        """<p>Gets a component object.</p>
+        r"""<p>Gets a component object.</p>
 
         Args:
             component_build_version_arn: <p>The Amazon Resource Name (ARN) of the component that you want to get. Regex requires the suffix <code>/\d+$</code>.</p>
@@ -2327,7 +2327,7 @@ class imagebuilderClient:
         ] = None,
         tags: Optional["aws_sdk_imagebuilder.types.tag_map.TagMap"] = None,
     ) -> "aws_sdk_imagebuilder.types.import_component_response.ImportComponentResponse":
-        """<p>Imports a component and transforms its data into a component document.</p>
+        r"""<p>Imports a component and transforms its data into a component document.</p>
 
         Args:
             name: <p>The name of the component.</p>
@@ -2416,7 +2416,7 @@ class imagebuilderClient:
     ) -> (
         "aws_sdk_imagebuilder.types.import_disk_image_response.ImportDiskImageResponse"
     ):
-        """<p>Import a Windows operating system image from a verified Microsoft ISO disk file. The following disk images are supported:</p> <ul> <li> <p>Windows 11 Enterprise</p> </li> </ul>
+        r"""<p>Import a Windows operating system image from a verified Microsoft ISO disk file. The following disk images are supported:</p> <ul> <li> <p>Windows 11 Enterprise</p> </li> </ul>
 
         Args:
             name: <p>The name of the image resource that's created from the import.</p>
@@ -2495,7 +2495,7 @@ class imagebuilderClient:
         ] = None,
         tags: Optional["aws_sdk_imagebuilder.types.tag_map.TagMap"] = None,
     ) -> "aws_sdk_imagebuilder.types.import_vm_image_response.ImportVmImageResponse":
-        """<p>When you export your virtual machine (VM) from its virtualization environment, that process creates a set of one or more disk container files that act as snapshots of your VM’s environment, settings, and data. The Amazon EC2 API <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportImage.html\">ImportImage</a> action uses those files to import your VM and create an AMI. To import using the CLI command, see <a href=\"https://docs.aws.amazon.com/cli/latest/reference/ec2/import-image.html\">import-image</a> </p> <p>You can reference the task ID from the VM import to pull in the AMI that the import created as the base image for your Image Builder recipe.</p>
+        r"""<p>When you export your virtual machine (VM) from its virtualization environment, that process creates a set of one or more disk container files that act as snapshots of your VM’s environment, settings, and data. The Amazon EC2 API <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportImage.html\">ImportImage</a> action uses those files to import your VM and create an AMI. To import using the CLI command, see <a href=\"https://docs.aws.amazon.com/cli/latest/reference/ec2/import-image.html\">import-image</a> </p> <p>You can reference the task ID from the VM import to pull in the AMI that the import created as the base image for your Image Builder recipe.</p>
 
         Args:
             name: <p>The name of the base image that is created by the import process.</p>
@@ -4284,7 +4284,7 @@ class imagebuilderClient:
         *,
         config_overrides: Optional[imagebuilderClientConfig] = None,
     ) -> "aws_sdk_imagebuilder.types.put_component_policy_response.PutComponentPolicyResponse":
-        """<p>Applies a policy to a component. We recommend that you call the RAM API <a href=\"https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html\">CreateResourceShare</a> to share resources. If you call the Image Builder API <code>PutComponentPolicy</code>, you must also call the RAM API <a href=\"https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html\">PromoteResourceShareCreatedFromPolicy</a> in order for the resource to be visible to all principals with whom the resource is shared.</p>
+        r"""<p>Applies a policy to a component. We recommend that you call the RAM API <a href=\"https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html\">CreateResourceShare</a> to share resources. If you call the Image Builder API <code>PutComponentPolicy</code>, you must also call the RAM API <a href=\"https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html\">PromoteResourceShareCreatedFromPolicy</a> in order for the resource to be visible to all principals with whom the resource is shared.</p>
 
         Args:
             component_arn: <p>The Amazon Resource Name (ARN) of the component that this policy should be applied to.</p>
@@ -4364,7 +4364,7 @@ class imagebuilderClient:
         *,
         config_overrides: Optional[imagebuilderClientConfig] = None,
     ) -> "aws_sdk_imagebuilder.types.put_image_policy_response.PutImagePolicyResponse":
-        """<p>Applies a policy to an image. We recommend that you call the RAM API <a href=\"https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html\">CreateResourceShare</a> to share resources. If you call the Image Builder API <code>PutImagePolicy</code>, you must also call the RAM API <a href=\"https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html\">PromoteResourceShareCreatedFromPolicy</a> in order for the resource to be visible to all principals with whom the resource is shared.</p>
+        r"""<p>Applies a policy to an image. We recommend that you call the RAM API <a href=\"https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html\">CreateResourceShare</a> to share resources. If you call the Image Builder API <code>PutImagePolicy</code>, you must also call the RAM API <a href=\"https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html\">PromoteResourceShareCreatedFromPolicy</a> in order for the resource to be visible to all principals with whom the resource is shared.</p>
 
         Args:
             image_arn: <p>The Amazon Resource Name (ARN) of the image that this policy should be applied to.</p>
@@ -4404,7 +4404,7 @@ class imagebuilderClient:
         *,
         config_overrides: Optional[imagebuilderClientConfig] = None,
     ) -> "aws_sdk_imagebuilder.types.put_image_recipe_policy_response.PutImageRecipePolicyResponse":
-        """<p>Applies a policy to an image recipe. We recommend that you call the RAM API <a href=\"https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html\">CreateResourceShare</a> to share resources. If you call the Image Builder API <code>PutImageRecipePolicy</code>, you must also call the RAM API <a href=\"https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html\">PromoteResourceShareCreatedFromPolicy</a> in order for the resource to be visible to all principals with whom the resource is shared.</p>
+        r"""<p>Applies a policy to an image recipe. We recommend that you call the RAM API <a href=\"https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html\">CreateResourceShare</a> to share resources. If you call the Image Builder API <code>PutImageRecipePolicy</code>, you must also call the RAM API <a href=\"https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html\">PromoteResourceShareCreatedFromPolicy</a> in order for the resource to be visible to all principals with whom the resource is shared.</p>
 
         Args:
             image_recipe_arn: <p>The Amazon Resource Name (ARN) of the image recipe that this policy should be applied to.</p>
@@ -4444,7 +4444,7 @@ class imagebuilderClient:
         *,
         config_overrides: Optional[imagebuilderClientConfig] = None,
     ) -> "aws_sdk_imagebuilder.types.retry_image_response.RetryImageResponse":
-        """<p>RetryImage retries an image distribution without rebuilding the image.</p>
+        r"""<p>RetryImage retries an image distribution without rebuilding the image.</p>
 
         Args:
             image_build_version_arn: <p>The source image Amazon Resource Name (ARN) to retry.</p>
@@ -4489,7 +4489,7 @@ class imagebuilderClient:
             "aws_sdk_imagebuilder.types.non_empty_string.NonEmptyString"
         ] = None,
     ) -> "aws_sdk_imagebuilder.types.send_workflow_step_action_response.SendWorkflowStepActionResponse":
-        """<p>Pauses or resumes image creation when the associated workflow runs a <code>WaitForAction</code> step.</p>
+        r"""<p>Pauses or resumes image creation when the associated workflow runs a <code>WaitForAction</code> step.</p>
 
         Args:
             step_execution_id: <p>Uniquely identifies the workflow step that sent the step action.</p>
@@ -4537,7 +4537,7 @@ class imagebuilderClient:
         config_overrides: Optional[imagebuilderClientConfig] = None,
         tags: Optional["aws_sdk_imagebuilder.types.tag_map.TagMap"] = None,
     ) -> "aws_sdk_imagebuilder.types.start_image_pipeline_execution_response.StartImagePipelineExecutionResponse":
-        """<p>Manually triggers a pipeline to create an image.</p>
+        r"""<p>Manually triggers a pipeline to create an image.</p>
 
         Args:
             image_pipeline_arn: <p>The Amazon Resource Name (ARN) of the image pipeline that you want to manually invoke.</p>
@@ -4593,7 +4593,7 @@ class imagebuilderClient:
             "aws_sdk_imagebuilder.types.date_time_timestamp.DateTimeTimestamp"
         ] = None,
     ) -> "aws_sdk_imagebuilder.types.start_resource_state_update_response.StartResourceStateUpdateResponse":
-        """<p>Begin asynchronous resource state update for lifecycle changes to the specified image resources.</p>
+        r"""<p>Begin asynchronous resource state update for lifecycle changes to the specified image resources.</p>
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the Image Builder resource that is updated. The state update might also impact associated resources.</p>
@@ -4731,7 +4731,7 @@ class imagebuilderClient:
             "aws_sdk_imagebuilder.types.non_empty_string.NonEmptyString"
         ] = None,
     ) -> "aws_sdk_imagebuilder.types.update_distribution_configuration_response.UpdateDistributionConfigurationResponse":
-        """<p>Updates a new distribution configuration. Distribution configurations define and configure the outputs of your pipeline.</p>
+        r"""<p>Updates a new distribution configuration. Distribution configurations define and configure the outputs of your pipeline.</p>
 
         Args:
             distribution_configuration_arn: <p>The Amazon Resource Name (ARN) of the distribution configuration that you want to update.</p>
@@ -4812,7 +4812,7 @@ class imagebuilderClient:
         ] = None,
         image_tags: Optional["aws_sdk_imagebuilder.types.tag_map.TagMap"] = None,
     ) -> "aws_sdk_imagebuilder.types.update_image_pipeline_response.UpdateImagePipelineResponse":
-        """<p>Updates an image pipeline. Image pipelines enable you to automate the creation and distribution of images. You must specify exactly one recipe for your image, using either a <code>containerRecipeArn</code> or an <code>imageRecipeArn</code>.</p> <note> <p>UpdateImagePipeline does not support selective updates for the pipeline. You must specify all of the required properties in the update request, not just the properties that have changed.</p> </note>
+        r"""<p>Updates an image pipeline. Image pipelines enable you to automate the creation and distribution of images. You must specify exactly one recipe for your image, using either a <code>containerRecipeArn</code> or an <code>imageRecipeArn</code>.</p> <note> <p>UpdateImagePipeline does not support selective updates for the pipeline. You must specify all of the required properties in the update request, not just the properties that have changed.</p> </note>
 
         Args:
             image_pipeline_arn: <p>The Amazon Resource Name (ARN) of the image pipeline that you want to update.</p>
@@ -4923,7 +4923,7 @@ class imagebuilderClient:
         ] = None,
         placement: Optional["aws_sdk_imagebuilder.types.placement.Placement"] = None,
     ) -> "aws_sdk_imagebuilder.types.update_infrastructure_configuration_response.UpdateInfrastructureConfigurationResponse":
-        """<p>Updates a new infrastructure configuration. An infrastructure configuration defines the environment in which your image will be built and tested.</p>
+        r"""<p>Updates a new infrastructure configuration. An infrastructure configuration defines the environment in which your image will be built and tested.</p>
 
         Args:
             infrastructure_configuration_arn: <p>The Amazon Resource Name (ARN) of the infrastructure configuration that you want to update.</p>
@@ -5008,7 +5008,7 @@ class imagebuilderClient:
             "aws_sdk_imagebuilder.types.lifecycle_policy_status.LifecyclePolicyStatus"
         ] = None,
     ) -> "aws_sdk_imagebuilder.types.update_lifecycle_policy_response.UpdateLifecyclePolicyResponse":
-        """<p>Update the specified lifecycle policy.</p>
+        r"""<p>Update the specified lifecycle policy.</p>
 
         Args:
             lifecycle_policy_arn: <p>The Amazon Resource Name (ARN) of the lifecycle policy resource.</p>

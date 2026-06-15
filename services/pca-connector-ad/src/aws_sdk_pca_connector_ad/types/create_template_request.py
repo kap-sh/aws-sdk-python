@@ -16,7 +16,7 @@ if TYPE_CHECKING:
 
 class CreateTemplateRequest(TypedDict):
     connector_arn: "aws_sdk_pca_connector_ad.types.connector_arn.ConnectorArn"
-    """<p>The Amazon Resource Name (ARN) that was returned when you called <a href=\"https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html\">CreateConnector</a>.</p>"""
+    r"""<p>The Amazon Resource Name (ARN) that was returned when you called <a href=\"https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html\">CreateConnector</a>.</p>"""
     name: "aws_sdk_pca_connector_ad.types.template_name.TemplateName"
     """<p>Name of the template. The template name must be unique.</p>"""
     definition: "aws_sdk_pca_connector_ad.types.template_definition.TemplateDefinition"

@@ -18,13 +18,13 @@ class SearchIndexRequest(TypedDict):
     index_name: NotRequired["aws_sdk_iot.types.index_name.IndexName"]
     """<p>The search index name.</p>"""
     query_string: "aws_sdk_iot.types.query_string.QueryString"
-    """<p>The search query string. For more information about the search query syntax, see <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/query-syntax.html\">Query syntax</a>.</p>"""
+    r"""<p>The search query string. For more information about the search query syntax, see <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/query-syntax.html\">Query syntax</a>.</p>"""
     next_token: NotRequired["aws_sdk_iot.types.next_token.NextToken"]
     """<p>The token used to get the next set of results, or <code>null</code> if there are no additional results.</p>"""
     max_results: NotRequired[
         "aws_sdk_iot.types.search_query_max_results.SearchQueryMaxResults"
     ]
-    """<p>The maximum number of results to return per page at one time. This maximum number cannot exceed 100. The response might contain fewer results but will never contain more. You can use <a href=\"https://docs.aws.amazon.com/iot/latest/apireference/API_SearchIndex.html#iot-SearchIndex-request-nextToken\"> <code>nextToken</code> </a> to retrieve the next set of results until <code>nextToken</code> returns <code>NULL</code>.</p>"""
+    r"""<p>The maximum number of results to return per page at one time. This maximum number cannot exceed 100. The response might contain fewer results but will never contain more. You can use <a href=\"https://docs.aws.amazon.com/iot/latest/apireference/API_SearchIndex.html#iot-SearchIndex-request-nextToken\"> <code>nextToken</code> </a> to retrieve the next set of results until <code>nextToken</code> returns <code>NULL</code>.</p>"""
     query_version: NotRequired["aws_sdk_iot.types.query_version.QueryVersion"]
     """<p>The query version.</p>"""
 

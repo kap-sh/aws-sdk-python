@@ -18,7 +18,7 @@ class SelectParameters(TypedDict):
     expression_type: "aws_sdk_s3.types.expression_type.ExpressionType"
     """<p>The type of the provided expression (for example, SQL).</p>"""
     expression: "aws_sdk_s3.types.expression.Expression"
-    """<important> <p>Amazon S3 Select is no longer available to new customers. Existing customers of Amazon S3 Select can continue to use the feature as usual. <a href=\"http://aws.amazon.com/blogs/storage/how-to-optimize-querying-your-data-in-amazon-s3/\">Learn more</a> </p> </important> <p>The expression that is used to query the object.</p>"""
+    r"""<important> <p>Amazon S3 Select is no longer available to new customers. Existing customers of Amazon S3 Select can continue to use the feature as usual. <a href=\"http://aws.amazon.com/blogs/storage/how-to-optimize-querying-your-data-in-amazon-s3/\">Learn more</a> </p> </important> <p>The expression that is used to query the object.</p>"""
     output_serialization: "aws_sdk_s3.types.output_serialization.OutputSerialization"
     """<p>Describes how the results of the Select job are serialized.</p>"""
 

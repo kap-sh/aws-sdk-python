@@ -30,7 +30,7 @@ class CancelPracticeRunResponse(TypedDict):
     status: "aws_sdk_arc_zonal_shift.types.zonal_shift_status.ZonalShiftStatus"
     """<p>A status for the practice run that you canceled (expected status is <b>CANCELED</b>).</p> <p>The <code>Status</code> for a practice run zonal shift can have one of the following values:</p>"""
     comment: "aws_sdk_arc_zonal_shift.types.zonal_shift_comment.ZonalShiftComment"
-    """<p>The initial comment that you entered about the practice run. Be aware that this comment can be overwritten by Amazon Web Services if the automatic check for balanced capacity fails. For more information, see <a href=\"https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-autoshift.how-it-works.capacity-check.html\"> Capacity checks for practice runs</a> in the Amazon Application Recovery Controller Developer Guide. </p>"""
+    r"""<p>The initial comment that you entered about the practice run. Be aware that this comment can be overwritten by Amazon Web Services if the automatic check for balanced capacity fails. For more information, see <a href=\"https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-autoshift.how-it-works.capacity-check.html\"> Capacity checks for practice runs</a> in the Amazon Application Recovery Controller Developer Guide. </p>"""
 
 
 # --- restJson1 ser/de ---

@@ -25,11 +25,11 @@ class ElasticsearchClusterConfig(TypedDict):
     dedicated_master_enabled: NotRequired[
         "aws_sdk_elasticsearch_service.types.boolean.Boolean"
     ]
-    """<p>A boolean value to indicate whether a dedicated master node is enabled. See <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-dedicatedmasternodes\" target=\"_blank\">About Dedicated Master Nodes</a> for more information.</p>"""
+    r"""<p>A boolean value to indicate whether a dedicated master node is enabled. See <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-dedicatedmasternodes\" target=\"_blank\">About Dedicated Master Nodes</a> for more information.</p>"""
     zone_awareness_enabled: NotRequired[
         "aws_sdk_elasticsearch_service.types.boolean.Boolean"
     ]
-    """<p>A boolean value to indicate whether zone awareness is enabled. See <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-zoneawareness\" target=\"_blank\">About Zone Awareness</a> for more information.</p>"""
+    r"""<p>A boolean value to indicate whether zone awareness is enabled. See <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-zoneawareness\" target=\"_blank\">About Zone Awareness</a> for more information.</p>"""
     zone_awareness_config: NotRequired[
         "aws_sdk_elasticsearch_service.types.zone_awareness_config.ZoneAwarenessConfig"
     ]

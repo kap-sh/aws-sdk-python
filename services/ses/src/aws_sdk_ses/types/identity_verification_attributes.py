@@ -14,7 +14,7 @@ if TYPE_CHECKING:
 
 class IdentityVerificationAttributes(TypedDict):
     verification_status: "aws_sdk_ses.types.verification_status.VerificationStatus"
-    """<p>The verification status of the identity: \"Pending\", \"Success\", \"Failed\", or \"TemporaryFailure\".</p>"""
+    r"""<p>The verification status of the identity: \"Pending\", \"Success\", \"Failed\", or \"TemporaryFailure\".</p>"""
     verification_token: NotRequired[
         "aws_sdk_ses.types.verification_token.VerificationToken"
     ]

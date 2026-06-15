@@ -19,7 +19,7 @@ class PromptFlowNodeInlineConfiguration(TypedDict):
     template_configuration: "aws_sdk_bedrock_agent.types.prompt_template_configuration.PromptTemplateConfiguration"
     """<p>Contains a prompt and variables in the prompt that can be replaced with values at runtime.</p>"""
     model_id: "aws_sdk_bedrock_agent.types.flow_prompt_model_identifier.FlowPromptModelIdentifier"
-    """<p>The unique identifier of the model or <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html\">inference profile</a> to run inference with.</p>"""
+    r"""<p>The unique identifier of the model or <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html\">inference profile</a> to run inference with.</p>"""
     inference_configuration: NotRequired[
         "aws_sdk_bedrock_agent.types.prompt_inference_configuration.PromptInferenceConfiguration"
     ]

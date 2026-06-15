@@ -32,7 +32,7 @@ class ListPhoneNumbersSummary(TypedDict):
     target_arn: NotRequired["aws_sdk_connect.types.arn.ARN"]
     """<p>The Amazon Resource Name (ARN) for Connect Customer instances or traffic distribution groups that phone number inbound traffic is routed through.</p>"""
     instance_id: NotRequired["aws_sdk_connect.types.instance_id.InstanceId"]
-    """<p>The identifier of the Connect Customer instance that phone numbers are claimed to. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>"""
+    r"""<p>The identifier of the Connect Customer instance that phone numbers are claimed to. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>"""
     phone_number_description: NotRequired[
         "aws_sdk_connect.types.phone_number_description.PhoneNumberDescription"
     ]

@@ -1,24 +1,33 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#HarnessContentBlocks``."""
 
 from typing import TYPE_CHECKING, TypeAlias
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.harness_content_block
 
-HarnessContentBlocks: TypeAlias = list["aws_sdk_bedrock_agentcore.types.harness_content_block.HarnessContentBlock"]
+HarnessContentBlocks: TypeAlias = list[
+    "aws_sdk_bedrock_agentcore.types.harness_content_block.HarnessContentBlock"
+]
 
 
 # --- restJson1 ser/de ---
 def serialize_json(value: HarnessContentBlocks) -> list:
     import aws_sdk_bedrock_agentcore.types.harness_content_block
+
     out: list = []
     for item in value:
-        out.append(aws_sdk_bedrock_agentcore.types.harness_content_block.serialize_json(item))
+        out.append(
+            aws_sdk_bedrock_agentcore.types.harness_content_block.serialize_json(item)
+        )
     return out
 
 
 def deserialize_json(data: list) -> HarnessContentBlocks:
     import aws_sdk_bedrock_agentcore.types.harness_content_block
+
     out: HarnessContentBlocks = []
     for item in data:
-        out.append(aws_sdk_bedrock_agentcore.types.harness_content_block.deserialize_json(item))
+        out.append(
+            aws_sdk_bedrock_agentcore.types.harness_content_block.deserialize_json(item)
+        )
     return out

@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_iot_managed_integrations._auth._signers
@@ -35,7 +37,7 @@ class KmsKeyAssociationResource:
     def get_default_encryption_configuration(
         self, *, config_overrides: Optional[IoTManagedIntegrationsClientConfig] = None
     ) -> "aws_sdk_iot_managed_integrations.types.get_default_encryption_configuration_response.GetDefaultEncryptionConfigurationResponse":
-        """<p> Retrieves information about the default encryption configuration for the Amazon Web Services account in the default or specified region. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/key-management.html\">Key management</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>"""
+        r"""<p> Retrieves information about the default encryption configuration for the Amazon Web Services account in the default or specified region. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/key-management.html\">Key management</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>"""
 
         def _handler(
             req: "OperationRequest[aws_sdk_iot_managed_integrations.types.get_default_encryption_configuration_request.GetDefaultEncryptionConfigurationRequest]",
@@ -70,7 +72,7 @@ class KmsKeyAssociationResource:
             "aws_sdk_iot_managed_integrations.types.kms_key_arn.KmsKeyArn"
         ] = None,
     ) -> "aws_sdk_iot_managed_integrations.types.put_default_encryption_configuration_response.PutDefaultEncryptionConfigurationResponse":
-        """<p>Sets the default encryption configuration for the Amazon Web Services account. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/key-management.html\">Key management</a> in the AWS IoT SiteWise User Guide.</p>
+        r"""<p>Sets the default encryption configuration for the Amazon Web Services account. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/key-management.html\">Key management</a> in the AWS IoT SiteWise User Guide.</p>
 
         Args:
             encryption_type: <p>The type of encryption used for the encryption configuration.</p>
@@ -114,7 +116,7 @@ class AsyncKmsKeyAssociationResource:
         *,
         config_overrides: Optional[AsyncIoTManagedIntegrationsClientConfig] = None,
     ) -> "aws_sdk_iot_managed_integrations.types.get_default_encryption_configuration_response.GetDefaultEncryptionConfigurationResponse":
-        """<p> Retrieves information about the default encryption configuration for the Amazon Web Services account in the default or specified region. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/key-management.html\">Key management</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>"""
+        r"""<p> Retrieves information about the default encryption configuration for the Amazon Web Services account in the default or specified region. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/key-management.html\">Key management</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>"""
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_iot_managed_integrations.types.get_default_encryption_configuration_request.GetDefaultEncryptionConfigurationRequest]",
@@ -150,7 +152,7 @@ class AsyncKmsKeyAssociationResource:
             "aws_sdk_iot_managed_integrations.types.kms_key_arn.KmsKeyArn"
         ] = None,
     ) -> "aws_sdk_iot_managed_integrations.types.put_default_encryption_configuration_response.PutDefaultEncryptionConfigurationResponse":
-        """<p>Sets the default encryption configuration for the Amazon Web Services account. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/key-management.html\">Key management</a> in the AWS IoT SiteWise User Guide.</p>
+        r"""<p>Sets the default encryption configuration for the Amazon Web Services account. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/key-management.html\">Key management</a> in the AWS IoT SiteWise User Guide.</p>
 
         Args:
             encryption_type: <p>The type of encryption used for the encryption configuration.</p>

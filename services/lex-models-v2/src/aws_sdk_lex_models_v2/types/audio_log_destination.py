@@ -12,7 +12,7 @@ class AudioLogDestination(TypedDict):
     s3_bucket: (
         "aws_sdk_lex_models_v2.types.s3_bucket_log_destination.S3BucketLogDestination"
     )
-    """<p>The Amazon S3 bucket where the audio log files are stored. The IAM role specified in the <code>roleArn</code> parameter of the <a href=\"https://docs.aws.amazon.com/lexv2/latest/APIReference/API_CreateBot.html\">CreateBot</a> operation must have permission to write to this bucket.</p>"""
+    r"""<p>The Amazon S3 bucket where the audio log files are stored. The IAM role specified in the <code>roleArn</code> parameter of the <a href=\"https://docs.aws.amazon.com/lexv2/latest/APIReference/API_CreateBot.html\">CreateBot</a> operation must have permission to write to this bucket.</p>"""
 
 
 # --- restJson1 ser/de ---

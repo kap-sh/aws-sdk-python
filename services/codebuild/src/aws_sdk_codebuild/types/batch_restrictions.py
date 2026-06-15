@@ -18,9 +18,9 @@ class BatchRestrictions(TypedDict):
     compute_types_allowed: NotRequired[
         "aws_sdk_codebuild.types.compute_types_allowed.ComputeTypesAllowed"
     ]
-    """<p>An array of strings that specify the compute types that are allowed for the batch build. See <a href=\"https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html\">Build environment compute types</a> in the <i>CodeBuild User Guide</i> for these values. </p>"""
+    r"""<p>An array of strings that specify the compute types that are allowed for the batch build. See <a href=\"https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html\">Build environment compute types</a> in the <i>CodeBuild User Guide</i> for these values. </p>"""
     fleets_allowed: NotRequired["aws_sdk_codebuild.types.fleets_allowed.FleetsAllowed"]
-    """<p>An array of strings that specify the fleets that are allowed for the batch build. See <a href=\"https://docs.aws.amazon.com/codebuild/latest/userguide/fleets.html\">Run builds on reserved capacity fleets</a> in the <i>CodeBuild User Guide</i> for more information. </p>"""
+    r"""<p>An array of strings that specify the fleets that are allowed for the batch build. See <a href=\"https://docs.aws.amazon.com/codebuild/latest/userguide/fleets.html\">Run builds on reserved capacity fleets</a> in the <i>CodeBuild User Guide</i> for more information. </p>"""
 
 
 # --- awsJson1_1 ser/de ---

@@ -30,7 +30,7 @@ class Finding(TypedDict):
     schema_version: "aws_sdk_inspector.types.numeric_version.NumericVersion"
     """<p>The schema version of this data type.</p>"""
     service: NotRequired["aws_sdk_inspector.types.service_name.ServiceName"]
-    """<p>The data element is set to \"Inspector\".</p>"""
+    r"""<p>The data element is set to \"Inspector\".</p>"""
     service_attributes: NotRequired[
         "aws_sdk_inspector.types.inspector_service_attributes.InspectorServiceAttributes"
     ]

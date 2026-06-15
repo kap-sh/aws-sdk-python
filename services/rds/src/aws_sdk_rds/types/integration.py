@@ -35,7 +35,7 @@ class Integration(TypedDict):
     additional_encryption_context: NotRequired[
         "aws_sdk_rds.types.encryption_context_map.EncryptionContextMap"
     ]
-    """<p>The encryption context for the integration. For more information, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context\">Encryption context</a> in the <i>Amazon Web Services Key Management Service Developer Guide</i>.</p>"""
+    r"""<p>The encryption context for the integration. For more information, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context\">Encryption context</a> in the <i>Amazon Web Services Key Management Service Developer Guide</i>.</p>"""
     status: NotRequired["aws_sdk_rds.types.integration_status.IntegrationStatus"]
     """<p>The current status of the integration.</p>"""
     tags: NotRequired["aws_sdk_rds.types.tag_list.TagList"]

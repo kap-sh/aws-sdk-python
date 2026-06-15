@@ -13,7 +13,7 @@ class IotSiteWiseAction(TypedDict):
     put_asset_property_value_entries: "aws_sdk_iot.types.put_asset_property_value_entry_list.PutAssetPropertyValueEntryList"
     """<p>A list of asset property value entries.</p>"""
     role_arn: "aws_sdk_iot.types.aws_arn.AwsArn"
-    """<p>The ARN of the role that grants IoT permission to send an asset property value to IoT SiteWise. (<code>\"Action\": \"iotsitewise:BatchPutAssetPropertyValue\"</code>). The trust policy can restrict access to specific asset hierarchy paths.</p>"""
+    r"""<p>The ARN of the role that grants IoT permission to send an asset property value to IoT SiteWise. (<code>\"Action\": \"iotsitewise:BatchPutAssetPropertyValue\"</code>). The trust policy can restrict access to specific asset hierarchy paths.</p>"""
 
 
 # --- restJson1 ser/de ---

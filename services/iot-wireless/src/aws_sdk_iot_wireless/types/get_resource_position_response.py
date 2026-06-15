@@ -12,7 +12,7 @@ class GetResourcePositionResponse(TypedDict):
     geo_json_payload: NotRequired[
         "aws_sdk_iot_wireless.types.geo_json_payload.GeoJsonPayload"
     ]
-    """<p>The position information of the resource, displayed as a JSON payload. The payload uses the GeoJSON format, which a format that's used to encode geographic data structures. For more information, see <a href=\"https://geojson.org/\">GeoJSON</a>.</p>"""
+    r"""<p>The position information of the resource, displayed as a JSON payload. The payload uses the GeoJSON format, which a format that's used to encode geographic data structures. For more information, see <a href=\"https://geojson.org/\">GeoJSON</a>.</p>"""
 
 
 # --- restJson1 ser/de ---

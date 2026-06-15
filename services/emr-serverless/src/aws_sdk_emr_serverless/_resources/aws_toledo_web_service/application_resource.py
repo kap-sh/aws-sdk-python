@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_emr_serverless._auth._signers
@@ -125,7 +127,7 @@ class ApplicationResource:
             "aws_sdk_emr_serverless.types.job_level_cost_allocation_configuration.JobLevelCostAllocationConfiguration"
         ] = None,
     ) -> "aws_sdk_emr_serverless.types.create_application_response.CreateApplicationResponse":
-        """<p>Creates an application.</p>
+        r"""<p>Creates an application.</p>
 
         Args:
             name: <p>The name of the application.</p>
@@ -305,7 +307,7 @@ class ApplicationResource:
             "aws_sdk_emr_serverless.types.job_level_cost_allocation_configuration.JobLevelCostAllocationConfiguration"
         ] = None,
     ) -> "aws_sdk_emr_serverless.types.update_application_response.UpdateApplicationResponse":
-        """<p>Updates a specified application. An application has to be in a stopped or created state in order to be updated.</p>
+        r"""<p>Updates a specified application. An application has to be in a stopped or created state in order to be updated.</p>
 
         Args:
             application_id: <p>The ID of the application to update.</p>
@@ -655,7 +657,7 @@ class AsyncApplicationResource:
             "aws_sdk_emr_serverless.types.job_level_cost_allocation_configuration.JobLevelCostAllocationConfiguration"
         ] = None,
     ) -> "aws_sdk_emr_serverless.types.create_application_response.CreateApplicationResponse":
-        """<p>Creates an application.</p>
+        r"""<p>Creates an application.</p>
 
         Args:
             name: <p>The name of the application.</p>
@@ -837,7 +839,7 @@ class AsyncApplicationResource:
             "aws_sdk_emr_serverless.types.job_level_cost_allocation_configuration.JobLevelCostAllocationConfiguration"
         ] = None,
     ) -> "aws_sdk_emr_serverless.types.update_application_response.UpdateApplicationResponse":
-        """<p>Updates a specified application. An application has to be in a stopped or created state in order to be updated.</p>
+        r"""<p>Updates a specified application. An application has to be in a stopped or created state in order to be updated.</p>
 
         Args:
             application_id: <p>The ID of the application to update.</p>

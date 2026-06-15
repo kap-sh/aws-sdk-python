@@ -22,7 +22,7 @@ class RetrievedReference(TypedDict):
     metadata: NotRequired[
         "aws_sdk_bedrock_agent_runtime.types.retrieval_result_metadata.RetrievalResultMetadata"
     ]
-    """<p>Contains metadata attributes and their values for the file in the data source. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-ds.html#kb-ds-metadata\">Metadata and filtering</a>.</p>"""
+    r"""<p>Contains metadata attributes and their values for the file in the data source. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-ds.html#kb-ds-metadata\">Metadata and filtering</a>.</p>"""
 
 
 # --- restJson1 ser/de ---

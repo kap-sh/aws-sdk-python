@@ -17,16 +17,16 @@ class ListKeysResponseEntry(TypedDict):
     key_name: "aws_sdk_location.types.resource_name.ResourceName"
     """<p>The name of the API key resource.</p>"""
     expire_time: "aws_sdk_location.types.timestamp.Timestamp"
-    """<p>The timestamp for when the API key resource will expire, in <a href=\"https://www.iso.org/iso-8601-date-and-time-format.html\"> ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>.</p>"""
+    r"""<p>The timestamp for when the API key resource will expire, in <a href=\"https://www.iso.org/iso-8601-date-and-time-format.html\"> ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>.</p>"""
     description: NotRequired[
         "aws_sdk_location.types.resource_description.ResourceDescription"
     ]
     """<p>The optional description for the API key resource.</p>"""
     restrictions: "aws_sdk_location.types.api_key_restrictions.ApiKeyRestrictions"
     create_time: "aws_sdk_location.types.timestamp.Timestamp"
-    """<p>The timestamp of when the API key was created, in <a href=\"https://www.iso.org/iso-8601-date-and-time-format.html\"> ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>.</p>"""
+    r"""<p>The timestamp of when the API key was created, in <a href=\"https://www.iso.org/iso-8601-date-and-time-format.html\"> ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>.</p>"""
     update_time: "aws_sdk_location.types.timestamp.Timestamp"
-    """<p>The timestamp of when the API key was last updated, in <a href=\"https://www.iso.org/iso-8601-date-and-time-format.html\"> ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>.</p>"""
+    r"""<p>The timestamp of when the API key was last updated, in <a href=\"https://www.iso.org/iso-8601-date-and-time-format.html\"> ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>.</p>"""
 
 
 # --- restJson1 ser/de ---

@@ -10,13 +10,13 @@ if TYPE_CHECKING:
 
 class Destination(TypedDict):
     to_addresses: NotRequired["aws_sdk_sesv2.types.email_address_list.EmailAddressList"]
-    """<p>An array that contains the email addresses of the \"To\" recipients for the email.</p>"""
+    r"""<p>An array that contains the email addresses of the \"To\" recipients for the email.</p>"""
     cc_addresses: NotRequired["aws_sdk_sesv2.types.email_address_list.EmailAddressList"]
-    """<p>An array that contains the email addresses of the \"CC\" (carbon copy) recipients for the email.</p>"""
+    r"""<p>An array that contains the email addresses of the \"CC\" (carbon copy) recipients for the email.</p>"""
     bcc_addresses: NotRequired[
         "aws_sdk_sesv2.types.email_address_list.EmailAddressList"
     ]
-    """<p>An array that contains the email addresses of the \"BCC\" (blind carbon copy) recipients for the email.</p>"""
+    r"""<p>An array that contains the email addresses of the \"BCC\" (blind carbon copy) recipients for the email.</p>"""
 
 
 # --- restJson1 ser/de ---

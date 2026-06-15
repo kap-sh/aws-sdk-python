@@ -16,7 +16,7 @@ class Connection(TypedDict):
     endpoint_arn: NotRequired["aws_sdk_database_migration_service.types.string.String"]
     """<p>The ARN string that uniquely identifies the endpoint.</p>"""
     status: NotRequired["aws_sdk_database_migration_service.types.string.String"]
-    """<p>The connection status. This parameter can return one of the following values:</p> <ul> <li> <p> <code>\"successful\"</code> </p> </li> <li> <p> <code>\"testing\"</code> </p> </li> <li> <p> <code>\"failed\"</code> </p> </li> <li> <p> <code>\"deleting\"</code> </p> </li> </ul>"""
+    r"""<p>The connection status. This parameter can return one of the following values:</p> <ul> <li> <p> <code>\"successful\"</code> </p> </li> <li> <p> <code>\"testing\"</code> </p> </li> <li> <p> <code>\"failed\"</code> </p> </li> <li> <p> <code>\"deleting\"</code> </p> </li> </ul>"""
     last_failure_message: NotRequired[
         "aws_sdk_database_migration_service.types.string.String"
     ]

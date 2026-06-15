@@ -15,7 +15,7 @@ class FileUploaderFieldConfig(TypedDict):
     access_level: (
         "aws_sdk_amplifyuibuilder.types.storage_access_level.StorageAccessLevel"
     )
-    """<p>The access level to assign to the uploaded files in the Amazon S3 bucket where they are stored. The valid values for this property are <code>private</code>, <code>protected</code>, or <code>public</code>. For detailed information about the permissions associated with each access level, see <a href=\"https://docs.amplify.aws/lib/storage/configureaccess/q/platform/js/\">File access levels</a> in the <i>Amplify documentation</i>.</p>"""
+    r"""<p>The access level to assign to the uploaded files in the Amazon S3 bucket where they are stored. The valid values for this property are <code>private</code>, <code>protected</code>, or <code>public</code>. For detailed information about the permissions associated with each access level, see <a href=\"https://docs.amplify.aws/lib/storage/configureaccess/q/platform/js/\">File access levels</a> in the <i>Amplify documentation</i>.</p>"""
     accepted_file_types: "aws_sdk_amplifyuibuilder.types.str_values.StrValues"
     """<p>The file types that are allowed to be uploaded by the file uploader. Provide this information in an array of strings specifying the valid file extensions.</p>"""
     show_thumbnails: NotRequired["bool"]

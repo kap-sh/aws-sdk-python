@@ -16,7 +16,7 @@ if TYPE_CHECKING:
 
 class PurchaseHostReservationRequest(TypedDict):
     client_token: NotRequired["aws_sdk_ec2.types.string.String"]
-    """<p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring Idempotency</a>.</p>"""
+    r"""<p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring Idempotency</a>.</p>"""
     currency_code: NotRequired[
         "aws_sdk_ec2.types.currency_code_values.CurrencyCodeValues"
     ]

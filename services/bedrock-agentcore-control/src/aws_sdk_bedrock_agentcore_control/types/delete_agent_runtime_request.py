@@ -1,16 +1,24 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#DeleteAgentRuntimeRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.agent_runtime_id
     import aws_sdk_bedrock_agentcore_control.types.client_token
 
+
 class DeleteAgentRuntimeRequest(TypedDict):
-    agent_runtime_id: "aws_sdk_bedrock_agentcore_control.types.agent_runtime_id.AgentRuntimeId"
+    agent_runtime_id: (
+        "aws_sdk_bedrock_agentcore_control.types.agent_runtime_id.AgentRuntimeId"
+    )
     """<p>The unique identifier of the AgentCore Runtime to delete.</p>"""
-    client_token: NotRequired["aws_sdk_bedrock_agentcore_control.types.client_token.ClientToken"]
+    client_token: NotRequired[
+        "aws_sdk_bedrock_agentcore_control.types.client_token.ClientToken"
+    ]
     """<p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, the service ignores the request but does not return an error.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: DeleteAgentRuntimeRequest) -> dict:

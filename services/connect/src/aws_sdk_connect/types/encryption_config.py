@@ -13,7 +13,7 @@ class EncryptionConfig(TypedDict):
     encryption_type: "aws_sdk_connect.types.encryption_type.EncryptionType"
     """<p>The type of encryption.</p>"""
     key_id: "aws_sdk_connect.types.key_id.KeyId"
-    """<p>The full ARN of the encryption key. </p> <note> <p>Be sure to provide the full ARN of the encryption key, not just the ID.</p> <p>Connect Customer supports only KMS keys with the default key spec of <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/asymmetric-key-specs.html#key-spec-symmetric-default\"> <code>SYMMETRIC_DEFAULT</code> </a>. </p> </note>"""
+    r"""<p>The full ARN of the encryption key. </p> <note> <p>Be sure to provide the full ARN of the encryption key, not just the ID.</p> <p>Connect Customer supports only KMS keys with the default key spec of <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/asymmetric-key-specs.html#key-spec-symmetric-default\"> <code>SYMMETRIC_DEFAULT</code> </a>. </p> </note>"""
 
 
 # --- restJson1 ser/de ---

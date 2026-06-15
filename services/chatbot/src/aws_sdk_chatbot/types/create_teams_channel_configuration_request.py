@@ -28,7 +28,7 @@ class CreateTeamsChannelConfigurationRequest(TypedDict):
     ]
     """<p>The name of the Microsoft Teams channel.</p>"""
     team_id: "aws_sdk_chatbot.types.uuid.UUID"
-    """<p> The ID of the Microsoft Teams authorized with AWS Chatbot.</p> <p>To get the team ID, you must perform the initial authorization flow with Microsoft Teams in the AWS Chatbot console. Then you can copy and paste the team ID from the console. For more information, see <a href=\"https://docs.aws.amazon.com/chatbot/latest/adminguide/teams-setup.html#teams-client-setup\">Step 1: Configure a Microsoft Teams client</a> in the <i> AWS Chatbot Administrator Guide</i>. </p>"""
+    r"""<p> The ID of the Microsoft Teams authorized with AWS Chatbot.</p> <p>To get the team ID, you must perform the initial authorization flow with Microsoft Teams in the AWS Chatbot console. Then you can copy and paste the team ID from the console. For more information, see <a href=\"https://docs.aws.amazon.com/chatbot/latest/adminguide/teams-setup.html#teams-client-setup\">Step 1: Configure a Microsoft Teams client</a> in the <i> AWS Chatbot Administrator Guide</i>. </p>"""
     team_name: NotRequired["aws_sdk_chatbot.types.team_name.TeamName"]
     """<p>The name of the Microsoft Teams Team.</p>"""
     tenant_id: "aws_sdk_chatbot.types.uuid.UUID"
@@ -38,7 +38,7 @@ class CreateTeamsChannelConfigurationRequest(TypedDict):
     ]
     """<p>The Amazon Resource Names (ARNs) of the SNS topics that deliver notifications to AWS Chatbot.</p>"""
     iam_role_arn: "aws_sdk_chatbot.types.arn.Arn"
-    """<p>A user-defined role that AWS Chatbot assumes. This is not the service-linked role.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/chatbot/latest/adminguide/chatbot-iam-policies.html\">IAM policies for AWS Chatbot</a> in the <i> AWS Chatbot Administrator Guide</i>. </p>"""
+    r"""<p>A user-defined role that AWS Chatbot assumes. This is not the service-linked role.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/chatbot/latest/adminguide/chatbot-iam-policies.html\">IAM policies for AWS Chatbot</a> in the <i> AWS Chatbot Administrator Guide</i>. </p>"""
     configuration_name: "aws_sdk_chatbot.types.configuration_name.ConfigurationName"
     """<p>The name of the configuration.</p>"""
     logging_level: NotRequired[

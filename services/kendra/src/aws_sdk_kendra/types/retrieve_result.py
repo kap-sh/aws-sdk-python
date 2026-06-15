@@ -11,7 +11,7 @@ if TYPE_CHECKING:
 
 class RetrieveResult(TypedDict):
     query_id: NotRequired["aws_sdk_kendra.types.query_id.QueryId"]
-    """<p>The identifier of query used for the search. You also use <code>QueryId</code> to identify the search when using the <a href=\"https://docs.aws.amazon.com/kendra/latest/APIReference/API_SubmitFeedback.html\">Submitfeedback</a> API.</p>"""
+    r"""<p>The identifier of query used for the search. You also use <code>QueryId</code> to identify the search when using the <a href=\"https://docs.aws.amazon.com/kendra/latest/APIReference/API_SubmitFeedback.html\">Submitfeedback</a> API.</p>"""
     result_items: NotRequired[
         "aws_sdk_kendra.types.retrieve_result_item_list.RetrieveResultItemList"
     ]

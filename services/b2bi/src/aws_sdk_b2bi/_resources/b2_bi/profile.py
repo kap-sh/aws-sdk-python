@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 from aws_sdk_b2bi._services._pipeline import (
@@ -81,20 +83,20 @@ class Profile:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_b2bi.types.create_profile_request.CreateProfileRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_b2bi.types.create_profile_request.CreateProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if email is not None:
-            input["email"] = email
-        input["phone"] = phone
-        input["business_name"] = business_name
-        input["logging"] = logging
+            input_["email"] = email
+        input_["phone"] = phone
+        input_["business_name"] = business_name
+        input_["logging"] = logging
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -132,11 +134,11 @@ class Profile:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_b2bi.types.get_profile_request.GetProfileRequest = {}  # type: ignore[typeddict-item]
-        input["profile_id"] = profile_id
+        input_: aws_sdk_b2bi.types.get_profile_request.GetProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["profile_id"] = profile_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -182,19 +184,19 @@ class Profile:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_b2bi.types.update_profile_request.UpdateProfileRequest = {}  # type: ignore[typeddict-item]
-        input["profile_id"] = profile_id
+        input_: aws_sdk_b2bi.types.update_profile_request.UpdateProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["profile_id"] = profile_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if email is not None:
-            input["email"] = email
+            input_["email"] = email
         if phone is not None:
-            input["phone"] = phone
+            input_["phone"] = phone
         if business_name is not None:
-            input["business_name"] = business_name
+            input_["business_name"] = business_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -230,11 +232,11 @@ class Profile:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_b2bi.types.delete_profile_request.DeleteProfileRequest = {}  # type: ignore[typeddict-item]
-        input["profile_id"] = profile_id
+        input_: aws_sdk_b2bi.types.delete_profile_request.DeleteProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["profile_id"] = profile_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -274,14 +276,14 @@ class Profile:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_b2bi.types.list_profiles_request.ListProfilesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_b2bi.types.list_profiles_request.ListProfilesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -337,20 +339,20 @@ class AsyncProfile:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_b2bi.types.create_profile_request.CreateProfileRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_b2bi.types.create_profile_request.CreateProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if email is not None:
-            input["email"] = email
-        input["phone"] = phone
-        input["business_name"] = business_name
-        input["logging"] = logging
+            input_["email"] = email
+        input_["phone"] = phone
+        input_["business_name"] = business_name
+        input_["logging"] = logging
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -389,11 +391,11 @@ class AsyncProfile:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_b2bi.types.get_profile_request.GetProfileRequest = {}  # type: ignore[typeddict-item]
-        input["profile_id"] = profile_id
+        input_: aws_sdk_b2bi.types.get_profile_request.GetProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["profile_id"] = profile_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -440,19 +442,19 @@ class AsyncProfile:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_b2bi.types.update_profile_request.UpdateProfileRequest = {}  # type: ignore[typeddict-item]
-        input["profile_id"] = profile_id
+        input_: aws_sdk_b2bi.types.update_profile_request.UpdateProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["profile_id"] = profile_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if email is not None:
-            input["email"] = email
+            input_["email"] = email
         if phone is not None:
-            input["phone"] = phone
+            input_["phone"] = phone
         if business_name is not None:
-            input["business_name"] = business_name
+            input_["business_name"] = business_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -489,11 +491,11 @@ class AsyncProfile:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_b2bi.types.delete_profile_request.DeleteProfileRequest = {}  # type: ignore[typeddict-item]
-        input["profile_id"] = profile_id
+        input_: aws_sdk_b2bi.types.delete_profile_request.DeleteProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["profile_id"] = profile_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -534,14 +536,14 @@ class AsyncProfile:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_b2bi.types.list_profiles_request.ListProfilesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_b2bi.types.list_profiles_request.ListProfilesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

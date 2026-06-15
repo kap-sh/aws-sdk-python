@@ -19,7 +19,7 @@ class VirtualMFADevice(TypedDict):
     serial_number: "aws_sdk_iam.types.serial_number_type.serialNumberType"
     """<p>The serial number associated with <code>VirtualMFADevice</code>.</p>"""
     base32_string_seed: NotRequired["aws_sdk_iam.types.bootstrap_datum.BootstrapDatum"]
-    """<p> The base32 seed defined as specified in <a href=\"https://tools.ietf.org/html/rfc3548.txt\">RFC3548</a>. The <code>Base32StringSeed</code> is base32-encoded. </p>"""
+    r"""<p> The base32 seed defined as specified in <a href=\"https://tools.ietf.org/html/rfc3548.txt\">RFC3548</a>. The <code>Base32StringSeed</code> is base32-encoded. </p>"""
     qr_code_png: NotRequired["aws_sdk_iam.types.bootstrap_datum.BootstrapDatum"]
     """<p> A QR code PNG image that encodes <code>otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String</code> where <code>$virtualMFADeviceName</code> is one of the create call arguments. <code>AccountName</code> is the user name if set (otherwise, the account ID otherwise), and <code>Base32String</code> is the seed in base32 format. The <code>Base32String</code> value is base64-encoded. </p>"""
     user: NotRequired["aws_sdk_iam.types.user.User"]
@@ -27,7 +27,7 @@ class VirtualMFADevice(TypedDict):
     enable_date: NotRequired["aws_sdk_iam.types.date_type.dateType"]
     """<p>The date and time on which the virtual MFA device was enabled.</p>"""
     tags: NotRequired["aws_sdk_iam.types.tag_list_type.tagListType"]
-    """<p>A list of tags that are attached to the virtual MFA device. For more information about tagging, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html\">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>"""
+    r"""<p>A list of tags that are attached to the virtual MFA device. For more information about tagging, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html\">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>"""
 
 
 # --- awsQuery ser/de ---

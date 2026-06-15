@@ -19,7 +19,7 @@ class CancelJobRequest(TypedDict):
     comment: NotRequired["aws_sdk_iot.types.comment.Comment"]
     """<p>An optional comment string describing why the job was canceled.</p>"""
     force: "aws_sdk_iot.types.force_flag.ForceFlag"
-    """<p>(Optional) If <code>true</code> job executions with status \"IN_PROGRESS\" and \"QUEUED\" are canceled, otherwise only job executions with status \"QUEUED\" are canceled. The default is <code>false</code>.</p> <p>Canceling a job which is \"IN_PROGRESS\", will cause a device which is executing the job to be unable to update the job execution status. Use caution and ensure that each device executing a job which is canceled is able to recover to a valid state.</p>"""
+    r"""<p>(Optional) If <code>true</code> job executions with status \"IN_PROGRESS\" and \"QUEUED\" are canceled, otherwise only job executions with status \"QUEUED\" are canceled. The default is <code>false</code>.</p> <p>Canceling a job which is \"IN_PROGRESS\", will cause a device which is executing the job to be unable to update the job execution status. Use caution and ensure that each device executing a job which is canceled is able to recover to a valid state.</p>"""
 
 
 # --- restJson1 ser/de ---

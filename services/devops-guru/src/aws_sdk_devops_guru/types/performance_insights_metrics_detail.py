@@ -24,11 +24,11 @@ class PerformanceInsightsMetricsDetail(TypedDict):
     metric_query: NotRequired[
         "aws_sdk_devops_guru.types.performance_insights_metric_query.PerformanceInsightsMetricQuery"
     ]
-    """<p>A single query to be processed for the metric. For more information, see <code> <a href=\"https://docs.aws.amazon.com/devops-guru/latest/APIReference/API_PerformanceInsightsMetricQuery.html\">PerformanceInsightsMetricQuery</a> </code>.</p>"""
+    r"""<p>A single query to be processed for the metric. For more information, see <code> <a href=\"https://docs.aws.amazon.com/devops-guru/latest/APIReference/API_PerformanceInsightsMetricQuery.html\">PerformanceInsightsMetricQuery</a> </code>.</p>"""
     reference_data: NotRequired[
         "aws_sdk_devops_guru.types.performance_insights_reference_data_list.PerformanceInsightsReferenceDataList"
     ]
-    """<p> For more information, see <code> <a href=\"https://docs.aws.amazon.com/devops-guru/latest/APIReference/API_PerformanceInsightsReferenceData.html\">PerformanceInsightsReferenceData</a> </code>. </p>"""
+    r"""<p> For more information, see <code> <a href=\"https://docs.aws.amazon.com/devops-guru/latest/APIReference/API_PerformanceInsightsReferenceData.html\">PerformanceInsightsReferenceData</a> </code>. </p>"""
     stats_at_anomaly: NotRequired[
         "aws_sdk_devops_guru.types.performance_insights_stats.PerformanceInsightsStats"
     ]

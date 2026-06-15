@@ -18,7 +18,7 @@ class PutRestApiRequest(TypedDict):
     rest_api_id: "aws_sdk_api_gateway.types.string.String"
     """<p>The string identifier of the associated RestApi.</p>"""
     mode: NotRequired["aws_sdk_api_gateway.types.put_mode.PutMode"]
-    """<p>The <code>mode</code> query parameter to specify the update mode. Valid values are \"merge\" and \"overwrite\". By default, the update mode is \"merge\".</p>"""
+    r"""<p>The <code>mode</code> query parameter to specify the update mode. Valid values are \"merge\" and \"overwrite\". By default, the update mode is \"merge\".</p>"""
     fail_on_warnings: "aws_sdk_api_gateway.types.boolean.Boolean"
     """<p>A query parameter to indicate whether to rollback the API update (<code>true</code>) or not (<code>false</code>) when a warning is encountered. The default value is <code>false</code>.</p>"""
     parameters: NotRequired[

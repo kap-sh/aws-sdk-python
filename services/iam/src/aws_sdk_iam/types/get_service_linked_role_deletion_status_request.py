@@ -11,7 +11,7 @@ if TYPE_CHECKING:
 
 class GetServiceLinkedRoleDeletionStatusRequest(TypedDict):
     deletion_task_id: "aws_sdk_iam.types.deletion_task_id_type.DeletionTaskIdType"
-    """<p>The deletion task identifier. This identifier is returned by the <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteServiceLinkedRole.html\">DeleteServiceLinkedRole</a> operation in the format <code>task/aws-service-role/<service-principal-name>/<role-name>/<task-uuid></code>.</p>"""
+    r"""<p>The deletion task identifier. This identifier is returned by the <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteServiceLinkedRole.html\">DeleteServiceLinkedRole</a> operation in the format <code>task/aws-service-role/<service-principal-name>/<role-name>/<task-uuid></code>.</p>"""
 
 
 # --- awsQuery ser/de ---

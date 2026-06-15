@@ -21,7 +21,7 @@ class EbsInfo(TypedDict):
     ebs_optimized_support: NotRequired[
         "aws_sdk_ec2.types.ebs_optimized_support.EbsOptimizedSupport"
     ]
-    """<p>Indicates whether the instance type is Amazon EBS-optimized. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html\">Amazon EBS-optimized instances</a> in <i>Amazon EC2 User Guide</i>.</p>"""
+    r"""<p>Indicates whether the instance type is Amazon EBS-optimized. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html\">Amazon EBS-optimized instances</a> in <i>Amazon EC2 User Guide</i>.</p>"""
     encryption_support: NotRequired[
         "aws_sdk_ec2.types.ebs_encryption_support.EbsEncryptionSupport"
     ]
@@ -35,11 +35,11 @@ class EbsInfo(TypedDict):
     maximum_ebs_attachments: NotRequired[
         "aws_sdk_ec2.types.maximum_ebs_attachments.MaximumEbsAttachments"
     ]
-    """<p>Indicates the maximum number of Amazon EBS volumes that can be attached to the instance type. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html\">Amazon EBS volume limits for Amazon EC2 instances</a> in the <i>Amazon EC2 User Guide</i>.</p>"""
+    r"""<p>Indicates the maximum number of Amazon EBS volumes that can be attached to the instance type. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html\">Amazon EBS volume limits for Amazon EC2 instances</a> in the <i>Amazon EC2 User Guide</i>.</p>"""
     attachment_limit_type: NotRequired[
         "aws_sdk_ec2.types.attachment_limit_type.AttachmentLimitType"
     ]
-    """<p>Indicates whether the instance type features a shared or dedicated Amazon EBS volume attachment limit. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html\">Amazon EBS volume limits for Amazon EC2 instances</a> in the <i>Amazon EC2 User Guide</i>.</p>"""
+    r"""<p>Indicates whether the instance type features a shared or dedicated Amazon EBS volume attachment limit. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html\">Amazon EBS volume limits for Amazon EC2 instances</a> in the <i>Amazon EC2 User Guide</i>.</p>"""
     maximum_ebs_cards: NotRequired[
         "aws_sdk_ec2.types.maximum_ebs_cards.MaximumEbsCards"
     ]

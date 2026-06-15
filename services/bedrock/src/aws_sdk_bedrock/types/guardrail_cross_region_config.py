@@ -10,7 +10,7 @@ if TYPE_CHECKING:
 
 class GuardrailCrossRegionConfig(TypedDict):
     guardrail_profile_identifier: "aws_sdk_bedrock.types.guardrail_cross_region_guardrail_profile_identifier.GuardrailCrossRegionGuardrailProfileIdentifier"
-    """<p>The ID or Amazon Resource Name (ARN) of the guardrail profile that your guardrail is using. Guardrail profile availability depends on your current Amazon Web Services Region. For more information, see the <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region-support.html\">Amazon Bedrock User Guide</a>.</p>"""
+    r"""<p>The ID or Amazon Resource Name (ARN) of the guardrail profile that your guardrail is using. Guardrail profile availability depends on your current Amazon Web Services Region. For more information, see the <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region-support.html\">Amazon Bedrock User Guide</a>.</p>"""
 
 
 # --- restJson1 ser/de ---

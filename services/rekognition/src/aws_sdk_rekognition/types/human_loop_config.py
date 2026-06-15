@@ -18,7 +18,7 @@ class HumanLoopConfig(TypedDict):
     flow_definition_arn: (
         "aws_sdk_rekognition.types.flow_definition_arn.FlowDefinitionArn"
     )
-    """<p>The Amazon Resource Name (ARN) of the flow definition. You can create a flow definition by using the Amazon Sagemaker <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateFlowDefinition.html\">CreateFlowDefinition</a> Operation. </p>"""
+    r"""<p>The Amazon Resource Name (ARN) of the flow definition. You can create a flow definition by using the Amazon Sagemaker <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateFlowDefinition.html\">CreateFlowDefinition</a> Operation. </p>"""
     data_attributes: NotRequired[
         "aws_sdk_rekognition.types.human_loop_data_attributes.HumanLoopDataAttributes"
     ]

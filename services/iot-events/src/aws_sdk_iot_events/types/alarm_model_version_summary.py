@@ -22,7 +22,7 @@ class AlarmModelVersionSummary(TypedDict):
     alarm_model_arn: NotRequired[
         "aws_sdk_iot_events.types.alarm_model_arn.AlarmModelArn"
     ]
-    """<p>The ARN of the alarm model. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</p>"""
+    r"""<p>The ARN of the alarm model. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</p>"""
     alarm_model_version: NotRequired[
         "aws_sdk_iot_events.types.alarm_model_version.AlarmModelVersion"
     ]
@@ -30,7 +30,7 @@ class AlarmModelVersionSummary(TypedDict):
     role_arn: NotRequired[
         "aws_sdk_iot_events.types.amazon_resource_name.AmazonResourceName"
     ]
-    """<p>The ARN of the IAM role that allows the alarm to perform actions and access AWS resources. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</p>"""
+    r"""<p>The ARN of the IAM role that allows the alarm to perform actions and access AWS resources. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</p>"""
     creation_time: NotRequired["aws_sdk_iot_events.types.timestamp.Timestamp"]
     """<p>The time the alarm model was created, in the Unix epoch format.</p>"""
     last_update_time: NotRequired["aws_sdk_iot_events.types.timestamp.Timestamp"]

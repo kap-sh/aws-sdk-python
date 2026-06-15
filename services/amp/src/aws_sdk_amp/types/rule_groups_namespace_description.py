@@ -24,7 +24,7 @@ class RuleGroupsNamespaceDescription(TypedDict):
     status: "aws_sdk_amp.types.rule_groups_namespace_status.RuleGroupsNamespaceStatus"
     """<p>The current status of the rule groups namespace.</p>"""
     data: "aws_sdk_amp.types.rule_groups_namespace_data.RuleGroupsNamespaceData"
-    """<p>The rule groups file used in the namespace.</p> <p>For details about the rule groups namespace structure, see <a href=\"https://docs.aws.amazon.com/prometheus/latest/APIReference/yaml-RuleGroupsNamespaceData.html\">RuleGroupsNamespaceData</a>.</p>"""
+    r"""<p>The rule groups file used in the namespace.</p> <p>For details about the rule groups namespace structure, see <a href=\"https://docs.aws.amazon.com/prometheus/latest/APIReference/yaml-RuleGroupsNamespaceData.html\">RuleGroupsNamespaceData</a>.</p>"""
     created_at: "datetime.datetime"
     """<p>The date and time that the rule groups namespace was created.</p>"""
     modified_at: "datetime.datetime"

@@ -15,7 +15,7 @@ class DeliveryStreamEncryptionConfiguration(TypedDict):
     key_arn: NotRequired["aws_sdk_firehose.types.awskms_key_arn.AWSKMSKeyARN"]
     """<p>If <code>KeyType</code> is <code>CUSTOMER_MANAGED_CMK</code>, this field contains the ARN of the customer managed CMK. If <code>KeyType</code> is <code>Amazon Web Services_OWNED_CMK</code>, <code>DeliveryStreamEncryptionConfiguration</code> doesn't contain a value for <code>KeyARN</code>.</p>"""
     key_type: NotRequired["aws_sdk_firehose.types.key_type.KeyType"]
-    """<p>Indicates the type of customer master key (CMK) that is used for encryption. The default setting is <code>Amazon Web Services_OWNED_CMK</code>. For more information about CMKs, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys\">Customer Master Keys (CMKs)</a>.</p>"""
+    r"""<p>Indicates the type of customer master key (CMK) that is used for encryption. The default setting is <code>Amazon Web Services_OWNED_CMK</code>. For more information about CMKs, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys\">Customer Master Keys (CMKs)</a>.</p>"""
     status: NotRequired[
         "aws_sdk_firehose.types.delivery_stream_encryption_status.DeliveryStreamEncryptionStatus"
     ]

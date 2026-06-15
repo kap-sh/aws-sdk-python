@@ -27,9 +27,9 @@ class GrokClassifier(TypedDict):
     version: "aws_sdk_glue.types.version_id.VersionId"
     """<p>The version of this classifier.</p>"""
     grok_pattern: "aws_sdk_glue.types.grok_pattern.GrokPattern"
-    """<p>The grok pattern applied to a data store by this classifier. For more information, see built-in patterns in <a href=\"https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html\">Writing Custom Classifiers</a>.</p>"""
+    r"""<p>The grok pattern applied to a data store by this classifier. For more information, see built-in patterns in <a href=\"https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html\">Writing Custom Classifiers</a>.</p>"""
     custom_patterns: NotRequired["aws_sdk_glue.types.custom_patterns.CustomPatterns"]
-    """<p>Optional custom grok patterns defined by this classifier. For more information, see custom patterns in <a href=\"https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html\">Writing Custom Classifiers</a>.</p>"""
+    r"""<p>Optional custom grok patterns defined by this classifier. For more information, see custom patterns in <a href=\"https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html\">Writing Custom Classifiers</a>.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

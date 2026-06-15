@@ -30,7 +30,7 @@ class CreateEnvironmentEC2Request(TypedDict):
     client_request_token: NotRequired[
         "aws_sdk_cloud9.types.client_request_token.ClientRequestToken"
     ]
-    """<p>A unique, case-sensitive string that helps Cloud9 to ensure this operation completes no more than one time.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Client Tokens</a> in the <i>Amazon EC2 API Reference</i>.</p>"""
+    r"""<p>A unique, case-sensitive string that helps Cloud9 to ensure this operation completes no more than one time.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Client Tokens</a> in the <i>Amazon EC2 API Reference</i>.</p>"""
     instance_type: "aws_sdk_cloud9.types.instance_type.InstanceType"
     """<p>The type of instance to connect to the environment (for example, <code>t2.micro</code>).</p>"""
     subnet_id: NotRequired["aws_sdk_cloud9.types.subnet_id.SubnetId"]
@@ -46,7 +46,7 @@ class CreateEnvironmentEC2Request(TypedDict):
     tags: NotRequired["aws_sdk_cloud9.types.tag_list.TagList"]
     """<p>An array of key-value pairs that will be associated with the new Cloud9 development environment.</p>"""
     connection_type: NotRequired["aws_sdk_cloud9.types.connection_type.ConnectionType"]
-    """<p>The connection type used for connecting to an Amazon EC2 environment. Valid values are <code>CONNECT_SSH</code> (default) and <code>CONNECT_SSM</code> (connected through Amazon EC2 Systems Manager).</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html\">Accessing no-ingress EC2 instances with Amazon EC2 Systems Manager</a> in the <i>Cloud9 User Guide</i>.</p>"""
+    r"""<p>The connection type used for connecting to an Amazon EC2 environment. Valid values are <code>CONNECT_SSH</code> (default) and <code>CONNECT_SSM</code> (connected through Amazon EC2 Systems Manager).</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html\">Accessing no-ingress EC2 instances with Amazon EC2 Systems Manager</a> in the <i>Cloud9 User Guide</i>.</p>"""
     dry_run: NotRequired["aws_sdk_cloud9.types.nullable_boolean.NullableBoolean"]
     """<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>"""
 

@@ -26,7 +26,7 @@ class Meeting(TypedDict):
     external_meeting_id: NotRequired[
         "aws_sdk_chime_sdk_meetings.types.external_meeting_id.ExternalMeetingId"
     ]
-    """<p>The external meeting ID.</p> <p>Pattern: <code>[-_&@+=,(){}\[\]\/«».:|'\"#a-zA-Z0-9À-ÿ\s]*</code> </p> <p>Values that begin with <code>aws:</code> are reserved. You can't configure a value that uses this prefix. Case insensitive.</p>"""
+    r"""<p>The external meeting ID.</p> <p>Pattern: <code>[-_&@+=,(){}\[\]\/«».:|'\"#a-zA-Z0-9À-ÿ\s]*</code> </p> <p>Values that begin with <code>aws:</code> are reserved. You can't configure a value that uses this prefix. Case insensitive.</p>"""
     media_region: NotRequired[
         "aws_sdk_chime_sdk_meetings.types.media_region.MediaRegion"
     ]

@@ -135,7 +135,7 @@ class ARCRegionswitchClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = ARCRegionswitchClientConfig(
+        self._config = ARCRegionswitchClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -147,6 +147,7 @@ class ARCRegionswitchClient:
                 "credentials_provider": credentials_provider,
             }
         )
+
         # resources
         self.region_switch_plan = RegionSwitchPlan(self)
 
@@ -156,7 +157,7 @@ class ARCRegionswitchClient:
         overrides: ARCRegionswitchClientConfig = config_overrides or {}
         interceptors_: list[Interceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             retry(),
         ]
@@ -164,13 +165,13 @@ class ARCRegionswitchClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
-            region=overrides.get("region", self.config.get("region")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
+            region=overrides.get("region", self._config.get("region")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -212,16 +213,16 @@ class ARCRegionswitchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_arc_region_switch.types.approve_plan_execution_step_request.ApprovePlanExecutionStepRequest = {}  # type: ignore[typeddict-item]
-        input["plan_arn"] = plan_arn
-        input["execution_id"] = execution_id
-        input["step_name"] = step_name
-        input["approval"] = approval
+        input_: aws_sdk_arc_region_switch.types.approve_plan_execution_step_request.ApprovePlanExecutionStepRequest = {}  # type: ignore[typeddict-item]
+        input_["plan_arn"] = plan_arn
+        input_["execution_id"] = execution_id
+        input_["step_name"] = step_name
+        input_["approval"] = approval
         if comment is not None:
-            input["comment"] = comment
+            input_["comment"] = comment
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -260,14 +261,14 @@ class ARCRegionswitchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_arc_region_switch.types.cancel_plan_execution_request.CancelPlanExecutionRequest = {}  # type: ignore[typeddict-item]
-        input["plan_arn"] = plan_arn
-        input["execution_id"] = execution_id
+        input_: aws_sdk_arc_region_switch.types.cancel_plan_execution_request.CancelPlanExecutionRequest = {}  # type: ignore[typeddict-item]
+        input_["plan_arn"] = plan_arn
+        input_["execution_id"] = execution_id
         if comment is not None:
-            input["comment"] = comment
+            input_["comment"] = comment
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -308,15 +309,15 @@ class ARCRegionswitchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_arc_region_switch.types.get_plan_evaluation_status_request.GetPlanEvaluationStatusRequest = {}  # type: ignore[typeddict-item]
-        input["plan_arn"] = plan_arn
+        input_: aws_sdk_arc_region_switch.types.get_plan_evaluation_status_request.GetPlanEvaluationStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["plan_arn"] = plan_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -384,16 +385,16 @@ class ARCRegionswitchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_arc_region_switch.types.get_plan_execution_request.GetPlanExecutionRequest = {}  # type: ignore[typeddict-item]
-        input["plan_arn"] = plan_arn
-        input["execution_id"] = execution_id
+        input_: aws_sdk_arc_region_switch.types.get_plan_execution_request.GetPlanExecutionRequest = {}  # type: ignore[typeddict-item]
+        input_["plan_arn"] = plan_arn
+        input_["execution_id"] = execution_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -453,11 +454,11 @@ class ARCRegionswitchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_arc_region_switch.types.get_plan_in_region_request.GetPlanInRegionRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_arc_region_switch.types.get_plan_in_region_request.GetPlanInRegionRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -500,18 +501,18 @@ class ARCRegionswitchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_arc_region_switch.types.list_plan_execution_events_request.ListPlanExecutionEventsRequest = {}  # type: ignore[typeddict-item]
-        input["plan_arn"] = plan_arn
-        input["execution_id"] = execution_id
+        input_: aws_sdk_arc_region_switch.types.list_plan_execution_events_request.ListPlanExecutionEventsRequest = {}  # type: ignore[typeddict-item]
+        input_["plan_arn"] = plan_arn
+        input_["execution_id"] = execution_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -583,17 +584,17 @@ class ARCRegionswitchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_arc_region_switch.types.list_plan_executions_request.ListPlanExecutionsRequest = {}  # type: ignore[typeddict-item]
-        input["plan_arn"] = plan_arn
+        input_: aws_sdk_arc_region_switch.types.list_plan_executions_request.ListPlanExecutionsRequest = {}  # type: ignore[typeddict-item]
+        input_["plan_arn"] = plan_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if state is not None:
-            input["state"] = state
+            input_["state"] = state
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -661,14 +662,14 @@ class ARCRegionswitchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_arc_region_switch.types.list_plans_in_region_request.ListPlansInRegionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_arc_region_switch.types.list_plans_in_region_request.ListPlansInRegionRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -742,19 +743,19 @@ class ARCRegionswitchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_arc_region_switch.types.list_route53_health_checks_request.ListRoute53HealthChecksRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_arc_region_switch.types.list_route53_health_checks_request.ListRoute53HealthChecksRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
         if hosted_zone_id is not None:
-            input["hosted_zone_id"] = hosted_zone_id
+            input_["hosted_zone_id"] = hosted_zone_id
         if record_name is not None:
-            input["record_name"] = record_name
+            input_["record_name"] = record_name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -843,19 +844,19 @@ class ARCRegionswitchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_arc_region_switch.types.list_route53_health_checks_in_region_request.ListRoute53HealthChecksInRegionRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_arc_region_switch.types.list_route53_health_checks_in_region_request.ListRoute53HealthChecksInRegionRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
         if hosted_zone_id is not None:
-            input["hosted_zone_id"] = hosted_zone_id
+            input_["hosted_zone_id"] = hosted_zone_id
         if record_name is not None:
-            input["record_name"] = record_name
+            input_["record_name"] = record_name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -941,21 +942,21 @@ class ARCRegionswitchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_arc_region_switch.types.start_plan_execution_request.StartPlanExecutionRequest = {}  # type: ignore[typeddict-item]
-        input["plan_arn"] = plan_arn
-        input["target_region"] = target_region
-        input["action"] = action
+        input_: aws_sdk_arc_region_switch.types.start_plan_execution_request.StartPlanExecutionRequest = {}  # type: ignore[typeddict-item]
+        input_["plan_arn"] = plan_arn
+        input_["target_region"] = target_region
+        input_["action"] = action
         if mode is not None:
-            input["mode"] = mode
+            input_["mode"] = mode
         if comment is not None:
-            input["comment"] = comment
+            input_["comment"] = comment
         if latest_version is not None:
-            input["latest_version"] = latest_version
+            input_["latest_version"] = latest_version
         if recovery_execution_id is not None:
-            input["recovery_execution_id"] = recovery_execution_id
+            input_["recovery_execution_id"] = recovery_execution_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -996,15 +997,15 @@ class ARCRegionswitchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_arc_region_switch.types.update_plan_execution_request.UpdatePlanExecutionRequest = {}  # type: ignore[typeddict-item]
-        input["plan_arn"] = plan_arn
-        input["execution_id"] = execution_id
-        input["action"] = action
+        input_: aws_sdk_arc_region_switch.types.update_plan_execution_request.UpdatePlanExecutionRequest = {}  # type: ignore[typeddict-item]
+        input_["plan_arn"] = plan_arn
+        input_["execution_id"] = execution_id
+        input_["action"] = action
         if comment is not None:
-            input["comment"] = comment
+            input_["comment"] = comment
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1045,15 +1046,15 @@ class ARCRegionswitchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_arc_region_switch.types.update_plan_execution_step_request.UpdatePlanExecutionStepRequest = {}  # type: ignore[typeddict-item]
-        input["plan_arn"] = plan_arn
-        input["execution_id"] = execution_id
-        input["comment"] = comment
-        input["step_name"] = step_name
-        input["action_to_take"] = action_to_take
+        input_: aws_sdk_arc_region_switch.types.update_plan_execution_step_request.UpdatePlanExecutionStepRequest = {}  # type: ignore[typeddict-item]
+        input_["plan_arn"] = plan_arn
+        input_["execution_id"] = execution_id
+        input_["comment"] = comment
+        input_["step_name"] = step_name
+        input_["action_to_take"] = action_to_take
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

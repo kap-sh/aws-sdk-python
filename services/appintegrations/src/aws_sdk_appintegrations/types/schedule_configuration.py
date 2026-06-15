@@ -1,19 +1,26 @@
 """Generated from Smithy shape ``com.amazonaws.appintegrations#ScheduleConfiguration``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_appintegrations.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_appintegrations.types.non_blank_string
     import aws_sdk_appintegrations.types.object
 
+
 class ScheduleConfiguration(TypedDict):
-    first_execution_from: NotRequired["aws_sdk_appintegrations.types.non_blank_string.NonBlankString"]
+    first_execution_from: NotRequired[
+        "aws_sdk_appintegrations.types.non_blank_string.NonBlankString"
+    ]
     """<p>The start date for objects to import in the first flow run as an Unix/epoch timestamp in milliseconds or in ISO-8601 format.</p>"""
     object: NotRequired["aws_sdk_appintegrations.types.object.Object"]
     """<p>The name of the object to pull from the data source.</p>"""
     schedule_expression: "aws_sdk_appintegrations.types.non_blank_string.NonBlankString"
     """<p>How often the data should be pulled from data source.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: ScheduleConfiguration) -> dict:

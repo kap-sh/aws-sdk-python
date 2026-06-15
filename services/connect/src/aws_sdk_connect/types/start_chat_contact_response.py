@@ -18,7 +18,7 @@ class StartChatContactResponse(TypedDict):
     participant_token: NotRequired[
         "aws_sdk_connect.types.participant_token.ParticipantToken"
     ]
-    """<p>The token used by the chat participant to call <a href=\"https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html\">CreateParticipantConnection</a>. The participant token is valid for the lifetime of a chat participant.</p>"""
+    r"""<p>The token used by the chat participant to call <a href=\"https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html\">CreateParticipantConnection</a>. The participant token is valid for the lifetime of a chat participant.</p>"""
     continued_from_contact_id: NotRequired["aws_sdk_connect.types.contact_id.ContactId"]
     """<p>The contactId from which a persistent chat session is started. This field is populated only for persistent chats.</p>"""
 

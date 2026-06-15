@@ -1,12 +1,16 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#CreateEvaluatorResponse``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
+
 if TYPE_CHECKING:
+    import datetime
+
     import aws_sdk_bedrock_agentcore_control.types.custom_evaluator_arn
     import aws_sdk_bedrock_agentcore_control.types.evaluator_id
     import aws_sdk_bedrock_agentcore_control.types.evaluator_status
-    import datetime
+
 
 class CreateEvaluatorResponse(TypedDict):
     evaluator_arn: "aws_sdk_bedrock_agentcore_control.types.custom_evaluator_arn.CustomEvaluatorArn"
@@ -18,15 +22,26 @@ class CreateEvaluatorResponse(TypedDict):
     status: "aws_sdk_bedrock_agentcore_control.types.evaluator_status.EvaluatorStatus"
     """<p> The status of the evaluator creation operation. </p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: CreateEvaluatorResponse) -> dict:
     out: dict = {}
     out["evaluatorArn"] = value["evaluator_arn"]
     out["evaluatorId"] = value["evaluator_id"]
     import aws_sdk_bedrock_agentcore_control.types._prelude.timestamp
-    out["createdAt"] = aws_sdk_bedrock_agentcore_control.types._prelude.timestamp.serialize_json(value["created_at"])
+
+    out["createdAt"] = (
+        aws_sdk_bedrock_agentcore_control.types._prelude.timestamp.serialize_json(
+            value["created_at"]
+        )
+    )
     import aws_sdk_bedrock_agentcore_control.types.evaluator_status
-    out["status"] = aws_sdk_bedrock_agentcore_control.types.evaluator_status.serialize_json(value["status"])
+
+    out["status"] = (
+        aws_sdk_bedrock_agentcore_control.types.evaluator_status.serialize_json(
+            value["status"]
+        )
+    )
     return out
 
 
@@ -42,12 +57,22 @@ def deserialize_json(data: dict) -> CreateEvaluatorResponse:
         raise DeserializationError("CreateEvaluatorResponse.evaluator_id required")
     if "createdAt" in data:
         import aws_sdk_bedrock_agentcore_control.types._prelude.timestamp
-        out["created_at"] = aws_sdk_bedrock_agentcore_control.types._prelude.timestamp.deserialize_json(data["createdAt"])
+
+        out["created_at"] = (
+            aws_sdk_bedrock_agentcore_control.types._prelude.timestamp.deserialize_json(
+                data["createdAt"]
+            )
+        )
     else:
         raise DeserializationError("CreateEvaluatorResponse.created_at required")
     if "status" in data:
         import aws_sdk_bedrock_agentcore_control.types.evaluator_status
-        out["status"] = aws_sdk_bedrock_agentcore_control.types.evaluator_status.deserialize_json(data["status"])
+
+        out["status"] = (
+            aws_sdk_bedrock_agentcore_control.types.evaluator_status.deserialize_json(
+                data["status"]
+            )
+        )
     else:
         raise DeserializationError("CreateEvaluatorResponse.status required")
     return out

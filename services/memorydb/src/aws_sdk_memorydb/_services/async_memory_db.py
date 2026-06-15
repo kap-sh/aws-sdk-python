@@ -270,7 +270,7 @@ class AsyncMemoryDBClient:
             "aws_sdk_memorydb.types.service_update_request.ServiceUpdateRequest"
         ] = None,
     ) -> "aws_sdk_memorydb.types.batch_update_cluster_response.BatchUpdateClusterResponse":
-        """<p>Apply the service update to a list of clusters supplied. For more information on service updates and applying them, see <a href=\"https://docs.aws.amazon.com/MemoryDB/latest/devguide/managing-updates.html#applying-updates\">Applying the service updates</a>.</p>
+        r"""<p>Apply the service update to a list of clusters supplied. For more information on service updates and applying them, see <a href=\"https://docs.aws.amazon.com/MemoryDB/latest/devguide/managing-updates.html#applying-updates\">Applying the service updates</a>.</p>
 
         Args:
             cluster_names: <p>The cluster names to apply the updates.</p>
@@ -317,7 +317,7 @@ class AsyncMemoryDBClient:
         kms_key_id: Optional["aws_sdk_memorydb.types.kms_key_id.KmsKeyId"] = None,
         tags: Optional["aws_sdk_memorydb.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_memorydb.types.copy_snapshot_response.CopySnapshotResponse":
-        """<p>Makes a copy of an existing snapshot.</p>
+        r"""<p>Makes a copy of an existing snapshot.</p>
 
         Args:
             source_snapshot_name: <p>The name of an existing snapshot from which to make a copy.</p>
@@ -370,7 +370,7 @@ class AsyncMemoryDBClient:
         ] = None,
         tags: Optional["aws_sdk_memorydb.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_memorydb.types.create_acl_response.CreateACLResponse":
-        """<p>Creates an Access Control List. For more information, see <a href=\"https://docs.aws.amazon.com/MemoryDB/latest/devguide/clusters.acls.html\">Authenticating users with Access Contol Lists (ACLs)</a>.</p>
+        r"""<p>Creates an Access Control List. For more information, see <a href=\"https://docs.aws.amazon.com/MemoryDB/latest/devguide/clusters.acls.html\">Authenticating users with Access Contol Lists (ACLs)</a>.</p>
 
         Args:
             acl_name: <p>The name of the Access Control List.</p>
@@ -463,7 +463,7 @@ class AsyncMemoryDBClient:
             "aws_sdk_memorydb.types.ip_discovery.IpDiscovery"
         ] = None,
     ) -> "aws_sdk_memorydb.types.create_cluster_response.CreateClusterResponse":
-        """<p>Creates a cluster. All nodes in the cluster run the same protocol-compliant engine software.</p>
+        r"""<p>Creates a cluster. All nodes in the cluster run the same protocol-compliant engine software.</p>
 
         Args:
             cluster_name: <p>The name of the cluster. This value must be unique as it also serves as the cluster identifier.</p>
@@ -588,7 +588,7 @@ class AsyncMemoryDBClient:
         ] = None,
         tags: Optional["aws_sdk_memorydb.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_memorydb.types.create_multi_region_cluster_response.CreateMultiRegionClusterResponse":
-        """<p>Creates a new multi-Region cluster.</p>
+        r"""<p>Creates a new multi-Region cluster.</p>
 
         Args:
             multi_region_cluster_name_suffix: <p>A suffix to be added to the Multi-Region cluster name. Amazon MemoryDB automatically applies a prefix to the Multi-Region cluster Name when it is created. Each Amazon Region has its own prefix. For instance, a Multi-Region cluster Name created in the US-West-1 region will begin with \"virxk\", along with the suffix name you provide. The suffix guarantees uniqueness of the Multi-Region cluster name across multiple regions.</p>
@@ -654,7 +654,7 @@ class AsyncMemoryDBClient:
         description: Optional["aws_sdk_memorydb.types.string.String"] = None,
         tags: Optional["aws_sdk_memorydb.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_memorydb.types.create_parameter_group_response.CreateParameterGroupResponse":
-        """<p>Creates a new MemoryDB parameter group. A parameter group is a collection of parameters and their values that are applied to all of the nodes in any cluster. For more information, see <a href=\"https://docs.aws.amazon.com/MemoryDB/latest/devguide/parametergroups.html\">Configuring engine parameters using parameter groups</a>. </p>
+        r"""<p>Creates a new MemoryDB parameter group. A parameter group is a collection of parameters and their values that are applied to all of the nodes in any cluster. For more information, see <a href=\"https://docs.aws.amazon.com/MemoryDB/latest/devguide/parametergroups.html\">Configuring engine parameters using parameter groups</a>. </p>
 
         Args:
             parameter_group_name: <p>The name of the parameter group.</p>
@@ -754,7 +754,7 @@ class AsyncMemoryDBClient:
     ) -> (
         "aws_sdk_memorydb.types.create_subnet_group_response.CreateSubnetGroupResponse"
     ):
-        """<p>Creates a subnet group. A subnet group is a collection of subnets (typically private) that you can designate for your clusters running in an Amazon Virtual Private Cloud (VPC) environment. When you create a cluster in an Amazon VPC, you must specify a subnet group. MemoryDB uses that subnet group to choose a subnet and IP addresses within that subnet to associate with your nodes. For more information, see <a href=\"https://docs.aws.amazon.com/MemoryDB/latest/devguide/subnetgroups.html\">Subnets and subnet groups</a>.</p>
+        r"""<p>Creates a subnet group. A subnet group is a collection of subnets (typically private) that you can designate for your clusters running in an Amazon Virtual Private Cloud (VPC) environment. When you create a cluster in an Amazon VPC, you must specify a subnet group. MemoryDB uses that subnet group to choose a subnet and IP addresses within that subnet to associate with your nodes. For more information, see <a href=\"https://docs.aws.amazon.com/MemoryDB/latest/devguide/subnetgroups.html\">Subnets and subnet groups</a>.</p>
 
         Args:
             subnet_group_name: <p>The name of the subnet group.</p>
@@ -803,7 +803,7 @@ class AsyncMemoryDBClient:
         config_overrides: Optional[AsyncMemoryDBClientConfig] = None,
         tags: Optional["aws_sdk_memorydb.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_memorydb.types.create_user_response.CreateUserResponse":
-        """<p>Creates a MemoryDB user. For more information, see <a href=\"https://docs.aws.amazon.com/MemoryDB/latest/devguide/clusters.acls.html\">Authenticating users with Access Contol Lists (ACLs)</a>.</p>
+        r"""<p>Creates a MemoryDB user. For more information, see <a href=\"https://docs.aws.amazon.com/MemoryDB/latest/devguide/clusters.acls.html\">Authenticating users with Access Contol Lists (ACLs)</a>.</p>
 
         Args:
             user_name: <p>The name of the user. This value must be unique as it also serves as the user identifier.</p>
@@ -848,7 +848,7 @@ class AsyncMemoryDBClient:
         *,
         config_overrides: Optional[AsyncMemoryDBClientConfig] = None,
     ) -> "aws_sdk_memorydb.types.delete_acl_response.DeleteACLResponse":
-        """<p>Deletes an Access Control List. The ACL must first be disassociated from the cluster before it can be deleted. For more information, see <a href=\"https://docs.aws.amazon.com/MemoryDB/latest/devguide/clusters.acls.html\">Authenticating users with Access Contol Lists (ACLs)</a>.</p>
+        r"""<p>Deletes an Access Control List. The ACL must first be disassociated from the cluster before it can be deleted. For more information, see <a href=\"https://docs.aws.amazon.com/MemoryDB/latest/devguide/clusters.acls.html\">Authenticating users with Access Contol Lists (ACLs)</a>.</p>
 
         Args:
             acl_name: <p>The name of the Access Control List to delete.</p>
@@ -1832,7 +1832,7 @@ class AsyncMemoryDBClient:
         ] = None,
         next_token: Optional["aws_sdk_memorydb.types.string.String"] = None,
     ) -> "aws_sdk_memorydb.types.describe_reserved_nodes_response.DescribeReservedNodesResponse":
-        """<p>Returns information about reserved nodes for this account, or about a specified reserved node.</p>
+        r"""<p>Returns information about reserved nodes for this account, or about a specified reserved node.</p>
 
         Args:
             reservation_id: <p>The reserved node identifier filter value. Use this parameter to show only the reservation that matches the specified reservation ID.</p>
@@ -1933,7 +1933,7 @@ class AsyncMemoryDBClient:
         ] = None,
         next_token: Optional["aws_sdk_memorydb.types.string.String"] = None,
     ) -> "aws_sdk_memorydb.types.describe_reserved_nodes_offerings_response.DescribeReservedNodesOfferingsResponse":
-        """<p>Lists available reserved node offerings.</p>
+        r"""<p>Lists available reserved node offerings.</p>
 
         Args:
             reserved_nodes_offering_id: <p>The offering identifier filter value. Use this parameter to show only the available offering that matches the specified reservation identifier.</p>
@@ -2481,7 +2481,7 @@ class AsyncMemoryDBClient:
         *,
         config_overrides: Optional[AsyncMemoryDBClientConfig] = None,
     ) -> "aws_sdk_memorydb.types.list_tags_response.ListTagsResponse":
-        """<p>Lists all tags currently on a named resource. A tag is a key-value pair where the key and value are case-sensitive. You can use tags to categorize and track your MemoryDB resources. For more information, see <a href=\"https://docs.aws.amazon.com/MemoryDB/latest/devguide/Tagging-Resources.html\">Tagging your MemoryDB resources</a>.</p> <p>When you add or remove tags from multi region clusters, you might not immediately see the latest effective tags in the ListTags API response due to it being eventually consistent specifically for multi region clusters. For more information, see <a href=\"https://docs.aws.amazon.com/MemoryDB/latest/devguide/Tagging-Resources.html\">Tagging your MemoryDB resources</a>.</p> <p></p>
+        r"""<p>Lists all tags currently on a named resource. A tag is a key-value pair where the key and value are case-sensitive. You can use tags to categorize and track your MemoryDB resources. For more information, see <a href=\"https://docs.aws.amazon.com/MemoryDB/latest/devguide/Tagging-Resources.html\">Tagging your MemoryDB resources</a>.</p> <p>When you add or remove tags from multi region clusters, you might not immediately see the latest effective tags in the ListTags API response due to it being eventually consistent specifically for multi region clusters. For more information, see <a href=\"https://docs.aws.amazon.com/MemoryDB/latest/devguide/Tagging-Resources.html\">Tagging your MemoryDB resources</a>.</p> <p></p>
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource for which you want the list of tags.</p>
@@ -2620,7 +2620,7 @@ class AsyncMemoryDBClient:
         *,
         config_overrides: Optional[AsyncMemoryDBClientConfig] = None,
     ) -> "aws_sdk_memorydb.types.tag_resource_response.TagResourceResponse":
-        """<p> Use this operation to add tags to a resource. A tag is a key-value pair where the key and value are case-sensitive. You can use tags to categorize and track all your MemoryDB resources. For more information, see <a href=\"https://docs.aws.amazon.com/MemoryDB/latest/devguide/Tagging-Resources.html\">Tagging your MemoryDB resources</a>.</p> <p>When you add tags to multi region clusters, you might not immediately see the latest effective tags in the ListTags API response due to it being eventually consistent specifically for multi region clusters. For more information, see <a href=\"https://docs.aws.amazon.com/MemoryDB/latest/devguide/Tagging-Resources.html\">Tagging your MemoryDB resources</a>.</p> <p>You can specify cost-allocation tags for your MemoryDB resources, Amazon generates a cost allocation report as a comma-separated value (CSV) file with your usage and costs aggregated by your tags. You can apply tags that represent business categories (such as cost centers, application names, or owners) to organize your costs across multiple services. For more information, see <a href=\"https://docs.aws.amazon.com/MemoryDB/latest/devguide/tagging.html\">Using Cost Allocation Tags</a>.</p>
+        r"""<p> Use this operation to add tags to a resource. A tag is a key-value pair where the key and value are case-sensitive. You can use tags to categorize and track all your MemoryDB resources. For more information, see <a href=\"https://docs.aws.amazon.com/MemoryDB/latest/devguide/Tagging-Resources.html\">Tagging your MemoryDB resources</a>.</p> <p>When you add tags to multi region clusters, you might not immediately see the latest effective tags in the ListTags API response due to it being eventually consistent specifically for multi region clusters. For more information, see <a href=\"https://docs.aws.amazon.com/MemoryDB/latest/devguide/Tagging-Resources.html\">Tagging your MemoryDB resources</a>.</p> <p>You can specify cost-allocation tags for your MemoryDB resources, Amazon generates a cost allocation report as a comma-separated value (CSV) file with your usage and costs aggregated by your tags. You can apply tags that represent business categories (such as cost centers, application names, or owners) to organize your costs across multiple services. For more information, see <a href=\"https://docs.aws.amazon.com/MemoryDB/latest/devguide/tagging.html\">Using Cost Allocation Tags</a>.</p>
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource to which the tags are to be added.</p>
@@ -2661,7 +2661,7 @@ class AsyncMemoryDBClient:
         *,
         config_overrides: Optional[AsyncMemoryDBClientConfig] = None,
     ) -> "aws_sdk_memorydb.types.untag_resource_response.UntagResourceResponse":
-        """<p>Use this operation to remove tags on a resource. A tag is a key-value pair where the key and value are case-sensitive. You can use tags to categorize and track all your MemoryDB resources. For more information, see <a href=\"https://docs.aws.amazon.com/MemoryDB/latest/devguide/Tagging-Resources.html\">Tagging your MemoryDB resources</a>.</p> <p>When you remove tags from multi region clusters, you might not immediately see the latest effective tags in the ListTags API response due to it being eventually consistent specifically for multi region clusters. For more information, see <a href=\"https://docs.aws.amazon.com/MemoryDB/latest/devguide/Tagging-Resources.html\">Tagging your MemoryDB resources</a>.</p> <p>You can specify cost-allocation tags for your MemoryDB resources, Amazon generates a cost allocation report as a comma-separated value (CSV) file with your usage and costs aggregated by your tags. You can apply tags that represent business categories (such as cost centers, application names, or owners) to organize your costs across multiple services. For more information, see <a href=\"https://docs.aws.amazon.com/MemoryDB/latest/devguide/tagging.html\">Using Cost Allocation Tags</a>.</p>
+        r"""<p>Use this operation to remove tags on a resource. A tag is a key-value pair where the key and value are case-sensitive. You can use tags to categorize and track all your MemoryDB resources. For more information, see <a href=\"https://docs.aws.amazon.com/MemoryDB/latest/devguide/Tagging-Resources.html\">Tagging your MemoryDB resources</a>.</p> <p>When you remove tags from multi region clusters, you might not immediately see the latest effective tags in the ListTags API response due to it being eventually consistent specifically for multi region clusters. For more information, see <a href=\"https://docs.aws.amazon.com/MemoryDB/latest/devguide/Tagging-Resources.html\">Tagging your MemoryDB resources</a>.</p> <p>You can specify cost-allocation tags for your MemoryDB resources, Amazon generates a cost allocation report as a comma-separated value (CSV) file with your usage and costs aggregated by your tags. You can apply tags that represent business categories (such as cost centers, application names, or owners) to organize your costs across multiple services. For more information, see <a href=\"https://docs.aws.amazon.com/MemoryDB/latest/devguide/tagging.html\">Using Cost Allocation Tags</a>.</p>
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource to which the tags are to be removed.</p>
@@ -2871,7 +2871,7 @@ class AsyncMemoryDBClient:
             "aws_sdk_memorydb.types.update_strategy.UpdateStrategy"
         ] = None,
     ) -> "aws_sdk_memorydb.types.update_multi_region_cluster_response.UpdateMultiRegionClusterResponse":
-        """<p>Updates the configuration of an existing multi-Region cluster.</p>
+        r"""<p>Updates the configuration of an existing multi-Region cluster.</p>
 
         Args:
             multi_region_cluster_name: <p>The name of the multi-Region cluster to be updated.</p>
@@ -2975,7 +2975,7 @@ class AsyncMemoryDBClient:
     ) -> (
         "aws_sdk_memorydb.types.update_subnet_group_response.UpdateSubnetGroupResponse"
     ):
-        """<p>Updates a subnet group. For more information, see <a href=\"https://docs.aws.amazon.com/MemoryDB/latest/devguide/ubnetGroups.Modifying.html\">Updating a subnet group</a> </p>
+        r"""<p>Updates a subnet group. For more information, see <a href=\"https://docs.aws.amazon.com/MemoryDB/latest/devguide/ubnetGroups.Modifying.html\">Updating a subnet group</a> </p>
 
         Args:
             subnet_group_name: <p>The name of the subnet group</p>

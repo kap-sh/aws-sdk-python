@@ -15,11 +15,11 @@ class GetSubscriptionResponse(TypedDict):
     aws_account_name: NotRequired["aws_sdk_codecatalyst.types.name_string.NameString"]
     """<p>The display name of the Amazon Web Services account used for billing for the space.</p>"""
     pending_subscription_type: NotRequired["str"]
-    """<p>The type of the billing plan that the space will be changed to at the start of the next billing cycle. This applies only to changes that reduce the functionality available for the space. Billing plan changes that increase functionality are applied immediately. For more information, see <a href=\"https://codecatalyst.aws/explore/pricing\">Pricing</a>.</p>"""
+    r"""<p>The type of the billing plan that the space will be changed to at the start of the next billing cycle. This applies only to changes that reduce the functionality available for the space. Billing plan changes that increase functionality are applied immediately. For more information, see <a href=\"https://codecatalyst.aws/explore/pricing\">Pricing</a>.</p>"""
     pending_subscription_start_time: NotRequired[
         "aws_sdk_codecatalyst.types.timestamp.Timestamp"
     ]
-    """<p>The day and time the pending change will be applied to the space, in coordinated universal time (UTC) timestamp format as specified in <a href=\"https://www.rfc-editor.org/rfc/rfc3339#section-5.6\">RFC 3339</a>.</p>"""
+    r"""<p>The day and time the pending change will be applied to the space, in coordinated universal time (UTC) timestamp format as specified in <a href=\"https://www.rfc-editor.org/rfc/rfc3339#section-5.6\">RFC 3339</a>.</p>"""
 
 
 # --- restJson1 ser/de ---

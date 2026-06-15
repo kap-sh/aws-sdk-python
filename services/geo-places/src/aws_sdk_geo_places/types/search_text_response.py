@@ -11,7 +11,7 @@ if TYPE_CHECKING:
 
 class SearchTextResponse(TypedDict):
     pricing_bucket: "str"
-    """<p>The pricing bucket for which the query is charged at.</p> <p>For more information on pricing, please visit <a href=\"https://aws.amazon.com/location/pricing/\">Amazon Location Service Pricing</a>.</p>"""
+    r"""<p>The pricing bucket for which the query is charged at.</p> <p>For more information on pricing, please visit <a href=\"https://aws.amazon.com/location/pricing/\">Amazon Location Service Pricing</a>.</p>"""
     result_items: NotRequired[
         "aws_sdk_geo_places.types.search_text_result_item_list.SearchTextResultItemList"
     ]

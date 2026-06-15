@@ -23,7 +23,7 @@ class SimulationAppMetadata(TypedDict):
     domain: NotRequired[
         "aws_sdk_simspaceweaver.types.sim_space_weaver_resource_name.SimSpaceWeaverResourceName"
     ]
-    """<p>The domain of the app. For more information about domains, see <a href=\"https://docs.aws.amazon.com/simspaceweaver/latest/userguide/what-is_key-concepts.html#what-is_key-concepts_domains\">Key concepts: Domains</a> in the <i>SimSpace Weaver User Guide</i>.</p>"""
+    r"""<p>The domain of the app. For more information about domains, see <a href=\"https://docs.aws.amazon.com/simspaceweaver/latest/userguide/what-is_key-concepts.html#what-is_key-concepts_domains\">Key concepts: Domains</a> in the <i>SimSpace Weaver User Guide</i>.</p>"""
     status: NotRequired[
         "aws_sdk_simspaceweaver.types.simulation_app_status.SimulationAppStatus"
     ]

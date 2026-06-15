@@ -19,7 +19,7 @@ class SetRepositoryPolicyRequest(TypedDict):
     repository_name: "aws_sdk_ecr_public.types.repository_name.RepositoryName"
     """<p>The name of the repository to receive the policy.</p>"""
     policy_text: "aws_sdk_ecr_public.types.repository_policy_text.RepositoryPolicyText"
-    """<p>The JSON repository policy text to apply to the repository. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-policy-examples.html\">Amazon ECR Repository Policies</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</p>"""
+    r"""<p>The JSON repository policy text to apply to the repository. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-policy-examples.html\">Amazon ECR Repository Policies</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</p>"""
     force: "aws_sdk_ecr_public.types.force_flag.ForceFlag"
     """<p>If the policy that you want to set on a repository policy would prevent you from setting another policy in the future, you must force the <a>SetRepositoryPolicy</a> operation. This prevents accidental repository lockouts.</p>"""
 

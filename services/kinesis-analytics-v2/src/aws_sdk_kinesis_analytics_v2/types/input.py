@@ -17,7 +17,7 @@ if TYPE_CHECKING:
 
 class Input(TypedDict):
     name_prefix: "aws_sdk_kinesis_analytics_v2.types.in_app_stream_name.InAppStreamName"
-    """<p>The name prefix to use when creating an in-application stream. Suppose that you specify a prefix \"<code>MyInApplicationStream</code>.\" Kinesis Data Analytics then creates one or more (as per the <code>InputParallelism</code> count you specified) in-application streams with the names \"<code>MyInApplicationStream_001</code>,\" \"<code>MyInApplicationStream_002</code>,\" and so on. </p>"""
+    r"""<p>The name prefix to use when creating an in-application stream. Suppose that you specify a prefix \"<code>MyInApplicationStream</code>.\" Kinesis Data Analytics then creates one or more (as per the <code>InputParallelism</code> count you specified) in-application streams with the names \"<code>MyInApplicationStream_001</code>,\" \"<code>MyInApplicationStream_002</code>,\" and so on. </p>"""
     input_processing_configuration: NotRequired[
         "aws_sdk_kinesis_analytics_v2.types.input_processing_configuration.InputProcessingConfiguration"
     ]

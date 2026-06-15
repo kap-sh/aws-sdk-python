@@ -50,7 +50,7 @@ class RemoteAccessSession(TypedDict):
     billing_method: NotRequired[
         "aws_sdk_device_farm.types.billing_method.BillingMethod"
     ]
-    """<p>The billing method of the remote access session. Possible values include <code>METERED</code> or <code>UNMETERED</code>. For more information about metered devices, see <a href=\"https://docs.aws.amazon.com/devicefarm/latest/developerguide/welcome.html#welcome-terminology\">AWS Device Farm terminology</a>.</p>"""
+    r"""<p>The billing method of the remote access session. Possible values include <code>METERED</code> or <code>UNMETERED</code>. For more information about metered devices, see <a href=\"https://docs.aws.amazon.com/devicefarm/latest/developerguide/welcome.html#welcome-terminology\">AWS Device Farm terminology</a>.</p>"""
     device_minutes: NotRequired[
         "aws_sdk_device_farm.types.device_minutes.DeviceMinutes"
     ]
@@ -58,7 +58,7 @@ class RemoteAccessSession(TypedDict):
     endpoint: NotRequired["aws_sdk_device_farm.types.string.String"]
     """<p>The endpoint for the remote access session. This field is deprecated, and is replaced by the new <code>endpoints.interactiveEndpoint</code> field.</p>"""
     device_udid: NotRequired["aws_sdk_device_farm.types.string.String"]
-    """<p>Unique device identifier for the remote device. Only returned if remote debugging is enabled for the remote access session.</p> <p>Remote debugging is <a href=\"https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html\">no longer supported</a>.</p>"""
+    r"""<p>Unique device identifier for the remote device. Only returned if remote debugging is enabled for the remote access session.</p> <p>Remote debugging is <a href=\"https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html\">no longer supported</a>.</p>"""
     interaction_mode: NotRequired[
         "aws_sdk_device_farm.types.interaction_mode.InteractionMode"
     ]
@@ -66,7 +66,7 @@ class RemoteAccessSession(TypedDict):
     skip_app_resign: NotRequired[
         "aws_sdk_device_farm.types.skip_app_resign.SkipAppResign"
     ]
-    """<p>When set to <code>true</code>, for private devices, Device Farm does not sign your app again. For public devices, Device Farm always signs your apps again.</p> <p>For more information about how Device Farm re-signs your apps, see <a href=\"http://aws.amazon.com/device-farm/faqs/\">Do you modify my app?</a> in the <i>AWS Device Farm FAQs</i>.</p>"""
+    r"""<p>When set to <code>true</code>, for private devices, Device Farm does not sign your app again. For public devices, Device Farm always signs your apps again.</p> <p>For more information about how Device Farm re-signs your apps, see <a href=\"http://aws.amazon.com/device-farm/faqs/\">Do you modify my app?</a> in the <i>AWS Device Farm FAQs</i>.</p>"""
     vpc_config: NotRequired["aws_sdk_device_farm.types.vpc_config.VpcConfig"]
     """<p>The VPC security groups and subnets that are attached to a project.</p>"""
     device_proxy: NotRequired["aws_sdk_device_farm.types.device_proxy.DeviceProxy"]

@@ -15,7 +15,7 @@ class InitiateVaultLockInput(TypedDict):
     vault_name: "aws_sdk_glacier.types.string.string"
     """<p>The name of the vault.</p>"""
     policy: NotRequired["aws_sdk_glacier.types.vault_lock_policy.VaultLockPolicy"]
-    """<p>The vault lock policy as a JSON string, which uses \"\\" as an escape character.</p>"""
+    r"""<p>The vault lock policy as a JSON string, which uses \"\\" as an escape character.</p>"""
 
 
 # --- restJson1 ser/de ---

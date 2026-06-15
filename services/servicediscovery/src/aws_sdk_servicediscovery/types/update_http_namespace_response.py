@@ -10,7 +10,7 @@ if TYPE_CHECKING:
 
 class UpdateHttpNamespaceResponse(TypedDict):
     operation_id: NotRequired["aws_sdk_servicediscovery.types.operation_id.OperationId"]
-    """<p>A value that you can use to determine whether the request completed successfully. To get the status of the operation, see <a href=\"https://docs.aws.amazon.com/cloud-map/latest/api/API_GetOperation.html\">GetOperation</a>.</p>"""
+    r"""<p>A value that you can use to determine whether the request completed successfully. To get the status of the operation, see <a href=\"https://docs.aws.amazon.com/cloud-map/latest/api/API_GetOperation.html\">GetOperation</a>.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

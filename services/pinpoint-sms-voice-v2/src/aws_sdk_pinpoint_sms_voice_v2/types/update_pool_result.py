@@ -46,7 +46,7 @@ class UpdatePoolResult(TypedDict):
     deletion_protection_enabled: "bool"
     """<p>When set to true the pool can't be deleted.</p>"""
     created_timestamp: NotRequired["datetime.datetime"]
-    """<p>The time when the pool was created, in <a href=\"https://www.epochconverter.com/\">UNIX epoch time</a> format.</p>"""
+    r"""<p>The time when the pool was created, in <a href=\"https://www.epochconverter.com/\">UNIX epoch time</a> format.</p>"""
 
 
 # --- awsJson1_0 ser/de ---

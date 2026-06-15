@@ -188,7 +188,7 @@ class AsyncMWAAClient:
         *,
         config_overrides: Optional[AsyncMWAAClientConfig] = None,
     ) -> "aws_sdk_mwaa.types.create_cli_token_response.CreateCliTokenResponse":
-        """<p>Creates a CLI token for the Airflow CLI. To learn more, see <a href=\"https://docs.aws.amazon.com/mwaa/latest/userguide/call-mwaa-apis-cli.html\">Creating an Apache Airflow CLI token</a>.</p>
+        r"""<p>Creates a CLI token for the Airflow CLI. To learn more, see <a href=\"https://docs.aws.amazon.com/mwaa/latest/userguide/call-mwaa-apis-cli.html\">Creating an Apache Airflow CLI token</a>.</p>
 
         Args:
             name: <p>The name of the Amazon MWAA environment. For example, <code>MyMWAAEnvironment</code>.</p>
@@ -280,7 +280,7 @@ class AsyncMWAAClient:
             "aws_sdk_mwaa.types.max_webservers.MaxWebservers"
         ] = None,
     ) -> "aws_sdk_mwaa.types.create_environment_output.CreateEnvironmentOutput":
-        """<p>Creates an Amazon Managed Workflows for Apache Airflow (Amazon MWAA) environment.</p>
+        r"""<p>Creates an Amazon Managed Workflows for Apache Airflow (Amazon MWAA) environment.</p>
 
         Args:
             name: <p>The name of the Amazon MWAA environment. For example, <code>MyMWAAEnvironment</code>.</p>
@@ -390,7 +390,7 @@ class AsyncMWAAClient:
     ) -> (
         "aws_sdk_mwaa.types.create_web_login_token_response.CreateWebLoginTokenResponse"
     ):
-        """<p>Creates a web login token for the Airflow Web UI. To learn more, see <a href=\"https://docs.aws.amazon.com/mwaa/latest/userguide/call-mwaa-apis-web.html\">Creating an Apache Airflow web login token</a>.</p>
+        r"""<p>Creates a web login token for the Airflow Web UI. To learn more, see <a href=\"https://docs.aws.amazon.com/mwaa/latest/userguide/call-mwaa-apis-web.html\">Creating an Apache Airflow web login token</a>.</p>
 
         Args:
             name: <p>The name of the Amazon MWAA environment. For example, <code>MyMWAAEnvironment</code>.</p>
@@ -510,7 +510,7 @@ class AsyncMWAAClient:
             "aws_sdk_mwaa.types.rest_api_request_body.RestApiRequestBody"
         ] = None,
     ) -> "aws_sdk_mwaa.types.invoke_rest_api_response.InvokeRestApiResponse":
-        """<p>Invokes the Apache Airflow REST API on the webserver with the specified inputs. To learn more, see <a href=\"https://docs.aws.amazon.com/mwaa/latest/userguide/access-mwaa-apache-airflow-rest-api.html\">Using the Apache Airflow REST API</a> </p>
+        r"""<p>Invokes the Apache Airflow REST API on the webserver with the specified inputs. To learn more, see <a href=\"https://docs.aws.amazon.com/mwaa/latest/userguide/access-mwaa-apache-airflow-rest-api.html\">Using the Apache Airflow REST API</a> </p>
 
         Args:
             name: <p>The name of the Amazon MWAA environment. For example, <code>MyMWAAEnvironment</code>.</p>
@@ -627,7 +627,7 @@ class AsyncMWAAClient:
         *,
         config_overrides: Optional[AsyncMWAAClientConfig] = None,
     ) -> "aws_sdk_mwaa.types.list_tags_for_resource_output.ListTagsForResourceOutput":
-        """<p>Lists the key-value tag pairs associated to the Amazon Managed Workflows for Apache Airflow (MWAA) environment. For example, <code>\"Environment\": \"Staging\"</code>. </p>
+        r"""<p>Lists the key-value tag pairs associated to the Amazon Managed Workflows for Apache Airflow (MWAA) environment. For example, <code>\"Environment\": \"Staging\"</code>. </p>
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the Amazon MWAA environment. For example, <code>arn:aws:airflow:us-east-1:123456789012:environment/MyMWAAEnvironment</code>.</p>
@@ -666,7 +666,7 @@ class AsyncMWAAClient:
         *,
         config_overrides: Optional[AsyncMWAAClientConfig] = None,
     ) -> "aws_sdk_mwaa.types.publish_metrics_output.PublishMetricsOutput":
-        """<p> <b>Internal only</b>. Publishes environment health metrics to Amazon CloudWatch.</p>
+        r"""<p> <b>Internal only</b>. Publishes environment health metrics to Amazon CloudWatch.</p>
 
         Args:
             environment_name: <p> <b>Internal only</b>. The name of the environment.</p>
@@ -707,7 +707,7 @@ class AsyncMWAAClient:
         *,
         config_overrides: Optional[AsyncMWAAClientConfig] = None,
     ) -> "aws_sdk_mwaa.types.tag_resource_output.TagResourceOutput":
-        """<p>Associates key-value tag pairs to your Amazon Managed Workflows for Apache Airflow (MWAA) environment. </p>
+        r"""<p>Associates key-value tag pairs to your Amazon Managed Workflows for Apache Airflow (MWAA) environment. </p>
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the Amazon MWAA environment. For example, <code>arn:aws:airflow:us-east-1:123456789012:environment/MyMWAAEnvironment</code>.</p>
@@ -748,7 +748,7 @@ class AsyncMWAAClient:
         *,
         config_overrides: Optional[AsyncMWAAClientConfig] = None,
     ) -> "aws_sdk_mwaa.types.untag_resource_output.UntagResourceOutput":
-        """<p>Removes key-value tag pairs associated to your Amazon Managed Workflows for Apache Airflow (MWAA) environment. For example, <code>\"Environment\": \"Staging\"</code>.</p>
+        r"""<p>Removes key-value tag pairs associated to your Amazon Managed Workflows for Apache Airflow (MWAA) environment. For example, <code>\"Environment\": \"Staging\"</code>.</p>
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the Amazon MWAA environment. For example, <code>arn:aws:airflow:us-east-1:123456789012:environment/MyMWAAEnvironment</code>.</p>
@@ -846,7 +846,7 @@ class AsyncMWAAClient:
             "aws_sdk_mwaa.types.weekly_maintenance_window_start.WeeklyMaintenanceWindowStart"
         ] = None,
     ) -> "aws_sdk_mwaa.types.update_environment_output.UpdateEnvironmentOutput":
-        """<p>Updates an Amazon Managed Workflows for Apache Airflow (MWAA) environment.</p>
+        r"""<p>Updates an Amazon Managed Workflows for Apache Airflow (MWAA) environment.</p>
 
         Args:
             name: <p>The name of your Amazon MWAA environment. For example, <code>MyMWAAEnvironment</code>.</p>

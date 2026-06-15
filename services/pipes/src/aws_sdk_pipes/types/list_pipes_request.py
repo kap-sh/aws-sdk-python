@@ -15,7 +15,7 @@ if TYPE_CHECKING:
 
 class ListPipesRequest(TypedDict):
     name_prefix: NotRequired["aws_sdk_pipes.types.pipe_name.PipeName"]
-    """<p>A value that will return a subset of the pipes associated with this account. For example, <code>\"NamePrefix\": \"ABC\"</code> will return all endpoints with \"ABC\" in the name.</p>"""
+    r"""<p>A value that will return a subset of the pipes associated with this account. For example, <code>\"NamePrefix\": \"ABC\"</code> will return all endpoints with \"ABC\" in the name.</p>"""
     desired_state: NotRequired[
         "aws_sdk_pipes.types.requested_pipe_state.RequestedPipeState"
     ]

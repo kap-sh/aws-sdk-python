@@ -23,7 +23,7 @@ class CreateEngagementContextResponse(TypedDict):
     engagement_last_modified_at: NotRequired[
         "aws_sdk_partnercentral_selling.types.date_time.DateTime"
     ]
-    """<p>The timestamp indicating when the engagement was last modified as a result of adding the context, in ISO 8601 format (UTC). Example: \"2023-05-01T20:37:46Z\".</p>"""
+    r"""<p>The timestamp indicating when the engagement was last modified as a result of adding the context, in ISO 8601 format (UTC). Example: \"2023-05-01T20:37:46Z\".</p>"""
     context_id: NotRequired[
         "aws_sdk_partnercentral_selling.types.engagement_context_identifier.EngagementContextIdentifier"
     ]

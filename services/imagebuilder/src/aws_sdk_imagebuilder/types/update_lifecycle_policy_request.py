@@ -41,7 +41,7 @@ class UpdateLifecyclePolicyRequest(TypedDict):
     resource_selection: "aws_sdk_imagebuilder.types.lifecycle_policy_resource_selection.LifecyclePolicyResourceSelection"
     """<p>Selection criteria for resources that the lifecycle policy applies to.</p>"""
     client_token: "aws_sdk_imagebuilder.types.client_token.ClientToken"
-    """<p>Unique, case-sensitive identifier you provide to ensure idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring idempotency</a> in the <i>Amazon EC2 API Reference</i>.</p>"""
+    r"""<p>Unique, case-sensitive identifier you provide to ensure idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring idempotency</a> in the <i>Amazon EC2 API Reference</i>.</p>"""
 
 
 # --- restJson1 ser/de ---

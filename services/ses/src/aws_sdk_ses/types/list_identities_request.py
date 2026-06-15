@@ -14,7 +14,7 @@ if TYPE_CHECKING:
 
 class ListIdentitiesRequest(TypedDict):
     identity_type: NotRequired["aws_sdk_ses.types.identity_type.IdentityType"]
-    """<p>The type of the identities to list. Possible values are \"EmailAddress\" and \"Domain\". If this parameter is omitted, then all identities are listed.</p>"""
+    r"""<p>The type of the identities to list. Possible values are \"EmailAddress\" and \"Domain\". If this parameter is omitted, then all identities are listed.</p>"""
     next_token: NotRequired["aws_sdk_ses.types.next_token.NextToken"]
     """<p>The token to use for pagination.</p>"""
     max_items: NotRequired["aws_sdk_ses.types.max_items.MaxItems"]

@@ -13,7 +13,7 @@ class DescribePatchGroupsResult(TypedDict):
     mappings: NotRequired[
         "aws_sdk_ssm.types.patch_group_patch_baseline_mapping_list.PatchGroupPatchBaselineMappingList"
     ]
-    """<p>Each entry in the array contains:</p> <ul> <li> <p> <code>PatchGroup</code>: string (between 1 and 256 characters. Regex: <code>^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$)</code> </p> </li> <li> <p> <code>PatchBaselineIdentity</code>: A <code>PatchBaselineIdentity</code> element.</p> </li> </ul>"""
+    r"""<p>Each entry in the array contains:</p> <ul> <li> <p> <code>PatchGroup</code>: string (between 1 and 256 characters. Regex: <code>^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$)</code> </p> </li> <li> <p> <code>PatchBaselineIdentity</code>: A <code>PatchBaselineIdentity</code> element.</p> </li> </ul>"""
     next_token: NotRequired["aws_sdk_ssm.types.next_token.NextToken"]
     """<p>The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.</p>"""
 

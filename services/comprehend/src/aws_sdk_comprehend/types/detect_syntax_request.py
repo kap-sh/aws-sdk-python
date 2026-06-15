@@ -13,7 +13,7 @@ class DetectSyntaxRequest(TypedDict):
     text: "aws_sdk_comprehend.types.customer_input_string.CustomerInputString"
     """<p>A UTF-8 string. The maximum string size is 5 KB.</p>"""
     language_code: "aws_sdk_comprehend.types.syntax_language_code.SyntaxLanguageCode"
-    """<p>The language code of the input documents. You can specify any of the following languages supported by Amazon Comprehend: German (\"de\"), English (\"en\"), Spanish (\"es\"), French (\"fr\"), Italian (\"it\"), or Portuguese (\"pt\").</p>"""
+    r"""<p>The language code of the input documents. You can specify any of the following languages supported by Amazon Comprehend: German (\"de\"), English (\"en\"), Spanish (\"es\"), French (\"fr\"), Italian (\"it\"), or Portuguese (\"pt\").</p>"""
 
 
 # --- awsJson1_1 ser/de ---

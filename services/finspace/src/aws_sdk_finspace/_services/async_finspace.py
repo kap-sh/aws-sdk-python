@@ -247,7 +247,7 @@ class AsyncfinspaceClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = AsyncfinspaceClientConfig(
+        self._config = AsyncfinspaceClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -267,7 +267,7 @@ class AsyncfinspaceClient:
         overrides: AsyncfinspaceClientConfig = config_overrides or {}
         interceptors_: list[AsyncInterceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             aretry(),
         ]
@@ -275,16 +275,16 @@ class AsyncfinspaceClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            region=overrides.get("region", self.config.get("region")),
+            region=overrides.get("region", self._config.get("region")),
             use_dual_stack=overrides.get(
-                "use_dual_stack", self.config.get("use_dual_stack")
+                "use_dual_stack", self._config.get("use_dual_stack")
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -374,7 +374,7 @@ class AsyncfinspaceClient:
     ) -> (
         "aws_sdk_finspace.types.create_kx_changeset_response.CreateKxChangesetResponse"
     ):
-        """<p> Creates a changeset for a kdb database. A changeset allows you to add and delete existing files by using an ordered list of change requests. </p>
+        r"""<p> Creates a changeset for a kdb database. A changeset allows you to add and delete existing files by using an ordered list of change requests. </p>
 
         Args:
             environment_id: <p>A unique identifier of the kdb environment.</p>
@@ -1462,7 +1462,7 @@ class AsyncfinspaceClient:
         *,
         config_overrides: Optional[AsyncfinspaceClientConfig] = None,
     ) -> "aws_sdk_finspace.types.get_kx_connection_string_response.GetKxConnectionStringResponse":
-        """<p>Retrieves a connection string for a user to connect to a kdb cluster. You must call this API using the same role that you have defined while creating a user. </p>
+        r"""<p>Retrieves a connection string for a user to connect to a kdb cluster. You must call this API using the same role that you have defined while creating a user. </p>
 
         Args:
             user_arn: <p> The Amazon Resource Name (ARN) that identifies the user. For more information about ARNs and how to use ARNs in policies, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html\">IAM Identifiers</a> in the <i>IAM User Guide</i>. </p>

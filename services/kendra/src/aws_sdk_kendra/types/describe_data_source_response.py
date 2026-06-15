@@ -37,7 +37,7 @@ class DescribeDataSourceResponse(TypedDict):
     vpc_configuration: NotRequired[
         "aws_sdk_kendra.types.data_source_vpc_configuration.DataSourceVpcConfiguration"
     ]
-    """<p>Configuration information for an Amazon Virtual Private Cloud to connect to your data source. For more information, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/vpc-configuration.html\">Configuring a VPC</a>.</p>"""
+    r"""<p>Configuration information for an Amazon Virtual Private Cloud to connect to your data source. For more information, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/vpc-configuration.html\">Configuring a VPC</a>.</p>"""
     created_at: NotRequired["aws_sdk_kendra.types.timestamp.Timestamp"]
     """<p>The Unix timestamp when the data source connector was created.</p>"""
     updated_at: NotRequired["aws_sdk_kendra.types.timestamp.Timestamp"]
@@ -53,11 +53,11 @@ class DescribeDataSourceResponse(TypedDict):
     error_message: NotRequired["aws_sdk_kendra.types.error_message.ErrorMessage"]
     """<p>When the <code>Status</code> field value is <code>FAILED</code>, the <code>ErrorMessage</code> field contains a description of the error that caused the data source to fail.</p>"""
     language_code: NotRequired["aws_sdk_kendra.types.language_code.LanguageCode"]
-    """<p>The code for a language. This shows a supported language for all documents in the data source. English is supported by default. For more information on supported languages, including their codes, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html\">Adding documents in languages other than English</a>.</p>"""
+    r"""<p>The code for a language. This shows a supported language for all documents in the data source. English is supported by default. For more information on supported languages, including their codes, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html\">Adding documents in languages other than English</a>.</p>"""
     custom_document_enrichment_configuration: NotRequired[
         "aws_sdk_kendra.types.custom_document_enrichment_configuration.CustomDocumentEnrichmentConfiguration"
     ]
-    """<p>Configuration information for altering document metadata and content during the document ingestion process when you describe a data source.</p> <p>For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html\">Customizing document metadata during the ingestion process</a>.</p>"""
+    r"""<p>Configuration information for altering document metadata and content during the document ingestion process when you describe a data source.</p> <p>For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html\">Customizing document metadata during the ingestion process</a>.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

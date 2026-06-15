@@ -15,7 +15,7 @@ if TYPE_CHECKING:
 
 class UpdateThreatEntitySetRequest(TypedDict):
     detector_id: "aws_sdk_guardduty.types.detector_id.DetectorId"
-    """<p>The unique ID of the GuardDuty detector associated with the threat entity set that you want to update.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html\">ListDetectors</a> API.</p>"""
+    r"""<p>The unique ID of the GuardDuty detector associated with the threat entity set that you want to update.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html\">ListDetectors</a> API.</p>"""
     threat_entity_set_id: NotRequired["aws_sdk_guardduty.types.string.String"]
     """<p>The ID returned by GuardDuty after updating the threat entity set resource.</p>"""
     name: NotRequired["aws_sdk_guardduty.types.name.Name"]

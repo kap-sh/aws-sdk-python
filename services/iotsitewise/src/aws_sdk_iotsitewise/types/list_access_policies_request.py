@@ -24,7 +24,7 @@ class ListAccessPoliciesRequest(TypedDict):
     resource_id: NotRequired["aws_sdk_iotsitewise.types.id.ID"]
     """<p>The ID of the resource. This parameter is required if you specify <code>resourceType</code>.</p>"""
     iam_arn: NotRequired["aws_sdk_iotsitewise.types.iam_arn.IamArn"]
-    """<p>The ARN of the IAM user. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html\">IAM ARNs</a> in the <i>IAM User Guide</i>. This parameter is required if you specify <code>IAM</code> for <code>identityType</code>.</p>"""
+    r"""<p>The ARN of the IAM user. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html\">IAM ARNs</a> in the <i>IAM User Guide</i>. This parameter is required if you specify <code>IAM</code> for <code>identityType</code>.</p>"""
     next_token: NotRequired["aws_sdk_iotsitewise.types.next_token.NextToken"]
     """<p>The token to be used for the next set of paginated results.</p>"""
     max_results: NotRequired["aws_sdk_iotsitewise.types.max_results.MaxResults"]

@@ -1,11 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#ExtractionJob``."""
 
 from typing import TypedDict
+
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
+
 
 class ExtractionJob(TypedDict):
     job_id: "str"
     """<p>The unique identifier of the extraction job.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: ExtractionJob) -> dict:

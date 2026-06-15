@@ -37,7 +37,7 @@ class ImportInstanceLaunchSpecification(TypedDict):
     user_data: NotRequired["aws_sdk_ec2.types.user_data.UserData"]
     """<p>The Base64-encoded user data to make available to the instance.</p>"""
     instance_type: NotRequired["aws_sdk_ec2.types.instance_type.InstanceType"]
-    """<p>The instance type. For more information about the instance types that you can import, see <a href=\"https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-instance-types\">Instance Types</a> in the VM Import/Export User Guide.</p>"""
+    r"""<p>The instance type. For more information about the instance types that you can import, see <a href=\"https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-instance-types\">Instance Types</a> in the VM Import/Export User Guide.</p>"""
     placement: NotRequired["aws_sdk_ec2.types.placement.Placement"]
     """<p>The placement information for the instance.</p>"""
     monitoring: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]

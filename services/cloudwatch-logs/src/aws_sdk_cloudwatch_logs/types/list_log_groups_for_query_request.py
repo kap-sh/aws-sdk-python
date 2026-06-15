@@ -14,7 +14,7 @@ if TYPE_CHECKING:
 
 class ListLogGroupsForQueryRequest(TypedDict):
     query_id: "aws_sdk_cloudwatch_logs.types.query_id.QueryId"
-    """<p>The ID of the query to use. This query ID is from the response to your <a href=\"https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_StartQuery.html\">StartQuery</a> operation.</p>"""
+    r"""<p>The ID of the query to use. This query ID is from the response to your <a href=\"https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_StartQuery.html\">StartQuery</a> operation.</p>"""
     next_token: NotRequired["aws_sdk_cloudwatch_logs.types.next_token.NextToken"]
     max_results: NotRequired[
         "aws_sdk_cloudwatch_logs.types.list_log_groups_for_query_max_results.ListLogGroupsForQueryMaxResults"

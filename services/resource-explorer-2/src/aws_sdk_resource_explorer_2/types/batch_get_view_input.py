@@ -12,7 +12,7 @@ class BatchGetViewInput(TypedDict):
     view_arns: NotRequired[
         "aws_sdk_resource_explorer_2.types.view_arn_list.ViewArnList"
     ]
-    """<p>A list of <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon resource names (ARNs)</a> that identify the views you want details for.</p>"""
+    r"""<p>A list of <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon resource names (ARNs)</a> that identify the views you want details for.</p>"""
 
 
 # --- restJson1 ser/de ---

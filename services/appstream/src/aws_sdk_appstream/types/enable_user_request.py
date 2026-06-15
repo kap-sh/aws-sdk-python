@@ -11,7 +11,7 @@ if TYPE_CHECKING:
 
 class EnableUserRequest(TypedDict):
     user_name: NotRequired["aws_sdk_appstream.types.username.Username"]
-    """<p>The email address of the user.</p> <note> <p>Users' email addresses are case-sensitive. During login, if they specify an email address that doesn't use the same capitalization as the email address specified when their user pool account was created, a \"user does not exist\" error message displays. </p> </note>"""
+    r"""<p>The email address of the user.</p> <note> <p>Users' email addresses are case-sensitive. During login, if they specify an email address that doesn't use the same capitalization as the email address specified when their user pool account was created, a \"user does not exist\" error message displays. </p> </note>"""
     authentication_type: NotRequired[
         "aws_sdk_appstream.types.authentication_type.AuthenticationType"
     ]

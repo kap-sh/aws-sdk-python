@@ -14,7 +14,7 @@ if TYPE_CHECKING:
 
 class ListEdgeAgentConfigurationsInput(TypedDict):
     hub_device_arn: "aws_sdk_kinesis_video.types.hub_device_arn.HubDeviceArn"
-    """<p>The \"Internet of Things (IoT) Thing\" Arn of the edge agent.</p>"""
+    r"""<p>The \"Internet of Things (IoT) Thing\" Arn of the edge agent.</p>"""
     max_results: NotRequired[
         "aws_sdk_kinesis_video.types.list_edge_agent_configurations_input_limit.ListEdgeAgentConfigurationsInputLimit"
     ]

@@ -17,15 +17,15 @@ class KnowledgeBaseVectorSearchConfiguration(TypedDict):
     override_search_type: NotRequired[
         "aws_sdk_bedrock_agent_runtime.types.search_type.SearchType"
     ]
-    """<p>By default, Amazon Bedrock decides a search strategy for you. If you're using an Amazon OpenSearch Serverless vector store that contains a filterable text field, you can specify whether to query the knowledge base with a <code>HYBRID</code> search using both vector embeddings and raw text, or <code>SEMANTIC</code> search using only vector embeddings. For other vector store configurations, only <code>SEMANTIC</code> search is available. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-test.html\">Test a knowledge base</a>.</p>"""
+    r"""<p>By default, Amazon Bedrock decides a search strategy for you. If you're using an Amazon OpenSearch Serverless vector store that contains a filterable text field, you can specify whether to query the knowledge base with a <code>HYBRID</code> search using both vector embeddings and raw text, or <code>SEMANTIC</code> search using only vector embeddings. For other vector store configurations, only <code>SEMANTIC</code> search is available. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-test.html\">Test a knowledge base</a>.</p>"""
     filter: NotRequired[
         "aws_sdk_bedrock_agent_runtime.types.retrieval_filter.RetrievalFilter"
     ]
-    """<p>Specifies the filters to use on the metadata in the knowledge base data sources before returning results. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html\">Query configurations</a>.</p>"""
+    r"""<p>Specifies the filters to use on the metadata in the knowledge base data sources before returning results. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html\">Query configurations</a>.</p>"""
     reranking_configuration: NotRequired[
         "aws_sdk_bedrock_agent_runtime.types.vector_search_reranking_configuration.VectorSearchRerankingConfiguration"
     ]
-    """<p>Contains configurations for reranking the retrieved results. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/rerank.html\">Improve the relevance of query responses with a reranker model</a>.</p>"""
+    r"""<p>Contains configurations for reranking the retrieved results. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/rerank.html\">Improve the relevance of query responses with a reranker model</a>.</p>"""
     implicit_filter_configuration: NotRequired[
         "aws_sdk_bedrock_agent_runtime.types.implicit_filter_configuration.ImplicitFilterConfiguration"
     ]

@@ -21,7 +21,7 @@ class MultiplexStatmuxVideoSettings(TypedDict):
     priority: NotRequired[
         "aws_sdk_medialive.types.__integer_min_negative5_max5.__integerMinNegative5Max5"
     ]
-    """The purpose of the priority is to use a combination of the\nmultiplex rate control algorithm and the QVBR capability of the\nencoder to prioritize the video quality of some channels in a\nmultiplex over others. Channels that have a higher priority will\nget higher video quality at the expense of the video quality of\nother channels in the multiplex with lower priority."""
+    r"""The purpose of the priority is to use a combination of the\nmultiplex rate control algorithm and the QVBR capability of the\nencoder to prioritize the video quality of some channels in a\nmultiplex over others. Channels that have a higher priority will\nget higher video quality at the expense of the video quality of\nother channels in the multiplex with lower priority."""
 
 
 # --- restJson1 ser/de ---

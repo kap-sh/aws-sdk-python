@@ -1,13 +1,17 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#CreateOauth2CredentialProviderRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.credential_provider_name
     import aws_sdk_bedrock_agentcore_control.types.credential_provider_vendor_type
     import aws_sdk_bedrock_agentcore_control.types.oauth2_provider_config_input
     import aws_sdk_bedrock_agentcore_control.types.tags_map
+
 
 class CreateOauth2CredentialProviderRequest(TypedDict):
     name: "aws_sdk_bedrock_agentcore_control.types.credential_provider_name.CredentialProviderName"
@@ -19,17 +23,31 @@ class CreateOauth2CredentialProviderRequest(TypedDict):
     tags: NotRequired["aws_sdk_bedrock_agentcore_control.types.tags_map.TagsMap"]
     """<p>A map of tag keys and values to assign to the OAuth2 credential provider. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment.</p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: CreateOauth2CredentialProviderRequest) -> dict:
     out: dict = {}
     out["name"] = value["name"]
     import aws_sdk_bedrock_agentcore_control.types.credential_provider_vendor_type
-    out["credentialProviderVendor"] = aws_sdk_bedrock_agentcore_control.types.credential_provider_vendor_type.serialize_json(value["credential_provider_vendor"])
+
+    out["credentialProviderVendor"] = (
+        aws_sdk_bedrock_agentcore_control.types.credential_provider_vendor_type.serialize_json(
+            value["credential_provider_vendor"]
+        )
+    )
     import aws_sdk_bedrock_agentcore_control.types.oauth2_provider_config_input
-    out["oauth2ProviderConfigInput"] = aws_sdk_bedrock_agentcore_control.types.oauth2_provider_config_input.serialize_json(value["oauth2_provider_config_input"])
+
+    out["oauth2ProviderConfigInput"] = (
+        aws_sdk_bedrock_agentcore_control.types.oauth2_provider_config_input.serialize_json(
+            value["oauth2_provider_config_input"]
+        )
+    )
     if "tags" in value:
         import aws_sdk_bedrock_agentcore_control.types.tags_map
-        out["tags"] = aws_sdk_bedrock_agentcore_control.types.tags_map.serialize_json(value["tags"])
+
+        out["tags"] = aws_sdk_bedrock_agentcore_control.types.tags_map.serialize_json(
+            value["tags"]
+        )
     return out
 
 
@@ -38,18 +56,37 @@ def deserialize_json(data: dict) -> CreateOauth2CredentialProviderRequest:
     if "name" in data:
         out["name"] = data["name"]
     else:
-        raise DeserializationError("CreateOauth2CredentialProviderRequest.name required")
+        raise DeserializationError(
+            "CreateOauth2CredentialProviderRequest.name required"
+        )
     if "credentialProviderVendor" in data:
         import aws_sdk_bedrock_agentcore_control.types.credential_provider_vendor_type
-        out["credential_provider_vendor"] = aws_sdk_bedrock_agentcore_control.types.credential_provider_vendor_type.deserialize_json(data["credentialProviderVendor"])
+
+        out["credential_provider_vendor"] = (
+            aws_sdk_bedrock_agentcore_control.types.credential_provider_vendor_type.deserialize_json(
+                data["credentialProviderVendor"]
+            )
+        )
     else:
-        raise DeserializationError("CreateOauth2CredentialProviderRequest.credential_provider_vendor required")
+        raise DeserializationError(
+            "CreateOauth2CredentialProviderRequest.credential_provider_vendor required"
+        )
     if "oauth2ProviderConfigInput" in data:
         import aws_sdk_bedrock_agentcore_control.types.oauth2_provider_config_input
-        out["oauth2_provider_config_input"] = aws_sdk_bedrock_agentcore_control.types.oauth2_provider_config_input.deserialize_json(data["oauth2ProviderConfigInput"])
+
+        out["oauth2_provider_config_input"] = (
+            aws_sdk_bedrock_agentcore_control.types.oauth2_provider_config_input.deserialize_json(
+                data["oauth2ProviderConfigInput"]
+            )
+        )
     else:
-        raise DeserializationError("CreateOauth2CredentialProviderRequest.oauth2_provider_config_input required")
+        raise DeserializationError(
+            "CreateOauth2CredentialProviderRequest.oauth2_provider_config_input required"
+        )
     if "tags" in data:
         import aws_sdk_bedrock_agentcore_control.types.tags_map
-        out["tags"] = aws_sdk_bedrock_agentcore_control.types.tags_map.deserialize_json(data["tags"])
+
+        out["tags"] = aws_sdk_bedrock_agentcore_control.types.tags_map.deserialize_json(
+            data["tags"]
+        )
     return out

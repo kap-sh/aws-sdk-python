@@ -1,13 +1,19 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#HarnessAgentCoreCodeInterpreterConfig``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.harness_code_interpreter_arn
 
+
 class HarnessAgentCoreCodeInterpreterConfig(TypedDict):
-    code_interpreter_arn: NotRequired["aws_sdk_bedrock_agentcore_control.types.harness_code_interpreter_arn.HarnessCodeInterpreterArn"]
+    code_interpreter_arn: NotRequired[
+        "aws_sdk_bedrock_agentcore_control.types.harness_code_interpreter_arn.HarnessCodeInterpreterArn"
+    ]
     """<p>If not populated, the built-in Code Interpreter ARN is used.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: HarnessAgentCoreCodeInterpreterConfig) -> dict:

@@ -20,7 +20,7 @@ class FirehoseAction(TypedDict):
     separator: NotRequired[
         "aws_sdk_iot_events.types.firehose_separator.FirehoseSeparator"
     ]
-    """<p>A character separator that is used to separate records written to the Kinesis Data Firehose delivery stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).</p>"""
+    r"""<p>A character separator that is used to separate records written to the Kinesis Data Firehose delivery stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).</p>"""
     payload: NotRequired["aws_sdk_iot_events.types.payload.Payload"]
     """<p>You can configure the action payload when you send a message to an Amazon Kinesis Data Firehose delivery stream.</p>"""
 

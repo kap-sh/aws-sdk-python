@@ -1,11 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#DeleteEventInput``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.actor_id
     import aws_sdk_bedrock_agentcore.types.event_id
     import aws_sdk_bedrock_agentcore.types.memory_id
     import aws_sdk_bedrock_agentcore.types.session_id
+
 
 class DeleteEventInput(TypedDict):
     memory_id: "aws_sdk_bedrock_agentcore.types.memory_id.MemoryId"
@@ -16,6 +18,7 @@ class DeleteEventInput(TypedDict):
     """<p>The identifier of the event to delete.</p>"""
     actor_id: "aws_sdk_bedrock_agentcore.types.actor_id.ActorId"
     """<p>The identifier of the actor associated with the event to delete.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: DeleteEventInput) -> dict:

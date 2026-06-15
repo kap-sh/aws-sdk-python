@@ -12,7 +12,7 @@ if TYPE_CHECKING:
 
 class IPRange(TypedDict):
     status: NotRequired["aws_sdk_rds.types.string.String"]
-    """<p>The status of the IP range. Status can be \"authorizing\", \"authorized\", \"revoking\", and \"revoked\".</p>"""
+    r"""<p>The status of the IP range. Status can be \"authorizing\", \"authorized\", \"revoking\", and \"revoked\".</p>"""
     cidrip: NotRequired["aws_sdk_rds.types.string.String"]
     """<p>The IP range.</p>"""
 

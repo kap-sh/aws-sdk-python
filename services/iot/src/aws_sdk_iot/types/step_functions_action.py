@@ -20,7 +20,7 @@ class StepFunctionsAction(TypedDict):
     state_machine_name: "aws_sdk_iot.types.state_machine_name.StateMachineName"
     """<p>The name of the Step Functions state machine whose execution will be started.</p>"""
     role_arn: "aws_sdk_iot.types.aws_arn.AwsArn"
-    """<p>The ARN of the role that grants IoT permission to start execution of a state machine (\"Action\":\"states:StartExecution\").</p>"""
+    r"""<p>The ARN of the role that grants IoT permission to start execution of a state machine (\"Action\":\"states:StartExecution\").</p>"""
 
 
 # --- restJson1 ser/de ---

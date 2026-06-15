@@ -15,7 +15,7 @@ class SAMLPrivateKey(TypedDict):
     key_id: NotRequired["aws_sdk_iam.types.private_key_id_type.privateKeyIdType"]
     """<p>The unique identifier for the SAML private key.</p>"""
     timestamp: NotRequired["aws_sdk_iam.types.date_type.dateType"]
-    """<p>The date and time, in <a href=\"http://www.iso.org/iso/iso8601\">ISO 8601 date-time </a> format, when the private key was uploaded.</p>"""
+    r"""<p>The date and time, in <a href=\"http://www.iso.org/iso/iso8601\">ISO 8601 date-time </a> format, when the private key was uploaded.</p>"""
 
 
 # --- awsQuery ser/de ---

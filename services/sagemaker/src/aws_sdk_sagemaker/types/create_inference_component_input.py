@@ -36,7 +36,7 @@ class CreateInferenceComponentInput(TypedDict):
     ]
     """<p>Runtime settings for a model that is deployed with an inference component.</p>"""
     tags: NotRequired["aws_sdk_sagemaker.types.tag_list.TagList"]
-    """<p>A list of key-value pairs associated with the model. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services resources</a> in the <i>Amazon Web Services General Reference</i>.</p>"""
+    r"""<p>A list of key-value pairs associated with the model. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services resources</a> in the <i>Amazon Web Services General Reference</i>.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

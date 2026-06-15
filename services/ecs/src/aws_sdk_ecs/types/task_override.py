@@ -23,11 +23,11 @@ class TaskOverride(TypedDict):
     ]
     """<p>The Elastic Inference accelerator override for the task.</p>"""
     execution_role_arn: NotRequired["aws_sdk_ecs.types.string.String"]
-    """<p>The Amazon Resource Name (ARN) of the task execution role override for the task. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_execution_IAM_role.html\">Amazon ECS task execution IAM role</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>"""
+    r"""<p>The Amazon Resource Name (ARN) of the task execution role override for the task. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_execution_IAM_role.html\">Amazon ECS task execution IAM role</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>"""
     memory: NotRequired["aws_sdk_ecs.types.string.String"]
     """<p>The memory override for the task.</p>"""
     task_role_arn: NotRequired["aws_sdk_ecs.types.string.String"]
-    """<p>The Amazon Resource Name (ARN) of the role that containers in this task can assume. All containers in this task are granted the permissions that are specified in this role. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html\">IAM Role for Tasks</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>"""
+    r"""<p>The Amazon Resource Name (ARN) of the role that containers in this task can assume. All containers in this task are granted the permissions that are specified in this role. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html\">IAM Role for Tasks</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>"""
     ephemeral_storage: NotRequired[
         "aws_sdk_ecs.types.ephemeral_storage.EphemeralStorage"
     ]

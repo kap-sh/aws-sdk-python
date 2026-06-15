@@ -14,7 +14,7 @@ if TYPE_CHECKING:
 
 class LambdaConfigType(TypedDict):
     pre_sign_up: NotRequired["aws_sdk_cognito_identity_provider.types.arn_type.ArnType"]
-    """<p>The configuration of a <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-sign-up.html\">pre sign-up Lambda trigger</a> in a user pool. This trigger evaluates new users and can bypass confirmation, <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-identity-federation-consolidate-users.html\">link a federated user profile</a>, or block sign-up requests.</p>"""
+    r"""<p>The configuration of a <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-sign-up.html\">pre sign-up Lambda trigger</a> in a user pool. This trigger evaluates new users and can bypass confirmation, <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-identity-federation-consolidate-users.html\">link a federated user profile</a>, or block sign-up requests.</p>"""
     custom_message: NotRequired[
         "aws_sdk_cognito_identity_provider.types.arn_type.ArnType"
     ]
@@ -22,39 +22,39 @@ class LambdaConfigType(TypedDict):
     post_confirmation: NotRequired[
         "aws_sdk_cognito_identity_provider.types.arn_type.ArnType"
     ]
-    """<p>The configuration of a <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-post-confirmation.html\">post confirmation Lambda trigger</a> in a user pool. This trigger can take custom actions after a user confirms their user account and their email address or phone number.</p>"""
+    r"""<p>The configuration of a <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-post-confirmation.html\">post confirmation Lambda trigger</a> in a user pool. This trigger can take custom actions after a user confirms their user account and their email address or phone number.</p>"""
     pre_authentication: NotRequired[
         "aws_sdk_cognito_identity_provider.types.arn_type.ArnType"
     ]
-    """<p>The configuration of a <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-authentication.html\">pre authentication trigger</a> in a user pool. This trigger can evaluate and modify user sign-in events.</p>"""
+    r"""<p>The configuration of a <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-authentication.html\">pre authentication trigger</a> in a user pool. This trigger can evaluate and modify user sign-in events.</p>"""
     post_authentication: NotRequired[
         "aws_sdk_cognito_identity_provider.types.arn_type.ArnType"
     ]
-    """<p>The configuration of a <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-post-authentication.html\">post authentication Lambda trigger</a> in a user pool. This trigger can take custom actions after a user signs in.</p>"""
+    r"""<p>The configuration of a <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-post-authentication.html\">post authentication Lambda trigger</a> in a user pool. This trigger can take custom actions after a user signs in.</p>"""
     define_auth_challenge: NotRequired[
         "aws_sdk_cognito_identity_provider.types.arn_type.ArnType"
     ]
-    """<p>The configuration of a define auth challenge Lambda trigger, one of three triggers in the sequence of the <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-challenge.html\">custom authentication challenge triggers</a>.</p>"""
+    r"""<p>The configuration of a define auth challenge Lambda trigger, one of three triggers in the sequence of the <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-challenge.html\">custom authentication challenge triggers</a>.</p>"""
     create_auth_challenge: NotRequired[
         "aws_sdk_cognito_identity_provider.types.arn_type.ArnType"
     ]
-    """<p>The configuration of a create auth challenge Lambda trigger, one of three triggers in the sequence of the <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-challenge.html\">custom authentication challenge triggers</a>.</p>"""
+    r"""<p>The configuration of a create auth challenge Lambda trigger, one of three triggers in the sequence of the <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-challenge.html\">custom authentication challenge triggers</a>.</p>"""
     verify_auth_challenge_response: NotRequired[
         "aws_sdk_cognito_identity_provider.types.arn_type.ArnType"
     ]
-    """<p>The configuration of a verify auth challenge Lambda trigger, one of three triggers in the sequence of the <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-challenge.html\">custom authentication challenge triggers</a>.</p>"""
+    r"""<p>The configuration of a verify auth challenge Lambda trigger, one of three triggers in the sequence of the <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-challenge.html\">custom authentication challenge triggers</a>.</p>"""
     pre_token_generation: NotRequired[
         "aws_sdk_cognito_identity_provider.types.arn_type.ArnType"
     ]
-    """<p>The legacy configuration of a <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-token-generation.html\">pre token generation Lambda trigger</a> in a user pool.</p> <p>Set this parameter for legacy purposes. If you also set an ARN in <code>PreTokenGenerationConfig</code>, its value must be identical to <code>PreTokenGeneration</code>. For new instances of pre token generation triggers, set the <code>LambdaArn</code> of <code>PreTokenGenerationConfig</code>.</p>"""
+    r"""<p>The legacy configuration of a <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-token-generation.html\">pre token generation Lambda trigger</a> in a user pool.</p> <p>Set this parameter for legacy purposes. If you also set an ARN in <code>PreTokenGenerationConfig</code>, its value must be identical to <code>PreTokenGeneration</code>. For new instances of pre token generation triggers, set the <code>LambdaArn</code> of <code>PreTokenGenerationConfig</code>.</p>"""
     user_migration: NotRequired[
         "aws_sdk_cognito_identity_provider.types.arn_type.ArnType"
     ]
-    """<p>The configuration of a <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-migrate-user.html\">migrate user Lambda trigger</a> in a user pool. This trigger can create user profiles when users sign in or attempt to reset their password with credentials that don't exist yet.</p>"""
+    r"""<p>The configuration of a <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-migrate-user.html\">migrate user Lambda trigger</a> in a user pool. This trigger can create user profiles when users sign in or attempt to reset their password with credentials that don't exist yet.</p>"""
     pre_token_generation_config: NotRequired[
         "aws_sdk_cognito_identity_provider.types.pre_token_generation_version_config_type.PreTokenGenerationVersionConfigType"
     ]
-    """<p>The detailed configuration of a <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-token-generation.html\">pre token generation Lambda trigger</a> in a user pool. If you also set an ARN in <code>PreTokenGeneration</code>, its value must be identical to <code>PreTokenGenerationConfig</code>.</p>"""
+    r"""<p>The detailed configuration of a <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-token-generation.html\">pre token generation Lambda trigger</a> in a user pool. If you also set an ARN in <code>PreTokenGeneration</code>, its value must be identical to <code>PreTokenGenerationConfig</code>.</p>"""
     custom_sms_sender: NotRequired[
         "aws_sdk_cognito_identity_provider.types.custom_sms_lambda_version_config_type.CustomSMSLambdaVersionConfigType"
     ]
@@ -64,7 +64,7 @@ class LambdaConfigType(TypedDict):
     ]
     """<p>The configuration of a custom email sender Lambda trigger. This trigger routes all email notifications from a user pool to a Lambda function that delivers the message using custom logic.</p>"""
     kms_key_id: NotRequired["aws_sdk_cognito_identity_provider.types.arn_type.ArnType"]
-    """<p>The ARN of an <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys\">KMS key</a>. Amazon Cognito uses the key to encrypt codes and temporary passwords sent to custom sender Lambda triggers.</p>"""
+    r"""<p>The ARN of an <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys\">KMS key</a>. Amazon Cognito uses the key to encrypt codes and temporary passwords sent to custom sender Lambda triggers.</p>"""
     inbound_federation: NotRequired[
         "aws_sdk_cognito_identity_provider.types.inbound_federation_lambda_type.InboundFederationLambdaType"
     ]

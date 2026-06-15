@@ -21,7 +21,7 @@ class AssetModelPropertySummary(TypedDict):
     id: NotRequired["aws_sdk_iotsitewise.types.id.ID"]
     """<p>The ID of the property.</p>"""
     external_id: NotRequired["aws_sdk_iotsitewise.types.external_id.ExternalId"]
-    """<p>The external ID of the property. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-ids\">Using external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>"""
+    r"""<p>The external ID of the property. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-ids\">Using external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>"""
     name: "aws_sdk_iotsitewise.types.name.Name"
     """<p>The name of the property.</p>"""
     data_type: "aws_sdk_iotsitewise.types.property_data_type.PropertyDataType"

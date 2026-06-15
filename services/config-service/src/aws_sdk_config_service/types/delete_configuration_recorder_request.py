@@ -12,7 +12,7 @@ class DeleteConfigurationRecorderRequest(TypedDict):
     configuration_recorder_name: (
         "aws_sdk_config_service.types.recorder_name.RecorderName"
     )
-    """<p>The name of the customer managed configuration recorder that you want to delete. You can retrieve the name of your configuration recorders by using the <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorders.html\">DescribeConfigurationRecorders</a> operation.</p>"""
+    r"""<p>The name of the customer managed configuration recorder that you want to delete. You can retrieve the name of your configuration recorders by using the <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorders.html\">DescribeConfigurationRecorders</a> operation.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

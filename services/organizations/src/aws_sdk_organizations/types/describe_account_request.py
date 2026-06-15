@@ -10,7 +10,7 @@ if TYPE_CHECKING:
 
 class DescribeAccountRequest(TypedDict):
     account_id: "aws_sdk_organizations.types.account_id.AccountId"
-    """<p>The unique identifier (ID) of the Amazon Web Services account that you want information about. You can get the ID from the <a>ListAccounts</a> or <a>ListAccountsForParent</a> operations.</p> <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> for an account ID string requires exactly 12 digits.</p>"""
+    r"""<p>The unique identifier (ID) of the Amazon Web Services account that you want information about. You can get the ID from the <a>ListAccounts</a> or <a>ListAccountsForParent</a> operations.</p> <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> for an account ID string requires exactly 12 digits.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

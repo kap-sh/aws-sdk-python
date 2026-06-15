@@ -42,7 +42,7 @@ class CreateIngressPointRequest(TypedDict):
     tls_policy: NotRequired["aws_sdk_mailmanager.types.tls_policy.TlsPolicy"]
     """<p>The Transport Layer Security (TLS) policy for the ingress point. The FIPS value is only valid in US and Canada regions.</p>"""
     tags: NotRequired["aws_sdk_mailmanager.types.tag_list.TagList"]
-    """<p>The tags used to organize, track, or control access for the resource. For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.</p>"""
+    r"""<p>The tags used to organize, track, or control access for the resource. For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.</p>"""
 
 
 # --- awsJson1_0 ser/de ---

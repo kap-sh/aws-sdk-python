@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_bedrock_agent._auth._signers
@@ -70,7 +72,7 @@ class DataSourceResource:
             "aws_sdk_bedrock_agent.types.vector_ingestion_configuration.VectorIngestionConfiguration"
         ] = None,
     ) -> "aws_sdk_bedrock_agent.types.create_data_source_response.CreateDataSourceResponse":
-        """<p>Connects a knowledge base to a data source. You specify the configuration for the specific data source service in the <code>dataSourceConfiguration</code> field.</p> <important> <p>You can't change the <code>chunkingConfiguration</code> after you create the data source connector.</p> </important>
+        r"""<p>Connects a knowledge base to a data source. You specify the configuration for the specific data source service in the <code>dataSourceConfiguration</code> field.</p> <important> <p>You can't change the <code>chunkingConfiguration</code> after you create the data source connector.</p> </important>
 
         Args:
             knowledge_base_id: <p>The unique identifier of the knowledge base to which to add the data source.</p>
@@ -351,7 +353,7 @@ class AsyncDataSourceResource:
             "aws_sdk_bedrock_agent.types.vector_ingestion_configuration.VectorIngestionConfiguration"
         ] = None,
     ) -> "aws_sdk_bedrock_agent.types.create_data_source_response.CreateDataSourceResponse":
-        """<p>Connects a knowledge base to a data source. You specify the configuration for the specific data source service in the <code>dataSourceConfiguration</code> field.</p> <important> <p>You can't change the <code>chunkingConfiguration</code> after you create the data source connector.</p> </important>
+        r"""<p>Connects a knowledge base to a data source. You specify the configuration for the specific data source service in the <code>dataSourceConfiguration</code> field.</p> <important> <p>You can't change the <code>chunkingConfiguration</code> after you create the data source connector.</p> </important>
 
         Args:
             knowledge_base_id: <p>The unique identifier of the knowledge base to which to add the data source.</p>

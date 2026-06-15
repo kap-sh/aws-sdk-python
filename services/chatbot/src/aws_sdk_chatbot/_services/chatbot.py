@@ -179,7 +179,7 @@ class chatbotClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = chatbotClientConfig(
+        self._config = chatbotClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -192,6 +192,7 @@ class chatbotClient:
                 "credentials_provider": credentials_provider,
             }
         )
+
         # resources
         self.custom_action_resource = CustomActionResource(self)
 
@@ -201,7 +202,7 @@ class chatbotClient:
         overrides: chatbotClientConfig = config_overrides or {}
         interceptors_: list[Interceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             retry(),
         ]
@@ -209,16 +210,16 @@ class chatbotClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            region=overrides.get("region", self.config.get("region")),
+            region=overrides.get("region", self._config.get("region")),
             use_dual_stack=overrides.get(
-                "use_dual_stack", self.config.get("use_dual_stack")
+                "use_dual_stack", self._config.get("use_dual_stack")
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -283,7 +284,7 @@ class chatbotClient:
         ] = None,
         tags: Optional["aws_sdk_chatbot.types.tags.Tags"] = None,
     ) -> "aws_sdk_chatbot.types.create_chime_webhook_configuration_result.CreateChimeWebhookConfigurationResult":
-        """<p>Creates an AWS Chatbot configuration for Amazon Chime.</p>
+        r"""<p>Creates an AWS Chatbot configuration for Amazon Chime.</p>
 
         Args:
             webhook_description: <p>A description of the webhook. We recommend using the convention <code>RoomName/WebhookName</code>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/chatbot/latest/adminguide/chime-setup.html\">Tutorial: Get started with Amazon Chime</a> in the <i> AWS Chatbot Administrator Guide</i>. </p>
@@ -355,7 +356,7 @@ class chatbotClient:
         ] = None,
         tags: Optional["aws_sdk_chatbot.types.tags.Tags"] = None,
     ) -> "aws_sdk_chatbot.types.create_teams_channel_configuration_result.CreateTeamsChannelConfigurationResult":
-        """<p>Creates an AWS Chatbot configuration for Microsoft Teams.</p>
+        r"""<p>Creates an AWS Chatbot configuration for Microsoft Teams.</p>
 
         Args:
             channel_id: <p>The ID of the Microsoft Teams channel.</p>
@@ -440,7 +441,7 @@ class chatbotClient:
         ] = None,
         tags: Optional["aws_sdk_chatbot.types.tags.Tags"] = None,
     ) -> "aws_sdk_chatbot.types.create_slack_channel_configuration_result.CreateSlackChannelConfigurationResult":
-        """<p>Creates an AWS Chatbot confugration for Slack.</p>
+        r"""<p>Creates an AWS Chatbot confugration for Slack.</p>
 
         Args:
             slack_team_id: <p>The ID of the Slack workspace authorized with AWS Chatbot.</p>
@@ -575,7 +576,7 @@ class chatbotClient:
         *,
         config_overrides: Optional[chatbotClientConfig] = None,
     ) -> "aws_sdk_chatbot.types.delete_teams_configured_team_result.DeleteTeamsConfiguredTeamResult":
-        """<p>Deletes the Microsoft Teams team authorization allowing for channels to be configured in that Microsoft Teams team. Note that the Microsoft Teams team must have no channels configured to remove it. </p>
+        r"""<p>Deletes the Microsoft Teams team authorization allowing for channels to be configured in that Microsoft Teams team. Note that the Microsoft Teams team must have no channels configured to remove it. </p>
 
         Args:
             team_id: <p>The ID of the Microsoft Teams team authorized with AWS Chatbot.</p> <p>To get the team ID, you must perform the initial authorization flow with Microsoft Teams in the AWS Chatbot console. Then you can copy and paste the team ID from the console. For more information, see <a href=\"https://docs.aws.amazon.com/chatbot/latest/adminguide/teams-setup.html#teams-client-setup\">Step 1: Configure a Microsoft Teams client</a> in the <i> AWS Chatbot Administrator Guide</i>. </p>
@@ -1255,7 +1256,7 @@ class chatbotClient:
         ] = None,
         team_id: Optional["aws_sdk_chatbot.types.uuid.UUID"] = None,
     ) -> "aws_sdk_chatbot.types.list_teams_channel_configurations_result.ListTeamsChannelConfigurationsResult":
-        """<p>Lists all AWS Chatbot Microsoft Teams channel configurations in an AWS account.</p>
+        r"""<p>Lists all AWS Chatbot Microsoft Teams channel configurations in an AWS account.</p>
 
         Args:
             max_results: <p>The maximum number of results to include in the response. If more results exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.</p>
@@ -1646,7 +1647,7 @@ class chatbotClient:
             "aws_sdk_chatbot.types.customer_cw_log_level.CustomerCwLogLevel"
         ] = None,
     ) -> "aws_sdk_chatbot.types.update_chime_webhook_configuration_result.UpdateChimeWebhookConfigurationResult":
-        """<p>Updates a Amazon Chime webhook configuration.</p>
+        r"""<p>Updates a Amazon Chime webhook configuration.</p>
 
         Args:
             chat_configuration_arn: <p>The Amazon Resource Name (ARN) of the ChimeWebhookConfiguration to update.</p>
@@ -1715,7 +1716,7 @@ class chatbotClient:
             "aws_sdk_chatbot.types.boolean_account_preference.BooleanAccountPreference"
         ] = None,
     ) -> "aws_sdk_chatbot.types.update_teams_channel_configuration_result.UpdateTeamsChannelConfigurationResult":
-        """<p>Updates an Microsoft Teams channel configuration.</p>
+        r"""<p>Updates an Microsoft Teams channel configuration.</p>
 
         Args:
             chat_configuration_arn: <p>The Amazon Resource Name (ARN) of the TeamsChannelConfiguration to update.</p>
@@ -1789,7 +1790,7 @@ class chatbotClient:
             "aws_sdk_chatbot.types.boolean_account_preference.BooleanAccountPreference"
         ] = None,
     ) -> "aws_sdk_chatbot.types.update_slack_channel_configuration_result.UpdateSlackChannelConfigurationResult":
-        """<p>Updates a Slack channel configuration.</p>
+        r"""<p>Updates a Slack channel configuration.</p>
 
         Args:
             chat_configuration_arn: <p>The Amazon Resource Name (ARN) of the SlackChannelConfiguration to update.</p>

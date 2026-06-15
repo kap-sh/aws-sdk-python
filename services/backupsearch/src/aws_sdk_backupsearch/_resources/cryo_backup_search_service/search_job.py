@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_backupsearch._auth._signers
@@ -81,21 +83,21 @@ class SearchJob:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_backupsearch.types.start_search_job_input.StartSearchJobInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_backupsearch.types.start_search_job_input.StartSearchJobInput = {}  # type: ignore[typeddict-item]
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if encryption_key_arn is not None:
-            input["encryption_key_arn"] = encryption_key_arn
+            input_["encryption_key_arn"] = encryption_key_arn
         if client_token is not None:
-            input["client_token"] = client_token
-        input["search_scope"] = search_scope
+            input_["client_token"] = client_token
+        input_["search_scope"] = search_scope
         if item_filters is not None:
-            input["item_filters"] = item_filters
+            input_["item_filters"] = item_filters
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -128,11 +130,11 @@ class SearchJob:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_backupsearch.types.get_search_job_input.GetSearchJobInput = {}  # type: ignore[typeddict-item]
-        input["search_job_identifier"] = search_job_identifier
+        input_: aws_sdk_backupsearch.types.get_search_job_input.GetSearchJobInput = {}  # type: ignore[typeddict-item]
+        input_["search_job_identifier"] = search_job_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -165,11 +167,11 @@ class SearchJob:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_backupsearch.types.stop_search_job_input.StopSearchJobInput = {}  # type: ignore[typeddict-item]
-        input["search_job_identifier"] = search_job_identifier
+        input_: aws_sdk_backupsearch.types.stop_search_job_input.StopSearchJobInput = {}  # type: ignore[typeddict-item]
+        input_["search_job_identifier"] = search_job_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -208,16 +210,16 @@ class SearchJob:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_backupsearch.types.list_search_jobs_input.ListSearchJobsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_backupsearch.types.list_search_jobs_input.ListSearchJobsInput = {}  # type: ignore[typeddict-item]
         if by_status is not None:
-            input["by_status"] = by_status
+            input_["by_status"] = by_status
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -270,21 +272,21 @@ class AsyncSearchJob:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_backupsearch.types.start_search_job_input.StartSearchJobInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_backupsearch.types.start_search_job_input.StartSearchJobInput = {}  # type: ignore[typeddict-item]
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if encryption_key_arn is not None:
-            input["encryption_key_arn"] = encryption_key_arn
+            input_["encryption_key_arn"] = encryption_key_arn
         if client_token is not None:
-            input["client_token"] = client_token
-        input["search_scope"] = search_scope
+            input_["client_token"] = client_token
+        input_["search_scope"] = search_scope
         if item_filters is not None:
-            input["item_filters"] = item_filters
+            input_["item_filters"] = item_filters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -318,11 +320,11 @@ class AsyncSearchJob:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_backupsearch.types.get_search_job_input.GetSearchJobInput = {}  # type: ignore[typeddict-item]
-        input["search_job_identifier"] = search_job_identifier
+        input_: aws_sdk_backupsearch.types.get_search_job_input.GetSearchJobInput = {}  # type: ignore[typeddict-item]
+        input_["search_job_identifier"] = search_job_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -356,11 +358,11 @@ class AsyncSearchJob:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_backupsearch.types.stop_search_job_input.StopSearchJobInput = {}  # type: ignore[typeddict-item]
-        input["search_job_identifier"] = search_job_identifier
+        input_: aws_sdk_backupsearch.types.stop_search_job_input.StopSearchJobInput = {}  # type: ignore[typeddict-item]
+        input_["search_job_identifier"] = search_job_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -400,16 +402,16 @@ class AsyncSearchJob:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_backupsearch.types.list_search_jobs_input.ListSearchJobsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_backupsearch.types.list_search_jobs_input.ListSearchJobsInput = {}  # type: ignore[typeddict-item]
         if by_status is not None:
-            input["by_status"] = by_status
+            input_["by_status"] = by_status
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

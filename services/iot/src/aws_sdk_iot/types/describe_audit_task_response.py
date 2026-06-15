@@ -15,9 +15,9 @@ if TYPE_CHECKING:
 
 class DescribeAuditTaskResponse(TypedDict):
     task_status: NotRequired["aws_sdk_iot.types.audit_task_status.AuditTaskStatus"]
-    """<p>The status of the audit: one of \"IN_PROGRESS\", \"COMPLETED\", \"FAILED\", or \"CANCELED\".</p>"""
+    r"""<p>The status of the audit: one of \"IN_PROGRESS\", \"COMPLETED\", \"FAILED\", or \"CANCELED\".</p>"""
     task_type: NotRequired["aws_sdk_iot.types.audit_task_type.AuditTaskType"]
-    """<p>The type of audit: \"ON_DEMAND_AUDIT_TASK\" or \"SCHEDULED_AUDIT_TASK\".</p>"""
+    r"""<p>The type of audit: \"ON_DEMAND_AUDIT_TASK\" or \"SCHEDULED_AUDIT_TASK\".</p>"""
     task_start_time: NotRequired["aws_sdk_iot.types.timestamp.Timestamp"]
     """<p>The time the audit started.</p>"""
     task_statistics: NotRequired["aws_sdk_iot.types.task_statistics.TaskStatistics"]

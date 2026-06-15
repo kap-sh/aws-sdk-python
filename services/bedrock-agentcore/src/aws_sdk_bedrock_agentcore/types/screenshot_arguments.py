@@ -1,0 +1,42 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrockagentcore#ScreenshotArguments``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+if TYPE_CHECKING:
+    import aws_sdk_bedrock_agentcore.types.screenshot_format
+
+
+class ScreenshotArguments(TypedDict):
+    format: NotRequired[
+        "aws_sdk_bedrock_agentcore.types.screenshot_format.ScreenshotFormat"
+    ]
+    """<p>The image format for the screenshot. Defaults to <code>PNG</code>.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ScreenshotArguments) -> dict:
+    out: dict = {}
+    if "format" in value:
+        import aws_sdk_bedrock_agentcore.types.screenshot_format
+
+        out["format"] = (
+            aws_sdk_bedrock_agentcore.types.screenshot_format.serialize_json(
+                value["format"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> ScreenshotArguments:
+    out: ScreenshotArguments = {}  # type: ignore[typeddict-item]
+    if "format" in data:
+        import aws_sdk_bedrock_agentcore.types.screenshot_format
+
+        out["format"] = (
+            aws_sdk_bedrock_agentcore.types.screenshot_format.deserialize_json(
+                data["format"]
+            )
+        )
+    return out

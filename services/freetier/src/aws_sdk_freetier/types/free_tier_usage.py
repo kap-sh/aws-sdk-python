@@ -29,7 +29,7 @@ class FreeTierUsage(TypedDict):
     description: NotRequired["aws_sdk_freetier.types.generic_string.GenericString"]
     """<p>The description of the Free Tier offer.</p>"""
     free_tier_type: NotRequired["aws_sdk_freetier.types.generic_string.GenericString"]
-    """<p>Describes the type of the Free Tier offer. For example, the offer can be <code>\"12 Months Free\"</code>, <code>\"Always Free\"</code>, and <code>\"Free Trial\"</code>.</p>"""
+    r"""<p>Describes the type of the Free Tier offer. For example, the offer can be <code>\"12 Months Free\"</code>, <code>\"Always Free\"</code>, and <code>\"Free Trial\"</code>.</p>"""
 
 
 # --- awsJson1_0 ser/de ---

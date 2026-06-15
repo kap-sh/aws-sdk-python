@@ -7,7 +7,7 @@ from aws_sdk_amp.errors import DeserializationError
 
 class GetDefaultScraperConfigurationResponse(TypedDict):
     configuration: "bytes"
-    """<p>The configuration file. Base 64 encoded. For more information, see <a href=\"https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration\">Scraper configuration</a>in the <i>Amazon Managed Service for Prometheus User Guide</i>.</p>"""
+    r"""<p>The configuration file. Base 64 encoded. For more information, see <a href=\"https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration\">Scraper configuration</a>in the <i>Amazon Managed Service for Prometheus User Guide</i>.</p>"""
 
 
 # --- restJson1 ser/de ---

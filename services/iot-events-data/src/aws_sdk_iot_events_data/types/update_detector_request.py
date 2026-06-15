@@ -15,7 +15,7 @@ if TYPE_CHECKING:
 
 class UpdateDetectorRequest(TypedDict):
     message_id: "aws_sdk_iot_events_data.types.message_id.MessageId"
-    """<p>The ID to assign to the detector update <code>\"message\"</code>. Each <code>\"messageId\"</code> must be unique within each batch sent.</p>"""
+    r"""<p>The ID to assign to the detector update <code>\"message\"</code>. Each <code>\"messageId\"</code> must be unique within each batch sent.</p>"""
     detector_model_name: (
         "aws_sdk_iot_events_data.types.detector_model_name.DetectorModelName"
     )

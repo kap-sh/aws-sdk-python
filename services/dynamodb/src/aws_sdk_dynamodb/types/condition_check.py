@@ -23,15 +23,15 @@ class ConditionCheck(TypedDict):
     condition_expression: (
         "aws_sdk_dynamodb.types.condition_expression.ConditionExpression"
     )
-    """<p>A condition that must be satisfied in order for a conditional update to succeed. For more information, see <a href=\"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ConditionExpressions.html\">Condition expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>"""
+    r"""<p>A condition that must be satisfied in order for a conditional update to succeed. For more information, see <a href=\"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ConditionExpressions.html\">Condition expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>"""
     expression_attribute_names: NotRequired[
         "aws_sdk_dynamodb.types.expression_attribute_name_map.ExpressionAttributeNameMap"
     ]
-    """<p>One or more substitution tokens for attribute names in an expression. For more information, see <a href=\"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ExpressionAttributeNames.html\">Expression attribute names</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>"""
+    r"""<p>One or more substitution tokens for attribute names in an expression. For more information, see <a href=\"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ExpressionAttributeNames.html\">Expression attribute names</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>"""
     expression_attribute_values: NotRequired[
         "aws_sdk_dynamodb.types.expression_attribute_value_map.ExpressionAttributeValueMap"
     ]
-    """<p>One or more values that can be substituted in an expression. For more information, see <a href=\"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ConditionExpressions.html\">Condition expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>"""
+    r"""<p>One or more values that can be substituted in an expression. For more information, see <a href=\"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ConditionExpressions.html\">Condition expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>"""
     return_values_on_condition_check_failure: NotRequired[
         "aws_sdk_dynamodb.types.return_values_on_condition_check_failure.ReturnValuesOnConditionCheckFailure"
     ]

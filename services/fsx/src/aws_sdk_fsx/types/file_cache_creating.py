@@ -52,7 +52,7 @@ class FileCacheCreating(TypedDict):
     dns_name: NotRequired["aws_sdk_fsx.types.dns_name.DNSName"]
     """<p>The Domain Name System (DNS) name for the cache.</p>"""
     kms_key_id: NotRequired["aws_sdk_fsx.types.kms_key_id.KmsKeyId"]
-    """<p>Specifies the ID of the Key Management Service (KMS) key to use for encrypting data on an Amazon File Cache. If a <code>KmsKeyId</code> isn't specified, the Amazon FSx-managed KMS key for your account is used. For more information, see <a href=\"https://docs.aws.amazon.com/kms/latest/APIReference/API_Encrypt.html\">Encrypt</a> in the <i>Key Management Service API Reference</i>.</p>"""
+    r"""<p>Specifies the ID of the Key Management Service (KMS) key to use for encrypting data on an Amazon File Cache. If a <code>KmsKeyId</code> isn't specified, the Amazon FSx-managed KMS key for your account is used. For more information, see <a href=\"https://docs.aws.amazon.com/kms/latest/APIReference/API_Encrypt.html\">Encrypt</a> in the <i>Key Management Service API Reference</i>.</p>"""
     resource_arn: NotRequired["aws_sdk_fsx.types.resource_arn.ResourceARN"]
     tags: NotRequired["aws_sdk_fsx.types.tags.Tags"]
     copy_tags_to_data_repository_associations: NotRequired[

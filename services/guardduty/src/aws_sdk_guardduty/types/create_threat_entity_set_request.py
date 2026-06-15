@@ -17,7 +17,7 @@ if TYPE_CHECKING:
 
 class CreateThreatEntitySetRequest(TypedDict):
     detector_id: "aws_sdk_guardduty.types.detector_id.DetectorId"
-    """<p>The unique ID of the detector of the GuardDuty account for which you want to create a threat entity set.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html\">ListDetectors</a> API.</p>"""
+    r"""<p>The unique ID of the detector of the GuardDuty account for which you want to create a threat entity set.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html\">ListDetectors</a> API.</p>"""
     name: NotRequired["aws_sdk_guardduty.types.name.Name"]
     """<p>A user-friendly name to identify the threat entity set.</p> <p>The name of your list can include lowercase letters, uppercase letters, numbers, dash (-), and underscore (_).</p>"""
     format: NotRequired[
@@ -25,7 +25,7 @@ class CreateThreatEntitySetRequest(TypedDict):
     ]
     """<p>The format of the file that contains the threat entity set.</p>"""
     location: NotRequired["aws_sdk_guardduty.types.location.Location"]
-    """<p>The URI of the file that contains the threat entity set. The format of the <code>Location</code> URL must be a valid Amazon S3 URL format. Invalid URL formats will result in an error, regardless of whether you activate the entity set or not. For more information about format of the location URLs, see <a href=\"https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-lists-create-activate.html\">Format of location URL under Step 2: Adding trusted or threat intelligence data</a> in the <i>Amazon GuardDuty User Guide</i>.</p>"""
+    r"""<p>The URI of the file that contains the threat entity set. The format of the <code>Location</code> URL must be a valid Amazon S3 URL format. Invalid URL formats will result in an error, regardless of whether you activate the entity set or not. For more information about format of the location URLs, see <a href=\"https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-lists-create-activate.html\">Format of location URL under Step 2: Adding trusted or threat intelligence data</a> in the <i>Amazon GuardDuty User Guide</i>.</p>"""
     expected_bucket_owner: NotRequired[
         "aws_sdk_guardduty.types.expected_bucket_owner.ExpectedBucketOwner"
     ]

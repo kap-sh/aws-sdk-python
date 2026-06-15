@@ -13,7 +13,7 @@ if TYPE_CHECKING:
 
 class UpdateContactFlowModuleContentRequest(TypedDict):
     instance_id: "aws_sdk_connect.types.instance_id.InstanceId"
-    """<p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>"""
+    r"""<p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>"""
     contact_flow_module_id: (
         "aws_sdk_connect.types.contact_flow_module_id.ContactFlowModuleId"
     )
@@ -21,7 +21,7 @@ class UpdateContactFlowModuleContentRequest(TypedDict):
     content: NotRequired[
         "aws_sdk_connect.types.contact_flow_module_content.ContactFlowModuleContent"
     ]
-    """<p>The JSON string that represents the content of the flow. For an example, see <a href=\"https://docs.aws.amazon.com/connect/latest/APIReference/flow-language-example.html\">Example flow in Connect Customer Flow language</a>. </p>"""
+    r"""<p>The JSON string that represents the content of the flow. For an example, see <a href=\"https://docs.aws.amazon.com/connect/latest/APIReference/flow-language-example.html\">Example flow in Connect Customer Flow language</a>. </p>"""
     settings: NotRequired[
         "aws_sdk_connect.types.flow_module_settings.FlowModuleSettings"
     ]

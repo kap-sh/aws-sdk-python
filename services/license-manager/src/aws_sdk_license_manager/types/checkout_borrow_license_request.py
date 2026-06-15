@@ -25,7 +25,7 @@ class CheckoutBorrowLicenseRequest(TypedDict):
     digital_signature_method: (
         "aws_sdk_license_manager.types.digital_signature_method.DigitalSignatureMethod"
     )
-    """<p>Digital signature method. The possible value is JSON Web Signature (JWS) algorithm PS384. For more information, see <a href=\"https://tools.ietf.org/html/rfc7518#section-3.5\">RFC 7518 Digital Signature with RSASSA-PSS</a>.</p>"""
+    r"""<p>Digital signature method. The possible value is JSON Web Signature (JWS) algorithm PS384. For more information, see <a href=\"https://tools.ietf.org/html/rfc7518#section-3.5\">RFC 7518 Digital Signature with RSASSA-PSS</a>.</p>"""
     node_id: NotRequired["aws_sdk_license_manager.types.string.String"]
     """<p>Node ID.</p>"""
     checkout_metadata: NotRequired[

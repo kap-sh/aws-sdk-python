@@ -17,7 +17,7 @@ class DataSourceCredentials(TypedDict):
     credential_pair: NotRequired[
         "aws_sdk_quicksight.types.credential_pair.CredentialPair"
     ]
-    """<p>Credential pair. For more information, see <code> <a href=\"https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CredentialPair.html\">CredentialPair</a> </code>.</p>"""
+    r"""<p>Credential pair. For more information, see <code> <a href=\"https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CredentialPair.html\">CredentialPair</a> </code>.</p>"""
     copy_source_arn: NotRequired[
         "aws_sdk_quicksight.types.copy_source_arn.CopySourceArn"
     ]
@@ -35,7 +35,7 @@ class DataSourceCredentials(TypedDict):
     o_auth_client_credentials: NotRequired[
         "aws_sdk_quicksight.types.o_auth_client_credentials.OAuthClientCredentials"
     ]
-    """<p>The OAuth client credentials for connecting to a data source using OAuth 2.0 client credentials (2LO) authentication. For more information, see <code> <a href=\"https://docs.aws.amazon.com/quicksight/latest/APIReference/API_OAuthClientCredentials.html\">OAuthClientCredentials</a> </code>.</p>"""
+    r"""<p>The OAuth client credentials for connecting to a data source using OAuth 2.0 client credentials (2LO) authentication. For more information, see <code> <a href=\"https://docs.aws.amazon.com/quicksight/latest/APIReference/API_OAuthClientCredentials.html\">OAuthClientCredentials</a> </code>.</p>"""
 
 
 # --- restJson1 ser/de ---

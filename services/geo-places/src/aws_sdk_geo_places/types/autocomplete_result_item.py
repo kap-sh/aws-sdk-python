@@ -28,7 +28,7 @@ class AutocompleteResultItem(TypedDict):
     distance: "aws_sdk_geo_places.types.distance_meters.DistanceMeters"
     """<p>The distance in meters between the center of the search area and this result. Useful to evaluate how far away from the original bias position the result is.</p>"""
     language: NotRequired["aws_sdk_geo_places.types.language_tag.LanguageTag"]
-    """<p>A list of <a href=\"https://en.wikipedia.org/wiki/IETF_language_tag\">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry.</p>"""
+    r"""<p>A list of <a href=\"https://en.wikipedia.org/wiki/IETF_language_tag\">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry.</p>"""
     political_view: NotRequired["aws_sdk_geo_places.types.country_code3.CountryCode3"]
     """<p>The alpha-2 or alpha-3 character code for the political view of a country. The political view applies to the results of the request to represent unresolved territorial claims through the point of view of the specified country.</p>"""
     highlights: NotRequired[

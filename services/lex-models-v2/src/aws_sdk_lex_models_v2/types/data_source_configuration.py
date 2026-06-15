@@ -14,15 +14,15 @@ class DataSourceConfiguration(TypedDict):
     opensearch_configuration: NotRequired[
         "aws_sdk_lex_models_v2.types.opensearch_configuration.OpensearchConfiguration"
     ]
-    """<p>Contains details about the configuration of the Amazon OpenSearch Service database used for the <code>AMAZON.QnAIntent</code>. To create a domain, follow the steps at <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html\">Creating and managing Amazon OpenSearch Service domains</a>.</p>"""
+    r"""<p>Contains details about the configuration of the Amazon OpenSearch Service database used for the <code>AMAZON.QnAIntent</code>. To create a domain, follow the steps at <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html\">Creating and managing Amazon OpenSearch Service domains</a>.</p>"""
     kendra_configuration: NotRequired[
         "aws_sdk_lex_models_v2.types.qn_a_kendra_configuration.QnAKendraConfiguration"
     ]
-    """<p>Contains details about the configuration of the Amazon Kendra index used for the <code>AMAZON.QnAIntent</code>. To create a Amazon Kendra index, follow the steps at <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/create-index.html\">Creating an index</a>.</p>"""
+    r"""<p>Contains details about the configuration of the Amazon Kendra index used for the <code>AMAZON.QnAIntent</code>. To create a Amazon Kendra index, follow the steps at <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/create-index.html\">Creating an index</a>.</p>"""
     bedrock_knowledge_store_configuration: NotRequired[
         "aws_sdk_lex_models_v2.types.bedrock_knowledge_store_configuration.BedrockKnowledgeStoreConfiguration"
     ]
-    """<p>Contains details about the configuration of the Amazon Bedrock knowledge base used for the <code>AMAZON.QnAIntent</code>. To set up a knowledge base, follow the steps at <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html\">Building a knowledge base</a>.</p>"""
+    r"""<p>Contains details about the configuration of the Amazon Bedrock knowledge base used for the <code>AMAZON.QnAIntent</code>. To set up a knowledge base, follow the steps at <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html\">Building a knowledge base</a>.</p>"""
 
 
 # --- restJson1 ser/de ---

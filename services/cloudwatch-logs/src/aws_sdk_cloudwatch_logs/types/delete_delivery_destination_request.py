@@ -10,7 +10,7 @@ if TYPE_CHECKING:
 
 class DeleteDeliveryDestinationRequest(TypedDict):
     name: "aws_sdk_cloudwatch_logs.types.delivery_destination_name.DeliveryDestinationName"
-    """<p>The name of the delivery destination that you want to delete. You can find a list of delivery destination names by using the <a href=\"https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeDeliveryDestinations.html\">DescribeDeliveryDestinations</a> operation.</p>"""
+    r"""<p>The name of the delivery destination that you want to delete. You can find a list of delivery destination names by using the <a href=\"https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeDeliveryDestinations.html\">DescribeDeliveryDestinations</a> operation.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

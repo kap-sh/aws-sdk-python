@@ -12,7 +12,7 @@ class UpdateResourceOutput(TypedDict):
     progress_event: NotRequired[
         "aws_sdk_cloudcontrol.types.progress_event.ProgressEvent"
     ]
-    """<p>Represents the current status of the resource update request.</p> <p>Use the <code>RequestToken</code> of the <code>ProgressEvent</code> with <a href=\"https://docs.aws.amazon.com/cloudcontrolapi/latest/APIReference/API_GetResourceRequestStatus.html\">GetResourceRequestStatus</a> to return the current status of a resource operation request.</p>"""
+    r"""<p>Represents the current status of the resource update request.</p> <p>Use the <code>RequestToken</code> of the <code>ProgressEvent</code> with <a href=\"https://docs.aws.amazon.com/cloudcontrolapi/latest/APIReference/API_GetResourceRequestStatus.html\">GetResourceRequestStatus</a> to return the current status of a resource operation request.</p>"""
 
 
 # --- awsJson1_0 ser/de ---

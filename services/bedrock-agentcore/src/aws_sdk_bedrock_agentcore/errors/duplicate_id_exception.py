@@ -1,13 +1,20 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#DuplicateIdException``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_bedrock_agentcore.errors import ServiceError
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.non_blank_string
 
+
 class DuplicateIdException_(TypedDict):
-    message: NotRequired["aws_sdk_bedrock_agentcore.types.non_blank_string.NonBlankString"]
+    message: NotRequired[
+        "aws_sdk_bedrock_agentcore.types.non_blank_string.NonBlankString"
+    ]
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: DuplicateIdException_) -> dict:
@@ -26,10 +33,16 @@ def deserialize_json(data: dict) -> DuplicateIdException_:
 
 class DuplicateIdException(ServiceError):
     """Modeled error for Smithy shape ``com.amazonaws.bedrockagentcore#DuplicateIdException``."""
-    code: str | None = 'DuplicateIdException'
+
+    code: str | None = "DuplicateIdException"
 
     def __init__(self, data: DuplicateIdException_):
-        super().__init__('client', is_throttling_error=False, is_retryable=False, code='DuplicateIdException')
+        super().__init__(
+            "client",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="DuplicateIdException",
+        )
         self.data = data
 
     @classmethod

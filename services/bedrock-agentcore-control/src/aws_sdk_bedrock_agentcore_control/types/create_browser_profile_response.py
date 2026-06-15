@@ -1,22 +1,30 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#CreateBrowserProfileResponse``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.browser_profile_arn
     import aws_sdk_bedrock_agentcore_control.types.browser_profile_id
     import aws_sdk_bedrock_agentcore_control.types.browser_profile_status
     import aws_sdk_bedrock_agentcore_control.types.date_timestamp
 
+
 class CreateBrowserProfileResponse(TypedDict):
-    profile_id: "aws_sdk_bedrock_agentcore_control.types.browser_profile_id.BrowserProfileId"
+    profile_id: (
+        "aws_sdk_bedrock_agentcore_control.types.browser_profile_id.BrowserProfileId"
+    )
     """<p>The unique identifier of the created browser profile.</p>"""
-    profile_arn: "aws_sdk_bedrock_agentcore_control.types.browser_profile_arn.BrowserProfileArn"
+    profile_arn: (
+        "aws_sdk_bedrock_agentcore_control.types.browser_profile_arn.BrowserProfileArn"
+    )
     """<p>The Amazon Resource Name (ARN) of the created browser profile.</p>"""
     created_at: "aws_sdk_bedrock_agentcore_control.types.date_timestamp.DateTimestamp"
     """<p>The timestamp when the browser profile was created.</p>"""
     status: "aws_sdk_bedrock_agentcore_control.types.browser_profile_status.BrowserProfileStatus"
     """<p>The current status of the browser profile.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: CreateBrowserProfileResponse) -> dict:
@@ -24,9 +32,19 @@ def serialize_json(value: CreateBrowserProfileResponse) -> dict:
     out["profileId"] = value["profile_id"]
     out["profileArn"] = value["profile_arn"]
     import aws_sdk_bedrock_agentcore_control.types.date_timestamp
-    out["createdAt"] = aws_sdk_bedrock_agentcore_control.types.date_timestamp.serialize_json(value["created_at"])
+
+    out["createdAt"] = (
+        aws_sdk_bedrock_agentcore_control.types.date_timestamp.serialize_json(
+            value["created_at"]
+        )
+    )
     import aws_sdk_bedrock_agentcore_control.types.browser_profile_status
-    out["status"] = aws_sdk_bedrock_agentcore_control.types.browser_profile_status.serialize_json(value["status"])
+
+    out["status"] = (
+        aws_sdk_bedrock_agentcore_control.types.browser_profile_status.serialize_json(
+            value["status"]
+        )
+    )
     return out
 
 
@@ -42,12 +60,22 @@ def deserialize_json(data: dict) -> CreateBrowserProfileResponse:
         raise DeserializationError("CreateBrowserProfileResponse.profile_arn required")
     if "createdAt" in data:
         import aws_sdk_bedrock_agentcore_control.types.date_timestamp
-        out["created_at"] = aws_sdk_bedrock_agentcore_control.types.date_timestamp.deserialize_json(data["createdAt"])
+
+        out["created_at"] = (
+            aws_sdk_bedrock_agentcore_control.types.date_timestamp.deserialize_json(
+                data["createdAt"]
+            )
+        )
     else:
         raise DeserializationError("CreateBrowserProfileResponse.created_at required")
     if "status" in data:
         import aws_sdk_bedrock_agentcore_control.types.browser_profile_status
-        out["status"] = aws_sdk_bedrock_agentcore_control.types.browser_profile_status.deserialize_json(data["status"])
+
+        out["status"] = (
+            aws_sdk_bedrock_agentcore_control.types.browser_profile_status.deserialize_json(
+                data["status"]
+            )
+        )
     else:
         raise DeserializationError("CreateBrowserProfileResponse.status required")
     return out

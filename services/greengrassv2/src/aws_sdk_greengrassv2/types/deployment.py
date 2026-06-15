@@ -15,7 +15,7 @@ if TYPE_CHECKING:
 
 class Deployment(TypedDict):
     target_arn: NotRequired["aws_sdk_greengrassv2.types.target_arn.TargetARN"]
-    """<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the target IoT thing or thing group. When creating a subdeployment, the targetARN can only be a thing group.</p>"""
+    r"""<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the target IoT thing or thing group. When creating a subdeployment, the targetARN can only be a thing group.</p>"""
     revision_id: NotRequired[
         "aws_sdk_greengrassv2.types.non_empty_string.NonEmptyString"
     ]
@@ -41,7 +41,7 @@ class Deployment(TypedDict):
     parent_target_arn: NotRequired[
         "aws_sdk_greengrassv2.types.thing_group_arn.ThingGroupARN"
     ]
-    """<p>The parent deployment's target <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> within a subdeployment.</p>"""
+    r"""<p>The parent deployment's target <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> within a subdeployment.</p>"""
 
 
 # --- restJson1 ser/de ---

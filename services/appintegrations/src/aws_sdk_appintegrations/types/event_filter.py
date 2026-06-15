@@ -1,13 +1,17 @@
 """Generated from Smithy shape ``com.amazonaws.appintegrations#EventFilter``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_appintegrations.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_appintegrations.types.source
+
 
 class EventFilter(TypedDict):
     source: "aws_sdk_appintegrations.types.source.Source"
     """<p>The source of the events.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: EventFilter) -> dict:

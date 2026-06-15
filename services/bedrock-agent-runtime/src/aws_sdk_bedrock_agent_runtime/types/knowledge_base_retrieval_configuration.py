@@ -10,7 +10,7 @@ if TYPE_CHECKING:
 
 class KnowledgeBaseRetrievalConfiguration(TypedDict):
     vector_search_configuration: "aws_sdk_bedrock_agent_runtime.types.knowledge_base_vector_search_configuration.KnowledgeBaseVectorSearchConfiguration"
-    """<p>Contains details about how the results from the vector search should be returned. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html\">Query configurations</a>.</p>"""
+    r"""<p>Contains details about how the results from the vector search should be returned. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html\">Query configurations</a>.</p>"""
 
 
 # --- restJson1 ser/de ---

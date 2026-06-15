@@ -224,7 +224,7 @@ class DocDBClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = DocDBClientConfig(
+        self._config = DocDBClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -244,7 +244,7 @@ class DocDBClient:
         overrides: DocDBClientConfig = config_overrides or {}
         interceptors_: list[Interceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             retry(),
         ]
@@ -252,16 +252,16 @@ class DocDBClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            region=overrides.get("region", self.config.get("region")),
+            region=overrides.get("region", self._config.get("region")),
             use_dual_stack=overrides.get(
-                "use_dual_stack", self.config.get("use_dual_stack")
+                "use_dual_stack", self._config.get("use_dual_stack")
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -556,7 +556,7 @@ class DocDBClient:
         ] = None,
         network_type: Optional["aws_sdk_docdb.types.string.String"] = None,
     ) -> "aws_sdk_docdb.types.create_db_cluster_result.CreateDBClusterResult":
-        """<p>Creates a new Amazon DocumentDB cluster.</p>
+        r"""<p>Creates a new Amazon DocumentDB cluster.</p>
 
         Args:
             availability_zones: <p>A list of Amazon EC2 Availability Zones that instances in the cluster can be created in.</p>
@@ -669,7 +669,7 @@ class DocDBClient:
         config_overrides: Optional[DocDBClientConfig] = None,
         tags: Optional["aws_sdk_docdb.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_docdb.types.create_db_cluster_parameter_group_result.CreateDBClusterParameterGroupResult":
-        """<p>Creates a new cluster parameter group.</p> <p>Parameters in a cluster parameter group apply to all of the instances in a cluster.</p> <p>A cluster parameter group is initially created with the default parameters for the database engine used by instances in the cluster. In Amazon DocumentDB, you cannot make modifications directly to the <code>default.docdb3.6</code> cluster parameter group. If your Amazon DocumentDB cluster is using the default cluster parameter group and you want to modify a value in it, you must first <a href=\"https://docs.aws.amazon.com/documentdb/latest/developerguide/cluster_parameter_group-create.html\"> create a new parameter group</a> or <a href=\"https://docs.aws.amazon.com/documentdb/latest/developerguide/cluster_parameter_group-copy.html\"> copy an existing parameter group</a>, modify it, and then apply the modified parameter group to your cluster. For the new cluster parameter group and associated settings to take effect, you must then reboot the instances in the cluster without failover. For more information, see <a href=\"https://docs.aws.amazon.com/documentdb/latest/developerguide/cluster_parameter_group-modify.html\"> Modifying Amazon DocumentDB Cluster Parameter Groups</a>. </p>
+        r"""<p>Creates a new cluster parameter group.</p> <p>Parameters in a cluster parameter group apply to all of the instances in a cluster.</p> <p>A cluster parameter group is initially created with the default parameters for the database engine used by instances in the cluster. In Amazon DocumentDB, you cannot make modifications directly to the <code>default.docdb3.6</code> cluster parameter group. If your Amazon DocumentDB cluster is using the default cluster parameter group and you want to modify a value in it, you must first <a href=\"https://docs.aws.amazon.com/documentdb/latest/developerguide/cluster_parameter_group-create.html\"> create a new parameter group</a> or <a href=\"https://docs.aws.amazon.com/documentdb/latest/developerguide/cluster_parameter_group-copy.html\"> copy an existing parameter group</a>, modify it, and then apply the modified parameter group to your cluster. For the new cluster parameter group and associated settings to take effect, you must then reboot the instances in the cluster without failover. For more information, see <a href=\"https://docs.aws.amazon.com/documentdb/latest/developerguide/cluster_parameter_group-modify.html\"> Modifying Amazon DocumentDB Cluster Parameter Groups</a>. </p>
 
         Args:
             db_cluster_parameter_group_name: <p>The name of the cluster parameter group.</p> <p>Constraints:</p> <ul> <li> <p>Must not match the name of an existing <code>DBClusterParameterGroup</code>.</p> </li> </ul> <note> <p>This value is stored as a lowercase string.</p> </note>
@@ -781,7 +781,7 @@ class DocDBClient:
         ] = None,
         ca_certificate_identifier: Optional["aws_sdk_docdb.types.string.String"] = None,
     ) -> "aws_sdk_docdb.types.create_db_instance_result.CreateDBInstanceResult":
-        """<p>Creates a new instance.</p>
+        r"""<p>Creates a new instance.</p>
 
         Args:
             db_instance_identifier: <p>The instance identifier. This parameter is stored as a lowercase string.</p> <p>Constraints:</p> <ul> <li> <p>Must contain from 1 to 63 letters, numbers, or hyphens.</p> </li> <li> <p>The first character must be a letter.</p> </li> <li> <p>Cannot end with a hyphen or contain two consecutive hyphens.</p> </li> </ul> <p>Example: <code>mydbinstance</code> </p>
@@ -2769,7 +2769,7 @@ class DocDBClient:
         ] = None,
         network_type: Optional["aws_sdk_docdb.types.string.String"] = None,
     ) -> "aws_sdk_docdb.types.modify_db_cluster_result.ModifyDBClusterResult":
-        """<p>Modifies a setting for an Amazon DocumentDB cluster. You can change one or more database configuration parameters by specifying these parameters and the new values in the request. </p>
+        r"""<p>Modifies a setting for an Amazon DocumentDB cluster. You can change one or more database configuration parameters by specifying these parameters and the new values in the request. </p>
 
         Args:
             db_cluster_identifier: <p>The cluster identifier for the cluster that is being modified. This parameter is not case sensitive.</p> <p>Constraints:</p> <ul> <li> <p>Must match the identifier of an existing <code>DBCluster</code>.</p> </li> </ul>
@@ -2986,7 +2986,7 @@ class DocDBClient:
             "aws_sdk_docdb.types.boolean_optional.BooleanOptional"
         ] = None,
     ) -> "aws_sdk_docdb.types.modify_db_instance_result.ModifyDBInstanceResult":
-        """<p>Modifies settings for an instance. You can change one or more database configuration parameters by specifying these parameters and the new values in the request.</p>
+        r"""<p>Modifies settings for an instance. You can change one or more database configuration parameters by specifying these parameters and the new values in the request.</p>
 
         Args:
             db_instance_identifier: <p>The instance identifier. This value is stored as a lowercase string.</p> <p>Constraints:</p> <ul> <li> <p>Must match the identifier of an existing <code>DBInstance</code>.</p> </li> </ul>
@@ -3443,7 +3443,7 @@ class DocDBClient:
         storage_type: Optional["aws_sdk_docdb.types.string.String"] = None,
         network_type: Optional["aws_sdk_docdb.types.string.String"] = None,
     ) -> "aws_sdk_docdb.types.restore_db_cluster_from_snapshot_result.RestoreDBClusterFromSnapshotResult":
-        """<p>Creates a new cluster from a snapshot or cluster snapshot.</p> <p>If a snapshot is specified, the target cluster is created from the source DB snapshot with a default configuration and default security group.</p> <p>If a cluster snapshot is specified, the target cluster is created from the source cluster restore point with the same configuration as the original source DB cluster, except that the new cluster is created with the default security group.</p>
+        r"""<p>Creates a new cluster from a snapshot or cluster snapshot.</p> <p>If a snapshot is specified, the target cluster is created from the source DB snapshot with a default configuration and default security group.</p> <p>If a cluster snapshot is specified, the target cluster is created from the source cluster restore point with the same configuration as the original source DB cluster, except that the new cluster is created with the default security group.</p>
 
         Args:
             availability_zones: <p>Provides the list of Amazon EC2 Availability Zones that instances in the restored DB cluster can be created in.</p>
@@ -3549,7 +3549,7 @@ class DocDBClient:
         storage_type: Optional["aws_sdk_docdb.types.string.String"] = None,
         network_type: Optional["aws_sdk_docdb.types.string.String"] = None,
     ) -> "aws_sdk_docdb.types.restore_db_cluster_to_point_in_time_result.RestoreDBClusterToPointInTimeResult":
-        """<p>Restores a cluster to an arbitrary point in time. Users can restore to any point in time before <code>LatestRestorableTime</code> for up to <code>BackupRetentionPeriod</code> days. The target cluster is created from the source cluster with the same configuration as the original cluster, except that the new cluster is created with the default security group. </p>
+        r"""<p>Restores a cluster to an arbitrary point in time. Users can restore to any point in time before <code>LatestRestorableTime</code> for up to <code>BackupRetentionPeriod</code> days. The target cluster is created from the source cluster with the same configuration as the original cluster, except that the new cluster is created with the default security group. </p>
 
         Args:
             db_cluster_identifier: <p>The name of the new cluster to be created.</p> <p>Constraints:</p> <ul> <li> <p>Must contain from 1 to 63 letters, numbers, or hyphens.</p> </li> <li> <p>The first character must be a letter.</p> </li> <li> <p>Cannot end with a hyphen or contain two consecutive hyphens.</p> </li> </ul>
@@ -3629,7 +3629,7 @@ class DocDBClient:
         *,
         config_overrides: Optional[DocDBClientConfig] = None,
     ) -> "aws_sdk_docdb.types.start_db_cluster_result.StartDBClusterResult":
-        """<p>Restarts the stopped cluster that is specified by <code>DBClusterIdentifier</code>. For more information, see <a href=\"https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-stop-start.html\">Stopping and Starting an Amazon DocumentDB Cluster</a>.</p>
+        r"""<p>Restarts the stopped cluster that is specified by <code>DBClusterIdentifier</code>. For more information, see <a href=\"https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-stop-start.html\">Stopping and Starting an Amazon DocumentDB Cluster</a>.</p>
 
         Args:
             db_cluster_identifier: <p>The identifier of the cluster to restart. Example: <code>docdb-2019-05-28-15-24-52</code> </p>
@@ -3666,7 +3666,7 @@ class DocDBClient:
         *,
         config_overrides: Optional[DocDBClientConfig] = None,
     ) -> "aws_sdk_docdb.types.stop_db_cluster_result.StopDBClusterResult":
-        """<p>Stops the running cluster that is specified by <code>DBClusterIdentifier</code>. The cluster must be in the <i>available</i> state. For more information, see <a href=\"https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-stop-start.html\">Stopping and Starting an Amazon DocumentDB Cluster</a>.</p>
+        r"""<p>Stops the running cluster that is specified by <code>DBClusterIdentifier</code>. The cluster must be in the <i>available</i> state. For more information, see <a href=\"https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-stop-start.html\">Stopping and Starting an Amazon DocumentDB Cluster</a>.</p>
 
         Args:
             db_cluster_identifier: <p>The identifier of the cluster to stop. Example: <code>docdb-2019-05-28-15-24-52</code> </p>

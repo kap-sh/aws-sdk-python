@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_geo_routes._auth._signers
@@ -145,7 +147,7 @@ class ProviderResource:
     ) -> (
         "aws_sdk_geo_routes.types.calculate_isolines_response.CalculateIsolinesResponse"
     ):
-        """<p>Calculates areas that can be reached within specified time or distance thresholds from a given point. For example, you can use this operation to determine the area within a 30-minute drive of a store location, find neighborhoods within walking distance of a school, or identify delivery zones based on drive time.</p> <p>Isolines (also known as isochrones for time-based calculations) are useful for various applications including:</p> <ul> <li> <p>Service area visualization - Show customers the area you can serve within promised delivery times</p> </li> <li> <p>Site selection - Analyze potential business locations based on population within travel distance</p> </li> <li> <p>Site selection - Determine areas that can be reached within specified response times</p> </li> </ul> <note> <p>Route preferences such as avoiding toll roads or ferries are treated as preferences rather than absolute restrictions. If a viable route cannot be calculated while honoring all preferences, some may be ignored.</p> </note> <p>For more information, see <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/calculate-isolines.html\">Calculate isolines</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
+        r"""<p>Calculates areas that can be reached within specified time or distance thresholds from a given point. For example, you can use this operation to determine the area within a 30-minute drive of a store location, find neighborhoods within walking distance of a school, or identify delivery zones based on drive time.</p> <p>Isolines (also known as isochrones for time-based calculations) are useful for various applications including:</p> <ul> <li> <p>Service area visualization - Show customers the area you can serve within promised delivery times</p> </li> <li> <p>Site selection - Analyze potential business locations based on population within travel distance</p> </li> <li> <p>Site selection - Determine areas that can be reached within specified response times</p> </li> </ul> <note> <p>Route preferences such as avoiding toll roads or ferries are treated as preferences rather than absolute restrictions. If a viable route cannot be calculated while honoring all preferences, some may be ignored.</p> </note> <p>For more information, see <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/calculate-isolines.html\">Calculate isolines</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
 
         Args:
             allow: <p>Enables special road types or features that should be considered for routing even if they might be restricted by default for the selected travel mode. These include high-occupancy vehicle and toll lanes.</p>
@@ -265,7 +267,7 @@ class ProviderResource:
             "aws_sdk_geo_routes.types.route_matrix_travel_mode_options.RouteMatrixTravelModeOptions"
         ] = None,
     ) -> "aws_sdk_geo_routes.types.calculate_route_matrix_response.CalculateRouteMatrixResponse":
-        """<p> Use <code>CalculateRouteMatrix</code> to compute results for all pairs of Origins to Destinations. Each row corresponds to one entry in Origins. Each entry in the row corresponds to the route from that entry in Origins to an entry in Destinations positions.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/calculate-route-matrix.html\">Calculate route matrix</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
+        r"""<p> Use <code>CalculateRouteMatrix</code> to compute results for all pairs of Origins to Destinations. Each row corresponds to one entry in Origins. Each entry in the row corresponds to the route from that entry in Origins to an entry in Destinations positions.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/calculate-route-matrix.html\">Calculate route matrix</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
 
         Args:
             allow: <p>Features that are allowed while calculating a route.</p>
@@ -403,7 +405,7 @@ class ProviderResource:
             "aws_sdk_geo_routes.types.route_waypoint_list.RouteWaypointList"
         ] = None,
     ) -> "aws_sdk_geo_routes.types.calculate_routes_response.CalculateRoutesResponse":
-        """<p> <code>CalculateRoutes</code> computes routes given the following required parameters: <code>Origin</code> and <code>Destination</code>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/calculate-routes.html\">Calculate routes</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
+        r"""<p> <code>CalculateRoutes</code> computes routes given the following required parameters: <code>Origin</code> and <code>Destination</code>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/calculate-routes.html\">Calculate routes</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
 
         Args:
             allow: <p> Features that are allowed while calculating a route. Not supported in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html\">GrabMaps</a> customers. </p>
@@ -551,7 +553,7 @@ class ProviderResource:
     ) -> (
         "aws_sdk_geo_routes.types.optimize_waypoints_response.OptimizeWaypointsResponse"
     ):
-        """<p> <code>OptimizeWaypoints</code> calculates the optimal order to travel between a set of waypoints to minimize either the travel time or the distance travelled during the journey, based on road network restrictions and the traffic pattern data.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/actions-optimize-waypoints.html\">Optimize waypoints</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
+        r"""<p> <code>OptimizeWaypoints</code> calculates the optimal order to travel between a set of waypoints to minimize either the travel time or the distance travelled during the journey, based on road network restrictions and the traffic pattern data.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/actions-optimize-waypoints.html\">Optimize waypoints</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
 
         Args:
             avoid: <p>Features that are avoided. Avoidance is on a best-case basis. If an avoidance can't be satisfied for a particular case, this setting is ignored.</p>
@@ -643,7 +645,7 @@ class ProviderResource:
             "aws_sdk_geo_routes.types.road_snap_travel_mode_options.RoadSnapTravelModeOptions"
         ] = None,
     ) -> "aws_sdk_geo_routes.types.snap_to_roads_response.SnapToRoadsResponse":
-        """<p> <code>SnapToRoads</code> matches GPS trace to roads most likely traveled on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/snap-to-roads.html\">Snap to Roads</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
+        r"""<p> <code>SnapToRoads</code> matches GPS trace to roads most likely traveled on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/snap-to-roads.html\">Snap to Roads</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
 
         Args:
             key: <p>Optional: The API key to be used for authorization. Either an API key or valid SigV4 signature must be provided when making a request. </p>
@@ -747,7 +749,7 @@ class AsyncProviderResource:
     ) -> (
         "aws_sdk_geo_routes.types.calculate_isolines_response.CalculateIsolinesResponse"
     ):
-        """<p>Calculates areas that can be reached within specified time or distance thresholds from a given point. For example, you can use this operation to determine the area within a 30-minute drive of a store location, find neighborhoods within walking distance of a school, or identify delivery zones based on drive time.</p> <p>Isolines (also known as isochrones for time-based calculations) are useful for various applications including:</p> <ul> <li> <p>Service area visualization - Show customers the area you can serve within promised delivery times</p> </li> <li> <p>Site selection - Analyze potential business locations based on population within travel distance</p> </li> <li> <p>Site selection - Determine areas that can be reached within specified response times</p> </li> </ul> <note> <p>Route preferences such as avoiding toll roads or ferries are treated as preferences rather than absolute restrictions. If a viable route cannot be calculated while honoring all preferences, some may be ignored.</p> </note> <p>For more information, see <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/calculate-isolines.html\">Calculate isolines</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
+        r"""<p>Calculates areas that can be reached within specified time or distance thresholds from a given point. For example, you can use this operation to determine the area within a 30-minute drive of a store location, find neighborhoods within walking distance of a school, or identify delivery zones based on drive time.</p> <p>Isolines (also known as isochrones for time-based calculations) are useful for various applications including:</p> <ul> <li> <p>Service area visualization - Show customers the area you can serve within promised delivery times</p> </li> <li> <p>Site selection - Analyze potential business locations based on population within travel distance</p> </li> <li> <p>Site selection - Determine areas that can be reached within specified response times</p> </li> </ul> <note> <p>Route preferences such as avoiding toll roads or ferries are treated as preferences rather than absolute restrictions. If a viable route cannot be calculated while honoring all preferences, some may be ignored.</p> </note> <p>For more information, see <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/calculate-isolines.html\">Calculate isolines</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
 
         Args:
             allow: <p>Enables special road types or features that should be considered for routing even if they might be restricted by default for the selected travel mode. These include high-occupancy vehicle and toll lanes.</p>
@@ -868,7 +870,7 @@ class AsyncProviderResource:
             "aws_sdk_geo_routes.types.route_matrix_travel_mode_options.RouteMatrixTravelModeOptions"
         ] = None,
     ) -> "aws_sdk_geo_routes.types.calculate_route_matrix_response.CalculateRouteMatrixResponse":
-        """<p> Use <code>CalculateRouteMatrix</code> to compute results for all pairs of Origins to Destinations. Each row corresponds to one entry in Origins. Each entry in the row corresponds to the route from that entry in Origins to an entry in Destinations positions.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/calculate-route-matrix.html\">Calculate route matrix</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
+        r"""<p> Use <code>CalculateRouteMatrix</code> to compute results for all pairs of Origins to Destinations. Each row corresponds to one entry in Origins. Each entry in the row corresponds to the route from that entry in Origins to an entry in Destinations positions.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/calculate-route-matrix.html\">Calculate route matrix</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
 
         Args:
             allow: <p>Features that are allowed while calculating a route.</p>
@@ -1007,7 +1009,7 @@ class AsyncProviderResource:
             "aws_sdk_geo_routes.types.route_waypoint_list.RouteWaypointList"
         ] = None,
     ) -> "aws_sdk_geo_routes.types.calculate_routes_response.CalculateRoutesResponse":
-        """<p> <code>CalculateRoutes</code> computes routes given the following required parameters: <code>Origin</code> and <code>Destination</code>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/calculate-routes.html\">Calculate routes</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
+        r"""<p> <code>CalculateRoutes</code> computes routes given the following required parameters: <code>Origin</code> and <code>Destination</code>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/calculate-routes.html\">Calculate routes</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
 
         Args:
             allow: <p> Features that are allowed while calculating a route. Not supported in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html\">GrabMaps</a> customers. </p>
@@ -1156,7 +1158,7 @@ class AsyncProviderResource:
     ) -> (
         "aws_sdk_geo_routes.types.optimize_waypoints_response.OptimizeWaypointsResponse"
     ):
-        """<p> <code>OptimizeWaypoints</code> calculates the optimal order to travel between a set of waypoints to minimize either the travel time or the distance travelled during the journey, based on road network restrictions and the traffic pattern data.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/actions-optimize-waypoints.html\">Optimize waypoints</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
+        r"""<p> <code>OptimizeWaypoints</code> calculates the optimal order to travel between a set of waypoints to minimize either the travel time or the distance travelled during the journey, based on road network restrictions and the traffic pattern data.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/actions-optimize-waypoints.html\">Optimize waypoints</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
 
         Args:
             avoid: <p>Features that are avoided. Avoidance is on a best-case basis. If an avoidance can't be satisfied for a particular case, this setting is ignored.</p>
@@ -1249,7 +1251,7 @@ class AsyncProviderResource:
             "aws_sdk_geo_routes.types.road_snap_travel_mode_options.RoadSnapTravelModeOptions"
         ] = None,
     ) -> "aws_sdk_geo_routes.types.snap_to_roads_response.SnapToRoadsResponse":
-        """<p> <code>SnapToRoads</code> matches GPS trace to roads most likely traveled on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/snap-to-roads.html\">Snap to Roads</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
+        r"""<p> <code>SnapToRoads</code> matches GPS trace to roads most likely traveled on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/snap-to-roads.html\">Snap to Roads</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
 
         Args:
             key: <p>Optional: The API key to be used for authorization. Either an API key or valid SigV4 signature must be provided when making a request. </p>

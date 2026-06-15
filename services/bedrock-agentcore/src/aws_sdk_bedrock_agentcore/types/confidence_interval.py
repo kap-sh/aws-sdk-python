@@ -1,13 +1,16 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#ConfidenceInterval``."""
 
 from typing import TypedDict
+
 from typing_extensions import NotRequired
+
 
 class ConfidenceInterval(TypedDict):
     lower: NotRequired["float"]
     """<p>The lower bound of the confidence interval.</p>"""
     upper: NotRequired["float"]
     """<p>The upper bound of the confidence interval.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: ConfidenceInterval) -> dict:

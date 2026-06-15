@@ -24,7 +24,7 @@ class DescribeReplaceRootVolumeTasksRequest(TypedDict):
     max_results: NotRequired[
         "aws_sdk_ec2.types.describe_replace_root_volume_tasks_max_results.DescribeReplaceRootVolumeTasksMaxResults"
     ]
-    """<p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>"""
+    r"""<p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>"""
     next_token: NotRequired["aws_sdk_ec2.types.next_token.NextToken"]
     """<p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>"""
     dry_run: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]

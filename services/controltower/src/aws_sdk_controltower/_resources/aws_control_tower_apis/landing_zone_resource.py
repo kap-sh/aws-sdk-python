@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_controltower._auth._signers
@@ -57,7 +59,7 @@ class LandingZoneResource:
     ) -> (
         "aws_sdk_controltower.types.create_landing_zone_output.CreateLandingZoneOutput"
     ):
-        """<p>Creates a new landing zone. This API call starts an asynchronous operation that creates and configures a landing zone, based on the parameters specified in the manifest JSON file.</p>
+        r"""<p>Creates a new landing zone. This API call starts an asynchronous operation that creates and configures a landing zone, based on the parameters specified in the manifest JSON file.</p>
 
         Args:
             version: <p>The landing zone version, for example, 3.0.</p>
@@ -147,7 +149,7 @@ class LandingZoneResource:
     ) -> (
         "aws_sdk_controltower.types.update_landing_zone_output.UpdateLandingZoneOutput"
     ):
-        """<p>This API call updates the landing zone. It starts an asynchronous operation that updates the landing zone based on the new landing zone version, or on the changed parameters specified in the updated manifest file. </p>
+        r"""<p>This API call updates the landing zone. It starts an asynchronous operation that updates the landing zone based on the new landing zone version, or on the changed parameters specified in the updated manifest file. </p>
 
         Args:
             version: <p>The landing zone version, for example, 3.2.</p>
@@ -324,7 +326,7 @@ class AsyncLandingZoneResource:
     ) -> (
         "aws_sdk_controltower.types.create_landing_zone_output.CreateLandingZoneOutput"
     ):
-        """<p>Creates a new landing zone. This API call starts an asynchronous operation that creates and configures a landing zone, based on the parameters specified in the manifest JSON file.</p>
+        r"""<p>Creates a new landing zone. This API call starts an asynchronous operation that creates and configures a landing zone, based on the parameters specified in the manifest JSON file.</p>
 
         Args:
             version: <p>The landing zone version, for example, 3.0.</p>
@@ -416,7 +418,7 @@ class AsyncLandingZoneResource:
     ) -> (
         "aws_sdk_controltower.types.update_landing_zone_output.UpdateLandingZoneOutput"
     ):
-        """<p>This API call updates the landing zone. It starts an asynchronous operation that updates the landing zone based on the new landing zone version, or on the changed parameters specified in the updated manifest file. </p>
+        r"""<p>This API call updates the landing zone. It starts an asynchronous operation that updates the landing zone based on the new landing zone version, or on the changed parameters specified in the updated manifest file. </p>
 
         Args:
             version: <p>The landing zone version, for example, 3.2.</p>

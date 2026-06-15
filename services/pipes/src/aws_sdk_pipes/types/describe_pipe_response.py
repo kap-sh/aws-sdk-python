@@ -56,7 +56,7 @@ class DescribePipeResponse(TypedDict):
     target_parameters: NotRequired[
         "aws_sdk_pipes.types.pipe_target_parameters.PipeTargetParameters"
     ]
-    """<p>The parameters required to set up a target for your pipe.</p> <p>For more information about pipe target parameters, including how to use dynamic path parameters, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-event-target.html\">Target parameters</a> in the <i>Amazon EventBridge User Guide</i>.</p>"""
+    r"""<p>The parameters required to set up a target for your pipe.</p> <p>For more information about pipe target parameters, including how to use dynamic path parameters, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-event-target.html\">Target parameters</a> in the <i>Amazon EventBridge User Guide</i>.</p>"""
     role_arn: NotRequired["aws_sdk_pipes.types.role_arn.RoleArn"]
     """<p>The ARN of the role that allows the pipe to send data to the target.</p>"""
     tags: NotRequired["aws_sdk_pipes.types.tag_map.TagMap"]
@@ -64,7 +64,7 @@ class DescribePipeResponse(TypedDict):
     creation_time: NotRequired["aws_sdk_pipes.types.timestamp.Timestamp"]
     """<p>The time the pipe was created.</p>"""
     last_modified_time: NotRequired["aws_sdk_pipes.types.timestamp.Timestamp"]
-    """<p>When the pipe was last updated, in <a href=\"https://www.w3.org/TR/NOTE-datetime\">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>"""
+    r"""<p>When the pipe was last updated, in <a href=\"https://www.w3.org/TR/NOTE-datetime\">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>"""
     log_configuration: NotRequired[
         "aws_sdk_pipes.types.pipe_log_configuration.PipeLogConfiguration"
     ]
@@ -72,7 +72,7 @@ class DescribePipeResponse(TypedDict):
     kms_key_identifier: NotRequired[
         "aws_sdk_pipes.types.kms_key_identifier.KmsKeyIdentifier"
     ]
-    """<p>The identifier of the KMS customer managed key for EventBridge to use to encrypt pipe data, if one has been specified.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-encryption.html\">Data encryption in EventBridge</a> in the <i>Amazon EventBridge User Guide</i>.</p>"""
+    r"""<p>The identifier of the KMS customer managed key for EventBridge to use to encrypt pipe data, if one has been specified.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-encryption.html\">Data encryption in EventBridge</a> in the <i>Amazon EventBridge User Guide</i>.</p>"""
 
 
 # --- restJson1 ser/de ---

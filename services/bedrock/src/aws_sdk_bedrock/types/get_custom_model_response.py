@@ -35,7 +35,7 @@ class GetCustomModelResponse(TypedDict):
     job_arn: NotRequired[
         "aws_sdk_bedrock.types.model_customization_job_arn.ModelCustomizationJobArn"
     ]
-    """<p>Job Amazon Resource Name (ARN) associated with this model. For models that you create with the <a href=\"https://docs.aws.amazon.com/bedrock/latest/APIReference/API_CreateCustomModel.html\">CreateCustomModel</a> API operation, this is <code>NULL</code>.</p>"""
+    r"""<p>Job Amazon Resource Name (ARN) associated with this model. For models that you create with the <a href=\"https://docs.aws.amazon.com/bedrock/latest/APIReference/API_CreateCustomModel.html\">CreateCustomModel</a> API operation, this is <code>NULL</code>.</p>"""
     base_model_arn: NotRequired["aws_sdk_bedrock.types.model_arn.ModelArn"]
     """<p>Amazon Resource Name (ARN) of the base model.</p>"""
     customization_type: NotRequired[
@@ -47,7 +47,7 @@ class GetCustomModelResponse(TypedDict):
     hyper_parameters: NotRequired[
         "aws_sdk_bedrock.types.model_customization_hyper_parameters.ModelCustomizationHyperParameters"
     ]
-    """<p>Hyperparameter values associated with this model. For details on the format for different models, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models-hp.html\">Custom model hyperparameters</a>.</p>"""
+    r"""<p>Hyperparameter values associated with this model. For details on the format for different models, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models-hp.html\">Custom model hyperparameters</a>.</p>"""
     training_data_config: NotRequired[
         "aws_sdk_bedrock.types.training_data_config.TrainingDataConfig"
     ]

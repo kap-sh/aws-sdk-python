@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 from aws_sdk_opensearchserverless._services._pipeline import (
@@ -54,7 +56,7 @@ class LifecyclePolicy:
             "aws_sdk_opensearchserverless.types.client_token.ClientToken"
         ] = None,
     ) -> "aws_sdk_opensearchserverless.types.update_lifecycle_policy_response.UpdateLifecyclePolicyResponse":
-        """<p>Updates an OpenSearch Serverless access policy. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-lifecycle.html#serverless-lifecycle-update\">Updating data lifecycle policies</a>.</p>
+        r"""<p>Updates an OpenSearch Serverless access policy. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-lifecycle.html#serverless-lifecycle-update\">Updating data lifecycle policies</a>.</p>
 
         Args:
             type: <p> The type of lifecycle policy.</p>
@@ -108,7 +110,7 @@ class LifecyclePolicy:
             "aws_sdk_opensearchserverless.types.client_token.ClientToken"
         ] = None,
     ) -> "aws_sdk_opensearchserverless.types.delete_lifecycle_policy_response.DeleteLifecyclePolicyResponse":
-        """<p>Deletes an OpenSearch Serverless lifecycle policy. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-lifecycle.html#serverless-lifecycle-delete\">Deleting data lifecycle policies</a>.</p>
+        r"""<p>Deletes an OpenSearch Serverless lifecycle policy. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-lifecycle.html#serverless-lifecycle-delete\">Deleting data lifecycle policies</a>.</p>
 
         Args:
             type: <p>The type of lifecycle policy.</p>
@@ -155,7 +157,7 @@ class LifecyclePolicy:
         next_token: Optional[str] = None,
         max_results: Optional[int] = None,
     ) -> "aws_sdk_opensearchserverless.types.list_lifecycle_policies_response.ListLifecyclePoliciesResponse":
-        """<p>Returns a list of OpenSearch Serverless lifecycle policies. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-lifecycle.html#serverless-lifecycle-list\">Viewing data lifecycle policies</a>.</p>
+        r"""<p>Returns a list of OpenSearch Serverless lifecycle policies. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-lifecycle.html#serverless-lifecycle-list\">Viewing data lifecycle policies</a>.</p>
 
         Args:
             type: <p>The type of lifecycle policy.</p>
@@ -217,7 +219,7 @@ class AsyncLifecyclePolicy:
             "aws_sdk_opensearchserverless.types.client_token.ClientToken"
         ] = None,
     ) -> "aws_sdk_opensearchserverless.types.update_lifecycle_policy_response.UpdateLifecyclePolicyResponse":
-        """<p>Updates an OpenSearch Serverless access policy. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-lifecycle.html#serverless-lifecycle-update\">Updating data lifecycle policies</a>.</p>
+        r"""<p>Updates an OpenSearch Serverless access policy. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-lifecycle.html#serverless-lifecycle-update\">Updating data lifecycle policies</a>.</p>
 
         Args:
             type: <p> The type of lifecycle policy.</p>
@@ -272,7 +274,7 @@ class AsyncLifecyclePolicy:
             "aws_sdk_opensearchserverless.types.client_token.ClientToken"
         ] = None,
     ) -> "aws_sdk_opensearchserverless.types.delete_lifecycle_policy_response.DeleteLifecyclePolicyResponse":
-        """<p>Deletes an OpenSearch Serverless lifecycle policy. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-lifecycle.html#serverless-lifecycle-delete\">Deleting data lifecycle policies</a>.</p>
+        r"""<p>Deletes an OpenSearch Serverless lifecycle policy. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-lifecycle.html#serverless-lifecycle-delete\">Deleting data lifecycle policies</a>.</p>
 
         Args:
             type: <p>The type of lifecycle policy.</p>
@@ -320,7 +322,7 @@ class AsyncLifecyclePolicy:
         next_token: Optional[str] = None,
         max_results: Optional[int] = None,
     ) -> "aws_sdk_opensearchserverless.types.list_lifecycle_policies_response.ListLifecyclePoliciesResponse":
-        """<p>Returns a list of OpenSearch Serverless lifecycle policies. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-lifecycle.html#serverless-lifecycle-list\">Viewing data lifecycle policies</a>.</p>
+        r"""<p>Returns a list of OpenSearch Serverless lifecycle policies. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-lifecycle.html#serverless-lifecycle-list\">Viewing data lifecycle policies</a>.</p>
 
         Args:
             type: <p>The type of lifecycle policy.</p>

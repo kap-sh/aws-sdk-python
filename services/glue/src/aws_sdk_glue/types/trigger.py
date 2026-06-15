@@ -30,7 +30,7 @@ class Trigger(TypedDict):
     description: NotRequired["aws_sdk_glue.types.description_string.DescriptionString"]
     """<p>A description of this trigger.</p>"""
     schedule: NotRequired["aws_sdk_glue.types.generic_string.GenericString"]
-    """<p>A <code>cron</code> expression used to specify the schedule (see <a href=\"https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html\">Time-Based Schedules for Jobs and Crawlers</a>. For example, to run something every day at 12:15 UTC, you would specify: <code>cron(15 12 * * ? *)</code>.</p>"""
+    r"""<p>A <code>cron</code> expression used to specify the schedule (see <a href=\"https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html\">Time-Based Schedules for Jobs and Crawlers</a>. For example, to run something every day at 12:15 UTC, you would specify: <code>cron(15 12 * * ? *)</code>.</p>"""
     actions: NotRequired["aws_sdk_glue.types.action_list.ActionList"]
     """<p>The actions initiated by this trigger.</p>"""
     predicate: NotRequired["aws_sdk_glue.types.predicate.Predicate"]

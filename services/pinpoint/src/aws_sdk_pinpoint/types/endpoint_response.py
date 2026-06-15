@@ -22,7 +22,7 @@ class EndpointResponse(TypedDict):
     attributes: NotRequired[
         "aws_sdk_pinpoint.types.map_of_list_of__string.MapOfListOf__string"
     ]
-    """<p>One or more custom attributes that describe the endpoint by associating a name with an array of values. For example, the value of a custom attribute named Interests might be: [\"Science\", \"Music\", \"Travel\"]. You can use these attributes as filter criteria when you create segments.</p>"""
+    r"""<p>One or more custom attributes that describe the endpoint by associating a name with an array of values. For example, the value of a custom attribute named Interests might be: [\"Science\", \"Music\", \"Travel\"]. You can use these attributes as filter criteria when you create segments.</p>"""
     channel_type: NotRequired["aws_sdk_pinpoint.types.channel_type.ChannelType"]
     """<p>The channel that's used when sending messages or push notifications to the endpoint.</p>"""
     cohort_id: NotRequired["aws_sdk_pinpoint.types.__string.__string"]

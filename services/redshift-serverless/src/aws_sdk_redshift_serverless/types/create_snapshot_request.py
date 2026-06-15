@@ -18,7 +18,7 @@ class CreateSnapshotRequest(TypedDict):
     retention_period: NotRequired["int"]
     """<p>How long to retain the created snapshot.</p>"""
     tags: NotRequired["aws_sdk_redshift_serverless.types.tag_list.TagList"]
-    """<p>An array of <a href=\"https://docs.aws.amazon.com/redshift-serverless/latest/APIReference/API_Tag.html\">Tag objects</a> to associate with the snapshot.</p>"""
+    r"""<p>An array of <a href=\"https://docs.aws.amazon.com/redshift-serverless/latest/APIReference/API_Tag.html\">Tag objects</a> to associate with the snapshot.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

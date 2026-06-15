@@ -8,7 +8,7 @@ if TYPE_CHECKING:
 
 class ImageScanningConfiguration(TypedDict):
     scan_on_push: "aws_sdk_ecr.types.scan_on_push_flag.ScanOnPushFlag"
-    """<p>The setting that determines whether images are scanned after being pushed to a repository. If set to <code>true</code>, images will be scanned after being pushed. If this parameter is not specified, it will default to <code>false</code> and images will not be scanned unless a scan is manually started with the <a href=\"https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_StartImageScan.html\">API_StartImageScan</a> API.</p>"""
+    r"""<p>The setting that determines whether images are scanned after being pushed to a repository. If set to <code>true</code>, images will be scanned after being pushed. If this parameter is not specified, it will default to <code>false</code> and images will not be scanned unless a scan is manually started with the <a href=\"https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_StartImageScan.html\">API_StartImageScan</a> API.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

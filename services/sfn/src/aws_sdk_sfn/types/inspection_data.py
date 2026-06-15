@@ -18,17 +18,17 @@ class InspectionData(TypedDict):
     input: NotRequired["aws_sdk_sfn.types.sensitive_data.SensitiveData"]
     """<p>The raw state input.</p>"""
     after_arguments: NotRequired["aws_sdk_sfn.types.sensitive_data.SensitiveData"]
-    """<p>The input after Step Functions applies an Arguments filter. This event will only be present when QueryLanguage for the state machine or individual states is set to JSONata. For more info, see <a href=\"https://docs.aws.amazon.com/step-functions/latest/dg/data-transform.html\">Transforming data with Step Functions</a>.</p>"""
+    r"""<p>The input after Step Functions applies an Arguments filter. This event will only be present when QueryLanguage for the state machine or individual states is set to JSONata. For more info, see <a href=\"https://docs.aws.amazon.com/step-functions/latest/dg/data-transform.html\">Transforming data with Step Functions</a>.</p>"""
     after_input_path: NotRequired["aws_sdk_sfn.types.sensitive_data.SensitiveData"]
-    """<p>The input after Step Functions applies the <a href=\"https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-inputpath\">InputPath</a> filter. Not populated when QueryLanguage is JSONata.</p>"""
+    r"""<p>The input after Step Functions applies the <a href=\"https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-inputpath\">InputPath</a> filter. Not populated when QueryLanguage is JSONata.</p>"""
     after_parameters: NotRequired["aws_sdk_sfn.types.sensitive_data.SensitiveData"]
-    """<p>The effective input after Step Functions applies the <a href=\"https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-parameters\">Parameters</a> filter. Not populated when QueryLanguage is JSONata.</p>"""
+    r"""<p>The effective input after Step Functions applies the <a href=\"https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-parameters\">Parameters</a> filter. Not populated when QueryLanguage is JSONata.</p>"""
     result: NotRequired["aws_sdk_sfn.types.sensitive_data.SensitiveData"]
     """<p>The state's raw result.</p>"""
     after_result_selector: NotRequired["aws_sdk_sfn.types.sensitive_data.SensitiveData"]
-    """<p>The effective result after Step Functions applies the <a href=\"https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector\">ResultSelector</a> filter. Not populated when QueryLanguage is JSONata.</p>"""
+    r"""<p>The effective result after Step Functions applies the <a href=\"https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector\">ResultSelector</a> filter. Not populated when QueryLanguage is JSONata.</p>"""
     after_result_path: NotRequired["aws_sdk_sfn.types.sensitive_data.SensitiveData"]
-    """<p>The effective result combined with the raw state input after Step Functions applies the <a href=\"https://docs.aws.amazon.com/step-functions/latest/dg/input-output-resultpath.html\">ResultPath</a> filter. Not populated when QueryLanguage is JSONata.</p>"""
+    r"""<p>The effective result combined with the raw state input after Step Functions applies the <a href=\"https://docs.aws.amazon.com/step-functions/latest/dg/input-output-resultpath.html\">ResultPath</a> filter. Not populated when QueryLanguage is JSONata.</p>"""
     request: NotRequired[
         "aws_sdk_sfn.types.inspection_data_request.InspectionDataRequest"
     ]

@@ -24,7 +24,7 @@ class AutoScalingConfigurationSummary(TypedDict):
     ]
     """<p>The customer-provided auto scaling configuration name. It can be used in multiple revisions of a configuration.</p>"""
     auto_scaling_configuration_revision: "aws_sdk_apprunner.types.integer.Integer"
-    """<p>The revision of this auto scaling configuration. It's unique among all the active configurations (<code>\"Status\": \"ACTIVE\"</code>) with the same <code>AutoScalingConfigurationName</code>.</p>"""
+    r"""<p>The revision of this auto scaling configuration. It's unique among all the active configurations (<code>\"Status\": \"ACTIVE\"</code>) with the same <code>AutoScalingConfigurationName</code>.</p>"""
     status: NotRequired[
         "aws_sdk_apprunner.types.auto_scaling_configuration_status.AutoScalingConfigurationStatus"
     ]

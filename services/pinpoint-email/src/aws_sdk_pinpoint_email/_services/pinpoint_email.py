@@ -865,7 +865,7 @@ class PinpointEmailClient:
     def get_deliverability_dashboard_options(
         self, *, config_overrides: Optional[PinpointEmailClientConfig] = None
     ) -> "aws_sdk_pinpoint_email.types.get_deliverability_dashboard_options_response.GetDeliverabilityDashboardOptionsResponse":
-        """<p>Retrieve information about the status of the Deliverability dashboard for your Amazon Pinpoint account. When the Deliverability dashboard is enabled, you gain access to reputation, deliverability, and other metrics for the domains that you use to send email using Amazon Pinpoint. You also gain the ability to perform predictive inbox placement tests.</p> <p>When you use the Deliverability dashboard, you pay a monthly subscription charge, in addition to any other fees that you accrue by using Amazon Pinpoint. For more information about the features and cost of a Deliverability dashboard subscription, see <a href=\"http://aws.amazon.com/pinpoint/pricing/\">Amazon Pinpoint Pricing</a>.</p>"""
+        r"""<p>Retrieve information about the status of the Deliverability dashboard for your Amazon Pinpoint account. When the Deliverability dashboard is enabled, you gain access to reputation, deliverability, and other metrics for the domains that you use to send email using Amazon Pinpoint. You also gain the ability to perform predictive inbox placement tests.</p> <p>When you use the Deliverability dashboard, you pay a monthly subscription charge, in addition to any other fees that you accrue by using Amazon Pinpoint. For more information about the features and cost of a Deliverability dashboard subscription, see <a href=\"http://aws.amazon.com/pinpoint/pricing/\">Amazon Pinpoint Pricing</a>.</p>"""
 
         def _handler(
             req: "OperationRequest[aws_sdk_pinpoint_email.types.get_deliverability_dashboard_options_request.GetDeliverabilityDashboardOptionsRequest]",
@@ -1658,7 +1658,7 @@ class PinpointEmailClient:
             "aws_sdk_pinpoint_email.types.domain_deliverability_tracking_options.DomainDeliverabilityTrackingOptions"
         ] = None,
     ) -> "aws_sdk_pinpoint_email.types.put_deliverability_dashboard_option_response.PutDeliverabilityDashboardOptionResponse":
-        """<p>Enable or disable the Deliverability dashboard for your Amazon Pinpoint account. When you enable the Deliverability dashboard, you gain access to reputation, deliverability, and other metrics for the domains that you use to send email using Amazon Pinpoint. You also gain the ability to perform predictive inbox placement tests.</p> <p>When you use the Deliverability dashboard, you pay a monthly subscription charge, in addition to any other fees that you accrue by using Amazon Pinpoint. For more information about the features and cost of a Deliverability dashboard subscription, see <a href=\"http://aws.amazon.com/pinpoint/pricing/\">Amazon Pinpoint Pricing</a>.</p>
+        r"""<p>Enable or disable the Deliverability dashboard for your Amazon Pinpoint account. When you enable the Deliverability dashboard, you gain access to reputation, deliverability, and other metrics for the domains that you use to send email using Amazon Pinpoint. You also gain the ability to perform predictive inbox placement tests.</p> <p>When you use the Deliverability dashboard, you pay a monthly subscription charge, in addition to any other fees that you accrue by using Amazon Pinpoint. For more information about the features and cost of a Deliverability dashboard subscription, see <a href=\"http://aws.amazon.com/pinpoint/pricing/\">Amazon Pinpoint Pricing</a>.</p>
 
         Args:
             dashboard_enabled: <p>Specifies whether to enable the Deliverability dashboard for your Amazon Pinpoint account. To enable the dashboard, set this value to <code>true</code>.</p>
@@ -1790,7 +1790,7 @@ class PinpointEmailClient:
             "aws_sdk_pinpoint_email.types.behavior_on_mx_failure.BehaviorOnMxFailure"
         ] = None,
     ) -> "aws_sdk_pinpoint_email.types.put_email_identity_mail_from_attributes_response.PutEmailIdentityMailFromAttributesResponse":
-        """<p>Used to enable or disable the custom Mail-From domain configuration for an email identity.</p>
+        r"""<p>Used to enable or disable the custom Mail-From domain configuration for an email identity.</p>
 
         Args:
             email_identity: <p>The verified email identity that you want to set up the custom MAIL FROM domain for.</p>
@@ -1849,7 +1849,7 @@ class PinpointEmailClient:
             "aws_sdk_pinpoint_email.types.configuration_set_name.ConfigurationSetName"
         ] = None,
     ) -> "aws_sdk_pinpoint_email.types.send_email_response.SendEmailResponse":
-        """<p>Sends an email message. You can use the Amazon Pinpoint Email API to send two types of messages:</p> <ul> <li> <p> <b>Simple</b> – A standard email message. When you create this type of message, you specify the sender, the recipient, and the message body, and Amazon Pinpoint assembles the message for you.</p> </li> <li> <p> <b>Raw</b> – A raw, MIME-formatted email message. When you send this type of email, you have to specify all of the message headers, as well as the message body. You can use this message type to send messages that contain attachments. The message that you specify has to be a valid MIME message.</p> </li> </ul>
+        r"""<p>Sends an email message. You can use the Amazon Pinpoint Email API to send two types of messages:</p> <ul> <li> <p> <b>Simple</b> – A standard email message. When you create this type of message, you specify the sender, the recipient, and the message body, and Amazon Pinpoint assembles the message for you.</p> </li> <li> <p> <b>Raw</b> – A raw, MIME-formatted email message. When you send this type of email, you have to specify all of the message headers, as well as the message body. You can use this message type to send messages that contain attachments. The message that you specify has to be a valid MIME message.</p> </li> </ul>
 
         Args:
             from_email_address: <p>The email address that you want to use as the \"From\" address for the email. The address that you specify has to be verified. </p>

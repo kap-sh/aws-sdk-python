@@ -18,9 +18,9 @@ class CreateListRequest(TypedDict):
     name: "aws_sdk_frauddetector.types.no_dash_identifier.noDashIdentifier"
     """<p> The name of the list. </p>"""
     elements: NotRequired["aws_sdk_frauddetector.types.elements_list.ElementsList"]
-    """<p> The names of the elements, if providing. You can also create an empty list and add elements later using the <a href=\"https://docs.aws.amazon.com/frauddetector/latest/api/API_Updatelist.html\">UpdateList</a> API. </p>"""
+    r"""<p> The names of the elements, if providing. You can also create an empty list and add elements later using the <a href=\"https://docs.aws.amazon.com/frauddetector/latest/api/API_Updatelist.html\">UpdateList</a> API. </p>"""
     variable_type: NotRequired["aws_sdk_frauddetector.types.variable_type.variableType"]
-    """<p> The variable type of the list. You can only assign the variable type with String data type. For more information, see <a href=\"https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types\">Variable types</a>. </p>"""
+    r"""<p> The variable type of the list. You can only assign the variable type with String data type. For more information, see <a href=\"https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types\">Variable types</a>. </p>"""
     description: NotRequired["aws_sdk_frauddetector.types.description.description"]
     """<p> The description of the list. </p>"""
     tags: NotRequired["aws_sdk_frauddetector.types.tag_list.tagList"]

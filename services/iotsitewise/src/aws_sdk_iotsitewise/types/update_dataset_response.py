@@ -14,7 +14,7 @@ class UpdateDatasetResponse(TypedDict):
     dataset_id: NotRequired["aws_sdk_iotsitewise.types.id.ID"]
     """<p>The ID of the dataset.</p>"""
     dataset_arn: NotRequired["aws_sdk_iotsitewise.types.arn.ARN"]
-    """<p>The <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html\">ARN</a> of the dataset. The format is <code>arn:${Partition}:iotsitewise:${Region}:${Account}:dataset/${DatasetId}</code>.</p>"""
+    r"""<p>The <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html\">ARN</a> of the dataset. The format is <code>arn:${Partition}:iotsitewise:${Region}:${Account}:dataset/${DatasetId}</code>.</p>"""
     dataset_status: NotRequired[
         "aws_sdk_iotsitewise.types.dataset_status.DatasetStatus"
     ]

@@ -253,7 +253,7 @@ class AsyncivschatClient:
         ] = None,
         tags: Optional["aws_sdk_ivschat.types.tags.Tags"] = None,
     ) -> "aws_sdk_ivschat.types.create_logging_configuration_response.CreateLoggingConfigurationResponse":
-        """<p>Creates a logging configuration that allows clients to store and record sent messages.</p>
+        r"""<p>Creates a logging configuration that allows clients to store and record sent messages.</p>
 
         Args:
             name: <p>Logging-configuration name. The value does not need to be unique.</p>
@@ -310,7 +310,7 @@ class AsyncivschatClient:
             "aws_sdk_ivschat.types.logging_configuration_identifier_list.LoggingConfigurationIdentifierList"
         ] = None,
     ) -> "aws_sdk_ivschat.types.create_room_response.CreateRoomResponse":
-        """<p>Creates a room that allows clients to connect and pass messages.</p>
+        r"""<p>Creates a room that allows clients to connect and pass messages.</p>
 
         Args:
             name: <p>Room name. The value does not need to be unique.</p>
@@ -404,7 +404,7 @@ class AsyncivschatClient:
         config_overrides: Optional[AsyncivschatClientConfig] = None,
         reason: Optional["aws_sdk_ivschat.types.reason.Reason"] = None,
     ) -> "aws_sdk_ivschat.types.delete_message_response.DeleteMessageResponse":
-        """<p>Sends an event to a specific room which directs clients to delete a specific message; that is, unrender it from view and delete it from the client’s chat history. This event’s <code>EventName</code> is <code>aws:DELETE_MESSAGE</code>. This replicates the <a href=\"https://docs.aws.amazon.com/ivs/latest/chatmsgapireference/actions-deletemessage-publish.html\"> DeleteMessage</a> WebSocket operation in the Amazon IVS Chat Messaging API.</p>
+        r"""<p>Sends an event to a specific room which directs clients to delete a specific message; that is, unrender it from view and delete it from the client’s chat history. This event’s <code>EventName</code> is <code>aws:DELETE_MESSAGE</code>. This replicates the <a href=\"https://docs.aws.amazon.com/ivs/latest/chatmsgapireference/actions-deletemessage-publish.html\"> DeleteMessage</a> WebSocket operation in the Amazon IVS Chat Messaging API.</p>
 
         Args:
             room_identifier: <p>Identifier of the room where the message should be deleted. Currently this must be an ARN. </p>
@@ -485,7 +485,7 @@ class AsyncivschatClient:
         config_overrides: Optional[AsyncivschatClientConfig] = None,
         reason: Optional["aws_sdk_ivschat.types.reason.Reason"] = None,
     ) -> "aws_sdk_ivschat.types.disconnect_user_response.DisconnectUserResponse":
-        """<p>Disconnects all connections using a specified user ID from a room. This replicates the <a href=\"https://docs.aws.amazon.com/ivs/latest/chatmsgapireference/actions-disconnectuser-publish.html\"> DisconnectUser</a> WebSocket operation in the Amazon IVS Chat Messaging API.</p>
+        r"""<p>Disconnects all connections using a specified user ID from a room. This replicates the <a href=\"https://docs.aws.amazon.com/ivs/latest/chatmsgapireference/actions-disconnectuser-publish.html\"> DisconnectUser</a> WebSocket operation in the Amazon IVS Chat Messaging API.</p>
 
         Args:
             room_identifier: <p>Identifier of the room from which the user's clients should be disconnected. Currently this must be an ARN.</p>
@@ -802,7 +802,7 @@ class AsyncivschatClient:
         *,
         config_overrides: Optional[AsyncivschatClientConfig] = None,
     ) -> "aws_sdk_ivschat.types.tag_resource_response.TagResourceResponse":
-        """<p>Adds or updates tags for the AWS resource with the specified ARN.</p>
+        r"""<p>Adds or updates tags for the AWS resource with the specified ARN.</p>
 
         Args:
             resource_arn: <p>The ARN of the resource to be tagged. The ARN must be URL-encoded.</p>
@@ -843,7 +843,7 @@ class AsyncivschatClient:
         *,
         config_overrides: Optional[AsyncivschatClientConfig] = None,
     ) -> "aws_sdk_ivschat.types.untag_resource_response.UntagResourceResponse":
-        """<p>Removes tags from the resource with the specified ARN.</p>
+        r"""<p>Removes tags from the resource with the specified ARN.</p>
 
         Args:
             resource_arn: <p>The ARN of the resource to be untagged. The ARN must be URL-encoded.</p>

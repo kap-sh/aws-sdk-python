@@ -18,7 +18,7 @@ class SnowflakeNodeData(TypedDict):
     source_type: NotRequired[
         "aws_sdk_glue.types.generic_limited_string.GenericLimitedString"
     ]
-    """<p>Specifies how retrieved data is specified. Valid values: <code>\"table\"</code>, <code> \"query\"</code>.</p>"""
+    r"""<p>Specifies how retrieved data is specified. Valid values: <code>\"table\"</code>, <code> \"query\"</code>.</p>"""
     connection: NotRequired["aws_sdk_glue.types.option.Option"]
     """<p>Specifies a Glue Data Catalog Connection to a Snowflake endpoint.</p>"""
     schema: NotRequired["aws_sdk_glue.types.generic_string.GenericString"]
@@ -66,7 +66,7 @@ class SnowflakeNodeData(TypedDict):
     selected_columns: NotRequired["aws_sdk_glue.types.option_list.OptionList"]
     """<p>Specifies the columns combined to identify a record when detecting matches for merges and upserts. A list of structures with <code>value</code>, <code>label</code> and <code> description</code> keys. Each structure describes a column.</p>"""
     auto_pushdown: "aws_sdk_glue.types.boolean_value.BooleanValue"
-    """<p>Specifies whether automatic query pushdown is enabled. If pushdown is enabled, then when a query is run on Spark, if part of the query can be \"pushed down\" to the Snowflake server, it is pushed down. This improves performance of some queries.</p>"""
+    r"""<p>Specifies whether automatic query pushdown is enabled. If pushdown is enabled, then when a query is run on Spark, if part of the query can be \"pushed down\" to the Snowflake server, it is pushed down. This improves performance of some queries.</p>"""
     table_schema: NotRequired["aws_sdk_glue.types.option_list.OptionList"]
     """<p>Manually defines the target schema for the node. A list of structures with <code>value</code> , <code>label</code> and <code>description</code> keys. Each structure defines a column.</p>"""
 

@@ -17,9 +17,9 @@ class GroupSummary(TypedDict):
     sam_account_name: "aws_sdk_directory_service_data.types.group_name.GroupName"
     """<p>The name of the group.</p>"""
     group_type: "aws_sdk_directory_service_data.types.group_type.GroupType"
-    """<p>The AD group type. For details, see <a href=\"https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/understand-security-groups#how-active-directory-security-groups-work\">Active Directory security group type</a>.</p>"""
+    r"""<p>The AD group type. For details, see <a href=\"https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/understand-security-groups#how-active-directory-security-groups-work\">Active Directory security group type</a>.</p>"""
     group_scope: "aws_sdk_directory_service_data.types.group_scope.GroupScope"
-    """<p>The scope of the AD group. For details, see <a href=\"https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/understand-security-groups#group-scope\">Active Directory security groups</a>.</p>"""
+    r"""<p>The scope of the AD group. For details, see <a href=\"https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/understand-security-groups#group-scope\">Active Directory security groups</a>.</p>"""
 
 
 # --- restJson1 ser/de ---

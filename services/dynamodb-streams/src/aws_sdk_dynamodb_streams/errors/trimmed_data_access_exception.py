@@ -12,7 +12,7 @@ if TYPE_CHECKING:
 
 class TrimmedDataAccessException_(TypedDict):
     message: NotRequired["aws_sdk_dynamodb_streams.types.error_message.ErrorMessage"]
-    """<p>\"The data you are trying to access has been trimmed.</p>"""
+    r"""<p>\"The data you are trying to access has been trimmed.</p>"""
 
 
 # --- awsJson1_0 ser/de ---

@@ -15,7 +15,7 @@ class EventTypeSummary(TypedDict):
     event_type_id: NotRequired[
         "aws_sdk_codestar_notifications.types.event_type_id.EventTypeId"
     ]
-    """<p>The system-generated ID of the event. For a complete list of event types and IDs, see <a href=\"https://docs.aws.amazon.com/codestar-notifications/latest/userguide/concepts.html#concepts-api\">Notification concepts</a> in the <i>Developer Tools Console User Guide</i>.</p>"""
+    r"""<p>The system-generated ID of the event. For a complete list of event types and IDs, see <a href=\"https://docs.aws.amazon.com/codestar-notifications/latest/userguide/concepts.html#concepts-api\">Notification concepts</a> in the <i>Developer Tools Console User Guide</i>.</p>"""
     service_name: NotRequired[
         "aws_sdk_codestar_notifications.types.service_name.ServiceName"
     ]

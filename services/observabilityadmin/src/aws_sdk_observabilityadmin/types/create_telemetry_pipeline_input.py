@@ -18,7 +18,7 @@ class CreateTelemetryPipelineInput(TypedDict):
     )
     """<p>The name of the telemetry pipeline to create. The name must be unique within your account.</p>"""
     configuration: "aws_sdk_observabilityadmin.types.telemetry_pipeline_configuration.TelemetryPipelineConfiguration"
-    """<p>The configuration that defines how the telemetry pipeline processes data, including sources, processors, and destinations. For more information about pipeline components, see the <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/pipeline-components-reference.html\">Amazon CloudWatch User Guide</a> </p>"""
+    r"""<p>The configuration that defines how the telemetry pipeline processes data, including sources, processors, and destinations. For more information about pipeline components, see the <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/pipeline-components-reference.html\">Amazon CloudWatch User Guide</a> </p>"""
     tags: NotRequired["aws_sdk_observabilityadmin.types.tag_map_input.TagMapInput"]
     """<p>The key-value pairs to associate with the telemetry pipeline resource for categorization and management purposes.</p>"""
 

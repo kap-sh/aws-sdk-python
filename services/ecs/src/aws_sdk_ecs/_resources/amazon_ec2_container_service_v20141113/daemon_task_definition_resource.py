@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 from aws_sdk_ecs._services._pipeline import (
@@ -207,7 +209,7 @@ class DaemonTaskDefinitionResource:
         ] = None,
         tags: Optional["aws_sdk_ecs.types.tags.Tags"] = None,
     ) -> "aws_sdk_ecs.types.register_daemon_task_definition_response.RegisterDaemonTaskDefinitionResponse":
-        """<p>Registers a new daemon task definition from the supplied <code>family</code> and <code>containerDefinitions</code>. Optionally, you can add data volumes to your containers with the <code>volumes</code> parameter. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/daemon-task-definitions.html\">Daemon task definitions</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p> <p>A daemon task definition is a template that describes the containers that form a daemon. Daemons deploy cross-cutting software agents such as security monitoring, telemetry, and logging across your Amazon ECS infrastructure.</p> <p>Each time you call <code>RegisterDaemonTaskDefinition</code>, a new revision of the daemon task definition is created. You can't modify a revision after you register it.</p>
+        r"""<p>Registers a new daemon task definition from the supplied <code>family</code> and <code>containerDefinitions</code>. Optionally, you can add data volumes to your containers with the <code>volumes</code> parameter. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/daemon-task-definitions.html\">Daemon task definitions</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p> <p>A daemon task definition is a template that describes the containers that form a daemon. Daemons deploy cross-cutting software agents such as security monitoring, telemetry, and logging across your Amazon ECS infrastructure.</p> <p>Each time you call <code>RegisterDaemonTaskDefinition</code>, a new revision of the daemon task definition is created. You can't modify a revision after you register it.</p>
 
         Args:
             family: <p>You must specify a <code>family</code> for a daemon task definition. This family is used as a name for your daemon task definition. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed.</p>
@@ -445,7 +447,7 @@ class AsyncDaemonTaskDefinitionResource:
         ] = None,
         tags: Optional["aws_sdk_ecs.types.tags.Tags"] = None,
     ) -> "aws_sdk_ecs.types.register_daemon_task_definition_response.RegisterDaemonTaskDefinitionResponse":
-        """<p>Registers a new daemon task definition from the supplied <code>family</code> and <code>containerDefinitions</code>. Optionally, you can add data volumes to your containers with the <code>volumes</code> parameter. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/daemon-task-definitions.html\">Daemon task definitions</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p> <p>A daemon task definition is a template that describes the containers that form a daemon. Daemons deploy cross-cutting software agents such as security monitoring, telemetry, and logging across your Amazon ECS infrastructure.</p> <p>Each time you call <code>RegisterDaemonTaskDefinition</code>, a new revision of the daemon task definition is created. You can't modify a revision after you register it.</p>
+        r"""<p>Registers a new daemon task definition from the supplied <code>family</code> and <code>containerDefinitions</code>. Optionally, you can add data volumes to your containers with the <code>volumes</code> parameter. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/daemon-task-definitions.html\">Daemon task definitions</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p> <p>A daemon task definition is a template that describes the containers that form a daemon. Daemons deploy cross-cutting software agents such as security monitoring, telemetry, and logging across your Amazon ECS infrastructure.</p> <p>Each time you call <code>RegisterDaemonTaskDefinition</code>, a new revision of the daemon task definition is created. You can't modify a revision after you register it.</p>
 
         Args:
             family: <p>You must specify a <code>family</code> for a daemon task definition. This family is used as a name for your daemon task definition. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed.</p>

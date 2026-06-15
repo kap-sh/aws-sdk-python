@@ -17,7 +17,7 @@ class PutIdentityPolicyRequest(TypedDict):
     policy_name: "aws_sdk_ses.types.policy_name.PolicyName"
     """<p>The name of the policy.</p> <p>The policy name cannot exceed 64 characters and can only include alphanumeric characters, dashes, and underscores.</p>"""
     policy: "aws_sdk_ses.types.policy.Policy"
-    """<p>The text of the policy in JSON format. The policy cannot exceed 4 KB.</p> <p>For information about the syntax of sending authorization policies, see the <a href=\"https://docs.aws.amazon.com/ses/latest/dg/sending-authorization-policies.html\">Amazon SES Developer Guide</a>. </p>"""
+    r"""<p>The text of the policy in JSON format. The policy cannot exceed 4 KB.</p> <p>For information about the syntax of sending authorization policies, see the <a href=\"https://docs.aws.amazon.com/ses/latest/dg/sending-authorization-policies.html\">Amazon SES Developer Guide</a>. </p>"""
 
 
 # --- awsQuery ser/de ---

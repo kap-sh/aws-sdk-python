@@ -27,11 +27,11 @@ class UpdateFileSystemWindowsConfiguration(TypedDict):
     automatic_backup_retention_days: NotRequired[
         "aws_sdk_fsx.types.automatic_backup_retention_days.AutomaticBackupRetentionDays"
     ]
-    """<p>The number of days to retain automatic backups. Setting this property to <code>0</code> disables automatic backups. You can retain automatic backups for a maximum of 90 days. The default is <code>30</code>. For more information, see <a href=\"https://docs.aws.amazon.com/fsx/latest/WindowsGuide/using-backups.html#automatic-backups\">Working with Automatic Daily Backups</a>.</p>"""
+    r"""<p>The number of days to retain automatic backups. Setting this property to <code>0</code> disables automatic backups. You can retain automatic backups for a maximum of 90 days. The default is <code>30</code>. For more information, see <a href=\"https://docs.aws.amazon.com/fsx/latest/WindowsGuide/using-backups.html#automatic-backups\">Working with Automatic Daily Backups</a>.</p>"""
     throughput_capacity: NotRequired[
         "aws_sdk_fsx.types.megabytes_per_second.MegabytesPerSecond"
     ]
-    """<p>Sets the target value for a file system's throughput capacity, in MB/s, that you are updating the file system to. Valid values are 8, 16, 32, 64, 128, 256, 512, 1024, 2048. You cannot make a throughput capacity update request if there is an existing throughput capacity update request in progress. For more information, see <a href=\"https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-throughput-capacity.html\">Managing Throughput Capacity</a>.</p>"""
+    r"""<p>Sets the target value for a file system's throughput capacity, in MB/s, that you are updating the file system to. Valid values are 8, 16, 32, 64, 128, 256, 512, 1024, 2048. You cannot make a throughput capacity update request if there is an existing throughput capacity update request in progress. For more information, see <a href=\"https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-throughput-capacity.html\">Managing Throughput Capacity</a>.</p>"""
     self_managed_active_directory_configuration: NotRequired[
         "aws_sdk_fsx.types.self_managed_active_directory_configuration_updates.SelfManagedActiveDirectoryConfigurationUpdates"
     ]

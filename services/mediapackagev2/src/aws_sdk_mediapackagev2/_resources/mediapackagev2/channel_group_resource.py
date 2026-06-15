@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_mediapackagev2._auth._signers
@@ -56,7 +58,7 @@ class ChannelGroupResource:
         ] = None,
         tags: Optional["aws_sdk_mediapackagev2.types.tag_map.TagMap"] = None,
     ) -> "aws_sdk_mediapackagev2.types.create_channel_group_response.CreateChannelGroupResponse":
-        """<p>Create a channel group to group your channels and origin endpoints. A channel group is the top-level resource that consists of channels and origin endpoints that are associated with it and that provides predictable URLs for stream delivery. All channels and origin endpoints within the channel group are guaranteed to share the DNS. You can create only one channel group with each request. </p>
+        r"""<p>Create a channel group to group your channels and origin endpoints. A channel group is the top-level resource that consists of channels and origin endpoints that are associated with it and that provides predictable URLs for stream delivery. All channels and origin endpoints within the channel group are guaranteed to share the DNS. You can create only one channel group with each request. </p>
 
         Args:
             channel_group_name: <p>The name that describes the channel group. The name is the primary identifier for the channel group, and must be unique for your account in the AWS Region. You can't use spaces in the name. You can't change the name after you create the channel group.</p>
@@ -304,7 +306,7 @@ class AsyncChannelGroupResource:
         ] = None,
         tags: Optional["aws_sdk_mediapackagev2.types.tag_map.TagMap"] = None,
     ) -> "aws_sdk_mediapackagev2.types.create_channel_group_response.CreateChannelGroupResponse":
-        """<p>Create a channel group to group your channels and origin endpoints. A channel group is the top-level resource that consists of channels and origin endpoints that are associated with it and that provides predictable URLs for stream delivery. All channels and origin endpoints within the channel group are guaranteed to share the DNS. You can create only one channel group with each request. </p>
+        r"""<p>Create a channel group to group your channels and origin endpoints. A channel group is the top-level resource that consists of channels and origin endpoints that are associated with it and that provides predictable URLs for stream delivery. All channels and origin endpoints within the channel group are guaranteed to share the DNS. You can create only one channel group with each request. </p>
 
         Args:
             channel_group_name: <p>The name that describes the channel group. The name is the primary identifier for the channel group, and must be unique for your account in the AWS Region. You can't use spaces in the name. You can't change the name after you create the channel group.</p>

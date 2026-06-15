@@ -141,7 +141,7 @@ class DirectoryServiceDataClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = DirectoryServiceDataClientConfig(
+        self._config = DirectoryServiceDataClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -161,7 +161,7 @@ class DirectoryServiceDataClient:
         overrides: DirectoryServiceDataClientConfig = config_overrides or {}
         interceptors_: list[Interceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             retry(),
         ]
@@ -169,16 +169,16 @@ class DirectoryServiceDataClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            region=overrides.get("region", self.config.get("region")),
+            region=overrides.get("region", self._config.get("region")),
             use_dual_stack=overrides.get(
-                "use_dual_stack", self.config.get("use_dual_stack")
+                "use_dual_stack", self._config.get("use_dual_stack")
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -263,7 +263,7 @@ class DirectoryServiceDataClient:
             "aws_sdk_directory_service_data.types.client_token.ClientToken"
         ] = None,
     ) -> "aws_sdk_directory_service_data.types.create_group_result.CreateGroupResult":
-        """<p>Creates a new group.</p>
+        r"""<p>Creates a new group.</p>
 
         Args:
             directory_id: <p> The identifier (ID) of the directory that's associated with the group. </p>
@@ -336,7 +336,7 @@ class DirectoryServiceDataClient:
             "aws_sdk_directory_service_data.types.client_token.ClientToken"
         ] = None,
     ) -> "aws_sdk_directory_service_data.types.create_user_result.CreateUserResult":
-        """<p>Creates a new user.</p>
+        r"""<p>Creates a new user.</p>
 
         Args:
             directory_id: <p> The identifier (ID) of the directory that’s associated with the user. </p>
@@ -507,7 +507,7 @@ class DirectoryServiceDataClient:
     ) -> (
         "aws_sdk_directory_service_data.types.describe_group_result.DescribeGroupResult"
     ):
-        """<p>Returns information about a specific group.</p>
+        r"""<p>Returns information about a specific group.</p>
 
         Args:
             directory_id: <p>The Identifier (ID) of the directory associated with the group.</p>
@@ -563,7 +563,7 @@ class DirectoryServiceDataClient:
         ] = None,
         realm: Optional["aws_sdk_directory_service_data.types.realm.Realm"] = None,
     ) -> "aws_sdk_directory_service_data.types.describe_user_result.DescribeUserResult":
-        """<p>Returns information about a specific user.</p>
+        r"""<p>Returns information about a specific user.</p>
 
         Args:
             directory_id: <p> The identifier (ID) of the directory that's associated with the user. </p>
@@ -618,7 +618,7 @@ class DirectoryServiceDataClient:
             "aws_sdk_directory_service_data.types.client_token.ClientToken"
         ] = None,
     ) -> "aws_sdk_directory_service_data.types.disable_user_result.DisableUserResult":
-        """<p> Deactivates an active user account. For information about how to enable an inactive user account, see <a href=\"https://docs.aws.amazon.com/directoryservice/latest/devguide/API_ResetUserPassword.html\">ResetUserPassword</a> in the <i>Directory Service API Reference</i>.</p>
+        r"""<p> Deactivates an active user account. For information about how to enable an inactive user account, see <a href=\"https://docs.aws.amazon.com/directoryservice/latest/devguide/API_ResetUserPassword.html\">ResetUserPassword</a> in the <i>Directory Service API Reference</i>.</p>
 
         Args:
             directory_id: <p> The identifier (ID) of the directory that's associated with the user. </p>
@@ -1118,7 +1118,7 @@ class DirectoryServiceDataClient:
             "aws_sdk_directory_service_data.types.max_results.MaxResults"
         ] = None,
     ) -> "aws_sdk_directory_service_data.types.search_groups_result.SearchGroupsResult":
-        """<p> Searches the specified directory for a group. You can find groups that match the <code>SearchString</code> parameter with the value of their attributes included in the <code>SearchString</code> parameter. </p> <p> This operation supports pagination with the use of the <code>NextToken</code> request and response parameters. If more results are available, the <code>SearchGroups.NextToken</code> member contains a token that you pass in the next call to <code>SearchGroups</code>. This retrieves the next set of items. </p> <p> You can also specify a maximum number of return results with the <code>MaxResults</code> parameter. </p>
+        r"""<p> Searches the specified directory for a group. You can find groups that match the <code>SearchString</code> parameter with the value of their attributes included in the <code>SearchString</code> parameter. </p> <p> This operation supports pagination with the use of the <code>NextToken</code> request and response parameters. If more results are available, the <code>SearchGroups.NextToken</code> member contains a token that you pass in the next call to <code>SearchGroups</code>. This retrieves the next set of items. </p> <p> You can also specify a maximum number of return results with the <code>MaxResults</code> parameter. </p>
 
         Args:
             directory_id: <p> The identifier (ID) of the directory that's associated with the group. </p>
@@ -1216,7 +1216,7 @@ class DirectoryServiceDataClient:
             "aws_sdk_directory_service_data.types.max_results.MaxResults"
         ] = None,
     ) -> "aws_sdk_directory_service_data.types.search_users_result.SearchUsersResult":
-        """<p> Searches the specified directory for a user. You can find users that match the <code>SearchString</code> parameter with the value of their attributes included in the <code>SearchString</code> parameter.</p> <p> This operation supports pagination with the use of the <code>NextToken</code> request and response parameters. If more results are available, the <code>SearchUsers.NextToken</code> member contains a token that you pass in the next call to <code>SearchUsers</code>. This retrieves the next set of items. </p> <p> You can also specify a maximum number of return results with the <code>MaxResults</code> parameter. </p>
+        r"""<p> Searches the specified directory for a user. You can find users that match the <code>SearchString</code> parameter with the value of their attributes included in the <code>SearchString</code> parameter.</p> <p> This operation supports pagination with the use of the <code>NextToken</code> request and response parameters. If more results are available, the <code>SearchUsers.NextToken</code> member contains a token that you pass in the next call to <code>SearchUsers</code>. This retrieves the next set of items. </p> <p> You can also specify a maximum number of return results with the <code>MaxResults</code> parameter. </p>
 
         Args:
             directory_id: <p> The identifier (ID) of the directory that's associated with the user. </p>
@@ -1321,7 +1321,7 @@ class DirectoryServiceDataClient:
             "aws_sdk_directory_service_data.types.client_token.ClientToken"
         ] = None,
     ) -> "aws_sdk_directory_service_data.types.update_group_result.UpdateGroupResult":
-        """<p> Updates group information. </p>
+        r"""<p> Updates group information. </p>
 
         Args:
             directory_id: <p> The identifier (ID) of the directory that's associated with the group. </p>
@@ -1400,7 +1400,7 @@ class DirectoryServiceDataClient:
             "aws_sdk_directory_service_data.types.client_token.ClientToken"
         ] = None,
     ) -> "aws_sdk_directory_service_data.types.update_user_result.UpdateUserResult":
-        """<p> Updates user information. </p>
+        r"""<p> Updates user information. </p>
 
         Args:
             directory_id: <p> The identifier (ID) of the directory that's associated with the user. </p>

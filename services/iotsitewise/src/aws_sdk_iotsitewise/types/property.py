@@ -22,15 +22,15 @@ class Property(TypedDict):
     id: "aws_sdk_iotsitewise.types.id.ID"
     """<p>The ID of the asset property.</p>"""
     external_id: NotRequired["aws_sdk_iotsitewise.types.external_id.ExternalId"]
-    """<p>The external ID of the asset property. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-ids\">Using external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>"""
+    r"""<p>The external ID of the asset property. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-ids\">Using external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>"""
     name: "aws_sdk_iotsitewise.types.name.Name"
     """<p>The name of the property.</p>"""
     alias: NotRequired["aws_sdk_iotsitewise.types.property_alias.PropertyAlias"]
-    """<p>The alias that identifies the property, such as an OPC-UA server data stream path (for example, <code>/company/windfarm/3/turbine/7/temperature</code>). For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html\">Mapping industrial data streams to asset properties</a> in the <i>IoT SiteWise User Guide</i>.</p>"""
+    r"""<p>The alias that identifies the property, such as an OPC-UA server data stream path (for example, <code>/company/windfarm/3/turbine/7/temperature</code>). For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html\">Mapping industrial data streams to asset properties</a> in the <i>IoT SiteWise User Guide</i>.</p>"""
     notification: NotRequired[
         "aws_sdk_iotsitewise.types.property_notification.PropertyNotification"
     ]
-    """<p>The asset property's notification topic and state. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html\">UpdateAssetProperty</a>.</p>"""
+    r"""<p>The asset property's notification topic and state. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html\">UpdateAssetProperty</a>.</p>"""
     data_type: "aws_sdk_iotsitewise.types.property_data_type.PropertyDataType"
     """<p>The property data type.</p>"""
     unit: NotRequired["aws_sdk_iotsitewise.types.property_unit.PropertyUnit"]

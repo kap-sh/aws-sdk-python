@@ -34,7 +34,7 @@ class CreateInstanceRequest(TypedDict):
     )
     """<p>Your contact center allows outbound calls.</p>"""
     tags: NotRequired["aws_sdk_connect.types.tag_map.TagMap"]
-    """<p>The tags used to organize, track, or control access for this resource. For example, <code>{ \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }</code>.</p>"""
+    r"""<p>The tags used to organize, track, or control access for this resource. For example, <code>{ \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }</code>.</p>"""
 
 
 # --- restJson1 ser/de ---

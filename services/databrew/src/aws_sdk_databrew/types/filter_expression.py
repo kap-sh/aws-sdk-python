@@ -11,7 +11,7 @@ if TYPE_CHECKING:
 
 class FilterExpression(TypedDict):
     expression: "aws_sdk_databrew.types.expression.Expression"
-    """<p>The expression which includes condition names followed by substitution variables, possibly grouped and combined with other conditions. For example, \"(starts_with :prefix1 or starts_with :prefix2) and (ends_with :suffix1 or ends_with :suffix2)\". Substitution variables should start with ':' symbol.</p>"""
+    r"""<p>The expression which includes condition names followed by substitution variables, possibly grouped and combined with other conditions. For example, \"(starts_with :prefix1 or starts_with :prefix2) and (ends_with :suffix1 or ends_with :suffix2)\". Substitution variables should start with ':' symbol.</p>"""
     values_map: "aws_sdk_databrew.types.values_map.ValuesMap"
     """<p>The map of substitution variable names to their values used in this filter expression.</p>"""
 

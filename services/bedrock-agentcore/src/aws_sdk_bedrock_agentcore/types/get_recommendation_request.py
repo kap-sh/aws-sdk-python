@@ -1,12 +1,17 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#GetRecommendationRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.recommendation_id
 
+
 class GetRecommendationRequest(TypedDict):
-    recommendation_id: "aws_sdk_bedrock_agentcore.types.recommendation_id.RecommendationId"
+    recommendation_id: (
+        "aws_sdk_bedrock_agentcore.types.recommendation_id.RecommendationId"
+    )
     """<p>The unique identifier of the recommendation to retrieve.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: GetRecommendationRequest) -> dict:

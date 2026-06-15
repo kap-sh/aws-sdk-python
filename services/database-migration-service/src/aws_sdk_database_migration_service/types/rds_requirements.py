@@ -34,7 +34,7 @@ class RdsRequirements(TypedDict):
     deployment_option: NotRequired[
         "aws_sdk_database_migration_service.types.string.String"
     ]
-    """<p>The required deployment option for the Amazon RDS DB instance. Valid values include <code>\"MULTI_AZ\"</code> for Multi-AZ deployments and <code>\"SINGLE_AZ\"</code> for Single-AZ deployments.</p>"""
+    r"""<p>The required deployment option for the Amazon RDS DB instance. Valid values include <code>\"MULTI_AZ\"</code> for Multi-AZ deployments and <code>\"SINGLE_AZ\"</code> for Single-AZ deployments.</p>"""
     engine_version: NotRequired[
         "aws_sdk_database_migration_service.types.string.String"
     ]

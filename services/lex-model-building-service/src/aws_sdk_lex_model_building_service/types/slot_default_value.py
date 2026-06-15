@@ -10,7 +10,7 @@ if TYPE_CHECKING:
 
 class SlotDefaultValue(TypedDict):
     default_value: "aws_sdk_lex_model_building_service.types.slot_default_value_string.SlotDefaultValueString"
-    """<p>The default value for the slot. You can specify one of the following:</p> <ul> <li> <p> <code>#context-name.slot-name</code> - The slot value \"slot-name\" in the context \"context-name.\"</p> </li> <li> <p> <code>{attribute}</code> - The slot value of the session attribute \"attribute.\"</p> </li> <li> <p> <code>'value'</code> - The discrete value \"value.\"</p> </li> </ul>"""
+    r"""<p>The default value for the slot. You can specify one of the following:</p> <ul> <li> <p> <code>#context-name.slot-name</code> - The slot value \"slot-name\" in the context \"context-name.\"</p> </li> <li> <p> <code>{attribute}</code> - The slot value of the session attribute \"attribute.\"</p> </li> <li> <p> <code>'value'</code> - The discrete value \"value.\"</p> </li> </ul>"""
 
 
 # --- restJson1 ser/de ---

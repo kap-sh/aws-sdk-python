@@ -30,7 +30,7 @@ class ExecutionConfiguration(TypedDict):
     skip_app_resign: NotRequired[
         "aws_sdk_device_farm.types.skip_app_resign.SkipAppResign"
     ]
-    """<p>When set to <code>true</code>, for private devices, Device Farm does not sign your app again. For public devices, Device Farm always signs your apps again.</p> <p>For more information about how Device Farm re-signs your apps, see <a href=\"http://aws.amazon.com/device-farm/faqs/\">Do you modify my app?</a> in the <i>AWS Device Farm FAQs</i>.</p>"""
+    r"""<p>When set to <code>true</code>, for private devices, Device Farm does not sign your app again. For public devices, Device Farm always signs your apps again.</p> <p>For more information about how Device Farm re-signs your apps, see <a href=\"http://aws.amazon.com/device-farm/faqs/\">Do you modify my app?</a> in the <i>AWS Device Farm FAQs</i>.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

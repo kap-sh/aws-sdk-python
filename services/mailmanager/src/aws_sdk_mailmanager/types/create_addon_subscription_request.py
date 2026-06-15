@@ -20,7 +20,7 @@ class CreateAddonSubscriptionRequest(TypedDict):
     addon_name: "aws_sdk_mailmanager.types.addon_name.AddonName"
     """<p>The name of the Add On to subscribe to. You can only have one subscription for each Add On name.</p>"""
     tags: NotRequired["aws_sdk_mailmanager.types.tag_list.TagList"]
-    """<p>The tags used to organize, track, or control access for the resource. For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.</p>"""
+    r"""<p>The tags used to organize, track, or control access for the resource. For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.</p>"""
 
 
 # --- awsJson1_0 ser/de ---

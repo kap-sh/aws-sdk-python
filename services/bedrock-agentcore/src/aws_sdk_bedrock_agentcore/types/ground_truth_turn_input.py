@@ -1,12 +1,16 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#GroundTruthTurnInput``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TypeAlias, TypedDict
+
 from aws_sdk_bedrock_agentcore.errors import DeserializationError, SerializationError
+
 
 class _GroundTruthTurnInput_prompt(TypedDict):
     prompt: "str"
 
+
 GroundTruthTurnInput: TypeAlias = _GroundTruthTurnInput_prompt
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: GroundTruthTurnInput) -> dict:

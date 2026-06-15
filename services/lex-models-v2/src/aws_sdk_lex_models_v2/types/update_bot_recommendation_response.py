@@ -22,7 +22,7 @@ class UpdateBotRecommendationResponse(TypedDict):
     ]
     """<p>The version of the bot containing the bot recommendation that has been updated.</p>"""
     locale_id: NotRequired["aws_sdk_lex_models_v2.types.locale_id.LocaleId"]
-    """<p>The identifier of the language and locale of the bot recommendation to update. The string must match one of the supported locales. For more information, see <a href=\"https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html\">Supported languages</a> </p>"""
+    r"""<p>The identifier of the language and locale of the bot recommendation to update. The string must match one of the supported locales. For more information, see <a href=\"https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html\">Supported languages</a> </p>"""
     bot_recommendation_status: NotRequired[
         "aws_sdk_lex_models_v2.types.bot_recommendation_status.BotRecommendationStatus"
     ]

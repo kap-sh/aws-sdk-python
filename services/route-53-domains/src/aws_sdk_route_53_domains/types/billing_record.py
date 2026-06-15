@@ -14,7 +14,7 @@ if TYPE_CHECKING:
 
 class BillingRecord(TypedDict):
     domain_name: NotRequired["aws_sdk_route_53_domains.types.domain_name.DomainName"]
-    """<p>The name of the domain that the billing record applies to. If the domain name contains characters other than a-z, 0-9, and - (hyphen), such as an internationalized domain name, then this value is in Punycode. For more information, see <a href=\"https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DomainNameFormat.html\">DNS Domain Name Format</a> in the <i>Amazon Route 53 Developer Guide</i>.</p>"""
+    r"""<p>The name of the domain that the billing record applies to. If the domain name contains characters other than a-z, 0-9, and - (hyphen), such as an internationalized domain name, then this value is in Punycode. For more information, see <a href=\"https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DomainNameFormat.html\">DNS Domain Name Format</a> in the <i>Amazon Route 53 Developer Guide</i>.</p>"""
     operation: NotRequired[
         "aws_sdk_route_53_domains.types.operation_type.OperationType"
     ]

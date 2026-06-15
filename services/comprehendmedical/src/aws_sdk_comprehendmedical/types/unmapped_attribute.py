@@ -11,7 +11,7 @@ if TYPE_CHECKING:
 
 class UnmappedAttribute(TypedDict):
     type: NotRequired["aws_sdk_comprehendmedical.types.entity_type.EntityType"]
-    """<p> The type of the unmapped attribute, could be one of the following values: \"MEDICATION\", \"MEDICAL_CONDITION\", \"ANATOMY\", \"TEST_AND_TREATMENT_PROCEDURE\" or \"PROTECTED_HEALTH_INFORMATION\". </p>"""
+    r"""<p> The type of the unmapped attribute, could be one of the following values: \"MEDICATION\", \"MEDICAL_CONDITION\", \"ANATOMY\", \"TEST_AND_TREATMENT_PROCEDURE\" or \"PROTECTED_HEALTH_INFORMATION\". </p>"""
     attribute: NotRequired["aws_sdk_comprehendmedical.types.attribute.Attribute"]
     """<p> The specific attribute that has been extracted but not mapped to an entity. </p>"""
 

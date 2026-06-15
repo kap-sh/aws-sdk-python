@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 from aws_sdk_proton._services._pipeline import (
@@ -54,7 +56,7 @@ class EnvironmentTemplateVersionResource:
         ] = None,
         tags: Optional["aws_sdk_proton.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_proton.types.create_environment_template_version_output.CreateEnvironmentTemplateVersionOutput":
-        """<p>Create a new major or minor version of an environment template. A major version of an environment template is a version that <i>isn't</i> backwards compatible. A minor version of an environment template is a version that's backwards compatible within its major version.</p>
+        r"""<p>Create a new major or minor version of an environment template. A major version of an environment template is a version that <i>isn't</i> backwards compatible. A minor version of an environment template is a version that's backwards compatible within its major version.</p>
 
         Args:
             client_token: <p>When included, if two identical requests are made with the same client token, Proton returns the environment template version that the first request created.</p>
@@ -309,7 +311,7 @@ class AsyncEnvironmentTemplateVersionResource:
         ] = None,
         tags: Optional["aws_sdk_proton.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_proton.types.create_environment_template_version_output.CreateEnvironmentTemplateVersionOutput":
-        """<p>Create a new major or minor version of an environment template. A major version of an environment template is a version that <i>isn't</i> backwards compatible. A minor version of an environment template is a version that's backwards compatible within its major version.</p>
+        r"""<p>Create a new major or minor version of an environment template. A major version of an environment template is a version that <i>isn't</i> backwards compatible. A minor version of an environment template is a version that's backwards compatible within its major version.</p>
 
         Args:
             client_token: <p>When included, if two identical requests are made with the same client token, Proton returns the environment template version that the first request created.</p>

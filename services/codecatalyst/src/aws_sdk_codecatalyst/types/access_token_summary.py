@@ -18,7 +18,7 @@ class AccessTokenSummary(TypedDict):
     name: "aws_sdk_codecatalyst.types.access_token_name.AccessTokenName"
     """<p>The friendly name of the personal access token.</p>"""
     expires_time: NotRequired["aws_sdk_codecatalyst.types.timestamp.Timestamp"]
-    """<p>The date and time when the personal access token will expire, in coordinated universal time (UTC) timestamp format as specified in <a href=\"https://www.rfc-editor.org/rfc/rfc3339#section-5.6\">RFC 3339</a>.</p>"""
+    r"""<p>The date and time when the personal access token will expire, in coordinated universal time (UTC) timestamp format as specified in <a href=\"https://www.rfc-editor.org/rfc/rfc3339#section-5.6\">RFC 3339</a>.</p>"""
 
 
 # --- restJson1 ser/de ---

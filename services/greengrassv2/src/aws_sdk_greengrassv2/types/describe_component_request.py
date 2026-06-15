@@ -8,7 +8,7 @@ if TYPE_CHECKING:
 
 class DescribeComponentRequest(TypedDict):
     arn: "aws_sdk_greengrassv2.types.component_version_arn.ComponentVersionARN"
-    """<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the component version.</p>"""
+    r"""<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the component version.</p>"""
 
 
 # --- restJson1 ser/de ---

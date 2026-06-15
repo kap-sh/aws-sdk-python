@@ -49,15 +49,15 @@ class CmafIngestGroupSettings(TypedDict):
     klv_name_modifier: NotRequired[
         "aws_sdk_medialive.types.__string_max100.__stringMax100"
     ]
-    """Change the modifier that MediaLive automatically adds to the Streams() name that identifies a KLV track. The default is \"klv\", which means the default name will be Streams(klv.cmfm). Any string you enter here will replace the \"klv\" string.\nThe modifier can only contain: numbers, letters, plus (+), minus (-), underscore (_) and period (.) and has a maximum length of 100 characters."""
+    r"""Change the modifier that MediaLive automatically adds to the Streams() name that identifies a KLV track. The default is \"klv\", which means the default name will be Streams(klv.cmfm). Any string you enter here will replace the \"klv\" string.\nThe modifier can only contain: numbers, letters, plus (+), minus (-), underscore (_) and period (.) and has a maximum length of 100 characters."""
     nielsen_id3_name_modifier: NotRequired[
         "aws_sdk_medialive.types.__string_max100.__stringMax100"
     ]
-    """Change the modifier that MediaLive automatically adds to the Streams() name that identifies a Nielsen ID3 track. The default is \"nid3\", which means the default name will be Streams(nid3.cmfm). Any string you enter here will replace the \"nid3\" string.\nThe modifier can only contain: numbers, letters, plus (+), minus (-), underscore (_) and period (.) and has a maximum length of 100 characters."""
+    r"""Change the modifier that MediaLive automatically adds to the Streams() name that identifies a Nielsen ID3 track. The default is \"nid3\", which means the default name will be Streams(nid3.cmfm). Any string you enter here will replace the \"nid3\" string.\nThe modifier can only contain: numbers, letters, plus (+), minus (-), underscore (_) and period (.) and has a maximum length of 100 characters."""
     scte35_name_modifier: NotRequired[
         "aws_sdk_medialive.types.__string_max100.__stringMax100"
     ]
-    """Change the modifier that MediaLive automatically adds to the Streams() name for a SCTE 35 track. The default is \"scte\", which means the default name will be Streams(scte.cmfm). Any string you enter here will replace the \"scte\" string.\nThe modifier can only contain: numbers, letters, plus (+), minus (-), underscore (_) and period (.) and has a maximum length of 100 characters."""
+    r"""Change the modifier that MediaLive automatically adds to the Streams() name for a SCTE 35 track. The default is \"scte\", which means the default name will be Streams(scte.cmfm). Any string you enter here will replace the \"scte\" string.\nThe modifier can only contain: numbers, letters, plus (+), minus (-), underscore (_) and period (.) and has a maximum length of 100 characters."""
     id3_behavior: NotRequired[
         "aws_sdk_medialive.types.cmaf_id3_behavior.CmafId3Behavior"
     ]
@@ -65,7 +65,7 @@ class CmafIngestGroupSettings(TypedDict):
     id3_name_modifier: NotRequired[
         "aws_sdk_medialive.types.__string_max100.__stringMax100"
     ]
-    """Change the modifier that MediaLive automatically adds to the Streams() name that identifies an ID3 track. The default is \"id3\", which means the default name will be Streams(id3.cmfm). Any string you enter here will replace the \"id3\" string.\nThe modifier can only contain: numbers, letters, plus (+), minus (-), underscore (_) and period (.) and has a maximum length of 100 characters."""
+    r"""Change the modifier that MediaLive automatically adds to the Streams() name that identifies an ID3 track. The default is \"id3\", which means the default name will be Streams(id3.cmfm). Any string you enter here will replace the \"id3\" string.\nThe modifier can only contain: numbers, letters, plus (+), minus (-), underscore (_) and period (.) and has a maximum length of 100 characters."""
     caption_language_mappings: NotRequired[
         "aws_sdk_medialive.types.__list_of_cmaf_ingest_caption_language_mapping.__listOfCmafIngestCaptionLanguageMapping"
     ]

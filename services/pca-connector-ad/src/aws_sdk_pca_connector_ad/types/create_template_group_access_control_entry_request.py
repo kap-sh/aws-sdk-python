@@ -16,9 +16,9 @@ if TYPE_CHECKING:
 
 class CreateTemplateGroupAccessControlEntryRequest(TypedDict):
     template_arn: "aws_sdk_pca_connector_ad.types.template_arn.TemplateArn"
-    """<p>The Amazon Resource Name (ARN) that was returned when you called <a href=\"https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html\">CreateTemplate</a>.</p>"""
+    r"""<p>The Amazon Resource Name (ARN) that was returned when you called <a href=\"https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html\">CreateTemplate</a>.</p>"""
     group_security_identifier: "aws_sdk_pca_connector_ad.types.group_security_identifier.GroupSecurityIdentifier"
-    """<p>Security identifier (SID) of the group object from Active Directory. The SID starts with \"S-\".</p>"""
+    r"""<p>Security identifier (SID) of the group object from Active Directory. The SID starts with \"S-\".</p>"""
     group_display_name: "aws_sdk_pca_connector_ad.types.display_name.DisplayName"
     """<p>Name of the Active Directory group. This name does not need to match the group name in Active Directory.</p>"""
     access_rights: "aws_sdk_pca_connector_ad.types.access_rights.AccessRights"

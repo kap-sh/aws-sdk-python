@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#FilterList``."""
 
 from typing import TYPE_CHECKING, TypeAlias
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.filter
 
@@ -10,6 +11,7 @@ FilterList: TypeAlias = list["aws_sdk_bedrock_agentcore_control.types.filter.Fil
 # --- restJson1 ser/de ---
 def serialize_json(value: FilterList) -> list:
     import aws_sdk_bedrock_agentcore_control.types.filter
+
     out: list = []
     for item in value:
         out.append(aws_sdk_bedrock_agentcore_control.types.filter.serialize_json(item))
@@ -18,7 +20,10 @@ def serialize_json(value: FilterList) -> list:
 
 def deserialize_json(data: list) -> FilterList:
     import aws_sdk_bedrock_agentcore_control.types.filter
+
     out: FilterList = []
     for item in data:
-        out.append(aws_sdk_bedrock_agentcore_control.types.filter.deserialize_json(item))
+        out.append(
+            aws_sdk_bedrock_agentcore_control.types.filter.deserialize_json(item)
+        )
     return out

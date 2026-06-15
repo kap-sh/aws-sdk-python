@@ -16,7 +16,7 @@ class DeleteItemOutput(TypedDict):
     consumed_capacity: NotRequired[
         "aws_sdk_dynamodb.types.consumed_capacity.ConsumedCapacity"
     ]
-    """<p>The capacity units consumed by the <code>DeleteItem</code> operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. <code>ConsumedCapacity</code> is only returned if the <code>ReturnConsumedCapacity</code> parameter was specified. For more information, see <a href=\"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/provisioned-capacity-mode.html\">Provisioned capacity mode</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>"""
+    r"""<p>The capacity units consumed by the <code>DeleteItem</code> operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. <code>ConsumedCapacity</code> is only returned if the <code>ReturnConsumedCapacity</code> parameter was specified. For more information, see <a href=\"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/provisioned-capacity-mode.html\">Provisioned capacity mode</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>"""
     item_collection_metrics: NotRequired[
         "aws_sdk_dynamodb.types.item_collection_metrics.ItemCollectionMetrics"
     ]

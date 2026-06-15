@@ -14,7 +14,7 @@ class ModelBiasAppSpecification(TypedDict):
     image_uri: NotRequired["aws_sdk_sagemaker.types.image_uri.ImageUri"]
     """<p>The container image to be run by the model bias job.</p>"""
     config_uri: NotRequired["aws_sdk_sagemaker.types.s3_uri.S3Uri"]
-    """<p>JSON formatted S3 file that defines bias parameters. For more information on this JSON configuration file, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-config-json-monitor-bias-parameters.html\">Configure bias parameters</a>.</p>"""
+    r"""<p>JSON formatted S3 file that defines bias parameters. For more information on this JSON configuration file, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-config-json-monitor-bias-parameters.html\">Configure bias parameters</a>.</p>"""
     environment: NotRequired[
         "aws_sdk_sagemaker.types.monitoring_environment_map.MonitoringEnvironmentMap"
     ]

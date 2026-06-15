@@ -42,7 +42,7 @@ class RecommendationJobContainerConfig(TypedDict):
     data_input_config: NotRequired[
         "aws_sdk_sagemaker.types.recommendation_job_data_input_config.RecommendationJobDataInputConfig"
     ]
-    """<p>Specifies the name and shape of the expected data inputs for your trained model with a JSON dictionary form. This field is used for optimizing your model using SageMaker Neo. For more information, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_InputConfig.html#sagemaker-Type-InputConfig-DataInputConfig\">DataInputConfig</a>.</p>"""
+    r"""<p>Specifies the name and shape of the expected data inputs for your trained model with a JSON dictionary form. This field is used for optimizing your model using SageMaker Neo. For more information, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_InputConfig.html#sagemaker-Type-InputConfig-DataInputConfig\">DataInputConfig</a>.</p>"""
     supported_response_mime_types: NotRequired[
         "aws_sdk_sagemaker.types.recommendation_job_supported_response_mime_types.RecommendationJobSupportedResponseMIMETypes"
     ]

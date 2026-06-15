@@ -21,7 +21,7 @@ class StartImportJobRequest(TypedDict):
     import_job_type: "aws_sdk_qconnect.types.import_job_type.ImportJobType"
     """<p>The type of the import job.</p> <ul> <li> <p>For importing quick response resource, set the value to <code>QUICK_RESPONSES</code>.</p> </li> </ul>"""
     upload_id: "aws_sdk_qconnect.types.upload_id.UploadId"
-    """<p>A pointer to the uploaded asset. This value is returned by <a href=\"https://docs.aws.amazon.com/wisdom/latest/APIReference/API_StartContentUpload.html\">StartContentUpload</a>.</p>"""
+    r"""<p>A pointer to the uploaded asset. This value is returned by <a href=\"https://docs.aws.amazon.com/wisdom/latest/APIReference/API_StartContentUpload.html\">StartContentUpload</a>.</p>"""
     client_token: NotRequired["aws_sdk_qconnect.types.non_empty_string.NonEmptyString"]
     """<p>The tags used to organize, track, or control access for this resource.</p>"""
     metadata: NotRequired["aws_sdk_qconnect.types.content_metadata.ContentMetadata"]

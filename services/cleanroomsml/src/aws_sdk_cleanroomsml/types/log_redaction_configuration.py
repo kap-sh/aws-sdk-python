@@ -13,7 +13,7 @@ if TYPE_CHECKING:
 
 class LogRedactionConfiguration(TypedDict):
     entities_to_redact: "aws_sdk_cleanroomsml.types.entity_type_list.EntityTypeList"
-    """<p>Specifies the entities to be redacted from logs. Entities to redact are \"ALL_PERSONALLY_IDENTIFIABLE_INFORMATION\", \"NUMBERS\",\"CUSTOM\". If CUSTOM is supplied or configured, custom patterns (customDataIdentifiers) should be provided, and the patterns will be redacted in logs or error messages.</p>"""
+    r"""<p>Specifies the entities to be redacted from logs. Entities to redact are \"ALL_PERSONALLY_IDENTIFIABLE_INFORMATION\", \"NUMBERS\",\"CUSTOM\". If CUSTOM is supplied or configured, custom patterns (customDataIdentifiers) should be provided, and the patterns will be redacted in logs or error messages.</p>"""
     custom_entity_config: NotRequired[
         "aws_sdk_cleanroomsml.types.custom_entity_config.CustomEntityConfig"
     ]

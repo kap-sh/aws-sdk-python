@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_controltower._auth._signers
@@ -41,7 +43,7 @@ class TaggingResource:
         *,
         config_overrides: Optional[ControlTowerClientConfig] = None,
     ) -> "aws_sdk_controltower.types.list_tags_for_resource_output.ListTagsForResourceOutput":
-        """<p>Returns a list of tags associated with the resource. For usage examples, see the <a href=\"https://docs.aws.amazon.com/controltower/latest/controlreference/control-api-examples-short.html\"> <i>Controls Reference Guide</i> </a>.</p>
+        r"""<p>Returns a list of tags associated with the resource. For usage examples, see the <a href=\"https://docs.aws.amazon.com/controltower/latest/controlreference/control-api-examples-short.html\"> <i>Controls Reference Guide</i> </a>.</p>
 
         Args:
             resource_arn: <p> The ARN of the resource.</p>
@@ -79,7 +81,7 @@ class TaggingResource:
         *,
         config_overrides: Optional[ControlTowerClientConfig] = None,
     ) -> "aws_sdk_controltower.types.tag_resource_output.TagResourceOutput":
-        """<p>Applies tags to a resource. For usage examples, see the <a href=\"https://docs.aws.amazon.com/controltower/latest/controlreference/control-api-examples-short.html\"> <i>Controls Reference Guide</i> </a>.</p>
+        r"""<p>Applies tags to a resource. For usage examples, see the <a href=\"https://docs.aws.amazon.com/controltower/latest/controlreference/control-api-examples-short.html\"> <i>Controls Reference Guide</i> </a>.</p>
 
         Args:
             resource_arn: <p>The ARN of the resource to be tagged.</p>
@@ -119,7 +121,7 @@ class TaggingResource:
         *,
         config_overrides: Optional[ControlTowerClientConfig] = None,
     ) -> "aws_sdk_controltower.types.untag_resource_output.UntagResourceOutput":
-        """<p>Removes tags from a resource. For usage examples, see the <a href=\"https://docs.aws.amazon.com/controltower/latest/controlreference/control-api-examples-short.html\"> <i>Controls Reference Guide</i> </a>.</p>
+        r"""<p>Removes tags from a resource. For usage examples, see the <a href=\"https://docs.aws.amazon.com/controltower/latest/controlreference/control-api-examples-short.html\"> <i>Controls Reference Guide</i> </a>.</p>
 
         Args:
             resource_arn: <p>The ARN of the resource.</p>
@@ -163,7 +165,7 @@ class AsyncTaggingResource:
         *,
         config_overrides: Optional[AsyncControlTowerClientConfig] = None,
     ) -> "aws_sdk_controltower.types.list_tags_for_resource_output.ListTagsForResourceOutput":
-        """<p>Returns a list of tags associated with the resource. For usage examples, see the <a href=\"https://docs.aws.amazon.com/controltower/latest/controlreference/control-api-examples-short.html\"> <i>Controls Reference Guide</i> </a>.</p>
+        r"""<p>Returns a list of tags associated with the resource. For usage examples, see the <a href=\"https://docs.aws.amazon.com/controltower/latest/controlreference/control-api-examples-short.html\"> <i>Controls Reference Guide</i> </a>.</p>
 
         Args:
             resource_arn: <p> The ARN of the resource.</p>
@@ -202,7 +204,7 @@ class AsyncTaggingResource:
         *,
         config_overrides: Optional[AsyncControlTowerClientConfig] = None,
     ) -> "aws_sdk_controltower.types.tag_resource_output.TagResourceOutput":
-        """<p>Applies tags to a resource. For usage examples, see the <a href=\"https://docs.aws.amazon.com/controltower/latest/controlreference/control-api-examples-short.html\"> <i>Controls Reference Guide</i> </a>.</p>
+        r"""<p>Applies tags to a resource. For usage examples, see the <a href=\"https://docs.aws.amazon.com/controltower/latest/controlreference/control-api-examples-short.html\"> <i>Controls Reference Guide</i> </a>.</p>
 
         Args:
             resource_arn: <p>The ARN of the resource to be tagged.</p>
@@ -243,7 +245,7 @@ class AsyncTaggingResource:
         *,
         config_overrides: Optional[AsyncControlTowerClientConfig] = None,
     ) -> "aws_sdk_controltower.types.untag_resource_output.UntagResourceOutput":
-        """<p>Removes tags from a resource. For usage examples, see the <a href=\"https://docs.aws.amazon.com/controltower/latest/controlreference/control-api-examples-short.html\"> <i>Controls Reference Guide</i> </a>.</p>
+        r"""<p>Removes tags from a resource. For usage examples, see the <a href=\"https://docs.aws.amazon.com/controltower/latest/controlreference/control-api-examples-short.html\"> <i>Controls Reference Guide</i> </a>.</p>
 
         Args:
             resource_arn: <p>The ARN of the resource.</p>

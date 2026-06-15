@@ -20,7 +20,7 @@ class DeleteInventoryResult(TypedDict):
     deletion_summary: NotRequired[
         "aws_sdk_ssm.types.inventory_deletion_summary.InventoryDeletionSummary"
     ]
-    """<p>A summary of the delete operation. For more information about this summary, see <a href=\"https://docs.aws.amazon.com/systems-manager/latest/userguide/inventory-custom.html#delete-custom-inventory-summary\">Deleting custom inventory</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>"""
+    r"""<p>A summary of the delete operation. For more information about this summary, see <a href=\"https://docs.aws.amazon.com/systems-manager/latest/userguide/inventory-custom.html#delete-custom-inventory-summary\">Deleting custom inventory</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

@@ -64,7 +64,7 @@ class EvaluationForm(TypedDict):
     ]
     """<p>Configuration for evaluation review settings of this evaluation form.</p>"""
     tags: NotRequired["aws_sdk_connect.types.tag_map.TagMap"]
-    """<p>The tags used to organize, track, or control access for this resource. For example, { \"Tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.</p>"""
+    r"""<p>The tags used to organize, track, or control access for this resource. For example, { \"Tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.</p>"""
     target_configuration: NotRequired[
         "aws_sdk_connect.types.evaluation_form_target_configuration.EvaluationFormTargetConfiguration"
     ]

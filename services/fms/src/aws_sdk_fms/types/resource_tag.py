@@ -15,7 +15,7 @@ class ResourceTag(TypedDict):
     key: "aws_sdk_fms.types.resource_tag_key.ResourceTagKey"
     """<p>The resource tag key.</p>"""
     value: NotRequired["aws_sdk_fms.types.resource_tag_value.ResourceTagValue"]
-    """<p>The resource tag value. To specify an empty string value, either don't provide this or specify it as \"\". </p>"""
+    r"""<p>The resource tag value. To specify an empty string value, either don't provide this or specify it as \"\". </p>"""
 
 
 # --- awsJson1_1 ser/de ---

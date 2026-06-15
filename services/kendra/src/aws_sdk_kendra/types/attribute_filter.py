@@ -26,25 +26,25 @@ class AttributeFilter(TypedDict):
     contains_all: NotRequired[
         "aws_sdk_kendra.types.document_attribute.DocumentAttribute"
     ]
-    """<p>Returns true when a document contains all of the specified document attributes/fields. This filter is only applicable to <a href=\"https://docs.aws.amazon.com/kendra/latest/APIReference/API_DocumentAttributeValue.html\">StringListValue</a>.</p>"""
+    r"""<p>Returns true when a document contains all of the specified document attributes/fields. This filter is only applicable to <a href=\"https://docs.aws.amazon.com/kendra/latest/APIReference/API_DocumentAttributeValue.html\">StringListValue</a>.</p>"""
     contains_any: NotRequired[
         "aws_sdk_kendra.types.document_attribute.DocumentAttribute"
     ]
-    """<p>Returns true when a document contains any of the specified document attributes/fields. This filter is only applicable to <a href=\"https://docs.aws.amazon.com/kendra/latest/APIReference/API_DocumentAttributeValue.html\">StringListValue</a>.</p>"""
+    r"""<p>Returns true when a document contains any of the specified document attributes/fields. This filter is only applicable to <a href=\"https://docs.aws.amazon.com/kendra/latest/APIReference/API_DocumentAttributeValue.html\">StringListValue</a>.</p>"""
     greater_than: NotRequired[
         "aws_sdk_kendra.types.document_attribute.DocumentAttribute"
     ]
-    """<p>Performs a greater than operation on document attributes/fields and their values. Use with the <a href=\"https://docs.aws.amazon.com/kendra/latest/APIReference/API_DocumentAttributeValue.html\">document attribute type</a> <code>Date</code> or <code>Long</code>.</p>"""
+    r"""<p>Performs a greater than operation on document attributes/fields and their values. Use with the <a href=\"https://docs.aws.amazon.com/kendra/latest/APIReference/API_DocumentAttributeValue.html\">document attribute type</a> <code>Date</code> or <code>Long</code>.</p>"""
     greater_than_or_equals: NotRequired[
         "aws_sdk_kendra.types.document_attribute.DocumentAttribute"
     ]
-    """<p>Performs a greater or equals than operation on document attributes/fields and their values. Use with the <a href=\"https://docs.aws.amazon.com/kendra/latest/APIReference/API_DocumentAttributeValue.html\">document attribute type</a> <code>Date</code> or <code>Long</code>.</p>"""
+    r"""<p>Performs a greater or equals than operation on document attributes/fields and their values. Use with the <a href=\"https://docs.aws.amazon.com/kendra/latest/APIReference/API_DocumentAttributeValue.html\">document attribute type</a> <code>Date</code> or <code>Long</code>.</p>"""
     less_than: NotRequired["aws_sdk_kendra.types.document_attribute.DocumentAttribute"]
-    """<p>Performs a less than operation on document attributes/fields and their values. Use with the <a href=\"https://docs.aws.amazon.com/kendra/latest/APIReference/API_DocumentAttributeValue.html\">document attribute type</a> <code>Date</code> or <code>Long</code>.</p>"""
+    r"""<p>Performs a less than operation on document attributes/fields and their values. Use with the <a href=\"https://docs.aws.amazon.com/kendra/latest/APIReference/API_DocumentAttributeValue.html\">document attribute type</a> <code>Date</code> or <code>Long</code>.</p>"""
     less_than_or_equals: NotRequired[
         "aws_sdk_kendra.types.document_attribute.DocumentAttribute"
     ]
-    """<p>Performs a less than or equals operation on document attributes/fields and their values. Use with the <a href=\"https://docs.aws.amazon.com/kendra/latest/APIReference/API_DocumentAttributeValue.html\">document attribute type</a> <code>Date</code> or <code>Long</code>.</p>"""
+    r"""<p>Performs a less than or equals operation on document attributes/fields and their values. Use with the <a href=\"https://docs.aws.amazon.com/kendra/latest/APIReference/API_DocumentAttributeValue.html\">document attribute type</a> <code>Date</code> or <code>Long</code>.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

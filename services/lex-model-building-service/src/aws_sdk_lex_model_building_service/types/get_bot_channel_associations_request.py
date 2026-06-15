@@ -28,7 +28,7 @@ class GetBotChannelAssociationsRequest(TypedDict):
     name_contains: NotRequired[
         "aws_sdk_lex_model_building_service.types.bot_channel_name.BotChannelName"
     ]
-    """<p>Substring to match in channel association names. An association will be returned if any part of its name matches the substring. For example, \"xyz\" matches both \"xyzabc\" and \"abcxyz.\" To return all bot channel associations, use a hyphen (\"-\") as the <code>nameContains</code> parameter.</p>"""
+    r"""<p>Substring to match in channel association names. An association will be returned if any part of its name matches the substring. For example, \"xyz\" matches both \"xyzabc\" and \"abcxyz.\" To return all bot channel associations, use a hyphen (\"-\") as the <code>nameContains</code> parameter.</p>"""
 
 
 # --- restJson1 ser/de ---

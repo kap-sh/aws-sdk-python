@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_arc_zonal_shift._auth._signers
@@ -61,11 +63,11 @@ class ZonalShiftResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_arc_zonal_shift.types.cancel_practice_run_request.CancelPracticeRunRequest = {}  # type: ignore[typeddict-item]
-        input["zonal_shift_id"] = zonal_shift_id
+        input_: aws_sdk_arc_zonal_shift.types.cancel_practice_run_request.CancelPracticeRunRequest = {}  # type: ignore[typeddict-item]
+        input_["zonal_shift_id"] = zonal_shift_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -96,11 +98,11 @@ class ZonalShiftResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_arc_zonal_shift.types.cancel_zonal_shift_request.CancelZonalShiftRequest = {}  # type: ignore[typeddict-item]
-        input["zonal_shift_id"] = zonal_shift_id
+        input_: aws_sdk_arc_zonal_shift.types.cancel_zonal_shift_request.CancelZonalShiftRequest = {}  # type: ignore[typeddict-item]
+        input_["zonal_shift_id"] = zonal_shift_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -139,15 +141,15 @@ class ZonalShiftResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_arc_zonal_shift.types.update_zonal_shift_request.UpdateZonalShiftRequest = {}  # type: ignore[typeddict-item]
-        input["zonal_shift_id"] = zonal_shift_id
+        input_: aws_sdk_arc_zonal_shift.types.update_zonal_shift_request.UpdateZonalShiftRequest = {}  # type: ignore[typeddict-item]
+        input_["zonal_shift_id"] = zonal_shift_id
         if comment is not None:
-            input["comment"] = comment
+            input_["comment"] = comment
         if expires_in is not None:
-            input["expires_in"] = expires_in
+            input_["expires_in"] = expires_in
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -186,11 +188,11 @@ class AsyncZonalShiftResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_arc_zonal_shift.types.cancel_practice_run_request.CancelPracticeRunRequest = {}  # type: ignore[typeddict-item]
-        input["zonal_shift_id"] = zonal_shift_id
+        input_: aws_sdk_arc_zonal_shift.types.cancel_practice_run_request.CancelPracticeRunRequest = {}  # type: ignore[typeddict-item]
+        input_["zonal_shift_id"] = zonal_shift_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -224,11 +226,11 @@ class AsyncZonalShiftResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_arc_zonal_shift.types.cancel_zonal_shift_request.CancelZonalShiftRequest = {}  # type: ignore[typeddict-item]
-        input["zonal_shift_id"] = zonal_shift_id
+        input_: aws_sdk_arc_zonal_shift.types.cancel_zonal_shift_request.CancelZonalShiftRequest = {}  # type: ignore[typeddict-item]
+        input_["zonal_shift_id"] = zonal_shift_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -270,15 +272,15 @@ class AsyncZonalShiftResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_arc_zonal_shift.types.update_zonal_shift_request.UpdateZonalShiftRequest = {}  # type: ignore[typeddict-item]
-        input["zonal_shift_id"] = zonal_shift_id
+        input_: aws_sdk_arc_zonal_shift.types.update_zonal_shift_request.UpdateZonalShiftRequest = {}  # type: ignore[typeddict-item]
+        input_["zonal_shift_id"] = zonal_shift_id
         if comment is not None:
-            input["comment"] = comment
+            input_["comment"] = comment
         if expires_in is not None:
-            input["expires_in"] = expires_in
+            input_["expires_in"] = expires_in
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

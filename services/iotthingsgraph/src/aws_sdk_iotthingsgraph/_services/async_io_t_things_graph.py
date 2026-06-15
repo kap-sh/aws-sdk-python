@@ -589,7 +589,7 @@ class AsyncIoTThingsGraphClient:
         config_overrides: Optional[AsyncIoTThingsGraphClientConfig] = None,
         id: Optional["aws_sdk_iotthingsgraph.types.urn.Urn"] = None,
     ) -> "aws_sdk_iotthingsgraph.types.deploy_system_instance_response.DeploySystemInstanceResponse":
-        """<p> <b>Greengrass and Cloud Deployments</b> </p> <p>Deploys the system instance to the target specified in <code>CreateSystemInstance</code>. </p> <p> <b>Greengrass Deployments</b> </p> <p>If the system or any workflows and entities have been updated before this action is called, then the deployment will create a new Amazon Simple Storage Service resource file and then deploy it.</p> <p>Since this action creates a Greengrass deployment on the caller's behalf, the calling identity must have write permissions to the specified Greengrass group. Otherwise, the call will fail with an authorization error.</p> <p>For information about the artifacts that get added to your Greengrass core device when you use this API, see <a href=\"https://docs.aws.amazon.com/thingsgraph/latest/ug/iot-tg-greengrass.html\">AWS IoT Things Graph and AWS IoT Greengrass</a>.</p>
+        r"""<p> <b>Greengrass and Cloud Deployments</b> </p> <p>Deploys the system instance to the target specified in <code>CreateSystemInstance</code>. </p> <p> <b>Greengrass Deployments</b> </p> <p>If the system or any workflows and entities have been updated before this action is called, then the deployment will create a new Amazon Simple Storage Service resource file and then deploy it.</p> <p>Since this action creates a Greengrass deployment on the caller's behalf, the calling identity must have write permissions to the specified Greengrass group. Otherwise, the call will fail with an authorization error.</p> <p>For information about the artifacts that get added to your Greengrass core device when you use this API, see <a href=\"https://docs.aws.amazon.com/thingsgraph/latest/ug/iot-tg-greengrass.html\">AWS IoT Things Graph and AWS IoT Greengrass</a>.</p>
 
         Args:
             id: <p>The ID of the system instance. This value is returned by the <code>CreateSystemInstance</code> action.</p> <p>The ID should be in the following format.</p> <p> <code>urn:tdm:REGION/ACCOUNT ID/default:deployment:DEPLOYMENTNAME</code> </p>
@@ -1942,7 +1942,7 @@ class AsyncIoTThingsGraphClient:
         *,
         config_overrides: Optional[AsyncIoTThingsGraphClientConfig] = None,
     ) -> "aws_sdk_iotthingsgraph.types.untag_resource_response.UntagResourceResponse":
-        """<p>Removes a tag from the specified resource.</p>
+        r"""<p>Removes a tag from the specified resource.</p>
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource whose tags are to be removed.</p>

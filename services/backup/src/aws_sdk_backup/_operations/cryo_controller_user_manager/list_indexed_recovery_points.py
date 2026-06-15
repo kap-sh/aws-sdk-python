@@ -60,7 +60,7 @@ def get_signer(
     options: AsyncOperationOptions | OperationOptions,
     auth_schemes: list[dict[str, Any]] | None = None,
 ) -> aws_sdk_backup._auth._signers.Signer | None:
-    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}
+    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}  # noqa: F841
     if options.credentials_provider is not None:
         sigv4_config = (
             name_to_schema.get("sigv4")
@@ -79,7 +79,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_backup.types.list_indexed_recovery_points_input.ListIndexedRecoveryPointsInput,
+    input_: aws_sdk_backup.types.list_indexed_recovery_points_input.ListIndexedRecoveryPointsInput,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -91,20 +91,20 @@ def build_request(
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/indexes/recovery-point"
     params: dict[str, str] = {}
-    if "next_token" in input:
-        params["nextToken"] = str(input["next_token"])
-    if "max_results" in input:
-        params["maxResults"] = str(input["max_results"])
-    if "source_resource_arn" in input:
-        params["sourceResourceArn"] = str(input["source_resource_arn"])
-    if "created_before" in input:
-        params["createdBefore"] = str(input["created_before"])
-    if "created_after" in input:
-        params["createdAfter"] = str(input["created_after"])
-    if "resource_type" in input:
-        params["resourceType"] = str(input["resource_type"])
-    if "index_status" in input:
-        params["indexStatus"] = str(input["index_status"])
+    if "next_token" in input_:
+        params["nextToken"] = str(input_["next_token"])
+    if "max_results" in input_:
+        params["maxResults"] = str(input_["max_results"])
+    if "source_resource_arn" in input_:
+        params["sourceResourceArn"] = str(input_["source_resource_arn"])
+    if "created_before" in input_:
+        params["createdBefore"] = str(input_["created_before"])
+    if "created_after" in input_:
+        params["createdAfter"] = str(input_["created_after"])
+    if "resource_type" in input_:
+        params["resourceType"] = str(input_["resource_type"])
+    if "index_status" in input_:
+        params["indexStatus"] = str(input_["index_status"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
@@ -117,12 +117,12 @@ def build_request(
 
 def list_indexed_recovery_points(
     options: OperationOptions,
-    input: aws_sdk_backup.types.list_indexed_recovery_points_input.ListIndexedRecoveryPointsInput,
+    input_: aws_sdk_backup.types.list_indexed_recovery_points_input.ListIndexedRecoveryPointsInput,
 ) -> tuple[
     aws_sdk_backup.types.list_indexed_recovery_points_output.ListIndexedRecoveryPointsOutput,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -136,12 +136,12 @@ def list_indexed_recovery_points(
 
 async def async_list_indexed_recovery_points(
     options: AsyncOperationOptions,
-    input: aws_sdk_backup.types.list_indexed_recovery_points_input.ListIndexedRecoveryPointsInput,
+    input_: aws_sdk_backup.types.list_indexed_recovery_points_input.ListIndexedRecoveryPointsInput,
 ) -> tuple[
     aws_sdk_backup.types.list_indexed_recovery_points_output.ListIndexedRecoveryPointsOutput,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

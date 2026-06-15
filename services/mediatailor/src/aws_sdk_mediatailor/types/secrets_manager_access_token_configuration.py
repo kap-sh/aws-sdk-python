@@ -14,7 +14,7 @@ class SecretsManagerAccessTokenConfiguration(TypedDict):
     secret_arn: NotRequired["aws_sdk_mediatailor.types.__string.__string"]
     """<p>The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the access token.</p>"""
     secret_string_key: NotRequired["aws_sdk_mediatailor.types.__string.__string"]
-    """<p>The AWS Secrets Manager <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_CreateSecret.html#SecretsManager-CreateSecret-request-SecretString.html\">SecretString</a> key associated with the access token. MediaTailor uses the key to look up SecretString key and value pair containing the access token.</p>"""
+    r"""<p>The AWS Secrets Manager <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_CreateSecret.html#SecretsManager-CreateSecret-request-SecretString.html\">SecretString</a> key associated with the access token. MediaTailor uses the key to look up SecretString key and value pair containing the access token.</p>"""
 
 
 # --- restJson1 ser/de ---

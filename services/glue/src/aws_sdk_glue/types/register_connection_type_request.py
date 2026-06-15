@@ -18,9 +18,9 @@ if TYPE_CHECKING:
 
 class RegisterConnectionTypeRequest(TypedDict):
     connection_type: "aws_sdk_glue.types.name_string.NameString"
-    """<p>The name of the connection type. Must be between 1 and 255 characters and must be prefixed with \"REST-\" to indicate it is a REST-based connector.</p>"""
+    r"""<p>The name of the connection type. Must be between 1 and 255 characters and must be prefixed with \"REST-\" to indicate it is a REST-based connector.</p>"""
     integration_type: "aws_sdk_glue.types.integration_type.IntegrationType"
-    """<p>The integration type for the connection. Currently only \"REST\" protocol is supported.</p>"""
+    r"""<p>The integration type for the connection. Currently only \"REST\" protocol is supported.</p>"""
     description: NotRequired["aws_sdk_glue.types.description.Description"]
     """<p>A description of the connection type. Can be up to 2048 characters and provides details about the purpose and functionality of the connection type.</p>"""
     connection_properties: "aws_sdk_glue.types.connection_properties_configuration.ConnectionPropertiesConfiguration"

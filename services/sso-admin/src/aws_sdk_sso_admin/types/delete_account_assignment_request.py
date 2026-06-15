@@ -15,7 +15,7 @@ if TYPE_CHECKING:
 
 class DeleteAccountAssignmentRequest(TypedDict):
     instance_arn: "aws_sdk_sso_admin.types.instance_arn.InstanceArn"
-    """<p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>"""
+    r"""<p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>"""
     target_id: "aws_sdk_sso_admin.types.target_id.TargetId"
     """<p>TargetID is an Amazon Web Services account identifier, (For example, 123456789012).</p>"""
     target_type: "aws_sdk_sso_admin.types.target_type.TargetType"
@@ -25,7 +25,7 @@ class DeleteAccountAssignmentRequest(TypedDict):
     principal_type: "aws_sdk_sso_admin.types.principal_type.PrincipalType"
     """<p>The entity type for which the assignment will be deleted.</p>"""
     principal_id: "aws_sdk_sso_admin.types.principal_id.PrincipalId"
-    """<p>An identifier for an object in IAM Identity Center, such as a user or group. PrincipalIds are GUIDs (For example, f81d4fae-7dec-11d0-a765-00a0c91e6bf6). For more information about PrincipalIds in IAM Identity Center, see the <a href=\"/singlesignon/latest/IdentityStoreAPIReference/welcome.html\">IAM Identity Center Identity Store API Reference</a>.</p>"""
+    r"""<p>An identifier for an object in IAM Identity Center, such as a user or group. PrincipalIds are GUIDs (For example, f81d4fae-7dec-11d0-a765-00a0c91e6bf6). For more information about PrincipalIds in IAM Identity Center, see the <a href=\"/singlesignon/latest/IdentityStoreAPIReference/welcome.html\">IAM Identity Center Identity Store API Reference</a>.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

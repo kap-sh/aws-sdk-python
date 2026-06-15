@@ -16,7 +16,7 @@ class StartDeviceAuthorizationRequest(TypedDict):
     client_secret: "aws_sdk_sso_oidc.types.client_secret.ClientSecret"
     """<p>A secret string that is generated for the client. This value should come from the persisted result of the <a>RegisterClient</a> API operation.</p>"""
     start_url: "aws_sdk_sso_oidc.types.uri.URI"
-    """<p>The URL for the Amazon Web Services access portal. For more information, see <a href=\"https://docs.aws.amazon.com/singlesignon/latest/userguide/using-the-portal.html\">Using the Amazon Web Services access portal</a> in the <i>IAM Identity Center User Guide</i>.</p>"""
+    r"""<p>The URL for the Amazon Web Services access portal. For more information, see <a href=\"https://docs.aws.amazon.com/singlesignon/latest/userguide/using-the-portal.html\">Using the Amazon Web Services access portal</a> in the <i>IAM Identity Center User Guide</i>.</p>"""
 
 
 # --- restJson1 ser/de ---

@@ -26,7 +26,7 @@ class DescribeVolumesModificationsRequest(TypedDict):
     next_token: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>"""
     max_results: NotRequired["aws_sdk_ec2.types.integer.Integer"]
-    """<p>The maximum number of results (up to a limit of 500) to be returned in a paginated request. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>"""
+    r"""<p>The maximum number of results (up to a limit of 500) to be returned in a paginated request. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>"""
 
 
 # --- ec2Query ser/de ---

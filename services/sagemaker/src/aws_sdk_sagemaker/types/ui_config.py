@@ -11,7 +11,7 @@ if TYPE_CHECKING:
 
 class UiConfig(TypedDict):
     ui_template_s3_uri: NotRequired["aws_sdk_sagemaker.types.s3_uri.S3Uri"]
-    """<p>The Amazon S3 bucket location of the UI template, or worker task template. This is the template used to render the worker UI and tools for labeling job tasks. For more information about the contents of a UI template, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/sms-custom-templates-step2.html\"> Creating Your Custom Labeling Task Template</a>.</p>"""
+    r"""<p>The Amazon S3 bucket location of the UI template, or worker task template. This is the template used to render the worker UI and tools for labeling job tasks. For more information about the contents of a UI template, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/sms-custom-templates-step2.html\"> Creating Your Custom Labeling Task Template</a>.</p>"""
     human_task_ui_arn: NotRequired[
         "aws_sdk_sagemaker.types.human_task_ui_arn.HumanTaskUiArn"
     ]

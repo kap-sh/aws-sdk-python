@@ -16,7 +16,7 @@ class Variant(TypedDict):
     string_value: NotRequired[
         "aws_sdk_iotsitewise.types.property_value_string_value.PropertyValueStringValue"
     ]
-    """<p> Asset property data of type string (sequence of characters). The allowed pattern: \"^$|[^\u0000-\u001f\u007f]+\". The max length is 1024. </p>"""
+    r"""<p> Asset property data of type string (sequence of characters). The allowed pattern: \"^$|[^\u0000-\u001F\u007F]+\". The max length is 1024. </p>"""
     integer_value: NotRequired[
         "aws_sdk_iotsitewise.types.property_value_integer_value.PropertyValueIntegerValue"
     ]

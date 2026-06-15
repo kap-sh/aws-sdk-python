@@ -303,7 +303,7 @@ class AsyncAPIGatewayClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = AsyncAPIGatewayClientConfig(
+        self._config = AsyncAPIGatewayClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -323,7 +323,7 @@ class AsyncAPIGatewayClient:
         overrides: AsyncAPIGatewayClientConfig = config_overrides or {}
         interceptors_: list[AsyncInterceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             aretry(),
         ]
@@ -331,16 +331,16 @@ class AsyncAPIGatewayClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            region=overrides.get("region", self.config.get("region")),
+            region=overrides.get("region", self._config.get("region")),
             use_dual_stack=overrides.get(
-                "use_dual_stack", self.config.get("use_dual_stack")
+                "use_dual_stack", self._config.get("use_dual_stack")
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -573,7 +573,7 @@ class AsyncAPIGatewayClient:
             "aws_sdk_api_gateway.types.nullable_boolean.NullableBoolean"
         ] = None,
     ) -> "aws_sdk_api_gateway.types.deployment.Deployment":
-        """<p>Creates a Deployment resource, which makes a specified RestApi callable over the internet.</p>
+        r"""<p>Creates a Deployment resource, which makes a specified RestApi callable over the internet.</p>
 
         Args:
             rest_api_id: <p>The string identifier of the associated RestApi.</p>
@@ -1161,7 +1161,7 @@ class AsyncAPIGatewayClient:
             "aws_sdk_api_gateway.types.map_of_string_to_string.MapOfStringToString"
         ] = None,
     ) -> "aws_sdk_api_gateway.types.stage.Stage":
-        """<p>Creates a new Stage resource that references a pre-existing Deployment for the API. </p>
+        r"""<p>Creates a new Stage resource that references a pre-existing Deployment for the API. </p>
 
         Args:
             rest_api_id: <p>The string identifier of the associated RestApi.</p>
@@ -2849,7 +2849,7 @@ class AsyncAPIGatewayClient:
         config_overrides: Optional[AsyncAPIGatewayClientConfig] = None,
         embed: Optional["aws_sdk_api_gateway.types.list_of_string.ListOfString"] = None,
     ) -> "aws_sdk_api_gateway.types.deployment.Deployment":
-        """<p>Gets information about a Deployment resource.</p>
+        r"""<p>Gets information about a Deployment resource.</p>
 
         Args:
             rest_api_id: <p>The string identifier of the associated RestApi.</p>
@@ -3897,7 +3897,7 @@ class AsyncAPIGatewayClient:
         config_overrides: Optional[AsyncAPIGatewayClientConfig] = None,
         embed: Optional["aws_sdk_api_gateway.types.list_of_string.ListOfString"] = None,
     ) -> "aws_sdk_api_gateway.types.resource.Resource":
-        """<p>Lists information about a resource.</p>
+        r"""<p>Lists information about a resource.</p>
 
         Args:
             rest_api_id: <p>The string identifier of the associated RestApi.</p>
@@ -3943,7 +3943,7 @@ class AsyncAPIGatewayClient:
         ] = None,
         embed: Optional["aws_sdk_api_gateway.types.list_of_string.ListOfString"] = None,
     ) -> "aws_sdk_api_gateway.types.resources.Resources":
-        """<p>Lists information about a collection of Resource resources.</p>
+        r"""<p>Lists information about a collection of Resource resources.</p>
 
         Args:
             rest_api_id: <p>The string identifier of the associated RestApi.</p>
@@ -5324,7 +5324,7 @@ class AsyncAPIGatewayClient:
             "aws_sdk_api_gateway.types.map_of_string_to_string.MapOfStringToString"
         ] = None,
     ) -> "aws_sdk_api_gateway.types.rest_api.RestApi":
-        """<p>A feature of the API Gateway control service for updating an existing API with an input of external API definitions. The update can take the form of merging the supplied definition into the existing API or overwriting the existing API.</p>
+        r"""<p>A feature of the API Gateway control service for updating an existing API with an input of external API definitions. The update can take the form of merging the supplied definition into the existing API or overwriting the existing API.</p>
 
         Args:
             rest_api_id: <p>The string identifier of the associated RestApi.</p>
@@ -5647,7 +5647,7 @@ class AsyncAPIGatewayClient:
             "aws_sdk_api_gateway.types.list_of_patch_operation.ListOfPatchOperation"
         ] = None,
     ) -> "aws_sdk_api_gateway.types.account.Account":
-        """<p>Changes information about the current Account resource.</p>
+        r"""<p>Changes information about the current Account resource.</p>
 
         Args:
             patch_operations: <p>For more information about supported patch operations, see <a href=\"https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html\">Patch Operations</a>.</p>
@@ -5687,7 +5687,7 @@ class AsyncAPIGatewayClient:
             "aws_sdk_api_gateway.types.list_of_patch_operation.ListOfPatchOperation"
         ] = None,
     ) -> "aws_sdk_api_gateway.types.api_key.ApiKey":
-        """<p>Changes information about an ApiKey resource.</p>
+        r"""<p>Changes information about an ApiKey resource.</p>
 
         Args:
             api_key: <p>The identifier of the ApiKey resource to be updated.</p>
@@ -5730,7 +5730,7 @@ class AsyncAPIGatewayClient:
             "aws_sdk_api_gateway.types.list_of_patch_operation.ListOfPatchOperation"
         ] = None,
     ) -> "aws_sdk_api_gateway.types.authorizer.Authorizer":
-        """<p>Updates an existing Authorizer resource.</p>
+        r"""<p>Updates an existing Authorizer resource.</p>
 
         Args:
             rest_api_id: <p>The string identifier of the associated RestApi.</p>
@@ -5776,7 +5776,7 @@ class AsyncAPIGatewayClient:
             "aws_sdk_api_gateway.types.list_of_patch_operation.ListOfPatchOperation"
         ] = None,
     ) -> "aws_sdk_api_gateway.types.base_path_mapping.BasePathMapping":
-        """<p>Changes information about the BasePathMapping resource.</p>
+        r"""<p>Changes information about the BasePathMapping resource.</p>
 
         Args:
             domain_name: <p>The domain name of the BasePathMapping resource to change.</p>
@@ -5825,7 +5825,7 @@ class AsyncAPIGatewayClient:
             "aws_sdk_api_gateway.types.list_of_patch_operation.ListOfPatchOperation"
         ] = None,
     ) -> "aws_sdk_api_gateway.types.client_certificate.ClientCertificate":
-        """<p>Changes information about an ClientCertificate resource.</p>
+        r"""<p>Changes information about an ClientCertificate resource.</p>
 
         Args:
             client_certificate_id: <p>The identifier of the ClientCertificate resource to be updated.</p>
@@ -5870,7 +5870,7 @@ class AsyncAPIGatewayClient:
             "aws_sdk_api_gateway.types.list_of_patch_operation.ListOfPatchOperation"
         ] = None,
     ) -> "aws_sdk_api_gateway.types.deployment.Deployment":
-        """<p>Changes information about a Deployment resource.</p>
+        r"""<p>Changes information about a Deployment resource.</p>
 
         Args:
             rest_api_id: <p>The string identifier of the associated RestApi.</p>
@@ -5915,7 +5915,7 @@ class AsyncAPIGatewayClient:
             "aws_sdk_api_gateway.types.list_of_patch_operation.ListOfPatchOperation"
         ] = None,
     ) -> "aws_sdk_api_gateway.types.documentation_part.DocumentationPart":
-        """<p>Updates a documentation part.</p>
+        r"""<p>Updates a documentation part.</p>
 
         Args:
             rest_api_id: <p>The string identifier of the associated RestApi.</p>
@@ -5962,7 +5962,7 @@ class AsyncAPIGatewayClient:
             "aws_sdk_api_gateway.types.list_of_patch_operation.ListOfPatchOperation"
         ] = None,
     ) -> "aws_sdk_api_gateway.types.documentation_version.DocumentationVersion":
-        """<p>Updates a documentation version.</p>
+        r"""<p>Updates a documentation version.</p>
 
         Args:
             rest_api_id: <p>The string identifier of the associated RestApi.</p>
@@ -6009,7 +6009,7 @@ class AsyncAPIGatewayClient:
             "aws_sdk_api_gateway.types.list_of_patch_operation.ListOfPatchOperation"
         ] = None,
     ) -> "aws_sdk_api_gateway.types.domain_name.DomainName":
-        """<p>Changes information about the DomainName resource.</p>
+        r"""<p>Changes information about the DomainName resource.</p>
 
         Args:
             domain_name: <p>The name of the DomainName resource to be changed.</p>
@@ -6055,7 +6055,7 @@ class AsyncAPIGatewayClient:
             "aws_sdk_api_gateway.types.list_of_patch_operation.ListOfPatchOperation"
         ] = None,
     ) -> "aws_sdk_api_gateway.types.gateway_response.GatewayResponse":
-        """<p>Updates a GatewayResponse of a specified response type on the given RestApi.</p>
+        r"""<p>Updates a GatewayResponse of a specified response type on the given RestApi.</p>
 
         Args:
             rest_api_id: <p>The string identifier of the associated RestApi.</p>
@@ -6103,7 +6103,7 @@ class AsyncAPIGatewayClient:
             "aws_sdk_api_gateway.types.list_of_patch_operation.ListOfPatchOperation"
         ] = None,
     ) -> "aws_sdk_api_gateway.types.integration.Integration":
-        """<p>Represents an update integration.</p>
+        r"""<p>Represents an update integration.</p>
 
         Args:
             rest_api_id: <p>The string identifier of the associated RestApi.</p>
@@ -6154,7 +6154,7 @@ class AsyncAPIGatewayClient:
             "aws_sdk_api_gateway.types.list_of_patch_operation.ListOfPatchOperation"
         ] = None,
     ) -> "aws_sdk_api_gateway.types.integration_response.IntegrationResponse":
-        """<p>Represents an update integration response.</p>
+        r"""<p>Represents an update integration response.</p>
 
         Args:
             rest_api_id: <p>The string identifier of the associated RestApi.</p>
@@ -6206,7 +6206,7 @@ class AsyncAPIGatewayClient:
             "aws_sdk_api_gateway.types.list_of_patch_operation.ListOfPatchOperation"
         ] = None,
     ) -> "aws_sdk_api_gateway.types.method.Method":
-        """<p>Updates an existing Method resource.</p>
+        r"""<p>Updates an existing Method resource.</p>
 
         Args:
             rest_api_id: <p>The string identifier of the associated RestApi.</p>
@@ -6255,7 +6255,7 @@ class AsyncAPIGatewayClient:
             "aws_sdk_api_gateway.types.list_of_patch_operation.ListOfPatchOperation"
         ] = None,
     ) -> "aws_sdk_api_gateway.types.method_response.MethodResponse":
-        """<p>Updates an existing MethodResponse resource.</p>
+        r"""<p>Updates an existing MethodResponse resource.</p>
 
         Args:
             rest_api_id: <p>The string identifier of the associated RestApi.</p>
@@ -6306,7 +6306,7 @@ class AsyncAPIGatewayClient:
             "aws_sdk_api_gateway.types.list_of_patch_operation.ListOfPatchOperation"
         ] = None,
     ) -> "aws_sdk_api_gateway.types.model.Model":
-        """<p>Changes information about a model. The maximum size of the model is 400 KB.</p>
+        r"""<p>Changes information about a model. The maximum size of the model is 400 KB.</p>
 
         Args:
             rest_api_id: <p>The string identifier of the associated RestApi.</p>
@@ -6351,7 +6351,7 @@ class AsyncAPIGatewayClient:
             "aws_sdk_api_gateway.types.list_of_patch_operation.ListOfPatchOperation"
         ] = None,
     ) -> "aws_sdk_api_gateway.types.request_validator.RequestValidator":
-        """<p>Updates a RequestValidator of a given RestApi.</p>
+        r"""<p>Updates a RequestValidator of a given RestApi.</p>
 
         Args:
             rest_api_id: <p>The string identifier of the associated RestApi.</p>
@@ -6398,7 +6398,7 @@ class AsyncAPIGatewayClient:
             "aws_sdk_api_gateway.types.list_of_patch_operation.ListOfPatchOperation"
         ] = None,
     ) -> "aws_sdk_api_gateway.types.resource.Resource":
-        """<p>Changes information about a Resource resource.</p>
+        r"""<p>Changes information about a Resource resource.</p>
 
         Args:
             rest_api_id: <p>The string identifier of the associated RestApi.</p>
@@ -6442,7 +6442,7 @@ class AsyncAPIGatewayClient:
             "aws_sdk_api_gateway.types.list_of_patch_operation.ListOfPatchOperation"
         ] = None,
     ) -> "aws_sdk_api_gateway.types.rest_api.RestApi":
-        """<p>Changes information about the specified API.</p>
+        r"""<p>Changes information about the specified API.</p>
 
         Args:
             rest_api_id: <p>The string identifier of the associated RestApi.</p>
@@ -6485,7 +6485,7 @@ class AsyncAPIGatewayClient:
             "aws_sdk_api_gateway.types.list_of_patch_operation.ListOfPatchOperation"
         ] = None,
     ) -> "aws_sdk_api_gateway.types.stage.Stage":
-        """<p>Changes information about a Stage resource.</p>
+        r"""<p>Changes information about a Stage resource.</p>
 
         Args:
             rest_api_id: <p>The string identifier of the associated RestApi.</p>
@@ -6530,7 +6530,7 @@ class AsyncAPIGatewayClient:
             "aws_sdk_api_gateway.types.list_of_patch_operation.ListOfPatchOperation"
         ] = None,
     ) -> "aws_sdk_api_gateway.types.usage.Usage":
-        """<p>Grants a temporary extension to the remaining quota of a usage plan associated with a specified API key.</p>
+        r"""<p>Grants a temporary extension to the remaining quota of a usage plan associated with a specified API key.</p>
 
         Args:
             usage_plan_id: <p>The Id of the usage plan associated with the usage data.</p>
@@ -6574,7 +6574,7 @@ class AsyncAPIGatewayClient:
             "aws_sdk_api_gateway.types.list_of_patch_operation.ListOfPatchOperation"
         ] = None,
     ) -> "aws_sdk_api_gateway.types.usage_plan.UsagePlan":
-        """<p>Updates a usage plan of a given plan Id.</p>
+        r"""<p>Updates a usage plan of a given plan Id.</p>
 
         Args:
             usage_plan_id: <p>The Id of the to-be-updated usage plan.</p>
@@ -6616,7 +6616,7 @@ class AsyncAPIGatewayClient:
             "aws_sdk_api_gateway.types.list_of_patch_operation.ListOfPatchOperation"
         ] = None,
     ) -> "aws_sdk_api_gateway.types.vpc_link.VpcLink":
-        """<p>Updates an existing VpcLink of a specified identifier.</p>
+        r"""<p>Updates an existing VpcLink of a specified identifier.</p>
 
         Args:
             vpc_link_id: <p>The identifier of the VpcLink. It is used in an Integration to reference this VpcLink.</p>

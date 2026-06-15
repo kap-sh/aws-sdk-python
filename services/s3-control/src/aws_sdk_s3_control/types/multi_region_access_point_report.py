@@ -23,7 +23,7 @@ class MultiRegionAccessPointReport(TypedDict):
     alias: NotRequired[
         "aws_sdk_s3_control.types.multi_region_access_point_alias.MultiRegionAccessPointAlias"
     ]
-    """<p>The alias for the Multi-Region Access Point. For more information about the distinction between the name and the alias of an Multi-Region Access Point, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/CreatingMultiRegionAccessPoints.html#multi-region-access-point-naming\">Rules for naming Amazon S3 Multi-Region Access Points</a>.</p>"""
+    r"""<p>The alias for the Multi-Region Access Point. For more information about the distinction between the name and the alias of an Multi-Region Access Point, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/CreatingMultiRegionAccessPoints.html#multi-region-access-point-naming\">Rules for naming Amazon S3 Multi-Region Access Points</a>.</p>"""
     created_at: NotRequired[
         "aws_sdk_s3_control.types.creation_timestamp.CreationTimestamp"
     ]

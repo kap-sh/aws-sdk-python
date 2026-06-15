@@ -32,7 +32,7 @@ class Output(TypedDict):
     destination_schema: (
         "aws_sdk_kinesis_analytics.types.destination_schema.DestinationSchema"
     )
-    """<p>Describes the data format when records are written to the destination. For more information, see <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html\">Configuring Application Output</a>.</p>"""
+    r"""<p>Describes the data format when records are written to the destination. For more information, see <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html\">Configuring Application Output</a>.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

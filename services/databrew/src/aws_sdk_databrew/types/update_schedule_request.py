@@ -16,7 +16,7 @@ class UpdateScheduleRequest(TypedDict):
     job_names: NotRequired["aws_sdk_databrew.types.job_name_list.JobNameList"]
     """<p>The name or names of one or more jobs to be run for this schedule.</p>"""
     cron_expression: "aws_sdk_databrew.types.cron_expression.CronExpression"
-    """<p>The date or dates and time or times when the jobs are to be run. For more information, see <a href=\"https://docs.aws.amazon.com/databrew/latest/dg/jobs.cron.html\">Cron expressions</a> in the <i>Glue DataBrew Developer Guide</i>.</p>"""
+    r"""<p>The date or dates and time or times when the jobs are to be run. For more information, see <a href=\"https://docs.aws.amazon.com/databrew/latest/dg/jobs.cron.html\">Cron expressions</a> in the <i>Glue DataBrew Developer Guide</i>.</p>"""
     name: "aws_sdk_databrew.types.schedule_name.ScheduleName"
     """<p>The name of the schedule to update.</p>"""
 

@@ -27,7 +27,7 @@ class GlobalCluster(TypedDict):
     status: NotRequired["aws_sdk_neptune.types.string.String"]
     """<p>Specifies the current state of this global database.</p>"""
     engine: NotRequired["aws_sdk_neptune.types.string.String"]
-    """<p>The Neptune database engine used by the global database (<code>\"neptune\"</code>).</p>"""
+    r"""<p>The Neptune database engine used by the global database (<code>\"neptune\"</code>).</p>"""
     engine_version: NotRequired["aws_sdk_neptune.types.string.String"]
     """<p>The Neptune engine version used by the global database.</p>"""
     database_name: NotRequired["aws_sdk_neptune.types.string.String"]

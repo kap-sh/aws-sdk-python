@@ -23,7 +23,7 @@ class AssociatedPackage(TypedDict):
     association_type: NotRequired[
         "aws_sdk_codeartifact.types.package_group_association_type.PackageGroupAssociationType"
     ]
-    """<p>Describes the strength of the association between the package and package group. A strong match can be thought of as an exact match, and a weak match can be thought of as a variation match, for example, the package name matches a variation of the package group pattern. For more information about package group pattern matching, including strong and weak matches, see <a href=\"https://docs.aws.amazon.com/codeartifact/latest/ug/package-group-definition-syntax-matching-behavior.html\">Package group definition syntax and matching behavior</a> in the <i>CodeArtifact User Guide</i>.</p>"""
+    r"""<p>Describes the strength of the association between the package and package group. A strong match can be thought of as an exact match, and a weak match can be thought of as a variation match, for example, the package name matches a variation of the package group pattern. For more information about package group pattern matching, including strong and weak matches, see <a href=\"https://docs.aws.amazon.com/codeartifact/latest/ug/package-group-definition-syntax-matching-behavior.html\">Package group definition syntax and matching behavior</a> in the <i>CodeArtifact User Guide</i>.</p>"""
 
 
 # --- restJson1 ser/de ---

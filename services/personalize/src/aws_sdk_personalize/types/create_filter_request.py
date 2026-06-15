@@ -19,9 +19,9 @@ class CreateFilterRequest(TypedDict):
     dataset_group_arn: "aws_sdk_personalize.types.arn.Arn"
     """<p>The ARN of the dataset group that the filter will belong to.</p>"""
     filter_expression: "aws_sdk_personalize.types.filter_expression.FilterExpression"
-    """<p>The filter expression defines which items are included or excluded from recommendations. Filter expression must follow specific format rules. For information about filter expression structure and syntax, see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/filter-expressions.html\">Filter expressions</a>.</p>"""
+    r"""<p>The filter expression defines which items are included or excluded from recommendations. Filter expression must follow specific format rules. For information about filter expression structure and syntax, see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/filter-expressions.html\">Filter expressions</a>.</p>"""
     tags: NotRequired["aws_sdk_personalize.types.tags.Tags"]
-    """<p>A list of <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html\">tags</a> to apply to the filter.</p>"""
+    r"""<p>A list of <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html\">tags</a> to apply to the filter.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

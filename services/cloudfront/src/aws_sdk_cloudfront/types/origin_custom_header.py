@@ -12,7 +12,7 @@ if TYPE_CHECKING:
 
 class OriginCustomHeader(TypedDict):
     header_name: "aws_sdk_cloudfront.types.string.string"
-    """<p>The name of a header that you want CloudFront to send to your origin. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/forward-custom-headers.html\">Adding Custom Headers to Origin Requests</a> in the <i> Amazon CloudFront Developer Guide</i>.</p>"""
+    r"""<p>The name of a header that you want CloudFront to send to your origin. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/forward-custom-headers.html\">Adding Custom Headers to Origin Requests</a> in the <i> Amazon CloudFront Developer Guide</i>.</p>"""
     header_value: "aws_sdk_cloudfront.types.sensitive_string_type.sensitiveStringType"
     """<p>The value for the header that you specified in the <code>HeaderName</code> field.</p>"""
 

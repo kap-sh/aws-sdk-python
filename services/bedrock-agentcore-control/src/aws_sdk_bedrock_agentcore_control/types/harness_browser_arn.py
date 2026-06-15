@@ -1,13 +1,6 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#HarnessBrowserArn``."""
 
-import datetime
-import decimal
-from typing import AsyncIterator, Iterator, Literal, TypeAlias, cast
-from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
-from aws_sdk_bedrock_agentcore_control._protocol.xml import Element, SubElement
-import base64
-from email.utils import format_datetime as _fmt_http
-from email.utils import parsedate_to_datetime as _parse_http
+from typing import TypeAlias
 
 """Browser ARN for Harness tool configuration. Accepts both managed (aws.browser.v1) and custom browser ARNs."""
 HarnessBrowserArn: TypeAlias = str

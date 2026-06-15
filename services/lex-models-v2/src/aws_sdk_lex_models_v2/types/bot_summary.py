@@ -16,7 +16,7 @@ if TYPE_CHECKING:
 
 class BotSummary(TypedDict):
     bot_id: NotRequired["aws_sdk_lex_models_v2.types.id.Id"]
-    """<p>The unique identifier assigned to the bot. Use this ID to get detailed information about the bot with the <a href=\"https://docs.aws.amazon.com/lexv2/latest/APIReference/API_DescribeBot.html\">DescribeBot</a> operation.</p>"""
+    r"""<p>The unique identifier assigned to the bot. Use this ID to get detailed information about the bot with the <a href=\"https://docs.aws.amazon.com/lexv2/latest/APIReference/API_DescribeBot.html\">DescribeBot</a> operation.</p>"""
     bot_name: NotRequired["aws_sdk_lex_models_v2.types.name.Name"]
     """<p>The name of the bot.</p>"""
     description: NotRequired["aws_sdk_lex_models_v2.types.description.Description"]

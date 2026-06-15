@@ -23,7 +23,7 @@ class CreateLandingZoneInput(TypedDict):
     tags: NotRequired["aws_sdk_controltower.types.tag_map.TagMap"]
     """<p>Tags to be applied to the landing zone. </p>"""
     manifest: NotRequired["aws_sdk_controltower.types.manifest.Manifest"]
-    """<p>The manifest JSON file is a text file that describes your Amazon Web Services resources. For examples, review <a href=\"https://docs.aws.amazon.com/controltower/latest/userguide/lz-api-launch\">Launch your landing zone</a>. </p>"""
+    r"""<p>The manifest JSON file is a text file that describes your Amazon Web Services resources. For examples, review <a href=\"https://docs.aws.amazon.com/controltower/latest/userguide/lz-api-launch\">Launch your landing zone</a>. </p>"""
 
 
 # --- restJson1 ser/de ---

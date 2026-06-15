@@ -21,7 +21,7 @@ class CoreNetworkChangeEvent(TypedDict):
     identifier_path: NotRequired[
         "aws_sdk_networkmanager.types.constrained_string.ConstrainedString"
     ]
-    """<p>Uniquely identifies the path for a change within the changeset. For example, the <code>IdentifierPath</code> for a core network segment change might be <code>\"CORE_NETWORK_SEGMENT/us-east-1/devsegment\"</code>.</p>"""
+    r"""<p>Uniquely identifies the path for a change within the changeset. For example, the <code>IdentifierPath</code> for a core network segment change might be <code>\"CORE_NETWORK_SEGMENT/us-east-1/devsegment\"</code>.</p>"""
     event_time: NotRequired["aws_sdk_networkmanager.types.date_time.DateTime"]
     """<p>The timestamp for an event change in status.</p>"""
     status: NotRequired["aws_sdk_networkmanager.types.change_status.ChangeStatus"]

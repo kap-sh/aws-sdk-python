@@ -13,7 +13,7 @@ class CreateDashboardResponse(TypedDict):
     dashboard_id: "aws_sdk_iotsitewise.types.id.ID"
     """<p>The ID of the dashboard.</p>"""
     dashboard_arn: "aws_sdk_iotsitewise.types.arn.ARN"
-    """<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the dashboard, which has the following format.</p> <p> <code>arn:${Partition}:iotsitewise:${Region}:${Account}:dashboard/${DashboardId}</code> </p>"""
+    r"""<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the dashboard, which has the following format.</p> <p> <code>arn:${Partition}:iotsitewise:${Region}:${Account}:dashboard/${DashboardId}</code> </p>"""
 
 
 # --- restJson1 ser/de ---

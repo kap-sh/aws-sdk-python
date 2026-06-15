@@ -301,7 +301,7 @@ class AsyncAthenaClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = AsyncAthenaClientConfig(
+        self._config = AsyncAthenaClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -321,7 +321,7 @@ class AsyncAthenaClient:
         overrides: AsyncAthenaClientConfig = config_overrides or {}
         interceptors_: list[AsyncInterceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             aretry(),
         ]
@@ -329,16 +329,16 @@ class AsyncAthenaClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            region=overrides.get("region", self.config.get("region")),
+            region=overrides.get("region", self._config.get("region")),
             use_dual_stack=overrides.get(
-                "use_dual_stack", self.config.get("use_dual_stack")
+                "use_dual_stack", self._config.get("use_dual_stack")
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -371,11 +371,11 @@ class AsyncAthenaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_athena.types.batch_get_named_query_input.BatchGetNamedQueryInput = {}  # type: ignore[typeddict-item]
-        input["named_query_ids"] = named_query_ids
+        input_: aws_sdk_athena.types.batch_get_named_query_input.BatchGetNamedQueryInput = {}  # type: ignore[typeddict-item]
+        input_["named_query_ids"] = named_query_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -411,12 +411,12 @@ class AsyncAthenaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_athena.types.batch_get_prepared_statement_input.BatchGetPreparedStatementInput = {}  # type: ignore[typeddict-item]
-        input["prepared_statement_names"] = prepared_statement_names
-        input["work_group"] = work_group
+        input_: aws_sdk_athena.types.batch_get_prepared_statement_input.BatchGetPreparedStatementInput = {}  # type: ignore[typeddict-item]
+        input_["prepared_statement_names"] = prepared_statement_names
+        input_["work_group"] = work_group
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -450,11 +450,11 @@ class AsyncAthenaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_athena.types.batch_get_query_execution_input.BatchGetQueryExecutionInput = {}  # type: ignore[typeddict-item]
-        input["query_execution_ids"] = query_execution_ids
+        input_: aws_sdk_athena.types.batch_get_query_execution_input.BatchGetQueryExecutionInput = {}  # type: ignore[typeddict-item]
+        input_["query_execution_ids"] = query_execution_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -488,11 +488,11 @@ class AsyncAthenaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_athena.types.cancel_capacity_reservation_input.CancelCapacityReservationInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_athena.types.cancel_capacity_reservation_input.CancelCapacityReservationInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -530,14 +530,14 @@ class AsyncAthenaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_athena.types.create_capacity_reservation_input.CreateCapacityReservationInput = {}  # type: ignore[typeddict-item]
-        input["target_dpus"] = target_dpus
-        input["name"] = name
+        input_: aws_sdk_athena.types.create_capacity_reservation_input.CreateCapacityReservationInput = {}  # type: ignore[typeddict-item]
+        input_["target_dpus"] = target_dpus
+        input_["name"] = name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -557,7 +557,7 @@ class AsyncAthenaClient:
         ] = None,
         tags: Optional["aws_sdk_athena.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_athena.types.create_data_catalog_output.CreateDataCatalogOutput":
-        """<p>Creates (registers) a data catalog with the specified name and properties. Catalogs created are visible to all users of the same Amazon Web Services account.</p> <p>For a <code>FEDERATED</code> catalog, this API operation creates the following resources.</p> <ul> <li> <p>CFN Stack Name with a maximum length of 128 characters and prefix <code>athenafederatedcatalog-CATALOG_NAME_SANITIZED</code> with length 23 characters.</p> </li> <li> <p>Lambda Function Name with a maximum length of 64 characters and prefix <code>athenafederatedcatalog_CATALOG_NAME_SANITIZED</code> with length 23 characters.</p> </li> <li> <p>Glue Connection Name with a maximum length of 255 characters and a prefix <code>athenafederatedcatalog_CATALOG_NAME_SANITIZED</code> with length 23 characters. </p> </li> </ul>
+        r"""<p>Creates (registers) a data catalog with the specified name and properties. Catalogs created are visible to all users of the same Amazon Web Services account.</p> <p>For a <code>FEDERATED</code> catalog, this API operation creates the following resources.</p> <ul> <li> <p>CFN Stack Name with a maximum length of 128 characters and prefix <code>athenafederatedcatalog-CATALOG_NAME_SANITIZED</code> with length 23 characters.</p> </li> <li> <p>Lambda Function Name with a maximum length of 64 characters and prefix <code>athenafederatedcatalog_CATALOG_NAME_SANITIZED</code> with length 23 characters.</p> </li> <li> <p>Glue Connection Name with a maximum length of 255 characters and a prefix <code>athenafederatedcatalog_CATALOG_NAME_SANITIZED</code> with length 23 characters. </p> </li> </ul>
 
         Args:
             name: <p>The name of the data catalog to create. The catalog name must be unique for the Amazon Web Services account and can use a maximum of 127 alphanumeric, underscore, at sign, or hyphen characters. The remainder of the length constraint of 256 is reserved for use by Athena.</p> <p>For <code>FEDERATED</code> type the catalog name has following considerations and limits:</p> <ul> <li> <p>The catalog name allows special characters such as <code>_ , @ , \ , - </code>. These characters are replaced with a hyphen (-) when creating the CFN Stack Name and with an underscore (_) when creating the Lambda Function and Glue Connection Name.</p> </li> <li> <p>The catalog name has a theoretical limit of 128 characters. However, since we use it to create other resources that allow less characters and we prepend a prefix to it, the actual catalog name limit for <code>FEDERATED</code> catalog is 64 - 23 = 41 characters.</p> </li> </ul>
@@ -583,18 +583,18 @@ class AsyncAthenaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_athena.types.create_data_catalog_input.CreateDataCatalogInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["type"] = type
+        input_: aws_sdk_athena.types.create_data_catalog_input.CreateDataCatalogInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["type"] = type
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if parameters is not None:
-            input["parameters"] = parameters
+            input_["parameters"] = parameters
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -644,19 +644,19 @@ class AsyncAthenaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_athena.types.create_named_query_input.CreateNamedQueryInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_athena.types.create_named_query_input.CreateNamedQueryInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["database"] = database
-        input["query_string"] = query_string
+            input_["description"] = description
+        input_["database"] = database
+        input_["query_string"] = query_string
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if work_group is not None:
-            input["work_group"] = work_group
+            input_["work_group"] = work_group
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -696,14 +696,14 @@ class AsyncAthenaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_athena.types.create_notebook_input.CreateNotebookInput = {}  # type: ignore[typeddict-item]
-        input["work_group"] = work_group
-        input["name"] = name
+        input_: aws_sdk_athena.types.create_notebook_input.CreateNotebookInput = {}  # type: ignore[typeddict-item]
+        input_["work_group"] = work_group
+        input_["name"] = name
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -745,15 +745,15 @@ class AsyncAthenaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_athena.types.create_prepared_statement_input.CreatePreparedStatementInput = {}  # type: ignore[typeddict-item]
-        input["statement_name"] = statement_name
-        input["work_group"] = work_group
-        input["query_statement"] = query_statement
+        input_: aws_sdk_athena.types.create_prepared_statement_input.CreatePreparedStatementInput = {}  # type: ignore[typeddict-item]
+        input_["statement_name"] = statement_name
+        input_["work_group"] = work_group
+        input_["query_statement"] = query_statement
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -765,7 +765,7 @@ class AsyncAthenaClient:
         *,
         config_overrides: Optional[AsyncAthenaClientConfig] = None,
     ) -> "aws_sdk_athena.types.create_presigned_notebook_url_response.CreatePresignedNotebookUrlResponse":
-        """<p>Gets an authentication token and the URL at which the notebook can be accessed. During programmatic access, <code>CreatePresignedNotebookUrl</code> must be called every 10 minutes to refresh the authentication token. For information about granting programmatic access, see <a href=\"https://docs.aws.amazon.com/athena/latest/ug/setting-up.html#setting-up-grant-programmatic-access\">Grant programmatic access</a>.</p>
+        r"""<p>Gets an authentication token and the URL at which the notebook can be accessed. During programmatic access, <code>CreatePresignedNotebookUrl</code> must be called every 10 minutes to refresh the authentication token. For information about granting programmatic access, see <a href=\"https://docs.aws.amazon.com/athena/latest/ug/setting-up.html#setting-up-grant-programmatic-access\">Grant programmatic access</a>.</p>
 
         Args:
             session_id: <p>The session ID.</p>
@@ -787,11 +787,11 @@ class AsyncAthenaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_athena.types.create_presigned_notebook_url_request.CreatePresignedNotebookUrlRequest = {}  # type: ignore[typeddict-item]
-        input["session_id"] = session_id
+        input_: aws_sdk_athena.types.create_presigned_notebook_url_request.CreatePresignedNotebookUrlRequest = {}  # type: ignore[typeddict-item]
+        input_["session_id"] = session_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -835,17 +835,17 @@ class AsyncAthenaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_athena.types.create_work_group_input.CreateWorkGroupInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_athena.types.create_work_group_input.CreateWorkGroupInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if configuration is not None:
-            input["configuration"] = configuration
+            input_["configuration"] = configuration
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -879,11 +879,11 @@ class AsyncAthenaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_athena.types.delete_capacity_reservation_input.DeleteCapacityReservationInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_athena.types.delete_capacity_reservation_input.DeleteCapacityReservationInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -919,13 +919,13 @@ class AsyncAthenaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_athena.types.delete_data_catalog_input.DeleteDataCatalogInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_athena.types.delete_data_catalog_input.DeleteDataCatalogInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if delete_catalog_only is not None:
-            input["delete_catalog_only"] = delete_catalog_only
+            input_["delete_catalog_only"] = delete_catalog_only
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -959,11 +959,11 @@ class AsyncAthenaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_athena.types.delete_named_query_input.DeleteNamedQueryInput = {}  # type: ignore[typeddict-item]
-        input["named_query_id"] = named_query_id
+        input_: aws_sdk_athena.types.delete_named_query_input.DeleteNamedQueryInput = {}  # type: ignore[typeddict-item]
+        input_["named_query_id"] = named_query_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -997,11 +997,11 @@ class AsyncAthenaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_athena.types.delete_notebook_input.DeleteNotebookInput = {}  # type: ignore[typeddict-item]
-        input["notebook_id"] = notebook_id
+        input_: aws_sdk_athena.types.delete_notebook_input.DeleteNotebookInput = {}  # type: ignore[typeddict-item]
+        input_["notebook_id"] = notebook_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1037,12 +1037,12 @@ class AsyncAthenaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_athena.types.delete_prepared_statement_input.DeletePreparedStatementInput = {}  # type: ignore[typeddict-item]
-        input["statement_name"] = statement_name
-        input["work_group"] = work_group
+        input_: aws_sdk_athena.types.delete_prepared_statement_input.DeletePreparedStatementInput = {}  # type: ignore[typeddict-item]
+        input_["statement_name"] = statement_name
+        input_["work_group"] = work_group
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1080,13 +1080,13 @@ class AsyncAthenaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_athena.types.delete_work_group_input.DeleteWorkGroupInput = {}  # type: ignore[typeddict-item]
-        input["work_group"] = work_group
+        input_: aws_sdk_athena.types.delete_work_group_input.DeleteWorkGroupInput = {}  # type: ignore[typeddict-item]
+        input_["work_group"] = work_group
         if recursive_delete_option is not None:
-            input["recursive_delete_option"] = recursive_delete_option
+            input_["recursive_delete_option"] = recursive_delete_option
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1120,11 +1120,11 @@ class AsyncAthenaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_athena.types.export_notebook_input.ExportNotebookInput = {}  # type: ignore[typeddict-item]
-        input["notebook_id"] = notebook_id
+        input_: aws_sdk_athena.types.export_notebook_input.ExportNotebookInput = {}  # type: ignore[typeddict-item]
+        input_["notebook_id"] = notebook_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1158,11 +1158,11 @@ class AsyncAthenaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_athena.types.get_calculation_execution_request.GetCalculationExecutionRequest = {}  # type: ignore[typeddict-item]
-        input["calculation_execution_id"] = calculation_execution_id
+        input_: aws_sdk_athena.types.get_calculation_execution_request.GetCalculationExecutionRequest = {}  # type: ignore[typeddict-item]
+        input_["calculation_execution_id"] = calculation_execution_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1196,11 +1196,11 @@ class AsyncAthenaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_athena.types.get_calculation_execution_code_request.GetCalculationExecutionCodeRequest = {}  # type: ignore[typeddict-item]
-        input["calculation_execution_id"] = calculation_execution_id
+        input_: aws_sdk_athena.types.get_calculation_execution_code_request.GetCalculationExecutionCodeRequest = {}  # type: ignore[typeddict-item]
+        input_["calculation_execution_id"] = calculation_execution_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1234,11 +1234,11 @@ class AsyncAthenaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_athena.types.get_calculation_execution_status_request.GetCalculationExecutionStatusRequest = {}  # type: ignore[typeddict-item]
-        input["calculation_execution_id"] = calculation_execution_id
+        input_: aws_sdk_athena.types.get_calculation_execution_status_request.GetCalculationExecutionStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["calculation_execution_id"] = calculation_execution_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1272,11 +1272,11 @@ class AsyncAthenaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_athena.types.get_capacity_assignment_configuration_input.GetCapacityAssignmentConfigurationInput = {}  # type: ignore[typeddict-item]
-        input["capacity_reservation_name"] = capacity_reservation_name
+        input_: aws_sdk_athena.types.get_capacity_assignment_configuration_input.GetCapacityAssignmentConfigurationInput = {}  # type: ignore[typeddict-item]
+        input_["capacity_reservation_name"] = capacity_reservation_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1310,11 +1310,11 @@ class AsyncAthenaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_athena.types.get_capacity_reservation_input.GetCapacityReservationInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_athena.types.get_capacity_reservation_input.GetCapacityReservationInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1354,14 +1354,14 @@ class AsyncAthenaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_athena.types.get_database_input.GetDatabaseInput = {}  # type: ignore[typeddict-item]
-        input["catalog_name"] = catalog_name
-        input["database_name"] = database_name
+        input_: aws_sdk_athena.types.get_database_input.GetDatabaseInput = {}  # type: ignore[typeddict-item]
+        input_["catalog_name"] = catalog_name
+        input_["database_name"] = database_name
         if work_group is not None:
-            input["work_group"] = work_group
+            input_["work_group"] = work_group
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1399,13 +1399,13 @@ class AsyncAthenaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_athena.types.get_data_catalog_input.GetDataCatalogInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_athena.types.get_data_catalog_input.GetDataCatalogInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if work_group is not None:
-            input["work_group"] = work_group
+            input_["work_group"] = work_group
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1439,11 +1439,11 @@ class AsyncAthenaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_athena.types.get_named_query_input.GetNamedQueryInput = {}  # type: ignore[typeddict-item]
-        input["named_query_id"] = named_query_id
+        input_: aws_sdk_athena.types.get_named_query_input.GetNamedQueryInput = {}  # type: ignore[typeddict-item]
+        input_["named_query_id"] = named_query_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1477,11 +1477,11 @@ class AsyncAthenaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_athena.types.get_notebook_metadata_input.GetNotebookMetadataInput = {}  # type: ignore[typeddict-item]
-        input["notebook_id"] = notebook_id
+        input_: aws_sdk_athena.types.get_notebook_metadata_input.GetNotebookMetadataInput = {}  # type: ignore[typeddict-item]
+        input_["notebook_id"] = notebook_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1519,12 +1519,12 @@ class AsyncAthenaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_athena.types.get_prepared_statement_input.GetPreparedStatementInput = {}  # type: ignore[typeddict-item]
-        input["statement_name"] = statement_name
-        input["work_group"] = work_group
+        input_: aws_sdk_athena.types.get_prepared_statement_input.GetPreparedStatementInput = {}  # type: ignore[typeddict-item]
+        input_["statement_name"] = statement_name
+        input_["work_group"] = work_group
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1558,11 +1558,11 @@ class AsyncAthenaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_athena.types.get_query_execution_input.GetQueryExecutionInput = {}  # type: ignore[typeddict-item]
-        input["query_execution_id"] = query_execution_id
+        input_: aws_sdk_athena.types.get_query_execution_input.GetQueryExecutionInput = {}  # type: ignore[typeddict-item]
+        input_["query_execution_id"] = query_execution_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1581,7 +1581,7 @@ class AsyncAthenaClient:
             "aws_sdk_athena.types.query_result_type.QueryResultType"
         ] = None,
     ) -> "aws_sdk_athena.types.get_query_results_output.GetQueryResultsOutput":
-        """<p>Streams the results of a single query execution specified by <code>QueryExecutionId</code> from the Athena query results location in Amazon S3. For more information, see <a href=\"https://docs.aws.amazon.com/athena/latest/ug/querying.html\">Working with query results, recent queries, and output files</a> in the <i>Amazon Athena User Guide</i>. This request does not execute the query but returns results. Use <a>StartQueryExecution</a> to run a query.</p> <p>To stream query results successfully, the IAM principal with permission to call <code>GetQueryResults</code> also must have permissions to the Amazon S3 <code>GetObject</code> action for the Athena query results location.</p> <important> <p>IAM principals with permission to the Amazon S3 <code>GetObject</code> action for the query results location are able to retrieve query results from Amazon S3 even if permission to the <code>GetQueryResults</code> action is denied. To restrict user or role access, ensure that Amazon S3 permissions to the Athena query location are denied.</p> </important>
+        r"""<p>Streams the results of a single query execution specified by <code>QueryExecutionId</code> from the Athena query results location in Amazon S3. For more information, see <a href=\"https://docs.aws.amazon.com/athena/latest/ug/querying.html\">Working with query results, recent queries, and output files</a> in the <i>Amazon Athena User Guide</i>. This request does not execute the query but returns results. Use <a>StartQueryExecution</a> to run a query.</p> <p>To stream query results successfully, the IAM principal with permission to call <code>GetQueryResults</code> also must have permissions to the Amazon S3 <code>GetObject</code> action for the Athena query results location.</p> <important> <p>IAM principals with permission to the Amazon S3 <code>GetObject</code> action for the query results location are able to retrieve query results from Amazon S3 even if permission to the <code>GetQueryResults</code> action is denied. To restrict user or role access, ensure that Amazon S3 permissions to the Athena query location are denied.</p> </important>
 
         Args:
             query_execution_id: <p>The unique ID of the query execution.</p>
@@ -1606,17 +1606,17 @@ class AsyncAthenaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_athena.types.get_query_results_input.GetQueryResultsInput = {}  # type: ignore[typeddict-item]
-        input["query_execution_id"] = query_execution_id
+        input_: aws_sdk_athena.types.get_query_results_input.GetQueryResultsInput = {}  # type: ignore[typeddict-item]
+        input_["query_execution_id"] = query_execution_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if query_result_type is not None:
-            input["query_result_type"] = query_result_type
+            input_["query_result_type"] = query_result_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1650,11 +1650,11 @@ class AsyncAthenaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_athena.types.get_query_runtime_statistics_input.GetQueryRuntimeStatisticsInput = {}  # type: ignore[typeddict-item]
-        input["query_execution_id"] = query_execution_id
+        input_: aws_sdk_athena.types.get_query_runtime_statistics_input.GetQueryRuntimeStatisticsInput = {}  # type: ignore[typeddict-item]
+        input_["query_execution_id"] = query_execution_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1688,11 +1688,11 @@ class AsyncAthenaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_athena.types.get_resource_dashboard_request.GetResourceDashboardRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_athena.types.get_resource_dashboard_request.GetResourceDashboardRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1726,11 +1726,11 @@ class AsyncAthenaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_athena.types.get_session_request.GetSessionRequest = {}  # type: ignore[typeddict-item]
-        input["session_id"] = session_id
+        input_: aws_sdk_athena.types.get_session_request.GetSessionRequest = {}  # type: ignore[typeddict-item]
+        input_["session_id"] = session_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1766,11 +1766,11 @@ class AsyncAthenaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_athena.types.get_session_endpoint_request.GetSessionEndpointRequest = {}  # type: ignore[typeddict-item]
-        input["session_id"] = session_id
+        input_: aws_sdk_athena.types.get_session_endpoint_request.GetSessionEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_["session_id"] = session_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1804,11 +1804,11 @@ class AsyncAthenaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_athena.types.get_session_status_request.GetSessionStatusRequest = {}  # type: ignore[typeddict-item]
-        input["session_id"] = session_id
+        input_: aws_sdk_athena.types.get_session_status_request.GetSessionStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["session_id"] = session_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1850,15 +1850,15 @@ class AsyncAthenaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_athena.types.get_table_metadata_input.GetTableMetadataInput = {}  # type: ignore[typeddict-item]
-        input["catalog_name"] = catalog_name
-        input["database_name"] = database_name
-        input["table_name"] = table_name
+        input_: aws_sdk_athena.types.get_table_metadata_input.GetTableMetadataInput = {}  # type: ignore[typeddict-item]
+        input_["catalog_name"] = catalog_name
+        input_["database_name"] = database_name
+        input_["table_name"] = table_name
         if work_group is not None:
-            input["work_group"] = work_group
+            input_["work_group"] = work_group
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1892,11 +1892,11 @@ class AsyncAthenaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_athena.types.get_work_group_input.GetWorkGroupInput = {}  # type: ignore[typeddict-item]
-        input["work_group"] = work_group
+        input_: aws_sdk_athena.types.get_work_group_input.GetWorkGroupInput = {}  # type: ignore[typeddict-item]
+        input_["work_group"] = work_group
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1942,19 +1942,19 @@ class AsyncAthenaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_athena.types.import_notebook_input.ImportNotebookInput = {}  # type: ignore[typeddict-item]
-        input["work_group"] = work_group
-        input["name"] = name
+        input_: aws_sdk_athena.types.import_notebook_input.ImportNotebookInput = {}  # type: ignore[typeddict-item]
+        input_["work_group"] = work_group
+        input_["name"] = name
         if payload is not None:
-            input["payload"] = payload
-        input["type"] = type
+            input_["payload"] = payload
+        input_["type"] = type
         if notebook_s3_location_uri is not None:
-            input["notebook_s3_location_uri"] = notebook_s3_location_uri
+            input_["notebook_s3_location_uri"] = notebook_s3_location_uri
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1992,14 +1992,14 @@ class AsyncAthenaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_athena.types.list_application_dpu_sizes_input.ListApplicationDPUSizesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_athena.types.list_application_dpu_sizes_input.ListApplicationDPUSizesInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2045,17 +2045,17 @@ class AsyncAthenaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_athena.types.list_calculation_executions_request.ListCalculationExecutionsRequest = {}  # type: ignore[typeddict-item]
-        input["session_id"] = session_id
+        input_: aws_sdk_athena.types.list_calculation_executions_request.ListCalculationExecutionsRequest = {}  # type: ignore[typeddict-item]
+        input_["session_id"] = session_id
         if state_filter is not None:
-            input["state_filter"] = state_filter
+            input_["state_filter"] = state_filter
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2093,14 +2093,14 @@ class AsyncAthenaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_athena.types.list_capacity_reservations_input.ListCapacityReservationsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_athena.types.list_capacity_reservations_input.ListCapacityReservationsInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2144,17 +2144,17 @@ class AsyncAthenaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_athena.types.list_databases_input.ListDatabasesInput = {}  # type: ignore[typeddict-item]
-        input["catalog_name"] = catalog_name
+        input_: aws_sdk_athena.types.list_databases_input.ListDatabasesInput = {}  # type: ignore[typeddict-item]
+        input_["catalog_name"] = catalog_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if work_group is not None:
-            input["work_group"] = work_group
+            input_["work_group"] = work_group
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2201,7 +2201,7 @@ class AsyncAthenaClient:
             "aws_sdk_athena.types.work_group_name.WorkGroupName"
         ] = None,
     ) -> "aws_sdk_athena.types.list_data_catalogs_output.ListDataCatalogsOutput":
-        """<p>Lists the data catalogs in the current Amazon Web Services account.</p> <note> <p>In the Athena console, data catalogs are listed as \"data sources\" on the <b>Data sources</b> page under the <b>Data source name</b> column.</p> </note>
+        r"""<p>Lists the data catalogs in the current Amazon Web Services account.</p> <note> <p>In the Athena console, data catalogs are listed as \"data sources\" on the <b>Data sources</b> page under the <b>Data source name</b> column.</p> </note>
 
         Args:
             next_token: <p>A token generated by the Athena service that specifies where to continue pagination if a previous request was truncated. To obtain the next set of pages, pass in the NextToken from the response object of the previous page call.</p>
@@ -2225,16 +2225,16 @@ class AsyncAthenaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_athena.types.list_data_catalogs_input.ListDataCatalogsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_athena.types.list_data_catalogs_input.ListDataCatalogsInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if work_group is not None:
-            input["work_group"] = work_group
+            input_["work_group"] = work_group
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2299,14 +2299,14 @@ class AsyncAthenaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_athena.types.list_engine_versions_input.ListEngineVersionsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_athena.types.list_engine_versions_input.ListEngineVersionsInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2352,17 +2352,17 @@ class AsyncAthenaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_athena.types.list_executors_request.ListExecutorsRequest = {}  # type: ignore[typeddict-item]
-        input["session_id"] = session_id
+        input_: aws_sdk_athena.types.list_executors_request.ListExecutorsRequest = {}  # type: ignore[typeddict-item]
+        input_["session_id"] = session_id
         if executor_state_filter is not None:
-            input["executor_state_filter"] = executor_state_filter
+            input_["executor_state_filter"] = executor_state_filter
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2404,16 +2404,16 @@ class AsyncAthenaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_athena.types.list_named_queries_input.ListNamedQueriesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_athena.types.list_named_queries_input.ListNamedQueriesInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if work_group is not None:
-            input["work_group"] = work_group
+            input_["work_group"] = work_group
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2459,17 +2459,17 @@ class AsyncAthenaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_athena.types.list_notebook_metadata_input.ListNotebookMetadataInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_athena.types.list_notebook_metadata_input.ListNotebookMetadataInput = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["work_group"] = work_group
+            input_["max_results"] = max_results
+        input_["work_group"] = work_group
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2509,15 +2509,15 @@ class AsyncAthenaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_athena.types.list_notebook_sessions_request.ListNotebookSessionsRequest = {}  # type: ignore[typeddict-item]
-        input["notebook_id"] = notebook_id
+        input_: aws_sdk_athena.types.list_notebook_sessions_request.ListNotebookSessionsRequest = {}  # type: ignore[typeddict-item]
+        input_["notebook_id"] = notebook_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2557,15 +2557,15 @@ class AsyncAthenaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_athena.types.list_prepared_statements_input.ListPreparedStatementsInput = {}  # type: ignore[typeddict-item]
-        input["work_group"] = work_group
+        input_: aws_sdk_athena.types.list_prepared_statements_input.ListPreparedStatementsInput = {}  # type: ignore[typeddict-item]
+        input_["work_group"] = work_group
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2607,16 +2607,16 @@ class AsyncAthenaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_athena.types.list_query_executions_input.ListQueryExecutionsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_athena.types.list_query_executions_input.ListQueryExecutionsInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if work_group is not None:
-            input["work_group"] = work_group
+            input_["work_group"] = work_group
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2662,17 +2662,17 @@ class AsyncAthenaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_athena.types.list_sessions_request.ListSessionsRequest = {}  # type: ignore[typeddict-item]
-        input["work_group"] = work_group
+        input_: aws_sdk_athena.types.list_sessions_request.ListSessionsRequest = {}  # type: ignore[typeddict-item]
+        input_["work_group"] = work_group
         if state_filter is not None:
-            input["state_filter"] = state_filter
+            input_["state_filter"] = state_filter
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2722,20 +2722,20 @@ class AsyncAthenaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_athena.types.list_table_metadata_input.ListTableMetadataInput = {}  # type: ignore[typeddict-item]
-        input["catalog_name"] = catalog_name
-        input["database_name"] = database_name
+        input_: aws_sdk_athena.types.list_table_metadata_input.ListTableMetadataInput = {}  # type: ignore[typeddict-item]
+        input_["catalog_name"] = catalog_name
+        input_["database_name"] = database_name
         if expression is not None:
-            input["expression"] = expression
+            input_["expression"] = expression
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if work_group is not None:
-            input["work_group"] = work_group
+            input_["work_group"] = work_group
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2810,15 +2810,15 @@ class AsyncAthenaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_athena.types.list_tags_for_resource_input.ListTagsForResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_athena.types.list_tags_for_resource_input.ListTagsForResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2881,14 +2881,14 @@ class AsyncAthenaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_athena.types.list_work_groups_input.ListWorkGroupsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_athena.types.list_work_groups_input.ListWorkGroupsInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2924,12 +2924,12 @@ class AsyncAthenaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_athena.types.put_capacity_assignment_configuration_input.PutCapacityAssignmentConfigurationInput = {}  # type: ignore[typeddict-item]
-        input["capacity_reservation_name"] = capacity_reservation_name
-        input["capacity_assignments"] = capacity_assignments
+        input_: aws_sdk_athena.types.put_capacity_assignment_configuration_input.PutCapacityAssignmentConfigurationInput = {}  # type: ignore[typeddict-item]
+        input_["capacity_reservation_name"] = capacity_reservation_name
+        input_["capacity_assignments"] = capacity_assignments
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2977,19 +2977,19 @@ class AsyncAthenaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_athena.types.start_calculation_execution_request.StartCalculationExecutionRequest = {}  # type: ignore[typeddict-item]
-        input["session_id"] = session_id
+        input_: aws_sdk_athena.types.start_calculation_execution_request.StartCalculationExecutionRequest = {}  # type: ignore[typeddict-item]
+        input_["session_id"] = session_id
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if calculation_configuration is not None:
-            input["calculation_configuration"] = calculation_configuration
+            input_["calculation_configuration"] = calculation_configuration
         if code_block is not None:
-            input["code_block"] = code_block
+            input_["code_block"] = code_block
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3022,7 +3022,7 @@ class AsyncAthenaClient:
             "aws_sdk_athena.types.engine_configuration.EngineConfiguration"
         ] = None,
     ) -> "aws_sdk_athena.types.start_query_execution_output.StartQueryExecutionOutput":
-        """<p>Runs the SQL query statements contained in the <code>Query</code>. Requires you to have access to the workgroup in which the query ran. Running queries against an external catalog requires <a>GetDataCatalog</a> permission to the catalog. For code samples using the Amazon Web Services SDK for Java, see <a href=\"http://docs.aws.amazon.com/athena/latest/ug/code-samples.html\">Examples and Code Samples</a> in the <i>Amazon Athena User Guide</i>.</p>
+        r"""<p>Runs the SQL query statements contained in the <code>Query</code>. Requires you to have access to the workgroup in which the query ran. Running queries against an external catalog requires <a>GetDataCatalog</a> permission to the catalog. For code samples using the Amazon Web Services SDK for Java, see <a href=\"http://docs.aws.amazon.com/athena/latest/ug/code-samples.html\">Examples and Code Samples</a> in the <i>Amazon Athena User Guide</i>.</p>
 
         Args:
             query_string: <p>The SQL query statements to be executed.</p>
@@ -3051,25 +3051,25 @@ class AsyncAthenaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_athena.types.start_query_execution_input.StartQueryExecutionInput = {}  # type: ignore[typeddict-item]
-        input["query_string"] = query_string
+        input_: aws_sdk_athena.types.start_query_execution_input.StartQueryExecutionInput = {}  # type: ignore[typeddict-item]
+        input_["query_string"] = query_string
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if query_execution_context is not None:
-            input["query_execution_context"] = query_execution_context
+            input_["query_execution_context"] = query_execution_context
         if result_configuration is not None:
-            input["result_configuration"] = result_configuration
+            input_["result_configuration"] = result_configuration
         if work_group is not None:
-            input["work_group"] = work_group
+            input_["work_group"] = work_group
         if execution_parameters is not None:
-            input["execution_parameters"] = execution_parameters
+            input_["execution_parameters"] = execution_parameters
         if result_reuse_configuration is not None:
-            input["result_reuse_configuration"] = result_reuse_configuration
+            input_["result_reuse_configuration"] = result_reuse_configuration
         if engine_configuration is not None:
-            input["engine_configuration"] = engine_configuration
+            input_["engine_configuration"] = engine_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3133,28 +3133,28 @@ class AsyncAthenaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_athena.types.start_session_request.StartSessionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_athena.types.start_session_request.StartSessionRequest = {}  # type: ignore[typeddict-item]
         if description is not None:
-            input["description"] = description
-        input["work_group"] = work_group
-        input["engine_configuration"] = engine_configuration
+            input_["description"] = description
+        input_["work_group"] = work_group
+        input_["engine_configuration"] = engine_configuration
         if execution_role is not None:
-            input["execution_role"] = execution_role
+            input_["execution_role"] = execution_role
         if monitoring_configuration is not None:
-            input["monitoring_configuration"] = monitoring_configuration
+            input_["monitoring_configuration"] = monitoring_configuration
         if notebook_version is not None:
-            input["notebook_version"] = notebook_version
+            input_["notebook_version"] = notebook_version
         if session_idle_timeout_in_minutes is not None:
-            input["session_idle_timeout_in_minutes"] = session_idle_timeout_in_minutes
+            input_["session_idle_timeout_in_minutes"] = session_idle_timeout_in_minutes
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if copy_work_group_tags is not None:
-            input["copy_work_group_tags"] = copy_work_group_tags
+            input_["copy_work_group_tags"] = copy_work_group_tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3188,11 +3188,11 @@ class AsyncAthenaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_athena.types.stop_calculation_execution_request.StopCalculationExecutionRequest = {}  # type: ignore[typeddict-item]
-        input["calculation_execution_id"] = calculation_execution_id
+        input_: aws_sdk_athena.types.stop_calculation_execution_request.StopCalculationExecutionRequest = {}  # type: ignore[typeddict-item]
+        input_["calculation_execution_id"] = calculation_execution_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3226,11 +3226,11 @@ class AsyncAthenaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_athena.types.stop_query_execution_input.StopQueryExecutionInput = {}  # type: ignore[typeddict-item]
-        input["query_execution_id"] = query_execution_id
+        input_: aws_sdk_athena.types.stop_query_execution_input.StopQueryExecutionInput = {}  # type: ignore[typeddict-item]
+        input_["query_execution_id"] = query_execution_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3243,7 +3243,7 @@ class AsyncAthenaClient:
         *,
         config_overrides: Optional[AsyncAthenaClientConfig] = None,
     ) -> "aws_sdk_athena.types.tag_resource_output.TagResourceOutput":
-        """<p>Adds one or more tags to an Athena resource. A tag is a label that you assign to a resource. Each tag consists of a key and an optional value, both of which you define. For example, you can use tags to categorize Athena workgroups, data catalogs, or capacity reservations by purpose, owner, or environment. Use a consistent set of tag keys to make it easier to search and filter the resources in your account. For best practices, see <a href=\"https://docs.aws.amazon.com/whitepapers/latest/tagging-best-practices/tagging-best-practices.html\">Tagging Best Practices</a>. Tag keys can be from 1 to 128 UTF-8 Unicode characters, and tag values can be from 0 to 256 UTF-8 Unicode characters. Tags can use letters and numbers representable in UTF-8, and the following characters: + - = . _ : / @. Tag keys and values are case-sensitive. Tag keys must be unique per resource. If you specify more than one tag, separate them by commas.</p>
+        r"""<p>Adds one or more tags to an Athena resource. A tag is a label that you assign to a resource. Each tag consists of a key and an optional value, both of which you define. For example, you can use tags to categorize Athena workgroups, data catalogs, or capacity reservations by purpose, owner, or environment. Use a consistent set of tag keys to make it easier to search and filter the resources in your account. For best practices, see <a href=\"https://docs.aws.amazon.com/whitepapers/latest/tagging-best-practices/tagging-best-practices.html\">Tagging Best Practices</a>. Tag keys can be from 1 to 128 UTF-8 Unicode characters, and tag values can be from 0 to 256 UTF-8 Unicode characters. Tags can use letters and numbers representable in UTF-8, and the following characters: + - = . _ : / @. Tag keys and values are case-sensitive. Tag keys must be unique per resource. If you specify more than one tag, separate them by commas.</p>
 
         Args:
             resource_arn: <p>Specifies the ARN of the Athena resource to which tags are to be added.</p>
@@ -3266,12 +3266,12 @@ class AsyncAthenaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_athena.types.tag_resource_input.TagResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_athena.types.tag_resource_input.TagResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3305,11 +3305,11 @@ class AsyncAthenaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_athena.types.terminate_session_request.TerminateSessionRequest = {}  # type: ignore[typeddict-item]
-        input["session_id"] = session_id
+        input_: aws_sdk_athena.types.terminate_session_request.TerminateSessionRequest = {}  # type: ignore[typeddict-item]
+        input_["session_id"] = session_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3345,12 +3345,12 @@ class AsyncAthenaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_athena.types.untag_resource_input.UntagResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_athena.types.untag_resource_input.UntagResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3386,12 +3386,12 @@ class AsyncAthenaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_athena.types.update_capacity_reservation_input.UpdateCapacityReservationInput = {}  # type: ignore[typeddict-item]
-        input["target_dpus"] = target_dpus
-        input["name"] = name
+        input_: aws_sdk_athena.types.update_capacity_reservation_input.UpdateCapacityReservationInput = {}  # type: ignore[typeddict-item]
+        input_["target_dpus"] = target_dpus
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3435,16 +3435,16 @@ class AsyncAthenaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_athena.types.update_data_catalog_input.UpdateDataCatalogInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["type"] = type
+        input_: aws_sdk_athena.types.update_data_catalog_input.UpdateDataCatalogInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["type"] = type
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if parameters is not None:
-            input["parameters"] = parameters
+            input_["parameters"] = parameters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3486,15 +3486,15 @@ class AsyncAthenaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_athena.types.update_named_query_input.UpdateNamedQueryInput = {}  # type: ignore[typeddict-item]
-        input["named_query_id"] = named_query_id
-        input["name"] = name
+        input_: aws_sdk_athena.types.update_named_query_input.UpdateNamedQueryInput = {}  # type: ignore[typeddict-item]
+        input_["named_query_id"] = named_query_id
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["query_string"] = query_string
+            input_["description"] = description
+        input_["query_string"] = query_string
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3538,17 +3538,17 @@ class AsyncAthenaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_athena.types.update_notebook_input.UpdateNotebookInput = {}  # type: ignore[typeddict-item]
-        input["notebook_id"] = notebook_id
-        input["payload"] = payload
-        input["type"] = type
+        input_: aws_sdk_athena.types.update_notebook_input.UpdateNotebookInput = {}  # type: ignore[typeddict-item]
+        input_["notebook_id"] = notebook_id
+        input_["payload"] = payload
+        input_["type"] = type
         if session_id is not None:
-            input["session_id"] = session_id
+            input_["session_id"] = session_id
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3588,14 +3588,14 @@ class AsyncAthenaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_athena.types.update_notebook_metadata_input.UpdateNotebookMetadataInput = {}  # type: ignore[typeddict-item]
-        input["notebook_id"] = notebook_id
+        input_: aws_sdk_athena.types.update_notebook_metadata_input.UpdateNotebookMetadataInput = {}  # type: ignore[typeddict-item]
+        input_["notebook_id"] = notebook_id
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
-        input["name"] = name
+            input_["client_request_token"] = client_request_token
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3637,15 +3637,15 @@ class AsyncAthenaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_athena.types.update_prepared_statement_input.UpdatePreparedStatementInput = {}  # type: ignore[typeddict-item]
-        input["statement_name"] = statement_name
-        input["work_group"] = work_group
-        input["query_statement"] = query_statement
+        input_: aws_sdk_athena.types.update_prepared_statement_input.UpdatePreparedStatementInput = {}  # type: ignore[typeddict-item]
+        input_["statement_name"] = statement_name
+        input_["work_group"] = work_group
+        input_["query_statement"] = query_statement
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3689,17 +3689,17 @@ class AsyncAthenaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_athena.types.update_work_group_input.UpdateWorkGroupInput = {}  # type: ignore[typeddict-item]
-        input["work_group"] = work_group
+        input_: aws_sdk_athena.types.update_work_group_input.UpdateWorkGroupInput = {}  # type: ignore[typeddict-item]
+        input_["work_group"] = work_group
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if configuration_updates is not None:
-            input["configuration_updates"] = configuration_updates
+            input_["configuration_updates"] = configuration_updates
         if state is not None:
-            input["state"] = state
+            input_["state"] = state
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

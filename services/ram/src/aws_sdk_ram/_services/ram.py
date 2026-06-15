@@ -230,7 +230,7 @@ class RAMClient:
         config_overrides: Optional[RAMClientConfig] = None,
         client_token: Optional["aws_sdk_ram.types.string.String"] = None,
     ) -> "aws_sdk_ram.types.accept_resource_share_invitation_response.AcceptResourceShareInvitationResponse":
-        """<p>Accepts an invitation to a resource share from another Amazon Web Services account. After you accept the invitation, the resources included in the resource share are available to interact with in the relevant Amazon Web Services Management Consoles and tools.</p>
+        r"""<p>Accepts an invitation to a resource share from another Amazon Web Services account. After you accept the invitation, the resources included in the resource share are available to interact with in the relevant Amazon Web Services Management Consoles and tools.</p>
 
         Args:
             resource_share_invitation_arn: <p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of the invitation that you want to accept.</p>
@@ -280,7 +280,7 @@ class RAMClient:
             "aws_sdk_ram.types.source_arn_or_account_list.SourceArnOrAccountList"
         ] = None,
     ) -> "aws_sdk_ram.types.associate_resource_share_response.AssociateResourceShareResponse":
-        """<p>Adds the specified list of principals, resources, and source constraints to a resource share. Principals that already have access to this resource share immediately receive access to the added resources. Newly added principals immediately receive access to the resources shared in this resource share. </p>
+        r"""<p>Adds the specified list of principals, resources, and source constraints to a resource share. Principals that already have access to this resource share immediately receive access to the added resources. Newly added principals immediately receive access to the resources shared in this resource share. </p>
 
         Args:
             resource_share_arn: <p>Specifies the <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of the resource share that you want to add principals or resources to.</p>
@@ -333,7 +333,7 @@ class RAMClient:
         client_token: Optional["aws_sdk_ram.types.string.String"] = None,
         permission_version: Optional["aws_sdk_ram.types.integer.Integer"] = None,
     ) -> "aws_sdk_ram.types.associate_resource_share_permission_response.AssociateResourceSharePermissionResponse":
-        """<p>Adds or replaces the RAM permission for a resource type included in a resource share. You can have exactly one permission associated with each resource type in the resource share. You can add a new RAM permission only if there are currently no resources of that resource type currently in the resource share.</p>
+        r"""<p>Adds or replaces the RAM permission for a resource type included in a resource share. You can have exactly one permission associated with each resource type in the resource share. You can add a new RAM permission only if there are currently no resources of that resource type currently in the resource share.</p>
 
         Args:
             resource_share_arn: <p>Specifies the <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of the resource share to which you want to add or replace permissions.</p>
@@ -385,7 +385,7 @@ class RAMClient:
         client_token: Optional["aws_sdk_ram.types.string.String"] = None,
         tags: Optional["aws_sdk_ram.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_ram.types.create_permission_response.CreatePermissionResponse":
-        """<p>Creates a customer managed permission for a specified resource type that you can attach to resource shares. It is created in the Amazon Web Services Region in which you call the operation.</p>
+        r"""<p>Creates a customer managed permission for a specified resource type that you can attach to resource shares. It is created in the Amazon Web Services Region in which you call the operation.</p>
 
         Args:
             name: <p>Specifies the name of the customer managed permission. The name must be unique within the Amazon Web Services Region.</p>
@@ -434,7 +434,7 @@ class RAMClient:
         config_overrides: Optional[RAMClientConfig] = None,
         client_token: Optional["aws_sdk_ram.types.string.String"] = None,
     ) -> "aws_sdk_ram.types.create_permission_version_response.CreatePermissionVersionResponse":
-        """<p>Creates a new version of the specified customer managed permission. The new version is automatically set as the default version of the customer managed permission. New resource shares automatically use the default permission. Existing resource shares continue to use their original permission versions, but you can use <a>ReplacePermissionAssociations</a> to update them.</p> <p>If the specified customer managed permission already has the maximum of 5 versions, then you must delete one of the existing versions before you can create a new one.</p>
+        r"""<p>Creates a new version of the specified customer managed permission. The new version is automatically set as the default version of the customer managed permission. New resource shares automatically use the default permission. Existing resource shares continue to use their original permission versions, but you can use <a>ReplacePermissionAssociations</a> to update them.</p> <p>If the specified customer managed permission already has the maximum of 5 versions, then you must delete one of the existing versions before you can create a new one.</p>
 
         Args:
             permission_arn: <p>Specifies the <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of the customer managed permission you're creating a new version for.</p>
@@ -494,7 +494,7 @@ class RAMClient:
             "aws_sdk_ram.types.resource_share_configuration.ResourceShareConfiguration"
         ] = None,
     ) -> "aws_sdk_ram.types.create_resource_share_response.CreateResourceShareResponse":
-        """<p>Creates a resource share. You can provide a list of the <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> for the resources that you want to share, a list of principals you want to share the resources with, the permissions to grant those principals, and optionally source constraints to enhance security for service principal sharing.</p> <note> <p>Sharing a resource makes it available for use by principals outside of the Amazon Web Services account that created the resource. Sharing doesn't change any permissions or quotas that apply to the resource in the account that created it.</p> </note>
+        r"""<p>Creates a resource share. You can provide a list of the <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> for the resources that you want to share, a list of principals you want to share the resources with, the permissions to grant those principals, and optionally source constraints to enhance security for service principal sharing.</p> <note> <p>Sharing a resource makes it available for use by principals outside of the Amazon Web Services account that created the resource. Sharing doesn't change any permissions or quotas that apply to the resource in the account that created it.</p> </note>
 
         Args:
             name: <p>Specifies the name of the resource share.</p>
@@ -556,7 +556,7 @@ class RAMClient:
         config_overrides: Optional[RAMClientConfig] = None,
         client_token: Optional["aws_sdk_ram.types.string.String"] = None,
     ) -> "aws_sdk_ram.types.delete_permission_response.DeletePermissionResponse":
-        """<p>Deletes the specified customer managed permission in the Amazon Web Services Region in which you call this operation. You can delete a customer managed permission only if it isn't attached to any resource share. The operation deletes all versions associated with the customer managed permission.</p>
+        r"""<p>Deletes the specified customer managed permission in the Amazon Web Services Region in which you call this operation. You can delete a customer managed permission only if it isn't attached to any resource share. The operation deletes all versions associated with the customer managed permission.</p>
 
         Args:
             permission_arn: <p>Specifies the <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of the customer managed permission that you want to delete.</p>
@@ -598,7 +598,7 @@ class RAMClient:
         config_overrides: Optional[RAMClientConfig] = None,
         client_token: Optional["aws_sdk_ram.types.string.String"] = None,
     ) -> "aws_sdk_ram.types.delete_permission_version_response.DeletePermissionVersionResponse":
-        """<p>Deletes one version of a customer managed permission. The version you specify must not be attached to any resource share and must not be the default version for the permission.</p> <p>If a customer managed permission has the maximum of 5 versions, then you must delete at least one version before you can create another.</p>
+        r"""<p>Deletes one version of a customer managed permission. The version you specify must not be attached to any resource share and must not be the default version for the permission.</p> <p>If a customer managed permission has the maximum of 5 versions, then you must delete at least one version before you can create another.</p>
 
         Args:
             permission_arn: <p>Specifies the <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of the permission with the version you want to delete.</p>
@@ -641,7 +641,7 @@ class RAMClient:
         config_overrides: Optional[RAMClientConfig] = None,
         client_token: Optional["aws_sdk_ram.types.string.String"] = None,
     ) -> "aws_sdk_ram.types.delete_resource_share_response.DeleteResourceShareResponse":
-        """<p>Deletes the specified resource share.</p> <important> <p>This doesn't delete any of the resources that were associated with the resource share; it only stops the sharing of those resources through this resource share.</p> </important>
+        r"""<p>Deletes the specified resource share.</p> <important> <p>This doesn't delete any of the resources that were associated with the resource share; it only stops the sharing of those resources through this resource share.</p> </important>
 
         Args:
             resource_share_arn: <p>Specifies the <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of the resource share to delete.</p>
@@ -691,7 +691,7 @@ class RAMClient:
             "aws_sdk_ram.types.source_arn_or_account_list.SourceArnOrAccountList"
         ] = None,
     ) -> "aws_sdk_ram.types.disassociate_resource_share_response.DisassociateResourceShareResponse":
-        """<p>Removes the specified principals, resources, or source constraints from participating in the specified resource share.</p>
+        r"""<p>Removes the specified principals, resources, or source constraints from participating in the specified resource share.</p>
 
         Args:
             resource_share_arn: <p>Specifies <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of the resource share that you want to remove resources or principals from.</p>
@@ -742,7 +742,7 @@ class RAMClient:
         config_overrides: Optional[RAMClientConfig] = None,
         client_token: Optional["aws_sdk_ram.types.string.String"] = None,
     ) -> "aws_sdk_ram.types.disassociate_resource_share_permission_response.DisassociateResourceSharePermissionResponse":
-        """<p>Removes a managed permission from a resource share. Permission changes take effect immediately. You can remove a managed permission from a resource share only if there are currently no resources of the relevant resource type currently attached to the resource share.</p>
+        r"""<p>Removes a managed permission from a resource share. Permission changes take effect immediately. You can remove a managed permission from a resource share only if there are currently no resources of the relevant resource type currently attached to the resource share.</p>
 
         Args:
             resource_share_arn: <p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of the resource share that you want to remove the managed permission from.</p>
@@ -814,7 +814,7 @@ class RAMClient:
         config_overrides: Optional[RAMClientConfig] = None,
         permission_version: Optional["aws_sdk_ram.types.integer.Integer"] = None,
     ) -> "aws_sdk_ram.types.get_permission_response.GetPermissionResponse":
-        """<p>Retrieves the contents of a managed permission in JSON format.</p>
+        r"""<p>Retrieves the contents of a managed permission in JSON format.</p>
 
         Args:
             permission_arn: <p>Specifies the <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of the permission whose contents you want to retrieve. To find the ARN for a permission, use either the <a>ListPermissions</a> operation or go to the <a href=\"https://console.aws.amazon.com/ram/home#Permissions:\">Permissions library</a> page in the RAM console and then choose the name of the permission. The ARN is displayed on the detail page.</p>
@@ -857,7 +857,7 @@ class RAMClient:
         next_token: Optional["aws_sdk_ram.types.string.String"] = None,
         max_results: Optional["aws_sdk_ram.types.max_results.MaxResults"] = None,
     ) -> "aws_sdk_ram.types.get_resource_policies_response.GetResourcePoliciesResponse":
-        """<p>Retrieves the resource policies for the specified resources that you own and have shared.</p> <note> <p>Always check the <code>NextToken</code> response parameter for a <code>null</code> value when calling a paginated operation. These operations can occasionally return an empty set of results even when there are more results available. The <code>NextToken</code> response parameter value is <code>null</code> <i>only</i> when there are no more results to display.</p> </note>
+        r"""<p>Retrieves the resource policies for the specified resources that you own and have shared.</p> <note> <p>Always check the <code>NextToken</code> response parameter for a <code>null</code> value when calling a paginated operation. These operations can occasionally return an empty set of results even when there are more results available. The <code>NextToken</code> response parameter value is <code>null</code> <i>only</i> when there are no more results to display.</p> </note>
 
         Args:
             resource_arns: <p>Specifies the <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> of the resources whose policies you want to retrieve.</p>
@@ -913,7 +913,7 @@ class RAMClient:
         next_token: Optional["aws_sdk_ram.types.string.String"] = None,
         max_results: Optional["aws_sdk_ram.types.max_results.MaxResults"] = None,
     ) -> "aws_sdk_ram.types.get_resource_share_associations_response.GetResourceShareAssociationsResponse":
-        """<p>Retrieves the lists of resources and principals that associated for resource shares that you own.</p> <note> <p>Always check the <code>NextToken</code> response parameter for a <code>null</code> value when calling a paginated operation. These operations can occasionally return an empty set of results even when there are more results available. The <code>NextToken</code> response parameter value is <code>null</code> <i>only</i> when there are no more results to display.</p> </note>
+        r"""<p>Retrieves the lists of resources and principals that associated for resource shares that you own.</p> <note> <p>Always check the <code>NextToken</code> response parameter for a <code>null</code> value when calling a paginated operation. These operations can occasionally return an empty set of results even when there are more results available. The <code>NextToken</code> response parameter value is <code>null</code> <i>only</i> when there are no more results to display.</p> </note>
 
         Args:
             association_type: <p>Specifies whether you want to retrieve the associations that involve a specified resource or principal.</p> <ul> <li> <p> <code>PRINCIPAL</code> – list the principals whose associations you want to see.</p> </li> <li> <p> <code>RESOURCE</code> – list the resources whose associations you want to see.</p> </li> </ul>
@@ -975,7 +975,7 @@ class RAMClient:
         next_token: Optional["aws_sdk_ram.types.string.String"] = None,
         max_results: Optional["aws_sdk_ram.types.max_results.MaxResults"] = None,
     ) -> "aws_sdk_ram.types.get_resource_share_invitations_response.GetResourceShareInvitationsResponse":
-        """<p>Retrieves details about invitations that you have received for resource shares.</p> <note> <p>Always check the <code>NextToken</code> response parameter for a <code>null</code> value when calling a paginated operation. These operations can occasionally return an empty set of results even when there are more results available. The <code>NextToken</code> response parameter value is <code>null</code> <i>only</i> when there are no more results to display.</p> </note>
+        r"""<p>Retrieves details about invitations that you have received for resource shares.</p> <note> <p>Always check the <code>NextToken</code> response parameter for a <code>null</code> value when calling a paginated operation. These operations can occasionally return an empty set of results even when there are more results available. The <code>NextToken</code> response parameter value is <code>null</code> <i>only</i> when there are no more results to display.</p> </note>
 
         Args:
             resource_share_invitation_arns: <p>Specifies the <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> of the resource share invitations you want information about.</p>
@@ -1034,7 +1034,7 @@ class RAMClient:
         permission_arn: Optional["aws_sdk_ram.types.string.String"] = None,
         permission_version: Optional["aws_sdk_ram.types.integer.Integer"] = None,
     ) -> "aws_sdk_ram.types.get_resource_shares_response.GetResourceSharesResponse":
-        """<p>Retrieves details about the resource shares that you own or that are shared with you.</p> <note> <p>Always check the <code>NextToken</code> response parameter for a <code>null</code> value when calling a paginated operation. These operations can occasionally return an empty set of results even when there are more results available. The <code>NextToken</code> response parameter value is <code>null</code> <i>only</i> when there are no more results to display.</p> </note>
+        r"""<p>Retrieves details about the resource shares that you own or that are shared with you.</p> <note> <p>Always check the <code>NextToken</code> response parameter for a <code>null</code> value when calling a paginated operation. These operations can occasionally return an empty set of results even when there are more results available. The <code>NextToken</code> response parameter value is <code>null</code> <i>only</i> when there are no more results to display.</p> </note>
 
         Args:
             resource_share_arns: <p>Specifies the <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> of individual resource shares that you want information about.</p>
@@ -1100,7 +1100,7 @@ class RAMClient:
             "aws_sdk_ram.types.resource_region_scope_filter.ResourceRegionScopeFilter"
         ] = None,
     ) -> "aws_sdk_ram.types.list_pending_invitation_resources_response.ListPendingInvitationResourcesResponse":
-        """<p>Lists the resources in a resource share that is shared with you but for which the invitation is still <code>PENDING</code>. That means that you haven't accepted or rejected the invitation and the invitation hasn't expired.</p> <note> <p>Always check the <code>NextToken</code> response parameter for a <code>null</code> value when calling a paginated operation. These operations can occasionally return an empty set of results even when there are more results available. The <code>NextToken</code> response parameter value is <code>null</code> <i>only</i> when there are no more results to display.</p> </note>
+        r"""<p>Lists the resources in a resource share that is shared with you but for which the invitation is still <code>PENDING</code>. That means that you haven't accepted or rejected the invitation and the invitation hasn't expired.</p> <note> <p>Always check the <code>NextToken</code> response parameter for a <code>null</code> value when calling a paginated operation. These operations can occasionally return an empty set of results even when there are more results available. The <code>NextToken</code> response parameter value is <code>null</code> <i>only</i> when there are no more results to display.</p> </note>
 
         Args:
             resource_share_invitation_arn: <p>Specifies the <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of the invitation. You can use <a>GetResourceShareInvitations</a> to find the ARN of the invitation.</p>
@@ -1157,7 +1157,7 @@ class RAMClient:
         next_token: Optional["aws_sdk_ram.types.string.String"] = None,
         max_results: Optional["aws_sdk_ram.types.max_results.MaxResults"] = None,
     ) -> "aws_sdk_ram.types.list_permission_associations_response.ListPermissionAssociationsResponse":
-        """<p>Lists information about the managed permission and its associations to any resource shares that use this managed permission. This lets you see which resource shares use which versions of the specified managed permission.</p> <note> <p>Always check the <code>NextToken</code> response parameter for a <code>null</code> value when calling a paginated operation. These operations can occasionally return an empty set of results even when there are more results available. The <code>NextToken</code> response parameter value is <code>null</code> <i>only</i> when there are no more results to display.</p> </note>
+        r"""<p>Lists information about the managed permission and its associations to any resource shares that use this managed permission. This lets you see which resource shares use which versions of the specified managed permission.</p> <note> <p>Always check the <code>NextToken</code> response parameter for a <code>null</code> value when calling a paginated operation. These operations can occasionally return an empty set of results even when there are more results available. The <code>NextToken</code> response parameter value is <code>null</code> <i>only</i> when there are no more results to display.</p> </note>
 
         Args:
             permission_arn: <p>Specifies the <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of the managed permission.</p>
@@ -1270,7 +1270,7 @@ class RAMClient:
         next_token: Optional["aws_sdk_ram.types.string.String"] = None,
         max_results: Optional["aws_sdk_ram.types.max_results.MaxResults"] = None,
     ) -> "aws_sdk_ram.types.list_permission_versions_response.ListPermissionVersionsResponse":
-        """<p>Lists the available versions of the specified RAM permission.</p> <note> <p>Always check the <code>NextToken</code> response parameter for a <code>null</code> value when calling a paginated operation. These operations can occasionally return an empty set of results even when there are more results available. The <code>NextToken</code> response parameter value is <code>null</code> <i>only</i> when there are no more results to display.</p> </note>
+        r"""<p>Lists the available versions of the specified RAM permission.</p> <note> <p>Always check the <code>NextToken</code> response parameter for a <code>null</code> value when calling a paginated operation. These operations can occasionally return an empty set of results even when there are more results available. The <code>NextToken</code> response parameter value is <code>null</code> <i>only</i> when there are no more results to display.</p> </note>
 
         Args:
             permission_arn: <p>Specifies the <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of the RAM permission whose versions you want to list. You can use the <code>permissionVersion</code> parameter on the <a>AssociateResourceSharePermission</a> operation to specify a non-default version to attach.</p>
@@ -1323,7 +1323,7 @@ class RAMClient:
         next_token: Optional["aws_sdk_ram.types.string.String"] = None,
         max_results: Optional["aws_sdk_ram.types.max_results.MaxResults"] = None,
     ) -> "aws_sdk_ram.types.list_principals_response.ListPrincipalsResponse":
-        """<p>Lists the principals that you are sharing resources with or that are sharing resources with you.</p> <note> <p>Always check the <code>NextToken</code> response parameter for a <code>null</code> value when calling a paginated operation. These operations can occasionally return an empty set of results even when there are more results available. The <code>NextToken</code> response parameter value is <code>null</code> <i>only</i> when there are no more results to display.</p> </note>
+        r"""<p>Lists the principals that you are sharing resources with or that are sharing resources with you.</p> <note> <p>Always check the <code>NextToken</code> response parameter for a <code>null</code> value when calling a paginated operation. These operations can occasionally return an empty set of results even when there are more results available. The <code>NextToken</code> response parameter value is <code>null</code> <i>only</i> when there are no more results to display.</p> </note>
 
         Args:
             resource_owner: <p>Specifies that you want to list information for only resource shares that match the following:</p> <ul> <li> <p> <b> <code>SELF</code> </b> – principals that your account is sharing resources with</p> </li> <li> <p> <b> <code>OTHER-ACCOUNTS</code> </b> – principals that are sharing resources with your account</p> </li> </ul>
@@ -1445,7 +1445,7 @@ class RAMClient:
             "aws_sdk_ram.types.resource_region_scope_filter.ResourceRegionScopeFilter"
         ] = None,
     ) -> "aws_sdk_ram.types.list_resources_response.ListResourcesResponse":
-        """<p>Lists the resources that you added to a resource share or the resources that are shared with you.</p> <note> <p>Always check the <code>NextToken</code> response parameter for a <code>null</code> value when calling a paginated operation. These operations can occasionally return an empty set of results even when there are more results available. The <code>NextToken</code> response parameter value is <code>null</code> <i>only</i> when there are no more results to display.</p> </note>
+        r"""<p>Lists the resources that you added to a resource share or the resources that are shared with you.</p> <note> <p>Always check the <code>NextToken</code> response parameter for a <code>null</code> value when calling a paginated operation. These operations can occasionally return an empty set of results even when there are more results available. The <code>NextToken</code> response parameter value is <code>null</code> <i>only</i> when there are no more results to display.</p> </note>
 
         Args:
             resource_owner: <p>Specifies that you want to list only the resource shares that match the following:</p> <ul> <li> <p> <b> <code>SELF</code> </b> – resources that your account shares with other accounts</p> </li> <li> <p> <b> <code>OTHER-ACCOUNTS</code> </b> – resources that other accounts share with your account</p> </li> </ul>
@@ -1505,7 +1505,7 @@ class RAMClient:
         next_token: Optional["aws_sdk_ram.types.string.String"] = None,
         max_results: Optional["aws_sdk_ram.types.max_results.MaxResults"] = None,
     ) -> "aws_sdk_ram.types.list_resource_share_permissions_response.ListResourceSharePermissionsResponse":
-        """<p>Lists the RAM permissions that are associated with a resource share.</p> <note> <p>Always check the <code>NextToken</code> response parameter for a <code>null</code> value when calling a paginated operation. These operations can occasionally return an empty set of results even when there are more results available. The <code>NextToken</code> response parameter value is <code>null</code> <i>only</i> when there are no more results to display.</p> </note>
+        r"""<p>Lists the RAM permissions that are associated with a resource share.</p> <note> <p>Always check the <code>NextToken</code> response parameter for a <code>null</code> value when calling a paginated operation. These operations can occasionally return an empty set of results even when there are more results available. The <code>NextToken</code> response parameter value is <code>null</code> <i>only</i> when there are no more results to display.</p> </note>
 
         Args:
             resource_share_arn: <p>Specifies the <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of the resource share for which you want to retrieve the associated permissions.</p>
@@ -1693,7 +1693,7 @@ class RAMClient:
         config_overrides: Optional[RAMClientConfig] = None,
         client_token: Optional["aws_sdk_ram.types.string.String"] = None,
     ) -> "aws_sdk_ram.types.promote_permission_created_from_policy_response.PromotePermissionCreatedFromPolicyResponse":
-        """<p>When you attach a resource-based policy to a resource, RAM automatically creates a resource share of <code>featureSet</code>=<code>CREATED_FROM_POLICY</code> with a managed permission that has the same IAM permissions as the original resource-based policy. However, this type of managed permission is visible to only the resource share owner, and the associated resource share can't be modified by using RAM.</p> <p>This operation creates a separate, fully manageable customer managed permission that has the same IAM permissions as the original resource-based policy. You can associate this customer managed permission to any resource shares.</p> <p>Before you use <a>PromoteResourceShareCreatedFromPolicy</a>, you should first run this operation to ensure that you have an appropriate customer managed permission that can be associated with the promoted resource share.</p> <note> <ul> <li> <p>The original <code>CREATED_FROM_POLICY</code> policy isn't deleted, and resource shares using that original policy aren't automatically updated.</p> </li> <li> <p>You can't modify a <code>CREATED_FROM_POLICY</code> resource share so you can't associate the new customer managed permission by using <code>ReplacePermsissionAssociations</code>. However, if you use <a>PromoteResourceShareCreatedFromPolicy</a>, that operation automatically associates the fully manageable customer managed permission to the newly promoted <code>STANDARD</code> resource share.</p> </li> <li> <p>After you promote a resource share, if the original <code>CREATED_FROM_POLICY</code> managed permission has no other associations to A resource share, then RAM automatically deletes it.</p> </li> </ul> </note>
+        r"""<p>When you attach a resource-based policy to a resource, RAM automatically creates a resource share of <code>featureSet</code>=<code>CREATED_FROM_POLICY</code> with a managed permission that has the same IAM permissions as the original resource-based policy. However, this type of managed permission is visible to only the resource share owner, and the associated resource share can't be modified by using RAM.</p> <p>This operation creates a separate, fully manageable customer managed permission that has the same IAM permissions as the original resource-based policy. You can associate this customer managed permission to any resource shares.</p> <p>Before you use <a>PromoteResourceShareCreatedFromPolicy</a>, you should first run this operation to ensure that you have an appropriate customer managed permission that can be associated with the promoted resource share.</p> <note> <ul> <li> <p>The original <code>CREATED_FROM_POLICY</code> policy isn't deleted, and resource shares using that original policy aren't automatically updated.</p> </li> <li> <p>You can't modify a <code>CREATED_FROM_POLICY</code> resource share so you can't associate the new customer managed permission by using <code>ReplacePermsissionAssociations</code>. However, if you use <a>PromoteResourceShareCreatedFromPolicy</a>, that operation automatically associates the fully manageable customer managed permission to the newly promoted <code>STANDARD</code> resource share.</p> </li> <li> <p>After you promote a resource share, if the original <code>CREATED_FROM_POLICY</code> managed permission has no other associations to A resource share, then RAM automatically deletes it.</p> </li> </ul> </note>
 
         Args:
             permission_arn: <p>Specifies the <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of the <code>CREATED_FROM_POLICY</code> permission that you want to promote. You can get this <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> by calling the <a>ListResourceSharePermissions</a> operation.</p>
@@ -1735,7 +1735,7 @@ class RAMClient:
         *,
         config_overrides: Optional[RAMClientConfig] = None,
     ) -> "aws_sdk_ram.types.promote_resource_share_created_from_policy_response.PromoteResourceShareCreatedFromPolicyResponse":
-        """<p>When you attach a resource-based policy to a resource, RAM automatically creates a resource share of <code>featureSet</code>=<code>CREATED_FROM_POLICY</code> with a managed permission that has the same IAM permissions as the original resource-based policy. However, this type of managed permission is visible to only the resource share owner, and the associated resource share can't be modified by using RAM.</p> <p>This operation promotes the resource share to a <code>STANDARD</code> resource share that is fully manageable in RAM. When you promote a resource share, you can then manage the resource share in RAM and it becomes visible to all of the principals you shared it with.</p> <important> <p>Before you perform this operation, you should first run <a>PromotePermissionCreatedFromPolicy</a>to ensure that you have an appropriate customer managed permission that can be associated with this resource share after its is promoted. If this operation can't find a managed permission that exactly matches the existing <code>CREATED_FROM_POLICY</code> permission, then this operation fails.</p> </important>
+        r"""<p>When you attach a resource-based policy to a resource, RAM automatically creates a resource share of <code>featureSet</code>=<code>CREATED_FROM_POLICY</code> with a managed permission that has the same IAM permissions as the original resource-based policy. However, this type of managed permission is visible to only the resource share owner, and the associated resource share can't be modified by using RAM.</p> <p>This operation promotes the resource share to a <code>STANDARD</code> resource share that is fully manageable in RAM. When you promote a resource share, you can then manage the resource share in RAM and it becomes visible to all of the principals you shared it with.</p> <important> <p>Before you perform this operation, you should first run <a>PromotePermissionCreatedFromPolicy</a>to ensure that you have an appropriate customer managed permission that can be associated with this resource share after its is promoted. If this operation can't find a managed permission that exactly matches the existing <code>CREATED_FROM_POLICY</code> permission, then this operation fails.</p> </important>
 
         Args:
             resource_share_arn: <p>Specifies the <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of the resource share to promote.</p>
@@ -1773,7 +1773,7 @@ class RAMClient:
         config_overrides: Optional[RAMClientConfig] = None,
         client_token: Optional["aws_sdk_ram.types.string.String"] = None,
     ) -> "aws_sdk_ram.types.reject_resource_share_invitation_response.RejectResourceShareInvitationResponse":
-        """<p>Rejects an invitation to a resource share from another Amazon Web Services account.</p>
+        r"""<p>Rejects an invitation to a resource share from another Amazon Web Services account.</p>
 
         Args:
             resource_share_invitation_arn: <p>Specifies the <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of the invitation that you want to reject.</p>
@@ -1816,7 +1816,7 @@ class RAMClient:
         from_permission_version: Optional["aws_sdk_ram.types.integer.Integer"] = None,
         client_token: Optional["aws_sdk_ram.types.string.String"] = None,
     ) -> "aws_sdk_ram.types.replace_permission_associations_response.ReplacePermissionAssociationsResponse":
-        """<p>Updates all resource shares that use a managed permission to a different managed permission. This operation always applies the default version of the target managed permission. You can optionally specify that the update applies to only resource shares that currently use a specified version. This enables you to update to the latest version, without changing the which managed permission is used.</p> <p>You can use this operation to update all of your resource shares to use the current default version of the permission by specifying the same value for the <code>fromPermissionArn</code> and <code>toPermissionArn</code> parameters.</p> <p>You can use the optional <code>fromPermissionVersion</code> parameter to update only those resources that use a specified version of the managed permission to the new managed permission.</p> <important> <p>To successfully perform this operation, you must have permission to update the resource-based policy on all affected resource types.</p> </important>
+        r"""<p>Updates all resource shares that use a managed permission to a different managed permission. This operation always applies the default version of the target managed permission. You can optionally specify that the update applies to only resource shares that currently use a specified version. This enables you to update to the latest version, without changing the which managed permission is used.</p> <p>You can use this operation to update all of your resource shares to use the current default version of the permission by specifying the same value for the <code>fromPermissionArn</code> and <code>toPermissionArn</code> parameters.</p> <p>You can use the optional <code>fromPermissionVersion</code> parameter to update only those resources that use a specified version of the managed permission to the new managed permission.</p> <important> <p>To successfully perform this operation, you must have permission to update the resource-based policy on all affected resource types.</p> </important>
 
         Args:
             from_permission_arn: <p>Specifies the <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of the managed permission that you want to replace.</p>
@@ -1863,7 +1863,7 @@ class RAMClient:
         config_overrides: Optional[RAMClientConfig] = None,
         client_token: Optional["aws_sdk_ram.types.string.String"] = None,
     ) -> "aws_sdk_ram.types.set_default_permission_version_response.SetDefaultPermissionVersionResponse":
-        """<p>Designates the specified version number as the default version for the specified customer managed permission. New resource shares automatically use this new default permission. Existing resource shares continue to use their original permission version, but you can use <a>ReplacePermissionAssociations</a> to update them.</p>
+        r"""<p>Designates the specified version number as the default version for the specified customer managed permission. New resource shares automatically use this new default permission. Existing resource shares continue to use their original permission version, but you can use <a>ReplacePermissionAssociations</a> to update them.</p>
 
         Args:
             permission_arn: <p>Specifies the <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of the customer managed permission whose default version you want to change.</p>
@@ -1907,7 +1907,7 @@ class RAMClient:
         resource_share_arn: Optional["aws_sdk_ram.types.string.String"] = None,
         resource_arn: Optional["aws_sdk_ram.types.string.String"] = None,
     ) -> "aws_sdk_ram.types.tag_resource_response.TagResourceResponse":
-        """<p>Adds the specified tag keys and values to a resource share or managed permission. If you choose a resource share, the tags are attached to only the resource share, not to the resources that are in the resource share.</p> <p>The tags on a managed permission are the same for all versions of the managed permission.</p>
+        r"""<p>Adds the specified tag keys and values to a resource share or managed permission. If you choose a resource share, the tags are attached to only the resource share, not to the resources that are in the resource share.</p> <p>The tags on a managed permission are the same for all versions of the managed permission.</p>
 
         Args:
             resource_share_arn: <p>Specifies the <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of the resource share that you want to add tags to. You must specify <i>either</i> <code>resourceShareArn</code>, or <code>resourceArn</code>, but not both.</p>
@@ -1952,7 +1952,7 @@ class RAMClient:
         resource_share_arn: Optional["aws_sdk_ram.types.string.String"] = None,
         resource_arn: Optional["aws_sdk_ram.types.string.String"] = None,
     ) -> "aws_sdk_ram.types.untag_resource_response.UntagResourceResponse":
-        """<p>Removes the specified tag key and value pairs from the specified resource share or managed permission.</p>
+        r"""<p>Removes the specified tag key and value pairs from the specified resource share or managed permission.</p>
 
         Args:
             resource_share_arn: <p>Specifies the <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of the resource share that you want to remove tags from. The tags are removed from the resource share, not the resources in the resource share. You must specify either <code>resourceShareArn</code>, or <code>resourceArn</code>, but not both.</p>
@@ -1998,7 +1998,7 @@ class RAMClient:
         allow_external_principals: Optional["aws_sdk_ram.types.boolean.Boolean"] = None,
         client_token: Optional["aws_sdk_ram.types.string.String"] = None,
     ) -> "aws_sdk_ram.types.update_resource_share_response.UpdateResourceShareResponse":
-        """<p>Modifies some of the properties of the specified resource share.</p>
+        r"""<p>Modifies some of the properties of the specified resource share.</p>
 
         Args:
             resource_share_arn: <p>Specifies the <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of the resource share that you want to modify.</p>

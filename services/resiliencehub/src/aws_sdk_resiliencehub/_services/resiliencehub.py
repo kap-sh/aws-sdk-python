@@ -310,7 +310,7 @@ class resiliencehubClient:
         *,
         config_overrides: Optional[resiliencehubClientConfig] = None,
     ) -> "aws_sdk_resiliencehub.types.accept_resource_grouping_recommendations_response.AcceptResourceGroupingRecommendationsResponse":
-        """<p>Accepts the resource grouping recommendations suggested by Resilience Hub for your application.</p>
+        r"""<p>Accepts the resource grouping recommendations suggested by Resilience Hub for your application.</p>
 
         Args:
             app_arn: <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
@@ -350,7 +350,7 @@ class resiliencehubClient:
         *,
         config_overrides: Optional[resiliencehubClientConfig] = None,
     ) -> "aws_sdk_resiliencehub.types.add_draft_app_version_resource_mappings_response.AddDraftAppVersionResourceMappingsResponse":
-        """<p>Adds the source of resource-maps to the draft version of an application. During assessment, Resilience Hub will use these resource-maps to resolve the latest physical ID for each resource in the application template. For more information about different types of resources supported by Resilience Hub and how to add them in your application, see <a href=\"https://docs.aws.amazon.com/resilience-hub/latest/userguide/how-app-manage.html\">Step 2: How is your application managed?</a> in the Resilience Hub User Guide.</p>
+        r"""<p>Adds the source of resource-maps to the draft version of an application. During assessment, Resilience Hub will use these resource-maps to resolve the latest physical ID for each resource in the application template. For more information about different types of resources supported by Resilience Hub and how to add them in your application, see <a href=\"https://docs.aws.amazon.com/resilience-hub/latest/userguide/how-app-manage.html\">Step 2: How is your application managed?</a> in the Resilience Hub User Guide.</p>
 
         Args:
             app_arn: <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
@@ -390,7 +390,7 @@ class resiliencehubClient:
         *,
         config_overrides: Optional[resiliencehubClientConfig] = None,
     ) -> "aws_sdk_resiliencehub.types.batch_update_recommendation_status_response.BatchUpdateRecommendationStatusResponse":
-        """<p>Enables you to include or exclude one or more operational recommendations.</p>
+        r"""<p>Enables you to include or exclude one or more operational recommendations.</p>
 
         Args:
             app_arn: <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
@@ -447,7 +447,7 @@ class resiliencehubClient:
         ] = None,
         aws_application_arn: Optional["aws_sdk_resiliencehub.types.arn.Arn"] = None,
     ) -> "aws_sdk_resiliencehub.types.create_app_response.CreateAppResponse":
-        """<p>Creates an Resilience Hub application. An Resilience Hub application is a collection of Amazon Web Services resources structured to prevent and recover Amazon Web Services application disruptions. To describe a Resilience Hub application, you provide an application name, resources from one or more CloudFormation stacks, Resource Groups, Terraform state files, AppRegistry applications, and an appropriate resiliency policy. In addition, you can also add resources that are located on Amazon Elastic Kubernetes Service (Amazon EKS) clusters as optional resources. For more information about the number of resources supported per application, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/resiliencehub.html#limits_resiliencehub\">Service quotas</a>.</p> <p>After you create an Resilience Hub application, you publish it so that you can run a resiliency assessment on it. You can then use recommendations from the assessment to improve resiliency by running another assessment, comparing results, and then iterating the process until you achieve your goals for recovery time objective (RTO) and recovery point objective (RPO).</p>
+        r"""<p>Creates an Resilience Hub application. An Resilience Hub application is a collection of Amazon Web Services resources structured to prevent and recover Amazon Web Services application disruptions. To describe a Resilience Hub application, you provide an application name, resources from one or more CloudFormation stacks, Resource Groups, Terraform state files, AppRegistry applications, and an appropriate resiliency policy. In addition, you can also add resources that are located on Amazon Elastic Kubernetes Service (Amazon EKS) clusters as optional resources. For more information about the number of resources supported per application, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/resiliencehub.html#limits_resiliencehub\">Service quotas</a>.</p> <p>After you create an Resilience Hub application, you publish it so that you can run a resiliency assessment on it. You can then use recommendations from the assessment to improve resiliency by running another assessment, comparing results, and then iterating the process until you achieve your goals for recovery time objective (RTO) and recovery point objective (RPO).</p>
 
         Args:
             name: <p>Name of the application.</p>
@@ -517,7 +517,7 @@ class resiliencehubClient:
             "aws_sdk_resiliencehub.types.client_token.ClientToken"
         ] = None,
     ) -> "aws_sdk_resiliencehub.types.create_app_version_app_component_response.CreateAppVersionAppComponentResponse":
-        """<p>Creates a new Application Component in the Resilience Hub application.</p> <note> <p>This API updates the Resilience Hub application draft version. To use this Application Component for running assessments, you must publish the Resilience Hub application using the <code>PublishAppVersion</code> API.</p> </note>
+        r"""<p>Creates a new Application Component in the Resilience Hub application.</p> <note> <p>This API updates the Resilience Hub application draft version. To use this Application Component for running assessments, you must publish the Resilience Hub application using the <code>PublishAppVersion</code> API.</p> </note>
 
         Args:
             app_arn: <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
@@ -584,7 +584,7 @@ class resiliencehubClient:
             "aws_sdk_resiliencehub.types.client_token.ClientToken"
         ] = None,
     ) -> "aws_sdk_resiliencehub.types.create_app_version_resource_response.CreateAppVersionResourceResponse":
-        """<p>Adds a resource to the Resilience Hub application and assigns it to the specified Application Components. If you specify a new Application Component, Resilience Hub will automatically create the Application Component.</p> <note> <ul> <li> <p>This action has no effect outside Resilience Hub.</p> </li> <li> <p>This API updates the Resilience Hub application draft version. To use this resource for running resiliency assessments, you must publish the Resilience Hub application using the <code>PublishAppVersion</code> API.</p> </li> <li> <p>To update application version with new <code>physicalResourceID</code>, you must call <code>ResolveAppVersionResources</code> API.</p> </li> </ul> </note>
+        r"""<p>Adds a resource to the Resilience Hub application and assigns it to the specified Application Components. If you specify a new Application Component, Resilience Hub will automatically create the Application Component.</p> <note> <ul> <li> <p>This action has no effect outside Resilience Hub.</p> </li> <li> <p>This API updates the Resilience Hub application draft version. To use this resource for running resiliency assessments, you must publish the Resilience Hub application using the <code>PublishAppVersion</code> API.</p> </li> <li> <p>To update application version with new <code>physicalResourceID</code>, you must call <code>ResolveAppVersionResources</code> API.</p> </li> </ul> </note>
 
         Args:
             app_arn: <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
@@ -661,7 +661,7 @@ class resiliencehubClient:
             "aws_sdk_resiliencehub.types.entity_name.EntityName"
         ] = None,
     ) -> "aws_sdk_resiliencehub.types.create_recommendation_template_response.CreateRecommendationTemplateResponse":
-        """<p>Creates a new recommendation template for the Resilience Hub application.</p>
+        r"""<p>Creates a new recommendation template for the Resilience Hub application.</p>
 
         Args:
             recommendation_ids: <p>Identifiers for the recommendations used to create a recommendation template.</p>
@@ -789,7 +789,7 @@ class resiliencehubClient:
             "aws_sdk_resiliencehub.types.client_token.ClientToken"
         ] = None,
     ) -> "aws_sdk_resiliencehub.types.delete_app_response.DeleteAppResponse":
-        """<p>Deletes an Resilience Hub application. This is a destructive action that can't be undone.</p>
+        r"""<p>Deletes an Resilience Hub application. This is a destructive action that can't be undone.</p>
 
         Args:
             app_arn: <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
@@ -835,7 +835,7 @@ class resiliencehubClient:
             "aws_sdk_resiliencehub.types.client_token.ClientToken"
         ] = None,
     ) -> "aws_sdk_resiliencehub.types.delete_app_assessment_response.DeleteAppAssessmentResponse":
-        """<p>Deletes an Resilience Hub application assessment. This is a destructive action that can't be undone.</p>
+        r"""<p>Deletes an Resilience Hub application assessment. This is a destructive action that can't be undone.</p>
 
         Args:
             assessment_arn: <p>Amazon Resource Name (ARN) of the assessment. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
@@ -885,7 +885,7 @@ class resiliencehubClient:
             "aws_sdk_resiliencehub.types.eks_source_cluster_namespace.EksSourceClusterNamespace"
         ] = None,
     ) -> "aws_sdk_resiliencehub.types.delete_app_input_source_response.DeleteAppInputSourceResponse":
-        """<p>Deletes the input source and all of its imported resources from the Resilience Hub application.</p>
+        r"""<p>Deletes the input source and all of its imported resources from the Resilience Hub application.</p>
 
         Args:
             app_arn: <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
@@ -938,7 +938,7 @@ class resiliencehubClient:
             "aws_sdk_resiliencehub.types.client_token.ClientToken"
         ] = None,
     ) -> "aws_sdk_resiliencehub.types.delete_app_version_app_component_response.DeleteAppVersionAppComponentResponse":
-        """<p>Deletes an Application Component from the Resilience Hub application.</p> <note> <ul> <li> <p>This API updates the Resilience Hub application draft version. To use this Application Component for running assessments, you must publish the Resilience Hub application using the <code>PublishAppVersion</code> API.</p> </li> <li> <p>You will not be able to delete an Application Component if it has resources associated with it.</p> </li> </ul> </note>
+        r"""<p>Deletes an Application Component from the Resilience Hub application.</p> <note> <ul> <li> <p>This API updates the Resilience Hub application draft version. To use this Application Component for running assessments, you must publish the Resilience Hub application using the <code>PublishAppVersion</code> API.</p> </li> <li> <p>You will not be able to delete an Application Component if it has resources associated with it.</p> </li> </ul> </note>
 
         Args:
             app_arn: <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
@@ -996,7 +996,7 @@ class resiliencehubClient:
             "aws_sdk_resiliencehub.types.client_token.ClientToken"
         ] = None,
     ) -> "aws_sdk_resiliencehub.types.delete_app_version_resource_response.DeleteAppVersionResourceResponse":
-        """<p>Deletes a resource from the Resilience Hub application.</p> <note> <ul> <li> <p>You can only delete a manually added resource. To exclude non-manually added resources, use the <code>UpdateAppVersionResource</code> API.</p> </li> <li> <p>This action has no effect outside Resilience Hub.</p> </li> <li> <p>This API updates the Resilience Hub application draft version. To use this resource for running resiliency assessments, you must publish the Resilience Hub application using the <code>PublishAppVersion</code> API.</p> </li> </ul> </note>
+        r"""<p>Deletes a resource from the Resilience Hub application.</p> <note> <ul> <li> <p>You can only delete a manually added resource. To exclude non-manually added resources, use the <code>UpdateAppVersionResource</code> API.</p> </li> <li> <p>This action has no effect outside Resilience Hub.</p> </li> <li> <p>This API updates the Resilience Hub application draft version. To use this resource for running resiliency assessments, you must publish the Resilience Hub application using the <code>PublishAppVersion</code> API.</p> </li> </ul> </note>
 
         Args:
             app_arn: <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
@@ -1097,7 +1097,7 @@ class resiliencehubClient:
             "aws_sdk_resiliencehub.types.client_token.ClientToken"
         ] = None,
     ) -> "aws_sdk_resiliencehub.types.delete_resiliency_policy_response.DeleteResiliencyPolicyResponse":
-        """<p>Deletes a resiliency policy. This is a destructive action that can't be undone.</p>
+        r"""<p>Deletes a resiliency policy. This is a destructive action that can't be undone.</p>
 
         Args:
             policy_arn: <p>Amazon Resource Name (ARN) of the resiliency policy. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:resiliency-policy/<code>policy-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
@@ -1137,7 +1137,7 @@ class resiliencehubClient:
         *,
         config_overrides: Optional[resiliencehubClientConfig] = None,
     ) -> "aws_sdk_resiliencehub.types.describe_app_response.DescribeAppResponse":
-        """<p>Describes an Resilience Hub application.</p>
+        r"""<p>Describes an Resilience Hub application.</p>
 
         Args:
             app_arn: <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
@@ -1174,7 +1174,7 @@ class resiliencehubClient:
         *,
         config_overrides: Optional[resiliencehubClientConfig] = None,
     ) -> "aws_sdk_resiliencehub.types.describe_app_assessment_response.DescribeAppAssessmentResponse":
-        """<p>Describes an assessment for an Resilience Hub application.</p>
+        r"""<p>Describes an assessment for an Resilience Hub application.</p>
 
         Args:
             assessment_arn: <p>Amazon Resource Name (ARN) of the assessment. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
@@ -1212,7 +1212,7 @@ class resiliencehubClient:
         *,
         config_overrides: Optional[resiliencehubClientConfig] = None,
     ) -> "aws_sdk_resiliencehub.types.describe_app_version_response.DescribeAppVersionResponse":
-        """<p>Describes the Resilience Hub application version.</p>
+        r"""<p>Describes the Resilience Hub application version.</p>
 
         Args:
             app_arn: <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
@@ -1253,7 +1253,7 @@ class resiliencehubClient:
         *,
         config_overrides: Optional[resiliencehubClientConfig] = None,
     ) -> "aws_sdk_resiliencehub.types.describe_app_version_app_component_response.DescribeAppVersionAppComponentResponse":
-        """<p>Describes an Application Component in the Resilience Hub application.</p>
+        r"""<p>Describes an Application Component in the Resilience Hub application.</p>
 
         Args:
             app_arn: <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
@@ -1308,7 +1308,7 @@ class resiliencehubClient:
             "aws_sdk_resiliencehub.types.customer_id.CustomerId"
         ] = None,
     ) -> "aws_sdk_resiliencehub.types.describe_app_version_resource_response.DescribeAppVersionResourceResponse":
-        """<p>Describes a resource of the Resilience Hub application.</p> <note> <p>This API accepts only one of the following parameters to describe the resource:</p> <ul> <li> <p> <code>resourceName</code> </p> </li> <li> <p> <code>logicalResourceId</code> </p> </li> <li> <p> <code>physicalResourceId</code> (Along with <code>physicalResourceId</code>, you can also provide <code>awsAccountId</code>, and <code>awsRegion</code>)</p> </li> </ul> </note>
+        r"""<p>Describes a resource of the Resilience Hub application.</p> <note> <p>This API accepts only one of the following parameters to describe the resource:</p> <ul> <li> <p> <code>resourceName</code> </p> </li> <li> <p> <code>logicalResourceId</code> </p> </li> <li> <p> <code>physicalResourceId</code> (Along with <code>physicalResourceId</code>, you can also provide <code>awsAccountId</code>, and <code>awsRegion</code>)</p> </li> </ul> </note>
 
         Args:
             app_arn: <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
@@ -1366,7 +1366,7 @@ class resiliencehubClient:
             "aws_sdk_resiliencehub.types.string255.String255"
         ] = None,
     ) -> "aws_sdk_resiliencehub.types.describe_app_version_resources_resolution_status_response.DescribeAppVersionResourcesResolutionStatusResponse":
-        """<p>Returns the resolution status for the specified resolution identifier for an application version. If <code>resolutionId</code> is not specified, the current resolution status is returned.</p>
+        r"""<p>Returns the resolution status for the specified resolution identifier for an application version. If <code>resolutionId</code> is not specified, the current resolution status is returned.</p>
 
         Args:
             app_arn: <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
@@ -1409,7 +1409,7 @@ class resiliencehubClient:
         *,
         config_overrides: Optional[resiliencehubClientConfig] = None,
     ) -> "aws_sdk_resiliencehub.types.describe_app_version_template_response.DescribeAppVersionTemplateResponse":
-        """<p>Describes details about an Resilience Hub application.</p>
+        r"""<p>Describes details about an Resilience Hub application.</p>
 
         Args:
             app_arn: <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
@@ -1448,7 +1448,7 @@ class resiliencehubClient:
         *,
         config_overrides: Optional[resiliencehubClientConfig] = None,
     ) -> "aws_sdk_resiliencehub.types.describe_draft_app_version_resources_import_status_response.DescribeDraftAppVersionResourcesImportStatusResponse":
-        """<p>Describes the status of importing resources to an application version.</p> <note> <p>If you get a 404 error with <code>ResourceImportStatusNotFoundAppMetadataException</code>, you must call <code>importResourcesToDraftAppVersion</code> after creating the application and before calling <code>describeDraftAppVersionResourcesImportStatus</code> to obtain the status.</p> </note>
+        r"""<p>Describes the status of importing resources to an application version.</p> <note> <p>If you get a 404 error with <code>ResourceImportStatusNotFoundAppMetadataException</code>, you must call <code>importResourcesToDraftAppVersion</code> after creating the application and before calling <code>describeDraftAppVersionResourcesImportStatus</code> to obtain the status.</p> </note>
 
         Args:
             app_arn: <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
@@ -1522,7 +1522,7 @@ class resiliencehubClient:
         *,
         config_overrides: Optional[resiliencehubClientConfig] = None,
     ) -> "aws_sdk_resiliencehub.types.describe_resiliency_policy_response.DescribeResiliencyPolicyResponse":
-        """<p>Describes a specified resiliency policy for an Resilience Hub application. The returned policy object includes creation time, data location constraints, the Amazon Resource Name (ARN) for the policy, tags, tier, and more.</p>
+        r"""<p>Describes a specified resiliency policy for an Resilience Hub application. The returned policy object includes creation time, data location constraints, the Amazon Resource Name (ARN) for the policy, tags, tier, and more.</p>
 
         Args:
             policy_arn: <p>Amazon Resource Name (ARN) of the resiliency policy. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:resiliency-policy/<code>policy-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
@@ -1560,7 +1560,7 @@ class resiliencehubClient:
         config_overrides: Optional[resiliencehubClientConfig] = None,
         grouping_id: Optional["aws_sdk_resiliencehub.types.string255.String255"] = None,
     ) -> "aws_sdk_resiliencehub.types.describe_resource_grouping_recommendation_task_response.DescribeResourceGroupingRecommendationTaskResponse":
-        """<p>Describes the resource grouping recommendation tasks run by Resilience Hub for your application.</p>
+        r"""<p>Describes the resource grouping recommendation tasks run by Resilience Hub for your application.</p>
 
         Args:
             app_arn: <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
@@ -1610,7 +1610,7 @@ class resiliencehubClient:
             "aws_sdk_resiliencehub.types.eks_source_list.EksSourceList"
         ] = None,
     ) -> "aws_sdk_resiliencehub.types.import_resources_to_draft_app_version_response.ImportResourcesToDraftAppVersionResponse":
-        """<p>Imports resources to Resilience Hub application draft version from different input sources. For more information about the input sources supported by Resilience Hub, see <a href=\"https://docs.aws.amazon.com/resilience-hub/latest/userguide/discover-structure.html\">Discover the structure and describe your Resilience Hub application</a>.</p>
+        r"""<p>Imports resources to Resilience Hub application draft version from different input sources. For more information about the input sources supported by Resilience Hub, see <a href=\"https://docs.aws.amazon.com/resilience-hub/latest/userguide/discover-structure.html\">Discover the structure and describe your Resilience Hub application</a>.</p>
 
         Args:
             app_arn: <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
@@ -1663,7 +1663,7 @@ class resiliencehubClient:
             "aws_sdk_resiliencehub.types.max_results.MaxResults"
         ] = None,
     ) -> "aws_sdk_resiliencehub.types.list_alarm_recommendations_response.ListAlarmRecommendationsResponse":
-        """<p>Lists the alarm recommendations for an Resilience Hub application.</p>
+        r"""<p>Lists the alarm recommendations for an Resilience Hub application.</p>
 
         Args:
             assessment_arn: <p>Amazon Resource Name (ARN) of the assessment. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
@@ -1710,7 +1710,7 @@ class resiliencehubClient:
             "aws_sdk_resiliencehub.types.max_results.MaxResults"
         ] = None,
     ) -> "aws_sdk_resiliencehub.types.list_app_assessment_compliance_drifts_response.ListAppAssessmentComplianceDriftsResponse":
-        """<p>List of compliance drifts that were detected while running an assessment.</p>
+        r"""<p>List of compliance drifts that were detected while running an assessment.</p>
 
         Args:
             assessment_arn: <p>Amazon Resource Name (ARN) of the assessment. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
@@ -1757,7 +1757,7 @@ class resiliencehubClient:
             "aws_sdk_resiliencehub.types.max_results.MaxResults"
         ] = None,
     ) -> "aws_sdk_resiliencehub.types.list_app_assessment_resource_drifts_response.ListAppAssessmentResourceDriftsResponse":
-        """<p>List of resource drifts that were detected while running an assessment.</p>
+        r"""<p>List of resource drifts that were detected while running an assessment.</p>
 
         Args:
             assessment_arn: <p>Amazon Resource Name (ARN) of the assessment. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
@@ -1844,7 +1844,7 @@ class resiliencehubClient:
             "aws_sdk_resiliencehub.types.max_results.MaxResults"
         ] = None,
     ) -> "aws_sdk_resiliencehub.types.list_app_assessments_response.ListAppAssessmentsResponse":
-        """<p>Lists the assessments for an Resilience Hub application. You can use request parameters to refine the results for the response object.</p>
+        r"""<p>Lists the assessments for an Resilience Hub application. You can use request parameters to refine the results for the response object.</p>
 
         Args:
             app_arn: <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
@@ -1907,7 +1907,7 @@ class resiliencehubClient:
             "aws_sdk_resiliencehub.types.max_results.MaxResults"
         ] = None,
     ) -> "aws_sdk_resiliencehub.types.list_app_component_compliances_response.ListAppComponentCompliancesResponse":
-        """<p>Lists the compliances for an Resilience Hub Application Component.</p>
+        r"""<p>Lists the compliances for an Resilience Hub Application Component.</p>
 
         Args:
             next_token: <p>Null, or the token from a previous call to get the next set of results.</p>
@@ -1954,7 +1954,7 @@ class resiliencehubClient:
             "aws_sdk_resiliencehub.types.max_results.MaxResults"
         ] = None,
     ) -> "aws_sdk_resiliencehub.types.list_app_component_recommendations_response.ListAppComponentRecommendationsResponse":
-        """<p>Lists the recommendations for an Resilience Hub Application Component.</p>
+        r"""<p>Lists the recommendations for an Resilience Hub Application Component.</p>
 
         Args:
             assessment_arn: <p>Amazon Resource Name (ARN) of the assessment. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
@@ -2002,7 +2002,7 @@ class resiliencehubClient:
             "aws_sdk_resiliencehub.types.max_results.MaxResults"
         ] = None,
     ) -> "aws_sdk_resiliencehub.types.list_app_input_sources_response.ListAppInputSourcesResponse":
-        """<p>Lists all the input sources of the Resilience Hub application. For more information about the input sources supported by Resilience Hub, see <a href=\"https://docs.aws.amazon.com/resilience-hub/latest/userguide/discover-structure.html\">Discover the structure and describe your Resilience Hub application</a>.</p>
+        r"""<p>Lists all the input sources of the Resilience Hub application. For more information about the input sources supported by Resilience Hub, see <a href=\"https://docs.aws.amazon.com/resilience-hub/latest/userguide/discover-structure.html\">Discover the structure and describe your Resilience Hub application</a>.</p>
 
         Args:
             app_arn: <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
@@ -2062,7 +2062,7 @@ class resiliencehubClient:
         ] = None,
         aws_application_arn: Optional["aws_sdk_resiliencehub.types.arn.Arn"] = None,
     ) -> "aws_sdk_resiliencehub.types.list_apps_response.ListAppsResponse":
-        """<p>Lists your Resilience Hub applications.</p> <note> <p>You can filter applications using only one filter at a time or without using any filter. If you try to filter applications using multiple filters, you will get the following error:</p> <p> <code>An error occurred (ValidationException) when calling the ListApps operation: Only one filter is supported for this operation.</code> </p> </note>
+        r"""<p>Lists your Resilience Hub applications.</p> <note> <p>You can filter applications using only one filter at a time or without using any filter. If you try to filter applications using multiple filters, you will get the following error:</p> <p> <code>An error occurred (ValidationException) when calling the ListApps operation: Only one filter is supported for this operation.</code> </p> </note>
 
         Args:
             next_token: <p>Null, or the token from a previous call to get the next set of results.</p>
@@ -2126,7 +2126,7 @@ class resiliencehubClient:
             "aws_sdk_resiliencehub.types.max_results.MaxResults"
         ] = None,
     ) -> "aws_sdk_resiliencehub.types.list_app_version_app_components_response.ListAppVersionAppComponentsResponse":
-        """<p>Lists all the Application Components in the Resilience Hub application.</p>
+        r"""<p>Lists all the Application Components in the Resilience Hub application.</p>
 
         Args:
             app_arn: <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
@@ -2176,7 +2176,7 @@ class resiliencehubClient:
             "aws_sdk_resiliencehub.types.max_results.MaxResults"
         ] = None,
     ) -> "aws_sdk_resiliencehub.types.list_app_version_resource_mappings_response.ListAppVersionResourceMappingsResponse":
-        """<p>Lists how the resources in an application version are mapped/sourced from. Mappings can be physical resource identifiers, CloudFormation stacks, resource-groups, or an application registry app.</p>
+        r"""<p>Lists how the resources in an application version are mapped/sourced from. Mappings can be physical resource identifiers, CloudFormation stacks, resource-groups, or an application registry app.</p>
 
         Args:
             app_arn: <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
@@ -2229,7 +2229,7 @@ class resiliencehubClient:
             "aws_sdk_resiliencehub.types.max_results.MaxResults"
         ] = None,
     ) -> "aws_sdk_resiliencehub.types.list_app_version_resources_response.ListAppVersionResourcesResponse":
-        """<p>Lists all the resources in an Resilience Hub application.</p>
+        r"""<p>Lists all the resources in an Resilience Hub application.</p>
 
         Args:
             app_arn: <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
@@ -2285,7 +2285,7 @@ class resiliencehubClient:
     ) -> (
         "aws_sdk_resiliencehub.types.list_app_versions_response.ListAppVersionsResponse"
     ):
-        """<p>Lists the different versions for the Resilience Hub applications.</p>
+        r"""<p>Lists the different versions for the Resilience Hub applications.</p>
 
         Args:
             app_arn: <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
@@ -2443,7 +2443,7 @@ class resiliencehubClient:
             "aws_sdk_resiliencehub.types.max_results.MaxResults"
         ] = None,
     ) -> "aws_sdk_resiliencehub.types.list_recommendation_templates_response.ListRecommendationTemplatesResponse":
-        """<p>Lists the recommendation templates for the Resilience Hub applications.</p>
+        r"""<p>Lists the recommendation templates for the Resilience Hub applications.</p>
 
         Args:
             assessment_arn: <p>Amazon Resource Name (ARN) of the assessment. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
@@ -2553,7 +2553,7 @@ class resiliencehubClient:
             "aws_sdk_resiliencehub.types.max_results.MaxResults"
         ] = None,
     ) -> "aws_sdk_resiliencehub.types.list_resource_grouping_recommendations_response.ListResourceGroupingRecommendationsResponse":
-        """<p>Lists the resource grouping recommendations suggested by Resilience Hub for your application.</p>
+        r"""<p>Lists the resource grouping recommendations suggested by Resilience Hub for your application.</p>
 
         Args:
             app_arn: <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
@@ -2626,7 +2626,7 @@ class resiliencehubClient:
             "aws_sdk_resiliencehub.types.max_results.MaxResults"
         ] = None,
     ) -> "aws_sdk_resiliencehub.types.list_sop_recommendations_response.ListSopRecommendationsResponse":
-        """<p>Lists the standard operating procedure (SOP) recommendations for the Resilience Hub applications.</p>
+        r"""<p>Lists the standard operating procedure (SOP) recommendations for the Resilience Hub applications.</p>
 
         Args:
             next_token: <p>Null, or the token from a previous call to get the next set of results.</p>
@@ -2754,7 +2754,7 @@ class resiliencehubClient:
             "aws_sdk_resiliencehub.types.max_results.MaxResults"
         ] = None,
     ) -> "aws_sdk_resiliencehub.types.list_test_recommendations_response.ListTestRecommendationsResponse":
-        """<p>Lists the test recommendations for the Resilience Hub application.</p>
+        r"""<p>Lists the test recommendations for the Resilience Hub application.</p>
 
         Args:
             next_token: <p>Null, or the token from a previous call to get the next set of results.</p>
@@ -2805,7 +2805,7 @@ class resiliencehubClient:
             "aws_sdk_resiliencehub.types.max_results.MaxResults"
         ] = None,
     ) -> "aws_sdk_resiliencehub.types.list_unsupported_app_version_resources_response.ListUnsupportedAppVersionResourcesResponse":
-        """<p>Lists the resources that are not currently supported in Resilience Hub. An unsupported resource is a resource that exists in the object that was used to create an app, but is not supported by Resilience Hub.</p>
+        r"""<p>Lists the resources that are not currently supported in Resilience Hub. An unsupported resource is a resource that exists in the object that was used to create an app, but is not supported by Resilience Hub.</p>
 
         Args:
             app_arn: <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
@@ -2856,7 +2856,7 @@ class resiliencehubClient:
             "aws_sdk_resiliencehub.types.entity_version.EntityVersion"
         ] = None,
     ) -> "aws_sdk_resiliencehub.types.publish_app_version_response.PublishAppVersionResponse":
-        """<p>Publishes a new version of a specific Resilience Hub application.</p>
+        r"""<p>Publishes a new version of a specific Resilience Hub application.</p>
 
         Args:
             app_arn: <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
@@ -2897,7 +2897,7 @@ class resiliencehubClient:
         *,
         config_overrides: Optional[resiliencehubClientConfig] = None,
     ) -> "aws_sdk_resiliencehub.types.put_draft_app_version_template_response.PutDraftAppVersionTemplateResponse":
-        """<p>Adds or updates the app template for an Resilience Hub application draft version.</p>
+        r"""<p>Adds or updates the app template for an Resilience Hub application draft version.</p>
 
         Args:
             app_arn: <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
@@ -2937,7 +2937,7 @@ class resiliencehubClient:
         *,
         config_overrides: Optional[resiliencehubClientConfig] = None,
     ) -> "aws_sdk_resiliencehub.types.reject_resource_grouping_recommendations_response.RejectResourceGroupingRecommendationsResponse":
-        """<p>Rejects resource grouping recommendations.</p>
+        r"""<p>Rejects resource grouping recommendations.</p>
 
         Args:
             app_arn: <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
@@ -2994,7 +2994,7 @@ class resiliencehubClient:
             "aws_sdk_resiliencehub.types.string255_list.String255List"
         ] = None,
     ) -> "aws_sdk_resiliencehub.types.remove_draft_app_version_resource_mappings_response.RemoveDraftAppVersionResourceMappingsResponse":
-        """<p>Removes resource mappings from a draft application version.</p>
+        r"""<p>Removes resource mappings from a draft application version.</p>
 
         Args:
             app_arn: <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
@@ -3050,7 +3050,7 @@ class resiliencehubClient:
         *,
         config_overrides: Optional[resiliencehubClientConfig] = None,
     ) -> "aws_sdk_resiliencehub.types.resolve_app_version_resources_response.ResolveAppVersionResourcesResponse":
-        """<p>Resolves the resources for an application version.</p>
+        r"""<p>Resolves the resources for an application version.</p>
 
         Args:
             app_arn: <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
@@ -3095,7 +3095,7 @@ class resiliencehubClient:
         ] = None,
         tags: Optional["aws_sdk_resiliencehub.types.tag_map.TagMap"] = None,
     ) -> "aws_sdk_resiliencehub.types.start_app_assessment_response.StartAppAssessmentResponse":
-        """<p>Creates a new application assessment for an application.</p>
+        r"""<p>Creates a new application assessment for an application.</p>
 
         Args:
             app_arn: <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
@@ -3188,7 +3188,7 @@ class resiliencehubClient:
         *,
         config_overrides: Optional[resiliencehubClientConfig] = None,
     ) -> "aws_sdk_resiliencehub.types.start_resource_grouping_recommendation_task_response.StartResourceGroupingRecommendationTaskResponse":
-        """<p>Starts grouping recommendation task.</p>
+        r"""<p>Starts grouping recommendation task.</p>
 
         Args:
             app_arn: <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
@@ -3321,7 +3321,7 @@ class resiliencehubClient:
             "aws_sdk_resiliencehub.types.event_subscription_list.EventSubscriptionList"
         ] = None,
     ) -> "aws_sdk_resiliencehub.types.update_app_response.UpdateAppResponse":
-        """<p>Updates an application.</p>
+        r"""<p>Updates an application.</p>
 
         Args:
             app_arn: <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
@@ -3379,7 +3379,7 @@ class resiliencehubClient:
             "aws_sdk_resiliencehub.types.additional_info_map.AdditionalInfoMap"
         ] = None,
     ) -> "aws_sdk_resiliencehub.types.update_app_version_response.UpdateAppVersionResponse":
-        """<p>Updates the Resilience Hub application version.</p> <note> <p>This API updates the Resilience Hub application draft version. To use this information for running resiliency assessments, you must publish the Resilience Hub application using the <code>PublishAppVersion</code> API.</p> </note>
+        r"""<p>Updates the Resilience Hub application version.</p> <note> <p>This API updates the Resilience Hub application draft version. To use this information for running resiliency assessments, you must publish the Resilience Hub application using the <code>PublishAppVersion</code> API.</p> </note>
 
         Args:
             app_arn: <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
@@ -3425,7 +3425,7 @@ class resiliencehubClient:
             "aws_sdk_resiliencehub.types.additional_info_map.AdditionalInfoMap"
         ] = None,
     ) -> "aws_sdk_resiliencehub.types.update_app_version_app_component_response.UpdateAppVersionAppComponentResponse":
-        """<p>Updates an existing Application Component in the Resilience Hub application.</p> <note> <p>This API updates the Resilience Hub application draft version. To use this Application Component for running assessments, you must publish the Resilience Hub application using the <code>PublishAppVersion</code> API.</p> </note>
+        r"""<p>Updates an existing Application Component in the Resilience Hub application.</p> <note> <p>This API updates the Resilience Hub application draft version. To use this Application Component for running assessments, you must publish the Resilience Hub application using the <code>PublishAppVersion</code> API.</p> </note>
 
         Args:
             app_arn: <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
@@ -3498,7 +3498,7 @@ class resiliencehubClient:
             "aws_sdk_resiliencehub.types.boolean_optional.BooleanOptional"
         ] = None,
     ) -> "aws_sdk_resiliencehub.types.update_app_version_resource_response.UpdateAppVersionResourceResponse":
-        """<p>Updates the resource details in the Resilience Hub application.</p> <note> <ul> <li> <p>This action has no effect outside Resilience Hub.</p> </li> <li> <p>This API updates the Resilience Hub application draft version. To use this resource for running resiliency assessments, you must publish the Resilience Hub application using the <code>PublishAppVersion</code> API.</p> </li> <li> <p>To update application version with new <code>physicalResourceID</code>, you must call <code>ResolveAppVersionResources</code> API.</p> </li> </ul> </note>
+        r"""<p>Updates the resource details in the Resilience Hub application.</p> <note> <ul> <li> <p>This action has no effect outside Resilience Hub.</p> </li> <li> <p>This API updates the Resilience Hub application draft version. To use this resource for running resiliency assessments, you must publish the Resilience Hub application using the <code>PublishAppVersion</code> API.</p> </li> <li> <p>To update application version with new <code>physicalResourceID</code>, you must call <code>ResolveAppVersionResources</code> API.</p> </li> </ul> </note>
 
         Args:
             app_arn: <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
@@ -3577,7 +3577,7 @@ class resiliencehubClient:
             "aws_sdk_resiliencehub.types.disruption_policy.DisruptionPolicy"
         ] = None,
     ) -> "aws_sdk_resiliencehub.types.update_resiliency_policy_response.UpdateResiliencyPolicyResponse":
-        """<p>Updates a resiliency policy.</p> <note> <p>Resilience Hub allows you to provide a value of zero for <code>rtoInSecs</code> and <code>rpoInSecs</code> of your resiliency policy. But, while assessing your application, the lowest possible assessment result is near zero. Hence, if you provide value zero for <code>rtoInSecs</code> and <code>rpoInSecs</code>, the estimated workload RTO and estimated workload RPO result will be near zero and the <b>Compliance status</b> for your application will be set to <b>Policy breached</b>.</p> </note>
+        r"""<p>Updates a resiliency policy.</p> <note> <p>Resilience Hub allows you to provide a value of zero for <code>rtoInSecs</code> and <code>rpoInSecs</code> of your resiliency policy. But, while assessing your application, the lowest possible assessment result is near zero. Hence, if you provide value zero for <code>rtoInSecs</code> and <code>rpoInSecs</code>, the estimated workload RTO and estimated workload RPO result will be near zero and the <b>Compliance status</b> for your application will be set to <b>Policy breached</b>.</p> </note>
 
         Args:
             policy_arn: <p>Amazon Resource Name (ARN) of the resiliency policy. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:resiliency-policy/<code>policy-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>

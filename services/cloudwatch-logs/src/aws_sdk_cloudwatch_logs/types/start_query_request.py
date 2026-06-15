@@ -20,7 +20,7 @@ class StartQueryRequest(TypedDict):
     query_language: NotRequired[
         "aws_sdk_cloudwatch_logs.types.query_language.QueryLanguage"
     ]
-    """<p>Specify the query language to use for this query. The options are Logs Insights QL, OpenSearch PPL, and OpenSearch SQL. For more information about the query languages that CloudWatch Logs supports, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_AnalyzeLogData_Languages.html\">Supported query languages</a>.</p>"""
+    r"""<p>Specify the query language to use for this query. The options are Logs Insights QL, OpenSearch PPL, and OpenSearch SQL. For more information about the query languages that CloudWatch Logs supports, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_AnalyzeLogData_Languages.html\">Supported query languages</a>.</p>"""
     log_group_name: NotRequired[
         "aws_sdk_cloudwatch_logs.types.log_group_name.LogGroupName"
     ]
@@ -38,7 +38,7 @@ class StartQueryRequest(TypedDict):
     end_time: "aws_sdk_cloudwatch_logs.types.timestamp.Timestamp"
     """<p>The end of the time range to query. The range is inclusive, so the specified end time is included in the query. Specified as epoch time, the number of seconds since <code>January 1, 1970, 00:00:00 UTC</code>.</p>"""
     query_string: "aws_sdk_cloudwatch_logs.types.query_string.QueryString"
-    """<p>The query string to use. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html\">CloudWatch Logs Insights Query Syntax</a>.</p>"""
+    r"""<p>The query string to use. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html\">CloudWatch Logs Insights Query Syntax</a>.</p>"""
     limit: NotRequired[
         "aws_sdk_cloudwatch_logs.types.events_limit_start_query.EventsLimitStartQuery"
     ]

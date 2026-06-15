@@ -11,9 +11,9 @@ if TYPE_CHECKING:
 
 class Serializer(TypedDict):
     parquet_ser_de: NotRequired["aws_sdk_firehose.types.parquet_ser_de.ParquetSerDe"]
-    """<p>A serializer to use for converting data to the Parquet format before storing it in Amazon S3. For more information, see <a href=\"https://parquet.apache.org/docs/contribution-guidelines/\">Apache Parquet</a>.</p>"""
+    r"""<p>A serializer to use for converting data to the Parquet format before storing it in Amazon S3. For more information, see <a href=\"https://parquet.apache.org/docs/contribution-guidelines/\">Apache Parquet</a>.</p>"""
     orc_ser_de: NotRequired["aws_sdk_firehose.types.orc_ser_de.OrcSerDe"]
-    """<p>A serializer to use for converting data to the ORC format before storing it in Amazon S3. For more information, see <a href=\"https://orc.apache.org/docs/\">Apache ORC</a>.</p>"""
+    r"""<p>A serializer to use for converting data to the ORC format before storing it in Amazon S3. For more information, see <a href=\"https://orc.apache.org/docs/\">Apache ORC</a>.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

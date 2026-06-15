@@ -13,7 +13,7 @@ class PutBearerTokenAuthenticationRequest(TypedDict):
     log_group_identifier: (
         "aws_sdk_cloudwatch_logs.types.log_group_identifier.LogGroupIdentifier"
     )
-    """<p>The name or ARN of the log group.</p> <p>Type: String</p> <p>Length Constraints: Minimum length of 1. Maximum length of 512.</p> <p>Pattern: <code>[\.\-_/#A-Za-z0-9]+</code> </p> <p>Required: Yes</p>"""
+    r"""<p>The name or ARN of the log group.</p> <p>Type: String</p> <p>Length Constraints: Minimum length of 1. Maximum length of 512.</p> <p>Pattern: <code>[\.\-_/#A-Za-z0-9]+</code> </p> <p>Required: Yes</p>"""
     bearer_token_authentication_enabled: "aws_sdk_cloudwatch_logs.types.bearer_token_authentication_enabled.BearerTokenAuthenticationEnabled"
     """<p>Whether to enable bearer token authentication.</p> <p>Type: Boolean</p> <p>Required: Yes</p>"""
 

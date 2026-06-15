@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 from aws_sdk_mailmanager._services._pipeline import (
@@ -57,7 +59,7 @@ class ArchiveResource:
         kms_key_arn: Optional["aws_sdk_mailmanager.types.kms_key_arn.KmsKeyArn"] = None,
         tags: Optional["aws_sdk_mailmanager.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_mailmanager.types.create_archive_response.CreateArchiveResponse":
-        """<p>Creates a new email archive resource for storing and retaining emails.</p>
+        r"""<p>Creates a new email archive resource for storing and retaining emails.</p>
 
         Args:
             client_token: <p>A unique token Amazon SES uses to recognize retries of this request.</p>
@@ -286,7 +288,7 @@ class AsyncArchiveResource:
         kms_key_arn: Optional["aws_sdk_mailmanager.types.kms_key_arn.KmsKeyArn"] = None,
         tags: Optional["aws_sdk_mailmanager.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_mailmanager.types.create_archive_response.CreateArchiveResponse":
-        """<p>Creates a new email archive resource for storing and retaining emails.</p>
+        r"""<p>Creates a new email archive resource for storing and retaining emails.</p>
 
         Args:
             client_token: <p>A unique token Amazon SES uses to recognize retries of this request.</p>

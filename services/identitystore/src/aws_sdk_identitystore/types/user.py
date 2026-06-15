@@ -38,7 +38,7 @@ class User(TypedDict):
     display_name: NotRequired[
         "aws_sdk_identitystore.types.sensitive_string_type.SensitiveStringType"
     ]
-    """<p>A string containing the name of the user that is formatted for display when the user is referenced. For example, \"John Doe.\"</p> <p>Prefix search supports a maximum of 1,000 characters for the string.</p>"""
+    r"""<p>A string containing the name of the user that is formatted for display when the user is referenced. For example, \"John Doe.\"</p> <p>Prefix search supports a maximum of 1,000 characters for the string.</p>"""
     nick_name: NotRequired[
         "aws_sdk_identitystore.types.sensitive_string_type.SensitiveStringType"
     ]
@@ -64,7 +64,7 @@ class User(TypedDict):
     preferred_language: NotRequired[
         "aws_sdk_identitystore.types.sensitive_string_type.SensitiveStringType"
     ]
-    """<p>A string containing the preferred language of the user. For example, \"American English\" or \"en-us.\"</p>"""
+    r"""<p>A string containing the preferred language of the user. For example, \"American English\" or \"en-us.\"</p>"""
     locale: NotRequired[
         "aws_sdk_identitystore.types.sensitive_string_type.SensitiveStringType"
     ]

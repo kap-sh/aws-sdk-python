@@ -20,7 +20,7 @@ class StartBotRecommendationRequest(TypedDict):
     bot_version: "aws_sdk_lex_models_v2.types.draft_bot_version.DraftBotVersion"
     """<p>The version of the bot containing the bot recommendation.</p>"""
     locale_id: "aws_sdk_lex_models_v2.types.locale_id.LocaleId"
-    """<p>The identifier of the language and locale of the bot recommendation to start. The string must match one of the supported locales. For more information, see <a href=\"https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html\">Supported languages</a> </p>"""
+    r"""<p>The identifier of the language and locale of the bot recommendation to start. The string must match one of the supported locales. For more information, see <a href=\"https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html\">Supported languages</a> </p>"""
     transcript_source_setting: (
         "aws_sdk_lex_models_v2.types.transcript_source_setting.TranscriptSourceSetting"
     )

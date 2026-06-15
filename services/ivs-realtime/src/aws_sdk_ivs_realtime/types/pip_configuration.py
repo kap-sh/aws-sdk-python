@@ -20,7 +20,7 @@ class PipConfiguration(TypedDict):
     featured_participant_attribute: NotRequired[
         "aws_sdk_ivs_realtime.types.attribute_key.AttributeKey"
     ]
-    """<p>This attribute name identifies the featured slot. A participant with this attribute set to <code>\"true\"</code> (as a string value) in <a>ParticipantTokenConfiguration</a> is placed in the featured slot. Default: <code>\"\"</code> (no featured participant).</p>"""
+    r"""<p>This attribute name identifies the featured slot. A participant with this attribute set to <code>\"true\"</code> (as a string value) in <a>ParticipantTokenConfiguration</a> is placed in the featured slot. Default: <code>\"\"</code> (no featured participant).</p>"""
     omit_stopped_video: "aws_sdk_ivs_realtime.types.omit_stopped_video.OmitStoppedVideo"
     """<p>Determines whether to omit participants with stopped video in the composition. Default: <code>false</code>.</p>"""
     video_fill_mode: NotRequired[
@@ -32,7 +32,7 @@ class PipConfiguration(TypedDict):
     pip_participant_attribute: NotRequired[
         "aws_sdk_ivs_realtime.types.attribute_key.AttributeKey"
     ]
-    """<p>Specifies the participant for the PiP window. A participant with this attribute set to <code>\"true\"</code> (as a string value) in <a>ParticipantTokenConfiguration</a> is placed in the PiP slot. Default: <code>\"\"</code> (no PiP participant).</p>"""
+    r"""<p>Specifies the participant for the PiP window. A participant with this attribute set to <code>\"true\"</code> (as a string value) in <a>ParticipantTokenConfiguration</a> is placed in the PiP slot. Default: <code>\"\"</code> (no PiP participant).</p>"""
     pip_behavior: NotRequired["aws_sdk_ivs_realtime.types.pip_behavior.PipBehavior"]
     """<p>Defines PiP behavior when all participants have left: <code>STATIC</code> (maintains original position/size) or <code>DYNAMIC</code> (expands to full composition). Default: <code>STATIC</code>.</p>"""
     pip_offset: "aws_sdk_ivs_realtime.types.pip_offset.PipOffset"
@@ -46,7 +46,7 @@ class PipConfiguration(TypedDict):
     participant_order_attribute: NotRequired[
         "aws_sdk_ivs_realtime.types.attribute_key.AttributeKey"
     ]
-    """<p>Attribute name in <a>ParticipantTokenConfiguration</a> identifying the participant ordering key. Participants with <code>participantOrderAttribute</code> set to <code>\"\"</code> or not specified are ordered based on their arrival time into the stage.</p>"""
+    r"""<p>Attribute name in <a>ParticipantTokenConfiguration</a> identifying the participant ordering key. Participants with <code>participantOrderAttribute</code> set to <code>\"\"</code> or not specified are ordered based on their arrival time into the stage.</p>"""
 
 
 # --- restJson1 ser/de ---

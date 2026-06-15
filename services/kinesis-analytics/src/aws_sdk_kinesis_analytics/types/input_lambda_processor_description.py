@@ -13,7 +13,7 @@ class InputLambdaProcessorDescription(TypedDict):
     resource_arn: NotRequired[
         "aws_sdk_kinesis_analytics.types.resource_arn.ResourceARN"
     ]
-    """<p>The ARN of the <a href=\"https://docs.aws.amazon.com/lambda/\">AWS Lambda</a> function that is used to preprocess the records in the stream.</p>"""
+    r"""<p>The ARN of the <a href=\"https://docs.aws.amazon.com/lambda/\">AWS Lambda</a> function that is used to preprocess the records in the stream.</p>"""
     role_arn: NotRequired["aws_sdk_kinesis_analytics.types.role_arn.RoleARN"]
     """<p>The ARN of the IAM role that is used to access the AWS Lambda function.</p>"""
 

@@ -7,7 +7,7 @@ from aws_sdk_resource_explorer_2.errors import DeserializationError
 
 class SearchFilter(TypedDict):
     filter_string: "str"
-    """<p>The string that contains the search keywords, prefixes, and operators to control the results that can be returned by a <a>Search</a> operation. For more details, see <a href=\"https://docs.aws.amazon.com/resource-explorer/latest/APIReference/about-query-syntax.html\">Search query syntax</a>.</p>"""
+    r"""<p>The string that contains the search keywords, prefixes, and operators to control the results that can be returned by a <a>Search</a> operation. For more details, see <a href=\"https://docs.aws.amazon.com/resource-explorer/latest/APIReference/about-query-syntax.html\">Search query syntax</a>.</p>"""
 
 
 # --- restJson1 ser/de ---

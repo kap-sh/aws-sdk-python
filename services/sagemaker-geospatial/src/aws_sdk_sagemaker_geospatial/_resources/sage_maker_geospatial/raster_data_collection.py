@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_sagemaker_geospatial._auth._signers
@@ -127,7 +129,7 @@ class RasterDataCollection:
             "aws_sdk_sagemaker_geospatial.types.next_token.NextToken"
         ] = None,
     ) -> "aws_sdk_sagemaker_geospatial.types.search_raster_data_collection_output.SearchRasterDataCollectionOutput":
-        """<p>Allows you run image query on a specific raster data collection to get a list of the satellite imagery matching the selected filters.</p>
+        r"""<p>Allows you run image query on a specific raster data collection to get a list of the satellite imagery matching the selected filters.</p>
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the raster data collection.</p>
@@ -261,7 +263,7 @@ class AsyncRasterDataCollection:
             "aws_sdk_sagemaker_geospatial.types.next_token.NextToken"
         ] = None,
     ) -> "aws_sdk_sagemaker_geospatial.types.search_raster_data_collection_output.SearchRasterDataCollectionOutput":
-        """<p>Allows you run image query on a specific raster data collection to get a list of the satellite imagery matching the selected filters.</p>
+        r"""<p>Allows you run image query on a specific raster data collection to get a list of the satellite imagery matching the selected filters.</p>
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the raster data collection.</p>

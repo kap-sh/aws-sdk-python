@@ -20,7 +20,7 @@ class DBClusterMember(TypedDict):
     db_cluster_parameter_group_status: NotRequired["aws_sdk_rds.types.string.String"]
     """<p>Specifies the status of the DB cluster parameter group for this member of the DB cluster.</p>"""
     promotion_tier: NotRequired["aws_sdk_rds.types.integer_optional.IntegerOptional"]
-    """<p>A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance\"> Fault Tolerance for an Aurora DB Cluster</a> in the <i>Amazon Aurora User Guide</i>.</p>"""
+    r"""<p>A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance\"> Fault Tolerance for an Aurora DB Cluster</a> in the <i>Amazon Aurora User Guide</i>.</p>"""
 
 
 # --- awsQuery ser/de ---

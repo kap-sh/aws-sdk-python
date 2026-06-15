@@ -15,7 +15,7 @@ class FilterParameter(TypedDict):
     operator: NotRequired["aws_sdk_internetmonitor.types.operator.Operator"]
     """<p>The operator to use with the filter field and a value, such as <code>not_equals</code>.</p>"""
     values: NotRequired["aws_sdk_internetmonitor.types.filter_list.FilterList"]
-    """<p>One or more values to be used, together with the specified operator, to filter data for a query. For example, you could specify an array of values such as <code>[\"Seattle\", \"Redmond\"]</code>. Values in the array are separated by commas.</p>"""
+    r"""<p>One or more values to be used, together with the specified operator, to filter data for a query. For example, you could specify an array of values such as <code>[\"Seattle\", \"Redmond\"]</code>. Values in the array are separated by commas.</p>"""
 
 
 # --- restJson1 ser/de ---

@@ -47,7 +47,7 @@ class CreateProductInput(TypedDict):
     ]
     """<p>The contact email for product support.</p>"""
     support_url: NotRequired["aws_sdk_service_catalog.types.support_url.SupportUrl"]
-    """<p>The contact URL for product support.</p> <p> <code>^https?:\/\// </code>/ is the pattern used to validate SupportUrl.</p>"""
+    r"""<p>The contact URL for product support.</p> <p> <code>^https?:\/\// </code>/ is the pattern used to validate SupportUrl.</p>"""
     product_type: "aws_sdk_service_catalog.types.product_type.ProductType"
     """<p>The type of product.</p>"""
     tags: NotRequired["aws_sdk_service_catalog.types.add_tags.AddTags"]

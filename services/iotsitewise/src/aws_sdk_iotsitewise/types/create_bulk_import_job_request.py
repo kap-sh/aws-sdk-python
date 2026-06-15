@@ -20,7 +20,7 @@ class CreateBulkImportJobRequest(TypedDict):
     job_name: "aws_sdk_iotsitewise.types.name.Name"
     """<p>The unique name that helps identify the job request.</p>"""
     job_role_arn: "aws_sdk_iotsitewise.types.arn.ARN"
-    """<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the IAM role that allows IoT SiteWise to read Amazon S3 data.</p>"""
+    r"""<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the IAM role that allows IoT SiteWise to read Amazon S3 data.</p>"""
     files: "aws_sdk_iotsitewise.types.files.Files"
     """<p>The files in the specified Amazon S3 bucket that contain your data.</p>"""
     error_report_location: (

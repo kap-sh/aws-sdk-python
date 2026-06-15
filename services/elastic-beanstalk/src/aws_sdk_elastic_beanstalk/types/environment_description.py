@@ -88,7 +88,7 @@ class EnvironmentDescription(TypedDict):
     health_status: NotRequired[
         "aws_sdk_elastic_beanstalk.types.environment_health_status.EnvironmentHealthStatus"
     ]
-    """<p>Returns the health status of the application running in your environment. For more information, see <a href=\"https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html\">Health Colors and Statuses</a>.</p>"""
+    r"""<p>Returns the health status of the application running in your environment. For more information, see <a href=\"https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html\">Health Colors and Statuses</a>.</p>"""
     resources: NotRequired[
         "aws_sdk_elastic_beanstalk.types.environment_resources_description.EnvironmentResourcesDescription"
     ]
@@ -108,7 +108,7 @@ class EnvironmentDescription(TypedDict):
     operations_role: NotRequired[
         "aws_sdk_elastic_beanstalk.types.operations_role.OperationsRole"
     ]
-    """<p>The Amazon Resource Name (ARN) of the environment's operations role. For more information, see <a href=\"https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/iam-operationsrole.html\">Operations roles</a> in the <i>AWS Elastic Beanstalk Developer Guide</i>.</p>"""
+    r"""<p>The Amazon Resource Name (ARN) of the environment's operations role. For more information, see <a href=\"https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/iam-operationsrole.html\">Operations roles</a> in the <i>AWS Elastic Beanstalk Developer Guide</i>.</p>"""
 
 
 # --- awsQuery ser/de ---

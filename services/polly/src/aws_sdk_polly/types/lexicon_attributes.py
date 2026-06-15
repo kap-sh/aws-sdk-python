@@ -17,7 +17,7 @@ class LexiconAttributes(TypedDict):
     alphabet: NotRequired["aws_sdk_polly.types.alphabet.Alphabet"]
     """<p>Phonetic alphabet used in the lexicon. Valid values are <code>ipa</code> and <code>x-sampa</code>.</p>"""
     language_code: NotRequired["aws_sdk_polly.types.language_code.LanguageCode"]
-    """<p>Language code that the lexicon applies to. A lexicon with a language code such as \"en\" would be applied to all English languages (en-GB, en-US, en-AUS, en-WLS, and so on.</p>"""
+    r"""<p>Language code that the lexicon applies to. A lexicon with a language code such as \"en\" would be applied to all English languages (en-GB, en-US, en-AUS, en-WLS, and so on.</p>"""
     last_modified: NotRequired["aws_sdk_polly.types.last_modified.LastModified"]
     """<p>Date lexicon was last modified (a timestamp value).</p>"""
     lexicon_arn: NotRequired["aws_sdk_polly.types.lexicon_arn.LexiconArn"]

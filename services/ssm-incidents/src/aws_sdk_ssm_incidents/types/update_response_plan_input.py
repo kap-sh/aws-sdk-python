@@ -36,7 +36,7 @@ class UpdateResponsePlanInput(TypedDict):
     ]
     """<p>The short format name of the incident. The title can't contain spaces.</p>"""
     incident_template_impact: NotRequired["aws_sdk_ssm_incidents.types.impact.Impact"]
-    """<p>Defines the impact to the customers. Providing an impact overwrites the impact provided by a response plan.</p> <p class=\"title\"> <b>Supported impact codes</b> </p> <ul> <li> <p> <code>1</code> - Critical</p> </li> <li> <p> <code>2</code> - High</p> </li> <li> <p> <code>3</code> - Medium</p> </li> <li> <p> <code>4</code> - Low</p> </li> <li> <p> <code>5</code> - No Impact</p> </li> </ul>"""
+    r"""<p>Defines the impact to the customers. Providing an impact overwrites the impact provided by a response plan.</p> <p class=\"title\"> <b>Supported impact codes</b> </p> <ul> <li> <p> <code>1</code> - Critical</p> </li> <li> <p> <code>2</code> - High</p> </li> <li> <p> <code>3</code> - Medium</p> </li> <li> <p> <code>4</code> - Low</p> </li> <li> <p> <code>5</code> - No Impact</p> </li> </ul>"""
     incident_template_summary: NotRequired[
         "aws_sdk_ssm_incidents.types.incident_summary.IncidentSummary"
     ]

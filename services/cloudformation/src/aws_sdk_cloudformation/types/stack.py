@@ -89,15 +89,15 @@ class Stack(TypedDict):
     enable_termination_protection: NotRequired[
         "aws_sdk_cloudformation.types.enable_termination_protection.EnableTerminationProtection"
     ]
-    """<p>Whether termination protection is enabled for the stack.</p> <p>For <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html\">nested stacks</a>, termination protection is set on the root stack and can't be changed directly on the nested stack. For more information, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-protect-stacks.html\">Protect a CloudFormation stack from being deleted</a> in the <i>CloudFormation User Guide</i>.</p>"""
+    r"""<p>Whether termination protection is enabled for the stack.</p> <p>For <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html\">nested stacks</a>, termination protection is set on the root stack and can't be changed directly on the nested stack. For more information, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-protect-stacks.html\">Protect a CloudFormation stack from being deleted</a> in the <i>CloudFormation User Guide</i>.</p>"""
     parent_id: NotRequired["aws_sdk_cloudformation.types.stack_id.StackId"]
-    """<p>For nested stacks, the stack ID of the direct parent of this stack. For the first level of nested stacks, the root stack is also the parent stack.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html\">Nested stacks</a> in the <i>CloudFormation User Guide</i>.</p>"""
+    r"""<p>For nested stacks, the stack ID of the direct parent of this stack. For the first level of nested stacks, the root stack is also the parent stack.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html\">Nested stacks</a> in the <i>CloudFormation User Guide</i>.</p>"""
     root_id: NotRequired["aws_sdk_cloudformation.types.stack_id.StackId"]
-    """<p>For nested stacks, the stack ID of the top-level stack to which the nested stack ultimately belongs.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html\">Nested stacks</a> in the <i>CloudFormation User Guide</i>.</p>"""
+    r"""<p>For nested stacks, the stack ID of the top-level stack to which the nested stack ultimately belongs.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html\">Nested stacks</a> in the <i>CloudFormation User Guide</i>.</p>"""
     drift_information: NotRequired[
         "aws_sdk_cloudformation.types.stack_drift_information.StackDriftInformation"
     ]
-    """<p>Information about whether a stack's actual configuration differs, or has <i>drifted</i>, from its expected configuration, as defined in the stack template and any values specified as template parameters. For more information, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html\">Detect unmanaged configuration changes to stacks and resources with drift detection</a>.</p>"""
+    r"""<p>Information about whether a stack's actual configuration differs, or has <i>drifted</i>, from its expected configuration, as defined in the stack template and any values specified as template parameters. For more information, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html\">Detect unmanaged configuration changes to stacks and resources with drift detection</a>.</p>"""
     retain_except_on_create: NotRequired[
         "aws_sdk_cloudformation.types.retain_except_on_create.RetainExceptOnCreate"
     ]
@@ -109,7 +109,7 @@ class Stack(TypedDict):
     detailed_status: NotRequired[
         "aws_sdk_cloudformation.types.detailed_status.DetailedStatus"
     ]
-    """<p>The detailed status of the resource or stack. If <code>CONFIGURATION_COMPLETE</code> is present, the resource or resource configuration phase has completed and the stabilization of the resources is in progress. The StackSets <code>CONFIGURATION_COMPLETE</code> when all of the resources in the stack have reached that event. For more information, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stack-resource-configuration-complete.html\">Understand CloudFormation stack creation events</a> in the <i>CloudFormation User Guide</i>.</p>"""
+    r"""<p>The detailed status of the resource or stack. If <code>CONFIGURATION_COMPLETE</code> is present, the resource or resource configuration phase has completed and the stabilization of the resources is in progress. The StackSets <code>CONFIGURATION_COMPLETE</code> when all of the resources in the stack have reached that event. For more information, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stack-resource-configuration-complete.html\">Understand CloudFormation stack creation events</a> in the <i>CloudFormation User Guide</i>.</p>"""
     last_operations: NotRequired[
         "aws_sdk_cloudformation.types.last_operations.LastOperations"
     ]

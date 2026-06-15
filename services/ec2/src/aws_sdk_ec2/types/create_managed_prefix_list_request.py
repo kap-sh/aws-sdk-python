@@ -32,7 +32,7 @@ class CreateManagedPrefixListRequest(TypedDict):
     address_family: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The IP address type.</p> <p>Valid Values: <code>IPv4</code> | <code>IPv6</code> </p>"""
     client_token: NotRequired["aws_sdk_ec2.types.string.String"]
-    """<p>Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html\">Ensuring idempotency</a>.</p> <p>Constraints: Up to 255 UTF-8 characters in length.</p>"""
+    r"""<p>Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html\">Ensuring idempotency</a>.</p> <p>Constraints: Up to 255 UTF-8 characters in length.</p>"""
 
 
 # --- ec2Query ser/de ---

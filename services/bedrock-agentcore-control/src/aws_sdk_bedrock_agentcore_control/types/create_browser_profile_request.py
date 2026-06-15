@@ -1,23 +1,32 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#CreateBrowserProfileRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.browser_profile_name
     import aws_sdk_bedrock_agentcore_control.types.client_token
     import aws_sdk_bedrock_agentcore_control.types.description
     import aws_sdk_bedrock_agentcore_control.types.tags_map
 
+
 class CreateBrowserProfileRequest(TypedDict):
     name: "aws_sdk_bedrock_agentcore_control.types.browser_profile_name.BrowserProfileName"
     """<p>The name of the browser profile. The name must be unique within your account and can contain alphanumeric characters and underscores.</p>"""
-    description: NotRequired["aws_sdk_bedrock_agentcore_control.types.description.Description"]
+    description: NotRequired[
+        "aws_sdk_bedrock_agentcore_control.types.description.Description"
+    ]
     """<p>A description of the browser profile. Use this field to describe the purpose or contents of the profile.</p>"""
-    client_token: NotRequired["aws_sdk_bedrock_agentcore_control.types.client_token.ClientToken"]
+    client_token: NotRequired[
+        "aws_sdk_bedrock_agentcore_control.types.client_token.ClientToken"
+    ]
     """<p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, Amazon Bedrock AgentCore ignores the request but does not return an error.</p>"""
     tags: NotRequired["aws_sdk_bedrock_agentcore_control.types.tags_map.TagsMap"]
     """<p>A map of tag keys and values to assign to the browser profile. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: CreateBrowserProfileRequest) -> dict:
@@ -29,7 +38,10 @@ def serialize_json(value: CreateBrowserProfileRequest) -> dict:
         out["clientToken"] = value["client_token"]
     if "tags" in value:
         import aws_sdk_bedrock_agentcore_control.types.tags_map
-        out["tags"] = aws_sdk_bedrock_agentcore_control.types.tags_map.serialize_json(value["tags"])
+
+        out["tags"] = aws_sdk_bedrock_agentcore_control.types.tags_map.serialize_json(
+            value["tags"]
+        )
     return out
 
 
@@ -45,5 +57,8 @@ def deserialize_json(data: dict) -> CreateBrowserProfileRequest:
         out["client_token"] = data["clientToken"]
     if "tags" in data:
         import aws_sdk_bedrock_agentcore_control.types.tags_map
-        out["tags"] = aws_sdk_bedrock_agentcore_control.types.tags_map.deserialize_json(data["tags"])
+
+        out["tags"] = aws_sdk_bedrock_agentcore_control.types.tags_map.deserialize_json(
+            data["tags"]
+        )
     return out

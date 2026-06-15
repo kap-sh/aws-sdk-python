@@ -24,7 +24,7 @@ class Replay(TypedDict):
     ]
     """<p>A description of why the replay is in the current state.</p>"""
     event_start_time: NotRequired["aws_sdk_cloudwatch_events.types.timestamp.Timestamp"]
-    """<p>A time stamp for the time to start replaying events. This is determined by the time in the event as described in <a href=\"https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutEventsRequestEntry.html#eventbridge-Type-PutEventsRequestEntry-Time\">Time</a>.</p>"""
+    r"""<p>A time stamp for the time to start replaying events. This is determined by the time in the event as described in <a href=\"https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutEventsRequestEntry.html#eventbridge-Type-PutEventsRequestEntry-Time\">Time</a>.</p>"""
     event_end_time: NotRequired["aws_sdk_cloudwatch_events.types.timestamp.Timestamp"]
     """<p>A time stamp for the time to start replaying events. Any event with a creation time prior to the <code>EventEndTime</code> specified is replayed.</p>"""
     event_last_replayed_time: NotRequired[

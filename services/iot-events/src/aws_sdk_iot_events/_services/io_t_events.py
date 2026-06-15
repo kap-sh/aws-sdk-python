@@ -230,7 +230,7 @@ class IoTEventsClient:
     ) -> (
         "aws_sdk_iot_events.types.create_alarm_model_response.CreateAlarmModelResponse"
     ):
-        """<p>Creates an alarm model to monitor an AWS IoT Events input attribute. You can use the alarm to get notified when the value is outside a specified range. For more information, see <a href=\"https://docs.aws.amazon.com/iotevents/latest/developerguide/create-alarms.html\">Create an alarm model</a> in the <i>AWS IoT Events Developer Guide</i>.</p>
+        r"""<p>Creates an alarm model to monitor an AWS IoT Events input attribute. You can use the alarm to get notified when the value is outside a specified range. For more information, see <a href=\"https://docs.aws.amazon.com/iotevents/latest/developerguide/create-alarms.html\">Create an alarm model</a> in the <i>AWS IoT Events Developer Guide</i>.</p>
 
         Args:
             alarm_model_name: <p>A unique name that helps you identify the alarm model. You can't change this name after you create the alarm model.</p>
@@ -1089,7 +1089,7 @@ class IoTEventsClient:
         *,
         config_overrides: Optional[IoTEventsClientConfig] = None,
     ) -> "aws_sdk_iot_events.types.start_detector_model_analysis_response.StartDetectorModelAnalysisResponse":
-        """<p>Performs an analysis of your detector model. For more information, see <a href=\"https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-analyze-api.html\">Troubleshooting a detector model</a> in the <i>AWS IoT Events Developer Guide</i>.</p>"""
+        r"""<p>Performs an analysis of your detector model. For more information, see <a href=\"https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-analyze-api.html\">Troubleshooting a detector model</a> in the <i>AWS IoT Events Developer Guide</i>.</p>"""
 
         def _handler(
             req: "OperationRequest[aws_sdk_iot_events.types.start_detector_model_analysis_request.StartDetectorModelAnalysisRequest]",
@@ -1219,7 +1219,7 @@ class IoTEventsClient:
     ) -> (
         "aws_sdk_iot_events.types.update_alarm_model_response.UpdateAlarmModelResponse"
     ):
-        """<p>Updates an alarm model. Any alarms that were created based on the previous version are deleted and then created again as new data arrives.</p>
+        r"""<p>Updates an alarm model. Any alarms that were created based on the previous version are deleted and then created again as new data arrives.</p>
 
         Args:
             alarm_model_name: <p>The name of the alarm model.</p>

@@ -32,7 +32,7 @@ class CreateQAppOutput(TypedDict):
     app_version: "aws_sdk_qapps.types.app_version.AppVersion"
     """<p>The version of the new Q App.</p>"""
     status: "aws_sdk_qapps.types.app_status.AppStatus"
-    """<p>The status of the new Q App, such as \"Created\".</p>"""
+    r"""<p>The status of the new Q App, such as \"Created\".</p>"""
     created_at: "aws_sdk_qapps.types.q_apps_timestamp.QAppsTimestamp"
     """<p>The date and time the Q App was created.</p>"""
     created_by: "str"

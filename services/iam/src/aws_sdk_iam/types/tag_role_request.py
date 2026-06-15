@@ -12,7 +12,7 @@ if TYPE_CHECKING:
 
 class TagRoleRequest(TypedDict):
     role_name: "aws_sdk_iam.types.role_name_type.roleNameType"
-    """<p>The name of the IAM role to which you want to add tags.</p> <p>This parameter accepts (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters that consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>"""
+    r"""<p>The name of the IAM role to which you want to add tags.</p> <p>This parameter accepts (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters that consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>"""
     tags: "aws_sdk_iam.types.tag_list_type.tagListType"
     """<p>The list of tags that you want to attach to the IAM role. Each tag consists of a key name and an associated value.</p>"""
 

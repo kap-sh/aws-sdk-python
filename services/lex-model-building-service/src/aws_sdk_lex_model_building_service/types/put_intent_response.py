@@ -44,7 +44,7 @@ class PutIntentResponse(TypedDict):
     rejection_statement: NotRequired[
         "aws_sdk_lex_model_building_service.types.statement.Statement"
     ]
-    """<p>If the user answers \"no\" to the question defined in <code>confirmationPrompt</code> Amazon Lex responds with this statement to acknowledge that the intent was canceled. </p>"""
+    r"""<p>If the user answers \"no\" to the question defined in <code>confirmationPrompt</code> Amazon Lex responds with this statement to acknowledge that the intent was canceled. </p>"""
     follow_up_prompt: NotRequired[
         "aws_sdk_lex_model_building_service.types.follow_up_prompt.FollowUpPrompt"
     ]

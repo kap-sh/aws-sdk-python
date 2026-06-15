@@ -20,9 +20,9 @@ class GetServiceLastAccessedDetailsWithEntitiesResponse(TypedDict):
     job_status: "aws_sdk_iam.types.job_status_type.jobStatusType"
     """<p>The status of the job.</p>"""
     job_creation_date: "aws_sdk_iam.types.date_type.dateType"
-    """<p>The date and time, in <a href=\"http://www.iso.org/iso/iso8601\">ISO 8601 date-time format</a>, when the report job was created.</p>"""
+    r"""<p>The date and time, in <a href=\"http://www.iso.org/iso/iso8601\">ISO 8601 date-time format</a>, when the report job was created.</p>"""
     job_completion_date: "aws_sdk_iam.types.date_type.dateType"
-    """<p>The date and time, in <a href=\"http://www.iso.org/iso/iso8601\">ISO 8601 date-time format</a>, when the generated report job was completed or failed.</p> <p>This field is null if the job is still in progress, as indicated by a job status value of <code>IN_PROGRESS</code>.</p>"""
+    r"""<p>The date and time, in <a href=\"http://www.iso.org/iso/iso8601\">ISO 8601 date-time format</a>, when the generated report job was completed or failed.</p> <p>This field is null if the job is still in progress, as indicated by a job status value of <code>IN_PROGRESS</code>.</p>"""
     entity_details_list: (
         "aws_sdk_iam.types.entity_details_list_type.entityDetailsListType"
     )

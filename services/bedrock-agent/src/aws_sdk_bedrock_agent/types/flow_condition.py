@@ -17,7 +17,7 @@ class FlowCondition(TypedDict):
     expression: NotRequired[
         "aws_sdk_bedrock_agent.types.flow_condition_expression.FlowConditionExpression"
     ]
-    """<p>Defines the condition. You must refer to at least one of the inputs in the condition. For more information, expand the Condition node section in <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/flows-how-it-works.html#flows-nodes\">Node types in prompt flows</a>.</p>"""
+    r"""<p>Defines the condition. You must refer to at least one of the inputs in the condition. For more information, expand the Condition node section in <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/flows-how-it-works.html#flows-nodes\">Node types in prompt flows</a>.</p>"""
 
 
 # --- restJson1 ser/de ---

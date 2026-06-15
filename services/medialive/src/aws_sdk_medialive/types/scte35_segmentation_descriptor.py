@@ -37,13 +37,13 @@ class Scte35SegmentationDescriptor(TypedDict):
     segmentation_type_id: NotRequired[
         "aws_sdk_medialive.types.__integer_min0_max255.__integerMin0Max255"
     ]
-    """Corresponds to SCTE-35 segmentation_type_id. One of the segmentation_type_id values listed in the SCTE-35 specification. On the console, enter the ID in decimal (for example, \"52\"). In the CLI, API, or an SDK, enter the ID in hex (for example, \"0x34\") or decimal (for example, \"52\")."""
+    r"""Corresponds to SCTE-35 segmentation_type_id. One of the segmentation_type_id values listed in the SCTE-35 specification. On the console, enter the ID in decimal (for example, \"52\"). In the CLI, API, or an SDK, enter the ID in hex (for example, \"0x34\") or decimal (for example, \"52\")."""
     segmentation_upid: NotRequired["aws_sdk_medialive.types.__string.__string"]
-    """Corresponds to SCTE-35 segmentation_upid. Enter a string containing the hexadecimal representation of the characters that make up the SCTE-35 segmentation_upid value. Must contain an even number of hex characters. Do not include spaces between each hex pair. For example, the ASCII \"ADS Information\" becomes hex \"41445320496e666f726d6174696f6e."""
+    r"""Corresponds to SCTE-35 segmentation_upid. Enter a string containing the hexadecimal representation of the characters that make up the SCTE-35 segmentation_upid value. Must contain an even number of hex characters. Do not include spaces between each hex pair. For example, the ASCII \"ADS Information\" becomes hex \"41445320496e666f726d6174696f6e."""
     segmentation_upid_type: NotRequired[
         "aws_sdk_medialive.types.__integer_min0_max255.__integerMin0Max255"
     ]
-    """Corresponds to SCTE-35 segmentation_upid_type. On the console, enter one of the types listed in the SCTE-35 specification, converted to a decimal. For example, \"0x0C\" hex from the specification is \"12\" in decimal. In the CLI, API, or an SDK, enter one of the types listed in the SCTE-35 specification, in either hex (for example, \"0x0C\" ) or in decimal (for example, \"12\")."""
+    r"""Corresponds to SCTE-35 segmentation_upid_type. On the console, enter one of the types listed in the SCTE-35 specification, converted to a decimal. For example, \"0x0C\" hex from the specification is \"12\" in decimal. In the CLI, API, or an SDK, enter one of the types listed in the SCTE-35 specification, in either hex (for example, \"0x0C\" ) or in decimal (for example, \"12\")."""
     segments_expected: NotRequired[
         "aws_sdk_medialive.types.__integer_min0_max255.__integerMin0Max255"
     ]

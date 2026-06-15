@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_controltower._auth._signers
@@ -39,7 +41,7 @@ class BaselineResource:
         *,
         config_overrides: Optional[ControlTowerClientConfig] = None,
     ) -> "aws_sdk_controltower.types.get_baseline_output.GetBaselineOutput":
-        """<p>Retrieve details about an existing <code>Baseline</code> resource by specifying its identifier. For usage examples, see <a href=\"https://docs.aws.amazon.com/controltower/latest/userguide/baseline-api-examples.html\"> <i>the Amazon Web Services Control Tower User Guide</i> </a>.</p>
+        r"""<p>Retrieve details about an existing <code>Baseline</code> resource by specifying its identifier. For usage examples, see <a href=\"https://docs.aws.amazon.com/controltower/latest/userguide/baseline-api-examples.html\"> <i>the Amazon Web Services Control Tower User Guide</i> </a>.</p>
 
         Args:
             baseline_identifier: <p>The ARN of the <code>Baseline</code> resource to be retrieved.</p>
@@ -79,7 +81,7 @@ class BaselineResource:
             "aws_sdk_controltower.types.list_baselines_max_results.ListBaselinesMaxResults"
         ] = None,
     ) -> "aws_sdk_controltower.types.list_baselines_output.ListBaselinesOutput":
-        """<p>Returns a summary list of all available baselines. For usage examples, see <a href=\"https://docs.aws.amazon.com/controltower/latest/userguide/baseline-api-examples.html\"> <i>the Amazon Web Services Control Tower User Guide</i> </a>.</p>
+        r"""<p>Returns a summary list of all available baselines. For usage examples, see <a href=\"https://docs.aws.amazon.com/controltower/latest/userguide/baseline-api-examples.html\"> <i>the Amazon Web Services Control Tower User Guide</i> </a>.</p>
 
         Args:
             next_token: <p>A pagination token.</p>
@@ -125,7 +127,7 @@ class AsyncBaselineResource:
         *,
         config_overrides: Optional[AsyncControlTowerClientConfig] = None,
     ) -> "aws_sdk_controltower.types.get_baseline_output.GetBaselineOutput":
-        """<p>Retrieve details about an existing <code>Baseline</code> resource by specifying its identifier. For usage examples, see <a href=\"https://docs.aws.amazon.com/controltower/latest/userguide/baseline-api-examples.html\"> <i>the Amazon Web Services Control Tower User Guide</i> </a>.</p>
+        r"""<p>Retrieve details about an existing <code>Baseline</code> resource by specifying its identifier. For usage examples, see <a href=\"https://docs.aws.amazon.com/controltower/latest/userguide/baseline-api-examples.html\"> <i>the Amazon Web Services Control Tower User Guide</i> </a>.</p>
 
         Args:
             baseline_identifier: <p>The ARN of the <code>Baseline</code> resource to be retrieved.</p>
@@ -166,7 +168,7 @@ class AsyncBaselineResource:
             "aws_sdk_controltower.types.list_baselines_max_results.ListBaselinesMaxResults"
         ] = None,
     ) -> "aws_sdk_controltower.types.list_baselines_output.ListBaselinesOutput":
-        """<p>Returns a summary list of all available baselines. For usage examples, see <a href=\"https://docs.aws.amazon.com/controltower/latest/userguide/baseline-api-examples.html\"> <i>the Amazon Web Services Control Tower User Guide</i> </a>.</p>
+        r"""<p>Returns a summary list of all available baselines. For usage examples, see <a href=\"https://docs.aws.amazon.com/controltower/latest/userguide/baseline-api-examples.html\"> <i>the Amazon Web Services Control Tower User Guide</i> </a>.</p>
 
         Args:
             next_token: <p>A pagination token.</p>

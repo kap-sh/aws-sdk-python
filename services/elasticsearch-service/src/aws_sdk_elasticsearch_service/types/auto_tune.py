@@ -17,7 +17,7 @@ class AutoTune(TypedDict):
     auto_tune_details: NotRequired[
         "aws_sdk_elasticsearch_service.types.auto_tune_details.AutoTuneDetails"
     ]
-    """<p>Specifies details of the Auto-Tune action. See the <a href=\"https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html\" target=\"_blank\">Developer Guide</a> for more information. </p>"""
+    r"""<p>Specifies details of the Auto-Tune action. See the <a href=\"https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html\" target=\"_blank\">Developer Guide</a> for more information. </p>"""
 
 
 # --- restJson1 ser/de ---

@@ -13,7 +13,7 @@ class CreateAccessPolicyResponse(TypedDict):
     access_policy_id: "aws_sdk_iotsitewise.types.id.ID"
     """<p>The ID of the access policy.</p>"""
     access_policy_arn: "aws_sdk_iotsitewise.types.arn.ARN"
-    """<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the access policy, which has the following format.</p> <p> <code>arn:${Partition}:iotsitewise:${Region}:${Account}:access-policy/${AccessPolicyId}</code> </p>"""
+    r"""<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the access policy, which has the following format.</p> <p> <code>arn:${Partition}:iotsitewise:${Region}:${Account}:access-policy/${AccessPolicyId}</code> </p>"""
 
 
 # --- restJson1 ser/de ---

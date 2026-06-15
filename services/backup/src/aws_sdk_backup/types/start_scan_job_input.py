@@ -15,7 +15,7 @@ if TYPE_CHECKING:
 
 class StartScanJobInput(TypedDict):
     backup_vault_name: "str"
-    """<p>The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the Amazon Web Services Region where they are created.</p> <p>Pattern: <code>^[a-zA-Z0-9\-\_]{2,50}$</code> </p>"""
+    r"""<p>The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the Amazon Web Services Region where they are created.</p> <p>Pattern: <code>^[a-zA-Z0-9\-\_]{2,50}$</code> </p>"""
     continuous_scan_end_time: NotRequired["datetime.datetime"]
     """<p>The point in time the scan job will scan up to for a continuous backup.</p>"""
     iam_role_arn: "str"

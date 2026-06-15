@@ -23,7 +23,7 @@ class UpdateExperienceRequest(TypedDict):
     index_id: "aws_sdk_kendra.types.index_id.IndexId"
     """<p>The identifier of the index for your Amazon Kendra experience.</p>"""
     role_arn: NotRequired["aws_sdk_kendra.types.role_arn.RoleArn"]
-    """<p>The Amazon Resource Name (ARN) of an IAM role with permission to access the <code>Query</code> API, <code>QuerySuggestions</code> API, <code>SubmitFeedback</code> API, and IAM Identity Center that stores your users and groups information. For more information, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html\">IAM roles for Amazon Kendra</a>.</p>"""
+    r"""<p>The Amazon Resource Name (ARN) of an IAM role with permission to access the <code>Query</code> API, <code>QuerySuggestions</code> API, <code>SubmitFeedback</code> API, and IAM Identity Center that stores your users and groups information. For more information, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html\">IAM roles for Amazon Kendra</a>.</p>"""
     configuration: NotRequired[
         "aws_sdk_kendra.types.experience_configuration.ExperienceConfiguration"
     ]

@@ -19,7 +19,7 @@ class DeliverySourceConfigurationSchema(TypedDict):
     value_type: "aws_sdk_cloudwatch_logs.types.delivery_source_configuration_schema_value_type.DeliverySourceConfigurationSchemaValueType"
     """<p>The data type of the configuration value. Valid values are <code>string</code>, <code>boolean</code>, <code>int</code>, <code>double</code>, and <code>long</code>.</p>"""
     default_value: "aws_sdk_cloudwatch_logs.types.delivery_source_configuration_schema_field.DeliverySourceConfigurationSchemaField"
-    """<p>The default value of the configuration that is used when a value is not specified in a <a href=\"https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.html\">PutDeliverySource</a> request.</p>"""
+    r"""<p>The default value of the configuration that is used when a value is not specified in a <a href=\"https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.html\">PutDeliverySource</a> request.</p>"""
     supported_values: NotRequired[
         "aws_sdk_cloudwatch_logs.types.delivery_source_configuration_supported_values.DeliverySourceConfigurationSupportedValues"
     ]

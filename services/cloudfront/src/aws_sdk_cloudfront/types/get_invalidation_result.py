@@ -12,7 +12,7 @@ if TYPE_CHECKING:
 
 class GetInvalidationResult(TypedDict):
     invalidation: NotRequired["aws_sdk_cloudfront.types.invalidation.Invalidation"]
-    """<p>The invalidation's information. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/InvalidationDatatype.html\">Invalidation Complex Type</a>.</p>"""
+    r"""<p>The invalidation's information. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/InvalidationDatatype.html\">Invalidation Complex Type</a>.</p>"""
 
 
 # --- restXml ser/de ---

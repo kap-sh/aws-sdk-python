@@ -25,7 +25,7 @@ class DistributeImageRequest(TypedDict):
     tags: NotRequired["aws_sdk_imagebuilder.types.tag_map.TagMap"]
     """<p>The tags to apply to the distributed image.</p>"""
     client_token: "aws_sdk_imagebuilder.types.client_token.ClientToken"
-    """<p>Unique, case-sensitive identifier you provide to ensure idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring idempotency</a> in the <i>Amazon EC2 API Reference</i>.</p>"""
+    r"""<p>Unique, case-sensitive identifier you provide to ensure idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring idempotency</a> in the <i>Amazon EC2 API Reference</i>.</p>"""
     logging_configuration: NotRequired[
         "aws_sdk_imagebuilder.types.image_logging_configuration.ImageLoggingConfiguration"
     ]

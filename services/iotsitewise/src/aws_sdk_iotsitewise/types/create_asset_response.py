@@ -14,7 +14,7 @@ class CreateAssetResponse(TypedDict):
     asset_id: "aws_sdk_iotsitewise.types.id.ID"
     """<p>The ID of the asset, in UUID format. This ID uniquely identifies the asset within IoT SiteWise and can be used with other IoT SiteWise API operations.</p>"""
     asset_arn: "aws_sdk_iotsitewise.types.arn.ARN"
-    """<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the asset, which has the following format.</p> <p> <code>arn:${Partition}:iotsitewise:${Region}:${Account}:asset/${AssetId}</code> </p>"""
+    r"""<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the asset, which has the following format.</p> <p> <code>arn:${Partition}:iotsitewise:${Region}:${Account}:asset/${AssetId}</code> </p>"""
     asset_status: "aws_sdk_iotsitewise.types.asset_status.AssetStatus"
     """<p>The status of the asset, which contains a state (<code>CREATING</code> after successfully calling this operation) and any error message.</p>"""
 

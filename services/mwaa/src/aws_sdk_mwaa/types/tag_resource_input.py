@@ -13,7 +13,7 @@ class TagResourceInput(TypedDict):
     resource_arn: "aws_sdk_mwaa.types.environment_arn.EnvironmentArn"
     """<p>The Amazon Resource Name (ARN) of the Amazon MWAA environment. For example, <code>arn:aws:airflow:us-east-1:123456789012:environment/MyMWAAEnvironment</code>.</p>"""
     tags: "aws_sdk_mwaa.types.tag_map.TagMap"
-    """<p>The key-value tag pairs you want to associate to your environment. For example, <code>\"Environment\": \"Staging\"</code>. For more information, refer to <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services resources</a>.</p>"""
+    r"""<p>The key-value tag pairs you want to associate to your environment. For example, <code>\"Environment\": \"Staging\"</code>. For more information, refer to <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services resources</a>.</p>"""
 
 
 # --- restJson1 ser/de ---

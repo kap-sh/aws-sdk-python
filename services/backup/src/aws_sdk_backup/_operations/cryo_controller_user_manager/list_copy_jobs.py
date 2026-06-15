@@ -56,7 +56,7 @@ def get_signer(
     options: AsyncOperationOptions | OperationOptions,
     auth_schemes: list[dict[str, Any]] | None = None,
 ) -> aws_sdk_backup._auth._signers.Signer | None:
-    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}
+    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}  # noqa: F841
     if options.credentials_provider is not None:
         sigv4_config = (
             name_to_schema.get("sigv4")
@@ -75,7 +75,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_backup.types.list_copy_jobs_input.ListCopyJobsInput,
+    input_: aws_sdk_backup.types.list_copy_jobs_input.ListCopyJobsInput,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -87,34 +87,34 @@ def build_request(
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/copy-jobs"
     params: dict[str, str] = {}
-    if "next_token" in input:
-        params["nextToken"] = str(input["next_token"])
-    if "max_results" in input:
-        params["maxResults"] = str(input["max_results"])
-    if "by_resource_arn" in input:
-        params["resourceArn"] = str(input["by_resource_arn"])
-    if "by_state" in input:
-        params["state"] = str(input["by_state"])
-    if "by_created_before" in input:
-        params["createdBefore"] = str(input["by_created_before"])
-    if "by_created_after" in input:
-        params["createdAfter"] = str(input["by_created_after"])
-    if "by_resource_type" in input:
-        params["resourceType"] = str(input["by_resource_type"])
-    if "by_destination_vault_arn" in input:
-        params["destinationVaultArn"] = str(input["by_destination_vault_arn"])
-    if "by_account_id" in input:
-        params["accountId"] = str(input["by_account_id"])
-    if "by_complete_before" in input:
-        params["completeBefore"] = str(input["by_complete_before"])
-    if "by_complete_after" in input:
-        params["completeAfter"] = str(input["by_complete_after"])
-    if "by_parent_job_id" in input:
-        params["parentJobId"] = str(input["by_parent_job_id"])
-    if "by_message_category" in input:
-        params["messageCategory"] = str(input["by_message_category"])
-    if "by_source_recovery_point_arn" in input:
-        params["sourceRecoveryPointArn"] = str(input["by_source_recovery_point_arn"])
+    if "next_token" in input_:
+        params["nextToken"] = str(input_["next_token"])
+    if "max_results" in input_:
+        params["maxResults"] = str(input_["max_results"])
+    if "by_resource_arn" in input_:
+        params["resourceArn"] = str(input_["by_resource_arn"])
+    if "by_state" in input_:
+        params["state"] = str(input_["by_state"])
+    if "by_created_before" in input_:
+        params["createdBefore"] = str(input_["by_created_before"])
+    if "by_created_after" in input_:
+        params["createdAfter"] = str(input_["by_created_after"])
+    if "by_resource_type" in input_:
+        params["resourceType"] = str(input_["by_resource_type"])
+    if "by_destination_vault_arn" in input_:
+        params["destinationVaultArn"] = str(input_["by_destination_vault_arn"])
+    if "by_account_id" in input_:
+        params["accountId"] = str(input_["by_account_id"])
+    if "by_complete_before" in input_:
+        params["completeBefore"] = str(input_["by_complete_before"])
+    if "by_complete_after" in input_:
+        params["completeAfter"] = str(input_["by_complete_after"])
+    if "by_parent_job_id" in input_:
+        params["parentJobId"] = str(input_["by_parent_job_id"])
+    if "by_message_category" in input_:
+        params["messageCategory"] = str(input_["by_message_category"])
+    if "by_source_recovery_point_arn" in input_:
+        params["sourceRecoveryPointArn"] = str(input_["by_source_recovery_point_arn"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
@@ -127,11 +127,11 @@ def build_request(
 
 def list_copy_jobs(
     options: OperationOptions,
-    input: aws_sdk_backup.types.list_copy_jobs_input.ListCopyJobsInput,
+    input_: aws_sdk_backup.types.list_copy_jobs_input.ListCopyJobsInput,
 ) -> tuple[
     aws_sdk_backup.types.list_copy_jobs_output.ListCopyJobsOutput, zapros.Response
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -145,11 +145,11 @@ def list_copy_jobs(
 
 async def async_list_copy_jobs(
     options: AsyncOperationOptions,
-    input: aws_sdk_backup.types.list_copy_jobs_input.ListCopyJobsInput,
+    input_: aws_sdk_backup.types.list_copy_jobs_input.ListCopyJobsInput,
 ) -> tuple[
     aws_sdk_backup.types.list_copy_jobs_output.ListCopyJobsOutput, zapros.Response
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

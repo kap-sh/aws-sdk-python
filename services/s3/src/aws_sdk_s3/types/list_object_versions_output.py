@@ -39,7 +39,7 @@ class ListObjectVersionsOutput(TypedDict):
     versions: NotRequired["aws_sdk_s3.types.object_version_list.ObjectVersionList"]
     """<p>Container for version information.</p>"""
     delete_markers: NotRequired["aws_sdk_s3.types.delete_markers.DeleteMarkers"]
-    """<p>Container for an object that is a delete marker. To learn more about delete markers, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/DeleteMarker.html\">Working with delete markers</a>.</p>"""
+    r"""<p>Container for an object that is a delete marker. To learn more about delete markers, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/DeleteMarker.html\">Working with delete markers</a>.</p>"""
     name: NotRequired["aws_sdk_s3.types.bucket_name.BucketName"]
     """<p>The bucket name.</p>"""
     prefix: NotRequired["aws_sdk_s3.types.prefix.Prefix"]

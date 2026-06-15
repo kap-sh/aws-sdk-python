@@ -14,7 +14,7 @@ if TYPE_CHECKING:
 
 class ResourceDrift(TypedDict):
     app_arn: NotRequired["aws_sdk_resiliencehub.types.arn.Arn"]
-    """<p>Amazon Resource Name (ARN) of the application whose resources have drifted. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>"""
+    r"""<p>Amazon Resource Name (ARN) of the application whose resources have drifted. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>"""
     app_version: NotRequired["aws_sdk_resiliencehub.types.entity_version.EntityVersion"]
     """<p>Version of the application whose resources have drifted.</p>"""
     reference_id: NotRequired["aws_sdk_resiliencehub.types.entity_id.EntityId"]

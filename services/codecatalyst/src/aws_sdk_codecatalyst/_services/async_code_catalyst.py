@@ -87,7 +87,7 @@ class AsyncCodeCatalystClient:
             )
         if bearer_provider is None and bearer is not None:
             bearer_provider = StaticBearerTokenProvider(bearer)
-        self.config = AsyncCodeCatalystClientConfig(
+        self._config = AsyncCodeCatalystClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -110,7 +110,7 @@ class AsyncCodeCatalystClient:
         overrides: AsyncCodeCatalystClientConfig = config_overrides or {}
         interceptors_: list[AsyncInterceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             aretry(),
         ]
@@ -118,13 +118,13 @@ class AsyncCodeCatalystClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            region=overrides.get("region", self.config.get("region")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            region=overrides.get("region", self._config.get("region")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
             bearer_provider=overrides.get(
-                "bearer_provider", self.config.get("bearer_provider")
+                "bearer_provider", self._config.get("bearer_provider")
             ),
         )
         return interceptors_, options_

@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 from aws_sdk_identitystore._services._pipeline import (
@@ -99,7 +101,7 @@ class UserResource:
             "aws_sdk_identitystore.types.extensions.Extensions"
         ] = None,
     ) -> "aws_sdk_identitystore.types.create_user_response.CreateUserResponse":
-        """<p>Creates a user within the specified identity store.</p>
+        r"""<p>Creates a user within the specified identity store.</p>
 
         Args:
             identity_store_id: <p>The globally unique identifier for the identity store.</p>
@@ -194,7 +196,7 @@ class UserResource:
             "aws_sdk_identitystore.types.extension_names.ExtensionNames"
         ] = None,
     ) -> "aws_sdk_identitystore.types.describe_user_response.DescribeUserResponse":
-        """<p>Retrieves the user metadata and attributes from the <code>UserId</code> in an identity store.</p> <note> <p>If you have access to a member account, you can use this API operation from the member account. For more information, see <a href=\"https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-accounts.html#limiting-access-from-member-accounts\">Limiting access to the identity store from member accounts</a> in the <i> IAM Identity Center User Guide</i>.</p> </note>
+        r"""<p>Retrieves the user metadata and attributes from the <code>UserId</code> in an identity store.</p> <note> <p>If you have access to a member account, you can use this API operation from the member account. For more information, see <a href=\"https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-accounts.html#limiting-access-from-member-accounts\">Limiting access to the identity store from member accounts</a> in the <i> IAM Identity Center User Guide</i>.</p> </note>
 
         Args:
             identity_store_id: <p>The globally unique identifier for the identity store, such as <code>d-1234567890</code>. In this example, <code>d-</code> is a fixed prefix, and <code>1234567890</code> is a randomly generated string that contains numbers and lower case letters. This value is generated at the time that a new identity store is created.</p>
@@ -238,7 +240,7 @@ class UserResource:
         *,
         config_overrides: Optional[identitystoreClientConfig] = None,
     ) -> "aws_sdk_identitystore.types.update_user_response.UpdateUserResponse":
-        """<p>Updates the specified user metadata and attributes in the specified identity store.</p>
+        r"""<p>Updates the specified user metadata and attributes in the specified identity store.</p>
 
         Args:
             identity_store_id: <p>The globally unique identifier for the identity store.</p>
@@ -327,7 +329,7 @@ class UserResource:
         next_token: Optional["aws_sdk_identitystore.types.next_token.NextToken"] = None,
         filters: Optional["aws_sdk_identitystore.types.filters.Filters"] = None,
     ) -> "aws_sdk_identitystore.types.list_users_response.ListUsersResponse":
-        """<p>Lists all users in the identity store. Returns a paginated list of complete <code>User</code> objects. Filtering for a <code>User</code> by the <code>UserName</code> attribute is deprecated. Instead, use the <code>GetUserId</code> API action.</p> <note> <p>If you have access to a member account, you can use this API operation from the member account. For more information, see <a href=\"https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-accounts.html#limiting-access-from-member-accounts\">Limiting access to the identity store from member accounts</a> in the <i> IAM Identity Center User Guide</i>.</p> </note>
+        r"""<p>Lists all users in the identity store. Returns a paginated list of complete <code>User</code> objects. Filtering for a <code>User</code> by the <code>UserName</code> attribute is deprecated. Instead, use the <code>GetUserId</code> API action.</p> <note> <p>If you have access to a member account, you can use this API operation from the member account. For more information, see <a href=\"https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-accounts.html#limiting-access-from-member-accounts\">Limiting access to the identity store from member accounts</a> in the <i> IAM Identity Center User Guide</i>.</p> </note>
 
         Args:
             identity_store_id: <p>The globally unique identifier for the identity store, such as <code>d-1234567890</code>. In this example, <code>d-</code> is a fixed prefix, and <code>1234567890</code> is a randomly generated string that contains numbers and lower case letters. This value is generated at the time that a new identity store is created.</p>
@@ -423,7 +425,7 @@ class AsyncUserResource:
             "aws_sdk_identitystore.types.extensions.Extensions"
         ] = None,
     ) -> "aws_sdk_identitystore.types.create_user_response.CreateUserResponse":
-        """<p>Creates a user within the specified identity store.</p>
+        r"""<p>Creates a user within the specified identity store.</p>
 
         Args:
             identity_store_id: <p>The globally unique identifier for the identity store.</p>
@@ -519,7 +521,7 @@ class AsyncUserResource:
             "aws_sdk_identitystore.types.extension_names.ExtensionNames"
         ] = None,
     ) -> "aws_sdk_identitystore.types.describe_user_response.DescribeUserResponse":
-        """<p>Retrieves the user metadata and attributes from the <code>UserId</code> in an identity store.</p> <note> <p>If you have access to a member account, you can use this API operation from the member account. For more information, see <a href=\"https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-accounts.html#limiting-access-from-member-accounts\">Limiting access to the identity store from member accounts</a> in the <i> IAM Identity Center User Guide</i>.</p> </note>
+        r"""<p>Retrieves the user metadata and attributes from the <code>UserId</code> in an identity store.</p> <note> <p>If you have access to a member account, you can use this API operation from the member account. For more information, see <a href=\"https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-accounts.html#limiting-access-from-member-accounts\">Limiting access to the identity store from member accounts</a> in the <i> IAM Identity Center User Guide</i>.</p> </note>
 
         Args:
             identity_store_id: <p>The globally unique identifier for the identity store, such as <code>d-1234567890</code>. In this example, <code>d-</code> is a fixed prefix, and <code>1234567890</code> is a randomly generated string that contains numbers and lower case letters. This value is generated at the time that a new identity store is created.</p>
@@ -564,7 +566,7 @@ class AsyncUserResource:
         *,
         config_overrides: Optional[AsyncidentitystoreClientConfig] = None,
     ) -> "aws_sdk_identitystore.types.update_user_response.UpdateUserResponse":
-        """<p>Updates the specified user metadata and attributes in the specified identity store.</p>
+        r"""<p>Updates the specified user metadata and attributes in the specified identity store.</p>
 
         Args:
             identity_store_id: <p>The globally unique identifier for the identity store.</p>
@@ -655,7 +657,7 @@ class AsyncUserResource:
         next_token: Optional["aws_sdk_identitystore.types.next_token.NextToken"] = None,
         filters: Optional["aws_sdk_identitystore.types.filters.Filters"] = None,
     ) -> "aws_sdk_identitystore.types.list_users_response.ListUsersResponse":
-        """<p>Lists all users in the identity store. Returns a paginated list of complete <code>User</code> objects. Filtering for a <code>User</code> by the <code>UserName</code> attribute is deprecated. Instead, use the <code>GetUserId</code> API action.</p> <note> <p>If you have access to a member account, you can use this API operation from the member account. For more information, see <a href=\"https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-accounts.html#limiting-access-from-member-accounts\">Limiting access to the identity store from member accounts</a> in the <i> IAM Identity Center User Guide</i>.</p> </note>
+        r"""<p>Lists all users in the identity store. Returns a paginated list of complete <code>User</code> objects. Filtering for a <code>User</code> by the <code>UserName</code> attribute is deprecated. Instead, use the <code>GetUserId</code> API action.</p> <note> <p>If you have access to a member account, you can use this API operation from the member account. For more information, see <a href=\"https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-accounts.html#limiting-access-from-member-accounts\">Limiting access to the identity store from member accounts</a> in the <i> IAM Identity Center User Guide</i>.</p> </note>
 
         Args:
             identity_store_id: <p>The globally unique identifier for the identity store, such as <code>d-1234567890</code>. In this example, <code>d-</code> is a fixed prefix, and <code>1234567890</code> is a randomly generated string that contains numbers and lower case letters. This value is generated at the time that a new identity store is created.</p>

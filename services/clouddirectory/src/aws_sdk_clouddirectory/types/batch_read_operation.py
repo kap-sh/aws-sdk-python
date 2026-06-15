@@ -37,7 +37,7 @@ class BatchReadOperation(TypedDict):
     list_object_parent_paths: NotRequired[
         "aws_sdk_clouddirectory.types.batch_list_object_parent_paths.BatchListObjectParentPaths"
     ]
-    """<p>Retrieves all available parent paths for any object type such as node, leaf node, policy node, and index node objects. For more information about objects, see <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directorystructure.html\">Directory Structure</a>.</p>"""
+    r"""<p>Retrieves all available parent paths for any object type such as node, leaf node, policy node, and index node objects. For more information about objects, see <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directorystructure.html\">Directory Structure</a>.</p>"""
     get_object_information: NotRequired[
         "aws_sdk_clouddirectory.types.batch_get_object_information.BatchGetObjectInformation"
     ]
@@ -61,7 +61,7 @@ class BatchReadOperation(TypedDict):
     lookup_policy: NotRequired[
         "aws_sdk_clouddirectory.types.batch_lookup_policy.BatchLookupPolicy"
     ]
-    """<p>Lists all policies from the root of the <a>Directory</a> to the object specified. If there are no policies present, an empty list is returned. If policies are present, and if some objects don't have the policies attached, it returns the <code>ObjectIdentifier</code> for such objects. If policies are present, it returns <code>ObjectIdentifier</code>, <code>policyId</code>, and <code>policyType</code>. Paths that don't lead to the root from the target object are ignored. For more information, see <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directory.html#key_concepts_policies\">Policies</a>.</p>"""
+    r"""<p>Lists all policies from the root of the <a>Directory</a> to the object specified. If there are no policies present, an empty list is returned. If policies are present, and if some objects don't have the policies attached, it returns the <code>ObjectIdentifier</code> for such objects. If policies are present, it returns <code>ObjectIdentifier</code>, <code>policyId</code>, and <code>policyType</code>. Paths that don't lead to the root from the target object are ignored. For more information, see <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directory.html#key_concepts_policies\">Policies</a>.</p>"""
     list_index: NotRequired[
         "aws_sdk_clouddirectory.types.batch_list_index.BatchListIndex"
     ]
@@ -69,11 +69,11 @@ class BatchReadOperation(TypedDict):
     list_outgoing_typed_links: NotRequired[
         "aws_sdk_clouddirectory.types.batch_list_outgoing_typed_links.BatchListOutgoingTypedLinks"
     ]
-    """<p>Returns a paginated list of all the outgoing <a>TypedLinkSpecifier</a> information for an object. It also supports filtering by typed link facet and identity attributes. For more information, see <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink\">Typed Links</a>.</p>"""
+    r"""<p>Returns a paginated list of all the outgoing <a>TypedLinkSpecifier</a> information for an object. It also supports filtering by typed link facet and identity attributes. For more information, see <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink\">Typed Links</a>.</p>"""
     list_incoming_typed_links: NotRequired[
         "aws_sdk_clouddirectory.types.batch_list_incoming_typed_links.BatchListIncomingTypedLinks"
     ]
-    """<p>Returns a paginated list of all the incoming <a>TypedLinkSpecifier</a> information for an object. It also supports filtering by typed link facet and identity attributes. For more information, see <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink\">Typed Links</a>.</p>"""
+    r"""<p>Returns a paginated list of all the incoming <a>TypedLinkSpecifier</a> information for an object. It also supports filtering by typed link facet and identity attributes. For more information, see <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink\">Typed Links</a>.</p>"""
     get_link_attributes: NotRequired[
         "aws_sdk_clouddirectory.types.batch_get_link_attributes.BatchGetLinkAttributes"
     ]

@@ -14,7 +14,7 @@ class PipeEnrichmentHttpParameters(TypedDict):
     path_parameter_values: NotRequired[
         "aws_sdk_pipes.types.path_parameter_list.PathParameterList"
     ]
-    """<p>The path parameter values to be used to populate API Gateway REST API or EventBridge ApiDestination path wildcards (\"*\").</p>"""
+    r"""<p>The path parameter values to be used to populate API Gateway REST API or EventBridge ApiDestination path wildcards (\"*\").</p>"""
     header_parameters: NotRequired[
         "aws_sdk_pipes.types.header_parameters_map.HeaderParametersMap"
     ]

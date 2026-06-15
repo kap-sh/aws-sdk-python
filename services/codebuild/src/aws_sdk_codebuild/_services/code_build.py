@@ -278,7 +278,7 @@ class CodeBuildClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = CodeBuildClientConfig(
+        self._config = CodeBuildClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -298,7 +298,7 @@ class CodeBuildClient:
         overrides: CodeBuildClientConfig = config_overrides or {}
         interceptors_: list[Interceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             retry(),
         ]
@@ -306,16 +306,16 @@ class CodeBuildClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            region=overrides.get("region", self.config.get("region")),
+            region=overrides.get("region", self._config.get("region")),
             use_dual_stack=overrides.get(
-                "use_dual_stack", self.config.get("use_dual_stack")
+                "use_dual_stack", self._config.get("use_dual_stack")
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -685,7 +685,7 @@ class CodeBuildClient:
         ] = None,
         tags: Optional["aws_sdk_codebuild.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_codebuild.types.create_fleet_output.CreateFleetOutput":
-        """<p>Creates a compute fleet.</p>
+        r"""<p>Creates a compute fleet.</p>
 
         Args:
             name: <p>The name of the compute fleet.</p>
@@ -796,7 +796,7 @@ class CodeBuildClient:
             "aws_sdk_codebuild.types.wrapper_int.WrapperInt"
         ] = None,
     ) -> "aws_sdk_codebuild.types.create_project_output.CreateProjectOutput":
-        """<p>Creates a build project.</p>
+        r"""<p>Creates a build project.</p>
 
         Args:
             name: <p>The name of the build project.</p>
@@ -955,7 +955,7 @@ class CodeBuildClient:
             "aws_sdk_codebuild.types.pull_request_build_policy.PullRequestBuildPolicy"
         ] = None,
     ) -> "aws_sdk_codebuild.types.create_webhook_output.CreateWebhookOutput":
-        """<p>For an existing CodeBuild build project that has its source code stored in a GitHub or Bitbucket repository, enables CodeBuild to start rebuilding the source code every time a code change is pushed to the repository.</p> <important> <p>If you enable webhooks for an CodeBuild project, and the project is used as a build step in CodePipeline, then two identical builds are created for each commit. One build is triggered through webhooks, and one through CodePipeline. Because billing is on a per-build basis, you are billed for both builds. Therefore, if you are using CodePipeline, we recommend that you disable webhooks in CodeBuild. In the CodeBuild console, clear the Webhook box. For more information, see step 5 in <a href=\"https://docs.aws.amazon.com/codebuild/latest/userguide/change-project.html#change-project-console\">Change a Build Project's Settings</a>.</p> </important>
+        r"""<p>For an existing CodeBuild build project that has its source code stored in a GitHub or Bitbucket repository, enables CodeBuild to start rebuilding the source code every time a code change is pushed to the repository.</p> <important> <p>If you enable webhooks for an CodeBuild project, and the project is used as a build step in CodePipeline, then two identical builds are created for each commit. One build is triggered through webhooks, and one through CodePipeline. Because billing is on a per-build basis, you are billed for both builds. Therefore, if you are using CodePipeline, we recommend that you disable webhooks in CodeBuild. In the CodeBuild console, clear the Webhook box. For more information, see step 5 in <a href=\"https://docs.aws.amazon.com/codebuild/latest/userguide/change-project.html#change-project-console\">Change a Build Project's Settings</a>.</p> </important>
 
         Args:
             project_name: <p>The name of the CodeBuild project.</p>
@@ -1159,7 +1159,7 @@ class CodeBuildClient:
         config_overrides: Optional[CodeBuildClientConfig] = None,
         delete_reports: Optional["aws_sdk_codebuild.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_codebuild.types.delete_report_group_output.DeleteReportGroupOutput":
-        """<p>Deletes a report group. Before you delete a report group, you must delete its reports. </p>
+        r"""<p>Deletes a report group. Before you delete a report group, you must delete its reports. </p>
 
         Args:
             arn: <p>The ARN of the report group to delete. </p>
@@ -2833,7 +2833,7 @@ class CodeBuildClient:
         *,
         config_overrides: Optional[CodeBuildClientConfig] = None,
     ) -> "aws_sdk_codebuild.types.put_resource_policy_output.PutResourcePolicyOutput":
-        """<p> Stores a resource policy for the ARN of a <code>Project</code> or <code>ReportGroup</code> object. </p>
+        r"""<p> Stores a resource policy for the ARN of a <code>Project</code> or <code>ReportGroup</code> object. </p>
 
         Args:
             policy: <p> A JSON-formatted resource policy. For more information, see <a href=\"https://docs.aws.amazon.com/codebuild/latest/userguide/project-sharing.html#project-sharing-share\">Sharing a Project</a> and <a href=\"https://docs.aws.amazon.com/codebuild/latest/userguide/report-groups-sharing.html#report-groups-sharing-share\">Sharing a Report Group</a> in the <i>CodeBuild User Guide</i>. </p>
@@ -3050,7 +3050,7 @@ class CodeBuildClient:
             "aws_sdk_codebuild.types.wrapper_int.WrapperInt"
         ] = None,
     ) -> "aws_sdk_codebuild.types.start_build_output.StartBuildOutput":
-        """<p>Starts running a build with the settings defined in the project. These setting include: how to run a build, where to get the source code, which build environment to use, which build commands to run, and where to store the build output.</p> <p>You can also start a build run by overriding some of the build settings in the project. The overrides only apply for that specific start build request. The settings in the project are unaltered.</p>
+        r"""<p>Starts running a build with the settings defined in the project. These setting include: how to run a build, where to get the source code, which build environment to use, which build commands to run, and where to store the build output.</p> <p>You can also start a build run by overriding some of the build settings in the project. The overrides only apply for that specific start build request. The settings in the project are unaltered.</p>
 
         Args:
             project_name: <p>The name of the CodeBuild build project to start running a build.</p>
@@ -3271,7 +3271,7 @@ class CodeBuildClient:
             "aws_sdk_codebuild.types.wrapper_boolean.WrapperBoolean"
         ] = None,
     ) -> "aws_sdk_codebuild.types.start_build_batch_output.StartBuildBatchOutput":
-        """<p>Starts a batch build for a project.</p>
+        r"""<p>Starts a batch build for a project.</p>
 
         Args:
             project_name: <p>The name of the project.</p>
@@ -3675,7 +3675,7 @@ class CodeBuildClient:
         ] = None,
         tags: Optional["aws_sdk_codebuild.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_codebuild.types.update_fleet_output.UpdateFleetOutput":
-        """<p>Updates a compute fleet.</p>
+        r"""<p>Updates a compute fleet.</p>
 
         Args:
             arn: <p>The ARN of the compute fleet.</p>
@@ -3795,7 +3795,7 @@ class CodeBuildClient:
             "aws_sdk_codebuild.types.wrapper_int.WrapperInt"
         ] = None,
     ) -> "aws_sdk_codebuild.types.update_project_output.UpdateProjectOutput":
-        """<p>Changes the settings of a build project.</p>
+        r"""<p>Changes the settings of a build project.</p>
 
         Args:
             name: <p>The name of the build project.</p> <note> <p>You cannot change a build project's name.</p> </note>
@@ -3898,7 +3898,7 @@ class CodeBuildClient:
             "aws_sdk_codebuild.types.non_empty_string.NonEmptyString"
         ] = None,
     ) -> "aws_sdk_codebuild.types.update_project_visibility_output.UpdateProjectVisibilityOutput":
-        """<p>Changes the public visibility for a project. The project's build results, logs, and artifacts are available to the general public. For more information, see <a href=\"https://docs.aws.amazon.com/codebuild/latest/userguide/public-builds.html\">Public build projects</a> in the <i>CodeBuild User Guide</i>.</p> <important> <p>The following should be kept in mind when making your projects public:</p> <ul> <li> <p>All of a project's build results, logs, and artifacts, including builds that were run when the project was private, are available to the general public.</p> </li> <li> <p>All build logs and artifacts are available to the public. Environment variables, source code, and other sensitive information may have been output to the build logs and artifacts. You must be careful about what information is output to the build logs. Some best practice are:</p> <ul> <li> <p>Do not store sensitive values in environment variables. We recommend that you use an Amazon EC2 Systems Manager Parameter Store or Secrets Manager to store sensitive values.</p> </li> <li> <p>Follow <a href=\"https://docs.aws.amazon.com/codebuild/latest/userguide/webhooks.html#webhook-best-practices\">Best practices for using webhooks</a> in the <i>CodeBuild User Guide</i> to limit which entities can trigger a build, and do not store the buildspec in the project itself, to ensure that your webhooks are as secure as possible.</p> </li> </ul> </li> <li> <p>A malicious user can use public builds to distribute malicious artifacts. We recommend that you review all pull requests to verify that the pull request is a legitimate change. We also recommend that you validate any artifacts with their checksums to make sure that the correct artifacts are being downloaded.</p> </li> </ul> </important>
+        r"""<p>Changes the public visibility for a project. The project's build results, logs, and artifacts are available to the general public. For more information, see <a href=\"https://docs.aws.amazon.com/codebuild/latest/userguide/public-builds.html\">Public build projects</a> in the <i>CodeBuild User Guide</i>.</p> <important> <p>The following should be kept in mind when making your projects public:</p> <ul> <li> <p>All of a project's build results, logs, and artifacts, including builds that were run when the project was private, are available to the general public.</p> </li> <li> <p>All build logs and artifacts are available to the public. Environment variables, source code, and other sensitive information may have been output to the build logs and artifacts. You must be careful about what information is output to the build logs. Some best practice are:</p> <ul> <li> <p>Do not store sensitive values in environment variables. We recommend that you use an Amazon EC2 Systems Manager Parameter Store or Secrets Manager to store sensitive values.</p> </li> <li> <p>Follow <a href=\"https://docs.aws.amazon.com/codebuild/latest/userguide/webhooks.html#webhook-best-practices\">Best practices for using webhooks</a> in the <i>CodeBuild User Guide</i> to limit which entities can trigger a build, and do not store the buildspec in the project itself, to ensure that your webhooks are as secure as possible.</p> </li> </ul> </li> <li> <p>A malicious user can use public builds to distribute malicious artifacts. We recommend that you review all pull requests to verify that the pull request is a legitimate change. We also recommend that you validate any artifacts with their checksums to make sure that the correct artifacts are being downloaded.</p> </li> </ul> </important>
 
         Args:
             project_arn: <p>The Amazon Resource Name (ARN) of the build project.</p>
@@ -3997,7 +3997,7 @@ class CodeBuildClient:
             "aws_sdk_codebuild.types.pull_request_build_policy.PullRequestBuildPolicy"
         ] = None,
     ) -> "aws_sdk_codebuild.types.update_webhook_output.UpdateWebhookOutput":
-        """<p> Updates the webhook associated with an CodeBuild build project. </p> <note> <p> If you use Bitbucket for your repository, <code>rotateSecret</code> is ignored. </p> </note>
+        r"""<p> Updates the webhook associated with an CodeBuild build project. </p> <note> <p> If you use Bitbucket for your repository, <code>rotateSecret</code> is ignored. </p> </note>
 
         Args:
             project_name: <p>The name of the CodeBuild project.</p>

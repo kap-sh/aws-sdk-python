@@ -12,7 +12,7 @@ if TYPE_CHECKING:
 
 class TagPolicyRequest(TypedDict):
     policy_arn: "aws_sdk_iam.types.arn_type.arnType"
-    """<p>The ARN of the IAM customer managed policy to which you want to add tags.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>"""
+    r"""<p>The ARN of the IAM customer managed policy to which you want to add tags.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>"""
     tags: "aws_sdk_iam.types.tag_list_type.tagListType"
     """<p>The list of tags that you want to attach to the IAM customer managed policy. Each tag consists of a key name and an associated value.</p>"""
 

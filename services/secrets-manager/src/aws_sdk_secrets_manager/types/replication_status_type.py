@@ -24,7 +24,7 @@ class ReplicationStatusType(TypedDict):
     status_message: NotRequired[
         "aws_sdk_secrets_manager.types.status_message_type.StatusMessageType"
     ]
-    """<p>Status message such as \"<i>Secret with this name already exists in this region</i>\".</p>"""
+    r"""<p>Status message such as \"<i>Secret with this name already exists in this region</i>\".</p>"""
     last_accessed_date: NotRequired[
         "aws_sdk_secrets_manager.types.last_accessed_date_type.LastAccessedDateType"
     ]

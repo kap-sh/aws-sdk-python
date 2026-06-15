@@ -31,7 +31,7 @@ class PortalSummary(TypedDict):
     last_update_date: NotRequired["aws_sdk_iotsitewise.types.timestamp.Timestamp"]
     """<p>The date the portal was last updated, in Unix epoch time.</p>"""
     role_arn: NotRequired["aws_sdk_iotsitewise.types.iam_arn.IamArn"]
-    """<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the service role that allows the portal's users to access your IoT SiteWise resources on your behalf. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-service-role.html\">Using service roles for IoT SiteWise Monitor</a> in the <i>IoT SiteWise User Guide</i>.</p>"""
+    r"""<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the service role that allows the portal's users to access your IoT SiteWise resources on your behalf. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-service-role.html\">Using service roles for IoT SiteWise Monitor</a> in the <i>IoT SiteWise User Guide</i>.</p>"""
     status: "aws_sdk_iotsitewise.types.portal_status.PortalStatus"
     portal_type: NotRequired["aws_sdk_iotsitewise.types.portal_type.PortalType"]
     """<p>Define the type of portal. The value for IoT SiteWise Monitor (Classic) is <code>SITEWISE_PORTAL_V1</code>. The value for IoT SiteWise Monitor (AI-aware) is <code>SITEWISE_PORTAL_V2</code>.</p>"""

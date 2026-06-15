@@ -1,11 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#DecryptionFailure``."""
 
 from typing import TypedDict
-from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
-from aws_sdk_bedrock_agentcore_control.errors import ServiceError
+
+from aws_sdk_bedrock_agentcore_control.errors import DeserializationError, ServiceError
+
 
 class DecryptionFailure_(TypedDict):
     message: "str"
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: DecryptionFailure_) -> dict:
@@ -25,10 +27,16 @@ def deserialize_json(data: dict) -> DecryptionFailure_:
 
 class DecryptionFailure(ServiceError):
     """Modeled error for Smithy shape ``com.amazonaws.bedrockagentcorecontrol#DecryptionFailure``."""
-    code: str | None = 'DecryptionFailure'
+
+    code: str | None = "DecryptionFailure"
 
     def __init__(self, data: DecryptionFailure_):
-        super().__init__('client', is_throttling_error=False, is_retryable=False, code='DecryptionFailure')
+        super().__init__(
+            "client",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="DecryptionFailure",
+        )
         self.data = data
 
     @classmethod

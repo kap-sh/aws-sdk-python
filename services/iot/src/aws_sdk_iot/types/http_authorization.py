@@ -10,7 +10,7 @@ if TYPE_CHECKING:
 
 class HttpAuthorization(TypedDict):
     sigv4: NotRequired["aws_sdk_iot.types.sig_v4_authorization.SigV4Authorization"]
-    """<p>Use Sig V4 authorization. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html\">Signature Version 4 Signing Process</a>.</p>"""
+    r"""<p>Use Sig V4 authorization. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html\">Signature Version 4 Signing Process</a>.</p>"""
 
 
 # --- restJson1 ser/de ---

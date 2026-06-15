@@ -14,7 +14,7 @@ class App(TypedDict):
     app_name: "aws_sdk_fms.types.resource_name.ResourceName"
     """<p>The application's name.</p>"""
     protocol: "aws_sdk_fms.types.protocol.Protocol"
-    """<p>The IP protocol name or number. The name can be one of <code>tcp</code>, <code>udp</code>, or <code>icmp</code>. For information on possible numbers, see <a href=\"https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml\">Protocol Numbers</a>.</p>"""
+    r"""<p>The IP protocol name or number. The name can be one of <code>tcp</code>, <code>udp</code>, or <code>icmp</code>. For information on possible numbers, see <a href=\"https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml\">Protocol Numbers</a>.</p>"""
     port: "aws_sdk_fms.types.ip_port_number.IPPortNumber"
     """<p>The application's port number, for example <code>80</code>.</p>"""
 

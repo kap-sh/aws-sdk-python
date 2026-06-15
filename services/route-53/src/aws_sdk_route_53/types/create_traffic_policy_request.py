@@ -17,7 +17,7 @@ class CreateTrafficPolicyRequest(TypedDict):
     name: "aws_sdk_route_53.types.traffic_policy_name.TrafficPolicyName"
     """<p>The name of the traffic policy.</p>"""
     document: "aws_sdk_route_53.types.traffic_policy_document.TrafficPolicyDocument"
-    """<p>The definition of this traffic policy in JSON format. For more information, see <a href=\"https://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html\">Traffic Policy Document Format</a>.</p>"""
+    r"""<p>The definition of this traffic policy in JSON format. For more information, see <a href=\"https://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html\">Traffic Policy Document Format</a>.</p>"""
     comment: NotRequired[
         "aws_sdk_route_53.types.traffic_policy_comment.TrafficPolicyComment"
     ]

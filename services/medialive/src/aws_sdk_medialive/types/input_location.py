@@ -13,7 +13,7 @@ class InputLocation(TypedDict):
     password_param: NotRequired["aws_sdk_medialive.types.__string.__string"]
     """key used to extract the password from EC2 Parameter store"""
     uri: NotRequired["aws_sdk_medialive.types.__string_max2048.__stringMax2048"]
-    """Uniform Resource Identifier - This should be a path to a file accessible to the Live system (eg. a http:// URI) depending on the output type. For example, a RTMP destination should have a uri simliar to: \"rtmp://fmsserver/live\"."""
+    r"""Uniform Resource Identifier - This should be a path to a file accessible to the Live system (eg. a http:// URI) depending on the output type. For example, a RTMP destination should have a uri simliar to: \"rtmp://fmsserver/live\"."""
     username: NotRequired["aws_sdk_medialive.types.__string.__string"]
     """Documentation update needed"""
 

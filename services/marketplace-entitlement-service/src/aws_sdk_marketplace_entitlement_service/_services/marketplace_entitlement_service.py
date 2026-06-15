@@ -148,7 +148,7 @@ class MarketplaceEntitlementServiceClient:
             "aws_sdk_marketplace_entitlement_service.types.page_size_integer.PageSizeInteger"
         ] = None,
     ) -> "aws_sdk_marketplace_entitlement_service.types.get_entitlements_result.GetEntitlementsResult":
-        """<p>GetEntitlements retrieves entitlement values for a given product. The results can be filtered based on customer identifier, AWS account ID, license ARN, or product dimensions.</p>
+        r"""<p>GetEntitlements retrieves entitlement values for a given product. The results can be filtered based on customer identifier, AWS account ID, license ARN, or product dimensions.</p>
 
         Args:
             product_code: <p>Product code is used to uniquely identify a product in AWS Marketplace. The product code will be provided by AWS Marketplace when the product listing is created.</p>

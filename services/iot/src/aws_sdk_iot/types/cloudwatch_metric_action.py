@@ -21,9 +21,9 @@ class CloudwatchMetricAction(TypedDict):
     metric_value: "aws_sdk_iot.types.string.String"
     """<p>The CloudWatch metric value.</p>"""
     metric_unit: "aws_sdk_iot.types.string.String"
-    """<p>The <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Unit\">metric unit</a> supported by CloudWatch.</p>"""
+    r"""<p>The <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Unit\">metric unit</a> supported by CloudWatch.</p>"""
     metric_timestamp: NotRequired["aws_sdk_iot.types.string.String"]
-    """<p>An optional <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp\">Unix timestamp</a>.</p>"""
+    r"""<p>An optional <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp\">Unix timestamp</a>.</p>"""
 
 
 # --- restJson1 ser/de ---

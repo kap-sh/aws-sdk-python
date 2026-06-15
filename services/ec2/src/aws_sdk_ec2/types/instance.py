@@ -130,11 +130,11 @@ class Instance(TypedDict):
     enclave_options: NotRequired["aws_sdk_ec2.types.enclave_options.EnclaveOptions"]
     """<p>Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves.</p>"""
     boot_mode: NotRequired["aws_sdk_ec2.types.boot_mode_values.BootModeValues"]
-    """<p>The boot mode that was specified by the AMI. If the value is <code>uefi-preferred</code>, the AMI supports both UEFI and Legacy BIOS. The <code>currentInstanceBootMode</code> parameter is the boot mode that is used to boot the instance at launch or start.</p> <note> <p>The operating system contained in the AMI must be configured to support the specified boot mode.</p> </note> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html\">Boot modes</a> in the <i>Amazon EC2 User Guide</i>.</p>"""
+    r"""<p>The boot mode that was specified by the AMI. If the value is <code>uefi-preferred</code>, the AMI supports both UEFI and Legacy BIOS. The <code>currentInstanceBootMode</code> parameter is the boot mode that is used to boot the instance at launch or start.</p> <note> <p>The operating system contained in the AMI must be configured to support the specified boot mode.</p> </note> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html\">Boot modes</a> in the <i>Amazon EC2 User Guide</i>.</p>"""
     platform_details: NotRequired["aws_sdk_ec2.types.string.String"]
-    """<p>The platform details value for the instance. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/billing-info-fields.html\">AMI billing information fields</a> in the <i>Amazon EC2 User Guide</i>.</p>"""
+    r"""<p>The platform details value for the instance. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/billing-info-fields.html\">AMI billing information fields</a> in the <i>Amazon EC2 User Guide</i>.</p>"""
     usage_operation: NotRequired["aws_sdk_ec2.types.string.String"]
-    """<p>The usage operation value for the instance. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/billing-info-fields.html\">AMI billing information fields</a> in the <i>Amazon EC2 User Guide</i>.</p>"""
+    r"""<p>The usage operation value for the instance. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/billing-info-fields.html\">AMI billing information fields</a> in the <i>Amazon EC2 User Guide</i>.</p>"""
     usage_operation_update_time: NotRequired[
         "aws_sdk_ec2.types.millisecond_date_time.MillisecondDateTime"
     ]
@@ -146,7 +146,7 @@ class Instance(TypedDict):
     ipv6_address: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The IPv6 address assigned to the instance.</p>"""
     tpm_support: NotRequired["aws_sdk_ec2.types.string.String"]
-    """<p>If the instance is configured for NitroTPM support, the value is <code>v2.0</code>. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html\">NitroTPM</a> in the <i>Amazon EC2 User Guide</i>.</p>"""
+    r"""<p>If the instance is configured for NitroTPM support, the value is <code>v2.0</code>. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html\">NitroTPM</a> in the <i>Amazon EC2 User Guide</i>.</p>"""
     maintenance_options: NotRequired[
         "aws_sdk_ec2.types.instance_maintenance_options.InstanceMaintenanceOptions"
     ]
@@ -154,7 +154,7 @@ class Instance(TypedDict):
     current_instance_boot_mode: NotRequired[
         "aws_sdk_ec2.types.instance_boot_mode_values.InstanceBootModeValues"
     ]
-    """<p>The boot mode that is used to boot the instance at launch or start. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html\">Boot modes</a> in the <i>Amazon EC2 User Guide</i>.</p>"""
+    r"""<p>The boot mode that is used to boot the instance at launch or start. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html\">Boot modes</a> in the <i>Amazon EC2 User Guide</i>.</p>"""
     network_performance_options: NotRequired[
         "aws_sdk_ec2.types.instance_network_performance_options.InstanceNetworkPerformanceOptions"
     ]
@@ -174,7 +174,7 @@ class Instance(TypedDict):
     private_dns_name: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>[IPv4 only] The private DNS hostname name assigned to the instance. This DNS hostname can only be used inside the Amazon EC2 network. This name is not available until the instance enters the <code>running</code> state. </p> <p>The Amazon-provided DNS server resolves Amazon-provided private DNS hostnames if you've enabled DNS resolution and DNS hostnames in your VPC. If you are not using the Amazon-provided DNS server in your VPC, your custom domain name servers must resolve the hostname as appropriate.</p>"""
     public_dns_name: NotRequired["aws_sdk_ec2.types.string.String"]
-    """<p>The public DNS name assigned to the instance. This name is not available until the instance enters the <code>running</code> state. This name is only available if you've enabled DNS hostnames for your VPC. The format of this name depends on the <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hostname-types.html#public-hostnames\">public hostname type</a>.</p>"""
+    r"""<p>The public DNS name assigned to the instance. This name is not available until the instance enters the <code>running</code> state. This name is only available if you've enabled DNS hostnames for your VPC. The format of this name depends on the <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hostname-types.html#public-hostnames\">public hostname type</a>.</p>"""
     state_transition_reason: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The reason for the most recent state transition. This might be an empty string.</p>"""
     key_name: NotRequired["aws_sdk_ec2.types.string.String"]

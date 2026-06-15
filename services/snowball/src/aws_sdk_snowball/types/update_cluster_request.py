@@ -21,7 +21,7 @@ class UpdateClusterRequest(TypedDict):
     cluster_id: "aws_sdk_snowball.types.cluster_id.ClusterId"
     """<p>The cluster ID of the cluster that you want to update, for example <code>CID123e4567-e89b-12d3-a456-426655440000</code>.</p>"""
     role_arn: NotRequired["aws_sdk_snowball.types.role_arn.RoleARN"]
-    """<p>The new role Amazon Resource Name (ARN) that you want to associate with this cluster. To create a role ARN, use the <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html\">CreateRole</a> API action in Identity and Access Management (IAM).</p>"""
+    r"""<p>The new role Amazon Resource Name (ARN) that you want to associate with this cluster. To create a role ARN, use the <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html\">CreateRole</a> API action in Identity and Access Management (IAM).</p>"""
     description: NotRequired["aws_sdk_snowball.types.string.String"]
     """<p>The updated description of this cluster.</p>"""
     resources: NotRequired["aws_sdk_snowball.types.job_resource.JobResource"]

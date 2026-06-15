@@ -24,7 +24,7 @@ class Account(TypedDict):
     name: "aws_sdk_chime.types.string.String"
     """<p>The Amazon Chime account name.</p>"""
     account_type: NotRequired["aws_sdk_chime.types.account_type.AccountType"]
-    """<p>The Amazon Chime account type. For more information about different account types, see <a href=\"https://docs.aws.amazon.com/chime/latest/ag/manage-chime-account.html\">Managing Your Amazon Chime Accounts</a> in the <i>Amazon Chime Administration Guide</i>.</p>"""
+    r"""<p>The Amazon Chime account type. For more information about different account types, see <a href=\"https://docs.aws.amazon.com/chime/latest/ag/manage-chime-account.html\">Managing Your Amazon Chime Accounts</a> in the <i>Amazon Chime Administration Guide</i>.</p>"""
     created_timestamp: NotRequired[
         "aws_sdk_chime.types.iso8601_timestamp.Iso8601Timestamp"
     ]

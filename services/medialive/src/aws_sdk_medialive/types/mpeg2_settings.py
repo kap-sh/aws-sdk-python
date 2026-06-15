@@ -37,7 +37,7 @@ class Mpeg2Settings(TypedDict):
     color_space: NotRequired[
         "aws_sdk_medialive.types.mpeg2_color_space.Mpeg2ColorSpace"
     ]
-    """Choose the type of color space conversion to apply to the output. For detailed information on setting up both the input and the output to obtain the desired color space in the output, see the section on \\"MediaLive Features - Video - color space\\" in the MediaLive User Guide. PASSTHROUGH: Keep the color space of the input content - do not convert it. AUTO:Convert all content that is SD to rec 601, and convert all content that is HD to rec 709."""
+    r"""Choose the type of color space conversion to apply to the output. For detailed information on setting up both the input and the output to obtain the desired color space in the output, see the section on \\"MediaLive Features - Video - color space\\" in the MediaLive User Guide. PASSTHROUGH: Keep the color space of the input content - do not convert it. AUTO:Convert all content that is SD to rec 601, and convert all content that is HD to rec 709."""
     display_aspect_ratio: NotRequired[
         "aws_sdk_medialive.types.mpeg2_display_ratio.Mpeg2DisplayRatio"
     ]
@@ -51,7 +51,7 @@ class Mpeg2Settings(TypedDict):
     framerate_denominator: NotRequired[
         "aws_sdk_medialive.types.__integer_min1.__integerMin1"
     ]
-    """description\": \"The framerate denominator. For example, 1001. The framerate is the numerator divided by the denominator. For example, 24000 / 1001 = 23.976 FPS."""
+    r"""description\": \"The framerate denominator. For example, 1001. The framerate is the numerator divided by the denominator. For example, 24000 / 1001 = 23.976 FPS."""
     framerate_numerator: NotRequired[
         "aws_sdk_medialive.types.__integer_min1.__integerMin1"
     ]
@@ -79,7 +79,7 @@ class Mpeg2Settings(TypedDict):
     timecode_insertion: NotRequired[
         "aws_sdk_medialive.types.mpeg2_timecode_insertion_behavior.Mpeg2TimecodeInsertionBehavior"
     ]
-    """Determines how MediaLive inserts timecodes in the output video. For detailed information about setting up the input and the output for a timecode, see the section on \\"MediaLive Features - Timecode configuration\\" in the MediaLive User Guide. DISABLED: do not include timecodes. GOP_TIMECODE: Include timecode metadata in the GOP header."""
+    r"""Determines how MediaLive inserts timecodes in the output video. For detailed information about setting up the input and the output for a timecode, see the section on \\"MediaLive Features - Timecode configuration\\" in the MediaLive User Guide. DISABLED: do not include timecodes. GOP_TIMECODE: Include timecode metadata in the GOP header."""
     timecode_burnin_settings: NotRequired[
         "aws_sdk_medialive.types.timecode_burnin_settings.TimecodeBurninSettings"
     ]

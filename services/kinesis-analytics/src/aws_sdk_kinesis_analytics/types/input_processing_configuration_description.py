@@ -12,7 +12,7 @@ class InputProcessingConfigurationDescription(TypedDict):
     input_lambda_processor_description: NotRequired[
         "aws_sdk_kinesis_analytics.types.input_lambda_processor_description.InputLambdaProcessorDescription"
     ]
-    """<p>Provides configuration information about the associated <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputLambdaProcessorDescription.html\">InputLambdaProcessorDescription</a>.</p>"""
+    r"""<p>Provides configuration information about the associated <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputLambdaProcessorDescription.html\">InputLambdaProcessorDescription</a>.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

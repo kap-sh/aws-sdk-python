@@ -19,11 +19,11 @@ class MatchmakingRuleSet(TypedDict):
     rule_set_arn: NotRequired[
         "aws_sdk_gamelift.types.matchmaking_rule_set_arn.MatchmakingRuleSetArn"
     ]
-    """<p>The Amazon Resource Name (<a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html\">ARN</a>) that is assigned to a Amazon GameLift Servers matchmaking rule set resource and uniquely identifies it. ARNs are unique across all Regions. Format is <code>arn:aws:gamelift:<region>::matchmakingruleset/<ruleset name></code>. In a GameLift rule set ARN, the resource ID matches the <i>RuleSetName</i> value.</p>"""
+    r"""<p>The Amazon Resource Name (<a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html\">ARN</a>) that is assigned to a Amazon GameLift Servers matchmaking rule set resource and uniquely identifies it. ARNs are unique across all Regions. Format is <code>arn:aws:gamelift:<region>::matchmakingruleset/<ruleset name></code>. In a GameLift rule set ARN, the resource ID matches the <i>RuleSetName</i> value.</p>"""
     rule_set_body: NotRequired["aws_sdk_gamelift.types.rule_set_body.RuleSetBody"]
     """<p>A collection of matchmaking rules, formatted as a JSON string. Comments are not allowed in JSON, but most elements support a description field.</p>"""
     creation_time: NotRequired["aws_sdk_gamelift.types.timestamp.Timestamp"]
-    """<p>A time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example <code>\"1469498468.057\"</code>).</p>"""
+    r"""<p>A time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example <code>\"1469498468.057\"</code>).</p>"""
 
 
 # --- awsJson1_1 ser/de ---

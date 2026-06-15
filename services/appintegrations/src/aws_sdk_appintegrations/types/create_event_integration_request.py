@@ -1,8 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.appintegrations#CreateEventIntegrationRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_appintegrations.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_appintegrations.types.description
     import aws_sdk_appintegrations.types.event_bridge_bus
@@ -10,6 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_appintegrations.types.idempotency_token
     import aws_sdk_appintegrations.types.name
     import aws_sdk_appintegrations.types.tag_map
+
 
 class CreateEventIntegrationRequest(TypedDict):
     name: "aws_sdk_appintegrations.types.name.Name"
@@ -20,10 +24,13 @@ class CreateEventIntegrationRequest(TypedDict):
     """<p>The event filter.</p>"""
     event_bridge_bus: "aws_sdk_appintegrations.types.event_bridge_bus.EventBridgeBus"
     """<p>The EventBridge bus.</p>"""
-    client_token: NotRequired["aws_sdk_appintegrations.types.idempotency_token.IdempotencyToken"]
-    """<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>"""
+    client_token: NotRequired[
+        "aws_sdk_appintegrations.types.idempotency_token.IdempotencyToken"
+    ]
+    r"""<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>"""
     tags: NotRequired["aws_sdk_appintegrations.types.tag_map.TagMap"]
-    """<p>The tags used to organize, track, or control access for this resource. For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.</p>"""
+    r"""<p>The tags used to organize, track, or control access for this resource. For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: CreateEventIntegrationRequest) -> dict:
@@ -32,13 +39,19 @@ def serialize_json(value: CreateEventIntegrationRequest) -> dict:
     if "description" in value:
         out["Description"] = value["description"]
     import aws_sdk_appintegrations.types.event_filter
-    out["EventFilter"] = aws_sdk_appintegrations.types.event_filter.serialize_json(value["event_filter"])
+
+    out["EventFilter"] = aws_sdk_appintegrations.types.event_filter.serialize_json(
+        value["event_filter"]
+    )
     out["EventBridgeBus"] = value["event_bridge_bus"]
     if "client_token" in value:
         out["ClientToken"] = value["client_token"]
     if "tags" in value:
         import aws_sdk_appintegrations.types.tag_map
-        out["Tags"] = aws_sdk_appintegrations.types.tag_map.serialize_json(value["tags"])
+
+        out["Tags"] = aws_sdk_appintegrations.types.tag_map.serialize_json(
+            value["tags"]
+        )
     return out
 
 
@@ -52,16 +65,28 @@ def deserialize_json(data: dict) -> CreateEventIntegrationRequest:
         out["description"] = data["Description"]
     if "EventFilter" in data:
         import aws_sdk_appintegrations.types.event_filter
-        out["event_filter"] = aws_sdk_appintegrations.types.event_filter.deserialize_json(data["EventFilter"])
+
+        out["event_filter"] = (
+            aws_sdk_appintegrations.types.event_filter.deserialize_json(
+                data["EventFilter"]
+            )
+        )
     else:
-        raise DeserializationError("CreateEventIntegrationRequest.event_filter required")
+        raise DeserializationError(
+            "CreateEventIntegrationRequest.event_filter required"
+        )
     if "EventBridgeBus" in data:
         out["event_bridge_bus"] = data["EventBridgeBus"]
     else:
-        raise DeserializationError("CreateEventIntegrationRequest.event_bridge_bus required")
+        raise DeserializationError(
+            "CreateEventIntegrationRequest.event_bridge_bus required"
+        )
     if "ClientToken" in data:
         out["client_token"] = data["ClientToken"]
     if "Tags" in data:
         import aws_sdk_appintegrations.types.tag_map
-        out["tags"] = aws_sdk_appintegrations.types.tag_map.deserialize_json(data["Tags"])
+
+        out["tags"] = aws_sdk_appintegrations.types.tag_map.deserialize_json(
+            data["Tags"]
+        )
     return out

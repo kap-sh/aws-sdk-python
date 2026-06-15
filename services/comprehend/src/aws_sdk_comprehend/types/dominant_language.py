@@ -11,7 +11,7 @@ if TYPE_CHECKING:
 
 class DominantLanguage(TypedDict):
     language_code: NotRequired["aws_sdk_comprehend.types.string.String"]
-    """<p>The RFC 5646 language code for the dominant language. For more information about RFC 5646, see <a href=\"https://tools.ietf.org/html/rfc5646\">Tags for Identifying Languages</a> on the <i>IETF Tools</i> web site.</p>"""
+    r"""<p>The RFC 5646 language code for the dominant language. For more information about RFC 5646, see <a href=\"https://tools.ietf.org/html/rfc5646\">Tags for Identifying Languages</a> on the <i>IETF Tools</i> web site.</p>"""
     score: NotRequired["aws_sdk_comprehend.types.float.Float"]
     """<p>The level of confidence that Amazon Comprehend has in the accuracy of the detection.</p>"""
 

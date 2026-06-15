@@ -11,7 +11,7 @@ if TYPE_CHECKING:
 
 class ReplicaRegionType(TypedDict):
     region: NotRequired["aws_sdk_secrets_manager.types.region_type.RegionType"]
-    """<p>A Region code. For a list of Region codes, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints\">Name and code of Regions</a>.</p>"""
+    r"""<p>A Region code. For a list of Region codes, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints\">Name and code of Regions</a>.</p>"""
     kms_key_id: NotRequired[
         "aws_sdk_secrets_manager.types.kms_key_id_type.KmsKeyIdType"
     ]

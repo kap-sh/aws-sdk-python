@@ -70,7 +70,7 @@ def get_signer(
     options: AsyncOperationOptions | OperationOptions,
     auth_schemes: list[dict[str, Any]] | None = None,
 ) -> aws_sdk_auditmanager._auth._signers.Signer | None:
-    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}
+    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}  # noqa: F841
     if options.credentials_provider is not None:
         sigv4_config = (
             name_to_schema.get("sigv4")
@@ -89,7 +89,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_auditmanager.types.get_evidence_folders_by_assessment_request.GetEvidenceFoldersByAssessmentRequest,
+    input_: aws_sdk_auditmanager.types.get_evidence_folders_by_assessment_request.GetEvidenceFoldersByAssessmentRequest,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -100,12 +100,12 @@ def build_request(
         )
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/assessments/{assessmentId}/evidenceFolders"
-    url = url.replace("{assessmentId}", quote(str(input["assessment_id"]), safe=""))
+    url = url.replace("{assessmentId}", quote(str(input_["assessment_id"]), safe=""))
     params: dict[str, str] = {}
-    if "next_token" in input:
-        params["nextToken"] = str(input["next_token"])
-    if "max_results" in input:
-        params["maxResults"] = str(input["max_results"])
+    if "next_token" in input_:
+        params["nextToken"] = str(input_["next_token"])
+    if "max_results" in input_:
+        params["maxResults"] = str(input_["max_results"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
@@ -118,12 +118,12 @@ def build_request(
 
 def get_evidence_folders_by_assessment(
     options: OperationOptions,
-    input: aws_sdk_auditmanager.types.get_evidence_folders_by_assessment_request.GetEvidenceFoldersByAssessmentRequest,
+    input_: aws_sdk_auditmanager.types.get_evidence_folders_by_assessment_request.GetEvidenceFoldersByAssessmentRequest,
 ) -> tuple[
     aws_sdk_auditmanager.types.get_evidence_folders_by_assessment_response.GetEvidenceFoldersByAssessmentResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -137,12 +137,12 @@ def get_evidence_folders_by_assessment(
 
 async def async_get_evidence_folders_by_assessment(
     options: AsyncOperationOptions,
-    input: aws_sdk_auditmanager.types.get_evidence_folders_by_assessment_request.GetEvidenceFoldersByAssessmentRequest,
+    input_: aws_sdk_auditmanager.types.get_evidence_folders_by_assessment_request.GetEvidenceFoldersByAssessmentRequest,
 ) -> tuple[
     aws_sdk_auditmanager.types.get_evidence_folders_by_assessment_response.GetEvidenceFoldersByAssessmentResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

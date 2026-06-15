@@ -18,7 +18,7 @@ class UpdateWorkspaceAuthenticationRequest(TypedDict):
     authentication_providers: (
         "aws_sdk_grafana.types.authentication_providers.AuthenticationProviders"
     )
-    """<p>Specifies whether this workspace uses SAML 2.0, IAM Identity Center, or both to authenticate users for using the Grafana console within a workspace. For more information, see <a href=\"https://docs.aws.amazon.com/grafana/latest/userguide/authentication-in-AMG.html\">User authentication in Amazon Managed Grafana</a>.</p>"""
+    r"""<p>Specifies whether this workspace uses SAML 2.0, IAM Identity Center, or both to authenticate users for using the Grafana console within a workspace. For more information, see <a href=\"https://docs.aws.amazon.com/grafana/latest/userguide/authentication-in-AMG.html\">User authentication in Amazon Managed Grafana</a>.</p>"""
     saml_configuration: NotRequired[
         "aws_sdk_grafana.types.saml_configuration.SamlConfiguration"
     ]

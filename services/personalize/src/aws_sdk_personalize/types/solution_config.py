@@ -32,13 +32,13 @@ class SolutionConfig(TypedDict):
     ]
     """<p>Lists the feature transformation parameters.</p>"""
     auto_ml_config: NotRequired["aws_sdk_personalize.types.auto_ml_config.AutoMLConfig"]
-    """<p>The <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/API_AutoMLConfig.html\">AutoMLConfig</a> object containing a list of recipes to search when AutoML is performed.</p>"""
+    r"""<p>The <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/API_AutoMLConfig.html\">AutoMLConfig</a> object containing a list of recipes to search when AutoML is performed.</p>"""
     events_config: NotRequired["aws_sdk_personalize.types.events_config.EventsConfig"]
     """<p>Describes the configuration of an event, which includes a list of event parameters. You can specify up to 10 event parameters. Events are used in solution creation.</p>"""
     optimization_objective: NotRequired[
         "aws_sdk_personalize.types.optimization_objective.OptimizationObjective"
     ]
-    """<p>Describes the additional objective for the solution, such as maximizing streaming minutes or increasing revenue. For more information see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/optimizing-solution-for-objective.html\">Optimizing a solution</a>.</p>"""
+    r"""<p>Describes the additional objective for the solution, such as maximizing streaming minutes or increasing revenue. For more information see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/optimizing-solution-for-objective.html\">Optimizing a solution</a>.</p>"""
     training_data_config: NotRequired[
         "aws_sdk_personalize.types.training_data_config.TrainingDataConfig"
     ]

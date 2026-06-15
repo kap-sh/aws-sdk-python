@@ -14,7 +14,7 @@ if TYPE_CHECKING:
 
 class ListTargetsForPolicyRequest(TypedDict):
     policy_id: "aws_sdk_organizations.types.policy_id.PolicyId"
-    """<p>ID for the policy whose attachments you want to know.</p> <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> for a policy ID string requires \"p-\" followed by from 8 to 128 lowercase or uppercase letters, digits, or the underscore character (_).</p>"""
+    r"""<p>ID for the policy whose attachments you want to know.</p> <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> for a policy ID string requires \"p-\" followed by from 8 to 128 lowercase or uppercase letters, digits, or the underscore character (_).</p>"""
     next_token: NotRequired["aws_sdk_organizations.types.next_token.NextToken"]
     """<p>The parameter for receiving additional results if you receive a <code>NextToken</code> response in a previous request. A <code>NextToken</code> response indicates that more output is available. Set this parameter to the value of the previous call's <code>NextToken</code> response to indicate where the output should continue from.</p>"""
     max_results: NotRequired["aws_sdk_organizations.types.max_results.MaxResults"]

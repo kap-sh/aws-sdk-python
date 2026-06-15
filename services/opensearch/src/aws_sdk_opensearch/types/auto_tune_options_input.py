@@ -18,7 +18,7 @@ class AutoTuneOptionsInput(TypedDict):
     maintenance_schedules: NotRequired[
         "aws_sdk_opensearch.types.auto_tune_maintenance_schedule_list.AutoTuneMaintenanceScheduleList"
     ]
-    """<p>A list of maintenance schedules during which Auto-Tune can deploy changes. Maintenance windows are deprecated and have been replaced with <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html\">off-peak windows</a>.</p>"""
+    r"""<p>A list of maintenance schedules during which Auto-Tune can deploy changes. Maintenance windows are deprecated and have been replaced with <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html\">off-peak windows</a>.</p>"""
     use_off_peak_window: NotRequired["aws_sdk_opensearch.types.boolean.Boolean"]
     """<p>Whether to schedule Auto-Tune optimizations that require blue/green deployments during the domain's configured daily off-peak window.</p>"""
 

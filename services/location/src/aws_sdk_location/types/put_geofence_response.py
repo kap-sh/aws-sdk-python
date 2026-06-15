@@ -13,9 +13,9 @@ class PutGeofenceResponse(TypedDict):
     geofence_id: "aws_sdk_location.types.id.Id"
     """<p>The geofence identifier entered in the request.</p>"""
     create_time: "aws_sdk_location.types.timestamp.Timestamp"
-    """<p>The timestamp for when the geofence was created in <a href=\"https://www.iso.org/iso-8601-date-and-time-format.html\">ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code> </p>"""
+    r"""<p>The timestamp for when the geofence was created in <a href=\"https://www.iso.org/iso-8601-date-and-time-format.html\">ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code> </p>"""
     update_time: "aws_sdk_location.types.timestamp.Timestamp"
-    """<p>The timestamp for when the geofence was last updated in <a href=\"https://www.iso.org/iso-8601-date-and-time-format.html\">ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code> </p>"""
+    r"""<p>The timestamp for when the geofence was last updated in <a href=\"https://www.iso.org/iso-8601-date-and-time-format.html\">ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code> </p>"""
 
 
 # --- restJson1 ser/de ---

@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_bedrock_agent_runtime._auth._signers
@@ -50,7 +52,7 @@ class RetrieveResource:
             "aws_sdk_bedrock_agent_runtime.types.next_token.NextToken"
         ] = None,
     ) -> "aws_sdk_bedrock_agent_runtime.types.retrieve_response.RetrieveResponse":
-        """<p>Queries a knowledge base and retrieves information from it.</p>
+        r"""<p>Queries a knowledge base and retrieves information from it.</p>
 
         Args:
             knowledge_base_id: <p>The unique identifier of the knowledge base to query.</p>
@@ -113,7 +115,7 @@ class AsyncRetrieveResource:
             "aws_sdk_bedrock_agent_runtime.types.next_token.NextToken"
         ] = None,
     ) -> "aws_sdk_bedrock_agent_runtime.types.retrieve_response.RetrieveResponse":
-        """<p>Queries a knowledge base and retrieves information from it.</p>
+        r"""<p>Queries a knowledge base and retrieves information from it.</p>
 
         Args:
             knowledge_base_id: <p>The unique identifier of the knowledge base to query.</p>

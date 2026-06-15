@@ -21,7 +21,7 @@ class IcebergSchema(TypedDict):
     type: NotRequired[
         "aws_sdk_glue.types.iceberg_struct_type_enum.IcebergStructTypeEnum"
     ]
-    """<p>The root type of the schema structure, typically \"struct\" for Iceberg table schemas.</p>"""
+    r"""<p>The root type of the schema structure, typically \"struct\" for Iceberg table schemas.</p>"""
     fields: "aws_sdk_glue.types.iceberg_struct_field_list.IcebergStructFieldList"
     """<p>The list of field definitions that make up the table schema, including field names, types, and metadata.</p>"""
 

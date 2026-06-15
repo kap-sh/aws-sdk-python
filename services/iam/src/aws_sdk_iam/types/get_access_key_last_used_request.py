@@ -11,7 +11,7 @@ if TYPE_CHECKING:
 
 class GetAccessKeyLastUsedRequest(TypedDict):
     access_key_id: "aws_sdk_iam.types.access_key_id_type.accessKeyIdType"
-    """<p>The identifier of an access key.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters that can consist of any upper or lowercased letter or digit.</p>"""
+    r"""<p>The identifier of an access key.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters that can consist of any upper or lowercased letter or digit.</p>"""
 
 
 # --- awsQuery ser/de ---

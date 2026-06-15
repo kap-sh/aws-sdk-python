@@ -23,7 +23,7 @@ class DescribeSpotFleetRequestsRequest(TypedDict):
     next_token: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>"""
     max_results: NotRequired["aws_sdk_ec2.types.integer.Integer"]
-    """<p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>"""
+    r"""<p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>"""
 
 
 # --- ec2Query ser/de ---

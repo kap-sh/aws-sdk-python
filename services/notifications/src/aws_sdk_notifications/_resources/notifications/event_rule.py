@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_notifications._auth._signers
@@ -58,7 +60,7 @@ class EventRule:
     ) -> (
         "aws_sdk_notifications.types.create_event_rule_response.CreateEventRuleResponse"
     ):
-        """<p>Creates an <a href=\"https://docs.aws.amazon.com/notifications/latest/userguide/glossary.html\"> <code>EventRule</code> </a> that is associated with a specified <code>NotificationConfiguration</code>.</p>
+        r"""<p>Creates an <a href=\"https://docs.aws.amazon.com/notifications/latest/userguide/glossary.html\"> <code>EventRule</code> </a> that is associated with a specified <code>NotificationConfiguration</code>.</p>
 
         Args:
             notification_configuration_arn: <p>The Amazon Resource Name (ARN) of the <code>NotificationConfiguration</code> associated with this <code>EventRule</code>.</p>
@@ -110,7 +112,7 @@ class EventRule:
     ) -> (
         "aws_sdk_notifications.types.update_event_rule_response.UpdateEventRuleResponse"
     ):
-        """<p>Updates an existing <code>EventRule</code>.</p>
+        r"""<p>Updates an existing <code>EventRule</code>.</p>
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) to use to update the <code>EventRule</code>.</p>
@@ -287,7 +289,7 @@ class AsyncEventRule:
     ) -> (
         "aws_sdk_notifications.types.create_event_rule_response.CreateEventRuleResponse"
     ):
-        """<p>Creates an <a href=\"https://docs.aws.amazon.com/notifications/latest/userguide/glossary.html\"> <code>EventRule</code> </a> that is associated with a specified <code>NotificationConfiguration</code>.</p>
+        r"""<p>Creates an <a href=\"https://docs.aws.amazon.com/notifications/latest/userguide/glossary.html\"> <code>EventRule</code> </a> that is associated with a specified <code>NotificationConfiguration</code>.</p>
 
         Args:
             notification_configuration_arn: <p>The Amazon Resource Name (ARN) of the <code>NotificationConfiguration</code> associated with this <code>EventRule</code>.</p>
@@ -340,7 +342,7 @@ class AsyncEventRule:
     ) -> (
         "aws_sdk_notifications.types.update_event_rule_response.UpdateEventRuleResponse"
     ):
-        """<p>Updates an existing <code>EventRule</code>.</p>
+        r"""<p>Updates an existing <code>EventRule</code>.</p>
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) to use to update the <code>EventRule</code>.</p>

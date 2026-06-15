@@ -3226,7 +3226,7 @@ class MediaLiveClient:
         *,
         config_overrides: Optional[MediaLiveClientConfig] = None,
     ) -> "aws_sdk_medialive.types.describe_thumbnails_response.DescribeThumbnailsResponse":
-        """Describe the latest thumbnails data.
+        r"""Describe the latest thumbnails data.
 
         Args:
             channel_id: Unique ID of the channel

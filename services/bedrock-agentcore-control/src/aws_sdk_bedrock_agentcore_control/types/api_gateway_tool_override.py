@@ -1,10 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#ApiGatewayToolOverride``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.rest_api_method
+
 
 class ApiGatewayToolOverride(TypedDict):
     name: "str"
@@ -16,6 +20,7 @@ class ApiGatewayToolOverride(TypedDict):
     method: "aws_sdk_bedrock_agentcore_control.types.rest_api_method.RestApiMethod"
     """<p>The HTTP method to expose for the specified path.</p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: ApiGatewayToolOverride) -> dict:
     out: dict = {}
@@ -24,7 +29,12 @@ def serialize_json(value: ApiGatewayToolOverride) -> dict:
         out["description"] = value["description"]
     out["path"] = value["path"]
     import aws_sdk_bedrock_agentcore_control.types.rest_api_method
-    out["method"] = aws_sdk_bedrock_agentcore_control.types.rest_api_method.serialize_json(value["method"])
+
+    out["method"] = (
+        aws_sdk_bedrock_agentcore_control.types.rest_api_method.serialize_json(
+            value["method"]
+        )
+    )
     return out
 
 
@@ -42,7 +52,12 @@ def deserialize_json(data: dict) -> ApiGatewayToolOverride:
         raise DeserializationError("ApiGatewayToolOverride.path required")
     if "method" in data:
         import aws_sdk_bedrock_agentcore_control.types.rest_api_method
-        out["method"] = aws_sdk_bedrock_agentcore_control.types.rest_api_method.deserialize_json(data["method"])
+
+        out["method"] = (
+            aws_sdk_bedrock_agentcore_control.types.rest_api_method.deserialize_json(
+                data["method"]
+            )
+        )
     else:
         raise DeserializationError("ApiGatewayToolOverride.method required")
     return out

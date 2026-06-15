@@ -1,16 +1,20 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#ConfigurationBundleRef``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.configuration_bundle_arn
     import aws_sdk_bedrock_agentcore.types.configuration_bundle_version
+
 
 class ConfigurationBundleRef(TypedDict):
     bundle_arn: "aws_sdk_bedrock_agentcore.types.configuration_bundle_arn.ConfigurationBundleArn"
     """<p>The Amazon Resource Name (ARN) of the configuration bundle.</p>"""
     bundle_version: "aws_sdk_bedrock_agentcore.types.configuration_bundle_version.ConfigurationBundleVersion"
     """<p>The version of the configuration bundle.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: ConfigurationBundleRef) -> dict:

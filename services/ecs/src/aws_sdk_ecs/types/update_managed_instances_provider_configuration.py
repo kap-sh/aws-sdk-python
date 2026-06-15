@@ -16,7 +16,7 @@ if TYPE_CHECKING:
 
 class UpdateManagedInstancesProviderConfiguration(TypedDict):
     infrastructure_role_arn: "aws_sdk_ecs.types.string.String"
-    """<p>The updated Amazon Resource Name (ARN) of the infrastructure role. The new role must have the necessary permissions to manage instances and access required Amazon Web Services services.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/infrastructure_IAM_role.html\">Amazon ECS infrastructure IAM role</a> in the <i>Amazon ECS Developer Guide</i>.</p>"""
+    r"""<p>The updated Amazon Resource Name (ARN) of the infrastructure role. The new role must have the necessary permissions to manage instances and access required Amazon Web Services services.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/infrastructure_IAM_role.html\">Amazon ECS infrastructure IAM role</a> in the <i>Amazon ECS Developer Guide</i>.</p>"""
     instance_launch_template: (
         "aws_sdk_ecs.types.instance_launch_template_update.InstanceLaunchTemplateUpdate"
     )

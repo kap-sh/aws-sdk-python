@@ -16,7 +16,7 @@ class AwsWafv2CustomResponseDetails(TypedDict):
     ]
     """<p> References the response body that you want WAF to return to the web request client. You can define a custom response for a rule action or a default web ACL action that is set to block. </p>"""
     response_code: NotRequired["aws_sdk_securityhub.types.integer.Integer"]
-    """<p> The HTTP status code to return to the client. For a list of status codes that you can use in your custom responses, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/customizing-the-response-status-codes.html\">Supported status codes for custom response</a> in the <i>WAF Developer Guide.</i> </p>"""
+    r"""<p> The HTTP status code to return to the client. For a list of status codes that you can use in your custom responses, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/customizing-the-response-status-codes.html\">Supported status codes for custom response</a> in the <i>WAF Developer Guide.</i> </p>"""
     response_headers: NotRequired[
         "aws_sdk_securityhub.types.aws_wafv2_insert_headers_list.AwsWafv2InsertHeadersList"
     ]

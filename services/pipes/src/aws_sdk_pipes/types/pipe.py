@@ -32,7 +32,7 @@ class Pipe(TypedDict):
     creation_time: NotRequired["aws_sdk_pipes.types.timestamp.Timestamp"]
     """<p>The time the pipe was created.</p>"""
     last_modified_time: NotRequired["aws_sdk_pipes.types.timestamp.Timestamp"]
-    """<p>When the pipe was last updated, in <a href=\"https://www.w3.org/TR/NOTE-datetime\">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>"""
+    r"""<p>When the pipe was last updated, in <a href=\"https://www.w3.org/TR/NOTE-datetime\">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>"""
     source: NotRequired["aws_sdk_pipes.types.arn_or_url.ArnOrUrl"]
     """<p>The ARN of the source resource.</p>"""
     target: NotRequired["aws_sdk_pipes.types.arn.Arn"]

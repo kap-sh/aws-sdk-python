@@ -8,7 +8,7 @@ if TYPE_CHECKING:
 
 class ListTagsForResourceRequest(TypedDict):
     resource_arn: "aws_sdk_iotsitewise.types.amazon_resource_name.AmazonResourceName"
-    """<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the resource.</p>"""
+    r"""<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the resource.</p>"""
 
 
 # --- restJson1 ser/de ---

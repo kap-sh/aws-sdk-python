@@ -9,7 +9,7 @@ if TYPE_CHECKING:
 
 class UntagResourceRequest(TypedDict):
     resource_arn: "aws_sdk_iotsitewise.types.amazon_resource_name.AmazonResourceName"
-    """<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the resource to untag.</p>"""
+    r"""<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the resource to untag.</p>"""
     tag_keys: "aws_sdk_iotsitewise.types.tag_key_list.TagKeyList"
     """<p>A list of keys for tags to remove from the resource.</p>"""
 

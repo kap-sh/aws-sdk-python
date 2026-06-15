@@ -230,7 +230,7 @@ class AsyncNeptuneGraphClient:
         ] = None,
         query_timeout_milliseconds: Optional[int] = None,
     ) -> "AsyncGenerator[aws_sdk_neptune_graph.types.execute_query_output.ExecuteQueryOutput]":
-        """<p>Execute an openCypher query.</p> <p> When invoking this operation in a Neptune Analytics cluster, the IAM user or role making the request must have a policy attached that allows one of the following IAM actions in that cluster, depending on the query: </p> <ul> <li> <p>neptune-graph:ReadDataViaQuery</p> </li> <li> <p>neptune-graph:WriteDataViaQuery</p> </li> <li> <p>neptune-graph:DeleteDataViaQuery</p> </li> </ul>
+        r"""<p>Execute an openCypher query.</p> <p> When invoking this operation in a Neptune Analytics cluster, the IAM user or role making the request must have a policy attached that allows one of the following IAM actions in that cluster, depending on the query: </p> <ul> <li> <p>neptune-graph:ReadDataViaQuery</p> </li> <li> <p>neptune-graph:WriteDataViaQuery</p> </li> <li> <p>neptune-graph:DeleteDataViaQuery</p> </li> </ul>
 
         Args:
             graph_identifier: <p>The unique identifier of the Neptune Analytics graph.</p>
@@ -455,7 +455,7 @@ class AsyncNeptuneGraphClient:
         *,
         config_overrides: Optional[AsyncNeptuneGraphClientConfig] = None,
     ) -> "aws_sdk_neptune_graph.types.tag_resource_output.TagResourceOutput":
-        """<p>Adds tags to the specified resource.</p>
+        r"""<p>Adds tags to the specified resource.</p>
 
         Args:
             resource_arn: <p>ARN of the resource for which tags need to be added.</p>

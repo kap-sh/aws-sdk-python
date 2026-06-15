@@ -22,7 +22,7 @@ class WorkGroupConfigurationUpdates(TypedDict):
     enforce_work_group_configuration: NotRequired[
         "aws_sdk_athena.types.boxed_boolean.BoxedBoolean"
     ]
-    """<p>If set to \"true\", the settings for the workgroup override client-side settings. If set to \"false\" client-side settings are used. For more information, see <a href=\"https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html\">Workgroup Settings Override Client-Side Settings</a>.</p>"""
+    r"""<p>If set to \"true\", the settings for the workgroup override client-side settings. If set to \"false\" client-side settings are used. For more information, see <a href=\"https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html\">Workgroup Settings Override Client-Side Settings</a>.</p>"""
     result_configuration_updates: NotRequired[
         "aws_sdk_athena.types.result_configuration_updates.ResultConfigurationUpdates"
     ]
@@ -46,7 +46,7 @@ class WorkGroupConfigurationUpdates(TypedDict):
     requester_pays_enabled: NotRequired[
         "aws_sdk_athena.types.boxed_boolean.BoxedBoolean"
     ]
-    """<p>If set to <code>true</code>, allows members assigned to a workgroup to specify Amazon S3 Requester Pays buckets in queries. If set to <code>false</code>, workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is <code>false</code>. For more information about Requester Pays buckets, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html\">Requester Pays Buckets</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>"""
+    r"""<p>If set to <code>true</code>, allows members assigned to a workgroup to specify Amazon S3 Requester Pays buckets in queries. If set to <code>false</code>, workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is <code>false</code>. For more information about Requester Pays buckets, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html\">Requester Pays Buckets</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>"""
     engine_version: NotRequired["aws_sdk_athena.types.engine_version.EngineVersion"]
     """<p>The engine version requested when a workgroup is updated. After the update, all queries on the workgroup run on the requested engine version. If no value was previously set, the default is Auto. Queries on the <code>AmazonAthenaPreviewFunctionality</code> workgroup run on the preview engine regardless of this setting.</p>"""
     remove_customer_content_encryption_configuration: NotRequired[

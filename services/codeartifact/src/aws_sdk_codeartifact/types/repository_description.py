@@ -33,7 +33,7 @@ class RepositoryDescription(TypedDict):
     upstreams: NotRequired[
         "aws_sdk_codeartifact.types.upstream_repository_info_list.UpstreamRepositoryInfoList"
     ]
-    """<p> A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when CodeArtifact looks for a requested package version. For more information, see <a href=\"https://docs.aws.amazon.com/codeartifact/latest/ug/repos-upstream.html\">Working with upstream repositories</a>. </p>"""
+    r"""<p> A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when CodeArtifact looks for a requested package version. For more information, see <a href=\"https://docs.aws.amazon.com/codeartifact/latest/ug/repos-upstream.html\">Working with upstream repositories</a>. </p>"""
     external_connections: NotRequired[
         "aws_sdk_codeartifact.types.repository_external_connection_info_list.RepositoryExternalConnectionInfoList"
     ]

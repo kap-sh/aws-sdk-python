@@ -14,9 +14,9 @@ if TYPE_CHECKING:
 
 class MessageAttributeValue(TypedDict):
     data_type: "aws_sdk_sns.types.string.String"
-    """<p>Amazon SNS supports the following logical data types: String, String.Array, Number, and Binary. For more information, see <a href=\"https://docs.aws.amazon.com/sns/latest/dg/SNSMessageAttributes.html#SNSMessageAttributes.DataTypes\">Message Attribute Data Types</a>.</p>"""
+    r"""<p>Amazon SNS supports the following logical data types: String, String.Array, Number, and Binary. For more information, see <a href=\"https://docs.aws.amazon.com/sns/latest/dg/SNSMessageAttributes.html#SNSMessageAttributes.DataTypes\">Message Attribute Data Types</a>.</p>"""
     string_value: NotRequired["aws_sdk_sns.types.string.String"]
-    """<p>Strings are Unicode with UTF8 binary encoding. For a list of code values, see <a href=\"https://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters\">ASCII Printable Characters</a>.</p>"""
+    r"""<p>Strings are Unicode with UTF8 binary encoding. For a list of code values, see <a href=\"https://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters\">ASCII Printable Characters</a>.</p>"""
     binary_value: NotRequired["aws_sdk_sns.types.binary.Binary"]
     """<p>Binary type attributes can store any binary data, for example, compressed data, encrypted data, or images.</p>"""
 

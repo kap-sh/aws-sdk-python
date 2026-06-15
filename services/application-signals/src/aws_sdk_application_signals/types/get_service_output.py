@@ -23,7 +23,7 @@ class GetServiceOutput(TypedDict):
     log_group_references: NotRequired[
         "aws_sdk_application_signals.types.log_group_references.LogGroupReferences"
     ]
-    """<p>An array of string-to-string maps that each contain information about one log group associated with this service. Each string-to-string map includes the following fields:</p> <ul> <li> <p> <code>\"Type\": \"AWS::Resource\"</code> </p> </li> <li> <p> <code>\"ResourceType\": \"AWS::Logs::LogGroup\"</code> </p> </li> <li> <p> <code>\"Identifier\": \"<i>name-of-log-group</i>\"</code> </p> </li> </ul>"""
+    r"""<p>An array of string-to-string maps that each contain information about one log group associated with this service. Each string-to-string map includes the following fields:</p> <ul> <li> <p> <code>\"Type\": \"AWS::Resource\"</code> </p> </li> <li> <p> <code>\"ResourceType\": \"AWS::Logs::LogGroup\"</code> </p> </li> <li> <p> <code>\"Identifier\": \"<i>name-of-log-group</i>\"</code> </p> </li> </ul>"""
 
 
 # --- restJson1 ser/de ---

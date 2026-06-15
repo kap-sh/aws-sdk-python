@@ -31,7 +31,7 @@ class GameServerContainerDefinition(TypedDict):
     environment_override: NotRequired[
         "aws_sdk_gamelift.types.container_environment_list.ContainerEnvironmentList"
     ]
-    """<p>A set of environment variables that's passed to the container on startup. See the <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html#ECS-Type-ContainerDefinition-environment\">ContainerDefinition::environment</a> parameter in the <i>Amazon Elastic Container Service API Reference</i>.</p>"""
+    r"""<p>A set of environment variables that's passed to the container on startup. See the <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html#ECS-Type-ContainerDefinition-environment\">ContainerDefinition::environment</a> parameter in the <i>Amazon Elastic Container Service API Reference</i>.</p>"""
     image_uri: NotRequired["aws_sdk_gamelift.types.image_uri_string.ImageUriString"]
     """<p>The URI to the image that Amazon GameLift Servers uses when deploying this container to a container fleet. For a more specific identifier, see <code>ResolvedImageDigest</code>. </p>"""
     port_configuration: NotRequired[

@@ -11,7 +11,7 @@ if TYPE_CHECKING:
 
 class CreateUploadUrlResponse(TypedDict):
     import_id: NotRequired["aws_sdk_lex_models_v2.types.id.Id"]
-    """<p>An identifier for a unique import job. Use it when you call the <a href=\"https://docs.aws.amazon.com/lexv2/latest/APIReference/API_StartImport.html\">StartImport</a> operation.</p>"""
+    r"""<p>An identifier for a unique import job. Use it when you call the <a href=\"https://docs.aws.amazon.com/lexv2/latest/APIReference/API_StartImport.html\">StartImport</a> operation.</p>"""
     upload_url: NotRequired[
         "aws_sdk_lex_models_v2.types.presigned_s3_url.PresignedS3Url"
     ]

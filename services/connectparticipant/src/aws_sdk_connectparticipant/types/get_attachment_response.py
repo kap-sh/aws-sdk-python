@@ -16,7 +16,7 @@ class GetAttachmentResponse(TypedDict):
     url: NotRequired[
         "aws_sdk_connectparticipant.types.pre_signed_attachment_url.PreSignedAttachmentUrl"
     ]
-    """<p>This is the pre-signed URL that can be used for uploading the file to Amazon S3 when used in response to <a href=\"https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_StartAttachmentUpload.html\">StartAttachmentUpload</a>.</p>"""
+    r"""<p>This is the pre-signed URL that can be used for uploading the file to Amazon S3 when used in response to <a href=\"https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_StartAttachmentUpload.html\">StartAttachmentUpload</a>.</p>"""
     url_expiry: NotRequired[
         "aws_sdk_connectparticipant.types.iso8601_datetime.ISO8601Datetime"
     ]

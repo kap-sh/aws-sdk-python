@@ -14,11 +14,11 @@ class GetPreferencesResponse(TypedDict):
     savings_estimation_mode: NotRequired[
         "aws_sdk_cost_optimization_hub.types.savings_estimation_mode.SavingsEstimationMode"
     ]
-    """<p>Retrieves the status of the \"savings estimation mode\" preference.</p>"""
+    r"""<p>Retrieves the status of the \"savings estimation mode\" preference.</p>"""
     member_account_discount_visibility: NotRequired[
         "aws_sdk_cost_optimization_hub.types.member_account_discount_visibility.MemberAccountDiscountVisibility"
     ]
-    """<p>Retrieves the status of the \"member account discount visibility\" preference.</p>"""
+    r"""<p>Retrieves the status of the \"member account discount visibility\" preference.</p>"""
     preferred_commitment: NotRequired[
         "aws_sdk_cost_optimization_hub.types.preferred_commitment.PreferredCommitment"
     ]

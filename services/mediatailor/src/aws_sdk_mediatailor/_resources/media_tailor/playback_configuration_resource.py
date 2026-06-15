@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_mediatailor._auth._signers
@@ -103,7 +105,7 @@ class PlaybackConfigurationResource:
             "aws_sdk_mediatailor.types.function_mapping.FunctionMapping"
         ] = None,
     ) -> "aws_sdk_mediatailor.types.put_playback_configuration_response.PutPlaybackConfigurationResponse":
-        """<p>Creates a playback configuration. For information about MediaTailor configurations, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/configurations.html\">Working with configurations in AWS Elemental MediaTailor</a>.</p>
+        r"""<p>Creates a playback configuration. For information about MediaTailor configurations, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/configurations.html\">Working with configurations in AWS Elemental MediaTailor</a>.</p>
 
         Args:
             ad_decision_server_url: <p>The URL for the ad decision server (ADS). This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing you can provide a static VAST URL. The maximum length is 25,000 characters.</p>
@@ -195,7 +197,7 @@ class PlaybackConfigurationResource:
         *,
         config_overrides: Optional[MediaTailorClientConfig] = None,
     ) -> "aws_sdk_mediatailor.types.get_playback_configuration_response.GetPlaybackConfigurationResponse":
-        """<p>Retrieves a playback configuration. For information about MediaTailor configurations, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/configurations.html\">Working with configurations in AWS Elemental MediaTailor</a>.</p>
+        r"""<p>Retrieves a playback configuration. For information about MediaTailor configurations, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/configurations.html\">Working with configurations in AWS Elemental MediaTailor</a>.</p>
 
         Args:
             name: <p>The identifier for the playback configuration.</p>
@@ -232,7 +234,7 @@ class PlaybackConfigurationResource:
         *,
         config_overrides: Optional[MediaTailorClientConfig] = None,
     ) -> "aws_sdk_mediatailor.types.delete_playback_configuration_response.DeletePlaybackConfigurationResponse":
-        """<p>Deletes a playback configuration. For information about MediaTailor configurations, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/configurations.html\">Working with configurations in AWS Elemental MediaTailor</a>.</p>
+        r"""<p>Deletes a playback configuration. For information about MediaTailor configurations, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/configurations.html\">Working with configurations in AWS Elemental MediaTailor</a>.</p>
 
         Args:
             name: <p>The name of the playback configuration.</p>
@@ -272,7 +274,7 @@ class PlaybackConfigurationResource:
         ] = None,
         next_token: Optional["aws_sdk_mediatailor.types.__string.__string"] = None,
     ) -> "aws_sdk_mediatailor.types.list_playback_configurations_response.ListPlaybackConfigurationsResponse":
-        """<p>Retrieves existing playback configurations. For information about MediaTailor configurations, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/configurations.html\">Working with Configurations in AWS Elemental MediaTailor</a>.</p>
+        r"""<p>Retrieves existing playback configurations. For information about MediaTailor configurations, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/configurations.html\">Working with Configurations in AWS Elemental MediaTailor</a>.</p>
 
         Args:
             max_results: <p>The maximum number of playback configurations that you want MediaTailor to return in response to the current request. If there are more than <code>MaxResults</code> playback configurations, use the value of <code>NextToken</code> in the response to get the next page of results.</p> <p>The default value is 100. MediaTailor uses DynamoDB-based pagination, which means that a response might contain fewer than <code>MaxResults</code> items, including 0 items, even when more results are available. To retrieve all results, you must continue making requests using the <code>NextToken</code> value from each response until the response no longer includes a <code>NextToken</code> value.</p>
@@ -365,7 +367,7 @@ class AsyncPlaybackConfigurationResource:
             "aws_sdk_mediatailor.types.function_mapping.FunctionMapping"
         ] = None,
     ) -> "aws_sdk_mediatailor.types.put_playback_configuration_response.PutPlaybackConfigurationResponse":
-        """<p>Creates a playback configuration. For information about MediaTailor configurations, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/configurations.html\">Working with configurations in AWS Elemental MediaTailor</a>.</p>
+        r"""<p>Creates a playback configuration. For information about MediaTailor configurations, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/configurations.html\">Working with configurations in AWS Elemental MediaTailor</a>.</p>
 
         Args:
             ad_decision_server_url: <p>The URL for the ad decision server (ADS). This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing you can provide a static VAST URL. The maximum length is 25,000 characters.</p>
@@ -458,7 +460,7 @@ class AsyncPlaybackConfigurationResource:
         *,
         config_overrides: Optional[AsyncMediaTailorClientConfig] = None,
     ) -> "aws_sdk_mediatailor.types.get_playback_configuration_response.GetPlaybackConfigurationResponse":
-        """<p>Retrieves a playback configuration. For information about MediaTailor configurations, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/configurations.html\">Working with configurations in AWS Elemental MediaTailor</a>.</p>
+        r"""<p>Retrieves a playback configuration. For information about MediaTailor configurations, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/configurations.html\">Working with configurations in AWS Elemental MediaTailor</a>.</p>
 
         Args:
             name: <p>The identifier for the playback configuration.</p>
@@ -496,7 +498,7 @@ class AsyncPlaybackConfigurationResource:
         *,
         config_overrides: Optional[AsyncMediaTailorClientConfig] = None,
     ) -> "aws_sdk_mediatailor.types.delete_playback_configuration_response.DeletePlaybackConfigurationResponse":
-        """<p>Deletes a playback configuration. For information about MediaTailor configurations, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/configurations.html\">Working with configurations in AWS Elemental MediaTailor</a>.</p>
+        r"""<p>Deletes a playback configuration. For information about MediaTailor configurations, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/configurations.html\">Working with configurations in AWS Elemental MediaTailor</a>.</p>
 
         Args:
             name: <p>The name of the playback configuration.</p>
@@ -537,7 +539,7 @@ class AsyncPlaybackConfigurationResource:
         ] = None,
         next_token: Optional["aws_sdk_mediatailor.types.__string.__string"] = None,
     ) -> "aws_sdk_mediatailor.types.list_playback_configurations_response.ListPlaybackConfigurationsResponse":
-        """<p>Retrieves existing playback configurations. For information about MediaTailor configurations, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/configurations.html\">Working with Configurations in AWS Elemental MediaTailor</a>.</p>
+        r"""<p>Retrieves existing playback configurations. For information about MediaTailor configurations, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/configurations.html\">Working with Configurations in AWS Elemental MediaTailor</a>.</p>
 
         Args:
             max_results: <p>The maximum number of playback configurations that you want MediaTailor to return in response to the current request. If there are more than <code>MaxResults</code> playback configurations, use the value of <code>NextToken</code> in the response to get the next page of results.</p> <p>The default value is 100. MediaTailor uses DynamoDB-based pagination, which means that a response might contain fewer than <code>MaxResults</code> items, including 0 items, even when more results are available. To retrieve all results, you must continue making requests using the <code>NextToken</code> value from each response until the response no longer includes a <code>NextToken</code> value.</p>

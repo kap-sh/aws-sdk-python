@@ -1,13 +1,16 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#ContentDeltaEvent``."""
 
 from typing import TypedDict
+
 from typing_extensions import NotRequired
+
 
 class ContentDeltaEvent(TypedDict):
     stdout: NotRequired["str"]
     """<p>The standard output content from the command execution. This field contains the incremental output written to stdout by the executing command.</p>"""
     stderr: NotRequired["str"]
     """<p>The standard error content from the command execution. This field contains the incremental output written to stderr by the executing command.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: ContentDeltaEvent) -> dict:

@@ -18,9 +18,9 @@ class TaskExecutionListEntry(TypedDict):
     status: NotRequired[
         "aws_sdk_datasync.types.task_execution_status.TaskExecutionStatus"
     ]
-    """<p>The status of a task execution. For more information, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/run-task.html#understand-task-execution-statuses\">Task execution statuses</a>.</p>"""
+    r"""<p>The status of a task execution. For more information, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/run-task.html#understand-task-execution-statuses\">Task execution statuses</a>.</p>"""
     task_mode: NotRequired["aws_sdk_datasync.types.task_mode.TaskMode"]
-    """<p>The task mode that you're using. For more information, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/choosing-task-mode.html\">Choosing a task mode for your data transfer</a>.</p>"""
+    r"""<p>The task mode that you're using. For more information, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/choosing-task-mode.html\">Choosing a task mode for your data transfer</a>.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

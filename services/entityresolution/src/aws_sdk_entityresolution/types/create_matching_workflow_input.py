@@ -36,7 +36,7 @@ class CreateMatchingWorkflowInput(TypedDict):
     incremental_run_config: NotRequired[
         "aws_sdk_entityresolution.types.incremental_run_config.IncrementalRunConfig"
     ]
-    """<p>Optional. An object that defines the incremental run type. This object contains only the <code>incrementalRunType</code> field, which appears as \"Automatic\" in the console. </p> <important> <p>For workflows where <code>resolutionType</code> is <code>ML_MATCHING</code> or <code>PROVIDER</code>, incremental processing is not supported. </p> </important>"""
+    r"""<p>Optional. An object that defines the incremental run type. This object contains only the <code>incrementalRunType</code> field, which appears as \"Automatic\" in the console. </p> <important> <p>For workflows where <code>resolutionType</code> is <code>ML_MATCHING</code> or <code>PROVIDER</code>, incremental processing is not supported. </p> </important>"""
     role_arn: "str"
     """<p>The Amazon Resource Name (ARN) of the IAM role. Entity Resolution assumes this role to create resources on your behalf as part of workflow execution.</p>"""
     tags: NotRequired["aws_sdk_entityresolution.types.tag_map.TagMap"]

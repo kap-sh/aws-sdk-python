@@ -34,7 +34,7 @@ class ConfigurationSetInformation(TypedDict):
     default_message_feedback_enabled: NotRequired["bool"]
     """<p>True if message feedback is enabled.</p>"""
     created_timestamp: "datetime.datetime"
-    """<p>The time when the ConfigurationSet was created, in <a href=\"https://www.epochconverter.com/\">UNIX epoch time</a> format.</p>"""
+    r"""<p>The time when the ConfigurationSet was created, in <a href=\"https://www.epochconverter.com/\">UNIX epoch time</a> format.</p>"""
     protect_configuration_id: NotRequired[
         "aws_sdk_pinpoint_sms_voice_v2.types.protect_configuration_id_or_arn.ProtectConfigurationIdOrArn"
     ]

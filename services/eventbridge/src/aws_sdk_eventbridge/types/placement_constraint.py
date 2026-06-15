@@ -17,7 +17,7 @@ class PlacementConstraint(TypedDict):
     expression: NotRequired[
         "aws_sdk_eventbridge.types.placement_constraint_expression.PlacementConstraintExpression"
     ]
-    """<p>A cluster query language expression to apply to the constraint. You cannot specify an expression if the constraint type is <code>distinctInstance</code>. To learn more, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html\">Cluster Query Language</a> in the Amazon Elastic Container Service Developer Guide. </p>"""
+    r"""<p>A cluster query language expression to apply to the constraint. You cannot specify an expression if the constraint type is <code>distinctInstance</code>. To learn more, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html\">Cluster Query Language</a> in the Amazon Elastic Container Service Developer Guide. </p>"""
 
 
 # --- awsJson1_1 ser/de ---

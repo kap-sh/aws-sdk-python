@@ -14,13 +14,13 @@ if TYPE_CHECKING:
 
 class DeleteDetectorRequest(TypedDict):
     message_id: "aws_sdk_iot_events_data.types.message_id.MessageId"
-    """<p>The ID to assign to the <code>DeleteDetectorRequest</code>. Each <code>\"messageId\"</code> must be unique within each batch sent.</p>"""
+    r"""<p>The ID to assign to the <code>DeleteDetectorRequest</code>. Each <code>\"messageId\"</code> must be unique within each batch sent.</p>"""
     detector_model_name: (
         "aws_sdk_iot_events_data.types.detector_model_name.DetectorModelName"
     )
     """<p>The name of the detector model that was used to create the detector instance.</p>"""
     key_value: NotRequired["aws_sdk_iot_events_data.types.key_value.KeyValue"]
-    """<p>The value of the <a href=\"https://docs.aws.amazon.com/iotevents/latest/apireference/API_CreateDetectorModel.html#iotevents-CreateDetectorModel-request-key\">key</a> used to identify the detector. </p>"""
+    r"""<p>The value of the <a href=\"https://docs.aws.amazon.com/iotevents/latest/apireference/API_CreateDetectorModel.html#iotevents-CreateDetectorModel-request-key\">key</a> used to identify the detector. </p>"""
 
 
 # --- restJson1 ser/de ---

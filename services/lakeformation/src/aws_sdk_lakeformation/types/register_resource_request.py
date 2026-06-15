@@ -20,7 +20,7 @@ class RegisterResourceRequest(TypedDict):
     use_service_linked_role: NotRequired[
         "aws_sdk_lakeformation.types.nullable_boolean.NullableBoolean"
     ]
-    """<p>Designates an Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog. A service-linked role is a unique type of IAM role that is linked directly to Lake Formation.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/lake-formation/latest/dg/service-linked-roles.html\">Using Service-Linked Roles for Lake Formation</a>.</p>"""
+    r"""<p>Designates an Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog. A service-linked role is a unique type of IAM role that is linked directly to Lake Formation.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/lake-formation/latest/dg/service-linked-roles.html\">Using Service-Linked Roles for Lake Formation</a>.</p>"""
     role_arn: NotRequired["aws_sdk_lakeformation.types.iam_role_arn.IAMRoleArn"]
     """<p>The identifier for the role that registers the resource.</p>"""
     with_federation: NotRequired[

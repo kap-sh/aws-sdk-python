@@ -787,7 +787,7 @@ class AsyncSsmSapClient:
         next_token: Optional["aws_sdk_ssm_sap.types.next_token.NextToken"] = None,
         filters: Optional["aws_sdk_ssm_sap.types.filter_list.FilterList"] = None,
     ) -> "aws_sdk_ssm_sap.types.list_configuration_check_operations_output.ListConfigurationCheckOperationsOutput":
-        """<p>Lists the configuration check operations performed by AWS Systems Manager for SAP.</p>
+        r"""<p>Lists the configuration check operations performed by AWS Systems Manager for SAP.</p>
 
         Args:
             application_id: <p>The ID of the application.</p>

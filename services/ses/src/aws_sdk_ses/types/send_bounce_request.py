@@ -20,7 +20,7 @@ class SendBounceRequest(TypedDict):
     original_message_id: "aws_sdk_ses.types.message_id.MessageId"
     """<p>The message ID of the message to be bounced.</p>"""
     bounce_sender: "aws_sdk_ses.types.address.Address"
-    """<p>The address to use in the \"From\" header of the bounce message. This must be an identity that you have verified with Amazon SES.</p>"""
+    r"""<p>The address to use in the \"From\" header of the bounce message. This must be an identity that you have verified with Amazon SES.</p>"""
     explanation: NotRequired["aws_sdk_ses.types.explanation.Explanation"]
     """<p>Human-readable text for the bounce message to explain the failure. If not specified, the text is auto-generated based on the bounced recipient information.</p>"""
     message_dsn: NotRequired["aws_sdk_ses.types.message_dsn.MessageDsn"]
@@ -32,7 +32,7 @@ class SendBounceRequest(TypedDict):
     bounce_sender_arn: NotRequired[
         "aws_sdk_ses.types.amazon_resource_name.AmazonResourceName"
     ]
-    """<p>This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to use the address in the \"From\" header of the bounce. For more information about sending authorization, see the <a href=\"https://docs.aws.amazon.com/ses/latest/dg/sending-authorization.html\">Amazon SES Developer Guide</a>.</p>"""
+    r"""<p>This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to use the address in the \"From\" header of the bounce. For more information about sending authorization, see the <a href=\"https://docs.aws.amazon.com/ses/latest/dg/sending-authorization.html\">Amazon SES Developer Guide</a>.</p>"""
 
 
 # --- awsQuery ser/de ---

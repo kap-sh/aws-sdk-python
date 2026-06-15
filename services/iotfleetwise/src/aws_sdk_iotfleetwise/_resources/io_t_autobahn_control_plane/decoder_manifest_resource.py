@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 from aws_sdk_iotfleetwise._services._pipeline import (
@@ -77,7 +79,7 @@ class DecoderManifestResource:
         ] = None,
         tags: Optional["aws_sdk_iotfleetwise.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_iotfleetwise.types.create_decoder_manifest_response.CreateDecoderManifestResponse":
-        """<p>Creates the decoder manifest associated with a model manifest. To create a decoder manifest, the following must be true:</p> <ul> <li> <p>Every signal decoder has a unique name.</p> </li> <li> <p>Each signal decoder is associated with a network interface.</p> </li> <li> <p>Each network interface has a unique ID.</p> </li> <li> <p>The signal decoders are specified in the model manifest.</p> </li> </ul>
+        r"""<p>Creates the decoder manifest associated with a model manifest. To create a decoder manifest, the following must be true:</p> <ul> <li> <p>Every signal decoder has a unique name.</p> </li> <li> <p>Each signal decoder is associated with a network interface.</p> </li> <li> <p>Each network interface has a unique ID.</p> </li> <li> <p>The signal decoders are specified in the model manifest.</p> </li> </ul>
 
         Args:
             name: <p> The unique name of the decoder manifest to create.</p>
@@ -195,7 +197,7 @@ class DecoderManifestResource:
             "aws_sdk_iotfleetwise.types.default_for_unmapped_signals_type.DefaultForUnmappedSignalsType"
         ] = None,
     ) -> "aws_sdk_iotfleetwise.types.update_decoder_manifest_response.UpdateDecoderManifestResponse":
-        """<p> Updates a decoder manifest.</p> <p>A decoder manifest can only be updated when the status is <code>DRAFT</code>. Only <code>ACTIVE</code> decoder manifests can be associated with vehicles.</p>
+        r"""<p> Updates a decoder manifest.</p> <p>A decoder manifest can only be updated when the status is <code>DRAFT</code>. Only <code>ACTIVE</code> decoder manifests can be associated with vehicles.</p>
 
         Args:
             name: <p> The name of the decoder manifest to update.</p>
@@ -503,7 +505,7 @@ class AsyncDecoderManifestResource:
         ] = None,
         tags: Optional["aws_sdk_iotfleetwise.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_iotfleetwise.types.create_decoder_manifest_response.CreateDecoderManifestResponse":
-        """<p>Creates the decoder manifest associated with a model manifest. To create a decoder manifest, the following must be true:</p> <ul> <li> <p>Every signal decoder has a unique name.</p> </li> <li> <p>Each signal decoder is associated with a network interface.</p> </li> <li> <p>Each network interface has a unique ID.</p> </li> <li> <p>The signal decoders are specified in the model manifest.</p> </li> </ul>
+        r"""<p>Creates the decoder manifest associated with a model manifest. To create a decoder manifest, the following must be true:</p> <ul> <li> <p>Every signal decoder has a unique name.</p> </li> <li> <p>Each signal decoder is associated with a network interface.</p> </li> <li> <p>Each network interface has a unique ID.</p> </li> <li> <p>The signal decoders are specified in the model manifest.</p> </li> </ul>
 
         Args:
             name: <p> The unique name of the decoder manifest to create.</p>
@@ -623,7 +625,7 @@ class AsyncDecoderManifestResource:
             "aws_sdk_iotfleetwise.types.default_for_unmapped_signals_type.DefaultForUnmappedSignalsType"
         ] = None,
     ) -> "aws_sdk_iotfleetwise.types.update_decoder_manifest_response.UpdateDecoderManifestResponse":
-        """<p> Updates a decoder manifest.</p> <p>A decoder manifest can only be updated when the status is <code>DRAFT</code>. Only <code>ACTIVE</code> decoder manifests can be associated with vehicles.</p>
+        r"""<p> Updates a decoder manifest.</p> <p>A decoder manifest can only be updated when the status is <code>DRAFT</code>. Only <code>ACTIVE</code> decoder manifests can be associated with vehicles.</p>
 
         Args:
             name: <p> The name of the decoder manifest to update.</p>

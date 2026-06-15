@@ -18,7 +18,7 @@ class RDFGraphSummaryValueMap(TypedDict):
     graph_summary: NotRequired[
         "aws_sdk_neptunedata.types.rdf_graph_summary.RDFGraphSummary"
     ]
-    """<p>The graph summary of an RDF graph. See <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/neptune-graph-summary.html#neptune-graph-summary-rdf-response\">Graph summary response for an RDF graph</a>.</p>"""
+    r"""<p>The graph summary of an RDF graph. See <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/neptune-graph-summary.html#neptune-graph-summary-rdf-response\">Graph summary response for an RDF graph</a>.</p>"""
 
 
 # --- restJson1 ser/de ---

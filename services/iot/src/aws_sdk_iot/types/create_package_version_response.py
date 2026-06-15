@@ -30,7 +30,7 @@ class CreatePackageVersionResponse(TypedDict):
     attributes: NotRequired["aws_sdk_iot.types.resource_attributes.ResourceAttributes"]
     """<p>Metadata that were added to the package version that can be used to define a package version’s configuration.</p>"""
     status: NotRequired["aws_sdk_iot.types.package_version_status.PackageVersionStatus"]
-    """<p>The status of the package version. For more information, see <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle\">Package version lifecycle</a>.</p>"""
+    r"""<p>The status of the package version. For more information, see <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle\">Package version lifecycle</a>.</p>"""
     error_reason: NotRequired[
         "aws_sdk_iot.types.package_version_error_reason.PackageVersionErrorReason"
     ]

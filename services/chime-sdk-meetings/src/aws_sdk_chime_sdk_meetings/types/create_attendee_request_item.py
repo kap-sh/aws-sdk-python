@@ -13,7 +13,7 @@ if TYPE_CHECKING:
 
 class CreateAttendeeRequestItem(TypedDict):
     external_user_id: "aws_sdk_chime_sdk_meetings.types.external_user_id.ExternalUserId"
-    """<p>The Amazon Chime SDK external user ID. An idempotency token. Links the attendee to an identity managed by a builder application.</p> <p>Pattern: <code>[-_&@+=,(){}\[\]\/«».:|'\"#a-zA-Z0-9À-ÿ\s]*</code> </p> <p>Values that begin with <code>aws:</code> are reserved. You can't configure a value that uses this prefix. Case insensitive.</p>"""
+    r"""<p>The Amazon Chime SDK external user ID. An idempotency token. Links the attendee to an identity managed by a builder application.</p> <p>Pattern: <code>[-_&@+=,(){}\[\]\/«».:|'\"#a-zA-Z0-9À-ÿ\s]*</code> </p> <p>Values that begin with <code>aws:</code> are reserved. You can't configure a value that uses this prefix. Case insensitive.</p>"""
     capabilities: NotRequired[
         "aws_sdk_chime_sdk_meetings.types.attendee_capabilities.AttendeeCapabilities"
     ]

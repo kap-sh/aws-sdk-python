@@ -68,7 +68,7 @@ class ReleasePhoneNumberResult(TypedDict):
     registration_id: NotRequired["str"]
     """<p>The unique identifier for the registration.</p>"""
     created_timestamp: NotRequired["datetime.datetime"]
-    """<p>The time when the phone number was created, in <a href=\"https://www.epochconverter.com/\">UNIX epoch time</a> format.</p>"""
+    r"""<p>The time when the phone number was created, in <a href=\"https://www.epochconverter.com/\">UNIX epoch time</a> format.</p>"""
 
 
 # --- awsJson1_0 ser/de ---

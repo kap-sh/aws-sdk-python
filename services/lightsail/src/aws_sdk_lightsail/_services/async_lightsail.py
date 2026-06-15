@@ -622,7 +622,7 @@ class AsyncLightsailClient:
         config_overrides: Optional[AsyncLightsailClientConfig] = None,
         auto_mounting: Optional["aws_sdk_lightsail.types.boolean.boolean"] = None,
     ) -> "aws_sdk_lightsail.types.attach_disk_result.AttachDiskResult":
-        """<p>Attaches a block storage disk to a running or stopped Lightsail instance and exposes it to the instance with the specified disk name.</p> <p>The <code>attach disk</code> operation supports tag-based access control via resource tags applied to the resource identified by <code>disk name</code>. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
+        r"""<p>Attaches a block storage disk to a running or stopped Lightsail instance and exposes it to the instance with the specified disk name.</p> <p>The <code>attach disk</code> operation supports tag-based access control via resource tags applied to the resource identified by <code>disk name</code>. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
 
         Args:
             disk_name: <p>The unique Lightsail disk name (<code>my-disk</code>).</p>
@@ -668,7 +668,7 @@ class AsyncLightsailClient:
         *,
         config_overrides: Optional[AsyncLightsailClientConfig] = None,
     ) -> "aws_sdk_lightsail.types.attach_instances_to_load_balancer_result.AttachInstancesToLoadBalancerResult":
-        """<p>Attaches one or more Lightsail instances to a load balancer.</p> <p>After some time, the instances are attached to the load balancer and the health check status is available.</p> <p>The <code>attach instances to load balancer</code> operation supports tag-based access control via resource tags applied to the resource identified by <code>load balancer name</code>. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Lightsail Developer Guide</a>.</p>
+        r"""<p>Attaches one or more Lightsail instances to a load balancer.</p> <p>After some time, the instances are attached to the load balancer and the health check status is available.</p> <p>The <code>attach instances to load balancer</code> operation supports tag-based access control via resource tags applied to the resource identified by <code>load balancer name</code>. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Lightsail Developer Guide</a>.</p>
 
         Args:
             load_balancer_name: <p>The name of the load balancer.</p>
@@ -709,7 +709,7 @@ class AsyncLightsailClient:
         *,
         config_overrides: Optional[AsyncLightsailClientConfig] = None,
     ) -> "aws_sdk_lightsail.types.attach_load_balancer_tls_certificate_result.AttachLoadBalancerTlsCertificateResult":
-        """<p>Attaches a Transport Layer Security (TLS) certificate to your load balancer. TLS is just an updated, more secure version of Secure Socket Layer (SSL).</p> <p>Once you create and validate your certificate, you can attach it to your load balancer. You can also use this API to rotate the certificates on your account. Use the <code>AttachLoadBalancerTlsCertificate</code> action with the non-attached certificate, and it will replace the existing one and become the attached certificate.</p> <p>The <code>AttachLoadBalancerTlsCertificate</code> operation supports tag-based access control via resource tags applied to the resource identified by <code>load balancer name</code>. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
+        r"""<p>Attaches a Transport Layer Security (TLS) certificate to your load balancer. TLS is just an updated, more secure version of Secure Socket Layer (SSL).</p> <p>Once you create and validate your certificate, you can attach it to your load balancer. You can also use this API to rotate the certificates on your account. Use the <code>AttachLoadBalancerTlsCertificate</code> action with the non-attached certificate, and it will replace the existing one and become the attached certificate.</p> <p>The <code>AttachLoadBalancerTlsCertificate</code> operation supports tag-based access control via resource tags applied to the resource identified by <code>load balancer name</code>. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
 
         Args:
             load_balancer_name: <p>The name of the load balancer to which you want to associate the SSL/TLS certificate.</p>
@@ -791,7 +791,7 @@ class AsyncLightsailClient:
         *,
         config_overrides: Optional[AsyncLightsailClientConfig] = None,
     ) -> "aws_sdk_lightsail.types.close_instance_public_ports_result.CloseInstancePublicPortsResult":
-        """<p>Closes ports for a specific Amazon Lightsail instance.</p> <p>The <code>CloseInstancePublicPorts</code> action supports tag-based access control via resource tags applied to the resource identified by <code>instanceName</code>. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
+        r"""<p>Closes ports for a specific Amazon Lightsail instance.</p> <p>The <code>CloseInstancePublicPorts</code> action supports tag-based access control via resource tags applied to the resource identified by <code>instanceName</code>. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
 
         Args:
             port_info: <p>An object to describe the ports to close for the specified instance.</p>
@@ -840,7 +840,7 @@ class AsyncLightsailClient:
             "aws_sdk_lightsail.types.boolean.boolean"
         ] = None,
     ) -> "aws_sdk_lightsail.types.copy_snapshot_result.CopySnapshotResult":
-        """<p>Copies a manual snapshot of an instance or disk as another manual snapshot, or copies an automatic snapshot of an instance or disk as a manual snapshot. This operation can also be used to copy a manual or automatic snapshot of an instance or a disk from one Amazon Web Services Region to another in Amazon Lightsail.</p> <p>When copying a <i>manual snapshot</i>, be sure to define the <code>source region</code>, <code>source snapshot name</code>, and <code>target snapshot name</code> parameters.</p> <p>When copying an <i>automatic snapshot</i>, be sure to define the <code>source region</code>, <code>source resource name</code>, <code>target snapshot name</code>, and either the <code>restore date</code> or the <code>use latest restorable auto snapshot</code> parameters.</p>
+        r"""<p>Copies a manual snapshot of an instance or disk as another manual snapshot, or copies an automatic snapshot of an instance or disk as a manual snapshot. This operation can also be used to copy a manual or automatic snapshot of an instance or a disk from one Amazon Web Services Region to another in Amazon Lightsail.</p> <p>When copying a <i>manual snapshot</i>, be sure to define the <code>source region</code>, <code>source snapshot name</code>, and <code>target snapshot name</code> parameters.</p> <p>When copying an <i>automatic snapshot</i>, be sure to define the <code>source region</code>, <code>source resource name</code>, <code>target snapshot name</code>, and either the <code>restore date</code> or the <code>use latest restorable auto snapshot</code> parameters.</p>
 
         Args:
             source_snapshot_name: <p>The name of the source manual snapshot to copy.</p> <p>Constraint:</p> <ul> <li> <p>Define this parameter only when copying a manual snapshot as another manual snapshot.</p> </li> </ul>
@@ -899,7 +899,7 @@ class AsyncLightsailClient:
             "aws_sdk_lightsail.types.boolean.boolean"
         ] = None,
     ) -> "aws_sdk_lightsail.types.create_bucket_result.CreateBucketResult":
-        """<p>Creates an Amazon Lightsail bucket.</p> <p>A bucket is a cloud storage resource available in the Lightsail object storage service. Use buckets to store objects such as data and its descriptive metadata. For more information about buckets, see <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/buckets-in-amazon-lightsail\">Buckets in Amazon Lightsail</a> in the <i>Amazon Lightsail Developer Guide</i>.</p>
+        r"""<p>Creates an Amazon Lightsail bucket.</p> <p>A bucket is a cloud storage resource available in the Lightsail object storage service. Use buckets to store objects such as data and its descriptive metadata. For more information about buckets, see <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/buckets-in-amazon-lightsail\">Buckets in Amazon Lightsail</a> in the <i>Amazon Lightsail Developer Guide</i>.</p>
 
         Args:
             bucket_name: <p>The name for the bucket.</p> <p>For more information about bucket names, see <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/bucket-naming-rules-in-amazon-lightsail\">Bucket naming rules in Amazon Lightsail</a> in the <i>Amazon Lightsail Developer Guide</i>.</p>
@@ -945,7 +945,7 @@ class AsyncLightsailClient:
         *,
         config_overrides: Optional[AsyncLightsailClientConfig] = None,
     ) -> "aws_sdk_lightsail.types.create_bucket_access_key_result.CreateBucketAccessKeyResult":
-        """<p>Creates a new access key for the specified Amazon Lightsail bucket. Access keys consist of an access key ID and corresponding secret access key.</p> <p>Access keys grant full programmatic access to the specified bucket and its objects. You can have a maximum of two access keys per bucket. Use the <a href=\"https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetBucketAccessKeys.html\">GetBucketAccessKeys</a> action to get a list of current access keys for a specific bucket. For more information about access keys, see <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-creating-bucket-access-keys\">Creating access keys for a bucket in Amazon Lightsail</a> in the <i>Amazon Lightsail Developer Guide</i>.</p> <important> <p>The <code>secretAccessKey</code> value is returned only in response to the <code>CreateBucketAccessKey</code> action. You can get a secret access key only when you first create an access key; you cannot get the secret access key later. If you lose the secret access key, you must create a new access key.</p> </important>
+        r"""<p>Creates a new access key for the specified Amazon Lightsail bucket. Access keys consist of an access key ID and corresponding secret access key.</p> <p>Access keys grant full programmatic access to the specified bucket and its objects. You can have a maximum of two access keys per bucket. Use the <a href=\"https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetBucketAccessKeys.html\">GetBucketAccessKeys</a> action to get a list of current access keys for a specific bucket. For more information about access keys, see <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-creating-bucket-access-keys\">Creating access keys for a bucket in Amazon Lightsail</a> in the <i>Amazon Lightsail Developer Guide</i>.</p> <important> <p>The <code>secretAccessKey</code> value is returned only in response to the <code>CreateBucketAccessKey</code> action. You can get a secret access key only when you first create an access key; you cannot get the secret access key later. If you lose the secret access key, you must create a new access key.</p> </important>
 
         Args:
             bucket_name: <p>The name of the bucket that the new access key will belong to, and grant access to.</p>
@@ -1076,7 +1076,7 @@ class AsyncLightsailClient:
     ) -> (
         "aws_sdk_lightsail.types.create_contact_method_result.CreateContactMethodResult"
     ):
-        """<p>Creates an email or SMS text message contact method.</p> <p>A contact method is used to send you notifications about your Amazon Lightsail resources. You can add one email address and one mobile phone number contact method in each Amazon Web Services Region. However, SMS text messaging is not supported in some Amazon Web Services Regions, and SMS text messages cannot be sent to some countries/regions. For more information, see <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-notifications\">Notifications in Amazon Lightsail</a>.</p> <p>The <code>create contact method</code> operation supports tag-based access control via request tags. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Lightsail Developer Guide</a>.</p>
+        r"""<p>Creates an email or SMS text message contact method.</p> <p>A contact method is used to send you notifications about your Amazon Lightsail resources. You can add one email address and one mobile phone number contact method in each Amazon Web Services Region. However, SMS text messaging is not supported in some Amazon Web Services Regions, and SMS text messages cannot be sent to some countries/regions. For more information, see <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-notifications\">Notifications in Amazon Lightsail</a>.</p> <p>The <code>create contact method</code> operation supports tag-based access control via request tags. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Lightsail Developer Guide</a>.</p>
 
         Args:
             protocol: <p>The protocol of the contact method, such as <code>Email</code> or <code>SMS</code> (text messaging).</p> <p>The <code>SMS</code> protocol is supported only in the following Amazon Web Services Regions.</p> <ul> <li> <p>US East (N. Virginia) (<code>us-east-1</code>)</p> </li> <li> <p>US West (Oregon) (<code>us-west-2</code>)</p> </li> <li> <p>Europe (Ireland) (<code>eu-west-1</code>)</p> </li> <li> <p>Asia Pacific (Tokyo) (<code>ap-northeast-1</code>)</p> </li> <li> <p>Asia Pacific (Singapore) (<code>ap-southeast-1</code>)</p> </li> <li> <p>Asia Pacific (Sydney) (<code>ap-southeast-2</code>)</p> </li> </ul> <p>For a list of countries/regions where SMS text messages can be sent, and the latest Amazon Web Services Regions where SMS text messaging is supported, see <a href=\"https://docs.aws.amazon.com/sns/latest/dg/sns-supported-regions-countries.html\">Supported Regions and Countries</a> in the <i>Amazon SNS Developer Guide</i>.</p> <p>For more information about notifications in Amazon Lightsail, see <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-notifications\">Notifications in Amazon Lightsail</a>.</p>
@@ -1131,7 +1131,7 @@ class AsyncLightsailClient:
             "aws_sdk_lightsail.types.private_registry_access_request.PrivateRegistryAccessRequest"
         ] = None,
     ) -> "aws_sdk_lightsail.types.create_container_service_result.CreateContainerServiceResult":
-        """<p>Creates an Amazon Lightsail container service.</p> <p>A Lightsail container service is a compute resource to which you can deploy containers. For more information, see <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-container-services\">Container services in Amazon Lightsail</a> in the <i>Lightsail Dev Guide</i>.</p>
+        r"""<p>Creates an Amazon Lightsail container service.</p> <p>A Lightsail container service is a compute resource to which you can deploy containers. For more information, see <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-container-services\">Container services in Amazon Lightsail</a> in the <i>Lightsail Dev Guide</i>.</p>
 
         Args:
             service_name: <p>The name for the container service.</p> <p>The name that you specify for your container service will make up part of its default domain. The default domain of a container service is typically <code>https://<ServiceName>.<RandomGUID>.<AWSRegion>.cs.amazonlightsail.com</code>. If the name of your container service is <code>container-service-1</code>, and it's located in the US East (Ohio) Amazon Web Services Region (<code>us-east-2</code>), then the domain for your container service will be like the following example: <code>https://container-service-1.ur4EXAMPLE2uq.us-east-2.cs.amazonlightsail.com</code> </p> <p>The following are the requirements for container service names:</p> <ul> <li> <p>Must be unique within each Amazon Web Services Region in your Lightsail account.</p> </li> <li> <p>Must contain 1 to 63 characters.</p> </li> <li> <p>Must contain only alphanumeric characters and hyphens.</p> </li> <li> <p>A hyphen (-) can separate words but cannot be at the start or end of the name.</p> </li> </ul>
@@ -1191,7 +1191,7 @@ class AsyncLightsailClient:
             "aws_sdk_lightsail.types.endpoint_request.EndpointRequest"
         ] = None,
     ) -> "aws_sdk_lightsail.types.create_container_service_deployment_result.CreateContainerServiceDeploymentResult":
-        """<p>Creates a deployment for your Amazon Lightsail container service.</p> <p>A deployment specifies the containers that will be launched on the container service and their settings, such as the ports to open, the environment variables to apply, and the launch command to run. It also specifies the container that will serve as the public endpoint of the deployment and its settings, such as the HTTP or HTTPS port to use, and the health check configuration.</p> <p>You can deploy containers to your container service using container images from a public registry such as Amazon ECR Public, or from your local machine. For more information, see <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-creating-container-images\">Creating container images for your Amazon Lightsail container services</a> in the <i>Amazon Lightsail Developer Guide</i>.</p>
+        r"""<p>Creates a deployment for your Amazon Lightsail container service.</p> <p>A deployment specifies the containers that will be launched on the container service and their settings, such as the ports to open, the environment variables to apply, and the launch command to run. It also specifies the container that will serve as the public endpoint of the deployment and its settings, such as the HTTP or HTTPS port to use, and the health check configuration.</p> <p>You can deploy containers to your container service using container images from a public registry such as Amazon ECR Public, or from your local machine. For more information, see <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-creating-container-images\">Creating container images for your Amazon Lightsail container services</a> in the <i>Amazon Lightsail Developer Guide</i>.</p>
 
         Args:
             service_name: <p>The name of the container service for which to create the deployment.</p>
@@ -1232,7 +1232,7 @@ class AsyncLightsailClient:
     async def create_container_service_registry_login(
         self, *, config_overrides: Optional[AsyncLightsailClientConfig] = None
     ) -> "aws_sdk_lightsail.types.create_container_service_registry_login_result.CreateContainerServiceRegistryLoginResult":
-        """<p>Creates a temporary set of log in credentials that you can use to log in to the Docker process on your local machine. After you're logged in, you can use the native Docker commands to push your local container images to the container image registry of your Amazon Lightsail account so that you can use them with your Lightsail container service. The log in credentials expire 12 hours after they are created, at which point you will need to create a new set of log in credentials.</p> <note> <p>You can only push container images to the container service registry of your Lightsail account. You cannot pull container images or perform any other container image management actions on the container service registry.</p> </note> <p>After you push your container images to the container image registry of your Lightsail account, use the <code>RegisterContainerImage</code> action to register the pushed images to a specific Lightsail container service.</p> <note> <p>This action is not required if you install and use the Lightsail Control (lightsailctl) plugin to push container images to your Lightsail container service. For more information, see <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-pushing-container-images\">Pushing and managing container images on your Amazon Lightsail container services</a> in the <i>Amazon Lightsail Developer Guide</i>.</p> </note>"""
+        r"""<p>Creates a temporary set of log in credentials that you can use to log in to the Docker process on your local machine. After you're logged in, you can use the native Docker commands to push your local container images to the container image registry of your Amazon Lightsail account so that you can use them with your Lightsail container service. The log in credentials expire 12 hours after they are created, at which point you will need to create a new set of log in credentials.</p> <note> <p>You can only push container images to the container service registry of your Lightsail account. You cannot pull container images or perform any other container image management actions on the container service registry.</p> </note> <p>After you push your container images to the container image registry of your Lightsail account, use the <code>RegisterContainerImage</code> action to register the pushed images to a specific Lightsail container service.</p> <note> <p>This action is not required if you install and use the Lightsail Control (lightsailctl) plugin to push container images to your Lightsail container service. For more information, see <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-pushing-container-images\">Pushing and managing container images on your Amazon Lightsail container services</a> in the <i>Amazon Lightsail Developer Guide</i>.</p> </note>"""
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_lightsail.types.create_container_service_registry_login_request.CreateContainerServiceRegistryLoginRequest]",
@@ -1271,7 +1271,7 @@ class AsyncLightsailClient:
             "aws_sdk_lightsail.types.add_on_request_list.AddOnRequestList"
         ] = None,
     ) -> "aws_sdk_lightsail.types.create_disk_result.CreateDiskResult":
-        """<p>Creates a block storage disk that can be attached to an Amazon Lightsail instance in the same Availability Zone (<code>us-east-2a</code>).</p> <p>The <code>create disk</code> operation supports tag-based access control via request tags. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
+        r"""<p>Creates a block storage disk that can be attached to an Amazon Lightsail instance in the same Availability Zone (<code>us-east-2a</code>).</p> <p>The <code>create disk</code> operation supports tag-based access control via request tags. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
 
         Args:
             disk_name: <p>The unique Lightsail disk name (<code>my-disk</code>).</p>
@@ -1333,7 +1333,7 @@ class AsyncLightsailClient:
             "aws_sdk_lightsail.types.boolean.boolean"
         ] = None,
     ) -> "aws_sdk_lightsail.types.create_disk_from_snapshot_result.CreateDiskFromSnapshotResult":
-        """<p>Creates a block storage disk from a manual or automatic snapshot of a disk. The resulting disk can be attached to an Amazon Lightsail instance in the same Availability Zone (<code>us-east-2a</code>).</p> <p>The <code>create disk from snapshot</code> operation supports tag-based access control via request tags and resource tags applied to the resource identified by <code>disk snapshot name</code>. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
+        r"""<p>Creates a block storage disk from a manual or automatic snapshot of a disk. The resulting disk can be attached to an Amazon Lightsail instance in the same Availability Zone (<code>us-east-2a</code>).</p> <p>The <code>create disk from snapshot</code> operation supports tag-based access control via request tags and resource tags applied to the resource identified by <code>disk snapshot name</code>. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
 
         Args:
             disk_name: <p>The unique Lightsail disk name (<code>my-disk</code>).</p>
@@ -1402,7 +1402,7 @@ class AsyncLightsailClient:
         ] = None,
         tags: Optional["aws_sdk_lightsail.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_lightsail.types.create_disk_snapshot_result.CreateDiskSnapshotResult":
-        """<p>Creates a snapshot of a block storage disk. You can use snapshots for backups, to make copies of disks, and to save data before shutting down a Lightsail instance.</p> <p>You can take a snapshot of an attached disk that is in use; however, snapshots only capture data that has been written to your disk at the time the snapshot command is issued. This may exclude any data that has been cached by any applications or the operating system. If you can pause any file systems on the disk long enough to take a snapshot, your snapshot should be complete. Nevertheless, if you cannot pause all file writes to the disk, you should unmount the disk from within the Lightsail instance, issue the create disk snapshot command, and then remount the disk to ensure a consistent and complete snapshot. You may remount and use your disk while the snapshot status is pending.</p> <p>You can also use this operation to create a snapshot of an instance's system volume. You might want to do this, for example, to recover data from the system volume of a botched instance or to create a backup of the system volume like you would for a block storage disk. To create a snapshot of a system volume, just define the <code>instance name</code> parameter when issuing the snapshot command, and a snapshot of the defined instance's system volume will be created. After the snapshot is available, you can create a block storage disk from the snapshot and attach it to a running instance to access the data on the disk.</p> <p>The <code>create disk snapshot</code> operation supports tag-based access control via request tags. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
+        r"""<p>Creates a snapshot of a block storage disk. You can use snapshots for backups, to make copies of disks, and to save data before shutting down a Lightsail instance.</p> <p>You can take a snapshot of an attached disk that is in use; however, snapshots only capture data that has been written to your disk at the time the snapshot command is issued. This may exclude any data that has been cached by any applications or the operating system. If you can pause any file systems on the disk long enough to take a snapshot, your snapshot should be complete. Nevertheless, if you cannot pause all file writes to the disk, you should unmount the disk from within the Lightsail instance, issue the create disk snapshot command, and then remount the disk to ensure a consistent and complete snapshot. You may remount and use your disk while the snapshot status is pending.</p> <p>You can also use this operation to create a snapshot of an instance's system volume. You might want to do this, for example, to recover data from the system volume of a botched instance or to create a backup of the system volume like you would for a block storage disk. To create a snapshot of a system volume, just define the <code>instance name</code> parameter when issuing the snapshot command, and a snapshot of the defined instance's system volume will be created. After the snapshot is available, you can create a block storage disk from the snapshot and attach it to a running instance to access the data on the disk.</p> <p>The <code>create disk snapshot</code> operation supports tag-based access control via request tags. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
 
         Args:
             disk_name: <p>The unique name of the source disk (<code>Disk-Virginia-1</code>).</p> <note> <p>This parameter cannot be defined together with the <code>instance name</code> parameter. The <code>disk name</code> and <code>instance name</code> parameters are mutually exclusive.</p> </note>
@@ -1468,7 +1468,7 @@ class AsyncLightsailClient:
             "aws_sdk_lightsail.types.viewer_minimum_tls_protocol_version_enum.ViewerMinimumTlsProtocolVersionEnum"
         ] = None,
     ) -> "aws_sdk_lightsail.types.create_distribution_result.CreateDistributionResult":
-        """<p>Creates an Amazon Lightsail content delivery network (CDN) distribution.</p> <p>A distribution is a globally distributed network of caching servers that improve the performance of your website or web application hosted on a Lightsail instance. For more information, see <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-content-delivery-network-distributions\">Content delivery networks in Amazon Lightsail</a>.</p>
+        r"""<p>Creates an Amazon Lightsail content delivery network (CDN) distribution.</p> <p>A distribution is a globally distributed network of caching servers that improve the performance of your website or web application hosted on a Lightsail instance. For more information, see <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-content-delivery-network-distributions\">Content delivery networks in Amazon Lightsail</a>.</p>
 
         Args:
             distribution_name: <p>The name for the distribution.</p>
@@ -1533,7 +1533,7 @@ class AsyncLightsailClient:
         config_overrides: Optional[AsyncLightsailClientConfig] = None,
         tags: Optional["aws_sdk_lightsail.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_lightsail.types.create_domain_result.CreateDomainResult":
-        """<p>Creates a domain resource for the specified domain (example.com).</p> <p>The <code>create domain</code> operation supports tag-based access control via request tags. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
+        r"""<p>Creates a domain resource for the specified domain (example.com).</p> <p>The <code>create domain</code> operation supports tag-based access control via request tags. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
 
         Args:
             domain_name: <p>The domain name to manage (<code>example.com</code>).</p>
@@ -1575,7 +1575,7 @@ class AsyncLightsailClient:
         *,
         config_overrides: Optional[AsyncLightsailClientConfig] = None,
     ) -> "aws_sdk_lightsail.types.create_domain_entry_result.CreateDomainEntryResult":
-        """<p>Creates one of the following domain name system (DNS) records in a domain DNS zone: Address (A), canonical name (CNAME), mail exchanger (MX), name server (NS), start of authority (SOA), service locator (SRV), or text (TXT).</p> <p>The <code>create domain entry</code> operation supports tag-based access control via resource tags applied to the resource identified by <code>domain name</code>. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
+        r"""<p>Creates one of the following domain name system (DNS) records in a domain DNS zone: Address (A), canonical name (CNAME), mail exchanger (MX), name server (NS), start of authority (SOA), service locator (SRV), or text (TXT).</p> <p>The <code>create domain entry</code> operation supports tag-based access control via resource tags applied to the resource identified by <code>domain name</code>. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
 
         Args:
             domain_name: <p>The domain name (<code>example.com</code>) for which you want to create the domain entry.</p>
@@ -1670,7 +1670,7 @@ class AsyncLightsailClient:
             "aws_sdk_lightsail.types.ip_address_type.IpAddressType"
         ] = None,
     ) -> "aws_sdk_lightsail.types.create_instances_result.CreateInstancesResult":
-        """<p>Creates one or more Amazon Lightsail instances.</p> <p>The <code>create instances</code> operation supports tag-based access control via request tags. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Lightsail Developer Guide</a>.</p>
+        r"""<p>Creates one or more Amazon Lightsail instances.</p> <p>The <code>create instances</code> operation supports tag-based access control via request tags. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Lightsail Developer Guide</a>.</p>
 
         Args:
             instance_names: <p>The names to use for your new Lightsail instances. Separate multiple values using quotation marks and commas, for example: <code>[\"MyFirstInstance\",\"MySecondInstance\"]</code> </p>
@@ -1756,7 +1756,7 @@ class AsyncLightsailClient:
             "aws_sdk_lightsail.types.boolean.boolean"
         ] = None,
     ) -> "aws_sdk_lightsail.types.create_instances_from_snapshot_result.CreateInstancesFromSnapshotResult":
-        """<p>Creates one or more new instances from a manual or automatic snapshot of an instance.</p> <p>The <code>create instances from snapshot</code> operation supports tag-based access control via request tags and resource tags applied to the resource identified by <code>instance snapshot name</code>. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
+        r"""<p>Creates one or more new instances from a manual or automatic snapshot of an instance.</p> <p>The <code>create instances from snapshot</code> operation supports tag-based access control via request tags and resource tags applied to the resource identified by <code>instance snapshot name</code>. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
 
         Args:
             instance_names: <p>The names for your new instances.</p>
@@ -1832,7 +1832,7 @@ class AsyncLightsailClient:
         config_overrides: Optional[AsyncLightsailClientConfig] = None,
         tags: Optional["aws_sdk_lightsail.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_lightsail.types.create_instance_snapshot_result.CreateInstanceSnapshotResult":
-        """<p>Creates a snapshot of a specific virtual private server, or <i>instance</i>. You can use a snapshot to create a new instance that is based on that snapshot.</p> <p>The <code>create instance snapshot</code> operation supports tag-based access control via request tags. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
+        r"""<p>Creates a snapshot of a specific virtual private server, or <i>instance</i>. You can use a snapshot to create a new instance that is based on that snapshot.</p> <p>The <code>create instance snapshot</code> operation supports tag-based access control via request tags. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
 
         Args:
             instance_snapshot_name: <p>The name for your new snapshot.</p>
@@ -1876,7 +1876,7 @@ class AsyncLightsailClient:
         config_overrides: Optional[AsyncLightsailClientConfig] = None,
         tags: Optional["aws_sdk_lightsail.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_lightsail.types.create_key_pair_result.CreateKeyPairResult":
-        """<p>Creates a custom SSH key pair that you can use with an Amazon Lightsail instance.</p> <note> <p>Use the <a href=\"https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_DownloadDefaultKeyPair.html\">DownloadDefaultKeyPair</a> action to create a Lightsail default key pair in an Amazon Web Services Region where a default key pair does not currently exist.</p> </note> <p>The <code>create key pair</code> operation supports tag-based access control via request tags. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
+        r"""<p>Creates a custom SSH key pair that you can use with an Amazon Lightsail instance.</p> <note> <p>Use the <a href=\"https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_DownloadDefaultKeyPair.html\">DownloadDefaultKeyPair</a> action to create a Lightsail default key pair in an Amazon Web Services Region where a default key pair does not currently exist.</p> </note> <p>The <code>create key pair</code> operation supports tag-based access control via request tags. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
 
         Args:
             key_pair_name: <p>The name for your new key pair.</p>
@@ -1933,7 +1933,7 @@ class AsyncLightsailClient:
         ] = None,
         tls_policy_name: Optional["aws_sdk_lightsail.types.string.string"] = None,
     ) -> "aws_sdk_lightsail.types.create_load_balancer_result.CreateLoadBalancerResult":
-        """<p>Creates a Lightsail load balancer. To learn more about deciding whether to load balance your application, see <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/configure-lightsail-instances-for-load-balancing\">Configure your Lightsail instances for load balancing</a>. You can create up to 10 load balancers per AWS Region in your account.</p> <p>When you create a load balancer, you can specify a unique name and port settings. To change additional load balancer settings, use the <code>UpdateLoadBalancerAttribute</code> operation.</p> <p>The <code>create load balancer</code> operation supports tag-based access control via request tags. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
+        r"""<p>Creates a Lightsail load balancer. To learn more about deciding whether to load balance your application, see <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/configure-lightsail-instances-for-load-balancing\">Configure your Lightsail instances for load balancing</a>. You can create up to 10 load balancers per AWS Region in your account.</p> <p>When you create a load balancer, you can specify a unique name and port settings. To change additional load balancer settings, use the <code>UpdateLoadBalancerAttribute</code> operation.</p> <p>The <code>create load balancer</code> operation supports tag-based access control via request tags. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
 
         Args:
             load_balancer_name: <p>The name of your load balancer.</p>
@@ -2000,7 +2000,7 @@ class AsyncLightsailClient:
         ] = None,
         tags: Optional["aws_sdk_lightsail.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_lightsail.types.create_load_balancer_tls_certificate_result.CreateLoadBalancerTlsCertificateResult":
-        """<p>Creates an SSL/TLS certificate for an Amazon Lightsail load balancer.</p> <p>TLS is just an updated, more secure version of Secure Socket Layer (SSL).</p> <p>The <code>CreateLoadBalancerTlsCertificate</code> operation supports tag-based access control via resource tags applied to the resource identified by <code>load balancer name</code>. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
+        r"""<p>Creates an SSL/TLS certificate for an Amazon Lightsail load balancer.</p> <p>TLS is just an updated, more secure version of Secure Socket Layer (SSL).</p> <p>The <code>CreateLoadBalancerTlsCertificate</code> operation supports tag-based access control via resource tags applied to the resource identified by <code>load balancer name</code>. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
 
         Args:
             load_balancer_name: <p>The load balancer name where you want to create the SSL/TLS certificate.</p>
@@ -2064,7 +2064,7 @@ class AsyncLightsailClient:
         publicly_accessible: Optional["aws_sdk_lightsail.types.boolean.boolean"] = None,
         tags: Optional["aws_sdk_lightsail.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_lightsail.types.create_relational_database_result.CreateRelationalDatabaseResult":
-        """<p>Creates a new database in Amazon Lightsail.</p> <p>The <code>create relational database</code> operation supports tag-based access control via request tags. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
+        r"""<p>Creates a new database in Amazon Lightsail.</p> <p>The <code>create relational database</code> operation supports tag-based access control via request tags. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
 
         Args:
             relational_database_name: <p>The name to use for your new Lightsail database resource.</p> <p>Constraints:</p> <ul> <li> <p>Must contain from 2 to 255 alphanumeric characters, or hyphens.</p> </li> <li> <p>The first and last character must be a letter or number.</p> </li> </ul>
@@ -2144,7 +2144,7 @@ class AsyncLightsailClient:
         ] = None,
         tags: Optional["aws_sdk_lightsail.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_lightsail.types.create_relational_database_from_snapshot_result.CreateRelationalDatabaseFromSnapshotResult":
-        """<p>Creates a new database from an existing database snapshot in Amazon Lightsail.</p> <p>You can create a new database from a snapshot in if something goes wrong with your original database, or to change it to a different plan, such as a high availability or standard plan.</p> <p>The <code>create relational database from snapshot</code> operation supports tag-based access control via request tags and resource tags applied to the resource identified by relationalDatabaseSnapshotName. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
+        r"""<p>Creates a new database from an existing database snapshot in Amazon Lightsail.</p> <p>You can create a new database from a snapshot in if something goes wrong with your original database, or to change it to a different plan, such as a high availability or standard plan.</p> <p>The <code>create relational database from snapshot</code> operation supports tag-based access control via request tags and resource tags applied to the resource identified by relationalDatabaseSnapshotName. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
 
         Args:
             relational_database_name: <p>The name to use for your new Lightsail database resource.</p> <p>Constraints:</p> <ul> <li> <p>Must contain from 2 to 255 alphanumeric characters, or hyphens.</p> </li> <li> <p>The first and last character must be a letter or number.</p> </li> </ul>
@@ -2210,7 +2210,7 @@ class AsyncLightsailClient:
         config_overrides: Optional[AsyncLightsailClientConfig] = None,
         tags: Optional["aws_sdk_lightsail.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_lightsail.types.create_relational_database_snapshot_result.CreateRelationalDatabaseSnapshotResult":
-        """<p>Creates a snapshot of your database in Amazon Lightsail. You can use snapshots for backups, to make copies of a database, and to save data before deleting a database.</p> <p>The <code>create relational database snapshot</code> operation supports tag-based access control via request tags. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
+        r"""<p>Creates a snapshot of your database in Amazon Lightsail. You can use snapshots for backups, to make copies of a database, and to save data before deleting a database.</p> <p>The <code>create relational database snapshot</code> operation supports tag-based access control via request tags. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
 
         Args:
             relational_database_name: <p>The name of the database on which to base your new snapshot.</p>
@@ -2253,7 +2253,7 @@ class AsyncLightsailClient:
         *,
         config_overrides: Optional[AsyncLightsailClientConfig] = None,
     ) -> "aws_sdk_lightsail.types.delete_alarm_result.DeleteAlarmResult":
-        """<p>Deletes an alarm.</p> <p>An alarm is used to monitor a single metric for one of your resources. When a metric condition is met, the alarm can notify you by email, SMS text message, and a banner displayed on the Amazon Lightsail console. For more information, see <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-alarms\">Alarms in Amazon Lightsail</a>.</p>
+        r"""<p>Deletes an alarm.</p> <p>An alarm is used to monitor a single metric for one of your resources. When a metric condition is met, the alarm can notify you by email, SMS text message, and a banner displayed on the Amazon Lightsail console. For more information, see <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-alarms\">Alarms in Amazon Lightsail</a>.</p>
 
         Args:
             alarm_name: <p>The name of the alarm to delete.</p>
@@ -2292,7 +2292,7 @@ class AsyncLightsailClient:
         *,
         config_overrides: Optional[AsyncLightsailClientConfig] = None,
     ) -> "aws_sdk_lightsail.types.delete_auto_snapshot_result.DeleteAutoSnapshotResult":
-        """<p>Deletes an automatic snapshot of an instance or disk. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-configuring-automatic-snapshots\">Amazon Lightsail Developer Guide</a>.</p>
+        r"""<p>Deletes an automatic snapshot of an instance or disk. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-configuring-automatic-snapshots\">Amazon Lightsail Developer Guide</a>.</p>
 
         Args:
             resource_name: <p>The name of the source instance or disk from which to delete the automatic snapshot.</p>
@@ -2333,7 +2333,7 @@ class AsyncLightsailClient:
         config_overrides: Optional[AsyncLightsailClientConfig] = None,
         force_delete: Optional["aws_sdk_lightsail.types.boolean.boolean"] = None,
     ) -> "aws_sdk_lightsail.types.delete_bucket_result.DeleteBucketResult":
-        """<p>Deletes a Amazon Lightsail bucket.</p> <note> <p>When you delete your bucket, the bucket name is released and can be reused for a new bucket in your account or another Amazon Web Services account.</p> </note>
+        r"""<p>Deletes a Amazon Lightsail bucket.</p> <note> <p>When you delete your bucket, the bucket name is released and can be reused for a new bucket in your account or another Amazon Web Services account.</p> </note>
 
         Args:
             bucket_name: <p>The name of the bucket to delete.</p> <p>Use the <a href=\"https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetBuckets.html\">GetBuckets</a> action to get a list of bucket names that you can specify.</p>
@@ -2375,7 +2375,7 @@ class AsyncLightsailClient:
         *,
         config_overrides: Optional[AsyncLightsailClientConfig] = None,
     ) -> "aws_sdk_lightsail.types.delete_bucket_access_key_result.DeleteBucketAccessKeyResult":
-        """<p>Deletes an access key for the specified Amazon Lightsail bucket.</p> <p>We recommend that you delete an access key if the secret access key is compromised.</p> <p>For more information about access keys, see <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-creating-bucket-access-keys\">Creating access keys for a bucket in Amazon Lightsail</a> in the <i>Amazon Lightsail Developer Guide</i>.</p>
+        r"""<p>Deletes an access key for the specified Amazon Lightsail bucket.</p> <p>We recommend that you delete an access key if the secret access key is compromised.</p> <p>For more information about access keys, see <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-creating-bucket-access-keys\">Creating access keys for a bucket in Amazon Lightsail</a> in the <i>Amazon Lightsail Developer Guide</i>.</p>
 
         Args:
             bucket_name: <p>The name of the bucket that the access key belongs to.</p>
@@ -2455,7 +2455,7 @@ class AsyncLightsailClient:
     ) -> (
         "aws_sdk_lightsail.types.delete_contact_method_result.DeleteContactMethodResult"
     ):
-        """<p>Deletes a contact method.</p> <p>A contact method is used to send you notifications about your Amazon Lightsail resources. You can add one email address and one mobile phone number contact method in each Amazon Web Services Region. However, SMS text messaging is not supported in some Amazon Web Services Regions, and SMS text messages cannot be sent to some countries/regions. For more information, see <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-notifications\">Notifications in Amazon Lightsail</a>.</p>
+        r"""<p>Deletes a contact method.</p> <p>A contact method is used to send you notifications about your Amazon Lightsail resources. You can add one email address and one mobile phone number contact method in each Amazon Web Services Region. However, SMS text messaging is not supported in some Amazon Web Services Regions, and SMS text messages cannot be sent to some countries/regions. For more information, see <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-notifications\">Notifications in Amazon Lightsail</a>.</p>
 
         Args:
             protocol: <p>The protocol that will be deleted, such as <code>Email</code> or <code>SMS</code> (text messaging).</p> <note> <p>To delete an <code>Email</code> and an <code>SMS</code> contact method if you added both, you must run separate <code>DeleteContactMethod</code> actions to delete each protocol.</p> </note>
@@ -2575,7 +2575,7 @@ class AsyncLightsailClient:
             "aws_sdk_lightsail.types.boolean.boolean"
         ] = None,
     ) -> "aws_sdk_lightsail.types.delete_disk_result.DeleteDiskResult":
-        """<p>Deletes the specified block storage disk. The disk must be in the <code>available</code> state (not attached to a Lightsail instance).</p> <note> <p>The disk may remain in the <code>deleting</code> state for several minutes.</p> </note> <p>The <code>delete disk</code> operation supports tag-based access control via resource tags applied to the resource identified by <code>disk name</code>. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
+        r"""<p>Deletes the specified block storage disk. The disk must be in the <code>available</code> state (not attached to a Lightsail instance).</p> <note> <p>The disk may remain in the <code>deleting</code> state for several minutes.</p> </note> <p>The <code>delete disk</code> operation supports tag-based access control via resource tags applied to the resource identified by <code>disk name</code>. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
 
         Args:
             disk_name: <p>The unique name of the disk you want to delete (<code>my-disk</code>).</p>
@@ -2616,7 +2616,7 @@ class AsyncLightsailClient:
         *,
         config_overrides: Optional[AsyncLightsailClientConfig] = None,
     ) -> "aws_sdk_lightsail.types.delete_disk_snapshot_result.DeleteDiskSnapshotResult":
-        """<p>Deletes the specified disk snapshot.</p> <p>When you make periodic snapshots of a disk, the snapshots are incremental, and only the blocks on the device that have changed since your last snapshot are saved in the new snapshot. When you delete a snapshot, only the data not needed for any other snapshot is removed. So regardless of which prior snapshots have been deleted, all active snapshots will have access to all the information needed to restore the disk.</p> <p>The <code>delete disk snapshot</code> operation supports tag-based access control via resource tags applied to the resource identified by <code>disk snapshot name</code>. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
+        r"""<p>Deletes the specified disk snapshot.</p> <p>When you make periodic snapshots of a disk, the snapshots are incremental, and only the blocks on the device that have changed since your last snapshot are saved in the new snapshot. When you delete a snapshot, only the data not needed for any other snapshot is removed. So regardless of which prior snapshots have been deleted, all active snapshots will have access to all the information needed to restore the disk.</p> <p>The <code>delete disk snapshot</code> operation supports tag-based access control via resource tags applied to the resource identified by <code>disk snapshot name</code>. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
 
         Args:
             disk_snapshot_name: <p>The name of the disk snapshot you want to delete (<code>my-disk-snapshot</code>).</p>
@@ -2695,7 +2695,7 @@ class AsyncLightsailClient:
         *,
         config_overrides: Optional[AsyncLightsailClientConfig] = None,
     ) -> "aws_sdk_lightsail.types.delete_domain_result.DeleteDomainResult":
-        """<p>Deletes the specified domain recordset and all of its domain records.</p> <p>The <code>delete domain</code> operation supports tag-based access control via resource tags applied to the resource identified by <code>domain name</code>. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
+        r"""<p>Deletes the specified domain recordset and all of its domain records.</p> <p>The <code>delete domain</code> operation supports tag-based access control via resource tags applied to the resource identified by <code>domain name</code>. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
 
         Args:
             domain_name: <p>The specific domain name to delete.</p>
@@ -2734,7 +2734,7 @@ class AsyncLightsailClient:
         *,
         config_overrides: Optional[AsyncLightsailClientConfig] = None,
     ) -> "aws_sdk_lightsail.types.delete_domain_entry_result.DeleteDomainEntryResult":
-        """<p>Deletes a specific domain entry.</p> <p>The <code>delete domain entry</code> operation supports tag-based access control via resource tags applied to the resource identified by <code>domain name</code>. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
+        r"""<p>Deletes a specific domain entry.</p> <p>The <code>delete domain entry</code> operation supports tag-based access control via resource tags applied to the resource identified by <code>domain name</code>. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
 
         Args:
             domain_name: <p>The name of the domain entry to delete.</p>
@@ -2777,7 +2777,7 @@ class AsyncLightsailClient:
             "aws_sdk_lightsail.types.boolean.boolean"
         ] = None,
     ) -> "aws_sdk_lightsail.types.delete_instance_result.DeleteInstanceResult":
-        """<p>Deletes an Amazon Lightsail instance.</p> <p>The <code>delete instance</code> operation supports tag-based access control via resource tags applied to the resource identified by <code>instance name</code>. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
+        r"""<p>Deletes an Amazon Lightsail instance.</p> <p>The <code>delete instance</code> operation supports tag-based access control via resource tags applied to the resource identified by <code>instance name</code>. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
 
         Args:
             instance_name: <p>The name of the instance to delete.</p>
@@ -2818,7 +2818,7 @@ class AsyncLightsailClient:
         *,
         config_overrides: Optional[AsyncLightsailClientConfig] = None,
     ) -> "aws_sdk_lightsail.types.delete_instance_snapshot_result.DeleteInstanceSnapshotResult":
-        """<p>Deletes a specific snapshot of a virtual private server (or <i>instance</i>).</p> <p>The <code>delete instance snapshot</code> operation supports tag-based access control via resource tags applied to the resource identified by <code>instance snapshot name</code>. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
+        r"""<p>Deletes a specific snapshot of a virtual private server (or <i>instance</i>).</p> <p>The <code>delete instance snapshot</code> operation supports tag-based access control via resource tags applied to the resource identified by <code>instance snapshot name</code>. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
 
         Args:
             instance_snapshot_name: <p>The name of the snapshot to delete.</p>
@@ -2857,7 +2857,7 @@ class AsyncLightsailClient:
         config_overrides: Optional[AsyncLightsailClientConfig] = None,
         expected_fingerprint: Optional["aws_sdk_lightsail.types.string.string"] = None,
     ) -> "aws_sdk_lightsail.types.delete_key_pair_result.DeleteKeyPairResult":
-        """<p>Deletes the specified key pair by removing the public key from Amazon Lightsail.</p> <p>You can delete key pairs that were created using the <a href=\"https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_ImportKeyPair.html\">ImportKeyPair</a> and <a href=\"https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CreateKeyPair.html\">CreateKeyPair</a> actions, as well as the Lightsail default key pair. A new default key pair will not be created unless you launch an instance without specifying a custom key pair, or you call the <a href=\"https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_DownloadDefaultKeyPair.html\">DownloadDefaultKeyPair</a> API. </p> <p>The <code>delete key pair</code> operation supports tag-based access control via resource tags applied to the resource identified by <code>key pair name</code>. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
+        r"""<p>Deletes the specified key pair by removing the public key from Amazon Lightsail.</p> <p>You can delete key pairs that were created using the <a href=\"https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_ImportKeyPair.html\">ImportKeyPair</a> and <a href=\"https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CreateKeyPair.html\">CreateKeyPair</a> actions, as well as the Lightsail default key pair. A new default key pair will not be created unless you launch an instance without specifying a custom key pair, or you call the <a href=\"https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_DownloadDefaultKeyPair.html\">DownloadDefaultKeyPair</a> API. </p> <p>The <code>delete key pair</code> operation supports tag-based access control via resource tags applied to the resource identified by <code>key pair name</code>. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
 
         Args:
             key_pair_name: <p>The name of the key pair to delete.</p>
@@ -2898,7 +2898,7 @@ class AsyncLightsailClient:
         *,
         config_overrides: Optional[AsyncLightsailClientConfig] = None,
     ) -> "aws_sdk_lightsail.types.delete_known_host_keys_result.DeleteKnownHostKeysResult":
-        """<p>Deletes the known host key or certificate used by the Amazon Lightsail browser-based SSH or RDP clients to authenticate an instance. This operation enables the Lightsail browser-based SSH or RDP clients to connect to the instance after a host key mismatch.</p> <important> <p>Perform this operation only if you were expecting the host key or certificate mismatch or if you are familiar with the new host key or certificate on the instance. For more information, see <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-troubleshooting-browser-based-ssh-rdp-client-connection\">Troubleshooting connection issues when using the Amazon Lightsail browser-based SSH or RDP client</a>.</p> </important>
+        r"""<p>Deletes the known host key or certificate used by the Amazon Lightsail browser-based SSH or RDP clients to authenticate an instance. This operation enables the Lightsail browser-based SSH or RDP clients to connect to the instance after a host key mismatch.</p> <important> <p>Perform this operation only if you were expecting the host key or certificate mismatch or if you are familiar with the new host key or certificate on the instance. For more information, see <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-troubleshooting-browser-based-ssh-rdp-client-connection\">Troubleshooting connection issues when using the Amazon Lightsail browser-based SSH or RDP client</a>.</p> </important>
 
         Args:
             instance_name: <p>The name of the instance for which you want to reset the host key or certificate.</p>
@@ -2936,7 +2936,7 @@ class AsyncLightsailClient:
         *,
         config_overrides: Optional[AsyncLightsailClientConfig] = None,
     ) -> "aws_sdk_lightsail.types.delete_load_balancer_result.DeleteLoadBalancerResult":
-        """<p>Deletes a Lightsail load balancer and all its associated SSL/TLS certificates. Once the load balancer is deleted, you will need to create a new load balancer, create a new certificate, and verify domain ownership again.</p> <p>The <code>delete load balancer</code> operation supports tag-based access control via resource tags applied to the resource identified by <code>load balancer name</code>. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
+        r"""<p>Deletes a Lightsail load balancer and all its associated SSL/TLS certificates. Once the load balancer is deleted, you will need to create a new load balancer, create a new certificate, and verify domain ownership again.</p> <p>The <code>delete load balancer</code> operation supports tag-based access control via resource tags applied to the resource identified by <code>load balancer name</code>. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
 
         Args:
             load_balancer_name: <p>The name of the load balancer you want to delete.</p>
@@ -2976,7 +2976,7 @@ class AsyncLightsailClient:
         config_overrides: Optional[AsyncLightsailClientConfig] = None,
         force: Optional["aws_sdk_lightsail.types.boolean.boolean"] = None,
     ) -> "aws_sdk_lightsail.types.delete_load_balancer_tls_certificate_result.DeleteLoadBalancerTlsCertificateResult":
-        """<p>Deletes an SSL/TLS certificate associated with a Lightsail load balancer.</p> <p>The <code>DeleteLoadBalancerTlsCertificate</code> operation supports tag-based access control via resource tags applied to the resource identified by <code>load balancer name</code>. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
+        r"""<p>Deletes an SSL/TLS certificate associated with a Lightsail load balancer.</p> <p>The <code>DeleteLoadBalancerTlsCertificate</code> operation supports tag-based access control via resource tags applied to the resource identified by <code>load balancer name</code>. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
 
         Args:
             load_balancer_name: <p>The load balancer name.</p>
@@ -3023,7 +3023,7 @@ class AsyncLightsailClient:
             "aws_sdk_lightsail.types.resource_name.ResourceName"
         ] = None,
     ) -> "aws_sdk_lightsail.types.delete_relational_database_result.DeleteRelationalDatabaseResult":
-        """<p>Deletes a database in Amazon Lightsail.</p> <p>The <code>delete relational database</code> operation supports tag-based access control via resource tags applied to the resource identified by relationalDatabaseName. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
+        r"""<p>Deletes a database in Amazon Lightsail.</p> <p>The <code>delete relational database</code> operation supports tag-based access control via resource tags applied to the resource identified by relationalDatabaseName. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
 
         Args:
             relational_database_name: <p>The name of the database that you are deleting.</p>
@@ -3069,7 +3069,7 @@ class AsyncLightsailClient:
         *,
         config_overrides: Optional[AsyncLightsailClientConfig] = None,
     ) -> "aws_sdk_lightsail.types.delete_relational_database_snapshot_result.DeleteRelationalDatabaseSnapshotResult":
-        """<p>Deletes a database snapshot in Amazon Lightsail.</p> <p>The <code>delete relational database snapshot</code> operation supports tag-based access control via resource tags applied to the resource identified by relationalDatabaseName. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
+        r"""<p>Deletes a database snapshot in Amazon Lightsail.</p> <p>The <code>delete relational database snapshot</code> operation supports tag-based access control via resource tags applied to the resource identified by relationalDatabaseName. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
 
         Args:
             relational_database_snapshot_name: <p>The name of the database snapshot that you are deleting.</p>
@@ -3145,7 +3145,7 @@ class AsyncLightsailClient:
         *,
         config_overrides: Optional[AsyncLightsailClientConfig] = None,
     ) -> "aws_sdk_lightsail.types.detach_disk_result.DetachDiskResult":
-        """<p>Detaches a stopped block storage disk from a Lightsail instance. Make sure to unmount any file systems on the device within your operating system before stopping the instance and detaching the disk.</p> <p>The <code>detach disk</code> operation supports tag-based access control via resource tags applied to the resource identified by <code>disk name</code>. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
+        r"""<p>Detaches a stopped block storage disk from a Lightsail instance. Make sure to unmount any file systems on the device within your operating system before stopping the instance and detaching the disk.</p> <p>The <code>detach disk</code> operation supports tag-based access control via resource tags applied to the resource identified by <code>disk name</code>. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
 
         Args:
             disk_name: <p>The unique name of the disk you want to detach from your instance (<code>my-disk</code>).</p>
@@ -3184,7 +3184,7 @@ class AsyncLightsailClient:
         *,
         config_overrides: Optional[AsyncLightsailClientConfig] = None,
     ) -> "aws_sdk_lightsail.types.detach_instances_from_load_balancer_result.DetachInstancesFromLoadBalancerResult":
-        """<p>Detaches the specified instances from a Lightsail load balancer.</p> <p>This operation waits until the instances are no longer needed before they are detached from the load balancer.</p> <p>The <code>detach instances from load balancer</code> operation supports tag-based access control via resource tags applied to the resource identified by <code>load balancer name</code>. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
+        r"""<p>Detaches the specified instances from a Lightsail load balancer.</p> <p>This operation waits until the instances are no longer needed before they are detached from the load balancer.</p> <p>The <code>detach instances from load balancer</code> operation supports tag-based access control via resource tags applied to the resource identified by <code>load balancer name</code>. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
 
         Args:
             load_balancer_name: <p>The name of the Lightsail load balancer.</p>
@@ -3263,7 +3263,7 @@ class AsyncLightsailClient:
         *,
         config_overrides: Optional[AsyncLightsailClientConfig] = None,
     ) -> "aws_sdk_lightsail.types.disable_add_on_result.DisableAddOnResult":
-        """<p>Disables an add-on for an Amazon Lightsail resource. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-configuring-automatic-snapshots\">Amazon Lightsail Developer Guide</a>.</p>
+        r"""<p>Disables an add-on for an Amazon Lightsail resource. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-configuring-automatic-snapshots\">Amazon Lightsail Developer Guide</a>.</p>
 
         Args:
             add_on_type: <p>The add-on type to disable.</p>
@@ -3334,7 +3334,7 @@ class AsyncLightsailClient:
         *,
         config_overrides: Optional[AsyncLightsailClientConfig] = None,
     ) -> "aws_sdk_lightsail.types.enable_add_on_result.EnableAddOnResult":
-        """<p>Enables or modifies an add-on for an Amazon Lightsail resource. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-configuring-automatic-snapshots\">Amazon Lightsail Developer Guide</a>.</p>
+        r"""<p>Enables or modifies an add-on for an Amazon Lightsail resource. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-configuring-automatic-snapshots\">Amazon Lightsail Developer Guide</a>.</p>
 
         Args:
             resource_name: <p>The name of the source resource for which to enable or modify the add-on.</p>
@@ -3374,7 +3374,7 @@ class AsyncLightsailClient:
         *,
         config_overrides: Optional[AsyncLightsailClientConfig] = None,
     ) -> "aws_sdk_lightsail.types.export_snapshot_result.ExportSnapshotResult":
-        """<p>Exports an Amazon Lightsail instance or block storage disk snapshot to Amazon Elastic Compute Cloud (Amazon EC2). This operation results in an export snapshot record that can be used with the <code>create cloud formation stack</code> operation to create new Amazon EC2 instances.</p> <p>Exported instance snapshots appear in Amazon EC2 as Amazon Machine Images (AMIs), and the instance system disk appears as an Amazon Elastic Block Store (Amazon EBS) volume. Exported disk snapshots appear in Amazon EC2 as Amazon EBS volumes. Snapshots are exported to the same Amazon Web Services Region in Amazon EC2 as the source Lightsail snapshot.</p> <p></p> <p>The <code>export snapshot</code> operation supports tag-based access control via resource tags applied to the resource identified by <code>source snapshot name</code>. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p> <note> <p>Use the <code>get instance snapshots</code> or <code>get disk snapshots</code> operations to get a list of snapshots that you can export to Amazon EC2.</p> </note>
+        r"""<p>Exports an Amazon Lightsail instance or block storage disk snapshot to Amazon Elastic Compute Cloud (Amazon EC2). This operation results in an export snapshot record that can be used with the <code>create cloud formation stack</code> operation to create new Amazon EC2 instances.</p> <p>Exported instance snapshots appear in Amazon EC2 as Amazon Machine Images (AMIs), and the instance system disk appears as an Amazon Elastic Block Store (Amazon EBS) volume. Exported disk snapshots appear in Amazon EC2 as Amazon EBS volumes. Snapshots are exported to the same Amazon Web Services Region in Amazon EC2 as the source Lightsail snapshot.</p> <p></p> <p>The <code>export snapshot</code> operation supports tag-based access control via resource tags applied to the resource identified by <code>source snapshot name</code>. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p> <note> <p>Use the <code>get instance snapshots</code> or <code>get disk snapshots</code> operations to get a list of snapshots that you can export to Amazon EC2.</p> </note>
 
         Args:
             source_snapshot_name: <p>The name of the instance or disk snapshot to be exported to Amazon EC2.</p>
@@ -3457,7 +3457,7 @@ class AsyncLightsailClient:
             "aws_sdk_lightsail.types.resource_name.ResourceName"
         ] = None,
     ) -> "aws_sdk_lightsail.types.get_alarms_result.GetAlarmsResult":
-        """<p>Returns information about the configured alarms. Specify an alarm name in your request to return information about a specific alarm, or specify a monitored resource name to return information about all alarms for a specific resource.</p> <p>An alarm is used to monitor a single metric for one of your resources. When a metric condition is met, the alarm can notify you by email, SMS text message, and a banner displayed on the Amazon Lightsail console. For more information, see <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-alarms\">Alarms in Amazon Lightsail</a>.</p>
+        r"""<p>Returns information about the configured alarms. Specify an alarm name in your request to return information about a specific alarm, or specify a monitored resource name to return information about all alarms for a specific resource.</p> <p>An alarm is used to monitor a single metric for one of your resources. When a metric condition is met, the alarm can notify you by email, SMS text message, and a banner displayed on the Amazon Lightsail console. For more information, see <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-alarms\">Alarms in Amazon Lightsail</a>.</p>
 
         Args:
             alarm_name: <p>The name of the alarm.</p> <p>Specify an alarm name to return information about a specific alarm.</p>
@@ -3502,7 +3502,7 @@ class AsyncLightsailClient:
         *,
         config_overrides: Optional[AsyncLightsailClientConfig] = None,
     ) -> "aws_sdk_lightsail.types.get_auto_snapshots_result.GetAutoSnapshotsResult":
-        """<p>Returns the available automatic snapshots for an instance or disk. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-configuring-automatic-snapshots\">Amazon Lightsail Developer Guide</a>.</p>
+        r"""<p>Returns the available automatic snapshots for an instance or disk. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-configuring-automatic-snapshots\">Amazon Lightsail Developer Guide</a>.</p>
 
         Args:
             resource_name: <p>The name of the source instance or disk from which to get automatic snapshot information.</p>
@@ -3589,7 +3589,7 @@ class AsyncLightsailClient:
         *,
         config_overrides: Optional[AsyncLightsailClientConfig] = None,
     ) -> "aws_sdk_lightsail.types.get_bucket_access_keys_result.GetBucketAccessKeysResult":
-        """<p>Returns the existing access key IDs for the specified Amazon Lightsail bucket.</p> <important> <p>This action does not return the secret access key value of an access key. You can get a secret access key only when you create it from the response of the <a href=\"https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CreateBucketAccessKey.html\">CreateBucketAccessKey</a> action. If you lose the secret access key, you must create a new access key.</p> </important>
+        r"""<p>Returns the existing access key IDs for the specified Amazon Lightsail bucket.</p> <important> <p>This action does not return the secret access key value of an access key. You can get a secret access key only when you create it from the response of the <a href=\"https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CreateBucketAccessKey.html\">CreateBucketAccessKey</a> action. If you lose the secret access key, you must create a new access key.</p> </important>
 
         Args:
             bucket_name: <p>The name of the bucket for which to return access keys.</p>
@@ -3627,7 +3627,7 @@ class AsyncLightsailClient:
         config_overrides: Optional[AsyncLightsailClientConfig] = None,
         include_inactive: Optional["aws_sdk_lightsail.types.boolean.boolean"] = None,
     ) -> "aws_sdk_lightsail.types.get_bucket_bundles_result.GetBucketBundlesResult":
-        """<p>Returns the bundles that you can apply to a Amazon Lightsail bucket.</p> <p>The bucket bundle specifies the monthly cost, storage quota, and data transfer quota for a bucket.</p> <p>Use the <a href=\"https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_UpdateBucketBundle.html\">UpdateBucketBundle</a> action to update the bundle for a bucket.</p>
+        r"""<p>Returns the bundles that you can apply to a Amazon Lightsail bucket.</p> <p>The bucket bundle specifies the monthly cost, storage quota, and data transfer quota for a bucket.</p> <p>Use the <a href=\"https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_UpdateBucketBundle.html\">UpdateBucketBundle</a> action to update the bundle for a bucket.</p>
 
         Args:
             include_inactive: <p>A Boolean value that indicates whether to include inactive (unavailable) bundles in the response of your request.</p>
@@ -3727,7 +3727,7 @@ class AsyncLightsailClient:
         ] = None,
         include_cors: Optional["aws_sdk_lightsail.types.boolean.boolean"] = None,
     ) -> "aws_sdk_lightsail.types.get_buckets_result.GetBucketsResult":
-        """<p>Returns information about one or more Amazon Lightsail buckets. The information returned includes the synchronization status of the Amazon Simple Storage Service (Amazon S3) account-level block public access feature for your Lightsail buckets.</p> <p>For more information about buckets, see <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/buckets-in-amazon-lightsail\">Buckets in Amazon Lightsail</a> in the <i>Amazon Lightsail Developer Guide</i>.</p>
+        r"""<p>Returns information about one or more Amazon Lightsail buckets. The information returned includes the synchronization status of the Amazon Simple Storage Service (Amazon S3) account-level block public access feature for your Lightsail buckets.</p> <p>For more information about buckets, see <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/buckets-in-amazon-lightsail\">Buckets in Amazon Lightsail</a> in the <i>Amazon Lightsail Developer Guide</i>.</p>
 
         Args:
             bucket_name: <p>The name of the bucket for which to return information.</p> <p>When omitted, the response includes all of your buckets in the Amazon Web Services Region where the request is made.</p>
@@ -3922,7 +3922,7 @@ class AsyncLightsailClient:
             "aws_sdk_lightsail.types.contact_protocols_list.ContactProtocolsList"
         ] = None,
     ) -> "aws_sdk_lightsail.types.get_contact_methods_result.GetContactMethodsResult":
-        """<p>Returns information about the configured contact methods. Specify a protocol in your request to return information about a specific contact method.</p> <p>A contact method is used to send you notifications about your Amazon Lightsail resources. You can add one email address and one mobile phone number contact method in each Amazon Web Services Region. However, SMS text messaging is not supported in some Amazon Web Services Regions, and SMS text messages cannot be sent to some countries/regions. For more information, see <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-notifications\">Notifications in Amazon Lightsail</a>.</p>
+        r"""<p>Returns information about the configured contact methods. Specify a protocol in your request to return information about a specific contact method.</p> <p>A contact method is used to send you notifications about your Amazon Lightsail resources. You can add one email address and one mobile phone number contact method in each Amazon Web Services Region. However, SMS text messaging is not supported in some Amazon Web Services Regions, and SMS text messages cannot be sent to some countries/regions. For more information, see <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-notifications\">Notifications in Amazon Lightsail</a>.</p>
 
         Args:
             protocols: <p>The protocols used to send notifications, such as <code>Email</code>, or <code>SMS</code> (text messaging).</p> <p>Specify a protocol in your request to return information about a specific contact method protocol.</p>
@@ -4034,7 +4034,7 @@ class AsyncLightsailClient:
         filter_pattern: Optional["aws_sdk_lightsail.types.string.string"] = None,
         page_token: Optional["aws_sdk_lightsail.types.string.string"] = None,
     ) -> "aws_sdk_lightsail.types.get_container_log_result.GetContainerLogResult":
-        """<p>Returns the log events of a container of your Amazon Lightsail container service.</p> <p>If your container service has more than one node (i.e., a scale greater than 1), then the log events that are returned for the specified container are merged from all nodes on your container service.</p> <note> <p>Container logs are retained for a certain amount of time. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/lightsail.html\">Amazon Lightsail endpoints and quotas</a> in the <i>Amazon Web Services General Reference</i>.</p> </note>
+        r"""<p>Returns the log events of a container of your Amazon Lightsail container service.</p> <p>If your container service has more than one node (i.e., a scale greater than 1), then the log events that are returned for the specified container are merged from all nodes on your container service.</p> <note> <p>Container logs are retained for a certain amount of time. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/lightsail.html\">Amazon Lightsail endpoints and quotas</a> in the <i>Amazon Web Services General Reference</i>.</p> </note>
 
         Args:
             service_name: <p>The name of the container service for which to get a container log.</p>
@@ -4086,7 +4086,7 @@ class AsyncLightsailClient:
         *,
         config_overrides: Optional[AsyncLightsailClientConfig] = None,
     ) -> "aws_sdk_lightsail.types.get_container_service_deployments_result.GetContainerServiceDeploymentsResult":
-        """<p>Returns the deployments for your Amazon Lightsail container service</p> <p>A deployment specifies the settings, such as the ports and launch command, of containers that are deployed to your container service.</p> <p>The deployments are ordered by version in ascending order. The newest version is listed at the top of the response.</p> <note> <p>A set number of deployments are kept before the oldest one is replaced with the newest one. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/lightsail.html\">Amazon Lightsail endpoints and quotas</a> in the <i>Amazon Web Services General Reference</i>.</p> </note>
+        r"""<p>Returns the deployments for your Amazon Lightsail container service</p> <p>A deployment specifies the settings, such as the ports and launch command, of containers that are deployed to your container service.</p> <p>The deployments are ordered by version in ascending order. The newest version is listed at the top of the response.</p> <note> <p>A set number of deployments are kept before the oldest one is replaced with the newest one. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/lightsail.html\">Amazon Lightsail endpoints and quotas</a> in the <i>Amazon Web Services General Reference</i>.</p> </note>
 
         Args:
             service_name: <p>The name of the container service for which to return deployments.</p>
@@ -4250,7 +4250,7 @@ class AsyncLightsailClient:
         *,
         config_overrides: Optional[AsyncLightsailClientConfig] = None,
     ) -> "aws_sdk_lightsail.types.get_cost_estimate_result.GetCostEstimateResult":
-        """<p>Retrieves information about the cost estimate for a specified resource. A cost estimate will not generate for a resource that has been deleted.</p>
+        r"""<p>Retrieves information about the cost estimate for a specified resource. A cost estimate will not generate for a resource that has been deleted.</p>
 
         Args:
             resource_name: <p>The resource name.</p>
@@ -4523,7 +4523,7 @@ class AsyncLightsailClient:
         *,
         config_overrides: Optional[AsyncLightsailClientConfig] = None,
     ) -> "aws_sdk_lightsail.types.get_distribution_metric_data_result.GetDistributionMetricDataResult":
-        """<p>Returns the data points of a specific metric for an Amazon Lightsail content delivery network (CDN) distribution.</p> <p>Metrics report the utilization of your resources, and the error counts generated by them. Monitor and collect metric data regularly to maintain the reliability, availability, and performance of your resources.</p>
+        r"""<p>Returns the data points of a specific metric for an Amazon Lightsail content delivery network (CDN) distribution.</p> <p>Metrics report the utilization of your resources, and the error counts generated by them. Monitor and collect metric data regularly to maintain the reliability, availability, and performance of your resources.</p>
 
         Args:
             distribution_name: <p>The name of the distribution for which to get metric data.</p> <p>Use the <code>GetDistributions</code> action to get a list of distribution names that you can specify.</p>
@@ -4695,7 +4695,7 @@ class AsyncLightsailClient:
         config_overrides: Optional[AsyncLightsailClientConfig] = None,
         page_token: Optional["aws_sdk_lightsail.types.string.string"] = None,
     ) -> "aws_sdk_lightsail.types.get_export_snapshot_records_result.GetExportSnapshotRecordsResult":
-        """<p>Returns all export snapshot records created as a result of the <code>export snapshot</code> operation.</p> <p>An export snapshot record can be used to create a new Amazon EC2 instance and its related resources with the <a href=\"https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CreateCloudFormationStack.html\">CreateCloudFormationStack</a> action.</p>
+        r"""<p>Returns all export snapshot records created as a result of the <code>export snapshot</code> operation.</p> <p>An export snapshot record can be used to create a new Amazon EC2 instance and its related resources with the <a href=\"https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CreateCloudFormationStack.html\">CreateCloudFormationStack</a> action.</p>
 
         Args:
             page_token: <p>The token to advance to the next page of results from your request.</p> <p>To get a page token, perform an initial <code>GetExportSnapshotRecords</code> request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.</p>
@@ -4775,7 +4775,7 @@ class AsyncLightsailClient:
             "aws_sdk_lightsail.types.instance_access_protocol.InstanceAccessProtocol"
         ] = None,
     ) -> "aws_sdk_lightsail.types.get_instance_access_details_result.GetInstanceAccessDetailsResult":
-        """<p>Returns temporary SSH keys you can use to connect to a specific virtual private server, or <i>instance</i>.</p> <p>The <code>get instance access details</code> operation supports tag-based access control via resource tags applied to the resource identified by <code>instance name</code>. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
+        r"""<p>Returns temporary SSH keys you can use to connect to a specific virtual private server, or <i>instance</i>.</p> <p>The <code>get instance access details</code> operation supports tag-based access control via resource tags applied to the resource identified by <code>instance name</code>. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
 
         Args:
             instance_name: <p>The name of the instance to access.</p>
@@ -4822,7 +4822,7 @@ class AsyncLightsailClient:
         *,
         config_overrides: Optional[AsyncLightsailClientConfig] = None,
     ) -> "aws_sdk_lightsail.types.get_instance_metric_data_result.GetInstanceMetricDataResult":
-        """<p>Returns the data points for the specified Amazon Lightsail instance metric, given an instance name.</p> <p>Metrics report the utilization of your resources, and the error counts generated by them. Monitor and collect metric data regularly to maintain the reliability, availability, and performance of your resources.</p>
+        r"""<p>Returns the data points for the specified Amazon Lightsail instance metric, given an instance name.</p> <p>Metrics report the utilization of your resources, and the error counts generated by them. Monitor and collect metric data regularly to maintain the reliability, availability, and performance of your resources.</p>
 
         Args:
             instance_name: <p>The name of the instance for which you want to get metrics data.</p>
@@ -5320,7 +5320,7 @@ class AsyncLightsailClient:
         config_overrides: Optional[AsyncLightsailClientConfig] = None,
         page_token: Optional["aws_sdk_lightsail.types.string.string"] = None,
     ) -> "aws_sdk_lightsail.types.get_load_balancer_tls_policies_result.GetLoadBalancerTlsPoliciesResult":
-        """<p>Returns a list of TLS security policies that you can apply to Lightsail load balancers.</p> <p>For more information about load balancer TLS security policies, see <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-configure-load-balancer-tls-security-policy\">Configuring TLS security policies on your Amazon Lightsail load balancers</a> in the <i>Amazon Lightsail Developer Guide</i>.</p>
+        r"""<p>Returns a list of TLS security policies that you can apply to Lightsail load balancers.</p> <p>For more information about load balancer TLS security policies, see <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-configure-load-balancer-tls-security-policy\">Configuring TLS security policies on your Amazon Lightsail load balancers</a> in the <i>Amazon Lightsail Developer Guide</i>.</p>
 
         Args:
             page_token: <p>The token to advance to the next page of results from your request.</p> <p>To get a page token, perform an initial <code>GetLoadBalancerTlsPolicies</code> request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.</p>
@@ -6239,7 +6239,7 @@ class AsyncLightsailClient:
         *,
         config_overrides: Optional[AsyncLightsailClientConfig] = None,
     ) -> "aws_sdk_lightsail.types.open_instance_public_ports_result.OpenInstancePublicPortsResult":
-        """<p>Opens ports for a specific Amazon Lightsail instance, and specifies the IP addresses allowed to connect to the instance through the ports, and the protocol.</p> <p>The <code>OpenInstancePublicPorts</code> action supports tag-based access control via resource tags applied to the resource identified by <code>instanceName</code>. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
+        r"""<p>Opens ports for a specific Amazon Lightsail instance, and specifies the IP addresses allowed to connect to the instance through the ports, and the protocol.</p> <p>The <code>OpenInstancePublicPorts</code> action supports tag-based access control via resource tags applied to the resource identified by <code>instanceName</code>. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
 
         Args:
             port_info: <p>An object to describe the ports to open for the specified instance.</p>
@@ -6328,7 +6328,7 @@ class AsyncLightsailClient:
         ] = None,
         tags: Optional["aws_sdk_lightsail.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_lightsail.types.put_alarm_result.PutAlarmResult":
-        """<p>Creates or updates an alarm, and associates it with the specified metric.</p> <p>An alarm is used to monitor a single metric for one of your resources. When a metric condition is met, the alarm can notify you by email, SMS text message, and a banner displayed on the Amazon Lightsail console. For more information, see <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-alarms\">Alarms in Amazon Lightsail</a>.</p> <p>When this action creates an alarm, the alarm state is immediately set to <code>INSUFFICIENT_DATA</code>. The alarm is then evaluated and its state is set appropriately. Any actions associated with the new state are then executed.</p> <p>When you update an existing alarm, its state is left unchanged, but the update completely overwrites the previous configuration of the alarm. The alarm is then evaluated with the updated configuration.</p> <p>The <code>put alarm</code> operation supports tag-based access control via request tags. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Lightsail Developer Guide</a>.</p>
+        r"""<p>Creates or updates an alarm, and associates it with the specified metric.</p> <p>An alarm is used to monitor a single metric for one of your resources. When a metric condition is met, the alarm can notify you by email, SMS text message, and a banner displayed on the Amazon Lightsail console. For more information, see <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-alarms\">Alarms in Amazon Lightsail</a>.</p> <p>When this action creates an alarm, the alarm state is immediately set to <code>INSUFFICIENT_DATA</code>. The alarm is then evaluated and its state is set appropriately. Any actions associated with the new state are then executed.</p> <p>When you update an existing alarm, its state is left unchanged, but the update completely overwrites the previous configuration of the alarm. The alarm is then evaluated with the updated configuration.</p> <p>The <code>put alarm</code> operation supports tag-based access control via request tags. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Lightsail Developer Guide</a>.</p>
 
         Args:
             alarm_name: <p>The name for the alarm. Specify the name of an existing alarm to update, and overwrite the previous configuration of the alarm.</p>
@@ -6395,7 +6395,7 @@ class AsyncLightsailClient:
         *,
         config_overrides: Optional[AsyncLightsailClientConfig] = None,
     ) -> "aws_sdk_lightsail.types.put_instance_public_ports_result.PutInstancePublicPortsResult":
-        """<p>Opens ports for a specific Amazon Lightsail instance, and specifies the IP addresses allowed to connect to the instance through the ports, and the protocol. This action also closes all currently open ports that are not included in the request. Include all of the ports and the protocols you want to open in your <code>PutInstancePublicPorts</code>request. Or use the <code>OpenInstancePublicPorts</code> action to open ports without closing currently open ports.</p> <p>The <code>PutInstancePublicPorts</code> action supports tag-based access control via resource tags applied to the resource identified by <code>instanceName</code>. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
+        r"""<p>Opens ports for a specific Amazon Lightsail instance, and specifies the IP addresses allowed to connect to the instance through the ports, and the protocol. This action also closes all currently open ports that are not included in the request. Include all of the ports and the protocols you want to open in your <code>PutInstancePublicPorts</code>request. Or use the <code>OpenInstancePublicPorts</code> action to open ports without closing currently open ports.</p> <p>The <code>PutInstancePublicPorts</code> action supports tag-based access control via resource tags applied to the resource identified by <code>instanceName</code>. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
 
         Args:
             port_infos: <p>An array of objects to describe the ports to open for the specified instance.</p>
@@ -6435,7 +6435,7 @@ class AsyncLightsailClient:
         *,
         config_overrides: Optional[AsyncLightsailClientConfig] = None,
     ) -> "aws_sdk_lightsail.types.reboot_instance_result.RebootInstanceResult":
-        """<p>Restarts a specific instance.</p> <p>The <code>reboot instance</code> operation supports tag-based access control via resource tags applied to the resource identified by <code>instance name</code>. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
+        r"""<p>Restarts a specific instance.</p> <p>The <code>reboot instance</code> operation supports tag-based access control via resource tags applied to the resource identified by <code>instance name</code>. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
 
         Args:
             instance_name: <p>The name of the instance to reboot.</p>
@@ -6473,7 +6473,7 @@ class AsyncLightsailClient:
         *,
         config_overrides: Optional[AsyncLightsailClientConfig] = None,
     ) -> "aws_sdk_lightsail.types.reboot_relational_database_result.RebootRelationalDatabaseResult":
-        """<p>Restarts a specific database in Amazon Lightsail.</p> <p>The <code>reboot relational database</code> operation supports tag-based access control via resource tags applied to the resource identified by relationalDatabaseName. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
+        r"""<p>Restarts a specific database in Amazon Lightsail.</p> <p>The <code>reboot relational database</code> operation supports tag-based access control via resource tags applied to the resource identified by relationalDatabaseName. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
 
         Args:
             relational_database_name: <p>The name of your database to reboot.</p>
@@ -6513,7 +6513,7 @@ class AsyncLightsailClient:
         *,
         config_overrides: Optional[AsyncLightsailClientConfig] = None,
     ) -> "aws_sdk_lightsail.types.register_container_image_result.RegisterContainerImageResult":
-        """<p>Registers a container image to your Amazon Lightsail container service.</p> <note> <p>This action is not required if you install and use the Lightsail Control (lightsailctl) plugin to push container images to your Lightsail container service. For more information, see <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-pushing-container-images\">Pushing and managing container images on your Amazon Lightsail container services</a> in the <i>Amazon Lightsail Developer Guide</i>.</p> </note>
+        r"""<p>Registers a container image to your Amazon Lightsail container service.</p> <note> <p>This action is not required if you install and use the Lightsail Control (lightsailctl) plugin to push container images to your Lightsail container service. For more information, see <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-pushing-container-images\">Pushing and managing container images on your Amazon Lightsail container services</a> in the <i>Amazon Lightsail Developer Guide</i>.</p> </note>
 
         Args:
             service_name: <p>The name of the container service for which to register a container image.</p>
@@ -6634,7 +6634,7 @@ class AsyncLightsailClient:
         *,
         config_overrides: Optional[AsyncLightsailClientConfig] = None,
     ) -> "aws_sdk_lightsail.types.send_contact_method_verification_result.SendContactMethodVerificationResult":
-        """<p>Sends a verification request to an email contact method to ensure it's owned by the requester. SMS contact methods don't need to be verified.</p> <p>A contact method is used to send you notifications about your Amazon Lightsail resources. You can add one email address and one mobile phone number contact method in each Amazon Web Services Region. However, SMS text messaging is not supported in some Amazon Web Services Regions, and SMS text messages cannot be sent to some countries/regions. For more information, see <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-notifications\">Notifications in Amazon Lightsail</a>.</p> <p>A verification request is sent to the contact method when you initially create it. Use this action to send another verification request if a previous verification request was deleted, or has expired.</p> <important> <p>Notifications are not sent to an email contact method until after it is verified, and confirmed as valid.</p> </important>
+        r"""<p>Sends a verification request to an email contact method to ensure it's owned by the requester. SMS contact methods don't need to be verified.</p> <p>A contact method is used to send you notifications about your Amazon Lightsail resources. You can add one email address and one mobile phone number contact method in each Amazon Web Services Region. However, SMS text messaging is not supported in some Amazon Web Services Regions, and SMS text messages cannot be sent to some countries/regions. For more information, see <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-notifications\">Notifications in Amazon Lightsail</a>.</p> <p>A verification request is sent to the contact method when you initially create it. Use this action to send another verification request if a previous verification request was deleted, or has expired.</p> <important> <p>Notifications are not sent to an email contact method until after it is verified, and confirmed as valid.</p> </important>
 
         Args:
             protocol: <p>The protocol to verify, such as <code>Email</code> or <code>SMS</code> (text messaging).</p>
@@ -6851,7 +6851,7 @@ class AsyncLightsailClient:
         *,
         config_overrides: Optional[AsyncLightsailClientConfig] = None,
     ) -> "aws_sdk_lightsail.types.start_instance_result.StartInstanceResult":
-        """<p>Starts a specific Amazon Lightsail instance from a stopped state. To restart an instance, use the <code>reboot instance</code> operation.</p> <note> <p>When you start a stopped instance, Lightsail assigns a new public IP address to the instance. To use the same IP address after stopping and starting an instance, create a static IP address and attach it to the instance. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/lightsail-create-static-ip\">Amazon Lightsail Developer Guide</a>.</p> </note> <p>The <code>start instance</code> operation supports tag-based access control via resource tags applied to the resource identified by <code>instance name</code>. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
+        r"""<p>Starts a specific Amazon Lightsail instance from a stopped state. To restart an instance, use the <code>reboot instance</code> operation.</p> <note> <p>When you start a stopped instance, Lightsail assigns a new public IP address to the instance. To use the same IP address after stopping and starting an instance, create a static IP address and attach it to the instance. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/lightsail-create-static-ip\">Amazon Lightsail Developer Guide</a>.</p> </note> <p>The <code>start instance</code> operation supports tag-based access control via resource tags applied to the resource identified by <code>instance name</code>. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
 
         Args:
             instance_name: <p>The name of the instance (a virtual private server) to start.</p>
@@ -6889,7 +6889,7 @@ class AsyncLightsailClient:
         *,
         config_overrides: Optional[AsyncLightsailClientConfig] = None,
     ) -> "aws_sdk_lightsail.types.start_relational_database_result.StartRelationalDatabaseResult":
-        """<p>Starts a specific database from a stopped state in Amazon Lightsail. To restart a database, use the <code>reboot relational database</code> operation.</p> <p>The <code>start relational database</code> operation supports tag-based access control via resource tags applied to the resource identified by relationalDatabaseName. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
+        r"""<p>Starts a specific database from a stopped state in Amazon Lightsail. To restart a database, use the <code>reboot relational database</code> operation.</p> <p>The <code>start relational database</code> operation supports tag-based access control via resource tags applied to the resource identified by relationalDatabaseName. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
 
         Args:
             relational_database_name: <p>The name of your database to start.</p>
@@ -6966,7 +6966,7 @@ class AsyncLightsailClient:
         config_overrides: Optional[AsyncLightsailClientConfig] = None,
         force: Optional["aws_sdk_lightsail.types.boolean.boolean"] = None,
     ) -> "aws_sdk_lightsail.types.stop_instance_result.StopInstanceResult":
-        """<p>Stops a specific Amazon Lightsail instance that is currently running.</p> <note> <p>When you start a stopped instance, Lightsail assigns a new public IP address to the instance. To use the same IP address after stopping and starting an instance, create a static IP address and attach it to the instance. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/lightsail-create-static-ip\">Amazon Lightsail Developer Guide</a>.</p> </note> <p>The <code>stop instance</code> operation supports tag-based access control via resource tags applied to the resource identified by <code>instance name</code>. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
+        r"""<p>Stops a specific Amazon Lightsail instance that is currently running.</p> <note> <p>When you start a stopped instance, Lightsail assigns a new public IP address to the instance. To use the same IP address after stopping and starting an instance, create a static IP address and attach it to the instance. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/lightsail-create-static-ip\">Amazon Lightsail Developer Guide</a>.</p> </note> <p>The <code>stop instance</code> operation supports tag-based access control via resource tags applied to the resource identified by <code>instance name</code>. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
 
         Args:
             instance_name: <p>The name of the instance (a virtual private server) to stop.</p>
@@ -7010,7 +7010,7 @@ class AsyncLightsailClient:
             "aws_sdk_lightsail.types.resource_name.ResourceName"
         ] = None,
     ) -> "aws_sdk_lightsail.types.stop_relational_database_result.StopRelationalDatabaseResult":
-        """<p>Stops a specific database that is currently running in Amazon Lightsail.</p> <note> <p>If you don't manually start your database instance after it has been stopped for seven consecutive days, Amazon Lightsail automatically starts it for you. This action helps ensure that your database instance doesn't fall behind on any required maintenance updates.</p> </note> <p>The <code>stop relational database</code> operation supports tag-based access control via resource tags applied to the resource identified by relationalDatabaseName. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
+        r"""<p>Stops a specific database that is currently running in Amazon Lightsail.</p> <note> <p>If you don't manually start your database instance after it has been stopped for seven consecutive days, Amazon Lightsail automatically starts it for you. This action helps ensure that your database instance doesn't fall behind on any required maintenance updates.</p> </note> <p>The <code>stop relational database</code> operation supports tag-based access control via resource tags applied to the resource identified by relationalDatabaseName. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
 
         Args:
             relational_database_name: <p>The name of your database to stop.</p>
@@ -7057,7 +7057,7 @@ class AsyncLightsailClient:
             "aws_sdk_lightsail.types.resource_arn.ResourceArn"
         ] = None,
     ) -> "aws_sdk_lightsail.types.tag_resource_result.TagResourceResult":
-        """<p>Adds one or more tags to the specified Amazon Lightsail resource. Each resource can have a maximum of 50 tags. Each tag consists of a key and an optional value. Tag keys must be unique per resource. For more information about tags, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-tags\">Amazon Lightsail Developer Guide</a>.</p> <p>The <code>tag resource</code> operation supports tag-based access control via request tags and resource tags applied to the resource identified by <code>resource name</code>. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
+        r"""<p>Adds one or more tags to the specified Amazon Lightsail resource. Each resource can have a maximum of 50 tags. Each tag consists of a key and an optional value. Tag keys must be unique per resource. For more information about tags, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-tags\">Amazon Lightsail Developer Guide</a>.</p> <p>The <code>tag resource</code> operation supports tag-based access control via request tags and resource tags applied to the resource identified by <code>resource name</code>. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
 
         Args:
             resource_name: <p>The name of the resource to which you are adding tags.</p>
@@ -7101,7 +7101,7 @@ class AsyncLightsailClient:
         *,
         config_overrides: Optional[AsyncLightsailClientConfig] = None,
     ) -> "aws_sdk_lightsail.types.test_alarm_result.TestAlarmResult":
-        """<p>Tests an alarm by displaying a banner on the Amazon Lightsail console. If a notification trigger is configured for the specified alarm, the test also sends a notification to the notification protocol (<code>Email</code> and/or <code>SMS</code>) configured for the alarm.</p> <p>An alarm is used to monitor a single metric for one of your resources. When a metric condition is met, the alarm can notify you by email, SMS text message, and a banner displayed on the Amazon Lightsail console. For more information, see <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-alarms\">Alarms in Amazon Lightsail</a>.</p>
+        r"""<p>Tests an alarm by displaying a banner on the Amazon Lightsail console. If a notification trigger is configured for the specified alarm, the test also sends a notification to the notification protocol (<code>Email</code> and/or <code>SMS</code>) configured for the alarm.</p> <p>An alarm is used to monitor a single metric for one of your resources. When a metric condition is met, the alarm can notify you by email, SMS text message, and a banner displayed on the Amazon Lightsail console. For more information, see <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-alarms\">Alarms in Amazon Lightsail</a>.</p>
 
         Args:
             alarm_name: <p>The name of the alarm to test.</p>
@@ -7175,7 +7175,7 @@ class AsyncLightsailClient:
             "aws_sdk_lightsail.types.resource_arn.ResourceArn"
         ] = None,
     ) -> "aws_sdk_lightsail.types.untag_resource_result.UntagResourceResult":
-        """<p>Deletes the specified set of tag keys and their values from the specified Amazon Lightsail resource.</p> <p>The <code>untag resource</code> operation supports tag-based access control via request tags and resource tags applied to the resource identified by <code>resource name</code>. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
+        r"""<p>Deletes the specified set of tag keys and their values from the specified Amazon Lightsail resource.</p> <p>The <code>untag resource</code> operation supports tag-based access control via request tags and resource tags applied to the resource identified by <code>resource name</code>. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
 
         Args:
             resource_name: <p>The name of the resource from which you are removing a tag.</p>
@@ -7233,7 +7233,7 @@ class AsyncLightsailClient:
             "aws_sdk_lightsail.types.bucket_cors_config.BucketCorsConfig"
         ] = None,
     ) -> "aws_sdk_lightsail.types.update_bucket_result.UpdateBucketResult":
-        """<p>Updates an existing Amazon Lightsail bucket.</p> <p>Use this action to update the configuration of an existing bucket, such as versioning, public accessibility, and the Amazon Web Services accounts that can access the bucket.</p>
+        r"""<p>Updates an existing Amazon Lightsail bucket.</p> <p>Use this action to update the configuration of an existing bucket, such as versioning, public accessibility, and the Amazon Web Services accounts that can access the bucket.</p>
 
         Args:
             bucket_name: <p>The name of the bucket to update.</p>
@@ -7287,7 +7287,7 @@ class AsyncLightsailClient:
         *,
         config_overrides: Optional[AsyncLightsailClientConfig] = None,
     ) -> "aws_sdk_lightsail.types.update_bucket_bundle_result.UpdateBucketBundleResult":
-        """<p>Updates the bundle, or storage plan, of an existing Amazon Lightsail bucket.</p> <p>A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. You can update a bucket's bundle only one time within a monthly Amazon Web Services billing cycle. To determine if you can update a bucket's bundle, use the <a href=\"https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetBuckets.html\">GetBuckets</a> action. The <code>ableToUpdateBundle</code> parameter in the response will indicate whether you can currently update a bucket's bundle.</p> <p>Update a bucket's bundle if it's consistently going over its storage space or data transfer quota, or if a bucket's usage is consistently in the lower range of its storage space or data transfer quota. Due to the unpredictable usage fluctuations that a bucket might experience, we strongly recommend that you update a bucket's bundle only as a long-term strategy, instead of as a short-term, monthly cost-cutting measure. Choose a bucket bundle that will provide the bucket with ample storage space and data transfer for a long time to come.</p>
+        r"""<p>Updates the bundle, or storage plan, of an existing Amazon Lightsail bucket.</p> <p>A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. You can update a bucket's bundle only one time within a monthly Amazon Web Services billing cycle. To determine if you can update a bucket's bundle, use the <a href=\"https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetBuckets.html\">GetBuckets</a> action. The <code>ableToUpdateBundle</code> parameter in the response will indicate whether you can currently update a bucket's bundle.</p> <p>Update a bucket's bundle if it's consistently going over its storage space or data transfer quota, or if a bucket's usage is consistently in the lower range of its storage space or data transfer quota. Due to the unpredictable usage fluctuations that a bucket might experience, we strongly recommend that you update a bucket's bundle only as a long-term strategy, instead of as a short-term, monthly cost-cutting measure. Choose a bucket bundle that will provide the bucket with ample storage space and data transfer for a long time to come.</p>
 
         Args:
             bucket_name: <p>The name of the bucket for which to update the bundle.</p>
@@ -7340,7 +7340,7 @@ class AsyncLightsailClient:
             "aws_sdk_lightsail.types.private_registry_access_request.PrivateRegistryAccessRequest"
         ] = None,
     ) -> "aws_sdk_lightsail.types.update_container_service_result.UpdateContainerServiceResult":
-        """<p>Updates the configuration of your Amazon Lightsail container service, such as its power, scale, and public domain names.</p>
+        r"""<p>Updates the configuration of your Amazon Lightsail container service, such as its power, scale, and public domain names.</p>
 
         Args:
             service_name: <p>The name of the container service to update.</p>
@@ -7413,7 +7413,7 @@ class AsyncLightsailClient:
             "aws_sdk_lightsail.types.boolean.boolean"
         ] = None,
     ) -> "aws_sdk_lightsail.types.update_distribution_result.UpdateDistributionResult":
-        """<p>Updates an existing Amazon Lightsail content delivery network (CDN) distribution.</p> <p>Use this action to update the configuration of your existing distribution.</p>
+        r"""<p>Updates an existing Amazon Lightsail content delivery network (CDN) distribution.</p> <p>Use this action to update the configuration of your existing distribution.</p>
 
         Args:
             distribution_name: <p>The name of the distribution to update.</p> <p>Use the <code>GetDistributions</code> action to get a list of distribution names that you can specify.</p>
@@ -7523,7 +7523,7 @@ class AsyncLightsailClient:
         *,
         config_overrides: Optional[AsyncLightsailClientConfig] = None,
     ) -> "aws_sdk_lightsail.types.update_domain_entry_result.UpdateDomainEntryResult":
-        """<p>Updates a domain recordset after it is created.</p> <p>The <code>update domain entry</code> operation supports tag-based access control via resource tags applied to the resource identified by <code>domain name</code>. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
+        r"""<p>Updates a domain recordset after it is created.</p> <p>The <code>update domain entry</code> operation supports tag-based access control via resource tags applied to the resource identified by <code>domain name</code>. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
 
         Args:
             domain_name: <p>The name of the domain recordset to update.</p>
@@ -7573,7 +7573,7 @@ class AsyncLightsailClient:
             "aws_sdk_lightsail.types.http_protocol_ipv6.HttpProtocolIpv6"
         ] = None,
     ) -> "aws_sdk_lightsail.types.update_instance_metadata_options_result.UpdateInstanceMetadataOptionsResult":
-        """<p>Modifies the Amazon Lightsail instance metadata parameters on a running or stopped instance. When you modify the parameters on a running instance, the <code>GetInstance</code> or <code>GetInstances</code> API operation initially responds with a state of <code>pending</code>. After the parameter modifications are successfully applied, the state changes to <code>applied</code> in subsequent <code>GetInstance</code> or <code>GetInstances</code> API calls. For more information, see <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-configuring-instance-metadata-service\">Use IMDSv2 with an Amazon Lightsail instance</a> in the <i>Amazon Lightsail Developer Guide</i>.</p>
+        r"""<p>Modifies the Amazon Lightsail instance metadata parameters on a running or stopped instance. When you modify the parameters on a running instance, the <code>GetInstance</code> or <code>GetInstances</code> API operation initially responds with a state of <code>pending</code>. After the parameter modifications are successfully applied, the state changes to <code>applied</code> in subsequent <code>GetInstance</code> or <code>GetInstances</code> API calls. For more information, see <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-configuring-instance-metadata-service\">Use IMDSv2 with an Amazon Lightsail instance</a> in the <i>Amazon Lightsail Developer Guide</i>.</p>
 
         Args:
             instance_name: <p>The name of the instance for which to update metadata parameters.</p>
@@ -7625,7 +7625,7 @@ class AsyncLightsailClient:
         *,
         config_overrides: Optional[AsyncLightsailClientConfig] = None,
     ) -> "aws_sdk_lightsail.types.update_load_balancer_attribute_result.UpdateLoadBalancerAttributeResult":
-        """<p>Updates the specified attribute for a load balancer. You can only update one attribute at a time.</p> <p>The <code>update load balancer attribute</code> operation supports tag-based access control via resource tags applied to the resource identified by <code>load balancer name</code>. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
+        r"""<p>Updates the specified attribute for a load balancer. You can only update one attribute at a time.</p> <p>The <code>update load balancer attribute</code> operation supports tag-based access control via resource tags applied to the resource identified by <code>load balancer name</code>. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
 
         Args:
             load_balancer_name: <p>The name of the load balancer that you want to modify (<code>my-load-balancer</code>.</p>
@@ -7693,7 +7693,7 @@ class AsyncLightsailClient:
             "aws_sdk_lightsail.types.string.string"
         ] = None,
     ) -> "aws_sdk_lightsail.types.update_relational_database_result.UpdateRelationalDatabaseResult":
-        """<p>Allows the update of one or more attributes of a database in Amazon Lightsail.</p> <p>Updates are applied immediately, or in cases where the updates could result in an outage, are applied during the database's predefined maintenance window.</p> <p>The <code>update relational database</code> operation supports tag-based access control via resource tags applied to the resource identified by relationalDatabaseName. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
+        r"""<p>Allows the update of one or more attributes of a database in Amazon Lightsail.</p> <p>Updates are applied immediately, or in cases where the updates could result in an outage, are applied during the database's predefined maintenance window.</p> <p>The <code>update relational database</code> operation supports tag-based access control via resource tags applied to the resource identified by relationalDatabaseName. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
 
         Args:
             relational_database_name: <p>The name of your Lightsail database resource to update.</p>
@@ -7764,7 +7764,7 @@ class AsyncLightsailClient:
         *,
         config_overrides: Optional[AsyncLightsailClientConfig] = None,
     ) -> "aws_sdk_lightsail.types.update_relational_database_parameters_result.UpdateRelationalDatabaseParametersResult":
-        """<p>Allows the update of one or more parameters of a database in Amazon Lightsail.</p> <p>Parameter updates don't cause outages; therefore, their application is not subject to the preferred maintenance window. However, there are two ways in which parameter updates are applied: <code>dynamic</code> or <code>pending-reboot</code>. Parameters marked with a <code>dynamic</code> apply type are applied immediately. Parameters marked with a <code>pending-reboot</code> apply type are applied only after the database is rebooted using the <code>reboot relational database</code> operation.</p> <p>The <code>update relational database parameters</code> operation supports tag-based access control via resource tags applied to the resource identified by relationalDatabaseName. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
+        r"""<p>Allows the update of one or more parameters of a database in Amazon Lightsail.</p> <p>Parameter updates don't cause outages; therefore, their application is not subject to the preferred maintenance window. However, there are two ways in which parameter updates are applied: <code>dynamic</code> or <code>pending-reboot</code>. Parameters marked with a <code>dynamic</code> apply type are applied immediately. Parameters marked with a <code>pending-reboot</code> apply type are applied only after the database is rebooted using the <code>reboot relational database</code> operation.</p> <p>The <code>update relational database parameters</code> operation supports tag-based access control via resource tags applied to the resource identified by relationalDatabaseName. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags\">Amazon Lightsail Developer Guide</a>.</p>
 
         Args:
             relational_database_name: <p>The name of your database for which to update parameters.</p>

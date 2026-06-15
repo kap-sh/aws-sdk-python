@@ -1,9 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#CredentialsProviderConfiguration``."""
 
 from typing import TYPE_CHECKING, TypeAlias, TypedDict
-from aws_sdk_bedrock_agentcore_control.errors import DeserializationError, SerializationError
+
+from aws_sdk_bedrock_agentcore_control.errors import (
+    DeserializationError,
+    SerializationError,
+)
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.payment_credential_provider_configuration
+
 
 class _CredentialsProviderConfiguration_coinbaseCDP(TypedDict):
     coinbaseCDP: "aws_sdk_bedrock_agentcore_control.types.payment_credential_provider_configuration.PaymentCredentialProviderConfiguration"
@@ -12,16 +18,31 @@ class _CredentialsProviderConfiguration_coinbaseCDP(TypedDict):
 class _CredentialsProviderConfiguration_stripePrivy(TypedDict):
     stripePrivy: "aws_sdk_bedrock_agentcore_control.types.payment_credential_provider_configuration.PaymentCredentialProviderConfiguration"
 
-CredentialsProviderConfiguration: TypeAlias = _CredentialsProviderConfiguration_coinbaseCDP | _CredentialsProviderConfiguration_stripePrivy
+
+CredentialsProviderConfiguration: TypeAlias = (
+    _CredentialsProviderConfiguration_coinbaseCDP
+    | _CredentialsProviderConfiguration_stripePrivy
+)
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: CredentialsProviderConfiguration) -> dict:
     if "coinbaseCDP" in value:
         import aws_sdk_bedrock_agentcore_control.types.payment_credential_provider_configuration
-        return {"coinbaseCDP": aws_sdk_bedrock_agentcore_control.types.payment_credential_provider_configuration.serialize_json(value["coinbaseCDP"])}
+
+        return {
+            "coinbaseCDP": aws_sdk_bedrock_agentcore_control.types.payment_credential_provider_configuration.serialize_json(
+                value["coinbaseCDP"]
+            )
+        }
     elif "stripePrivy" in value:
         import aws_sdk_bedrock_agentcore_control.types.payment_credential_provider_configuration
-        return {"stripePrivy": aws_sdk_bedrock_agentcore_control.types.payment_credential_provider_configuration.serialize_json(value["stripePrivy"])}
+
+        return {
+            "stripePrivy": aws_sdk_bedrock_agentcore_control.types.payment_credential_provider_configuration.serialize_json(
+                value["stripePrivy"]
+            )
+        }
     else:
         raise SerializationError("CredentialsProviderConfiguration: no variant present")
 
@@ -29,9 +50,21 @@ def serialize_json(value: CredentialsProviderConfiguration) -> dict:
 def deserialize_json(data: dict) -> CredentialsProviderConfiguration:
     if "coinbaseCDP" in data:
         import aws_sdk_bedrock_agentcore_control.types.payment_credential_provider_configuration
-        return {"coinbaseCDP": aws_sdk_bedrock_agentcore_control.types.payment_credential_provider_configuration.deserialize_json(data["coinbaseCDP"])}
+
+        return {
+            "coinbaseCDP": aws_sdk_bedrock_agentcore_control.types.payment_credential_provider_configuration.deserialize_json(
+                data["coinbaseCDP"]
+            )
+        }
     elif "stripePrivy" in data:
         import aws_sdk_bedrock_agentcore_control.types.payment_credential_provider_configuration
-        return {"stripePrivy": aws_sdk_bedrock_agentcore_control.types.payment_credential_provider_configuration.deserialize_json(data["stripePrivy"])}
+
+        return {
+            "stripePrivy": aws_sdk_bedrock_agentcore_control.types.payment_credential_provider_configuration.deserialize_json(
+                data["stripePrivy"]
+            )
+        }
     else:
-        raise DeserializationError("CredentialsProviderConfiguration: no recognized variant key")
+        raise DeserializationError(
+            "CredentialsProviderConfiguration: no recognized variant key"
+        )

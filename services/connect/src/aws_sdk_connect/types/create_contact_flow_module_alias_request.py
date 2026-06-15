@@ -16,7 +16,7 @@ if TYPE_CHECKING:
 
 class CreateContactFlowModuleAliasRequest(TypedDict):
     instance_id: "aws_sdk_connect.types.instance_id_or_arn.InstanceIdOrArn"
-    """<p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>"""
+    r"""<p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>"""
     description: NotRequired[
         "aws_sdk_connect.types.contact_flow_description.ContactFlowDescription"
     ]

@@ -20,7 +20,7 @@ class ListSourceRepositoryBranchesItem(TypedDict):
     ]
     """<p>The name of the branch.</p>"""
     last_updated_time: NotRequired["aws_sdk_codecatalyst.types.timestamp.Timestamp"]
-    """<p>The time the branch was last updated, in coordinated universal time (UTC) timestamp format as specified in <a href=\"https://www.rfc-editor.org/rfc/rfc3339#section-5.6\">RFC 3339</a>.</p>"""
+    r"""<p>The time the branch was last updated, in coordinated universal time (UTC) timestamp format as specified in <a href=\"https://www.rfc-editor.org/rfc/rfc3339#section-5.6\">RFC 3339</a>.</p>"""
     head_commit_id: NotRequired["str"]
     """<p>The commit ID of the tip of the branch at the time of the request, also known as the head commit.</p>"""
 

@@ -30,7 +30,7 @@ class Stage(TypedDict):
     cache_cluster_size: NotRequired[
         "aws_sdk_api_gateway.types.cache_cluster_size.CacheClusterSize"
     ]
-    """<p>The stage's cache capacity in GB. For more information about choosing a cache size, see <a href=\"https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html\">Enabling API caching to enhance responsiveness</a>.</p>"""
+    r"""<p>The stage's cache capacity in GB. For more information about choosing a cache size, see <a href=\"https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html\">Enabling API caching to enhance responsiveness</a>.</p>"""
     cache_cluster_status: NotRequired[
         "aws_sdk_api_gateway.types.cache_cluster_status.CacheClusterStatus"
     ]
@@ -38,7 +38,7 @@ class Stage(TypedDict):
     method_settings: NotRequired[
         "aws_sdk_api_gateway.types.map_of_method_settings.MapOfMethodSettings"
     ]
-    """<p>A map that defines the method settings for a Stage resource. Keys (designated as <code>/{method_setting_key</code> below) are method paths defined as <code>{resource_path}/{http_method}</code> for an individual method override, or <code>/\*/\*</code> for overriding all methods in the stage. </p>"""
+    r"""<p>A map that defines the method settings for a Stage resource. Keys (designated as <code>/{method_setting_key</code> below) are method paths defined as <code>{resource_path}/{http_method}</code> for an individual method override, or <code>/\*/\*</code> for overriding all methods in the stage. </p>"""
     variables: NotRequired[
         "aws_sdk_api_gateway.types.map_of_string_to_string.MapOfStringToString"
     ]

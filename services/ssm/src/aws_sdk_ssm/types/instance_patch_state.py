@@ -42,7 +42,7 @@ class InstancePatchState(TypedDict):
     install_override_list: NotRequired[
         "aws_sdk_ssm.types.install_override_list.InstallOverrideList"
     ]
-    """<p>An https URL or an Amazon Simple Storage Service (Amazon S3) path-style URL to a list of patches to be installed. This patch installation list, which you maintain in an S3 bucket in YAML format and specify in the SSM document <code>AWS-RunPatchBaseline</code>, overrides the patches specified by the default patch baseline.</p> <p>For more information about the <code>InstallOverrideList</code> parameter, see <a href=\"https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-about-aws-runpatchbaseline.html\">SSM Command document for patching: <code>AWS-RunPatchBaseline</code> </a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>"""
+    r"""<p>An https URL or an Amazon Simple Storage Service (Amazon S3) path-style URL to a list of patches to be installed. This patch installation list, which you maintain in an S3 bucket in YAML format and specify in the SSM document <code>AWS-RunPatchBaseline</code>, overrides the patches specified by the default patch baseline.</p> <p>For more information about the <code>InstallOverrideList</code> parameter, see <a href=\"https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-about-aws-runpatchbaseline.html\">SSM Command document for patching: <code>AWS-RunPatchBaseline</code> </a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>"""
     owner_information: NotRequired[
         "aws_sdk_ssm.types.owner_information.OwnerInformation"
     ]

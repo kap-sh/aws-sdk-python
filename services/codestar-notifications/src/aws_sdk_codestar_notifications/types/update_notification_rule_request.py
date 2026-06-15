@@ -31,7 +31,7 @@ class UpdateNotificationRuleRequest(TypedDict):
     event_type_ids: NotRequired[
         "aws_sdk_codestar_notifications.types.event_type_ids.EventTypeIds"
     ]
-    """<p>A list of event types associated with this notification rule. For a complete list of event types and IDs, see <a href=\"https://docs.aws.amazon.com/codestar-notifications/latest/userguide/concepts.html#concepts-api\">Notification concepts</a> in the <i>Developer Tools Console User Guide</i>.</p>"""
+    r"""<p>A list of event types associated with this notification rule. For a complete list of event types and IDs, see <a href=\"https://docs.aws.amazon.com/codestar-notifications/latest/userguide/concepts.html#concepts-api\">Notification concepts</a> in the <i>Developer Tools Console User Guide</i>.</p>"""
     targets: NotRequired["aws_sdk_codestar_notifications.types.targets.Targets"]
     """<p>The address and type of the targets to receive notifications from this notification rule.</p>"""
     detail_type: NotRequired[

@@ -14,7 +14,7 @@ class AudioPid(TypedDict):
     dolby_e_decode: NotRequired[
         "aws_sdk_medialive.types.audio_dolby_e_decode.AudioDolbyEDecode"
     ]
-    """Configure decoding options for Dolby E streams - these should be Dolby E frames carried in PCM streams tagged with SMPTE-337. When using the 'pids' array, if this field is not specified and Dolby E content is present, the decoder will extract the specified program. To maintain legacy behavior (allPrograms), explicitly set programSelection to \"allChannels\"."""
+    r"""Configure decoding options for Dolby E streams - these should be Dolby E frames carried in PCM streams tagged with SMPTE-337. When using the 'pids' array, if this field is not specified and Dolby E content is present, the decoder will extract the specified program. To maintain legacy behavior (allPrograms), explicitly set programSelection to \"allChannels\"."""
     pid: NotRequired[
         "aws_sdk_medialive.types.__integer_min0_max8191.__integerMin0Max8191"
     ]

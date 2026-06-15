@@ -23,13 +23,13 @@ class Group(TypedDict):
     distinguished_name: NotRequired[
         "aws_sdk_directory_service_data.types.distinguished_name.DistinguishedName"
     ]
-    """<p>The <a href=\"https://learn.microsoft.com/en-us/windows/win32/ad/object-names-and-identities#distinguished-name\">distinguished name</a> of the object. </p>"""
+    r"""<p>The <a href=\"https://learn.microsoft.com/en-us/windows/win32/ad/object-names-and-identities#distinguished-name\">distinguished name</a> of the object. </p>"""
     group_type: NotRequired["aws_sdk_directory_service_data.types.group_type.GroupType"]
-    """<p> The AD group type. For details, see <a href=\"https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/understand-security-groups#how-active-directory-security-groups-work\">Active Directory security group type</a>. </p>"""
+    r"""<p> The AD group type. For details, see <a href=\"https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/understand-security-groups#how-active-directory-security-groups-work\">Active Directory security group type</a>. </p>"""
     group_scope: NotRequired[
         "aws_sdk_directory_service_data.types.group_scope.GroupScope"
     ]
-    """<p> The scope of the AD group. For details, see <a href=\"https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/understand-security-groups#group-scope\">Active Directory security groups</a> </p>"""
+    r"""<p> The scope of the AD group. For details, see <a href=\"https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/understand-security-groups#group-scope\">Active Directory security groups</a> </p>"""
     other_attributes: NotRequired[
         "aws_sdk_directory_service_data.types.attributes.Attributes"
     ]

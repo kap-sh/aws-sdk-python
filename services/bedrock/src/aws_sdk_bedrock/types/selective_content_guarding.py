@@ -12,7 +12,7 @@ class SelectiveContentGuarding(TypedDict):
     system: NotRequired[
         "aws_sdk_bedrock.types.selective_guarding_mode.SelectiveGuardingMode"
     ]
-    """<p>Selective guarding mode for system prompts.\"</p>"""
+    r"""<p>Selective guarding mode for system prompts.\"</p>"""
     messages: NotRequired[
         "aws_sdk_bedrock.types.selective_guarding_mode.SelectiveGuardingMode"
     ]

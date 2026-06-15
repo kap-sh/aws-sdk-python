@@ -10,7 +10,7 @@ if TYPE_CHECKING:
 
 class DeleteDeliveryRequest(TypedDict):
     id: "aws_sdk_cloudwatch_logs.types.delivery_id.DeliveryId"
-    """<p>The unique ID of the delivery to delete. You can find the ID of a delivery with the <a href=\"https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeDeliveries.html\">DescribeDeliveries</a> operation.</p>"""
+    r"""<p>The unique ID of the delivery to delete. You can find the ID of a delivery with the <a href=\"https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeDeliveries.html\">DescribeDeliveries</a> operation.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

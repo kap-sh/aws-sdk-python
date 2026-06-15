@@ -12,7 +12,7 @@ class FieldDefinition(TypedDict):
     name: "aws_sdk_keyspaces.types.generic_string.GenericString"
     """<p> The identifier. </p>"""
     type: "aws_sdk_keyspaces.types.generic_string.GenericString"
-    """<p> Any supported Cassandra data type, including collections and other user-defined types that are contained in the same keyspace. </p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/keyspaces/latest/devguide/cassandra-apis.html#cassandra-data-type\">Cassandra data type support</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>"""
+    r"""<p> Any supported Cassandra data type, including collections and other user-defined types that are contained in the same keyspace. </p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/keyspaces/latest/devguide/cassandra-apis.html#cassandra-data-type\">Cassandra data type support</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>"""
 
 
 # --- awsJson1_0 ser/de ---

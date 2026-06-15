@@ -10,7 +10,7 @@ if TYPE_CHECKING:
 
 class RemoveAccountFromOrganizationRequest(TypedDict):
     account_id: "aws_sdk_organizations.types.account_id.AccountId"
-    """<p>ID for the member account that you want to remove from the organization.</p> <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> for an account ID string requires exactly 12 digits.</p>"""
+    r"""<p>ID for the member account that you want to remove from the organization.</p> <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> for an account ID string requires exactly 12 digits.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

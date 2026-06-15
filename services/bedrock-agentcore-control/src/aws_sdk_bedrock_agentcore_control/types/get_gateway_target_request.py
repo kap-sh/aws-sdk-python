@@ -1,15 +1,20 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#GetGatewayTargetRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.gateway_identifier
     import aws_sdk_bedrock_agentcore_control.types.target_id
 
+
 class GetGatewayTargetRequest(TypedDict):
-    gateway_identifier: "aws_sdk_bedrock_agentcore_control.types.gateway_identifier.GatewayIdentifier"
+    gateway_identifier: (
+        "aws_sdk_bedrock_agentcore_control.types.gateway_identifier.GatewayIdentifier"
+    )
     """<p>The identifier of the gateway that contains the target.</p>"""
     target_id: "aws_sdk_bedrock_agentcore_control.types.target_id.TargetId"
     """<p>The unique identifier of the target to retrieve.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: GetGatewayTargetRequest) -> dict:

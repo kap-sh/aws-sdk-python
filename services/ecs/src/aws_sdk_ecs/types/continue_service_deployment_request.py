@@ -15,7 +15,7 @@ class ContinueServiceDeploymentRequest(TypedDict):
     service_deployment_arn: "aws_sdk_ecs.types.string.String"
     """<p>The ARN of the service deployment to continue or roll back.</p>"""
     hook_id: "aws_sdk_ecs.types.string.String"
-    """<p>The ID of the paused lifecycle hook to act on. You can find the <code>hookId</code> by calling <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeServiceDeployments.html\">DescribeServiceDeployments</a> and inspecting the <code>lifecycleHookDetails</code> field of the service deployment.</p>"""
+    r"""<p>The ID of the paused lifecycle hook to act on. You can find the <code>hookId</code> by calling <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeServiceDeployments.html\">DescribeServiceDeployments</a> and inspecting the <code>lifecycleHookDetails</code> field of the service deployment.</p>"""
     action: NotRequired[
         "aws_sdk_ecs.types.deployment_lifecycle_hook_action.DeploymentLifecycleHookAction"
     ]

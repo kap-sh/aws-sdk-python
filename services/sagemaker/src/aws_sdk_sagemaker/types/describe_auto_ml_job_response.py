@@ -70,7 +70,7 @@ class DescribeAutoMLJobResponse(TypedDict):
     best_candidate: NotRequired[
         "aws_sdk_sagemaker.types.auto_ml_candidate.AutoMLCandidate"
     ]
-    """<p>The best model candidate selected by SageMaker AI Autopilot using both the best objective metric and lowest <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-metrics-validation.html\">InferenceLatency</a> for an experiment.</p>"""
+    r"""<p>The best model candidate selected by SageMaker AI Autopilot using both the best objective metric and lowest <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-metrics-validation.html\">InferenceLatency</a> for an experiment.</p>"""
     auto_ml_job_status: NotRequired[
         "aws_sdk_sagemaker.types.auto_ml_job_status.AutoMLJobStatus"
     ]

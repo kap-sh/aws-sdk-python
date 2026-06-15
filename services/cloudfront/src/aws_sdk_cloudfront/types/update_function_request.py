@@ -20,7 +20,7 @@ class UpdateFunctionRequest(TypedDict):
     function_config: "aws_sdk_cloudfront.types.function_config.FunctionConfig"
     """<p>Configuration information about the function.</p>"""
     function_code: "aws_sdk_cloudfront.types.function_blob.FunctionBlob"
-    """<p>The function code. For more information about writing a CloudFront function, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/writing-function-code.html\">Writing function code for CloudFront Functions</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>"""
+    r"""<p>The function code. For more information about writing a CloudFront function, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/writing-function-code.html\">Writing function code for CloudFront Functions</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>"""
 
 
 # --- restXml ser/de ---

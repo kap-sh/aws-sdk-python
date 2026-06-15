@@ -31,7 +31,7 @@ class NetworkInterface(TypedDict):
     custom_decoding_interface: NotRequired[
         "aws_sdk_iotfleetwise.types.custom_decoding_interface.CustomDecodingInterface"
     ]
-    """<p>Information about a <a href=\"https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_CustomDecodingInterface.html\">custom network interface</a>.</p>"""
+    r"""<p>Information about a <a href=\"https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_CustomDecodingInterface.html\">custom network interface</a>.</p>"""
 
 
 # --- awsJson1_0 ser/de ---

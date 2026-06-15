@@ -20,7 +20,7 @@ class CreateScraperRequest(TypedDict):
     alias: NotRequired["aws_sdk_amp.types.scraper_alias.ScraperAlias"]
     """<p>(optional) An alias to associate with the scraper. This is for your use, and does not need to be unique.</p>"""
     scrape_configuration: "aws_sdk_amp.types.scrape_configuration.ScrapeConfiguration"
-    """<p>The configuration file to use in the new scraper. For more information, see <a href=\"https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration\">Scraper configuration</a> in the <i>Amazon Managed Service for Prometheus User Guide</i>.</p>"""
+    r"""<p>The configuration file to use in the new scraper. For more information, see <a href=\"https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration\">Scraper configuration</a> in the <i>Amazon Managed Service for Prometheus User Guide</i>.</p>"""
     source: "aws_sdk_amp.types.source.Source"
     """<p>The Amazon EKS or Amazon Web Services cluster from which the scraper will collect metrics.</p>"""
     destination: "aws_sdk_amp.types.destination.Destination"

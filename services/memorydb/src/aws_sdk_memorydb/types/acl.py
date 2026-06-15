@@ -15,7 +15,7 @@ class ACL(TypedDict):
     name: NotRequired["aws_sdk_memorydb.types.string.String"]
     """<p>The name of the Access Control List</p>"""
     status: NotRequired["aws_sdk_memorydb.types.string.String"]
-    """<p>Indicates ACL status. Can be \"creating\", \"active\", \"modifying\", \"deleting\".</p>"""
+    r"""<p>Indicates ACL status. Can be \"creating\", \"active\", \"modifying\", \"deleting\".</p>"""
     user_names: NotRequired["aws_sdk_memorydb.types.user_name_list.UserNameList"]
     """<p>The list of user names that belong to the ACL.</p>"""
     minimum_engine_version: NotRequired["aws_sdk_memorydb.types.string.String"]

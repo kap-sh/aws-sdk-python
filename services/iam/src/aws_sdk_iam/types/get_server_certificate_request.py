@@ -13,7 +13,7 @@ class GetServerCertificateRequest(TypedDict):
     server_certificate_name: (
         "aws_sdk_iam.types.server_certificate_name_type.serverCertificateNameType"
     )
-    """<p>The name of the server certificate you want to retrieve information about.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>"""
+    r"""<p>The name of the server certificate you want to retrieve information about.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>"""
 
 
 # --- awsQuery ser/de ---

@@ -15,7 +15,7 @@ class Filter(TypedDict):
     name: NotRequired["aws_sdk_elasticache.types.filter_name.FilterName"]
     """<p>The property being filtered. For example, UserId.</p>"""
     values: NotRequired["aws_sdk_elasticache.types.filter_value_list.FilterValueList"]
-    """<p>The property values to filter on. For example, \"user-123\".</p>"""
+    r"""<p>The property values to filter on. For example, \"user-123\".</p>"""
 
 
 # --- awsQuery ser/de ---

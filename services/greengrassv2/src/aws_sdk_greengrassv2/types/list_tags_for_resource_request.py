@@ -8,7 +8,7 @@ if TYPE_CHECKING:
 
 class ListTagsForResourceRequest(TypedDict):
     resource_arn: "aws_sdk_greengrassv2.types.generic_v2_arn.GenericV2ARN"
-    """<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the resource.</p>"""
+    r"""<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the resource.</p>"""
 
 
 # --- restJson1 ser/de ---

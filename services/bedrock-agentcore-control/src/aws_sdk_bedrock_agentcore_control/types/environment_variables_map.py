@@ -1,11 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#EnvironmentVariablesMap``."""
 
 from typing import TYPE_CHECKING, TypeAlias
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.environment_variable_key
     import aws_sdk_bedrock_agentcore_control.types.environment_variable_value
 
-EnvironmentVariablesMap: TypeAlias = dict["aws_sdk_bedrock_agentcore_control.types.environment_variable_key.EnvironmentVariableKey", "aws_sdk_bedrock_agentcore_control.types.environment_variable_value.EnvironmentVariableValue"]
+EnvironmentVariablesMap: TypeAlias = dict[
+    "aws_sdk_bedrock_agentcore_control.types.environment_variable_key.EnvironmentVariableKey",
+    "aws_sdk_bedrock_agentcore_control.types.environment_variable_value.EnvironmentVariableValue",
+]
 
 
 # --- restJson1 ser/de ---

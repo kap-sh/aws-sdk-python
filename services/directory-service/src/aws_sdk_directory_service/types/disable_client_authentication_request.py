@@ -13,7 +13,7 @@ class DisableClientAuthenticationRequest(TypedDict):
     directory_id: "aws_sdk_directory_service.types.directory_id.DirectoryId"
     """<p>The identifier of the directory </p>"""
     type: "aws_sdk_directory_service.types.client_authentication_type.ClientAuthenticationType"
-    """<p>The type of client authentication to disable. Currently the only parameter <code>\"SmartCard\"</code> is supported.</p>"""
+    r"""<p>The type of client authentication to disable. Currently the only parameter <code>\"SmartCard\"</code> is supported.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

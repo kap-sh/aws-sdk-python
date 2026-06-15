@@ -72,7 +72,7 @@ def get_signer(
     options: AsyncOperationOptions | OperationOptions,
     auth_schemes: list[dict[str, Any]] | None = None,
 ) -> aws_sdk_bcm_dashboards._auth._signers.Signer | None:
-    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}
+    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}  # noqa: F841
     if options.credentials_provider is not None:
         sigv4_config = (
             name_to_schema.get("sigv4")
@@ -91,7 +91,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_bcm_dashboards.types.list_scheduled_reports_request.ListScheduledReportsRequest,
+    input_: aws_sdk_bcm_dashboards.types.list_scheduled_reports_request.ListScheduledReportsRequest,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -106,7 +106,7 @@ def build_request(
 
     body: bytes | None = json.dumps(
         aws_sdk_bcm_dashboards.types.list_scheduled_reports_request.serialize_aws_json_1_0(
-            input
+            input_
         )
     ).encode()
     headers["content-type"] = "application/x-amz-json-1.0"
@@ -120,12 +120,12 @@ def build_request(
 
 def list_scheduled_reports(
     options: OperationOptions,
-    input: aws_sdk_bcm_dashboards.types.list_scheduled_reports_request.ListScheduledReportsRequest,
+    input_: aws_sdk_bcm_dashboards.types.list_scheduled_reports_request.ListScheduledReportsRequest,
 ) -> tuple[
     aws_sdk_bcm_dashboards.types.list_scheduled_reports_response.ListScheduledReportsResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -139,12 +139,12 @@ def list_scheduled_reports(
 
 async def async_list_scheduled_reports(
     options: AsyncOperationOptions,
-    input: aws_sdk_bcm_dashboards.types.list_scheduled_reports_request.ListScheduledReportsRequest,
+    input_: aws_sdk_bcm_dashboards.types.list_scheduled_reports_request.ListScheduledReportsRequest,
 ) -> tuple[
     aws_sdk_bcm_dashboards.types.list_scheduled_reports_response.ListScheduledReportsResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

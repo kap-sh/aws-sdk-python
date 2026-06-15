@@ -16,7 +16,7 @@ class EndpointParams:
     def __init__(
         self,
         *,
-        ApiType: str,
+        ApiType: str | None = None,
         UseFIPS: bool | None = None,
         UseDualStack: bool | None = None,
         Region: str | None = None,

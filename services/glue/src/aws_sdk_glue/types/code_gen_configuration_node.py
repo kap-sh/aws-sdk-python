@@ -192,7 +192,7 @@ class CodeGenConfigurationNode(TypedDict):
     ]
     """<p>Specifies an Apache Kafka data store in the Data Catalog.</p>"""
     drop_null_fields: NotRequired["aws_sdk_glue.types.drop_null_fields.DropNullFields"]
-    """<p>Specifies a transform that removes columns from the dataset if all values in the column are 'null'. By default, Glue Studio will recognize null objects, but some values such as empty strings, strings that are \"null\", -1 integers or other placeholders such as zeros, are not automatically recognized as nulls.</p>"""
+    r"""<p>Specifies a transform that removes columns from the dataset if all values in the column are 'null'. By default, Glue Studio will recognize null objects, but some values such as empty strings, strings that are \"null\", -1 integers or other placeholders such as zeros, are not automatically recognized as nulls.</p>"""
     merge: NotRequired["aws_sdk_glue.types.merge.Merge"]
     """<p>Specifies a transform that merges a <code>DynamicFrame</code> with a staging <code>DynamicFrame</code> based on the specified primary keys to identify records. Duplicate records (records with the same primary keys) are not de-duplicated. </p>"""
     union: NotRequired["aws_sdk_glue.types.union.Union"]

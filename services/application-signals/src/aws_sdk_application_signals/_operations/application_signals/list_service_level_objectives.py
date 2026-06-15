@@ -60,7 +60,7 @@ def get_signer(
     options: AsyncOperationOptions | OperationOptions,
     auth_schemes: list[dict[str, Any]] | None = None,
 ) -> aws_sdk_application_signals._auth._signers.Signer | None:
-    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}
+    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}  # noqa: F841
     if options.credentials_provider is not None:
         sigv4_config = (
             name_to_schema.get("sigv4")
@@ -79,7 +79,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_application_signals.types.list_service_level_objectives_input.ListServiceLevelObjectivesInput,
+    input_: aws_sdk_application_signals.types.list_service_level_objectives_input.ListServiceLevelObjectivesInput,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -88,21 +88,21 @@ def build_request(
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/slos"
     params: dict[str, str] = {}
-    if "operation_name" in input:
-        params["OperationName"] = str(input["operation_name"])
-    if "max_results" in input:
-        params["MaxResults"] = str(input["max_results"])
-    if "next_token" in input:
-        params["NextToken"] = str(input["next_token"])
-    params["IncludeLinkedAccounts"] = str(input.get("include_linked_accounts", False))
-    if "slo_owner_aws_account_id" in input:
-        params["SloOwnerAwsAccountId"] = str(input["slo_owner_aws_account_id"])
+    if "operation_name" in input_:
+        params["OperationName"] = str(input_["operation_name"])
+    if "max_results" in input_:
+        params["MaxResults"] = str(input_["max_results"])
+    if "next_token" in input_:
+        params["NextToken"] = str(input_["next_token"])
+    params["IncludeLinkedAccounts"] = str(input_.get("include_linked_accounts", False))
+    if "slo_owner_aws_account_id" in input_:
+        params["SloOwnerAwsAccountId"] = str(input_["slo_owner_aws_account_id"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     import aws_sdk_application_signals.types.list_service_level_objectives_input
 
     body: bytes | None = json.dumps(
         aws_sdk_application_signals.types.list_service_level_objectives_input.serialize_json(
-            input
+            input_
         )
     ).encode()
     headers["content-type"] = "application/json"
@@ -116,12 +116,12 @@ def build_request(
 
 def list_service_level_objectives(
     options: OperationOptions,
-    input: aws_sdk_application_signals.types.list_service_level_objectives_input.ListServiceLevelObjectivesInput,
+    input_: aws_sdk_application_signals.types.list_service_level_objectives_input.ListServiceLevelObjectivesInput,
 ) -> tuple[
     aws_sdk_application_signals.types.list_service_level_objectives_output.ListServiceLevelObjectivesOutput,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -135,12 +135,12 @@ def list_service_level_objectives(
 
 async def async_list_service_level_objectives(
     options: AsyncOperationOptions,
-    input: aws_sdk_application_signals.types.list_service_level_objectives_input.ListServiceLevelObjectivesInput,
+    input_: aws_sdk_application_signals.types.list_service_level_objectives_input.ListServiceLevelObjectivesInput,
 ) -> tuple[
     aws_sdk_application_signals.types.list_service_level_objectives_output.ListServiceLevelObjectivesOutput,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

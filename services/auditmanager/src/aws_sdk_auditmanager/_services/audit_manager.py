@@ -263,7 +263,7 @@ class AuditManagerClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = AuditManagerClientConfig(
+        self._config = AuditManagerClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -283,7 +283,7 @@ class AuditManagerClient:
         overrides: AuditManagerClientConfig = config_overrides or {}
         interceptors_: list[Interceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             retry(),
         ]
@@ -291,16 +291,16 @@ class AuditManagerClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            region=overrides.get("region", self.config.get("region")),
+            region=overrides.get("region", self._config.get("region")),
             use_dual_stack=overrides.get(
-                "use_dual_stack", self.config.get("use_dual_stack")
+                "use_dual_stack", self._config.get("use_dual_stack")
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -334,12 +334,12 @@ class AuditManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auditmanager.types.associate_assessment_report_evidence_folder_request.AssociateAssessmentReportEvidenceFolderRequest = {}  # type: ignore[typeddict-item]
-        input["assessment_id"] = assessment_id
-        input["evidence_folder_id"] = evidence_folder_id
+        input_: aws_sdk_auditmanager.types.associate_assessment_report_evidence_folder_request.AssociateAssessmentReportEvidenceFolderRequest = {}  # type: ignore[typeddict-item]
+        input_["assessment_id"] = assessment_id
+        input_["evidence_folder_id"] = evidence_folder_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -376,13 +376,13 @@ class AuditManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auditmanager.types.batch_associate_assessment_report_evidence_request.BatchAssociateAssessmentReportEvidenceRequest = {}  # type: ignore[typeddict-item]
-        input["assessment_id"] = assessment_id
-        input["evidence_folder_id"] = evidence_folder_id
-        input["evidence_ids"] = evidence_ids
+        input_: aws_sdk_auditmanager.types.batch_associate_assessment_report_evidence_request.BatchAssociateAssessmentReportEvidenceRequest = {}  # type: ignore[typeddict-item]
+        input_["assessment_id"] = assessment_id
+        input_["evidence_folder_id"] = evidence_folder_id
+        input_["evidence_ids"] = evidence_ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -417,12 +417,12 @@ class AuditManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auditmanager.types.batch_create_delegation_by_assessment_request.BatchCreateDelegationByAssessmentRequest = {}  # type: ignore[typeddict-item]
-        input["create_delegation_requests"] = create_delegation_requests
-        input["assessment_id"] = assessment_id
+        input_: aws_sdk_auditmanager.types.batch_create_delegation_by_assessment_request.BatchCreateDelegationByAssessmentRequest = {}  # type: ignore[typeddict-item]
+        input_["create_delegation_requests"] = create_delegation_requests
+        input_["assessment_id"] = assessment_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -457,12 +457,12 @@ class AuditManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auditmanager.types.batch_delete_delegation_by_assessment_request.BatchDeleteDelegationByAssessmentRequest = {}  # type: ignore[typeddict-item]
-        input["delegation_ids"] = delegation_ids
-        input["assessment_id"] = assessment_id
+        input_: aws_sdk_auditmanager.types.batch_delete_delegation_by_assessment_request.BatchDeleteDelegationByAssessmentRequest = {}  # type: ignore[typeddict-item]
+        input_["delegation_ids"] = delegation_ids
+        input_["assessment_id"] = assessment_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -499,13 +499,13 @@ class AuditManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auditmanager.types.batch_disassociate_assessment_report_evidence_request.BatchDisassociateAssessmentReportEvidenceRequest = {}  # type: ignore[typeddict-item]
-        input["assessment_id"] = assessment_id
-        input["evidence_folder_id"] = evidence_folder_id
-        input["evidence_ids"] = evidence_ids
+        input_: aws_sdk_auditmanager.types.batch_disassociate_assessment_report_evidence_request.BatchDisassociateAssessmentReportEvidenceRequest = {}  # type: ignore[typeddict-item]
+        input_["assessment_id"] = assessment_id
+        input_["evidence_folder_id"] = evidence_folder_id
+        input_["evidence_ids"] = evidence_ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -520,7 +520,7 @@ class AuditManagerClient:
         *,
         config_overrides: Optional[AuditManagerClientConfig] = None,
     ) -> "aws_sdk_auditmanager.types.batch_import_evidence_to_assessment_control_response.BatchImportEvidenceToAssessmentControlResponse":
-        """<p>Adds one or more pieces of evidence to a control in an Audit Manager assessment. </p> <p>You can import manual evidence from any S3 bucket by specifying the S3 URI of the object. You can also upload a file from your browser, or enter plain text in response to a risk assessment question. </p> <p>The following restrictions apply to this action:</p> <ul> <li> <p> <code>manualEvidence</code> can be only one of the following: <code>evidenceFileName</code>, <code>s3ResourcePath</code>, or <code>textResponse</code> </p> </li> <li> <p>Maximum size of an individual evidence file: 100 MB</p> </li> <li> <p>Number of daily manual evidence uploads per control: 100</p> </li> <li> <p>Supported file formats: See <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/upload-evidence.html#supported-manual-evidence-files\">Supported file types for manual evidence</a> in the <i>Audit Manager User Guide</i> </p> </li> </ul> <p>For more information about Audit Manager service restrictions, see <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/service-quotas.html\">Quotas and restrictions for Audit Manager</a>.</p>
+        r"""<p>Adds one or more pieces of evidence to a control in an Audit Manager assessment. </p> <p>You can import manual evidence from any S3 bucket by specifying the S3 URI of the object. You can also upload a file from your browser, or enter plain text in response to a risk assessment question. </p> <p>The following restrictions apply to this action:</p> <ul> <li> <p> <code>manualEvidence</code> can be only one of the following: <code>evidenceFileName</code>, <code>s3ResourcePath</code>, or <code>textResponse</code> </p> </li> <li> <p>Maximum size of an individual evidence file: 100 MB</p> </li> <li> <p>Number of daily manual evidence uploads per control: 100</p> </li> <li> <p>Supported file formats: See <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/upload-evidence.html#supported-manual-evidence-files\">Supported file types for manual evidence</a> in the <i>Audit Manager User Guide</i> </p> </li> </ul> <p>For more information about Audit Manager service restrictions, see <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/service-quotas.html\">Quotas and restrictions for Audit Manager</a>.</p>
 
         Args:
             assessment_id: <p> The identifier for the assessment. </p>
@@ -544,14 +544,14 @@ class AuditManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auditmanager.types.batch_import_evidence_to_assessment_control_request.BatchImportEvidenceToAssessmentControlRequest = {}  # type: ignore[typeddict-item]
-        input["assessment_id"] = assessment_id
-        input["control_set_id"] = control_set_id
-        input["control_id"] = control_id
-        input["manual_evidence"] = manual_evidence
+        input_: aws_sdk_auditmanager.types.batch_import_evidence_to_assessment_control_request.BatchImportEvidenceToAssessmentControlRequest = {}  # type: ignore[typeddict-item]
+        input_["assessment_id"] = assessment_id
+        input_["control_set_id"] = control_set_id
+        input_["control_id"] = control_id
+        input_["manual_evidence"] = manual_evidence
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -599,19 +599,19 @@ class AuditManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auditmanager.types.create_assessment_request.CreateAssessmentRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_auditmanager.types.create_assessment_request.CreateAssessmentRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["assessment_reports_destination"] = assessment_reports_destination
-        input["scope"] = scope
-        input["roles"] = roles
-        input["framework_id"] = framework_id
+            input_["description"] = description
+        input_["assessment_reports_destination"] = assessment_reports_destination
+        input_["scope"] = scope
+        input_["roles"] = roles
+        input_["framework_id"] = framework_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -656,18 +656,18 @@ class AuditManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auditmanager.types.create_assessment_framework_request.CreateAssessmentFrameworkRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_auditmanager.types.create_assessment_framework_request.CreateAssessmentFrameworkRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if compliance_type is not None:
-            input["compliance_type"] = compliance_type
-        input["control_sets"] = control_sets
+            input_["compliance_type"] = compliance_type
+        input_["control_sets"] = control_sets
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -686,7 +686,7 @@ class AuditManagerClient:
             "aws_sdk_auditmanager.types.query_statement.QueryStatement"
         ] = None,
     ) -> "aws_sdk_auditmanager.types.create_assessment_report_response.CreateAssessmentReportResponse":
-        """<p> Creates an assessment report for the specified assessment. </p>
+        r"""<p> Creates an assessment report for the specified assessment. </p>
 
         Args:
             name: <p> The name of the new assessment report. </p>
@@ -710,16 +710,16 @@ class AuditManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auditmanager.types.create_assessment_report_request.CreateAssessmentReportRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_auditmanager.types.create_assessment_report_request.CreateAssessmentReportRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["assessment_id"] = assessment_id
+            input_["description"] = description
+        input_["assessment_id"] = assessment_id
         if query_statement is not None:
-            input["query_statement"] = query_statement
+            input_["query_statement"] = query_statement
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -772,22 +772,22 @@ class AuditManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auditmanager.types.create_control_request.CreateControlRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_auditmanager.types.create_control_request.CreateControlRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if testing_information is not None:
-            input["testing_information"] = testing_information
+            input_["testing_information"] = testing_information
         if action_plan_title is not None:
-            input["action_plan_title"] = action_plan_title
+            input_["action_plan_title"] = action_plan_title
         if action_plan_instructions is not None:
-            input["action_plan_instructions"] = action_plan_instructions
-        input["control_mapping_sources"] = control_mapping_sources
+            input_["action_plan_instructions"] = action_plan_instructions
+        input_["control_mapping_sources"] = control_mapping_sources
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -822,11 +822,11 @@ class AuditManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auditmanager.types.delete_assessment_request.DeleteAssessmentRequest = {}  # type: ignore[typeddict-item]
-        input["assessment_id"] = assessment_id
+        input_: aws_sdk_auditmanager.types.delete_assessment_request.DeleteAssessmentRequest = {}  # type: ignore[typeddict-item]
+        input_["assessment_id"] = assessment_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -859,11 +859,11 @@ class AuditManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auditmanager.types.delete_assessment_framework_request.DeleteAssessmentFrameworkRequest = {}  # type: ignore[typeddict-item]
-        input["framework_id"] = framework_id
+        input_: aws_sdk_auditmanager.types.delete_assessment_framework_request.DeleteAssessmentFrameworkRequest = {}  # type: ignore[typeddict-item]
+        input_["framework_id"] = framework_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -898,12 +898,12 @@ class AuditManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auditmanager.types.delete_assessment_framework_share_request.DeleteAssessmentFrameworkShareRequest = {}  # type: ignore[typeddict-item]
-        input["request_id"] = request_id
-        input["request_type"] = request_type
+        input_: aws_sdk_auditmanager.types.delete_assessment_framework_share_request.DeleteAssessmentFrameworkShareRequest = {}  # type: ignore[typeddict-item]
+        input_["request_id"] = request_id
+        input_["request_type"] = request_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -916,7 +916,7 @@ class AuditManagerClient:
         *,
         config_overrides: Optional[AuditManagerClientConfig] = None,
     ) -> "aws_sdk_auditmanager.types.delete_assessment_report_response.DeleteAssessmentReportResponse":
-        """<p>Deletes an assessment report in Audit Manager. </p> <p>When you run the <code>DeleteAssessmentReport</code> operation, Audit Manager attempts to delete the following data:</p> <ol> <li> <p>The specified assessment report that’s stored in your S3 bucket</p> </li> <li> <p>The associated metadata that’s stored in Audit Manager</p> </li> </ol> <p>If Audit Manager can’t access the assessment report in your S3 bucket, the report isn’t deleted. In this event, the <code>DeleteAssessmentReport</code> operation doesn’t fail. Instead, it proceeds to delete the associated metadata only. You must then delete the assessment report from the S3 bucket yourself. </p> <p>This scenario happens when Audit Manager receives a <code>403 (Forbidden)</code> or <code>404 (Not Found)</code> error from Amazon S3. To avoid this, make sure that your S3 bucket is available, and that you configured the correct permissions for Audit Manager to delete resources in your S3 bucket. For an example permissions policy that you can use, see <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/security_iam_id-based-policy-examples.html#full-administrator-access-assessment-report-destination\">Assessment report destination permissions</a> in the <i>Audit Manager User Guide</i>. For information about the issues that could cause a <code>403 (Forbidden)</code> or <code>404 (Not Found</code>) error from Amazon S3, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList\">List of Error Codes</a> in the <i>Amazon Simple Storage Service API Reference</i>. </p>
+        r"""<p>Deletes an assessment report in Audit Manager. </p> <p>When you run the <code>DeleteAssessmentReport</code> operation, Audit Manager attempts to delete the following data:</p> <ol> <li> <p>The specified assessment report that’s stored in your S3 bucket</p> </li> <li> <p>The associated metadata that’s stored in Audit Manager</p> </li> </ol> <p>If Audit Manager can’t access the assessment report in your S3 bucket, the report isn’t deleted. In this event, the <code>DeleteAssessmentReport</code> operation doesn’t fail. Instead, it proceeds to delete the associated metadata only. You must then delete the assessment report from the S3 bucket yourself. </p> <p>This scenario happens when Audit Manager receives a <code>403 (Forbidden)</code> or <code>404 (Not Found)</code> error from Amazon S3. To avoid this, make sure that your S3 bucket is available, and that you configured the correct permissions for Audit Manager to delete resources in your S3 bucket. For an example permissions policy that you can use, see <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/security_iam_id-based-policy-examples.html#full-administrator-access-assessment-report-destination\">Assessment report destination permissions</a> in the <i>Audit Manager User Guide</i>. For information about the issues that could cause a <code>403 (Forbidden)</code> or <code>404 (Not Found</code>) error from Amazon S3, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList\">List of Error Codes</a> in the <i>Amazon Simple Storage Service API Reference</i>. </p>
 
         Args:
             assessment_id: <p> The unique identifier for the assessment. </p>
@@ -938,12 +938,12 @@ class AuditManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auditmanager.types.delete_assessment_report_request.DeleteAssessmentReportRequest = {}  # type: ignore[typeddict-item]
-        input["assessment_id"] = assessment_id
-        input["assessment_report_id"] = assessment_report_id
+        input_: aws_sdk_auditmanager.types.delete_assessment_report_request.DeleteAssessmentReportRequest = {}  # type: ignore[typeddict-item]
+        input_["assessment_id"] = assessment_id
+        input_["assessment_report_id"] = assessment_report_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -976,11 +976,11 @@ class AuditManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auditmanager.types.delete_control_request.DeleteControlRequest = {}  # type: ignore[typeddict-item]
-        input["control_id"] = control_id
+        input_: aws_sdk_auditmanager.types.delete_control_request.DeleteControlRequest = {}  # type: ignore[typeddict-item]
+        input_["control_id"] = control_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -989,7 +989,7 @@ class AuditManagerClient:
     def deregister_account(
         self, *, config_overrides: Optional[AuditManagerClientConfig] = None
     ) -> "aws_sdk_auditmanager.types.deregister_account_response.DeregisterAccountResponse":
-        """<p> Deregisters an account in Audit Manager. </p> <note> <p>Before you deregister, you can use the <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_UpdateSettings.html\">UpdateSettings</a> API operation to set your preferred data retention policy. By default, Audit Manager retains your data. If you want to delete your data, you can use the <code>DeregistrationPolicy</code> attribute to request the deletion of your data. </p> <p>For more information about data retention, see <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/data-protection.html\">Data Protection</a> in the <i>Audit Manager User Guide</i>. </p> </note>"""
+        r"""<p> Deregisters an account in Audit Manager. </p> <note> <p>Before you deregister, you can use the <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_UpdateSettings.html\">UpdateSettings</a> API operation to set your preferred data retention policy. By default, Audit Manager retains your data. If you want to delete your data, you can use the <code>DeregistrationPolicy</code> attribute to request the deletion of your data. </p> <p>For more information about data retention, see <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/data-protection.html\">Data Protection</a> in the <i>Audit Manager User Guide</i>. </p> </note>"""
 
         def _handler(
             req: "OperationRequest[aws_sdk_auditmanager.types.deregister_account_request.DeregisterAccountRequest]",
@@ -1006,10 +1006,10 @@ class AuditManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auditmanager.types.deregister_account_request.DeregisterAccountRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_auditmanager.types.deregister_account_request.DeregisterAccountRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1023,7 +1023,7 @@ class AuditManagerClient:
             "aws_sdk_auditmanager.types.account_id.AccountId"
         ] = None,
     ) -> "aws_sdk_auditmanager.types.deregister_organization_admin_account_response.DeregisterOrganizationAdminAccountResponse":
-        """<p>Removes the specified Amazon Web Services account as a delegated administrator for Audit Manager. </p> <p>When you remove a delegated administrator from your Audit Manager settings, you continue to have access to the evidence that you previously collected under that account. This is also the case when you deregister a delegated administrator from Organizations. However, Audit Manager stops collecting and attaching evidence to that delegated administrator account moving forward.</p> <important> <p>Keep in mind the following cleanup task if you use evidence finder:</p> <p>Before you use your management account to remove a delegated administrator, make sure that the current delegated administrator account signs in to Audit Manager and disables evidence finder first. Disabling evidence finder automatically deletes the event data store that was created in their account when they enabled evidence finder. If this task isn’t completed, the event data store remains in their account. In this case, we recommend that the original delegated administrator goes to CloudTrail Lake and manually <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-eds-disable-termination.html\">deletes the event data store</a>.</p> <p>This cleanup task is necessary to ensure that you don't end up with multiple event data stores. Audit Manager ignores an unused event data store after you remove or change a delegated administrator account. However, the unused event data store continues to incur storage costs from CloudTrail Lake if you don't delete it.</p> </important> <p>When you deregister a delegated administrator account for Audit Manager, the data for that account isn’t deleted. If you want to delete resource data for a delegated administrator account, you must perform that task separately before you deregister the account. Either, you can do this in the Audit Manager console. Or, you can use one of the delete API operations that are provided by Audit Manager. </p> <p>To delete your Audit Manager resource data, see the following instructions: </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessment.html\">DeleteAssessment</a> (see also: <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/delete-assessment.html\">Deleting an assessment</a> in the <i>Audit Manager User Guide</i>)</p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessmentFramework.html\">DeleteAssessmentFramework</a> (see also: <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/delete-custom-framework.html\">Deleting a custom framework</a> in the <i>Audit Manager User Guide</i>)</p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessmentFrameworkShare.html\">DeleteAssessmentFrameworkShare</a> (see also: <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/deleting-shared-framework-requests.html\">Deleting a share request</a> in the <i>Audit Manager User Guide</i>)</p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessmentReport.html\">DeleteAssessmentReport</a> (see also: <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/generate-assessment-report.html#delete-assessment-report-steps\">Deleting an assessment report</a> in the <i>Audit Manager User Guide</i>)</p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteControl.html\">DeleteControl</a> (see also: <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/delete-controls.html\">Deleting a custom control</a> in the <i>Audit Manager User Guide</i>)</p> </li> </ul> <p>At this time, Audit Manager doesn't provide an option to delete evidence for a specific delegated administrator. Instead, when your management account deregisters Audit Manager, we perform a cleanup for the current delegated administrator account at the time of deregistration.</p>
+        r"""<p>Removes the specified Amazon Web Services account as a delegated administrator for Audit Manager. </p> <p>When you remove a delegated administrator from your Audit Manager settings, you continue to have access to the evidence that you previously collected under that account. This is also the case when you deregister a delegated administrator from Organizations. However, Audit Manager stops collecting and attaching evidence to that delegated administrator account moving forward.</p> <important> <p>Keep in mind the following cleanup task if you use evidence finder:</p> <p>Before you use your management account to remove a delegated administrator, make sure that the current delegated administrator account signs in to Audit Manager and disables evidence finder first. Disabling evidence finder automatically deletes the event data store that was created in their account when they enabled evidence finder. If this task isn’t completed, the event data store remains in their account. In this case, we recommend that the original delegated administrator goes to CloudTrail Lake and manually <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-eds-disable-termination.html\">deletes the event data store</a>.</p> <p>This cleanup task is necessary to ensure that you don't end up with multiple event data stores. Audit Manager ignores an unused event data store after you remove or change a delegated administrator account. However, the unused event data store continues to incur storage costs from CloudTrail Lake if you don't delete it.</p> </important> <p>When you deregister a delegated administrator account for Audit Manager, the data for that account isn’t deleted. If you want to delete resource data for a delegated administrator account, you must perform that task separately before you deregister the account. Either, you can do this in the Audit Manager console. Or, you can use one of the delete API operations that are provided by Audit Manager. </p> <p>To delete your Audit Manager resource data, see the following instructions: </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessment.html\">DeleteAssessment</a> (see also: <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/delete-assessment.html\">Deleting an assessment</a> in the <i>Audit Manager User Guide</i>)</p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessmentFramework.html\">DeleteAssessmentFramework</a> (see also: <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/delete-custom-framework.html\">Deleting a custom framework</a> in the <i>Audit Manager User Guide</i>)</p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessmentFrameworkShare.html\">DeleteAssessmentFrameworkShare</a> (see also: <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/deleting-shared-framework-requests.html\">Deleting a share request</a> in the <i>Audit Manager User Guide</i>)</p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessmentReport.html\">DeleteAssessmentReport</a> (see also: <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/generate-assessment-report.html#delete-assessment-report-steps\">Deleting an assessment report</a> in the <i>Audit Manager User Guide</i>)</p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteControl.html\">DeleteControl</a> (see also: <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/delete-controls.html\">Deleting a custom control</a> in the <i>Audit Manager User Guide</i>)</p> </li> </ul> <p>At this time, Audit Manager doesn't provide an option to delete evidence for a specific delegated administrator. Instead, when your management account deregisters Audit Manager, we perform a cleanup for the current delegated administrator account at the time of deregistration.</p>
 
         Args:
             admin_account_id: <p> The identifier for the administrator account. </p>
@@ -1044,12 +1044,12 @@ class AuditManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auditmanager.types.deregister_organization_admin_account_request.DeregisterOrganizationAdminAccountRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_auditmanager.types.deregister_organization_admin_account_request.DeregisterOrganizationAdminAccountRequest = {}  # type: ignore[typeddict-item]
         if admin_account_id is not None:
-            input["admin_account_id"] = admin_account_id
+            input_["admin_account_id"] = admin_account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1084,12 +1084,12 @@ class AuditManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auditmanager.types.disassociate_assessment_report_evidence_folder_request.DisassociateAssessmentReportEvidenceFolderRequest = {}  # type: ignore[typeddict-item]
-        input["assessment_id"] = assessment_id
-        input["evidence_folder_id"] = evidence_folder_id
+        input_: aws_sdk_auditmanager.types.disassociate_assessment_report_evidence_folder_request.DisassociateAssessmentReportEvidenceFolderRequest = {}  # type: ignore[typeddict-item]
+        input_["assessment_id"] = assessment_id
+        input_["evidence_folder_id"] = evidence_folder_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1115,10 +1115,10 @@ class AuditManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auditmanager.types.get_account_status_request.GetAccountStatusRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_auditmanager.types.get_account_status_request.GetAccountStatusRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1151,11 +1151,11 @@ class AuditManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auditmanager.types.get_assessment_request.GetAssessmentRequest = {}  # type: ignore[typeddict-item]
-        input["assessment_id"] = assessment_id
+        input_: aws_sdk_auditmanager.types.get_assessment_request.GetAssessmentRequest = {}  # type: ignore[typeddict-item]
+        input_["assessment_id"] = assessment_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1188,11 +1188,11 @@ class AuditManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auditmanager.types.get_assessment_framework_request.GetAssessmentFrameworkRequest = {}  # type: ignore[typeddict-item]
-        input["framework_id"] = framework_id
+        input_: aws_sdk_auditmanager.types.get_assessment_framework_request.GetAssessmentFrameworkRequest = {}  # type: ignore[typeddict-item]
+        input_["framework_id"] = framework_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1227,12 +1227,12 @@ class AuditManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auditmanager.types.get_assessment_report_url_request.GetAssessmentReportUrlRequest = {}  # type: ignore[typeddict-item]
-        input["assessment_report_id"] = assessment_report_id
-        input["assessment_id"] = assessment_id
+        input_: aws_sdk_auditmanager.types.get_assessment_report_url_request.GetAssessmentReportUrlRequest = {}  # type: ignore[typeddict-item]
+        input_["assessment_report_id"] = assessment_report_id
+        input_["assessment_id"] = assessment_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1277,19 +1277,19 @@ class AuditManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auditmanager.types.get_change_logs_request.GetChangeLogsRequest = {}  # type: ignore[typeddict-item]
-        input["assessment_id"] = assessment_id
+        input_: aws_sdk_auditmanager.types.get_change_logs_request.GetChangeLogsRequest = {}  # type: ignore[typeddict-item]
+        input_["assessment_id"] = assessment_id
         if control_set_id is not None:
-            input["control_set_id"] = control_set_id
+            input_["control_set_id"] = control_set_id
         if control_id is not None:
-            input["control_id"] = control_id
+            input_["control_id"] = control_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1322,11 +1322,11 @@ class AuditManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auditmanager.types.get_control_request.GetControlRequest = {}  # type: ignore[typeddict-item]
-        input["control_id"] = control_id
+        input_: aws_sdk_auditmanager.types.get_control_request.GetControlRequest = {}  # type: ignore[typeddict-item]
+        input_["control_id"] = control_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1363,14 +1363,14 @@ class AuditManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auditmanager.types.get_delegations_request.GetDelegationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_auditmanager.types.get_delegations_request.GetDelegationsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1409,14 +1409,14 @@ class AuditManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auditmanager.types.get_evidence_request.GetEvidenceRequest = {}  # type: ignore[typeddict-item]
-        input["assessment_id"] = assessment_id
-        input["control_set_id"] = control_set_id
-        input["evidence_folder_id"] = evidence_folder_id
-        input["evidence_id"] = evidence_id
+        input_: aws_sdk_auditmanager.types.get_evidence_request.GetEvidenceRequest = {}  # type: ignore[typeddict-item]
+        input_["assessment_id"] = assessment_id
+        input_["control_set_id"] = control_set_id
+        input_["evidence_folder_id"] = evidence_folder_id
+        input_["evidence_id"] = evidence_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1459,17 +1459,17 @@ class AuditManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auditmanager.types.get_evidence_by_evidence_folder_request.GetEvidenceByEvidenceFolderRequest = {}  # type: ignore[typeddict-item]
-        input["assessment_id"] = assessment_id
-        input["control_set_id"] = control_set_id
-        input["evidence_folder_id"] = evidence_folder_id
+        input_: aws_sdk_auditmanager.types.get_evidence_by_evidence_folder_request.GetEvidenceByEvidenceFolderRequest = {}  # type: ignore[typeddict-item]
+        input_["assessment_id"] = assessment_id
+        input_["control_set_id"] = control_set_id
+        input_["evidence_folder_id"] = evidence_folder_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1481,7 +1481,7 @@ class AuditManagerClient:
         *,
         config_overrides: Optional[AuditManagerClientConfig] = None,
     ) -> "aws_sdk_auditmanager.types.get_evidence_file_upload_url_response.GetEvidenceFileUploadUrlResponse":
-        """<p>Creates a presigned Amazon S3 URL that can be used to upload a file as manual evidence. For instructions on how to use this operation, see <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/upload-evidence.html#how-to-upload-manual-evidence-files\">Upload a file from your browser </a> in the <i>Audit Manager User Guide</i>.</p> <p>The following restrictions apply to this operation:</p> <ul> <li> <p>Maximum size of an individual evidence file: 100 MB</p> </li> <li> <p>Number of daily manual evidence uploads per control: 100</p> </li> <li> <p>Supported file formats: See <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/upload-evidence.html#supported-manual-evidence-files\">Supported file types for manual evidence</a> in the <i>Audit Manager User Guide</i> </p> </li> </ul> <p>For more information about Audit Manager service restrictions, see <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/service-quotas.html\">Quotas and restrictions for Audit Manager</a>.</p>
+        r"""<p>Creates a presigned Amazon S3 URL that can be used to upload a file as manual evidence. For instructions on how to use this operation, see <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/upload-evidence.html#how-to-upload-manual-evidence-files\">Upload a file from your browser </a> in the <i>Audit Manager User Guide</i>.</p> <p>The following restrictions apply to this operation:</p> <ul> <li> <p>Maximum size of an individual evidence file: 100 MB</p> </li> <li> <p>Number of daily manual evidence uploads per control: 100</p> </li> <li> <p>Supported file formats: See <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/upload-evidence.html#supported-manual-evidence-files\">Supported file types for manual evidence</a> in the <i>Audit Manager User Guide</i> </p> </li> </ul> <p>For more information about Audit Manager service restrictions, see <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/service-quotas.html\">Quotas and restrictions for Audit Manager</a>.</p>
 
         Args:
             file_name: <p>The file that you want to upload. For a list of supported file formats, see <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/upload-evidence.html#supported-manual-evidence-files\">Supported file types for manual evidence</a> in the <i>Audit Manager User Guide</i>.</p>
@@ -1502,11 +1502,11 @@ class AuditManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auditmanager.types.get_evidence_file_upload_url_request.GetEvidenceFileUploadUrlRequest = {}  # type: ignore[typeddict-item]
-        input["file_name"] = file_name
+        input_: aws_sdk_auditmanager.types.get_evidence_file_upload_url_request.GetEvidenceFileUploadUrlRequest = {}  # type: ignore[typeddict-item]
+        input_["file_name"] = file_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1543,13 +1543,13 @@ class AuditManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auditmanager.types.get_evidence_folder_request.GetEvidenceFolderRequest = {}  # type: ignore[typeddict-item]
-        input["assessment_id"] = assessment_id
-        input["control_set_id"] = control_set_id
-        input["evidence_folder_id"] = evidence_folder_id
+        input_: aws_sdk_auditmanager.types.get_evidence_folder_request.GetEvidenceFolderRequest = {}  # type: ignore[typeddict-item]
+        input_["assessment_id"] = assessment_id
+        input_["control_set_id"] = control_set_id
+        input_["evidence_folder_id"] = evidence_folder_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1588,15 +1588,15 @@ class AuditManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auditmanager.types.get_evidence_folders_by_assessment_request.GetEvidenceFoldersByAssessmentRequest = {}  # type: ignore[typeddict-item]
-        input["assessment_id"] = assessment_id
+        input_: aws_sdk_auditmanager.types.get_evidence_folders_by_assessment_request.GetEvidenceFoldersByAssessmentRequest = {}  # type: ignore[typeddict-item]
+        input_["assessment_id"] = assessment_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1639,17 +1639,17 @@ class AuditManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auditmanager.types.get_evidence_folders_by_assessment_control_request.GetEvidenceFoldersByAssessmentControlRequest = {}  # type: ignore[typeddict-item]
-        input["assessment_id"] = assessment_id
-        input["control_set_id"] = control_set_id
-        input["control_id"] = control_id
+        input_: aws_sdk_auditmanager.types.get_evidence_folders_by_assessment_control_request.GetEvidenceFoldersByAssessmentControlRequest = {}  # type: ignore[typeddict-item]
+        input_["assessment_id"] = assessment_id
+        input_["control_set_id"] = control_set_id
+        input_["control_id"] = control_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1675,10 +1675,10 @@ class AuditManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auditmanager.types.get_insights_request.GetInsightsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_auditmanager.types.get_insights_request.GetInsightsRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1711,11 +1711,11 @@ class AuditManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auditmanager.types.get_insights_by_assessment_request.GetInsightsByAssessmentRequest = {}  # type: ignore[typeddict-item]
-        input["assessment_id"] = assessment_id
+        input_: aws_sdk_auditmanager.types.get_insights_by_assessment_request.GetInsightsByAssessmentRequest = {}  # type: ignore[typeddict-item]
+        input_["assessment_id"] = assessment_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1741,10 +1741,10 @@ class AuditManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auditmanager.types.get_organization_admin_account_request.GetOrganizationAdminAccountRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_auditmanager.types.get_organization_admin_account_request.GetOrganizationAdminAccountRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1753,7 +1753,7 @@ class AuditManagerClient:
     def get_services_in_scope(
         self, *, config_overrides: Optional[AuditManagerClientConfig] = None
     ) -> "aws_sdk_auditmanager.types.get_services_in_scope_response.GetServicesInScopeResponse":
-        """<p>Gets a list of the Amazon Web Services services from which Audit Manager can collect evidence. </p> <p>Audit Manager defines which Amazon Web Services services are in scope for an assessment. Audit Manager infers this scope by examining the assessment’s controls and their data sources, and then mapping this information to one or more of the corresponding Amazon Web Services services that are in this list.</p> <note> <p>For information about why it's no longer possible to specify services in scope manually, see <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/evidence-collection-issues.html#unable-to-edit-services\">I can't edit the services in scope for my assessment</a> in the <i>Troubleshooting</i> section of the Audit Manager user guide.</p> </note>"""
+        r"""<p>Gets a list of the Amazon Web Services services from which Audit Manager can collect evidence. </p> <p>Audit Manager defines which Amazon Web Services services are in scope for an assessment. Audit Manager infers this scope by examining the assessment’s controls and their data sources, and then mapping this information to one or more of the corresponding Amazon Web Services services that are in this list.</p> <note> <p>For information about why it's no longer possible to specify services in scope manually, see <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/evidence-collection-issues.html#unable-to-edit-services\">I can't edit the services in scope for my assessment</a> in the <i>Troubleshooting</i> section of the Audit Manager user guide.</p> </note>"""
 
         def _handler(
             req: "OperationRequest[aws_sdk_auditmanager.types.get_services_in_scope_request.GetServicesInScopeRequest]",
@@ -1770,10 +1770,10 @@ class AuditManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auditmanager.types.get_services_in_scope_request.GetServicesInScopeRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_auditmanager.types.get_services_in_scope_request.GetServicesInScopeRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1806,11 +1806,11 @@ class AuditManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auditmanager.types.get_settings_request.GetSettingsRequest = {}  # type: ignore[typeddict-item]
-        input["attribute"] = attribute
+        input_: aws_sdk_auditmanager.types.get_settings_request.GetSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_["attribute"] = attribute
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1827,7 +1827,7 @@ class AuditManagerClient:
             "aws_sdk_auditmanager.types.max_results.MaxResults"
         ] = None,
     ) -> "aws_sdk_auditmanager.types.list_assessment_control_insights_by_control_domain_response.ListAssessmentControlInsightsByControlDomainResponse":
-        """<p>Lists the latest analytics data for controls within a specific control domain and a specific active assessment.</p> <note> <p>Control insights are listed only if the control belongs to the control domain and assessment that was specified. Moreover, the control must have collected evidence on the <code>lastUpdated</code> date of <code>controlInsightsByAssessment</code>. If neither of these conditions are met, no data is listed for that control. </p> </note>
+        r"""<p>Lists the latest analytics data for controls within a specific control domain and a specific active assessment.</p> <note> <p>Control insights are listed only if the control belongs to the control domain and assessment that was specified. Moreover, the control must have collected evidence on the <code>lastUpdated</code> date of <code>controlInsightsByAssessment</code>. If neither of these conditions are met, no data is listed for that control. </p> </note>
 
         Args:
             control_domain_id: <p>The unique identifier for the control domain. </p> <p>Audit Manager supports the control domains that are provided by Amazon Web Services Control Catalog. For information about how to find a list of available control domains, see <a href=\"https://docs.aws.amazon.com/controlcatalog/latest/APIReference/API_ListDomains.html\"> <code>ListDomains</code> </a> in the Amazon Web Services Control Catalog API Reference.</p>
@@ -1851,16 +1851,16 @@ class AuditManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auditmanager.types.list_assessment_control_insights_by_control_domain_request.ListAssessmentControlInsightsByControlDomainRequest = {}  # type: ignore[typeddict-item]
-        input["control_domain_id"] = control_domain_id
-        input["assessment_id"] = assessment_id
+        input_: aws_sdk_auditmanager.types.list_assessment_control_insights_by_control_domain_request.ListAssessmentControlInsightsByControlDomainRequest = {}  # type: ignore[typeddict-item]
+        input_["control_domain_id"] = control_domain_id
+        input_["assessment_id"] = assessment_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1899,15 +1899,15 @@ class AuditManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auditmanager.types.list_assessment_frameworks_request.ListAssessmentFrameworksRequest = {}  # type: ignore[typeddict-item]
-        input["framework_type"] = framework_type
+        input_: aws_sdk_auditmanager.types.list_assessment_frameworks_request.ListAssessmentFrameworksRequest = {}  # type: ignore[typeddict-item]
+        input_["framework_type"] = framework_type
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1946,15 +1946,15 @@ class AuditManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auditmanager.types.list_assessment_framework_share_requests_request.ListAssessmentFrameworkShareRequestsRequest = {}  # type: ignore[typeddict-item]
-        input["request_type"] = request_type
+        input_: aws_sdk_auditmanager.types.list_assessment_framework_share_requests_request.ListAssessmentFrameworkShareRequestsRequest = {}  # type: ignore[typeddict-item]
+        input_["request_type"] = request_type
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1991,14 +1991,14 @@ class AuditManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auditmanager.types.list_assessment_reports_request.ListAssessmentReportsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_auditmanager.types.list_assessment_reports_request.ListAssessmentReportsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2039,16 +2039,16 @@ class AuditManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auditmanager.types.list_assessments_request.ListAssessmentsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_auditmanager.types.list_assessments_request.ListAssessmentsRequest = {}  # type: ignore[typeddict-item]
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2063,7 +2063,7 @@ class AuditManagerClient:
             "aws_sdk_auditmanager.types.max_results.MaxResults"
         ] = None,
     ) -> "aws_sdk_auditmanager.types.list_control_domain_insights_response.ListControlDomainInsightsResponse":
-        """<p>Lists the latest analytics data for control domains across all of your active assessments. </p> <p>Audit Manager supports the control domains that are provided by Amazon Web Services Control Catalog. For information about how to find a list of available control domains, see <a href=\"https://docs.aws.amazon.com/controlcatalog/latest/APIReference/API_ListDomains.html\"> <code>ListDomains</code> </a> in the Amazon Web Services Control Catalog API Reference.</p> <note> <p>A control domain is listed only if at least one of the controls within that domain collected evidence on the <code>lastUpdated</code> date of <code>controlDomainInsights</code>. If this condition isn’t met, no data is listed for that control domain.</p> </note>
+        r"""<p>Lists the latest analytics data for control domains across all of your active assessments. </p> <p>Audit Manager supports the control domains that are provided by Amazon Web Services Control Catalog. For information about how to find a list of available control domains, see <a href=\"https://docs.aws.amazon.com/controlcatalog/latest/APIReference/API_ListDomains.html\"> <code>ListDomains</code> </a> in the Amazon Web Services Control Catalog API Reference.</p> <note> <p>A control domain is listed only if at least one of the controls within that domain collected evidence on the <code>lastUpdated</code> date of <code>controlDomainInsights</code>. If this condition isn’t met, no data is listed for that control domain.</p> </note>
 
         Args:
             next_token: <p>The pagination token that's used to fetch the next set of results. </p>
@@ -2085,14 +2085,14 @@ class AuditManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auditmanager.types.list_control_domain_insights_request.ListControlDomainInsightsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_auditmanager.types.list_control_domain_insights_request.ListControlDomainInsightsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2108,7 +2108,7 @@ class AuditManagerClient:
             "aws_sdk_auditmanager.types.max_results.MaxResults"
         ] = None,
     ) -> "aws_sdk_auditmanager.types.list_control_domain_insights_by_assessment_response.ListControlDomainInsightsByAssessmentResponse":
-        """<p>Lists analytics data for control domains within a specified active assessment.</p> <p>Audit Manager supports the control domains that are provided by Amazon Web Services Control Catalog. For information about how to find a list of available control domains, see <a href=\"https://docs.aws.amazon.com/controlcatalog/latest/APIReference/API_ListDomains.html\"> <code>ListDomains</code> </a> in the Amazon Web Services Control Catalog API Reference.</p> <note> <p>A control domain is listed only if at least one of the controls within that domain collected evidence on the <code>lastUpdated</code> date of <code>controlDomainInsights</code>. If this condition isn’t met, no data is listed for that domain.</p> </note>
+        r"""<p>Lists analytics data for control domains within a specified active assessment.</p> <p>Audit Manager supports the control domains that are provided by Amazon Web Services Control Catalog. For information about how to find a list of available control domains, see <a href=\"https://docs.aws.amazon.com/controlcatalog/latest/APIReference/API_ListDomains.html\"> <code>ListDomains</code> </a> in the Amazon Web Services Control Catalog API Reference.</p> <note> <p>A control domain is listed only if at least one of the controls within that domain collected evidence on the <code>lastUpdated</code> date of <code>controlDomainInsights</code>. If this condition isn’t met, no data is listed for that domain.</p> </note>
 
         Args:
             assessment_id: <p>The unique identifier for the active assessment. </p>
@@ -2131,15 +2131,15 @@ class AuditManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auditmanager.types.list_control_domain_insights_by_assessment_request.ListControlDomainInsightsByAssessmentRequest = {}  # type: ignore[typeddict-item]
-        input["assessment_id"] = assessment_id
+        input_: aws_sdk_auditmanager.types.list_control_domain_insights_by_assessment_request.ListControlDomainInsightsByAssessmentRequest = {}  # type: ignore[typeddict-item]
+        input_["assessment_id"] = assessment_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2155,7 +2155,7 @@ class AuditManagerClient:
             "aws_sdk_auditmanager.types.max_results.MaxResults"
         ] = None,
     ) -> "aws_sdk_auditmanager.types.list_control_insights_by_control_domain_response.ListControlInsightsByControlDomainResponse":
-        """<p>Lists the latest analytics data for controls within a specific control domain across all active assessments.</p> <note> <p>Control insights are listed only if the control belongs to the control domain that was specified and the control collected evidence on the <code>lastUpdated</code> date of <code>controlInsightsMetadata</code>. If neither of these conditions are met, no data is listed for that control. </p> </note>
+        r"""<p>Lists the latest analytics data for controls within a specific control domain across all active assessments.</p> <note> <p>Control insights are listed only if the control belongs to the control domain that was specified and the control collected evidence on the <code>lastUpdated</code> date of <code>controlInsightsMetadata</code>. If neither of these conditions are met, no data is listed for that control. </p> </note>
 
         Args:
             control_domain_id: <p>The unique identifier for the control domain. </p> <p>Audit Manager supports the control domains that are provided by Amazon Web Services Control Catalog. For information about how to find a list of available control domains, see <a href=\"https://docs.aws.amazon.com/controlcatalog/latest/APIReference/API_ListDomains.html\"> <code>ListDomains</code> </a> in the Amazon Web Services Control Catalog API Reference.</p>
@@ -2178,15 +2178,15 @@ class AuditManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auditmanager.types.list_control_insights_by_control_domain_request.ListControlInsightsByControlDomainRequest = {}  # type: ignore[typeddict-item]
-        input["control_domain_id"] = control_domain_id
+        input_: aws_sdk_auditmanager.types.list_control_insights_by_control_domain_request.ListControlInsightsByControlDomainRequest = {}  # type: ignore[typeddict-item]
+        input_["control_domain_id"] = control_domain_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2205,7 +2205,7 @@ class AuditManagerClient:
             "aws_sdk_auditmanager.types.control_catalog_id.ControlCatalogId"
         ] = None,
     ) -> "aws_sdk_auditmanager.types.list_controls_response.ListControlsResponse":
-        """<p> Returns a list of controls from Audit Manager. </p>
+        r"""<p> Returns a list of controls from Audit Manager. </p>
 
         Args:
             control_type: <p>A filter that narrows the list of controls to a specific type. </p>
@@ -2229,17 +2229,17 @@ class AuditManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auditmanager.types.list_controls_request.ListControlsRequest = {}  # type: ignore[typeddict-item]
-        input["control_type"] = control_type
+        input_: aws_sdk_auditmanager.types.list_controls_request.ListControlsRequest = {}  # type: ignore[typeddict-item]
+        input_["control_type"] = control_type
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if control_catalog_id is not None:
-            input["control_catalog_id"] = control_catalog_id
+            input_["control_catalog_id"] = control_catalog_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2278,15 +2278,15 @@ class AuditManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auditmanager.types.list_keywords_for_data_source_request.ListKeywordsForDataSourceRequest = {}  # type: ignore[typeddict-item]
-        input["source"] = source
+        input_: aws_sdk_auditmanager.types.list_keywords_for_data_source_request.ListKeywordsForDataSourceRequest = {}  # type: ignore[typeddict-item]
+        input_["source"] = source
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2323,14 +2323,14 @@ class AuditManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auditmanager.types.list_notifications_request.ListNotificationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_auditmanager.types.list_notifications_request.ListNotificationsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2363,11 +2363,11 @@ class AuditManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auditmanager.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_auditmanager.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2404,14 +2404,14 @@ class AuditManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auditmanager.types.register_account_request.RegisterAccountRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_auditmanager.types.register_account_request.RegisterAccountRequest = {}  # type: ignore[typeddict-item]
         if kms_key is not None:
-            input["kms_key"] = kms_key
+            input_["kms_key"] = kms_key
         if delegated_admin_account is not None:
-            input["delegated_admin_account"] = delegated_admin_account
+            input_["delegated_admin_account"] = delegated_admin_account
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2444,11 +2444,11 @@ class AuditManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auditmanager.types.register_organization_admin_account_request.RegisterOrganizationAdminAccountRequest = {}  # type: ignore[typeddict-item]
-        input["admin_account_id"] = admin_account_id
+        input_: aws_sdk_auditmanager.types.register_organization_admin_account_request.RegisterOrganizationAdminAccountRequest = {}  # type: ignore[typeddict-item]
+        input_["admin_account_id"] = admin_account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2465,7 +2465,7 @@ class AuditManagerClient:
             "aws_sdk_auditmanager.types.share_request_comment.ShareRequestComment"
         ] = None,
     ) -> "aws_sdk_auditmanager.types.start_assessment_framework_share_response.StartAssessmentFrameworkShareResponse":
-        """<p> Creates a share request for a custom framework in Audit Manager. </p> <p>The share request specifies a recipient and notifies them that a custom framework is available. Recipients have 120 days to accept or decline the request. If no action is taken, the share request expires.</p> <p>When you create a share request, Audit Manager stores a snapshot of your custom framework in the US East (N. Virginia) Amazon Web Services Region. Audit Manager also stores a backup of the same snapshot in the US West (Oregon) Amazon Web Services Region.</p> <p>Audit Manager deletes the snapshot and the backup snapshot when one of the following events occurs:</p> <ul> <li> <p>The sender revokes the share request.</p> </li> <li> <p>The recipient declines the share request.</p> </li> <li> <p>The recipient encounters an error and doesn't successfully accept the share request.</p> </li> <li> <p>The share request expires before the recipient responds to the request.</p> </li> </ul> <p>When a sender <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/framework-sharing.html#framework-sharing-resend\">resends a share request</a>, the snapshot is replaced with an updated version that corresponds with the latest version of the custom framework. </p> <p>When a recipient accepts a share request, the snapshot is replicated into their Amazon Web Services account under the Amazon Web Services Region that was specified in the share request. </p> <important> <p>When you invoke the <code>StartAssessmentFrameworkShare</code> API, you are about to share a custom framework with another Amazon Web Services account. You may not share a custom framework that is derived from a standard framework if the standard framework is designated as not eligible for sharing by Amazon Web Services, unless you have obtained permission to do so from the owner of the standard framework. To learn more about which standard frameworks are eligible for sharing, see <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/share-custom-framework-concepts-and-terminology.html#eligibility\">Framework sharing eligibility</a> in the <i>Audit Manager User Guide</i>.</p> </important>
+        r"""<p> Creates a share request for a custom framework in Audit Manager. </p> <p>The share request specifies a recipient and notifies them that a custom framework is available. Recipients have 120 days to accept or decline the request. If no action is taken, the share request expires.</p> <p>When you create a share request, Audit Manager stores a snapshot of your custom framework in the US East (N. Virginia) Amazon Web Services Region. Audit Manager also stores a backup of the same snapshot in the US West (Oregon) Amazon Web Services Region.</p> <p>Audit Manager deletes the snapshot and the backup snapshot when one of the following events occurs:</p> <ul> <li> <p>The sender revokes the share request.</p> </li> <li> <p>The recipient declines the share request.</p> </li> <li> <p>The recipient encounters an error and doesn't successfully accept the share request.</p> </li> <li> <p>The share request expires before the recipient responds to the request.</p> </li> </ul> <p>When a sender <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/framework-sharing.html#framework-sharing-resend\">resends a share request</a>, the snapshot is replaced with an updated version that corresponds with the latest version of the custom framework. </p> <p>When a recipient accepts a share request, the snapshot is replicated into their Amazon Web Services account under the Amazon Web Services Region that was specified in the share request. </p> <important> <p>When you invoke the <code>StartAssessmentFrameworkShare</code> API, you are about to share a custom framework with another Amazon Web Services account. You may not share a custom framework that is derived from a standard framework if the standard framework is designated as not eligible for sharing by Amazon Web Services, unless you have obtained permission to do so from the owner of the standard framework. To learn more about which standard frameworks are eligible for sharing, see <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/share-custom-framework-concepts-and-terminology.html#eligibility\">Framework sharing eligibility</a> in the <i>Audit Manager User Guide</i>.</p> </important>
 
         Args:
             framework_id: <p> The unique identifier for the custom framework to be shared. </p>
@@ -2489,15 +2489,15 @@ class AuditManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auditmanager.types.start_assessment_framework_share_request.StartAssessmentFrameworkShareRequest = {}  # type: ignore[typeddict-item]
-        input["framework_id"] = framework_id
-        input["destination_account"] = destination_account
-        input["destination_region"] = destination_region
+        input_: aws_sdk_auditmanager.types.start_assessment_framework_share_request.StartAssessmentFrameworkShareRequest = {}  # type: ignore[typeddict-item]
+        input_["framework_id"] = framework_id
+        input_["destination_account"] = destination_account
+        input_["destination_region"] = destination_region
         if comment is not None:
-            input["comment"] = comment
+            input_["comment"] = comment
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2532,12 +2532,12 @@ class AuditManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auditmanager.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_auditmanager.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2572,12 +2572,12 @@ class AuditManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auditmanager.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_auditmanager.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2628,20 +2628,20 @@ class AuditManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auditmanager.types.update_assessment_request.UpdateAssessmentRequest = {}  # type: ignore[typeddict-item]
-        input["assessment_id"] = assessment_id
+        input_: aws_sdk_auditmanager.types.update_assessment_request.UpdateAssessmentRequest = {}  # type: ignore[typeddict-item]
+        input_["assessment_id"] = assessment_id
         if assessment_name is not None:
-            input["assessment_name"] = assessment_name
+            input_["assessment_name"] = assessment_name
         if assessment_description is not None:
-            input["assessment_description"] = assessment_description
-        input["scope"] = scope
+            input_["assessment_description"] = assessment_description
+        input_["scope"] = scope
         if assessment_reports_destination is not None:
-            input["assessment_reports_destination"] = assessment_reports_destination
+            input_["assessment_reports_destination"] = assessment_reports_destination
         if roles is not None:
-            input["roles"] = roles
+            input_["roles"] = roles
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2686,17 +2686,17 @@ class AuditManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auditmanager.types.update_assessment_control_request.UpdateAssessmentControlRequest = {}  # type: ignore[typeddict-item]
-        input["assessment_id"] = assessment_id
-        input["control_set_id"] = control_set_id
-        input["control_id"] = control_id
+        input_: aws_sdk_auditmanager.types.update_assessment_control_request.UpdateAssessmentControlRequest = {}  # type: ignore[typeddict-item]
+        input_["assessment_id"] = assessment_id
+        input_["control_set_id"] = control_set_id
+        input_["control_id"] = control_id
         if control_status is not None:
-            input["control_status"] = control_status
+            input_["control_status"] = control_status
         if comment_body is not None:
-            input["comment_body"] = comment_body
+            input_["comment_body"] = comment_body
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2735,14 +2735,14 @@ class AuditManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auditmanager.types.update_assessment_control_set_status_request.UpdateAssessmentControlSetStatusRequest = {}  # type: ignore[typeddict-item]
-        input["assessment_id"] = assessment_id
-        input["control_set_id"] = control_set_id
-        input["status"] = status
-        input["comment"] = comment
+        input_: aws_sdk_auditmanager.types.update_assessment_control_set_status_request.UpdateAssessmentControlSetStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["assessment_id"] = assessment_id
+        input_["control_set_id"] = control_set_id
+        input_["status"] = status
+        input_["comment"] = comment
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2787,17 +2787,17 @@ class AuditManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auditmanager.types.update_assessment_framework_request.UpdateAssessmentFrameworkRequest = {}  # type: ignore[typeddict-item]
-        input["framework_id"] = framework_id
-        input["name"] = name
+        input_: aws_sdk_auditmanager.types.update_assessment_framework_request.UpdateAssessmentFrameworkRequest = {}  # type: ignore[typeddict-item]
+        input_["framework_id"] = framework_id
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if compliance_type is not None:
-            input["compliance_type"] = compliance_type
-        input["control_sets"] = control_sets
+            input_["compliance_type"] = compliance_type
+        input_["control_sets"] = control_sets
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2834,13 +2834,13 @@ class AuditManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auditmanager.types.update_assessment_framework_share_request.UpdateAssessmentFrameworkShareRequest = {}  # type: ignore[typeddict-item]
-        input["request_id"] = request_id
-        input["request_type"] = request_type
-        input["action"] = action
+        input_: aws_sdk_auditmanager.types.update_assessment_framework_share_request.UpdateAssessmentFrameworkShareRequest = {}  # type: ignore[typeddict-item]
+        input_["request_id"] = request_id
+        input_["request_type"] = request_type
+        input_["action"] = action
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2875,12 +2875,12 @@ class AuditManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auditmanager.types.update_assessment_status_request.UpdateAssessmentStatusRequest = {}  # type: ignore[typeddict-item]
-        input["assessment_id"] = assessment_id
-        input["status"] = status
+        input_: aws_sdk_auditmanager.types.update_assessment_status_request.UpdateAssessmentStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["assessment_id"] = assessment_id
+        input_["status"] = status
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2933,21 +2933,21 @@ class AuditManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auditmanager.types.update_control_request.UpdateControlRequest = {}  # type: ignore[typeddict-item]
-        input["control_id"] = control_id
-        input["name"] = name
+        input_: aws_sdk_auditmanager.types.update_control_request.UpdateControlRequest = {}  # type: ignore[typeddict-item]
+        input_["control_id"] = control_id
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if testing_information is not None:
-            input["testing_information"] = testing_information
+            input_["testing_information"] = testing_information
         if action_plan_title is not None:
-            input["action_plan_title"] = action_plan_title
+            input_["action_plan_title"] = action_plan_title
         if action_plan_instructions is not None:
-            input["action_plan_instructions"] = action_plan_instructions
-        input["control_mapping_sources"] = control_mapping_sources
+            input_["action_plan_instructions"] = action_plan_instructions
+        input_["control_mapping_sources"] = control_mapping_sources
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2975,7 +2975,7 @@ class AuditManagerClient:
             "aws_sdk_auditmanager.types.default_export_destination.DefaultExportDestination"
         ] = None,
     ) -> "aws_sdk_auditmanager.types.update_settings_response.UpdateSettingsResponse":
-        """<p> Updates Audit Manager settings for the current account. </p>
+        r"""<p> Updates Audit Manager settings for the current account. </p>
 
         Args:
             sns_topic: <p> The Amazon Simple Notification Service (Amazon SNS) topic that Audit Manager sends notifications to. </p>
@@ -3002,26 +3002,26 @@ class AuditManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auditmanager.types.update_settings_request.UpdateSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_auditmanager.types.update_settings_request.UpdateSettingsRequest = {}  # type: ignore[typeddict-item]
         if sns_topic is not None:
-            input["sns_topic"] = sns_topic
+            input_["sns_topic"] = sns_topic
         if default_assessment_reports_destination is not None:
-            input["default_assessment_reports_destination"] = (
+            input_["default_assessment_reports_destination"] = (
                 default_assessment_reports_destination
             )
         if default_process_owners is not None:
-            input["default_process_owners"] = default_process_owners
+            input_["default_process_owners"] = default_process_owners
         if kms_key is not None:
-            input["kms_key"] = kms_key
+            input_["kms_key"] = kms_key
         if evidence_finder_enabled is not None:
-            input["evidence_finder_enabled"] = evidence_finder_enabled
+            input_["evidence_finder_enabled"] = evidence_finder_enabled
         if deregistration_policy is not None:
-            input["deregistration_policy"] = deregistration_policy
+            input_["deregistration_policy"] = deregistration_policy
         if default_export_destination is not None:
-            input["default_export_destination"] = default_export_destination
+            input_["default_export_destination"] = default_export_destination
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3054,11 +3054,11 @@ class AuditManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auditmanager.types.validate_assessment_report_integrity_request.ValidateAssessmentReportIntegrityRequest = {}  # type: ignore[typeddict-item]
-        input["s3_relative_path"] = s3_relative_path
+        input_: aws_sdk_auditmanager.types.validate_assessment_report_integrity_request.ValidateAssessmentReportIntegrityRequest = {}  # type: ignore[typeddict-item]
+        input_["s3_relative_path"] = s3_relative_path
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

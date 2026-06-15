@@ -368,7 +368,7 @@ class AsyncBackupClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = AsyncBackupClientConfig(
+        self._config = AsyncBackupClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -388,7 +388,7 @@ class AsyncBackupClient:
         overrides: AsyncBackupClientConfig = config_overrides or {}
         interceptors_: list[AsyncInterceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             aretry(),
         ]
@@ -396,16 +396,16 @@ class AsyncBackupClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            region=overrides.get("region", self.config.get("region")),
+            region=overrides.get("region", self._config.get("region")),
             use_dual_stack=overrides.get(
-                "use_dual_stack", self.config.get("use_dual_stack")
+                "use_dual_stack", self._config.get("use_dual_stack")
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -442,14 +442,14 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.associate_backup_vault_mpa_approval_team_input.AssociateBackupVaultMpaApprovalTeamInput = {}  # type: ignore[typeddict-item]
-        input["backup_vault_name"] = backup_vault_name
-        input["mpa_approval_team_arn"] = mpa_approval_team_arn
+        input_: aws_sdk_backup.types.associate_backup_vault_mpa_approval_team_input.AssociateBackupVaultMpaApprovalTeamInput = {}  # type: ignore[typeddict-item]
+        input_["backup_vault_name"] = backup_vault_name
+        input_["mpa_approval_team_arn"] = mpa_approval_team_arn
         if requester_comment is not None:
-            input["requester_comment"] = requester_comment
+            input_["requester_comment"] = requester_comment
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -487,14 +487,14 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.cancel_legal_hold_input.CancelLegalHoldInput = {}  # type: ignore[typeddict-item]
-        input["legal_hold_id"] = legal_hold_id
-        input["cancel_description"] = cancel_description
+        input_: aws_sdk_backup.types.cancel_legal_hold_input.CancelLegalHoldInput = {}  # type: ignore[typeddict-item]
+        input_["legal_hold_id"] = legal_hold_id
+        input_["cancel_description"] = cancel_description
         if retain_record_in_days is not None:
-            input["retain_record_in_days"] = retain_record_in_days
+            input_["retain_record_in_days"] = retain_record_in_days
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -532,15 +532,15 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.create_backup_plan_input.CreateBackupPlanInput = {}  # type: ignore[typeddict-item]
-        input["backup_plan"] = backup_plan
+        input_: aws_sdk_backup.types.create_backup_plan_input.CreateBackupPlanInput = {}  # type: ignore[typeddict-item]
+        input_["backup_plan"] = backup_plan
         if backup_plan_tags is not None:
-            input["backup_plan_tags"] = backup_plan_tags
+            input_["backup_plan_tags"] = backup_plan_tags
         if creator_request_id is not None:
-            input["creator_request_id"] = creator_request_id
+            input_["creator_request_id"] = creator_request_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -554,7 +554,7 @@ class AsyncBackupClient:
         config_overrides: Optional[AsyncBackupClientConfig] = None,
         creator_request_id: Optional["aws_sdk_backup.types.string.string"] = None,
     ) -> "aws_sdk_backup.types.create_backup_selection_output.CreateBackupSelectionOutput":
-        """<p>Creates a JSON document that specifies a set of resources to assign to a backup plan. For examples, see <a href=\"https://docs.aws.amazon.com/aws-backup/latest/devguide/assigning-resources.html#assigning-resources-json\">Assigning resources programmatically</a>. </p>
+        r"""<p>Creates a JSON document that specifies a set of resources to assign to a backup plan. For examples, see <a href=\"https://docs.aws.amazon.com/aws-backup/latest/devguide/assigning-resources.html#assigning-resources-json\">Assigning resources programmatically</a>. </p>
 
         Args:
             backup_plan_id: <p>The ID of the backup plan.</p>
@@ -578,14 +578,14 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.create_backup_selection_input.CreateBackupSelectionInput = {}  # type: ignore[typeddict-item]
-        input["backup_plan_id"] = backup_plan_id
-        input["backup_selection"] = backup_selection
+        input_: aws_sdk_backup.types.create_backup_selection_input.CreateBackupSelectionInput = {}  # type: ignore[typeddict-item]
+        input_["backup_plan_id"] = backup_plan_id
+        input_["backup_selection"] = backup_selection
         if creator_request_id is not None:
-            input["creator_request_id"] = creator_request_id
+            input_["creator_request_id"] = creator_request_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -625,17 +625,17 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.create_backup_vault_input.CreateBackupVaultInput = {}  # type: ignore[typeddict-item]
-        input["backup_vault_name"] = backup_vault_name
+        input_: aws_sdk_backup.types.create_backup_vault_input.CreateBackupVaultInput = {}  # type: ignore[typeddict-item]
+        input_["backup_vault_name"] = backup_vault_name
         if backup_vault_tags is not None:
-            input["backup_vault_tags"] = backup_vault_tags
+            input_["backup_vault_tags"] = backup_vault_tags
         if encryption_key_arn is not None:
-            input["encryption_key_arn"] = encryption_key_arn
+            input_["encryption_key_arn"] = encryption_key_arn
         if creator_request_id is not None:
-            input["creator_request_id"] = creator_request_id
+            input_["creator_request_id"] = creator_request_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -679,18 +679,18 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.create_framework_input.CreateFrameworkInput = {}  # type: ignore[typeddict-item]
-        input["framework_name"] = framework_name
+        input_: aws_sdk_backup.types.create_framework_input.CreateFrameworkInput = {}  # type: ignore[typeddict-item]
+        input_["framework_name"] = framework_name
         if framework_description is not None:
-            input["framework_description"] = framework_description
-        input["framework_controls"] = framework_controls
+            input_["framework_description"] = framework_description
+        input_["framework_controls"] = framework_controls
         if idempotency_token is not None:
-            input["idempotency_token"] = idempotency_token
+            input_["idempotency_token"] = idempotency_token
         if framework_tags is not None:
-            input["framework_tags"] = framework_tags
+            input_["framework_tags"] = framework_tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -734,18 +734,18 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.create_legal_hold_input.CreateLegalHoldInput = {}  # type: ignore[typeddict-item]
-        input["title"] = title
-        input["description"] = description
+        input_: aws_sdk_backup.types.create_legal_hold_input.CreateLegalHoldInput = {}  # type: ignore[typeddict-item]
+        input_["title"] = title
+        input_["description"] = description
         if idempotency_token is not None:
-            input["idempotency_token"] = idempotency_token
+            input_["idempotency_token"] = idempotency_token
         if recovery_point_selection is not None:
-            input["recovery_point_selection"] = recovery_point_selection
+            input_["recovery_point_selection"] = recovery_point_selection
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -789,19 +789,19 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.create_logically_air_gapped_backup_vault_input.CreateLogicallyAirGappedBackupVaultInput = {}  # type: ignore[typeddict-item]
-        input["backup_vault_name"] = backup_vault_name
+        input_: aws_sdk_backup.types.create_logically_air_gapped_backup_vault_input.CreateLogicallyAirGappedBackupVaultInput = {}  # type: ignore[typeddict-item]
+        input_["backup_vault_name"] = backup_vault_name
         if backup_vault_tags is not None:
-            input["backup_vault_tags"] = backup_vault_tags
+            input_["backup_vault_tags"] = backup_vault_tags
         if creator_request_id is not None:
-            input["creator_request_id"] = creator_request_id
-        input["min_retention_days"] = min_retention_days
-        input["max_retention_days"] = max_retention_days
+            input_["creator_request_id"] = creator_request_id
+        input_["min_retention_days"] = min_retention_days
+        input_["max_retention_days"] = max_retention_days
         if encryption_key_arn is not None:
-            input["encryption_key_arn"] = encryption_key_arn
+            input_["encryption_key_arn"] = encryption_key_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -847,19 +847,19 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.create_report_plan_input.CreateReportPlanInput = {}  # type: ignore[typeddict-item]
-        input["report_plan_name"] = report_plan_name
+        input_: aws_sdk_backup.types.create_report_plan_input.CreateReportPlanInput = {}  # type: ignore[typeddict-item]
+        input_["report_plan_name"] = report_plan_name
         if report_plan_description is not None:
-            input["report_plan_description"] = report_plan_description
-        input["report_delivery_channel"] = report_delivery_channel
-        input["report_setting"] = report_setting
+            input_["report_plan_description"] = report_plan_description
+        input_["report_delivery_channel"] = report_delivery_channel
+        input_["report_setting"] = report_setting
         if report_plan_tags is not None:
-            input["report_plan_tags"] = report_plan_tags
+            input_["report_plan_tags"] = report_plan_tags
         if idempotency_token is not None:
-            input["idempotency_token"] = idempotency_token
+            input_["idempotency_token"] = idempotency_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -905,19 +905,19 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.create_restore_access_backup_vault_input.CreateRestoreAccessBackupVaultInput = {}  # type: ignore[typeddict-item]
-        input["source_backup_vault_arn"] = source_backup_vault_arn
+        input_: aws_sdk_backup.types.create_restore_access_backup_vault_input.CreateRestoreAccessBackupVaultInput = {}  # type: ignore[typeddict-item]
+        input_["source_backup_vault_arn"] = source_backup_vault_arn
         if backup_vault_name is not None:
-            input["backup_vault_name"] = backup_vault_name
+            input_["backup_vault_name"] = backup_vault_name
         if backup_vault_tags is not None:
-            input["backup_vault_tags"] = backup_vault_tags
+            input_["backup_vault_tags"] = backup_vault_tags
         if creator_request_id is not None:
-            input["creator_request_id"] = creator_request_id
+            input_["creator_request_id"] = creator_request_id
         if requester_comment is not None:
-            input["requester_comment"] = requester_comment
+            input_["requester_comment"] = requester_comment
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -957,15 +957,15 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.create_restore_testing_plan_input.CreateRestoreTestingPlanInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_backup.types.create_restore_testing_plan_input.CreateRestoreTestingPlanInput = {}  # type: ignore[typeddict-item]
         if creator_request_id is not None:
-            input["creator_request_id"] = creator_request_id
-        input["restore_testing_plan"] = restore_testing_plan
+            input_["creator_request_id"] = creator_request_id
+        input_["restore_testing_plan"] = restore_testing_plan
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -979,7 +979,7 @@ class AsyncBackupClient:
         config_overrides: Optional[AsyncBackupClientConfig] = None,
         creator_request_id: Optional[str] = None,
     ) -> "aws_sdk_backup.types.create_restore_testing_selection_output.CreateRestoreTestingSelectionOutput":
-        """<p>This request can be sent after CreateRestoreTestingPlan request returns successfully. This is the second part of creating a resource testing plan, and it must be completed sequentially.</p> <p>This consists of <code>RestoreTestingSelectionName</code>, <code>ProtectedResourceType</code>, and one of the following:</p> <ul> <li> <p> <code>ProtectedResourceArns</code> </p> </li> <li> <p> <code>ProtectedResourceConditions</code> </p> </li> </ul> <p>Each protected resource type can have one single value.</p> <p>A restore testing selection can include a wildcard value (\"*\") for <code>ProtectedResourceArns</code> along with <code>ProtectedResourceConditions</code>. Alternatively, you can include up to 30 specific protected resource ARNs in <code>ProtectedResourceArns</code>.</p> <p>Cannot select by both protected resource types AND specific ARNs. Request will fail if both are included.</p>
+        r"""<p>This request can be sent after CreateRestoreTestingPlan request returns successfully. This is the second part of creating a resource testing plan, and it must be completed sequentially.</p> <p>This consists of <code>RestoreTestingSelectionName</code>, <code>ProtectedResourceType</code>, and one of the following:</p> <ul> <li> <p> <code>ProtectedResourceArns</code> </p> </li> <li> <p> <code>ProtectedResourceConditions</code> </p> </li> </ul> <p>Each protected resource type can have one single value.</p> <p>A restore testing selection can include a wildcard value (\"*\") for <code>ProtectedResourceArns</code> along with <code>ProtectedResourceConditions</code>. Alternatively, you can include up to 30 specific protected resource ARNs in <code>ProtectedResourceArns</code>.</p> <p>Cannot select by both protected resource types AND specific ARNs. Request will fail if both are included.</p>
 
         Args:
             creator_request_id: <p>This is an optional unique string that identifies the request and allows failed requests to be retried without the risk of running the operation twice. If used, this parameter must contain 1 to 50 alphanumeric or '-_.' characters.</p>
@@ -1003,14 +1003,14 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.create_restore_testing_selection_input.CreateRestoreTestingSelectionInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_backup.types.create_restore_testing_selection_input.CreateRestoreTestingSelectionInput = {}  # type: ignore[typeddict-item]
         if creator_request_id is not None:
-            input["creator_request_id"] = creator_request_id
-        input["restore_testing_plan_name"] = restore_testing_plan_name
-        input["restore_testing_selection"] = restore_testing_selection
+            input_["creator_request_id"] = creator_request_id
+        input_["restore_testing_plan_name"] = restore_testing_plan_name
+        input_["restore_testing_selection"] = restore_testing_selection
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1050,15 +1050,15 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.create_tiering_configuration_input.CreateTieringConfigurationInput = {}  # type: ignore[typeddict-item]
-        input["tiering_configuration"] = tiering_configuration
+        input_: aws_sdk_backup.types.create_tiering_configuration_input.CreateTieringConfigurationInput = {}  # type: ignore[typeddict-item]
+        input_["tiering_configuration"] = tiering_configuration
         if tiering_configuration_tags is not None:
-            input["tiering_configuration_tags"] = tiering_configuration_tags
+            input_["tiering_configuration_tags"] = tiering_configuration_tags
         if creator_request_id is not None:
-            input["creator_request_id"] = creator_request_id
+            input_["creator_request_id"] = creator_request_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1092,11 +1092,11 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.delete_backup_plan_input.DeleteBackupPlanInput = {}  # type: ignore[typeddict-item]
-        input["backup_plan_id"] = backup_plan_id
+        input_: aws_sdk_backup.types.delete_backup_plan_input.DeleteBackupPlanInput = {}  # type: ignore[typeddict-item]
+        input_["backup_plan_id"] = backup_plan_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1130,12 +1130,12 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.delete_backup_selection_input.DeleteBackupSelectionInput = {}  # type: ignore[typeddict-item]
-        input["backup_plan_id"] = backup_plan_id
-        input["selection_id"] = selection_id
+        input_: aws_sdk_backup.types.delete_backup_selection_input.DeleteBackupSelectionInput = {}  # type: ignore[typeddict-item]
+        input_["backup_plan_id"] = backup_plan_id
+        input_["selection_id"] = selection_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1167,11 +1167,11 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.delete_backup_vault_input.DeleteBackupVaultInput = {}  # type: ignore[typeddict-item]
-        input["backup_vault_name"] = backup_vault_name
+        input_: aws_sdk_backup.types.delete_backup_vault_input.DeleteBackupVaultInput = {}  # type: ignore[typeddict-item]
+        input_["backup_vault_name"] = backup_vault_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1203,11 +1203,11 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.delete_backup_vault_access_policy_input.DeleteBackupVaultAccessPolicyInput = {}  # type: ignore[typeddict-item]
-        input["backup_vault_name"] = backup_vault_name
+        input_: aws_sdk_backup.types.delete_backup_vault_access_policy_input.DeleteBackupVaultAccessPolicyInput = {}  # type: ignore[typeddict-item]
+        input_["backup_vault_name"] = backup_vault_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1219,7 +1219,7 @@ class AsyncBackupClient:
         *,
         config_overrides: Optional[AsyncBackupClientConfig] = None,
     ) -> None:
-        """<p>Deletes Backup Vault Lock from a backup vault specified by a backup vault name.</p> <p>If the Vault Lock configuration is immutable, then you cannot delete Vault Lock using API operations, and you will receive an <code>InvalidRequestException</code> if you attempt to do so. For more information, see <a href=\"https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html\">Vault Lock</a> in the <i>Backup Developer Guide</i>.</p>
+        r"""<p>Deletes Backup Vault Lock from a backup vault specified by a backup vault name.</p> <p>If the Vault Lock configuration is immutable, then you cannot delete Vault Lock using API operations, and you will receive an <code>InvalidRequestException</code> if you attempt to do so. For more information, see <a href=\"https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html\">Vault Lock</a> in the <i>Backup Developer Guide</i>.</p>
 
         Args:
             backup_vault_name: <p>The name of the backup vault from which to delete Backup Vault Lock.</p>
@@ -1239,11 +1239,11 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.delete_backup_vault_lock_configuration_input.DeleteBackupVaultLockConfigurationInput = {}  # type: ignore[typeddict-item]
-        input["backup_vault_name"] = backup_vault_name
+        input_: aws_sdk_backup.types.delete_backup_vault_lock_configuration_input.DeleteBackupVaultLockConfigurationInput = {}  # type: ignore[typeddict-item]
+        input_["backup_vault_name"] = backup_vault_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1275,11 +1275,11 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.delete_backup_vault_notifications_input.DeleteBackupVaultNotificationsInput = {}  # type: ignore[typeddict-item]
-        input["backup_vault_name"] = backup_vault_name
+        input_: aws_sdk_backup.types.delete_backup_vault_notifications_input.DeleteBackupVaultNotificationsInput = {}  # type: ignore[typeddict-item]
+        input_["backup_vault_name"] = backup_vault_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1311,11 +1311,11 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.delete_framework_input.DeleteFrameworkInput = {}  # type: ignore[typeddict-item]
-        input["framework_name"] = framework_name
+        input_: aws_sdk_backup.types.delete_framework_input.DeleteFrameworkInput = {}  # type: ignore[typeddict-item]
+        input_["framework_name"] = framework_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1328,7 +1328,7 @@ class AsyncBackupClient:
         *,
         config_overrides: Optional[AsyncBackupClientConfig] = None,
     ) -> None:
-        """<p>Deletes the recovery point specified by a recovery point ID.</p> <p>If the recovery point ID belongs to a continuous backup, calling this endpoint deletes the existing continuous backup and stops future continuous backup.</p> <p>When an IAM role's permissions are insufficient to call this API, the service sends back an HTTP 200 response with an empty HTTP body, but the recovery point is not deleted. Instead, it enters an <code>EXPIRED</code> state.</p> <p> <code>EXPIRED</code> recovery points can be deleted with this API once the IAM role has the <code>iam:CreateServiceLinkedRole</code> action. To learn more about adding this role, see <a href=\"https://docs.aws.amazon.com/aws-backup/latest/devguide/deleting-backups.html#deleting-backups-troubleshooting\"> Troubleshooting manual deletions</a>.</p> <p>If the user or role is deleted or the permission within the role is removed, the deletion will not be successful and will enter an <code>EXPIRED</code> state.</p>
+        r"""<p>Deletes the recovery point specified by a recovery point ID.</p> <p>If the recovery point ID belongs to a continuous backup, calling this endpoint deletes the existing continuous backup and stops future continuous backup.</p> <p>When an IAM role's permissions are insufficient to call this API, the service sends back an HTTP 200 response with an empty HTTP body, but the recovery point is not deleted. Instead, it enters an <code>EXPIRED</code> state.</p> <p> <code>EXPIRED</code> recovery points can be deleted with this API once the IAM role has the <code>iam:CreateServiceLinkedRole</code> action. To learn more about adding this role, see <a href=\"https://docs.aws.amazon.com/aws-backup/latest/devguide/deleting-backups.html#deleting-backups-troubleshooting\"> Troubleshooting manual deletions</a>.</p> <p>If the user or role is deleted or the permission within the role is removed, the deletion will not be successful and will enter an <code>EXPIRED</code> state.</p>
 
         Args:
             backup_vault_name: <p>The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the Amazon Web Services Region where they are created.</p>
@@ -1349,12 +1349,12 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.delete_recovery_point_input.DeleteRecoveryPointInput = {}  # type: ignore[typeddict-item]
-        input["backup_vault_name"] = backup_vault_name
-        input["recovery_point_arn"] = recovery_point_arn
+        input_: aws_sdk_backup.types.delete_recovery_point_input.DeleteRecoveryPointInput = {}  # type: ignore[typeddict-item]
+        input_["backup_vault_name"] = backup_vault_name
+        input_["recovery_point_arn"] = recovery_point_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1386,11 +1386,11 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.delete_report_plan_input.DeleteReportPlanInput = {}  # type: ignore[typeddict-item]
-        input["report_plan_name"] = report_plan_name
+        input_: aws_sdk_backup.types.delete_report_plan_input.DeleteReportPlanInput = {}  # type: ignore[typeddict-item]
+        input_["report_plan_name"] = report_plan_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1422,11 +1422,11 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.delete_restore_testing_plan_input.DeleteRestoreTestingPlanInput = {}  # type: ignore[typeddict-item]
-        input["restore_testing_plan_name"] = restore_testing_plan_name
+        input_: aws_sdk_backup.types.delete_restore_testing_plan_input.DeleteRestoreTestingPlanInput = {}  # type: ignore[typeddict-item]
+        input_["restore_testing_plan_name"] = restore_testing_plan_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1460,12 +1460,12 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.delete_restore_testing_selection_input.DeleteRestoreTestingSelectionInput = {}  # type: ignore[typeddict-item]
-        input["restore_testing_plan_name"] = restore_testing_plan_name
-        input["restore_testing_selection_name"] = restore_testing_selection_name
+        input_: aws_sdk_backup.types.delete_restore_testing_selection_input.DeleteRestoreTestingSelectionInput = {}  # type: ignore[typeddict-item]
+        input_["restore_testing_plan_name"] = restore_testing_plan_name
+        input_["restore_testing_selection_name"] = restore_testing_selection_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1499,11 +1499,11 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.delete_tiering_configuration_input.DeleteTieringConfigurationInput = {}  # type: ignore[typeddict-item]
-        input["tiering_configuration_name"] = tiering_configuration_name
+        input_: aws_sdk_backup.types.delete_tiering_configuration_input.DeleteTieringConfigurationInput = {}  # type: ignore[typeddict-item]
+        input_["tiering_configuration_name"] = tiering_configuration_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1537,11 +1537,11 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.describe_backup_job_input.DescribeBackupJobInput = {}  # type: ignore[typeddict-item]
-        input["backup_job_id"] = backup_job_id
+        input_: aws_sdk_backup.types.describe_backup_job_input.DescribeBackupJobInput = {}  # type: ignore[typeddict-item]
+        input_["backup_job_id"] = backup_job_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1577,13 +1577,13 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.describe_backup_vault_input.DescribeBackupVaultInput = {}  # type: ignore[typeddict-item]
-        input["backup_vault_name"] = backup_vault_name
+        input_: aws_sdk_backup.types.describe_backup_vault_input.DescribeBackupVaultInput = {}  # type: ignore[typeddict-item]
+        input_["backup_vault_name"] = backup_vault_name
         if backup_vault_account_id is not None:
-            input["backup_vault_account_id"] = backup_vault_account_id
+            input_["backup_vault_account_id"] = backup_vault_account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1617,11 +1617,11 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.describe_copy_job_input.DescribeCopyJobInput = {}  # type: ignore[typeddict-item]
-        input["copy_job_id"] = copy_job_id
+        input_: aws_sdk_backup.types.describe_copy_job_input.DescribeCopyJobInput = {}  # type: ignore[typeddict-item]
+        input_["copy_job_id"] = copy_job_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1655,11 +1655,11 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.describe_framework_input.DescribeFrameworkInput = {}  # type: ignore[typeddict-item]
-        input["framework_name"] = framework_name
+        input_: aws_sdk_backup.types.describe_framework_input.DescribeFrameworkInput = {}  # type: ignore[typeddict-item]
+        input_["framework_name"] = framework_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1686,10 +1686,10 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.describe_global_settings_input.DescribeGlobalSettingsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_backup.types.describe_global_settings_input.DescribeGlobalSettingsInput = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1723,11 +1723,11 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.describe_protected_resource_input.DescribeProtectedResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_backup.types.describe_protected_resource_input.DescribeProtectedResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1767,14 +1767,14 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.describe_recovery_point_input.DescribeRecoveryPointInput = {}  # type: ignore[typeddict-item]
-        input["backup_vault_name"] = backup_vault_name
-        input["recovery_point_arn"] = recovery_point_arn
+        input_: aws_sdk_backup.types.describe_recovery_point_input.DescribeRecoveryPointInput = {}  # type: ignore[typeddict-item]
+        input_["backup_vault_name"] = backup_vault_name
+        input_["recovery_point_arn"] = recovery_point_arn
         if backup_vault_account_id is not None:
-            input["backup_vault_account_id"] = backup_vault_account_id
+            input_["backup_vault_account_id"] = backup_vault_account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1801,10 +1801,10 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.describe_region_settings_input.DescribeRegionSettingsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_backup.types.describe_region_settings_input.DescribeRegionSettingsInput = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1838,11 +1838,11 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.describe_report_job_input.DescribeReportJobInput = {}  # type: ignore[typeddict-item]
-        input["report_job_id"] = report_job_id
+        input_: aws_sdk_backup.types.describe_report_job_input.DescribeReportJobInput = {}  # type: ignore[typeddict-item]
+        input_["report_job_id"] = report_job_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1876,11 +1876,11 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.describe_report_plan_input.DescribeReportPlanInput = {}  # type: ignore[typeddict-item]
-        input["report_plan_name"] = report_plan_name
+        input_: aws_sdk_backup.types.describe_report_plan_input.DescribeReportPlanInput = {}  # type: ignore[typeddict-item]
+        input_["report_plan_name"] = report_plan_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1914,11 +1914,11 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.describe_restore_job_input.DescribeRestoreJobInput = {}  # type: ignore[typeddict-item]
-        input["restore_job_id"] = restore_job_id
+        input_: aws_sdk_backup.types.describe_restore_job_input.DescribeRestoreJobInput = {}  # type: ignore[typeddict-item]
+        input_["restore_job_id"] = restore_job_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1952,11 +1952,11 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.describe_scan_job_input.DescribeScanJobInput = {}  # type: ignore[typeddict-item]
-        input["scan_job_id"] = scan_job_id
+        input_: aws_sdk_backup.types.describe_scan_job_input.DescribeScanJobInput = {}  # type: ignore[typeddict-item]
+        input_["scan_job_id"] = scan_job_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1992,13 +1992,13 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.disassociate_backup_vault_mpa_approval_team_input.DisassociateBackupVaultMpaApprovalTeamInput = {}  # type: ignore[typeddict-item]
-        input["backup_vault_name"] = backup_vault_name
+        input_: aws_sdk_backup.types.disassociate_backup_vault_mpa_approval_team_input.DisassociateBackupVaultMpaApprovalTeamInput = {}  # type: ignore[typeddict-item]
+        input_["backup_vault_name"] = backup_vault_name
         if requester_comment is not None:
-            input["requester_comment"] = requester_comment
+            input_["requester_comment"] = requester_comment
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2032,12 +2032,12 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.disassociate_recovery_point_input.DisassociateRecoveryPointInput = {}  # type: ignore[typeddict-item]
-        input["backup_vault_name"] = backup_vault_name
-        input["recovery_point_arn"] = recovery_point_arn
+        input_: aws_sdk_backup.types.disassociate_recovery_point_input.DisassociateRecoveryPointInput = {}  # type: ignore[typeddict-item]
+        input_["backup_vault_name"] = backup_vault_name
+        input_["recovery_point_arn"] = recovery_point_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2071,12 +2071,12 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.disassociate_recovery_point_from_parent_input.DisassociateRecoveryPointFromParentInput = {}  # type: ignore[typeddict-item]
-        input["backup_vault_name"] = backup_vault_name
-        input["recovery_point_arn"] = recovery_point_arn
+        input_: aws_sdk_backup.types.disassociate_recovery_point_from_parent_input.DisassociateRecoveryPointFromParentInput = {}  # type: ignore[typeddict-item]
+        input_["backup_vault_name"] = backup_vault_name
+        input_["recovery_point_arn"] = recovery_point_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2110,11 +2110,11 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.export_backup_plan_template_input.ExportBackupPlanTemplateInput = {}  # type: ignore[typeddict-item]
-        input["backup_plan_id"] = backup_plan_id
+        input_: aws_sdk_backup.types.export_backup_plan_template_input.ExportBackupPlanTemplateInput = {}  # type: ignore[typeddict-item]
+        input_["backup_plan_id"] = backup_plan_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2154,15 +2154,15 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.get_backup_plan_input.GetBackupPlanInput = {}  # type: ignore[typeddict-item]
-        input["backup_plan_id"] = backup_plan_id
+        input_: aws_sdk_backup.types.get_backup_plan_input.GetBackupPlanInput = {}  # type: ignore[typeddict-item]
+        input_["backup_plan_id"] = backup_plan_id
         if version_id is not None:
-            input["version_id"] = version_id
+            input_["version_id"] = version_id
         if max_scheduled_runs_preview is not None:
-            input["max_scheduled_runs_preview"] = max_scheduled_runs_preview
+            input_["max_scheduled_runs_preview"] = max_scheduled_runs_preview
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2196,11 +2196,11 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.get_backup_plan_from_json_input.GetBackupPlanFromJSONInput = {}  # type: ignore[typeddict-item]
-        input["backup_plan_template_json"] = backup_plan_template_json
+        input_: aws_sdk_backup.types.get_backup_plan_from_json_input.GetBackupPlanFromJSONInput = {}  # type: ignore[typeddict-item]
+        input_["backup_plan_template_json"] = backup_plan_template_json
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2234,11 +2234,11 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.get_backup_plan_from_template_input.GetBackupPlanFromTemplateInput = {}  # type: ignore[typeddict-item]
-        input["backup_plan_template_id"] = backup_plan_template_id
+        input_: aws_sdk_backup.types.get_backup_plan_from_template_input.GetBackupPlanFromTemplateInput = {}  # type: ignore[typeddict-item]
+        input_["backup_plan_template_id"] = backup_plan_template_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2274,12 +2274,12 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.get_backup_selection_input.GetBackupSelectionInput = {}  # type: ignore[typeddict-item]
-        input["backup_plan_id"] = backup_plan_id
-        input["selection_id"] = selection_id
+        input_: aws_sdk_backup.types.get_backup_selection_input.GetBackupSelectionInput = {}  # type: ignore[typeddict-item]
+        input_["backup_plan_id"] = backup_plan_id
+        input_["selection_id"] = selection_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2313,11 +2313,11 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.get_backup_vault_access_policy_input.GetBackupVaultAccessPolicyInput = {}  # type: ignore[typeddict-item]
-        input["backup_vault_name"] = backup_vault_name
+        input_: aws_sdk_backup.types.get_backup_vault_access_policy_input.GetBackupVaultAccessPolicyInput = {}  # type: ignore[typeddict-item]
+        input_["backup_vault_name"] = backup_vault_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2351,11 +2351,11 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.get_backup_vault_notifications_input.GetBackupVaultNotificationsInput = {}  # type: ignore[typeddict-item]
-        input["backup_vault_name"] = backup_vault_name
+        input_: aws_sdk_backup.types.get_backup_vault_notifications_input.GetBackupVaultNotificationsInput = {}  # type: ignore[typeddict-item]
+        input_["backup_vault_name"] = backup_vault_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2389,11 +2389,11 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.get_legal_hold_input.GetLegalHoldInput = {}  # type: ignore[typeddict-item]
-        input["legal_hold_id"] = legal_hold_id
+        input_: aws_sdk_backup.types.get_legal_hold_input.GetLegalHoldInput = {}  # type: ignore[typeddict-item]
+        input_["legal_hold_id"] = legal_hold_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2433,14 +2433,14 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.get_pitr_malware_scan_results_input.GetPITRMalwareScanResultsInput = {}  # type: ignore[typeddict-item]
-        input["recovery_point_arn"] = recovery_point_arn
-        input["backup_vault_name"] = backup_vault_name
-        input["scan_end_time"] = scan_end_time
-        input["malware_scanner"] = malware_scanner
+        input_: aws_sdk_backup.types.get_pitr_malware_scan_results_input.GetPITRMalwareScanResultsInput = {}  # type: ignore[typeddict-item]
+        input_["recovery_point_arn"] = recovery_point_arn
+        input_["backup_vault_name"] = backup_vault_name
+        input_["scan_end_time"] = scan_end_time
+        input_["malware_scanner"] = malware_scanner
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2476,12 +2476,12 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.get_recovery_point_index_details_input.GetRecoveryPointIndexDetailsInput = {}  # type: ignore[typeddict-item]
-        input["backup_vault_name"] = backup_vault_name
-        input["recovery_point_arn"] = recovery_point_arn
+        input_: aws_sdk_backup.types.get_recovery_point_index_details_input.GetRecoveryPointIndexDetailsInput = {}  # type: ignore[typeddict-item]
+        input_["backup_vault_name"] = backup_vault_name
+        input_["recovery_point_arn"] = recovery_point_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2521,14 +2521,14 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.get_recovery_point_restore_metadata_input.GetRecoveryPointRestoreMetadataInput = {}  # type: ignore[typeddict-item]
-        input["backup_vault_name"] = backup_vault_name
-        input["recovery_point_arn"] = recovery_point_arn
+        input_: aws_sdk_backup.types.get_recovery_point_restore_metadata_input.GetRecoveryPointRestoreMetadataInput = {}  # type: ignore[typeddict-item]
+        input_["backup_vault_name"] = backup_vault_name
+        input_["recovery_point_arn"] = recovery_point_arn
         if backup_vault_account_id is not None:
-            input["backup_vault_account_id"] = backup_vault_account_id
+            input_["backup_vault_account_id"] = backup_vault_account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2562,11 +2562,11 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.get_restore_job_metadata_input.GetRestoreJobMetadataInput = {}  # type: ignore[typeddict-item]
-        input["restore_job_id"] = restore_job_id
+        input_: aws_sdk_backup.types.get_restore_job_metadata_input.GetRestoreJobMetadataInput = {}  # type: ignore[typeddict-item]
+        input_["restore_job_id"] = restore_job_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2604,14 +2604,14 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.get_restore_testing_inferred_metadata_input.GetRestoreTestingInferredMetadataInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_backup.types.get_restore_testing_inferred_metadata_input.GetRestoreTestingInferredMetadataInput = {}  # type: ignore[typeddict-item]
         if backup_vault_account_id is not None:
-            input["backup_vault_account_id"] = backup_vault_account_id
-        input["backup_vault_name"] = backup_vault_name
-        input["recovery_point_arn"] = recovery_point_arn
+            input_["backup_vault_account_id"] = backup_vault_account_id
+        input_["backup_vault_name"] = backup_vault_name
+        input_["recovery_point_arn"] = recovery_point_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2645,11 +2645,11 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.get_restore_testing_plan_input.GetRestoreTestingPlanInput = {}  # type: ignore[typeddict-item]
-        input["restore_testing_plan_name"] = restore_testing_plan_name
+        input_: aws_sdk_backup.types.get_restore_testing_plan_input.GetRestoreTestingPlanInput = {}  # type: ignore[typeddict-item]
+        input_["restore_testing_plan_name"] = restore_testing_plan_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2685,12 +2685,12 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.get_restore_testing_selection_input.GetRestoreTestingSelectionInput = {}  # type: ignore[typeddict-item]
-        input["restore_testing_plan_name"] = restore_testing_plan_name
-        input["restore_testing_selection_name"] = restore_testing_selection_name
+        input_: aws_sdk_backup.types.get_restore_testing_selection_input.GetRestoreTestingSelectionInput = {}  # type: ignore[typeddict-item]
+        input_["restore_testing_plan_name"] = restore_testing_plan_name
+        input_["restore_testing_selection_name"] = restore_testing_selection_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2753,11 +2753,11 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.get_tiering_configuration_input.GetTieringConfigurationInput = {}  # type: ignore[typeddict-item]
-        input["tiering_configuration_name"] = tiering_configuration_name
+        input_: aws_sdk_backup.types.get_tiering_configuration_input.GetTieringConfigurationInput = {}  # type: ignore[typeddict-item]
+        input_["tiering_configuration_name"] = tiering_configuration_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2787,7 +2787,7 @@ class AsyncBackupClient:
         by_parent_job_id: Optional["aws_sdk_backup.types.string.string"] = None,
         by_message_category: Optional["aws_sdk_backup.types.string.string"] = None,
     ) -> "aws_sdk_backup.types.list_backup_jobs_output.ListBackupJobsOutput":
-        """<p>Returns a list of existing backup jobs for an authenticated account for the last 30 days. For a longer period of time, consider using these <a href=\"https://docs.aws.amazon.com/aws-backup/latest/devguide/monitoring.html\">monitoring tools</a>.</p>
+        r"""<p>Returns a list of existing backup jobs for an authenticated account for the last 30 days. For a longer period of time, consider using these <a href=\"https://docs.aws.amazon.com/aws-backup/latest/devguide/monitoring.html\">monitoring tools</a>.</p>
 
         Args:
             next_token: <p>The next item following a partial list of returned items. For example, if a request is made to return <code>MaxResults</code> number of items, <code>NextToken</code> allows you to return more items in your list starting at the location pointed to by the next token.</p>
@@ -2821,36 +2821,36 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.list_backup_jobs_input.ListBackupJobsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_backup.types.list_backup_jobs_input.ListBackupJobsInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if by_resource_arn is not None:
-            input["by_resource_arn"] = by_resource_arn
+            input_["by_resource_arn"] = by_resource_arn
         if by_state is not None:
-            input["by_state"] = by_state
+            input_["by_state"] = by_state
         if by_backup_vault_name is not None:
-            input["by_backup_vault_name"] = by_backup_vault_name
+            input_["by_backup_vault_name"] = by_backup_vault_name
         if by_created_before is not None:
-            input["by_created_before"] = by_created_before
+            input_["by_created_before"] = by_created_before
         if by_created_after is not None:
-            input["by_created_after"] = by_created_after
+            input_["by_created_after"] = by_created_after
         if by_resource_type is not None:
-            input["by_resource_type"] = by_resource_type
+            input_["by_resource_type"] = by_resource_type
         if by_account_id is not None:
-            input["by_account_id"] = by_account_id
+            input_["by_account_id"] = by_account_id
         if by_complete_after is not None:
-            input["by_complete_after"] = by_complete_after
+            input_["by_complete_after"] = by_complete_after
         if by_complete_before is not None:
-            input["by_complete_before"] = by_complete_before
+            input_["by_complete_before"] = by_complete_before
         if by_parent_job_id is not None:
-            input["by_parent_job_id"] = by_parent_job_id
+            input_["by_parent_job_id"] = by_parent_job_id
         if by_message_category is not None:
-            input["by_message_category"] = by_message_category
+            input_["by_message_category"] = by_message_category
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2925,7 +2925,7 @@ class AsyncBackupClient:
         max_results: Optional["aws_sdk_backup.types.max_results.MaxResults"] = None,
         next_token: Optional["aws_sdk_backup.types.string.string"] = None,
     ) -> "aws_sdk_backup.types.list_backup_job_summaries_output.ListBackupJobSummariesOutput":
-        """<p>This is a request for a summary of backup jobs created or running within the most recent 30 days. You can include parameters AccountID, State, ResourceType, MessageCategory, AggregationPeriod, MaxResults, or NextToken to filter results.</p> <p>This request returns a summary that contains Region, Account, State, ResourceType, MessageCategory, StartTime, EndTime, and Count of included jobs.</p>
+        r"""<p>This is a request for a summary of backup jobs created or running within the most recent 30 days. You can include parameters AccountID, State, ResourceType, MessageCategory, AggregationPeriod, MaxResults, or NextToken to filter results.</p> <p>This request returns a summary that contains Region, Account, State, ResourceType, MessageCategory, StartTime, EndTime, and Count of included jobs.</p>
 
         Args:
             account_id: <p>Returns the job count for the specified account.</p> <p>If the request is sent from a member account or an account not part of Amazon Web Services Organizations, jobs within requestor's account will be returned.</p> <p>Root, admin, and delegated administrator accounts can use the value ANY to return job counts from every account in the organization.</p> <p> <code>AGGREGATE_ALL</code> aggregates job counts from all accounts within the authenticated organization, then returns the sum.</p>
@@ -2953,24 +2953,24 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.list_backup_job_summaries_input.ListBackupJobSummariesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_backup.types.list_backup_job_summaries_input.ListBackupJobSummariesInput = {}  # type: ignore[typeddict-item]
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
         if state is not None:
-            input["state"] = state
+            input_["state"] = state
         if resource_type is not None:
-            input["resource_type"] = resource_type
+            input_["resource_type"] = resource_type
         if message_category is not None:
-            input["message_category"] = message_category
+            input_["message_category"] = message_category
         if aggregation_period is not None:
-            input["aggregation_period"] = aggregation_period
+            input_["aggregation_period"] = aggregation_period
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3008,16 +3008,16 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.list_backup_plans_input.ListBackupPlansInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_backup.types.list_backup_plans_input.ListBackupPlansInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if include_deleted is not None:
-            input["include_deleted"] = include_deleted
+            input_["include_deleted"] = include_deleted
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3076,14 +3076,14 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.list_backup_plan_templates_input.ListBackupPlanTemplatesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_backup.types.list_backup_plan_templates_input.ListBackupPlanTemplatesInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3142,15 +3142,15 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.list_backup_plan_versions_input.ListBackupPlanVersionsInput = {}  # type: ignore[typeddict-item]
-        input["backup_plan_id"] = backup_plan_id
+        input_: aws_sdk_backup.types.list_backup_plan_versions_input.ListBackupPlanVersionsInput = {}  # type: ignore[typeddict-item]
+        input_["backup_plan_id"] = backup_plan_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3213,15 +3213,15 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.list_backup_selections_input.ListBackupSelectionsInput = {}  # type: ignore[typeddict-item]
-        input["backup_plan_id"] = backup_plan_id
+        input_: aws_sdk_backup.types.list_backup_selections_input.ListBackupSelectionsInput = {}  # type: ignore[typeddict-item]
+        input_["backup_plan_id"] = backup_plan_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3284,18 +3284,18 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.list_backup_vaults_input.ListBackupVaultsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_backup.types.list_backup_vaults_input.ListBackupVaultsInput = {}  # type: ignore[typeddict-item]
         if by_vault_type is not None:
-            input["by_vault_type"] = by_vault_type
+            input_["by_vault_type"] = by_vault_type
         if by_shared is not None:
-            input["by_shared"] = by_shared
+            input_["by_shared"] = by_shared
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3349,7 +3349,7 @@ class AsyncBackupClient:
             "aws_sdk_backup.types.string.string"
         ] = None,
     ) -> "aws_sdk_backup.types.list_copy_jobs_output.ListCopyJobsOutput":
-        """<p>Returns metadata about your copy jobs.</p>
+        r"""<p>Returns metadata about your copy jobs.</p>
 
         Args:
             next_token: <p>The next item following a partial list of returned items. For example, if a request is made to return MaxResults number of items, NextToken allows you to return more items in your list starting at the location pointed to by the next token. </p>
@@ -3384,38 +3384,38 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.list_copy_jobs_input.ListCopyJobsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_backup.types.list_copy_jobs_input.ListCopyJobsInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if by_resource_arn is not None:
-            input["by_resource_arn"] = by_resource_arn
+            input_["by_resource_arn"] = by_resource_arn
         if by_state is not None:
-            input["by_state"] = by_state
+            input_["by_state"] = by_state
         if by_created_before is not None:
-            input["by_created_before"] = by_created_before
+            input_["by_created_before"] = by_created_before
         if by_created_after is not None:
-            input["by_created_after"] = by_created_after
+            input_["by_created_after"] = by_created_after
         if by_resource_type is not None:
-            input["by_resource_type"] = by_resource_type
+            input_["by_resource_type"] = by_resource_type
         if by_destination_vault_arn is not None:
-            input["by_destination_vault_arn"] = by_destination_vault_arn
+            input_["by_destination_vault_arn"] = by_destination_vault_arn
         if by_account_id is not None:
-            input["by_account_id"] = by_account_id
+            input_["by_account_id"] = by_account_id
         if by_complete_before is not None:
-            input["by_complete_before"] = by_complete_before
+            input_["by_complete_before"] = by_complete_before
         if by_complete_after is not None:
-            input["by_complete_after"] = by_complete_after
+            input_["by_complete_after"] = by_complete_after
         if by_parent_job_id is not None:
-            input["by_parent_job_id"] = by_parent_job_id
+            input_["by_parent_job_id"] = by_parent_job_id
         if by_message_category is not None:
-            input["by_message_category"] = by_message_category
+            input_["by_message_category"] = by_message_category
         if by_source_recovery_point_arn is not None:
-            input["by_source_recovery_point_arn"] = by_source_recovery_point_arn
+            input_["by_source_recovery_point_arn"] = by_source_recovery_point_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3490,7 +3490,7 @@ class AsyncBackupClient:
     ) -> (
         "aws_sdk_backup.types.list_copy_job_summaries_output.ListCopyJobSummariesOutput"
     ):
-        """<p>This request obtains a list of copy jobs created or running within the the most recent 30 days. You can include parameters AccountID, State, ResourceType, MessageCategory, AggregationPeriod, MaxResults, or NextToken to filter results.</p> <p>This request returns a summary that contains Region, Account, State, RestourceType, MessageCategory, StartTime, EndTime, and Count of included jobs.</p>
+        r"""<p>This request obtains a list of copy jobs created or running within the the most recent 30 days. You can include parameters AccountID, State, ResourceType, MessageCategory, AggregationPeriod, MaxResults, or NextToken to filter results.</p> <p>This request returns a summary that contains Region, Account, State, RestourceType, MessageCategory, StartTime, EndTime, and Count of included jobs.</p>
 
         Args:
             account_id: <p>Returns the job count for the specified account.</p> <p>If the request is sent from a member account or an account not part of Amazon Web Services Organizations, jobs within requestor's account will be returned.</p> <p>Root, admin, and delegated administrator accounts can use the value ANY to return job counts from every account in the organization.</p> <p> <code>AGGREGATE_ALL</code> aggregates job counts from all accounts within the authenticated organization, then returns the sum.</p>
@@ -3518,24 +3518,24 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.list_copy_job_summaries_input.ListCopyJobSummariesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_backup.types.list_copy_job_summaries_input.ListCopyJobSummariesInput = {}  # type: ignore[typeddict-item]
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
         if state is not None:
-            input["state"] = state
+            input_["state"] = state
         if resource_type is not None:
-            input["resource_type"] = resource_type
+            input_["resource_type"] = resource_type
         if message_category is not None:
-            input["message_category"] = message_category
+            input_["message_category"] = message_category
         if aggregation_period is not None:
-            input["aggregation_period"] = aggregation_period
+            input_["aggregation_period"] = aggregation_period
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3573,14 +3573,14 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.list_frameworks_input.ListFrameworksInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_backup.types.list_frameworks_input.ListFrameworksInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3628,24 +3628,24 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.list_indexed_recovery_points_input.ListIndexedRecoveryPointsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_backup.types.list_indexed_recovery_points_input.ListIndexedRecoveryPointsInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if source_resource_arn is not None:
-            input["source_resource_arn"] = source_resource_arn
+            input_["source_resource_arn"] = source_resource_arn
         if created_before is not None:
-            input["created_before"] = created_before
+            input_["created_before"] = created_before
         if created_after is not None:
-            input["created_after"] = created_after
+            input_["created_after"] = created_after
         if resource_type is not None:
-            input["resource_type"] = resource_type
+            input_["resource_type"] = resource_type
         if index_status is not None:
-            input["index_status"] = index_status
+            input_["index_status"] = index_status
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3714,14 +3714,14 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.list_legal_holds_input.ListLegalHoldsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_backup.types.list_legal_holds_input.ListLegalHoldsInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3778,14 +3778,14 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.list_protected_resources_input.ListProtectedResourcesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_backup.types.list_protected_resources_input.ListProtectedResourcesInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3848,17 +3848,17 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.list_protected_resources_by_backup_vault_input.ListProtectedResourcesByBackupVaultInput = {}  # type: ignore[typeddict-item]
-        input["backup_vault_name"] = backup_vault_name
+        input_: aws_sdk_backup.types.list_protected_resources_by_backup_vault_input.ListProtectedResourcesByBackupVaultInput = {}  # type: ignore[typeddict-item]
+        input_["backup_vault_name"] = backup_vault_name
         if backup_vault_account_id is not None:
-            input["backup_vault_account_id"] = backup_vault_account_id
+            input_["backup_vault_account_id"] = backup_vault_account_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3941,29 +3941,29 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.list_recovery_points_by_backup_vault_input.ListRecoveryPointsByBackupVaultInput = {}  # type: ignore[typeddict-item]
-        input["backup_vault_name"] = backup_vault_name
+        input_: aws_sdk_backup.types.list_recovery_points_by_backup_vault_input.ListRecoveryPointsByBackupVaultInput = {}  # type: ignore[typeddict-item]
+        input_["backup_vault_name"] = backup_vault_name
         if backup_vault_account_id is not None:
-            input["backup_vault_account_id"] = backup_vault_account_id
+            input_["backup_vault_account_id"] = backup_vault_account_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if by_resource_arn is not None:
-            input["by_resource_arn"] = by_resource_arn
+            input_["by_resource_arn"] = by_resource_arn
         if by_resource_type is not None:
-            input["by_resource_type"] = by_resource_type
+            input_["by_resource_type"] = by_resource_type
         if by_backup_plan_id is not None:
-            input["by_backup_plan_id"] = by_backup_plan_id
+            input_["by_backup_plan_id"] = by_backup_plan_id
         if by_created_before is not None:
-            input["by_created_before"] = by_created_before
+            input_["by_created_before"] = by_created_before
         if by_created_after is not None:
-            input["by_created_after"] = by_created_after
+            input_["by_created_after"] = by_created_after
         if by_parent_recovery_point_arn is not None:
-            input["by_parent_recovery_point_arn"] = by_parent_recovery_point_arn
+            input_["by_parent_recovery_point_arn"] = by_parent_recovery_point_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4042,15 +4042,15 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.list_recovery_points_by_legal_hold_input.ListRecoveryPointsByLegalHoldInput = {}  # type: ignore[typeddict-item]
-        input["legal_hold_id"] = legal_hold_id
+        input_: aws_sdk_backup.types.list_recovery_points_by_legal_hold_input.ListRecoveryPointsByLegalHoldInput = {}  # type: ignore[typeddict-item]
+        input_["legal_hold_id"] = legal_hold_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4117,17 +4117,17 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.list_recovery_points_by_resource_input.ListRecoveryPointsByResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_backup.types.list_recovery_points_by_resource_input.ListRecoveryPointsByResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if managed_by_aws_backup_only is not None:
-            input["managed_by_aws_backup_only"] = managed_by_aws_backup_only
+            input_["managed_by_aws_backup_only"] = managed_by_aws_backup_only
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4200,22 +4200,22 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.list_report_jobs_input.ListReportJobsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_backup.types.list_report_jobs_input.ListReportJobsInput = {}  # type: ignore[typeddict-item]
         if by_report_plan_name is not None:
-            input["by_report_plan_name"] = by_report_plan_name
+            input_["by_report_plan_name"] = by_report_plan_name
         if by_creation_before is not None:
-            input["by_creation_before"] = by_creation_before
+            input_["by_creation_before"] = by_creation_before
         if by_creation_after is not None:
-            input["by_creation_after"] = by_creation_after
+            input_["by_creation_after"] = by_creation_after
         if by_status is not None:
-            input["by_status"] = by_status
+            input_["by_status"] = by_status
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4251,14 +4251,14 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.list_report_plans_input.ListReportPlansInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_backup.types.list_report_plans_input.ListReportPlansInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4296,15 +4296,15 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.list_restore_access_backup_vaults_input.ListRestoreAccessBackupVaultsInput = {}  # type: ignore[typeddict-item]
-        input["backup_vault_name"] = backup_vault_name
+        input_: aws_sdk_backup.types.list_restore_access_backup_vaults_input.ListRestoreAccessBackupVaultsInput = {}  # type: ignore[typeddict-item]
+        input_["backup_vault_name"] = backup_vault_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4385,32 +4385,32 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.list_restore_jobs_input.ListRestoreJobsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_backup.types.list_restore_jobs_input.ListRestoreJobsInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if by_account_id is not None:
-            input["by_account_id"] = by_account_id
+            input_["by_account_id"] = by_account_id
         if by_resource_type is not None:
-            input["by_resource_type"] = by_resource_type
+            input_["by_resource_type"] = by_resource_type
         if by_created_before is not None:
-            input["by_created_before"] = by_created_before
+            input_["by_created_before"] = by_created_before
         if by_created_after is not None:
-            input["by_created_after"] = by_created_after
+            input_["by_created_after"] = by_created_after
         if by_status is not None:
-            input["by_status"] = by_status
+            input_["by_status"] = by_status
         if by_complete_before is not None:
-            input["by_complete_before"] = by_complete_before
+            input_["by_complete_before"] = by_complete_before
         if by_complete_after is not None:
-            input["by_complete_after"] = by_complete_after
+            input_["by_complete_after"] = by_complete_after
         if by_restore_testing_plan_arn is not None:
-            input["by_restore_testing_plan_arn"] = by_restore_testing_plan_arn
+            input_["by_restore_testing_plan_arn"] = by_restore_testing_plan_arn
         if by_parent_job_id is not None:
-            input["by_parent_job_id"] = by_parent_job_id
+            input_["by_parent_job_id"] = by_parent_job_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4503,25 +4503,25 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.list_restore_jobs_by_protected_resource_input.ListRestoreJobsByProtectedResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_backup.types.list_restore_jobs_by_protected_resource_input.ListRestoreJobsByProtectedResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
         if by_status is not None:
-            input["by_status"] = by_status
+            input_["by_status"] = by_status
         if by_recovery_point_creation_date_after is not None:
-            input["by_recovery_point_creation_date_after"] = (
+            input_["by_recovery_point_creation_date_after"] = (
                 by_recovery_point_creation_date_after
             )
         if by_recovery_point_creation_date_before is not None:
-            input["by_recovery_point_creation_date_before"] = (
+            input_["by_recovery_point_creation_date_before"] = (
                 by_recovery_point_creation_date_before
             )
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4606,22 +4606,22 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.list_restore_job_summaries_input.ListRestoreJobSummariesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_backup.types.list_restore_job_summaries_input.ListRestoreJobSummariesInput = {}  # type: ignore[typeddict-item]
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
         if state is not None:
-            input["state"] = state
+            input_["state"] = state
         if resource_type is not None:
-            input["resource_type"] = resource_type
+            input_["resource_type"] = resource_type
         if aggregation_period is not None:
-            input["aggregation_period"] = aggregation_period
+            input_["aggregation_period"] = aggregation_period
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4659,14 +4659,14 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.list_restore_testing_plans_input.ListRestoreTestingPlansInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_backup.types.list_restore_testing_plans_input.ListRestoreTestingPlansInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4729,15 +4729,15 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.list_restore_testing_selections_input.ListRestoreTestingSelectionsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_backup.types.list_restore_testing_selections_input.ListRestoreTestingSelectionsInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["restore_testing_plan_name"] = restore_testing_plan_name
+            input_["next_token"] = next_token
+        input_["restore_testing_plan_name"] = restore_testing_plan_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4793,7 +4793,7 @@ class AsyncBackupClient:
         ] = None,
         next_token: Optional[str] = None,
     ) -> "aws_sdk_backup.types.list_scan_jobs_output.ListScanJobsOutput":
-        """<p>Returns a list of existing scan jobs for an authenticated account for the last 30 days.</p>
+        r"""<p>Returns a list of existing scan jobs for an authenticated account for the last 30 days.</p>
 
         Args:
             by_account_id: <p>The account ID to list the jobs from. Returns only backup jobs associated with the specified account ID.</p> <p>If used from an Amazon Web Services Organizations management account, passing <code>*</code> returns all jobs across the organization.</p> <p>Pattern: <code>^[0-9]{12}$</code> </p>
@@ -4826,34 +4826,34 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.list_scan_jobs_input.ListScanJobsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_backup.types.list_scan_jobs_input.ListScanJobsInput = {}  # type: ignore[typeddict-item]
         if by_account_id is not None:
-            input["by_account_id"] = by_account_id
+            input_["by_account_id"] = by_account_id
         if by_backup_vault_name is not None:
-            input["by_backup_vault_name"] = by_backup_vault_name
+            input_["by_backup_vault_name"] = by_backup_vault_name
         if by_complete_after is not None:
-            input["by_complete_after"] = by_complete_after
+            input_["by_complete_after"] = by_complete_after
         if by_complete_before is not None:
-            input["by_complete_before"] = by_complete_before
+            input_["by_complete_before"] = by_complete_before
         if by_malware_scanner is not None:
-            input["by_malware_scanner"] = by_malware_scanner
+            input_["by_malware_scanner"] = by_malware_scanner
         if by_recovery_point_arn is not None:
-            input["by_recovery_point_arn"] = by_recovery_point_arn
+            input_["by_recovery_point_arn"] = by_recovery_point_arn
         if by_resource_arn is not None:
-            input["by_resource_arn"] = by_resource_arn
+            input_["by_resource_arn"] = by_resource_arn
         if by_resource_type is not None:
-            input["by_resource_type"] = by_resource_type
+            input_["by_resource_type"] = by_resource_type
         if by_scan_result_status is not None:
-            input["by_scan_result_status"] = by_scan_result_status
+            input_["by_scan_result_status"] = by_scan_result_status
         if by_state is not None:
-            input["by_state"] = by_state
+            input_["by_state"] = by_state
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4960,26 +4960,26 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.list_scan_job_summaries_input.ListScanJobSummariesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_backup.types.list_scan_job_summaries_input.ListScanJobSummariesInput = {}  # type: ignore[typeddict-item]
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
         if resource_type is not None:
-            input["resource_type"] = resource_type
+            input_["resource_type"] = resource_type
         if malware_scanner is not None:
-            input["malware_scanner"] = malware_scanner
+            input_["malware_scanner"] = malware_scanner
         if scan_result_status is not None:
-            input["scan_result_status"] = scan_result_status
+            input_["scan_result_status"] = scan_result_status
         if state is not None:
-            input["state"] = state
+            input_["state"] = state
         if aggregation_period is not None:
-            input["aggregation_period"] = aggregation_period
+            input_["aggregation_period"] = aggregation_period
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5034,7 +5034,7 @@ class AsyncBackupClient:
         next_token: Optional["aws_sdk_backup.types.string.string"] = None,
         max_results: Optional["aws_sdk_backup.types.max_results.MaxResults"] = None,
     ) -> "aws_sdk_backup.types.list_tags_output.ListTagsOutput":
-        """<p>Returns the tags assigned to the resource, such as a target recovery point, backup plan, or backup vault.</p> <p>This operation returns results depending on the resource type used in the value for <code>resourceArn</code>. For example, recovery points of Amazon DynamoDB with Advanced Settings have an ARN (Amazon Resource Name) that begins with <code>arn:aws:backup</code>. Recovery points (backups) of DynamoDB without Advanced Settings enabled have an ARN that begins with <code>arn:aws:dynamodb</code>.</p> <p>When this operation is called and when you include values of <code>resourceArn</code> that have an ARN other than <code>arn:aws:backup</code>, it may return one of the exceptions listed below. To prevent this exception, include only values representing resource types that are fully managed by Backup. These have an ARN that begins <code>arn:aws:backup</code> and they are noted in the <a href=\"https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource\">Feature availability by resource</a> table.</p>
+        r"""<p>Returns the tags assigned to the resource, such as a target recovery point, backup plan, or backup vault.</p> <p>This operation returns results depending on the resource type used in the value for <code>resourceArn</code>. For example, recovery points of Amazon DynamoDB with Advanced Settings have an ARN (Amazon Resource Name) that begins with <code>arn:aws:backup</code>. Recovery points (backups) of DynamoDB without Advanced Settings enabled have an ARN that begins with <code>arn:aws:dynamodb</code>.</p> <p>When this operation is called and when you include values of <code>resourceArn</code> that have an ARN other than <code>arn:aws:backup</code>, it may return one of the exceptions listed below. To prevent this exception, include only values representing resource types that are fully managed by Backup. These have an ARN that begins <code>arn:aws:backup</code> and they are noted in the <a href=\"https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource\">Feature availability by resource</a> table.</p>
 
         Args:
             resource_arn: <p>An Amazon Resource Name (ARN) that uniquely identifies a resource. The format of the ARN depends on the type of resource. Valid targets for <code>ListTags</code> are recovery points, backup plans, and backup vaults.</p>
@@ -5058,15 +5058,15 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.list_tags_input.ListTagsInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_backup.types.list_tags_input.ListTagsInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5102,14 +5102,14 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.list_tiering_configurations_input.ListTieringConfigurationsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_backup.types.list_tiering_configurations_input.ListTieringConfigurationsInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5164,13 +5164,13 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.put_backup_vault_access_policy_input.PutBackupVaultAccessPolicyInput = {}  # type: ignore[typeddict-item]
-        input["backup_vault_name"] = backup_vault_name
+        input_: aws_sdk_backup.types.put_backup_vault_access_policy_input.PutBackupVaultAccessPolicyInput = {}  # type: ignore[typeddict-item]
+        input_["backup_vault_name"] = backup_vault_name
         if policy is not None:
-            input["policy"] = policy
+            input_["policy"] = policy
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5185,7 +5185,7 @@ class AsyncBackupClient:
         max_retention_days: Optional["aws_sdk_backup.types.long.Long"] = None,
         changeable_for_days: Optional["aws_sdk_backup.types.long.Long"] = None,
     ) -> None:
-        """<p>Applies Backup Vault Lock to a backup vault, preventing attempts to delete any recovery point stored in or created in a backup vault. Vault Lock also prevents attempts to update the lifecycle policy that controls the retention period of any recovery point currently stored in a backup vault. If specified, Vault Lock enforces a minimum and maximum retention period for future backup and copy jobs that target a backup vault.</p> <note> <p>Backup Vault Lock has been assessed by Cohasset Associates for use in environments that are subject to SEC 17a-4, CFTC, and FINRA regulations. For more information about how Backup Vault Lock relates to these regulations, see the <a href=\"https://docs.aws.amazon.com/aws-backup/latest/devguide/samples/cohassetreport.zip\">Cohasset Associates Compliance Assessment.</a> </p> </note> <p>For more information, see <a href=\"https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html\">Backup Vault Lock</a>.</p>
+        r"""<p>Applies Backup Vault Lock to a backup vault, preventing attempts to delete any recovery point stored in or created in a backup vault. Vault Lock also prevents attempts to update the lifecycle policy that controls the retention period of any recovery point currently stored in a backup vault. If specified, Vault Lock enforces a minimum and maximum retention period for future backup and copy jobs that target a backup vault.</p> <note> <p>Backup Vault Lock has been assessed by Cohasset Associates for use in environments that are subject to SEC 17a-4, CFTC, and FINRA regulations. For more information about how Backup Vault Lock relates to these regulations, see the <a href=\"https://docs.aws.amazon.com/aws-backup/latest/devguide/samples/cohassetreport.zip\">Cohasset Associates Compliance Assessment.</a> </p> </note> <p>For more information, see <a href=\"https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html\">Backup Vault Lock</a>.</p>
 
         Args:
             backup_vault_name: <p>The Backup Vault Lock configuration that specifies the name of the backup vault it protects.</p>
@@ -5208,17 +5208,17 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.put_backup_vault_lock_configuration_input.PutBackupVaultLockConfigurationInput = {}  # type: ignore[typeddict-item]
-        input["backup_vault_name"] = backup_vault_name
+        input_: aws_sdk_backup.types.put_backup_vault_lock_configuration_input.PutBackupVaultLockConfigurationInput = {}  # type: ignore[typeddict-item]
+        input_["backup_vault_name"] = backup_vault_name
         if min_retention_days is not None:
-            input["min_retention_days"] = min_retention_days
+            input_["min_retention_days"] = min_retention_days
         if max_retention_days is not None:
-            input["max_retention_days"] = max_retention_days
+            input_["max_retention_days"] = max_retention_days
         if changeable_for_days is not None:
-            input["changeable_for_days"] = changeable_for_days
+            input_["changeable_for_days"] = changeable_for_days
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5232,7 +5232,7 @@ class AsyncBackupClient:
         *,
         config_overrides: Optional[AsyncBackupClientConfig] = None,
     ) -> None:
-        """<p>Turns on notifications on a backup vault for the specified topic and events.</p>
+        r"""<p>Turns on notifications on a backup vault for the specified topic and events.</p>
 
         Args:
             backup_vault_name: <p>The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the Amazon Web Services Region where they are created.</p>
@@ -5254,13 +5254,13 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.put_backup_vault_notifications_input.PutBackupVaultNotificationsInput = {}  # type: ignore[typeddict-item]
-        input["backup_vault_name"] = backup_vault_name
-        input["sns_topic_arn"] = sns_topic_arn
-        input["backup_vault_events"] = backup_vault_events
+        input_: aws_sdk_backup.types.put_backup_vault_notifications_input.PutBackupVaultNotificationsInput = {}  # type: ignore[typeddict-item]
+        input_["backup_vault_name"] = backup_vault_name
+        input_["sns_topic_arn"] = sns_topic_arn
+        input_["backup_vault_events"] = backup_vault_events
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5298,14 +5298,14 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.put_restore_validation_result_input.PutRestoreValidationResultInput = {}  # type: ignore[typeddict-item]
-        input["restore_job_id"] = restore_job_id
-        input["validation_status"] = validation_status
+        input_: aws_sdk_backup.types.put_restore_validation_result_input.PutRestoreValidationResultInput = {}  # type: ignore[typeddict-item]
+        input_["restore_job_id"] = restore_job_id
+        input_["validation_status"] = validation_status
         if validation_status_message is not None:
-            input["validation_status_message"] = validation_status_message
+            input_["validation_status_message"] = validation_status_message
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5343,14 +5343,14 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.revoke_restore_access_backup_vault_input.RevokeRestoreAccessBackupVaultInput = {}  # type: ignore[typeddict-item]
-        input["backup_vault_name"] = backup_vault_name
-        input["restore_access_backup_vault_arn"] = restore_access_backup_vault_arn
+        input_: aws_sdk_backup.types.revoke_restore_access_backup_vault_input.RevokeRestoreAccessBackupVaultInput = {}  # type: ignore[typeddict-item]
+        input_["backup_vault_name"] = backup_vault_name
+        input_["restore_access_backup_vault_arn"] = restore_access_backup_vault_arn
         if requester_comment is not None:
-            input["requester_comment"] = requester_comment
+            input_["requester_comment"] = requester_comment
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5380,7 +5380,7 @@ class AsyncBackupClient:
         ] = None,
         index: Optional["aws_sdk_backup.types.index.Index"] = None,
     ) -> "aws_sdk_backup.types.start_backup_job_output.StartBackupJobOutput":
-        """<p>Starts an on-demand backup job for the specified resource.</p>
+        r"""<p>Starts an on-demand backup job for the specified resource.</p>
 
         Args:
             backup_vault_name: <p>The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the Amazon Web Services Region where they are created.</p>
@@ -5412,31 +5412,31 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.start_backup_job_input.StartBackupJobInput = {}  # type: ignore[typeddict-item]
-        input["backup_vault_name"] = backup_vault_name
+        input_: aws_sdk_backup.types.start_backup_job_input.StartBackupJobInput = {}  # type: ignore[typeddict-item]
+        input_["backup_vault_name"] = backup_vault_name
         if logically_air_gapped_backup_vault_arn is not None:
-            input["logically_air_gapped_backup_vault_arn"] = (
+            input_["logically_air_gapped_backup_vault_arn"] = (
                 logically_air_gapped_backup_vault_arn
             )
-        input["resource_arn"] = resource_arn
-        input["iam_role_arn"] = iam_role_arn
+        input_["resource_arn"] = resource_arn
+        input_["iam_role_arn"] = iam_role_arn
         if idempotency_token is not None:
-            input["idempotency_token"] = idempotency_token
+            input_["idempotency_token"] = idempotency_token
         if start_window_minutes is not None:
-            input["start_window_minutes"] = start_window_minutes
+            input_["start_window_minutes"] = start_window_minutes
         if complete_window_minutes is not None:
-            input["complete_window_minutes"] = complete_window_minutes
+            input_["complete_window_minutes"] = complete_window_minutes
         if lifecycle is not None:
-            input["lifecycle"] = lifecycle
+            input_["lifecycle"] = lifecycle
         if recovery_point_tags is not None:
-            input["recovery_point_tags"] = recovery_point_tags
+            input_["recovery_point_tags"] = recovery_point_tags
         if backup_options is not None:
-            input["backup_options"] = backup_options
+            input_["backup_options"] = backup_options
         if index is not None:
-            input["index"] = index
+            input_["index"] = index
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5453,7 +5453,7 @@ class AsyncBackupClient:
         idempotency_token: Optional["aws_sdk_backup.types.string.string"] = None,
         lifecycle: Optional["aws_sdk_backup.types.lifecycle.Lifecycle"] = None,
     ) -> "aws_sdk_backup.types.start_copy_job_output.StartCopyJobOutput":
-        """<p>Starts a job to create a one-time copy of the specified resource.</p> <p>Does not support continuous backups.</p> <p>See <a href=\"https://docs.aws.amazon.com/aws-backup/latest/devguide/recov-point-create-a-copy.html#backup-copy-retry\">Copy job retry</a> for information on how Backup retries copy job operations.</p>
+        r"""<p>Starts a job to create a one-time copy of the specified resource.</p> <p>Does not support continuous backups.</p> <p>See <a href=\"https://docs.aws.amazon.com/aws-backup/latest/devguide/recov-point-create-a-copy.html#backup-copy-retry\">Copy job retry</a> for information on how Backup retries copy job operations.</p>
 
         Args:
             recovery_point_arn: <p>An ARN that uniquely identifies a recovery point to use for the copy job; for example, arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45. </p>
@@ -5479,18 +5479,18 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.start_copy_job_input.StartCopyJobInput = {}  # type: ignore[typeddict-item]
-        input["recovery_point_arn"] = recovery_point_arn
-        input["source_backup_vault_name"] = source_backup_vault_name
-        input["destination_backup_vault_arn"] = destination_backup_vault_arn
-        input["iam_role_arn"] = iam_role_arn
+        input_: aws_sdk_backup.types.start_copy_job_input.StartCopyJobInput = {}  # type: ignore[typeddict-item]
+        input_["recovery_point_arn"] = recovery_point_arn
+        input_["source_backup_vault_name"] = source_backup_vault_name
+        input_["destination_backup_vault_arn"] = destination_backup_vault_arn
+        input_["iam_role_arn"] = iam_role_arn
         if idempotency_token is not None:
-            input["idempotency_token"] = idempotency_token
+            input_["idempotency_token"] = idempotency_token
         if lifecycle is not None:
-            input["lifecycle"] = lifecycle
+            input_["lifecycle"] = lifecycle
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5526,13 +5526,13 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.start_report_job_input.StartReportJobInput = {}  # type: ignore[typeddict-item]
-        input["report_plan_name"] = report_plan_name
+        input_: aws_sdk_backup.types.start_report_job_input.StartReportJobInput = {}  # type: ignore[typeddict-item]
+        input_["report_plan_name"] = report_plan_name
         if idempotency_token is not None:
-            input["idempotency_token"] = idempotency_token
+            input_["idempotency_token"] = idempotency_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5553,7 +5553,7 @@ class AsyncBackupClient:
             "aws_sdk_backup.types.boolean2.Boolean2"
         ] = None,
     ) -> "aws_sdk_backup.types.start_restore_job_output.StartRestoreJobOutput":
-        """<p>Recovers the saved resource identified by an Amazon Resource Name (ARN).</p>
+        r"""<p>Recovers the saved resource identified by an Amazon Resource Name (ARN).</p>
 
         Args:
             recovery_point_arn: <p>An ARN that uniquely identifies a recovery point; for example, <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>.</p>
@@ -5580,22 +5580,22 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.start_restore_job_input.StartRestoreJobInput = {}  # type: ignore[typeddict-item]
-        input["recovery_point_arn"] = recovery_point_arn
-        input["metadata"] = metadata
+        input_: aws_sdk_backup.types.start_restore_job_input.StartRestoreJobInput = {}  # type: ignore[typeddict-item]
+        input_["recovery_point_arn"] = recovery_point_arn
+        input_["metadata"] = metadata
         if iam_role_arn is not None:
-            input["iam_role_arn"] = iam_role_arn
+            input_["iam_role_arn"] = iam_role_arn
         if idempotency_token is not None:
-            input["idempotency_token"] = idempotency_token
+            input_["idempotency_token"] = idempotency_token
         if resource_type is not None:
-            input["resource_type"] = resource_type
+            input_["resource_type"] = resource_type
         if copy_source_tags_to_restored_resource is not None:
-            input["copy_source_tags_to_restored_resource"] = (
+            input_["copy_source_tags_to_restored_resource"] = (
                 copy_source_tags_to_restored_resource
             )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5615,7 +5615,7 @@ class AsyncBackupClient:
         idempotency_token: Optional[str] = None,
         scan_base_recovery_point_arn: Optional[str] = None,
     ) -> "aws_sdk_backup.types.start_scan_job_output.StartScanJobOutput":
-        """<p>Starts scanning jobs for specific resources.</p>
+        r"""<p>Starts scanning jobs for specific resources.</p>
 
         Args:
             backup_vault_name: <p>The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the Amazon Web Services Region where they are created.</p> <p>Pattern: <code>^[a-zA-Z0-9\-\_]{2,50}$</code> </p>
@@ -5645,22 +5645,22 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.start_scan_job_input.StartScanJobInput = {}  # type: ignore[typeddict-item]
-        input["backup_vault_name"] = backup_vault_name
+        input_: aws_sdk_backup.types.start_scan_job_input.StartScanJobInput = {}  # type: ignore[typeddict-item]
+        input_["backup_vault_name"] = backup_vault_name
         if continuous_scan_end_time is not None:
-            input["continuous_scan_end_time"] = continuous_scan_end_time
-        input["iam_role_arn"] = iam_role_arn
+            input_["continuous_scan_end_time"] = continuous_scan_end_time
+        input_["iam_role_arn"] = iam_role_arn
         if idempotency_token is not None:
-            input["idempotency_token"] = idempotency_token
-        input["malware_scanner"] = malware_scanner
-        input["recovery_point_arn"] = recovery_point_arn
+            input_["idempotency_token"] = idempotency_token
+        input_["malware_scanner"] = malware_scanner
+        input_["recovery_point_arn"] = recovery_point_arn
         if scan_base_recovery_point_arn is not None:
-            input["scan_base_recovery_point_arn"] = scan_base_recovery_point_arn
-        input["scan_mode"] = scan_mode
-        input["scanner_role_arn"] = scanner_role_arn
+            input_["scan_base_recovery_point_arn"] = scan_base_recovery_point_arn
+        input_["scan_mode"] = scan_mode
+        input_["scanner_role_arn"] = scanner_role_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5692,11 +5692,11 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.stop_backup_job_input.StopBackupJobInput = {}  # type: ignore[typeddict-item]
-        input["backup_job_id"] = backup_job_id
+        input_: aws_sdk_backup.types.stop_backup_job_input.StopBackupJobInput = {}  # type: ignore[typeddict-item]
+        input_["backup_job_id"] = backup_job_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5709,7 +5709,7 @@ class AsyncBackupClient:
         *,
         config_overrides: Optional[AsyncBackupClientConfig] = None,
     ) -> None:
-        """<p>Assigns a set of key-value pairs to a resource.</p>
+        r"""<p>Assigns a set of key-value pairs to a resource.</p>
 
         Args:
             resource_arn: <p>The ARN that uniquely identifies the resource.</p>
@@ -5730,12 +5730,12 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.tag_resource_input.TagResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_backup.types.tag_resource_input.TagResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5769,12 +5769,12 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.untag_resource_input.UntagResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_key_list"] = tag_key_list
+        input_: aws_sdk_backup.types.untag_resource_input.UntagResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_key_list"] = tag_key_list
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5810,12 +5810,12 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.update_backup_plan_input.UpdateBackupPlanInput = {}  # type: ignore[typeddict-item]
-        input["backup_plan_id"] = backup_plan_id
-        input["backup_plan"] = backup_plan
+        input_: aws_sdk_backup.types.update_backup_plan_input.UpdateBackupPlanInput = {}  # type: ignore[typeddict-item]
+        input_["backup_plan_id"] = backup_plan_id
+        input_["backup_plan"] = backup_plan
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5859,17 +5859,17 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.update_framework_input.UpdateFrameworkInput = {}  # type: ignore[typeddict-item]
-        input["framework_name"] = framework_name
+        input_: aws_sdk_backup.types.update_framework_input.UpdateFrameworkInput = {}  # type: ignore[typeddict-item]
+        input_["framework_name"] = framework_name
         if framework_description is not None:
-            input["framework_description"] = framework_description
+            input_["framework_description"] = framework_description
         if framework_controls is not None:
-            input["framework_controls"] = framework_controls
+            input_["framework_controls"] = framework_controls
         if idempotency_token is not None:
-            input["idempotency_token"] = idempotency_token
+            input_["idempotency_token"] = idempotency_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5903,12 +5903,12 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.update_global_settings_input.UpdateGlobalSettingsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_backup.types.update_global_settings_input.UpdateGlobalSettingsInput = {}  # type: ignore[typeddict-item]
         if global_settings is not None:
-            input["global_settings"] = global_settings
+            input_["global_settings"] = global_settings
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5948,15 +5948,15 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.update_recovery_point_index_settings_input.UpdateRecoveryPointIndexSettingsInput = {}  # type: ignore[typeddict-item]
-        input["backup_vault_name"] = backup_vault_name
-        input["recovery_point_arn"] = recovery_point_arn
+        input_: aws_sdk_backup.types.update_recovery_point_index_settings_input.UpdateRecoveryPointIndexSettingsInput = {}  # type: ignore[typeddict-item]
+        input_["backup_vault_name"] = backup_vault_name
+        input_["recovery_point_arn"] = recovery_point_arn
         if iam_role_arn is not None:
-            input["iam_role_arn"] = iam_role_arn
-        input["index"] = index
+            input_["iam_role_arn"] = iam_role_arn
+        input_["index"] = index
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5970,7 +5970,7 @@ class AsyncBackupClient:
         config_overrides: Optional[AsyncBackupClientConfig] = None,
         lifecycle: Optional["aws_sdk_backup.types.lifecycle.Lifecycle"] = None,
     ) -> "aws_sdk_backup.types.update_recovery_point_lifecycle_output.UpdateRecoveryPointLifecycleOutput":
-        """<p>Sets the transition lifecycle of a recovery point.</p> <p>The lifecycle defines when a protected resource is transitioned to cold storage and when it expires. Backup transitions and expires backups automatically according to the lifecycle that you define.</p> <p>Resource types that can transition to cold storage are listed in the <a href=\"https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource\">Feature availability by resource</a> table. Backup ignores this expression for other resource types.</p> <p>Backups transitioned to cold storage must be stored in cold storage for a minimum of 90 days. Therefore, the “retention” setting must be 90 days greater than the “transition to cold after days” setting. The “transition to cold after days” setting cannot be changed after a backup has been transitioned to cold.</p> <important> <p>If your lifecycle currently uses the parameters <code>DeleteAfterDays</code> and <code>MoveToColdStorageAfterDays</code>, include these parameters and their values when you call this operation. Not including them may result in your plan updating with null values.</p> </important> <p>This operation does not support continuous backups.</p>
+        r"""<p>Sets the transition lifecycle of a recovery point.</p> <p>The lifecycle defines when a protected resource is transitioned to cold storage and when it expires. Backup transitions and expires backups automatically according to the lifecycle that you define.</p> <p>Resource types that can transition to cold storage are listed in the <a href=\"https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource\">Feature availability by resource</a> table. Backup ignores this expression for other resource types.</p> <p>Backups transitioned to cold storage must be stored in cold storage for a minimum of 90 days. Therefore, the “retention” setting must be 90 days greater than the “transition to cold after days” setting. The “transition to cold after days” setting cannot be changed after a backup has been transitioned to cold.</p> <important> <p>If your lifecycle currently uses the parameters <code>DeleteAfterDays</code> and <code>MoveToColdStorageAfterDays</code>, include these parameters and their values when you call this operation. Not including them may result in your plan updating with null values.</p> </important> <p>This operation does not support continuous backups.</p>
 
         Args:
             backup_vault_name: <p>The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the Amazon Web Services Region where they are created.</p>
@@ -5994,14 +5994,14 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.update_recovery_point_lifecycle_input.UpdateRecoveryPointLifecycleInput = {}  # type: ignore[typeddict-item]
-        input["backup_vault_name"] = backup_vault_name
-        input["recovery_point_arn"] = recovery_point_arn
+        input_: aws_sdk_backup.types.update_recovery_point_lifecycle_input.UpdateRecoveryPointLifecycleInput = {}  # type: ignore[typeddict-item]
+        input_["backup_vault_name"] = backup_vault_name
+        input_["recovery_point_arn"] = recovery_point_arn
         if lifecycle is not None:
-            input["lifecycle"] = lifecycle
+            input_["lifecycle"] = lifecycle
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6018,7 +6018,7 @@ class AsyncBackupClient:
             "aws_sdk_backup.types.resource_type_management_preference.ResourceTypeManagementPreference"
         ] = None,
     ) -> None:
-        """<p>Updates the current service opt-in settings for the Region.</p> <p>Use the <code>DescribeRegionSettings</code> API to determine the resource types that are supported.</p>
+        r"""<p>Updates the current service opt-in settings for the Region.</p> <p>Use the <code>DescribeRegionSettings</code> API to determine the resource types that are supported.</p>
 
         Args:
             resource_type_opt_in_preference: <p>Updates the list of services along with the opt-in preferences for the Region.</p> <p>If resource assignments are only based on tags, then service opt-in settings are applied. If a resource type is explicitly assigned to a backup plan, such as Amazon S3, Amazon EC2, or Amazon RDS, it will be included in the backup even if the opt-in is not enabled for that particular service. If both a resource type and tags are specified in a resource assignment, the resource type specified in the backup plan takes priority over the tag condition. Service opt-in settings are disregarded in this situation.</p>
@@ -6039,16 +6039,16 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.update_region_settings_input.UpdateRegionSettingsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_backup.types.update_region_settings_input.UpdateRegionSettingsInput = {}  # type: ignore[typeddict-item]
         if resource_type_opt_in_preference is not None:
-            input["resource_type_opt_in_preference"] = resource_type_opt_in_preference
+            input_["resource_type_opt_in_preference"] = resource_type_opt_in_preference
         if resource_type_management_preference is not None:
-            input["resource_type_management_preference"] = (
+            input_["resource_type_management_preference"] = (
                 resource_type_management_preference
             )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6096,19 +6096,19 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.update_report_plan_input.UpdateReportPlanInput = {}  # type: ignore[typeddict-item]
-        input["report_plan_name"] = report_plan_name
+        input_: aws_sdk_backup.types.update_report_plan_input.UpdateReportPlanInput = {}  # type: ignore[typeddict-item]
+        input_["report_plan_name"] = report_plan_name
         if report_plan_description is not None:
-            input["report_plan_description"] = report_plan_description
+            input_["report_plan_description"] = report_plan_description
         if report_delivery_channel is not None:
-            input["report_delivery_channel"] = report_delivery_channel
+            input_["report_delivery_channel"] = report_delivery_channel
         if report_setting is not None:
-            input["report_setting"] = report_setting
+            input_["report_setting"] = report_setting
         if idempotency_token is not None:
-            input["idempotency_token"] = idempotency_token
+            input_["idempotency_token"] = idempotency_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6144,12 +6144,12 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.update_restore_testing_plan_input.UpdateRestoreTestingPlanInput = {}  # type: ignore[typeddict-item]
-        input["restore_testing_plan"] = restore_testing_plan
-        input["restore_testing_plan_name"] = restore_testing_plan_name
+        input_: aws_sdk_backup.types.update_restore_testing_plan_input.UpdateRestoreTestingPlanInput = {}  # type: ignore[typeddict-item]
+        input_["restore_testing_plan"] = restore_testing_plan
+        input_["restore_testing_plan_name"] = restore_testing_plan_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6187,13 +6187,13 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.update_restore_testing_selection_input.UpdateRestoreTestingSelectionInput = {}  # type: ignore[typeddict-item]
-        input["restore_testing_plan_name"] = restore_testing_plan_name
-        input["restore_testing_selection"] = restore_testing_selection
-        input["restore_testing_selection_name"] = restore_testing_selection_name
+        input_: aws_sdk_backup.types.update_restore_testing_selection_input.UpdateRestoreTestingSelectionInput = {}  # type: ignore[typeddict-item]
+        input_["restore_testing_plan_name"] = restore_testing_plan_name
+        input_["restore_testing_selection"] = restore_testing_selection
+        input_["restore_testing_selection_name"] = restore_testing_selection_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6229,12 +6229,12 @@ class AsyncBackupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_backup.types.update_tiering_configuration_input.UpdateTieringConfigurationInput = {}  # type: ignore[typeddict-item]
-        input["tiering_configuration_name"] = tiering_configuration_name
-        input["tiering_configuration"] = tiering_configuration
+        input_: aws_sdk_backup.types.update_tiering_configuration_input.UpdateTieringConfigurationInput = {}  # type: ignore[typeddict-item]
+        input_["tiering_configuration_name"] = tiering_configuration_name
+        input_["tiering_configuration"] = tiering_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

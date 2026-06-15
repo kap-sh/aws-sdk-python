@@ -13,7 +13,7 @@ class ListVpcEndpointAccessResponse(TypedDict):
     authorized_principal_list: (
         "aws_sdk_opensearch.types.authorized_principal_list.AuthorizedPrincipalList"
     )
-    """<p>A list of <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html\">IAM principals</a> that can currently access the domain.</p>"""
+    r"""<p>A list of <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html\">IAM principals</a> that can currently access the domain.</p>"""
     next_token: "aws_sdk_opensearch.types.next_token.NextToken"
     """<p>When <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Send the request again using the returned token to retrieve the next page.</p>"""
 

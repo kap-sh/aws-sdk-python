@@ -9,7 +9,7 @@ if TYPE_CHECKING:
 
 class DescribePublishingDestinationRequest(TypedDict):
     detector_id: "aws_sdk_guardduty.types.detector_id.DetectorId"
-    """<p>The unique ID of the detector associated with the publishing destination to retrieve.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html\">ListDetectors</a> API.</p>"""
+    r"""<p>The unique ID of the detector associated with the publishing destination to retrieve.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html\">ListDetectors</a> API.</p>"""
     destination_id: "aws_sdk_guardduty.types.string.String"
     """<p>The ID of the publishing destination to retrieve.</p>"""
 

@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 from aws_sdk_proton._services._pipeline import (
@@ -41,7 +43,7 @@ class ComponentOutputResource:
     ) -> (
         "aws_sdk_proton.types.list_component_outputs_output.ListComponentOutputsOutput"
     ):
-        """<p>Get a list of component Infrastructure as Code (IaC) outputs.</p> <p>For more information about components, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html\">Proton components</a> in the <i>Proton User Guide</i>.</p>
+        r"""<p>Get a list of component Infrastructure as Code (IaC) outputs.</p> <p>For more information about components, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html\">Proton components</a> in the <i>Proton User Guide</i>.</p>
 
         Args:
             component_name: <p>The name of the component whose outputs you want.</p>
@@ -97,7 +99,7 @@ class AsyncComponentOutputResource:
     ) -> (
         "aws_sdk_proton.types.list_component_outputs_output.ListComponentOutputsOutput"
     ):
-        """<p>Get a list of component Infrastructure as Code (IaC) outputs.</p> <p>For more information about components, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html\">Proton components</a> in the <i>Proton User Guide</i>.</p>
+        r"""<p>Get a list of component Infrastructure as Code (IaC) outputs.</p> <p>For more information about components, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html\">Proton components</a> in the <i>Proton User Guide</i>.</p>
 
         Args:
             component_name: <p>The name of the component whose outputs you want.</p>

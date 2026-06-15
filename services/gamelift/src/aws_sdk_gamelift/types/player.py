@@ -17,7 +17,7 @@ class Player(TypedDict):
     player_attributes: NotRequired[
         "aws_sdk_gamelift.types.player_attribute_map.PlayerAttributeMap"
     ]
-    """<p>A collection of key:value pairs containing player information for use in matchmaking. Player attribute keys must match the <i>playerAttributes</i> used in a matchmaking rule set. Example: <code>\"PlayerAttributes\": {\"skill\": {\"N\": \"23\"}, \"gameMode\": {\"S\": \"deathmatch\"}}</code>.</p> <p>You can provide up to 10 <code>PlayerAttributes</code>.</p>"""
+    r"""<p>A collection of key:value pairs containing player information for use in matchmaking. Player attribute keys must match the <i>playerAttributes</i> used in a matchmaking rule set. Example: <code>\"PlayerAttributes\": {\"skill\": {\"N\": \"23\"}, \"gameMode\": {\"S\": \"deathmatch\"}}</code>.</p> <p>You can provide up to 10 <code>PlayerAttributes</code>.</p>"""
     team: NotRequired[
         "aws_sdk_gamelift.types.non_zero_and_max_string.NonZeroAndMaxString"
     ]

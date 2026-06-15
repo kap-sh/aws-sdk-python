@@ -18,7 +18,7 @@ class ExecutionEngineConfig(TypedDict):
     master_instance_security_group_id: NotRequired[
         "aws_sdk_emr.types.xml_string_max_len256.XmlStringMaxLen256"
     ]
-    """<p>An optional unique ID of an Amazon EC2 security group to associate with the master instance of the Amazon EMR cluster for this notebook execution. For more information see <a href=\"https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-notebooks-security-groups.html\">Specifying Amazon EC2 Security Groups for Amazon EMR Notebooks</a> in the <i>EMR Management Guide</i>.</p>"""
+    r"""<p>An optional unique ID of an Amazon EC2 security group to associate with the master instance of the Amazon EMR cluster for this notebook execution. For more information see <a href=\"https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-notebooks-security-groups.html\">Specifying Amazon EC2 Security Groups for Amazon EMR Notebooks</a> in the <i>EMR Management Guide</i>.</p>"""
     execution_role_arn: NotRequired["aws_sdk_emr.types.iam_role_arn.IAMRoleArn"]
     """<p>The execution role ARN required for the notebook execution.</p>"""
 

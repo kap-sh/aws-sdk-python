@@ -192,7 +192,7 @@ class AsyncAppRunnerClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = AsyncAppRunnerClientConfig(
+        self._config = AsyncAppRunnerClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -212,7 +212,7 @@ class AsyncAppRunnerClient:
         overrides: AsyncAppRunnerClientConfig = config_overrides or {}
         interceptors_: list[AsyncInterceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             aretry(),
         ]
@@ -220,16 +220,16 @@ class AsyncAppRunnerClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            region=overrides.get("region", self.config.get("region")),
+            region=overrides.get("region", self._config.get("region")),
             use_dual_stack=overrides.get(
-                "use_dual_stack", self.config.get("use_dual_stack")
+                "use_dual_stack", self._config.get("use_dual_stack")
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -244,7 +244,7 @@ class AsyncAppRunnerClient:
             "aws_sdk_apprunner.types.nullable_boolean.NullableBoolean"
         ] = None,
     ) -> "aws_sdk_apprunner.types.associate_custom_domain_response.AssociateCustomDomainResponse":
-        """<p>Associate your own domain name with the App Runner subdomain URL of your App Runner service.</p> <p>After you call <code>AssociateCustomDomain</code> and receive a successful response, use the information in the <a>CustomDomain</a> record that's returned to add CNAME records to your Domain Name System (DNS). For each mapped domain name, add a mapping to the target App Runner subdomain and one or more certificate validation records. App Runner then performs DNS validation to verify that you own or control the domain name that you associated. App Runner tracks domain validity in a certificate stored in <a href=\"https://docs.aws.amazon.com/acm/latest/userguide\">AWS Certificate Manager (ACM)</a>.</p>
+        r"""<p>Associate your own domain name with the App Runner subdomain URL of your App Runner service.</p> <p>After you call <code>AssociateCustomDomain</code> and receive a successful response, use the information in the <a>CustomDomain</a> record that's returned to add CNAME records to your Domain Name System (DNS). For each mapped domain name, add a mapping to the target App Runner subdomain and one or more certificate validation records. App Runner then performs DNS validation to verify that you own or control the domain name that you associated. App Runner tracks domain validity in a certificate stored in <a href=\"https://docs.aws.amazon.com/acm/latest/userguide\">AWS Certificate Manager (ACM)</a>.</p>
 
         Args:
             service_arn: <p>The Amazon Resource Name (ARN) of the App Runner service that you want to associate a custom domain name with.</p>
@@ -268,14 +268,14 @@ class AsyncAppRunnerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_apprunner.types.associate_custom_domain_request.AssociateCustomDomainRequest = {}  # type: ignore[typeddict-item]
-        input["service_arn"] = service_arn
-        input["domain_name"] = domain_name
+        input_: aws_sdk_apprunner.types.associate_custom_domain_request.AssociateCustomDomainRequest = {}  # type: ignore[typeddict-item]
+        input_["service_arn"] = service_arn
+        input_["domain_name"] = domain_name
         if enable_www_subdomain is not None:
-            input["enable_www_subdomain"] = enable_www_subdomain
+            input_["enable_www_subdomain"] = enable_www_subdomain
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -297,7 +297,7 @@ class AsyncAppRunnerClient:
         ] = None,
         tags: Optional["aws_sdk_apprunner.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_apprunner.types.create_auto_scaling_configuration_response.CreateAutoScalingConfigurationResponse":
-        """<p>Create an App Runner automatic scaling configuration resource. App Runner requires this resource when you create or update App Runner services and you require non-default auto scaling settings. You can share an auto scaling configuration across multiple services.</p> <p>Create multiple revisions of a configuration by calling this action multiple times using the same <code>AutoScalingConfigurationName</code>. The call returns incremental <code>AutoScalingConfigurationRevision</code> values. When you create a service and configure an auto scaling configuration resource, the service uses the latest active revision of the auto scaling configuration by default. You can optionally configure the service to use a specific revision.</p> <p>Configure a higher <code>MinSize</code> to increase the spread of your App Runner service over more Availability Zones in the Amazon Web Services Region. The tradeoff is a higher minimal cost.</p> <p>Configure a lower <code>MaxSize</code> to control your cost. The tradeoff is lower responsiveness during peak demand.</p>
+        r"""<p>Create an App Runner automatic scaling configuration resource. App Runner requires this resource when you create or update App Runner services and you require non-default auto scaling settings. You can share an auto scaling configuration across multiple services.</p> <p>Create multiple revisions of a configuration by calling this action multiple times using the same <code>AutoScalingConfigurationName</code>. The call returns incremental <code>AutoScalingConfigurationRevision</code> values. When you create a service and configure an auto scaling configuration resource, the service uses the latest active revision of the auto scaling configuration by default. You can optionally configure the service to use a specific revision.</p> <p>Configure a higher <code>MinSize</code> to increase the spread of your App Runner service over more Availability Zones in the Amazon Web Services Region. The tradeoff is a higher minimal cost.</p> <p>Configure a lower <code>MaxSize</code> to control your cost. The tradeoff is lower responsiveness during peak demand.</p>
 
         Args:
             auto_scaling_configuration_name: <p>A name for the auto scaling configuration. When you use it for the first time in an Amazon Web Services Region, App Runner creates revision number <code>1</code> of this name. When you use the same name in subsequent calls, App Runner creates incremental revisions of the configuration.</p> <note> <p>Prior to the release of <a href=\"https://docs.aws.amazon.com/apprunner/latest/relnotes/release-2023-09-22-auto-scale-config.html\">Auto scale configuration enhancements</a>, the name <code>DefaultConfiguration</code> was reserved. </p> <p>This restriction is no longer in place. You can now manage <code>DefaultConfiguration</code> the same way you manage your custom auto scaling configurations. This means you can do the following with the <code>DefaultConfiguration</code> that App Runner provides:</p> <ul> <li> <p>Create new revisions of the <code>DefaultConfiguration</code>.</p> </li> <li> <p>Delete the revisions of the <code>DefaultConfiguration</code>.</p> </li> <li> <p>Delete the auto scaling configuration for which the App Runner <code>DefaultConfiguration</code> was created.</p> </li> <li> <p>If you delete the auto scaling configuration you can create another custom auto scaling configuration with the same <code>DefaultConfiguration</code> name. The original <code>DefaultConfiguration</code> resource provided by App Runner remains in your account unless you make changes to it.</p> </li> </ul> </note>
@@ -323,19 +323,19 @@ class AsyncAppRunnerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_apprunner.types.create_auto_scaling_configuration_request.CreateAutoScalingConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["auto_scaling_configuration_name"] = auto_scaling_configuration_name
+        input_: aws_sdk_apprunner.types.create_auto_scaling_configuration_request.CreateAutoScalingConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["auto_scaling_configuration_name"] = auto_scaling_configuration_name
         if max_concurrency is not None:
-            input["max_concurrency"] = max_concurrency
+            input_["max_concurrency"] = max_concurrency
         if min_size is not None:
-            input["min_size"] = min_size
+            input_["min_size"] = min_size
         if max_size is not None:
-            input["max_size"] = max_size
+            input_["max_size"] = max_size
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -373,14 +373,14 @@ class AsyncAppRunnerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_apprunner.types.create_connection_request.CreateConnectionRequest = {}  # type: ignore[typeddict-item]
-        input["connection_name"] = connection_name
-        input["provider_type"] = provider_type
+        input_: aws_sdk_apprunner.types.create_connection_request.CreateConnectionRequest = {}  # type: ignore[typeddict-item]
+        input_["connection_name"] = connection_name
+        input_["provider_type"] = provider_type
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -420,15 +420,15 @@ class AsyncAppRunnerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_apprunner.types.create_observability_configuration_request.CreateObservabilityConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["observability_configuration_name"] = observability_configuration_name
+        input_: aws_sdk_apprunner.types.create_observability_configuration_request.CreateObservabilityConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["observability_configuration_name"] = observability_configuration_name
         if trace_configuration is not None:
-            input["trace_configuration"] = trace_configuration
+            input_["trace_configuration"] = trace_configuration
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -460,7 +460,7 @@ class AsyncAppRunnerClient:
             "aws_sdk_apprunner.types.service_observability_configuration.ServiceObservabilityConfiguration"
         ] = None,
     ) -> "aws_sdk_apprunner.types.create_service_response.CreateServiceResponse":
-        """<p>Create an App Runner service. After the service is created, the action also automatically starts a deployment.</p> <p>This is an asynchronous operation. On a successful call, you can use the returned <code>OperationId</code> and the <a href=\"https://docs.aws.amazon.com/apprunner/latest/api/API_ListOperations.html\">ListOperations</a> call to track the operation's progress.</p>
+        r"""<p>Create an App Runner service. After the service is created, the action also automatically starts a deployment.</p> <p>This is an asynchronous operation. On a successful call, you can use the returned <code>OperationId</code> and the <a href=\"https://docs.aws.amazon.com/apprunner/latest/api/API_ListOperations.html\">ListOperations</a> call to track the operation's progress.</p>
 
         Args:
             service_name: <p>A name for the App Runner service. It must be unique across all the running App Runner services in your Amazon Web Services account in the Amazon Web Services Region.</p>
@@ -490,26 +490,26 @@ class AsyncAppRunnerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_apprunner.types.create_service_request.CreateServiceRequest = {}  # type: ignore[typeddict-item]
-        input["service_name"] = service_name
-        input["source_configuration"] = source_configuration
+        input_: aws_sdk_apprunner.types.create_service_request.CreateServiceRequest = {}  # type: ignore[typeddict-item]
+        input_["service_name"] = service_name
+        input_["source_configuration"] = source_configuration
         if instance_configuration is not None:
-            input["instance_configuration"] = instance_configuration
+            input_["instance_configuration"] = instance_configuration
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if encryption_configuration is not None:
-            input["encryption_configuration"] = encryption_configuration
+            input_["encryption_configuration"] = encryption_configuration
         if health_check_configuration is not None:
-            input["health_check_configuration"] = health_check_configuration
+            input_["health_check_configuration"] = health_check_configuration
         if auto_scaling_configuration_arn is not None:
-            input["auto_scaling_configuration_arn"] = auto_scaling_configuration_arn
+            input_["auto_scaling_configuration_arn"] = auto_scaling_configuration_arn
         if network_configuration is not None:
-            input["network_configuration"] = network_configuration
+            input_["network_configuration"] = network_configuration
         if observability_configuration is not None:
-            input["observability_configuration"] = observability_configuration
+            input_["observability_configuration"] = observability_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -551,16 +551,16 @@ class AsyncAppRunnerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_apprunner.types.create_vpc_connector_request.CreateVpcConnectorRequest = {}  # type: ignore[typeddict-item]
-        input["vpc_connector_name"] = vpc_connector_name
-        input["subnets"] = subnets
+        input_: aws_sdk_apprunner.types.create_vpc_connector_request.CreateVpcConnectorRequest = {}  # type: ignore[typeddict-item]
+        input_["vpc_connector_name"] = vpc_connector_name
+        input_["subnets"] = subnets
         if security_groups is not None:
-            input["security_groups"] = security_groups
+            input_["security_groups"] = security_groups
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -600,15 +600,15 @@ class AsyncAppRunnerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_apprunner.types.create_vpc_ingress_connection_request.CreateVpcIngressConnectionRequest = {}  # type: ignore[typeddict-item]
-        input["service_arn"] = service_arn
-        input["vpc_ingress_connection_name"] = vpc_ingress_connection_name
-        input["ingress_vpc_configuration"] = ingress_vpc_configuration
+        input_: aws_sdk_apprunner.types.create_vpc_ingress_connection_request.CreateVpcIngressConnectionRequest = {}  # type: ignore[typeddict-item]
+        input_["service_arn"] = service_arn
+        input_["vpc_ingress_connection_name"] = vpc_ingress_connection_name
+        input_["ingress_vpc_configuration"] = ingress_vpc_configuration
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -646,13 +646,13 @@ class AsyncAppRunnerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_apprunner.types.delete_auto_scaling_configuration_request.DeleteAutoScalingConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["auto_scaling_configuration_arn"] = auto_scaling_configuration_arn
+        input_: aws_sdk_apprunner.types.delete_auto_scaling_configuration_request.DeleteAutoScalingConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["auto_scaling_configuration_arn"] = auto_scaling_configuration_arn
         if delete_all_revisions is not None:
-            input["delete_all_revisions"] = delete_all_revisions
+            input_["delete_all_revisions"] = delete_all_revisions
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -686,11 +686,11 @@ class AsyncAppRunnerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_apprunner.types.delete_connection_request.DeleteConnectionRequest = {}  # type: ignore[typeddict-item]
-        input["connection_arn"] = connection_arn
+        input_: aws_sdk_apprunner.types.delete_connection_request.DeleteConnectionRequest = {}  # type: ignore[typeddict-item]
+        input_["connection_arn"] = connection_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -724,11 +724,11 @@ class AsyncAppRunnerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_apprunner.types.delete_observability_configuration_request.DeleteObservabilityConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["observability_configuration_arn"] = observability_configuration_arn
+        input_: aws_sdk_apprunner.types.delete_observability_configuration_request.DeleteObservabilityConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["observability_configuration_arn"] = observability_configuration_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -762,11 +762,11 @@ class AsyncAppRunnerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_apprunner.types.delete_service_request.DeleteServiceRequest = {}  # type: ignore[typeddict-item]
-        input["service_arn"] = service_arn
+        input_: aws_sdk_apprunner.types.delete_service_request.DeleteServiceRequest = {}  # type: ignore[typeddict-item]
+        input_["service_arn"] = service_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -800,11 +800,11 @@ class AsyncAppRunnerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_apprunner.types.delete_vpc_connector_request.DeleteVpcConnectorRequest = {}  # type: ignore[typeddict-item]
-        input["vpc_connector_arn"] = vpc_connector_arn
+        input_: aws_sdk_apprunner.types.delete_vpc_connector_request.DeleteVpcConnectorRequest = {}  # type: ignore[typeddict-item]
+        input_["vpc_connector_arn"] = vpc_connector_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -838,11 +838,11 @@ class AsyncAppRunnerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_apprunner.types.delete_vpc_ingress_connection_request.DeleteVpcIngressConnectionRequest = {}  # type: ignore[typeddict-item]
-        input["vpc_ingress_connection_arn"] = vpc_ingress_connection_arn
+        input_: aws_sdk_apprunner.types.delete_vpc_ingress_connection_request.DeleteVpcIngressConnectionRequest = {}  # type: ignore[typeddict-item]
+        input_["vpc_ingress_connection_arn"] = vpc_ingress_connection_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -876,11 +876,11 @@ class AsyncAppRunnerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_apprunner.types.describe_auto_scaling_configuration_request.DescribeAutoScalingConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["auto_scaling_configuration_arn"] = auto_scaling_configuration_arn
+        input_: aws_sdk_apprunner.types.describe_auto_scaling_configuration_request.DescribeAutoScalingConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["auto_scaling_configuration_arn"] = auto_scaling_configuration_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -920,15 +920,15 @@ class AsyncAppRunnerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_apprunner.types.describe_custom_domains_request.DescribeCustomDomainsRequest = {}  # type: ignore[typeddict-item]
-        input["service_arn"] = service_arn
+        input_: aws_sdk_apprunner.types.describe_custom_domains_request.DescribeCustomDomainsRequest = {}  # type: ignore[typeddict-item]
+        input_["service_arn"] = service_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -962,11 +962,11 @@ class AsyncAppRunnerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_apprunner.types.describe_observability_configuration_request.DescribeObservabilityConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["observability_configuration_arn"] = observability_configuration_arn
+        input_: aws_sdk_apprunner.types.describe_observability_configuration_request.DescribeObservabilityConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["observability_configuration_arn"] = observability_configuration_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1000,11 +1000,11 @@ class AsyncAppRunnerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_apprunner.types.describe_service_request.DescribeServiceRequest = {}  # type: ignore[typeddict-item]
-        input["service_arn"] = service_arn
+        input_: aws_sdk_apprunner.types.describe_service_request.DescribeServiceRequest = {}  # type: ignore[typeddict-item]
+        input_["service_arn"] = service_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1038,11 +1038,11 @@ class AsyncAppRunnerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_apprunner.types.describe_vpc_connector_request.DescribeVpcConnectorRequest = {}  # type: ignore[typeddict-item]
-        input["vpc_connector_arn"] = vpc_connector_arn
+        input_: aws_sdk_apprunner.types.describe_vpc_connector_request.DescribeVpcConnectorRequest = {}  # type: ignore[typeddict-item]
+        input_["vpc_connector_arn"] = vpc_connector_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1076,11 +1076,11 @@ class AsyncAppRunnerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_apprunner.types.describe_vpc_ingress_connection_request.DescribeVpcIngressConnectionRequest = {}  # type: ignore[typeddict-item]
-        input["vpc_ingress_connection_arn"] = vpc_ingress_connection_arn
+        input_: aws_sdk_apprunner.types.describe_vpc_ingress_connection_request.DescribeVpcIngressConnectionRequest = {}  # type: ignore[typeddict-item]
+        input_["vpc_ingress_connection_arn"] = vpc_ingress_connection_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1093,7 +1093,7 @@ class AsyncAppRunnerClient:
         *,
         config_overrides: Optional[AsyncAppRunnerClientConfig] = None,
     ) -> "aws_sdk_apprunner.types.disassociate_custom_domain_response.DisassociateCustomDomainResponse":
-        """<p>Disassociate a custom domain name from an App Runner service.</p> <p>Certificates tracking domain validity are associated with a custom domain and are stored in <a href=\"https://docs.aws.amazon.com/acm/latest/userguide\">AWS Certificate Manager (ACM)</a>. These certificates aren't deleted as part of this action. App Runner delays certificate deletion for 30 days after a domain is disassociated from your service.</p>
+        r"""<p>Disassociate a custom domain name from an App Runner service.</p> <p>Certificates tracking domain validity are associated with a custom domain and are stored in <a href=\"https://docs.aws.amazon.com/acm/latest/userguide\">AWS Certificate Manager (ACM)</a>. These certificates aren't deleted as part of this action. App Runner delays certificate deletion for 30 days after a domain is disassociated from your service.</p>
 
         Args:
             service_arn: <p>The Amazon Resource Name (ARN) of the App Runner service that you want to disassociate a custom domain name from.</p>
@@ -1116,12 +1116,12 @@ class AsyncAppRunnerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_apprunner.types.disassociate_custom_domain_request.DisassociateCustomDomainRequest = {}  # type: ignore[typeddict-item]
-        input["service_arn"] = service_arn
-        input["domain_name"] = domain_name
+        input_: aws_sdk_apprunner.types.disassociate_custom_domain_request.DisassociateCustomDomainRequest = {}  # type: ignore[typeddict-item]
+        input_["service_arn"] = service_arn
+        input_["domain_name"] = domain_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1163,18 +1163,18 @@ class AsyncAppRunnerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_apprunner.types.list_auto_scaling_configurations_request.ListAutoScalingConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_apprunner.types.list_auto_scaling_configurations_request.ListAutoScalingConfigurationsRequest = {}  # type: ignore[typeddict-item]
         if auto_scaling_configuration_name is not None:
-            input["auto_scaling_configuration_name"] = auto_scaling_configuration_name
+            input_["auto_scaling_configuration_name"] = auto_scaling_configuration_name
         if latest_only is not None:
-            input["latest_only"] = latest_only
+            input_["latest_only"] = latest_only
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1214,16 +1214,16 @@ class AsyncAppRunnerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_apprunner.types.list_connections_request.ListConnectionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_apprunner.types.list_connections_request.ListConnectionsRequest = {}  # type: ignore[typeddict-item]
         if connection_name is not None:
-            input["connection_name"] = connection_name
+            input_["connection_name"] = connection_name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1265,18 +1265,20 @@ class AsyncAppRunnerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_apprunner.types.list_observability_configurations_request.ListObservabilityConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_apprunner.types.list_observability_configurations_request.ListObservabilityConfigurationsRequest = {}  # type: ignore[typeddict-item]
         if observability_configuration_name is not None:
-            input["observability_configuration_name"] = observability_configuration_name
+            input_["observability_configuration_name"] = (
+                observability_configuration_name
+            )
         if latest_only is not None:
-            input["latest_only"] = latest_only
+            input_["latest_only"] = latest_only
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1316,15 +1318,15 @@ class AsyncAppRunnerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_apprunner.types.list_operations_request.ListOperationsRequest = {}  # type: ignore[typeddict-item]
-        input["service_arn"] = service_arn
+        input_: aws_sdk_apprunner.types.list_operations_request.ListOperationsRequest = {}  # type: ignore[typeddict-item]
+        input_["service_arn"] = service_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1362,14 +1364,14 @@ class AsyncAppRunnerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_apprunner.types.list_services_request.ListServicesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_apprunner.types.list_services_request.ListServicesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1407,15 +1409,15 @@ class AsyncAppRunnerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_apprunner.types.list_services_for_auto_scaling_configuration_request.ListServicesForAutoScalingConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["auto_scaling_configuration_arn"] = auto_scaling_configuration_arn
+        input_: aws_sdk_apprunner.types.list_services_for_auto_scaling_configuration_request.ListServicesForAutoScalingConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["auto_scaling_configuration_arn"] = auto_scaling_configuration_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1449,11 +1451,11 @@ class AsyncAppRunnerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_apprunner.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_apprunner.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1491,14 +1493,14 @@ class AsyncAppRunnerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_apprunner.types.list_vpc_connectors_request.ListVpcConnectorsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_apprunner.types.list_vpc_connectors_request.ListVpcConnectorsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1538,16 +1540,16 @@ class AsyncAppRunnerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_apprunner.types.list_vpc_ingress_connections_request.ListVpcIngressConnectionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_apprunner.types.list_vpc_ingress_connections_request.ListVpcIngressConnectionsRequest = {}  # type: ignore[typeddict-item]
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1581,11 +1583,11 @@ class AsyncAppRunnerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_apprunner.types.pause_service_request.PauseServiceRequest = {}  # type: ignore[typeddict-item]
-        input["service_arn"] = service_arn
+        input_: aws_sdk_apprunner.types.pause_service_request.PauseServiceRequest = {}  # type: ignore[typeddict-item]
+        input_["service_arn"] = service_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1619,11 +1621,11 @@ class AsyncAppRunnerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_apprunner.types.resume_service_request.ResumeServiceRequest = {}  # type: ignore[typeddict-item]
-        input["service_arn"] = service_arn
+        input_: aws_sdk_apprunner.types.resume_service_request.ResumeServiceRequest = {}  # type: ignore[typeddict-item]
+        input_["service_arn"] = service_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1657,11 +1659,11 @@ class AsyncAppRunnerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_apprunner.types.start_deployment_request.StartDeploymentRequest = {}  # type: ignore[typeddict-item]
-        input["service_arn"] = service_arn
+        input_: aws_sdk_apprunner.types.start_deployment_request.StartDeploymentRequest = {}  # type: ignore[typeddict-item]
+        input_["service_arn"] = service_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1697,12 +1699,12 @@ class AsyncAppRunnerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_apprunner.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_apprunner.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1738,12 +1740,12 @@ class AsyncAppRunnerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_apprunner.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_apprunner.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1777,11 +1779,11 @@ class AsyncAppRunnerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_apprunner.types.update_default_auto_scaling_configuration_request.UpdateDefaultAutoScalingConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["auto_scaling_configuration_arn"] = auto_scaling_configuration_arn
+        input_: aws_sdk_apprunner.types.update_default_auto_scaling_configuration_request.UpdateDefaultAutoScalingConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["auto_scaling_configuration_arn"] = auto_scaling_configuration_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1839,23 +1841,23 @@ class AsyncAppRunnerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_apprunner.types.update_service_request.UpdateServiceRequest = {}  # type: ignore[typeddict-item]
-        input["service_arn"] = service_arn
+        input_: aws_sdk_apprunner.types.update_service_request.UpdateServiceRequest = {}  # type: ignore[typeddict-item]
+        input_["service_arn"] = service_arn
         if source_configuration is not None:
-            input["source_configuration"] = source_configuration
+            input_["source_configuration"] = source_configuration
         if instance_configuration is not None:
-            input["instance_configuration"] = instance_configuration
+            input_["instance_configuration"] = instance_configuration
         if auto_scaling_configuration_arn is not None:
-            input["auto_scaling_configuration_arn"] = auto_scaling_configuration_arn
+            input_["auto_scaling_configuration_arn"] = auto_scaling_configuration_arn
         if health_check_configuration is not None:
-            input["health_check_configuration"] = health_check_configuration
+            input_["health_check_configuration"] = health_check_configuration
         if network_configuration is not None:
-            input["network_configuration"] = network_configuration
+            input_["network_configuration"] = network_configuration
         if observability_configuration is not None:
-            input["observability_configuration"] = observability_configuration
+            input_["observability_configuration"] = observability_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1891,12 +1893,12 @@ class AsyncAppRunnerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_apprunner.types.update_vpc_ingress_connection_request.UpdateVpcIngressConnectionRequest = {}  # type: ignore[typeddict-item]
-        input["vpc_ingress_connection_arn"] = vpc_ingress_connection_arn
-        input["ingress_vpc_configuration"] = ingress_vpc_configuration
+        input_: aws_sdk_apprunner.types.update_vpc_ingress_connection_request.UpdateVpcIngressConnectionRequest = {}  # type: ignore[typeddict-item]
+        input_["vpc_ingress_connection_arn"] = vpc_ingress_connection_arn
+        input_["ingress_vpc_configuration"] = ingress_vpc_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

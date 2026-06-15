@@ -29,7 +29,7 @@ class S3HudiDirectTarget(TypedDict):
     compression: (
         "aws_sdk_glue.types.hudi_target_compression_type.HudiTargetCompressionType"
     )
-    """<p>Specifies how the data is compressed. This is generally not necessary if the data has a standard file extension. Possible values are <code>\"gzip\"</code> and <code>\"bzip\"</code>).</p>"""
+    r"""<p>Specifies how the data is compressed. This is generally not necessary if the data has a standard file extension. Possible values are <code>\"gzip\"</code> and <code>\"bzip\"</code>).</p>"""
     number_target_partitions: NotRequired[
         "aws_sdk_glue.types.number_target_partitions_string.NumberTargetPartitionsString"
     ]

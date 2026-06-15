@@ -21,7 +21,7 @@ class UpdateVehicleRequest(TypedDict):
     decoder_manifest_arn: NotRequired["aws_sdk_iotfleetwise.types.arn.arn"]
     """<p>The ARN of the decoder manifest associated with this vehicle.</p>"""
     attributes: NotRequired["aws_sdk_iotfleetwise.types.attributes_map.attributesMap"]
-    """<p>Static information about a vehicle in a key-value pair. For example:</p> <p> <code>\"engineType\"</code> : <code>\"1.3 L R2\"</code> </p>"""
+    r"""<p>Static information about a vehicle in a key-value pair. For example:</p> <p> <code>\"engineType\"</code> : <code>\"1.3 L R2\"</code> </p>"""
     attribute_update_mode: NotRequired[
         "aws_sdk_iotfleetwise.types.update_mode.UpdateMode"
     ]

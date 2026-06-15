@@ -33,9 +33,9 @@ class RequestBasedServiceLevelIndicatorMetric(TypedDict):
     total_request_count_metric: (
         "aws_sdk_application_signals.types.metric_data_queries.MetricDataQueries"
     )
-    """<p>This structure defines the metric that is used as the \"total requests\" number for a request-based SLO. The number observed for this metric is divided by the number of \"good requests\" or \"bad requests\" that is observed for the metric defined in <code>MonitoredRequestCountMetric</code>.</p>"""
+    r"""<p>This structure defines the metric that is used as the \"total requests\" number for a request-based SLO. The number observed for this metric is divided by the number of \"good requests\" or \"bad requests\" that is observed for the metric defined in <code>MonitoredRequestCountMetric</code>.</p>"""
     monitored_request_count_metric: "aws_sdk_application_signals.types.monitored_request_count_metric_data_queries.MonitoredRequestCountMetricDataQueries"
-    """<p>This structure defines the metric that is used as the \"good request\" or \"bad request\" value for a request-based SLO. This value observed for the metric defined in <code>TotalRequestCountMetric</code> is divided by the number found for <code>MonitoredRequestCountMetric</code> to determine the percentage of successful requests that this SLO tracks.</p>"""
+    r"""<p>This structure defines the metric that is used as the \"good request\" or \"bad request\" value for a request-based SLO. This value observed for the metric defined in <code>TotalRequestCountMetric</code> is divided by the number found for <code>MonitoredRequestCountMetric</code> to determine the percentage of successful requests that this SLO tracks.</p>"""
     dependency_config: NotRequired[
         "aws_sdk_application_signals.types.dependency_config.DependencyConfig"
     ]

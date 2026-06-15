@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_bedrock_agent._auth._signers
@@ -79,7 +81,7 @@ class TaggingResource:
         *,
         config_overrides: Optional[BedrockAgentClientConfig] = None,
     ) -> "aws_sdk_bedrock_agent.types.tag_resource_response.TagResourceResponse":
-        """<p>Associate tags with a resource. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html\">Tagging resources</a> in the Amazon Bedrock User Guide.</p>
+        r"""<p>Associate tags with a resource. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html\">Tagging resources</a> in the Amazon Bedrock User Guide.</p>
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource to tag.</p>
@@ -202,7 +204,7 @@ class AsyncTaggingResource:
         *,
         config_overrides: Optional[AsyncBedrockAgentClientConfig] = None,
     ) -> "aws_sdk_bedrock_agent.types.tag_resource_response.TagResourceResponse":
-        """<p>Associate tags with a resource. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html\">Tagging resources</a> in the Amazon Bedrock User Guide.</p>
+        r"""<p>Associate tags with a resource. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html\">Tagging resources</a> in the Amazon Bedrock User Guide.</p>
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource to tag.</p>

@@ -12,7 +12,7 @@ class InputParallelism(TypedDict):
     count: NotRequired[
         "aws_sdk_kinesis_analytics.types.input_parallelism_count.InputParallelismCount"
     ]
-    """<p>Number of in-application streams to create. For more information, see <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/limits.html\">Limits</a>. </p>"""
+    r"""<p>Number of in-application streams to create. For more information, see <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/limits.html\">Limits</a>. </p>"""
 
 
 # --- awsJson1_1 ser/de ---

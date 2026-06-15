@@ -12,7 +12,7 @@ class BatchPutDocumentResponse(TypedDict):
     failed_documents: NotRequired[
         "aws_sdk_kendra.types.batch_put_document_response_failed_documents.BatchPutDocumentResponseFailedDocuments"
     ]
-    """<p>A list of documents that were not added to the index because the document failed a validation check. Each document contains an error message that indicates why the document couldn't be added to the index.</p> <p>If there was an error adding a document to an index the error is reported in your Amazon Web Services CloudWatch log. For more information, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/cloudwatch-logs.html\">Monitoring Amazon Kendra with Amazon CloudWatch logs</a>.</p>"""
+    r"""<p>A list of documents that were not added to the index because the document failed a validation check. Each document contains an error message that indicates why the document couldn't be added to the index.</p> <p>If there was an error adding a document to an index the error is reported in your Amazon Web Services CloudWatch log. For more information, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/cloudwatch-logs.html\">Monitoring Amazon Kendra with Amazon CloudWatch logs</a>.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

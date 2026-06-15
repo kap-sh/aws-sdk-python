@@ -16,11 +16,11 @@ class Rule(TypedDict):
     name: NotRequired["aws_sdk_mailmanager.types.rule_name.RuleName"]
     """<p>The user-friendly name of the rule.</p>"""
     conditions: NotRequired["aws_sdk_mailmanager.types.rule_conditions.RuleConditions"]
-    """<p>The conditions of this rule. All conditions must match the email for the actions to be executed. An empty list of conditions means that all emails match, but are still subject to any \"unless conditions\"</p>"""
+    r"""<p>The conditions of this rule. All conditions must match the email for the actions to be executed. An empty list of conditions means that all emails match, but are still subject to any \"unless conditions\"</p>"""
     unless: NotRequired["aws_sdk_mailmanager.types.rule_conditions.RuleConditions"]
-    """<p>The \"unless conditions\" of this rule. None of the conditions can match the email for the actions to be executed. If any of these conditions do match the email, then the actions are not executed.</p>"""
+    r"""<p>The \"unless conditions\" of this rule. None of the conditions can match the email for the actions to be executed. If any of these conditions do match the email, then the actions are not executed.</p>"""
     actions: "aws_sdk_mailmanager.types.rule_actions.RuleActions"
-    """<p>The list of actions to execute when the conditions match the incoming email, and none of the \"unless conditions\" match.</p>"""
+    r"""<p>The list of actions to execute when the conditions match the incoming email, and none of the \"unless conditions\" match.</p>"""
 
 
 # --- awsJson1_0 ser/de ---

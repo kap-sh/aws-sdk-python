@@ -62,7 +62,7 @@ def get_signer(
     options: AsyncOperationOptions | OperationOptions,
     auth_schemes: list[dict[str, Any]] | None = None,
 ) -> aws_sdk_application_signals._auth._signers.Signer | None:
-    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}
+    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}  # noqa: F841
     if options.credentials_provider is not None:
         sigv4_config = (
             name_to_schema.get("sigv4")
@@ -81,7 +81,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_application_signals.types.get_service_input.GetServiceInput,
+    input_: aws_sdk_application_signals.types.get_service_input.GetServiceInput,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -90,15 +90,15 @@ def build_request(
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/service"
     params: dict[str, str] = {}
-    if "start_time" in input:
-        params["StartTime"] = str(input["start_time"])
-    if "end_time" in input:
-        params["EndTime"] = str(input["end_time"])
+    if "start_time" in input_:
+        params["StartTime"] = str(input_["start_time"])
+    if "end_time" in input_:
+        params["EndTime"] = str(input_["end_time"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     import aws_sdk_application_signals.types.get_service_input
 
     body: bytes | None = json.dumps(
-        aws_sdk_application_signals.types.get_service_input.serialize_json(input)
+        aws_sdk_application_signals.types.get_service_input.serialize_json(input_)
     ).encode()
     headers["content-type"] = "application/json"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
@@ -111,12 +111,12 @@ def build_request(
 
 def get_service(
     options: OperationOptions,
-    input: aws_sdk_application_signals.types.get_service_input.GetServiceInput,
+    input_: aws_sdk_application_signals.types.get_service_input.GetServiceInput,
 ) -> tuple[
     aws_sdk_application_signals.types.get_service_output.GetServiceOutput,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -130,12 +130,12 @@ def get_service(
 
 async def async_get_service(
     options: AsyncOperationOptions,
-    input: aws_sdk_application_signals.types.get_service_input.GetServiceInput,
+    input_: aws_sdk_application_signals.types.get_service_input.GetServiceInput,
 ) -> tuple[
     aws_sdk_application_signals.types.get_service_output.GetServiceOutput,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

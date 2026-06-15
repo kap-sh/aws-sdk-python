@@ -27,7 +27,7 @@ class GetEventPredictionRequest(TypedDict):
     event_type_name: "aws_sdk_frauddetector.types.string.string"
     """<p>The event type associated with the detector specified for the prediction.</p>"""
     entities: "aws_sdk_frauddetector.types.list_of_entities.listOfEntities"
-    """<p>The entity type (associated with the detector's event type) and specific entity ID representing who performed the event. If an entity id is not available, use \"UNKNOWN.\"</p>"""
+    r"""<p>The entity type (associated with the detector's event type) and specific entity ID representing who performed the event. If an entity id is not available, use \"UNKNOWN.\"</p>"""
     event_timestamp: (
         "aws_sdk_frauddetector.types.utc_timestamp_iso8601.utcTimestampISO8601"
     )

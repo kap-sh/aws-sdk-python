@@ -1,12 +1,16 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#CreateDatasetResponse``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
+
 if TYPE_CHECKING:
+    import datetime
+
     import aws_sdk_bedrock_agentcore_control.types.dataset_arn
     import aws_sdk_bedrock_agentcore_control.types.dataset_id
     import aws_sdk_bedrock_agentcore_control.types.dataset_status
-    import datetime
+
 
 class CreateDatasetResponse(TypedDict):
     dataset_arn: "aws_sdk_bedrock_agentcore_control.types.dataset_arn.DatasetArn"
@@ -18,15 +22,26 @@ class CreateDatasetResponse(TypedDict):
     created_at: "datetime.datetime"
     """<p> The timestamp when the dataset was created. </p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: CreateDatasetResponse) -> dict:
     out: dict = {}
     out["datasetArn"] = value["dataset_arn"]
     out["datasetId"] = value["dataset_id"]
     import aws_sdk_bedrock_agentcore_control.types.dataset_status
-    out["status"] = aws_sdk_bedrock_agentcore_control.types.dataset_status.serialize_json(value["status"])
+
+    out["status"] = (
+        aws_sdk_bedrock_agentcore_control.types.dataset_status.serialize_json(
+            value["status"]
+        )
+    )
     import aws_sdk_bedrock_agentcore_control.types._prelude.timestamp
-    out["createdAt"] = aws_sdk_bedrock_agentcore_control.types._prelude.timestamp.serialize_json(value["created_at"])
+
+    out["createdAt"] = (
+        aws_sdk_bedrock_agentcore_control.types._prelude.timestamp.serialize_json(
+            value["created_at"]
+        )
+    )
     return out
 
 
@@ -42,12 +57,22 @@ def deserialize_json(data: dict) -> CreateDatasetResponse:
         raise DeserializationError("CreateDatasetResponse.dataset_id required")
     if "status" in data:
         import aws_sdk_bedrock_agentcore_control.types.dataset_status
-        out["status"] = aws_sdk_bedrock_agentcore_control.types.dataset_status.deserialize_json(data["status"])
+
+        out["status"] = (
+            aws_sdk_bedrock_agentcore_control.types.dataset_status.deserialize_json(
+                data["status"]
+            )
+        )
     else:
         raise DeserializationError("CreateDatasetResponse.status required")
     if "createdAt" in data:
         import aws_sdk_bedrock_agentcore_control.types._prelude.timestamp
-        out["created_at"] = aws_sdk_bedrock_agentcore_control.types._prelude.timestamp.deserialize_json(data["createdAt"])
+
+        out["created_at"] = (
+            aws_sdk_bedrock_agentcore_control.types._prelude.timestamp.deserialize_json(
+                data["createdAt"]
+            )
+        )
     else:
         raise DeserializationError("CreateDatasetResponse.created_at required")
     return out

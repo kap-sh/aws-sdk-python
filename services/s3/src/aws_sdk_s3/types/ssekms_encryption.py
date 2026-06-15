@@ -18,7 +18,7 @@ class SSEKMSEncryption(TypedDict):
     bucket_key_enabled: NotRequired[
         "aws_sdk_s3.types.bucket_key_enabled.BucketKeyEnabled"
     ]
-    """<p> Specifies whether Amazon S3 should use an S3 Bucket Key for object encryption with server-side encryption using Key Management Service (KMS) keys (SSE-KMS). If this value isn't specified, it defaults to <code>false</code>. Setting this value to <code>true</code> causes Amazon S3 to use an S3 Bucket Key for object encryption with SSE-KMS. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucket-key.html\"> Using Amazon S3 Bucket Keys</a> in the <i>Amazon S3 User Guide</i>. </p> <p>Valid Values: <code>true</code> | <code>false</code> </p>"""
+    r"""<p> Specifies whether Amazon S3 should use an S3 Bucket Key for object encryption with server-side encryption using Key Management Service (KMS) keys (SSE-KMS). If this value isn't specified, it defaults to <code>false</code>. Setting this value to <code>true</code> causes Amazon S3 to use an S3 Bucket Key for object encryption with SSE-KMS. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucket-key.html\"> Using Amazon S3 Bucket Keys</a> in the <i>Amazon S3 User Guide</i>. </p> <p>Valid Values: <code>true</code> | <code>false</code> </p>"""
 
 
 # --- restXml ser/de ---

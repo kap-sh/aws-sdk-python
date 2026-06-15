@@ -18,7 +18,7 @@ class ListTimeSeriesRequest(TypedDict):
     max_results: NotRequired["aws_sdk_iotsitewise.types.max_results.MaxResults"]
     """<p>The maximum number of results to return for each paginated request.</p>"""
     asset_id: NotRequired["aws_sdk_iotsitewise.types.custom_id.CustomID"]
-    """<p>The ID of the asset in which the asset property was created. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references\">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>"""
+    r"""<p>The ID of the asset in which the asset property was created. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references\">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>"""
     alias_prefix: NotRequired["aws_sdk_iotsitewise.types.property_alias.PropertyAlias"]
     """<p>The alias prefix of the time series.</p>"""
     time_series_type: NotRequired[

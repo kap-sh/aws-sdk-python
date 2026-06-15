@@ -13,7 +13,7 @@ class CreateApplicationRequest(TypedDict):
     author: NotRequired[
         "aws_sdk_serverlessapplicationrepository.types.__string.__string"
     ]
-    """<p>The name of the author publishing the app.</p><p>Minimum length=1. Maximum length=127.</p><p>Pattern \"^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$\";</p>"""
+    r"""<p>The name of the author publishing the app.</p><p>Minimum length=1. Maximum length=127.</p><p>Pattern \"^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$\";</p>"""
     description: NotRequired[
         "aws_sdk_serverlessapplicationrepository.types.__string.__string"
     ]
@@ -25,7 +25,7 @@ class CreateApplicationRequest(TypedDict):
     labels: NotRequired[
         "aws_sdk_serverlessapplicationrepository.types.__list_of__string.__listOf__string"
     ]
-    """<p>Labels to improve discovery of apps in search results.</p><p>Minimum length=1. Maximum length=127. Maximum number of labels: 10</p><p>Pattern: \"^[a-zA-Z0-9+\\-_:\\/@]+$\";</p>"""
+    r"""<p>Labels to improve discovery of apps in search results.</p><p>Minimum length=1. Maximum length=127. Maximum number of labels: 10</p><p>Pattern: \"^[a-zA-Z0-9+\\-_:\\/@]+$\";</p>"""
     license_body: NotRequired[
         "aws_sdk_serverlessapplicationrepository.types.__string.__string"
     ]
@@ -35,7 +35,7 @@ class CreateApplicationRequest(TypedDict):
     ]
     """<p>A link to the S3 object that contains the license of the app that matches the spdxLicenseID value of your application.</p><p>Maximum size 5 MB</p><p>You can specify only one of licenseBody and licenseUrl; otherwise, an error results.</p>"""
     name: NotRequired["aws_sdk_serverlessapplicationrepository.types.__string.__string"]
-    """<p>The name of the application that you want to publish.</p><p>Minimum length=1. Maximum length=140</p><p>Pattern: \"[a-zA-Z0-9\\-]+\";</p>"""
+    r"""<p>The name of the application that you want to publish.</p><p>Minimum length=1. Maximum length=140</p><p>Pattern: \"[a-zA-Z0-9\\-]+\";</p>"""
     readme_body: NotRequired[
         "aws_sdk_serverlessapplicationrepository.types.__string.__string"
     ]
@@ -47,7 +47,7 @@ class CreateApplicationRequest(TypedDict):
     semantic_version: NotRequired[
         "aws_sdk_serverlessapplicationrepository.types.__string.__string"
     ]
-    """<p>The semantic version of the application:</p><p> <a href=\"https://semver.org/\">https://semver.org/</a> </p>"""
+    r"""<p>The semantic version of the application:</p><p> <a href=\"https://semver.org/\">https://semver.org/</a> </p>"""
     source_code_archive_url: NotRequired[
         "aws_sdk_serverlessapplicationrepository.types.__string.__string"
     ]
@@ -59,7 +59,7 @@ class CreateApplicationRequest(TypedDict):
     spdx_license_id: NotRequired[
         "aws_sdk_serverlessapplicationrepository.types.__string.__string"
     ]
-    """<p>A valid identifier from <a href=\"https://spdx.org/licenses/\">https://spdx.org/licenses/</a>.</p>"""
+    r"""<p>A valid identifier from <a href=\"https://spdx.org/licenses/\">https://spdx.org/licenses/</a>.</p>"""
     template_body: NotRequired[
         "aws_sdk_serverlessapplicationrepository.types.__string.__string"
     ]

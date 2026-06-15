@@ -488,7 +488,7 @@ class AsyncSSMContactsClient:
             "aws_sdk_ssm_contacts.types.idempotency_token.IdempotencyToken"
         ] = None,
     ) -> "aws_sdk_ssm_contacts.types.create_rotation_result.CreateRotationResult":
-        """<p>Creates a rotation in an on-call schedule.</p>
+        r"""<p>Creates a rotation in an on-call schedule.</p>
 
         Args:
             name: <p>The name of the rotation.</p>
@@ -1633,7 +1633,7 @@ class AsyncSSMContactsClient:
             "aws_sdk_ssm_contacts.types.max_results.MaxResults"
         ] = None,
     ) -> "aws_sdk_ssm_contacts.types.list_preview_rotation_shifts_result.ListPreviewRotationShiftsResult":
-        """<p>Returns a list of shifts based on rotation configuration parameters.</p> <note> <p>The Incident Manager primarily uses this operation to populate the <b>Preview</b> calendar. It is not typically run by end users.</p> </note>
+        r"""<p>Returns a list of shifts based on rotation configuration parameters.</p> <note> <p>The Incident Manager primarily uses this operation to populate the <b>Preview</b> calendar. It is not typically run by end users.</p> </note>
 
         Args:
             rotation_start_time: <p>The date and time a rotation would begin. The first shift is calculated from this date and time.</p>
@@ -2031,7 +2031,7 @@ class AsyncSSMContactsClient:
         *,
         config_overrides: Optional[AsyncSSMContactsClientConfig] = None,
     ) -> "aws_sdk_ssm_contacts.types.put_contact_policy_result.PutContactPolicyResult":
-        """<p>Adds a resource policy to the specified contact or escalation plan. The resource policy is used to share the contact or escalation plan using Resource Access Manager (RAM). For more information about cross-account sharing, see <a href=\"https://docs.aws.amazon.com/incident-manager/latest/userguide/xa.html\">Setting up cross-account functionality</a>.</p>
+        r"""<p>Adds a resource policy to the specified contact or escalation plan. The resource policy is used to share the contact or escalation plan using Resource Access Manager (RAM). For more information about cross-account sharing, see <a href=\"https://docs.aws.amazon.com/incident-manager/latest/userguide/xa.html\">Setting up cross-account functionality</a>.</p>
 
         Args:
             contact_arn: <p>The Amazon Resource Name (ARN) of the contact or escalation plan.</p>
@@ -2408,7 +2408,7 @@ class AsyncSSMContactsClient:
             "aws_sdk_ssm_contacts.types.time_zone_id.TimeZoneId"
         ] = None,
     ) -> "aws_sdk_ssm_contacts.types.update_rotation_result.UpdateRotationResult":
-        """<p>Updates the information specified for an on-call rotation.</p>
+        r"""<p>Updates the information specified for an on-call rotation.</p>
 
         Args:
             rotation_id: <p>The Amazon Resource Name (ARN) of the rotation to update.</p>

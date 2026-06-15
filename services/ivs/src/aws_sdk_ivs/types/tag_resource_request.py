@@ -13,7 +13,7 @@ class TagResourceRequest(TypedDict):
     resource_arn: "aws_sdk_ivs.types.resource_arn.ResourceArn"
     """<p>ARN of the resource for which tags are to be added or updated. The ARN must be URL-encoded.</p>"""
     tags: "aws_sdk_ivs.types.tags.Tags"
-    """<p>Array of tags to be added or updated. Array of maps, each of the form <code>string:string (key:value)</code>. See <a href=\"https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html\">Best practices and strategies</a> in <i>Tagging Amazon Web Services Resources and Tag Editor</i> for details, including restrictions that apply to tags and \"Tag naming limits and requirements\"; Amazon IVS has no service-specific constraints beyond what is documented there.</p>"""
+    r"""<p>Array of tags to be added or updated. Array of maps, each of the form <code>string:string (key:value)</code>. See <a href=\"https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html\">Best practices and strategies</a> in <i>Tagging Amazon Web Services Resources and Tag Editor</i> for details, including restrictions that apply to tags and \"Tag naming limits and requirements\"; Amazon IVS has no service-specific constraints beyond what is documented there.</p>"""
 
 
 # --- restJson1 ser/de ---

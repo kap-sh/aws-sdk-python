@@ -32,7 +32,7 @@ class UpdateProvisioningTemplateRequest(TypedDict):
     pre_provisioning_hook: NotRequired[
         "aws_sdk_iot.types.provisioning_hook.ProvisioningHook"
     ]
-    """<p>Updates the pre-provisioning hook template. Only supports template of type <code>FLEET_PROVISIONING</code>. For more information about provisioning template types, see <a href=\"https://docs.aws.amazon.com/iot/latest/apireference/API_CreateProvisioningTemplate.html#iot-CreateProvisioningTemplate-request-type\">type</a>.</p>"""
+    r"""<p>Updates the pre-provisioning hook template. Only supports template of type <code>FLEET_PROVISIONING</code>. For more information about provisioning template types, see <a href=\"https://docs.aws.amazon.com/iot/latest/apireference/API_CreateProvisioningTemplate.html#iot-CreateProvisioningTemplate-request-type\">type</a>.</p>"""
     remove_pre_provisioning_hook: NotRequired[
         "aws_sdk_iot.types.remove_hook.RemoveHook"
     ]

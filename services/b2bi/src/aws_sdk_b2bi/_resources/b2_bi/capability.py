@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 from aws_sdk_b2bi._services._pipeline import (
@@ -80,19 +82,19 @@ class Capability:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_b2bi.types.create_capability_request.CreateCapabilityRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["type"] = type
-        input["configuration"] = configuration
+        input_: aws_sdk_b2bi.types.create_capability_request.CreateCapabilityRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["type"] = type
+        input_["configuration"] = configuration
         if instructions_documents is not None:
-            input["instructions_documents"] = instructions_documents
+            input_["instructions_documents"] = instructions_documents
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -130,11 +132,11 @@ class Capability:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_b2bi.types.get_capability_request.GetCapabilityRequest = {}  # type: ignore[typeddict-item]
-        input["capability_id"] = capability_id
+        input_: aws_sdk_b2bi.types.get_capability_request.GetCapabilityRequest = {}  # type: ignore[typeddict-item]
+        input_["capability_id"] = capability_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -182,17 +184,17 @@ class Capability:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_b2bi.types.update_capability_request.UpdateCapabilityRequest = {}  # type: ignore[typeddict-item]
-        input["capability_id"] = capability_id
+        input_: aws_sdk_b2bi.types.update_capability_request.UpdateCapabilityRequest = {}  # type: ignore[typeddict-item]
+        input_["capability_id"] = capability_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if configuration is not None:
-            input["configuration"] = configuration
+            input_["configuration"] = configuration
         if instructions_documents is not None:
-            input["instructions_documents"] = instructions_documents
+            input_["instructions_documents"] = instructions_documents
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -228,11 +230,11 @@ class Capability:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_b2bi.types.delete_capability_request.DeleteCapabilityRequest = {}  # type: ignore[typeddict-item]
-        input["capability_id"] = capability_id
+        input_: aws_sdk_b2bi.types.delete_capability_request.DeleteCapabilityRequest = {}  # type: ignore[typeddict-item]
+        input_["capability_id"] = capability_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -272,14 +274,14 @@ class Capability:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_b2bi.types.list_capabilities_request.ListCapabilitiesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_b2bi.types.list_capabilities_request.ListCapabilitiesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -335,19 +337,19 @@ class AsyncCapability:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_b2bi.types.create_capability_request.CreateCapabilityRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["type"] = type
-        input["configuration"] = configuration
+        input_: aws_sdk_b2bi.types.create_capability_request.CreateCapabilityRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["type"] = type
+        input_["configuration"] = configuration
         if instructions_documents is not None:
-            input["instructions_documents"] = instructions_documents
+            input_["instructions_documents"] = instructions_documents
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -386,11 +388,11 @@ class AsyncCapability:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_b2bi.types.get_capability_request.GetCapabilityRequest = {}  # type: ignore[typeddict-item]
-        input["capability_id"] = capability_id
+        input_: aws_sdk_b2bi.types.get_capability_request.GetCapabilityRequest = {}  # type: ignore[typeddict-item]
+        input_["capability_id"] = capability_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -439,17 +441,17 @@ class AsyncCapability:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_b2bi.types.update_capability_request.UpdateCapabilityRequest = {}  # type: ignore[typeddict-item]
-        input["capability_id"] = capability_id
+        input_: aws_sdk_b2bi.types.update_capability_request.UpdateCapabilityRequest = {}  # type: ignore[typeddict-item]
+        input_["capability_id"] = capability_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if configuration is not None:
-            input["configuration"] = configuration
+            input_["configuration"] = configuration
         if instructions_documents is not None:
-            input["instructions_documents"] = instructions_documents
+            input_["instructions_documents"] = instructions_documents
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -486,11 +488,11 @@ class AsyncCapability:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_b2bi.types.delete_capability_request.DeleteCapabilityRequest = {}  # type: ignore[typeddict-item]
-        input["capability_id"] = capability_id
+        input_: aws_sdk_b2bi.types.delete_capability_request.DeleteCapabilityRequest = {}  # type: ignore[typeddict-item]
+        input_["capability_id"] = capability_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -531,14 +533,14 @@ class AsyncCapability:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_b2bi.types.list_capabilities_request.ListCapabilitiesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_b2bi.types.list_capabilities_request.ListCapabilitiesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

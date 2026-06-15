@@ -10,7 +10,7 @@ if TYPE_CHECKING:
 
 class GetResourcePolicyRequest(TypedDict):
     resource_arn: NotRequired["aws_sdk_glue.types.glue_resource_arn.GlueResourceArn"]
-    """<p>The ARN of the Glue resource for which to retrieve the resource policy. If not supplied, the Data Catalog resource policy is returned. Use <code>GetResourcePolicies</code> to view all existing resource policies. For more information see <a href=\"https://docs.aws.amazon.com/glue/latest/dg/glue-specifying-resource-arns.html\">Specifying Glue Resource ARNs</a>. </p>"""
+    r"""<p>The ARN of the Glue resource for which to retrieve the resource policy. If not supplied, the Data Catalog resource policy is returned. Use <code>GetResourcePolicies</code> to view all existing resource policies. For more information see <a href=\"https://docs.aws.amazon.com/glue/latest/dg/glue-specifying-resource-arns.html\">Specifying Glue Resource ARNs</a>. </p>"""
 
 
 # --- awsJson1_1 ser/de ---

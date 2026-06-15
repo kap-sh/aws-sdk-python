@@ -13,7 +13,7 @@ class ParticipantTokenCredentials(TypedDict):
     participant_token: NotRequired[
         "aws_sdk_connect.types.participant_token.ParticipantToken"
     ]
-    """<p>The token used by the chat participant to call <a href=\"https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html\">CreateParticipantConnection</a>. The participant token is valid for the lifetime of a chat participant. </p>"""
+    r"""<p>The token used by the chat participant to call <a href=\"https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html\">CreateParticipantConnection</a>. The participant token is valid for the lifetime of a chat participant. </p>"""
     expiry: NotRequired["aws_sdk_connect.types.iso8601_datetime.ISO8601Datetime"]
     """<p>The expiration of the token. It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example, 2019-11-08T02:41:28.172Z.</p>"""
 

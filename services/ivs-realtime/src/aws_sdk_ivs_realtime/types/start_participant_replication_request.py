@@ -19,7 +19,7 @@ class StartParticipantReplicationRequest(TypedDict):
     destination_stage_arn: "aws_sdk_ivs_realtime.types.stage_arn.StageArn"
     """<p>ARN of the stage to which the participant will be replicated.</p>"""
     participant_id: "aws_sdk_ivs_realtime.types.participant_id.ParticipantId"
-    """<p>Participant ID of the publisher that will be replicated. This is assigned by IVS and returned by <a>CreateParticipantToken</a> or the <code>jti</code> (JWT ID) used to <a href=\"https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/getting-started-distribute-tokens.html#getting-started-distribute-tokens-self-signed\">create a self signed token</a>. </p>"""
+    r"""<p>Participant ID of the publisher that will be replicated. This is assigned by IVS and returned by <a>CreateParticipantToken</a> or the <code>jti</code> (JWT ID) used to <a href=\"https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/getting-started-distribute-tokens.html#getting-started-distribute-tokens-self-signed\">create a self signed token</a>. </p>"""
     reconnect_window_seconds: NotRequired[
         "aws_sdk_ivs_realtime.types.reconnect_window_seconds.ReconnectWindowSeconds"
     ]

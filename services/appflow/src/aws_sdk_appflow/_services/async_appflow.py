@@ -166,7 +166,7 @@ class AsyncAppflowClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = AsyncAppflowClientConfig(
+        self._config = AsyncAppflowClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -186,7 +186,7 @@ class AsyncAppflowClient:
         overrides: AsyncAppflowClientConfig = config_overrides or {}
         interceptors_: list[AsyncInterceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             aretry(),
         ]
@@ -194,16 +194,16 @@ class AsyncAppflowClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            region=overrides.get("region", self.config.get("region")),
+            region=overrides.get("region", self._config.get("region")),
             use_dual_stack=overrides.get(
-                "use_dual_stack", self.config.get("use_dual_stack")
+                "use_dual_stack", self._config.get("use_dual_stack")
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -217,7 +217,7 @@ class AsyncAppflowClient:
             "aws_sdk_appflow.types.execution_ids.ExecutionIds"
         ] = None,
     ) -> "aws_sdk_appflow.types.cancel_flow_executions_response.CancelFlowExecutionsResponse":
-        """<p>Cancels active runs for a flow.</p> <p>You can cancel all of the active runs for a flow, or you can cancel specific runs by providing their IDs.</p> <p>You can cancel a flow run only when the run is in progress. You can't cancel a run that has already completed or failed. You also can't cancel a run that's scheduled to occur but hasn't started yet. To prevent a scheduled run, you can deactivate the flow with the <code>StopFlow</code> action.</p> <p>You cannot resume a run after you cancel it.</p> <p>When you send your request, the status for each run becomes <code>CancelStarted</code>. When the cancellation completes, the status becomes <code>Canceled</code>.</p> <note> <p>When you cancel a run, you still incur charges for any data that the run already processed before the cancellation. If the run had already written some data to the flow destination, then that data remains in the destination. If you configured the flow to use a batch API (such as the Salesforce Bulk API 2.0), then the run will finish reading or writing its entire batch of data after the cancellation. For these operations, the data processing charges for Amazon AppFlow apply. For the pricing information, see <a href=\"http://aws.amazon.com/appflow/pricing/\">Amazon AppFlow pricing</a>.</p> </note>
+        r"""<p>Cancels active runs for a flow.</p> <p>You can cancel all of the active runs for a flow, or you can cancel specific runs by providing their IDs.</p> <p>You can cancel a flow run only when the run is in progress. You can't cancel a run that has already completed or failed. You also can't cancel a run that's scheduled to occur but hasn't started yet. To prevent a scheduled run, you can deactivate the flow with the <code>StopFlow</code> action.</p> <p>You cannot resume a run after you cancel it.</p> <p>When you send your request, the status for each run becomes <code>CancelStarted</code>. When the cancellation completes, the status becomes <code>Canceled</code>.</p> <note> <p>When you cancel a run, you still incur charges for any data that the run already processed before the cancellation. If the run had already written some data to the flow destination, then that data remains in the destination. If you configured the flow to use a batch API (such as the Salesforce Bulk API 2.0), then the run will finish reading or writing its entire batch of data after the cancellation. For these operations, the data processing charges for Amazon AppFlow apply. For the pricing information, see <a href=\"http://aws.amazon.com/appflow/pricing/\">Amazon AppFlow pricing</a>.</p> </note>
 
         Args:
             flow_name: <p>The name of a flow with active runs that you want to cancel.</p>
@@ -240,13 +240,13 @@ class AsyncAppflowClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appflow.types.cancel_flow_executions_request.CancelFlowExecutionsRequest = {}  # type: ignore[typeddict-item]
-        input["flow_name"] = flow_name
+        input_: aws_sdk_appflow.types.cancel_flow_executions_request.CancelFlowExecutionsRequest = {}  # type: ignore[typeddict-item]
+        input_["flow_name"] = flow_name
         if execution_ids is not None:
-            input["execution_ids"] = execution_ids
+            input_["execution_ids"] = execution_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -294,20 +294,20 @@ class AsyncAppflowClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appflow.types.create_connector_profile_request.CreateConnectorProfileRequest = {}  # type: ignore[typeddict-item]
-        input["connector_profile_name"] = connector_profile_name
+        input_: aws_sdk_appflow.types.create_connector_profile_request.CreateConnectorProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["connector_profile_name"] = connector_profile_name
         if kms_arn is not None:
-            input["kms_arn"] = kms_arn
-        input["connector_type"] = connector_type
+            input_["kms_arn"] = kms_arn
+        input_["connector_type"] = connector_type
         if connector_label is not None:
-            input["connector_label"] = connector_label
-        input["connection_mode"] = connection_mode
-        input["connector_profile_config"] = connector_profile_config
+            input_["connector_label"] = connector_label
+        input_["connection_mode"] = connection_mode
+        input_["connector_profile_config"] = connector_profile_config
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -363,25 +363,25 @@ class AsyncAppflowClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appflow.types.create_flow_request.CreateFlowRequest = {}  # type: ignore[typeddict-item]
-        input["flow_name"] = flow_name
+        input_: aws_sdk_appflow.types.create_flow_request.CreateFlowRequest = {}  # type: ignore[typeddict-item]
+        input_["flow_name"] = flow_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if kms_arn is not None:
-            input["kms_arn"] = kms_arn
-        input["trigger_config"] = trigger_config
-        input["source_flow_config"] = source_flow_config
-        input["destination_flow_config_list"] = destination_flow_config_list
-        input["tasks"] = tasks
+            input_["kms_arn"] = kms_arn
+        input_["trigger_config"] = trigger_config
+        input_["source_flow_config"] = source_flow_config
+        input_["destination_flow_config_list"] = destination_flow_config_list
+        input_["tasks"] = tasks
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if metadata_catalog_config is not None:
-            input["metadata_catalog_config"] = metadata_catalog_config
+            input_["metadata_catalog_config"] = metadata_catalog_config
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -417,13 +417,13 @@ class AsyncAppflowClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appflow.types.delete_connector_profile_request.DeleteConnectorProfileRequest = {}  # type: ignore[typeddict-item]
-        input["connector_profile_name"] = connector_profile_name
+        input_: aws_sdk_appflow.types.delete_connector_profile_request.DeleteConnectorProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["connector_profile_name"] = connector_profile_name
         if force_delete is not None:
-            input["force_delete"] = force_delete
+            input_["force_delete"] = force_delete
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -459,13 +459,13 @@ class AsyncAppflowClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appflow.types.delete_flow_request.DeleteFlowRequest = {}  # type: ignore[typeddict-item]
-        input["flow_name"] = flow_name
+        input_: aws_sdk_appflow.types.delete_flow_request.DeleteFlowRequest = {}  # type: ignore[typeddict-item]
+        input_["flow_name"] = flow_name
         if force_delete is not None:
-            input["force_delete"] = force_delete
+            input_["force_delete"] = force_delete
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -503,13 +503,13 @@ class AsyncAppflowClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appflow.types.describe_connector_request.DescribeConnectorRequest = {}  # type: ignore[typeddict-item]
-        input["connector_type"] = connector_type
+        input_: aws_sdk_appflow.types.describe_connector_request.DescribeConnectorRequest = {}  # type: ignore[typeddict-item]
+        input_["connector_type"] = connector_type
         if connector_label is not None:
-            input["connector_label"] = connector_label
+            input_["connector_label"] = connector_label
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -553,17 +553,17 @@ class AsyncAppflowClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appflow.types.describe_connector_entity_request.DescribeConnectorEntityRequest = {}  # type: ignore[typeddict-item]
-        input["connector_entity_name"] = connector_entity_name
+        input_: aws_sdk_appflow.types.describe_connector_entity_request.DescribeConnectorEntityRequest = {}  # type: ignore[typeddict-item]
+        input_["connector_entity_name"] = connector_entity_name
         if connector_type is not None:
-            input["connector_type"] = connector_type
+            input_["connector_type"] = connector_type
         if connector_profile_name is not None:
-            input["connector_profile_name"] = connector_profile_name
+            input_["connector_profile_name"] = connector_profile_name
         if api_version is not None:
-            input["api_version"] = api_version
+            input_["api_version"] = api_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -611,20 +611,20 @@ class AsyncAppflowClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appflow.types.describe_connector_profiles_request.DescribeConnectorProfilesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_appflow.types.describe_connector_profiles_request.DescribeConnectorProfilesRequest = {}  # type: ignore[typeddict-item]
         if connector_profile_names is not None:
-            input["connector_profile_names"] = connector_profile_names
+            input_["connector_profile_names"] = connector_profile_names
         if connector_type is not None:
-            input["connector_type"] = connector_type
+            input_["connector_type"] = connector_type
         if connector_label is not None:
-            input["connector_label"] = connector_label
+            input_["connector_label"] = connector_label
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -666,16 +666,16 @@ class AsyncAppflowClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appflow.types.describe_connectors_request.DescribeConnectorsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_appflow.types.describe_connectors_request.DescribeConnectorsRequest = {}  # type: ignore[typeddict-item]
         if connector_types is not None:
-            input["connector_types"] = connector_types
+            input_["connector_types"] = connector_types
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -709,11 +709,11 @@ class AsyncAppflowClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appflow.types.describe_flow_request.DescribeFlowRequest = {}  # type: ignore[typeddict-item]
-        input["flow_name"] = flow_name
+        input_: aws_sdk_appflow.types.describe_flow_request.DescribeFlowRequest = {}  # type: ignore[typeddict-item]
+        input_["flow_name"] = flow_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -751,15 +751,15 @@ class AsyncAppflowClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appflow.types.describe_flow_execution_records_request.DescribeFlowExecutionRecordsRequest = {}  # type: ignore[typeddict-item]
-        input["flow_name"] = flow_name
+        input_: aws_sdk_appflow.types.describe_flow_execution_records_request.DescribeFlowExecutionRecordsRequest = {}  # type: ignore[typeddict-item]
+        input_["flow_name"] = flow_name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -811,22 +811,22 @@ class AsyncAppflowClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appflow.types.list_connector_entities_request.ListConnectorEntitiesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_appflow.types.list_connector_entities_request.ListConnectorEntitiesRequest = {}  # type: ignore[typeddict-item]
         if connector_profile_name is not None:
-            input["connector_profile_name"] = connector_profile_name
+            input_["connector_profile_name"] = connector_profile_name
         if connector_type is not None:
-            input["connector_type"] = connector_type
+            input_["connector_type"] = connector_type
         if entities_path is not None:
-            input["entities_path"] = entities_path
+            input_["entities_path"] = entities_path
         if api_version is not None:
-            input["api_version"] = api_version
+            input_["api_version"] = api_version
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -862,14 +862,14 @@ class AsyncAppflowClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appflow.types.list_connectors_request.ListConnectorsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_appflow.types.list_connectors_request.ListConnectorsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -905,14 +905,14 @@ class AsyncAppflowClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appflow.types.list_flows_request.ListFlowsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_appflow.types.list_flows_request.ListFlowsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -946,11 +946,11 @@ class AsyncAppflowClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appflow.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_appflow.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -998,20 +998,20 @@ class AsyncAppflowClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appflow.types.register_connector_request.RegisterConnectorRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_appflow.types.register_connector_request.RegisterConnectorRequest = {}  # type: ignore[typeddict-item]
         if connector_label is not None:
-            input["connector_label"] = connector_label
+            input_["connector_label"] = connector_label
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if connector_provisioning_type is not None:
-            input["connector_provisioning_type"] = connector_provisioning_type
+            input_["connector_provisioning_type"] = connector_provisioning_type
         if connector_provisioning_config is not None:
-            input["connector_provisioning_config"] = connector_provisioning_config
+            input_["connector_provisioning_config"] = connector_provisioning_config
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1061,20 +1061,20 @@ class AsyncAppflowClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appflow.types.reset_connector_metadata_cache_request.ResetConnectorMetadataCacheRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_appflow.types.reset_connector_metadata_cache_request.ResetConnectorMetadataCacheRequest = {}  # type: ignore[typeddict-item]
         if connector_profile_name is not None:
-            input["connector_profile_name"] = connector_profile_name
+            input_["connector_profile_name"] = connector_profile_name
         if connector_type is not None:
-            input["connector_type"] = connector_type
+            input_["connector_type"] = connector_type
         if connector_entity_name is not None:
-            input["connector_entity_name"] = connector_entity_name
+            input_["connector_entity_name"] = connector_entity_name
         if entities_path is not None:
-            input["entities_path"] = entities_path
+            input_["entities_path"] = entities_path
         if api_version is not None:
-            input["api_version"] = api_version
+            input_["api_version"] = api_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1110,13 +1110,13 @@ class AsyncAppflowClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appflow.types.start_flow_request.StartFlowRequest = {}  # type: ignore[typeddict-item]
-        input["flow_name"] = flow_name
+        input_: aws_sdk_appflow.types.start_flow_request.StartFlowRequest = {}  # type: ignore[typeddict-item]
+        input_["flow_name"] = flow_name
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1150,11 +1150,11 @@ class AsyncAppflowClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appflow.types.stop_flow_request.StopFlowRequest = {}  # type: ignore[typeddict-item]
-        input["flow_name"] = flow_name
+        input_: aws_sdk_appflow.types.stop_flow_request.StopFlowRequest = {}  # type: ignore[typeddict-item]
+        input_["flow_name"] = flow_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1190,12 +1190,12 @@ class AsyncAppflowClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appflow.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_appflow.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1231,13 +1231,13 @@ class AsyncAppflowClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appflow.types.unregister_connector_request.UnregisterConnectorRequest = {}  # type: ignore[typeddict-item]
-        input["connector_label"] = connector_label
+        input_: aws_sdk_appflow.types.unregister_connector_request.UnregisterConnectorRequest = {}  # type: ignore[typeddict-item]
+        input_["connector_label"] = connector_label
         if force_delete is not None:
-            input["force_delete"] = force_delete
+            input_["force_delete"] = force_delete
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1273,12 +1273,12 @@ class AsyncAppflowClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appflow.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_appflow.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1318,15 +1318,15 @@ class AsyncAppflowClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appflow.types.update_connector_profile_request.UpdateConnectorProfileRequest = {}  # type: ignore[typeddict-item]
-        input["connector_profile_name"] = connector_profile_name
-        input["connection_mode"] = connection_mode
-        input["connector_profile_config"] = connector_profile_config
+        input_: aws_sdk_appflow.types.update_connector_profile_request.UpdateConnectorProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["connector_profile_name"] = connector_profile_name
+        input_["connection_mode"] = connection_mode
+        input_["connector_profile_config"] = connector_profile_config
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1367,17 +1367,17 @@ class AsyncAppflowClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appflow.types.update_connector_registration_request.UpdateConnectorRegistrationRequest = {}  # type: ignore[typeddict-item]
-        input["connector_label"] = connector_label
+        input_: aws_sdk_appflow.types.update_connector_registration_request.UpdateConnectorRegistrationRequest = {}  # type: ignore[typeddict-item]
+        input_["connector_label"] = connector_label
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if connector_provisioning_config is not None:
-            input["connector_provisioning_config"] = connector_provisioning_config
+            input_["connector_provisioning_config"] = connector_provisioning_config
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1428,21 +1428,21 @@ class AsyncAppflowClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appflow.types.update_flow_request.UpdateFlowRequest = {}  # type: ignore[typeddict-item]
-        input["flow_name"] = flow_name
+        input_: aws_sdk_appflow.types.update_flow_request.UpdateFlowRequest = {}  # type: ignore[typeddict-item]
+        input_["flow_name"] = flow_name
         if description is not None:
-            input["description"] = description
-        input["trigger_config"] = trigger_config
-        input["source_flow_config"] = source_flow_config
-        input["destination_flow_config_list"] = destination_flow_config_list
-        input["tasks"] = tasks
+            input_["description"] = description
+        input_["trigger_config"] = trigger_config
+        input_["source_flow_config"] = source_flow_config
+        input_["destination_flow_config_list"] = destination_flow_config_list
+        input_["tasks"] = tasks
         if metadata_catalog_config is not None:
-            input["metadata_catalog_config"] = metadata_catalog_config
+            input_["metadata_catalog_config"] = metadata_catalog_config
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

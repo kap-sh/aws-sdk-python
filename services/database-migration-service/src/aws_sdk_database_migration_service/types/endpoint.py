@@ -42,11 +42,11 @@ class Endpoint(TypedDict):
     ]
     """<p>The type of endpoint. Valid values are <code>source</code> and <code>target</code>.</p>"""
     engine_name: NotRequired["aws_sdk_database_migration_service.types.string.String"]
-    """<p>The database engine name. Valid values, depending on the EndpointType, include <code>\"mysql\"</code>, <code>\"oracle\"</code>, <code>\"postgres\"</code>, <code>\"mariadb\"</code>, <code>\"aurora\"</code>, <code>\"aurora-postgresql\"</code>, <code>\"redshift\"</code>, <code>\"redshift-serverless\"</code>, <code>\"s3\"</code>, <code>\"db2\"</code>, <code>\"db2-zos\"</code>, <code>\"azuredb\"</code>, <code>\"sybase\"</code>, <code>\"dynamodb\"</code>, <code>\"mongodb\"</code>, <code>\"kinesis\"</code>, <code>\"kafka\"</code>, <code>\"elasticsearch\"</code>, <code>\"documentdb\"</code>, <code>\"sqlserver\"</code>, <code>\"neptune\"</code>, and <code>\"babelfish\"</code>.</p>"""
+    r"""<p>The database engine name. Valid values, depending on the EndpointType, include <code>\"mysql\"</code>, <code>\"oracle\"</code>, <code>\"postgres\"</code>, <code>\"mariadb\"</code>, <code>\"aurora\"</code>, <code>\"aurora-postgresql\"</code>, <code>\"redshift\"</code>, <code>\"redshift-serverless\"</code>, <code>\"s3\"</code>, <code>\"db2\"</code>, <code>\"db2-zos\"</code>, <code>\"azuredb\"</code>, <code>\"sybase\"</code>, <code>\"dynamodb\"</code>, <code>\"mongodb\"</code>, <code>\"kinesis\"</code>, <code>\"kafka\"</code>, <code>\"elasticsearch\"</code>, <code>\"documentdb\"</code>, <code>\"sqlserver\"</code>, <code>\"neptune\"</code>, and <code>\"babelfish\"</code>.</p>"""
     engine_display_name: NotRequired[
         "aws_sdk_database_migration_service.types.string.String"
     ]
-    """<p>The expanded name for the engine name. For example, if the <code>EngineName</code> parameter is \"aurora\", this value would be \"Amazon Aurora MySQL\".</p>"""
+    r"""<p>The expanded name for the engine name. For example, if the <code>EngineName</code> parameter is \"aurora\", this value would be \"Amazon Aurora MySQL\".</p>"""
     username: NotRequired["aws_sdk_database_migration_service.types.string.String"]
     """<p>The user name used to connect to the endpoint.</p>"""
     server_name: NotRequired["aws_sdk_database_migration_service.types.string.String"]

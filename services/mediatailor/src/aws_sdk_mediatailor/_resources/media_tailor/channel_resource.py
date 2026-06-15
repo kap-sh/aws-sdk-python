@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_mediatailor._auth._signers
@@ -75,7 +77,7 @@ class ChannelResource:
         ] = None,
         audiences: Optional["aws_sdk_mediatailor.types.audiences.Audiences"] = None,
     ) -> "aws_sdk_mediatailor.types.create_channel_response.CreateChannelResponse":
-        """<p>Creates a channel. For information about MediaTailor channels, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-channels.html\">Working with channels</a> in the <i>MediaTailor User Guide</i>.</p>
+        r"""<p>Creates a channel. For information about MediaTailor channels, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-channels.html\">Working with channels</a> in the <i>MediaTailor User Guide</i>.</p>
 
         Args:
             channel_name: <p>The name of the channel.</p>
@@ -131,7 +133,7 @@ class ChannelResource:
         *,
         config_overrides: Optional[MediaTailorClientConfig] = None,
     ) -> "aws_sdk_mediatailor.types.describe_channel_response.DescribeChannelResponse":
-        """<p>Describes a channel. For information about MediaTailor channels, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-channels.html\">Working with channels</a> in the <i>MediaTailor User Guide</i>.</p>
+        r"""<p>Describes a channel. For information about MediaTailor channels, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-channels.html\">Working with channels</a> in the <i>MediaTailor User Guide</i>.</p>
 
         Args:
             channel_name: <p>The name of the channel.</p>
@@ -176,7 +178,7 @@ class ChannelResource:
         ] = None,
         audiences: Optional["aws_sdk_mediatailor.types.audiences.Audiences"] = None,
     ) -> "aws_sdk_mediatailor.types.update_channel_response.UpdateChannelResponse":
-        """<p>Updates a channel. For information about MediaTailor channels, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-channels.html\">Working with channels</a> in the <i>MediaTailor User Guide</i>.</p>
+        r"""<p>Updates a channel. For information about MediaTailor channels, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-channels.html\">Working with channels</a> in the <i>MediaTailor User Guide</i>.</p>
 
         Args:
             channel_name: <p>The name of the channel.</p>
@@ -224,7 +226,7 @@ class ChannelResource:
         *,
         config_overrides: Optional[MediaTailorClientConfig] = None,
     ) -> "aws_sdk_mediatailor.types.delete_channel_response.DeleteChannelResponse":
-        """<p>Deletes a channel. For information about MediaTailor channels, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-channels.html\">Working with channels</a> in the <i>MediaTailor User Guide</i>.</p>
+        r"""<p>Deletes a channel. For information about MediaTailor channels, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-channels.html\">Working with channels</a> in the <i>MediaTailor User Guide</i>.</p>
 
         Args:
             channel_name: <p>The name of the channel.</p>
@@ -358,7 +360,7 @@ class ChannelResource:
         ] = None,
         audiences: Optional["aws_sdk_mediatailor.types.audiences.Audiences"] = None,
     ) -> "aws_sdk_mediatailor.types.create_channel_response.CreateChannelResponse":
-        """<p>Creates a channel. For information about MediaTailor channels, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-channels.html\">Working with channels</a> in the <i>MediaTailor User Guide</i>.</p>
+        r"""<p>Creates a channel. For information about MediaTailor channels, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-channels.html\">Working with channels</a> in the <i>MediaTailor User Guide</i>.</p>
 
         Args:
             channel_name: <p>The name of the channel.</p>
@@ -471,7 +473,7 @@ class ChannelResource:
         *,
         config_overrides: Optional[MediaTailorClientConfig] = None,
     ) -> "aws_sdk_mediatailor.types.start_channel_response.StartChannelResponse":
-        """<p>Starts a channel. For information about MediaTailor channels, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-channels.html\">Working with channels</a> in the <i>MediaTailor User Guide</i>.</p>
+        r"""<p>Starts a channel. For information about MediaTailor channels, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-channels.html\">Working with channels</a> in the <i>MediaTailor User Guide</i>.</p>
 
         Args:
             channel_name: <p>The name of the channel.</p>
@@ -508,7 +510,7 @@ class ChannelResource:
         *,
         config_overrides: Optional[MediaTailorClientConfig] = None,
     ) -> "aws_sdk_mediatailor.types.stop_channel_response.StopChannelResponse":
-        """<p>Stops a channel. For information about MediaTailor channels, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-channels.html\">Working with channels</a> in the <i>MediaTailor User Guide</i>.</p>
+        r"""<p>Stops a channel. For information about MediaTailor channels, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-channels.html\">Working with channels</a> in the <i>MediaTailor User Guide</i>.</p>
 
         Args:
             channel_name: <p>The name of the channel.</p>
@@ -563,7 +565,7 @@ class AsyncChannelResource:
         ] = None,
         audiences: Optional["aws_sdk_mediatailor.types.audiences.Audiences"] = None,
     ) -> "aws_sdk_mediatailor.types.create_channel_response.CreateChannelResponse":
-        """<p>Creates a channel. For information about MediaTailor channels, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-channels.html\">Working with channels</a> in the <i>MediaTailor User Guide</i>.</p>
+        r"""<p>Creates a channel. For information about MediaTailor channels, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-channels.html\">Working with channels</a> in the <i>MediaTailor User Guide</i>.</p>
 
         Args:
             channel_name: <p>The name of the channel.</p>
@@ -620,7 +622,7 @@ class AsyncChannelResource:
         *,
         config_overrides: Optional[AsyncMediaTailorClientConfig] = None,
     ) -> "aws_sdk_mediatailor.types.describe_channel_response.DescribeChannelResponse":
-        """<p>Describes a channel. For information about MediaTailor channels, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-channels.html\">Working with channels</a> in the <i>MediaTailor User Guide</i>.</p>
+        r"""<p>Describes a channel. For information about MediaTailor channels, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-channels.html\">Working with channels</a> in the <i>MediaTailor User Guide</i>.</p>
 
         Args:
             channel_name: <p>The name of the channel.</p>
@@ -666,7 +668,7 @@ class AsyncChannelResource:
         ] = None,
         audiences: Optional["aws_sdk_mediatailor.types.audiences.Audiences"] = None,
     ) -> "aws_sdk_mediatailor.types.update_channel_response.UpdateChannelResponse":
-        """<p>Updates a channel. For information about MediaTailor channels, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-channels.html\">Working with channels</a> in the <i>MediaTailor User Guide</i>.</p>
+        r"""<p>Updates a channel. For information about MediaTailor channels, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-channels.html\">Working with channels</a> in the <i>MediaTailor User Guide</i>.</p>
 
         Args:
             channel_name: <p>The name of the channel.</p>
@@ -715,7 +717,7 @@ class AsyncChannelResource:
         *,
         config_overrides: Optional[AsyncMediaTailorClientConfig] = None,
     ) -> "aws_sdk_mediatailor.types.delete_channel_response.DeleteChannelResponse":
-        """<p>Deletes a channel. For information about MediaTailor channels, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-channels.html\">Working with channels</a> in the <i>MediaTailor User Guide</i>.</p>
+        r"""<p>Deletes a channel. For information about MediaTailor channels, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-channels.html\">Working with channels</a> in the <i>MediaTailor User Guide</i>.</p>
 
         Args:
             channel_name: <p>The name of the channel.</p>
@@ -852,7 +854,7 @@ class AsyncChannelResource:
         ] = None,
         audiences: Optional["aws_sdk_mediatailor.types.audiences.Audiences"] = None,
     ) -> "aws_sdk_mediatailor.types.create_channel_response.CreateChannelResponse":
-        """<p>Creates a channel. For information about MediaTailor channels, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-channels.html\">Working with channels</a> in the <i>MediaTailor User Guide</i>.</p>
+        r"""<p>Creates a channel. For information about MediaTailor channels, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-channels.html\">Working with channels</a> in the <i>MediaTailor User Guide</i>.</p>
 
         Args:
             channel_name: <p>The name of the channel.</p>
@@ -967,7 +969,7 @@ class AsyncChannelResource:
         *,
         config_overrides: Optional[AsyncMediaTailorClientConfig] = None,
     ) -> "aws_sdk_mediatailor.types.start_channel_response.StartChannelResponse":
-        """<p>Starts a channel. For information about MediaTailor channels, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-channels.html\">Working with channels</a> in the <i>MediaTailor User Guide</i>.</p>
+        r"""<p>Starts a channel. For information about MediaTailor channels, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-channels.html\">Working with channels</a> in the <i>MediaTailor User Guide</i>.</p>
 
         Args:
             channel_name: <p>The name of the channel.</p>
@@ -1005,7 +1007,7 @@ class AsyncChannelResource:
         *,
         config_overrides: Optional[AsyncMediaTailorClientConfig] = None,
     ) -> "aws_sdk_mediatailor.types.stop_channel_response.StopChannelResponse":
-        """<p>Stops a channel. For information about MediaTailor channels, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-channels.html\">Working with channels</a> in the <i>MediaTailor User Guide</i>.</p>
+        r"""<p>Stops a channel. For information about MediaTailor channels, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-channels.html\">Working with channels</a> in the <i>MediaTailor User Guide</i>.</p>
 
         Args:
             channel_name: <p>The name of the channel.</p>

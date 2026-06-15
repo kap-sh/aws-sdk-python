@@ -43,7 +43,7 @@ class Job(TypedDict):
     encryption_key_arn: NotRequired[
         "aws_sdk_databrew.types.encryption_key_arn.EncryptionKeyArn"
     ]
-    """<p>The Amazon Resource Name (ARN) of an encryption key that is used to protect the job output. For more information, see <a href=\"https://docs.aws.amazon.com/databrew/latest/dg/encryption-security-configuration.html\">Encrypting data written by DataBrew jobs</a> </p>"""
+    r"""<p>The Amazon Resource Name (ARN) of an encryption key that is used to protect the job output. For more information, see <a href=\"https://docs.aws.amazon.com/databrew/latest/dg/encryption-security-configuration.html\">Encrypting data written by DataBrew jobs</a> </p>"""
     encryption_mode: NotRequired[
         "aws_sdk_databrew.types.encryption_mode.EncryptionMode"
     ]

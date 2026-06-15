@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_bedrock_agent._auth._signers
@@ -69,7 +71,7 @@ class FlowResource:
         ] = None,
         tags: Optional["aws_sdk_bedrock_agent.types.tags_map.TagsMap"] = None,
     ) -> "aws_sdk_bedrock_agent.types.create_flow_response.CreateFlowResponse":
-        """<p>Creates a prompt flow that you can use to send an input through various steps to yield an output. Configure nodes, each of which corresponds to a step of the flow, and create connections between the nodes to create paths to different outputs. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/flows-how-it-works.html\">How it works</a> and <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/flows-create.html\">Create a flow in Amazon Bedrock</a> in the Amazon Bedrock User Guide.</p>
+        r"""<p>Creates a prompt flow that you can use to send an input through various steps to yield an output. Configure nodes, each of which corresponds to a step of the flow, and create connections between the nodes to create paths to different outputs. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/flows-how-it-works.html\">How it works</a> and <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/flows-create.html\">Create a flow in Amazon Bedrock</a> in the Amazon Bedrock User Guide.</p>
 
         Args:
             name: <p>A name for the flow.</p>
@@ -123,7 +125,7 @@ class FlowResource:
         *,
         config_overrides: Optional[BedrockAgentClientConfig] = None,
     ) -> "aws_sdk_bedrock_agent.types.get_flow_response.GetFlowResponse":
-        """<p>Retrieves information about a flow. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/flows-manage.html\">Manage a flow in Amazon Bedrock</a> in the Amazon Bedrock User Guide.</p>
+        r"""<p>Retrieves information about a flow. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/flows-manage.html\">Manage a flow in Amazon Bedrock</a> in the Amazon Bedrock User Guide.</p>
 
         Args:
             flow_identifier: <p>The unique identifier of the flow.</p>
@@ -171,7 +173,7 @@ class FlowResource:
             "aws_sdk_bedrock_agent.types.flow_definition.FlowDefinition"
         ] = None,
     ) -> "aws_sdk_bedrock_agent.types.update_flow_response.UpdateFlowResponse":
-        """<p>Modifies a flow. Include both fields that you want to keep and fields that you want to change. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/flows-how-it-works.html\">How it works</a> and <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/flows-create.html\">Create a flow in Amazon Bedrock</a> in the Amazon Bedrock User Guide.</p>
+        r"""<p>Modifies a flow. Include both fields that you want to keep and fields that you want to change. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/flows-how-it-works.html\">How it works</a> and <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/flows-create.html\">Create a flow in Amazon Bedrock</a> in the Amazon Bedrock User Guide.</p>
 
         Args:
             name: <p>A name for the flow.</p>
@@ -265,7 +267,7 @@ class FlowResource:
         ] = None,
         next_token: Optional["aws_sdk_bedrock_agent.types.next_token.NextToken"] = None,
     ) -> "aws_sdk_bedrock_agent.types.list_flows_response.ListFlowsResponse":
-        """<p>Returns a list of flows and information about each flow. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/flows-manage.html\">Manage a flow in Amazon Bedrock</a> in the Amazon Bedrock User Guide.</p>
+        r"""<p>Returns a list of flows and information about each flow. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/flows-manage.html\">Manage a flow in Amazon Bedrock</a> in the Amazon Bedrock User Guide.</p>
 
         Args:
             max_results: <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
@@ -306,7 +308,7 @@ class FlowResource:
         *,
         config_overrides: Optional[BedrockAgentClientConfig] = None,
     ) -> "aws_sdk_bedrock_agent.types.prepare_flow_response.PrepareFlowResponse":
-        """<p>Prepares the <code>DRAFT</code> version of a flow so that it can be invoked. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/flows-test.html\">Test a flow in Amazon Bedrock</a> in the Amazon Bedrock User Guide.</p>
+        r"""<p>Prepares the <code>DRAFT</code> version of a flow so that it can be invoked. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/flows-test.html\">Test a flow in Amazon Bedrock</a> in the Amazon Bedrock User Guide.</p>
 
         Args:
             flow_identifier: <p>The unique identifier of the flow.</p>
@@ -362,7 +364,7 @@ class AsyncFlowResource:
         ] = None,
         tags: Optional["aws_sdk_bedrock_agent.types.tags_map.TagsMap"] = None,
     ) -> "aws_sdk_bedrock_agent.types.create_flow_response.CreateFlowResponse":
-        """<p>Creates a prompt flow that you can use to send an input through various steps to yield an output. Configure nodes, each of which corresponds to a step of the flow, and create connections between the nodes to create paths to different outputs. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/flows-how-it-works.html\">How it works</a> and <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/flows-create.html\">Create a flow in Amazon Bedrock</a> in the Amazon Bedrock User Guide.</p>
+        r"""<p>Creates a prompt flow that you can use to send an input through various steps to yield an output. Configure nodes, each of which corresponds to a step of the flow, and create connections between the nodes to create paths to different outputs. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/flows-how-it-works.html\">How it works</a> and <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/flows-create.html\">Create a flow in Amazon Bedrock</a> in the Amazon Bedrock User Guide.</p>
 
         Args:
             name: <p>A name for the flow.</p>
@@ -417,7 +419,7 @@ class AsyncFlowResource:
         *,
         config_overrides: Optional[AsyncBedrockAgentClientConfig] = None,
     ) -> "aws_sdk_bedrock_agent.types.get_flow_response.GetFlowResponse":
-        """<p>Retrieves information about a flow. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/flows-manage.html\">Manage a flow in Amazon Bedrock</a> in the Amazon Bedrock User Guide.</p>
+        r"""<p>Retrieves information about a flow. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/flows-manage.html\">Manage a flow in Amazon Bedrock</a> in the Amazon Bedrock User Guide.</p>
 
         Args:
             flow_identifier: <p>The unique identifier of the flow.</p>
@@ -466,7 +468,7 @@ class AsyncFlowResource:
             "aws_sdk_bedrock_agent.types.flow_definition.FlowDefinition"
         ] = None,
     ) -> "aws_sdk_bedrock_agent.types.update_flow_response.UpdateFlowResponse":
-        """<p>Modifies a flow. Include both fields that you want to keep and fields that you want to change. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/flows-how-it-works.html\">How it works</a> and <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/flows-create.html\">Create a flow in Amazon Bedrock</a> in the Amazon Bedrock User Guide.</p>
+        r"""<p>Modifies a flow. Include both fields that you want to keep and fields that you want to change. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/flows-how-it-works.html\">How it works</a> and <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/flows-create.html\">Create a flow in Amazon Bedrock</a> in the Amazon Bedrock User Guide.</p>
 
         Args:
             name: <p>A name for the flow.</p>
@@ -562,7 +564,7 @@ class AsyncFlowResource:
         ] = None,
         next_token: Optional["aws_sdk_bedrock_agent.types.next_token.NextToken"] = None,
     ) -> "aws_sdk_bedrock_agent.types.list_flows_response.ListFlowsResponse":
-        """<p>Returns a list of flows and information about each flow. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/flows-manage.html\">Manage a flow in Amazon Bedrock</a> in the Amazon Bedrock User Guide.</p>
+        r"""<p>Returns a list of flows and information about each flow. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/flows-manage.html\">Manage a flow in Amazon Bedrock</a> in the Amazon Bedrock User Guide.</p>
 
         Args:
             max_results: <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
@@ -604,7 +606,7 @@ class AsyncFlowResource:
         *,
         config_overrides: Optional[AsyncBedrockAgentClientConfig] = None,
     ) -> "aws_sdk_bedrock_agent.types.prepare_flow_response.PrepareFlowResponse":
-        """<p>Prepares the <code>DRAFT</code> version of a flow so that it can be invoked. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/flows-test.html\">Test a flow in Amazon Bedrock</a> in the Amazon Bedrock User Guide.</p>
+        r"""<p>Prepares the <code>DRAFT</code> version of a flow so that it can be invoked. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/flows-test.html\">Test a flow in Amazon Bedrock</a> in the Amazon Bedrock User Guide.</p>
 
         Args:
             flow_identifier: <p>The unique identifier of the flow.</p>

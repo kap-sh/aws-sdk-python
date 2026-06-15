@@ -27,7 +27,7 @@ class VerifiedDestinationNumberInformation(TypedDict):
     rcs_agent_id: NotRequired["str"]
     """<p>The unique identifier of the RCS agent associated with the verified destination number.</p>"""
     created_timestamp: "datetime.datetime"
-    """<p>The time when the destination phone number was created, in <a href=\"https://www.epochconverter.com/\">UNIX epoch time</a> format.</p>"""
+    r"""<p>The time when the destination phone number was created, in <a href=\"https://www.epochconverter.com/\">UNIX epoch time</a> format.</p>"""
 
 
 # --- awsJson1_0 ser/de ---

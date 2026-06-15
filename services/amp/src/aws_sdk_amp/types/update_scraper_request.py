@@ -21,7 +21,7 @@ class UpdateScraperRequest(TypedDict):
     scrape_configuration: NotRequired[
         "aws_sdk_amp.types.scrape_configuration.ScrapeConfiguration"
     ]
-    """<p>Contains the base-64 encoded YAML configuration for the scraper.</p> <note> <p>For more information about configuring a scraper, see <a href=\"https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html\">Using an Amazon Web Services managed collector</a> in the <i>Amazon Managed Service for Prometheus User Guide</i>.</p> </note>"""
+    r"""<p>Contains the base-64 encoded YAML configuration for the scraper.</p> <note> <p>For more information about configuring a scraper, see <a href=\"https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html\">Using an Amazon Web Services managed collector</a> in the <i>Amazon Managed Service for Prometheus User Guide</i>.</p> </note>"""
     destination: NotRequired["aws_sdk_amp.types.destination.Destination"]
     """<p>The new Amazon Managed Service for Prometheus workspace to send metrics to.</p>"""
     role_configuration: NotRequired[

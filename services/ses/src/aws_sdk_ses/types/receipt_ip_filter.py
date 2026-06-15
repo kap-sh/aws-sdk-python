@@ -14,7 +14,7 @@ class ReceiptIpFilter(TypedDict):
     policy: "aws_sdk_ses.types.receipt_filter_policy.ReceiptFilterPolicy"
     """<p>Indicates whether to block or allow incoming mail from the specified IP addresses.</p>"""
     cidr: "aws_sdk_ses.types.cidr.Cidr"
-    """<p>A single IP address or a range of IP addresses to block or allow, specified in Classless Inter-Domain Routing (CIDR) notation. An example of a single email address is 10.0.0.1. An example of a range of IP addresses is 10.0.0.1/24. For more information about CIDR notation, see <a href=\"https://tools.ietf.org/html/rfc2317\">RFC 2317</a>.</p>"""
+    r"""<p>A single IP address or a range of IP addresses to block or allow, specified in Classless Inter-Domain Routing (CIDR) notation. An example of a single email address is 10.0.0.1. An example of a range of IP addresses is 10.0.0.1/24. For more information about CIDR notation, see <a href=\"https://tools.ietf.org/html/rfc2317\">RFC 2317</a>.</p>"""
 
 
 # --- awsQuery ser/de ---

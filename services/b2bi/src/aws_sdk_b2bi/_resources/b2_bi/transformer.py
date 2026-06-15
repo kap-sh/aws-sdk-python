@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 from aws_sdk_b2bi._services._pipeline import (
@@ -68,7 +70,7 @@ class Transformer:
             "aws_sdk_b2bi.types.sample_documents.SampleDocuments"
         ] = None,
     ) -> "aws_sdk_b2bi.types.create_transformer_response.CreateTransformerResponse":
-        """<p>Creates a transformer. Amazon Web Services B2B Data Interchange currently supports two scenarios:</p> <ul> <li> <p> <i>Inbound EDI</i>: the Amazon Web Services customer receives an EDI file from their trading partner. Amazon Web Services B2B Data Interchange converts this EDI file into a JSON or XML file with a service-defined structure. A mapping template provided by the customer, in JSONata or XSLT format, is optionally applied to this file to produce a JSON or XML file with the structure the customer requires.</p> </li> <li> <p> <i>Outbound EDI</i>: the Amazon Web Services customer has a JSON or XML file containing data that they wish to use in an EDI file. A mapping template, provided by the customer (in either JSONata or XSLT format) is applied to this file to generate a JSON or XML file in the service-defined structure. This file is then converted to an EDI file.</p> </li> </ul> <note> <p>The following fields are provided for backwards compatibility only: <code>fileFormat</code>, <code>mappingTemplate</code>, <code>ediType</code>, and <code>sampleDocument</code>.</p> <ul> <li> <p>Use the <code>mapping</code> data type in place of <code>mappingTemplate</code> and <code>fileFormat</code> </p> </li> <li> <p>Use the <code>sampleDocuments</code> data type in place of <code>sampleDocument</code> </p> </li> <li> <p>Use either the <code>inputConversion</code> or <code>outputConversion</code> in place of <code>ediType</code> </p> </li> </ul> </note>
+        r"""<p>Creates a transformer. Amazon Web Services B2B Data Interchange currently supports two scenarios:</p> <ul> <li> <p> <i>Inbound EDI</i>: the Amazon Web Services customer receives an EDI file from their trading partner. Amazon Web Services B2B Data Interchange converts this EDI file into a JSON or XML file with a service-defined structure. A mapping template provided by the customer, in JSONata or XSLT format, is optionally applied to this file to produce a JSON or XML file with the structure the customer requires.</p> </li> <li> <p> <i>Outbound EDI</i>: the Amazon Web Services customer has a JSON or XML file containing data that they wish to use in an EDI file. A mapping template, provided by the customer (in either JSONata or XSLT format) is applied to this file to generate a JSON or XML file in the service-defined structure. This file is then converted to an EDI file.</p> </li> </ul> <note> <p>The following fields are provided for backwards compatibility only: <code>fileFormat</code>, <code>mappingTemplate</code>, <code>ediType</code>, and <code>sampleDocument</code>.</p> <ul> <li> <p>Use the <code>mapping</code> data type in place of <code>mappingTemplate</code> and <code>fileFormat</code> </p> </li> <li> <p>Use the <code>sampleDocuments</code> data type in place of <code>sampleDocument</code> </p> </li> <li> <p>Use either the <code>inputConversion</code> or <code>outputConversion</code> in place of <code>ediType</code> </p> </li> </ul> </note>
 
         Args:
             name: <p>Specifies the name of the transformer, used to identify it.</p>
@@ -104,31 +106,31 @@ class Transformer:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_b2bi.types.create_transformer_request.CreateTransformerRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_b2bi.types.create_transformer_request.CreateTransformerRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if file_format is not None:
-            input["file_format"] = file_format
+            input_["file_format"] = file_format
         if mapping_template is not None:
-            input["mapping_template"] = mapping_template
+            input_["mapping_template"] = mapping_template
         if edi_type is not None:
-            input["edi_type"] = edi_type
+            input_["edi_type"] = edi_type
         if sample_document is not None:
-            input["sample_document"] = sample_document
+            input_["sample_document"] = sample_document
         if input_conversion is not None:
-            input["input_conversion"] = input_conversion
+            input_["input_conversion"] = input_conversion
         if mapping is not None:
-            input["mapping"] = mapping
+            input_["mapping"] = mapping
         if output_conversion is not None:
-            input["output_conversion"] = output_conversion
+            input_["output_conversion"] = output_conversion
         if sample_documents is not None:
-            input["sample_documents"] = sample_documents
+            input_["sample_documents"] = sample_documents
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -166,11 +168,11 @@ class Transformer:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_b2bi.types.get_transformer_request.GetTransformerRequest = {}  # type: ignore[typeddict-item]
-        input["transformer_id"] = transformer_id
+        input_: aws_sdk_b2bi.types.get_transformer_request.GetTransformerRequest = {}  # type: ignore[typeddict-item]
+        input_["transformer_id"] = transformer_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -204,7 +206,7 @@ class Transformer:
             "aws_sdk_b2bi.types.sample_documents.SampleDocuments"
         ] = None,
     ) -> "aws_sdk_b2bi.types.update_transformer_response.UpdateTransformerResponse":
-        """<p>Updates the specified parameters for a transformer. A transformer can take an EDI file as input and transform it into a JSON-or XML-formatted document. Alternatively, a transformer can take a JSON-or XML-formatted document as input and transform it into an EDI file.</p>
+        r"""<p>Updates the specified parameters for a transformer. A transformer can take an EDI file as input and transform it into a JSON-or XML-formatted document. Alternatively, a transformer can take a JSON-or XML-formatted document as input and transform it into an EDI file.</p>
 
         Args:
             transformer_id: <p>Specifies the system-assigned unique identifier for the transformer.</p>
@@ -240,31 +242,31 @@ class Transformer:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_b2bi.types.update_transformer_request.UpdateTransformerRequest = {}  # type: ignore[typeddict-item]
-        input["transformer_id"] = transformer_id
+        input_: aws_sdk_b2bi.types.update_transformer_request.UpdateTransformerRequest = {}  # type: ignore[typeddict-item]
+        input_["transformer_id"] = transformer_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if file_format is not None:
-            input["file_format"] = file_format
+            input_["file_format"] = file_format
         if mapping_template is not None:
-            input["mapping_template"] = mapping_template
+            input_["mapping_template"] = mapping_template
         if edi_type is not None:
-            input["edi_type"] = edi_type
+            input_["edi_type"] = edi_type
         if sample_document is not None:
-            input["sample_document"] = sample_document
+            input_["sample_document"] = sample_document
         if input_conversion is not None:
-            input["input_conversion"] = input_conversion
+            input_["input_conversion"] = input_conversion
         if mapping is not None:
-            input["mapping"] = mapping
+            input_["mapping"] = mapping
         if output_conversion is not None:
-            input["output_conversion"] = output_conversion
+            input_["output_conversion"] = output_conversion
         if sample_documents is not None:
-            input["sample_documents"] = sample_documents
+            input_["sample_documents"] = sample_documents
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -300,11 +302,11 @@ class Transformer:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_b2bi.types.delete_transformer_request.DeleteTransformerRequest = {}  # type: ignore[typeddict-item]
-        input["transformer_id"] = transformer_id
+        input_: aws_sdk_b2bi.types.delete_transformer_request.DeleteTransformerRequest = {}  # type: ignore[typeddict-item]
+        input_["transformer_id"] = transformer_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -344,14 +346,14 @@ class Transformer:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_b2bi.types.list_transformers_request.ListTransformersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_b2bi.types.list_transformers_request.ListTransformersRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -388,7 +390,7 @@ class AsyncTransformer:
             "aws_sdk_b2bi.types.sample_documents.SampleDocuments"
         ] = None,
     ) -> "aws_sdk_b2bi.types.create_transformer_response.CreateTransformerResponse":
-        """<p>Creates a transformer. Amazon Web Services B2B Data Interchange currently supports two scenarios:</p> <ul> <li> <p> <i>Inbound EDI</i>: the Amazon Web Services customer receives an EDI file from their trading partner. Amazon Web Services B2B Data Interchange converts this EDI file into a JSON or XML file with a service-defined structure. A mapping template provided by the customer, in JSONata or XSLT format, is optionally applied to this file to produce a JSON or XML file with the structure the customer requires.</p> </li> <li> <p> <i>Outbound EDI</i>: the Amazon Web Services customer has a JSON or XML file containing data that they wish to use in an EDI file. A mapping template, provided by the customer (in either JSONata or XSLT format) is applied to this file to generate a JSON or XML file in the service-defined structure. This file is then converted to an EDI file.</p> </li> </ul> <note> <p>The following fields are provided for backwards compatibility only: <code>fileFormat</code>, <code>mappingTemplate</code>, <code>ediType</code>, and <code>sampleDocument</code>.</p> <ul> <li> <p>Use the <code>mapping</code> data type in place of <code>mappingTemplate</code> and <code>fileFormat</code> </p> </li> <li> <p>Use the <code>sampleDocuments</code> data type in place of <code>sampleDocument</code> </p> </li> <li> <p>Use either the <code>inputConversion</code> or <code>outputConversion</code> in place of <code>ediType</code> </p> </li> </ul> </note>
+        r"""<p>Creates a transformer. Amazon Web Services B2B Data Interchange currently supports two scenarios:</p> <ul> <li> <p> <i>Inbound EDI</i>: the Amazon Web Services customer receives an EDI file from their trading partner. Amazon Web Services B2B Data Interchange converts this EDI file into a JSON or XML file with a service-defined structure. A mapping template provided by the customer, in JSONata or XSLT format, is optionally applied to this file to produce a JSON or XML file with the structure the customer requires.</p> </li> <li> <p> <i>Outbound EDI</i>: the Amazon Web Services customer has a JSON or XML file containing data that they wish to use in an EDI file. A mapping template, provided by the customer (in either JSONata or XSLT format) is applied to this file to generate a JSON or XML file in the service-defined structure. This file is then converted to an EDI file.</p> </li> </ul> <note> <p>The following fields are provided for backwards compatibility only: <code>fileFormat</code>, <code>mappingTemplate</code>, <code>ediType</code>, and <code>sampleDocument</code>.</p> <ul> <li> <p>Use the <code>mapping</code> data type in place of <code>mappingTemplate</code> and <code>fileFormat</code> </p> </li> <li> <p>Use the <code>sampleDocuments</code> data type in place of <code>sampleDocument</code> </p> </li> <li> <p>Use either the <code>inputConversion</code> or <code>outputConversion</code> in place of <code>ediType</code> </p> </li> </ul> </note>
 
         Args:
             name: <p>Specifies the name of the transformer, used to identify it.</p>
@@ -425,31 +427,31 @@ class AsyncTransformer:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_b2bi.types.create_transformer_request.CreateTransformerRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_b2bi.types.create_transformer_request.CreateTransformerRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if file_format is not None:
-            input["file_format"] = file_format
+            input_["file_format"] = file_format
         if mapping_template is not None:
-            input["mapping_template"] = mapping_template
+            input_["mapping_template"] = mapping_template
         if edi_type is not None:
-            input["edi_type"] = edi_type
+            input_["edi_type"] = edi_type
         if sample_document is not None:
-            input["sample_document"] = sample_document
+            input_["sample_document"] = sample_document
         if input_conversion is not None:
-            input["input_conversion"] = input_conversion
+            input_["input_conversion"] = input_conversion
         if mapping is not None:
-            input["mapping"] = mapping
+            input_["mapping"] = mapping
         if output_conversion is not None:
-            input["output_conversion"] = output_conversion
+            input_["output_conversion"] = output_conversion
         if sample_documents is not None:
-            input["sample_documents"] = sample_documents
+            input_["sample_documents"] = sample_documents
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -488,11 +490,11 @@ class AsyncTransformer:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_b2bi.types.get_transformer_request.GetTransformerRequest = {}  # type: ignore[typeddict-item]
-        input["transformer_id"] = transformer_id
+        input_: aws_sdk_b2bi.types.get_transformer_request.GetTransformerRequest = {}  # type: ignore[typeddict-item]
+        input_["transformer_id"] = transformer_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -526,7 +528,7 @@ class AsyncTransformer:
             "aws_sdk_b2bi.types.sample_documents.SampleDocuments"
         ] = None,
     ) -> "aws_sdk_b2bi.types.update_transformer_response.UpdateTransformerResponse":
-        """<p>Updates the specified parameters for a transformer. A transformer can take an EDI file as input and transform it into a JSON-or XML-formatted document. Alternatively, a transformer can take a JSON-or XML-formatted document as input and transform it into an EDI file.</p>
+        r"""<p>Updates the specified parameters for a transformer. A transformer can take an EDI file as input and transform it into a JSON-or XML-formatted document. Alternatively, a transformer can take a JSON-or XML-formatted document as input and transform it into an EDI file.</p>
 
         Args:
             transformer_id: <p>Specifies the system-assigned unique identifier for the transformer.</p>
@@ -563,31 +565,31 @@ class AsyncTransformer:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_b2bi.types.update_transformer_request.UpdateTransformerRequest = {}  # type: ignore[typeddict-item]
-        input["transformer_id"] = transformer_id
+        input_: aws_sdk_b2bi.types.update_transformer_request.UpdateTransformerRequest = {}  # type: ignore[typeddict-item]
+        input_["transformer_id"] = transformer_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if file_format is not None:
-            input["file_format"] = file_format
+            input_["file_format"] = file_format
         if mapping_template is not None:
-            input["mapping_template"] = mapping_template
+            input_["mapping_template"] = mapping_template
         if edi_type is not None:
-            input["edi_type"] = edi_type
+            input_["edi_type"] = edi_type
         if sample_document is not None:
-            input["sample_document"] = sample_document
+            input_["sample_document"] = sample_document
         if input_conversion is not None:
-            input["input_conversion"] = input_conversion
+            input_["input_conversion"] = input_conversion
         if mapping is not None:
-            input["mapping"] = mapping
+            input_["mapping"] = mapping
         if output_conversion is not None:
-            input["output_conversion"] = output_conversion
+            input_["output_conversion"] = output_conversion
         if sample_documents is not None:
-            input["sample_documents"] = sample_documents
+            input_["sample_documents"] = sample_documents
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -624,11 +626,11 @@ class AsyncTransformer:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_b2bi.types.delete_transformer_request.DeleteTransformerRequest = {}  # type: ignore[typeddict-item]
-        input["transformer_id"] = transformer_id
+        input_: aws_sdk_b2bi.types.delete_transformer_request.DeleteTransformerRequest = {}  # type: ignore[typeddict-item]
+        input_["transformer_id"] = transformer_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -669,14 +671,14 @@ class AsyncTransformer:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_b2bi.types.list_transformers_request.ListTransformersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_b2bi.types.list_transformers_request.ListTransformersRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

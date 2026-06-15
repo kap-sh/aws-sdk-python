@@ -14,7 +14,7 @@ class ConfigStreamDeliveryInfo(TypedDict):
     last_status: NotRequired[
         "aws_sdk_config_service.types.delivery_status.DeliveryStatus"
     ]
-    """<p>Status of the last attempted delivery.</p> <p> <b>Note</b> Providing an SNS topic on a <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DeliveryChannel.html\">DeliveryChannel</a> for Config is optional. If the SNS delivery is turned off, the last status will be <b>Not_Applicable</b>.</p>"""
+    r"""<p>Status of the last attempted delivery.</p> <p> <b>Note</b> Providing an SNS topic on a <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DeliveryChannel.html\">DeliveryChannel</a> for Config is optional. If the SNS delivery is turned off, the last status will be <b>Not_Applicable</b>.</p>"""
     last_error_code: NotRequired["aws_sdk_config_service.types.string.String"]
     """<p>The error code from the last attempted delivery.</p>"""
     last_error_message: NotRequired["aws_sdk_config_service.types.string.String"]

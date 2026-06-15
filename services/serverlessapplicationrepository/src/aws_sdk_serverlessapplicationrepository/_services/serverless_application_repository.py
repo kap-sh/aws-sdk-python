@@ -204,7 +204,7 @@ class ServerlessApplicationRepositoryClient:
             "aws_sdk_serverlessapplicationrepository.types.__string.__string"
         ] = None,
     ) -> "aws_sdk_serverlessapplicationrepository.types.create_application_response.CreateApplicationResponse":
-        """<p>Creates an application, optionally including an AWS SAM file to create the first application version in the same call.</p>
+        r"""<p>Creates an application, optionally including an AWS SAM file to create the first application version in the same call.</p>
 
         Args:
             author: <p>The name of the author publishing the app.</p><p>Minimum length=1. Maximum length=127.</p><p>Pattern \"^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$\";</p>
@@ -379,7 +379,7 @@ class ServerlessApplicationRepositoryClient:
             "aws_sdk_serverlessapplicationrepository.types.__string.__string"
         ] = None,
     ) -> "aws_sdk_serverlessapplicationrepository.types.create_cloud_formation_change_set_response.CreateCloudFormationChangeSetResponse":
-        """<p>Creates an AWS CloudFormation change set for the given application.</p>
+        r"""<p>Creates an AWS CloudFormation change set for the given application.</p>
 
         Args:
             application_id: <p>The Amazon Resource Name (ARN) of the application.</p>
@@ -454,7 +454,7 @@ class ServerlessApplicationRepositoryClient:
             "aws_sdk_serverlessapplicationrepository.types.__string.__string"
         ] = None,
     ) -> "aws_sdk_serverlessapplicationrepository.types.create_cloud_formation_template_response.CreateCloudFormationTemplateResponse":
-        """<p>Creates an AWS CloudFormation template.</p>
+        r"""<p>Creates an AWS CloudFormation template.</p>
 
         Args:
             application_id: <p>The Amazon Resource Name (ARN) of the application.</p>
@@ -610,7 +610,7 @@ class ServerlessApplicationRepositoryClient:
         *,
         config_overrides: Optional[ServerlessApplicationRepositoryClientConfig] = None,
     ) -> "aws_sdk_serverlessapplicationrepository.types.get_cloud_formation_template_response.GetCloudFormationTemplateResponse":
-        """<p>Gets the specified AWS CloudFormation template.</p>
+        r"""<p>Gets the specified AWS CloudFormation template.</p>
 
         Args:
             application_id: <p>The Amazon Resource Name (ARN) of the application.</p>
@@ -800,7 +800,7 @@ class ServerlessApplicationRepositoryClient:
         *,
         config_overrides: Optional[ServerlessApplicationRepositoryClientConfig] = None,
     ) -> "aws_sdk_serverlessapplicationrepository.types.put_application_policy_response.PutApplicationPolicyResponse":
-        """<p>Sets the permission policy for an application. For the list of actions supported for this operation, see <a href=\"https://docs.aws.amazon.com/serverlessrepo/latest/devguide/access-control-resource-based.html#application-permissions\">Application Permissions</a> .</p>
+        r"""<p>Sets the permission policy for an application. For the list of actions supported for this operation, see <a href=\"https://docs.aws.amazon.com/serverlessrepo/latest/devguide/access-control-resource-based.html#application-permissions\">Application Permissions</a> .</p>
 
         Args:
             application_id: <p>The Amazon Resource Name (ARN) of the application.</p>
@@ -895,7 +895,7 @@ class ServerlessApplicationRepositoryClient:
             "aws_sdk_serverlessapplicationrepository.types.__string.__string"
         ] = None,
     ) -> "aws_sdk_serverlessapplicationrepository.types.update_application_response.UpdateApplicationResponse":
-        """<p>Updates the specified application.</p>
+        r"""<p>Updates the specified application.</p>
 
         Args:
             application_id: <p>The Amazon Resource Name (ARN) of the application.</p>

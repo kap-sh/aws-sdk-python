@@ -32,7 +32,7 @@ class ConnectionAuthResponseParameters(TypedDict):
     connectivity_parameters: NotRequired[
         "aws_sdk_eventbridge.types.describe_connection_connectivity_parameters.DescribeConnectionConnectivityParameters"
     ]
-    """<p>For private OAuth authentication endpoints. The parameters EventBridge uses to authenticate against the endpoint.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-target-connection-auth.html\">Authorization methods for connections</a> in the <i> <i>Amazon EventBridge User Guide</i> </i>.</p>"""
+    r"""<p>For private OAuth authentication endpoints. The parameters EventBridge uses to authenticate against the endpoint.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-target-connection-auth.html\">Authorization methods for connections</a> in the <i> <i>Amazon EventBridge User Guide</i> </i>.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

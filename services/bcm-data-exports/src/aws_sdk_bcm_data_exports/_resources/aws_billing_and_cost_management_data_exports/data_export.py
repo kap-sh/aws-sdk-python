@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 from aws_sdk_bcm_data_exports._services._pipeline import (
@@ -49,7 +51,7 @@ class DataExport:
             "aws_sdk_bcm_data_exports.types.resource_tag_list.ResourceTagList"
         ] = None,
     ) -> "aws_sdk_bcm_data_exports.types.create_export_response.CreateExportResponse":
-        """<p>Creates a data export and specifies the data query, the delivery preference, and any optional resource tags.</p> <p>A <code>DataQuery</code> consists of both a <code>QueryStatement</code> and <code>TableConfigurations</code>.</p> <p>The <code>QueryStatement</code> is an SQL statement. Data Exports only supports a limited subset of the SQL syntax. For more information on the SQL syntax that is supported, see <a href=\"https://docs.aws.amazon.com/cur/latest/userguide/de-data-query.html\">Data query</a>. To view the available tables and columns, see the <a href=\"https://docs.aws.amazon.com/cur/latest/userguide/de-table-dictionary.html\">Data Exports table dictionary</a>.</p> <p>The <code>TableConfigurations</code> is a collection of specified <code>TableProperties</code> for the table being queried in the <code>QueryStatement</code>. TableProperties are additional configurations you can provide to change the data and schema of a table. Each table can have different TableProperties. However, tables are not required to have any TableProperties. Each table property has a default value that it assumes if not specified. For more information on table configurations, see <a href=\"https://docs.aws.amazon.com/cur/latest/userguide/de-data-query.html\">Data query</a>. To view the table properties available for each table, see the <a href=\"https://docs.aws.amazon.com/cur/latest/userguide/de-table-dictionary.html\">Data Exports table dictionary</a> or use the <code>ListTables</code> API to get a response of all tables and their available properties.</p>
+        r"""<p>Creates a data export and specifies the data query, the delivery preference, and any optional resource tags.</p> <p>A <code>DataQuery</code> consists of both a <code>QueryStatement</code> and <code>TableConfigurations</code>.</p> <p>The <code>QueryStatement</code> is an SQL statement. Data Exports only supports a limited subset of the SQL syntax. For more information on the SQL syntax that is supported, see <a href=\"https://docs.aws.amazon.com/cur/latest/userguide/de-data-query.html\">Data query</a>. To view the available tables and columns, see the <a href=\"https://docs.aws.amazon.com/cur/latest/userguide/de-table-dictionary.html\">Data Exports table dictionary</a>.</p> <p>The <code>TableConfigurations</code> is a collection of specified <code>TableProperties</code> for the table being queried in the <code>QueryStatement</code>. TableProperties are additional configurations you can provide to change the data and schema of a table. Each table can have different TableProperties. However, tables are not required to have any TableProperties. Each table property has a default value that it assumes if not specified. For more information on table configurations, see <a href=\"https://docs.aws.amazon.com/cur/latest/userguide/de-data-query.html\">Data query</a>. To view the table properties available for each table, see the <a href=\"https://docs.aws.amazon.com/cur/latest/userguide/de-table-dictionary.html\">Data Exports table dictionary</a> or use the <code>ListTables</code> API to get a response of all tables and their available properties.</p>
 
         Args:
             export: <p>The details of the export, including data query, name, description, and destination configuration.</p>
@@ -71,13 +73,13 @@ class DataExport:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bcm_data_exports.types.create_export_request.CreateExportRequest = {}  # type: ignore[typeddict-item]
-        input["export"] = export
+        input_: aws_sdk_bcm_data_exports.types.create_export_request.CreateExportRequest = {}  # type: ignore[typeddict-item]
+        input_["export"] = export
         if resource_tags is not None:
-            input["resource_tags"] = resource_tags
+            input_["resource_tags"] = resource_tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -110,11 +112,11 @@ class DataExport:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bcm_data_exports.types.get_export_request.GetExportRequest = {}  # type: ignore[typeddict-item]
-        input["export_arn"] = export_arn
+        input_: aws_sdk_bcm_data_exports.types.get_export_request.GetExportRequest = {}  # type: ignore[typeddict-item]
+        input_["export_arn"] = export_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -149,12 +151,12 @@ class DataExport:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bcm_data_exports.types.update_export_request.UpdateExportRequest = {}  # type: ignore[typeddict-item]
-        input["export_arn"] = export_arn
-        input["export"] = export
+        input_: aws_sdk_bcm_data_exports.types.update_export_request.UpdateExportRequest = {}  # type: ignore[typeddict-item]
+        input_["export_arn"] = export_arn
+        input_["export"] = export
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -187,11 +189,11 @@ class DataExport:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bcm_data_exports.types.delete_export_request.DeleteExportRequest = {}  # type: ignore[typeddict-item]
-        input["export_arn"] = export_arn
+        input_: aws_sdk_bcm_data_exports.types.delete_export_request.DeleteExportRequest = {}  # type: ignore[typeddict-item]
+        input_["export_arn"] = export_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -230,14 +232,14 @@ class DataExport:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bcm_data_exports.types.list_exports_request.ListExportsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bcm_data_exports.types.list_exports_request.ListExportsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -257,7 +259,7 @@ class AsyncDataExport:
             "aws_sdk_bcm_data_exports.types.resource_tag_list.ResourceTagList"
         ] = None,
     ) -> "aws_sdk_bcm_data_exports.types.create_export_response.CreateExportResponse":
-        """<p>Creates a data export and specifies the data query, the delivery preference, and any optional resource tags.</p> <p>A <code>DataQuery</code> consists of both a <code>QueryStatement</code> and <code>TableConfigurations</code>.</p> <p>The <code>QueryStatement</code> is an SQL statement. Data Exports only supports a limited subset of the SQL syntax. For more information on the SQL syntax that is supported, see <a href=\"https://docs.aws.amazon.com/cur/latest/userguide/de-data-query.html\">Data query</a>. To view the available tables and columns, see the <a href=\"https://docs.aws.amazon.com/cur/latest/userguide/de-table-dictionary.html\">Data Exports table dictionary</a>.</p> <p>The <code>TableConfigurations</code> is a collection of specified <code>TableProperties</code> for the table being queried in the <code>QueryStatement</code>. TableProperties are additional configurations you can provide to change the data and schema of a table. Each table can have different TableProperties. However, tables are not required to have any TableProperties. Each table property has a default value that it assumes if not specified. For more information on table configurations, see <a href=\"https://docs.aws.amazon.com/cur/latest/userguide/de-data-query.html\">Data query</a>. To view the table properties available for each table, see the <a href=\"https://docs.aws.amazon.com/cur/latest/userguide/de-table-dictionary.html\">Data Exports table dictionary</a> or use the <code>ListTables</code> API to get a response of all tables and their available properties.</p>
+        r"""<p>Creates a data export and specifies the data query, the delivery preference, and any optional resource tags.</p> <p>A <code>DataQuery</code> consists of both a <code>QueryStatement</code> and <code>TableConfigurations</code>.</p> <p>The <code>QueryStatement</code> is an SQL statement. Data Exports only supports a limited subset of the SQL syntax. For more information on the SQL syntax that is supported, see <a href=\"https://docs.aws.amazon.com/cur/latest/userguide/de-data-query.html\">Data query</a>. To view the available tables and columns, see the <a href=\"https://docs.aws.amazon.com/cur/latest/userguide/de-table-dictionary.html\">Data Exports table dictionary</a>.</p> <p>The <code>TableConfigurations</code> is a collection of specified <code>TableProperties</code> for the table being queried in the <code>QueryStatement</code>. TableProperties are additional configurations you can provide to change the data and schema of a table. Each table can have different TableProperties. However, tables are not required to have any TableProperties. Each table property has a default value that it assumes if not specified. For more information on table configurations, see <a href=\"https://docs.aws.amazon.com/cur/latest/userguide/de-data-query.html\">Data query</a>. To view the table properties available for each table, see the <a href=\"https://docs.aws.amazon.com/cur/latest/userguide/de-table-dictionary.html\">Data Exports table dictionary</a> or use the <code>ListTables</code> API to get a response of all tables and their available properties.</p>
 
         Args:
             export: <p>The details of the export, including data query, name, description, and destination configuration.</p>
@@ -280,13 +282,13 @@ class AsyncDataExport:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bcm_data_exports.types.create_export_request.CreateExportRequest = {}  # type: ignore[typeddict-item]
-        input["export"] = export
+        input_: aws_sdk_bcm_data_exports.types.create_export_request.CreateExportRequest = {}  # type: ignore[typeddict-item]
+        input_["export"] = export
         if resource_tags is not None:
-            input["resource_tags"] = resource_tags
+            input_["resource_tags"] = resource_tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -320,11 +322,11 @@ class AsyncDataExport:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bcm_data_exports.types.get_export_request.GetExportRequest = {}  # type: ignore[typeddict-item]
-        input["export_arn"] = export_arn
+        input_: aws_sdk_bcm_data_exports.types.get_export_request.GetExportRequest = {}  # type: ignore[typeddict-item]
+        input_["export_arn"] = export_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -360,12 +362,12 @@ class AsyncDataExport:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bcm_data_exports.types.update_export_request.UpdateExportRequest = {}  # type: ignore[typeddict-item]
-        input["export_arn"] = export_arn
-        input["export"] = export
+        input_: aws_sdk_bcm_data_exports.types.update_export_request.UpdateExportRequest = {}  # type: ignore[typeddict-item]
+        input_["export_arn"] = export_arn
+        input_["export"] = export
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -399,11 +401,11 @@ class AsyncDataExport:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bcm_data_exports.types.delete_export_request.DeleteExportRequest = {}  # type: ignore[typeddict-item]
-        input["export_arn"] = export_arn
+        input_: aws_sdk_bcm_data_exports.types.delete_export_request.DeleteExportRequest = {}  # type: ignore[typeddict-item]
+        input_["export_arn"] = export_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -443,14 +445,14 @@ class AsyncDataExport:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bcm_data_exports.types.list_exports_request.ListExportsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bcm_data_exports.types.list_exports_request.ListExportsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

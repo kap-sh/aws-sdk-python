@@ -1,14 +1,19 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#Content``."""
 
 from typing import TYPE_CHECKING, TypeAlias, TypedDict
+
 from aws_sdk_bedrock_agentcore.errors import DeserializationError, SerializationError
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.sensitive_string
+
 
 class _Content_text(TypedDict):
     text: "aws_sdk_bedrock_agentcore.types.sensitive_string.SensitiveString"
 
+
 Content: TypeAlias = _Content_text
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: Content) -> dict:

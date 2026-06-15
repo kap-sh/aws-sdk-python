@@ -21,7 +21,7 @@ class GetCoreDeviceResponse(TypedDict):
     ]
     """<p>The name of the core device. This is also the name of the IoT thing.</p>"""
     core_version: NotRequired["aws_sdk_greengrassv2.types.ggc_version.GGCVersion"]
-    """<p>The version of the IoT Greengrass Core software that the core device runs. This version is equivalent to the version of the Greengrass nucleus component that runs on the core device. For more information, see the <a href=\"https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-nucleus-component.html\">Greengrass nucleus component</a> in the <i>IoT Greengrass V2 Developer Guide</i>.</p>"""
+    r"""<p>The version of the IoT Greengrass Core software that the core device runs. This version is equivalent to the version of the Greengrass nucleus component that runs on the core device. For more information, see the <a href=\"https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-nucleus-component.html\">Greengrass nucleus component</a> in the <i>IoT Greengrass V2 Developer Guide</i>.</p>"""
     platform: NotRequired[
         "aws_sdk_greengrassv2.types.core_device_platform_string.CoreDevicePlatformString"
     ]
@@ -43,7 +43,7 @@ class GetCoreDeviceResponse(TypedDict):
     ]
     """<p>The time at which the core device's status last updated, expressed in ISO 8601 format.</p>"""
     tags: NotRequired["aws_sdk_greengrassv2.types.tag_map.TagMap"]
-    """<p>A list of key-value pairs that contain metadata for the resource. For more information, see <a href=\"https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html\">Tag your resources</a> in the <i>IoT Greengrass V2 Developer Guide</i>.</p>"""
+    r"""<p>A list of key-value pairs that contain metadata for the resource. For more information, see <a href=\"https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html\">Tag your resources</a> in the <i>IoT Greengrass V2 Developer Guide</i>.</p>"""
 
 
 # --- restJson1 ser/de ---

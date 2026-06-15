@@ -14,7 +14,7 @@ class HttpParameters(TypedDict):
     path_parameter_values: NotRequired[
         "aws_sdk_eventbridge.types.path_parameter_list.PathParameterList"
     ]
-    """<p>The path parameter values to be used to populate API Gateway API or EventBridge ApiDestination path wildcards (\"*\").</p>"""
+    r"""<p>The path parameter values to be used to populate API Gateway API or EventBridge ApiDestination path wildcards (\"*\").</p>"""
     header_parameters: NotRequired[
         "aws_sdk_eventbridge.types.header_parameters_map.HeaderParametersMap"
     ]

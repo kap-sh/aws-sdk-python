@@ -19,7 +19,7 @@ class ManagedCertificateDetails(TypedDict):
     certificate_status: NotRequired[
         "aws_sdk_cloudfront.types.managed_certificate_status.ManagedCertificateStatus"
     ]
-    """<p>The status of the CloudFront managed ACM certificate.</p> <note> <p>Your distribution tenant will be updated with the latest certificate status. When calling the <a href=\"https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistributionTenant.html\">UpdateDistributionTenant</a> operation, use the latest value for the <code>ETag</code>.</p> </note>"""
+    r"""<p>The status of the CloudFront managed ACM certificate.</p> <note> <p>Your distribution tenant will be updated with the latest certificate status. When calling the <a href=\"https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistributionTenant.html\">UpdateDistributionTenant</a> operation, use the latest value for the <code>ETag</code>.</p> </note>"""
     validation_token_host: NotRequired[
         "aws_sdk_cloudfront.types.validation_token_host.ValidationTokenHost"
     ]

@@ -7,7 +7,7 @@ from aws_sdk_resource_explorer_2.errors import DeserializationError
 
 class GetViewInput(TypedDict):
     view_arn: "str"
-    """<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon resource name (ARN)</a> of the view that you want information about.</p>"""
+    r"""<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon resource name (ARN)</a> of the view that you want information about.</p>"""
 
 
 # --- restJson1 ser/de ---

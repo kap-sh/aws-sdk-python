@@ -74,7 +74,7 @@ def handle_response(
     )
     out: aws_sdk_codeartifact.types.get_package_version_asset_result.GetPackageVersionAssetResult = {
         "asset": _iter
-    }
+    }  # type: ignore[reportAssignmentType]
     if "X-AssetName" in response.headers:
         out["asset_name"] = str(response.headers["X-AssetName"])
     if "X-PackageVersion" in response.headers:

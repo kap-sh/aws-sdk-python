@@ -8,7 +8,7 @@ if TYPE_CHECKING:
 
 class GetLinkedWhatsAppBusinessAccountPhoneNumberInput(TypedDict):
     id: "aws_sdk_socialmessaging.types.whats_app_phone_number_id.WhatsAppPhoneNumberId"
-    """<p>The unique identifier of the phone number. Phone number identifiers are formatted as <code>phone-number-id-01234567890123456789012345678901</code>. Use <a href=\"https://docs.aws.amazon.com/social-messaging/latest/APIReference/API_GetLinkedWhatsAppBusinessAccount.html\">GetLinkedWhatsAppBusinessAccount</a> to find a phone number's id.</p>"""
+    r"""<p>The unique identifier of the phone number. Phone number identifiers are formatted as <code>phone-number-id-01234567890123456789012345678901</code>. Use <a href=\"https://docs.aws.amazon.com/social-messaging/latest/APIReference/API_GetLinkedWhatsAppBusinessAccount.html\">GetLinkedWhatsAppBusinessAccount</a> to find a phone number's id.</p>"""
 
 
 # --- restJson1 ser/de ---

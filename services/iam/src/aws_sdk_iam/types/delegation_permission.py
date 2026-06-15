@@ -13,7 +13,7 @@ if TYPE_CHECKING:
 
 class DelegationPermission(TypedDict):
     policy_template_arn: NotRequired["aws_sdk_iam.types.arn_type.arnType"]
-    """<p>This ARN maps to a pre-registered policy content for this partner. See the <a href=\"\">partner onboarding documentation</a> to understand how to create a delegation template.</p>"""
+    r"""<p>This ARN maps to a pre-registered policy content for this partner. See the <a href=\"\">partner onboarding documentation</a> to understand how to create a delegation template.</p>"""
     parameters: NotRequired[
         "aws_sdk_iam.types.policy_parameter_list_type.policyParameterListType"
     ]

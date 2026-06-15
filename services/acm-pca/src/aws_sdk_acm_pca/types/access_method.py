@@ -13,7 +13,7 @@ class AccessMethod(TypedDict):
     custom_object_identifier: NotRequired[
         "aws_sdk_acm_pca.types.custom_object_identifier.CustomObjectIdentifier"
     ]
-    """<p>An object identifier (OID) specifying the <code>AccessMethod</code>. The OID must satisfy the regular expression shown below. For more information, see NIST's definition of <a href=\"https://csrc.nist.gov/glossary/term/Object_Identifier\">Object Identifier (OID)</a>.</p>"""
+    r"""<p>An object identifier (OID) specifying the <code>AccessMethod</code>. The OID must satisfy the regular expression shown below. For more information, see NIST's definition of <a href=\"https://csrc.nist.gov/glossary/term/Object_Identifier\">Object Identifier (OID)</a>.</p>"""
     access_method_type: NotRequired[
         "aws_sdk_acm_pca.types.access_method_type.AccessMethodType"
     ]

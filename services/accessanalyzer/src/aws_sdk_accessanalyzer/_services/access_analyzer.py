@@ -168,7 +168,7 @@ class AccessAnalyzerClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = AccessAnalyzerClientConfig(
+        self._config = AccessAnalyzerClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -181,6 +181,7 @@ class AccessAnalyzerClient:
                 "credentials_provider": credentials_provider,
             }
         )
+
         # resources
         self.analyzer = Analyzer(self)
 
@@ -190,7 +191,7 @@ class AccessAnalyzerClient:
         overrides: AccessAnalyzerClientConfig = config_overrides or {}
         interceptors_: list[Interceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             retry(),
         ]
@@ -198,16 +199,16 @@ class AccessAnalyzerClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            region=overrides.get("region", self.config.get("region")),
+            region=overrides.get("region", self._config.get("region")),
             use_dual_stack=overrides.get(
-                "use_dual_stack", self.config.get("use_dual_stack")
+                "use_dual_stack", self._config.get("use_dual_stack")
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -353,7 +354,7 @@ class AccessAnalyzerClient:
         *,
         config_overrides: Optional[AccessAnalyzerClientConfig] = None,
     ) -> "aws_sdk_accessanalyzer.types.check_no_new_access_response.CheckNoNewAccessResponse":
-        """<p>Checks whether new access is allowed for an updated policy when compared to the existing policy.</p> <p>You can find examples for reference policies and learn how to set up and run a custom policy check for new access in the <a href=\"https://github.com/aws-samples/iam-access-analyzer-custom-policy-check-samples\">IAM Access Analyzer custom policy checks samples</a> repository on GitHub. The reference policies in this repository are meant to be passed to the <code>existingPolicyDocument</code> request parameter.</p>
+        r"""<p>Checks whether new access is allowed for an updated policy when compared to the existing policy.</p> <p>You can find examples for reference policies and learn how to set up and run a custom policy check for new access in the <a href=\"https://github.com/aws-samples/iam-access-analyzer-custom-policy-check-samples\">IAM Access Analyzer custom policy checks samples</a> repository on GitHub. The reference policies in this repository are meant to be passed to the <code>existingPolicyDocument</code> request parameter.</p>
 
         Args:
             new_policy_document: <p>The JSON policy document to use as the content for the updated policy.</p>
@@ -444,7 +445,7 @@ class AccessAnalyzerClient:
         config_overrides: Optional[AccessAnalyzerClientConfig] = None,
         client_token: Optional[str] = None,
     ) -> "aws_sdk_accessanalyzer.types.create_access_preview_response.CreateAccessPreviewResponse":
-        """<p>Creates an access preview that allows you to preview IAM Access Analyzer findings for your resource before deploying resource permissions.</p>
+        r"""<p>Creates an access preview that allows you to preview IAM Access Analyzer findings for your resource before deploying resource permissions.</p>
 
         Args:
             analyzer_arn: <p>The <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources\">ARN of the account analyzer</a> used to generate the access preview. You can only create an access preview for analyzers with an <code>Account</code> type and <code>Active</code> status.</p>
@@ -540,7 +541,7 @@ class AccessAnalyzerClient:
         *,
         config_overrides: Optional[AccessAnalyzerClientConfig] = None,
     ) -> None:
-        """<p>Creates a recommendation for an unused permissions finding.</p>
+        r"""<p>Creates a recommendation for an unused permissions finding.</p>
 
         Args:
             analyzer_arn: <p>The <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources\">ARN of the analyzer</a> used to generate the finding recommendation.</p>
@@ -586,7 +587,7 @@ class AccessAnalyzerClient:
         *,
         config_overrides: Optional[AccessAnalyzerClientConfig] = None,
     ) -> "aws_sdk_accessanalyzer.types.get_access_preview_response.GetAccessPreviewResponse":
-        """<p>Retrieves information about an access preview for the specified analyzer.</p>
+        r"""<p>Retrieves information about an access preview for the specified analyzer.</p>
 
         Args:
             access_preview_id: <p>The unique ID for the access preview.</p>
@@ -626,7 +627,7 @@ class AccessAnalyzerClient:
         *,
         config_overrides: Optional[AccessAnalyzerClientConfig] = None,
     ) -> "aws_sdk_accessanalyzer.types.get_analyzed_resource_response.GetAnalyzedResourceResponse":
-        """<p>Retrieves information about a resource that was analyzed.</p> <note> <p>This action is supported only for external access analyzers.</p> </note>
+        r"""<p>Retrieves information about a resource that was analyzed.</p> <note> <p>This action is supported only for external access analyzers.</p> </note>
 
         Args:
             analyzer_arn: <p>The <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources\">ARN of the analyzer</a> to retrieve information from.</p>
@@ -666,7 +667,7 @@ class AccessAnalyzerClient:
         *,
         config_overrides: Optional[AccessAnalyzerClientConfig] = None,
     ) -> "aws_sdk_accessanalyzer.types.get_finding_response.GetFindingResponse":
-        """<p>Retrieves information about the specified finding. GetFinding and GetFindingV2 both use <code>access-analyzer:GetFinding</code> in the <code>Action</code> element of an IAM policy statement. You must have permission to perform the <code>access-analyzer:GetFinding</code> action.</p> <note> <p>GetFinding is supported only for external access analyzers. You must use GetFindingV2 for internal and unused access analyzers.</p> </note>
+        r"""<p>Retrieves information about the specified finding. GetFinding and GetFindingV2 both use <code>access-analyzer:GetFinding</code> in the <code>Action</code> element of an IAM policy statement. You must have permission to perform the <code>access-analyzer:GetFinding</code> action.</p> <note> <p>GetFinding is supported only for external access analyzers. You must use GetFindingV2 for internal and unused access analyzers.</p> </note>
 
         Args:
             analyzer_arn: <p>The <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources\">ARN of the analyzer</a> that generated the finding.</p>
@@ -708,7 +709,7 @@ class AccessAnalyzerClient:
         max_results: Optional[int] = None,
         next_token: Optional["aws_sdk_accessanalyzer.types.token.Token"] = None,
     ) -> "aws_sdk_accessanalyzer.types.get_finding_recommendation_response.GetFindingRecommendationResponse":
-        """<p>Retrieves information about a finding recommendation for the specified analyzer.</p>
+        r"""<p>Retrieves information about a finding recommendation for the specified analyzer.</p>
 
         Args:
             analyzer_arn: <p>The <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources\">ARN of the analyzer</a> used to generate the finding recommendation.</p>
@@ -792,7 +793,7 @@ class AccessAnalyzerClient:
         *,
         config_overrides: Optional[AccessAnalyzerClientConfig] = None,
     ) -> "aws_sdk_accessanalyzer.types.get_findings_statistics_response.GetFindingsStatisticsResponse":
-        """<p>Retrieves a list of aggregated finding statistics for an external access or unused access analyzer.</p>
+        r"""<p>Retrieves a list of aggregated finding statistics for an external access or unused access analyzer.</p>
 
         Args:
             analyzer_arn: <p>The <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources\">ARN of the analyzer</a> used to generate the statistics.</p>
@@ -832,7 +833,7 @@ class AccessAnalyzerClient:
         max_results: Optional[int] = None,
         next_token: Optional["aws_sdk_accessanalyzer.types.token.Token"] = None,
     ) -> "aws_sdk_accessanalyzer.types.get_finding_v2_response.GetFindingV2Response":
-        """<p>Retrieves information about the specified finding. GetFinding and GetFindingV2 both use <code>access-analyzer:GetFinding</code> in the <code>Action</code> element of an IAM policy statement. You must have permission to perform the <code>access-analyzer:GetFinding</code> action.</p>
+        r"""<p>Retrieves information about the specified finding. GetFinding and GetFindingV2 both use <code>access-analyzer:GetFinding</code> in the <code>Action</code> element of an IAM policy statement. You must have permission to perform the <code>access-analyzer:GetFinding</code> action.</p>
 
         Args:
             analyzer_arn: <p>The <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources\">ARN of the analyzer</a> that generated the finding.</p>
@@ -879,7 +880,7 @@ class AccessAnalyzerClient:
         include_resource_placeholders: Optional[bool] = None,
         include_service_level_template: Optional[bool] = None,
     ) -> "aws_sdk_accessanalyzer.types.get_generated_policy_response.GetGeneratedPolicyResponse":
-        """<p>Retrieves the policy that was generated using <code>StartPolicyGeneration</code>. </p>
+        r"""<p>Retrieves the policy that was generated using <code>StartPolicyGeneration</code>. </p>
 
         Args:
             job_id: <p>The <code>JobId</code> that is returned by the <code>StartPolicyGeneration</code> operation. The <code>JobId</code> can be used with <code>GetGeneratedPolicy</code> to retrieve the generated policies or used with <code>CancelPolicyGeneration</code> to cancel the policy generation request.</p>
@@ -928,7 +929,7 @@ class AccessAnalyzerClient:
         next_token: Optional["aws_sdk_accessanalyzer.types.token.Token"] = None,
         max_results: Optional[int] = None,
     ) -> "aws_sdk_accessanalyzer.types.list_access_preview_findings_response.ListAccessPreviewFindingsResponse":
-        """<p>Retrieves a list of access preview findings generated by the specified access preview.</p>
+        r"""<p>Retrieves a list of access preview findings generated by the specified access preview.</p>
 
         Args:
             access_preview_id: <p>The unique ID for the access preview.</p>
@@ -978,7 +979,7 @@ class AccessAnalyzerClient:
         next_token: Optional["aws_sdk_accessanalyzer.types.token.Token"] = None,
         max_results: Optional[int] = None,
     ) -> "aws_sdk_accessanalyzer.types.list_access_previews_response.ListAccessPreviewsResponse":
-        """<p>Retrieves a list of access previews for the specified analyzer.</p>
+        r"""<p>Retrieves a list of access previews for the specified analyzer.</p>
 
         Args:
             analyzer_arn: <p>The <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources\">ARN of the analyzer</a> used to generate the access preview.</p>
@@ -1026,7 +1027,7 @@ class AccessAnalyzerClient:
         next_token: Optional["aws_sdk_accessanalyzer.types.token.Token"] = None,
         max_results: Optional[int] = None,
     ) -> "aws_sdk_accessanalyzer.types.list_analyzed_resources_response.ListAnalyzedResourcesResponse":
-        """<p>Retrieves a list of resources of the specified type that have been analyzed by the specified analyzer.</p>
+        r"""<p>Retrieves a list of resources of the specified type that have been analyzed by the specified analyzer.</p>
 
         Args:
             analyzer_arn: <p>The <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources\">ARN of the analyzer</a> to retrieve a list of analyzed resources from.</p>
@@ -1080,7 +1081,7 @@ class AccessAnalyzerClient:
         next_token: Optional["aws_sdk_accessanalyzer.types.token.Token"] = None,
         max_results: Optional[int] = None,
     ) -> "aws_sdk_accessanalyzer.types.list_findings_response.ListFindingsResponse":
-        """<p>Retrieves a list of findings generated by the specified analyzer. ListFindings and ListFindingsV2 both use <code>access-analyzer:ListFindings</code> in the <code>Action</code> element of an IAM policy statement. You must have permission to perform the <code>access-analyzer:ListFindings</code> action.</p> <p>To learn about filter keys that you can use to retrieve a list of findings, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-reference-filter-keys.html\">IAM Access Analyzer filter keys</a> in the <b>IAM User Guide</b>.</p> <note> <p>ListFindings is supported only for external access analyzers. You must use ListFindingsV2 for internal and unused access analyzers.</p> </note>
+        r"""<p>Retrieves a list of findings generated by the specified analyzer. ListFindings and ListFindingsV2 both use <code>access-analyzer:ListFindings</code> in the <code>Action</code> element of an IAM policy statement. You must have permission to perform the <code>access-analyzer:ListFindings</code> action.</p> <p>To learn about filter keys that you can use to retrieve a list of findings, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-reference-filter-keys.html\">IAM Access Analyzer filter keys</a> in the <b>IAM User Guide</b>.</p> <note> <p>ListFindings is supported only for external access analyzers. You must use ListFindingsV2 for internal and unused access analyzers.</p> </note>
 
         Args:
             analyzer_arn: <p>The <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources\">ARN of the analyzer</a> to retrieve findings from.</p>
@@ -1139,7 +1140,7 @@ class AccessAnalyzerClient:
     ) -> (
         "aws_sdk_accessanalyzer.types.list_findings_v2_response.ListFindingsV2Response"
     ):
-        """<p>Retrieves a list of findings generated by the specified analyzer. ListFindings and ListFindingsV2 both use <code>access-analyzer:ListFindings</code> in the <code>Action</code> element of an IAM policy statement. You must have permission to perform the <code>access-analyzer:ListFindings</code> action.</p> <p>To learn about filter keys that you can use to retrieve a list of findings, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-reference-filter-keys.html\">IAM Access Analyzer filter keys</a> in the <b>IAM User Guide</b>.</p>
+        r"""<p>Retrieves a list of findings generated by the specified analyzer. ListFindings and ListFindingsV2 both use <code>access-analyzer:ListFindings</code> in the <code>Action</code> element of an IAM policy statement. You must have permission to perform the <code>access-analyzer:ListFindings</code> action.</p> <p>To learn about filter keys that you can use to retrieve a list of findings, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-reference-filter-keys.html\">IAM Access Analyzer filter keys</a> in the <b>IAM User Guide</b>.</p>
 
         Args:
             analyzer_arn: <p>The <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources\">ARN of the analyzer</a> to retrieve findings from.</p>
@@ -1321,7 +1322,7 @@ class AccessAnalyzerClient:
         config_overrides: Optional[AccessAnalyzerClientConfig] = None,
         resource_owner_account: Optional[str] = None,
     ) -> None:
-        """<p>Immediately starts a scan of the policies applied to the specified resource.</p> <note> <p>This action is supported only for external access analyzers.</p> </note>
+        r"""<p>Immediately starts a scan of the policies applied to the specified resource.</p> <note> <p>This action is supported only for external access analyzers.</p> </note>
 
         Args:
             analyzer_arn: <p>The <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources\">ARN of the analyzer</a> to use to scan the policies applied to the specified resource.</p>
@@ -1449,7 +1450,7 @@ class AccessAnalyzerClient:
         ] = None,
         client_token: Optional[str] = None,
     ) -> None:
-        """<p>Updates the status for the specified findings.</p>
+        r"""<p>Updates the status for the specified findings.</p>
 
         Args:
             analyzer_arn: <p>The <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources\">ARN of the analyzer</a> that generated the findings to update.</p>

@@ -18,7 +18,7 @@ class CreateMeetingDialOutRequest(TypedDict):
     to_phone_number: "aws_sdk_chime.types.e164_phone_number.E164PhoneNumber"
     """<p>Phone number called when inviting someone to a meeting.</p>"""
     join_token: "aws_sdk_chime.types.join_token_string.JoinTokenString"
-    """<p>Token used by the Amazon Chime SDK attendee. Call the <a href=\"https://docs.aws.amazon.com/chime/latest/APIReference/API_CreateAttendee.html\">CreateAttendee</a> action to get a join token.</p>"""
+    r"""<p>Token used by the Amazon Chime SDK attendee. Call the <a href=\"https://docs.aws.amazon.com/chime/latest/APIReference/API_CreateAttendee.html\">CreateAttendee</a> action to get a join token.</p>"""
 
 
 # --- restJson1 ser/de ---

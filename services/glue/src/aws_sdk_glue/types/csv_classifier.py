@@ -49,7 +49,7 @@ class CsvClassifier(TypedDict):
     ]
     """<p>Enables the custom datatype to be configured.</p>"""
     custom_datatypes: NotRequired["aws_sdk_glue.types.custom_datatypes.CustomDatatypes"]
-    """<p>A list of custom datatypes including \"BINARY\", \"BOOLEAN\", \"DATE\", \"DECIMAL\", \"DOUBLE\", \"FLOAT\", \"INT\", \"LONG\", \"SHORT\", \"STRING\", \"TIMESTAMP\".</p>"""
+    r"""<p>A list of custom datatypes including \"BINARY\", \"BOOLEAN\", \"DATE\", \"DECIMAL\", \"DOUBLE\", \"FLOAT\", \"INT\", \"LONG\", \"SHORT\", \"STRING\", \"TIMESTAMP\".</p>"""
     serde: NotRequired["aws_sdk_glue.types.csv_serde_option.CsvSerdeOption"]
     """<p>Sets the SerDe for processing CSV in the classifier, which will be applied in the Data Catalog. Valid values are <code>OpenCSVSerDe</code>, <code>LazySimpleSerDe</code>, and <code>None</code>. You can specify the <code>None</code> value when you want the crawler to do the detection.</p>"""
 

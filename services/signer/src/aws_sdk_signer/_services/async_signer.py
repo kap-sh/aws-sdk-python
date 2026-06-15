@@ -202,7 +202,7 @@ class AsyncsignerClient:
         ] = None,
         revision_id: Optional["aws_sdk_signer.types.string.String"] = None,
     ) -> "aws_sdk_signer.types.add_profile_permission_response.AddProfilePermissionResponse":
-        """<p>Adds cross-account permissions to a signing profile.</p>
+        r"""<p>Adds cross-account permissions to a signing profile.</p>
 
         Args:
             profile_name: <p>The human-readable name of the signing profile.</p>
@@ -252,7 +252,7 @@ class AsyncsignerClient:
         *,
         config_overrides: Optional[AsyncsignerClientConfig] = None,
     ) -> None:
-        """<p>Changes the state of an <code>ACTIVE</code> signing profile to <code>CANCELED</code>. A canceled profile is still viewable with the <code>ListSigningProfiles</code> operation, but it cannot perform new signing jobs. See <a href=\"https://docs.aws.amazon.com/signer/latest/developerguide/retention.html\">Data Retention</a> for more information on scheduled deletion of a canceled signing profile.</p>
+        r"""<p>Changes the state of an <code>ACTIVE</code> signing profile to <code>CANCELED</code>. A canceled profile is still viewable with the <code>ListSigningProfiles</code> operation, but it cannot perform new signing jobs. See <a href=\"https://docs.aws.amazon.com/signer/latest/developerguide/retention.html\">Data Retention</a> for more information on scheduled deletion of a canceled signing profile.</p>
 
         Args:
             profile_name: <p>The name of the signing profile to be canceled.</p>
@@ -332,7 +332,7 @@ class AsyncsignerClient:
         *,
         config_overrides: Optional[AsyncsignerClientConfig] = None,
     ) -> "aws_sdk_signer.types.get_revocation_status_response.GetRevocationStatusResponse":
-        """<p>Retrieves the revocation status of one or more of the signing profile, signing job, and signing certificate.</p>
+        r"""<p>Retrieves the revocation status of one or more of the signing profile, signing job, and signing certificate.</p>
 
         Args:
             signature_timestamp: <p>The timestamp of the signature that validates the profile or job.</p>
@@ -884,7 +884,7 @@ class AsyncsignerClient:
         *,
         config_overrides: Optional[AsyncsignerClientConfig] = None,
     ) -> None:
-        """<p>Changes the state of a signing profile to <code>REVOKED</code>. This indicates that signatures generated using the signing profile after an effective start date are no longer valid. A revoked profile is still viewable with the <code>ListSigningProfiles</code> operation, but it cannot perform new signing jobs. See <a href=\"https://docs.aws.amazon.com/signer/latest/developerguide/retention.html\">Data Retention</a> for more information on scheduled deletion of a revoked signing profile. </p>
+        r"""<p>Changes the state of a signing profile to <code>REVOKED</code>. This indicates that signatures generated using the signing profile after an effective start date are no longer valid. A revoked profile is still viewable with the <code>ListSigningProfiles</code> operation, but it cannot perform new signing jobs. See <a href=\"https://docs.aws.amazon.com/signer/latest/developerguide/retention.html\">Data Retention</a> for more information on scheduled deletion of a revoked signing profile. </p>
 
         Args:
             profile_name: <p>The name of the signing profile to be revoked.</p>
@@ -978,7 +978,7 @@ class AsyncsignerClient:
         config_overrides: Optional[AsyncsignerClientConfig] = None,
         profile_owner: Optional["aws_sdk_signer.types.account_id.AccountId"] = None,
     ) -> "aws_sdk_signer.types.start_signing_job_response.StartSigningJobResponse":
-        """<p>Initiates a signing job to be performed on the code provided. Signing jobs are viewable by the <code>ListSigningJobs</code> operation. Note the following requirements: </p> <ul> <li> <p> You must create an Amazon S3 source bucket. For more information, see <a href=\"http://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html\">Creating a Bucket</a> in the <i>Amazon S3 Getting Started Guide</i>. </p> </li> <li> <p>Your S3 source bucket must be version enabled.</p> </li> <li> <p>You must create an S3 destination bucket. AWS Signer uses your S3 destination bucket to write your signed code.</p> </li> <li> <p>You specify the name of the source and destination buckets when calling the <code>StartSigningJob</code> operation.</p> </li> <li> <p>You must ensure the S3 buckets are from the same Region as the signing profile. Cross-Region signing isn't supported.</p> </li> <li> <p>You must also specify a request token that identifies your request to Signer.</p> </li> </ul> <p>You can call the <a>DescribeSigningJob</a> and the <a>ListSigningJobs</a> actions after you call <code>StartSigningJob</code>.</p> <p>For a Java example that shows how to use this action, see <a href=\"https://docs.aws.amazon.com/signer/latest/developerguide/api-startsigningjob.html\">StartSigningJob</a>.</p>
+        r"""<p>Initiates a signing job to be performed on the code provided. Signing jobs are viewable by the <code>ListSigningJobs</code> operation. Note the following requirements: </p> <ul> <li> <p> You must create an Amazon S3 source bucket. For more information, see <a href=\"http://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html\">Creating a Bucket</a> in the <i>Amazon S3 Getting Started Guide</i>. </p> </li> <li> <p>Your S3 source bucket must be version enabled.</p> </li> <li> <p>You must create an S3 destination bucket. AWS Signer uses your S3 destination bucket to write your signed code.</p> </li> <li> <p>You specify the name of the source and destination buckets when calling the <code>StartSigningJob</code> operation.</p> </li> <li> <p>You must ensure the S3 buckets are from the same Region as the signing profile. Cross-Region signing isn't supported.</p> </li> <li> <p>You must also specify a request token that identifies your request to Signer.</p> </li> </ul> <p>You can call the <a>DescribeSigningJob</a> and the <a>ListSigningJobs</a> actions after you call <code>StartSigningJob</code>.</p> <p>For a Java example that shows how to use this action, see <a href=\"https://docs.aws.amazon.com/signer/latest/developerguide/api-startsigningjob.html\">StartSigningJob</a>.</p>
 
         Args:
             source: <p>The S3 bucket that contains the object to sign or a BLOB that contains your raw code.</p>

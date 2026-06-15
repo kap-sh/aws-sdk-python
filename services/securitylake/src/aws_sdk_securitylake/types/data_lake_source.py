@@ -17,7 +17,7 @@ class DataLakeSource(TypedDict):
     event_classes: NotRequired[
         "aws_sdk_securitylake.types.ocsf_event_class_list.OcsfEventClassList"
     ]
-    """<p>The Open Cybersecurity Schema Framework (OCSF) event classes describes the type of data that the custom source will send to Security Lake. For the list of supported event classes, see <a href=\"https://docs.aws.amazon.com/security-lake/latest/userguide/adding-custom-sources.html#ocsf-eventclass.html\">Supported OCSF Event classes</a> in the Amazon Security Lake User Guide.</p>"""
+    r"""<p>The Open Cybersecurity Schema Framework (OCSF) event classes describes the type of data that the custom source will send to Security Lake. For the list of supported event classes, see <a href=\"https://docs.aws.amazon.com/security-lake/latest/userguide/adding-custom-sources.html#ocsf-eventclass.html\">Supported OCSF Event classes</a> in the Amazon Security Lake User Guide.</p>"""
     source_statuses: NotRequired[
         "aws_sdk_securitylake.types.data_lake_source_status_list.DataLakeSourceStatusList"
     ]

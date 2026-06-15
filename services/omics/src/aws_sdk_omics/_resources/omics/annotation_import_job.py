@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_omics._auth._signers
@@ -60,7 +62,7 @@ class AnnotationImportJob:
             "aws_sdk_omics.types.annotation_field_map.AnnotationFieldMap"
         ] = None,
     ) -> "aws_sdk_omics.types.start_annotation_import_response.StartAnnotationImportResponse":
-        """<important> <p>Amazon Web Services HealthOmics variant stores and annotation stores are no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see <a href=\"https://docs.aws.amazon.com/omics/latest/dev/variant-store-availability-change.html\"> Amazon Web Services HealthOmics variant store and annotation store availability change</a>.</p> </important> <p>Starts an annotation import job.</p>
+        r"""<important> <p>Amazon Web Services HealthOmics variant stores and annotation stores are no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see <a href=\"https://docs.aws.amazon.com/omics/latest/dev/variant-store-availability-change.html\"> Amazon Web Services HealthOmics variant store and annotation store availability change</a>.</p> </important> <p>Starts an annotation import job.</p>
 
         Args:
             destination_name: <p>A destination annotation store for the job.</p>
@@ -115,7 +117,7 @@ class AnnotationImportJob:
     ) -> (
         "aws_sdk_omics.types.get_annotation_import_response.GetAnnotationImportResponse"
     ):
-        """<important> <p>Amazon Web Services HealthOmics variant stores and annotation stores are no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see <a href=\"https://docs.aws.amazon.com/omics/latest/dev/variant-store-availability-change.html\"> Amazon Web Services HealthOmics variant store and annotation store availability change</a>.</p> </important> <p>Gets information about an annotation import job.</p>
+        r"""<important> <p>Amazon Web Services HealthOmics variant stores and annotation stores are no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see <a href=\"https://docs.aws.amazon.com/omics/latest/dev/variant-store-availability-change.html\"> Amazon Web Services HealthOmics variant store and annotation store availability change</a>.</p> </important> <p>Gets information about an annotation import job.</p>
 
         Args:
             job_id: <p>The job's ID.</p>
@@ -152,7 +154,7 @@ class AnnotationImportJob:
         *,
         config_overrides: Optional[OmicsClientConfig] = None,
     ) -> "aws_sdk_omics.types.cancel_annotation_import_response.CancelAnnotationImportResponse":
-        """<important> <p>Amazon Web Services HealthOmics variant stores and annotation stores are no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see <a href=\"https://docs.aws.amazon.com/omics/latest/dev/variant-store-availability-change.html\"> Amazon Web Services HealthOmics variant store and annotation store availability change</a>.</p> </important> <p>Cancels an annotation import job.</p>
+        r"""<important> <p>Amazon Web Services HealthOmics variant stores and annotation stores are no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see <a href=\"https://docs.aws.amazon.com/omics/latest/dev/variant-store-availability-change.html\"> Amazon Web Services HealthOmics variant store and annotation store availability change</a>.</p> </important> <p>Cancels an annotation import job.</p>
 
         Args:
             job_id: <p>The job's ID.</p>
@@ -194,7 +196,7 @@ class AnnotationImportJob:
             "aws_sdk_omics.types.list_annotation_import_jobs_filter.ListAnnotationImportJobsFilter"
         ] = None,
     ) -> "aws_sdk_omics.types.list_annotation_import_jobs_response.ListAnnotationImportJobsResponse":
-        """<important> <p>Amazon Web Services HealthOmics variant stores and annotation stores are no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see <a href=\"https://docs.aws.amazon.com/omics/latest/dev/variant-store-availability-change.html\"> Amazon Web Services HealthOmics variant store and annotation store availability change</a>.</p> </important> <p>Retrieves a list of annotation import jobs.</p>
+        r"""<important> <p>Amazon Web Services HealthOmics variant stores and annotation stores are no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see <a href=\"https://docs.aws.amazon.com/omics/latest/dev/variant-store-availability-change.html\"> Amazon Web Services HealthOmics variant store and annotation store availability change</a>.</p> </important> <p>Retrieves a list of annotation import jobs.</p>
 
         Args:
             max_results: <p>The maximum number of jobs to return in one page of results.</p>
@@ -258,7 +260,7 @@ class AsyncAnnotationImportJob:
             "aws_sdk_omics.types.annotation_field_map.AnnotationFieldMap"
         ] = None,
     ) -> "aws_sdk_omics.types.start_annotation_import_response.StartAnnotationImportResponse":
-        """<important> <p>Amazon Web Services HealthOmics variant stores and annotation stores are no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see <a href=\"https://docs.aws.amazon.com/omics/latest/dev/variant-store-availability-change.html\"> Amazon Web Services HealthOmics variant store and annotation store availability change</a>.</p> </important> <p>Starts an annotation import job.</p>
+        r"""<important> <p>Amazon Web Services HealthOmics variant stores and annotation stores are no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see <a href=\"https://docs.aws.amazon.com/omics/latest/dev/variant-store-availability-change.html\"> Amazon Web Services HealthOmics variant store and annotation store availability change</a>.</p> </important> <p>Starts an annotation import job.</p>
 
         Args:
             destination_name: <p>A destination annotation store for the job.</p>
@@ -314,7 +316,7 @@ class AsyncAnnotationImportJob:
     ) -> (
         "aws_sdk_omics.types.get_annotation_import_response.GetAnnotationImportResponse"
     ):
-        """<important> <p>Amazon Web Services HealthOmics variant stores and annotation stores are no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see <a href=\"https://docs.aws.amazon.com/omics/latest/dev/variant-store-availability-change.html\"> Amazon Web Services HealthOmics variant store and annotation store availability change</a>.</p> </important> <p>Gets information about an annotation import job.</p>
+        r"""<important> <p>Amazon Web Services HealthOmics variant stores and annotation stores are no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see <a href=\"https://docs.aws.amazon.com/omics/latest/dev/variant-store-availability-change.html\"> Amazon Web Services HealthOmics variant store and annotation store availability change</a>.</p> </important> <p>Gets information about an annotation import job.</p>
 
         Args:
             job_id: <p>The job's ID.</p>
@@ -352,7 +354,7 @@ class AsyncAnnotationImportJob:
         *,
         config_overrides: Optional[AsyncOmicsClientConfig] = None,
     ) -> "aws_sdk_omics.types.cancel_annotation_import_response.CancelAnnotationImportResponse":
-        """<important> <p>Amazon Web Services HealthOmics variant stores and annotation stores are no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see <a href=\"https://docs.aws.amazon.com/omics/latest/dev/variant-store-availability-change.html\"> Amazon Web Services HealthOmics variant store and annotation store availability change</a>.</p> </important> <p>Cancels an annotation import job.</p>
+        r"""<important> <p>Amazon Web Services HealthOmics variant stores and annotation stores are no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see <a href=\"https://docs.aws.amazon.com/omics/latest/dev/variant-store-availability-change.html\"> Amazon Web Services HealthOmics variant store and annotation store availability change</a>.</p> </important> <p>Cancels an annotation import job.</p>
 
         Args:
             job_id: <p>The job's ID.</p>
@@ -395,7 +397,7 @@ class AsyncAnnotationImportJob:
             "aws_sdk_omics.types.list_annotation_import_jobs_filter.ListAnnotationImportJobsFilter"
         ] = None,
     ) -> "aws_sdk_omics.types.list_annotation_import_jobs_response.ListAnnotationImportJobsResponse":
-        """<important> <p>Amazon Web Services HealthOmics variant stores and annotation stores are no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see <a href=\"https://docs.aws.amazon.com/omics/latest/dev/variant-store-availability-change.html\"> Amazon Web Services HealthOmics variant store and annotation store availability change</a>.</p> </important> <p>Retrieves a list of annotation import jobs.</p>
+        r"""<important> <p>Amazon Web Services HealthOmics variant stores and annotation stores are no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see <a href=\"https://docs.aws.amazon.com/omics/latest/dev/variant-store-availability-change.html\"> Amazon Web Services HealthOmics variant store and annotation store availability change</a>.</p> </important> <p>Retrieves a list of annotation import jobs.</p>
 
         Args:
             max_results: <p>The maximum number of jobs to return in one page of results.</p>

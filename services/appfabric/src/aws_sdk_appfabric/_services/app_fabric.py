@@ -159,7 +159,7 @@ class AppFabricClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = AppFabricClientConfig(
+        self._config = AppFabricClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -179,7 +179,7 @@ class AppFabricClient:
         overrides: AppFabricClientConfig = config_overrides or {}
         interceptors_: list[Interceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             retry(),
         ]
@@ -187,16 +187,16 @@ class AppFabricClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            region=overrides.get("region", self.config.get("region")),
+            region=overrides.get("region", self._config.get("region")),
             use_dual_stack=overrides.get(
-                "use_dual_stack", self.config.get("use_dual_stack")
+                "use_dual_stack", self._config.get("use_dual_stack")
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -230,12 +230,12 @@ class AppFabricClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appfabric.types.batch_get_user_access_tasks_request.BatchGetUserAccessTasksRequest = {}  # type: ignore[typeddict-item]
-        input["app_bundle_identifier"] = app_bundle_identifier
-        input["task_id_list"] = task_id_list
+        input_: aws_sdk_appfabric.types.batch_get_user_access_tasks_request.BatchGetUserAccessTasksRequest = {}  # type: ignore[typeddict-item]
+        input_["app_bundle_identifier"] = app_bundle_identifier
+        input_["task_id_list"] = task_id_list
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -274,14 +274,14 @@ class AppFabricClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appfabric.types.connect_app_authorization_request.ConnectAppAuthorizationRequest = {}  # type: ignore[typeddict-item]
-        input["app_bundle_identifier"] = app_bundle_identifier
-        input["app_authorization_identifier"] = app_authorization_identifier
+        input_: aws_sdk_appfabric.types.connect_app_authorization_request.ConnectAppAuthorizationRequest = {}  # type: ignore[typeddict-item]
+        input_["app_bundle_identifier"] = app_bundle_identifier
+        input_["app_authorization_identifier"] = app_authorization_identifier
         if auth_request is not None:
-            input["auth_request"] = auth_request
+            input_["auth_request"] = auth_request
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -299,7 +299,7 @@ class AppFabricClient:
         client_token: Optional["aws_sdk_appfabric.types.uuid.UUID"] = None,
         tags: Optional["aws_sdk_appfabric.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_appfabric.types.create_app_authorization_response.CreateAppAuthorizationResponse":
-        """<p>Creates an app authorization within an app bundle, which allows AppFabric to connect to an application.</p>
+        r"""<p>Creates an app authorization within an app bundle, which allows AppFabric to connect to an application.</p>
 
         Args:
             app_bundle_identifier: <p>The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app bundle to use for the request.</p>
@@ -326,19 +326,19 @@ class AppFabricClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appfabric.types.create_app_authorization_request.CreateAppAuthorizationRequest = {}  # type: ignore[typeddict-item]
-        input["app_bundle_identifier"] = app_bundle_identifier
-        input["app"] = app
-        input["credential"] = credential
-        input["tenant"] = tenant
-        input["auth_type"] = auth_type
+        input_: aws_sdk_appfabric.types.create_app_authorization_request.CreateAppAuthorizationRequest = {}  # type: ignore[typeddict-item]
+        input_["app_bundle_identifier"] = app_bundle_identifier
+        input_["app"] = app
+        input_["credential"] = credential
+        input_["tenant"] = tenant
+        input_["auth_type"] = auth_type
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -354,7 +354,7 @@ class AppFabricClient:
         ] = None,
         tags: Optional["aws_sdk_appfabric.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_appfabric.types.create_app_bundle_response.CreateAppBundleResponse":
-        """<p>Creates an app bundle to collect data from an application using AppFabric.</p>
+        r"""<p>Creates an app bundle to collect data from an application using AppFabric.</p>
 
         Args:
             client_token: <p>Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This lets you safely retry the request without accidentally performing the same operation a second time. Passing the same value to a later call to an operation requires that you also pass the same value for all other parameters. We recommend that you use a <a href=\"https://wikipedia.org/wiki/Universally_unique_identifier\">UUID type of value</a>.</p> <p>If you don't provide this value, then Amazon Web Services generates a random one for you.</p> <p>If you retry the operation with the same <code>ClientToken</code>, but with different parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</p>
@@ -377,16 +377,16 @@ class AppFabricClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appfabric.types.create_app_bundle_request.CreateAppBundleRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_appfabric.types.create_app_bundle_request.CreateAppBundleRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if customer_managed_key_identifier is not None:
-            input["customer_managed_key_identifier"] = customer_managed_key_identifier
+            input_["customer_managed_key_identifier"] = customer_managed_key_identifier
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -403,7 +403,7 @@ class AppFabricClient:
         client_token: Optional["aws_sdk_appfabric.types.uuid.UUID"] = None,
         tags: Optional["aws_sdk_appfabric.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_appfabric.types.create_ingestion_response.CreateIngestionResponse":
-        """<p>Creates a data ingestion for an application.</p>
+        r"""<p>Creates a data ingestion for an application.</p>
 
         Args:
             app_bundle_identifier: <p>The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app bundle to use for the request.</p>
@@ -429,18 +429,18 @@ class AppFabricClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appfabric.types.create_ingestion_request.CreateIngestionRequest = {}  # type: ignore[typeddict-item]
-        input["app_bundle_identifier"] = app_bundle_identifier
-        input["app"] = app
-        input["tenant_id"] = tenant_id
-        input["ingestion_type"] = ingestion_type
+        input_: aws_sdk_appfabric.types.create_ingestion_request.CreateIngestionRequest = {}  # type: ignore[typeddict-item]
+        input_["app_bundle_identifier"] = app_bundle_identifier
+        input_["app"] = app
+        input_["tenant_id"] = tenant_id
+        input_["ingestion_type"] = ingestion_type
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -457,7 +457,7 @@ class AppFabricClient:
         client_token: Optional["aws_sdk_appfabric.types.uuid.UUID"] = None,
         tags: Optional["aws_sdk_appfabric.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_appfabric.types.create_ingestion_destination_response.CreateIngestionDestinationResponse":
-        """<p>Creates an ingestion destination, which specifies how an application's ingested data is processed by Amazon Web Services AppFabric and where it's delivered.</p>
+        r"""<p>Creates an ingestion destination, which specifies how an application's ingested data is processed by Amazon Web Services AppFabric and where it's delivered.</p>
 
         Args:
             app_bundle_identifier: <p>The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app bundle to use for the request.</p>
@@ -483,18 +483,18 @@ class AppFabricClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appfabric.types.create_ingestion_destination_request.CreateIngestionDestinationRequest = {}  # type: ignore[typeddict-item]
-        input["app_bundle_identifier"] = app_bundle_identifier
-        input["ingestion_identifier"] = ingestion_identifier
-        input["processing_configuration"] = processing_configuration
-        input["destination_configuration"] = destination_configuration
+        input_: aws_sdk_appfabric.types.create_ingestion_destination_request.CreateIngestionDestinationRequest = {}  # type: ignore[typeddict-item]
+        input_["app_bundle_identifier"] = app_bundle_identifier
+        input_["ingestion_identifier"] = ingestion_identifier
+        input_["processing_configuration"] = processing_configuration
+        input_["destination_configuration"] = destination_configuration
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -529,12 +529,12 @@ class AppFabricClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appfabric.types.delete_app_authorization_request.DeleteAppAuthorizationRequest = {}  # type: ignore[typeddict-item]
-        input["app_bundle_identifier"] = app_bundle_identifier
-        input["app_authorization_identifier"] = app_authorization_identifier
+        input_: aws_sdk_appfabric.types.delete_app_authorization_request.DeleteAppAuthorizationRequest = {}  # type: ignore[typeddict-item]
+        input_["app_bundle_identifier"] = app_bundle_identifier
+        input_["app_authorization_identifier"] = app_authorization_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -567,11 +567,11 @@ class AppFabricClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appfabric.types.delete_app_bundle_request.DeleteAppBundleRequest = {}  # type: ignore[typeddict-item]
-        input["app_bundle_identifier"] = app_bundle_identifier
+        input_: aws_sdk_appfabric.types.delete_app_bundle_request.DeleteAppBundleRequest = {}  # type: ignore[typeddict-item]
+        input_["app_bundle_identifier"] = app_bundle_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -606,12 +606,12 @@ class AppFabricClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appfabric.types.delete_ingestion_request.DeleteIngestionRequest = {}  # type: ignore[typeddict-item]
-        input["app_bundle_identifier"] = app_bundle_identifier
-        input["ingestion_identifier"] = ingestion_identifier
+        input_: aws_sdk_appfabric.types.delete_ingestion_request.DeleteIngestionRequest = {}  # type: ignore[typeddict-item]
+        input_["app_bundle_identifier"] = app_bundle_identifier
+        input_["ingestion_identifier"] = ingestion_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -648,13 +648,13 @@ class AppFabricClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appfabric.types.delete_ingestion_destination_request.DeleteIngestionDestinationRequest = {}  # type: ignore[typeddict-item]
-        input["app_bundle_identifier"] = app_bundle_identifier
-        input["ingestion_identifier"] = ingestion_identifier
-        input["ingestion_destination_identifier"] = ingestion_destination_identifier
+        input_: aws_sdk_appfabric.types.delete_ingestion_destination_request.DeleteIngestionDestinationRequest = {}  # type: ignore[typeddict-item]
+        input_["app_bundle_identifier"] = app_bundle_identifier
+        input_["ingestion_identifier"] = ingestion_identifier
+        input_["ingestion_destination_identifier"] = ingestion_destination_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -689,12 +689,12 @@ class AppFabricClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appfabric.types.get_app_authorization_request.GetAppAuthorizationRequest = {}  # type: ignore[typeddict-item]
-        input["app_bundle_identifier"] = app_bundle_identifier
-        input["app_authorization_identifier"] = app_authorization_identifier
+        input_: aws_sdk_appfabric.types.get_app_authorization_request.GetAppAuthorizationRequest = {}  # type: ignore[typeddict-item]
+        input_["app_bundle_identifier"] = app_bundle_identifier
+        input_["app_authorization_identifier"] = app_authorization_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -727,11 +727,11 @@ class AppFabricClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appfabric.types.get_app_bundle_request.GetAppBundleRequest = {}  # type: ignore[typeddict-item]
-        input["app_bundle_identifier"] = app_bundle_identifier
+        input_: aws_sdk_appfabric.types.get_app_bundle_request.GetAppBundleRequest = {}  # type: ignore[typeddict-item]
+        input_["app_bundle_identifier"] = app_bundle_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -766,12 +766,12 @@ class AppFabricClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appfabric.types.get_ingestion_request.GetIngestionRequest = {}  # type: ignore[typeddict-item]
-        input["app_bundle_identifier"] = app_bundle_identifier
-        input["ingestion_identifier"] = ingestion_identifier
+        input_: aws_sdk_appfabric.types.get_ingestion_request.GetIngestionRequest = {}  # type: ignore[typeddict-item]
+        input_["app_bundle_identifier"] = app_bundle_identifier
+        input_["ingestion_identifier"] = ingestion_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -808,13 +808,13 @@ class AppFabricClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appfabric.types.get_ingestion_destination_request.GetIngestionDestinationRequest = {}  # type: ignore[typeddict-item]
-        input["app_bundle_identifier"] = app_bundle_identifier
-        input["ingestion_identifier"] = ingestion_identifier
-        input["ingestion_destination_identifier"] = ingestion_destination_identifier
+        input_: aws_sdk_appfabric.types.get_ingestion_destination_request.GetIngestionDestinationRequest = {}  # type: ignore[typeddict-item]
+        input_["app_bundle_identifier"] = app_bundle_identifier
+        input_["ingestion_identifier"] = ingestion_identifier
+        input_["ingestion_destination_identifier"] = ingestion_destination_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -851,15 +851,15 @@ class AppFabricClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appfabric.types.list_app_authorizations_request.ListAppAuthorizationsRequest = {}  # type: ignore[typeddict-item]
-        input["app_bundle_identifier"] = app_bundle_identifier
+        input_: aws_sdk_appfabric.types.list_app_authorizations_request.ListAppAuthorizationsRequest = {}  # type: ignore[typeddict-item]
+        input_["app_bundle_identifier"] = app_bundle_identifier
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -917,14 +917,14 @@ class AppFabricClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appfabric.types.list_app_bundles_request.ListAppBundlesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_appfabric.types.list_app_bundles_request.ListAppBundlesRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -984,16 +984,16 @@ class AppFabricClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appfabric.types.list_ingestion_destinations_request.ListIngestionDestinationsRequest = {}  # type: ignore[typeddict-item]
-        input["app_bundle_identifier"] = app_bundle_identifier
-        input["ingestion_identifier"] = ingestion_identifier
+        input_: aws_sdk_appfabric.types.list_ingestion_destinations_request.ListIngestionDestinationsRequest = {}  # type: ignore[typeddict-item]
+        input_["app_bundle_identifier"] = app_bundle_identifier
+        input_["ingestion_identifier"] = ingestion_identifier
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1055,15 +1055,15 @@ class AppFabricClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appfabric.types.list_ingestions_request.ListIngestionsRequest = {}  # type: ignore[typeddict-item]
-        input["app_bundle_identifier"] = app_bundle_identifier
+        input_: aws_sdk_appfabric.types.list_ingestions_request.ListIngestionsRequest = {}  # type: ignore[typeddict-item]
+        input_["app_bundle_identifier"] = app_bundle_identifier
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1119,11 +1119,11 @@ class AppFabricClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appfabric.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_appfabric.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1158,12 +1158,12 @@ class AppFabricClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appfabric.types.start_ingestion_request.StartIngestionRequest = {}  # type: ignore[typeddict-item]
-        input["ingestion_identifier"] = ingestion_identifier
-        input["app_bundle_identifier"] = app_bundle_identifier
+        input_: aws_sdk_appfabric.types.start_ingestion_request.StartIngestionRequest = {}  # type: ignore[typeddict-item]
+        input_["ingestion_identifier"] = ingestion_identifier
+        input_["app_bundle_identifier"] = app_bundle_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1198,12 +1198,12 @@ class AppFabricClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appfabric.types.start_user_access_tasks_request.StartUserAccessTasksRequest = {}  # type: ignore[typeddict-item]
-        input["app_bundle_identifier"] = app_bundle_identifier
-        input["email"] = email
+        input_: aws_sdk_appfabric.types.start_user_access_tasks_request.StartUserAccessTasksRequest = {}  # type: ignore[typeddict-item]
+        input_["app_bundle_identifier"] = app_bundle_identifier
+        input_["email"] = email
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1238,12 +1238,12 @@ class AppFabricClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appfabric.types.stop_ingestion_request.StopIngestionRequest = {}  # type: ignore[typeddict-item]
-        input["ingestion_identifier"] = ingestion_identifier
-        input["app_bundle_identifier"] = app_bundle_identifier
+        input_: aws_sdk_appfabric.types.stop_ingestion_request.StopIngestionRequest = {}  # type: ignore[typeddict-item]
+        input_["ingestion_identifier"] = ingestion_identifier
+        input_["app_bundle_identifier"] = app_bundle_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1278,12 +1278,12 @@ class AppFabricClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appfabric.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_appfabric.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1318,12 +1318,12 @@ class AppFabricClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appfabric.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_appfabric.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1362,16 +1362,16 @@ class AppFabricClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appfabric.types.update_app_authorization_request.UpdateAppAuthorizationRequest = {}  # type: ignore[typeddict-item]
-        input["app_bundle_identifier"] = app_bundle_identifier
-        input["app_authorization_identifier"] = app_authorization_identifier
+        input_: aws_sdk_appfabric.types.update_app_authorization_request.UpdateAppAuthorizationRequest = {}  # type: ignore[typeddict-item]
+        input_["app_bundle_identifier"] = app_bundle_identifier
+        input_["app_authorization_identifier"] = app_authorization_identifier
         if credential is not None:
-            input["credential"] = credential
+            input_["credential"] = credential
         if tenant is not None:
-            input["tenant"] = tenant
+            input_["tenant"] = tenant
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1410,14 +1410,14 @@ class AppFabricClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appfabric.types.update_ingestion_destination_request.UpdateIngestionDestinationRequest = {}  # type: ignore[typeddict-item]
-        input["app_bundle_identifier"] = app_bundle_identifier
-        input["ingestion_identifier"] = ingestion_identifier
-        input["ingestion_destination_identifier"] = ingestion_destination_identifier
-        input["destination_configuration"] = destination_configuration
+        input_: aws_sdk_appfabric.types.update_ingestion_destination_request.UpdateIngestionDestinationRequest = {}  # type: ignore[typeddict-item]
+        input_["app_bundle_identifier"] = app_bundle_identifier
+        input_["ingestion_identifier"] = ingestion_identifier
+        input_["ingestion_destination_identifier"] = ingestion_destination_identifier
+        input_["destination_configuration"] = destination_configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

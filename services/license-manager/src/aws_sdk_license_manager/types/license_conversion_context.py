@@ -13,7 +13,7 @@ class LicenseConversionContext(TypedDict):
     usage_operation: NotRequired[
         "aws_sdk_license_manager.types.usage_operation.UsageOperation"
     ]
-    """<p>The Usage operation value that corresponds to the license type you are converting your resource from. For more information about which platforms correspond to which usage operation values see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/billing-info-fields.html#billing-info\">Sample data: usage operation by platform </a> </p>"""
+    r"""<p>The Usage operation value that corresponds to the license type you are converting your resource from. For more information about which platforms correspond to which usage operation values see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/billing-info-fields.html#billing-info\">Sample data: usage operation by platform </a> </p>"""
     product_codes: NotRequired[
         "aws_sdk_license_manager.types.product_code_list.ProductCodeList"
     ]

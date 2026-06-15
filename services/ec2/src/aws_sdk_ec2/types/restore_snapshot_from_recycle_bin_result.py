@@ -19,7 +19,7 @@ class RestoreSnapshotFromRecycleBinResult(TypedDict):
     snapshot_id: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The ID of the snapshot.</p>"""
     outpost_arn: NotRequired["aws_sdk_ec2.types.string.String"]
-    """<p>The ARN of the Outpost on which the snapshot is stored. For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/snapshots-outposts.html\">Amazon EBS local snapshots on Outposts</a> in the <i>Amazon EBS User Guide</i>.</p>"""
+    r"""<p>The ARN of the Outpost on which the snapshot is stored. For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/snapshots-outposts.html\">Amazon EBS local snapshots on Outposts</a> in the <i>Amazon EBS User Guide</i>.</p>"""
     description: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The description for the snapshot.</p>"""
     encrypted: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]

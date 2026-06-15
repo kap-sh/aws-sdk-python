@@ -401,7 +401,7 @@ class ServiceCatalogClient:
             "aws_sdk_service_catalog.types.portfolio_share_type.PortfolioShareType"
         ] = None,
     ) -> "aws_sdk_service_catalog.types.accept_portfolio_share_output.AcceptPortfolioShareOutput":
-        """<p>Accepts an offer to share the specified portfolio.</p>
+        r"""<p>Accepts an offer to share the specified portfolio.</p>
 
         Args:
             accept_language: <p>The language code.</p> <ul> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>
@@ -489,7 +489,7 @@ class ServiceCatalogClient:
             "aws_sdk_service_catalog.types.accept_language.AcceptLanguage"
         ] = None,
     ) -> "aws_sdk_service_catalog.types.associate_principal_with_portfolio_output.AssociatePrincipalWithPortfolioOutput":
-        """<p>Associates the specified principal ARN with the specified portfolio.</p> <p>If you share the portfolio with principal name sharing enabled, the <code>PrincipalARN</code> association is included in the share. </p> <p>The <code>PortfolioID</code>, <code>PrincipalARN</code>, and <code>PrincipalType</code> parameters are required. </p> <p>You can associate a maximum of 10 Principals with a portfolio using <code>PrincipalType</code> as <code>IAM_PATTERN</code>. </p> <note> <p>When you associate a principal with portfolio, a potential privilege escalation path may occur when that portfolio is then shared with other accounts. For a user in a recipient account who is <i>not</i> an Service Catalog Admin, but still has the ability to create Principals (Users/Groups/Roles), that user could create a role that matches a principal name association for the portfolio. Although this user may not know which principal names are associated through Service Catalog, they may be able to guess the user. If this potential escalation path is a concern, then Service Catalog recommends using <code>PrincipalType</code> as <code>IAM</code>. With this configuration, the <code>PrincipalARN</code> must already exist in the recipient account before it can be associated. </p> </note>
+        r"""<p>Associates the specified principal ARN with the specified portfolio.</p> <p>If you share the portfolio with principal name sharing enabled, the <code>PrincipalARN</code> association is included in the share. </p> <p>The <code>PortfolioID</code>, <code>PrincipalARN</code>, and <code>PrincipalType</code> parameters are required. </p> <p>You can associate a maximum of 10 Principals with a portfolio using <code>PrincipalType</code> as <code>IAM_PATTERN</code>. </p> <note> <p>When you associate a principal with portfolio, a potential privilege escalation path may occur when that portfolio is then shared with other accounts. For a user in a recipient account who is <i>not</i> an Service Catalog Admin, but still has the ability to create Principals (Users/Groups/Roles), that user could create a role that matches a principal name association for the portfolio. Although this user may not know which principal names are associated through Service Catalog, they may be able to guess the user. If this potential escalation path is a concern, then Service Catalog recommends using <code>PrincipalType</code> as <code>IAM</code>. With this configuration, the <code>PrincipalARN</code> must already exist in the recipient account before it can be associated. </p> </note>
 
         Args:
             accept_language: <p>The language code.</p> <ul> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>
@@ -846,7 +846,7 @@ class ServiceCatalogClient:
     ) -> (
         "aws_sdk_service_catalog.types.create_constraint_output.CreateConstraintOutput"
     ):
-        """<p>Creates a constraint.</p> <p>A delegated admin is authorized to invoke this command.</p>
+        r"""<p>Creates a constraint.</p> <p>A delegated admin is authorized to invoke this command.</p>
 
         Args:
             accept_language: <p>The language code.</p> <ul> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>
@@ -1051,7 +1051,7 @@ class ServiceCatalogClient:
             "aws_sdk_service_catalog.types.source_connection.SourceConnection"
         ] = None,
     ) -> "aws_sdk_service_catalog.types.create_product_output.CreateProductOutput":
-        """<p>Creates a product.</p> <p>A delegated admin is authorized to invoke this command.</p> <p>The user or role that performs this operation must have the <code>cloudformation:GetTemplate</code> IAM policy permission. This policy permission is required when using the <code>ImportFromPhysicalId</code> template source in the information data section.</p>
+        r"""<p>Creates a product.</p> <p>A delegated admin is authorized to invoke this command.</p> <p>The user or role that performs this operation must have the <code>cloudformation:GetTemplate</code> IAM policy permission. This policy permission is required when using the <code>ImportFromPhysicalId</code> template source in the information data section.</p>
 
         Args:
             accept_language: <p>The language code.</p> <ul> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>
@@ -1259,7 +1259,7 @@ class ServiceCatalogClient:
             "aws_sdk_service_catalog.types.accept_language.AcceptLanguage"
         ] = None,
     ) -> "aws_sdk_service_catalog.types.create_service_action_output.CreateServiceActionOutput":
-        """<p>Creates a self-service action.</p>
+        r"""<p>Creates a self-service action.</p>
 
         Args:
             name: <p>The self-service action name.</p>
@@ -2273,7 +2273,7 @@ class ServiceCatalogClient:
             "aws_sdk_service_catalog.types.portfolio_display_name.PortfolioDisplayName"
         ] = None,
     ) -> "aws_sdk_service_catalog.types.describe_provisioning_parameters_output.DescribeProvisioningParametersOutput":
-        """<p>Gets information about the configuration required to provision the specified product using the specified provisioning artifact.</p> <p>If the output contains a TagOption key with an empty list of values, there is a TagOption conflict for that key. The end user cannot take action to fix the conflict, and launch is not blocked. In subsequent calls to <a>ProvisionProduct</a>, do not include conflicted TagOption keys as tags, or this causes the error \"Parameter validation failed: Missing required parameter in Tags[<i>N</i>]:<i>Value</i>\". Tag the provisioned product with the value <code>sc-tagoption-conflict-portfolioId-productId</code>.</p>
+        r"""<p>Gets information about the configuration required to provision the specified product using the specified provisioning artifact.</p> <p>If the output contains a TagOption key with an empty list of values, there is a TagOption conflict for that key. The end user cannot take action to fix the conflict, and launch is not blocked. In subsequent calls to <a>ProvisionProduct</a>, do not include conflicted TagOption keys as tags, or this causes the error \"Parameter validation failed: Missing required parameter in Tags[<i>N</i>]:<i>Value</i>\". Tag the provisioned product with the value <code>sc-tagoption-conflict-portfolioId-productId</code>.</p>
 
         Args:
             accept_language: <p>The language code.</p> <ul> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>
@@ -2584,7 +2584,7 @@ class ServiceCatalogClient:
             "aws_sdk_service_catalog.types.principal_type.PrincipalType"
         ] = None,
     ) -> "aws_sdk_service_catalog.types.disassociate_principal_from_portfolio_output.DisassociatePrincipalFromPortfolioOutput":
-        """<p>Disassociates a previously associated principal ARN from a specified portfolio.</p> <p>The <code>PrincipalType</code> and <code>PrincipalARN</code> must match the <code>AssociatePrincipalWithPortfolio</code> call request details. For example, to disassociate an association created with a <code>PrincipalARN</code> of <code>PrincipalType</code> IAM you must use the <code>PrincipalType</code> IAM when calling <code>DisassociatePrincipalFromPortfolio</code>. </p> <p>For portfolios that have been shared with principal name sharing enabled: after disassociating a principal, share recipient accounts will no longer be able to provision products in this portfolio using a role matching the name of the associated principal. </p> <p>For more information, review <a href=\"https://docs.aws.amazon.com/cli/latest/reference/servicecatalog/associate-principal-with-portfolio.html#options\">associate-principal-with-portfolio</a> in the Amazon Web Services CLI Command Reference. </p> <note> <p>If you disassociate a principal from a portfolio, with PrincipalType as <code>IAM</code>, the same principal will still have access to the portfolio if it matches one of the associated principals of type <code>IAM_PATTERN</code>. To fully remove access for a principal, verify all the associated Principals of type <code>IAM_PATTERN</code>, and then ensure you disassociate any <code>IAM_PATTERN</code> principals that match the principal whose access you are removing.</p> </note>
+        r"""<p>Disassociates a previously associated principal ARN from a specified portfolio.</p> <p>The <code>PrincipalType</code> and <code>PrincipalARN</code> must match the <code>AssociatePrincipalWithPortfolio</code> call request details. For example, to disassociate an association created with a <code>PrincipalARN</code> of <code>PrincipalType</code> IAM you must use the <code>PrincipalType</code> IAM when calling <code>DisassociatePrincipalFromPortfolio</code>. </p> <p>For portfolios that have been shared with principal name sharing enabled: after disassociating a principal, share recipient accounts will no longer be able to provision products in this portfolio using a role matching the name of the associated principal. </p> <p>For more information, review <a href=\"https://docs.aws.amazon.com/cli/latest/reference/servicecatalog/associate-principal-with-portfolio.html#options\">associate-principal-with-portfolio</a> in the Amazon Web Services CLI Command Reference. </p> <note> <p>If you disassociate a principal from a portfolio, with PrincipalType as <code>IAM</code>, the same principal will still have access to the portfolio if it matches one of the associated principals of type <code>IAM_PATTERN</code>. To fully remove access for a principal, verify all the associated Principals of type <code>IAM_PATTERN</code>, and then ensure you disassociate any <code>IAM_PATTERN</code> principals that match the principal whose access you are removing.</p> </note>
 
         Args:
             accept_language: <p>The language code.</p> <ul> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>
@@ -3225,7 +3225,7 @@ class ServiceCatalogClient:
             "aws_sdk_service_catalog.types.page_token.PageToken"
         ] = None,
     ) -> "aws_sdk_service_catalog.types.list_launch_paths_output.ListLaunchPathsOutput":
-        """<p> Lists the paths to the specified product. A path describes how the user gets access to a specified product and is necessary when provisioning a product. A path also determines the constraints that are put on a product. A path is dependent on a specific product, porfolio, and principal. </p> <note> <p> When provisioning a product that's been added to a portfolio, you must grant your user, group, or role access to the portfolio. For more information, see <a href=\"https://docs.aws.amazon.com/servicecatalog/latest/adminguide/catalogs_portfolios_users.html\">Granting users access</a> in the <i>Service Catalog User Guide</i>. </p> </note>
+        r"""<p> Lists the paths to the specified product. A path describes how the user gets access to a specified product and is necessary when provisioning a product. A path also determines the constraints that are put on a product. A path is dependent on a specific product, porfolio, and principal. </p> <note> <p> When provisioning a product that's been added to a portfolio, you must grant your user, group, or role access to the portfolio. For more information, see <a href=\"https://docs.aws.amazon.com/servicecatalog/latest/adminguide/catalogs_portfolios_users.html\">Granting users access</a> in the <i>Service Catalog User Guide</i>. </p> </note>
 
         Args:
             accept_language: <p>The language code.</p> <ul> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>
@@ -4230,7 +4230,7 @@ class ServiceCatalogClient:
     ) -> (
         "aws_sdk_service_catalog.types.provision_product_output.ProvisionProductOutput"
     ):
-        """<p> Provisions the specified product. </p> <p> A provisioned product is a resourced instance of a product. For example, provisioning a product that's based on an CloudFormation template launches an CloudFormation stack and its underlying resources. You can check the status of this request using <a>DescribeRecord</a>. </p> <p> If the request contains a tag key with an empty list of values, there's a tag conflict for that key. Don't include conflicted keys as tags, or this will cause the error \"Parameter validation failed: Missing required parameter in Tags[<i>N</i>]:<i>Value</i>\". </p> <note> <p> When provisioning a product that's been added to a portfolio, you must grant your user, group, or role access to the portfolio. For more information, see <a href=\"https://docs.aws.amazon.com/servicecatalog/latest/adminguide/catalogs_portfolios_users.html\">Granting users access</a> in the <i>Service Catalog User Guide</i>. </p> </note>
+        r"""<p> Provisions the specified product. </p> <p> A provisioned product is a resourced instance of a product. For example, provisioning a product that's based on an CloudFormation template launches an CloudFormation stack and its underlying resources. You can check the status of this request using <a>DescribeRecord</a>. </p> <p> If the request contains a tag key with an empty list of values, there's a tag conflict for that key. Don't include conflicted keys as tags, or this will cause the error \"Parameter validation failed: Missing required parameter in Tags[<i>N</i>]:<i>Value</i>\". </p> <note> <p> When provisioning a product that's been added to a portfolio, you must grant your user, group, or role access to the portfolio. For more information, see <a href=\"https://docs.aws.amazon.com/servicecatalog/latest/adminguide/catalogs_portfolios_users.html\">Granting users access</a> in the <i>Service Catalog User Guide</i>. </p> </note>
 
         Args:
             accept_language: <p>The language code.</p> <ul> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>
@@ -4308,7 +4308,7 @@ class ServiceCatalogClient:
             "aws_sdk_service_catalog.types.portfolio_share_type.PortfolioShareType"
         ] = None,
     ) -> "aws_sdk_service_catalog.types.reject_portfolio_share_output.RejectPortfolioShareOutput":
-        """<p>Rejects an offer to share the specified portfolio.</p>
+        r"""<p>Rejects an offer to share the specified portfolio.</p>
 
         Args:
             accept_language: <p>The language code.</p> <ul> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>
@@ -4573,7 +4573,7 @@ class ServiceCatalogClient:
             "aws_sdk_service_catalog.types.page_token.PageToken"
         ] = None,
     ) -> "aws_sdk_service_catalog.types.search_provisioned_products_output.SearchProvisionedProductsOutput":
-        """<p>Gets information about the provisioned products that meet the specified criteria.</p>
+        r"""<p>Gets information about the provisioned products that meet the specified criteria.</p>
 
         Args:
             accept_language: <p>The language code.</p> <ul> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>
@@ -4705,7 +4705,7 @@ class ServiceCatalogClient:
     ) -> (
         "aws_sdk_service_catalog.types.update_constraint_output.UpdateConstraintOutput"
     ):
-        """<p>Updates the specified constraint.</p>
+        r"""<p>Updates the specified constraint.</p>
 
         Args:
             accept_language: <p>The language code.</p> <ul> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>

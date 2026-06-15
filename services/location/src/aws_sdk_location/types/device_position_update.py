@@ -18,9 +18,9 @@ class DevicePositionUpdate(TypedDict):
     device_id: "aws_sdk_location.types.id.Id"
     """<p>The device associated to the position update.</p>"""
     sample_time: "aws_sdk_location.types.timestamp.Timestamp"
-    """<p>The timestamp at which the device's position was determined. Uses <a href=\"https://www.iso.org/iso-8601-date-and-time-format.html\">ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code> </p>"""
+    r"""<p>The timestamp at which the device's position was determined. Uses <a href=\"https://www.iso.org/iso-8601-date-and-time-format.html\">ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code> </p>"""
     position: "aws_sdk_location.types.position.Position"
-    """<p>The latest device position defined in <a href=\"https://earth-info.nga.mil/index.php?dir=wgs84&amp;action=wgs84\">WGS 84</a> format: <code>[X or longitude, Y or latitude]</code>.</p>"""
+    r"""<p>The latest device position defined in <a href=\"https://earth-info.nga.mil/index.php?dir=wgs84&amp;action=wgs84\">WGS 84</a> format: <code>[X or longitude, Y or latitude]</code>.</p>"""
     accuracy: NotRequired[
         "aws_sdk_location.types.positional_accuracy.PositionalAccuracy"
     ]
@@ -28,7 +28,7 @@ class DevicePositionUpdate(TypedDict):
     position_properties: NotRequired[
         "aws_sdk_location.types.position_property_map.PositionPropertyMap"
     ]
-    """<p>Associates one of more properties with the position update. A property is a key-value pair stored with the position update and added to any geofence event the update may trigger.</p> <p>Format: <code>\"key\" : \"value\"</code> </p>"""
+    r"""<p>Associates one of more properties with the position update. A property is a key-value pair stored with the position update and added to any geofence event the update may trigger.</p> <p>Format: <code>\"key\" : \"value\"</code> </p>"""
 
 
 # --- restJson1 ser/de ---

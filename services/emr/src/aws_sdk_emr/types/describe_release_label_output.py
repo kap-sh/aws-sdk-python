@@ -22,7 +22,7 @@ class DescribeReleaseLabelOutput(TypedDict):
     available_os_releases: NotRequired[
         "aws_sdk_emr.types.os_release_list.OSReleaseList"
     ]
-    """<p>The list of available Amazon Linux release versions for an Amazon EMR release. Contains a Label field that is formatted as shown in <a href=\"https://docs.aws.amazon.com/AL2/latest/relnotes/relnotes-al2.html\"> <i>Amazon Linux 2 Release Notes</i> </a>. For example, <a href=\"https://docs.aws.amazon.com/AL2/latest/relnotes/relnotes-20220218.html\">2.0.20220218.1</a>.</p>"""
+    r"""<p>The list of available Amazon Linux release versions for an Amazon EMR release. Contains a Label field that is formatted as shown in <a href=\"https://docs.aws.amazon.com/AL2/latest/relnotes/relnotes-al2.html\"> <i>Amazon Linux 2 Release Notes</i> </a>. For example, <a href=\"https://docs.aws.amazon.com/AL2/latest/relnotes/relnotes-20220218.html\">2.0.20220218.1</a>.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

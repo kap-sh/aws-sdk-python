@@ -182,7 +182,7 @@ class ApplicationDiscoveryServiceClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = ApplicationDiscoveryServiceClientConfig(
+        self._config = ApplicationDiscoveryServiceClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -202,7 +202,7 @@ class ApplicationDiscoveryServiceClient:
         overrides: ApplicationDiscoveryServiceClientConfig = config_overrides or {}
         interceptors_: list[Interceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             retry(),
         ]
@@ -210,16 +210,16 @@ class ApplicationDiscoveryServiceClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            region=overrides.get("region", self.config.get("region")),
+            region=overrides.get("region", self._config.get("region")),
             use_dual_stack=overrides.get(
-                "use_dual_stack", self.config.get("use_dual_stack")
+                "use_dual_stack", self._config.get("use_dual_stack")
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -253,12 +253,12 @@ class ApplicationDiscoveryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_discovery_service.types.associate_configuration_items_to_application_request.AssociateConfigurationItemsToApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["application_configuration_id"] = application_configuration_id
-        input["configuration_ids"] = configuration_ids
+        input_: aws_sdk_application_discovery_service.types.associate_configuration_items_to_application_request.AssociateConfigurationItemsToApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["application_configuration_id"] = application_configuration_id
+        input_["configuration_ids"] = configuration_ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -291,11 +291,11 @@ class ApplicationDiscoveryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_discovery_service.types.batch_delete_agents_request.BatchDeleteAgentsRequest = {}  # type: ignore[typeddict-item]
-        input["delete_agents"] = delete_agents
+        input_: aws_sdk_application_discovery_service.types.batch_delete_agents_request.BatchDeleteAgentsRequest = {}  # type: ignore[typeddict-item]
+        input_["delete_agents"] = delete_agents
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -332,13 +332,13 @@ class ApplicationDiscoveryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_discovery_service.types.batch_delete_import_data_request.BatchDeleteImportDataRequest = {}  # type: ignore[typeddict-item]
-        input["import_task_ids"] = import_task_ids
+        input_: aws_sdk_application_discovery_service.types.batch_delete_import_data_request.BatchDeleteImportDataRequest = {}  # type: ignore[typeddict-item]
+        input_["import_task_ids"] = import_task_ids
         if delete_history is not None:
-            input["delete_history"] = delete_history
+            input_["delete_history"] = delete_history
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -379,15 +379,15 @@ class ApplicationDiscoveryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_discovery_service.types.create_application_request.CreateApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_application_discovery_service.types.create_application_request.CreateApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if wave is not None:
-            input["wave"] = wave
+            input_["wave"] = wave
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -400,7 +400,7 @@ class ApplicationDiscoveryServiceClient:
         *,
         config_overrides: Optional[ApplicationDiscoveryServiceClientConfig] = None,
     ) -> "aws_sdk_application_discovery_service.types.create_tags_response.CreateTagsResponse":
-        """<p>Creates one or more tags for configuration items. Tags are metadata that help you categorize IT assets. This API accepts a list of multiple configuration items.</p> <important> <p>Do not store sensitive information (like personal data) in tags.</p> </important>
+        r"""<p>Creates one or more tags for configuration items. Tags are metadata that help you categorize IT assets. This API accepts a list of multiple configuration items.</p> <important> <p>Do not store sensitive information (like personal data) in tags.</p> </important>
 
         Args:
             configuration_ids: <p>A list of configuration items that you want to tag.</p>
@@ -422,12 +422,12 @@ class ApplicationDiscoveryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_discovery_service.types.create_tags_request.CreateTagsRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_ids"] = configuration_ids
-        input["tags"] = tags
+        input_: aws_sdk_application_discovery_service.types.create_tags_request.CreateTagsRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_ids"] = configuration_ids
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -460,11 +460,11 @@ class ApplicationDiscoveryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_discovery_service.types.delete_applications_request.DeleteApplicationsRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_ids"] = configuration_ids
+        input_: aws_sdk_application_discovery_service.types.delete_applications_request.DeleteApplicationsRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_ids"] = configuration_ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -479,7 +479,7 @@ class ApplicationDiscoveryServiceClient:
             "aws_sdk_application_discovery_service.types.tag_set.TagSet"
         ] = None,
     ) -> "aws_sdk_application_discovery_service.types.delete_tags_response.DeleteTagsResponse":
-        """<p>Deletes the association between configuration items and one or more tags. This API accepts a list of multiple configuration items.</p>
+        r"""<p>Deletes the association between configuration items and one or more tags. This API accepts a list of multiple configuration items.</p>
 
         Args:
             configuration_ids: <p>A list of configuration items with tags that you want to delete.</p>
@@ -501,13 +501,13 @@ class ApplicationDiscoveryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_discovery_service.types.delete_tags_request.DeleteTagsRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_ids"] = configuration_ids
+        input_: aws_sdk_application_discovery_service.types.delete_tags_request.DeleteTagsRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_ids"] = configuration_ids
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -530,7 +530,7 @@ class ApplicationDiscoveryServiceClient:
             "aws_sdk_application_discovery_service.types.next_token.NextToken"
         ] = None,
     ) -> "aws_sdk_application_discovery_service.types.describe_agents_response.DescribeAgentsResponse":
-        """<p>Lists agents or collectors as specified by ID or other filters. All agents/collectors associated with your user can be listed if you call <code>DescribeAgents</code> as is without passing any parameters.</p>
+        r"""<p>Lists agents or collectors as specified by ID or other filters. All agents/collectors associated with your user can be listed if you call <code>DescribeAgents</code> as is without passing any parameters.</p>
 
         Args:
             agent_ids: <p>The agent or the collector IDs for which you want information. If you specify no IDs, the system returns information about all agents/collectors associated with your user.</p>
@@ -554,18 +554,18 @@ class ApplicationDiscoveryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_discovery_service.types.describe_agents_request.DescribeAgentsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_application_discovery_service.types.describe_agents_request.DescribeAgentsRequest = {}  # type: ignore[typeddict-item]
         if agent_ids is not None:
-            input["agent_ids"] = agent_ids
+            input_["agent_ids"] = agent_ids
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -631,11 +631,11 @@ class ApplicationDiscoveryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_discovery_service.types.describe_batch_delete_configuration_task_request.DescribeBatchDeleteConfigurationTaskRequest = {}  # type: ignore[typeddict-item]
-        input["task_id"] = task_id
+        input_: aws_sdk_application_discovery_service.types.describe_batch_delete_configuration_task_request.DescribeBatchDeleteConfigurationTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["task_id"] = task_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -647,7 +647,7 @@ class ApplicationDiscoveryServiceClient:
         *,
         config_overrides: Optional[ApplicationDiscoveryServiceClientConfig] = None,
     ) -> "aws_sdk_application_discovery_service.types.describe_configurations_response.DescribeConfigurationsResponse":
-        """<p>Retrieves attributes for a list of configuration item IDs.</p> <note> <p>All of the supplied IDs must be for the same asset type from one of the following:</p> <ul> <li> <p>server</p> </li> <li> <p>application</p> </li> <li> <p>process</p> </li> <li> <p>connection</p> </li> </ul> <p>Output fields are specific to the asset type specified. For example, the output for a <i>server</i> configuration item includes a list of attributes about the server, such as host name, operating system, number of network cards, etc.</p> <p>For a complete list of outputs for each asset type, see <a href=\"https://docs.aws.amazon.com/application-discovery/latest/userguide/discovery-api-queries.html#DescribeConfigurations\">Using the DescribeConfigurations Action</a> in the <i>Amazon Web Services Application Discovery Service User Guide</i>.</p> </note>
+        r"""<p>Retrieves attributes for a list of configuration item IDs.</p> <note> <p>All of the supplied IDs must be for the same asset type from one of the following:</p> <ul> <li> <p>server</p> </li> <li> <p>application</p> </li> <li> <p>process</p> </li> <li> <p>connection</p> </li> </ul> <p>Output fields are specific to the asset type specified. For example, the output for a <i>server</i> configuration item includes a list of attributes about the server, such as host name, operating system, number of network cards, etc.</p> <p>For a complete list of outputs for each asset type, see <a href=\"https://docs.aws.amazon.com/application-discovery/latest/userguide/discovery-api-queries.html#DescribeConfigurations\">Using the DescribeConfigurations Action</a> in the <i>Amazon Web Services Application Discovery Service User Guide</i>.</p> </note>
 
         Args:
             configuration_ids: <p>One or more configuration IDs.</p>
@@ -668,11 +668,11 @@ class ApplicationDiscoveryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_discovery_service.types.describe_configurations_request.DescribeConfigurationsRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_ids"] = configuration_ids
+        input_: aws_sdk_application_discovery_service.types.describe_configurations_request.DescribeConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_ids"] = configuration_ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -715,16 +715,16 @@ class ApplicationDiscoveryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_discovery_service.types.describe_continuous_exports_request.DescribeContinuousExportsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_application_discovery_service.types.describe_continuous_exports_request.DescribeContinuousExportsRequest = {}  # type: ignore[typeddict-item]
         if export_ids is not None:
-            input["export_ids"] = export_ids
+            input_["export_ids"] = export_ids
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -773,7 +773,7 @@ class ApplicationDiscoveryServiceClient:
             "aws_sdk_application_discovery_service.types.next_token.NextToken"
         ] = None,
     ) -> "aws_sdk_application_discovery_service.types.describe_export_configurations_response.DescribeExportConfigurationsResponse":
-        """<p> <code>DescribeExportConfigurations</code> is deprecated. Use <a href=\"https://docs.aws.amazon.com/application-discovery/latest/APIReference/API_DescribeExportTasks.html\">DescribeExportTasks</a>, instead.</p>
+        r"""<p> <code>DescribeExportConfigurations</code> is deprecated. Use <a href=\"https://docs.aws.amazon.com/application-discovery/latest/APIReference/API_DescribeExportTasks.html\">DescribeExportTasks</a>, instead.</p>
 
         Args:
             export_ids: <p>A list of continuous export IDs to search for.</p>
@@ -796,16 +796,16 @@ class ApplicationDiscoveryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_discovery_service.types.describe_export_configurations_request.DescribeExportConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_application_discovery_service.types.describe_export_configurations_request.DescribeExportConfigurationsRequest = {}  # type: ignore[typeddict-item]
         if export_ids is not None:
-            input["export_ids"] = export_ids
+            input_["export_ids"] = export_ids
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -881,18 +881,18 @@ class ApplicationDiscoveryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_discovery_service.types.describe_export_tasks_request.DescribeExportTasksRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_application_discovery_service.types.describe_export_tasks_request.DescribeExportTasksRequest = {}  # type: ignore[typeddict-item]
         if export_ids is not None:
-            input["export_ids"] = export_ids
+            input_["export_ids"] = export_ids
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -968,16 +968,16 @@ class ApplicationDiscoveryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_discovery_service.types.describe_import_tasks_request.DescribeImportTasksRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_application_discovery_service.types.describe_import_tasks_request.DescribeImportTasksRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1049,16 +1049,16 @@ class ApplicationDiscoveryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_discovery_service.types.describe_tags_request.DescribeTagsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_application_discovery_service.types.describe_tags_request.DescribeTagsRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1122,12 +1122,12 @@ class ApplicationDiscoveryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_discovery_service.types.disassociate_configuration_items_from_application_request.DisassociateConfigurationItemsFromApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["application_configuration_id"] = application_configuration_id
-        input["configuration_ids"] = configuration_ids
+        input_: aws_sdk_application_discovery_service.types.disassociate_configuration_items_from_application_request.DisassociateConfigurationItemsFromApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["application_configuration_id"] = application_configuration_id
+        input_["configuration_ids"] = configuration_ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1185,10 +1185,10 @@ class ApplicationDiscoveryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_discovery_service.types.get_discovery_summary_request.GetDiscoverySummaryRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_application_discovery_service.types.get_discovery_summary_request.GetDiscoverySummaryRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1212,7 +1212,7 @@ class ApplicationDiscoveryServiceClient:
             "aws_sdk_application_discovery_service.types.order_by_list.OrderByList"
         ] = None,
     ) -> "aws_sdk_application_discovery_service.types.list_configurations_response.ListConfigurationsResponse":
-        """<p>Retrieves a list of configuration items as specified by the value passed to the required parameter <code>configurationType</code>. Optional filtering may be applied to refine search results.</p>
+        r"""<p>Retrieves a list of configuration items as specified by the value passed to the required parameter <code>configurationType</code>. Optional filtering may be applied to refine search results.</p>
 
         Args:
             configuration_type: <p>A valid configuration identified by Application Discovery Service. </p>
@@ -1237,19 +1237,19 @@ class ApplicationDiscoveryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_discovery_service.types.list_configurations_request.ListConfigurationsRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_type"] = configuration_type
+        input_: aws_sdk_application_discovery_service.types.list_configurations_request.ListConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_type"] = configuration_type
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if order_by is not None:
-            input["order_by"] = order_by
+            input_["order_by"] = order_by
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1333,19 +1333,19 @@ class ApplicationDiscoveryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_discovery_service.types.list_server_neighbors_request.ListServerNeighborsRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_id"] = configuration_id
+        input_: aws_sdk_application_discovery_service.types.list_server_neighbors_request.ListServerNeighborsRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_id"] = configuration_id
         if port_information_needed is not None:
-            input["port_information_needed"] = port_information_needed
+            input_["port_information_needed"] = port_information_needed
         if neighbor_configuration_ids is not None:
-            input["neighbor_configuration_ids"] = neighbor_configuration_ids
+            input_["neighbor_configuration_ids"] = neighbor_configuration_ids
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1380,12 +1380,12 @@ class ApplicationDiscoveryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_discovery_service.types.start_batch_delete_configuration_task_request.StartBatchDeleteConfigurationTaskRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_type"] = configuration_type
-        input["configuration_ids"] = configuration_ids
+        input_: aws_sdk_application_discovery_service.types.start_batch_delete_configuration_task_request.StartBatchDeleteConfigurationTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_type"] = configuration_type
+        input_["configuration_ids"] = configuration_ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1413,10 +1413,10 @@ class ApplicationDiscoveryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_discovery_service.types.start_continuous_export_request.StartContinuousExportRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_application_discovery_service.types.start_continuous_export_request.StartContinuousExportRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1449,11 +1449,11 @@ class ApplicationDiscoveryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_discovery_service.types.start_data_collection_by_agent_ids_request.StartDataCollectionByAgentIdsRequest = {}  # type: ignore[typeddict-item]
-        input["agent_ids"] = agent_ids
+        input_: aws_sdk_application_discovery_service.types.start_data_collection_by_agent_ids_request.StartDataCollectionByAgentIdsRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_ids"] = agent_ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1479,7 +1479,7 @@ class ApplicationDiscoveryServiceClient:
             "aws_sdk_application_discovery_service.types.export_preferences.ExportPreferences"
         ] = None,
     ) -> "aws_sdk_application_discovery_service.types.start_export_task_response.StartExportTaskResponse":
-        """<p>Begins the export of a discovered data report to an Amazon S3 bucket managed by Amazon Web Services.</p> <note> <p>Exports might provide an estimate of fees and savings based on certain information that you provide. Fee estimates do not include any taxes that might apply. Your actual fees and savings depend on a variety of factors, including your actual usage of Amazon Web Services services, which might vary from the estimates provided in this report.</p> </note> <p>If you do not specify <code>preferences</code> or <code>agentIds</code> in the filter, a summary of all servers, applications, tags, and performance is generated. This data is an aggregation of all server data collected through on-premises tooling, file import, application grouping and applying tags.</p> <p>If you specify <code>agentIds</code> in a filter, the task exports up to 72 hours of detailed data collected by the identified Application Discovery Agent, including network, process, and performance details. A time range for exported agent data may be set by using <code>startTime</code> and <code>endTime</code>. Export of detailed agent data is limited to five concurrently running exports. Export of detailed agent data is limited to two exports per day.</p> <p>If you enable <code>ec2RecommendationsPreferences</code> in <code>preferences</code> , an Amazon EC2 instance matching the characteristics of each server in Application Discovery Service is generated. Changing the attributes of the <code>ec2RecommendationsPreferences</code> changes the criteria of the recommendation.</p>
+        r"""<p>Begins the export of a discovered data report to an Amazon S3 bucket managed by Amazon Web Services.</p> <note> <p>Exports might provide an estimate of fees and savings based on certain information that you provide. Fee estimates do not include any taxes that might apply. Your actual fees and savings depend on a variety of factors, including your actual usage of Amazon Web Services services, which might vary from the estimates provided in this report.</p> </note> <p>If you do not specify <code>preferences</code> or <code>agentIds</code> in the filter, a summary of all servers, applications, tags, and performance is generated. This data is an aggregation of all server data collected through on-premises tooling, file import, application grouping and applying tags.</p> <p>If you specify <code>agentIds</code> in a filter, the task exports up to 72 hours of detailed data collected by the identified Application Discovery Agent, including network, process, and performance details. A time range for exported agent data may be set by using <code>startTime</code> and <code>endTime</code>. Export of detailed agent data is limited to five concurrently running exports. Export of detailed agent data is limited to two exports per day.</p> <p>If you enable <code>ec2RecommendationsPreferences</code> in <code>preferences</code> , an Amazon EC2 instance matching the characteristics of each server in Application Discovery Service is generated. Changing the attributes of the <code>ec2RecommendationsPreferences</code> changes the criteria of the recommendation.</p>
 
         Args:
             export_data_format: <p>The file format for the returned export data. Default value is <code>CSV</code>. <b>Note:</b> <i>The</i> <code>GRAPHML</code> <i>option has been deprecated.</i> </p>
@@ -1504,20 +1504,20 @@ class ApplicationDiscoveryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_discovery_service.types.start_export_task_request.StartExportTaskRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_application_discovery_service.types.start_export_task_request.StartExportTaskRequest = {}  # type: ignore[typeddict-item]
         if export_data_format is not None:
-            input["export_data_format"] = export_data_format
+            input_["export_data_format"] = export_data_format
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if start_time is not None:
-            input["start_time"] = start_time
+            input_["start_time"] = start_time
         if end_time is not None:
-            input["end_time"] = end_time
+            input_["end_time"] = end_time
         if preferences is not None:
-            input["preferences"] = preferences
+            input_["preferences"] = preferences
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1533,7 +1533,7 @@ class ApplicationDiscoveryServiceClient:
             "aws_sdk_application_discovery_service.types.client_request_token.ClientRequestToken"
         ] = None,
     ) -> "aws_sdk_application_discovery_service.types.start_import_task_response.StartImportTaskResponse":
-        """<p>Starts an import task, which allows you to import details of your on-premises environment directly into Amazon Web Services Migration Hub without having to use the Amazon Web Services Application Discovery Service (Application Discovery Service) tools such as the Amazon Web Services Application Discovery Service Agentless Collector or Application Discovery Agent. This gives you the option to perform migration assessment and planning directly from your imported data, including the ability to group your devices as applications and track their migration status.</p> <p>To start an import request, do this:</p> <ol> <li> <p>Download the specially formatted comma separated value (CSV) import template, which you can find here: <a href=\"https://s3.us-west-2.amazonaws.com/templates-7cffcf56-bd96-4b1c-b45b-a5b42f282e46/import_template.csv\">https://s3.us-west-2.amazonaws.com/templates-7cffcf56-bd96-4b1c-b45b-a5b42f282e46/import_template.csv</a>.</p> </li> <li> <p>Fill out the template with your server and application data.</p> </li> <li> <p>Upload your import file to an Amazon S3 bucket, and make a note of it's Object URL. Your import file must be in the CSV format.</p> </li> <li> <p>Use the console or the <code>StartImportTask</code> command with the Amazon Web Services CLI or one of the Amazon Web Services SDKs to import the records from your file.</p> </li> </ol> <p>For more information, including step-by-step procedures, see <a href=\"https://docs.aws.amazon.com/application-discovery/latest/userguide/discovery-import.html\">Migration Hub Import</a> in the <i>Amazon Web Services Application Discovery Service User Guide</i>.</p> <note> <p>There are limits to the number of import tasks you can create (and delete) in an Amazon Web Services account. For more information, see <a href=\"https://docs.aws.amazon.com/application-discovery/latest/userguide/ads_service_limits.html\">Amazon Web Services Application Discovery Service Limits</a> in the <i>Amazon Web Services Application Discovery Service User Guide</i>.</p> </note>
+        r"""<p>Starts an import task, which allows you to import details of your on-premises environment directly into Amazon Web Services Migration Hub without having to use the Amazon Web Services Application Discovery Service (Application Discovery Service) tools such as the Amazon Web Services Application Discovery Service Agentless Collector or Application Discovery Agent. This gives you the option to perform migration assessment and planning directly from your imported data, including the ability to group your devices as applications and track their migration status.</p> <p>To start an import request, do this:</p> <ol> <li> <p>Download the specially formatted comma separated value (CSV) import template, which you can find here: <a href=\"https://s3.us-west-2.amazonaws.com/templates-7cffcf56-bd96-4b1c-b45b-a5b42f282e46/import_template.csv\">https://s3.us-west-2.amazonaws.com/templates-7cffcf56-bd96-4b1c-b45b-a5b42f282e46/import_template.csv</a>.</p> </li> <li> <p>Fill out the template with your server and application data.</p> </li> <li> <p>Upload your import file to an Amazon S3 bucket, and make a note of it's Object URL. Your import file must be in the CSV format.</p> </li> <li> <p>Use the console or the <code>StartImportTask</code> command with the Amazon Web Services CLI or one of the Amazon Web Services SDKs to import the records from your file.</p> </li> </ol> <p>For more information, including step-by-step procedures, see <a href=\"https://docs.aws.amazon.com/application-discovery/latest/userguide/discovery-import.html\">Migration Hub Import</a> in the <i>Amazon Web Services Application Discovery Service User Guide</i>.</p> <note> <p>There are limits to the number of import tasks you can create (and delete) in an Amazon Web Services account. For more information, see <a href=\"https://docs.aws.amazon.com/application-discovery/latest/userguide/ads_service_limits.html\">Amazon Web Services Application Discovery Service Limits</a> in the <i>Amazon Web Services Application Discovery Service User Guide</i>.</p> </note>
 
         Args:
             client_request_token: <p>Optional. A unique token that you can provide to prevent the same import request from occurring more than once. If you don't provide a token, a token is automatically generated.</p> <p>Sending more than one <code>StartImportTask</code> request with the same client request token will return information about the original import task with that client request token.</p>
@@ -1556,14 +1556,14 @@ class ApplicationDiscoveryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_discovery_service.types.start_import_task_request.StartImportTaskRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_application_discovery_service.types.start_import_task_request.StartImportTaskRequest = {}  # type: ignore[typeddict-item]
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
-        input["name"] = name
-        input["import_url"] = import_url
+            input_["client_request_token"] = client_request_token
+        input_["name"] = name
+        input_["import_url"] = import_url
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1596,11 +1596,11 @@ class ApplicationDiscoveryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_discovery_service.types.stop_continuous_export_request.StopContinuousExportRequest = {}  # type: ignore[typeddict-item]
-        input["export_id"] = export_id
+        input_: aws_sdk_application_discovery_service.types.stop_continuous_export_request.StopContinuousExportRequest = {}  # type: ignore[typeddict-item]
+        input_["export_id"] = export_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1633,11 +1633,11 @@ class ApplicationDiscoveryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_discovery_service.types.stop_data_collection_by_agent_ids_request.StopDataCollectionByAgentIdsRequest = {}  # type: ignore[typeddict-item]
-        input["agent_ids"] = agent_ids
+        input_: aws_sdk_application_discovery_service.types.stop_data_collection_by_agent_ids_request.StopDataCollectionByAgentIdsRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_ids"] = agent_ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1682,17 +1682,17 @@ class ApplicationDiscoveryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_discovery_service.types.update_application_request.UpdateApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_id"] = configuration_id
+        input_: aws_sdk_application_discovery_service.types.update_application_request.UpdateApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_id"] = configuration_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if wave is not None:
-            input["wave"] = wave
+            input_["wave"] = wave
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

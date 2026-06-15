@@ -19,7 +19,7 @@ class SetIdentityMailFromDomainRequest(TypedDict):
     mail_from_domain: NotRequired[
         "aws_sdk_ses.types.mail_from_domain_name.MailFromDomainName"
     ]
-    """<p>The custom MAIL FROM domain for the verified identity to use. The MAIL FROM domain must 1) be a subdomain of the verified identity, 2) not be used in a \"From\" address if the MAIL FROM domain is the destination of email feedback forwarding (for more information, see the <a href=\"https://docs.aws.amazon.com/ses/latest/dg/mail-from.html\">Amazon SES Developer Guide</a>), and 3) not be used to receive emails. A value of <code>null</code> disables the custom MAIL FROM setting for the identity.</p>"""
+    r"""<p>The custom MAIL FROM domain for the verified identity to use. The MAIL FROM domain must 1) be a subdomain of the verified identity, 2) not be used in a \"From\" address if the MAIL FROM domain is the destination of email feedback forwarding (for more information, see the <a href=\"https://docs.aws.amazon.com/ses/latest/dg/mail-from.html\">Amazon SES Developer Guide</a>), and 3) not be used to receive emails. A value of <code>null</code> disables the custom MAIL FROM setting for the identity.</p>"""
     behavior_on_mx_failure: NotRequired[
         "aws_sdk_ses.types.behavior_on_mx_failure.BehaviorOnMXFailure"
     ]

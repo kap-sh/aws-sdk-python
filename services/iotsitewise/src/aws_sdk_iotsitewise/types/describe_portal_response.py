@@ -28,7 +28,7 @@ class DescribePortalResponse(TypedDict):
     portal_id: "aws_sdk_iotsitewise.types.id.ID"
     """<p>The ID of the portal.</p>"""
     portal_arn: "aws_sdk_iotsitewise.types.arn.ARN"
-    """<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the portal, which has the following format.</p> <p> <code>arn:${Partition}:iotsitewise:${Region}:${Account}:portal/${PortalId}</code> </p>"""
+    r"""<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the portal, which has the following format.</p> <p> <code>arn:${Partition}:iotsitewise:${Region}:${Account}:portal/${PortalId}</code> </p>"""
     portal_name: "aws_sdk_iotsitewise.types.name.Name"
     """<p>The name of the portal.</p>"""
     portal_description: NotRequired["aws_sdk_iotsitewise.types.description.Description"]
@@ -50,7 +50,7 @@ class DescribePortalResponse(TypedDict):
     ]
     """<p>The portal's logo image, which is available at a URL.</p>"""
     role_arn: NotRequired["aws_sdk_iotsitewise.types.iam_arn.IamArn"]
-    """<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the service role that allows the portal's users to access your IoT SiteWise resources on your behalf. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-service-role.html\">Using service roles for IoT SiteWise Monitor</a> in the <i>IoT SiteWise User Guide</i>.</p>"""
+    r"""<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the service role that allows the portal's users to access your IoT SiteWise resources on your behalf. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-service-role.html\">Using service roles for IoT SiteWise Monitor</a> in the <i>IoT SiteWise User Guide</i>.</p>"""
     portal_auth_mode: NotRequired["aws_sdk_iotsitewise.types.auth_mode.AuthMode"]
     """<p>The service to use to authenticate users to the portal.</p>"""
     notification_sender_email: NotRequired["aws_sdk_iotsitewise.types.email.Email"]

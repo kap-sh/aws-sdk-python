@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_cleanrooms._auth._signers
@@ -291,7 +293,7 @@ class IdMappingTableResource:
         config_overrides: Optional[CleanRoomsClientConfig] = None,
         job_type: Optional["aws_sdk_cleanrooms.types.job_type.JobType"] = None,
     ) -> "aws_sdk_cleanrooms.types.populate_id_mapping_table_output.PopulateIdMappingTableOutput":
-        """<p>Defines the information that's necessary to populate an ID mapping table.</p>
+        r"""<p>Defines the information that's necessary to populate an ID mapping table.</p>
 
         Args:
             id_mapping_table_identifier: <p>The unique identifier of the ID mapping table that you want to populate.</p>
@@ -579,7 +581,7 @@ class AsyncIdMappingTableResource:
         config_overrides: Optional[AsyncCleanRoomsClientConfig] = None,
         job_type: Optional["aws_sdk_cleanrooms.types.job_type.JobType"] = None,
     ) -> "aws_sdk_cleanrooms.types.populate_id_mapping_table_output.PopulateIdMappingTableOutput":
-        """<p>Defines the information that's necessary to populate an ID mapping table.</p>
+        r"""<p>Defines the information that's necessary to populate an ID mapping table.</p>
 
         Args:
             id_mapping_table_identifier: <p>The unique identifier of the ID mapping table that you want to populate.</p>

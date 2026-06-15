@@ -17,7 +17,7 @@ if TYPE_CHECKING:
 
 class CreateWorkspaceRequest(TypedDict):
     instance_id: "aws_sdk_connect.types.instance_id.InstanceId"
-    """<p>The identifier of the Amazon Connect instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>"""
+    r"""<p>The identifier of the Amazon Connect instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>"""
     name: "aws_sdk_connect.types.workspace_name.WorkspaceName"
     """<p>The name of the workspace. Must be unique within the instance and can contain 1-127 characters.</p>"""
     description: NotRequired[
@@ -29,7 +29,7 @@ class CreateWorkspaceRequest(TypedDict):
     title: NotRequired["aws_sdk_connect.types.workspace_title.WorkspaceTitle"]
     """<p>The title displayed for the workspace.</p>"""
     tags: NotRequired["aws_sdk_connect.types.tag_map.TagMap"]
-    """<p>The tags used to organize, track, or control access for this resource. For example, <code>{ \"Tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }</code>.</p>"""
+    r"""<p>The tags used to organize, track, or control access for this resource. For example, <code>{ \"Tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }</code>.</p>"""
 
 
 # --- restJson1 ser/de ---

@@ -29,10 +29,10 @@ class CreateIntegrationMessage(TypedDict):
     additional_encryption_context: NotRequired[
         "aws_sdk_rds.types.encryption_context_map.EncryptionContextMap"
     ]
-    """<p>An optional set of non-secret key–value pairs that contains additional contextual information about the data. For more information, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context\">Encryption context</a> in the <i>Amazon Web Services Key Management Service Developer Guide</i>.</p> <p>You can only include this parameter if you specify the <code>KMSKeyId</code> parameter.</p>"""
+    r"""<p>An optional set of non-secret key–value pairs that contains additional contextual information about the data. For more information, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context\">Encryption context</a> in the <i>Amazon Web Services Key Management Service Developer Guide</i>.</p> <p>You can only include this parameter if you specify the <code>KMSKeyId</code> parameter.</p>"""
     tags: NotRequired["aws_sdk_rds.types.tag_list.TagList"]
     data_filter: NotRequired["aws_sdk_rds.types.data_filter.DataFilter"]
-    """<p>Data filtering options for the integration. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/zero-etl.filtering.html\">Data filtering for Aurora zero-ETL integrations with Amazon Redshift</a> or <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/zero-etl.filtering.html\">Data filtering for Amazon RDS zero-ETL integrations with Amazon Redshift</a>. </p>"""
+    r"""<p>Data filtering options for the integration. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/zero-etl.filtering.html\">Data filtering for Aurora zero-ETL integrations with Amazon Redshift</a> or <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/zero-etl.filtering.html\">Data filtering for Amazon RDS zero-ETL integrations with Amazon Redshift</a>. </p>"""
     description: NotRequired[
         "aws_sdk_rds.types.integration_description.IntegrationDescription"
     ]

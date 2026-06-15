@@ -12,7 +12,7 @@ class EcrRepositoryConfiguration(TypedDict):
     repository_policy: NotRequired[
         "aws_sdk_accessanalyzer.types.ecr_repository_policy.EcrRepositoryPolicy"
     ]
-    """<p>The JSON repository policy text to apply to the Amazon ECR repository. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-policy-examples.html\">Private repository policy examples</a> in the <i>Amazon ECR User Guide</i>.</p>"""
+    r"""<p>The JSON repository policy text to apply to the Amazon ECR repository. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-policy-examples.html\">Private repository policy examples</a> in the <i>Amazon ECR User Guide</i>.</p>"""
 
 
 # --- restJson1 ser/de ---

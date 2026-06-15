@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 from aws_sdk_proton._services._pipeline import (
@@ -63,7 +65,7 @@ class ServiceResource:
         ] = None,
         tags: Optional["aws_sdk_proton.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_proton.types.create_service_output.CreateServiceOutput":
-        """<p>Create an Proton service. An Proton service is an instantiation of a service template and often includes several service instances and pipeline. For more information, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-services.html\">Services</a> in the <i>Proton User Guide</i>.</p>
+        r"""<p>Create an Proton service. An Proton service is an instantiation of a service template and often includes several service instances and pipeline. For more information, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-services.html\">Services</a> in the <i>Proton User Guide</i>.</p>
 
         Args:
             name: <p>The service name.</p>
@@ -163,7 +165,7 @@ class ServiceResource:
         description: Optional["aws_sdk_proton.types.description.Description"] = None,
         spec: Optional["aws_sdk_proton.types.spec_contents.SpecContents"] = None,
     ) -> "aws_sdk_proton.types.update_service_output.UpdateServiceOutput":
-        """<p>Edit a service description or use a spec to add and delete service instances.</p> <note> <p>Existing service instances and the service pipeline <i>can't</i> be edited using this API. They can only be deleted.</p> </note> <p>Use the <code>description</code> parameter to modify the description.</p> <p>Edit the <code>spec</code> parameter to add or delete instances.</p> <note> <p>You can't delete a service instance (remove it from the spec) if it has an attached component.</p> <p>For more information about components, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html\">Proton components</a> in the <i>Proton User Guide</i>.</p> </note>
+        r"""<p>Edit a service description or use a spec to add and delete service instances.</p> <note> <p>Existing service instances and the service pipeline <i>can't</i> be edited using this API. They can only be deleted.</p> </note> <p>Use the <code>description</code> parameter to modify the description.</p> <p>Edit the <code>spec</code> parameter to add or delete instances.</p> <note> <p>You can't delete a service instance (remove it from the spec) if it has an attached component.</p> <p>For more information about components, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html\">Proton components</a> in the <i>Proton User Guide</i>.</p> </note>
 
         Args:
             name: <p>The name of the service to edit.</p>
@@ -206,7 +208,7 @@ class ServiceResource:
         *,
         config_overrides: Optional[ProtonClientConfig] = None,
     ) -> "aws_sdk_proton.types.delete_service_output.DeleteServiceOutput":
-        """<p>Delete a service, with its instances and pipeline.</p> <note> <p>You can't delete a service if it has any service instances that have components attached to them.</p> <p>For more information about components, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html\">Proton components</a> in the <i>Proton User Guide</i>.</p> </note>
+        r"""<p>Delete a service, with its instances and pipeline.</p> <note> <p>You can't delete a service if it has any service instances that have components attached to them.</p> <p>For more information about components, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html\">Proton components</a> in the <i>Proton User Guide</i>.</p> </note>
 
         Args:
             name: <p>The name of the service to delete.</p>
@@ -307,7 +309,7 @@ class AsyncServiceResource:
         ] = None,
         tags: Optional["aws_sdk_proton.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_proton.types.create_service_output.CreateServiceOutput":
-        """<p>Create an Proton service. An Proton service is an instantiation of a service template and often includes several service instances and pipeline. For more information, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-services.html\">Services</a> in the <i>Proton User Guide</i>.</p>
+        r"""<p>Create an Proton service. An Proton service is an instantiation of a service template and often includes several service instances and pipeline. For more information, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-services.html\">Services</a> in the <i>Proton User Guide</i>.</p>
 
         Args:
             name: <p>The service name.</p>
@@ -409,7 +411,7 @@ class AsyncServiceResource:
         description: Optional["aws_sdk_proton.types.description.Description"] = None,
         spec: Optional["aws_sdk_proton.types.spec_contents.SpecContents"] = None,
     ) -> "aws_sdk_proton.types.update_service_output.UpdateServiceOutput":
-        """<p>Edit a service description or use a spec to add and delete service instances.</p> <note> <p>Existing service instances and the service pipeline <i>can't</i> be edited using this API. They can only be deleted.</p> </note> <p>Use the <code>description</code> parameter to modify the description.</p> <p>Edit the <code>spec</code> parameter to add or delete instances.</p> <note> <p>You can't delete a service instance (remove it from the spec) if it has an attached component.</p> <p>For more information about components, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html\">Proton components</a> in the <i>Proton User Guide</i>.</p> </note>
+        r"""<p>Edit a service description or use a spec to add and delete service instances.</p> <note> <p>Existing service instances and the service pipeline <i>can't</i> be edited using this API. They can only be deleted.</p> </note> <p>Use the <code>description</code> parameter to modify the description.</p> <p>Edit the <code>spec</code> parameter to add or delete instances.</p> <note> <p>You can't delete a service instance (remove it from the spec) if it has an attached component.</p> <p>For more information about components, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html\">Proton components</a> in the <i>Proton User Guide</i>.</p> </note>
 
         Args:
             name: <p>The name of the service to edit.</p>
@@ -453,7 +455,7 @@ class AsyncServiceResource:
         *,
         config_overrides: Optional[AsyncProtonClientConfig] = None,
     ) -> "aws_sdk_proton.types.delete_service_output.DeleteServiceOutput":
-        """<p>Delete a service, with its instances and pipeline.</p> <note> <p>You can't delete a service if it has any service instances that have components attached to them.</p> <p>For more information about components, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html\">Proton components</a> in the <i>Proton User Guide</i>.</p> </note>
+        r"""<p>Delete a service, with its instances and pipeline.</p> <note> <p>You can't delete a service if it has any service instances that have components attached to them.</p> <p>For more information about components, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html\">Proton components</a> in the <i>Proton User Guide</i>.</p> </note>
 
         Args:
             name: <p>The name of the service to delete.</p>

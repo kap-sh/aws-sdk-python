@@ -123,7 +123,7 @@ class b2biClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = b2biClientConfig(
+        self._config = b2biClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -136,6 +136,7 @@ class b2biClient:
                 "credentials_provider": credentials_provider,
             }
         )
+
         # resources
         self.capability = Capability(self)
         self.partnership = Partnership(self)
@@ -148,7 +149,7 @@ class b2biClient:
         overrides: b2biClientConfig = config_overrides or {}
         interceptors_: list[Interceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             retry(),
         ]
@@ -156,16 +157,16 @@ class b2biClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            region=overrides.get("region", self.config.get("region")),
+            region=overrides.get("region", self._config.get("region")),
             use_dual_stack=overrides.get(
-                "use_dual_stack", self.config.get("use_dual_stack")
+                "use_dual_stack", self._config.get("use_dual_stack")
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -208,14 +209,14 @@ class b2biClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_b2bi.types.create_starter_mapping_template_request.CreateStarterMappingTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_b2bi.types.create_starter_mapping_template_request.CreateStarterMappingTemplateRequest = {}  # type: ignore[typeddict-item]
         if output_sample_location is not None:
-            input["output_sample_location"] = output_sample_location
-        input["mapping_type"] = mapping_type
-        input["template_details"] = template_details
+            input_["output_sample_location"] = output_sample_location
+        input_["mapping_type"] = mapping_type
+        input_["template_details"] = template_details
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -229,7 +230,7 @@ class b2biClient:
         *,
         config_overrides: Optional[b2biClientConfig] = None,
     ) -> "aws_sdk_b2bi.types.generate_mapping_response.GenerateMappingResponse":
-        """<p>Takes sample input and output documents and uses Amazon Bedrock to generate a mapping automatically. Depending on the accuracy and other factors, you can then edit the mapping for your needs.</p> <note> <p>Before you can use the AI-assisted feature for Amazon Web Services B2B Data Interchange you must enable models in Amazon Bedrock. For details, see <a href=\"https://docs.aws.amazon.com/b2bi/latest/userguide/ai-assisted-mapping.html#ai-assist-prereq\">AI-assisted template mapping prerequisites</a> in the <i>Amazon Web Services B2B Data Interchange User guide</i>.</p> </note> <p>To generate a mapping, perform the following steps:</p> <ol> <li> <p>Start with an X12 EDI document to use as the input.</p> </li> <li> <p>Call <code>TestMapping</code> using your EDI document.</p> </li> <li> <p>Use the output from the <code>TestMapping</code> operation as either input or output for your GenerateMapping call, along with your sample file.</p> </li> </ol>
+        r"""<p>Takes sample input and output documents and uses Amazon Bedrock to generate a mapping automatically. Depending on the accuracy and other factors, you can then edit the mapping for your needs.</p> <note> <p>Before you can use the AI-assisted feature for Amazon Web Services B2B Data Interchange you must enable models in Amazon Bedrock. For details, see <a href=\"https://docs.aws.amazon.com/b2bi/latest/userguide/ai-assisted-mapping.html#ai-assist-prereq\">AI-assisted template mapping prerequisites</a> in the <i>Amazon Web Services B2B Data Interchange User guide</i>.</p> </note> <p>To generate a mapping, perform the following steps:</p> <ol> <li> <p>Start with an X12 EDI document to use as the input.</p> </li> <li> <p>Call <code>TestMapping</code> using your EDI document.</p> </li> <li> <p>Use the output from the <code>TestMapping</code> operation as either input or output for your GenerateMapping call, along with your sample file.</p> </li> </ol>
 
         Args:
             input_file_content: <p>Provide the contents of a sample X12 EDI file, either in JSON or XML format, to use as a starting point for the mapping.</p>
@@ -257,13 +258,13 @@ class b2biClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_b2bi.types.generate_mapping_request.GenerateMappingRequest = {}  # type: ignore[typeddict-item]
-        input["input_file_content"] = input_file_content
-        input["output_file_content"] = output_file_content
-        input["mapping_type"] = mapping_type
+        input_: aws_sdk_b2bi.types.generate_mapping_request.GenerateMappingRequest = {}  # type: ignore[typeddict-item]
+        input_["input_file_content"] = input_file_content
+        input_["output_file_content"] = output_file_content
+        input_["mapping_type"] = mapping_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -303,12 +304,12 @@ class b2biClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_b2bi.types.get_transformer_job_request.GetTransformerJobRequest = {}  # type: ignore[typeddict-item]
-        input["transformer_job_id"] = transformer_job_id
-        input["transformer_id"] = transformer_id
+        input_: aws_sdk_b2bi.types.get_transformer_job_request.GetTransformerJobRequest = {}  # type: ignore[typeddict-item]
+        input_["transformer_job_id"] = transformer_job_id
+        input_["transformer_id"] = transformer_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -348,11 +349,11 @@ class b2biClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_b2bi.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_b2bi.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -369,7 +370,7 @@ class b2biClient:
     ) -> (
         "aws_sdk_b2bi.types.start_transformer_job_response.StartTransformerJobResponse"
     ):
-        """<p>Runs a job, using a transformer, to parse input EDI (electronic data interchange) file into the output structures used by Amazon Web Services B2B Data Interchange.</p> <p>If you only want to transform EDI (electronic data interchange) documents, you don't need to create profiles, partnerships or capabilities. Just create and configure a transformer, and then run the <code>StartTransformerJob</code> API to process your files.</p> <note> <p>The system stores transformer jobs for 30 days. During that period, you can run <a href=\"https://docs.aws.amazon.com/b2bi/latest/APIReference/API_GetTransformerJob.html\">GetTransformerJob</a> and supply its <code>transformerId</code> and <code>transformerJobId</code> to return details of the job.</p> </note>
+        r"""<p>Runs a job, using a transformer, to parse input EDI (electronic data interchange) file into the output structures used by Amazon Web Services B2B Data Interchange.</p> <p>If you only want to transform EDI (electronic data interchange) documents, you don't need to create profiles, partnerships or capabilities. Just create and configure a transformer, and then run the <code>StartTransformerJob</code> API to process your files.</p> <note> <p>The system stores transformer jobs for 30 days. During that period, you can run <a href=\"https://docs.aws.amazon.com/b2bi/latest/APIReference/API_GetTransformerJob.html\">GetTransformerJob</a> and supply its <code>transformerId</code> and <code>transformerJobId</code> to return details of the job.</p> </note>
 
         Args:
             input_file: <p>Specifies the location of the input file for the transformation. The location consists of an Amazon S3 bucket and prefix.</p>
@@ -398,15 +399,15 @@ class b2biClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_b2bi.types.start_transformer_job_request.StartTransformerJobRequest = {}  # type: ignore[typeddict-item]
-        input["input_file"] = input_file
-        input["output_location"] = output_location
-        input["transformer_id"] = transformer_id
+        input_: aws_sdk_b2bi.types.start_transformer_job_request.StartTransformerJobRequest = {}  # type: ignore[typeddict-item]
+        input_["input_file"] = input_file
+        input_["output_location"] = output_location
+        input_["transformer_id"] = transformer_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -444,12 +445,12 @@ class b2biClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_b2bi.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_b2bi.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -489,12 +490,12 @@ class b2biClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_b2bi.types.test_conversion_request.TestConversionRequest = {}  # type: ignore[typeddict-item]
-        input["source"] = source
-        input["target"] = target
+        input_: aws_sdk_b2bi.types.test_conversion_request.TestConversionRequest = {}  # type: ignore[typeddict-item]
+        input_["source"] = source
+        input_["target"] = target
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -508,7 +509,7 @@ class b2biClient:
         *,
         config_overrides: Optional[b2biClientConfig] = None,
     ) -> "aws_sdk_b2bi.types.test_mapping_response.TestMappingResponse":
-        """<p>Maps the input file according to the provided template file. The API call downloads the file contents from the Amazon S3 location, and passes the contents in as a string, to the <code>inputFileContent</code> parameter.</p>
+        r"""<p>Maps the input file according to the provided template file. The API call downloads the file contents from the Amazon S3 location, and passes the contents in as a string, to the <code>inputFileContent</code> parameter.</p>
 
         Args:
             input_file_content: <p>Specify the contents of the EDI (electronic data interchange) XML or JSON file that is used as input for the transform.</p>
@@ -536,13 +537,13 @@ class b2biClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_b2bi.types.test_mapping_request.TestMappingRequest = {}  # type: ignore[typeddict-item]
-        input["input_file_content"] = input_file_content
-        input["mapping_template"] = mapping_template
-        input["file_format"] = file_format
+        input_: aws_sdk_b2bi.types.test_mapping_request.TestMappingRequest = {}  # type: ignore[typeddict-item]
+        input_["input_file_content"] = input_file_content
+        input_["mapping_template"] = mapping_template
+        input_["file_format"] = file_format
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -597,15 +598,15 @@ class b2biClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_b2bi.types.test_parsing_request.TestParsingRequest = {}  # type: ignore[typeddict-item]
-        input["input_file"] = input_file
-        input["file_format"] = file_format
-        input["edi_type"] = edi_type
+        input_: aws_sdk_b2bi.types.test_parsing_request.TestParsingRequest = {}  # type: ignore[typeddict-item]
+        input_["input_file"] = input_file
+        input_["file_format"] = file_format
+        input_["edi_type"] = edi_type
         if advanced_options is not None:
-            input["advanced_options"] = advanced_options
+            input_["advanced_options"] = advanced_options
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -643,12 +644,12 @@ class b2biClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_b2bi.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_b2bi.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

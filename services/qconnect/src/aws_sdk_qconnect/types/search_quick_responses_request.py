@@ -26,7 +26,7 @@ class SearchQuickResponsesRequest(TypedDict):
     attributes: NotRequired[
         "aws_sdk_qconnect.types.contact_attributes.ContactAttributes"
     ]
-    """<p>The <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/connect-attrib-list.html#user-defined-attributes\">user-defined Amazon Connect contact attributes</a> to be resolved when search results are returned.</p>"""
+    r"""<p>The <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/connect-attrib-list.html#user-defined-attributes\">user-defined Amazon Connect contact attributes</a> to be resolved when search results are returned.</p>"""
 
 
 # --- restJson1 ser/de ---

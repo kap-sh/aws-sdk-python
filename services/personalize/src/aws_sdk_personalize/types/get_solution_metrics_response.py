@@ -13,7 +13,7 @@ class GetSolutionMetricsResponse(TypedDict):
     solution_version_arn: NotRequired["aws_sdk_personalize.types.arn.Arn"]
     """<p>The same solution version ARN as specified in the request.</p>"""
     metrics: NotRequired["aws_sdk_personalize.types.metrics.Metrics"]
-    """<p>The metrics for the solution version. For more information, see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/working-with-training-metrics.html\"> Evaluating a solution version with metrics </a>.</p>"""
+    r"""<p>The metrics for the solution version. For more information, see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/working-with-training-metrics.html\"> Evaluating a solution version with metrics </a>.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

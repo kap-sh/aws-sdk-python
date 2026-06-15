@@ -10,7 +10,7 @@ if TYPE_CHECKING:
 
 class ExecuteGremlinProfileQueryOutput(TypedDict):
     output: NotRequired["aws_sdk_neptunedata.types.report_as_text.ReportAsText"]
-    """<p>A text blob containing the Gremlin Profile result. See <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/gremlin-profile-api.html\">Gremlin profile API in Neptune</a> for details.</p>"""
+    r"""<p>A text blob containing the Gremlin Profile result. See <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/gremlin-profile-api.html\">Gremlin profile API in Neptune</a> for details.</p>"""
 
 
 # --- restJson1 ser/de ---

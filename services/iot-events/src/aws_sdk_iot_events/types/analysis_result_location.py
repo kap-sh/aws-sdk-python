@@ -12,7 +12,7 @@ class AnalysisResultLocation(TypedDict):
     path: NotRequired[
         "aws_sdk_iot_events.types.analysis_result_location_path.AnalysisResultLocationPath"
     ]
-    """<p>A <a href=\"https://github.com/json-path/JsonPath\">JsonPath</a> expression that identifies the error field in your detector model.</p>"""
+    r"""<p>A <a href=\"https://github.com/json-path/JsonPath\">JsonPath</a> expression that identifies the error field in your detector model.</p>"""
 
 
 # --- restJson1 ser/de ---

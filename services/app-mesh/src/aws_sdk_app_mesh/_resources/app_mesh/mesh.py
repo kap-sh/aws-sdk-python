@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_app_mesh._auth._signers
@@ -48,7 +50,7 @@ class Mesh:
         tags: Optional["aws_sdk_app_mesh.types.tag_list.TagList"] = None,
         client_token: Optional[str] = None,
     ) -> "aws_sdk_app_mesh.types.create_mesh_output.CreateMeshOutput":
-        """<p>Creates a service mesh.</p> <p> A service mesh is a logical boundary for network traffic between services that are represented by resources within the mesh. After you create your service mesh, you can create virtual services, virtual nodes, virtual routers, and routes to distribute traffic between the applications in your mesh.</p> <p>For more information about service meshes, see <a href=\"https://docs.aws.amazon.com/app-mesh/latest/userguide/meshes.html\">Service meshes</a>.</p>
+        r"""<p>Creates a service mesh.</p> <p> A service mesh is a logical boundary for network traffic between services that are represented by resources within the mesh. After you create your service mesh, you can create virtual services, virtual nodes, virtual routers, and routes to distribute traffic between the applications in your mesh.</p> <p>For more information about service meshes, see <a href=\"https://docs.aws.amazon.com/app-mesh/latest/userguide/meshes.html\">Service meshes</a>.</p>
 
         Args:
             mesh_name: <p>The name to use for the service mesh.</p>
@@ -95,7 +97,7 @@ class Mesh:
         config_overrides: Optional[AppMeshClientConfig] = None,
         mesh_owner: Optional["aws_sdk_app_mesh.types.account_id.AccountId"] = None,
     ) -> "aws_sdk_app_mesh.types.describe_mesh_output.DescribeMeshOutput":
-        """<p>Describes an existing service mesh.</p>
+        r"""<p>Describes an existing service mesh.</p>
 
         Args:
             mesh_name: <p>The name of the service mesh to describe.</p>
@@ -269,7 +271,7 @@ class AsyncMesh:
         tags: Optional["aws_sdk_app_mesh.types.tag_list.TagList"] = None,
         client_token: Optional[str] = None,
     ) -> "aws_sdk_app_mesh.types.create_mesh_output.CreateMeshOutput":
-        """<p>Creates a service mesh.</p> <p> A service mesh is a logical boundary for network traffic between services that are represented by resources within the mesh. After you create your service mesh, you can create virtual services, virtual nodes, virtual routers, and routes to distribute traffic between the applications in your mesh.</p> <p>For more information about service meshes, see <a href=\"https://docs.aws.amazon.com/app-mesh/latest/userguide/meshes.html\">Service meshes</a>.</p>
+        r"""<p>Creates a service mesh.</p> <p> A service mesh is a logical boundary for network traffic between services that are represented by resources within the mesh. After you create your service mesh, you can create virtual services, virtual nodes, virtual routers, and routes to distribute traffic between the applications in your mesh.</p> <p>For more information about service meshes, see <a href=\"https://docs.aws.amazon.com/app-mesh/latest/userguide/meshes.html\">Service meshes</a>.</p>
 
         Args:
             mesh_name: <p>The name to use for the service mesh.</p>
@@ -317,7 +319,7 @@ class AsyncMesh:
         config_overrides: Optional[AsyncAppMeshClientConfig] = None,
         mesh_owner: Optional["aws_sdk_app_mesh.types.account_id.AccountId"] = None,
     ) -> "aws_sdk_app_mesh.types.describe_mesh_output.DescribeMeshOutput":
-        """<p>Describes an existing service mesh.</p>
+        r"""<p>Describes an existing service mesh.</p>
 
         Args:
             mesh_name: <p>The name of the service mesh to describe.</p>

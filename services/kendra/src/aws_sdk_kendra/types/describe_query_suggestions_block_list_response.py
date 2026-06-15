@@ -42,7 +42,7 @@ class DescribeQuerySuggestionsBlockListResponse(TypedDict):
     updated_at: NotRequired["aws_sdk_kendra.types.timestamp.Timestamp"]
     """<p>The Unix timestamp when a block list for query suggestions was last updated.</p>"""
     source_s3_path: NotRequired["aws_sdk_kendra.types.s3_path.S3Path"]
-    """<p>Shows the current S3 path to your block list text file in your S3 bucket.</p> <p>Each block word or phrase should be on a separate line in a text file.</p> <p>For information on the current quota limits for block lists, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/quotas.html\">Quotas for Amazon Kendra</a>.</p>"""
+    r"""<p>Shows the current S3 path to your block list text file in your S3 bucket.</p> <p>Each block word or phrase should be on a separate line in a text file.</p> <p>For information on the current quota limits for block lists, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/quotas.html\">Quotas for Amazon Kendra</a>.</p>"""
     item_count: NotRequired["aws_sdk_kendra.types.integer.Integer"]
     """<p>The current number of valid, non-empty words or phrases in the block list text file.</p>"""
     file_size_bytes: NotRequired["aws_sdk_kendra.types.long.Long"]

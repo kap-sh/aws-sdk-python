@@ -15,7 +15,7 @@ if TYPE_CHECKING:
 
 class EdgeConfig(TypedDict):
     hub_device_arn: "aws_sdk_kinesis_video.types.hub_device_arn.HubDeviceArn"
-    """<p>The \"<b>Internet of Things (IoT) Thing</b>\" Arn of the stream.</p>"""
+    r"""<p>The \"<b>Internet of Things (IoT) Thing</b>\" Arn of the stream.</p>"""
     recorder_config: "aws_sdk_kinesis_video.types.recorder_config.RecorderConfig"
     """<p>The recorder configuration consists of the local <code>MediaSourceConfig</code> details, that are used as credentials to access the local media files streamed on the camera. </p>"""
     uploader_config: NotRequired[

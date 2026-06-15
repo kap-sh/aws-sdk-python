@@ -16,7 +16,7 @@ class CSV(TypedDict):
     quote_character: NotRequired[
         "aws_sdk_cloudwatch_logs.types.quote_character.QuoteCharacter"
     ]
-    """<p>The character used used as a text qualifier for a single column of data. If you omit this, the double quotation mark <code>\"</code> character is used.</p>"""
+    r"""<p>The character used used as a text qualifier for a single column of data. If you omit this, the double quotation mark <code>\"</code> character is used.</p>"""
     delimiter: NotRequired["aws_sdk_cloudwatch_logs.types.delimiter.Delimiter"]
     """<p>The character used to separate each column in the original comma-separated value log event. If you omit this, the processor looks for the comma <code>,</code> character as the delimiter.</p>"""
     columns: NotRequired["aws_sdk_cloudwatch_logs.types.columns.Columns"]

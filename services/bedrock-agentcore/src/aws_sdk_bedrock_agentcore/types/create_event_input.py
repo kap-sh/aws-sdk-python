@@ -1,16 +1,21 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#CreateEventInput``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
+
 if TYPE_CHECKING:
+    import datetime
+
     import aws_sdk_bedrock_agentcore.types.actor_id
     import aws_sdk_bedrock_agentcore.types.branch
     import aws_sdk_bedrock_agentcore.types.memory_id
     import aws_sdk_bedrock_agentcore.types.metadata_map
     import aws_sdk_bedrock_agentcore.types.payload_type_list
     import aws_sdk_bedrock_agentcore.types.session_id
-    import datetime
+
 
 class CreateEventInput(TypedDict):
     memory_id: "aws_sdk_bedrock_agentcore.types.memory_id.MemoryId"
@@ -30,6 +35,7 @@ class CreateEventInput(TypedDict):
     metadata: NotRequired["aws_sdk_bedrock_agentcore.types.metadata_map.MetadataMap"]
     """<p>The key-value metadata to attach to the event.</p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: CreateEventInput) -> dict:
     out: dict = {}
@@ -37,17 +43,31 @@ def serialize_json(value: CreateEventInput) -> dict:
     if "session_id" in value:
         out["sessionId"] = value["session_id"]
     import aws_sdk_bedrock_agentcore.types._prelude.timestamp
-    out["eventTimestamp"] = aws_sdk_bedrock_agentcore.types._prelude.timestamp.serialize_json(value["event_timestamp"])
+
+    out["eventTimestamp"] = (
+        aws_sdk_bedrock_agentcore.types._prelude.timestamp.serialize_json(
+            value["event_timestamp"]
+        )
+    )
     import aws_sdk_bedrock_agentcore.types.payload_type_list
-    out["payload"] = aws_sdk_bedrock_agentcore.types.payload_type_list.serialize_json(value["payload"])
+
+    out["payload"] = aws_sdk_bedrock_agentcore.types.payload_type_list.serialize_json(
+        value["payload"]
+    )
     if "branch" in value:
         import aws_sdk_bedrock_agentcore.types.branch
-        out["branch"] = aws_sdk_bedrock_agentcore.types.branch.serialize_json(value["branch"])
+
+        out["branch"] = aws_sdk_bedrock_agentcore.types.branch.serialize_json(
+            value["branch"]
+        )
     if "client_token" in value:
         out["clientToken"] = value["client_token"]
     if "metadata" in value:
         import aws_sdk_bedrock_agentcore.types.metadata_map
-        out["metadata"] = aws_sdk_bedrock_agentcore.types.metadata_map.serialize_json(value["metadata"])
+
+        out["metadata"] = aws_sdk_bedrock_agentcore.types.metadata_map.serialize_json(
+            value["metadata"]
+        )
     return out
 
 
@@ -61,20 +81,36 @@ def deserialize_json(data: dict) -> CreateEventInput:
         out["session_id"] = data["sessionId"]
     if "eventTimestamp" in data:
         import aws_sdk_bedrock_agentcore.types._prelude.timestamp
-        out["event_timestamp"] = aws_sdk_bedrock_agentcore.types._prelude.timestamp.deserialize_json(data["eventTimestamp"])
+
+        out["event_timestamp"] = (
+            aws_sdk_bedrock_agentcore.types._prelude.timestamp.deserialize_json(
+                data["eventTimestamp"]
+            )
+        )
     else:
         raise DeserializationError("CreateEventInput.event_timestamp required")
     if "payload" in data:
         import aws_sdk_bedrock_agentcore.types.payload_type_list
-        out["payload"] = aws_sdk_bedrock_agentcore.types.payload_type_list.deserialize_json(data["payload"])
+
+        out["payload"] = (
+            aws_sdk_bedrock_agentcore.types.payload_type_list.deserialize_json(
+                data["payload"]
+            )
+        )
     else:
         raise DeserializationError("CreateEventInput.payload required")
     if "branch" in data:
         import aws_sdk_bedrock_agentcore.types.branch
-        out["branch"] = aws_sdk_bedrock_agentcore.types.branch.deserialize_json(data["branch"])
+
+        out["branch"] = aws_sdk_bedrock_agentcore.types.branch.deserialize_json(
+            data["branch"]
+        )
     if "clientToken" in data:
         out["client_token"] = data["clientToken"]
     if "metadata" in data:
         import aws_sdk_bedrock_agentcore.types.metadata_map
-        out["metadata"] = aws_sdk_bedrock_agentcore.types.metadata_map.deserialize_json(data["metadata"])
+
+        out["metadata"] = aws_sdk_bedrock_agentcore.types.metadata_map.deserialize_json(
+            data["metadata"]
+        )
     return out

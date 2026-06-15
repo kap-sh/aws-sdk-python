@@ -13,7 +13,7 @@ if TYPE_CHECKING:
 
 class InstanceBlockDeviceMappingSpecification(TypedDict):
     device_name: NotRequired["aws_sdk_ec2.types.string.String"]
-    """<p>The device name. For available device names, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html\">Device names for volumes</a>.</p>"""
+    r"""<p>The device name. For available device names, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html\">Device names for volumes</a>.</p>"""
     ebs: NotRequired[
         "aws_sdk_ec2.types.ebs_instance_block_device_specification.EbsInstanceBlockDeviceSpecification"
     ]

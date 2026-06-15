@@ -26,7 +26,7 @@ class CreateTriggerRequest(TypedDict):
     type: "aws_sdk_glue.types.trigger_type.TriggerType"
     """<p>The type of the new trigger.</p>"""
     schedule: NotRequired["aws_sdk_glue.types.generic_string.GenericString"]
-    """<p>A <code>cron</code> expression used to specify the schedule (see <a href=\"https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html\">Time-Based Schedules for Jobs and Crawlers</a>. For example, to run something every day at 12:15 UTC, you would specify: <code>cron(15 12 * * ? *)</code>.</p> <p>This field is required when the trigger type is SCHEDULED.</p>"""
+    r"""<p>A <code>cron</code> expression used to specify the schedule (see <a href=\"https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html\">Time-Based Schedules for Jobs and Crawlers</a>. For example, to run something every day at 12:15 UTC, you would specify: <code>cron(15 12 * * ? *)</code>.</p> <p>This field is required when the trigger type is SCHEDULED.</p>"""
     predicate: NotRequired["aws_sdk_glue.types.predicate.Predicate"]
     """<p>A predicate to specify when the new trigger should fire.</p> <p>This field is required when the trigger type is <code>CONDITIONAL</code>.</p>"""
     actions: "aws_sdk_glue.types.action_list.ActionList"
@@ -36,7 +36,7 @@ class CreateTriggerRequest(TypedDict):
     start_on_creation: "aws_sdk_glue.types.boolean_value.BooleanValue"
     """<p>Set to <code>true</code> to start <code>SCHEDULED</code> and <code>CONDITIONAL</code> triggers when created. True is not supported for <code>ON_DEMAND</code> triggers.</p>"""
     tags: NotRequired["aws_sdk_glue.types.tags_map.TagsMap"]
-    """<p>The tags to use with this trigger. You may use tags to limit access to the trigger. For more information about tags in Glue, see <a href=\"https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html\">Amazon Web Services Tags in Glue</a> in the developer guide. </p>"""
+    r"""<p>The tags to use with this trigger. You may use tags to limit access to the trigger. For more information about tags in Glue, see <a href=\"https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html\">Amazon Web Services Tags in Glue</a> in the developer guide. </p>"""
     event_batching_condition: NotRequired[
         "aws_sdk_glue.types.event_batching_condition.EventBatchingCondition"
     ]

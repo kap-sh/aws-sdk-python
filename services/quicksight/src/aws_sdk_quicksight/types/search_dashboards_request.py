@@ -17,7 +17,7 @@ class SearchDashboardsRequest(TypedDict):
     aws_account_id: "aws_sdk_quicksight.types.aws_account_id.AwsAccountId"
     """<p>The ID of the Amazon Web Services account that contains the user whose dashboards you're searching for. </p>"""
     filters: "aws_sdk_quicksight.types.dashboard_search_filter_list.DashboardSearchFilterList"
-    """<p>The filters to apply to the search. Currently, you can search only by user name, for example, <code>\"Filters\": [ { \"Name\": \"QUICKSIGHT_USER\", \"Operator\": \"StringEquals\", \"Value\": \"arn:aws:quicksight:us-east-1:1:user/default/UserName1\" } ]</code> </p>"""
+    r"""<p>The filters to apply to the search. Currently, you can search only by user name, for example, <code>\"Filters\": [ { \"Name\": \"QUICKSIGHT_USER\", \"Operator\": \"StringEquals\", \"Value\": \"arn:aws:quicksight:us-east-1:1:user/default/UserName1\" } ]</code> </p>"""
     next_token: NotRequired["aws_sdk_quicksight.types.string.String"]
     """<p>The token for the next set of results, or null if there are no more results.</p>"""
     max_results: NotRequired["aws_sdk_quicksight.types.max_results.MaxResults"]

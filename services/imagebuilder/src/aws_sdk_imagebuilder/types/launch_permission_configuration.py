@@ -19,11 +19,11 @@ class LaunchPermissionConfiguration(TypedDict):
     organization_arns: NotRequired[
         "aws_sdk_imagebuilder.types.organization_arn_list.OrganizationArnList"
     ]
-    """<p>The ARN for an Amazon Web Services Organization that you want to share your AMI with. For more information, see <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html\">What is Organizations?</a>.</p>"""
+    r"""<p>The ARN for an Amazon Web Services Organization that you want to share your AMI with. For more information, see <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html\">What is Organizations?</a>.</p>"""
     organizational_unit_arns: NotRequired[
         "aws_sdk_imagebuilder.types.organizational_unit_arn_list.OrganizationalUnitArnList"
     ]
-    """<p>The ARN for an Organizations organizational unit (OU) that you want to share your AMI with. For more information about key concepts for Organizations, see <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html\">Organizations terminology and concepts</a>.</p>"""
+    r"""<p>The ARN for an Organizations organizational unit (OU) that you want to share your AMI with. For more information about key concepts for Organizations, see <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html\">Organizations terminology and concepts</a>.</p>"""
 
 
 # --- restJson1 ser/de ---

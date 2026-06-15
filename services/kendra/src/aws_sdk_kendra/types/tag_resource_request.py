@@ -11,7 +11,7 @@ if TYPE_CHECKING:
 
 class TagResourceRequest(TypedDict):
     resource_arn: "aws_sdk_kendra.types.amazon_resource_name.AmazonResourceName"
-    """<p>The Amazon Resource Name (ARN) of the index, FAQ, data source, or other resource to add a tag. For example, the ARN of an index is constructed as follows: <i>arn:aws:kendra:your-region:your-account-id:index/index-id</i> For information on how to construct an ARN for all types of Amazon Kendra resources, see <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonkendra.html#amazonkendra-resources-for-iam-policies\">Resource types</a>.</p>"""
+    r"""<p>The Amazon Resource Name (ARN) of the index, FAQ, data source, or other resource to add a tag. For example, the ARN of an index is constructed as follows: <i>arn:aws:kendra:your-region:your-account-id:index/index-id</i> For information on how to construct an ARN for all types of Amazon Kendra resources, see <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonkendra.html#amazonkendra-resources-for-iam-policies\">Resource types</a>.</p>"""
     tags: "aws_sdk_kendra.types.tag_list.TagList"
     """<p>A list of tag keys to add to the index, FAQ, data source, or other resource. If a tag already exists, the existing value is replaced with the new value.</p>"""
 

@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_resource_explorer_2._auth._signers
@@ -55,7 +57,7 @@ class CfnView:
         ] = None,
         tags: Optional["aws_sdk_resource_explorer_2.types.tag_map.TagMap"] = None,
     ) -> "aws_sdk_resource_explorer_2.types.create_view_output.CreateViewOutput":
-        """<p>Creates a view that users can query by using the <a>Search</a> operation. Results from queries that you make using this view include only resources that match the view's <code>Filters</code>. For more information about Amazon Web Services Resource Explorer views, see <a href=\"https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-views.html\">Managing views</a> in the <i>Amazon Web Services Resource Explorer User Guide</i>.</p> <p>Only the principals with an IAM identity-based policy that grants <code>Allow</code> to the <code>Search</code> action on a <code>Resource</code> with the <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon resource name (ARN)</a> of this view can <a>Search</a> using views you create with this operation.</p>
+        r"""<p>Creates a view that users can query by using the <a>Search</a> operation. Results from queries that you make using this view include only resources that match the view's <code>Filters</code>. For more information about Amazon Web Services Resource Explorer views, see <a href=\"https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-views.html\">Managing views</a> in the <i>Amazon Web Services Resource Explorer User Guide</i>.</p> <p>Only the principals with an IAM identity-based policy that grants <code>Allow</code> to the <code>Search</code> action on a <code>Resource</code> with the <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon resource name (ARN)</a> of this view can <a>Search</a> using views you create with this operation.</p>
 
         Args:
             client_token: <p>This value helps ensure idempotency. Resource Explorer uses this value to prevent the accidental creation of duplicate versions. We recommend that you generate a <a href=\"https://wikipedia.org/wiki/Universally_unique_identifier\">UUID-type value</a> to ensure the uniqueness of your views.</p>
@@ -107,7 +109,7 @@ class CfnView:
         *,
         config_overrides: Optional[ResourceExplorer2ClientConfig] = None,
     ) -> "aws_sdk_resource_explorer_2.types.get_view_output.GetViewOutput":
-        """<p>Retrieves details of the specified view.</p>
+        r"""<p>Retrieves details of the specified view.</p>
 
         Args:
             view_arn: <p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon resource name (ARN)</a> of the view that you want information about.</p>
@@ -150,7 +152,7 @@ class CfnView:
             "aws_sdk_resource_explorer_2.types.search_filter.SearchFilter"
         ] = None,
     ) -> "aws_sdk_resource_explorer_2.types.update_view_output.UpdateViewOutput":
-        """<p>Modifies some of the details of a view. You can change the filter string and the list of included properties. You can't change the name of the view.</p>
+        r"""<p>Modifies some of the details of a view. You can change the filter string and the list of included properties. You can't change the name of the view.</p>
 
         Args:
             view_arn: <p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon resource name (ARN)</a> of the view that you want to modify.</p>
@@ -193,7 +195,7 @@ class CfnView:
         *,
         config_overrides: Optional[ResourceExplorer2ClientConfig] = None,
     ) -> "aws_sdk_resource_explorer_2.types.delete_view_output.DeleteViewOutput":
-        """<p>Deletes the specified view.</p> <p>If the specified view is the default view for its Amazon Web Services Region, then all <a>Search</a> operations in that Region must explicitly specify the view to use until you configure a new default by calling the <a>AssociateDefaultView</a> operation.</p>
+        r"""<p>Deletes the specified view.</p> <p>If the specified view is the default view for its Amazon Web Services Region, then all <a>Search</a> operations in that Region must explicitly specify the view to use until you configure a new default by calling the <a>AssociateDefaultView</a> operation.</p>
 
         Args:
             view_arn: <p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon resource name (ARN)</a> of the view that you want to delete.</p>
@@ -231,7 +233,7 @@ class CfnView:
         next_token: Optional[str] = None,
         max_results: Optional[int] = None,
     ) -> "aws_sdk_resource_explorer_2.types.list_views_output.ListViewsOutput":
-        """<p>Lists the <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon resource names (ARNs)</a> of the views available in the Amazon Web Services Region in which you call this operation.</p> <note> <p>Always check the <code>NextToken</code> response parameter for a <code>null</code> value when calling a paginated operation. These operations can occasionally return an empty set of results even when there are more results available. The <code>NextToken</code> response parameter value is <code>null</code> <i>only</i> when there are no more results to display.</p> </note>
+        r"""<p>Lists the <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon resource names (ARNs)</a> of the views available in the Amazon Web Services Region in which you call this operation.</p> <note> <p>Always check the <code>NextToken</code> response parameter for a <code>null</code> value when calling a paginated operation. These operations can occasionally return an empty set of results even when there are more results available. The <code>NextToken</code> response parameter value is <code>null</code> <i>only</i> when there are no more results to display.</p> </note>
 
         Args:
             next_token: <p>The parameter for receiving additional results if you receive a <code>NextToken</code> response in a previous request. A <code>NextToken</code> response indicates that more output is available. Set this parameter to the value of the previous call's <code>NextToken</code> response to indicate where the output should continue from. The pagination tokens expire after 24 hours.</p>
@@ -286,7 +288,7 @@ class AsyncCfnView:
         ] = None,
         tags: Optional["aws_sdk_resource_explorer_2.types.tag_map.TagMap"] = None,
     ) -> "aws_sdk_resource_explorer_2.types.create_view_output.CreateViewOutput":
-        """<p>Creates a view that users can query by using the <a>Search</a> operation. Results from queries that you make using this view include only resources that match the view's <code>Filters</code>. For more information about Amazon Web Services Resource Explorer views, see <a href=\"https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-views.html\">Managing views</a> in the <i>Amazon Web Services Resource Explorer User Guide</i>.</p> <p>Only the principals with an IAM identity-based policy that grants <code>Allow</code> to the <code>Search</code> action on a <code>Resource</code> with the <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon resource name (ARN)</a> of this view can <a>Search</a> using views you create with this operation.</p>
+        r"""<p>Creates a view that users can query by using the <a>Search</a> operation. Results from queries that you make using this view include only resources that match the view's <code>Filters</code>. For more information about Amazon Web Services Resource Explorer views, see <a href=\"https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-views.html\">Managing views</a> in the <i>Amazon Web Services Resource Explorer User Guide</i>.</p> <p>Only the principals with an IAM identity-based policy that grants <code>Allow</code> to the <code>Search</code> action on a <code>Resource</code> with the <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon resource name (ARN)</a> of this view can <a>Search</a> using views you create with this operation.</p>
 
         Args:
             client_token: <p>This value helps ensure idempotency. Resource Explorer uses this value to prevent the accidental creation of duplicate versions. We recommend that you generate a <a href=\"https://wikipedia.org/wiki/Universally_unique_identifier\">UUID-type value</a> to ensure the uniqueness of your views.</p>
@@ -339,7 +341,7 @@ class AsyncCfnView:
         *,
         config_overrides: Optional[AsyncResourceExplorer2ClientConfig] = None,
     ) -> "aws_sdk_resource_explorer_2.types.get_view_output.GetViewOutput":
-        """<p>Retrieves details of the specified view.</p>
+        r"""<p>Retrieves details of the specified view.</p>
 
         Args:
             view_arn: <p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon resource name (ARN)</a> of the view that you want information about.</p>
@@ -383,7 +385,7 @@ class AsyncCfnView:
             "aws_sdk_resource_explorer_2.types.search_filter.SearchFilter"
         ] = None,
     ) -> "aws_sdk_resource_explorer_2.types.update_view_output.UpdateViewOutput":
-        """<p>Modifies some of the details of a view. You can change the filter string and the list of included properties. You can't change the name of the view.</p>
+        r"""<p>Modifies some of the details of a view. You can change the filter string and the list of included properties. You can't change the name of the view.</p>
 
         Args:
             view_arn: <p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon resource name (ARN)</a> of the view that you want to modify.</p>
@@ -427,7 +429,7 @@ class AsyncCfnView:
         *,
         config_overrides: Optional[AsyncResourceExplorer2ClientConfig] = None,
     ) -> "aws_sdk_resource_explorer_2.types.delete_view_output.DeleteViewOutput":
-        """<p>Deletes the specified view.</p> <p>If the specified view is the default view for its Amazon Web Services Region, then all <a>Search</a> operations in that Region must explicitly specify the view to use until you configure a new default by calling the <a>AssociateDefaultView</a> operation.</p>
+        r"""<p>Deletes the specified view.</p> <p>If the specified view is the default view for its Amazon Web Services Region, then all <a>Search</a> operations in that Region must explicitly specify the view to use until you configure a new default by calling the <a>AssociateDefaultView</a> operation.</p>
 
         Args:
             view_arn: <p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon resource name (ARN)</a> of the view that you want to delete.</p>
@@ -466,7 +468,7 @@ class AsyncCfnView:
         next_token: Optional[str] = None,
         max_results: Optional[int] = None,
     ) -> "aws_sdk_resource_explorer_2.types.list_views_output.ListViewsOutput":
-        """<p>Lists the <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon resource names (ARNs)</a> of the views available in the Amazon Web Services Region in which you call this operation.</p> <note> <p>Always check the <code>NextToken</code> response parameter for a <code>null</code> value when calling a paginated operation. These operations can occasionally return an empty set of results even when there are more results available. The <code>NextToken</code> response parameter value is <code>null</code> <i>only</i> when there are no more results to display.</p> </note>
+        r"""<p>Lists the <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon resource names (ARNs)</a> of the views available in the Amazon Web Services Region in which you call this operation.</p> <note> <p>Always check the <code>NextToken</code> response parameter for a <code>null</code> value when calling a paginated operation. These operations can occasionally return an empty set of results even when there are more results available. The <code>NextToken</code> response parameter value is <code>null</code> <i>only</i> when there are no more results to display.</p> </note>
 
         Args:
             next_token: <p>The parameter for receiving additional results if you receive a <code>NextToken</code> response in a previous request. A <code>NextToken</code> response indicates that more output is available. Set this parameter to the value of the previous call's <code>NextToken</code> response to indicate where the output should continue from. The pagination tokens expire after 24 hours.</p>

@@ -10,7 +10,7 @@ if TYPE_CHECKING:
 
 class BatchPutMessageRequest(TypedDict):
     messages: "aws_sdk_iot_events_data.types.messages.Messages"
-    """<p>The list of messages to send. Each message has the following format: <code>'{ \"messageId\": \"string\", \"inputName\": \"string\", \"payload\": \"string\"}'</code> </p>"""
+    r"""<p>The list of messages to send. Each message has the following format: <code>'{ \"messageId\": \"string\", \"inputName\": \"string\", \"payload\": \"string\"}'</code> </p>"""
 
 
 # --- restJson1 ser/de ---

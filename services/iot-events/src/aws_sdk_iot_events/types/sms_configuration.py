@@ -20,7 +20,7 @@ class SMSConfiguration(TypedDict):
     ]
     """<p>The message that you want to send. The message can be up to 200 characters.</p>"""
     recipients: "aws_sdk_iot_events.types.recipient_details.RecipientDetails"
-    """<p>Specifies one or more recipients who receive the message.</p> <important> <p>You must <a href=\"https://docs.aws.amazon.com/singlesignon/latest/userguide/addusers.html\">add the users that receive SMS messages to your AWS SSO store</a>.</p> </important>"""
+    r"""<p>Specifies one or more recipients who receive the message.</p> <important> <p>You must <a href=\"https://docs.aws.amazon.com/singlesignon/latest/userguide/addusers.html\">add the users that receive SMS messages to your AWS SSO store</a>.</p> </important>"""
 
 
 # --- restJson1 ser/de ---

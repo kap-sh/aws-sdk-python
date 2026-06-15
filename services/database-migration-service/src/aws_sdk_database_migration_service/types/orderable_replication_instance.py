@@ -20,7 +20,7 @@ class OrderableReplicationInstance(TypedDict):
     replication_instance_class: NotRequired[
         "aws_sdk_database_migration_service.types.replication_instance_class.ReplicationInstanceClass"
     ]
-    """<p>The compute and memory capacity of the replication instance as defined for the specified replication instance class. For example to specify the instance class dms.c4.large, set this parameter to <code>\"dms.c4.large\"</code>.</p> <p>For more information on the settings and capacities for the available replication instance classes, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html#CHAP_ReplicationInstance.InDepth\"> Selecting the right DMS replication instance for your migration</a>. </p>"""
+    r"""<p>The compute and memory capacity of the replication instance as defined for the specified replication instance class. For example to specify the instance class dms.c4.large, set this parameter to <code>\"dms.c4.large\"</code>.</p> <p>For more information on the settings and capacities for the available replication instance classes, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html#CHAP_ReplicationInstance.InDepth\"> Selecting the right DMS replication instance for your migration</a>. </p>"""
     storage_type: NotRequired["aws_sdk_database_migration_service.types.string.String"]
     """<p>The type of storage used by the replication instance.</p>"""
     min_allocated_storage: "aws_sdk_database_migration_service.types.integer.Integer"

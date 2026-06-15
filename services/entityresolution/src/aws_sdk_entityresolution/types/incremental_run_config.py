@@ -12,7 +12,7 @@ class IncrementalRunConfig(TypedDict):
     incremental_run_type: NotRequired[
         "aws_sdk_entityresolution.types.incremental_run_type.IncrementalRunType"
     ]
-    """<p>The type of incremental run. The only valid value is <code>IMMEDIATE</code>. This appears as \"Automatic\" in the console.</p> <important> <p>For workflows where <code>resolutionType</code> is <code>ML_MATCHING</code> or <code>PROVIDER</code>, incremental processing is not supported. </p> </important>"""
+    r"""<p>The type of incremental run. The only valid value is <code>IMMEDIATE</code>. This appears as \"Automatic\" in the console.</p> <important> <p>For workflows where <code>resolutionType</code> is <code>ML_MATCHING</code> or <code>PROVIDER</code>, incremental processing is not supported. </p> </important>"""
 
 
 # --- restJson1 ser/de ---

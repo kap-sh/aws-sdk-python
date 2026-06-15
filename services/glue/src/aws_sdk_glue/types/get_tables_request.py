@@ -39,7 +39,7 @@ class GetTablesRequest(TypedDict):
     query_as_of_time: NotRequired["aws_sdk_glue.types.timestamp.Timestamp"]
     """<p>The time as of when to read the table contents. If not set, the most recent transaction commit time will be used. Cannot be specified along with <code>TransactionId</code>.</p>"""
     audit_context: NotRequired["aws_sdk_glue.types.audit_context.AuditContext"]
-    """<p>A structure containing the Lake Formation <a href=\"https://docs.aws.amazon.com/glue/latest/webapi/API_AuditContext.html\">audit context</a>.</p>"""
+    r"""<p>A structure containing the Lake Formation <a href=\"https://docs.aws.amazon.com/glue/latest/webapi/API_AuditContext.html\">audit context</a>.</p>"""
     include_status_details: NotRequired[
         "aws_sdk_glue.types.boolean_nullable.BooleanNullable"
     ]

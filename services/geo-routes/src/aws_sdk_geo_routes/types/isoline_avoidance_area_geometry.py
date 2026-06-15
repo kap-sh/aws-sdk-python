@@ -22,11 +22,11 @@ class IsolineAvoidanceAreaGeometry(TypedDict):
     polyline_corridor: NotRequired[
         "aws_sdk_geo_routes.types.polyline_corridor.PolylineCorridor"
     ]
-    """<p>A buffer zone around a compressed polyline, defined by an encoded polyline string and a radius in meters. For more information on polyline encoding, see <a href=\"https://github.com/aws-geospatial/polyline\">https://github.com/aws-geospatial/polyline</a>.</p>"""
+    r"""<p>A buffer zone around a compressed polyline, defined by an encoded polyline string and a radius in meters. For more information on polyline encoding, see <a href=\"https://github.com/aws-geospatial/polyline\">https://github.com/aws-geospatial/polyline</a>.</p>"""
     polyline_polygon: NotRequired[
         "aws_sdk_geo_routes.types.polyline_ring_list.PolylineRingList"
     ]
-    """<p>A polygon defined by encoded polyline strings. The first string defines the outer boundary; subsequent strings will be ignored. For more information on polyline encoding, see <a href=\"https://github.com/aws-geospatial/polyline\">https://github.com/aws-geospatial/polyline</a>.</p>"""
+    r"""<p>A polygon defined by encoded polyline strings. The first string defines the outer boundary; subsequent strings will be ignored. For more information on polyline encoding, see <a href=\"https://github.com/aws-geospatial/polyline\">https://github.com/aws-geospatial/polyline</a>.</p>"""
 
 
 # --- restJson1 ser/de ---

@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import datetime
 from typing import TYPE_CHECKING, Optional
 
@@ -215,7 +217,7 @@ class Contact:
         *,
         config_overrides: Optional[GroundStationClientConfig] = None,
     ) -> "aws_sdk_groundstation.types.contact_id_response.ContactIdResponse":
-        """<p>Cancels or stops a contact with a specified contact ID based on its position in the <a href=\"https://docs.aws.amazon.com/ground-station/latest/ug/contacts.lifecycle.html\">contact lifecycle</a>.</p> <p>For contacts that:</p> <ul> <li> <p>Have yet to start, the contact will be cancelled.</p> </li> <li> <p>Have started but have yet to finish, the contact will be stopped.</p> </li> </ul>
+        r"""<p>Cancels or stops a contact with a specified contact ID based on its position in the <a href=\"https://docs.aws.amazon.com/ground-station/latest/ug/contacts.lifecycle.html\">contact lifecycle</a>.</p> <p>For contacts that:</p> <ul> <li> <p>Have yet to start, the contact will be cancelled.</p> </li> <li> <p>Have started but have yet to finish, the contact will be stopped.</p> </li> </ul>
 
         Args:
             contact_id: <p>UUID of a contact.</p>
@@ -272,7 +274,7 @@ class Contact:
             "aws_sdk_groundstation.types.ephemeris_filter.EphemerisFilter"
         ] = None,
     ) -> "aws_sdk_groundstation.types.list_contacts_response.ListContactsResponse":
-        """<p>Returns a list of contacts.</p> <p>If <code>statusList</code> contains AVAILABLE, the request must include <code> groundStation</code>, <code>missionprofileArn</code>, and <code>satelliteArn</code>. </p>
+        r"""<p>Returns a list of contacts.</p> <p>If <code>statusList</code> contains AVAILABLE, the request must include <code> groundStation</code>, <code>missionprofileArn</code>, and <code>satelliteArn</code>. </p>
 
         Args:
             max_results: <p>Maximum number of contacts returned.</p>
@@ -583,7 +585,7 @@ class AsyncContact:
         *,
         config_overrides: Optional[AsyncGroundStationClientConfig] = None,
     ) -> "aws_sdk_groundstation.types.contact_id_response.ContactIdResponse":
-        """<p>Cancels or stops a contact with a specified contact ID based on its position in the <a href=\"https://docs.aws.amazon.com/ground-station/latest/ug/contacts.lifecycle.html\">contact lifecycle</a>.</p> <p>For contacts that:</p> <ul> <li> <p>Have yet to start, the contact will be cancelled.</p> </li> <li> <p>Have started but have yet to finish, the contact will be stopped.</p> </li> </ul>
+        r"""<p>Cancels or stops a contact with a specified contact ID based on its position in the <a href=\"https://docs.aws.amazon.com/ground-station/latest/ug/contacts.lifecycle.html\">contact lifecycle</a>.</p> <p>For contacts that:</p> <ul> <li> <p>Have yet to start, the contact will be cancelled.</p> </li> <li> <p>Have started but have yet to finish, the contact will be stopped.</p> </li> </ul>
 
         Args:
             contact_id: <p>UUID of a contact.</p>
@@ -641,7 +643,7 @@ class AsyncContact:
             "aws_sdk_groundstation.types.ephemeris_filter.EphemerisFilter"
         ] = None,
     ) -> "aws_sdk_groundstation.types.list_contacts_response.ListContactsResponse":
-        """<p>Returns a list of contacts.</p> <p>If <code>statusList</code> contains AVAILABLE, the request must include <code> groundStation</code>, <code>missionprofileArn</code>, and <code>satelliteArn</code>. </p>
+        r"""<p>Returns a list of contacts.</p> <p>If <code>statusList</code> contains AVAILABLE, the request must include <code> groundStation</code>, <code>missionprofileArn</code>, and <code>satelliteArn</code>. </p>
 
         Args:
             max_results: <p>Maximum number of contacts returned.</p>

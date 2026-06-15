@@ -21,7 +21,7 @@ class StartAutoManagementRequest(TypedDict):
     notification_arn: NotRequired[
         "aws_sdk_service_quotas.types.amazon_resource_name.AmazonResourceName"
     ]
-    """<p>The <a href=\"https://docs.aws.amazon.com/notifications/latest/userguide/resource-level-permissions.html#rlp-table\">User Notifications</a> Amazon Resource Name (ARN) for Automatic Management notifications.</p>"""
+    r"""<p>The <a href=\"https://docs.aws.amazon.com/notifications/latest/userguide/resource-level-permissions.html#rlp-table\">User Notifications</a> Amazon Resource Name (ARN) for Automatic Management notifications.</p>"""
     exclusion_list: NotRequired[
         "aws_sdk_service_quotas.types.exclusion_list.ExclusionList"
     ]

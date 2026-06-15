@@ -13,7 +13,7 @@ if TYPE_CHECKING:
 
 class DBInstanceStatusInfo(TypedDict):
     status_type: NotRequired["aws_sdk_neptune.types.string.String"]
-    """<p>This value is currently \"read replication.\"</p>"""
+    r"""<p>This value is currently \"read replication.\"</p>"""
     normal: NotRequired["aws_sdk_neptune.types.boolean.Boolean"]
     """<p>Boolean value that is true if the instance is operating normally, or false if the instance is in an error state.</p>"""
     status: NotRequired["aws_sdk_neptune.types.string.String"]

@@ -64,7 +64,7 @@ class NetworkInsightsAnalysis(TypedDict):
     ]
     """<p>The components in the path from destination to source.</p>"""
     explanations: NotRequired["aws_sdk_ec2.types.explanation_list.ExplanationList"]
-    """<p>The explanations. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/reachability/explanation-codes.html\">Reachability Analyzer explanation codes</a>.</p>"""
+    r"""<p>The explanations. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/reachability/explanation-codes.html\">Reachability Analyzer explanation codes</a>.</p>"""
     alternate_path_hints: NotRequired[
         "aws_sdk_ec2.types.alternate_path_hint_list.AlternatePathHintList"
     ]

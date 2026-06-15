@@ -15,7 +15,7 @@ class ExportApiRequest(TypedDict):
     export_version: NotRequired["aws_sdk_apigatewayv2.types.__string.__string"]
     """<p>The version of the API Gateway export algorithm. API Gateway uses the latest version by default. Currently, the only supported version is 1.0.</p>"""
     include_extensions: NotRequired["aws_sdk_apigatewayv2.types.__boolean.__boolean"]
-    """<p>Specifies whether to include <a href=\"https://docs.aws.amazon.com//apigateway/latest/developerguide/api-gateway-swagger-extensions.html\">API Gateway extensions</a> in the exported API definition. API Gateway extensions are included by default.</p>"""
+    r"""<p>Specifies whether to include <a href=\"https://docs.aws.amazon.com//apigateway/latest/developerguide/api-gateway-swagger-extensions.html\">API Gateway extensions</a> in the exported API definition. API Gateway extensions are included by default.</p>"""
     output_type: NotRequired["aws_sdk_apigatewayv2.types.__string.__string"]
     """<p>The output type of the exported definition file. Valid values are JSON and YAML.</p>"""
     specification: "aws_sdk_apigatewayv2.types.__string.__string"

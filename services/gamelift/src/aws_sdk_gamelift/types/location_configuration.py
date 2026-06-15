@@ -12,7 +12,7 @@ class LocationConfiguration(TypedDict):
     location: NotRequired[
         "aws_sdk_gamelift.types.location_string_model.LocationStringModel"
     ]
-    """<p>An Amazon Web Services Region code, such as <code>us-west-2</code>. For a list of supported Regions and Local Zones, see <a href=\"https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html\"> Amazon GameLift Servers service locations</a> for managed hosting.</p>"""
+    r"""<p>An Amazon Web Services Region code, such as <code>us-west-2</code>. For a list of supported Regions and Local Zones, see <a href=\"https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html\"> Amazon GameLift Servers service locations</a> for managed hosting.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

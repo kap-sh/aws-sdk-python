@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_iot_managed_integrations._auth._signers
@@ -416,7 +418,7 @@ class ManagedThingResource:
             "aws_sdk_iot_managed_integrations.types.max_results.MaxResults"
         ] = None,
     ) -> "aws_sdk_iot_managed_integrations.types.list_managed_things_response.ListManagedThingsResponse":
-        """<p>Listing all managed things with provision for filters.</p>
+        r"""<p>Listing all managed things with provision for filters.</p>
 
         Args:
             owner_filter: <p>Filter on device owners when listing managed things.</p>
@@ -1045,7 +1047,7 @@ class AsyncManagedThingResource:
             "aws_sdk_iot_managed_integrations.types.max_results.MaxResults"
         ] = None,
     ) -> "aws_sdk_iot_managed_integrations.types.list_managed_things_response.ListManagedThingsResponse":
-        """<p>Listing all managed things with provision for filters.</p>
+        r"""<p>Listing all managed things with provision for filters.</p>
 
         Args:
             owner_filter: <p>Filter on device owners when listing managed things.</p>

@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 from aws_sdk_ecs._services._pipeline import (
@@ -27,7 +29,7 @@ class ServiceDeploymentResource:
         *,
         config_overrides: Optional[ECSClientConfig] = None,
     ) -> "aws_sdk_ecs.types.describe_service_deployments_response.DescribeServiceDeploymentsResponse":
-        """<p>Describes one or more of your service deployments.</p> <p>A service deployment happens when you release a software update for the service. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-deployment.html\">View service history using Amazon ECS service deployments</a>.</p>
+        r"""<p>Describes one or more of your service deployments.</p> <p>A service deployment happens when you release a software update for the service. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-deployment.html\">View service history using Amazon ECS service deployments</a>.</p>
 
         Args:
             service_deployment_arns: <p>The ARN of the service deployment.</p> <p>You can specify a maximum of 20 ARNs.</p>
@@ -79,7 +81,7 @@ class AsyncServiceDeploymentResource:
         *,
         config_overrides: Optional[AsyncECSClientConfig] = None,
     ) -> "aws_sdk_ecs.types.describe_service_deployments_response.DescribeServiceDeploymentsResponse":
-        """<p>Describes one or more of your service deployments.</p> <p>A service deployment happens when you release a software update for the service. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-deployment.html\">View service history using Amazon ECS service deployments</a>.</p>
+        r"""<p>Describes one or more of your service deployments.</p> <p>A service deployment happens when you release a software update for the service. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-deployment.html\">View service history using Amazon ECS service deployments</a>.</p>
 
         Args:
             service_deployment_arns: <p>The ARN of the service deployment.</p> <p>You can specify a maximum of 20 ARNs.</p>

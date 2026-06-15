@@ -7,7 +7,7 @@ from aws_sdk_resource_explorer_2.errors import DeserializationError
 
 class DeleteIndexInput(TypedDict):
     arn: "str"
-    """<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon resource name (ARN)</a> of the index that you want to delete.</p>"""
+    r"""<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon resource name (ARN)</a> of the index that you want to delete.</p>"""
 
 
 # --- restJson1 ser/de ---

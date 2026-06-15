@@ -68,7 +68,7 @@ class GetModelCustomizationJobResponse(TypedDict):
     hyper_parameters: NotRequired[
         "aws_sdk_bedrock.types.model_customization_hyper_parameters.ModelCustomizationHyperParameters"
     ]
-    """<p>The hyperparameter values for the job. For details on the format for different models, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models-hp.html\">Custom model hyperparameters</a>.</p>"""
+    r"""<p>The hyperparameter values for the job. For details on the format for different models, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models-hp.html\">Custom model hyperparameters</a>.</p>"""
     training_data_config: (
         "aws_sdk_bedrock.types.training_data_config.TrainingDataConfig"
     )

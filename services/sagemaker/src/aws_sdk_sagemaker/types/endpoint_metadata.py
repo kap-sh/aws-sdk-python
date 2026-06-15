@@ -21,7 +21,7 @@ class EndpointMetadata(TypedDict):
     endpoint_status: NotRequired[
         "aws_sdk_sagemaker.types.endpoint_status.EndpointStatus"
     ]
-    """<p> The status of the endpoint. For possible values of the status of an endpoint, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_EndpointSummary.html\">EndpointSummary</a>. </p>"""
+    r"""<p> The status of the endpoint. For possible values of the status of an endpoint, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_EndpointSummary.html\">EndpointSummary</a>. </p>"""
     failure_reason: NotRequired["aws_sdk_sagemaker.types.failure_reason.FailureReason"]
     """<p> If the status of the endpoint is <code>Failed</code>, or the status is <code>InService</code> but update operation fails, this provides the reason why it failed. </p>"""
 

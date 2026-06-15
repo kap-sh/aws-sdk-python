@@ -36,7 +36,7 @@ class ContainerService(TypedDict):
     resource_type: NotRequired["aws_sdk_lightsail.types.resource_type.ResourceType"]
     """<p>The Lightsail resource type of the container service.</p>"""
     tags: NotRequired["aws_sdk_lightsail.types.tag_list.TagList"]
-    """<p>The tag keys and optional values for the resource. For more information about tags in Lightsail, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-tags\">Amazon Lightsail Developer Guide</a>.</p>"""
+    r"""<p>The tag keys and optional values for the resource. For more information about tags in Lightsail, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-tags\">Amazon Lightsail Developer Guide</a>.</p>"""
     power: NotRequired[
         "aws_sdk_lightsail.types.container_service_power_name.ContainerServicePowerName"
     ]
@@ -78,7 +78,7 @@ class ContainerService(TypedDict):
     private_registry_access: NotRequired[
         "aws_sdk_lightsail.types.private_registry_access.PrivateRegistryAccess"
     ]
-    """<p>An object that describes the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-container-service-ecr-private-repo-access\">Configuring access to an Amazon ECR private repository for an Amazon Lightsail container service</a> in the <i>Amazon Lightsail Developer Guide</i>.</p>"""
+    r"""<p>An object that describes the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-container-service-ecr-private-repo-access\">Configuring access to an Amazon ECR private repository for an Amazon Lightsail container service</a> in the <i>Amazon Lightsail Developer Guide</i>.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

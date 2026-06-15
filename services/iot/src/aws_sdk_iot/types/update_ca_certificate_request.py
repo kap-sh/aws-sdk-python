@@ -22,7 +22,7 @@ class UpdateCACertificateRequest(TypedDict):
     new_auto_registration_status: NotRequired[
         "aws_sdk_iot.types.auto_registration_status.AutoRegistrationStatus"
     ]
-    """<p>The new value for the auto registration status. Valid values are: \"ENABLE\" or \"DISABLE\".</p>"""
+    r"""<p>The new value for the auto registration status. Valid values are: \"ENABLE\" or \"DISABLE\".</p>"""
     registration_config: NotRequired[
         "aws_sdk_iot.types.registration_config.RegistrationConfig"
     ]

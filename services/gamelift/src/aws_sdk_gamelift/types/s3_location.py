@@ -14,7 +14,7 @@ class S3Location(TypedDict):
     key: NotRequired["aws_sdk_gamelift.types.non_empty_string.NonEmptyString"]
     """<p>The name of the zip file that contains the build files or script files. </p>"""
     role_arn: NotRequired["aws_sdk_gamelift.types.non_empty_string.NonEmptyString"]
-    """<p>The Amazon Resource Name (<a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html\">ARN</a>) for an IAM role that allows Amazon GameLift Servers to access the S3 bucket.</p>"""
+    r"""<p>The Amazon Resource Name (<a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html\">ARN</a>) for an IAM role that allows Amazon GameLift Servers to access the S3 bucket.</p>"""
     object_version: NotRequired[
         "aws_sdk_gamelift.types.non_empty_string.NonEmptyString"
     ]

@@ -1,19 +1,24 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#EvaluatorType``."""
 
-import datetime
-import decimal
-from typing import AsyncIterator, Iterator, Literal, TypeAlias, cast
-from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
-from aws_sdk_bedrock_agentcore_control._protocol.xml import Element, SubElement
-import base64
-from email.utils import format_datetime as _fmt_http
-from email.utils import parsedate_to_datetime as _parse_http
+from typing import Literal, TypeAlias, cast
 
-EvaluatorType: TypeAlias = Literal["Builtin", "Custom", "CustomCode",]
+from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
+
+EvaluatorType: TypeAlias = Literal[
+    "Builtin",
+    "Custom",
+    "CustomCode",
+]
 
 
 # --- restJson1 ser/de ---
-_VALUES: frozenset[str] = frozenset(("Builtin", "Custom", "CustomCode",))
+_VALUES: frozenset[str] = frozenset(
+    (
+        "Builtin",
+        "Custom",
+        "CustomCode",
+    )
+)
 
 
 def serialize_json(value: EvaluatorType) -> str:

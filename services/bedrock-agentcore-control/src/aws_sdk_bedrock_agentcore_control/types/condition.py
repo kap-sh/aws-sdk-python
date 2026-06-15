@@ -1,28 +1,48 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#Condition``."""
 
 from typing import TYPE_CHECKING, TypeAlias, TypedDict
-from aws_sdk_bedrock_agentcore_control.errors import DeserializationError, SerializationError
+
+from aws_sdk_bedrock_agentcore_control.errors import (
+    DeserializationError,
+    SerializationError,
+)
+
 if TYPE_CHECKING:
-    import aws_sdk_bedrock_agentcore_control.types.match_principals
     import aws_sdk_bedrock_agentcore_control.types.match_paths
+    import aws_sdk_bedrock_agentcore_control.types.match_principals
+
 
 class _Condition_matchPrincipals(TypedDict):
-    matchPrincipals: "aws_sdk_bedrock_agentcore_control.types.match_principals.MatchPrincipals"
+    matchPrincipals: (
+        "aws_sdk_bedrock_agentcore_control.types.match_principals.MatchPrincipals"
+    )
 
 
 class _Condition_matchPaths(TypedDict):
     matchPaths: "aws_sdk_bedrock_agentcore_control.types.match_paths.MatchPaths"
 
+
 Condition: TypeAlias = _Condition_matchPrincipals | _Condition_matchPaths
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: Condition) -> dict:
     if "matchPrincipals" in value:
         import aws_sdk_bedrock_agentcore_control.types.match_principals
-        return {"matchPrincipals": aws_sdk_bedrock_agentcore_control.types.match_principals.serialize_json(value["matchPrincipals"])}
+
+        return {
+            "matchPrincipals": aws_sdk_bedrock_agentcore_control.types.match_principals.serialize_json(
+                value["matchPrincipals"]
+            )
+        }
     elif "matchPaths" in value:
         import aws_sdk_bedrock_agentcore_control.types.match_paths
-        return {"matchPaths": aws_sdk_bedrock_agentcore_control.types.match_paths.serialize_json(value["matchPaths"])}
+
+        return {
+            "matchPaths": aws_sdk_bedrock_agentcore_control.types.match_paths.serialize_json(
+                value["matchPaths"]
+            )
+        }
     else:
         raise SerializationError("Condition: no variant present")
 
@@ -30,9 +50,19 @@ def serialize_json(value: Condition) -> dict:
 def deserialize_json(data: dict) -> Condition:
     if "matchPrincipals" in data:
         import aws_sdk_bedrock_agentcore_control.types.match_principals
-        return {"matchPrincipals": aws_sdk_bedrock_agentcore_control.types.match_principals.deserialize_json(data["matchPrincipals"])}
+
+        return {
+            "matchPrincipals": aws_sdk_bedrock_agentcore_control.types.match_principals.deserialize_json(
+                data["matchPrincipals"]
+            )
+        }
     elif "matchPaths" in data:
         import aws_sdk_bedrock_agentcore_control.types.match_paths
-        return {"matchPaths": aws_sdk_bedrock_agentcore_control.types.match_paths.deserialize_json(data["matchPaths"])}
+
+        return {
+            "matchPaths": aws_sdk_bedrock_agentcore_control.types.match_paths.deserialize_json(
+                data["matchPaths"]
+            )
+        }
     else:
         raise DeserializationError("Condition: no recognized variant key")

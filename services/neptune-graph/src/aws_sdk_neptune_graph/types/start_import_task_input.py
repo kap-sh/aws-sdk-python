@@ -30,7 +30,7 @@ class StartImportTaskInput(TypedDict):
     blank_node_handling: NotRequired[
         "aws_sdk_neptune_graph.types.blank_node_handling.BlankNodeHandling"
     ]
-    """<p>The method to handle blank nodes in the dataset. Currently, only <code>convertToIri</code> is supported, meaning blank nodes are converted to unique IRIs at load time. Must be provided when format is <code>ntriples</code>. For more information, see <a href=\"https://docs.aws.amazon.com/neptune-analytics/latest/userguide/using-rdf-data.html#rdf-handling\">Handling RDF values</a>.</p>"""
+    r"""<p>The method to handle blank nodes in the dataset. Currently, only <code>convertToIri</code> is supported, meaning blank nodes are converted to unique IRIs at load time. Must be provided when format is <code>ntriples</code>. For more information, see <a href=\"https://docs.aws.amazon.com/neptune-analytics/latest/userguide/using-rdf-data.html#rdf-handling\">Handling RDF values</a>.</p>"""
     graph_identifier: "aws_sdk_neptune_graph.types.graph_identifier.GraphIdentifier"
     """<p>The unique identifier of the Neptune Analytics graph.</p>"""
     role_arn: "aws_sdk_neptune_graph.types.role_arn.RoleArn"

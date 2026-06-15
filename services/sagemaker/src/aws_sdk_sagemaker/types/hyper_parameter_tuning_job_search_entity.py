@@ -79,7 +79,7 @@ class HyperParameterTuningJobSearchEntity(TypedDict):
     ]
     """<p>The total amount of resources consumed by a hyperparameter tuning job.</p>"""
     tags: NotRequired["aws_sdk_sagemaker.types.tag_list.TagList"]
-    """<p>The tags associated with a hyperparameter tuning job. For more information see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services resources</a>.</p>"""
+    r"""<p>The tags associated with a hyperparameter tuning job. For more information see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services resources</a>.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

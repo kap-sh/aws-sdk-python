@@ -23,7 +23,7 @@ class AdminGetUserResponse(TypedDict):
     user_attributes: NotRequired[
         "aws_sdk_cognito_identity_provider.types.attribute_list_type.AttributeListType"
     ]
-    """<p>An array of name-value pairs of user attributes and their values, for example <code>\"email\": \"testuser@example.com\"</code>.</p>"""
+    r"""<p>An array of name-value pairs of user attributes and their values, for example <code>\"email\": \"testuser@example.com\"</code>.</p>"""
     user_create_date: NotRequired[
         "aws_sdk_cognito_identity_provider.types.date_type.DateType"
     ]

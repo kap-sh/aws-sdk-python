@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_location._auth._signers
@@ -54,7 +56,7 @@ class ApiKeyResource:
         no_expiry: Optional[bool] = None,
         tags: Optional["aws_sdk_location.types.tag_map.TagMap"] = None,
     ) -> "aws_sdk_location.types.create_key_response.CreateKeyResponse":
-        """<p>Creates an API key resource in your Amazon Web Services account, which lets you grant actions for Amazon Location resources to the API key bearer.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html\">Use API keys to authenticate</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
+        r"""<p>Creates an API key resource in your Amazon Web Services account, which lets you grant actions for Amazon Location resources to the API key bearer.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html\">Use API keys to authenticate</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
 
         Args:
             key_name: <p>A custom name for the API key resource.</p> <p>Requirements:</p> <ul> <li> <p>Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_). </p> </li> <li> <p>Must be a unique API key name.</p> </li> <li> <p>No spaces allowed. For example, <code>ExampleAPIKey</code>.</p> </li> </ul>
@@ -105,7 +107,7 @@ class ApiKeyResource:
         *,
         config_overrides: Optional[LocationClientConfig] = None,
     ) -> "aws_sdk_location.types.describe_key_response.DescribeKeyResponse":
-        """<p>Retrieves the API key resource details.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html\">Use API keys to authenticate</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
+        r"""<p>Retrieves the API key resource details.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html\">Use API keys to authenticate</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
 
         Args:
             key_name: <p>The name of the API key resource.</p>
@@ -151,7 +153,7 @@ class ApiKeyResource:
             "aws_sdk_location.types.api_key_restrictions.ApiKeyRestrictions"
         ] = None,
     ) -> "aws_sdk_location.types.update_key_response.UpdateKeyResponse":
-        """<p>Updates the specified properties of a given API key resource.</p>
+        r"""<p>Updates the specified properties of a given API key resource.</p>
 
         Args:
             key_name: <p>The name of the API key resource to update.</p>
@@ -204,7 +206,7 @@ class ApiKeyResource:
         config_overrides: Optional[LocationClientConfig] = None,
         force_delete: Optional[bool] = None,
     ) -> "aws_sdk_location.types.delete_key_response.DeleteKeyResponse":
-        """<p>Deletes the specified API key. The API key must have been deactivated more than 90 days previously.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html\">Use API keys to authenticate</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
+        r"""<p>Deletes the specified API key. The API key must have been deactivated more than 90 days previously.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html\">Use API keys to authenticate</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
 
         Args:
             key_name: <p>The name of the API key to delete.</p>
@@ -246,7 +248,7 @@ class ApiKeyResource:
         next_token: Optional["aws_sdk_location.types.token.Token"] = None,
         filter: Optional["aws_sdk_location.types.api_key_filter.ApiKeyFilter"] = None,
     ) -> "aws_sdk_location.types.list_keys_response.ListKeysResponse":
-        """<p>Lists API key resources in your Amazon Web Services account.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html\">Use API keys to authenticate</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
+        r"""<p>Lists API key resources in your Amazon Web Services account.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html\">Use API keys to authenticate</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
 
         Args:
             max_results: <p>An optional limit for the number of resources returned in a single call. </p> <p>Default value: <code>100</code> </p>
@@ -302,7 +304,7 @@ class AsyncApiKeyResource:
         no_expiry: Optional[bool] = None,
         tags: Optional["aws_sdk_location.types.tag_map.TagMap"] = None,
     ) -> "aws_sdk_location.types.create_key_response.CreateKeyResponse":
-        """<p>Creates an API key resource in your Amazon Web Services account, which lets you grant actions for Amazon Location resources to the API key bearer.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html\">Use API keys to authenticate</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
+        r"""<p>Creates an API key resource in your Amazon Web Services account, which lets you grant actions for Amazon Location resources to the API key bearer.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html\">Use API keys to authenticate</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
 
         Args:
             key_name: <p>A custom name for the API key resource.</p> <p>Requirements:</p> <ul> <li> <p>Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_). </p> </li> <li> <p>Must be a unique API key name.</p> </li> <li> <p>No spaces allowed. For example, <code>ExampleAPIKey</code>.</p> </li> </ul>
@@ -354,7 +356,7 @@ class AsyncApiKeyResource:
         *,
         config_overrides: Optional[AsyncLocationClientConfig] = None,
     ) -> "aws_sdk_location.types.describe_key_response.DescribeKeyResponse":
-        """<p>Retrieves the API key resource details.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html\">Use API keys to authenticate</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
+        r"""<p>Retrieves the API key resource details.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html\">Use API keys to authenticate</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
 
         Args:
             key_name: <p>The name of the API key resource.</p>
@@ -401,7 +403,7 @@ class AsyncApiKeyResource:
             "aws_sdk_location.types.api_key_restrictions.ApiKeyRestrictions"
         ] = None,
     ) -> "aws_sdk_location.types.update_key_response.UpdateKeyResponse":
-        """<p>Updates the specified properties of a given API key resource.</p>
+        r"""<p>Updates the specified properties of a given API key resource.</p>
 
         Args:
             key_name: <p>The name of the API key resource to update.</p>
@@ -455,7 +457,7 @@ class AsyncApiKeyResource:
         config_overrides: Optional[AsyncLocationClientConfig] = None,
         force_delete: Optional[bool] = None,
     ) -> "aws_sdk_location.types.delete_key_response.DeleteKeyResponse":
-        """<p>Deletes the specified API key. The API key must have been deactivated more than 90 days previously.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html\">Use API keys to authenticate</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
+        r"""<p>Deletes the specified API key. The API key must have been deactivated more than 90 days previously.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html\">Use API keys to authenticate</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
 
         Args:
             key_name: <p>The name of the API key to delete.</p>
@@ -498,7 +500,7 @@ class AsyncApiKeyResource:
         next_token: Optional["aws_sdk_location.types.token.Token"] = None,
         filter: Optional["aws_sdk_location.types.api_key_filter.ApiKeyFilter"] = None,
     ) -> "aws_sdk_location.types.list_keys_response.ListKeysResponse":
-        """<p>Lists API key resources in your Amazon Web Services account.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html\">Use API keys to authenticate</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
+        r"""<p>Lists API key resources in your Amazon Web Services account.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html\">Use API keys to authenticate</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
 
         Args:
             max_results: <p>An optional limit for the number of resources returned in a single call. </p> <p>Default value: <code>100</code> </p>

@@ -17,9 +17,9 @@ class ServiceQuotaExceededException_(TypedDict):
     resource_type: NotRequired["aws_sdk_greengrassv2.types.string.String"]
     """<p>The type of the resource that exceeds the service quota.</p>"""
     quota_code: "aws_sdk_greengrassv2.types.string.String"
-    """<p>The code for the quota in <a href=\"https://docs.aws.amazon.com/servicequotas/latest/userguide/intro.html\">Service Quotas</a>.</p>"""
+    r"""<p>The code for the quota in <a href=\"https://docs.aws.amazon.com/servicequotas/latest/userguide/intro.html\">Service Quotas</a>.</p>"""
     service_code: "aws_sdk_greengrassv2.types.string.String"
-    """<p>The code for the service in <a href=\"https://docs.aws.amazon.com/servicequotas/latest/userguide/intro.html\">Service Quotas</a>.</p>"""
+    r"""<p>The code for the service in <a href=\"https://docs.aws.amazon.com/servicequotas/latest/userguide/intro.html\">Service Quotas</a>.</p>"""
 
 
 # --- restJson1 ser/de ---

@@ -165,7 +165,7 @@ class AsyncKendraRankingClient:
             "aws_sdk_kendra_ranking.types.client_token_name.ClientTokenName"
         ] = None,
     ) -> "aws_sdk_kendra_ranking.types.create_rescore_execution_plan_response.CreateRescoreExecutionPlanResponse":
-        """<p>Creates a rescore execution plan. A rescore execution plan is an Amazon Kendra Intelligent Ranking resource used for provisioning the <code>Rescore</code> API. You set the number of capacity units that you require for Amazon Kendra Intelligent Ranking to rescore or re-rank a search service's results.</p> <p>For an example of using the <code>CreateRescoreExecutionPlan</code> API, including using the Python and Java SDKs, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/search-service-rerank.html\">Semantically ranking a search service's results</a>.</p>
+        r"""<p>Creates a rescore execution plan. A rescore execution plan is an Amazon Kendra Intelligent Ranking resource used for provisioning the <code>Rescore</code> API. You set the number of capacity units that you require for Amazon Kendra Intelligent Ranking to rescore or re-rank a search service's results.</p> <p>For an example of using the <code>CreateRescoreExecutionPlan</code> API, including using the Python and Java SDKs, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/search-service-rerank.html\">Semantically ranking a search service's results</a>.</p>
 
         Args:
             name: <p>A name for the rescore execution plan.</p>
@@ -509,7 +509,7 @@ class AsyncKendraRankingClient:
             "aws_sdk_kendra_ranking.types.capacity_units_configuration.CapacityUnitsConfiguration"
         ] = None,
     ) -> None:
-        """<p>Updates a rescore execution plan. A rescore execution plan is an Amazon Kendra Intelligent Ranking resource used for provisioning the <code>Rescore</code> API. You can update the number of capacity units you require for Amazon Kendra Intelligent Ranking to rescore or re-rank a search service's results.</p>
+        r"""<p>Updates a rescore execution plan. A rescore execution plan is an Amazon Kendra Intelligent Ranking resource used for provisioning the <code>Rescore</code> API. You can update the number of capacity units you require for Amazon Kendra Intelligent Ranking to rescore or re-rank a search service's results.</p>
 
         Args:
             id: <p>The identifier of the rescore execution plan that you want to update.</p>

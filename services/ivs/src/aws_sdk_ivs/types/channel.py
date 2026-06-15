@@ -33,11 +33,11 @@ class Channel(TypedDict):
     ]
     """<p>Channel latency mode. Use <code>NORMAL</code> to broadcast and deliver live video up to Full HD. Use <code>LOW</code> for near-real-time interaction with viewers. Default: <code>LOW</code>.</p>"""
     type: NotRequired["aws_sdk_ivs.types.channel_type.ChannelType"]
-    """<p>Channel type, which determines the allowable resolution and bitrate. <i>If you exceed the allowable input resolution or bitrate, the stream probably will disconnect immediately.</i> Default: <code>STANDARD</code>. For details, see <a href=\"https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/channel-types.html\">Channel Types</a>.</p>"""
+    r"""<p>Channel type, which determines the allowable resolution and bitrate. <i>If you exceed the allowable input resolution or bitrate, the stream probably will disconnect immediately.</i> Default: <code>STANDARD</code>. For details, see <a href=\"https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/channel-types.html\">Channel Types</a>.</p>"""
     recording_configuration_arn: NotRequired[
         "aws_sdk_ivs.types.channel_recording_configuration_arn.ChannelRecordingConfigurationArn"
     ]
-    """<p>Recording-configuration ARN. A valid ARN value here both specifies the ARN and enables recording. Default: \"\" (empty string, recording is disabled).</p>"""
+    r"""<p>Recording-configuration ARN. A valid ARN value here both specifies the ARN and enables recording. Default: \"\" (empty string, recording is disabled).</p>"""
     ingest_endpoint: NotRequired["aws_sdk_ivs.types.ingest_endpoint.IngestEndpoint"]
     """<p>Channel ingest endpoint, part of the definition of an ingest server, used when you set up streaming software.</p>"""
     playback_url: NotRequired["aws_sdk_ivs.types.playback_url.PlaybackURL"]
@@ -45,17 +45,17 @@ class Channel(TypedDict):
     authorized: "aws_sdk_ivs.types.is_authorized.IsAuthorized"
     """<p>Whether the channel is private (enabled for playback authorization). Default: <code>false</code>.</p>"""
     tags: NotRequired["aws_sdk_ivs.types.tags.Tags"]
-    """<p>Tags attached to the resource. Array of 1-50 maps, each of the form <code>string:string (key:value)</code>. See <a href=\"https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html\">Best practices and strategies</a> in <i>Tagging Amazon Web Services Resources and Tag Editor</i> for details, including restrictions that apply to tags and \"Tag naming limits and requirements\"; Amazon IVS has no service-specific constraints beyond what is documented there.</p>"""
+    r"""<p>Tags attached to the resource. Array of 1-50 maps, each of the form <code>string:string (key:value)</code>. See <a href=\"https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html\">Best practices and strategies</a> in <i>Tagging Amazon Web Services Resources and Tag Editor</i> for details, including restrictions that apply to tags and \"Tag naming limits and requirements\"; Amazon IVS has no service-specific constraints beyond what is documented there.</p>"""
     insecure_ingest: "aws_sdk_ivs.types.insecure_ingest.InsecureIngest"
     """<p>Whether the channel allows insecure RTMP ingest. Default: <code>false</code>.</p>"""
     preset: NotRequired["aws_sdk_ivs.types.transcode_preset.TranscodePreset"]
-    """<p>Optional transcode preset for the channel. This is selectable only for <code>ADVANCED_HD</code> and <code>ADVANCED_SD</code> channel types. For those channel types, the default <code>preset</code> is <code>HIGHER_BANDWIDTH_DELIVERY</code>. For other channel types (<code>BASIC</code> and <code>STANDARD</code>), <code>preset</code> is the empty string (<code>\"\"</code>).</p>"""
+    r"""<p>Optional transcode preset for the channel. This is selectable only for <code>ADVANCED_HD</code> and <code>ADVANCED_SD</code> channel types. For those channel types, the default <code>preset</code> is <code>HIGHER_BANDWIDTH_DELIVERY</code>. For other channel types (<code>BASIC</code> and <code>STANDARD</code>), <code>preset</code> is the empty string (<code>\"\"</code>).</p>"""
     srt: NotRequired["aws_sdk_ivs.types.srt.Srt"]
     """<p>Specifies the endpoint and optional passphrase for streaming with the SRT protocol.</p>"""
     playback_restriction_policy_arn: NotRequired[
         "aws_sdk_ivs.types.channel_playback_restriction_policy_arn.ChannelPlaybackRestrictionPolicyArn"
     ]
-    """<p>Playback-restriction-policy ARN. A valid ARN value here both specifies the ARN and enables playback restriction. Default: \"\" (empty string, no playback restriction policy is applied).</p>"""
+    r"""<p>Playback-restriction-policy ARN. A valid ARN value here both specifies the ARN and enables playback restriction. Default: \"\" (empty string, no playback restriction policy is applied).</p>"""
     multitrack_input_configuration: NotRequired[
         "aws_sdk_ivs.types.multitrack_input_configuration.MultitrackInputConfiguration"
     ]

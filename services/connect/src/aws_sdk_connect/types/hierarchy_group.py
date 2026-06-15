@@ -27,7 +27,7 @@ class HierarchyGroup(TypedDict):
     hierarchy_path: NotRequired["aws_sdk_connect.types.hierarchy_path.HierarchyPath"]
     """<p>Information about the levels in the hierarchy group.</p>"""
     tags: NotRequired["aws_sdk_connect.types.tag_map.TagMap"]
-    """<p>The tags used to organize, track, or control access for this resource. For example, { \"Tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.</p>"""
+    r"""<p>The tags used to organize, track, or control access for this resource. For example, { \"Tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.</p>"""
     last_modified_time: NotRequired["aws_sdk_connect.types.timestamp.Timestamp"]
     """<p>The timestamp when this resource was last modified.</p>"""
     last_modified_region: NotRequired["aws_sdk_connect.types.region_name.RegionName"]

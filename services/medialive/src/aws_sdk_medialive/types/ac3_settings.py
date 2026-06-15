@@ -35,7 +35,7 @@ class Ac3Settings(TypedDict):
     metadata_control: NotRequired[
         "aws_sdk_medialive.types.ac3_metadata_control.Ac3MetadataControl"
     ]
-    """When set to \"followInput\", encoder metadata will be sourced from the DD, DD+, or DolbyE decoder that supplied this audio data. If audio was not supplied from one of these streams, then the static metadata settings will be used."""
+    r"""When set to \"followInput\", encoder metadata will be sourced from the DD, DD+, or DolbyE decoder that supplied this audio data. If audio was not supplied from one of these streams, then the static metadata settings will be used."""
     attenuation_control: NotRequired[
         "aws_sdk_medialive.types.ac3_attenuation_control.Ac3AttenuationControl"
     ]

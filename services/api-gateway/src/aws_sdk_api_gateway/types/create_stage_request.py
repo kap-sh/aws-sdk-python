@@ -28,7 +28,7 @@ class CreateStageRequest(TypedDict):
     cache_cluster_size: NotRequired[
         "aws_sdk_api_gateway.types.cache_cluster_size.CacheClusterSize"
     ]
-    """<p>The stage's cache capacity in GB. For more information about choosing a cache size, see <a href=\"https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html\">Enabling API caching to enhance responsiveness</a>.</p>"""
+    r"""<p>The stage's cache capacity in GB. For more information about choosing a cache size, see <a href=\"https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html\">Enabling API caching to enhance responsiveness</a>.</p>"""
     variables: NotRequired[
         "aws_sdk_api_gateway.types.map_of_string_to_string.MapOfStringToString"
     ]

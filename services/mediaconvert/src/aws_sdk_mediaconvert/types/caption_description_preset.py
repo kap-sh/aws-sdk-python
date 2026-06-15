@@ -23,7 +23,7 @@ class CaptionDescriptionPreset(TypedDict):
     language_code: NotRequired["aws_sdk_mediaconvert.types.language_code.LanguageCode"]
     """Specify the language of this captions output track. For most captions output formats, the encoder puts this language information in the output captions metadata. If your output captions format is DVB-Sub or Burn in, the encoder uses this language information to choose the font language for rendering the captions text."""
     language_description: NotRequired["aws_sdk_mediaconvert.types.__string.__string"]
-    """Specify a label for this set of output captions. For example, \"English\", \"Director commentary\", or \"track_2\". For streaming outputs, MediaConvert passes this information into destination manifests for display on the end-viewer's player device. For outputs in other output groups, the service ignores this setting."""
+    r"""Specify a label for this set of output captions. For example, \"English\", \"Director commentary\", or \"track_2\". For streaming outputs, MediaConvert passes this information into destination manifests for display on the end-viewer's player device. For outputs in other output groups, the service ignores this setting."""
 
 
 # --- restJson1 ser/de ---

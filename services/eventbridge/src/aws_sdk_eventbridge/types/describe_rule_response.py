@@ -23,11 +23,11 @@ class DescribeRuleResponse(TypedDict):
     arn: NotRequired["aws_sdk_eventbridge.types.rule_arn.RuleArn"]
     """<p>The Amazon Resource Name (ARN) of the rule.</p>"""
     event_pattern: NotRequired["aws_sdk_eventbridge.types.event_pattern.EventPattern"]
-    """<p>The event pattern. For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html\">Events and Event Patterns</a> in the <i> <i>Amazon EventBridge User Guide</i> </i>.</p>"""
+    r"""<p>The event pattern. For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html\">Events and Event Patterns</a> in the <i> <i>Amazon EventBridge User Guide</i> </i>.</p>"""
     schedule_expression: NotRequired[
         "aws_sdk_eventbridge.types.schedule_expression.ScheduleExpression"
     ]
-    """<p>The scheduling expression. For example, \"cron(0 20 * * ? *)\", \"rate(5 minutes)\".</p>"""
+    r"""<p>The scheduling expression. For example, \"cron(0 20 * * ? *)\", \"rate(5 minutes)\".</p>"""
     state: NotRequired["aws_sdk_eventbridge.types.rule_state.RuleState"]
     """<p>Specifies whether the rule is enabled or disabled.</p>"""
     description: NotRequired[

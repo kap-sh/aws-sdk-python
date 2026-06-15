@@ -48,14 +48,14 @@ class DelegationRequest(TypedDict):
     role_permission_restriction_arns: NotRequired[
         "aws_sdk_iam.types.role_permission_restriction_arn_list_type.rolePermissionRestrictionArnListType"
     ]
-    """<p>If the <code>PermissionPolicy</code> includes role creation permissions, this element will include the list of permissions boundary policies associated with the role creation. See <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html\">Permissions boundaries for IAM entities</a> for more details about IAM permission boundaries. </p>"""
+    r"""<p>If the <code>PermissionPolicy</code> includes role creation permissions, this element will include the list of permissions boundary policies associated with the role creation. See <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html\">Permissions boundaries for IAM entities</a> for more details about IAM permission boundaries. </p>"""
     owner_id: NotRequired["aws_sdk_iam.types.owner_id_type.ownerIdType"]
     """<p>ARN of the owner of this delegation request.</p>"""
     approver_id: NotRequired["aws_sdk_iam.types.arn_type.arnType"]
     state: NotRequired["aws_sdk_iam.types.state_type.stateType"]
-    """<p>The state of this delegation request.</p> <p>See the <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/temporary-delegation-building-integration.html#temporary-delegation-request-lifecycle\">Understanding the Request Lifecycle</a> for an explanation of how these states are transitioned. </p>"""
+    r"""<p>The state of this delegation request.</p> <p>See the <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/temporary-delegation-building-integration.html#temporary-delegation-request-lifecycle\">Understanding the Request Lifecycle</a> for an explanation of how these states are transitioned. </p>"""
     expiration_time: NotRequired["aws_sdk_iam.types.date_type.dateType"]
-    """<p>The expiry time of this delegation request</p> <p>See the <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/temporary-delegation-building-integration.html#temporary-delegation-request-lifecycle\">Understanding the Request Lifecycle</a> for details on the life time of a delegation request at each state.</p>"""
+    r"""<p>The expiry time of this delegation request</p> <p>See the <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/temporary-delegation-building-integration.html#temporary-delegation-request-lifecycle\">Understanding the Request Lifecycle</a> for details on the life time of a delegation request at each state.</p>"""
     requestor_id: NotRequired["aws_sdk_iam.types.account_id_type.accountIdType"]
     """<p>Identity of the requestor of this delegation request. This will be an Amazon Web Services account ID.</p>"""
     requestor_name: NotRequired[
@@ -71,11 +71,11 @@ class DelegationRequest(TypedDict):
     redirect_url: NotRequired["aws_sdk_iam.types.redirect_url_type.redirectUrlType"]
     """<p>A URL to be redirected to once the delegation request is approved. Partners provide this URL when creating the delegation request.</p>"""
     notes: NotRequired["aws_sdk_iam.types.notes_type.notesType"]
-    """<p>Notes added to this delegation request, if this request was updated via the <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateDelegationRequest.html\">UpdateDelegationRequest</a> API.</p>"""
+    r"""<p>Notes added to this delegation request, if this request was updated via the <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateDelegationRequest.html\">UpdateDelegationRequest</a> API.</p>"""
     rejection_reason: NotRequired["aws_sdk_iam.types.notes_type.notesType"]
-    """<p>Reasons for rejecting this delegation request, if this request was rejected. See also <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_RejectDelegationRequest.html\">RejectDelegationRequest</a> API documentation. </p>"""
+    r"""<p>Reasons for rejecting this delegation request, if this request was rejected. See also <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_RejectDelegationRequest.html\">RejectDelegationRequest</a> API documentation. </p>"""
     only_send_by_owner: "aws_sdk_iam.types.boolean_type.booleanType"
-    """<p>A flag indicating whether the <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_SendDelegationToken.html\">SendDelegationToken</a> must be called by the owner of this delegation request. This is set by the requesting partner.</p>"""
+    r"""<p>A flag indicating whether the <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_SendDelegationToken.html\">SendDelegationToken</a> must be called by the owner of this delegation request. This is set by the requesting partner.</p>"""
     updated_time: NotRequired["aws_sdk_iam.types.date_type.dateType"]
     """<p>Last updated timestamp of the request.</p>"""
 

@@ -68,11 +68,11 @@ class Participant(TypedDict):
     recording_s3_bucket_name: NotRequired[
         "aws_sdk_ivs_realtime.types.participant_recording_s3_bucket_name.ParticipantRecordingS3BucketName"
     ]
-    """<p>Name of the S3 bucket to where the participant is being recorded, if individual participant recording is enabled, or <code>\"\"</code> (empty string), if recording is not enabled.</p>"""
+    r"""<p>Name of the S3 bucket to where the participant is being recorded, if individual participant recording is enabled, or <code>\"\"</code> (empty string), if recording is not enabled.</p>"""
     recording_s3_prefix: NotRequired[
         "aws_sdk_ivs_realtime.types.participant_recording_s3_prefix.ParticipantRecordingS3Prefix"
     ]
-    """<p>S3 prefix of the S3 bucket where the participant is being recorded, if individual participant recording is enabled, or <code>\"\"</code> (empty string), if recording is not enabled. If individual participant recording merge is enabled, and if a stage publisher disconnects from a stage and then reconnects, IVS tries to record to the same S3 prefix as the previous session. See <a href=\"/ivs/latest/RealTimeUserGuide/rt-individual-participant-recording.html#ind-part-rec-merge-frag\"> Merge Fragmented Individual Participant Recordings</a>.</p>"""
+    r"""<p>S3 prefix of the S3 bucket where the participant is being recorded, if individual participant recording is enabled, or <code>\"\"</code> (empty string), if recording is not enabled. If individual participant recording merge is enabled, and if a stage publisher disconnects from a stage and then reconnects, IVS tries to record to the same S3 prefix as the previous session. See <a href=\"/ivs/latest/RealTimeUserGuide/rt-individual-participant-recording.html#ind-part-rec-merge-frag\"> Merge Fragmented Individual Participant Recordings</a>.</p>"""
     recording_state: NotRequired[
         "aws_sdk_ivs_realtime.types.participant_recording_state.ParticipantRecordingState"
     ]

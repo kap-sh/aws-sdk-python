@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 from aws_sdk_iotfleetwise._services._pipeline import (
@@ -60,7 +62,7 @@ class ModelManifestResource:
         ] = None,
         tags: Optional["aws_sdk_iotfleetwise.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_iotfleetwise.types.create_model_manifest_response.CreateModelManifestResponse":
-        """<p> Creates a vehicle model (model manifest) that specifies signals (attributes, branches, sensors, and actuators). </p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/vehicle-models.html\">Vehicle models</a> in the <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p>
+        r"""<p> Creates a vehicle model (model manifest) that specifies signals (attributes, branches, sensors, and actuators). </p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/vehicle-models.html\">Vehicle models</a> in the <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p>
 
         Args:
             name: <p> The name of the vehicle model to create.</p>
@@ -354,7 +356,7 @@ class AsyncModelManifestResource:
         ] = None,
         tags: Optional["aws_sdk_iotfleetwise.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_iotfleetwise.types.create_model_manifest_response.CreateModelManifestResponse":
-        """<p> Creates a vehicle model (model manifest) that specifies signals (attributes, branches, sensors, and actuators). </p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/vehicle-models.html\">Vehicle models</a> in the <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p>
+        r"""<p> Creates a vehicle model (model manifest) that specifies signals (attributes, branches, sensors, and actuators). </p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/vehicle-models.html\">Vehicle models</a> in the <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p>
 
         Args:
             name: <p> The name of the vehicle model to create.</p>
