@@ -19,7 +19,7 @@ class User(TypedDict):
     user_name: NotRequired["aws_sdk_elasticache.types.string.String"]
     """<p>The username of the user.</p>"""
     status: NotRequired["aws_sdk_elasticache.types.string.String"]
-    """<p>Indicates the user status. Can be \"active\", \"modifying\" or \"deleting\".</p>"""
+    r"""<p>Indicates the user status. Can be \"active\", \"modifying\" or \"deleting\".</p>"""
     engine: NotRequired["aws_sdk_elasticache.types.engine_type.EngineType"]
     """<p>The options are valkey or redis.</p>"""
     minimum_engine_version: NotRequired["aws_sdk_elasticache.types.string.String"]

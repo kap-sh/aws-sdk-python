@@ -48,7 +48,7 @@ class DescribeFleetMetricResponse(TypedDict):
     ]
     """<p>The date when the fleet metric is last modified.</p>"""
     unit: NotRequired["aws_sdk_iot.types.fleet_metric_unit.FleetMetricUnit"]
-    """<p>Used to support unit transformation such as milliseconds to seconds. The unit must be supported by <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html\">CW metric</a>.</p>"""
+    r"""<p>Used to support unit transformation such as milliseconds to seconds. The unit must be supported by <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html\">CW metric</a>.</p>"""
     version: "aws_sdk_iot.types.version.Version"
     """<p>The version of the fleet metric.</p>"""
     metric_arn: NotRequired["aws_sdk_iot.types.fleet_metric_arn.FleetMetricArn"]

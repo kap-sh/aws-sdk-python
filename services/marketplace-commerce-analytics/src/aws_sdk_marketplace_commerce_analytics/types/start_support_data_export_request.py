@@ -30,7 +30,7 @@ class StartSupportDataExportRequest(TypedDict):
     destination_s3_prefix: NotRequired[
         "aws_sdk_marketplace_commerce_analytics.types.destination_s3_prefix.DestinationS3Prefix"
     ]
-    """<i>This target has been deprecated.</i> (Optional) The desired S3 prefix for the published data set, similar to a directory path in standard file systems. For example, if given the bucket name \"mybucket\" and the prefix \"myprefix/mydatasets\", the output file \"outputfile\" would be published to \"s3://mybucket/myprefix/mydatasets/outputfile\". If the prefix directory structure does not exist, it will be created. If no prefix is provided, the data set will be published to the S3 bucket root."""
+    r"""<i>This target has been deprecated.</i> (Optional) The desired S3 prefix for the published data set, similar to a directory path in standard file systems. For example, if given the bucket name \"mybucket\" and the prefix \"myprefix/mydatasets\", the output file \"outputfile\" would be published to \"s3://mybucket/myprefix/mydatasets/outputfile\". If the prefix directory structure does not exist, it will be created. If no prefix is provided, the data set will be published to the S3 bucket root."""
     sns_topic_arn: (
         "aws_sdk_marketplace_commerce_analytics.types.sns_topic_arn.SnsTopicArn"
     )

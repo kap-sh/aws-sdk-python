@@ -14,7 +14,7 @@ if TYPE_CHECKING:
 
 class TagResourceRequest(TypedDict):
     instance_arn: NotRequired["aws_sdk_sso_admin.types.instance_arn.InstanceArn"]
-    """<p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>"""
+    r"""<p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>"""
     resource_arn: "aws_sdk_sso_admin.types.taggable_resource_arn.TaggableResourceArn"
     """<p>The ARN of the resource with the tags to be listed.</p>"""
     tags: "aws_sdk_sso_admin.types.tag_list.TagList"

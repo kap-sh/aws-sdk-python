@@ -1,13 +1,19 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#GetResourcePolicyResponse``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.resource_policy_body
 
+
 class GetResourcePolicyResponse(TypedDict):
-    policy: NotRequired["aws_sdk_bedrock_agentcore_control.types.resource_policy_body.ResourcePolicyBody"]
+    policy: NotRequired[
+        "aws_sdk_bedrock_agentcore_control.types.resource_policy_body.ResourcePolicyBody"
+    ]
     """<p>The resource policy associated with the specified resource.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: GetResourcePolicyResponse) -> dict:

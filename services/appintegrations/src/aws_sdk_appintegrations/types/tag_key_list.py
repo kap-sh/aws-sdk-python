@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.appintegrations#TagKeyList``."""
 
 from typing import TYPE_CHECKING, TypeAlias
+
 if TYPE_CHECKING:
     import aws_sdk_appintegrations.types.tag_key
 

@@ -1,22 +1,32 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#GetResourceOauth2TokenResponse``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.access_token_type
     import aws_sdk_bedrock_agentcore.types.authorization_url_type
     import aws_sdk_bedrock_agentcore.types.request_uri
     import aws_sdk_bedrock_agentcore.types.session_status
 
+
 class GetResourceOauth2TokenResponse(TypedDict):
-    authorization_url: NotRequired["aws_sdk_bedrock_agentcore.types.authorization_url_type.AuthorizationUrlType"]
+    authorization_url: NotRequired[
+        "aws_sdk_bedrock_agentcore.types.authorization_url_type.AuthorizationUrlType"
+    ]
     """<p>The URL to initiate the authorization process, provided when the access token requires user authorization.</p>"""
-    access_token: NotRequired["aws_sdk_bedrock_agentcore.types.access_token_type.AccessTokenType"]
+    access_token: NotRequired[
+        "aws_sdk_bedrock_agentcore.types.access_token_type.AccessTokenType"
+    ]
     """<p>The OAuth 2.0 access token to use.</p>"""
     session_uri: NotRequired["aws_sdk_bedrock_agentcore.types.request_uri.RequestUri"]
     """<p>Unique identifier for the user's authorization session for retrieving OAuth2 tokens. This matches the sessionId from the request and can be used to track the session state.</p>"""
-    session_status: NotRequired["aws_sdk_bedrock_agentcore.types.session_status.SessionStatus"]
+    session_status: NotRequired[
+        "aws_sdk_bedrock_agentcore.types.session_status.SessionStatus"
+    ]
     """<p>Status indicating whether the user's authorization session is in progress or has failed. This helps determine the next steps in the OAuth2 authentication flow.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: GetResourceOauth2TokenResponse) -> dict:
@@ -29,7 +39,12 @@ def serialize_json(value: GetResourceOauth2TokenResponse) -> dict:
         out["sessionUri"] = value["session_uri"]
     if "session_status" in value:
         import aws_sdk_bedrock_agentcore.types.session_status
-        out["sessionStatus"] = aws_sdk_bedrock_agentcore.types.session_status.serialize_json(value["session_status"])
+
+        out["sessionStatus"] = (
+            aws_sdk_bedrock_agentcore.types.session_status.serialize_json(
+                value["session_status"]
+            )
+        )
     return out
 
 
@@ -43,5 +58,10 @@ def deserialize_json(data: dict) -> GetResourceOauth2TokenResponse:
         out["session_uri"] = data["sessionUri"]
     if "sessionStatus" in data:
         import aws_sdk_bedrock_agentcore.types.session_status
-        out["session_status"] = aws_sdk_bedrock_agentcore.types.session_status.deserialize_json(data["sessionStatus"])
+
+        out["session_status"] = (
+            aws_sdk_bedrock_agentcore.types.session_status.deserialize_json(
+                data["sessionStatus"]
+            )
+        )
     return out

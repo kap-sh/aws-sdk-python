@@ -23,7 +23,7 @@ class PutVectorsInput(TypedDict):
     index_arn: NotRequired["aws_sdk_s3vectors.types.index_arn.IndexArn"]
     """<p>The ARN of the vector index where you want to write vectors.</p>"""
     vectors: "aws_sdk_s3vectors.types.put_vectors_input_list.PutVectorsInputList"
-    """<p>The vectors to add to a vector index. The number of vectors in a single request must not exceed the resource capacity, otherwise the request will be rejected with the error <code>ServiceUnavailableException</code> with the error message \"Currently unable to handle the request\".</p>"""
+    r"""<p>The vectors to add to a vector index. The number of vectors in a single request must not exceed the resource capacity, otherwise the request will be rejected with the error <code>ServiceUnavailableException</code> with the error message \"Currently unable to handle the request\".</p>"""
 
 
 # --- restJson1 ser/de ---

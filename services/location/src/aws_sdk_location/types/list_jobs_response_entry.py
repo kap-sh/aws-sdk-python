@@ -28,11 +28,11 @@ class ListJobsResponseEntry(TypedDict):
     ]
     """<p>Additional options for configuring job action parameters.</p>"""
     created_at: "aws_sdk_location.types.timestamp.Timestamp"
-    """<p>Job creation time in <a href=\"https://www.iso.org/iso-8601-date-and-time-format.html\">ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sss</code>.</p>"""
+    r"""<p>Job creation time in <a href=\"https://www.iso.org/iso-8601-date-and-time-format.html\">ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sss</code>.</p>"""
     execution_role_arn: "aws_sdk_location.types.iam_role_arn.IamRoleArn"
     """<p>IAM role used for job execution.</p>"""
     ended_at: NotRequired["aws_sdk_location.types.timestamp.Timestamp"]
-    """<p>Job completion time in <a href=\"https://www.iso.org/iso-8601-date-and-time-format.html\">ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sss</code>. Only returned for jobs in a terminal status: <code>Completed</code> | <code>Failed</code> | <code>Cancelled</code>.</p>"""
+    r"""<p>Job completion time in <a href=\"https://www.iso.org/iso-8601-date-and-time-format.html\">ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sss</code>. Only returned for jobs in a terminal status: <code>Completed</code> | <code>Failed</code> | <code>Cancelled</code>.</p>"""
     error: NotRequired["aws_sdk_location.types.job_error.JobError"]
     """<p>Error information if the job failed.</p>"""
     input_options: "aws_sdk_location.types.job_input_options.JobInputOptions"
@@ -48,7 +48,7 @@ class ListJobsResponseEntry(TypedDict):
     status: "aws_sdk_location.types.job_status.JobStatus"
     """<p>Current job status.</p>"""
     updated_at: "aws_sdk_location.types.timestamp.Timestamp"
-    """<p>Last update time in <a href=\"https://www.iso.org/iso-8601-date-and-time-format.html\">ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sss</code>.</p>"""
+    r"""<p>Last update time in <a href=\"https://www.iso.org/iso-8601-date-and-time-format.html\">ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sss</code>.</p>"""
 
 
 # --- restJson1 ser/de ---

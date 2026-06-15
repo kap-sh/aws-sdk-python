@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 from aws_sdk_iotfleetwise._services._pipeline import (
@@ -71,7 +73,7 @@ class VehicleResource:
             "aws_sdk_iotfleetwise.types.state_template_associations.StateTemplateAssociations"
         ] = None,
     ) -> "aws_sdk_iotfleetwise.types.create_vehicle_response.CreateVehicleResponse":
-        """<p> Creates a vehicle, which is an instance of a vehicle model (model manifest). Vehicles created from the same vehicle model consist of the same signals inherited from the vehicle model.</p> <note> <p> If you have an existing Amazon Web Services IoT thing, you can use Amazon Web Services IoT FleetWise to create a vehicle and collect data from your thing. </p> </note> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/create-vehicle-cli.html\">Create a vehicle (AWS CLI)</a> in the <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p>
+        r"""<p> Creates a vehicle, which is an instance of a vehicle model (model manifest). Vehicles created from the same vehicle model consist of the same signals inherited from the vehicle model.</p> <note> <p> If you have an existing Amazon Web Services IoT thing, you can use Amazon Web Services IoT FleetWise to create a vehicle and collect data from your thing. </p> </note> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/create-vehicle-cli.html\">Create a vehicle (AWS CLI)</a> in the <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p>
 
         Args:
             vehicle_name: <p> The unique ID of the vehicle to create. </p>
@@ -178,7 +180,7 @@ class VehicleResource:
             "aws_sdk_iotfleetwise.types.state_template_associations.StateTemplateAssociations"
         ] = None,
     ) -> "aws_sdk_iotfleetwise.types.update_vehicle_response.UpdateVehicleResponse":
-        """<p> Updates a vehicle.</p> <important> <p>Access to certain Amazon Web Services IoT FleetWise features is currently gated. For more information, see <a href=\"https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/fleetwise-regions.html\">Amazon Web Services Region and feature availability</a> in the <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p> </important>
+        r"""<p> Updates a vehicle.</p> <important> <p>Access to certain Amazon Web Services IoT FleetWise features is currently gated. For more information, see <a href=\"https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/fleetwise-regions.html\">Amazon Web Services Region and feature availability</a> in the <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p> </important>
 
         Args:
             vehicle_name: <p>The unique ID of the vehicle to update.</p>
@@ -286,7 +288,7 @@ class VehicleResource:
             "aws_sdk_iotfleetwise.types.list_response_scope.ListResponseScope"
         ] = None,
     ) -> "aws_sdk_iotfleetwise.types.list_vehicles_response.ListVehiclesResponse":
-        """<p> Retrieves a list of summaries of created vehicles. </p> <note> <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the request to return more results.</p> </note>
+        r"""<p> Retrieves a list of summaries of created vehicles. </p> <note> <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the request to return more results.</p> </note>
 
         Args:
             model_manifest_arn: <p> The Amazon Resource Name (ARN) of a vehicle model (model manifest). You can use this optional parameter to list only the vehicles created from a certain vehicle model. </p>
@@ -436,7 +438,7 @@ class AsyncVehicleResource:
             "aws_sdk_iotfleetwise.types.state_template_associations.StateTemplateAssociations"
         ] = None,
     ) -> "aws_sdk_iotfleetwise.types.create_vehicle_response.CreateVehicleResponse":
-        """<p> Creates a vehicle, which is an instance of a vehicle model (model manifest). Vehicles created from the same vehicle model consist of the same signals inherited from the vehicle model.</p> <note> <p> If you have an existing Amazon Web Services IoT thing, you can use Amazon Web Services IoT FleetWise to create a vehicle and collect data from your thing. </p> </note> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/create-vehicle-cli.html\">Create a vehicle (AWS CLI)</a> in the <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p>
+        r"""<p> Creates a vehicle, which is an instance of a vehicle model (model manifest). Vehicles created from the same vehicle model consist of the same signals inherited from the vehicle model.</p> <note> <p> If you have an existing Amazon Web Services IoT thing, you can use Amazon Web Services IoT FleetWise to create a vehicle and collect data from your thing. </p> </note> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/create-vehicle-cli.html\">Create a vehicle (AWS CLI)</a> in the <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p>
 
         Args:
             vehicle_name: <p> The unique ID of the vehicle to create. </p>
@@ -545,7 +547,7 @@ class AsyncVehicleResource:
             "aws_sdk_iotfleetwise.types.state_template_associations.StateTemplateAssociations"
         ] = None,
     ) -> "aws_sdk_iotfleetwise.types.update_vehicle_response.UpdateVehicleResponse":
-        """<p> Updates a vehicle.</p> <important> <p>Access to certain Amazon Web Services IoT FleetWise features is currently gated. For more information, see <a href=\"https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/fleetwise-regions.html\">Amazon Web Services Region and feature availability</a> in the <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p> </important>
+        r"""<p> Updates a vehicle.</p> <important> <p>Access to certain Amazon Web Services IoT FleetWise features is currently gated. For more information, see <a href=\"https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/fleetwise-regions.html\">Amazon Web Services Region and feature availability</a> in the <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p> </important>
 
         Args:
             vehicle_name: <p>The unique ID of the vehicle to update.</p>
@@ -655,7 +657,7 @@ class AsyncVehicleResource:
             "aws_sdk_iotfleetwise.types.list_response_scope.ListResponseScope"
         ] = None,
     ) -> "aws_sdk_iotfleetwise.types.list_vehicles_response.ListVehiclesResponse":
-        """<p> Retrieves a list of summaries of created vehicles. </p> <note> <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the request to return more results.</p> </note>
+        r"""<p> Retrieves a list of summaries of created vehicles. </p> <note> <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the request to return more results.</p> </note>
 
         Args:
             model_manifest_arn: <p> The Amazon Resource Name (ARN) of a vehicle model (model manifest). You can use this optional parameter to list only the vehicles created from a certain vehicle model. </p>

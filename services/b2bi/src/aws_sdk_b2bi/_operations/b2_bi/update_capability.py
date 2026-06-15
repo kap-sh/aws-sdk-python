@@ -87,7 +87,7 @@ def get_signer(
     options: AsyncOperationOptions | OperationOptions,
     auth_schemes: list[dict[str, Any]] | None = None,
 ) -> aws_sdk_b2bi._auth._signers.Signer | None:
-    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}
+    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}  # noqa: F841
     if options.credentials_provider is not None:
         sigv4_config = (
             name_to_schema.get("sigv4")
@@ -104,7 +104,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_b2bi.types.update_capability_request.UpdateCapabilityRequest,
+    input_: aws_sdk_b2bi.types.update_capability_request.UpdateCapabilityRequest,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -115,14 +115,14 @@ def build_request(
         )
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/capabilities/{capabilityId}"
-    url = url.replace("{capabilityId}", quote(str(input["capability_id"]), safe=""))
+    url = url.replace("{capabilityId}", quote(str(input_["capability_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "B2BI.UpdateCapability"
     import aws_sdk_b2bi.types.update_capability_request
 
     body: bytes | None = json.dumps(
-        aws_sdk_b2bi.types.update_capability_request.serialize_aws_json_1_0(input)
+        aws_sdk_b2bi.types.update_capability_request.serialize_aws_json_1_0(input_)
     ).encode()
     headers["content-type"] = "application/x-amz-json-1.0"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
@@ -135,12 +135,12 @@ def build_request(
 
 def update_capability(
     options: OperationOptions,
-    input: aws_sdk_b2bi.types.update_capability_request.UpdateCapabilityRequest,
+    input_: aws_sdk_b2bi.types.update_capability_request.UpdateCapabilityRequest,
 ) -> tuple[
     aws_sdk_b2bi.types.update_capability_response.UpdateCapabilityResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -154,12 +154,12 @@ def update_capability(
 
 async def async_update_capability(
     options: AsyncOperationOptions,
-    input: aws_sdk_b2bi.types.update_capability_request.UpdateCapabilityRequest,
+    input_: aws_sdk_b2bi.types.update_capability_request.UpdateCapabilityRequest,
 ) -> tuple[
     aws_sdk_b2bi.types.update_capability_response.UpdateCapabilityResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

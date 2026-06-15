@@ -23,7 +23,7 @@ class CreateCustomLogSourceRequest(TypedDict):
     event_classes: NotRequired[
         "aws_sdk_securitylake.types.ocsf_event_class_list.OcsfEventClassList"
     ]
-    """<p>The Open Cybersecurity Schema Framework (OCSF) event classes which describes the type of data that the custom source will send to Security Lake. For the list of supported event classes, see the <a href=\"https://docs.aws.amazon.com/security-lake/latest/userguide/adding-custom-sources.html#ocsf-eventclass\">Amazon Security Lake User Guide</a>.</p>"""
+    r"""<p>The Open Cybersecurity Schema Framework (OCSF) event classes which describes the type of data that the custom source will send to Security Lake. For the list of supported event classes, see the <a href=\"https://docs.aws.amazon.com/security-lake/latest/userguide/adding-custom-sources.html#ocsf-eventclass\">Amazon Security Lake User Guide</a>.</p>"""
     configuration: "aws_sdk_securitylake.types.custom_log_source_configuration.CustomLogSourceConfiguration"
     """<p>The configuration used for the third-party custom source.</p>"""
 

@@ -13,7 +13,7 @@ class GetQueryLoggingConfigResponse(TypedDict):
     query_logging_config: (
         "aws_sdk_route_53.types.query_logging_config.QueryLoggingConfig"
     )
-    """<p>A complex type that contains information about the query logging configuration that you specified in a <a href=\"https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetQueryLoggingConfig.html\">GetQueryLoggingConfig</a> request.</p>"""
+    r"""<p>A complex type that contains information about the query logging configuration that you specified in a <a href=\"https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetQueryLoggingConfig.html\">GetQueryLoggingConfig</a> request.</p>"""
 
 
 # --- restXml ser/de ---

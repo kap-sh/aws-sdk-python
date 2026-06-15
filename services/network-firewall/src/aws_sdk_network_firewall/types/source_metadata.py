@@ -15,7 +15,7 @@ class SourceMetadata(TypedDict):
     source_update_token: NotRequired[
         "aws_sdk_network_firewall.types.update_token.UpdateToken"
     ]
-    """<p>The update token of the Amazon Web Services managed rule group that your own rule group is copied from. To determine the update token for the managed rule group, call <a href=\"https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_DescribeRuleGroup.html#networkfirewall-DescribeRuleGroup-response-UpdateToken\">DescribeRuleGroup</a>.</p>"""
+    r"""<p>The update token of the Amazon Web Services managed rule group that your own rule group is copied from. To determine the update token for the managed rule group, call <a href=\"https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_DescribeRuleGroup.html#networkfirewall-DescribeRuleGroup-response-UpdateToken\">DescribeRuleGroup</a>.</p>"""
 
 
 # --- awsJson1_0 ser/de ---

@@ -15,7 +15,7 @@ class FleetUtilization(TypedDict):
     fleet_id: NotRequired["aws_sdk_gamelift.types.fleet_id.FleetId"]
     """<p>A unique identifier for the fleet associated with the location.</p>"""
     fleet_arn: NotRequired["aws_sdk_gamelift.types.fleet_arn.FleetArn"]
-    """<p>The Amazon Resource Name (<a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html\">ARN</a>) that is assigned to a Amazon GameLift Servers fleet resource and uniquely identifies it. ARNs are unique across all Regions. Format is <code>arn:aws:gamelift:<region>::fleet/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912</code>.</p>"""
+    r"""<p>The Amazon Resource Name (<a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html\">ARN</a>) that is assigned to a Amazon GameLift Servers fleet resource and uniquely identifies it. ARNs are unique across all Regions. Format is <code>arn:aws:gamelift:<region>::fleet/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912</code>.</p>"""
     active_server_process_count: NotRequired[
         "aws_sdk_gamelift.types.whole_number.WholeNumber"
     ]

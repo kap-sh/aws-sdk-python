@@ -14,7 +14,7 @@ class EndpointConfiguration(TypedDict):
     types: NotRequired[
         "aws_sdk_api_gateway.types.list_of_endpoint_type.ListOfEndpointType"
     ]
-    """<p>A list of endpoint types of an API (RestApi) or its custom domain name (DomainName). For an edge-optimized API and its custom domain name, the endpoint type is <code>\"EDGE\"</code>. For a regional API and its custom domain name, the endpoint type is <code>REGIONAL</code>. For a private API, the endpoint type is <code>PRIVATE</code>.</p>"""
+    r"""<p>A list of endpoint types of an API (RestApi) or its custom domain name (DomainName). For an edge-optimized API and its custom domain name, the endpoint type is <code>\"EDGE\"</code>. For a regional API and its custom domain name, the endpoint type is <code>REGIONAL</code>. For a private API, the endpoint type is <code>PRIVATE</code>.</p>"""
     ip_address_type: NotRequired[
         "aws_sdk_api_gateway.types.ip_address_type.IpAddressType"
     ]

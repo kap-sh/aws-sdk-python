@@ -131,7 +131,7 @@ class ChimeSDKMeetingsClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = ChimeSDKMeetingsClientConfig(
+        self._config = ChimeSDKMeetingsClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -151,7 +151,7 @@ class ChimeSDKMeetingsClient:
         overrides: ChimeSDKMeetingsClientConfig = config_overrides or {}
         interceptors_: list[Interceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             retry(),
         ]
@@ -159,16 +159,16 @@ class ChimeSDKMeetingsClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            region=overrides.get("region", self.config.get("region")),
+            region=overrides.get("region", self._config.get("region")),
             use_dual_stack=overrides.get(
-                "use_dual_stack", self.config.get("use_dual_stack")
+                "use_dual_stack", self._config.get("use_dual_stack")
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -180,7 +180,7 @@ class ChimeSDKMeetingsClient:
         *,
         config_overrides: Optional[ChimeSDKMeetingsClientConfig] = None,
     ) -> "aws_sdk_chime_sdk_meetings.types.batch_create_attendee_response.BatchCreateAttendeeResponse":
-        """<p>Creates up to 100 attendees for an active Amazon Chime SDK meeting. For more information about the Amazon Chime SDK, see <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html\">Using the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i>.</p>
+        r"""<p>Creates up to 100 attendees for an active Amazon Chime SDK meeting. For more information about the Amazon Chime SDK, see <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html\">Using the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i>.</p>
 
         Args:
             meeting_id: <p>The Amazon Chime SDK ID of the meeting to which you're adding attendees.</p>
@@ -264,7 +264,7 @@ class ChimeSDKMeetingsClient:
             "aws_sdk_chime_sdk_meetings.types.attendee_capabilities.AttendeeCapabilities"
         ] = None,
     ) -> "aws_sdk_chime_sdk_meetings.types.create_attendee_response.CreateAttendeeResponse":
-        """<p> Creates a new attendee for an active Amazon Chime SDK meeting. For more information about the Amazon Chime SDK, see <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html\">Using the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i>. </p>
+        r"""<p> Creates a new attendee for an active Amazon Chime SDK meeting. For more information about the Amazon Chime SDK, see <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html\">Using the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i>. </p>
 
         Args:
             meeting_id: <p>The unique ID of the meeting.</p>
@@ -329,7 +329,7 @@ class ChimeSDKMeetingsClient:
     ) -> (
         "aws_sdk_chime_sdk_meetings.types.create_meeting_response.CreateMeetingResponse"
     ):
-        """<p>Creates a new Amazon Chime SDK meeting in the specified media Region with no initial attendees. For more information about specifying media Regions, see <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/dg/sdk-available-regions\">Available Regions</a> and <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/dg/chime-sdk-meetings-regions.html\">Using meeting Regions</a>, both in the <i>Amazon Chime SDK Developer Guide</i>. For more information about the Amazon Chime SDK, see <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html\">Using the Amazon Chime SDK</a> in the <i>Amazon Chime SDK Developer Guide</i>. </p> <note> <p>If you use this API in conjuction with the and APIs, and you don't specify the <code>MeetingFeatures.Content.MaxResolution</code> or <code>MeetingFeatures.Video.MaxResolution</code> parameters, the following defaults are used:</p> <ul> <li> <p>Content.MaxResolution: FHD</p> </li> <li> <p>Video.MaxResolution: HD</p> </li> </ul> </note>
+        r"""<p>Creates a new Amazon Chime SDK meeting in the specified media Region with no initial attendees. For more information about specifying media Regions, see <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/dg/sdk-available-regions\">Available Regions</a> and <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/dg/chime-sdk-meetings-regions.html\">Using meeting Regions</a>, both in the <i>Amazon Chime SDK Developer Guide</i>. For more information about the Amazon Chime SDK, see <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html\">Using the Amazon Chime SDK</a> in the <i>Amazon Chime SDK Developer Guide</i>. </p> <note> <p>If you use this API in conjuction with the and APIs, and you don't specify the <code>MeetingFeatures.Content.MaxResolution</code> or <code>MeetingFeatures.Video.MaxResolution</code> parameters, the following defaults are used:</p> <ul> <li> <p>Content.MaxResolution: FHD</p> </li> <li> <p>Video.MaxResolution: HD</p> </li> </ul> </note>
 
         Args:
             client_request_token: <p>The unique identifier for the client request. Use a different token for different meetings.</p>
@@ -413,7 +413,7 @@ class ChimeSDKMeetingsClient:
             "aws_sdk_chime_sdk_meetings.types.media_placement_network_type.MediaPlacementNetworkType"
         ] = None,
     ) -> "aws_sdk_chime_sdk_meetings.types.create_meeting_with_attendees_response.CreateMeetingWithAttendeesResponse":
-        """<p> Creates a new Amazon Chime SDK meeting in the specified media Region, with attendees. For more information about specifying media Regions, see <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/dg/sdk-available-regions\">Available Regions</a> and <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/dg/chime-sdk-meetings-regions.html\">Using meeting Regions</a>, both in the <i>Amazon Chime SDK Developer Guide</i>. For more information about the Amazon Chime SDK, see <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html\">Using the Amazon Chime SDK</a> in the <i>Amazon Chime SDK Developer Guide</i>. </p> <note> <p>If you use this API in conjuction with the and APIs, and you don't specify the <code>MeetingFeatures.Content.MaxResolution</code> or <code>MeetingFeatures.Video.MaxResolution</code> parameters, the following defaults are used:</p> <ul> <li> <p>Content.MaxResolution: FHD</p> </li> <li> <p>Video.MaxResolution: HD</p> </li> </ul> </note>
+        r"""<p> Creates a new Amazon Chime SDK meeting in the specified media Region, with attendees. For more information about specifying media Regions, see <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/dg/sdk-available-regions\">Available Regions</a> and <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/dg/chime-sdk-meetings-regions.html\">Using meeting Regions</a>, both in the <i>Amazon Chime SDK Developer Guide</i>. For more information about the Amazon Chime SDK, see <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html\">Using the Amazon Chime SDK</a> in the <i>Amazon Chime SDK Developer Guide</i>. </p> <note> <p>If you use this API in conjuction with the and APIs, and you don't specify the <code>MeetingFeatures.Content.MaxResolution</code> or <code>MeetingFeatures.Video.MaxResolution</code> parameters, the following defaults are used:</p> <ul> <li> <p>Content.MaxResolution: FHD</p> </li> <li> <p>Video.MaxResolution: HD</p> </li> </ul> </note>
 
         Args:
             client_request_token: <p>The unique identifier for the client request. Use a different token for different meetings.</p>
@@ -478,7 +478,7 @@ class ChimeSDKMeetingsClient:
         *,
         config_overrides: Optional[ChimeSDKMeetingsClientConfig] = None,
     ) -> None:
-        """<p>Deletes an attendee from the specified Amazon Chime SDK meeting and deletes their <code>JoinToken</code>. Attendees are automatically deleted when a Amazon Chime SDK meeting is deleted. For more information about the Amazon Chime SDK, see <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html\">Using the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i>.</p>
+        r"""<p>Deletes an attendee from the specified Amazon Chime SDK meeting and deletes their <code>JoinToken</code>. Attendees are automatically deleted when a Amazon Chime SDK meeting is deleted. For more information about the Amazon Chime SDK, see <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html\">Using the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i>.</p>
 
         Args:
             meeting_id: <p>The Amazon Chime SDK meeting ID.</p>
@@ -515,7 +515,7 @@ class ChimeSDKMeetingsClient:
         *,
         config_overrides: Optional[ChimeSDKMeetingsClientConfig] = None,
     ) -> None:
-        """<p>Deletes the specified Amazon Chime SDK meeting. The operation deletes all attendees, disconnects all clients, and prevents new clients from joining the meeting. For more information about the Amazon Chime SDK, see <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html\">Using the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i>.</p>
+        r"""<p>Deletes the specified Amazon Chime SDK meeting. The operation deletes all attendees, disconnects all clients, and prevents new clients from joining the meeting. For more information about the Amazon Chime SDK, see <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html\">Using the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i>.</p>
 
         Args:
             meeting_id: <p>The Amazon Chime SDK meeting ID.</p>
@@ -551,7 +551,7 @@ class ChimeSDKMeetingsClient:
         *,
         config_overrides: Optional[ChimeSDKMeetingsClientConfig] = None,
     ) -> "aws_sdk_chime_sdk_meetings.types.get_attendee_response.GetAttendeeResponse":
-        """<p> Gets the Amazon Chime SDK attendee details for a specified meeting ID and attendee ID. For more information about the Amazon Chime SDK, see <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html\">Using the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i>. </p>
+        r"""<p> Gets the Amazon Chime SDK attendee details for a specified meeting ID and attendee ID. For more information about the Amazon Chime SDK, see <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html\">Using the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i>. </p>
 
         Args:
             meeting_id: <p>The Amazon Chime SDK meeting ID.</p>
@@ -590,7 +590,7 @@ class ChimeSDKMeetingsClient:
         *,
         config_overrides: Optional[ChimeSDKMeetingsClientConfig] = None,
     ) -> "aws_sdk_chime_sdk_meetings.types.get_meeting_response.GetMeetingResponse":
-        """<p>Gets the Amazon Chime SDK meeting details for the specified meeting ID. For more information about the Amazon Chime SDK, see <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html\">Using the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i>.</p>
+        r"""<p>Gets the Amazon Chime SDK meeting details for the specified meeting ID. For more information about the Amazon Chime SDK, see <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html\">Using the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i>.</p>
 
         Args:
             meeting_id: <p>The Amazon Chime SDK meeting ID.</p>
@@ -633,7 +633,7 @@ class ChimeSDKMeetingsClient:
     ) -> (
         "aws_sdk_chime_sdk_meetings.types.list_attendees_response.ListAttendeesResponse"
     ):
-        """<p> Lists the attendees for the specified Amazon Chime SDK meeting. For more information about the Amazon Chime SDK, see <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html\">Using the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i>. </p>
+        r"""<p> Lists the attendees for the specified Amazon Chime SDK meeting. For more information about the Amazon Chime SDK, see <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html\">Using the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i>. </p>
 
         Args:
             meeting_id: <p>The Amazon Chime SDK meeting ID.</p>
@@ -714,7 +714,7 @@ class ChimeSDKMeetingsClient:
         *,
         config_overrides: Optional[ChimeSDKMeetingsClientConfig] = None,
     ) -> None:
-        """<p>Starts transcription for the specified <code>meetingId</code>. For more information, refer to <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/dg/meeting-transcription.html\"> Using Amazon Chime SDK live transcription </a> in the <i>Amazon Chime SDK Developer Guide</i>.</p> <p>If you specify an invalid configuration, a <code>TranscriptFailed</code> event will be sent with the contents of the <code>BadRequestException</code> generated by Amazon Transcribe. For more information on each parameter and which combinations are valid, refer to the <a href=\"https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html\">StartStreamTranscription</a> API in the <i>Amazon Transcribe Developer Guide</i>.</p> <note> <p>By default, Amazon Transcribe may use and store audio content processed by the service to develop and improve Amazon Web Services AI/ML services as further described in section 50 of the <a href=\"https://aws.amazon.com/service-terms/\">Amazon Web Services Service Terms</a>. Using Amazon Transcribe may be subject to federal and state laws or regulations regarding the recording or interception of electronic communications. It is your and your end users’ responsibility to comply with all applicable laws regarding the recording, including properly notifying all participants in a recorded session or communication that the session or communication is being recorded, and obtaining all necessary consents. You can opt out from Amazon Web Services using audio content to develop and improve AWS AI/ML services by configuring an AI services opt out policy using Amazon Web Services Organizations.</p> </note>
+        r"""<p>Starts transcription for the specified <code>meetingId</code>. For more information, refer to <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/dg/meeting-transcription.html\"> Using Amazon Chime SDK live transcription </a> in the <i>Amazon Chime SDK Developer Guide</i>.</p> <p>If you specify an invalid configuration, a <code>TranscriptFailed</code> event will be sent with the contents of the <code>BadRequestException</code> generated by Amazon Transcribe. For more information on each parameter and which combinations are valid, refer to the <a href=\"https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html\">StartStreamTranscription</a> API in the <i>Amazon Transcribe Developer Guide</i>.</p> <note> <p>By default, Amazon Transcribe may use and store audio content processed by the service to develop and improve Amazon Web Services AI/ML services as further described in section 50 of the <a href=\"https://aws.amazon.com/service-terms/\">Amazon Web Services Service Terms</a>. Using Amazon Transcribe may be subject to federal and state laws or regulations regarding the recording or interception of electronic communications. It is your and your end users’ responsibility to comply with all applicable laws regarding the recording, including properly notifying all participants in a recorded session or communication that the session or communication is being recorded, and obtaining all necessary consents. You can opt out from Amazon Web Services using audio content to develop and improve AWS AI/ML services by configuring an AI services opt out policy using Amazon Web Services Organizations.</p> </note>
 
         Args:
             meeting_id: <p>The unique ID of the meeting being transcribed.</p>
@@ -751,7 +751,7 @@ class ChimeSDKMeetingsClient:
         *,
         config_overrides: Optional[ChimeSDKMeetingsClientConfig] = None,
     ) -> None:
-        """<p>Stops transcription for the specified <code>meetingId</code>. For more information, refer to <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/dg/meeting-transcription.html\"> Using Amazon Chime SDK live transcription </a> in the <i>Amazon Chime SDK Developer Guide</i>.</p> <important> <p>By default, Amazon Transcribe may use and store audio content processed by the service to develop and improve Amazon Web Services AI/ML services as further described in section 50 of the <a href=\"https://aws.amazon.com/service-terms/\">Amazon Web Services Service Terms</a>. Using Amazon Transcribe may be subject to federal and state laws or regulations regarding the recording or interception of electronic communications. It is your and your end users’ responsibility to comply with all applicable laws regarding the recording, including properly notifying all participants in a recorded session or communication that the session or communication is being recorded, and obtaining all necessary consents. You can opt out from Amazon Web Services using audio content to develop and improve Amazon Web Services AI/ML services by configuring an AI services opt out policy using Amazon Web Services Organizations.</p> </important>
+        r"""<p>Stops transcription for the specified <code>meetingId</code>. For more information, refer to <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/dg/meeting-transcription.html\"> Using Amazon Chime SDK live transcription </a> in the <i>Amazon Chime SDK Developer Guide</i>.</p> <important> <p>By default, Amazon Transcribe may use and store audio content processed by the service to develop and improve Amazon Web Services AI/ML services as further described in section 50 of the <a href=\"https://aws.amazon.com/service-terms/\">Amazon Web Services Service Terms</a>. Using Amazon Transcribe may be subject to federal and state laws or regulations regarding the recording or interception of electronic communications. It is your and your end users’ responsibility to comply with all applicable laws regarding the recording, including properly notifying all participants in a recorded session or communication that the session or communication is being recorded, and obtaining all necessary consents. You can opt out from Amazon Web Services using audio content to develop and improve Amazon Web Services AI/ML services by configuring an AI services opt out policy using Amazon Web Services Organizations.</p> </important>
 
         Args:
             meeting_id: <p>The unique ID of the meeting for which you stop transcription.</p>

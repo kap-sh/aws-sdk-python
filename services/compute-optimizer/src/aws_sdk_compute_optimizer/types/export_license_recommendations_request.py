@@ -25,7 +25,7 @@ class ExportLicenseRecommendationsRequest(TypedDict):
     fields_to_export: NotRequired[
         "aws_sdk_compute_optimizer.types.exportable_license_fields.ExportableLicenseFields"
     ]
-    """<p>The recommendations data to include in the export file. For more information about the fields that can be exported, see <a href=\"https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html#exported-files\">Exported files</a> in the <i>Compute Optimizer User Guide</i>.</p>"""
+    r"""<p>The recommendations data to include in the export file. For more information about the fields that can be exported, see <a href=\"https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html#exported-files\">Exported files</a> in the <i>Compute Optimizer User Guide</i>.</p>"""
     s3_destination_config: (
         "aws_sdk_compute_optimizer.types.s3_destination_config.S3DestinationConfig"
     )
@@ -34,7 +34,7 @@ class ExportLicenseRecommendationsRequest(TypedDict):
     include_member_accounts: (
         "aws_sdk_compute_optimizer.types.include_member_accounts.IncludeMemberAccounts"
     )
-    """<p>Indicates whether to include recommendations for resources in all member accounts of the organization if your account is the management account of an organization.</p> <p>The member accounts must also be opted in to Compute Optimizer, and trusted access for Compute Optimizer must be enabled in the organization account. For more information, see <a href=\"https://docs.aws.amazon.com/compute-optimizer/latest/ug/security-iam.html#trusted-service-access\">Compute Optimizer and Amazon Web Services Organizations trusted access</a> in the <i>Compute Optimizer User Guide</i>.</p> <p>If this parameter is omitted, recommendations for member accounts of the organization aren't included in the export file .</p> <p>This parameter cannot be specified together with the account IDs parameter. The parameters are mutually exclusive.</p>"""
+    r"""<p>Indicates whether to include recommendations for resources in all member accounts of the organization if your account is the management account of an organization.</p> <p>The member accounts must also be opted in to Compute Optimizer, and trusted access for Compute Optimizer must be enabled in the organization account. For more information, see <a href=\"https://docs.aws.amazon.com/compute-optimizer/latest/ug/security-iam.html#trusted-service-access\">Compute Optimizer and Amazon Web Services Organizations trusted access</a> in the <i>Compute Optimizer User Guide</i>.</p> <p>If this parameter is omitted, recommendations for member accounts of the organization aren't included in the export file .</p> <p>This parameter cannot be specified together with the account IDs parameter. The parameters are mutually exclusive.</p>"""
 
 
 # --- awsJson1_0 ser/de ---

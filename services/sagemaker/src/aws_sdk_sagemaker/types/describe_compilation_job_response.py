@@ -72,7 +72,7 @@ class DescribeCompilationJobResponse(TypedDict):
     output_config: NotRequired["aws_sdk_sagemaker.types.output_config.OutputConfig"]
     """<p>Information about the output location for the compiled model and the target device that the model runs on.</p>"""
     vpc_config: NotRequired["aws_sdk_sagemaker.types.neo_vpc_config.NeoVpcConfig"]
-    """<p>A <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VpcConfig.html\">VpcConfig</a> object that specifies the VPC that you want your compilation job to connect to. Control access to your models by configuring the VPC. For more information, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/neo-vpc.html\">Protect Compilation Jobs by Using an Amazon Virtual Private Cloud</a>.</p>"""
+    r"""<p>A <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VpcConfig.html\">VpcConfig</a> object that specifies the VPC that you want your compilation job to connect to. Control access to your models by configuring the VPC. For more information, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/neo-vpc.html\">Protect Compilation Jobs by Using an Amazon Virtual Private Cloud</a>.</p>"""
     derived_information: NotRequired[
         "aws_sdk_sagemaker.types.derived_information.DerivedInformation"
     ]

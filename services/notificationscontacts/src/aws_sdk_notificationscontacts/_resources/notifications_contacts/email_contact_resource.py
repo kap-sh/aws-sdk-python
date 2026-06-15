@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_notificationscontacts._auth._signers
@@ -211,7 +213,7 @@ class EmailContactResource:
         *,
         config_overrides: Optional[NotificationsContactsClientConfig] = None,
     ) -> "aws_sdk_notificationscontacts.types.activate_email_contact_response.ActivateEmailContactResponse":
-        """<p>Activates an email contact using an activation code. This code is in the activation email sent to the email address associated with this email contact.</p>
+        r"""<p>Activates an email contact using an activation code. This code is in the activation email sent to the email address associated with this email contact.</p>
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -457,7 +459,7 @@ class AsyncEmailContactResource:
         *,
         config_overrides: Optional[AsyncNotificationsContactsClientConfig] = None,
     ) -> "aws_sdk_notificationscontacts.types.activate_email_contact_response.ActivateEmailContactResponse":
-        """<p>Activates an email contact using an activation code. This code is in the activation email sent to the email address associated with this email contact.</p>
+        r"""<p>Activates an email contact using an activation code. This code is in the activation email sent to the email address associated with this email contact.</p>
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the resource.</p>

@@ -1,11 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#ConcurrentModificationException``."""
 
 from typing import TypedDict
-from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
-from aws_sdk_bedrock_agentcore_control.errors import ServiceError
+
+from aws_sdk_bedrock_agentcore_control.errors import DeserializationError, ServiceError
+
 
 class ConcurrentModificationException_(TypedDict):
     message: "str"
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: ConcurrentModificationException_) -> dict:
@@ -25,10 +27,16 @@ def deserialize_json(data: dict) -> ConcurrentModificationException_:
 
 class ConcurrentModificationException(ServiceError):
     """Modeled error for Smithy shape ``com.amazonaws.bedrockagentcorecontrol#ConcurrentModificationException``."""
-    code: str | None = 'ConcurrentModificationException'
+
+    code: str | None = "ConcurrentModificationException"
 
     def __init__(self, data: ConcurrentModificationException_):
-        super().__init__('client', is_throttling_error=False, is_retryable=False, code='ConcurrentModificationException')
+        super().__init__(
+            "client",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="ConcurrentModificationException",
+        )
         self.data = data
 
     @classmethod

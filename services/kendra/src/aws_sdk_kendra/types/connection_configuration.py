@@ -22,7 +22,7 @@ class ConnectionConfiguration(TypedDict):
     table_name: "aws_sdk_kendra.types.table_name.TableName"
     """<p>The name of the table that contains the document data.</p>"""
     secret_arn: "aws_sdk_kendra.types.secret_arn.SecretArn"
-    """<p>The Amazon Resource Name (ARN) of an Secrets Manager secret that stores the credentials. The credentials should be a user-password pair. For more information, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/data-source-database.html\">Using a Database Data Source</a>. For more information about Secrets Manager, see <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html\"> What Is Secrets Manager</a> in the <i>Secrets Manager</i> user guide.</p>"""
+    r"""<p>The Amazon Resource Name (ARN) of an Secrets Manager secret that stores the credentials. The credentials should be a user-password pair. For more information, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/data-source-database.html\">Using a Database Data Source</a>. For more information about Secrets Manager, see <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html\"> What Is Secrets Manager</a> in the <i>Secrets Manager</i> user guide.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

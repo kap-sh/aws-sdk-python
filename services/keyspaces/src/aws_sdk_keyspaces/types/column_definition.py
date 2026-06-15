@@ -12,7 +12,7 @@ class ColumnDefinition(TypedDict):
     name: "aws_sdk_keyspaces.types.generic_string.GenericString"
     """<p>The name of the column.</p>"""
     type: "aws_sdk_keyspaces.types.generic_string.GenericString"
-    """<p>The data type of the column. For a list of available data types, see <a href=\"https://docs.aws.amazon.com/keyspaces/latest/devguide/cql.elements.html#cql.data-types\">Data types</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>"""
+    r"""<p>The data type of the column. For a list of available data types, see <a href=\"https://docs.aws.amazon.com/keyspaces/latest/devguide/cql.elements.html#cql.data-types\">Data types</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>"""
 
 
 # --- awsJson1_0 ser/de ---

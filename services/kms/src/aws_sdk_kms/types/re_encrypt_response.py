@@ -17,7 +17,7 @@ class ReEncryptResponse(TypedDict):
     source_key_id: NotRequired["aws_sdk_kms.types.key_id_type.KeyIdType"]
     """<p>Unique identifier of the KMS key used to originally encrypt the data.</p>"""
     key_id: NotRequired["aws_sdk_kms.types.key_id_type.KeyIdType"]
-    """<p>The Amazon Resource Name (<a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN\">key ARN</a>) of the KMS key that was used to reencrypt the data.</p>"""
+    r"""<p>The Amazon Resource Name (<a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN\">key ARN</a>) of the KMS key that was used to reencrypt the data.</p>"""
     source_encryption_algorithm: NotRequired[
         "aws_sdk_kms.types.encryption_algorithm_spec.EncryptionAlgorithmSpec"
     ]

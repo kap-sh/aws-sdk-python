@@ -12,7 +12,7 @@ if TYPE_CHECKING:
 
 class SubscribeResponse(TypedDict):
     subscription_arn: NotRequired["aws_sdk_sns.types.subscription_arn.subscriptionARN"]
-    """<p>The ARN of the subscription if it is confirmed, or the string \"pending confirmation\" if the subscription requires confirmation. However, if the API request parameter <code>ReturnSubscriptionArn</code> is true, then the value is always the subscription ARN, even if the subscription requires confirmation.</p>"""
+    r"""<p>The ARN of the subscription if it is confirmed, or the string \"pending confirmation\" if the subscription requires confirmation. However, if the API request parameter <code>ReturnSubscriptionArn</code> is true, then the value is always the subscription ARN, even if the subscription requires confirmation.</p>"""
 
 
 # --- awsQuery ser/de ---

@@ -23,7 +23,7 @@ class Attachment(TypedDict):
     status_message: NotRequired[
         "aws_sdk_network_firewall.types.status_message.StatusMessage"
     ]
-    """<p>If Network Firewall fails to create or delete the firewall endpoint in the subnet, it populates this with the reason for the error or failure and how to resolve it. A <code>FAILED</code> status indicates a non-recoverable state, and a <code>ERROR</code> status indicates an issue that you can fix. Depending on the error, it can take as many as 15 minutes to populate this field. For more information about the causes for failiure or errors and solutions available for this field, see <a href=\"https://docs.aws.amazon.com/network-firewall/latest/developerguide/firewall-troubleshooting-endpoint-failures.html\">Troubleshooting firewall endpoint failures</a> in the <i>Network Firewall Developer Guide</i>.</p>"""
+    r"""<p>If Network Firewall fails to create or delete the firewall endpoint in the subnet, it populates this with the reason for the error or failure and how to resolve it. A <code>FAILED</code> status indicates a non-recoverable state, and a <code>ERROR</code> status indicates an issue that you can fix. Depending on the error, it can take as many as 15 minutes to populate this field. For more information about the causes for failiure or errors and solutions available for this field, see <a href=\"https://docs.aws.amazon.com/network-firewall/latest/developerguide/firewall-troubleshooting-endpoint-failures.html\">Troubleshooting firewall endpoint failures</a> in the <i>Network Firewall Developer Guide</i>.</p>"""
 
 
 # --- awsJson1_0 ser/de ---

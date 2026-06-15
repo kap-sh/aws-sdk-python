@@ -15,9 +15,9 @@ class GetTileRequest(TypedDict):
     additional_features: NotRequired[
         "aws_sdk_geo_maps.types.tile_additional_feature_list.TileAdditionalFeatureList"
     ]
-    """<p>A list of optional additional parameters such as map styles that can be requested for each result. Not supported in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html\">GrabMaps</a> customers.</p>"""
+    r"""<p>A list of optional additional parameters such as map styles that can be requested for each result. Not supported in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html\">GrabMaps</a> customers.</p>"""
     tileset: "aws_sdk_geo_maps.types.tileset.Tileset"
-    """<p>Specifies the desired tile set. For <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html\">GrabMaps</a> customers, <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions support only the <code>vector.basemap</code> value.</p> <p>Valid Values: <code>raster.satellite | vector.basemap | vector.traffic | raster.dem</code> </p>"""
+    r"""<p>Specifies the desired tile set. For <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html\">GrabMaps</a> customers, <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions support only the <code>vector.basemap</code> value.</p> <p>Valid Values: <code>raster.satellite | vector.basemap | vector.traffic | raster.dem</code> </p>"""
     z: "aws_sdk_geo_maps.types.sensitive_string.SensitiveString"
     """<p>The zoom value for the map tile.</p>"""
     x: "aws_sdk_geo_maps.types.sensitive_string.SensitiveString"

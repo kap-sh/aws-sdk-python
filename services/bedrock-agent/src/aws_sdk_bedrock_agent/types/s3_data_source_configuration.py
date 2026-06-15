@@ -18,7 +18,7 @@ class S3DataSourceConfiguration(TypedDict):
     inclusion_prefixes: NotRequired[
         "aws_sdk_bedrock_agent.types.s3_prefixes.S3Prefixes"
     ]
-    """<p>A list of S3 prefixes to include certain files or content. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-prefixes.html\">Organizing objects using prefixes</a>.</p>"""
+    r"""<p>A list of S3 prefixes to include certain files or content. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-prefixes.html\">Organizing objects using prefixes</a>.</p>"""
     bucket_owner_account_id: NotRequired[
         "aws_sdk_bedrock_agent.types.bucket_owner_account_id.BucketOwnerAccountId"
     ]

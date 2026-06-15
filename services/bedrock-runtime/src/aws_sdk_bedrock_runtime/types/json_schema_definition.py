@@ -9,7 +9,7 @@ from aws_sdk_bedrock_runtime.errors import DeserializationError
 
 class JsonSchemaDefinition(TypedDict):
     schema: "str"
-    """<p> The JSON schema to constrain the model's output. For more information, see <a href=\"https://json-schema.org/understanding-json-schema/reference\">JSON Schema Reference</a>. </p>"""
+    r"""<p> The JSON schema to constrain the model's output. For more information, see <a href=\"https://json-schema.org/understanding-json-schema/reference\">JSON Schema Reference</a>. </p>"""
     name: NotRequired["str"]
     """<p> The name of the JSON schema. </p>"""
     description: NotRequired["str"]

@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_chatbot._auth._signers

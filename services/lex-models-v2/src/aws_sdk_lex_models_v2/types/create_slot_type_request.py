@@ -41,7 +41,7 @@ class CreateSlotTypeRequest(TypedDict):
     bot_version: "aws_sdk_lex_models_v2.types.draft_bot_version.DraftBotVersion"
     """<p>The identifier of the bot version associated with this slot type.</p>"""
     locale_id: "aws_sdk_lex_models_v2.types.locale_id.LocaleId"
-    """<p>The identifier of the language and locale that the slot type will be used in. The string must match one of the supported locales. All of the bots, intents, and slots used by the slot type must have the same locale. For more information, see <a href=\"https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html\">Supported languages</a>.</p>"""
+    r"""<p>The identifier of the language and locale that the slot type will be used in. The string must match one of the supported locales. All of the bots, intents, and slots used by the slot type must have the same locale. For more information, see <a href=\"https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html\">Supported languages</a>.</p>"""
     external_source_setting: NotRequired[
         "aws_sdk_lex_models_v2.types.external_source_setting.ExternalSourceSetting"
     ]

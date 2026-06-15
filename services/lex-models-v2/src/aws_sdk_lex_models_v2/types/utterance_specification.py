@@ -73,7 +73,7 @@ class UtteranceSpecification(TypedDict):
     intent_state: NotRequired["aws_sdk_lex_models_v2.types.intent_state.IntentState"]
     """<p>The state of the intent that the utterance is associated to.</p>"""
     dialog_action_type: NotRequired["aws_sdk_lex_models_v2.types.string.String"]
-    """<p>The type of dialog action that the utterance is associated to. See the <code>type</code> field in <a href=\"https://docs.aws.amazon.com/lexv2/latest/APIReference/API_runtime_DialogAction.html\">DialogAction</a> for more information.</p>"""
+    r"""<p>The type of dialog action that the utterance is associated to. See the <code>type</code> field in <a href=\"https://docs.aws.amazon.com/lexv2/latest/APIReference/API_runtime_DialogAction.html\">DialogAction</a> for more information.</p>"""
     bot_response_audio_voice_id: NotRequired[
         "aws_sdk_lex_models_v2.types.string.String"
     ]

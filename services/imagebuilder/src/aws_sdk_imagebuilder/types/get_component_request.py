@@ -8,7 +8,7 @@ if TYPE_CHECKING:
 
 class GetComponentRequest(TypedDict):
     component_build_version_arn: "aws_sdk_imagebuilder.types.component_version_arn_or_build_version_arn.ComponentVersionArnOrBuildVersionArn"
-    """<p>The Amazon Resource Name (ARN) of the component that you want to get. Regex requires the suffix <code>/\d+$</code>.</p>"""
+    r"""<p>The Amazon Resource Name (ARN) of the component that you want to get. Regex requires the suffix <code>/\d+$</code>.</p>"""
 
 
 # --- restJson1 ser/de ---

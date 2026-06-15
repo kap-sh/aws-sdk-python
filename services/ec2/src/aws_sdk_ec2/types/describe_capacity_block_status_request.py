@@ -24,7 +24,7 @@ class DescribeCapacityBlockStatusRequest(TypedDict):
     max_results: NotRequired[
         "aws_sdk_ec2.types.describe_capacity_block_status_max_results.DescribeCapacityBlockStatusMaxResults"
     ]
-    """<p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>"""
+    r"""<p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>"""
     filters: NotRequired["aws_sdk_ec2.types.filter_list.FilterList"]
     """<p>One or more filters. </p> <ul> <li> <p> <code>interconnect-status</code> - The status of the interconnect for the Capacity Block (<code>ok</code> | <code>impaired</code> | <code>insufficient-data</code>).</p> </li> </ul>"""
     dry_run: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]

@@ -16,7 +16,7 @@ if TYPE_CHECKING:
 
 class SlackUserIdentity(TypedDict):
     iam_role_arn: "aws_sdk_chatbot.types.arn.Arn"
-    """<p>A user-defined role that AWS Chatbot assumes. This is not the service-linked role.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/chatbot/latest/adminguide/chatbot-iam-policies.html\">IAM policies for AWS Chatbot</a> in the <i> AWS Chatbot Administrator Guide</i>. </p>"""
+    r"""<p>A user-defined role that AWS Chatbot assumes. This is not the service-linked role.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/chatbot/latest/adminguide/chatbot-iam-policies.html\">IAM policies for AWS Chatbot</a> in the <i> AWS Chatbot Administrator Guide</i>. </p>"""
     chat_configuration_arn: (
         "aws_sdk_chatbot.types.chat_configuration_arn.ChatConfigurationArn"
     )

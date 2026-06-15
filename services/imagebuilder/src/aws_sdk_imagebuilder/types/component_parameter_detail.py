@@ -17,7 +17,7 @@ class ComponentParameterDetail(TypedDict):
     name: "aws_sdk_imagebuilder.types.component_parameter_name.ComponentParameterName"
     """<p>The name of this input parameter.</p>"""
     type: "aws_sdk_imagebuilder.types.component_parameter_type.ComponentParameterType"
-    """<p>The type of input this parameter provides. The currently supported value is \"string\".</p>"""
+    r"""<p>The type of input this parameter provides. The currently supported value is \"string\".</p>"""
     default_value: NotRequired[
         "aws_sdk_imagebuilder.types.component_parameter_value_list.ComponentParameterValueList"
     ]

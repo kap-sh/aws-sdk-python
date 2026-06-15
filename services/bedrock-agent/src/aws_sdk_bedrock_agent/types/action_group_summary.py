@@ -22,7 +22,7 @@ class ActionGroupSummary(TypedDict):
     action_group_state: (
         "aws_sdk_bedrock_agent.types.action_group_state.ActionGroupState"
     )
-    """<p>Specifies whether the action group is available for the agent to invoke or not when sending an <a href=\"https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html\">InvokeAgent</a> request.</p>"""
+    r"""<p>Specifies whether the action group is available for the agent to invoke or not when sending an <a href=\"https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html\">InvokeAgent</a> request.</p>"""
     description: NotRequired["aws_sdk_bedrock_agent.types.description.Description"]
     """<p>The description of the action group.</p>"""
     updated_at: "aws_sdk_bedrock_agent.types.date_timestamp.DateTimestamp"

@@ -362,7 +362,7 @@ class AsyncMediaPackageClient:
             "aws_sdk_mediapackage.types.__list_of__string.__listOf__string"
         ] = None,
     ) -> "aws_sdk_mediapackage.types.create_origin_endpoint_response.CreateOriginEndpointResponse":
-        """Creates a new OriginEndpoint record.
+        r"""Creates a new OriginEndpoint record.
 
         Args:
             channel_id: The ID of the Channel that the OriginEndpoint will be associated with. This cannot be changed after the OriginEndpoint is created.

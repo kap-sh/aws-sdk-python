@@ -27,7 +27,7 @@ class QueryRequest(TypedDict):
     index_id: "aws_sdk_kendra.types.index_id.IndexId"
     """<p>The identifier of the index for the search.</p>"""
     query_text: NotRequired["aws_sdk_kendra.types.query_text.QueryText"]
-    """<p>The input query text for the search. Amazon Kendra truncates queries at 30 token words, which excludes punctuation and stop words. Truncation still applies if you use Boolean or more advanced, complex queries. For example, <code>Timeoff AND October AND Category:HR</code> is counted as 3 tokens: <code>timeoff</code>, <code>october</code>, <code>hr</code>. For more information, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/searching-example.html#searching-index-query-syntax\">Searching with advanced query syntax</a> in the Amazon Kendra Developer Guide. </p>"""
+    r"""<p>The input query text for the search. Amazon Kendra truncates queries at 30 token words, which excludes punctuation and stop words. Truncation still applies if you use Boolean or more advanced, complex queries. For example, <code>Timeoff AND October AND Category:HR</code> is counted as 3 tokens: <code>timeoff</code>, <code>october</code>, <code>hr</code>. For more information, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/searching-example.html#searching-index-query-syntax\">Searching with advanced query syntax</a> in the Amazon Kendra Developer Guide. </p>"""
     attribute_filter: NotRequired[
         "aws_sdk_kendra.types.attribute_filter.AttributeFilter"
     ]

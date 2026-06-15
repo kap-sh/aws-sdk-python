@@ -11,7 +11,7 @@ if TYPE_CHECKING:
 
 class StartMonitoringMembersRequest(TypedDict):
     detector_id: "aws_sdk_guardduty.types.detector_id.DetectorId"
-    """<p>The unique ID of the detector of the GuardDuty administrator account associated with the member accounts to monitor.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html\">ListDetectors</a> API.</p>"""
+    r"""<p>The unique ID of the detector of the GuardDuty administrator account associated with the member accounts to monitor.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html\">ListDetectors</a> API.</p>"""
     account_ids: NotRequired["aws_sdk_guardduty.types.account_ids.AccountIds"]
     """<p>A list of account IDs of the GuardDuty member accounts to start monitoring.</p>"""
 

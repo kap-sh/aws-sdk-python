@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_arc_zonal_shift._auth._signers
@@ -42,7 +44,7 @@ class ManagedResource:
         *,
         config_overrides: Optional[ARCZonalShiftClientConfig] = None,
     ) -> "aws_sdk_arc_zonal_shift.types.get_managed_resource_response.GetManagedResourceResponse":
-        """<p>Get information about a resource that's been registered for zonal shifts with Amazon Application Recovery Controller in this Amazon Web Services Region. Resources that are registered for zonal shifts are managed resources in ARC. You can start zonal shifts and configure zonal autoshift for managed resources.</p>
+        r"""<p>Get information about a resource that's been registered for zonal shifts with Amazon Application Recovery Controller in this Amazon Web Services Region. Resources that are registered for zonal shifts are managed resources in ARC. You can start zonal shifts and configure zonal autoshift for managed resources.</p>
 
         Args:
             resource_identifier: <p>The identifier for the resource that Amazon Web Services shifts traffic for. The identifier is the Amazon Resource Name (ARN) for the resource.</p> <p>Amazon Application Recovery Controller currently supports enabling the following resources for zonal shift and zonal autoshift:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.resource-types.ec2-auto-scaling-groups.html\">Amazon EC2 Auto Scaling groups</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.resource-types.eks.html\">Amazon Elastic Kubernetes Service</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.resource-types.app-load-balancers.html\">Application Load Balancer</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.resource-types.network-load-balancers.html\">Network Load Balancer</a> </p> </li> </ul>
@@ -63,11 +65,11 @@ class ManagedResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_arc_zonal_shift.types.get_managed_resource_request.GetManagedResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_identifier"] = resource_identifier
+        input_: aws_sdk_arc_zonal_shift.types.get_managed_resource_request.GetManagedResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_identifier"] = resource_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -104,14 +106,14 @@ class ManagedResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_arc_zonal_shift.types.list_managed_resources_request.ListManagedResourcesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_arc_zonal_shift.types.list_managed_resources_request.ListManagedResourcesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -146,12 +148,12 @@ class ManagedResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_arc_zonal_shift.types.update_zonal_autoshift_configuration_request.UpdateZonalAutoshiftConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["resource_identifier"] = resource_identifier
-        input["zonal_autoshift_status"] = zonal_autoshift_status
+        input_: aws_sdk_arc_zonal_shift.types.update_zonal_autoshift_configuration_request.UpdateZonalAutoshiftConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_identifier"] = resource_identifier
+        input_["zonal_autoshift_status"] = zonal_autoshift_status
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -168,7 +170,7 @@ class AsyncManagedResource:
         *,
         config_overrides: Optional[AsyncARCZonalShiftClientConfig] = None,
     ) -> "aws_sdk_arc_zonal_shift.types.get_managed_resource_response.GetManagedResourceResponse":
-        """<p>Get information about a resource that's been registered for zonal shifts with Amazon Application Recovery Controller in this Amazon Web Services Region. Resources that are registered for zonal shifts are managed resources in ARC. You can start zonal shifts and configure zonal autoshift for managed resources.</p>
+        r"""<p>Get information about a resource that's been registered for zonal shifts with Amazon Application Recovery Controller in this Amazon Web Services Region. Resources that are registered for zonal shifts are managed resources in ARC. You can start zonal shifts and configure zonal autoshift for managed resources.</p>
 
         Args:
             resource_identifier: <p>The identifier for the resource that Amazon Web Services shifts traffic for. The identifier is the Amazon Resource Name (ARN) for the resource.</p> <p>Amazon Application Recovery Controller currently supports enabling the following resources for zonal shift and zonal autoshift:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.resource-types.ec2-auto-scaling-groups.html\">Amazon EC2 Auto Scaling groups</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.resource-types.eks.html\">Amazon Elastic Kubernetes Service</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.resource-types.app-load-balancers.html\">Application Load Balancer</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.resource-types.network-load-balancers.html\">Network Load Balancer</a> </p> </li> </ul>
@@ -190,11 +192,11 @@ class AsyncManagedResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_arc_zonal_shift.types.get_managed_resource_request.GetManagedResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_identifier"] = resource_identifier
+        input_: aws_sdk_arc_zonal_shift.types.get_managed_resource_request.GetManagedResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_identifier"] = resource_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -232,14 +234,14 @@ class AsyncManagedResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_arc_zonal_shift.types.list_managed_resources_request.ListManagedResourcesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_arc_zonal_shift.types.list_managed_resources_request.ListManagedResourcesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -275,12 +277,12 @@ class AsyncManagedResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_arc_zonal_shift.types.update_zonal_autoshift_configuration_request.UpdateZonalAutoshiftConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["resource_identifier"] = resource_identifier
-        input["zonal_autoshift_status"] = zonal_autoshift_status
+        input_: aws_sdk_arc_zonal_shift.types.update_zonal_autoshift_configuration_request.UpdateZonalAutoshiftConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_identifier"] = resource_identifier
+        input_["zonal_autoshift_status"] = zonal_autoshift_status
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

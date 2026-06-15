@@ -1363,7 +1363,7 @@ class SSMIncidentsClient:
     ) -> (
         "aws_sdk_ssm_incidents.types.put_resource_policy_output.PutResourcePolicyOutput"
     ):
-        """<p>Adds a resource policy to the specified response plan. The resource policy is used to share the response plan using Resource Access Manager (RAM). For more information about cross-account sharing, see <a href=\"https://docs.aws.amazon.com/incident-manager/latest/userguide/incident-manager-cross-account-cross-region.html\">Cross-Region and cross-account incident management</a>.</p>
+        r"""<p>Adds a resource policy to the specified response plan. The resource policy is used to share the response plan using Resource Access Manager (RAM). For more information about cross-account sharing, see <a href=\"https://docs.aws.amazon.com/incident-manager/latest/userguide/incident-manager-cross-account-cross-region.html\">Cross-Region and cross-account incident management</a>.</p>
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the response plan to add the resource policy to.</p>
@@ -1415,7 +1415,7 @@ class SSMIncidentsClient:
             "aws_sdk_ssm_incidents.types.related_item_list.RelatedItemList"
         ] = None,
     ) -> "aws_sdk_ssm_incidents.types.start_incident_output.StartIncidentOutput":
-        """<p>Used to start an incident from CloudWatch alarms, EventBridge events, or manually. </p>
+        r"""<p>Used to start an incident from CloudWatch alarms, EventBridge events, or manually. </p>
 
         Args:
             client_token: <p>A token ensuring that the operation is called only once with the specified details.</p>
@@ -1612,7 +1612,7 @@ class SSMIncidentsClient:
             "aws_sdk_ssm_incidents.types.notification_target_set.NotificationTargetSet"
         ] = None,
     ) -> "aws_sdk_ssm_incidents.types.update_incident_record_output.UpdateIncidentRecordOutput":
-        """<p>Update the details of an incident record. You can use this operation to update an incident record from the defined chat channel. For more information about using actions in chat channels, see <a href=\"https://docs.aws.amazon.com/incident-manager/latest/userguide/chat.html#chat-interact\">Interacting through chat</a>.</p>
+        r"""<p>Update the details of an incident record. You can use this operation to update an incident record from the defined chat channel. For more information about using actions in chat channels, see <a href=\"https://docs.aws.amazon.com/incident-manager/latest/userguide/chat.html#chat-interact\">Interacting through chat</a>.</p>
 
         Args:
             client_token: <p>A token that ensures that a client calls the operation only once with the specified details.</p>
@@ -1798,7 +1798,7 @@ class SSMIncidentsClient:
             "aws_sdk_ssm_incidents.types.integrations.Integrations"
         ] = None,
     ) -> "aws_sdk_ssm_incidents.types.update_response_plan_output.UpdateResponsePlanOutput":
-        """<p>Updates the specified response plan.</p>
+        r"""<p>Updates the specified response plan.</p>
 
         Args:
             client_token: <p>A token ensuring that the operation is called only once with the specified details.</p>

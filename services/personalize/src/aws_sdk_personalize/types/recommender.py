@@ -43,7 +43,7 @@ class Recommender(TypedDict):
     ]
     """<p>Provides a summary of the latest updates to the recommender. </p>"""
     model_metrics: NotRequired["aws_sdk_personalize.types.metrics.Metrics"]
-    """<p>Provides evaluation metrics that help you determine the performance of a recommender. For more information, see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/evaluating-recommenders.html\"> Evaluating a recommender</a>.</p>"""
+    r"""<p>Provides evaluation metrics that help you determine the performance of a recommender. For more information, see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/evaluating-recommenders.html\"> Evaluating a recommender</a>.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

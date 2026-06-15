@@ -18,9 +18,9 @@ if TYPE_CHECKING:
 
 class ServerlessJobConfig(TypedDict):
     base_model_arn: "aws_sdk_sagemaker.types.serverless_job_base_model_arn.ServerlessJobBaseModelArn"
-    """<p> The base model Amazon Resource Name (ARN) in <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/jumpstart-foundation-models-use.html\">SageMaker Public Hub</a>. SageMaker always selects the latest version of the provided model. </p>"""
+    r"""<p> The base model Amazon Resource Name (ARN) in <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/jumpstart-foundation-models-use.html\">SageMaker Public Hub</a>. SageMaker always selects the latest version of the provided model. </p>"""
     accept_eula: NotRequired["aws_sdk_sagemaker.types.accept_eula.AcceptEula"]
-    """<p> Specifies agreement to the model end-user license agreement (EULA). The <code>AcceptEula</code> value must be explicitly defined as <code>True</code> in order to accept the EULA that this model requires. You are responsible for reviewing and complying with any applicable license terms and making sure they are acceptable for your use case before downloading or using a model. For more information, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/jumpstart-foundation-models-choose.html#jumpstart-foundation-models-choose-eula\">End-user license agreements</a> section for more details on accepting the EULA. </p>"""
+    r"""<p> Specifies agreement to the model end-user license agreement (EULA). The <code>AcceptEula</code> value must be explicitly defined as <code>True</code> in order to accept the EULA that this model requires. You are responsible for reviewing and complying with any applicable license terms and making sure they are acceptable for your use case before downloading or using a model. For more information, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/jumpstart-foundation-models-choose.html#jumpstart-foundation-models-choose-eula\">End-user license agreements</a> section for more details on accepting the EULA. </p>"""
     job_type: "aws_sdk_sagemaker.types.serverless_job_type.ServerlessJobType"
     """<p> The serverless training job type. </p>"""
     customization_technique: NotRequired[

@@ -14,7 +14,7 @@ if TYPE_CHECKING:
 
 class RecommendationFeedback(TypedDict):
     code_review_arn: NotRequired["aws_sdk_codeguru_reviewer.types.arn.Arn"]
-    """<p>The Amazon Resource Name (ARN) of the <a href=\"https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html\">CodeReview</a> object. </p>"""
+    r"""<p>The Amazon Resource Name (ARN) of the <a href=\"https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html\">CodeReview</a> object. </p>"""
     recommendation_id: NotRequired[
         "aws_sdk_codeguru_reviewer.types.recommendation_id.RecommendationId"
     ]
@@ -22,7 +22,7 @@ class RecommendationFeedback(TypedDict):
     reactions: NotRequired["aws_sdk_codeguru_reviewer.types.reactions.Reactions"]
     """<p>List for storing reactions. Reactions are utf-8 text code for emojis. You can send an empty list to clear off all your feedback.</p>"""
     user_id: NotRequired["aws_sdk_codeguru_reviewer.types.user_id.UserId"]
-    """<p>The ID of the user that made the API call.</p> <p> The <code>UserId</code> is an IAM principal that can be specified as an Amazon Web Services account ID or an Amazon Resource Name (ARN). For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#Principal_specifying\"> Specifying a Principal</a> in the <i>Amazon Web Services Identity and Access Management User Guide</i>.</p>"""
+    r"""<p>The ID of the user that made the API call.</p> <p> The <code>UserId</code> is an IAM principal that can be specified as an Amazon Web Services account ID or an Amazon Resource Name (ARN). For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#Principal_specifying\"> Specifying a Principal</a> in the <i>Amazon Web Services Identity and Access Management User Guide</i>.</p>"""
     created_time_stamp: NotRequired[
         "aws_sdk_codeguru_reviewer.types.time_stamp.TimeStamp"
     ]

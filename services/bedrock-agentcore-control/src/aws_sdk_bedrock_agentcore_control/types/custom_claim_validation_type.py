@@ -1,11 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#CustomClaimValidationType``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.authorizing_claim_match_value_type
     import aws_sdk_bedrock_agentcore_control.types.inbound_token_claim_name_type
     import aws_sdk_bedrock_agentcore_control.types.inbound_token_claim_value_type
+
 
 class CustomClaimValidationType(TypedDict):
     inbound_token_claim_name: "aws_sdk_bedrock_agentcore_control.types.inbound_token_claim_name_type.InboundTokenClaimNameType"
@@ -15,14 +18,25 @@ class CustomClaimValidationType(TypedDict):
     authorizing_claim_match_value: "aws_sdk_bedrock_agentcore_control.types.authorizing_claim_match_value_type.AuthorizingClaimMatchValueType"
     """<p>Defines the value or values to match for and the relationship of the match.</p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: CustomClaimValidationType) -> dict:
     out: dict = {}
     out["inboundTokenClaimName"] = value["inbound_token_claim_name"]
     import aws_sdk_bedrock_agentcore_control.types.inbound_token_claim_value_type
-    out["inboundTokenClaimValueType"] = aws_sdk_bedrock_agentcore_control.types.inbound_token_claim_value_type.serialize_json(value["inbound_token_claim_value_type"])
+
+    out["inboundTokenClaimValueType"] = (
+        aws_sdk_bedrock_agentcore_control.types.inbound_token_claim_value_type.serialize_json(
+            value["inbound_token_claim_value_type"]
+        )
+    )
     import aws_sdk_bedrock_agentcore_control.types.authorizing_claim_match_value_type
-    out["authorizingClaimMatchValue"] = aws_sdk_bedrock_agentcore_control.types.authorizing_claim_match_value_type.serialize_json(value["authorizing_claim_match_value"])
+
+    out["authorizingClaimMatchValue"] = (
+        aws_sdk_bedrock_agentcore_control.types.authorizing_claim_match_value_type.serialize_json(
+            value["authorizing_claim_match_value"]
+        )
+    )
     return out
 
 
@@ -31,15 +45,31 @@ def deserialize_json(data: dict) -> CustomClaimValidationType:
     if "inboundTokenClaimName" in data:
         out["inbound_token_claim_name"] = data["inboundTokenClaimName"]
     else:
-        raise DeserializationError("CustomClaimValidationType.inbound_token_claim_name required")
+        raise DeserializationError(
+            "CustomClaimValidationType.inbound_token_claim_name required"
+        )
     if "inboundTokenClaimValueType" in data:
         import aws_sdk_bedrock_agentcore_control.types.inbound_token_claim_value_type
-        out["inbound_token_claim_value_type"] = aws_sdk_bedrock_agentcore_control.types.inbound_token_claim_value_type.deserialize_json(data["inboundTokenClaimValueType"])
+
+        out["inbound_token_claim_value_type"] = (
+            aws_sdk_bedrock_agentcore_control.types.inbound_token_claim_value_type.deserialize_json(
+                data["inboundTokenClaimValueType"]
+            )
+        )
     else:
-        raise DeserializationError("CustomClaimValidationType.inbound_token_claim_value_type required")
+        raise DeserializationError(
+            "CustomClaimValidationType.inbound_token_claim_value_type required"
+        )
     if "authorizingClaimMatchValue" in data:
         import aws_sdk_bedrock_agentcore_control.types.authorizing_claim_match_value_type
-        out["authorizing_claim_match_value"] = aws_sdk_bedrock_agentcore_control.types.authorizing_claim_match_value_type.deserialize_json(data["authorizingClaimMatchValue"])
+
+        out["authorizing_claim_match_value"] = (
+            aws_sdk_bedrock_agentcore_control.types.authorizing_claim_match_value_type.deserialize_json(
+                data["authorizingClaimMatchValue"]
+            )
+        )
     else:
-        raise DeserializationError("CustomClaimValidationType.authorizing_claim_match_value required")
+        raise DeserializationError(
+            "CustomClaimValidationType.authorizing_claim_match_value required"
+        )
     return out

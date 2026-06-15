@@ -157,7 +157,7 @@ class AsyncPersonalizeRuntimeClient:
             "aws_sdk_personalize_runtime.types.filter_values.FilterValues"
         ] = None,
     ) -> "aws_sdk_personalize_runtime.types.get_action_recommendations_response.GetActionRecommendationsResponse":
-        """<p>Returns a list of recommended actions in sorted in descending order by prediction score. Use the <code>GetActionRecommendations</code> API if you have a custom campaign that deploys a solution version trained with a PERSONALIZED_ACTIONS recipe. </p> <p>For more information about PERSONALIZED_ACTIONS recipes, see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/nexts-best-action-recipes.html\">PERSONALIZED_ACTIONS recipes</a>. For more information about getting action recommendations, see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/get-action-recommendations.html\">Getting action recommendations</a>.</p>
+        r"""<p>Returns a list of recommended actions in sorted in descending order by prediction score. Use the <code>GetActionRecommendations</code> API if you have a custom campaign that deploys a solution version trained with a PERSONALIZED_ACTIONS recipe. </p> <p>For more information about PERSONALIZED_ACTIONS recipes, see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/nexts-best-action-recipes.html\">PERSONALIZED_ACTIONS recipes</a>. For more information about getting action recommendations, see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/get-action-recommendations.html\">Getting action recommendations</a>.</p>
 
         Args:
             campaign_arn: <p>The Amazon Resource Name (ARN) of the campaign to use for getting action recommendations. This campaign must deploy a solution version trained with a PERSONALIZED_ACTIONS recipe.</p>
@@ -218,7 +218,7 @@ class AsyncPersonalizeRuntimeClient:
             "aws_sdk_personalize_runtime.types.metadata_columns.MetadataColumns"
         ] = None,
     ) -> "aws_sdk_personalize_runtime.types.get_personalized_ranking_response.GetPersonalizedRankingResponse":
-        """<p>Re-ranks a list of recommended items for the given user. The first item in the list is deemed the most likely item to be of interest to the user.</p> <note> <p>The solution backing the campaign must have been created using a recipe of type PERSONALIZED_RANKING.</p> </note>
+        r"""<p>Re-ranks a list of recommended items for the given user. The first item in the list is deemed the most likely item to be of interest to the user.</p> <note> <p>The solution backing the campaign must have been created using a recipe of type PERSONALIZED_RANKING.</p> </note>
 
         Args:
             campaign_arn: <p>The Amazon Resource Name (ARN) of the campaign to use for generating the personalized ranking.</p>
@@ -289,7 +289,7 @@ class AsyncPersonalizeRuntimeClient:
             "aws_sdk_personalize_runtime.types.metadata_columns.MetadataColumns"
         ] = None,
     ) -> "aws_sdk_personalize_runtime.types.get_recommendations_response.GetRecommendationsResponse":
-        """<p>Returns a list of recommended items. For campaigns, the campaign's Amazon Resource Name (ARN) is required and the required user and item input depends on the recipe type used to create the solution backing the campaign as follows:</p> <ul> <li> <p>USER_PERSONALIZATION - <code>userId</code> required, <code>itemId</code> not used</p> </li> <li> <p>RELATED_ITEMS - <code>itemId</code> required, <code>userId</code> not used</p> </li> </ul> <note> <p>Campaigns that are backed by a solution created using a recipe of type PERSONALIZED_RANKING use the API.</p> </note> <p> For recommenders, the recommender's ARN is required and the required item and user input depends on the use case (domain-based recipe) backing the recommender. For information on use case requirements see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/domain-use-cases.html\">Choosing recommender use cases</a>. </p>
+        r"""<p>Returns a list of recommended items. For campaigns, the campaign's Amazon Resource Name (ARN) is required and the required user and item input depends on the recipe type used to create the solution backing the campaign as follows:</p> <ul> <li> <p>USER_PERSONALIZATION - <code>userId</code> required, <code>itemId</code> not used</p> </li> <li> <p>RELATED_ITEMS - <code>itemId</code> required, <code>userId</code> not used</p> </li> </ul> <note> <p>Campaigns that are backed by a solution created using a recipe of type PERSONALIZED_RANKING use the API.</p> </note> <p> For recommenders, the recommender's ARN is required and the required item and user input depends on the use case (domain-based recipe) backing the recommender. For information on use case requirements see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/domain-use-cases.html\">Choosing recommender use cases</a>. </p>
 
         Args:
             campaign_arn: <p>The Amazon Resource Name (ARN) of the campaign to use for getting recommendations.</p>

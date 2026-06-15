@@ -394,7 +394,7 @@ class LicenseManagerClient:
             "aws_sdk_license_manager.types.metadata_list.MetadataList"
         ] = None,
     ) -> "aws_sdk_license_manager.types.checkout_borrow_license_response.CheckoutBorrowLicenseResponse":
-        """<p>Checks out the specified license for offline use.</p>
+        r"""<p>Checks out the specified license for offline use.</p>
 
         Args:
             license_arn: <p>Amazon Resource Name (ARN) of the license. The license must use the borrow consumption configuration.</p>
@@ -506,7 +506,7 @@ class LicenseManagerClient:
         config_overrides: Optional[LicenseManagerClientConfig] = None,
         tags: Optional["aws_sdk_license_manager.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_license_manager.types.create_grant_response.CreateGrantResponse":
-        """<p>Creates a grant for the specified license. A grant shares the use of license entitlements with a specific Amazon Web Services account, an organization, or an organizational unit (OU). For more information, see <a href=\"https://docs.aws.amazon.com/license-manager/latest/userguide/granted-licenses.html\">Granted licenses in License Manager</a> in the <i>License Manager User Guide</i>.</p>
+        r"""<p>Creates a grant for the specified license. A grant shares the use of license entitlements with a specific Amazon Web Services account, an organization, or an organizational unit (OU). For more information, see <a href=\"https://docs.aws.amazon.com/license-manager/latest/userguide/granted-licenses.html\">Granted licenses in License Manager</a> in the <i>License Manager User Guide</i>.</p>
 
         Args:
             client_token: <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
@@ -569,7 +569,7 @@ class LicenseManagerClient:
         source_version: Optional["aws_sdk_license_manager.types.string.String"] = None,
         options: Optional["aws_sdk_license_manager.types.options.Options"] = None,
     ) -> "aws_sdk_license_manager.types.create_grant_version_response.CreateGrantVersionResponse":
-        """<p>Creates a new version of the specified grant. For more information, see <a href=\"https://docs.aws.amazon.com/license-manager/latest/userguide/granted-licenses.html\">Granted licenses in License Manager</a> in the <i>License Manager User Guide</i>.</p>
+        r"""<p>Creates a new version of the specified grant. For more information, see <a href=\"https://docs.aws.amazon.com/license-manager/latest/userguide/granted-licenses.html\">Granted licenses in License Manager</a> in the <i>License Manager User Guide</i>.</p>
 
         Args:
             client_token: <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
@@ -639,7 +639,7 @@ class LicenseManagerClient:
         ] = None,
         tags: Optional["aws_sdk_license_manager.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_license_manager.types.create_license_response.CreateLicenseResponse":
-        """<p>Creates a license.</p>
+        r"""<p>Creates a license.</p>
 
         Args:
             license_name: <p>License name.</p>
@@ -905,7 +905,7 @@ class LicenseManagerClient:
         *,
         config_overrides: Optional[LicenseManagerClientConfig] = None,
     ) -> "aws_sdk_license_manager.types.create_license_conversion_task_for_resource_response.CreateLicenseConversionTaskForResourceResponse":
-        """<p>Creates a new license conversion task.</p>
+        r"""<p>Creates a new license conversion task.</p>
 
         Args:
             resource_arn: <p>Amazon Resource Name (ARN) of the resource you are converting the license type for.</p>
@@ -2744,7 +2744,7 @@ class LicenseManagerClient:
         *,
         config_overrides: Optional[LicenseManagerClientConfig] = None,
     ) -> "aws_sdk_license_manager.types.list_tags_for_resource_response.ListTagsForResourceResponse":
-        """<p>Lists the tags for the specified resource. For more information about tagging support in License Manager, see the <a href=\"https://docs.aws.amazon.com/license-manager/latest/APIReference/API_TagResource.html\">TagResource</a> operation.</p>
+        r"""<p>Lists the tags for the specified resource. For more information about tagging support in License Manager, see the <a href=\"https://docs.aws.amazon.com/license-manager/latest/APIReference/API_TagResource.html\">TagResource</a> operation.</p>
 
         Args:
             resource_arn: <p>Amazon Resource Name (ARN) of the resource.</p>

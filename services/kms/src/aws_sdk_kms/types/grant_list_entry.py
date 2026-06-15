@@ -27,7 +27,7 @@ class GrantListEntry(TypedDict):
     grantee_principal: NotRequired[
         "aws_sdk_kms.types.principal_id_type.PrincipalIdType"
     ]
-    """<p>The identity that gets the permissions in the grant.</p> <p>When a grant is created with the <code>GranteePrincipal</code> field, the <code>ListGrants</code> response usually contains the user or role designated as the grantee principal in the grant. However, if the grantee principal is an Amazon Web Services service, the <code>GranteePrincipal</code> field contains an Amazon Web Services <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services\">service principal</a>, which might correspond to several different grantee principals, such as an IAM user, IAM role, or Amazon Web Services account.</p>"""
+    r"""<p>The identity that gets the permissions in the grant.</p> <p>When a grant is created with the <code>GranteePrincipal</code> field, the <code>ListGrants</code> response usually contains the user or role designated as the grantee principal in the grant. However, if the grantee principal is an Amazon Web Services service, the <code>GranteePrincipal</code> field contains an Amazon Web Services <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services\">service principal</a>, which might correspond to several different grantee principals, such as an IAM user, IAM role, or Amazon Web Services account.</p>"""
     retiring_principal: NotRequired[
         "aws_sdk_kms.types.principal_id_type.PrincipalIdType"
     ]
@@ -41,11 +41,11 @@ class GrantListEntry(TypedDict):
     grantee_service_principal: NotRequired[
         "aws_sdk_kms.types.service_principal_type.ServicePrincipalType"
     ]
-    """<p>The Amazon Web Services <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services\">service principal</a> that gets the permissions in the grant.</p>"""
+    r"""<p>The Amazon Web Services <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services\">service principal</a> that gets the permissions in the grant.</p>"""
     retiring_service_principal: NotRequired[
         "aws_sdk_kms.types.service_principal_type.ServicePrincipalType"
     ]
-    """<p>The Amazon Web Services <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services\">service principal</a> that can retire the grant.</p>"""
+    r"""<p>The Amazon Web Services <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services\">service principal</a> that can retire the grant.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

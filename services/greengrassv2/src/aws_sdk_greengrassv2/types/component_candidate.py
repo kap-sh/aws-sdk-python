@@ -22,7 +22,7 @@ class ComponentCandidate(TypedDict):
     version_requirements: NotRequired[
         "aws_sdk_greengrassv2.types.component_version_requirement_map.ComponentVersionRequirementMap"
     ]
-    """<p>The version requirements for the component's dependencies. Greengrass core devices get the version requirements from component recipes.</p> <p>IoT Greengrass V2 uses semantic version constraints. For more information, see <a href=\"https://semver.org/\">Semantic Versioning</a>.</p>"""
+    r"""<p>The version requirements for the component's dependencies. Greengrass core devices get the version requirements from component recipes.</p> <p>IoT Greengrass V2 uses semantic version constraints. For more information, see <a href=\"https://semver.org/\">Semantic Versioning</a>.</p>"""
 
 
 # --- restJson1 ser/de ---

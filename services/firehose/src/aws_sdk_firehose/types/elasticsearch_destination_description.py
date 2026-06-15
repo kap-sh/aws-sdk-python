@@ -23,11 +23,11 @@ if TYPE_CHECKING:
 
 class ElasticsearchDestinationDescription(TypedDict):
     role_arn: NotRequired["aws_sdk_firehose.types.role_arn.RoleARN"]
-    """<p>The Amazon Resource Name (ARN) of the Amazon Web Services credentials. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a>.</p>"""
+    r"""<p>The Amazon Resource Name (ARN) of the Amazon Web Services credentials. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a>.</p>"""
     domain_arn: NotRequired[
         "aws_sdk_firehose.types.elasticsearch_domain_arn.ElasticsearchDomainARN"
     ]
-    """<p>The ARN of the Amazon OpenSearch Service domain. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a>.</p> <p>Firehose uses either <code>ClusterEndpoint</code> or <code>DomainARN</code> to send data to Amazon OpenSearch Service.</p>"""
+    r"""<p>The ARN of the Amazon OpenSearch Service domain. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a>.</p> <p>Firehose uses either <code>ClusterEndpoint</code> or <code>DomainARN</code> to send data to Amazon OpenSearch Service.</p>"""
     cluster_endpoint: NotRequired[
         "aws_sdk_firehose.types.elasticsearch_cluster_endpoint.ElasticsearchClusterEndpoint"
     ]

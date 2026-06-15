@@ -25,7 +25,7 @@ if TYPE_CHECKING:
 
 class StartEmailContactRequest(TypedDict):
     instance_id: "aws_sdk_connect.types.instance_id.InstanceId"
-    """<p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>"""
+    r"""<p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>"""
     from_email_address: "aws_sdk_connect.types.email_address_info.EmailAddressInfo"
     """<p>The email address of the customer.</p>"""
     destination_email_address: "aws_sdk_connect.types.email_address.EmailAddress"
@@ -55,9 +55,9 @@ class StartEmailContactRequest(TypedDict):
     segment_attributes: NotRequired[
         "aws_sdk_connect.types.segment_attributes.SegmentAttributes"
     ]
-    """<p>A set of system defined key-value pairs stored on individual contact segments using an attribute map. The attributes are standard Connect Customer attributes. They can be accessed in flows.</p> <p>Attribute keys can include only alphanumeric, -, and _.</p> <p>This field can be used to show channel subtype, such as <code>connect:Guide</code>.</p> <note> <p>To set contact expiry, a <code>ValueMap</code> must be specified containing the integer number of minutes the contact will be active for before expiring, with <code>SegmentAttributes</code> like { <code> \"connect:ContactExpiry\": {\"ValueMap\" : { \"ExpiryDuration\": { \"ValueInteger\":135}}}}</code>.</p> </note>"""
+    r"""<p>A set of system defined key-value pairs stored on individual contact segments using an attribute map. The attributes are standard Connect Customer attributes. They can be accessed in flows.</p> <p>Attribute keys can include only alphanumeric, -, and _.</p> <p>This field can be used to show channel subtype, such as <code>connect:Guide</code>.</p> <note> <p>To set contact expiry, a <code>ValueMap</code> must be specified containing the integer number of minutes the contact will be active for before expiring, with <code>SegmentAttributes</code> like { <code> \"connect:ContactExpiry\": {\"ValueMap\" : { \"ExpiryDuration\": { \"ValueInteger\":135}}}}</code>.</p> </note>"""
     client_token: NotRequired["aws_sdk_connect.types.client_token.ClientToken"]
-    """<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>"""
+    r"""<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>"""
 
 
 # --- restJson1 ser/de ---

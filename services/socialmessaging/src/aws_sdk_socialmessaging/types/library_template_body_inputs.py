@@ -20,7 +20,7 @@ class LibraryTemplateBodyInputs(TypedDict):
     add_learn_more_link: NotRequired[
         "aws_sdk_socialmessaging.types.add_learn_more_link.AddLearnMoreLink"
     ]
-    """<p>When true, includes a \"learn more\" link in the template body.</p>"""
+    r"""<p>When true, includes a \"learn more\" link in the template body.</p>"""
     add_security_recommendation: NotRequired[
         "aws_sdk_socialmessaging.types.add_security_recommendation.AddSecurityRecommendation"
     ]

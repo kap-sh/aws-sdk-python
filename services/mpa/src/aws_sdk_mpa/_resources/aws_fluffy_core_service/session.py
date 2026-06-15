@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_mpa._auth._signers
@@ -38,7 +40,7 @@ class Session:
         *,
         config_overrides: Optional[MPAClientConfig] = None,
     ) -> "aws_sdk_mpa.types.get_session_response.GetSessionResponse":
-        """<p>Returns details for an approval session. For more information, see <a href=\"https://docs.aws.amazon.com/mpa/latest/userguide/mpa-concepts.html\">Session</a> in the <i>Multi-party approval User Guide</i>.</p>
+        r"""<p>Returns details for an approval session. For more information, see <a href=\"https://docs.aws.amazon.com/mpa/latest/userguide/mpa-concepts.html\">Session</a> in the <i>Multi-party approval User Guide</i>.</p>
 
         Args:
             session_arn: <p>Amazon Resource Name (ARN) for the session.</p>
@@ -75,7 +77,7 @@ class Session:
         *,
         config_overrides: Optional[MPAClientConfig] = None,
     ) -> "aws_sdk_mpa.types.cancel_session_response.CancelSessionResponse":
-        """<p>Cancels an approval session. For more information, see <a href=\"https://docs.aws.amazon.com/mpa/latest/userguide/mpa-concepts.html\">Session</a> in the <i>Multi-party approval User Guide</i>.</p>
+        r"""<p>Cancels an approval session. For more information, see <a href=\"https://docs.aws.amazon.com/mpa/latest/userguide/mpa-concepts.html\">Session</a> in the <i>Multi-party approval User Guide</i>.</p>
 
         Args:
             session_arn: <p>Amazon Resource Name (ARN) for the session.</p>
@@ -115,7 +117,7 @@ class Session:
         next_token: Optional["aws_sdk_mpa.types.token.Token"] = None,
         filters: Optional["aws_sdk_mpa.types.filters.Filters"] = None,
     ) -> "aws_sdk_mpa.types.list_sessions_response.ListSessionsResponse":
-        """<p>Returns a list of approval sessions. For more information, see <a href=\"https://docs.aws.amazon.com/mpa/latest/userguide/mpa-concepts.html\">Session</a> in the <i>Multi-party approval User Guide</i>.</p>
+        r"""<p>Returns a list of approval sessions. For more information, see <a href=\"https://docs.aws.amazon.com/mpa/latest/userguide/mpa-concepts.html\">Session</a> in the <i>Multi-party approval User Guide</i>.</p>
 
         Args:
             approval_team_arn: <p>Amazon Resource Name (ARN) for the approval team.</p>
@@ -166,7 +168,7 @@ class AsyncSession:
         *,
         config_overrides: Optional[AsyncMPAClientConfig] = None,
     ) -> "aws_sdk_mpa.types.get_session_response.GetSessionResponse":
-        """<p>Returns details for an approval session. For more information, see <a href=\"https://docs.aws.amazon.com/mpa/latest/userguide/mpa-concepts.html\">Session</a> in the <i>Multi-party approval User Guide</i>.</p>
+        r"""<p>Returns details for an approval session. For more information, see <a href=\"https://docs.aws.amazon.com/mpa/latest/userguide/mpa-concepts.html\">Session</a> in the <i>Multi-party approval User Guide</i>.</p>
 
         Args:
             session_arn: <p>Amazon Resource Name (ARN) for the session.</p>
@@ -204,7 +206,7 @@ class AsyncSession:
         *,
         config_overrides: Optional[AsyncMPAClientConfig] = None,
     ) -> "aws_sdk_mpa.types.cancel_session_response.CancelSessionResponse":
-        """<p>Cancels an approval session. For more information, see <a href=\"https://docs.aws.amazon.com/mpa/latest/userguide/mpa-concepts.html\">Session</a> in the <i>Multi-party approval User Guide</i>.</p>
+        r"""<p>Cancels an approval session. For more information, see <a href=\"https://docs.aws.amazon.com/mpa/latest/userguide/mpa-concepts.html\">Session</a> in the <i>Multi-party approval User Guide</i>.</p>
 
         Args:
             session_arn: <p>Amazon Resource Name (ARN) for the session.</p>
@@ -245,7 +247,7 @@ class AsyncSession:
         next_token: Optional["aws_sdk_mpa.types.token.Token"] = None,
         filters: Optional["aws_sdk_mpa.types.filters.Filters"] = None,
     ) -> "aws_sdk_mpa.types.list_sessions_response.ListSessionsResponse":
-        """<p>Returns a list of approval sessions. For more information, see <a href=\"https://docs.aws.amazon.com/mpa/latest/userguide/mpa-concepts.html\">Session</a> in the <i>Multi-party approval User Guide</i>.</p>
+        r"""<p>Returns a list of approval sessions. For more information, see <a href=\"https://docs.aws.amazon.com/mpa/latest/userguide/mpa-concepts.html\">Session</a> in the <i>Multi-party approval User Guide</i>.</p>
 
         Args:
             approval_team_arn: <p>Amazon Resource Name (ARN) for the approval team.</p>

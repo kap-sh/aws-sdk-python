@@ -14,7 +14,7 @@ if TYPE_CHECKING:
 
 class UpdatePromptRequest(TypedDict):
     instance_id: "aws_sdk_connect.types.instance_id.InstanceId"
-    """<p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>"""
+    r"""<p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>"""
     prompt_id: "aws_sdk_connect.types.prompt_id.PromptId"
     """<p>A unique identifier for the prompt.</p>"""
     name: NotRequired["aws_sdk_connect.types.common_name_length127.CommonNameLength127"]
@@ -24,7 +24,7 @@ class UpdatePromptRequest(TypedDict):
     ]
     """<p>A description of the prompt.</p>"""
     s3_uri: NotRequired["aws_sdk_connect.types.s3_uri.S3Uri"]
-    """<p>The URI for the S3 bucket where the prompt is stored. You can provide S3 pre-signed URLs returned by the <a href=\"https://docs.aws.amazon.com/connect/latest/APIReference/API_GetPromptFile.html\">GetPromptFile</a> API instead of providing S3 URIs.</p>"""
+    r"""<p>The URI for the S3 bucket where the prompt is stored. You can provide S3 pre-signed URLs returned by the <a href=\"https://docs.aws.amazon.com/connect/latest/APIReference/API_GetPromptFile.html\">GetPromptFile</a> API instead of providing S3 URIs.</p>"""
 
 
 # --- restJson1 ser/de ---

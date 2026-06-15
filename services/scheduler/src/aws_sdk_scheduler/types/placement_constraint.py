@@ -17,7 +17,7 @@ class PlacementConstraint(TypedDict):
     expression: NotRequired[
         "aws_sdk_scheduler.types.placement_constraint_expression.PlacementConstraintExpression"
     ]
-    """<p>A cluster query language expression to apply to the constraint. You cannot specify an expression if the constraint type is <code>distinctInstance</code>. For more information, see <a href=\"https://docs.aws.amazon.com/latest/developerguide/cluster-query-language.html\">Cluster query language</a> in the <i>Amazon ECS Developer Guide</i>.</p>"""
+    r"""<p>A cluster query language expression to apply to the constraint. You cannot specify an expression if the constraint type is <code>distinctInstance</code>. For more information, see <a href=\"https://docs.aws.amazon.com/latest/developerguide/cluster-query-language.html\">Cluster query language</a> in the <i>Amazon ECS Developer Guide</i>.</p>"""
 
 
 # --- restJson1 ser/de ---

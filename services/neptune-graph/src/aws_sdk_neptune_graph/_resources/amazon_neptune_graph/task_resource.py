@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_neptune_graph._auth._signers
@@ -175,7 +177,7 @@ class TaskResource:
             "aws_sdk_neptune_graph.types.blank_node_handling.BlankNodeHandling"
         ] = None,
     ) -> "aws_sdk_neptune_graph.types.create_graph_using_import_task_output.CreateGraphUsingImportTaskOutput":
-        """<p>Creates a new Neptune Analytics graph and imports data into it, either from Amazon Simple Storage Service (S3) or from a Neptune database or a Neptune database snapshot.</p> <p>The data can be loaded from files in S3 that in either the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format-gremlin.html\">Gremlin CSV format</a> or the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format-opencypher.html\">openCypher load format</a>.</p>
+        r"""<p>Creates a new Neptune Analytics graph and imports data into it, either from Amazon Simple Storage Service (S3) or from a Neptune database or a Neptune database snapshot.</p> <p>The data can be loaded from files in S3 that in either the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format-gremlin.html\">Gremlin CSV format</a> or the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format-opencypher.html\">openCypher load format</a>.</p>
 
         Args:
             graph_name: <p>A name for the new Neptune Analytics graph to be created.</p> <p>The name must contain from 1 to 63 letters, numbers, or hyphens, and its first character must be a letter. It cannot end with a hyphen or contain two consecutive hyphens. Only lowercase letters are allowed.</p>
@@ -505,7 +507,7 @@ class TaskResource:
             "aws_sdk_neptune_graph.types.blank_node_handling.BlankNodeHandling"
         ] = None,
     ) -> "aws_sdk_neptune_graph.types.start_import_task_output.StartImportTaskOutput":
-        """<p>Import data into existing Neptune Analytics graph from Amazon Simple Storage Service (S3). The graph needs to be empty and in the AVAILABLE state.</p>
+        r"""<p>Import data into existing Neptune Analytics graph from Amazon Simple Storage Service (S3). The graph needs to be empty and in the AVAILABLE state.</p>
 
         Args:
             fail_on_error: <p>If set to true, the task halts when an import error is encountered. If set to false, the task skips the data that caused the error and continues if possible.</p>
@@ -672,7 +674,7 @@ class AsyncTaskResource:
             "aws_sdk_neptune_graph.types.blank_node_handling.BlankNodeHandling"
         ] = None,
     ) -> "aws_sdk_neptune_graph.types.create_graph_using_import_task_output.CreateGraphUsingImportTaskOutput":
-        """<p>Creates a new Neptune Analytics graph and imports data into it, either from Amazon Simple Storage Service (S3) or from a Neptune database or a Neptune database snapshot.</p> <p>The data can be loaded from files in S3 that in either the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format-gremlin.html\">Gremlin CSV format</a> or the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format-opencypher.html\">openCypher load format</a>.</p>
+        r"""<p>Creates a new Neptune Analytics graph and imports data into it, either from Amazon Simple Storage Service (S3) or from a Neptune database or a Neptune database snapshot.</p> <p>The data can be loaded from files in S3 that in either the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format-gremlin.html\">Gremlin CSV format</a> or the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format-opencypher.html\">openCypher load format</a>.</p>
 
         Args:
             graph_name: <p>A name for the new Neptune Analytics graph to be created.</p> <p>The name must contain from 1 to 63 letters, numbers, or hyphens, and its first character must be a letter. It cannot end with a hyphen or contain two consecutive hyphens. Only lowercase letters are allowed.</p>
@@ -1008,7 +1010,7 @@ class AsyncTaskResource:
             "aws_sdk_neptune_graph.types.blank_node_handling.BlankNodeHandling"
         ] = None,
     ) -> "aws_sdk_neptune_graph.types.start_import_task_output.StartImportTaskOutput":
-        """<p>Import data into existing Neptune Analytics graph from Amazon Simple Storage Service (S3). The graph needs to be empty and in the AVAILABLE state.</p>
+        r"""<p>Import data into existing Neptune Analytics graph from Amazon Simple Storage Service (S3). The graph needs to be empty and in the AVAILABLE state.</p>
 
         Args:
             fail_on_error: <p>If set to true, the task halts when an import error is encountered. If set to false, the task skips the data that caused the error and continues if possible.</p>

@@ -33,9 +33,9 @@ class SendVoiceMessageRequest(TypedDict):
     message_body_text_type: NotRequired[
         "aws_sdk_pinpoint_sms_voice_v2.types.voice_message_body_text_type.VoiceMessageBodyTextType"
     ]
-    """<p>Specifies if the MessageBody field contains text or <a href=\"https://docs.aws.amazon.com/polly/latest/dg/what-is.html\">speech synthesis markup language (SSML)</a>.</p> <ul> <li> <p>TEXT: This is the default value. When used the maximum character limit is 3000.</p> </li> <li> <p>SSML: When used the maximum character limit is 6000 including SSML tagging.</p> </li> </ul>"""
+    r"""<p>Specifies if the MessageBody field contains text or <a href=\"https://docs.aws.amazon.com/polly/latest/dg/what-is.html\">speech synthesis markup language (SSML)</a>.</p> <ul> <li> <p>TEXT: This is the default value. When used the maximum character limit is 3000.</p> </li> <li> <p>SSML: When used the maximum character limit is 6000 including SSML tagging.</p> </li> </ul>"""
     voice_id: NotRequired["aws_sdk_pinpoint_sms_voice_v2.types.voice_id.VoiceId"]
-    """<p>The voice for the <a href=\"https://docs.aws.amazon.com/polly/latest/dg/what-is.html\">Amazon Polly</a> service to use. By default this is set to \"MATTHEW\".</p>"""
+    r"""<p>The voice for the <a href=\"https://docs.aws.amazon.com/polly/latest/dg/what-is.html\">Amazon Polly</a> service to use. By default this is set to \"MATTHEW\".</p>"""
     configuration_set_name: NotRequired[
         "aws_sdk_pinpoint_sms_voice_v2.types.configuration_set_name_or_arn.ConfigurationSetNameOrArn"
     ]

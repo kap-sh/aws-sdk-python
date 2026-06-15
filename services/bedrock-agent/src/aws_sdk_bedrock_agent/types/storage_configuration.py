@@ -28,7 +28,7 @@ class StorageConfiguration(TypedDict):
     opensearch_managed_cluster_configuration: NotRequired[
         "aws_sdk_bedrock_agent.types.open_search_managed_cluster_configuration.OpenSearchManagedClusterConfiguration"
     ]
-    """<p>Contains details about the storage configuration of the knowledge base in OpenSearch Managed Cluster. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-osm.html\">Create a vector index in Amazon OpenSearch Service</a>.</p>"""
+    r"""<p>Contains details about the storage configuration of the knowledge base in OpenSearch Managed Cluster. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-osm.html\">Create a vector index in Amazon OpenSearch Service</a>.</p>"""
     pinecone_configuration: NotRequired[
         "aws_sdk_bedrock_agent.types.pinecone_configuration.PineconeConfiguration"
     ]
@@ -40,7 +40,7 @@ class StorageConfiguration(TypedDict):
     rds_configuration: NotRequired[
         "aws_sdk_bedrock_agent.types.rds_configuration.RdsConfiguration"
     ]
-    """<p>Contains details about the storage configuration of the knowledge base in Amazon RDS. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-rds.html\">Create a vector index in Amazon RDS</a>.</p>"""
+    r"""<p>Contains details about the storage configuration of the knowledge base in Amazon RDS. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-rds.html\">Create a vector index in Amazon RDS</a>.</p>"""
     mongo_db_atlas_configuration: NotRequired[
         "aws_sdk_bedrock_agent.types.mongo_db_atlas_configuration.MongoDbAtlasConfiguration"
     ]
@@ -48,7 +48,7 @@ class StorageConfiguration(TypedDict):
     neptune_analytics_configuration: NotRequired[
         "aws_sdk_bedrock_agent.types.neptune_analytics_configuration.NeptuneAnalyticsConfiguration"
     ]
-    """<p>Contains details about the Neptune Analytics configuration of the knowledge base in Amazon Neptune. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-neptune.html\">Create a vector index in Amazon Neptune Analytics.</a>.</p>"""
+    r"""<p>Contains details about the Neptune Analytics configuration of the knowledge base in Amazon Neptune. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-neptune.html\">Create a vector index in Amazon Neptune Analytics.</a>.</p>"""
     s3_vectors_configuration: NotRequired[
         "aws_sdk_bedrock_agent.types.s3_vectors_configuration.S3VectorsConfiguration"
     ]

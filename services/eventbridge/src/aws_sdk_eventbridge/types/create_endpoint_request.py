@@ -17,7 +17,7 @@ if TYPE_CHECKING:
 
 class CreateEndpointRequest(TypedDict):
     name: "aws_sdk_eventbridge.types.endpoint_name.EndpointName"
-    """<p>The name of the global endpoint. For example, <code>\"Name\":\"us-east-2-custom_bus_A-endpoint\"</code>.</p>"""
+    r"""<p>The name of the global endpoint. For example, <code>\"Name\":\"us-east-2-custom_bus_A-endpoint\"</code>.</p>"""
     description: NotRequired[
         "aws_sdk_eventbridge.types.endpoint_description.EndpointDescription"
     ]

@@ -1,0 +1,55 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#UpdateDatasetExamplesRequest``."""
+
+from typing import TYPE_CHECKING, TypedDict
+
+from typing_extensions import NotRequired
+
+from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import aws_sdk_bedrock_agentcore_control.types.client_token
+    import aws_sdk_bedrock_agentcore_control.types.dataset_example_list
+    import aws_sdk_bedrock_agentcore_control.types.dataset_id
+
+
+class UpdateDatasetExamplesRequest(TypedDict):
+    dataset_id: "aws_sdk_bedrock_agentcore_control.types.dataset_id.DatasetId"
+    """<p> The unique identifier of the dataset. </p>"""
+    client_token: NotRequired[
+        "aws_sdk_bedrock_agentcore_control.types.client_token.ClientToken"
+    ]
+    r"""<p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring idempotency</a>.</p>"""
+    examples: "aws_sdk_bedrock_agentcore_control.types.dataset_example_list.DatasetExampleList"
+    """<p> Examples to update. Each element is a JSON object containing a required <code>exampleId</code> field identifying the existing example, plus the replacement fields. Maximum 1000 examples per call. </p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: UpdateDatasetExamplesRequest) -> dict:
+    out: dict = {}
+    if "client_token" in value:
+        out["clientToken"] = value["client_token"]
+    import aws_sdk_bedrock_agentcore_control.types.dataset_example_list
+
+    out["examples"] = (
+        aws_sdk_bedrock_agentcore_control.types.dataset_example_list.serialize_json(
+            value["examples"]
+        )
+    )
+    return out
+
+
+def deserialize_json(data: dict) -> UpdateDatasetExamplesRequest:
+    out: UpdateDatasetExamplesRequest = {}  # type: ignore[typeddict-item]
+    if "clientToken" in data:
+        out["client_token"] = data["clientToken"]
+    if "examples" in data:
+        import aws_sdk_bedrock_agentcore_control.types.dataset_example_list
+
+        out["examples"] = (
+            aws_sdk_bedrock_agentcore_control.types.dataset_example_list.deserialize_json(
+                data["examples"]
+            )
+        )
+    else:
+        raise DeserializationError("UpdateDatasetExamplesRequest.examples required")
+    return out

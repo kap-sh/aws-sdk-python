@@ -106,7 +106,7 @@ class OrderableDBInstanceOption(TypedDict):
     ]
     """<p>Indicates whether a DB instance supports Kerberos Authentication.</p>"""
     outpost_capable: NotRequired["aws_sdk_rds.types.boolean.Boolean"]
-    """<p>Indicates whether a DB instance supports RDS on Outposts.</p> <p>For more information about RDS on Outposts, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html\">Amazon RDS on Amazon Web Services Outposts</a> in the <i>Amazon RDS User Guide.</i> </p>"""
+    r"""<p>Indicates whether a DB instance supports RDS on Outposts.</p> <p>For more information about RDS on Outposts, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html\">Amazon RDS on Amazon Web Services Outposts</a> in the <i>Amazon RDS User Guide.</i> </p>"""
     supported_activity_stream_modes: NotRequired[
         "aws_sdk_rds.types.activity_stream_mode_list.ActivityStreamModeList"
     ]
@@ -114,9 +114,9 @@ class OrderableDBInstanceOption(TypedDict):
     supports_global_databases: NotRequired["aws_sdk_rds.types.boolean.Boolean"]
     """<p>Indicates whether you can use Aurora global databases with a specific combination of other DB engine attributes.</p>"""
     supported_network_types: NotRequired["aws_sdk_rds.types.string_list.StringList"]
-    """<p>The network types supported by the DB instance (<code>IPV4</code> or <code>DUAL</code>).</p> <p>A DB instance can support only the IPv4 protocol or the IPv4 and the IPv6 protocols (<code>DUAL</code>).</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html\"> Working with a DB instance in a VPC</a> in the <i>Amazon RDS User Guide.</i> </p>"""
+    r"""<p>The network types supported by the DB instance (<code>IPV4</code> or <code>DUAL</code>).</p> <p>A DB instance can support only the IPv4 protocol or the IPv4 and the IPv6 protocols (<code>DUAL</code>).</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html\"> Working with a DB instance in a VPC</a> in the <i>Amazon RDS User Guide.</i> </p>"""
     supports_clusters: NotRequired["aws_sdk_rds.types.boolean.Boolean"]
-    """<p>Indicates whether DB instances can be configured as a Multi-AZ DB cluster.</p> <p>For more information on Multi-AZ DB clusters, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html\"> Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide.</i> </p>"""
+    r"""<p>Indicates whether DB instances can be configured as a Multi-AZ DB cluster.</p> <p>For more information on Multi-AZ DB clusters, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html\"> Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide.</i> </p>"""
     supports_dedicated_log_volume: NotRequired["aws_sdk_rds.types.boolean.Boolean"]
     """<p>Indicates whether a DB instance supports using a dedicated log volume (DLV).</p>"""
     supports_additional_storage_volumes: NotRequired[

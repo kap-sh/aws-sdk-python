@@ -11,7 +11,7 @@ if TYPE_CHECKING:
 
 class UntagResourcesInput(TypedDict):
     resource_arn_list: "aws_sdk_resource_groups_tagging_api.types.resource_arn_list_for_tag_untag.ResourceARNListForTagUntag"
-    """<p>Specifies a list of ARNs of the resources that you want to remove tags from.</p> <p>An ARN (Amazon Resource Name) uniquely identifies a resource. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>"""
+    r"""<p>Specifies a list of ARNs of the resources that you want to remove tags from.</p> <p>An ARN (Amazon Resource Name) uniquely identifies a resource. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>"""
     tag_keys: "aws_sdk_resource_groups_tagging_api.types.tag_key_list_for_untag.TagKeyListForUntag"
     """<p>Specifies a list of tag keys that you want to remove from the specified resources.</p>"""
 

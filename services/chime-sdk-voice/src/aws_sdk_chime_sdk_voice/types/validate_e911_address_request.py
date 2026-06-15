@@ -21,7 +21,7 @@ class ValidateE911AddressRequest(TypedDict):
     state: "aws_sdk_chime_sdk_voice.types.sensitive_non_empty_string.SensitiveNonEmptyString"
     """<p>The address state, such as <code>ME</code>.</p>"""
     country: "aws_sdk_chime_sdk_voice.types.sensitive_non_empty_string.SensitiveNonEmptyString"
-    """<p>The country in the address being validated as two-letter country code in ISO 3166-1 alpha-2 format, such as <code>US</code>. For more information, see <a href=\"https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2\">ISO 3166-1 alpha-2</a> in Wikipedia.</p>"""
+    r"""<p>The country in the address being validated as two-letter country code in ISO 3166-1 alpha-2 format, such as <code>US</code>. For more information, see <a href=\"https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2\">ISO 3166-1 alpha-2</a> in Wikipedia.</p>"""
     postal_code: "aws_sdk_chime_sdk_voice.types.sensitive_non_empty_string.SensitiveNonEmptyString"
     """<p>The dress postal code, such <code>04352</code>.</p>"""
 

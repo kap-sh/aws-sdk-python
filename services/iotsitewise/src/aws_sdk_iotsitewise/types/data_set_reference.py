@@ -11,7 +11,7 @@ if TYPE_CHECKING:
 
 class DataSetReference(TypedDict):
     dataset_arn: NotRequired["aws_sdk_iotsitewise.types.string.String"]
-    """<p>The <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html\">ARN</a> of the dataset. The format is <code>arn:${Partition}:iotsitewise:${Region}:${Account}:dataset/${DatasetId}</code>.</p>"""
+    r"""<p>The <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html\">ARN</a> of the dataset. The format is <code>arn:${Partition}:iotsitewise:${Region}:${Account}:dataset/${DatasetId}</code>.</p>"""
     source: NotRequired["aws_sdk_iotsitewise.types.source.Source"]
     """<p>The data source for the dataset.</p>"""
 

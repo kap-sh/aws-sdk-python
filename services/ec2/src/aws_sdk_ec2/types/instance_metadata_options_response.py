@@ -35,7 +35,7 @@ class InstanceMetadataOptionsResponse(TypedDict):
     instance_metadata_tags: NotRequired[
         "aws_sdk_ec2.types.instance_metadata_tags_state.InstanceMetadataTagsState"
     ]
-    """<p>Indicates whether access to instance tags from the instance metadata is enabled or disabled. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/work-with-tags-in-IMDS.html\">View tags for your EC2 instances using instance metadata</a>.</p>"""
+    r"""<p>Indicates whether access to instance tags from the instance metadata is enabled or disabled. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/work-with-tags-in-IMDS.html\">View tags for your EC2 instances using instance metadata</a>.</p>"""
 
 
 # --- ec2Query ser/de ---

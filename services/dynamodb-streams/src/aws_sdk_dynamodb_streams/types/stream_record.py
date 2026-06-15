@@ -16,7 +16,7 @@ class StreamRecord(TypedDict):
     approximate_creation_date_time: NotRequired[
         "aws_sdk_dynamodb_streams.types.date.Date"
     ]
-    """<p>The approximate date and time when the stream record was created, in <a href=\"https://www.iso.org/iso-8601-date-and-time-format.html\">ISO 8601</a> format and rounded down to the closest second.</p>"""
+    r"""<p>The approximate date and time when the stream record was created, in <a href=\"https://www.iso.org/iso-8601-date-and-time-format.html\">ISO 8601</a> format and rounded down to the closest second.</p>"""
     keys: NotRequired["aws_sdk_dynamodb_streams.types.attribute_map.AttributeMap"]
     """<p>The primary key attribute(s) for the DynamoDB item that was modified.</p>"""
     new_image: NotRequired["aws_sdk_dynamodb_streams.types.attribute_map.AttributeMap"]

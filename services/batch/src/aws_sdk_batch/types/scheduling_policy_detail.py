@@ -25,7 +25,7 @@ class SchedulingPolicyDetail(TypedDict):
     ]
     """<p>The fair-share scheduling policy details.</p>"""
     tags: NotRequired["aws_sdk_batch.types.tagris_tags_map.TagrisTagsMap"]
-    """<p>The tags that you apply to the fair-share scheduling policy to categorize and organize your resources. Each tag consists of a key and an optional value. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services resources</a> in <i>Amazon Web Services General Reference</i>.</p>"""
+    r"""<p>The tags that you apply to the fair-share scheduling policy to categorize and organize your resources. Each tag consists of a key and an optional value. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services resources</a> in <i>Amazon Web Services General Reference</i>.</p>"""
 
 
 # --- restJson1 ser/de ---

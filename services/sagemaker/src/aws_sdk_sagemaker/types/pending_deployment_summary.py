@@ -18,13 +18,13 @@ class PendingDeploymentSummary(TypedDict):
     production_variants: NotRequired[
         "aws_sdk_sagemaker.types.pending_production_variant_summary_list.PendingProductionVariantSummaryList"
     ]
-    """<p>An array of <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_PendingProductionVariantSummary.html\">PendingProductionVariantSummary</a> objects, one for each model hosted behind this endpoint for the in-progress deployment.</p>"""
+    r"""<p>An array of <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_PendingProductionVariantSummary.html\">PendingProductionVariantSummary</a> objects, one for each model hosted behind this endpoint for the in-progress deployment.</p>"""
     start_time: NotRequired["aws_sdk_sagemaker.types.timestamp.Timestamp"]
     """<p>The start time of the deployment.</p>"""
     shadow_production_variants: NotRequired[
         "aws_sdk_sagemaker.types.pending_production_variant_summary_list.PendingProductionVariantSummaryList"
     ]
-    """<p>An array of <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_PendingProductionVariantSummary.html\">PendingProductionVariantSummary</a> objects, one for each model hosted behind this endpoint in shadow mode with production traffic replicated from the model specified on <code>ProductionVariants</code> for the in-progress deployment.</p>"""
+    r"""<p>An array of <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_PendingProductionVariantSummary.html\">PendingProductionVariantSummary</a> objects, one for each model hosted behind this endpoint in shadow mode with production traffic replicated from the model specified on <code>ProductionVariants</code> for the in-progress deployment.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

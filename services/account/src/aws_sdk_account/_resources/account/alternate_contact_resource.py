@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_account._auth._signers
@@ -44,7 +46,7 @@ class AlternateContactResource:
         config_overrides: Optional[AccountClientConfig] = None,
         account_id: Optional["aws_sdk_account.types.account_id.AccountId"] = None,
     ) -> None:
-        """<p>Modifies the specified alternate contact attached to an Amazon Web Services account.</p> <p>For complete details about how to use the alternate contact operations, see <a href=\"https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact-alternate.html\">Update the alternate contacts for your Amazon Web Services account</a>.</p> <note> <p>Before you can update the alternate contact information for an Amazon Web Services account that is managed by Organizations, you must first enable integration between Amazon Web Services Account Management and Organizations. For more information, see <a href=\"https://docs.aws.amazon.com/accounts/latest/reference/using-orgs-trusted-access.html\">Enable trusted access for Amazon Web Services Account Management</a>.</p> </note>
+        r"""<p>Modifies the specified alternate contact attached to an Amazon Web Services account.</p> <p>For complete details about how to use the alternate contact operations, see <a href=\"https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact-alternate.html\">Update the alternate contacts for your Amazon Web Services account</a>.</p> <note> <p>Before you can update the alternate contact information for an Amazon Web Services account that is managed by Organizations, you must first enable integration between Amazon Web Services Account Management and Organizations. For more information, see <a href=\"https://docs.aws.amazon.com/accounts/latest/reference/using-orgs-trusted-access.html\">Enable trusted access for Amazon Web Services Account Management</a>.</p> </note>
 
         Args:
             name: <p>Specifies a name for the alternate contact.</p>
@@ -91,7 +93,7 @@ class AlternateContactResource:
         config_overrides: Optional[AccountClientConfig] = None,
         account_id: Optional["aws_sdk_account.types.account_id.AccountId"] = None,
     ) -> "aws_sdk_account.types.get_alternate_contact_response.GetAlternateContactResponse":
-        """<p>Retrieves the specified alternate contact attached to an Amazon Web Services account.</p> <p>For complete details about how to use the alternate contact operations, see <a href=\"https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact-alternate.html\">Update the alternate contacts for your Amazon Web Services account</a>.</p> <note> <p>Before you can update the alternate contact information for an Amazon Web Services account that is managed by Organizations, you must first enable integration between Amazon Web Services Account Management and Organizations. For more information, see <a href=\"https://docs.aws.amazon.com/accounts/latest/reference/using-orgs-trusted-access.html\">Enable trusted access for Amazon Web Services Account Management</a>.</p> </note>
+        r"""<p>Retrieves the specified alternate contact attached to an Amazon Web Services account.</p> <p>For complete details about how to use the alternate contact operations, see <a href=\"https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact-alternate.html\">Update the alternate contacts for your Amazon Web Services account</a>.</p> <note> <p>Before you can update the alternate contact information for an Amazon Web Services account that is managed by Organizations, you must first enable integration between Amazon Web Services Account Management and Organizations. For more information, see <a href=\"https://docs.aws.amazon.com/accounts/latest/reference/using-orgs-trusted-access.html\">Enable trusted access for Amazon Web Services Account Management</a>.</p> </note>
 
         Args:
             alternate_contact_type: <p>Specifies which alternate contact you want to retrieve.</p>
@@ -132,7 +134,7 @@ class AlternateContactResource:
         config_overrides: Optional[AccountClientConfig] = None,
         account_id: Optional["aws_sdk_account.types.account_id.AccountId"] = None,
     ) -> None:
-        """<p>Deletes the specified alternate contact from an Amazon Web Services account.</p> <p>For complete details about how to use the alternate contact operations, see <a href=\"https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact-alternate.html\">Update the alternate contacts for your Amazon Web Services account</a>.</p> <note> <p>Before you can update the alternate contact information for an Amazon Web Services account that is managed by Organizations, you must first enable integration between Amazon Web Services Account Management and Organizations. For more information, see <a href=\"https://docs.aws.amazon.com/accounts/latest/reference/using-orgs-trusted-access.html\">Enable trusted access for Amazon Web Services Account Management</a>.</p> </note>
+        r"""<p>Deletes the specified alternate contact from an Amazon Web Services account.</p> <p>For complete details about how to use the alternate contact operations, see <a href=\"https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact-alternate.html\">Update the alternate contacts for your Amazon Web Services account</a>.</p> <note> <p>Before you can update the alternate contact information for an Amazon Web Services account that is managed by Organizations, you must first enable integration between Amazon Web Services Account Management and Organizations. For more information, see <a href=\"https://docs.aws.amazon.com/accounts/latest/reference/using-orgs-trusted-access.html\">Enable trusted access for Amazon Web Services Account Management</a>.</p> </note>
 
         Args:
             alternate_contact_type: <p>Specifies which of the alternate contacts to delete. </p>
@@ -180,7 +182,7 @@ class AsyncAlternateContactResource:
         config_overrides: Optional[AsyncAccountClientConfig] = None,
         account_id: Optional["aws_sdk_account.types.account_id.AccountId"] = None,
     ) -> None:
-        """<p>Modifies the specified alternate contact attached to an Amazon Web Services account.</p> <p>For complete details about how to use the alternate contact operations, see <a href=\"https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact-alternate.html\">Update the alternate contacts for your Amazon Web Services account</a>.</p> <note> <p>Before you can update the alternate contact information for an Amazon Web Services account that is managed by Organizations, you must first enable integration between Amazon Web Services Account Management and Organizations. For more information, see <a href=\"https://docs.aws.amazon.com/accounts/latest/reference/using-orgs-trusted-access.html\">Enable trusted access for Amazon Web Services Account Management</a>.</p> </note>
+        r"""<p>Modifies the specified alternate contact attached to an Amazon Web Services account.</p> <p>For complete details about how to use the alternate contact operations, see <a href=\"https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact-alternate.html\">Update the alternate contacts for your Amazon Web Services account</a>.</p> <note> <p>Before you can update the alternate contact information for an Amazon Web Services account that is managed by Organizations, you must first enable integration between Amazon Web Services Account Management and Organizations. For more information, see <a href=\"https://docs.aws.amazon.com/accounts/latest/reference/using-orgs-trusted-access.html\">Enable trusted access for Amazon Web Services Account Management</a>.</p> </note>
 
         Args:
             name: <p>Specifies a name for the alternate contact.</p>
@@ -228,7 +230,7 @@ class AsyncAlternateContactResource:
         config_overrides: Optional[AsyncAccountClientConfig] = None,
         account_id: Optional["aws_sdk_account.types.account_id.AccountId"] = None,
     ) -> "aws_sdk_account.types.get_alternate_contact_response.GetAlternateContactResponse":
-        """<p>Retrieves the specified alternate contact attached to an Amazon Web Services account.</p> <p>For complete details about how to use the alternate contact operations, see <a href=\"https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact-alternate.html\">Update the alternate contacts for your Amazon Web Services account</a>.</p> <note> <p>Before you can update the alternate contact information for an Amazon Web Services account that is managed by Organizations, you must first enable integration between Amazon Web Services Account Management and Organizations. For more information, see <a href=\"https://docs.aws.amazon.com/accounts/latest/reference/using-orgs-trusted-access.html\">Enable trusted access for Amazon Web Services Account Management</a>.</p> </note>
+        r"""<p>Retrieves the specified alternate contact attached to an Amazon Web Services account.</p> <p>For complete details about how to use the alternate contact operations, see <a href=\"https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact-alternate.html\">Update the alternate contacts for your Amazon Web Services account</a>.</p> <note> <p>Before you can update the alternate contact information for an Amazon Web Services account that is managed by Organizations, you must first enable integration between Amazon Web Services Account Management and Organizations. For more information, see <a href=\"https://docs.aws.amazon.com/accounts/latest/reference/using-orgs-trusted-access.html\">Enable trusted access for Amazon Web Services Account Management</a>.</p> </note>
 
         Args:
             alternate_contact_type: <p>Specifies which alternate contact you want to retrieve.</p>
@@ -270,7 +272,7 @@ class AsyncAlternateContactResource:
         config_overrides: Optional[AsyncAccountClientConfig] = None,
         account_id: Optional["aws_sdk_account.types.account_id.AccountId"] = None,
     ) -> None:
-        """<p>Deletes the specified alternate contact from an Amazon Web Services account.</p> <p>For complete details about how to use the alternate contact operations, see <a href=\"https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact-alternate.html\">Update the alternate contacts for your Amazon Web Services account</a>.</p> <note> <p>Before you can update the alternate contact information for an Amazon Web Services account that is managed by Organizations, you must first enable integration between Amazon Web Services Account Management and Organizations. For more information, see <a href=\"https://docs.aws.amazon.com/accounts/latest/reference/using-orgs-trusted-access.html\">Enable trusted access for Amazon Web Services Account Management</a>.</p> </note>
+        r"""<p>Deletes the specified alternate contact from an Amazon Web Services account.</p> <p>For complete details about how to use the alternate contact operations, see <a href=\"https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact-alternate.html\">Update the alternate contacts for your Amazon Web Services account</a>.</p> <note> <p>Before you can update the alternate contact information for an Amazon Web Services account that is managed by Organizations, you must first enable integration between Amazon Web Services Account Management and Organizations. For more information, see <a href=\"https://docs.aws.amazon.com/accounts/latest/reference/using-orgs-trusted-access.html\">Enable trusted access for Amazon Web Services Account Management</a>.</p> </note>
 
         Args:
             alternate_contact_type: <p>Specifies which of the alternate contacts to delete. </p>

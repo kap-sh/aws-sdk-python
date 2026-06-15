@@ -1,23 +1,30 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#DeleteEvent``."""
 
 from __future__ import annotations
-from typing import TYPE_CHECKING, Never, Any, cast
-from aws_sdk_bedrock_agentcore._rule_engine._endpoint_rule_set import EndpointParams, resolve
-from aws_sdk_bedrock_agentcore._rule_engine._endpoint_runtime import apply_label
-import jmespath
-import zapros
-from urllib.parse import quote, urlencode
-from aws_sdk_bedrock_agentcore.errors import ServiceError, UnknownServiceError
-from aws_sdk_bedrock_agentcore._protocol.errors import parse_error_metadata_json
+
 import json
+from typing import TYPE_CHECKING, Any, Never
+from urllib.parse import quote
+
+import zapros
+
 import aws_sdk_bedrock_agentcore._auth._signers
 import aws_sdk_bedrock_agentcore._auth._sigv4
-from aws_sdk_bedrock_agentcore._services._pipeline import AsyncOperationOptions, OperationOptions
-import datetime
-from email.utils import parsedate_to_datetime as _parse_http_date
+from aws_sdk_bedrock_agentcore._protocol.errors import parse_error_metadata_json
+from aws_sdk_bedrock_agentcore._rule_engine._endpoint_rule_set import (
+    EndpointParams,
+    resolve,
+)
+from aws_sdk_bedrock_agentcore._services._pipeline import (
+    AsyncOperationOptions,
+    OperationOptions,
+)
+from aws_sdk_bedrock_agentcore.errors import UnknownServiceError
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.delete_event_input
     import aws_sdk_bedrock_agentcore.types.delete_event_output
+
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
@@ -25,44 +32,100 @@ def handle_error(response: zapros.Response) -> Never:
     match code:
         case "AccessDeniedException":
             import aws_sdk_bedrock_agentcore.errors.access_denied_exception
-            raise aws_sdk_bedrock_agentcore.errors.access_denied_exception.AccessDeniedException.from_json(data)
+
+            raise aws_sdk_bedrock_agentcore.errors.access_denied_exception.AccessDeniedException.from_json(
+                data
+            )
         case "InvalidInputException":
             import aws_sdk_bedrock_agentcore.errors.invalid_input_exception
-            raise aws_sdk_bedrock_agentcore.errors.invalid_input_exception.InvalidInputException.from_json(data)
+
+            raise aws_sdk_bedrock_agentcore.errors.invalid_input_exception.InvalidInputException.from_json(
+                data
+            )
         case "ResourceNotFoundException":
             import aws_sdk_bedrock_agentcore.errors.resource_not_found_exception
-            raise aws_sdk_bedrock_agentcore.errors.resource_not_found_exception.ResourceNotFoundException.from_json(data)
+
+            raise aws_sdk_bedrock_agentcore.errors.resource_not_found_exception.ResourceNotFoundException.from_json(
+                data
+            )
         case "ServiceException":
             import aws_sdk_bedrock_agentcore.errors.service_exception
-            raise aws_sdk_bedrock_agentcore.errors.service_exception.ServiceException.from_json(data)
+
+            raise aws_sdk_bedrock_agentcore.errors.service_exception.ServiceException.from_json(
+                data
+            )
         case "ServiceQuotaExceededException":
             import aws_sdk_bedrock_agentcore.errors.service_quota_exceeded_exception
-            raise aws_sdk_bedrock_agentcore.errors.service_quota_exceeded_exception.ServiceQuotaExceededException.from_json(data)
+
+            raise aws_sdk_bedrock_agentcore.errors.service_quota_exceeded_exception.ServiceQuotaExceededException.from_json(
+                data
+            )
         case "ThrottledException":
             import aws_sdk_bedrock_agentcore.errors.throttled_exception
-            raise aws_sdk_bedrock_agentcore.errors.throttled_exception.ThrottledException.from_json(data)
+
+            raise aws_sdk_bedrock_agentcore.errors.throttled_exception.ThrottledException.from_json(
+                data
+            )
         case "ValidationException":
             import aws_sdk_bedrock_agentcore.errors.validation_exception
-            raise aws_sdk_bedrock_agentcore.errors.validation_exception.ValidationException.from_json(data)
+
+            raise aws_sdk_bedrock_agentcore.errors.validation_exception.ValidationException.from_json(
+                data
+            )
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
 
-def handle_response(response: zapros.Response, is_async: bool) -> aws_sdk_bedrock_agentcore.types.delete_event_output.DeleteEventOutput:
+
+def handle_response(
+    response: zapros.Response, is_async: bool
+) -> aws_sdk_bedrock_agentcore.types.delete_event_output.DeleteEventOutput:
     import aws_sdk_bedrock_agentcore.types.delete_event_output
-    out: aws_sdk_bedrock_agentcore.types.delete_event_output.DeleteEventOutput = aws_sdk_bedrock_agentcore.types.delete_event_output.deserialize_json(json.loads(response.read()))
+
+    out: aws_sdk_bedrock_agentcore.types.delete_event_output.DeleteEventOutput = (
+        aws_sdk_bedrock_agentcore.types.delete_event_output.deserialize_json(
+            json.loads(response.read())
+        )
+    )
     return out
 
-def get_signer(options: AsyncOperationOptions | OperationOptions, auth_schemes: list[dict[str, Any]] | None = None) -> aws_sdk_bedrock_agentcore._auth._signers.Signer | None:
-    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}
+
+def get_signer(
+    options: AsyncOperationOptions | OperationOptions,
+    auth_schemes: list[dict[str, Any]] | None = None,
+) -> aws_sdk_bedrock_agentcore._auth._signers.Signer | None:
+    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}  # noqa: F841
     if options.credentials_provider is not None:
-        sigv4_config = name_to_schema.get("sigv4") or name_to_schema.get("sigv4a") or name_to_schema.get("sigv4-s3express") or aws_sdk_bedrock_agentcore._auth._sigv4.build_sigv4_auth_scheme('bedrock-agentcore', options.region)
+        sigv4_config = (
+            name_to_schema.get("sigv4")
+            or name_to_schema.get("sigv4a")
+            or name_to_schema.get("sigv4-s3express")
+            or aws_sdk_bedrock_agentcore._auth._sigv4.build_sigv4_auth_scheme(
+                "bedrock-agentcore", options.region
+            )
+        )
         if sigv4_config is not None:
-            return aws_sdk_bedrock_agentcore._auth._signers.SigV4Signer(options.credentials_provider, auth_scheme=sigv4_config)
+            return aws_sdk_bedrock_agentcore._auth._signers.SigV4Signer(
+                options.credentials_provider, auth_scheme=sigv4_config
+            )
     raise RuntimeError("Auth was not resolved")
 
-def build_request(options: OperationOptions | AsyncOperationOptions, input_: aws_sdk_bedrock_agentcore.types.delete_event_input.DeleteEventInput) -> zapros.Request:
-    endpoint = resolve(EndpointParams(Region=options.region, UseDualStack=options.use_dual_stack, UseFIPS=options.use_fips, Endpoint=options.endpoint))  # noqa: F841
-    url = endpoint.url.rstrip("/") + "/memories/{memoryId}/actor/{actorId}/sessions/{sessionId}/events/{eventId}"
+
+def build_request(
+    options: OperationOptions | AsyncOperationOptions,
+    input_: aws_sdk_bedrock_agentcore.types.delete_event_input.DeleteEventInput,
+) -> zapros.Request:
+    endpoint = resolve(
+        EndpointParams(
+            Region=options.region,
+            UseDualStack=options.use_dual_stack,
+            UseFIPS=options.use_fips,
+            Endpoint=options.endpoint,
+        )
+    )  # noqa: F841
+    url = (
+        endpoint.url.rstrip("/")
+        + "/memories/{memoryId}/actor/{actorId}/sessions/{sessionId}/events/{eventId}"
+    )
     url = url.replace("{memoryId}", quote(str(input_["memory_id"]), safe=""))
     url = url.replace("{sessionId}", quote(str(input_["session_id"]), safe=""))
     url = url.replace("{eventId}", quote(str(input_["event_id"]), safe=""))
@@ -73,9 +136,18 @@ def build_request(options: OperationOptions | AsyncOperationOptions, input_: aws
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
-    return zapros.Request(normalized_url, "DELETE", headers=headers, body=body, context={"signer": signer})
+    return zapros.Request(
+        normalized_url, "DELETE", headers=headers, body=body, context={"signer": signer}
+    )
 
-def delete_event(options: OperationOptions, input_: aws_sdk_bedrock_agentcore.types.delete_event_input.DeleteEventInput) -> tuple[aws_sdk_bedrock_agentcore.types.delete_event_output.DeleteEventOutput, zapros.Response]:
+
+def delete_event(
+    options: OperationOptions,
+    input_: aws_sdk_bedrock_agentcore.types.delete_event_input.DeleteEventInput,
+) -> tuple[
+    aws_sdk_bedrock_agentcore.types.delete_event_output.DeleteEventOutput,
+    zapros.Response,
+]:
     response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
@@ -87,7 +159,14 @@ def delete_event(options: OperationOptions, input_: aws_sdk_bedrock_agentcore.ty
         response.close()
         raise
 
-async def async_delete_event(options: AsyncOperationOptions, input_: aws_sdk_bedrock_agentcore.types.delete_event_input.DeleteEventInput) -> tuple[aws_sdk_bedrock_agentcore.types.delete_event_output.DeleteEventOutput, zapros.Response]:
+
+async def async_delete_event(
+    options: AsyncOperationOptions,
+    input_: aws_sdk_bedrock_agentcore.types.delete_event_input.DeleteEventInput,
+) -> tuple[
+    aws_sdk_bedrock_agentcore.types.delete_event_output.DeleteEventOutput,
+    zapros.Response,
+]:
     response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:

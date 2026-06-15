@@ -33,9 +33,9 @@ class Accessor(TypedDict):
     creation_date: NotRequired["aws_sdk_managedblockchain.types.timestamp.Timestamp"]
     """<p>The creation date and time of the accessor.</p>"""
     arn: NotRequired["aws_sdk_managedblockchain.types.arn_string.ArnString"]
-    """<p>The Amazon Resource Name (ARN) of the accessor. For more information about ARNs and their format, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>"""
+    r"""<p>The Amazon Resource Name (ARN) of the accessor. For more information about ARNs and their format, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>"""
     tags: NotRequired["aws_sdk_managedblockchain.types.output_tag_map.OutputTagMap"]
-    """<p>The tags assigned to the Accessor.</p> <p>For more information about tags, see <a href=\"https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html\">Tagging Resources</a> in the <i>Amazon Managed Blockchain Ethereum Developer Guide</i>, or <a href=\"https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html\">Tagging Resources</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</p>"""
+    r"""<p>The tags assigned to the Accessor.</p> <p>For more information about tags, see <a href=\"https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html\">Tagging Resources</a> in the <i>Amazon Managed Blockchain Ethereum Developer Guide</i>, or <a href=\"https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html\">Tagging Resources</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</p>"""
     network_type: NotRequired[
         "aws_sdk_managedblockchain.types.accessor_network_type.AccessorNetworkType"
     ]

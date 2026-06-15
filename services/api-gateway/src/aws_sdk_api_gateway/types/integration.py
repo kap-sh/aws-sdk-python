@@ -31,7 +31,7 @@ class Integration(TypedDict):
     connection_id: NotRequired["aws_sdk_api_gateway.types.string.String"]
     """<p>The ID of the VpcLink used for the integration when <code>connectionType=VPC_LINK</code> and undefined, otherwise.</p>"""
     credentials: NotRequired["aws_sdk_api_gateway.types.string.String"]
-    """<p>Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify the string <code>arn:aws:iam::\*:user/\*</code>. To use resource-based permissions on supported Amazon Web Services services, specify null.</p>"""
+    r"""<p>Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify the string <code>arn:aws:iam::\*:user/\*</code>. To use resource-based permissions on supported Amazon Web Services services, specify null.</p>"""
     request_parameters: NotRequired[
         "aws_sdk_api_gateway.types.map_of_string_to_string.MapOfStringToString"
     ]

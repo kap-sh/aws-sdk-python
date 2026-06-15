@@ -13,7 +13,7 @@ class EventFilter(TypedDict):
     dimensions: NotRequired["aws_sdk_pinpoint.types.event_dimensions.EventDimensions"]
     """<p>The dimensions for the event filter to use for the campaign or the journey activity.</p>"""
     filter_type: NotRequired["aws_sdk_pinpoint.types.filter_type.FilterType"]
-    """<p>The type of event that causes the campaign to be sent or the journey activity to be performed. Valid values are: SYSTEM, sends the campaign or performs the activity when a system event occurs; and, ENDPOINT, sends the campaign or performs the activity when an endpoint event (<link linkend=\"apps-application-id-events\">Events resource</link>) occurs.</p>"""
+    r"""<p>The type of event that causes the campaign to be sent or the journey activity to be performed. Valid values are: SYSTEM, sends the campaign or performs the activity when a system event occurs; and, ENDPOINT, sends the campaign or performs the activity when an endpoint event (<link linkend=\"apps-application-id-events\">Events resource</link>) occurs.</p>"""
 
 
 # --- restJson1 ser/de ---

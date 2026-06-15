@@ -17,9 +17,9 @@ if TYPE_CHECKING:
 
 class UpdateAnomalyRequest(TypedDict):
     anomaly_id: NotRequired["aws_sdk_cloudwatch_logs.types.anomaly_id.AnomalyId"]
-    """<p>If you are suppressing or unsuppressing an anomaly, specify its unique ID here. You can find anomaly IDs by using the <a href=\"https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListAnomalies.html\">ListAnomalies</a> operation.</p>"""
+    r"""<p>If you are suppressing or unsuppressing an anomaly, specify its unique ID here. You can find anomaly IDs by using the <a href=\"https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListAnomalies.html\">ListAnomalies</a> operation.</p>"""
     pattern_id: NotRequired["aws_sdk_cloudwatch_logs.types.pattern_id.PatternId"]
-    """<p>If you are suppressing or unsuppressing an pattern, specify its unique ID here. You can find pattern IDs by using the <a href=\"https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListAnomalies.html\">ListAnomalies</a> operation.</p>"""
+    r"""<p>If you are suppressing or unsuppressing an pattern, specify its unique ID here. You can find pattern IDs by using the <a href=\"https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListAnomalies.html\">ListAnomalies</a> operation.</p>"""
     anomaly_detector_arn: (
         "aws_sdk_cloudwatch_logs.types.anomaly_detector_arn.AnomalyDetectorArn"
     )

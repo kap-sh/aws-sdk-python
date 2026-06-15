@@ -17,7 +17,7 @@ class UpdateRuleRequest(TypedDict):
     rule_id: "aws_sdk_connect.types.rule_id.RuleId"
     """<p>A unique identifier for the rule.</p>"""
     instance_id: "aws_sdk_connect.types.instance_id.InstanceId"
-    """<p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>"""
+    r"""<p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>"""
     name: "aws_sdk_connect.types.rule_name.RuleName"
     """<p>The name of the rule. You can change the name only if <code>TriggerEventSource</code> is one of the following values: <code>OnZendeskTicketCreate</code> | <code>OnZendeskTicketStatusUpdate</code> | <code>OnSalesforceCaseCreate</code> </p>"""
     function: "aws_sdk_connect.types.rule_function.RuleFunction"

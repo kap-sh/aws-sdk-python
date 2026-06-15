@@ -15,7 +15,7 @@ class ReservedNodesOffering(TypedDict):
     reserved_nodes_offering_id: NotRequired["aws_sdk_memorydb.types.string.String"]
     """<p>The offering identifier.</p>"""
     node_type: NotRequired["aws_sdk_memorydb.types.string.String"]
-    """<p>The node type for the reserved nodes. For more information, see <a href=\"https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.reserved.html#reserved-nodes-supported\">Supported node types</a>.</p>"""
+    r"""<p>The node type for the reserved nodes. For more information, see <a href=\"https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.reserved.html#reserved-nodes-supported\">Supported node types</a>.</p>"""
     duration: "aws_sdk_memorydb.types.integer.Integer"
     """<p>The duration of the reservation in seconds.</p>"""
     fixed_price: "aws_sdk_memorydb.types.double.Double"

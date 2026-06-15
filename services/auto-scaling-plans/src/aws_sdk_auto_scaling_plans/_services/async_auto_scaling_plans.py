@@ -111,7 +111,7 @@ class AsyncAutoScalingPlansClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = AsyncAutoScalingPlansClientConfig(
+        self._config = AsyncAutoScalingPlansClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -131,7 +131,7 @@ class AsyncAutoScalingPlansClient:
         overrides: AsyncAutoScalingPlansClientConfig = config_overrides or {}
         interceptors_: list[AsyncInterceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             aretry(),
         ]
@@ -139,16 +139,16 @@ class AsyncAutoScalingPlansClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            region=overrides.get("region", self.config.get("region")),
+            region=overrides.get("region", self._config.get("region")),
             use_dual_stack=overrides.get(
-                "use_dual_stack", self.config.get("use_dual_stack")
+                "use_dual_stack", self._config.get("use_dual_stack")
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -161,7 +161,7 @@ class AsyncAutoScalingPlansClient:
         *,
         config_overrides: Optional[AsyncAutoScalingPlansClientConfig] = None,
     ) -> "aws_sdk_auto_scaling_plans.types.create_scaling_plan_response.CreateScalingPlanResponse":
-        """<p>Creates a scaling plan. </p>
+        r"""<p>Creates a scaling plan. </p>
 
         Args:
             scaling_plan_name: <p>The name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.</p>
@@ -185,13 +185,13 @@ class AsyncAutoScalingPlansClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auto_scaling_plans.types.create_scaling_plan_request.CreateScalingPlanRequest = {}  # type: ignore[typeddict-item]
-        input["scaling_plan_name"] = scaling_plan_name
-        input["application_source"] = application_source
-        input["scaling_instructions"] = scaling_instructions
+        input_: aws_sdk_auto_scaling_plans.types.create_scaling_plan_request.CreateScalingPlanRequest = {}  # type: ignore[typeddict-item]
+        input_["scaling_plan_name"] = scaling_plan_name
+        input_["application_source"] = application_source
+        input_["scaling_instructions"] = scaling_instructions
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -227,12 +227,12 @@ class AsyncAutoScalingPlansClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auto_scaling_plans.types.delete_scaling_plan_request.DeleteScalingPlanRequest = {}  # type: ignore[typeddict-item]
-        input["scaling_plan_name"] = scaling_plan_name
-        input["scaling_plan_version"] = scaling_plan_version
+        input_: aws_sdk_auto_scaling_plans.types.delete_scaling_plan_request.DeleteScalingPlanRequest = {}  # type: ignore[typeddict-item]
+        input_["scaling_plan_name"] = scaling_plan_name
+        input_["scaling_plan_version"] = scaling_plan_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -276,16 +276,16 @@ class AsyncAutoScalingPlansClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auto_scaling_plans.types.describe_scaling_plan_resources_request.DescribeScalingPlanResourcesRequest = {}  # type: ignore[typeddict-item]
-        input["scaling_plan_name"] = scaling_plan_name
-        input["scaling_plan_version"] = scaling_plan_version
+        input_: aws_sdk_auto_scaling_plans.types.describe_scaling_plan_resources_request.DescribeScalingPlanResourcesRequest = {}  # type: ignore[typeddict-item]
+        input_["scaling_plan_name"] = scaling_plan_name
+        input_["scaling_plan_version"] = scaling_plan_version
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -337,20 +337,20 @@ class AsyncAutoScalingPlansClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auto_scaling_plans.types.describe_scaling_plans_request.DescribeScalingPlansRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_auto_scaling_plans.types.describe_scaling_plans_request.DescribeScalingPlansRequest = {}  # type: ignore[typeddict-item]
         if scaling_plan_names is not None:
-            input["scaling_plan_names"] = scaling_plan_names
+            input_["scaling_plan_names"] = scaling_plan_names
         if scaling_plan_version is not None:
-            input["scaling_plan_version"] = scaling_plan_version
+            input_["scaling_plan_version"] = scaling_plan_version
         if application_sources is not None:
-            input["application_sources"] = application_sources
+            input_["application_sources"] = application_sources
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -398,18 +398,18 @@ class AsyncAutoScalingPlansClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auto_scaling_plans.types.get_scaling_plan_resource_forecast_data_request.GetScalingPlanResourceForecastDataRequest = {}  # type: ignore[typeddict-item]
-        input["scaling_plan_name"] = scaling_plan_name
-        input["scaling_plan_version"] = scaling_plan_version
-        input["service_namespace"] = service_namespace
-        input["resource_id"] = resource_id
-        input["scalable_dimension"] = scalable_dimension
-        input["forecast_data_type"] = forecast_data_type
-        input["start_time"] = start_time
-        input["end_time"] = end_time
+        input_: aws_sdk_auto_scaling_plans.types.get_scaling_plan_resource_forecast_data_request.GetScalingPlanResourceForecastDataRequest = {}  # type: ignore[typeddict-item]
+        input_["scaling_plan_name"] = scaling_plan_name
+        input_["scaling_plan_version"] = scaling_plan_version
+        input_["service_namespace"] = service_namespace
+        input_["resource_id"] = resource_id
+        input_["scalable_dimension"] = scalable_dimension
+        input_["forecast_data_type"] = forecast_data_type
+        input_["start_time"] = start_time
+        input_["end_time"] = end_time
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -428,7 +428,7 @@ class AsyncAutoScalingPlansClient:
             "aws_sdk_auto_scaling_plans.types.scaling_instructions.ScalingInstructions"
         ] = None,
     ) -> "aws_sdk_auto_scaling_plans.types.update_scaling_plan_response.UpdateScalingPlanResponse":
-        """<p>Updates the specified scaling plan.</p> <p>You cannot update a scaling plan if it is in the process of being created, updated, or deleted.</p>
+        r"""<p>Updates the specified scaling plan.</p> <p>You cannot update a scaling plan if it is in the process of being created, updated, or deleted.</p>
 
         Args:
             scaling_plan_name: <p>The name of the scaling plan.</p>
@@ -453,16 +453,16 @@ class AsyncAutoScalingPlansClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_auto_scaling_plans.types.update_scaling_plan_request.UpdateScalingPlanRequest = {}  # type: ignore[typeddict-item]
-        input["scaling_plan_name"] = scaling_plan_name
-        input["scaling_plan_version"] = scaling_plan_version
+        input_: aws_sdk_auto_scaling_plans.types.update_scaling_plan_request.UpdateScalingPlanRequest = {}  # type: ignore[typeddict-item]
+        input_["scaling_plan_name"] = scaling_plan_name
+        input_["scaling_plan_version"] = scaling_plan_version
         if application_source is not None:
-            input["application_source"] = application_source
+            input_["application_source"] = application_source
         if scaling_instructions is not None:
-            input["scaling_instructions"] = scaling_instructions
+            input_["scaling_instructions"] = scaling_instructions
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

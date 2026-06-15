@@ -32,13 +32,13 @@ class AutomationRulesConfig(TypedDict):
     criteria: NotRequired[
         "aws_sdk_securityhub.types.automation_rules_finding_filters.AutomationRulesFindingFilters"
     ]
-    """<p> A set of <a href=\"https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html\">Amazon Web Services Security Finding Format</a> finding field attributes and corresponding expected values that Security Hub CSPM uses to filter findings. If a rule is enabled and a finding matches the conditions specified in this parameter, Security Hub CSPM applies the rule action to the finding. </p>"""
+    r"""<p> A set of <a href=\"https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html\">Amazon Web Services Security Finding Format</a> finding field attributes and corresponding expected values that Security Hub CSPM uses to filter findings. If a rule is enabled and a finding matches the conditions specified in this parameter, Security Hub CSPM applies the rule action to the finding. </p>"""
     actions: NotRequired["aws_sdk_securityhub.types.action_list.ActionList"]
     """<p> One or more actions to update finding fields if a finding matches the defined criteria of the rule. </p>"""
     created_at: NotRequired["aws_sdk_securityhub.types.timestamp.Timestamp"]
-    """<p> A timestamp that indicates when the rule was created. </p> <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href=\"https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps\">Timestamps</a>.</p>"""
+    r"""<p> A timestamp that indicates when the rule was created. </p> <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href=\"https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps\">Timestamps</a>.</p>"""
     updated_at: NotRequired["aws_sdk_securityhub.types.timestamp.Timestamp"]
-    """<p> A timestamp that indicates when the rule was most recently updated. </p> <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href=\"https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps\">Timestamps</a>.</p>"""
+    r"""<p> A timestamp that indicates when the rule was most recently updated. </p> <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href=\"https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps\">Timestamps</a>.</p>"""
     created_by: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p> The principal that created a rule. </p>"""
 

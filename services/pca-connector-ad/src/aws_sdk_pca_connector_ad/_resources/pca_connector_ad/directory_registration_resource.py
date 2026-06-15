@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_pca_connector_ad._auth._signers
@@ -93,7 +95,7 @@ class DirectoryRegistrationResource:
         *,
         config_overrides: Optional[PcaConnectorAdClientConfig] = None,
     ) -> "aws_sdk_pca_connector_ad.types.get_directory_registration_response.GetDirectoryRegistrationResponse":
-        """<p>A structure that contains information about your directory registration.</p>
+        r"""<p>A structure that contains information about your directory registration.</p>
 
         Args:
             directory_registration_arn: <p>The Amazon Resource Name (ARN) that was returned when you called <a href=\"https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html\">CreateDirectoryRegistration</a>.</p>
@@ -130,7 +132,7 @@ class DirectoryRegistrationResource:
         *,
         config_overrides: Optional[PcaConnectorAdClientConfig] = None,
     ) -> None:
-        """<p>Deletes a directory registration. Deleting a directory registration deauthorizes Amazon Web Services Private CA with the directory. </p>
+        r"""<p>Deletes a directory registration. Deleting a directory registration deauthorizes Amazon Web Services Private CA with the directory. </p>
 
         Args:
             directory_registration_arn: <p>The Amazon Resource Name (ARN) that was returned when you called <a href=\"https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html\">CreateDirectoryRegistration</a>.</p>
@@ -170,7 +172,7 @@ class DirectoryRegistrationResource:
             "aws_sdk_pca_connector_ad.types.next_token.NextToken"
         ] = None,
     ) -> "aws_sdk_pca_connector_ad.types.list_directory_registrations_response.ListDirectoryRegistrationsResponse":
-        """<p>Lists the directory registrations that you created by using the <a href=\"https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration\">https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration</a> action.</p>
+        r"""<p>Lists the directory registrations that you created by using the <a href=\"https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration\">https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration</a> action.</p>
 
         Args:
             max_results: <p>Use this parameter when paginating results to specify the maximum number of items to return in the response on each page. If additional items exist beyond the number you specify, the <code>NextToken</code> element is sent in the response. Use this <code>NextToken</code> value in a subsequent request to retrieve additional items.</p>
@@ -264,7 +266,7 @@ class AsyncDirectoryRegistrationResource:
         *,
         config_overrides: Optional[AsyncPcaConnectorAdClientConfig] = None,
     ) -> "aws_sdk_pca_connector_ad.types.get_directory_registration_response.GetDirectoryRegistrationResponse":
-        """<p>A structure that contains information about your directory registration.</p>
+        r"""<p>A structure that contains information about your directory registration.</p>
 
         Args:
             directory_registration_arn: <p>The Amazon Resource Name (ARN) that was returned when you called <a href=\"https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html\">CreateDirectoryRegistration</a>.</p>
@@ -302,7 +304,7 @@ class AsyncDirectoryRegistrationResource:
         *,
         config_overrides: Optional[AsyncPcaConnectorAdClientConfig] = None,
     ) -> None:
-        """<p>Deletes a directory registration. Deleting a directory registration deauthorizes Amazon Web Services Private CA with the directory. </p>
+        r"""<p>Deletes a directory registration. Deleting a directory registration deauthorizes Amazon Web Services Private CA with the directory. </p>
 
         Args:
             directory_registration_arn: <p>The Amazon Resource Name (ARN) that was returned when you called <a href=\"https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html\">CreateDirectoryRegistration</a>.</p>
@@ -343,7 +345,7 @@ class AsyncDirectoryRegistrationResource:
             "aws_sdk_pca_connector_ad.types.next_token.NextToken"
         ] = None,
     ) -> "aws_sdk_pca_connector_ad.types.list_directory_registrations_response.ListDirectoryRegistrationsResponse":
-        """<p>Lists the directory registrations that you created by using the <a href=\"https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration\">https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration</a> action.</p>
+        r"""<p>Lists the directory registrations that you created by using the <a href=\"https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration\">https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration</a> action.</p>
 
         Args:
             max_results: <p>Use this parameter when paginating results to specify the maximum number of items to return in the response on each page. If additional items exist beyond the number you specify, the <code>NextToken</code> element is sent in the response. Use this <code>NextToken</code> value in a subsequent request to retrieve additional items.</p>

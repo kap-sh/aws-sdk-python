@@ -123,7 +123,7 @@ class AsyncDLMClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = AsyncDLMClientConfig(
+        self._config = AsyncDLMClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -143,7 +143,7 @@ class AsyncDLMClient:
         overrides: AsyncDLMClientConfig = config_overrides or {}
         interceptors_: list[AsyncInterceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             aretry(),
         ]
@@ -151,16 +151,16 @@ class AsyncDLMClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            region=overrides.get("region", self.config.get("region")),
+            region=overrides.get("region", self._config.get("region")),
             use_dual_stack=overrides.get(
-                "use_dual_stack", self.config.get("use_dual_stack")
+                "use_dual_stack", self._config.get("use_dual_stack")
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -196,7 +196,7 @@ class AsyncDLMClient:
         ] = None,
         exclusions: Optional["aws_sdk_dlm.types.exclusions.Exclusions"] = None,
     ) -> "aws_sdk_dlm.types.create_lifecycle_policy_response.CreateLifecyclePolicyResponse":
-        """<p>Creates an Amazon Data Lifecycle Manager lifecycle policy. Amazon Data Lifecycle Manager supports the following policy types:</p> <ul> <li> <p>Custom EBS snapshot policy</p> </li> <li> <p>Custom EBS-backed AMI policy</p> </li> <li> <p>Cross-account copy event policy</p> </li> <li> <p>Default policy for EBS snapshots</p> </li> <li> <p>Default policy for EBS-backed AMIs</p> </li> </ul> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/policy-differences.html\"> Default policies vs custom policies</a>.</p> <important> <p>If you create a default policy, you can specify the request parameters either in the request body, or in the PolicyDetails request structure, but not both.</p> </important>
+        r"""<p>Creates an Amazon Data Lifecycle Manager lifecycle policy. Amazon Data Lifecycle Manager supports the following policy types:</p> <ul> <li> <p>Custom EBS snapshot policy</p> </li> <li> <p>Custom EBS-backed AMI policy</p> </li> <li> <p>Cross-account copy event policy</p> </li> <li> <p>Default policy for EBS snapshots</p> </li> <li> <p>Default policy for EBS-backed AMIs</p> </li> </ul> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/policy-differences.html\"> Default policies vs custom policies</a>.</p> <important> <p>If you create a default policy, you can specify the request parameters either in the request body, or in the PolicyDetails request structure, but not both.</p> </important>
 
         Args:
             execution_role_arn: <p>The Amazon Resource Name (ARN) of the IAM role used to run the operations specified by the lifecycle policy.</p>
@@ -265,7 +265,7 @@ class AsyncDLMClient:
         *,
         config_overrides: Optional[AsyncDLMClientConfig] = None,
     ) -> "aws_sdk_dlm.types.delete_lifecycle_policy_response.DeleteLifecyclePolicyResponse":
-        """<p>Deletes the specified lifecycle policy and halts the automated operations that the policy specified.</p> <p>For more information about deleting a policy, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/view-modify-delete.html#delete\">Delete lifecycle policies</a>.</p>
+        r"""<p>Deletes the specified lifecycle policy and halts the automated operations that the policy specified.</p> <p>For more information about deleting a policy, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/view-modify-delete.html#delete\">Delete lifecycle policies</a>.</p>
 
         Args:
             policy_id: <p>The identifier of the lifecycle policy.</p>
@@ -320,7 +320,7 @@ class AsyncDLMClient:
     ) -> (
         "aws_sdk_dlm.types.get_lifecycle_policies_response.GetLifecyclePoliciesResponse"
     ):
-        """<p>Gets summary information about all or the specified data lifecycle policies.</p> <p>To get complete information about a policy, use <a href=\"https://docs.aws.amazon.com/dlm/latest/APIReference/API_GetLifecyclePolicy.html\">GetLifecyclePolicy</a>.</p>
+        r"""<p>Gets summary information about all or the specified data lifecycle policies.</p> <p>To get complete information about a policy, use <a href=\"https://docs.aws.amazon.com/dlm/latest/APIReference/API_GetLifecyclePolicy.html\">GetLifecyclePolicy</a>.</p>
 
         Args:
             policy_ids: <p>The identifiers of the data lifecycle policies.</p>
@@ -562,7 +562,7 @@ class AsyncDLMClient:
         ] = None,
         exclusions: Optional["aws_sdk_dlm.types.exclusions.Exclusions"] = None,
     ) -> "aws_sdk_dlm.types.update_lifecycle_policy_response.UpdateLifecyclePolicyResponse":
-        """<p>Updates the specified lifecycle policy.</p> <p>For more information about updating a policy, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/view-modify-delete.html#modify\">Modify lifecycle policies</a>.</p>
+        r"""<p>Updates the specified lifecycle policy.</p> <p>For more information about updating a policy, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/view-modify-delete.html#modify\">Modify lifecycle policies</a>.</p>
 
         Args:
             policy_id: <p>The identifier of the lifecycle policy.</p>

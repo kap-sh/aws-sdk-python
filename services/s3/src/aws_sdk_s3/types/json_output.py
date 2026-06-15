@@ -12,7 +12,7 @@ if TYPE_CHECKING:
 
 class JSONOutput(TypedDict):
     record_delimiter: NotRequired["aws_sdk_s3.types.record_delimiter.RecordDelimiter"]
-    """<p>The value used to separate individual records in the output. If no value is specified, Amazon S3 uses a newline character ('\n').</p>"""
+    r"""<p>The value used to separate individual records in the output. If no value is specified, Amazon S3 uses a newline character ('\n').</p>"""
 
 
 # --- restXml ser/de ---

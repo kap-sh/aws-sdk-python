@@ -37,7 +37,7 @@ class CreateChannelResponse(TypedDict):
     playback_mode: NotRequired["aws_sdk_mediatailor.types.__string.__string"]
     """<p>The playback mode to assign to the channel.</p>"""
     tags: NotRequired["aws_sdk_mediatailor.types.__map_of__string.__mapOf__string"]
-    """<p>The tags to assign to the channel. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html\">Tagging AWS Elemental MediaTailor Resources</a>.</p>"""
+    r"""<p>The tags to assign to the channel. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html\">Tagging AWS Elemental MediaTailor Resources</a>.</p>"""
     tier: NotRequired["aws_sdk_mediatailor.types.__string.__string"]
     """<p>The tier of the channel.</p>"""
     time_shift_configuration: NotRequired[

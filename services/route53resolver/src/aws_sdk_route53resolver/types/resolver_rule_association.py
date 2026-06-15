@@ -13,7 +13,7 @@ if TYPE_CHECKING:
 
 class ResolverRuleAssociation(TypedDict):
     id: NotRequired["aws_sdk_route53resolver.types.resource_id.ResourceId"]
-    """<p>The ID of the association between a Resolver rule and a VPC. Resolver assigns this value when you submit an <a href=\"https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_AssociateResolverRule.html\">AssociateResolverRule</a> request.</p>"""
+    r"""<p>The ID of the association between a Resolver rule and a VPC. Resolver assigns this value when you submit an <a href=\"https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_AssociateResolverRule.html\">AssociateResolverRule</a> request.</p>"""
     resolver_rule_id: NotRequired[
         "aws_sdk_route53resolver.types.resource_id.ResourceId"
     ]

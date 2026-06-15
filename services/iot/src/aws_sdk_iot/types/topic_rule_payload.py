@@ -17,7 +17,7 @@ if TYPE_CHECKING:
 
 class TopicRulePayload(TypedDict):
     sql: "aws_sdk_iot.types.sql.SQL"
-    """<p>The SQL statement used to query the topic. For more information, see <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/iot-sql-reference.html\">IoT SQL Reference</a> in the <i>IoT Developer Guide</i>.</p>"""
+    r"""<p>The SQL statement used to query the topic. For more information, see <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/iot-sql-reference.html\">IoT SQL Reference</a> in the <i>IoT Developer Guide</i>.</p>"""
     description: NotRequired["aws_sdk_iot.types.description.Description"]
     """<p>The description of the rule.</p>"""
     actions: "aws_sdk_iot.types.action_list.ActionList"

@@ -23,7 +23,7 @@ class ConformancePackEvaluationFilters(TypedDict):
     resource_type: NotRequired[
         "aws_sdk_config_service.types.string_with_char_limit256.StringWithCharLimit256"
     ]
-    """<p>Filters the results by the resource type (for example, <code>\"AWS::EC2::Instance\"</code>). </p>"""
+    r"""<p>Filters the results by the resource type (for example, <code>\"AWS::EC2::Instance\"</code>). </p>"""
     resource_ids: NotRequired[
         "aws_sdk_config_service.types.conformance_pack_compliance_resource_ids.ConformancePackComplianceResourceIds"
     ]

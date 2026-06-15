@@ -13,7 +13,7 @@ if TYPE_CHECKING:
 
 class IPRange(TypedDict):
     status: NotRequired["aws_sdk_redshift.types.string.String"]
-    """<p>The status of the IP range, for example, \"authorized\".</p>"""
+    r"""<p>The status of the IP range, for example, \"authorized\".</p>"""
     cidrip: NotRequired["aws_sdk_redshift.types.string.String"]
     """<p>The IP range in Classless Inter-Domain Routing (CIDR) notation.</p>"""
     tags: NotRequired["aws_sdk_redshift.types.tag_list.TagList"]

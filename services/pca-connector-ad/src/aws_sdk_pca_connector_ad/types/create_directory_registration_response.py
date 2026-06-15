@@ -12,7 +12,7 @@ class CreateDirectoryRegistrationResponse(TypedDict):
     directory_registration_arn: NotRequired[
         "aws_sdk_pca_connector_ad.types.directory_registration_arn.DirectoryRegistrationArn"
     ]
-    """<p>The Amazon Resource Name (ARN) that was returned when you called <a href=\"https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html\">CreateDirectoryRegistration</a>.</p>"""
+    r"""<p>The Amazon Resource Name (ARN) that was returned when you called <a href=\"https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html\">CreateDirectoryRegistration</a>.</p>"""
 
 
 # --- restJson1 ser/de ---

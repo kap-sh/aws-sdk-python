@@ -20,7 +20,7 @@ class SubmitFeedbackRequest(TypedDict):
     anomaly_instance_id: (
         "aws_sdk_codeguruprofiler.types.anomaly_instance_id.AnomalyInstanceId"
     )
-    """<p>The universally unique identifier (UUID) of the <a href=\"https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_AnomalyInstance.html\"> <code>AnomalyInstance</code> </a> object that is included in the analysis data.</p>"""
+    r"""<p>The universally unique identifier (UUID) of the <a href=\"https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_AnomalyInstance.html\"> <code>AnomalyInstance</code> </a> object that is included in the analysis data.</p>"""
     type: "aws_sdk_codeguruprofiler.types.feedback_type.FeedbackType"
     """<p> The feedback tpye. Thee are two valid values, <code>Positive</code> and <code>Negative</code>. </p>"""
     comment: NotRequired["str"]

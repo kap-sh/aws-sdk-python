@@ -145,7 +145,7 @@ class SimSpaceWeaverClient:
         *,
         config_overrides: Optional[SimSpaceWeaverClientConfig] = None,
     ) -> "aws_sdk_simspaceweaver.types.list_tags_for_resource_output.ListTagsForResourceOutput":
-        """<p>Lists all tags on a SimSpace Weaver resource.</p>
+        r"""<p>Lists all tags on a SimSpace Weaver resource.</p>
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
@@ -183,7 +183,7 @@ class SimSpaceWeaverClient:
         *,
         config_overrides: Optional[SimSpaceWeaverClientConfig] = None,
     ) -> "aws_sdk_simspaceweaver.types.tag_resource_output.TagResourceOutput":
-        """<p>Adds tags to a SimSpace Weaver resource. For more information about tags, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services resources</a> in the <i>Amazon Web Services General Reference</i>.</p>
+        r"""<p>Adds tags to a SimSpace Weaver resource. For more information about tags, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services resources</a> in the <i>Amazon Web Services General Reference</i>.</p>
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource that you want to add tags to. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
@@ -223,7 +223,7 @@ class SimSpaceWeaverClient:
         *,
         config_overrides: Optional[SimSpaceWeaverClientConfig] = None,
     ) -> "aws_sdk_simspaceweaver.types.untag_resource_output.UntagResourceOutput":
-        """<p>Removes tags from a SimSpace Weaver resource. For more information about tags, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services resources</a> in the <i>Amazon Web Services General Reference</i>.</p>
+        r"""<p>Removes tags from a SimSpace Weaver resource. For more information about tags, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services resources</a> in the <i>Amazon Web Services General Reference</i>.</p>
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource that you want to remove tags from. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>

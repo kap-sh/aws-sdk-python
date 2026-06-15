@@ -13,9 +13,9 @@ class CreateLicenseConversionTaskForResourceRequest(TypedDict):
     resource_arn: "aws_sdk_license_manager.types.arn.Arn"
     """<p>Amazon Resource Name (ARN) of the resource you are converting the license type for.</p>"""
     source_license_context: "aws_sdk_license_manager.types.license_conversion_context.LicenseConversionContext"
-    """<p>Information that identifies the license type you are converting from. For the structure of the source license, see <a href=\"https://docs.aws.amazon.com/license-manager/latest/userguide/conversion-procedures.html#conversion-cli\">Convert a license type using the CLI </a> in the <i>License Manager User Guide</i>.</p>"""
+    r"""<p>Information that identifies the license type you are converting from. For the structure of the source license, see <a href=\"https://docs.aws.amazon.com/license-manager/latest/userguide/conversion-procedures.html#conversion-cli\">Convert a license type using the CLI </a> in the <i>License Manager User Guide</i>.</p>"""
     destination_license_context: "aws_sdk_license_manager.types.license_conversion_context.LicenseConversionContext"
-    """<p>Information that identifies the license type you are converting to. For the structure of the destination license, see <a href=\"https://docs.aws.amazon.com/license-manager/latest/userguide/conversion-procedures.html#conversion-cli\">Convert a license type using the CLI </a> in the <i>License Manager User Guide</i>.</p>"""
+    r"""<p>Information that identifies the license type you are converting to. For the structure of the destination license, see <a href=\"https://docs.aws.amazon.com/license-manager/latest/userguide/conversion-procedures.html#conversion-cli\">Convert a license type using the CLI </a> in the <i>License Manager User Guide</i>.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

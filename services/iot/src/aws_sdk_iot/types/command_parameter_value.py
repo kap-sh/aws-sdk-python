@@ -16,9 +16,9 @@ if TYPE_CHECKING:
 
 class CommandParameterValue(TypedDict):
     s: NotRequired["aws_sdk_iot.types.string_parameter_value.StringParameterValue"]
-    """<p>An attribute of type String. For example:</p> <p> <code>\"S\": \"Hello\"</code> </p>"""
+    r"""<p>An attribute of type String. For example:</p> <p> <code>\"S\": \"Hello\"</code> </p>"""
     b: NotRequired["aws_sdk_iot.types.boolean_parameter_value.BooleanParameterValue"]
-    """<p>An attribute of type Boolean. For example:</p> <p> <code>\"BOOL\": true</code> </p>"""
+    r"""<p>An attribute of type Boolean. For example:</p> <p> <code>\"BOOL\": true</code> </p>"""
     i: NotRequired["aws_sdk_iot.types.integer_parameter_value.IntegerParameterValue"]
     """<p>An attribute of type Integer (Thirty-Two Bits).</p>"""
     l: NotRequired["aws_sdk_iot.types.long_parameter_value.LongParameterValue"]
@@ -26,7 +26,7 @@ class CommandParameterValue(TypedDict):
     d: NotRequired["aws_sdk_iot.types.double_parameter_value.DoubleParameterValue"]
     """<p>An attribute of type Double (Sixty-Four Bits).</p>"""
     bin: NotRequired["aws_sdk_iot.types.binary_parameter_value.BinaryParameterValue"]
-    """<p>An attribute of type Binary. For example:</p> <p> <code>\"B\": \"dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk\"</code> </p>"""
+    r"""<p>An attribute of type Binary. For example:</p> <p> <code>\"B\": \"dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk\"</code> </p>"""
     ul: NotRequired[
         "aws_sdk_iot.types.unsigned_long_parameter_value.UnsignedLongParameterValue"
     ]

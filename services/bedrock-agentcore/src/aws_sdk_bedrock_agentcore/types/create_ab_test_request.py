@@ -1,8 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#CreateABTestRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.ab_test_description
     import aws_sdk_bedrock_agentcore.types.ab_test_evaluation_config
@@ -13,16 +16,21 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.role_arn
     import aws_sdk_bedrock_agentcore.types.variant_list
 
+
 class CreateABTestRequest(TypedDict):
     name: "aws_sdk_bedrock_agentcore.types.ab_test_name.ABTestName"
     """<p>The name of the A/B test. Must be unique within your account.</p>"""
-    description: NotRequired["aws_sdk_bedrock_agentcore.types.ab_test_description.ABTestDescription"]
+    description: NotRequired[
+        "aws_sdk_bedrock_agentcore.types.ab_test_description.ABTestDescription"
+    ]
     """<p>The description of the A/B test.</p>"""
     gateway_arn: "aws_sdk_bedrock_agentcore.types.gateway_arn.GatewayArn"
     """<p>The Amazon Resource Name (ARN) of the gateway to use for traffic splitting.</p>"""
     variants: "aws_sdk_bedrock_agentcore.types.variant_list.VariantList"
     """<p>The list of variants for the A/B test. Must contain exactly two variants: a control (C) and a treatment (T1), each with a configuration bundle or target reference and a traffic weight.</p>"""
-    gateway_filter: NotRequired["aws_sdk_bedrock_agentcore.types.gateway_filter.GatewayFilter"]
+    gateway_filter: NotRequired[
+        "aws_sdk_bedrock_agentcore.types.gateway_filter.GatewayFilter"
+    ]
     """<p>Optional filter to restrict which gateway target paths are included in the A/B test.</p>"""
     evaluation_config: "aws_sdk_bedrock_agentcore.types.ab_test_evaluation_config.ABTestEvaluationConfig"
     """<p>The evaluation configuration specifying which online evaluation configurations to use for measuring variant performance.</p>"""
@@ -30,8 +38,11 @@ class CreateABTestRequest(TypedDict):
     """<p>The IAM role ARN that grants permissions for the A/B test to access gateway and evaluation resources.</p>"""
     enable_on_create: NotRequired["bool"]
     """<p>Whether to enable the A/B test immediately upon creation. If true, traffic splitting begins automatically.</p>"""
-    client_token: NotRequired["aws_sdk_bedrock_agentcore.types.client_token.ClientToken"]
+    client_token: NotRequired[
+        "aws_sdk_bedrock_agentcore.types.client_token.ClientToken"
+    ]
     """<p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, the service ignores the request, but does not return an error.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: CreateABTestRequest) -> dict:
@@ -41,12 +52,25 @@ def serialize_json(value: CreateABTestRequest) -> dict:
         out["description"] = value["description"]
     out["gatewayArn"] = value["gateway_arn"]
     import aws_sdk_bedrock_agentcore.types.variant_list
-    out["variants"] = aws_sdk_bedrock_agentcore.types.variant_list.serialize_json(value["variants"])
+
+    out["variants"] = aws_sdk_bedrock_agentcore.types.variant_list.serialize_json(
+        value["variants"]
+    )
     if "gateway_filter" in value:
         import aws_sdk_bedrock_agentcore.types.gateway_filter
-        out["gatewayFilter"] = aws_sdk_bedrock_agentcore.types.gateway_filter.serialize_json(value["gateway_filter"])
+
+        out["gatewayFilter"] = (
+            aws_sdk_bedrock_agentcore.types.gateway_filter.serialize_json(
+                value["gateway_filter"]
+            )
+        )
     import aws_sdk_bedrock_agentcore.types.ab_test_evaluation_config
-    out["evaluationConfig"] = aws_sdk_bedrock_agentcore.types.ab_test_evaluation_config.serialize_json(value["evaluation_config"])
+
+    out["evaluationConfig"] = (
+        aws_sdk_bedrock_agentcore.types.ab_test_evaluation_config.serialize_json(
+            value["evaluation_config"]
+        )
+    )
     out["roleArn"] = value["role_arn"]
     if "enable_on_create" in value:
         out["enableOnCreate"] = value["enable_on_create"]
@@ -69,15 +93,28 @@ def deserialize_json(data: dict) -> CreateABTestRequest:
         raise DeserializationError("CreateABTestRequest.gateway_arn required")
     if "variants" in data:
         import aws_sdk_bedrock_agentcore.types.variant_list
-        out["variants"] = aws_sdk_bedrock_agentcore.types.variant_list.deserialize_json(data["variants"])
+
+        out["variants"] = aws_sdk_bedrock_agentcore.types.variant_list.deserialize_json(
+            data["variants"]
+        )
     else:
         raise DeserializationError("CreateABTestRequest.variants required")
     if "gatewayFilter" in data:
         import aws_sdk_bedrock_agentcore.types.gateway_filter
-        out["gateway_filter"] = aws_sdk_bedrock_agentcore.types.gateway_filter.deserialize_json(data["gatewayFilter"])
+
+        out["gateway_filter"] = (
+            aws_sdk_bedrock_agentcore.types.gateway_filter.deserialize_json(
+                data["gatewayFilter"]
+            )
+        )
     if "evaluationConfig" in data:
         import aws_sdk_bedrock_agentcore.types.ab_test_evaluation_config
-        out["evaluation_config"] = aws_sdk_bedrock_agentcore.types.ab_test_evaluation_config.deserialize_json(data["evaluationConfig"])
+
+        out["evaluation_config"] = (
+            aws_sdk_bedrock_agentcore.types.ab_test_evaluation_config.deserialize_json(
+                data["evaluationConfig"]
+            )
+        )
     else:
         raise DeserializationError("CreateABTestRequest.evaluation_config required")
     if "roleArn" in data:

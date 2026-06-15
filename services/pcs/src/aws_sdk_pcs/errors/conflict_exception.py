@@ -10,7 +10,7 @@ class ConflictException_(TypedDict):
     resource_id: "str"
     """<p> The unique identifier of the resource that caused the conflict exception. </p>"""
     resource_type: "str"
-    """<p> The type or category of the resource that caused the conflict exception.\" </p>"""
+    r"""<p> The type or category of the resource that caused the conflict exception.\" </p>"""
 
 
 # --- awsJson1_0 ser/de ---

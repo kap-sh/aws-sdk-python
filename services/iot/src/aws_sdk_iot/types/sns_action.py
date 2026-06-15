@@ -17,7 +17,7 @@ class SnsAction(TypedDict):
     role_arn: "aws_sdk_iot.types.aws_arn.AwsArn"
     """<p>The ARN of the IAM role that grants access.</p>"""
     message_format: NotRequired["aws_sdk_iot.types.message_format.MessageFormat"]
-    """<p>(Optional) The message format of the message to publish. Accepted values are \"JSON\" and \"RAW\". The default value of the attribute is \"RAW\". SNS uses this setting to determine if the payload should be parsed and relevant platform-specific bits of the payload should be extracted. To read more about SNS message formats, see <a href=\"https://docs.aws.amazon.com/sns/latest/dg/json-formats.html\">https://docs.aws.amazon.com/sns/latest/dg/json-formats.html</a> refer to their official documentation.</p>"""
+    r"""<p>(Optional) The message format of the message to publish. Accepted values are \"JSON\" and \"RAW\". The default value of the attribute is \"RAW\". SNS uses this setting to determine if the payload should be parsed and relevant platform-specific bits of the payload should be extracted. To read more about SNS message formats, see <a href=\"https://docs.aws.amazon.com/sns/latest/dg/json-formats.html\">https://docs.aws.amazon.com/sns/latest/dg/json-formats.html</a> refer to their official documentation.</p>"""
 
 
 # --- restJson1 ser/de ---

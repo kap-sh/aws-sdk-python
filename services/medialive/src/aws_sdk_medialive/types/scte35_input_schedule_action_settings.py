@@ -13,7 +13,7 @@ class Scte35InputScheduleActionSettings(TypedDict):
     input_attachment_name_reference: NotRequired[
         "aws_sdk_medialive.types.__string.__string"
     ]
-    """In fixed mode, enter the name of the input attachment that you want to use as a SCTE-35 input. (Don't enter the ID of the input.)\""""
+    r"""In fixed mode, enter the name of the input attachment that you want to use as a SCTE-35 input. (Don't enter the ID of the input.)\""""
     mode: NotRequired["aws_sdk_medialive.types.scte35_input_mode.Scte35InputMode"]
     """Whether the SCTE-35 input should be the active input or a fixed input."""
 

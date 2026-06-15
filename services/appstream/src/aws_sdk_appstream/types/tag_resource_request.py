@@ -13,7 +13,7 @@ class TagResourceRequest(TypedDict):
     resource_arn: NotRequired["aws_sdk_appstream.types.arn.Arn"]
     """<p>The Amazon Resource Name (ARN) of the resource.</p>"""
     tags: NotRequired["aws_sdk_appstream.types.tags.Tags"]
-    """<p>The tags to associate. A tag is a key-value pair, and the value is optional. For example, Environment=Test. If you do not specify a value, Environment=. </p> <p>If you do not specify a value, the value is set to an empty string.</p> <p>Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following special characters: </p> <p>_ . : / = + \ - @</p>"""
+    r"""<p>The tags to associate. A tag is a key-value pair, and the value is optional. For example, Environment=Test. If you do not specify a value, Environment=. </p> <p>If you do not specify a value, the value is set to an empty string.</p> <p>Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following special characters: </p> <p>_ . : / = + \ - @</p>"""
 
 
 # --- awsJson1_1 ser/de ---

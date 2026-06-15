@@ -15,7 +15,7 @@ class CreateClusterResult(TypedDict):
     job_list_entries: NotRequired[
         "aws_sdk_snowball.types.job_list_entry_list.JobListEntryList"
     ]
-    """<p>List of jobs created for this cluster. For syntax, see <a href=\"http://amazonaws.com/snowball/latest/api-reference/API_ListJobs.html#API_ListJobs_ResponseSyntax\">ListJobsResult$JobListEntries</a> in this guide.</p>"""
+    r"""<p>List of jobs created for this cluster. For syntax, see <a href=\"http://amazonaws.com/snowball/latest/api-reference/API_ListJobs.html#API_ListJobs_ResponseSyntax\">ListJobsResult$JobListEntries</a> in this guide.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

@@ -333,7 +333,7 @@ class AsyncApiGatewayV2Client:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = AsyncApiGatewayV2ClientConfig(
+        self._config = AsyncApiGatewayV2ClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -353,7 +353,7 @@ class AsyncApiGatewayV2Client:
         overrides: AsyncApiGatewayV2ClientConfig = config_overrides or {}
         interceptors_: list[AsyncInterceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             aretry(),
         ]
@@ -361,16 +361,16 @@ class AsyncApiGatewayV2Client:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            region=overrides.get("region", self.config.get("region")),
+            region=overrides.get("region", self._config.get("region")),
             use_dual_stack=overrides.get(
-                "use_dual_stack", self.config.get("use_dual_stack")
+                "use_dual_stack", self._config.get("use_dual_stack")
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -412,7 +412,7 @@ class AsyncApiGatewayV2Client:
             "aws_sdk_apigatewayv2.types.string_with_length_between1_and64.StringWithLengthBetween1And64"
         ] = None,
     ) -> "aws_sdk_apigatewayv2.types.create_api_response.CreateApiResponse":
-        """<p>Creates an Api resource.</p>
+        r"""<p>Creates an Api resource.</p>
 
         Args:
             api_key_selection_expression: <p>An API key selection expression. Supported only for WebSocket APIs. See <a href=\"https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions\">API Key Selection Expressions</a>.</p>
@@ -564,7 +564,7 @@ class AsyncApiGatewayV2Client:
     ) -> (
         "aws_sdk_apigatewayv2.types.create_authorizer_response.CreateAuthorizerResponse"
     ):
-        """<p>Creates an Authorizer for an API.</p>
+        r"""<p>Creates an Authorizer for an API.</p>
 
         Args:
             api_id: <p>The API identifier.</p>
@@ -792,7 +792,7 @@ class AsyncApiGatewayV2Client:
             "aws_sdk_apigatewayv2.types.tls_config_input.TlsConfigInput"
         ] = None,
     ) -> "aws_sdk_apigatewayv2.types.create_integration_result.CreateIntegrationResult":
-        """<p>Creates an Integration.</p>
+        r"""<p>Creates an Integration.</p>
 
         Args:
             api_id: <p>The API identifier.</p>
@@ -956,7 +956,7 @@ class AsyncApiGatewayV2Client:
             "aws_sdk_apigatewayv2.types.string_with_length_between0_and1024.StringWithLengthBetween0And1024"
         ] = None,
     ) -> "aws_sdk_apigatewayv2.types.create_model_response.CreateModelResponse":
-        """<p>Creates a Model for an API.</p>
+        r"""<p>Creates a Model for an API.</p>
 
         Args:
             api_id: <p>The API identifier.</p>
@@ -2462,7 +2462,7 @@ class AsyncApiGatewayV2Client:
         ] = None,
         stage_name: Optional["aws_sdk_apigatewayv2.types.__string.__string"] = None,
     ) -> "aws_sdk_apigatewayv2.types.export_api_response.ExportApiResponse":
-        """export_api
+        r"""export_api
 
         Args:
             api_id: <p>The API identifier.</p>
@@ -3899,7 +3899,7 @@ class AsyncApiGatewayV2Client:
             "aws_sdk_apigatewayv2.types.__boolean.__boolean"
         ] = None,
     ) -> "aws_sdk_apigatewayv2.types.import_api_response.ImportApiResponse":
-        """<p>Imports an API.</p>
+        r"""<p>Imports an API.</p>
 
         Args:
             basepath: <p>Specifies how to interpret the base path of the API during import. Valid values are ignore, prepend, and split. The default value is ignore. To learn more, see <a href=\"https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api-basePath.html\">Set the OpenAPI basePath Property</a>. Supported only for HTTP APIs.</p>
@@ -4398,7 +4398,7 @@ class AsyncApiGatewayV2Client:
             "aws_sdk_apigatewayv2.types.__boolean.__boolean"
         ] = None,
     ) -> "aws_sdk_apigatewayv2.types.reimport_api_response.ReimportApiResponse":
-        """<p>Puts an Api resource.</p>
+        r"""<p>Puts an Api resource.</p>
 
         Args:
             api_id: <p>The API identifier.</p>
@@ -4596,7 +4596,7 @@ class AsyncApiGatewayV2Client:
             "aws_sdk_apigatewayv2.types.string_with_length_between1_and64.StringWithLengthBetween1And64"
         ] = None,
     ) -> "aws_sdk_apigatewayv2.types.update_api_response.UpdateApiResponse":
-        """<p>Updates an Api resource.</p>
+        r"""<p>Updates an Api resource.</p>
 
         Args:
             api_id: <p>The API identifier.</p>
@@ -4759,7 +4759,7 @@ class AsyncApiGatewayV2Client:
     ) -> (
         "aws_sdk_apigatewayv2.types.update_authorizer_response.UpdateAuthorizerResponse"
     ):
-        """<p>Updates an Authorizer.</p>
+        r"""<p>Updates an Authorizer.</p>
 
         Args:
             api_id: <p>The API identifier.</p>
@@ -4988,7 +4988,7 @@ class AsyncApiGatewayV2Client:
             "aws_sdk_apigatewayv2.types.tls_config_input.TlsConfigInput"
         ] = None,
     ) -> "aws_sdk_apigatewayv2.types.update_integration_result.UpdateIntegrationResult":
-        """<p>Updates an Integration.</p>
+        r"""<p>Updates an Integration.</p>
 
         Args:
             api_id: <p>The API identifier.</p>
@@ -5166,7 +5166,7 @@ class AsyncApiGatewayV2Client:
             "aws_sdk_apigatewayv2.types.string_with_length_between0_and32_k.StringWithLengthBetween0And32K"
         ] = None,
     ) -> "aws_sdk_apigatewayv2.types.update_model_response.UpdateModelResponse":
-        """<p>Updates a Model.</p>
+        r"""<p>Updates a Model.</p>
 
         Args:
             api_id: <p>The API identifier.</p>

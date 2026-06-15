@@ -24,7 +24,7 @@ class ClusterSummary(TypedDict):
     training_plan_arns: NotRequired[
         "aws_sdk_sagemaker.types.training_plan_arns.TrainingPlanArns"
     ]
-    """<p>A list of Amazon Resource Names (ARNs) of the training plans associated with this cluster.</p> <p>For more information about how to reserve GPU capacity for your SageMaker HyperPod clusters using Amazon SageMaker Training Plan, see <code> <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingPlan.html\">CreateTrainingPlan</a> </code>.</p>"""
+    r"""<p>A list of Amazon Resource Names (ARNs) of the training plans associated with this cluster.</p> <p>For more information about how to reserve GPU capacity for your SageMaker HyperPod clusters using Amazon SageMaker Training Plan, see <code> <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingPlan.html\">CreateTrainingPlan</a> </code>.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

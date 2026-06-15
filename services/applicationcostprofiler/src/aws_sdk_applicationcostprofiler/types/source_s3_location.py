@@ -20,7 +20,7 @@ class SourceS3Location(TypedDict):
     region: NotRequired[
         "aws_sdk_applicationcostprofiler.types.s3_bucket_region.S3BucketRegion"
     ]
-    """<p>Region of the bucket. Only required for Regions that are disabled by default. For more infomration about Regions that are disabled by default, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/rande-manage.html#rande-manage-enable\"> Enabling a Region</a> in the <i>AWS General Reference guide</i>.</p>"""
+    r"""<p>Region of the bucket. Only required for Regions that are disabled by default. For more infomration about Regions that are disabled by default, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/rande-manage.html#rande-manage-enable\"> Enabling a Region</a> in the <i>AWS General Reference guide</i>.</p>"""
 
 
 # --- restJson1 ser/de ---

@@ -338,7 +338,7 @@ class DirectoryServiceClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = DirectoryServiceClientConfig(
+        self._config = DirectoryServiceClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -358,7 +358,7 @@ class DirectoryServiceClient:
         overrides: DirectoryServiceClientConfig = config_overrides or {}
         interceptors_: list[Interceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             retry(),
         ]
@@ -366,16 +366,16 @@ class DirectoryServiceClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            region=overrides.get("region", self.config.get("region")),
+            region=overrides.get("region", self._config.get("region")),
             use_dual_stack=overrides.get(
-                "use_dual_stack", self.config.get("use_dual_stack")
+                "use_dual_stack", self._config.get("use_dual_stack")
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -427,7 +427,7 @@ class DirectoryServiceClient:
             "aws_sdk_directory_service.types.update_security_group_for_directory_controllers.UpdateSecurityGroupForDirectoryControllers"
         ] = None,
     ) -> "aws_sdk_directory_service.types.add_ip_routes_result.AddIpRoutesResult":
-        """<p>If the DNS server for your self-managed domain uses a publicly addressable IP address, you must add a CIDR address block to correctly route traffic to and from your Microsoft AD on Amazon Web Services. <i>AddIpRoutes</i> adds this address block. You can also use <i>AddIpRoutes</i> to facilitate routing traffic that uses public IP ranges from your Microsoft AD on Amazon Web Services to a peer VPC. </p> <p>Before you call <i>AddIpRoutes</i>, ensure that all of the required permissions have been explicitly granted through a policy. For details about what permissions are required to run the <i>AddIpRoutes</i> operation, see <a href=\"http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html\">Directory Service API Permissions: Actions, Resources, and Conditions Reference</a>.</p>
+        r"""<p>If the DNS server for your self-managed domain uses a publicly addressable IP address, you must add a CIDR address block to correctly route traffic to and from your Microsoft AD on Amazon Web Services. <i>AddIpRoutes</i> adds this address block. You can also use <i>AddIpRoutes</i> to facilitate routing traffic that uses public IP ranges from your Microsoft AD on Amazon Web Services to a peer VPC. </p> <p>Before you call <i>AddIpRoutes</i>, ensure that all of the required permissions have been explicitly granted through a policy. For details about what permissions are required to run the <i>AddIpRoutes</i> operation, see <a href=\"http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html\">Directory Service API Permissions: Actions, Resources, and Conditions Reference</a>.</p>
 
         Args:
             directory_id: <p>Identifier (ID) of the directory to which to add the address block.</p>
@@ -624,7 +624,7 @@ class DirectoryServiceClient:
             "aws_sdk_directory_service.types.network_type.NetworkType"
         ] = None,
     ) -> "aws_sdk_directory_service.types.connect_directory_result.ConnectDirectoryResult":
-        """<p>Creates an AD Connector to connect to a self-managed directory.</p> <p>Before you call <code>ConnectDirectory</code>, ensure that all of the required permissions have been explicitly granted through a policy. For details about what permissions are required to run the <code>ConnectDirectory</code> operation, see <a href=\"http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html\">Directory Service API Permissions: Actions, Resources, and Conditions Reference</a>.</p>
+        r"""<p>Creates an AD Connector to connect to a self-managed directory.</p> <p>Before you call <code>ConnectDirectory</code>, ensure that all of the required permissions have been explicitly granted through a policy. For details about what permissions are required to run the <code>ConnectDirectory</code> operation, see <a href=\"http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html\">Directory Service API Permissions: Actions, Resources, and Conditions Reference</a>.</p>
 
         Args:
             name: <p>The fully qualified name of your self-managed directory, such as <code>corp.example.com</code>.</p>
@@ -869,7 +869,7 @@ class DirectoryServiceClient:
     ) -> (
         "aws_sdk_directory_service.types.create_directory_result.CreateDirectoryResult"
     ):
-        """<p>Creates a Simple AD directory. For more information, see <a href=\"https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_simple_ad.html\">Simple Active Directory</a> in the <i>Directory Service Admin Guide</i>.</p> <p>Before you call <code>CreateDirectory</code>, ensure that all of the required permissions have been explicitly granted through a policy. For details about what permissions are required to run the <code>CreateDirectory</code> operation, see <a href=\"http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html\">Directory Service API Permissions: Actions, Resources, and Conditions Reference</a>.</p>
+        r"""<p>Creates a Simple AD directory. For more information, see <a href=\"https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_simple_ad.html\">Simple Active Directory</a> in the <i>Directory Service Admin Guide</i>.</p> <p>Before you call <code>CreateDirectory</code>, ensure that all of the required permissions have been explicitly granted through a policy. For details about what permissions are required to run the <code>CreateDirectory</code> operation, see <a href=\"http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html\">Directory Service API Permissions: Actions, Resources, and Conditions Reference</a>.</p>
 
         Args:
             name: <p>The fully qualified name for the directory, such as <code>corp.example.com</code>.</p>
@@ -933,7 +933,7 @@ class DirectoryServiceClient:
         config_overrides: Optional[DirectoryServiceClientConfig] = None,
         tags: Optional["aws_sdk_directory_service.types.tags.Tags"] = None,
     ) -> "aws_sdk_directory_service.types.create_hybrid_ad_result.CreateHybridADResult":
-        """<p>Creates a hybrid directory that connects your self-managed Active Directory (AD) infrastructure and Amazon Web Services.</p> <p>You must have a successful directory assessment using <a>StartADAssessment</a> to validate your environment compatibility before you use this operation.</p> <p>Updates are applied asynchronously. Use <a>DescribeDirectories</a> to monitor the progress of directory creation.</p>
+        r"""<p>Creates a hybrid directory that connects your self-managed Active Directory (AD) infrastructure and Amazon Web Services.</p> <p>You must have a successful directory assessment using <a>StartADAssessment</a> to validate your environment compatibility before you use this operation.</p> <p>Updates are applied asynchronously. Use <a>DescribeDirectories</a> to monitor the progress of directory creation.</p>
 
         Args:
             secret_arn: <p>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that contains the credentials for the service account used to join hybrid domain controllers to your self-managed AD domain. This secret is used once and not stored.</p> <p>The secret must contain key-value pairs with keys matching <code>customerAdAdminDomainUsername</code> and <code>customerAdAdminDomainPassword</code>. For example: <code>{\"customerAdAdminDomainUsername\":\"carlos_salazar\",\"customerAdAdminDomainPassword\":\"ExamplePassword123!\"}</code>.</p>
@@ -1030,7 +1030,7 @@ class DirectoryServiceClient:
             "aws_sdk_directory_service.types.network_type.NetworkType"
         ] = None,
     ) -> "aws_sdk_directory_service.types.create_microsoft_ad_result.CreateMicrosoftADResult":
-        """<p>Creates a Microsoft AD directory in the Amazon Web Services Cloud. For more information, see <a href=\"https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_microsoft_ad.html\">Managed Microsoft AD</a> in the <i>Directory Service Admin Guide</i>.</p> <p>Before you call <i>CreateMicrosoftAD</i>, ensure that all of the required permissions have been explicitly granted through a policy. For details about what permissions are required to run the <i>CreateMicrosoftAD</i> operation, see <a href=\"http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html\">Directory Service API Permissions: Actions, Resources, and Conditions Reference</a>.</p>
+        r"""<p>Creates a Microsoft AD directory in the Amazon Web Services Cloud. For more information, see <a href=\"https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_microsoft_ad.html\">Managed Microsoft AD</a> in the <i>Directory Service Admin Guide</i>.</p> <p>Before you call <i>CreateMicrosoftAD</i>, ensure that all of the required permissions have been explicitly granted through a policy. For details about what permissions are required to run the <i>CreateMicrosoftAD</i> operation, see <a href=\"http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html\">Directory Service API Permissions: Actions, Resources, and Conditions Reference</a>.</p>
 
         Args:
             name: <p>The fully qualified domain name for the Managed Microsoft AD directory, such as <code>corp.example.com</code>. This name will resolve inside your VPC only. It does not need to be publicly resolvable.</p>
@@ -1304,7 +1304,7 @@ class DirectoryServiceClient:
     ) -> (
         "aws_sdk_directory_service.types.delete_directory_result.DeleteDirectoryResult"
     ):
-        """<p>Deletes an Directory Service directory.</p> <p>Before you call <code>DeleteDirectory</code>, ensure that all of the required permissions have been explicitly granted through a policy. For details about what permissions are required to run the <code>DeleteDirectory</code> operation, see <a href=\"http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html\">Directory Service API Permissions: Actions, Resources, and Conditions Reference</a>.</p>
+        r"""<p>Deletes an Directory Service directory.</p> <p>Before you call <code>DeleteDirectory</code>, ensure that all of the required permissions have been explicitly granted through a policy. For details about what permissions are required to run the <code>DeleteDirectory</code> operation, see <a href=\"http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html\">Directory Service API Permissions: Actions, Resources, and Conditions Reference</a>.</p>
 
         Args:
             directory_id: <p>The identifier of the directory to delete.</p>
@@ -2679,7 +2679,7 @@ class DirectoryServiceClient:
         *,
         config_overrides: Optional[DirectoryServiceClientConfig] = None,
     ) -> "aws_sdk_directory_service.types.disable_client_authentication_result.DisableClientAuthenticationResult":
-        """<p>Disables alternative client authentication methods for the specified directory. </p>
+        r"""<p>Disables alternative client authentication methods for the specified directory. </p>
 
         Args:
             directory_id: <p>The identifier of the directory </p>
@@ -2718,7 +2718,7 @@ class DirectoryServiceClient:
         *,
         config_overrides: Optional[DirectoryServiceClientConfig] = None,
     ) -> "aws_sdk_directory_service.types.disable_directory_data_access_result.DisableDirectoryDataAccessResult":
-        """<p>Deactivates access to directory data via the Directory Service Data API for the specified directory. For more information, see <a href=\"https://docs.aws.amazon.com/directoryservicedata/latest/DirectoryServiceDataAPIReference/Welcome.html\">Directory Service Data API Reference</a>.</p>
+        r"""<p>Deactivates access to directory data via the Directory Service Data API for the specified directory. For more information, see <a href=\"https://docs.aws.amazon.com/directoryservicedata/latest/DirectoryServiceDataAPIReference/Welcome.html\">Directory Service Data API Reference</a>.</p>
 
         Args:
             directory_id: <p>The directory identifier.</p>
@@ -2973,7 +2973,7 @@ class DirectoryServiceClient:
         *,
         config_overrides: Optional[DirectoryServiceClientConfig] = None,
     ) -> "aws_sdk_directory_service.types.enable_directory_data_access_result.EnableDirectoryDataAccessResult":
-        """<p>Enables access to directory data via the Directory Service Data API for the specified directory. For more information, see <a href=\"https://docs.aws.amazon.com/directoryservicedata/latest/DirectoryServiceDataAPIReference/Welcome.html\">Directory Service Data API Reference</a>.</p>
+        r"""<p>Enables access to directory data via the Directory Service Data API for the specified directory. For more information, see <a href=\"https://docs.aws.amazon.com/directoryservicedata/latest/DirectoryServiceDataAPIReference/Welcome.html\">Directory Service Data API Reference</a>.</p>
 
         Args:
             directory_id: <p>The directory identifier.</p>
@@ -3969,7 +3969,7 @@ class DirectoryServiceClient:
         *,
         config_overrides: Optional[DirectoryServiceClientConfig] = None,
     ) -> "aws_sdk_directory_service.types.reset_user_password_result.ResetUserPasswordResult":
-        """<p>Resets the password for any user in your Managed Microsoft AD or Simple AD directory. Disabled users will become enabled and can be authenticated following the API call.</p> <p>You can reset the password for any user in your directory with the following exceptions:</p> <ul> <li> <p>For Simple AD, you cannot reset the password for any user that is a member of either the <b>Domain Admins</b> or <b>Enterprise Admins</b> group except for the administrator user.</p> </li> <li> <p>For Managed Microsoft AD, you can only reset the password for a user that is in an OU based off of the NetBIOS name that you typed when you created your directory. For example, you cannot reset the password for a user in the <b>Amazon Web Services Reserved</b> OU. For more information about the OU structure for an Managed Microsoft AD directory, see <a href=\"https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_getting_started_what_gets_created.html\">What Gets Created</a> in the <i>Directory Service Administration Guide</i>.</p> </li> </ul>
+        r"""<p>Resets the password for any user in your Managed Microsoft AD or Simple AD directory. Disabled users will become enabled and can be authenticated following the API call.</p> <p>You can reset the password for any user in your directory with the following exceptions:</p> <ul> <li> <p>For Simple AD, you cannot reset the password for any user that is a member of either the <b>Domain Admins</b> or <b>Enterprise Admins</b> group except for the administrator user.</p> </li> <li> <p>For Managed Microsoft AD, you can only reset the password for a user that is in an OU based off of the NetBIOS name that you typed when you created your directory. For example, you cannot reset the password for a user in the <b>Amazon Web Services Reserved</b> OU. For more information about the OU structure for an Managed Microsoft AD directory, see <a href=\"https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_getting_started_what_gets_created.html\">What Gets Created</a> in the <i>Directory Service Administration Guide</i>.</p> </li> </ul>
 
         Args:
             directory_id: <p>Identifier of the Managed Microsoft AD or Simple AD directory in which the user resides.</p>
@@ -4149,7 +4149,7 @@ class DirectoryServiceClient:
         *,
         config_overrides: Optional[DirectoryServiceClientConfig] = None,
     ) -> "aws_sdk_directory_service.types.start_schema_extension_result.StartSchemaExtensionResult":
-        """<p>Applies a schema extension to a Microsoft AD directory.</p>
+        r"""<p>Applies a schema extension to a Microsoft AD directory.</p>
 
         Args:
             directory_id: <p>The identifier of the directory for which the schema extension will be applied to.</p>

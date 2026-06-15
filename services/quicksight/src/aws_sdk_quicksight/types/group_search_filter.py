@@ -12,9 +12,9 @@ if TYPE_CHECKING:
 
 class GroupSearchFilter(TypedDict):
     operator: "aws_sdk_quicksight.types.group_filter_operator.GroupFilterOperator"
-    """<p>The comparison operator that you want to use as a filter, for example <code>\"Operator\": \"StartsWith\"</code>. Currently, the only supported operator is <code>StartsWith</code>.</p>"""
+    r"""<p>The comparison operator that you want to use as a filter, for example <code>\"Operator\": \"StartsWith\"</code>. Currently, the only supported operator is <code>StartsWith</code>.</p>"""
     name: "aws_sdk_quicksight.types.group_filter_attribute.GroupFilterAttribute"
-    """<p>The name of the value that you want to use as a filter, for example <code>\"Name\": \"GROUP_NAME\"</code>. Currently, the only supported name is <code>GROUP_NAME</code>.</p>"""
+    r"""<p>The name of the value that you want to use as a filter, for example <code>\"Name\": \"GROUP_NAME\"</code>. Currently, the only supported name is <code>GROUP_NAME</code>.</p>"""
     value: "aws_sdk_quicksight.types.string.String"
     """<p>The value of the named item, in this case <code>GROUP_NAME</code>, that you want to use as a filter.</p>"""
 

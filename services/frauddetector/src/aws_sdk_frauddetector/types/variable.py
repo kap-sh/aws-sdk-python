@@ -16,7 +16,7 @@ class Variable(TypedDict):
     name: NotRequired["aws_sdk_frauddetector.types.string.string"]
     """<p>The name of the variable.</p>"""
     data_type: NotRequired["aws_sdk_frauddetector.types.data_type.DataType"]
-    """<p>The data type of the variable. For more information see <a href=\"https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types\">Variable types</a>.</p>"""
+    r"""<p>The data type of the variable. For more information see <a href=\"https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types\">Variable types</a>.</p>"""
     data_source: NotRequired["aws_sdk_frauddetector.types.data_source.DataSource"]
     """<p>The data source of the variable.</p>"""
     default_value: NotRequired["aws_sdk_frauddetector.types.string.string"]

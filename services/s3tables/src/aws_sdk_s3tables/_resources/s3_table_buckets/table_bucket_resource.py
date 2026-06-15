@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_s3tables._auth._signers
@@ -69,7 +71,7 @@ class TableBucketResource:
     ) -> (
         "aws_sdk_s3tables.types.create_table_bucket_response.CreateTableBucketResponse"
     ):
-        """<p>Creates a table bucket. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-create.html\">Creating a table bucket</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p> <dl> <dt>Permissions</dt> <dd> <ul> <li> <p>You must have the <code>s3tables:CreateTableBucket</code> permission to use this operation. </p> </li> <li> <p>If you use this operation with the optional <code>encryptionConfiguration</code> parameter you must have the <code>s3tables:PutTableBucketEncryption</code> permission.</p> </li> <li> <p>If you use this operation with the <code>storageClassConfiguration</code> request parameter, you must have the <code>s3tables:PutTableBucketStorageClass</code> permission.</p> </li> <li> <p>To create a table bucket with tags, you must have the <code>s3tables:TagResource</code> permission in addition to <code>s3tables:CreateTableBucket</code> permission.</p> </li> </ul> </dd> </dl>
+        r"""<p>Creates a table bucket. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-create.html\">Creating a table bucket</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p> <dl> <dt>Permissions</dt> <dd> <ul> <li> <p>You must have the <code>s3tables:CreateTableBucket</code> permission to use this operation. </p> </li> <li> <p>If you use this operation with the optional <code>encryptionConfiguration</code> parameter you must have the <code>s3tables:PutTableBucketEncryption</code> permission.</p> </li> <li> <p>If you use this operation with the <code>storageClassConfiguration</code> request parameter, you must have the <code>s3tables:PutTableBucketStorageClass</code> permission.</p> </li> <li> <p>To create a table bucket with tags, you must have the <code>s3tables:TagResource</code> permission in addition to <code>s3tables:CreateTableBucket</code> permission.</p> </li> </ul> </dd> </dl>
 
         Args:
             name: <p>The name for the table bucket.</p>
@@ -115,7 +117,7 @@ class TableBucketResource:
         *,
         config_overrides: Optional[S3TablesClientConfig] = None,
     ) -> None:
-        """<p>Deletes a table bucket. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-delete.html\">Deleting a table bucket</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3tables:DeleteTableBucket</code> permission to use this operation. </p> </dd> </dl>
+        r"""<p>Deletes a table bucket. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-delete.html\">Deleting a table bucket</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3tables:DeleteTableBucket</code> permission to use this operation. </p> </dd> </dl>
 
         Args:
             table_bucket_arn: <p>The Amazon Resource Name (ARN) of the table bucket.</p>
@@ -185,7 +187,7 @@ class TableBucketResource:
         *,
         config_overrides: Optional[S3TablesClientConfig] = None,
     ) -> "aws_sdk_s3tables.types.get_table_bucket_response.GetTableBucketResponse":
-        """<p>Gets details on a table bucket. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-details.html\">Viewing details about an Amazon S3 table bucket</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3tables:GetTableBucket</code> permission to use this operation. </p> </dd> </dl>
+        r"""<p>Gets details on a table bucket. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-details.html\">Viewing details about an Amazon S3 table bucket</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3tables:GetTableBucket</code> permission to use this operation. </p> </dd> </dl>
 
         Args:
             table_bucket_arn: <p>The Amazon Resource Name (ARN) of the table bucket.</p>
@@ -222,7 +224,7 @@ class TableBucketResource:
         *,
         config_overrides: Optional[S3TablesClientConfig] = None,
     ) -> "aws_sdk_s3tables.types.get_table_bucket_maintenance_configuration_response.GetTableBucketMaintenanceConfigurationResponse":
-        """<p>Gets details about a maintenance configuration for a given table bucket. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-table-buckets-maintenance.html\">Amazon S3 table bucket maintenance</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3tables:GetTableBucketMaintenanceConfiguration</code> permission to use this operation. </p> </dd> </dl>
+        r"""<p>Gets details about a maintenance configuration for a given table bucket. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-table-buckets-maintenance.html\">Amazon S3 table bucket maintenance</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3tables:GetTableBucketMaintenanceConfiguration</code> permission to use this operation. </p> </dd> </dl>
 
         Args:
             table_bucket_arn: <p>The Amazon Resource Name (ARN) of the table bucket associated with the maintenance configuration.</p>
@@ -342,7 +344,7 @@ class TableBucketResource:
             "aws_sdk_s3tables.types.table_bucket_type.TableBucketType"
         ] = None,
     ) -> "aws_sdk_s3tables.types.list_table_buckets_response.ListTableBucketsResponse":
-        """<p>Lists table buckets for your account. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets.html\">S3 Table buckets</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3tables:ListTableBuckets</code> permission to use this operation. </p> </dd> </dl>
+        r"""<p>Lists table buckets for your account. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets.html\">S3 Table buckets</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3tables:ListTableBuckets</code> permission to use this operation. </p> </dd> </dl>
 
         Args:
             prefix: <p>The prefix of the table buckets.</p>
@@ -391,7 +393,7 @@ class TableBucketResource:
         *,
         config_overrides: Optional[S3TablesClientConfig] = None,
     ) -> None:
-        """<p>Creates a new maintenance configuration or replaces an existing maintenance configuration for a table bucket. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-table-buckets-maintenance.html\">Amazon S3 table bucket maintenance</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3tables:PutTableBucketMaintenanceConfiguration</code> permission to use this operation. </p> </dd> </dl>
+        r"""<p>Creates a new maintenance configuration or replaces an existing maintenance configuration for a table bucket. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-table-buckets-maintenance.html\">Amazon S3 table bucket maintenance</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3tables:PutTableBucketMaintenanceConfiguration</code> permission to use this operation. </p> </dd> </dl>
 
         Args:
             table_bucket_arn: <p>The Amazon Resource Name (ARN) of the table bucket associated with the maintenance configuration.</p>
@@ -517,7 +519,7 @@ class AsyncTableBucketResource:
     ) -> (
         "aws_sdk_s3tables.types.create_table_bucket_response.CreateTableBucketResponse"
     ):
-        """<p>Creates a table bucket. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-create.html\">Creating a table bucket</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p> <dl> <dt>Permissions</dt> <dd> <ul> <li> <p>You must have the <code>s3tables:CreateTableBucket</code> permission to use this operation. </p> </li> <li> <p>If you use this operation with the optional <code>encryptionConfiguration</code> parameter you must have the <code>s3tables:PutTableBucketEncryption</code> permission.</p> </li> <li> <p>If you use this operation with the <code>storageClassConfiguration</code> request parameter, you must have the <code>s3tables:PutTableBucketStorageClass</code> permission.</p> </li> <li> <p>To create a table bucket with tags, you must have the <code>s3tables:TagResource</code> permission in addition to <code>s3tables:CreateTableBucket</code> permission.</p> </li> </ul> </dd> </dl>
+        r"""<p>Creates a table bucket. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-create.html\">Creating a table bucket</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p> <dl> <dt>Permissions</dt> <dd> <ul> <li> <p>You must have the <code>s3tables:CreateTableBucket</code> permission to use this operation. </p> </li> <li> <p>If you use this operation with the optional <code>encryptionConfiguration</code> parameter you must have the <code>s3tables:PutTableBucketEncryption</code> permission.</p> </li> <li> <p>If you use this operation with the <code>storageClassConfiguration</code> request parameter, you must have the <code>s3tables:PutTableBucketStorageClass</code> permission.</p> </li> <li> <p>To create a table bucket with tags, you must have the <code>s3tables:TagResource</code> permission in addition to <code>s3tables:CreateTableBucket</code> permission.</p> </li> </ul> </dd> </dl>
 
         Args:
             name: <p>The name for the table bucket.</p>
@@ -564,7 +566,7 @@ class AsyncTableBucketResource:
         *,
         config_overrides: Optional[AsyncS3TablesClientConfig] = None,
     ) -> None:
-        """<p>Deletes a table bucket. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-delete.html\">Deleting a table bucket</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3tables:DeleteTableBucket</code> permission to use this operation. </p> </dd> </dl>
+        r"""<p>Deletes a table bucket. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-delete.html\">Deleting a table bucket</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3tables:DeleteTableBucket</code> permission to use this operation. </p> </dd> </dl>
 
         Args:
             table_bucket_arn: <p>The Amazon Resource Name (ARN) of the table bucket.</p>
@@ -636,7 +638,7 @@ class AsyncTableBucketResource:
         *,
         config_overrides: Optional[AsyncS3TablesClientConfig] = None,
     ) -> "aws_sdk_s3tables.types.get_table_bucket_response.GetTableBucketResponse":
-        """<p>Gets details on a table bucket. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-details.html\">Viewing details about an Amazon S3 table bucket</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3tables:GetTableBucket</code> permission to use this operation. </p> </dd> </dl>
+        r"""<p>Gets details on a table bucket. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-details.html\">Viewing details about an Amazon S3 table bucket</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3tables:GetTableBucket</code> permission to use this operation. </p> </dd> </dl>
 
         Args:
             table_bucket_arn: <p>The Amazon Resource Name (ARN) of the table bucket.</p>
@@ -674,7 +676,7 @@ class AsyncTableBucketResource:
         *,
         config_overrides: Optional[AsyncS3TablesClientConfig] = None,
     ) -> "aws_sdk_s3tables.types.get_table_bucket_maintenance_configuration_response.GetTableBucketMaintenanceConfigurationResponse":
-        """<p>Gets details about a maintenance configuration for a given table bucket. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-table-buckets-maintenance.html\">Amazon S3 table bucket maintenance</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3tables:GetTableBucketMaintenanceConfiguration</code> permission to use this operation. </p> </dd> </dl>
+        r"""<p>Gets details about a maintenance configuration for a given table bucket. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-table-buckets-maintenance.html\">Amazon S3 table bucket maintenance</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3tables:GetTableBucketMaintenanceConfiguration</code> permission to use this operation. </p> </dd> </dl>
 
         Args:
             table_bucket_arn: <p>The Amazon Resource Name (ARN) of the table bucket associated with the maintenance configuration.</p>
@@ -797,7 +799,7 @@ class AsyncTableBucketResource:
             "aws_sdk_s3tables.types.table_bucket_type.TableBucketType"
         ] = None,
     ) -> "aws_sdk_s3tables.types.list_table_buckets_response.ListTableBucketsResponse":
-        """<p>Lists table buckets for your account. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets.html\">S3 Table buckets</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3tables:ListTableBuckets</code> permission to use this operation. </p> </dd> </dl>
+        r"""<p>Lists table buckets for your account. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets.html\">S3 Table buckets</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3tables:ListTableBuckets</code> permission to use this operation. </p> </dd> </dl>
 
         Args:
             prefix: <p>The prefix of the table buckets.</p>
@@ -847,7 +849,7 @@ class AsyncTableBucketResource:
         *,
         config_overrides: Optional[AsyncS3TablesClientConfig] = None,
     ) -> None:
-        """<p>Creates a new maintenance configuration or replaces an existing maintenance configuration for a table bucket. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-table-buckets-maintenance.html\">Amazon S3 table bucket maintenance</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3tables:PutTableBucketMaintenanceConfiguration</code> permission to use this operation. </p> </dd> </dl>
+        r"""<p>Creates a new maintenance configuration or replaces an existing maintenance configuration for a table bucket. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-table-buckets-maintenance.html\">Amazon S3 table bucket maintenance</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3tables:PutTableBucketMaintenanceConfiguration</code> permission to use this operation. </p> </dd> </dl>
 
         Args:
             table_bucket_arn: <p>The Amazon Resource Name (ARN) of the table bucket associated with the maintenance configuration.</p>

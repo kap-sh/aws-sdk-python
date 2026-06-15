@@ -15,11 +15,11 @@ if TYPE_CHECKING:
 
 class UpdateServiceSpecificCredentialRequest(TypedDict):
     user_name: NotRequired["aws_sdk_iam.types.user_name_type.userNameType"]
-    """<p>The name of the IAM user associated with the service-specific credential. If you do not specify this value, then the operation assumes the user whose credentials are used to call the operation.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>"""
+    r"""<p>The name of the IAM user associated with the service-specific credential. If you do not specify this value, then the operation assumes the user whose credentials are used to call the operation.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>"""
     service_specific_credential_id: (
         "aws_sdk_iam.types.service_specific_credential_id.serviceSpecificCredentialId"
     )
-    """<p>The unique identifier of the service-specific credential.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters that can consist of any upper or lowercased letter or digit.</p>"""
+    r"""<p>The unique identifier of the service-specific credential.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters that can consist of any upper or lowercased letter or digit.</p>"""
     status: "aws_sdk_iam.types.status_type.statusType"
     """<p>The status to be assigned to the service-specific credential.</p>"""
 

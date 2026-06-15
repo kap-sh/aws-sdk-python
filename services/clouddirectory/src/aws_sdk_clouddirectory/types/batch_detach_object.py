@@ -20,7 +20,7 @@ class BatchDetachObject(TypedDict):
     batch_reference_name: NotRequired[
         "aws_sdk_clouddirectory.types.batch_reference_name.BatchReferenceName"
     ]
-    """<p>The batch reference name. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/transaction_support.html\">Transaction Support</a> for more information.</p>"""
+    r"""<p>The batch reference name. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/transaction_support.html\">Transaction Support</a> for more information.</p>"""
 
 
 # --- restJson1 ser/de ---

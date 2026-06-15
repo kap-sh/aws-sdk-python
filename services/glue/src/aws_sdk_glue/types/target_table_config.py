@@ -12,7 +12,7 @@ if TYPE_CHECKING:
 
 class TargetTableConfig(TypedDict):
     unnest_spec: NotRequired["aws_sdk_glue.types.unnest_spec.UnnestSpec"]
-    """<p>Specifies how nested objects are flattened to top-level elements. Valid values are: \"TOPLEVEL\", \"FULL\", or \"NOUNNEST\".</p>"""
+    r"""<p>Specifies how nested objects are flattened to top-level elements. Valid values are: \"TOPLEVEL\", \"FULL\", or \"NOUNNEST\".</p>"""
     partition_spec: NotRequired[
         "aws_sdk_glue.types.integration_partition_spec_list.IntegrationPartitionSpecList"
     ]

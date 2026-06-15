@@ -14,7 +14,7 @@ class ClarifyExplainerConfig(TypedDict):
     enable_explanations: NotRequired[
         "aws_sdk_sagemaker.types.clarify_enable_explanations.ClarifyEnableExplanations"
     ]
-    """<p>A JMESPath boolean expression used to filter which records to explain. Explanations are activated by default. See <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-online-explainability-create-endpoint.html#clarify-online-explainability-create-endpoint-enable\"> <code>EnableExplanations</code> </a>for additional information.</p>"""
+    r"""<p>A JMESPath boolean expression used to filter which records to explain. Explanations are activated by default. See <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-online-explainability-create-endpoint.html#clarify-online-explainability-create-endpoint-enable\"> <code>EnableExplanations</code> </a>for additional information.</p>"""
     inference_config: NotRequired[
         "aws_sdk_sagemaker.types.clarify_inference_config.ClarifyInferenceConfig"
     ]

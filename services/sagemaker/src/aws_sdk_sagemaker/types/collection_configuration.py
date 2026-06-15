@@ -17,7 +17,7 @@ class CollectionConfiguration(TypedDict):
     collection_parameters: NotRequired[
         "aws_sdk_sagemaker.types.collection_parameters.CollectionParameters"
     ]
-    """<p>Parameter values for the tensor collection. The allowed parameters are <code>\"name\"</code>, <code>\"include_regex\"</code>, <code>\"reduction_config\"</code>, <code>\"save_config\"</code>, <code>\"tensor_names\"</code>, and <code>\"save_histogram\"</code>.</p>"""
+    r"""<p>Parameter values for the tensor collection. The allowed parameters are <code>\"name\"</code>, <code>\"include_regex\"</code>, <code>\"reduction_config\"</code>, <code>\"save_config\"</code>, <code>\"tensor_names\"</code>, and <code>\"save_histogram\"</code>.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

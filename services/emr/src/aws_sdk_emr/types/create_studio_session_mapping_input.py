@@ -15,17 +15,17 @@ class CreateStudioSessionMappingInput(TypedDict):
     identity_id: NotRequired[
         "aws_sdk_emr.types.xml_string_max_len256.XmlStringMaxLen256"
     ]
-    """<p>The globally unique identifier (GUID) of the user or group from the IAM Identity Center Identity Store. For more information, see <a href=\"https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId\">UserId</a> and <a href=\"https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId\">GroupId</a> in the <i>IAM Identity Center Identity Store API Reference</i>. Either <code>IdentityName</code> or <code>IdentityId</code> must be specified, but not both.</p>"""
+    r"""<p>The globally unique identifier (GUID) of the user or group from the IAM Identity Center Identity Store. For more information, see <a href=\"https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId\">UserId</a> and <a href=\"https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId\">GroupId</a> in the <i>IAM Identity Center Identity Store API Reference</i>. Either <code>IdentityName</code> or <code>IdentityId</code> must be specified, but not both.</p>"""
     identity_name: NotRequired[
         "aws_sdk_emr.types.xml_string_max_len256.XmlStringMaxLen256"
     ]
-    """<p>The name of the user or group. For more information, see <a href=\"https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName\">UserName</a> and <a href=\"https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName\">DisplayName</a> in the <i>IAM Identity Center Identity Store API Reference</i>. Either <code>IdentityName</code> or <code>IdentityId</code> must be specified, but not both.</p>"""
+    r"""<p>The name of the user or group. For more information, see <a href=\"https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName\">UserName</a> and <a href=\"https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName\">DisplayName</a> in the <i>IAM Identity Center Identity Store API Reference</i>. Either <code>IdentityName</code> or <code>IdentityId</code> must be specified, but not both.</p>"""
     identity_type: NotRequired["aws_sdk_emr.types.identity_type.IdentityType"]
     """<p>Specifies whether the identity to map to the Amazon EMR Studio is a user or a group.</p>"""
     session_policy_arn: NotRequired[
         "aws_sdk_emr.types.xml_string_max_len256.XmlStringMaxLen256"
     ]
-    """<p>The Amazon Resource Name (ARN) for the session policy that will be applied to the user or group. You should specify the ARN for the session policy that you want to apply, not the ARN of your user role. For more information, see <a href=\"https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-studio-user-role.html\">Create an Amazon EMR Studio User Role with Session Policies</a>.</p>"""
+    r"""<p>The Amazon Resource Name (ARN) for the session policy that will be applied to the user or group. You should specify the ARN for the session policy that you want to apply, not the ARN of your user role. For more information, see <a href=\"https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-studio-user-role.html\">Create an Amazon EMR Studio User Role with Session Policies</a>.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

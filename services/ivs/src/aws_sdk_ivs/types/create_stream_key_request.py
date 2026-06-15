@@ -15,7 +15,7 @@ class CreateStreamKeyRequest(TypedDict):
     channel_arn: "aws_sdk_ivs.types.channel_arn.ChannelArn"
     """<p>ARN of the channel for which to create the stream key.</p>"""
     tags: NotRequired["aws_sdk_ivs.types.tags.Tags"]
-    """<p>Array of 1-50 maps, each of the form <code>string:string (key:value)</code>. See <a href=\"https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html\">Best practices and strategies</a> in <i>Tagging Amazon Web Services Resources and Tag Editor</i> for details, including restrictions that apply to tags and \"Tag naming limits and requirements\"; Amazon IVS has no service-specific constraints beyond what is documented there.</p>"""
+    r"""<p>Array of 1-50 maps, each of the form <code>string:string (key:value)</code>. See <a href=\"https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html\">Best practices and strategies</a> in <i>Tagging Amazon Web Services Resources and Tag Editor</i> for details, including restrictions that apply to tags and \"Tag naming limits and requirements\"; Amazon IVS has no service-specific constraints beyond what is documented there.</p>"""
 
 
 # --- restJson1 ser/de ---

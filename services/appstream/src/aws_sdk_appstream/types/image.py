@@ -86,7 +86,7 @@ class Image(TypedDict):
     managed_software_included: NotRequired["aws_sdk_appstream.types.boolean.Boolean"]
     """<p>Indicates whether the image includes license-included applications.</p>"""
     image_type: NotRequired["aws_sdk_appstream.types.image_type.ImageType"]
-    """<p>The type of the image. Images created through AMI import have type \"custom\", while WorkSpaces Applications provided images have type \"native\". Custom images support additional instance types including GeneralPurpose, MemoryOptimized, ComputeOptimized, and Accelerated instance families.</p>"""
+    r"""<p>The type of the image. Images created through AMI import have type \"custom\", while WorkSpaces Applications provided images have type \"native\". Custom images support additional instance types including GeneralPurpose, MemoryOptimized, ComputeOptimized, and Accelerated instance families.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

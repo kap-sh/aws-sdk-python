@@ -24,7 +24,7 @@ class DescribeContainerGroupPortMappingsOutput(TypedDict):
     container_group_definition_arn: NotRequired[
         "aws_sdk_gamelift.types.container_group_definition_arn.ContainerGroupDefinitionArn"
     ]
-    """<p>The Amazon Resource Name (<a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html\">ARN</a>) that is assigned to the container group definition. The ARN value also identifies the specific container group definition version in use.</p>"""
+    r"""<p>The Amazon Resource Name (<a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html\">ARN</a>) that is assigned to the container group definition. The ARN value also identifies the specific container group definition version in use.</p>"""
     container_group_type: NotRequired[
         "aws_sdk_gamelift.types.container_group_type.ContainerGroupType"
     ]

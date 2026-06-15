@@ -271,7 +271,7 @@ class IVSRealTimeClient:
         video: Optional["aws_sdk_ivs_realtime.types.video.Video"] = None,
         tags: Optional["aws_sdk_ivs_realtime.types.tags.Tags"] = None,
     ) -> "aws_sdk_ivs_realtime.types.create_encoder_configuration_response.CreateEncoderConfigurationResponse":
-        """<p>Creates an EncoderConfiguration object.</p>
+        r"""<p>Creates an EncoderConfiguration object.</p>
 
         Args:
             name: <p>Optional name to identify the resource.</p>
@@ -332,7 +332,7 @@ class IVSRealTimeClient:
         ] = None,
         tags: Optional["aws_sdk_ivs_realtime.types.tags.Tags"] = None,
     ) -> "aws_sdk_ivs_realtime.types.create_ingest_configuration_response.CreateIngestConfigurationResponse":
-        """<p>Creates a new IngestConfiguration resource, used to specify the ingest protocol for a stage.</p>
+        r"""<p>Creates a new IngestConfiguration resource, used to specify the ingest protocol for a stage.</p>
 
         Args:
             name: <p>Optional name that can be specified for the IngestConfiguration being created.</p>
@@ -458,7 +458,7 @@ class IVSRealTimeClient:
             "aws_sdk_ivs_realtime.types.auto_participant_recording_configuration.AutoParticipantRecordingConfiguration"
         ] = None,
     ) -> "aws_sdk_ivs_realtime.types.create_stage_response.CreateStageResponse":
-        """<p>Creates a new stage (and optionally participant tokens).</p>
+        r"""<p>Creates a new stage (and optionally participant tokens).</p>
 
         Args:
             name: <p>Optional name that can be specified for the stage being created.</p>
@@ -513,7 +513,7 @@ class IVSRealTimeClient:
         ] = None,
         tags: Optional["aws_sdk_ivs_realtime.types.tags.Tags"] = None,
     ) -> "aws_sdk_ivs_realtime.types.create_storage_configuration_response.CreateStorageConfigurationResponse":
-        """<p>Creates a new storage configuration, used to enable recording to Amazon S3. When a StorageConfiguration is created, IVS will modify the S3 bucketPolicy of the provided bucket. This will ensure that IVS has sufficient permissions to write content to the provided bucket.</p>
+        r"""<p>Creates a new storage configuration, used to enable recording to Amazon S3. When a StorageConfiguration is created, IVS will modify the S3 bucketPolicy of the provided bucket. This will ensure that IVS has sufficient permissions to write content to the provided bucket.</p>
 
         Args:
             name: <p>Storage configuration name. The value does not need to be unique.</p>
@@ -1106,7 +1106,7 @@ class IVSRealTimeClient:
     ) -> (
         "aws_sdk_ivs_realtime.types.import_public_key_response.ImportPublicKeyResponse"
     ):
-        """<p>Import a public key to be used for signing stage participant tokens.</p>
+        r"""<p>Import a public key to be used for signing stage participant tokens.</p>
 
         Args:
             public_key_material: <p>The content of the public key to be imported.</p>
@@ -1410,7 +1410,7 @@ class IVSRealTimeClient:
             "aws_sdk_ivs_realtime.types.max_participant_replica_results.MaxParticipantReplicaResults"
         ] = None,
     ) -> "aws_sdk_ivs_realtime.types.list_participant_replicas_response.ListParticipantReplicasResponse":
-        """<p>Lists all the replicas for a participant from a source stage.</p>
+        r"""<p>Lists all the replicas for a participant from a source stage.</p>
 
         Args:
             source_stage_arn: <p>ARN of the stage where the participant is publishing.</p>
@@ -1819,7 +1819,7 @@ class IVSRealTimeClient:
     ) -> (
         "aws_sdk_ivs_realtime.types.start_composition_response.StartCompositionResponse"
     ):
-        """<p>Starts a Composition from a stage based on the configuration provided in the request.</p> <p>A Composition is an ephemeral resource that exists after this operation returns successfully. Composition stops and the resource is deleted:</p> <ul> <li> <p>When <a>StopComposition</a> is called.</p> </li> <li> <p>After a 1-minute timeout, when all participants are disconnected from the stage.</p> </li> <li> <p>After a 1-minute timeout, if there are no participants in the stage when StartComposition is called.</p> </li> <li> <p>When broadcasting to the IVS channel fails and all retries are exhausted.</p> </li> <li> <p>When broadcasting is disconnected and all attempts to reconnect are exhausted.</p> </li> </ul>
+        r"""<p>Starts a Composition from a stage based on the configuration provided in the request.</p> <p>A Composition is an ephemeral resource that exists after this operation returns successfully. Composition stops and the resource is deleted:</p> <ul> <li> <p>When <a>StopComposition</a> is called.</p> </li> <li> <p>After a 1-minute timeout, when all participants are disconnected from the stage.</p> </li> <li> <p>After a 1-minute timeout, if there are no participants in the stage when StartComposition is called.</p> </li> <li> <p>When broadcasting to the IVS channel fails and all retries are exhausted.</p> </li> <li> <p>When broadcasting is disconnected and all attempts to reconnect are exhausted.</p> </li> </ul>
 
         Args:
             stage_arn: <p>ARN of the stage to be used for compositing.</p>
@@ -1875,7 +1875,7 @@ class IVSRealTimeClient:
             "aws_sdk_ivs_realtime.types.participant_attributes.ParticipantAttributes"
         ] = None,
     ) -> "aws_sdk_ivs_realtime.types.start_participant_replication_response.StartParticipantReplicationResponse":
-        """<p>Starts replicating a publishing participant from a source stage to a destination stage.</p>
+        r"""<p>Starts replicating a publishing participant from a source stage to a destination stage.</p>
 
         Args:
             source_stage_arn: <p>ARN of the stage where the participant is publishing.</p>
@@ -1961,7 +1961,7 @@ class IVSRealTimeClient:
         *,
         config_overrides: Optional[IVSRealTimeClientConfig] = None,
     ) -> "aws_sdk_ivs_realtime.types.stop_participant_replication_response.StopParticipantReplicationResponse":
-        """<p>Stops a replicated participant session.</p>
+        r"""<p>Stops a replicated participant session.</p>
 
         Args:
             source_stage_arn: <p>ARN of the stage where the participant is publishing.</p>
@@ -2003,7 +2003,7 @@ class IVSRealTimeClient:
         *,
         config_overrides: Optional[IVSRealTimeClientConfig] = None,
     ) -> "aws_sdk_ivs_realtime.types.tag_resource_response.TagResourceResponse":
-        """<p>Adds or updates tags for the AWS resource with the specified ARN.</p>
+        r"""<p>Adds or updates tags for the AWS resource with the specified ARN.</p>
 
         Args:
             resource_arn: <p>The ARN of the resource to be tagged. The ARN must be URL-encoded.</p>
@@ -2043,7 +2043,7 @@ class IVSRealTimeClient:
         *,
         config_overrides: Optional[IVSRealTimeClientConfig] = None,
     ) -> "aws_sdk_ivs_realtime.types.untag_resource_response.UntagResourceResponse":
-        """<p>Removes tags from the resource with the specified ARN.</p>
+        r"""<p>Removes tags from the resource with the specified ARN.</p>
 
         Args:
             resource_arn: <p>The ARN of the resource to be untagged. The ARN must be URL-encoded.</p>

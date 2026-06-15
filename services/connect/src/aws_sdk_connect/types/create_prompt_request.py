@@ -16,7 +16,7 @@ if TYPE_CHECKING:
 
 class CreatePromptRequest(TypedDict):
     instance_id: "aws_sdk_connect.types.instance_id.InstanceId"
-    """<p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>"""
+    r"""<p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>"""
     name: "aws_sdk_connect.types.common_name_length127.CommonNameLength127"
     """<p>The name of the prompt.</p>"""
     description: NotRequired[
@@ -24,9 +24,9 @@ class CreatePromptRequest(TypedDict):
     ]
     """<p>The description of the prompt.</p>"""
     s3_uri: "aws_sdk_connect.types.s3_uri.S3Uri"
-    """<p>The URI for the S3 bucket where the prompt is stored. You can provide S3 pre-signed URLs returned by the <a href=\"https://docs.aws.amazon.com/connect/latest/APIReference/API_GetPromptFile.html\">GetPromptFile</a> API instead of providing S3 URIs.</p>"""
+    r"""<p>The URI for the S3 bucket where the prompt is stored. You can provide S3 pre-signed URLs returned by the <a href=\"https://docs.aws.amazon.com/connect/latest/APIReference/API_GetPromptFile.html\">GetPromptFile</a> API instead of providing S3 URIs.</p>"""
     tags: NotRequired["aws_sdk_connect.types.tag_map.TagMap"]
-    """<p>The tags used to organize, track, or control access for this resource. For example, { \"Tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.</p>"""
+    r"""<p>The tags used to organize, track, or control access for this resource. For example, { \"Tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.</p>"""
 
 
 # --- restJson1 ser/de ---

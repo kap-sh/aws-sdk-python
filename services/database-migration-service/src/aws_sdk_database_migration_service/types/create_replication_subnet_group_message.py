@@ -16,7 +16,7 @@ class CreateReplicationSubnetGroupMessage(TypedDict):
     replication_subnet_group_identifier: (
         "aws_sdk_database_migration_service.types.string.String"
     )
-    """<p>The name for the replication subnet group. This value is stored as a lowercase string.</p> <p>Constraints: Must contain no more than 255 alphanumeric characters, periods, underscores, or hyphens. Must not be \"default\".</p> <p>Example: <code>mySubnetgroup</code> </p>"""
+    r"""<p>The name for the replication subnet group. This value is stored as a lowercase string.</p> <p>Constraints: Must contain no more than 255 alphanumeric characters, periods, underscores, or hyphens. Must not be \"default\".</p> <p>Example: <code>mySubnetgroup</code> </p>"""
     replication_subnet_group_description: (
         "aws_sdk_database_migration_service.types.string.String"
     )

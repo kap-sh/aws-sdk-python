@@ -13,7 +13,7 @@ class RoutedResource(TypedDict):
     name: NotRequired["aws_sdk_iot_events.types.resource_name.ResourceName"]
     """<p> The name of the routed resource. </p>"""
     arn: NotRequired["aws_sdk_iot_events.types.amazon_resource_name.AmazonResourceName"]
-    """<p> The ARN of the routed resource. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>. </p>"""
+    r"""<p> The ARN of the routed resource. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>. </p>"""
 
 
 # --- restJson1 ser/de ---

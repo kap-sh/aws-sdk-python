@@ -49,7 +49,7 @@ class MonitoringSchedule(TypedDict):
         "aws_sdk_sagemaker.types.monitoring_execution_summary.MonitoringExecutionSummary"
     ]
     tags: NotRequired["aws_sdk_sagemaker.types.tag_list.TagList"]
-    """<p>A list of the tags associated with the monitoring schedlue. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services resources</a> in the <i>Amazon Web Services General Reference Guide</i>.</p>"""
+    r"""<p>A list of the tags associated with the monitoring schedlue. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services resources</a> in the <i>Amazon Web Services General Reference Guide</i>.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

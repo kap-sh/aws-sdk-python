@@ -14,9 +14,9 @@ class RoutingProfileQueueConfig(TypedDict):
     queue_reference: "aws_sdk_connect.types.routing_profile_queue_reference.RoutingProfileQueueReference"
     """<p>Contains information about a queue resource.</p>"""
     priority: "aws_sdk_connect.types.priority.Priority"
-    """<p>The order in which contacts are to be handled for the queue. For more information, see <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing-profiles-priority.html\">Queues: priority and delay</a>.</p>"""
+    r"""<p>The order in which contacts are to be handled for the queue. For more information, see <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing-profiles-priority.html\">Queues: priority and delay</a>.</p>"""
     delay: "aws_sdk_connect.types.delay.Delay"
-    """<p>The delay, in seconds, a contact should be in the queue before they are routed to an available agent. For more information, see <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing-profiles-priority.html\">Queues: priority and delay</a> in the <i>Connect Customer Administrator Guide</i>.</p>"""
+    r"""<p>The delay, in seconds, a contact should be in the queue before they are routed to an available agent. For more information, see <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing-profiles-priority.html\">Queues: priority and delay</a> in the <i>Connect Customer Administrator Guide</i>.</p>"""
 
 
 # --- restJson1 ser/de ---

@@ -21,7 +21,7 @@ class Summary(TypedDict):
     target_id: NotRequired[
         "aws_sdk_resource_groups_tagging_api.types.target_id.TargetId"
     ]
-    """<p>The account identifier or the root identifier of the organization. If you don't know the root ID, you can call the Organizations <a href=\"https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListRoots.html\">ListRoots</a> API.</p>"""
+    r"""<p>The account identifier or the root identifier of the organization. If you don't know the root ID, you can call the Organizations <a href=\"https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListRoots.html\">ListRoots</a> API.</p>"""
     target_id_type: NotRequired[
         "aws_sdk_resource_groups_tagging_api.types.target_id_type.TargetIdType"
     ]

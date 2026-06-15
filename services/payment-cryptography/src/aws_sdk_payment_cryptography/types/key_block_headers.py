@@ -18,7 +18,7 @@ class KeyBlockHeaders(TypedDict):
     key_exportability: NotRequired[
         "aws_sdk_payment_cryptography.types.key_exportability.KeyExportability"
     ]
-    """<p>Specifies subsequent exportability of the key within the key block after it is received by the receiving party. It can be used to further restrict exportability of the key after export from Amazon Web Services Payment Cryptography.</p> <p>When set to <code>EXPORTABLE</code>, the key can be subsequently exported by the receiver under a KEK using TR-31 or TR-34 key block export only. When set to <code>NON_EXPORTABLE</code>, the key cannot be subsequently exported by the receiver. When set to <code>SENSITIVE</code>, the key can be exported by the receiver under a KEK using TR-31, TR-34, RSA wrap and unwrap cryptogram or using a symmetric cryptogram key export method. For further information refer to <a href=\"https://webstore.ansi.org/standards/ascx9/ansix91432022\">ANSI X9.143-2022</a>.</p>"""
+    r"""<p>Specifies subsequent exportability of the key within the key block after it is received by the receiving party. It can be used to further restrict exportability of the key after export from Amazon Web Services Payment Cryptography.</p> <p>When set to <code>EXPORTABLE</code>, the key can be subsequently exported by the receiver under a KEK using TR-31 or TR-34 key block export only. When set to <code>NON_EXPORTABLE</code>, the key cannot be subsequently exported by the receiver. When set to <code>SENSITIVE</code>, the key can be exported by the receiver under a KEK using TR-31, TR-34, RSA wrap and unwrap cryptogram or using a symmetric cryptogram key export method. For further information refer to <a href=\"https://webstore.ansi.org/standards/ascx9/ansix91432022\">ANSI X9.143-2022</a>.</p>"""
     key_version: NotRequired[
         "aws_sdk_payment_cryptography.types.key_version.KeyVersion"
     ]
@@ -26,7 +26,7 @@ class KeyBlockHeaders(TypedDict):
     optional_blocks: NotRequired[
         "aws_sdk_payment_cryptography.types.optional_blocks.OptionalBlocks"
     ]
-    """<p>Parameter used to indicate the type of optional data in key block headers. Refer to <a href=\"https://webstore.ansi.org/standards/ascx9/ansix91432022\">ANSI X9.143-2022</a> for information on allowed data type for optional blocks.</p> <p>Optional block character limit is 112 characters. For each optional block, 2 characters are reserved for optional block ID and 2 characters reserved for optional block length. More than one optional blocks can be included as long as the combined length does not increase 112 characters.</p>"""
+    r"""<p>Parameter used to indicate the type of optional data in key block headers. Refer to <a href=\"https://webstore.ansi.org/standards/ascx9/ansix91432022\">ANSI X9.143-2022</a> for information on allowed data type for optional blocks.</p> <p>Optional block character limit is 112 characters. For each optional block, 2 characters are reserved for optional block ID and 2 characters reserved for optional block length. More than one optional blocks can be included as long as the combined length does not increase 112 characters.</p>"""
 
 
 # --- awsJson1_0 ser/de ---

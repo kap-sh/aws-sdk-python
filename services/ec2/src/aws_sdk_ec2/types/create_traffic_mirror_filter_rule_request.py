@@ -41,7 +41,7 @@ class CreateTrafficMirrorFilterRuleRequest(TypedDict):
     ]
     """<p>The source port range.</p>"""
     protocol: NotRequired["aws_sdk_ec2.types.integer.Integer"]
-    """<p>The protocol, for example UDP, to assign to the Traffic Mirror rule.</p> <p>For information about the protocol value, see <a href=\"https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml\">Protocol Numbers</a> on the Internet Assigned Numbers Authority (IANA) website.</p>"""
+    r"""<p>The protocol, for example UDP, to assign to the Traffic Mirror rule.</p> <p>For information about the protocol value, see <a href=\"https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml\">Protocol Numbers</a> on the Internet Assigned Numbers Authority (IANA) website.</p>"""
     destination_cidr_block: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The destination CIDR block to assign to the Traffic Mirror rule.</p>"""
     source_cidr_block: NotRequired["aws_sdk_ec2.types.string.String"]
@@ -51,7 +51,7 @@ class CreateTrafficMirrorFilterRuleRequest(TypedDict):
     dry_run: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]
     """<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>"""
     client_token: NotRequired["aws_sdk_ec2.types.string.String"]
-    """<p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html\">How to ensure idempotency</a>.</p>"""
+    r"""<p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html\">How to ensure idempotency</a>.</p>"""
     tag_specifications: NotRequired[
         "aws_sdk_ec2.types.tag_specification_list.TagSpecificationList"
     ]

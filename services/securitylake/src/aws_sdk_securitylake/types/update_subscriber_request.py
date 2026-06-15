@@ -28,7 +28,7 @@ class UpdateSubscriberRequest(TypedDict):
     sources: NotRequired[
         "aws_sdk_securitylake.types.log_source_resource_list.LogSourceResourceList"
     ]
-    """<p>The supported Amazon Web Services services from which logs and events are collected. For the list of supported Amazon Web Services services, see the <a href=\"https://docs.aws.amazon.com/security-lake/latest/userguide/internal-sources.html\">Amazon Security Lake User Guide</a>.</p>"""
+    r"""<p>The supported Amazon Web Services services from which logs and events are collected. For the list of supported Amazon Web Services services, see the <a href=\"https://docs.aws.amazon.com/security-lake/latest/userguide/internal-sources.html\">Amazon Security Lake User Guide</a>.</p>"""
 
 
 # --- restJson1 ser/de ---

@@ -163,7 +163,7 @@ class AsyncRDSDataClient:
         ] = None,
         transaction_id: Optional["aws_sdk_rds_data.types.id.Id"] = None,
     ) -> "aws_sdk_rds_data.types.batch_execute_statement_response.BatchExecuteStatementResponse":
-        """<p>Runs a batch SQL statement over an array of data.</p> <p>You can run bulk update and insert operations for multiple records using a DML statement with different parameter sets. Bulk operations can provide a significant performance improvement over individual insert and update operations.</p> <note> <p>If a call isn't part of a transaction because it doesn't include the <code>transactionID</code> parameter, changes that result from the call are committed automatically.</p> <p>There isn't a fixed upper limit on the number of parameter sets. However, the maximum size of the HTTP request submitted through the Data API is 4 MiB. If the request exceeds this limit, the Data API returns an error and doesn't process the request. This 4-MiB limit includes the size of the HTTP headers and the JSON notation in the request. Thus, the number of parameter sets that you can include depends on a combination of factors, such as the size of the SQL statement and the size of each parameter set.</p> <p>The response size limit is 1 MiB. If the call returns more than 1 MiB of response data, the call is terminated.</p> </note>
+        r"""<p>Runs a batch SQL statement over an array of data.</p> <p>You can run bulk update and insert operations for multiple records using a DML statement with different parameter sets. Bulk operations can provide a significant performance improvement over individual insert and update operations.</p> <note> <p>If a call isn't part of a transaction because it doesn't include the <code>transactionID</code> parameter, changes that result from the call are committed automatically.</p> <p>There isn't a fixed upper limit on the number of parameter sets. However, the maximum size of the HTTP request submitted through the Data API is 4 MiB. If the request exceeds this limit, the Data API returns an error and doesn't process the request. This 4-MiB limit includes the size of the HTTP headers and the JSON notation in the request. Thus, the number of parameter sets that you can include depends on a combination of factors, such as the size of the SQL statement and the size of each parameter set.</p> <p>The response size limit is 1 MiB. If the call returns more than 1 MiB of response data, the call is terminated.</p> </note>
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the Aurora Serverless DB cluster.</p>
@@ -314,7 +314,7 @@ class AsyncRDSDataClient:
         database: Optional["aws_sdk_rds_data.types.db_name.DbName"] = None,
         schema: Optional["aws_sdk_rds_data.types.db_name.DbName"] = None,
     ) -> "aws_sdk_rds_data.types.execute_sql_response.ExecuteSqlResponse":
-        """<p>Runs one or more SQL statements.</p> <note> <p>This operation isn't supported for Aurora Serverless v2 and provisioned DB clusters. For Aurora Serverless v1 DB clusters, the operation is deprecated. Use the <code>BatchExecuteStatement</code> or <code>ExecuteStatement</code> operation.</p> </note>
+        r"""<p>Runs one or more SQL statements.</p> <note> <p>This operation isn't supported for Aurora Serverless v2 and provisioned DB clusters. For Aurora Serverless v1 DB clusters, the operation is deprecated. Use the <code>BatchExecuteStatement</code> or <code>ExecuteStatement</code> operation.</p> </note>
 
         Args:
             db_cluster_or_instance_arn: <p>The ARN of the Aurora Serverless DB cluster.</p>
@@ -382,7 +382,7 @@ class AsyncRDSDataClient:
             "aws_sdk_rds_data.types.records_format_type.RecordsFormatType"
         ] = None,
     ) -> "aws_sdk_rds_data.types.execute_statement_response.ExecuteStatementResponse":
-        """<p>Runs a SQL statement against a database.</p> <note> <p>If a call isn't part of a transaction because it doesn't include the <code>transactionID</code> parameter, changes that result from the call are committed automatically.</p> <p>If the binary response data from the database is more than 1 MB, the call is terminated.</p> </note>
+        r"""<p>Runs a SQL statement against a database.</p> <note> <p>If a call isn't part of a transaction because it doesn't include the <code>transactionID</code> parameter, changes that result from the call are committed automatically.</p> <p>If the binary response data from the database is more than 1 MB, the call is terminated.</p> </note>
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the Aurora Serverless DB cluster.</p>

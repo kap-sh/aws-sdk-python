@@ -27,19 +27,19 @@ class S3CsvSource(TypedDict):
     paths: "aws_sdk_glue.types.enclosed_in_string_properties.EnclosedInStringProperties"
     """<p>A list of the Amazon S3 paths to read from.</p>"""
     compression_type: NotRequired["aws_sdk_glue.types.compression_type.CompressionType"]
-    """<p>Specifies how the data is compressed. This is generally not necessary if the data has a standard file extension. Possible values are <code>\"gzip\"</code> and <code>\"bzip\"</code>).</p>"""
+    r"""<p>Specifies how the data is compressed. This is generally not necessary if the data has a standard file extension. Possible values are <code>\"gzip\"</code> and <code>\"bzip\"</code>).</p>"""
     exclusions: NotRequired[
         "aws_sdk_glue.types.enclosed_in_string_properties.EnclosedInStringProperties"
     ]
-    """<p>A string containing a JSON list of Unix-style glob patterns to exclude. For example, \"[\\"**.pdf\\"]\" excludes all PDF files. </p>"""
+    r"""<p>A string containing a JSON list of Unix-style glob patterns to exclude. For example, \"[\\"**.pdf\\"]\" excludes all PDF files. </p>"""
     group_size: NotRequired[
         "aws_sdk_glue.types.enclosed_in_string_property.EnclosedInStringProperty"
     ]
-    """<p>The target group size in bytes. The default is computed based on the input data size and the size of your cluster. When there are fewer than 50,000 input files, <code>\"groupFiles\"</code> must be set to <code>\"inPartition\"</code> for this to take effect.</p>"""
+    r"""<p>The target group size in bytes. The default is computed based on the input data size and the size of your cluster. When there are fewer than 50,000 input files, <code>\"groupFiles\"</code> must be set to <code>\"inPartition\"</code> for this to take effect.</p>"""
     group_files: NotRequired[
         "aws_sdk_glue.types.enclosed_in_string_property.EnclosedInStringProperty"
     ]
-    """<p>Grouping files is turned on by default when the input contains more than 50,000 files. To turn on grouping with fewer than 50,000 files, set this parameter to \"inPartition\". To disable grouping when there are more than 50,000 files, set this parameter to <code>\"none\"</code>.</p>"""
+    r"""<p>Grouping files is turned on by default when the input contains more than 50,000 files. To turn on grouping with fewer than 50,000 files, set this parameter to \"inPartition\". To disable grouping when there are more than 50,000 files, set this parameter to <code>\"none\"</code>.</p>"""
     recurse: NotRequired["aws_sdk_glue.types.boxed_boolean.BoxedBoolean"]
     """<p>If set to true, recursively reads files in all subdirectories under the specified paths.</p>"""
     max_band: NotRequired[
@@ -55,13 +55,13 @@ class S3CsvSource(TypedDict):
     ]
     """<p>Specifies additional connection options.</p>"""
     separator: "aws_sdk_glue.types.separator.Separator"
-    """<p>Specifies the delimiter character. The default is a comma: \",\", but any other character can be specified.</p>"""
+    r"""<p>Specifies the delimiter character. The default is a comma: \",\", but any other character can be specified.</p>"""
     escaper: NotRequired[
         "aws_sdk_glue.types.enclosed_in_string_property_with_quote.EnclosedInStringPropertyWithQuote"
     ]
-    """<p>Specifies a character to use for escaping. This option is used only when reading CSV files. The default value is <code>none</code>. If enabled, the character which immediately follows is used as-is, except for a small set of well-known escapes (<code>\n</code>, <code>\r</code>, <code>\t</code>, and <code>\0</code>).</p>"""
+    r"""<p>Specifies a character to use for escaping. This option is used only when reading CSV files. The default value is <code>none</code>. If enabled, the character which immediately follows is used as-is, except for a small set of well-known escapes (<code>\n</code>, <code>\r</code>, <code>\t</code>, and <code>\0</code>).</p>"""
     quote_char: "aws_sdk_glue.types.quote_char.QuoteChar"
-    """<p>Specifies the character to use for quoting. The default is a double quote: <code>'\"'</code>. Set this to <code>-1</code> to turn off quoting entirely.</p>"""
+    r"""<p>Specifies the character to use for quoting. The default is a double quote: <code>'\"'</code>. Set this to <code>-1</code> to turn off quoting entirely.</p>"""
     multiline: NotRequired["aws_sdk_glue.types.boxed_boolean.BoxedBoolean"]
     """<p>A Boolean value that specifies whether a single record can span multiple lines. This can occur when a field contains a quoted new-line character. You must set this option to True if any record spans multiple lines. The default value is <code>False</code>, which allows for more aggressive file-splitting during parsing.</p>"""
     with_header: NotRequired["aws_sdk_glue.types.boxed_boolean.BoxedBoolean"]

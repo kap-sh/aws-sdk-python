@@ -321,7 +321,7 @@ class ChimeSDKVoiceClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = ChimeSDKVoiceClientConfig(
+        self._config = ChimeSDKVoiceClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -341,7 +341,7 @@ class ChimeSDKVoiceClient:
         overrides: ChimeSDKVoiceClientConfig = config_overrides or {}
         interceptors_: list[Interceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             retry(),
         ]
@@ -349,16 +349,16 @@ class ChimeSDKVoiceClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            region=overrides.get("region", self.config.get("region")),
+            region=overrides.get("region", self._config.get("region")),
             use_dual_stack=overrides.get(
-                "use_dual_stack", self.config.get("use_dual_stack")
+                "use_dual_stack", self._config.get("use_dual_stack")
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -657,7 +657,7 @@ class ChimeSDKVoiceClient:
         config_overrides: Optional[ChimeSDKVoiceClientConfig] = None,
         tags: Optional["aws_sdk_chime_sdk_voice.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_chime_sdk_voice.types.create_sip_media_application_response.CreateSipMediaApplicationResponse":
-        """<p>Creates a SIP media application. For more information about SIP media applications, see <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/ag/manage-sip-applications.html\">Managing SIP media applications and rules</a> in the <i>Amazon Chime SDK Administrator Guide</i>.</p>
+        r"""<p>Creates a SIP media application. For more information about SIP media applications, see <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/ag/manage-sip-applications.html\">Managing SIP media applications and rules</a> in the <i>Amazon Chime SDK Administrator Guide</i>.</p>
 
         Args:
             aws_region: <p>The AWS Region assigned to the SIP media application.</p>
@@ -709,7 +709,7 @@ class ChimeSDKVoiceClient:
             "aws_sdk_chime_sdk_voice.types.sma_create_call_arguments_map.SMACreateCallArgumentsMap"
         ] = None,
     ) -> "aws_sdk_chime_sdk_voice.types.create_sip_media_application_call_response.CreateSipMediaApplicationCallResponse":
-        """<p>Creates an outbound call to a phone number from the phone number specified in the request, and it invokes the endpoint of the specified <code>sipMediaApplicationId</code>.</p>
+        r"""<p>Creates an outbound call to a phone number from the phone number specified in the request, and it invokes the endpoint of the specified <code>sipMediaApplicationId</code>.</p>
 
         Args:
             from_phone_number: <p>The phone number that a user calls from. This is a phone number in your Amazon Chime SDK phone number inventory.</p>
@@ -764,7 +764,7 @@ class ChimeSDKVoiceClient:
             "aws_sdk_chime_sdk_voice.types.sip_rule_target_application_list.SipRuleTargetApplicationList"
         ] = None,
     ) -> "aws_sdk_chime_sdk_voice.types.create_sip_rule_response.CreateSipRuleResponse":
-        """<p>Creates a SIP rule, which can be used to run a SIP media application as a target for a specific trigger type. For more information about SIP rules, see <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/ag/manage-sip-applications.html\">Managing SIP media applications and rules</a> in the <i>Amazon Chime SDK Administrator Guide</i>.</p>
+        r"""<p>Creates a SIP rule, which can be used to run a SIP media application as a target for a specific trigger type. For more information about SIP rules, see <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/ag/manage-sip-applications.html\">Managing SIP media applications and rules</a> in the <i>Amazon Chime SDK Administrator Guide</i>.</p>
 
         Args:
             name: <p>The name of the SIP rule.</p>
@@ -822,7 +822,7 @@ class ChimeSDKVoiceClient:
             "aws_sdk_chime_sdk_voice.types.network_type.NetworkType"
         ] = None,
     ) -> "aws_sdk_chime_sdk_voice.types.create_voice_connector_response.CreateVoiceConnectorResponse":
-        """<p>Creates an Amazon Chime SDK Voice Connector. For more information about Voice Connectors, see <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/ag/voice-connector-groups.html\">Managing Amazon Chime SDK Voice Connector groups</a> in the <i>Amazon Chime SDK Administrator Guide</i>.</p>
+        r"""<p>Creates an Amazon Chime SDK Voice Connector. For more information about Voice Connectors, see <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/ag/voice-connector-groups.html\">Managing Amazon Chime SDK Voice Connector groups</a> in the <i>Amazon Chime SDK Administrator Guide</i>.</p>
 
         Args:
             name: <p>The name of the Voice Connector.</p>
@@ -916,7 +916,7 @@ class ChimeSDKVoiceClient:
         *,
         config_overrides: Optional[ChimeSDKVoiceClientConfig] = None,
     ) -> "aws_sdk_chime_sdk_voice.types.create_voice_profile_response.CreateVoiceProfileResponse":
-        """<p>Creates a voice profile, which consists of an enrolled user and their latest voice print.</p> <important> <p>Before creating any voice profiles, you must provide all notices and obtain all consents from the speaker as required under applicable privacy and biometrics laws, and as required under the <a href=\"https://aws.amazon.com/service-terms/\">AWS service terms</a> for the Amazon Chime SDK.</p> </important> <p>For more information about voice profiles and voice analytics, see <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/dg/pstn-voice-analytics.html\">Using Amazon Chime SDK Voice Analytics</a> in the <i>Amazon Chime SDK Developer Guide</i>.</p>
+        r"""<p>Creates a voice profile, which consists of an enrolled user and their latest voice print.</p> <important> <p>Before creating any voice profiles, you must provide all notices and obtain all consents from the speaker as required under applicable privacy and biometrics laws, and as required under the <a href=\"https://aws.amazon.com/service-terms/\">AWS service terms</a> for the Amazon Chime SDK.</p> </important> <p>For more information about voice profiles and voice analytics, see <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/dg/pstn-voice-analytics.html\">Using Amazon Chime SDK Voice Analytics</a> in the <i>Amazon Chime SDK Developer Guide</i>.</p>
 
         Args:
             speaker_search_task_id: <p>The ID of the speaker search task.</p>
@@ -961,7 +961,7 @@ class ChimeSDKVoiceClient:
         ] = None,
         tags: Optional["aws_sdk_chime_sdk_voice.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_chime_sdk_voice.types.create_voice_profile_domain_response.CreateVoiceProfileDomainResponse":
-        """<p>Creates a voice profile domain, a collection of voice profiles, their voice prints, and encrypted enrollment audio.</p> <important> <p>Before creating any voice profiles, you must provide all notices and obtain all consents from the speaker as required under applicable privacy and biometrics laws, and as required under the <a href=\"https://aws.amazon.com/service-terms/\">AWS service terms</a> for the Amazon Chime SDK.</p> </important> <p>For more information about voice profile domains, see <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/dg/pstn-voice-analytics.html\">Using Amazon Chime SDK Voice Analytics</a> in the <i>Amazon Chime SDK Developer Guide</i>.</p>
+        r"""<p>Creates a voice profile domain, a collection of voice profiles, their voice prints, and encrypted enrollment audio.</p> <important> <p>Before creating any voice profiles, you must provide all notices and obtain all consents from the speaker as required under applicable privacy and biometrics laws, and as required under the <a href=\"https://aws.amazon.com/service-terms/\">AWS service terms</a> for the Amazon Chime SDK.</p> </important> <p>For more information about voice profile domains, see <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/dg/pstn-voice-analytics.html\">Using Amazon Chime SDK Voice Analytics</a> in the <i>Amazon Chime SDK Developer Guide</i>.</p>
 
         Args:
             name: <p>The name of the voice profile domain.</p>
@@ -1831,7 +1831,7 @@ class ChimeSDKVoiceClient:
         *,
         config_overrides: Optional[ChimeSDKVoiceClientConfig] = None,
     ) -> "aws_sdk_chime_sdk_voice.types.get_sip_media_application_alexa_skill_configuration_response.GetSipMediaApplicationAlexaSkillConfigurationResponse":
-        """<p>Gets the Alexa Skill configuration for the SIP media application.</p> <important> <p>Due to changes made by the Amazon Alexa service, this API is no longer available for use. For more information, refer to the <a href=\"https://developer.amazon.com/en-US/alexa/alexasmartproperties\">Alexa Smart Properties</a> page.</p> </important>
+        r"""<p>Gets the Alexa Skill configuration for the SIP media application.</p> <important> <p>Due to changes made by the Amazon Alexa service, this API is no longer available for use. For more information, refer to the <a href=\"https://developer.amazon.com/en-US/alexa/alexasmartproperties\">Alexa Smart Properties</a> page.</p> </important>
 
         Args:
             sip_media_application_id: <p>The SIP media application ID.</p>
@@ -3105,7 +3105,7 @@ class ChimeSDKVoiceClient:
             "aws_sdk_chime_sdk_voice.types.sip_media_application_alexa_skill_configuration.SipMediaApplicationAlexaSkillConfiguration"
         ] = None,
     ) -> "aws_sdk_chime_sdk_voice.types.put_sip_media_application_alexa_skill_configuration_response.PutSipMediaApplicationAlexaSkillConfigurationResponse":
-        """<p>Updates the Alexa Skill configuration for the SIP media application.</p> <important> <p>Due to changes made by the Amazon Alexa service, this API is no longer available for use. For more information, refer to the <a href=\"https://developer.amazon.com/en-US/alexa/alexasmartproperties\">Alexa Smart Properties</a> page.</p> </important>
+        r"""<p>Updates the Alexa Skill configuration for the SIP media application.</p> <important> <p>Due to changes made by the Amazon Alexa service, this API is no longer available for use. For more information, refer to the <a href=\"https://developer.amazon.com/en-US/alexa/alexasmartproperties\">Alexa Smart Properties</a> page.</p> </important>
 
         Args:
             sip_media_application_id: <p>The SIP media application ID.</p>
@@ -3654,7 +3654,7 @@ class ChimeSDKVoiceClient:
             "aws_sdk_chime_sdk_voice.types.call_leg_type.CallLegType"
         ] = None,
     ) -> "aws_sdk_chime_sdk_voice.types.start_speaker_search_task_response.StartSpeakerSearchTaskResponse":
-        """<p>Starts a speaker search task.</p> <important> <p>Before starting any speaker search tasks, you must provide all notices and obtain all consents from the speaker as required under applicable privacy and biometrics laws, and as required under the <a href=\"https://aws.amazon.com/service-terms/\">AWS service terms</a> for the Amazon Chime SDK.</p> </important>
+        r"""<p>Starts a speaker search task.</p> <important> <p>Before starting any speaker search tasks, you must provide all notices and obtain all consents from the speaker as required under applicable privacy and biometrics laws, and as required under the <a href=\"https://aws.amazon.com/service-terms/\">AWS service terms</a> for the Amazon Chime SDK.</p> </important>
 
         Args:
             voice_connector_id: <p>The Voice Connector ID.</p>
@@ -3706,7 +3706,7 @@ class ChimeSDKVoiceClient:
             "aws_sdk_chime_sdk_voice.types.client_request_id.ClientRequestId"
         ] = None,
     ) -> "aws_sdk_chime_sdk_voice.types.start_voice_tone_analysis_task_response.StartVoiceToneAnalysisTaskResponse":
-        """<p>Starts a voice tone analysis task. For more information about voice tone analysis, see <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/dg/pstn-voice-analytics.html\">Using Amazon Chime SDK voice analytics</a> in the <i>Amazon Chime SDK Developer Guide</i>.</p> <important> <p>Before starting any voice tone analysis tasks, you must provide all notices and obtain all consents from the speaker as required under applicable privacy and biometrics laws, and as required under the <a href=\"https://aws.amazon.com/service-terms/\">AWS service terms</a> for the Amazon Chime SDK.</p> </important>
+        r"""<p>Starts a voice tone analysis task. For more information about voice tone analysis, see <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/dg/pstn-voice-analytics.html\">Using Amazon Chime SDK voice analytics</a> in the <i>Amazon Chime SDK Developer Guide</i>.</p> <important> <p>Before starting any voice tone analysis tasks, you must provide all notices and obtain all consents from the speaker as required under applicable privacy and biometrics laws, and as required under the <a href=\"https://aws.amazon.com/service-terms/\">AWS service terms</a> for the Amazon Chime SDK.</p> </important>
 
         Args:
             voice_connector_id: <p>The Voice Connector ID.</p>
@@ -4404,7 +4404,7 @@ class ChimeSDKVoiceClient:
         *,
         config_overrides: Optional[ChimeSDKVoiceClientConfig] = None,
     ) -> "aws_sdk_chime_sdk_voice.types.validate_e911_address_response.ValidateE911AddressResponse":
-        """<p>Validates an address to be used for 911 calls made with Amazon Chime SDK Voice Connectors. You can use validated addresses in a Presence Information Data Format Location Object file that you include in SIP requests. That helps ensure that addresses are routed to the appropriate Public Safety Answering Point.</p>
+        r"""<p>Validates an address to be used for 911 calls made with Amazon Chime SDK Voice Connectors. You can use validated addresses in a Presence Information Data Format Location Object file that you include in SIP requests. That helps ensure that addresses are routed to the appropriate Public Safety Answering Point.</p>
 
         Args:
             aws_account_id: <p>The AWS account ID.</p>

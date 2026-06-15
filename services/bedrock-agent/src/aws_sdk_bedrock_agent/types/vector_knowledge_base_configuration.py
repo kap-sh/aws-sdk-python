@@ -22,7 +22,7 @@ class VectorKnowledgeBaseConfiguration(TypedDict):
     supplemental_data_storage_configuration: NotRequired[
         "aws_sdk_bedrock_agent.types.supplemental_data_storage_configuration.SupplementalDataStorageConfiguration"
     ]
-    """<p>If you include multimodal data from your data source, use this object to specify configurations for the storage location of the images extracted from your documents. These images can be retrieved and returned to the end user. They can also be used in generation when using <a href=\"https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html\">RetrieveAndGenerate</a>.</p>"""
+    r"""<p>If you include multimodal data from your data source, use this object to specify configurations for the storage location of the images extracted from your documents. These images can be retrieved and returned to the end user. They can also be used in generation when using <a href=\"https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html\">RetrieveAndGenerate</a>.</p>"""
 
 
 # --- restJson1 ser/de ---

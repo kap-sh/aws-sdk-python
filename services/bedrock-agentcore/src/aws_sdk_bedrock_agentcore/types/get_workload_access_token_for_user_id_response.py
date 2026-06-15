@@ -1,13 +1,17 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#GetWorkloadAccessTokenForUserIdResponse``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.workload_identity_token_type
+
 
 class GetWorkloadAccessTokenForUserIdResponse(TypedDict):
     workload_access_token: "aws_sdk_bedrock_agentcore.types.workload_identity_token_type.WorkloadIdentityTokenType"
     """<p>The access token for the specified workload.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: GetWorkloadAccessTokenForUserIdResponse) -> dict:
@@ -21,5 +25,7 @@ def deserialize_json(data: dict) -> GetWorkloadAccessTokenForUserIdResponse:
     if "workloadAccessToken" in data:
         out["workload_access_token"] = data["workloadAccessToken"]
     else:
-        raise DeserializationError("GetWorkloadAccessTokenForUserIdResponse.workload_access_token required")
+        raise DeserializationError(
+            "GetWorkloadAccessTokenForUserIdResponse.workload_access_token required"
+        )
     return out

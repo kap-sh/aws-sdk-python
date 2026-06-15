@@ -16,11 +16,11 @@ if TYPE_CHECKING:
 
 class CreateLocationNfsRequest(TypedDict):
     subdirectory: "aws_sdk_datasync.types.nfs_subdirectory.NfsSubdirectory"
-    """<p>Specifies the export path in your NFS file server that you want DataSync to mount.</p> <p>This path (or a subdirectory of the path) is where DataSync transfers data to or from. For information on configuring an export for DataSync, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html#accessing-nfs\">Accessing NFS file servers</a>.</p>"""
+    r"""<p>Specifies the export path in your NFS file server that you want DataSync to mount.</p> <p>This path (or a subdirectory of the path) is where DataSync transfers data to or from. For information on configuring an export for DataSync, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html#accessing-nfs\">Accessing NFS file servers</a>.</p>"""
     server_hostname: "aws_sdk_datasync.types.server_hostname.ServerHostname"
     """<p>Specifies the DNS name or IP address (IPv4 or IPv6) of the NFS file server that your DataSync agent connects to.</p>"""
     on_prem_config: "aws_sdk_datasync.types.on_prem_config.OnPremConfig"
-    """<p>Specifies the Amazon Resource Name (ARN) of the DataSync agent that can connect to your NFS file server.</p> <p>You can specify more than one agent. For more information, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/do-i-need-datasync-agent.html#multiple-agents\">Using multiple DataSync agents</a>.</p>"""
+    r"""<p>Specifies the Amazon Resource Name (ARN) of the DataSync agent that can connect to your NFS file server.</p> <p>You can specify more than one agent. For more information, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/do-i-need-datasync-agent.html#multiple-agents\">Using multiple DataSync agents</a>.</p>"""
     mount_options: NotRequired[
         "aws_sdk_datasync.types.nfs_mount_options.NfsMountOptions"
     ]

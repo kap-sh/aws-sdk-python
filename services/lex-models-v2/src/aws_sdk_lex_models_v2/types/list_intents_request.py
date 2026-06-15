@@ -20,7 +20,7 @@ class ListIntentsRequest(TypedDict):
     bot_version: "aws_sdk_lex_models_v2.types.bot_version.BotVersion"
     """<p>The version of the bot that contains the intent.</p>"""
     locale_id: "aws_sdk_lex_models_v2.types.locale_id.LocaleId"
-    """<p>The identifier of the language and locale of the intents to list. The string must match one of the supported locales. For more information, see <a href=\"https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html\">Supported languages</a>.</p>"""
+    r"""<p>The identifier of the language and locale of the intents to list. The string must match one of the supported locales. For more information, see <a href=\"https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html\">Supported languages</a>.</p>"""
     sort_by: NotRequired["aws_sdk_lex_models_v2.types.intent_sort_by.IntentSortBy"]
     """<p>Determines the sort order for the response from the <code>ListIntents</code> operation. You can choose to sort by the intent name or last updated date in either ascending or descending order.</p>"""
     filters: NotRequired["aws_sdk_lex_models_v2.types.intent_filters.IntentFilters"]

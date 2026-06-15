@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 from aws_sdk_b2bi._services._pipeline import (
@@ -86,22 +88,22 @@ class Partnership:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_b2bi.types.create_partnership_request.CreatePartnershipRequest = {}  # type: ignore[typeddict-item]
-        input["profile_id"] = profile_id
-        input["name"] = name
-        input["email"] = email
+        input_: aws_sdk_b2bi.types.create_partnership_request.CreatePartnershipRequest = {}  # type: ignore[typeddict-item]
+        input_["profile_id"] = profile_id
+        input_["name"] = name
+        input_["email"] = email
         if phone is not None:
-            input["phone"] = phone
-        input["capabilities"] = capabilities
+            input_["phone"] = phone
+        input_["capabilities"] = capabilities
         if capability_options is not None:
-            input["capability_options"] = capability_options
+            input_["capability_options"] = capability_options
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -139,11 +141,11 @@ class Partnership:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_b2bi.types.get_partnership_request.GetPartnershipRequest = {}  # type: ignore[typeddict-item]
-        input["partnership_id"] = partnership_id
+        input_: aws_sdk_b2bi.types.get_partnership_request.GetPartnershipRequest = {}  # type: ignore[typeddict-item]
+        input_["partnership_id"] = partnership_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -191,17 +193,17 @@ class Partnership:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_b2bi.types.update_partnership_request.UpdatePartnershipRequest = {}  # type: ignore[typeddict-item]
-        input["partnership_id"] = partnership_id
+        input_: aws_sdk_b2bi.types.update_partnership_request.UpdatePartnershipRequest = {}  # type: ignore[typeddict-item]
+        input_["partnership_id"] = partnership_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if capabilities is not None:
-            input["capabilities"] = capabilities
+            input_["capabilities"] = capabilities
         if capability_options is not None:
-            input["capability_options"] = capability_options
+            input_["capability_options"] = capability_options
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -237,11 +239,11 @@ class Partnership:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_b2bi.types.delete_partnership_request.DeletePartnershipRequest = {}  # type: ignore[typeddict-item]
-        input["partnership_id"] = partnership_id
+        input_: aws_sdk_b2bi.types.delete_partnership_request.DeletePartnershipRequest = {}  # type: ignore[typeddict-item]
+        input_["partnership_id"] = partnership_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -283,16 +285,16 @@ class Partnership:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_b2bi.types.list_partnerships_request.ListPartnershipsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_b2bi.types.list_partnerships_request.ListPartnershipsRequest = {}  # type: ignore[typeddict-item]
         if profile_id is not None:
-            input["profile_id"] = profile_id
+            input_["profile_id"] = profile_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -352,22 +354,22 @@ class AsyncPartnership:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_b2bi.types.create_partnership_request.CreatePartnershipRequest = {}  # type: ignore[typeddict-item]
-        input["profile_id"] = profile_id
-        input["name"] = name
-        input["email"] = email
+        input_: aws_sdk_b2bi.types.create_partnership_request.CreatePartnershipRequest = {}  # type: ignore[typeddict-item]
+        input_["profile_id"] = profile_id
+        input_["name"] = name
+        input_["email"] = email
         if phone is not None:
-            input["phone"] = phone
-        input["capabilities"] = capabilities
+            input_["phone"] = phone
+        input_["capabilities"] = capabilities
         if capability_options is not None:
-            input["capability_options"] = capability_options
+            input_["capability_options"] = capability_options
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -406,11 +408,11 @@ class AsyncPartnership:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_b2bi.types.get_partnership_request.GetPartnershipRequest = {}  # type: ignore[typeddict-item]
-        input["partnership_id"] = partnership_id
+        input_: aws_sdk_b2bi.types.get_partnership_request.GetPartnershipRequest = {}  # type: ignore[typeddict-item]
+        input_["partnership_id"] = partnership_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -459,17 +461,17 @@ class AsyncPartnership:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_b2bi.types.update_partnership_request.UpdatePartnershipRequest = {}  # type: ignore[typeddict-item]
-        input["partnership_id"] = partnership_id
+        input_: aws_sdk_b2bi.types.update_partnership_request.UpdatePartnershipRequest = {}  # type: ignore[typeddict-item]
+        input_["partnership_id"] = partnership_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if capabilities is not None:
-            input["capabilities"] = capabilities
+            input_["capabilities"] = capabilities
         if capability_options is not None:
-            input["capability_options"] = capability_options
+            input_["capability_options"] = capability_options
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -506,11 +508,11 @@ class AsyncPartnership:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_b2bi.types.delete_partnership_request.DeletePartnershipRequest = {}  # type: ignore[typeddict-item]
-        input["partnership_id"] = partnership_id
+        input_: aws_sdk_b2bi.types.delete_partnership_request.DeletePartnershipRequest = {}  # type: ignore[typeddict-item]
+        input_["partnership_id"] = partnership_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -553,16 +555,16 @@ class AsyncPartnership:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_b2bi.types.list_partnerships_request.ListPartnershipsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_b2bi.types.list_partnerships_request.ListPartnershipsRequest = {}  # type: ignore[typeddict-item]
         if profile_id is not None:
-            input["profile_id"] = profile_id
+            input_["profile_id"] = profile_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

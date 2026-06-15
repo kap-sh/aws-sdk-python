@@ -10,7 +10,7 @@ if TYPE_CHECKING:
 
 class TlsConfig(TypedDict):
     security_policy: NotRequired["aws_sdk_iot.types.security_policy.SecurityPolicy"]
-    """<p>The security policy for a domain configuration. For more information, see <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/transport-security.html#tls-policy-table\">Security policies </a> in the <i>Amazon Web Services IoT Core developer guide</i>.</p>"""
+    r"""<p>The security policy for a domain configuration. For more information, see <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/transport-security.html#tls-policy-table\">Security policies </a> in the <i>Amazon Web Services IoT Core developer guide</i>.</p>"""
 
 
 # --- restJson1 ser/de ---

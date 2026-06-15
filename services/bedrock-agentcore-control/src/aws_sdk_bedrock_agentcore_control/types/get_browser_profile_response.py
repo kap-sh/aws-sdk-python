@@ -1,8 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#GetBrowserProfileResponse``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.browser_id
     import aws_sdk_bedrock_agentcore_control.types.browser_profile_arn
@@ -13,27 +16,43 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.date_timestamp
     import aws_sdk_bedrock_agentcore_control.types.description
 
+
 class GetBrowserProfileResponse(TypedDict):
-    profile_id: "aws_sdk_bedrock_agentcore_control.types.browser_profile_id.BrowserProfileId"
+    profile_id: (
+        "aws_sdk_bedrock_agentcore_control.types.browser_profile_id.BrowserProfileId"
+    )
     """<p>The unique identifier of the browser profile.</p>"""
-    profile_arn: "aws_sdk_bedrock_agentcore_control.types.browser_profile_arn.BrowserProfileArn"
+    profile_arn: (
+        "aws_sdk_bedrock_agentcore_control.types.browser_profile_arn.BrowserProfileArn"
+    )
     """<p>The Amazon Resource Name (ARN) of the browser profile.</p>"""
     name: "aws_sdk_bedrock_agentcore_control.types.browser_profile_name.BrowserProfileName"
     """<p>The name of the browser profile.</p>"""
-    description: NotRequired["aws_sdk_bedrock_agentcore_control.types.description.Description"]
+    description: NotRequired[
+        "aws_sdk_bedrock_agentcore_control.types.description.Description"
+    ]
     """<p>The description of the browser profile.</p>"""
     status: "aws_sdk_bedrock_agentcore_control.types.browser_profile_status.BrowserProfileStatus"
     """<p>The current status of the browser profile.</p>"""
     created_at: "aws_sdk_bedrock_agentcore_control.types.date_timestamp.DateTimestamp"
     """<p>The timestamp when the browser profile was created.</p>"""
-    last_updated_at: "aws_sdk_bedrock_agentcore_control.types.date_timestamp.DateTimestamp"
+    last_updated_at: (
+        "aws_sdk_bedrock_agentcore_control.types.date_timestamp.DateTimestamp"
+    )
     """<p>The timestamp when the browser profile was last updated.</p>"""
-    last_saved_at: NotRequired["aws_sdk_bedrock_agentcore_control.types.date_timestamp.DateTimestamp"]
+    last_saved_at: NotRequired[
+        "aws_sdk_bedrock_agentcore_control.types.date_timestamp.DateTimestamp"
+    ]
     """<p>The timestamp when browser session data was last saved to this profile.</p>"""
-    last_saved_browser_session_id: NotRequired["aws_sdk_bedrock_agentcore_control.types.browser_session_id.BrowserSessionId"]
+    last_saved_browser_session_id: NotRequired[
+        "aws_sdk_bedrock_agentcore_control.types.browser_session_id.BrowserSessionId"
+    ]
     """<p>The identifier of the browser session from which data was last saved to this profile.</p>"""
-    last_saved_browser_id: NotRequired["aws_sdk_bedrock_agentcore_control.types.browser_id.BrowserId"]
+    last_saved_browser_id: NotRequired[
+        "aws_sdk_bedrock_agentcore_control.types.browser_id.BrowserId"
+    ]
     """<p>The identifier of the browser from which data was last saved to this profile.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: GetBrowserProfileResponse) -> dict:
@@ -44,14 +63,34 @@ def serialize_json(value: GetBrowserProfileResponse) -> dict:
     if "description" in value:
         out["description"] = value["description"]
     import aws_sdk_bedrock_agentcore_control.types.browser_profile_status
-    out["status"] = aws_sdk_bedrock_agentcore_control.types.browser_profile_status.serialize_json(value["status"])
+
+    out["status"] = (
+        aws_sdk_bedrock_agentcore_control.types.browser_profile_status.serialize_json(
+            value["status"]
+        )
+    )
     import aws_sdk_bedrock_agentcore_control.types.date_timestamp
-    out["createdAt"] = aws_sdk_bedrock_agentcore_control.types.date_timestamp.serialize_json(value["created_at"])
+
+    out["createdAt"] = (
+        aws_sdk_bedrock_agentcore_control.types.date_timestamp.serialize_json(
+            value["created_at"]
+        )
+    )
     import aws_sdk_bedrock_agentcore_control.types.date_timestamp
-    out["lastUpdatedAt"] = aws_sdk_bedrock_agentcore_control.types.date_timestamp.serialize_json(value["last_updated_at"])
+
+    out["lastUpdatedAt"] = (
+        aws_sdk_bedrock_agentcore_control.types.date_timestamp.serialize_json(
+            value["last_updated_at"]
+        )
+    )
     if "last_saved_at" in value:
         import aws_sdk_bedrock_agentcore_control.types.date_timestamp
-        out["lastSavedAt"] = aws_sdk_bedrock_agentcore_control.types.date_timestamp.serialize_json(value["last_saved_at"])
+
+        out["lastSavedAt"] = (
+            aws_sdk_bedrock_agentcore_control.types.date_timestamp.serialize_json(
+                value["last_saved_at"]
+            )
+        )
     if "last_saved_browser_session_id" in value:
         out["lastSavedBrowserSessionId"] = value["last_saved_browser_session_id"]
     if "last_saved_browser_id" in value:
@@ -77,22 +116,42 @@ def deserialize_json(data: dict) -> GetBrowserProfileResponse:
         out["description"] = data["description"]
     if "status" in data:
         import aws_sdk_bedrock_agentcore_control.types.browser_profile_status
-        out["status"] = aws_sdk_bedrock_agentcore_control.types.browser_profile_status.deserialize_json(data["status"])
+
+        out["status"] = (
+            aws_sdk_bedrock_agentcore_control.types.browser_profile_status.deserialize_json(
+                data["status"]
+            )
+        )
     else:
         raise DeserializationError("GetBrowserProfileResponse.status required")
     if "createdAt" in data:
         import aws_sdk_bedrock_agentcore_control.types.date_timestamp
-        out["created_at"] = aws_sdk_bedrock_agentcore_control.types.date_timestamp.deserialize_json(data["createdAt"])
+
+        out["created_at"] = (
+            aws_sdk_bedrock_agentcore_control.types.date_timestamp.deserialize_json(
+                data["createdAt"]
+            )
+        )
     else:
         raise DeserializationError("GetBrowserProfileResponse.created_at required")
     if "lastUpdatedAt" in data:
         import aws_sdk_bedrock_agentcore_control.types.date_timestamp
-        out["last_updated_at"] = aws_sdk_bedrock_agentcore_control.types.date_timestamp.deserialize_json(data["lastUpdatedAt"])
+
+        out["last_updated_at"] = (
+            aws_sdk_bedrock_agentcore_control.types.date_timestamp.deserialize_json(
+                data["lastUpdatedAt"]
+            )
+        )
     else:
         raise DeserializationError("GetBrowserProfileResponse.last_updated_at required")
     if "lastSavedAt" in data:
         import aws_sdk_bedrock_agentcore_control.types.date_timestamp
-        out["last_saved_at"] = aws_sdk_bedrock_agentcore_control.types.date_timestamp.deserialize_json(data["lastSavedAt"])
+
+        out["last_saved_at"] = (
+            aws_sdk_bedrock_agentcore_control.types.date_timestamp.deserialize_json(
+                data["lastSavedAt"]
+            )
+        )
     if "lastSavedBrowserSessionId" in data:
         out["last_saved_browser_session_id"] = data["lastSavedBrowserSessionId"]
     if "lastSavedBrowserId" in data:

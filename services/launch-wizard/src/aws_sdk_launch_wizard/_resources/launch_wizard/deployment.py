@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_launch_wizard._auth._signers
@@ -59,7 +61,7 @@ class Deployment:
         dry_run: Optional[bool] = None,
         tags: Optional["aws_sdk_launch_wizard.types.tags.Tags"] = None,
     ) -> "aws_sdk_launch_wizard.types.create_deployment_output.CreateDeploymentOutput":
-        """<p>Creates a deployment for the given workload. Deployments created by this operation are not available in the Launch Wizard console to use the <code>Clone deployment</code> action on.</p>
+        r"""<p>Creates a deployment for the given workload. Deployments created by this operation are not available in the Launch Wizard console to use the <code>Clone deployment</code> action on.</p>
 
         Args:
             workload_name: <p>The name of the workload. You can use the <a href=\"https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_ListWorkloads.html\"> <code>ListWorkloads</code> </a> operation to discover supported values for this parameter.</p>
@@ -167,7 +169,7 @@ class Deployment:
         dry_run: Optional[bool] = None,
         force: Optional[bool] = None,
     ) -> "aws_sdk_launch_wizard.types.update_deployment_output.UpdateDeploymentOutput":
-        """<p>Updates a deployment.</p>
+        r"""<p>Updates a deployment.</p>
 
         Args:
             deployment_id: <p>The ID of the deployment.</p>
@@ -333,7 +335,7 @@ class AsyncDeployment:
         dry_run: Optional[bool] = None,
         tags: Optional["aws_sdk_launch_wizard.types.tags.Tags"] = None,
     ) -> "aws_sdk_launch_wizard.types.create_deployment_output.CreateDeploymentOutput":
-        """<p>Creates a deployment for the given workload. Deployments created by this operation are not available in the Launch Wizard console to use the <code>Clone deployment</code> action on.</p>
+        r"""<p>Creates a deployment for the given workload. Deployments created by this operation are not available in the Launch Wizard console to use the <code>Clone deployment</code> action on.</p>
 
         Args:
             workload_name: <p>The name of the workload. You can use the <a href=\"https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_ListWorkloads.html\"> <code>ListWorkloads</code> </a> operation to discover supported values for this parameter.</p>
@@ -443,7 +445,7 @@ class AsyncDeployment:
         dry_run: Optional[bool] = None,
         force: Optional[bool] = None,
     ) -> "aws_sdk_launch_wizard.types.update_deployment_output.UpdateDeploymentOutput":
-        """<p>Updates a deployment.</p>
+        r"""<p>Updates a deployment.</p>
 
         Args:
             deployment_id: <p>The ID of the deployment.</p>

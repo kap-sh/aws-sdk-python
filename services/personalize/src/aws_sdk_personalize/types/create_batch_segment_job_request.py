@@ -22,7 +22,7 @@ class CreateBatchSegmentJobRequest(TypedDict):
     solution_version_arn: "aws_sdk_personalize.types.arn.Arn"
     """<p>The Amazon Resource Name (ARN) of the solution version you want the batch segment job to use to generate batch segments.</p>"""
     filter_arn: NotRequired["aws_sdk_personalize.types.arn.Arn"]
-    """<p>The ARN of the filter to apply to the batch segment job. For more information on using filters, see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/filter-batch.html\">Filtering batch recommendations</a>.</p>"""
+    r"""<p>The ARN of the filter to apply to the batch segment job. For more information on using filters, see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/filter-batch.html\">Filtering batch recommendations</a>.</p>"""
     num_results: NotRequired[
         "aws_sdk_personalize.types.num_batch_results.NumBatchResults"
     ]
@@ -36,7 +36,7 @@ class CreateBatchSegmentJobRequest(TypedDict):
     role_arn: "aws_sdk_personalize.types.role_arn.RoleArn"
     """<p>The ARN of the Amazon Identity and Access Management role that has permissions to read and write to your input and output Amazon S3 buckets respectively.</p>"""
     tags: NotRequired["aws_sdk_personalize.types.tags.Tags"]
-    """<p>A list of <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html\">tags</a> to apply to the batch segment job.</p>"""
+    r"""<p>A list of <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html\">tags</a> to apply to the batch segment job.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

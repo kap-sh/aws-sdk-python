@@ -14,7 +14,7 @@ if TYPE_CHECKING:
 
 class DatetimeOptions(TypedDict):
     format: "aws_sdk_databrew.types.datetime_format.DatetimeFormat"
-    """<p>Required option, that defines the datetime format used for a date parameter in the Amazon S3 path. Should use only supported datetime specifiers and separation characters, all literal a-z or A-Z characters should be escaped with single quotes. E.g. \"MM.dd.yyyy-'at'-HH:mm\".</p>"""
+    r"""<p>Required option, that defines the datetime format used for a date parameter in the Amazon S3 path. Should use only supported datetime specifiers and separation characters, all literal a-z or A-Z characters should be escaped with single quotes. E.g. \"MM.dd.yyyy-'at'-HH:mm\".</p>"""
     timezone_offset: NotRequired[
         "aws_sdk_databrew.types.timezone_offset.TimezoneOffset"
     ]

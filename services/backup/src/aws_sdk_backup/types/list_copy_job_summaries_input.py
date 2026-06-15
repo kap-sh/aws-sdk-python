@@ -24,7 +24,7 @@ class ListCopyJobSummariesInput(TypedDict):
     message_category: NotRequired[
         "aws_sdk_backup.types.message_category.MessageCategory"
     ]
-    """<p>This parameter returns the job count for the specified message category.</p> <p>Example accepted strings include <code>AccessDenied</code>, <code>Success</code>, and <code>InvalidParameters</code>. See <a href=\"https://docs.aws.amazon.com/aws-backup/latest/devguide/monitoring.html\">Monitoring</a> for a list of accepted MessageCategory strings.</p> <p>The the value ANY returns count of all message categories.</p> <p> <code>AGGREGATE_ALL</code> aggregates job counts for all message categories and returns the sum.</p>"""
+    r"""<p>This parameter returns the job count for the specified message category.</p> <p>Example accepted strings include <code>AccessDenied</code>, <code>Success</code>, and <code>InvalidParameters</code>. See <a href=\"https://docs.aws.amazon.com/aws-backup/latest/devguide/monitoring.html\">Monitoring</a> for a list of accepted MessageCategory strings.</p> <p>The the value ANY returns count of all message categories.</p> <p> <code>AGGREGATE_ALL</code> aggregates job counts for all message categories and returns the sum.</p>"""
     aggregation_period: NotRequired[
         "aws_sdk_backup.types.aggregation_period.AggregationPeriod"
     ]

@@ -11,9 +11,9 @@ if TYPE_CHECKING:
 
 class Tag(TypedDict):
     key: "aws_sdk_directory_service.types.tag_key.TagKey"
-    """<p>Required name of the tag. The string value can be Unicode characters and cannot be prefixed with \"aws:\". The string can contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-', ':', '@'(Java regex: \"^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$\").</p>"""
+    r"""<p>Required name of the tag. The string value can be Unicode characters and cannot be prefixed with \"aws:\". The string can contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-', ':', '@'(Java regex: \"^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$\").</p>"""
     value: "aws_sdk_directory_service.types.tag_value.TagValue"
-    """<p>The optional value of the tag. The string value can be Unicode characters. The string can contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-', ':', '@' (Java regex: \"^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$\").</p>"""
+    r"""<p>The optional value of the tag. The string value can be Unicode characters. The string can contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-', ':', '@' (Java regex: \"^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$\").</p>"""
 
 
 # --- awsJson1_1 ser/de ---

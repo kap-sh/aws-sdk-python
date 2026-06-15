@@ -12,7 +12,7 @@ if TYPE_CHECKING:
 
 class ListAttachedFilesConfigurationsRequest(TypedDict):
     instance_id: "aws_sdk_connect.types.instance_id.InstanceId"
-    """<p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>"""
+    r"""<p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>"""
     max_results: NotRequired["aws_sdk_connect.types.max_result100.MaxResult100"]
     """<p>The maximum number of results to return per page. The default MaxResult size is 100.</p>"""
     next_token: NotRequired["aws_sdk_connect.types.next_token.NextToken"]

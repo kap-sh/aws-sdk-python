@@ -160,7 +160,7 @@ class AsyncECRPUBLICClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = AsyncECRPUBLICClientConfig(
+        self._config = AsyncECRPUBLICClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -180,7 +180,7 @@ class AsyncECRPUBLICClient:
         overrides: AsyncECRPUBLICClientConfig = config_overrides or {}
         interceptors_: list[AsyncInterceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             aretry(),
         ]
@@ -188,16 +188,16 @@ class AsyncECRPUBLICClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            region=overrides.get("region", self.config.get("region")),
+            region=overrides.get("region", self._config.get("region")),
             use_dual_stack=overrides.get(
-                "use_dual_stack", self.config.get("use_dual_stack")
+                "use_dual_stack", self._config.get("use_dual_stack")
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -358,7 +358,7 @@ class AsyncECRPUBLICClient:
         ] = None,
         tags: Optional["aws_sdk_ecr_public.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_ecr_public.types.create_repository_response.CreateRepositoryResponse":
-        """<p>Creates a repository in a public registry. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECR/latest/userguide/Repositories.html\">Amazon ECR repositories</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</p>
+        r"""<p>Creates a repository in a public registry. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECR/latest/userguide/Repositories.html\">Amazon ECR repositories</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</p>
 
         Args:
             repository_name: <p>The name to use for the repository. This appears publicly in the Amazon ECR Public Gallery. The repository name can be specified on its own (for example <code>nginx-web-app</code>) or prepended with a namespace to group the repository into a category (for example <code>project-a/nginx-web-app</code>).</p>
@@ -1172,7 +1172,7 @@ class AsyncECRPUBLICClient:
         registry_id: Optional["aws_sdk_ecr_public.types.registry_id.RegistryId"] = None,
         force: Optional["aws_sdk_ecr_public.types.force_flag.ForceFlag"] = None,
     ) -> "aws_sdk_ecr_public.types.set_repository_policy_response.SetRepositoryPolicyResponse":
-        """<p>Applies a repository policy to the specified public repository to control access permissions. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-policies.html\">Amazon ECR Repository Policies</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</p>
+        r"""<p>Applies a repository policy to the specified public repository to control access permissions. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-policies.html\">Amazon ECR Repository Policies</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</p>
 
         Args:
             registry_id: <p>The Amazon Web Services account ID that's associated with the registry that contains the repository. If you do not specify a registry, the default public registry is assumed.</p>

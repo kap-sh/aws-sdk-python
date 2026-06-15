@@ -10,7 +10,7 @@ if TYPE_CHECKING:
 
 class ListTagsForResourceRequest(TypedDict):
     resource_arn: "aws_sdk_cost_explorer.types.arn.Arn"
-    """<p>The Amazon Resource Name (ARN) of the resource. For a list of supported resources, see <a href=\"https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_ResourceTag.html\">ResourceTag</a>.</p>"""
+    r"""<p>The Amazon Resource Name (ARN) of the resource. For a list of supported resources, see <a href=\"https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_ResourceTag.html\">ResourceTag</a>.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

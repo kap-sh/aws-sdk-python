@@ -55,7 +55,7 @@ class ClusterInfo(TypedDict):
     enhanced_monitoring: NotRequired[
         "aws_sdk_kafka.types.enhanced_monitoring.EnhancedMonitoring"
     ]
-    """<p>Specifies which metrics are gathered for the MSK cluster. This property has the following possible values: DEFAULT, PER_BROKER, PER_TOPIC_PER_BROKER, and PER_TOPIC_PER_PARTITION. For a list of the metrics associated with each of these levels of monitoring, see <a href=\"https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html\">Monitoring</a>.</p>"""
+    r"""<p>Specifies which metrics are gathered for the MSK cluster. This property has the following possible values: DEFAULT, PER_BROKER, PER_TOPIC_PER_BROKER, and PER_TOPIC_PER_PARTITION. For a list of the metrics associated with each of these levels of monitoring, see <a href=\"https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html\">Monitoring</a>.</p>"""
     open_monitoring: NotRequired["aws_sdk_kafka.types.open_monitoring.OpenMonitoring"]
     """<p>Settings for open monitoring using Prometheus.</p>"""
     logging_info: NotRequired["aws_sdk_kafka.types.logging_info.LoggingInfo"]

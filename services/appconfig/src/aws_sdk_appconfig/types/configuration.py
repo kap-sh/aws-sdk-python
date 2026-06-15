@@ -16,7 +16,7 @@ class Configuration(TypedDict):
     configuration_version: NotRequired["aws_sdk_appconfig.types.version.Version"]
     """<p>The configuration version.</p>"""
     content_type: NotRequired["aws_sdk_appconfig.types.string.String"]
-    """<p>A standard MIME type describing the format of the configuration content. For more information, see <a href=\"http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17\">Content-Type</a>.</p>"""
+    r"""<p>A standard MIME type describing the format of the configuration content. For more information, see <a href=\"http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17\">Content-Type</a>.</p>"""
 
 
 # --- restJson1 ser/de ---

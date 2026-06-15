@@ -217,7 +217,7 @@ class AsyncOSISClient:
             "aws_sdk_osis.types.pipeline_role_arn.PipelineRoleArn"
         ] = None,
     ) -> "aws_sdk_osis.types.create_pipeline_response.CreatePipelineResponse":
-        """<p>Creates an OpenSearch Ingestion pipeline. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/creating-pipeline.html\">Creating Amazon OpenSearch Ingestion pipelines</a>.</p>
+        r"""<p>Creates an OpenSearch Ingestion pipeline. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/creating-pipeline.html\">Creating Amazon OpenSearch Ingestion pipelines</a>.</p>
 
         Args:
             pipeline_name: <p>The name of the OpenSearch Ingestion pipeline to create. Pipeline names are unique across the pipelines owned by an account within an Amazon Web Services Region.</p>
@@ -320,7 +320,7 @@ class AsyncOSISClient:
         *,
         config_overrides: Optional[AsyncOSISClientConfig] = None,
     ) -> "aws_sdk_osis.types.delete_pipeline_response.DeletePipelineResponse":
-        """<p>Deletes an OpenSearch Ingestion pipeline. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/delete-pipeline.html\">Deleting Amazon OpenSearch Ingestion pipelines</a>.</p>
+        r"""<p>Deletes an OpenSearch Ingestion pipeline. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/delete-pipeline.html\">Deleting Amazon OpenSearch Ingestion pipelines</a>.</p>
 
         Args:
             pipeline_name: <p>The name of the pipeline to delete.</p>
@@ -473,7 +473,7 @@ class AsyncOSISClient:
         config_overrides: Optional[AsyncOSISClientConfig] = None,
         format: Optional["aws_sdk_osis.types.blueprint_format.BlueprintFormat"] = None,
     ) -> "aws_sdk_osis.types.get_pipeline_blueprint_response.GetPipelineBlueprintResponse":
-        """<p>Retrieves information about a specific blueprint for OpenSearch Ingestion. Blueprints are templates for the configuration needed for a <code>CreatePipeline</code> request. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/creating-pipeline.html#pipeline-blueprint\">Using blueprints to create a pipeline</a>.</p>
+        r"""<p>Retrieves information about a specific blueprint for OpenSearch Ingestion. Blueprints are templates for the configuration needed for a <code>CreatePipeline</code> request. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/creating-pipeline.html#pipeline-blueprint\">Using blueprints to create a pipeline</a>.</p>
 
         Args:
             blueprint_name: <p>The name of the blueprint to retrieve.</p>
@@ -514,7 +514,7 @@ class AsyncOSISClient:
         *,
         config_overrides: Optional[AsyncOSISClientConfig] = None,
     ) -> "aws_sdk_osis.types.get_pipeline_change_progress_response.GetPipelineChangeProgressResponse":
-        """<p>Returns progress information for the current change happening on an OpenSearch Ingestion pipeline. Currently, this operation only returns information when a pipeline is being created.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/creating-pipeline.html#get-pipeline-progress\">Tracking the status of pipeline creation</a>.</p>
+        r"""<p>Returns progress information for the current change happening on an OpenSearch Ingestion pipeline. Currently, this operation only returns information when a pipeline is being created.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/creating-pipeline.html#get-pipeline-progress\">Tracking the status of pipeline creation</a>.</p>
 
         Args:
             pipeline_name: <p>The name of the pipeline.</p>
@@ -587,7 +587,7 @@ class AsyncOSISClient:
     async def list_pipeline_blueprints(
         self, *, config_overrides: Optional[AsyncOSISClientConfig] = None
     ) -> "aws_sdk_osis.types.list_pipeline_blueprints_response.ListPipelineBlueprintsResponse":
-        """<p>Retrieves a list of all available blueprints for Data Prepper. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/creating-pipeline.html#pipeline-blueprint\">Using blueprints to create a pipeline</a>.</p>"""
+        r"""<p>Retrieves a list of all available blueprints for Data Prepper. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/creating-pipeline.html#pipeline-blueprint\">Using blueprints to create a pipeline</a>.</p>"""
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_osis.types.list_pipeline_blueprints_request.ListPipelineBlueprintsRequest]",
@@ -749,7 +749,7 @@ class AsyncOSISClient:
         max_results: Optional["aws_sdk_osis.types.max_results.MaxResults"] = None,
         next_token: Optional["aws_sdk_osis.types.next_token.NextToken"] = None,
     ) -> "aws_sdk_osis.types.list_pipelines_response.ListPipelinesResponse":
-        """<p>Lists all OpenSearch Ingestion pipelines in the current Amazon Web Services account and Region. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/list-pipeline.html\">Viewing Amazon OpenSearch Ingestion pipelines</a>.</p>
+        r"""<p>Lists all OpenSearch Ingestion pipelines in the current Amazon Web Services account and Region. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/list-pipeline.html\">Viewing Amazon OpenSearch Ingestion pipelines</a>.</p>
 
         Args:
             max_results: <p>An optional parameter that specifies the maximum number of results to return. You can use <code>nextToken</code> to get the next page of results.</p>
@@ -793,7 +793,7 @@ class AsyncOSISClient:
     ) -> (
         "aws_sdk_osis.types.list_tags_for_resource_response.ListTagsForResourceResponse"
     ):
-        """<p>Lists all resource tags associated with an OpenSearch Ingestion pipeline. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/tag-pipeline.html\">Tagging Amazon OpenSearch Ingestion pipelines</a>.</p>
+        r"""<p>Lists all resource tags associated with an OpenSearch Ingestion pipeline. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/tag-pipeline.html\">Tagging Amazon OpenSearch Ingestion pipelines</a>.</p>
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the pipeline to retrieve tags for.</p>
@@ -913,7 +913,7 @@ class AsyncOSISClient:
         *,
         config_overrides: Optional[AsyncOSISClientConfig] = None,
     ) -> "aws_sdk_osis.types.start_pipeline_response.StartPipelineResponse":
-        """<p>Starts an OpenSearch Ingestion pipeline. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/pipeline--stop-start.html#pipeline--start\">Starting an OpenSearch Ingestion pipeline</a>.</p>
+        r"""<p>Starts an OpenSearch Ingestion pipeline. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/pipeline--stop-start.html#pipeline--start\">Starting an OpenSearch Ingestion pipeline</a>.</p>
 
         Args:
             pipeline_name: <p>The name of the pipeline to start.</p>
@@ -951,7 +951,7 @@ class AsyncOSISClient:
         *,
         config_overrides: Optional[AsyncOSISClientConfig] = None,
     ) -> "aws_sdk_osis.types.stop_pipeline_response.StopPipelineResponse":
-        """<p>Stops an OpenSearch Ingestion pipeline. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/pipeline--stop-start.html#pipeline--stop\">Stopping an OpenSearch Ingestion pipeline</a>.</p>
+        r"""<p>Stops an OpenSearch Ingestion pipeline. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/pipeline--stop-start.html#pipeline--stop\">Stopping an OpenSearch Ingestion pipeline</a>.</p>
 
         Args:
             pipeline_name: <p>The name of the pipeline to stop.</p>
@@ -990,7 +990,7 @@ class AsyncOSISClient:
         *,
         config_overrides: Optional[AsyncOSISClientConfig] = None,
     ) -> "aws_sdk_osis.types.tag_resource_response.TagResourceResponse":
-        """<p>Tags an OpenSearch Ingestion pipeline. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/tag-pipeline.html\">Tagging Amazon OpenSearch Ingestion pipelines</a>.</p>
+        r"""<p>Tags an OpenSearch Ingestion pipeline. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/tag-pipeline.html\">Tagging Amazon OpenSearch Ingestion pipelines</a>.</p>
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the pipeline to tag.</p>
@@ -1031,7 +1031,7 @@ class AsyncOSISClient:
         *,
         config_overrides: Optional[AsyncOSISClientConfig] = None,
     ) -> "aws_sdk_osis.types.untag_resource_response.UntagResourceResponse":
-        """<p>Removes one or more tags from an OpenSearch Ingestion pipeline. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/tag-pipeline.html\">Tagging Amazon OpenSearch Ingestion pipelines</a>.</p>
+        r"""<p>Removes one or more tags from an OpenSearch Ingestion pipeline. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/tag-pipeline.html\">Tagging Amazon OpenSearch Ingestion pipelines</a>.</p>
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the pipeline to remove tags from.</p>
@@ -1088,7 +1088,7 @@ class AsyncOSISClient:
             "aws_sdk_osis.types.pipeline_role_arn.PipelineRoleArn"
         ] = None,
     ) -> "aws_sdk_osis.types.update_pipeline_response.UpdatePipelineResponse":
-        """<p>Updates an OpenSearch Ingestion pipeline. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/update-pipeline.html\">Updating Amazon OpenSearch Ingestion pipelines</a>.</p>
+        r"""<p>Updates an OpenSearch Ingestion pipeline. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/update-pipeline.html\">Updating Amazon OpenSearch Ingestion pipelines</a>.</p>
 
         Args:
             pipeline_name: <p>The name of the pipeline to update.</p>
@@ -1147,7 +1147,7 @@ class AsyncOSISClient:
         *,
         config_overrides: Optional[AsyncOSISClientConfig] = None,
     ) -> "aws_sdk_osis.types.validate_pipeline_response.ValidatePipelineResponse":
-        """<p>Checks whether an OpenSearch Ingestion pipeline configuration is valid prior to creation. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/creating-pipeline.html\">Creating Amazon OpenSearch Ingestion pipelines</a>.</p>
+        r"""<p>Checks whether an OpenSearch Ingestion pipeline configuration is valid prior to creation. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/creating-pipeline.html\">Creating Amazon OpenSearch Ingestion pipelines</a>.</p>
 
         Args:
             pipeline_configuration_body: <p>The pipeline configuration in YAML format. The command accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with <code>\n</code>.</p>

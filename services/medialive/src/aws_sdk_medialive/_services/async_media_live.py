@@ -3287,7 +3287,7 @@ class AsyncMediaLiveClient:
         *,
         config_overrides: Optional[AsyncMediaLiveClientConfig] = None,
     ) -> "aws_sdk_medialive.types.describe_thumbnails_response.DescribeThumbnailsResponse":
-        """Describe the latest thumbnails data.
+        r"""Describe the latest thumbnails data.
 
         Args:
             channel_id: Unique ID of the channel

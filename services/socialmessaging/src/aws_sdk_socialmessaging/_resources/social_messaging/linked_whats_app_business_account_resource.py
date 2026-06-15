@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_socialmessaging._auth._signers
@@ -146,7 +148,7 @@ class LinkedWhatsAppBusinessAccountResource:
         *,
         config_overrides: Optional[SocialMessagingClientConfig] = None,
     ) -> "aws_sdk_socialmessaging.types.get_linked_whats_app_business_account_output.GetLinkedWhatsAppBusinessAccountOutput":
-        """<p>Get the details of your linked WhatsApp Business Account.</p>
+        r"""<p>Get the details of your linked WhatsApp Business Account.</p>
 
         Args:
             id: <p>The unique identifier, from Amazon Web Services, of the linked WhatsApp Business Account. WABA identifiers are formatted as <code>waba-01234567890123456789012345678901</code>. Use <a href=\"https://docs.aws.amazon.com/social-messaging/latest/APIReference/API_ListLinkedWhatsAppBusinessAccounts.html\">ListLinkedWhatsAppBusinessAccounts</a> to list all WABAs and their details.</p>
@@ -183,7 +185,7 @@ class LinkedWhatsAppBusinessAccountResource:
         *,
         config_overrides: Optional[SocialMessagingClientConfig] = None,
     ) -> "aws_sdk_socialmessaging.types.disassociate_whats_app_business_account_output.DisassociateWhatsAppBusinessAccountOutput":
-        """<p>Disassociate a WhatsApp Business Account (WABA) from your Amazon Web Services account.</p>
+        r"""<p>Disassociate a WhatsApp Business Account (WABA) from your Amazon Web Services account.</p>
 
         Args:
             id: <p>The unique identifier of your WhatsApp Business Account. WABA identifiers are formatted as <code>waba-01234567890123456789012345678901</code>. Use <a href=\"https://docs.aws.amazon.com/social-messaging/latest/APIReference/API_ListLinkedWhatsAppBusinessAccounts.html\">ListLinkedWhatsAppBusinessAccounts</a> to list all WABAs and their details.</p>
@@ -962,7 +964,7 @@ class LinkedWhatsAppBusinessAccountResource:
         *,
         config_overrides: Optional[SocialMessagingClientConfig] = None,
     ) -> "aws_sdk_socialmessaging.types.put_whats_app_business_account_event_destinations_output.PutWhatsAppBusinessAccountEventDestinationsOutput":
-        """<p>Add an event destination to log event data from WhatsApp for a WhatsApp Business Account (WABA). A WABA can only have one event destination at a time. All resources associated with the WABA use the same event destination.</p>
+        r"""<p>Add an event destination to log event data from WhatsApp for a WhatsApp Business Account (WABA). A WABA can only have one event destination at a time. All resources associated with the WABA use the same event destination.</p>
 
         Args:
             id: <p>The unique identifier of your WhatsApp Business Account. WABA identifiers are formatted as <code>waba-01234567890123456789012345678901</code>. Use <a href=\"https://docs.aws.amazon.com/social-messaging/latest/APIReference/API_ListLinkedWhatsAppBusinessAccounts.html\">ListLinkedWhatsAppBusinessAccounts</a> to list all WABAs and their details.</p>
@@ -1008,7 +1010,7 @@ class LinkedWhatsAppBusinessAccountResource:
             "aws_sdk_socialmessaging.types.meta_flow_category_list.MetaFlowCategoryList"
         ] = None,
     ) -> "aws_sdk_socialmessaging.types.update_whats_app_flow_output.UpdateWhatsAppFlowOutput":
-        """<p>Updates the metadata of a WhatsApp Flow, such as its name or categories. This does not update the Flow JSON definition. Use <a href=\"https://docs.aws.amazon.com/social-messaging/latest/APIReference/API_UpdateWhatsAppFlowAssets.html\">UpdateWhatsAppFlowAssets</a> to update the Flow JSON.</p>
+        r"""<p>Updates the metadata of a WhatsApp Flow, such as its name or categories. This does not update the Flow JSON definition. Use <a href=\"https://docs.aws.amazon.com/social-messaging/latest/APIReference/API_UpdateWhatsAppFlowAssets.html\">UpdateWhatsAppFlowAssets</a> to update the Flow JSON.</p>
 
         Args:
             id: <p>The ID of the WhatsApp Business Account associated with this Flow.</p>
@@ -1227,7 +1229,7 @@ class AsyncLinkedWhatsAppBusinessAccountResource:
         *,
         config_overrides: Optional[AsyncSocialMessagingClientConfig] = None,
     ) -> "aws_sdk_socialmessaging.types.get_linked_whats_app_business_account_output.GetLinkedWhatsAppBusinessAccountOutput":
-        """<p>Get the details of your linked WhatsApp Business Account.</p>
+        r"""<p>Get the details of your linked WhatsApp Business Account.</p>
 
         Args:
             id: <p>The unique identifier, from Amazon Web Services, of the linked WhatsApp Business Account. WABA identifiers are formatted as <code>waba-01234567890123456789012345678901</code>. Use <a href=\"https://docs.aws.amazon.com/social-messaging/latest/APIReference/API_ListLinkedWhatsAppBusinessAccounts.html\">ListLinkedWhatsAppBusinessAccounts</a> to list all WABAs and their details.</p>
@@ -1265,7 +1267,7 @@ class AsyncLinkedWhatsAppBusinessAccountResource:
         *,
         config_overrides: Optional[AsyncSocialMessagingClientConfig] = None,
     ) -> "aws_sdk_socialmessaging.types.disassociate_whats_app_business_account_output.DisassociateWhatsAppBusinessAccountOutput":
-        """<p>Disassociate a WhatsApp Business Account (WABA) from your Amazon Web Services account.</p>
+        r"""<p>Disassociate a WhatsApp Business Account (WABA) from your Amazon Web Services account.</p>
 
         Args:
             id: <p>The unique identifier of your WhatsApp Business Account. WABA identifiers are formatted as <code>waba-01234567890123456789012345678901</code>. Use <a href=\"https://docs.aws.amazon.com/social-messaging/latest/APIReference/API_ListLinkedWhatsAppBusinessAccounts.html\">ListLinkedWhatsAppBusinessAccounts</a> to list all WABAs and their details.</p>
@@ -2061,7 +2063,7 @@ class AsyncLinkedWhatsAppBusinessAccountResource:
         *,
         config_overrides: Optional[AsyncSocialMessagingClientConfig] = None,
     ) -> "aws_sdk_socialmessaging.types.put_whats_app_business_account_event_destinations_output.PutWhatsAppBusinessAccountEventDestinationsOutput":
-        """<p>Add an event destination to log event data from WhatsApp for a WhatsApp Business Account (WABA). A WABA can only have one event destination at a time. All resources associated with the WABA use the same event destination.</p>
+        r"""<p>Add an event destination to log event data from WhatsApp for a WhatsApp Business Account (WABA). A WABA can only have one event destination at a time. All resources associated with the WABA use the same event destination.</p>
 
         Args:
             id: <p>The unique identifier of your WhatsApp Business Account. WABA identifiers are formatted as <code>waba-01234567890123456789012345678901</code>. Use <a href=\"https://docs.aws.amazon.com/social-messaging/latest/APIReference/API_ListLinkedWhatsAppBusinessAccounts.html\">ListLinkedWhatsAppBusinessAccounts</a> to list all WABAs and their details.</p>
@@ -2108,7 +2110,7 @@ class AsyncLinkedWhatsAppBusinessAccountResource:
             "aws_sdk_socialmessaging.types.meta_flow_category_list.MetaFlowCategoryList"
         ] = None,
     ) -> "aws_sdk_socialmessaging.types.update_whats_app_flow_output.UpdateWhatsAppFlowOutput":
-        """<p>Updates the metadata of a WhatsApp Flow, such as its name or categories. This does not update the Flow JSON definition. Use <a href=\"https://docs.aws.amazon.com/social-messaging/latest/APIReference/API_UpdateWhatsAppFlowAssets.html\">UpdateWhatsAppFlowAssets</a> to update the Flow JSON.</p>
+        r"""<p>Updates the metadata of a WhatsApp Flow, such as its name or categories. This does not update the Flow JSON definition. Use <a href=\"https://docs.aws.amazon.com/social-messaging/latest/APIReference/API_UpdateWhatsAppFlowAssets.html\">UpdateWhatsAppFlowAssets</a> to update the Flow JSON.</p>
 
         Args:
             id: <p>The ID of the WhatsApp Business Account associated with this Flow.</p>

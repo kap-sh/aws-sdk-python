@@ -23,7 +23,7 @@ class CopyFpgaImageRequest(TypedDict):
     source_region: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The Region that contains the source AFI.</p>"""
     client_token: NotRequired["aws_sdk_ec2.types.string.String"]
-    """<p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html\">Ensuring idempotency</a>.</p>"""
+    r"""<p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html\">Ensuring idempotency</a>.</p>"""
 
 
 # --- ec2Query ser/de ---

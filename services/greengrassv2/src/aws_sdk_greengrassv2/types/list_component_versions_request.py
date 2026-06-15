@@ -12,7 +12,7 @@ if TYPE_CHECKING:
 
 class ListComponentVersionsRequest(TypedDict):
     arn: "aws_sdk_greengrassv2.types.component_arn.ComponentARN"
-    """<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the component.</p>"""
+    r"""<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the component.</p>"""
     max_results: NotRequired[
         "aws_sdk_greengrassv2.types.default_max_results.DefaultMaxResults"
     ]

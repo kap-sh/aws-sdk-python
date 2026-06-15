@@ -388,7 +388,7 @@ class AsyncNeptuneClient:
         *,
         config_overrides: Optional[AsyncNeptuneClientConfig] = None,
     ) -> None:
-        """<p>Adds metadata tags to an Amazon Neptune resource. These tags can also be used with cost allocation reporting to track cost associated with Amazon Neptune resources, or used in a Condition statement in an IAM policy for Amazon Neptune.</p>
+        r"""<p>Adds metadata tags to an Amazon Neptune resource. These tags can also be used with cost allocation reporting to track cost associated with Amazon Neptune resources, or used in a Condition statement in an IAM policy for Amazon Neptune.</p>
 
         Args:
             resource_name: <p>The Amazon Neptune resource that the tags are added to. This value is an Amazon Resource Name (ARN). For information about creating an ARN, see <a href=\"https://docs.aws.amazon.com/neptune/latest/UserGuide/tagging.ARN.html#tagging.ARN.Constructing\"> Constructing an Amazon Resource Name (ARN)</a>.</p>
@@ -428,7 +428,7 @@ class AsyncNeptuneClient:
         *,
         config_overrides: Optional[AsyncNeptuneClientConfig] = None,
     ) -> "aws_sdk_neptune.types.apply_pending_maintenance_action_result.ApplyPendingMaintenanceActionResult":
-        """<p>Applies a pending maintenance action to a resource (for example, to a DB instance).</p>
+        r"""<p>Applies a pending maintenance action to a resource (for example, to a DB instance).</p>
 
         Args:
             resource_identifier: <p>The Amazon Resource Name (ARN) of the resource that the pending maintenance action applies to. For information about creating an ARN, see <a href=\"https://docs.aws.amazon.com/neptune/latest/UserGuide/tagging.ARN.html#tagging.ARN.Constructing\"> Constructing an Amazon Resource Name (ARN)</a>.</p>
@@ -473,7 +473,7 @@ class AsyncNeptuneClient:
         config_overrides: Optional[AsyncNeptuneClientConfig] = None,
         tags: Optional["aws_sdk_neptune.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_neptune.types.copy_db_cluster_parameter_group_result.CopyDBClusterParameterGroupResult":
-        """<p>Copies the specified DB cluster parameter group.</p>
+        r"""<p>Copies the specified DB cluster parameter group.</p>
 
         Args:
             source_db_cluster_parameter_group_identifier: <p>The identifier or Amazon Resource Name (ARN) for the source DB cluster parameter group. For information about creating an ARN, see <a href=\"https://docs.aws.amazon.com/neptune/latest/UserGuide/tagging.ARN.html#tagging.ARN.Constructing\"> Constructing an Amazon Resource Name (ARN)</a>.</p> <p>Constraints:</p> <ul> <li> <p>Must specify a valid DB cluster parameter group.</p> </li> <li> <p>Must specify a valid DB cluster parameter group identifier, for example <code>my-db-cluster-param-group</code>, or a valid ARN.</p> </li> <li> <p>The source DB cluster parameter group must be in the same Amazon Region as the copy. Neptune does not support cross-Region copying of parameter groups.</p> </li> </ul>
@@ -531,7 +531,7 @@ class AsyncNeptuneClient:
         ] = None,
         tags: Optional["aws_sdk_neptune.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_neptune.types.copy_db_cluster_snapshot_result.CopyDBClusterSnapshotResult":
-        """<p>Copies a snapshot of a DB cluster.</p> <p>To copy a DB cluster snapshot from a shared manual DB cluster snapshot, <code>SourceDBClusterSnapshotIdentifier</code> must be the Amazon Resource Name (ARN) of the shared DB cluster snapshot.</p>
+        r"""<p>Copies a snapshot of a DB cluster.</p> <p>To copy a DB cluster snapshot from a shared manual DB cluster snapshot, <code>SourceDBClusterSnapshotIdentifier</code> must be the Amazon Resource Name (ARN) of the shared DB cluster snapshot.</p>
 
         Args:
             source_db_cluster_snapshot_identifier: <p>The identifier of the DB cluster snapshot to copy. This parameter is not case-sensitive. If the source DB cluster snapshot is in a different region or owned by another account, specify the snapshot ARN.</p> <p>Constraints:</p> <ul> <li> <p>Must specify a valid system snapshot in the \"available\" state.</p> </li> <li> <p>Specify a valid DB snapshot identifier.</p> </li> </ul> <p>Example: <code>my-cluster-snapshot1</code> </p>
@@ -590,7 +590,7 @@ class AsyncNeptuneClient:
         config_overrides: Optional[AsyncNeptuneClientConfig] = None,
         tags: Optional["aws_sdk_neptune.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_neptune.types.copy_db_parameter_group_result.CopyDBParameterGroupResult":
-        """<p>Copies the specified DB parameter group.</p>
+        r"""<p>Copies the specified DB parameter group.</p>
 
         Args:
             source_db_parameter_group_identifier: <p>The identifier or ARN for the source DB parameter group. For information about creating an ARN, see <a href=\"https://docs.aws.amazon.com/neptune/latest/UserGuide/tagging.ARN.html#tagging.ARN.Constructing\"> Constructing an Amazon Resource Name (ARN)</a>.</p> <p>Constraints:</p> <ul> <li> <p>Must specify a valid DB parameter group.</p> </li> <li> <p>Must specify a valid DB parameter group identifier, for example <code>my-db-param-group</code>, or a valid ARN.</p> </li> <li> <p>The source DB parameter group must be in the same Amazon Region as the copy. Neptune does not support cross-Region copying of parameter groups.</p> </li> </ul>
@@ -695,7 +695,7 @@ class AsyncNeptuneClient:
         storage_type: Optional["aws_sdk_neptune.types.string.String"] = None,
         network_type: Optional["aws_sdk_neptune.types.string.String"] = None,
     ) -> "aws_sdk_neptune.types.create_db_cluster_result.CreateDBClusterResult":
-        """<p>Creates a new Amazon Neptune DB cluster.</p> <p>You can use the <code>ReplicationSourceIdentifier</code> parameter to create the DB cluster as a Read Replica of another DB cluster or Amazon Neptune DB instance.</p> <p>Note that when you create a new cluster using <code>CreateDBCluster</code> directly, deletion protection is disabled by default (when you create a new production cluster in the console, deletion protection is enabled by default). You can only delete a DB cluster if its <code>DeletionProtection</code> field is set to <code>false</code>.</p>
+        r"""<p>Creates a new Amazon Neptune DB cluster.</p> <p>You can use the <code>ReplicationSourceIdentifier</code> parameter to create the DB cluster as a Read Replica of another DB cluster or Amazon Neptune DB instance.</p> <p>Note that when you create a new cluster using <code>CreateDBCluster</code> directly, deletion protection is disabled by default (when you create a new production cluster in the console, deletion protection is enabled by default). You can only delete a DB cluster if its <code>DeletionProtection</code> field is set to <code>false</code>.</p>
 
         Args:
             availability_zones: <p>A list of EC2 Availability Zones that instances in the DB cluster can be created in.</p>
@@ -881,7 +881,7 @@ class AsyncNeptuneClient:
         config_overrides: Optional[AsyncNeptuneClientConfig] = None,
         tags: Optional["aws_sdk_neptune.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_neptune.types.create_db_cluster_parameter_group_result.CreateDBClusterParameterGroupResult":
-        """<p>Creates a new DB cluster parameter group.</p> <p>Parameters in a DB cluster parameter group apply to all of the instances in a DB cluster.</p> <p> A DB cluster parameter group is initially created with the default parameters for the database engine used by instances in the DB cluster. To provide custom values for any of the parameters, you must modify the group after creating it using <a>ModifyDBClusterParameterGroup</a>. Once you've created a DB cluster parameter group, you need to associate it with your DB cluster using <a>ModifyDBCluster</a>. When you associate a new DB cluster parameter group with a running DB cluster, you need to reboot the DB instances in the DB cluster without failover for the new DB cluster parameter group and associated settings to take effect.</p> <important> <p>After you create a DB cluster parameter group, you should wait at least 5 minutes before creating your first DB cluster that uses that DB cluster parameter group as the default parameter group. This allows Amazon Neptune to fully complete the create action before the DB cluster parameter group is used as the default for a new DB cluster. This is especially important for parameters that are critical when creating the default database for a DB cluster, such as the character set for the default database defined by the <code>character_set_database</code> parameter. You can use the <i>Parameter Groups</i> option of the <a href=\"https://console.aws.amazon.com/rds/\">Amazon Neptune console</a> or the <a>DescribeDBClusterParameters</a> command to verify that your DB cluster parameter group has been created or modified.</p> </important>
+        r"""<p>Creates a new DB cluster parameter group.</p> <p>Parameters in a DB cluster parameter group apply to all of the instances in a DB cluster.</p> <p> A DB cluster parameter group is initially created with the default parameters for the database engine used by instances in the DB cluster. To provide custom values for any of the parameters, you must modify the group after creating it using <a>ModifyDBClusterParameterGroup</a>. Once you've created a DB cluster parameter group, you need to associate it with your DB cluster using <a>ModifyDBCluster</a>. When you associate a new DB cluster parameter group with a running DB cluster, you need to reboot the DB instances in the DB cluster without failover for the new DB cluster parameter group and associated settings to take effect.</p> <important> <p>After you create a DB cluster parameter group, you should wait at least 5 minutes before creating your first DB cluster that uses that DB cluster parameter group as the default parameter group. This allows Amazon Neptune to fully complete the create action before the DB cluster parameter group is used as the default for a new DB cluster. This is especially important for parameters that are critical when creating the default database for a DB cluster, such as the character set for the default database defined by the <code>character_set_database</code> parameter. You can use the <i>Parameter Groups</i> option of the <a href=\"https://console.aws.amazon.com/rds/\">Amazon Neptune console</a> or the <a>DescribeDBClusterParameters</a> command to verify that your DB cluster parameter group has been created or modified.</p> </important>
 
         Args:
             db_cluster_parameter_group_name: <p>The name of the DB cluster parameter group.</p> <p>Constraints:</p> <ul> <li> <p>Must match the name of an existing DBClusterParameterGroup.</p> </li> </ul> <note> <p>This value is stored as a lowercase string.</p> </note>
@@ -1049,7 +1049,7 @@ class AsyncNeptuneClient:
             "aws_sdk_neptune.types.boolean_optional.BooleanOptional"
         ] = None,
     ) -> "aws_sdk_neptune.types.create_db_instance_result.CreateDBInstanceResult":
-        """<p>Creates a new DB instance.</p>
+        r"""<p>Creates a new DB instance.</p>
 
         Args:
             db_name: <p>Not supported.</p>
@@ -1613,7 +1613,7 @@ class AsyncNeptuneClient:
             "aws_sdk_neptune.types.string.String"
         ] = None,
     ) -> "aws_sdk_neptune.types.delete_db_instance_result.DeleteDBInstanceResult":
-        """<p>The DeleteDBInstance action deletes a previously provisioned DB instance. When you delete a DB instance, all automated backups for that instance are deleted and can't be recovered. Manual DB snapshots of the DB instance to be deleted by <code>DeleteDBInstance</code> are not deleted.</p> <p> If you request a final DB snapshot the status of the Amazon Neptune DB instance is <code>deleting</code> until the DB snapshot is created. The API action <code>DescribeDBInstance</code> is used to monitor the status of this operation. The action can't be canceled or reverted once submitted.</p> <p>Note that when a DB instance is in a failure state and has a status of <code>failed</code>, <code>incompatible-restore</code>, or <code>incompatible-network</code>, you can only delete it when the <code>SkipFinalSnapshot</code> parameter is set to <code>true</code>.</p> <p>You can't delete a DB instance if it is the only instance in the DB cluster, or if it has deletion protection enabled.</p>
+        r"""<p>The DeleteDBInstance action deletes a previously provisioned DB instance. When you delete a DB instance, all automated backups for that instance are deleted and can't be recovered. Manual DB snapshots of the DB instance to be deleted by <code>DeleteDBInstance</code> are not deleted.</p> <p> If you request a final DB snapshot the status of the Amazon Neptune DB instance is <code>deleting</code> until the DB snapshot is created. The API action <code>DescribeDBInstance</code> is used to monitor the status of this operation. The action can't be canceled or reverted once submitted.</p> <p>Note that when a DB instance is in a failure state and has a status of <code>failed</code>, <code>incompatible-restore</code>, or <code>incompatible-network</code>, you can only delete it when the <code>SkipFinalSnapshot</code> parameter is set to <code>true</code>.</p> <p>You can't delete a DB instance if it is the only instance in the DB cluster, or if it has deletion protection enabled.</p>
 
         Args:
             db_instance_identifier: <p>The DB instance identifier for the DB instance to be deleted. This parameter isn't case-sensitive.</p> <p>Constraints:</p> <ul> <li> <p>Must match the name of an existing DB instance.</p> </li> </ul>
@@ -2662,7 +2662,7 @@ class AsyncNeptuneClient:
         ] = None,
         marker: Optional["aws_sdk_neptune.types.string.String"] = None,
     ) -> "aws_sdk_neptune.types.db_subnet_group_message.DBSubnetGroupMessage":
-        """<p>Returns a list of DBSubnetGroup descriptions. If a DBSubnetGroupName is specified, the list will contain only the descriptions of the specified DBSubnetGroup.</p> <p>For an overview of CIDR ranges, go to the <a href=\"http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing\">Wikipedia Tutorial</a>.</p>
+        r"""<p>Returns a list of DBSubnetGroup descriptions. If a DBSubnetGroupName is specified, the list will contain only the descriptions of the specified DBSubnetGroup.</p> <p>For an overview of CIDR ranges, go to the <a href=\"http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing\">Wikipedia Tutorial</a>.</p>
 
         Args:
             db_subnet_group_name: <p>The name of the DB subnet group to return details for.</p>
@@ -2925,7 +2925,7 @@ class AsyncNeptuneClient:
         ] = None,
         marker: Optional["aws_sdk_neptune.types.string.String"] = None,
     ) -> "aws_sdk_neptune.types.events_message.EventsMessage":
-        """<p>Returns events related to DB instances, DB security groups, DB snapshots, and DB parameter groups for the past 14 days. Events specific to a particular DB instance, DB security group, database snapshot, or DB parameter group can be obtained by providing the name as a parameter. By default, the past hour of events are returned.</p>
+        r"""<p>Returns events related to DB instances, DB security groups, DB snapshots, and DB parameter groups for the past 14 days. Events specific to a particular DB instance, DB security group, database snapshot, or DB parameter group can be obtained by providing the name as a parameter. By default, the past hour of events are returned.</p>
 
         Args:
             source_identifier: <p>The identifier of the event source for which events are returned. If not specified, then all sources are included in the response.</p> <p>Constraints:</p> <ul> <li> <p>If SourceIdentifier is supplied, SourceType must also be provided.</p> </li> <li> <p>If the source type is <code>DBInstance</code>, then a <code>DBInstanceIdentifier</code> must be supplied.</p> </li> <li> <p>If the source type is <code>DBSecurityGroup</code>, a <code>DBSecurityGroupName</code> must be supplied.</p> </li> <li> <p>If the source type is <code>DBParameterGroup</code>, a <code>DBParameterGroupName</code> must be supplied.</p> </li> <li> <p>If the source type is <code>DBSnapshot</code>, a <code>DBSnapshotIdentifier</code> must be supplied.</p> </li> <li> <p>Cannot end with a hyphen or contain two consecutive hyphens.</p> </li> </ul>
@@ -3507,7 +3507,7 @@ class AsyncNeptuneClient:
         config_overrides: Optional[AsyncNeptuneClientConfig] = None,
         filters: Optional["aws_sdk_neptune.types.filter_list.FilterList"] = None,
     ) -> "aws_sdk_neptune.types.tag_list_message.TagListMessage":
-        """<p>Lists all tags on an Amazon Neptune resource.</p>
+        r"""<p>Lists all tags on an Amazon Neptune resource.</p>
 
         Args:
             resource_name: <p>The Amazon Neptune resource with tags to be listed. This value is an Amazon Resource Name (ARN). For information about creating an ARN, see <a href=\"https://docs.aws.amazon.com/neptune/latest/UserGuide/tagging.ARN.html#tagging.ARN.Constructing\"> Constructing an Amazon Resource Name (ARN)</a>.</p>
@@ -3592,7 +3592,7 @@ class AsyncNeptuneClient:
         storage_type: Optional["aws_sdk_neptune.types.string.String"] = None,
         network_type: Optional["aws_sdk_neptune.types.string.String"] = None,
     ) -> "aws_sdk_neptune.types.modify_db_cluster_result.ModifyDBClusterResult":
-        """<p>Modify a setting for a DB cluster. You can change one or more database configuration parameters by specifying these parameters and the new values in the request.</p>
+        r"""<p>Modify a setting for a DB cluster. You can change one or more database configuration parameters by specifying these parameters and the new values in the request.</p>
 
         Args:
             db_cluster_identifier: <p>The DB cluster identifier for the cluster being modified. This parameter is not case-sensitive.</p> <p>Constraints:</p> <ul> <li> <p>Must match the identifier of an existing DBCluster.</p> </li> </ul>
@@ -3922,7 +3922,7 @@ class AsyncNeptuneClient:
             "aws_sdk_neptune.types.boolean_optional.BooleanOptional"
         ] = None,
     ) -> "aws_sdk_neptune.types.modify_db_instance_result.ModifyDBInstanceResult":
-        """<p>Modifies settings for a DB instance. You can change one or more database configuration parameters by specifying these parameters and the new values in the request. To learn what modifications you can make to your DB instance, call <a>DescribeValidDBInstanceModifications</a> before you call <a>ModifyDBInstance</a>.</p>
+        r"""<p>Modifies settings for a DB instance. You can change one or more database configuration parameters by specifying these parameters and the new values in the request. To learn what modifications you can make to your DB instance, call <a>DescribeValidDBInstanceModifications</a> before you call <a>ModifyDBInstance</a>.</p>
 
         Args:
             db_instance_identifier: <p>The DB instance identifier. This value is stored as a lowercase string.</p> <p>Constraints:</p> <ul> <li> <p>Must match the identifier of an existing DBInstance.</p> </li> </ul>
@@ -4488,7 +4488,7 @@ class AsyncNeptuneClient:
         *,
         config_overrides: Optional[AsyncNeptuneClientConfig] = None,
     ) -> None:
-        """<p>Removes metadata tags from an Amazon Neptune resource.</p>
+        r"""<p>Removes metadata tags from an Amazon Neptune resource.</p>
 
         Args:
             resource_name: <p>The Amazon Neptune resource that the tags are removed from. This value is an Amazon Resource Name (ARN). For information about creating an ARN, see <a href=\"https://docs.aws.amazon.com/neptune/latest/UserGuide/tagging.ARN.html#tagging.ARN.Constructing\"> Constructing an Amazon Resource Name (ARN)</a>.</p>
@@ -4657,7 +4657,7 @@ class AsyncNeptuneClient:
         storage_type: Optional["aws_sdk_neptune.types.string.String"] = None,
         network_type: Optional["aws_sdk_neptune.types.string.String"] = None,
     ) -> "aws_sdk_neptune.types.restore_db_cluster_from_snapshot_result.RestoreDBClusterFromSnapshotResult":
-        """<p>Creates a new DB cluster from a DB snapshot or DB cluster snapshot.</p> <p>If a DB snapshot is specified, the target DB cluster is created from the source DB snapshot with a default configuration and default security group.</p> <p>If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.</p>
+        r"""<p>Creates a new DB cluster from a DB snapshot or DB cluster snapshot.</p> <p>If a DB snapshot is specified, the target DB cluster is created from the source DB snapshot with a default configuration and default security group.</p> <p>If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.</p>
 
         Args:
             availability_zones: <p>Provides the list of EC2 Availability Zones that instances in the restored DB cluster can be created in.</p>
@@ -4785,7 +4785,7 @@ class AsyncNeptuneClient:
         storage_type: Optional["aws_sdk_neptune.types.string.String"] = None,
         network_type: Optional["aws_sdk_neptune.types.string.String"] = None,
     ) -> "aws_sdk_neptune.types.restore_db_cluster_to_point_in_time_result.RestoreDBClusterToPointInTimeResult":
-        """<p>Restores a DB cluster to an arbitrary point in time. Users can restore to any point in time before <code>LatestRestorableTime</code> for up to <code>BackupRetentionPeriod</code> days. The target DB cluster is created from the source DB cluster with the same configuration as the original DB cluster, except that the new DB cluster is created with the default DB security group.</p> <note> <p>This action only restores the DB cluster, not the DB instances for that DB cluster. You must invoke the <a>CreateDBInstance</a> action to create DB instances for the restored DB cluster, specifying the identifier of the restored DB cluster in <code>DBClusterIdentifier</code>. You can create DB instances only after the <code>RestoreDBClusterToPointInTime</code> action has completed and the DB cluster is available.</p> </note>
+        r"""<p>Restores a DB cluster to an arbitrary point in time. Users can restore to any point in time before <code>LatestRestorableTime</code> for up to <code>BackupRetentionPeriod</code> days. The target DB cluster is created from the source DB cluster with the same configuration as the original DB cluster, except that the new DB cluster is created with the default DB security group.</p> <note> <p>This action only restores the DB cluster, not the DB instances for that DB cluster. You must invoke the <a>CreateDBInstance</a> action to create DB instances for the restored DB cluster, specifying the identifier of the restored DB cluster in <code>DBClusterIdentifier</code>. You can create DB instances only after the <code>RestoreDBClusterToPointInTime</code> action has completed and the DB cluster is available.</p> </note>
 
         Args:
             db_cluster_identifier: <p>The name of the new DB cluster to be created.</p> <p>Constraints:</p> <ul> <li> <p>Must contain from 1 to 63 letters, numbers, or hyphens</p> </li> <li> <p>First character must be a letter</p> </li> <li> <p>Cannot end with a hyphen or contain two consecutive hyphens</p> </li> </ul>
@@ -4954,7 +4954,7 @@ class AsyncNeptuneClient:
         *,
         config_overrides: Optional[AsyncNeptuneClientConfig] = None,
     ) -> "aws_sdk_neptune.types.switchover_global_cluster_result.SwitchoverGlobalClusterResult":
-        """<p>Switches over the specified secondary DB cluster to be the new primary DB cluster in the global database cluster. Switchover operations were previously called \"managed planned failovers.\"</p> <p>Promotes the specified secondary cluster to assume full read/write capabilities and demotes the current primary cluster to a secondary (read-only) cluster, maintaining the original replication topology. All secondary clusters are synchronized with the primary at the beginning of the process so the new primary continues operations for the global database without losing any data. Your database is unavailable for a short time while the primary and selected secondary clusters are assuming their new roles.</p> <note> <p>This operation is intended for controlled environments, for operations such as \"regional rotation\" or to fall back to the original primary after a global database failover.</p> </note>
+        r"""<p>Switches over the specified secondary DB cluster to be the new primary DB cluster in the global database cluster. Switchover operations were previously called \"managed planned failovers.\"</p> <p>Promotes the specified secondary cluster to assume full read/write capabilities and demotes the current primary cluster to a secondary (read-only) cluster, maintaining the original replication topology. All secondary clusters are synchronized with the primary at the beginning of the process so the new primary continues operations for the global database without losing any data. Your database is unavailable for a short time while the primary and selected secondary clusters are assuming their new roles.</p> <note> <p>This operation is intended for controlled environments, for operations such as \"regional rotation\" or to fall back to the original primary after a global database failover.</p> </note>
 
         Args:
             global_cluster_identifier: <p>The identifier of the global database cluster to switch over. This parameter isn't case-sensitive.</p> <p>Constraints: Must match the identifier of an existing global database cluster.</p>

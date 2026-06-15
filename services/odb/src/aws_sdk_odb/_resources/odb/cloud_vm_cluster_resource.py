@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 from aws_sdk_odb._services._pipeline import (
@@ -67,7 +69,7 @@ class CloudVmClusterResource:
         ] = None,
         scan_listener_port_tcp: Optional[int] = None,
     ) -> "aws_sdk_odb.types.create_cloud_vm_cluster_output.CreateCloudVmClusterOutput":
-        """<p>Creates a VM cluster on the specified Exadata infrastructure.</p>
+        r"""<p>Creates a VM cluster on the specified Exadata infrastructure.</p>
 
         Args:
             cloud_exadata_infrastructure_id: <p>The unique identifier of the Exadata infrastructure for this VM cluster.</p>
@@ -309,7 +311,7 @@ class AsyncCloudVmClusterResource:
         ] = None,
         scan_listener_port_tcp: Optional[int] = None,
     ) -> "aws_sdk_odb.types.create_cloud_vm_cluster_output.CreateCloudVmClusterOutput":
-        """<p>Creates a VM cluster on the specified Exadata infrastructure.</p>
+        r"""<p>Creates a VM cluster on the specified Exadata infrastructure.</p>
 
         Args:
             cloud_exadata_infrastructure_id: <p>The unique identifier of the Exadata infrastructure for this VM cluster.</p>

@@ -30,7 +30,7 @@ class CreateTokenRequest(TypedDict):
     code: NotRequired["aws_sdk_sso_oidc.types.auth_code.AuthCode"]
     """<p>Used only when calling this API for the Authorization Code grant type. The short-lived code is used to identify this authorization request.</p>"""
     refresh_token: NotRequired["aws_sdk_sso_oidc.types.refresh_token.RefreshToken"]
-    """<p>Used only when calling this API for the Refresh Token grant type. This token is used to refresh short-lived tokens, such as the access token, that might expire.</p> <p>For more information about the features and limitations of the current IAM Identity Center OIDC implementation, see <i>Considerations for Using this Guide</i> in the <a href=\"https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/Welcome.html\">IAM Identity Center OIDC API Reference</a>.</p>"""
+    r"""<p>Used only when calling this API for the Refresh Token grant type. This token is used to refresh short-lived tokens, such as the access token, that might expire.</p> <p>For more information about the features and limitations of the current IAM Identity Center OIDC implementation, see <i>Considerations for Using this Guide</i> in the <a href=\"https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/Welcome.html\">IAM Identity Center OIDC API Reference</a>.</p>"""
     scope: NotRequired["aws_sdk_sso_oidc.types.scopes.Scopes"]
     """<p>The list of scopes for which authorization is requested. This parameter has no effect; the access token will always include all scopes configured during client registration.</p>"""
     redirect_uri: NotRequired["aws_sdk_sso_oidc.types.uri.URI"]

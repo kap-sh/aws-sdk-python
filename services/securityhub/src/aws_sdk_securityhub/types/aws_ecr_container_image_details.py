@@ -33,7 +33,7 @@ class AwsEcrContainerImageDetails(TypedDict):
     image_published_at: NotRequired[
         "aws_sdk_securityhub.types.non_empty_string.NonEmptyString"
     ]
-    """<p>The date and time when the image was pushed to the repository.</p> <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href=\"https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps\">Timestamps</a>.</p>"""
+    r"""<p>The date and time when the image was pushed to the repository.</p> <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href=\"https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps\">Timestamps</a>.</p>"""
 
 
 # --- restJson1 ser/de ---

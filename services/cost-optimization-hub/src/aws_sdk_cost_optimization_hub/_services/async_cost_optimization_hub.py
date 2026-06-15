@@ -118,7 +118,7 @@ class AsyncCostOptimizationHubClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = AsyncCostOptimizationHubClientConfig(
+        self._config = AsyncCostOptimizationHubClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -138,7 +138,7 @@ class AsyncCostOptimizationHubClient:
         overrides: AsyncCostOptimizationHubClientConfig = config_overrides or {}
         interceptors_: list[AsyncInterceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             aretry(),
         ]
@@ -146,16 +146,16 @@ class AsyncCostOptimizationHubClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            region=overrides.get("region", self.config.get("region")),
+            region=overrides.get("region", self._config.get("region")),
             use_dual_stack=overrides.get(
-                "use_dual_stack", self.config.get("use_dual_stack")
+                "use_dual_stack", self._config.get("use_dual_stack")
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -640,7 +640,7 @@ class AsyncCostOptimizationHubClient:
             "aws_sdk_cost_optimization_hub.types.preferred_commitment.PreferredCommitment"
         ] = None,
     ) -> "aws_sdk_cost_optimization_hub.types.update_preferences_response.UpdatePreferencesResponse":
-        """<p>Updates a set of preferences for an account in order to add account-specific preferences into the service. These preferences impact how the savings associated with recommendations are presented.</p>
+        r"""<p>Updates a set of preferences for an account in order to add account-specific preferences into the service. These preferences impact how the savings associated with recommendations are presented.</p>
 
         Args:
             savings_estimation_mode: <p>Sets the \"savings estimation mode\" preference.</p>

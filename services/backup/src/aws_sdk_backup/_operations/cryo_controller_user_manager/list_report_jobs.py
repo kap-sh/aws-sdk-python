@@ -62,7 +62,7 @@ def get_signer(
     options: AsyncOperationOptions | OperationOptions,
     auth_schemes: list[dict[str, Any]] | None = None,
 ) -> aws_sdk_backup._auth._signers.Signer | None:
-    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}
+    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}  # noqa: F841
     if options.credentials_provider is not None:
         sigv4_config = (
             name_to_schema.get("sigv4")
@@ -81,7 +81,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_backup.types.list_report_jobs_input.ListReportJobsInput,
+    input_: aws_sdk_backup.types.list_report_jobs_input.ListReportJobsInput,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -93,18 +93,18 @@ def build_request(
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/audit/report-jobs"
     params: dict[str, str] = {}
-    if "by_report_plan_name" in input:
-        params["ReportPlanName"] = str(input["by_report_plan_name"])
-    if "by_creation_before" in input:
-        params["CreationBefore"] = str(input["by_creation_before"])
-    if "by_creation_after" in input:
-        params["CreationAfter"] = str(input["by_creation_after"])
-    if "by_status" in input:
-        params["Status"] = str(input["by_status"])
-    if "max_results" in input:
-        params["MaxResults"] = str(input["max_results"])
-    if "next_token" in input:
-        params["NextToken"] = str(input["next_token"])
+    if "by_report_plan_name" in input_:
+        params["ReportPlanName"] = str(input_["by_report_plan_name"])
+    if "by_creation_before" in input_:
+        params["CreationBefore"] = str(input_["by_creation_before"])
+    if "by_creation_after" in input_:
+        params["CreationAfter"] = str(input_["by_creation_after"])
+    if "by_status" in input_:
+        params["Status"] = str(input_["by_status"])
+    if "max_results" in input_:
+        params["MaxResults"] = str(input_["max_results"])
+    if "next_token" in input_:
+        params["NextToken"] = str(input_["next_token"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
@@ -117,11 +117,11 @@ def build_request(
 
 def list_report_jobs(
     options: OperationOptions,
-    input: aws_sdk_backup.types.list_report_jobs_input.ListReportJobsInput,
+    input_: aws_sdk_backup.types.list_report_jobs_input.ListReportJobsInput,
 ) -> tuple[
     aws_sdk_backup.types.list_report_jobs_output.ListReportJobsOutput, zapros.Response
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -135,11 +135,11 @@ def list_report_jobs(
 
 async def async_list_report_jobs(
     options: AsyncOperationOptions,
-    input: aws_sdk_backup.types.list_report_jobs_input.ListReportJobsInput,
+    input_: aws_sdk_backup.types.list_report_jobs_input.ListReportJobsInput,
 ) -> tuple[
     aws_sdk_backup.types.list_report_jobs_output.ListReportJobsOutput, zapros.Response
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

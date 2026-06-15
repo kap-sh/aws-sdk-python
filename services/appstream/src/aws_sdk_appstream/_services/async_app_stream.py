@@ -342,7 +342,7 @@ class AsyncAppStreamClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = AsyncAppStreamClientConfig(
+        self._config = AsyncAppStreamClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -362,7 +362,7 @@ class AsyncAppStreamClient:
         overrides: AsyncAppStreamClientConfig = config_overrides or {}
         interceptors_: list[AsyncInterceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             aretry(),
         ]
@@ -370,16 +370,16 @@ class AsyncAppStreamClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            region=overrides.get("region", self.config.get("region")),
+            region=overrides.get("region", self._config.get("region")),
             use_dual_stack=overrides.get(
-                "use_dual_stack", self.config.get("use_dual_stack")
+                "use_dual_stack", self._config.get("use_dual_stack")
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -414,12 +414,12 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.associate_app_block_builder_app_block_request.AssociateAppBlockBuilderAppBlockRequest = {}  # type: ignore[typeddict-item]
-        input["app_block_arn"] = app_block_arn
-        input["app_block_builder_name"] = app_block_builder_name
+        input_: aws_sdk_appstream.types.associate_app_block_builder_app_block_request.AssociateAppBlockBuilderAppBlockRequest = {}  # type: ignore[typeddict-item]
+        input_["app_block_arn"] = app_block_arn
+        input_["app_block_builder_name"] = app_block_builder_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -455,12 +455,12 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.associate_application_fleet_request.AssociateApplicationFleetRequest = {}  # type: ignore[typeddict-item]
-        input["fleet_name"] = fleet_name
-        input["application_arn"] = application_arn
+        input_: aws_sdk_appstream.types.associate_application_fleet_request.AssociateApplicationFleetRequest = {}  # type: ignore[typeddict-item]
+        input_["fleet_name"] = fleet_name
+        input_["application_arn"] = application_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -498,13 +498,13 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.associate_application_to_entitlement_request.AssociateApplicationToEntitlementRequest = {}  # type: ignore[typeddict-item]
-        input["stack_name"] = stack_name
-        input["entitlement_name"] = entitlement_name
-        input["application_identifier"] = application_identifier
+        input_: aws_sdk_appstream.types.associate_application_to_entitlement_request.AssociateApplicationToEntitlementRequest = {}  # type: ignore[typeddict-item]
+        input_["stack_name"] = stack_name
+        input_["entitlement_name"] = entitlement_name
+        input_["application_identifier"] = application_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -540,12 +540,12 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.associate_fleet_request.AssociateFleetRequest = {}  # type: ignore[typeddict-item]
-        input["fleet_name"] = fleet_name
-        input["stack_name"] = stack_name
+        input_: aws_sdk_appstream.types.associate_fleet_request.AssociateFleetRequest = {}  # type: ignore[typeddict-item]
+        input_["fleet_name"] = fleet_name
+        input_["stack_name"] = stack_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -581,12 +581,12 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.associate_software_to_image_builder_request.AssociateSoftwareToImageBuilderRequest = {}  # type: ignore[typeddict-item]
-        input["image_builder_name"] = image_builder_name
-        input["software_names"] = software_names
+        input_: aws_sdk_appstream.types.associate_software_to_image_builder_request.AssociateSoftwareToImageBuilderRequest = {}  # type: ignore[typeddict-item]
+        input_["image_builder_name"] = image_builder_name
+        input_["software_names"] = software_names
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -620,11 +620,11 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.batch_associate_user_stack_request.BatchAssociateUserStackRequest = {}  # type: ignore[typeddict-item]
-        input["user_stack_associations"] = user_stack_associations
+        input_: aws_sdk_appstream.types.batch_associate_user_stack_request.BatchAssociateUserStackRequest = {}  # type: ignore[typeddict-item]
+        input_["user_stack_associations"] = user_stack_associations
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -658,11 +658,11 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.batch_disassociate_user_stack_request.BatchDisassociateUserStackRequest = {}  # type: ignore[typeddict-item]
-        input["user_stack_associations"] = user_stack_associations
+        input_: aws_sdk_appstream.types.batch_disassociate_user_stack_request.BatchDisassociateUserStackRequest = {}  # type: ignore[typeddict-item]
+        input_["user_stack_associations"] = user_stack_associations
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -704,15 +704,15 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.copy_image_request.CopyImageRequest = {}  # type: ignore[typeddict-item]
-        input["source_image_name"] = source_image_name
-        input["destination_image_name"] = destination_image_name
-        input["destination_region"] = destination_region
+        input_: aws_sdk_appstream.types.copy_image_request.CopyImageRequest = {}  # type: ignore[typeddict-item]
+        input_["source_image_name"] = source_image_name
+        input_["destination_image_name"] = destination_image_name
+        input_["destination_region"] = destination_region
         if destination_image_description is not None:
-            input["destination_image_description"] = destination_image_description
+            input_["destination_image_description"] = destination_image_description
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -768,24 +768,24 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.create_app_block_request.CreateAppBlockRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_appstream.types.create_app_block_request.CreateAppBlockRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if display_name is not None:
-            input["display_name"] = display_name
-        input["source_s3_location"] = source_s3_location
+            input_["display_name"] = display_name
+        input_["source_s3_location"] = source_s3_location
         if setup_script_details is not None:
-            input["setup_script_details"] = setup_script_details
+            input_["setup_script_details"] = setup_script_details
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if post_setup_script_details is not None:
-            input["post_setup_script_details"] = post_setup_script_details
+            input_["post_setup_script_details"] = post_setup_script_details
         if packaging_type is not None:
-            input["packaging_type"] = packaging_type
+            input_["packaging_type"] = packaging_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -815,7 +815,7 @@ class AsyncAppStreamClient:
             "aws_sdk_appstream.types.boolean_object.BooleanObject"
         ] = None,
     ) -> "aws_sdk_appstream.types.create_app_block_builder_result.CreateAppBlockBuilderResult":
-        """<p>Creates an app block builder.</p>
+        r"""<p>Creates an app block builder.</p>
 
         Args:
             name: <p>The unique name for the app block builder.</p>
@@ -847,28 +847,28 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.create_app_block_builder_request.CreateAppBlockBuilderRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_appstream.types.create_app_block_builder_request.CreateAppBlockBuilderRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if display_name is not None:
-            input["display_name"] = display_name
+            input_["display_name"] = display_name
         if tags is not None:
-            input["tags"] = tags
-        input["platform"] = platform
-        input["instance_type"] = instance_type
-        input["vpc_config"] = vpc_config
+            input_["tags"] = tags
+        input_["platform"] = platform
+        input_["instance_type"] = instance_type
+        input_["vpc_config"] = vpc_config
         if enable_default_internet_access is not None:
-            input["enable_default_internet_access"] = enable_default_internet_access
+            input_["enable_default_internet_access"] = enable_default_internet_access
         if iam_role_arn is not None:
-            input["iam_role_arn"] = iam_role_arn
+            input_["iam_role_arn"] = iam_role_arn
         if access_endpoints is not None:
-            input["access_endpoints"] = access_endpoints
+            input_["access_endpoints"] = access_endpoints
         if disable_imdsv1 is not None:
-            input["disable_imdsv1"] = disable_imdsv1
+            input_["disable_imdsv1"] = disable_imdsv1
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -904,13 +904,13 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.create_app_block_builder_streaming_url_request.CreateAppBlockBuilderStreamingURLRequest = {}  # type: ignore[typeddict-item]
-        input["app_block_builder_name"] = app_block_builder_name
+        input_: aws_sdk_appstream.types.create_app_block_builder_streaming_url_request.CreateAppBlockBuilderStreamingURLRequest = {}  # type: ignore[typeddict-item]
+        input_["app_block_builder_name"] = app_block_builder_name
         if validity is not None:
-            input["validity"] = validity
+            input_["validity"] = validity
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -966,26 +966,26 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.create_application_request.CreateApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_appstream.types.create_application_request.CreateApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if display_name is not None:
-            input["display_name"] = display_name
+            input_["display_name"] = display_name
         if description is not None:
-            input["description"] = description
-        input["icon_s3_location"] = icon_s3_location
-        input["launch_path"] = launch_path
+            input_["description"] = description
+        input_["icon_s3_location"] = icon_s3_location
+        input_["launch_path"] = launch_path
         if working_directory is not None:
-            input["working_directory"] = working_directory
+            input_["working_directory"] = working_directory
         if launch_parameters is not None:
-            input["launch_parameters"] = launch_parameters
-        input["platforms"] = platforms
-        input["instance_families"] = instance_families
-        input["app_block_arn"] = app_block_arn
+            input_["launch_parameters"] = launch_parameters
+        input_["platforms"] = platforms
+        input_["instance_families"] = instance_families
+        input_["app_block_arn"] = app_block_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1029,20 +1029,20 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.create_directory_config_request.CreateDirectoryConfigRequest = {}  # type: ignore[typeddict-item]
-        input["directory_name"] = directory_name
-        input["organizational_unit_distinguished_names"] = (
+        input_: aws_sdk_appstream.types.create_directory_config_request.CreateDirectoryConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_name"] = directory_name
+        input_["organizational_unit_distinguished_names"] = (
             organizational_unit_distinguished_names
         )
         if service_account_credentials is not None:
-            input["service_account_credentials"] = service_account_credentials
+            input_["service_account_credentials"] = service_account_credentials
         if certificate_based_auth_properties is not None:
-            input["certificate_based_auth_properties"] = (
+            input_["certificate_based_auth_properties"] = (
                 certificate_based_auth_properties
             )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1084,16 +1084,16 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.create_entitlement_request.CreateEntitlementRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["stack_name"] = stack_name
+        input_: aws_sdk_appstream.types.create_entitlement_request.CreateEntitlementRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["stack_name"] = stack_name
         if description is not None:
-            input["description"] = description
-        input["app_visibility"] = app_visibility
-        input["attributes"] = attributes
+            input_["description"] = description
+        input_["app_visibility"] = app_visibility
+        input_["attributes"] = attributes
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1137,17 +1137,17 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.create_export_image_task_request.CreateExportImageTaskRequest = {}  # type: ignore[typeddict-item]
-        input["image_name"] = image_name
-        input["ami_name"] = ami_name
-        input["iam_role_arn"] = iam_role_arn
+        input_: aws_sdk_appstream.types.create_export_image_task_request.CreateExportImageTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["image_name"] = image_name
+        input_["ami_name"] = ami_name
+        input_["iam_role_arn"] = iam_role_arn
         if tag_specifications is not None:
-            input["tag_specifications"] = tag_specifications
+            input_["tag_specifications"] = tag_specifications
         if ami_description is not None:
-            input["ami_description"] = ami_description
+            input_["ami_description"] = ami_description
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1208,7 +1208,7 @@ class AsyncAppStreamClient:
             "aws_sdk_appstream.types.boolean_object.BooleanObject"
         ] = None,
     ) -> "aws_sdk_appstream.types.create_fleet_result.CreateFleetResult":
-        """<p>Creates a fleet. A fleet consists of streaming instances that your users access for their applications and desktops.</p>
+        r"""<p>Creates a fleet. A fleet consists of streaming instances that your users access for their applications and desktops.</p>
 
         Args:
             name: <p>A unique name for the fleet.</p>
@@ -1253,58 +1253,58 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.create_fleet_request.CreateFleetRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_appstream.types.create_fleet_request.CreateFleetRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if image_name is not None:
-            input["image_name"] = image_name
+            input_["image_name"] = image_name
         if image_arn is not None:
-            input["image_arn"] = image_arn
-        input["instance_type"] = instance_type
+            input_["image_arn"] = image_arn
+        input_["instance_type"] = instance_type
         if fleet_type is not None:
-            input["fleet_type"] = fleet_type
+            input_["fleet_type"] = fleet_type
         if compute_capacity is not None:
-            input["compute_capacity"] = compute_capacity
+            input_["compute_capacity"] = compute_capacity
         if vpc_config is not None:
-            input["vpc_config"] = vpc_config
+            input_["vpc_config"] = vpc_config
         if max_user_duration_in_seconds is not None:
-            input["max_user_duration_in_seconds"] = max_user_duration_in_seconds
+            input_["max_user_duration_in_seconds"] = max_user_duration_in_seconds
         if disconnect_timeout_in_seconds is not None:
-            input["disconnect_timeout_in_seconds"] = disconnect_timeout_in_seconds
+            input_["disconnect_timeout_in_seconds"] = disconnect_timeout_in_seconds
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if display_name is not None:
-            input["display_name"] = display_name
+            input_["display_name"] = display_name
         if enable_default_internet_access is not None:
-            input["enable_default_internet_access"] = enable_default_internet_access
+            input_["enable_default_internet_access"] = enable_default_internet_access
         if domain_join_info is not None:
-            input["domain_join_info"] = domain_join_info
+            input_["domain_join_info"] = domain_join_info
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if idle_disconnect_timeout_in_seconds is not None:
-            input["idle_disconnect_timeout_in_seconds"] = (
+            input_["idle_disconnect_timeout_in_seconds"] = (
                 idle_disconnect_timeout_in_seconds
             )
         if iam_role_arn is not None:
-            input["iam_role_arn"] = iam_role_arn
+            input_["iam_role_arn"] = iam_role_arn
         if stream_view is not None:
-            input["stream_view"] = stream_view
+            input_["stream_view"] = stream_view
         if platform is not None:
-            input["platform"] = platform
+            input_["platform"] = platform
         if max_concurrent_sessions is not None:
-            input["max_concurrent_sessions"] = max_concurrent_sessions
+            input_["max_concurrent_sessions"] = max_concurrent_sessions
         if usb_device_filter_strings is not None:
-            input["usb_device_filter_strings"] = usb_device_filter_strings
+            input_["usb_device_filter_strings"] = usb_device_filter_strings
         if session_script_s3_location is not None:
-            input["session_script_s3_location"] = session_script_s3_location
+            input_["session_script_s3_location"] = session_script_s3_location
         if max_sessions_per_instance is not None:
-            input["max_sessions_per_instance"] = max_sessions_per_instance
+            input_["max_sessions_per_instance"] = max_sessions_per_instance
         if root_volume_config is not None:
-            input["root_volume_config"] = root_volume_config
+            input_["root_volume_config"] = root_volume_config
         if disable_imdsv1 is not None:
-            input["disable_imdsv1"] = disable_imdsv1
+            input_["disable_imdsv1"] = disable_imdsv1
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1350,7 +1350,7 @@ class AsyncAppStreamClient:
             "aws_sdk_appstream.types.boolean_object.BooleanObject"
         ] = None,
     ) -> "aws_sdk_appstream.types.create_image_builder_result.CreateImageBuilderResult":
-        """<p>Creates an image builder. An image builder is a virtual machine that is used to create an image.</p> <p>The initial state of the builder is <code>PENDING</code>. When it is ready, the state is <code>RUNNING</code>.</p>
+        r"""<p>Creates an image builder. An image builder is a virtual machine that is used to create an image.</p> <p>The initial state of the builder is <code>PENDING</code>. When it is ready, the state is <code>RUNNING</code>.</p>
 
         Args:
             name: <p>A unique name for the image builder.</p>
@@ -1388,42 +1388,42 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.create_image_builder_request.CreateImageBuilderRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_appstream.types.create_image_builder_request.CreateImageBuilderRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if image_name is not None:
-            input["image_name"] = image_name
+            input_["image_name"] = image_name
         if image_arn is not None:
-            input["image_arn"] = image_arn
-        input["instance_type"] = instance_type
+            input_["image_arn"] = image_arn
+        input_["instance_type"] = instance_type
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if display_name is not None:
-            input["display_name"] = display_name
+            input_["display_name"] = display_name
         if vpc_config is not None:
-            input["vpc_config"] = vpc_config
+            input_["vpc_config"] = vpc_config
         if iam_role_arn is not None:
-            input["iam_role_arn"] = iam_role_arn
+            input_["iam_role_arn"] = iam_role_arn
         if enable_default_internet_access is not None:
-            input["enable_default_internet_access"] = enable_default_internet_access
+            input_["enable_default_internet_access"] = enable_default_internet_access
         if domain_join_info is not None:
-            input["domain_join_info"] = domain_join_info
+            input_["domain_join_info"] = domain_join_info
         if appstream_agent_version is not None:
-            input["appstream_agent_version"] = appstream_agent_version
+            input_["appstream_agent_version"] = appstream_agent_version
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if access_endpoints is not None:
-            input["access_endpoints"] = access_endpoints
+            input_["access_endpoints"] = access_endpoints
         if root_volume_config is not None:
-            input["root_volume_config"] = root_volume_config
+            input_["root_volume_config"] = root_volume_config
         if softwares_to_install is not None:
-            input["softwares_to_install"] = softwares_to_install
+            input_["softwares_to_install"] = softwares_to_install
         if softwares_to_uninstall is not None:
-            input["softwares_to_uninstall"] = softwares_to_uninstall
+            input_["softwares_to_uninstall"] = softwares_to_uninstall
         if disable_imdsv1 is not None:
-            input["disable_imdsv1"] = disable_imdsv1
+            input_["disable_imdsv1"] = disable_imdsv1
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1459,13 +1459,13 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.create_image_builder_streaming_url_request.CreateImageBuilderStreamingURLRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_appstream.types.create_image_builder_streaming_url_request.CreateImageBuilderStreamingURLRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if validity is not None:
-            input["validity"] = validity
+            input_["validity"] = validity
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1535,31 +1535,31 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.create_imported_image_request.CreateImportedImageRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_appstream.types.create_imported_image_request.CreateImportedImageRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if source_ami_id is not None:
-            input["source_ami_id"] = source_ami_id
+            input_["source_ami_id"] = source_ami_id
         if workspace_image_id is not None:
-            input["workspace_image_id"] = workspace_image_id
+            input_["workspace_image_id"] = workspace_image_id
         if iam_role_arn is not None:
-            input["iam_role_arn"] = iam_role_arn
+            input_["iam_role_arn"] = iam_role_arn
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if display_name is not None:
-            input["display_name"] = display_name
+            input_["display_name"] = display_name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if runtime_validation_config is not None:
-            input["runtime_validation_config"] = runtime_validation_config
+            input_["runtime_validation_config"] = runtime_validation_config
         if agent_software_version is not None:
-            input["agent_software_version"] = agent_software_version
+            input_["agent_software_version"] = agent_software_version
         if app_catalog_config is not None:
-            input["app_catalog_config"] = app_catalog_config
+            input_["app_catalog_config"] = app_catalog_config
         if dry_run is not None:
-            input["dry_run"] = dry_run
+            input_["dry_run"] = dry_run
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1606,7 +1606,7 @@ class AsyncAppStreamClient:
             "aws_sdk_appstream.types.agent_access_config.AgentAccessConfig"
         ] = None,
     ) -> "aws_sdk_appstream.types.create_stack_result.CreateStackResult":
-        """<p>Creates a stack to start streaming applications to users. A stack consists of an associated fleet, user access policies, and storage configurations. </p>
+        r"""<p>Creates a stack to start streaming applications to users. A stack consists of an associated fleet, user access policies, and storage configurations. </p>
 
         Args:
             name: <p>The name of the stack.</p>
@@ -1640,37 +1640,37 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.create_stack_request.CreateStackRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_appstream.types.create_stack_request.CreateStackRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if display_name is not None:
-            input["display_name"] = display_name
+            input_["display_name"] = display_name
         if storage_connectors is not None:
-            input["storage_connectors"] = storage_connectors
+            input_["storage_connectors"] = storage_connectors
         if redirect_url is not None:
-            input["redirect_url"] = redirect_url
+            input_["redirect_url"] = redirect_url
         if feedback_url is not None:
-            input["feedback_url"] = feedback_url
+            input_["feedback_url"] = feedback_url
         if user_settings is not None:
-            input["user_settings"] = user_settings
+            input_["user_settings"] = user_settings
         if application_settings is not None:
-            input["application_settings"] = application_settings
+            input_["application_settings"] = application_settings
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if access_endpoints is not None:
-            input["access_endpoints"] = access_endpoints
+            input_["access_endpoints"] = access_endpoints
         if embed_host_domains is not None:
-            input["embed_host_domains"] = embed_host_domains
+            input_["embed_host_domains"] = embed_host_domains
         if streaming_experience_settings is not None:
-            input["streaming_experience_settings"] = streaming_experience_settings
+            input_["streaming_experience_settings"] = streaming_experience_settings
         if content_redirection is not None:
-            input["content_redirection"] = content_redirection
+            input_["content_redirection"] = content_redirection
         if agent_access_config is not None:
-            input["agent_access_config"] = agent_access_config
+            input_["agent_access_config"] = agent_access_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1687,7 +1687,7 @@ class AsyncAppStreamClient:
         validity: Optional["aws_sdk_appstream.types.long.Long"] = None,
         session_context: Optional["aws_sdk_appstream.types.string.String"] = None,
     ) -> "aws_sdk_appstream.types.create_streaming_url_result.CreateStreamingURLResult":
-        """<p>Creates a temporary URL to start an WorkSpaces Applications streaming session for the specified user. A streaming URL enables application streaming to be tested without user setup. </p>
+        r"""<p>Creates a temporary URL to start an WorkSpaces Applications streaming session for the specified user. A streaming URL enables application streaming to be tested without user setup. </p>
 
         Args:
             stack_name: <p>The name of the stack.</p>
@@ -1714,19 +1714,19 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.create_streaming_url_request.CreateStreamingURLRequest = {}  # type: ignore[typeddict-item]
-        input["stack_name"] = stack_name
-        input["fleet_name"] = fleet_name
-        input["user_id"] = user_id
+        input_: aws_sdk_appstream.types.create_streaming_url_request.CreateStreamingURLRequest = {}  # type: ignore[typeddict-item]
+        input_["stack_name"] = stack_name
+        input_["fleet_name"] = fleet_name
+        input_["user_id"] = user_id
         if application_id is not None:
-            input["application_id"] = application_id
+            input_["application_id"] = application_id
         if validity is not None:
-            input["validity"] = validity
+            input_["validity"] = validity
         if session_context is not None:
-            input["session_context"] = session_context
+            input_["session_context"] = session_context
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1772,17 +1772,17 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.create_theme_for_stack_request.CreateThemeForStackRequest = {}  # type: ignore[typeddict-item]
-        input["stack_name"] = stack_name
+        input_: aws_sdk_appstream.types.create_theme_for_stack_request.CreateThemeForStackRequest = {}  # type: ignore[typeddict-item]
+        input_["stack_name"] = stack_name
         if footer_links is not None:
-            input["footer_links"] = footer_links
-        input["title_text"] = title_text
-        input["theme_styling"] = theme_styling
-        input["organization_logo_s3_location"] = organization_logo_s3_location
-        input["favicon_s3_location"] = favicon_s3_location
+            input_["footer_links"] = footer_links
+        input_["title_text"] = title_text
+        input_["theme_styling"] = theme_styling
+        input_["organization_logo_s3_location"] = organization_logo_s3_location
+        input_["favicon_s3_location"] = favicon_s3_location
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1803,7 +1803,7 @@ class AsyncAppStreamClient:
         new_image_tags: Optional["aws_sdk_appstream.types.tags.Tags"] = None,
         dry_run: Optional["aws_sdk_appstream.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_appstream.types.create_updated_image_result.CreateUpdatedImageResult":
-        """<p>Creates a new image with the latest Windows operating system updates, driver updates, and WorkSpaces Applications agent software.</p> <p>For more information, see the \"Update an Image by Using Managed WorkSpaces Applications Image Updates\" section in <a href=\"https://docs.aws.amazon.com/appstream2/latest/developerguide/administer-images.html\">Administer Your WorkSpaces Applications Images</a>, in the <i>Amazon WorkSpaces Applications Administration Guide</i>.</p>
+        r"""<p>Creates a new image with the latest Windows operating system updates, driver updates, and WorkSpaces Applications agent software.</p> <p>For more information, see the \"Update an Image by Using Managed WorkSpaces Applications Image Updates\" section in <a href=\"https://docs.aws.amazon.com/appstream2/latest/developerguide/administer-images.html\">Administer Your WorkSpaces Applications Images</a>, in the <i>Amazon WorkSpaces Applications Administration Guide</i>.</p>
 
         Args:
             existing_image_name: <p>The name of the image to update.</p>
@@ -1830,20 +1830,20 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.create_updated_image_request.CreateUpdatedImageRequest = {}  # type: ignore[typeddict-item]
-        input["existing_image_name"] = existing_image_name
-        input["new_image_name"] = new_image_name
+        input_: aws_sdk_appstream.types.create_updated_image_request.CreateUpdatedImageRequest = {}  # type: ignore[typeddict-item]
+        input_["existing_image_name"] = existing_image_name
+        input_["new_image_name"] = new_image_name
         if new_image_description is not None:
-            input["new_image_description"] = new_image_description
+            input_["new_image_description"] = new_image_description
         if new_image_display_name is not None:
-            input["new_image_display_name"] = new_image_display_name
+            input_["new_image_display_name"] = new_image_display_name
         if new_image_tags is not None:
-            input["new_image_tags"] = new_image_tags
+            input_["new_image_tags"] = new_image_tags
         if dry_run is not None:
-            input["dry_run"] = dry_run
+            input_["dry_run"] = dry_run
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1870,10 +1870,10 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.create_usage_report_subscription_request.CreateUsageReportSubscriptionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_appstream.types.create_usage_report_subscription_request.CreateUsageReportSubscriptionRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1895,7 +1895,7 @@ class AsyncAppStreamClient:
             "aws_sdk_appstream.types.user_attribute_value.UserAttributeValue"
         ] = None,
     ) -> "aws_sdk_appstream.types.create_user_result.CreateUserResult":
-        """<p>Creates a new user in the user pool.</p>
+        r"""<p>Creates a new user in the user pool.</p>
 
         Args:
             user_name: <p>The email address of the user.</p> <note> <p>Users' email addresses are case-sensitive. During login, if they specify an email address that doesn't use the same capitalization as the email address specified when their user pool account was created, a \"user does not exist\" error message displays.</p> </note>
@@ -1921,18 +1921,18 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.create_user_request.CreateUserRequest = {}  # type: ignore[typeddict-item]
-        input["user_name"] = user_name
+        input_: aws_sdk_appstream.types.create_user_request.CreateUserRequest = {}  # type: ignore[typeddict-item]
+        input_["user_name"] = user_name
         if message_action is not None:
-            input["message_action"] = message_action
+            input_["message_action"] = message_action
         if first_name is not None:
-            input["first_name"] = first_name
+            input_["first_name"] = first_name
         if last_name is not None:
-            input["last_name"] = last_name
-        input["authentication_type"] = authentication_type
+            input_["last_name"] = last_name
+        input_["authentication_type"] = authentication_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1966,11 +1966,11 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.delete_app_block_request.DeleteAppBlockRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_appstream.types.delete_app_block_request.DeleteAppBlockRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2004,11 +2004,11 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.delete_app_block_builder_request.DeleteAppBlockBuilderRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_appstream.types.delete_app_block_builder_request.DeleteAppBlockBuilderRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2042,11 +2042,11 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.delete_application_request.DeleteApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_appstream.types.delete_application_request.DeleteApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2080,11 +2080,11 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.delete_directory_config_request.DeleteDirectoryConfigRequest = {}  # type: ignore[typeddict-item]
-        input["directory_name"] = directory_name
+        input_: aws_sdk_appstream.types.delete_directory_config_request.DeleteDirectoryConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_name"] = directory_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2120,12 +2120,12 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.delete_entitlement_request.DeleteEntitlementRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["stack_name"] = stack_name
+        input_: aws_sdk_appstream.types.delete_entitlement_request.DeleteEntitlementRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["stack_name"] = stack_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2159,11 +2159,11 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.delete_fleet_request.DeleteFleetRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_appstream.types.delete_fleet_request.DeleteFleetRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2197,11 +2197,11 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.delete_image_request.DeleteImageRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_appstream.types.delete_image_request.DeleteImageRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2235,11 +2235,11 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.delete_image_builder_request.DeleteImageBuilderRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_appstream.types.delete_image_builder_request.DeleteImageBuilderRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2275,12 +2275,12 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.delete_image_permissions_request.DeleteImagePermissionsRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["shared_account_id"] = shared_account_id
+        input_: aws_sdk_appstream.types.delete_image_permissions_request.DeleteImagePermissionsRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["shared_account_id"] = shared_account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2314,11 +2314,11 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.delete_stack_request.DeleteStackRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_appstream.types.delete_stack_request.DeleteStackRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2352,11 +2352,11 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.delete_theme_for_stack_request.DeleteThemeForStackRequest = {}  # type: ignore[typeddict-item]
-        input["stack_name"] = stack_name
+        input_: aws_sdk_appstream.types.delete_theme_for_stack_request.DeleteThemeForStackRequest = {}  # type: ignore[typeddict-item]
+        input_["stack_name"] = stack_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2383,10 +2383,10 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.delete_usage_report_subscription_request.DeleteUsageReportSubscriptionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_appstream.types.delete_usage_report_subscription_request.DeleteUsageReportSubscriptionRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2422,12 +2422,12 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.delete_user_request.DeleteUserRequest = {}  # type: ignore[typeddict-item]
-        input["user_name"] = user_name
-        input["authentication_type"] = authentication_type
+        input_: aws_sdk_appstream.types.delete_user_request.DeleteUserRequest = {}  # type: ignore[typeddict-item]
+        input_["user_name"] = user_name
+        input_["authentication_type"] = authentication_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2467,18 +2467,18 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.describe_app_block_builder_app_block_associations_request.DescribeAppBlockBuilderAppBlockAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_appstream.types.describe_app_block_builder_app_block_associations_request.DescribeAppBlockBuilderAppBlockAssociationsRequest = {}  # type: ignore[typeddict-item]
         if app_block_arn is not None:
-            input["app_block_arn"] = app_block_arn
+            input_["app_block_arn"] = app_block_arn
         if app_block_builder_name is not None:
-            input["app_block_builder_name"] = app_block_builder_name
+            input_["app_block_builder_name"] = app_block_builder_name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2516,16 +2516,16 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.describe_app_block_builders_request.DescribeAppBlockBuildersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_appstream.types.describe_app_block_builders_request.DescribeAppBlockBuildersRequest = {}  # type: ignore[typeddict-item]
         if names is not None:
-            input["names"] = names
+            input_["names"] = names
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2563,16 +2563,16 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.describe_app_blocks_request.DescribeAppBlocksRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_appstream.types.describe_app_blocks_request.DescribeAppBlocksRequest = {}  # type: ignore[typeddict-item]
         if arns is not None:
-            input["arns"] = arns
+            input_["arns"] = arns
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2612,18 +2612,18 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.describe_application_fleet_associations_request.DescribeApplicationFleetAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_appstream.types.describe_application_fleet_associations_request.DescribeApplicationFleetAssociationsRequest = {}  # type: ignore[typeddict-item]
         if fleet_name is not None:
-            input["fleet_name"] = fleet_name
+            input_["fleet_name"] = fleet_name
         if application_arn is not None:
-            input["application_arn"] = application_arn
+            input_["application_arn"] = application_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2661,16 +2661,16 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.describe_applications_request.DescribeApplicationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_appstream.types.describe_applications_request.DescribeApplicationsRequest = {}  # type: ignore[typeddict-item]
         if arns is not None:
-            input["arns"] = arns
+            input_["arns"] = arns
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2708,15 +2708,15 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.describe_app_license_usage_request.DescribeAppLicenseUsageRequest = {}  # type: ignore[typeddict-item]
-        input["billing_period"] = billing_period
+        input_: aws_sdk_appstream.types.describe_app_license_usage_request.DescribeAppLicenseUsageRequest = {}  # type: ignore[typeddict-item]
+        input_["billing_period"] = billing_period
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2756,16 +2756,16 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.describe_directory_configs_request.DescribeDirectoryConfigsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_appstream.types.describe_directory_configs_request.DescribeDirectoryConfigsRequest = {}  # type: ignore[typeddict-item]
         if directory_names is not None:
-            input["directory_names"] = directory_names
+            input_["directory_names"] = directory_names
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2805,17 +2805,17 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.describe_entitlements_request.DescribeEntitlementsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_appstream.types.describe_entitlements_request.DescribeEntitlementsRequest = {}  # type: ignore[typeddict-item]
         if name is not None:
-            input["name"] = name
-        input["stack_name"] = stack_name
+            input_["name"] = name
+        input_["stack_name"] = stack_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2851,14 +2851,14 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.describe_fleets_request.DescribeFleetsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_appstream.types.describe_fleets_request.DescribeFleetsRequest = {}  # type: ignore[typeddict-item]
         if names is not None:
-            input["names"] = names
+            input_["names"] = names
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2896,16 +2896,16 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.describe_image_builders_request.DescribeImageBuildersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_appstream.types.describe_image_builders_request.DescribeImageBuildersRequest = {}  # type: ignore[typeddict-item]
         if names is not None:
-            input["names"] = names
+            input_["names"] = names
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2947,17 +2947,17 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.describe_image_permissions_request.DescribeImagePermissionsRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_appstream.types.describe_image_permissions_request.DescribeImagePermissionsRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if shared_aws_account_ids is not None:
-            input["shared_aws_account_ids"] = shared_aws_account_ids
+            input_["shared_aws_account_ids"] = shared_aws_account_ids
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3001,20 +3001,20 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.describe_images_request.DescribeImagesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_appstream.types.describe_images_request.DescribeImagesRequest = {}  # type: ignore[typeddict-item]
         if names is not None:
-            input["names"] = names
+            input_["names"] = names
         if arns is not None:
-            input["arns"] = arns
+            input_["arns"] = arns
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3062,22 +3062,22 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.describe_sessions_request.DescribeSessionsRequest = {}  # type: ignore[typeddict-item]
-        input["stack_name"] = stack_name
-        input["fleet_name"] = fleet_name
+        input_: aws_sdk_appstream.types.describe_sessions_request.DescribeSessionsRequest = {}  # type: ignore[typeddict-item]
+        input_["stack_name"] = stack_name
+        input_["fleet_name"] = fleet_name
         if user_id is not None:
-            input["user_id"] = user_id
+            input_["user_id"] = user_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if authentication_type is not None:
-            input["authentication_type"] = authentication_type
+            input_["authentication_type"] = authentication_type
         if instance_id is not None:
-            input["instance_id"] = instance_id
+            input_["instance_id"] = instance_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3115,15 +3115,15 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.describe_software_associations_request.DescribeSoftwareAssociationsRequest = {}  # type: ignore[typeddict-item]
-        input["associated_resource"] = associated_resource
+        input_: aws_sdk_appstream.types.describe_software_associations_request.DescribeSoftwareAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_["associated_resource"] = associated_resource
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3159,14 +3159,14 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.describe_stacks_request.DescribeStacksRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_appstream.types.describe_stacks_request.DescribeStacksRequest = {}  # type: ignore[typeddict-item]
         if names is not None:
-            input["names"] = names
+            input_["names"] = names
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3200,11 +3200,11 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.describe_theme_for_stack_request.DescribeThemeForStackRequest = {}  # type: ignore[typeddict-item]
-        input["stack_name"] = stack_name
+        input_: aws_sdk_appstream.types.describe_theme_for_stack_request.DescribeThemeForStackRequest = {}  # type: ignore[typeddict-item]
+        input_["stack_name"] = stack_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3240,14 +3240,14 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.describe_usage_report_subscriptions_request.DescribeUsageReportSubscriptionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_appstream.types.describe_usage_report_subscriptions_request.DescribeUsageReportSubscriptionsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3285,15 +3285,15 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.describe_users_request.DescribeUsersRequest = {}  # type: ignore[typeddict-item]
-        input["authentication_type"] = authentication_type
+        input_: aws_sdk_appstream.types.describe_users_request.DescribeUsersRequest = {}  # type: ignore[typeddict-item]
+        input_["authentication_type"] = authentication_type
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3337,20 +3337,20 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.describe_user_stack_associations_request.DescribeUserStackAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_appstream.types.describe_user_stack_associations_request.DescribeUserStackAssociationsRequest = {}  # type: ignore[typeddict-item]
         if stack_name is not None:
-            input["stack_name"] = stack_name
+            input_["stack_name"] = stack_name
         if user_name is not None:
-            input["user_name"] = user_name
+            input_["user_name"] = user_name
         if authentication_type is not None:
-            input["authentication_type"] = authentication_type
+            input_["authentication_type"] = authentication_type
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3386,12 +3386,12 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.disable_user_request.DisableUserRequest = {}  # type: ignore[typeddict-item]
-        input["user_name"] = user_name
-        input["authentication_type"] = authentication_type
+        input_: aws_sdk_appstream.types.disable_user_request.DisableUserRequest = {}  # type: ignore[typeddict-item]
+        input_["user_name"] = user_name
+        input_["authentication_type"] = authentication_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3427,12 +3427,12 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.disassociate_app_block_builder_app_block_request.DisassociateAppBlockBuilderAppBlockRequest = {}  # type: ignore[typeddict-item]
-        input["app_block_arn"] = app_block_arn
-        input["app_block_builder_name"] = app_block_builder_name
+        input_: aws_sdk_appstream.types.disassociate_app_block_builder_app_block_request.DisassociateAppBlockBuilderAppBlockRequest = {}  # type: ignore[typeddict-item]
+        input_["app_block_arn"] = app_block_arn
+        input_["app_block_builder_name"] = app_block_builder_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3468,12 +3468,12 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.disassociate_application_fleet_request.DisassociateApplicationFleetRequest = {}  # type: ignore[typeddict-item]
-        input["fleet_name"] = fleet_name
-        input["application_arn"] = application_arn
+        input_: aws_sdk_appstream.types.disassociate_application_fleet_request.DisassociateApplicationFleetRequest = {}  # type: ignore[typeddict-item]
+        input_["fleet_name"] = fleet_name
+        input_["application_arn"] = application_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3511,13 +3511,13 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.disassociate_application_from_entitlement_request.DisassociateApplicationFromEntitlementRequest = {}  # type: ignore[typeddict-item]
-        input["stack_name"] = stack_name
-        input["entitlement_name"] = entitlement_name
-        input["application_identifier"] = application_identifier
+        input_: aws_sdk_appstream.types.disassociate_application_from_entitlement_request.DisassociateApplicationFromEntitlementRequest = {}  # type: ignore[typeddict-item]
+        input_["stack_name"] = stack_name
+        input_["entitlement_name"] = entitlement_name
+        input_["application_identifier"] = application_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3553,12 +3553,12 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.disassociate_fleet_request.DisassociateFleetRequest = {}  # type: ignore[typeddict-item]
-        input["fleet_name"] = fleet_name
-        input["stack_name"] = stack_name
+        input_: aws_sdk_appstream.types.disassociate_fleet_request.DisassociateFleetRequest = {}  # type: ignore[typeddict-item]
+        input_["fleet_name"] = fleet_name
+        input_["stack_name"] = stack_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3594,12 +3594,12 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.disassociate_software_from_image_builder_request.DisassociateSoftwareFromImageBuilderRequest = {}  # type: ignore[typeddict-item]
-        input["image_builder_name"] = image_builder_name
-        input["software_names"] = software_names
+        input_: aws_sdk_appstream.types.disassociate_software_from_image_builder_request.DisassociateSoftwareFromImageBuilderRequest = {}  # type: ignore[typeddict-item]
+        input_["image_builder_name"] = image_builder_name
+        input_["software_names"] = software_names
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3633,11 +3633,11 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.drain_session_instance_request.DrainSessionInstanceRequest = {}  # type: ignore[typeddict-item]
-        input["session_id"] = session_id
+        input_: aws_sdk_appstream.types.drain_session_instance_request.DrainSessionInstanceRequest = {}  # type: ignore[typeddict-item]
+        input_["session_id"] = session_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3650,7 +3650,7 @@ class AsyncAppStreamClient:
         *,
         config_overrides: Optional[AsyncAppStreamClientConfig] = None,
     ) -> "aws_sdk_appstream.types.enable_user_result.EnableUserResult":
-        """<p>Enables a user in the user pool. After being enabled, users can sign in to WorkSpaces Applications and open applications from the stacks to which they are assigned.</p>
+        r"""<p>Enables a user in the user pool. After being enabled, users can sign in to WorkSpaces Applications and open applications from the stacks to which they are assigned.</p>
 
         Args:
             user_name: <p>The email address of the user.</p> <note> <p>Users' email addresses are case-sensitive. During login, if they specify an email address that doesn't use the same capitalization as the email address specified when their user pool account was created, a \"user does not exist\" error message displays. </p> </note>
@@ -3673,12 +3673,12 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.enable_user_request.EnableUserRequest = {}  # type: ignore[typeddict-item]
-        input["user_name"] = user_name
-        input["authentication_type"] = authentication_type
+        input_: aws_sdk_appstream.types.enable_user_request.EnableUserRequest = {}  # type: ignore[typeddict-item]
+        input_["user_name"] = user_name
+        input_["authentication_type"] = authentication_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3712,11 +3712,11 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.expire_session_request.ExpireSessionRequest = {}  # type: ignore[typeddict-item]
-        input["session_id"] = session_id
+        input_: aws_sdk_appstream.types.expire_session_request.ExpireSessionRequest = {}  # type: ignore[typeddict-item]
+        input_["session_id"] = session_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3752,12 +3752,12 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.get_export_image_task_request.GetExportImageTaskRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_appstream.types.get_export_image_task_request.GetExportImageTaskRequest = {}  # type: ignore[typeddict-item]
         if task_id is not None:
-            input["task_id"] = task_id
+            input_["task_id"] = task_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3793,13 +3793,13 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.list_associated_fleets_request.ListAssociatedFleetsRequest = {}  # type: ignore[typeddict-item]
-        input["stack_name"] = stack_name
+        input_: aws_sdk_appstream.types.list_associated_fleets_request.ListAssociatedFleetsRequest = {}  # type: ignore[typeddict-item]
+        input_["stack_name"] = stack_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3835,13 +3835,13 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.list_associated_stacks_request.ListAssociatedStacksRequest = {}  # type: ignore[typeddict-item]
-        input["fleet_name"] = fleet_name
+        input_: aws_sdk_appstream.types.list_associated_stacks_request.ListAssociatedStacksRequest = {}  # type: ignore[typeddict-item]
+        input_["fleet_name"] = fleet_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3881,16 +3881,16 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.list_entitled_applications_request.ListEntitledApplicationsRequest = {}  # type: ignore[typeddict-item]
-        input["stack_name"] = stack_name
-        input["entitlement_name"] = entitlement_name
+        input_: aws_sdk_appstream.types.list_entitled_applications_request.ListEntitledApplicationsRequest = {}  # type: ignore[typeddict-item]
+        input_["stack_name"] = stack_name
+        input_["entitlement_name"] = entitlement_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3928,16 +3928,16 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.list_export_image_tasks_request.ListExportImageTasksRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_appstream.types.list_export_image_tasks_request.ListExportImageTasksRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3949,7 +3949,7 @@ class AsyncAppStreamClient:
         *,
         config_overrides: Optional[AsyncAppStreamClientConfig] = None,
     ) -> "aws_sdk_appstream.types.list_tags_for_resource_response.ListTagsForResourceResponse":
-        """<p>Retrieves a list of all tags for the specified WorkSpaces Applications resource. You can tag WorkSpaces Applications image builders, images, fleets, and stacks.</p> <p>For more information about tags, see <a href=\"https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html\">Tagging Your Resources</a> in the <i>Amazon WorkSpaces Applications Administration Guide</i>.</p>
+        r"""<p>Retrieves a list of all tags for the specified WorkSpaces Applications resource. You can tag WorkSpaces Applications image builders, images, fleets, and stacks.</p> <p>For more information about tags, see <a href=\"https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html\">Tagging Your Resources</a> in the <i>Amazon WorkSpaces Applications Administration Guide</i>.</p>
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -3971,11 +3971,11 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_appstream.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4009,11 +4009,11 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.start_app_block_builder_request.StartAppBlockBuilderRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_appstream.types.start_app_block_builder_request.StartAppBlockBuilderRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4047,11 +4047,11 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.start_fleet_request.StartFleetRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_appstream.types.start_fleet_request.StartFleetRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4089,13 +4089,13 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.start_image_builder_request.StartImageBuilderRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_appstream.types.start_image_builder_request.StartImageBuilderRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if appstream_agent_version is not None:
-            input["appstream_agent_version"] = appstream_agent_version
+            input_["appstream_agent_version"] = appstream_agent_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4133,13 +4133,13 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.start_software_deployment_to_image_builder_request.StartSoftwareDeploymentToImageBuilderRequest = {}  # type: ignore[typeddict-item]
-        input["image_builder_name"] = image_builder_name
+        input_: aws_sdk_appstream.types.start_software_deployment_to_image_builder_request.StartSoftwareDeploymentToImageBuilderRequest = {}  # type: ignore[typeddict-item]
+        input_["image_builder_name"] = image_builder_name
         if retry_failed_deployments is not None:
-            input["retry_failed_deployments"] = retry_failed_deployments
+            input_["retry_failed_deployments"] = retry_failed_deployments
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4173,11 +4173,11 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.stop_app_block_builder_request.StopAppBlockBuilderRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_appstream.types.stop_app_block_builder_request.StopAppBlockBuilderRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4211,11 +4211,11 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.stop_fleet_request.StopFleetRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_appstream.types.stop_fleet_request.StopFleetRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4249,11 +4249,11 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.stop_image_builder_request.StopImageBuilderRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_appstream.types.stop_image_builder_request.StopImageBuilderRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4266,7 +4266,7 @@ class AsyncAppStreamClient:
         *,
         config_overrides: Optional[AsyncAppStreamClientConfig] = None,
     ) -> "aws_sdk_appstream.types.tag_resource_response.TagResourceResponse":
-        """<p>Adds or overwrites one or more tags for the specified WorkSpaces Applications resource. You can tag WorkSpaces Applications image builders, images, fleets, and stacks.</p> <p>Each tag consists of a key and an optional value. If a resource already has a tag with the same key, this operation updates its value.</p> <p>To list the current tags for your resources, use <a>ListTagsForResource</a>. To disassociate tags from your resources, use <a>UntagResource</a>.</p> <p>For more information about tags, see <a href=\"https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html\">Tagging Your Resources</a> in the <i>Amazon WorkSpaces Applications Administration Guide</i>.</p>
+        r"""<p>Adds or overwrites one or more tags for the specified WorkSpaces Applications resource. You can tag WorkSpaces Applications image builders, images, fleets, and stacks.</p> <p>Each tag consists of a key and an optional value. If a resource already has a tag with the same key, this operation updates its value.</p> <p>To list the current tags for your resources, use <a>ListTagsForResource</a>. To disassociate tags from your resources, use <a>UntagResource</a>.</p> <p>For more information about tags, see <a href=\"https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html\">Tagging Your Resources</a> in the <i>Amazon WorkSpaces Applications Administration Guide</i>.</p>
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -4289,12 +4289,12 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_appstream.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4307,7 +4307,7 @@ class AsyncAppStreamClient:
         *,
         config_overrides: Optional[AsyncAppStreamClientConfig] = None,
     ) -> "aws_sdk_appstream.types.untag_resource_response.UntagResourceResponse":
-        """<p>Disassociates one or more specified tags from the specified WorkSpaces Applications resource.</p> <p>To list the current tags for your resources, use <a>ListTagsForResource</a>.</p> <p>For more information about tags, see <a href=\"https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html\">Tagging Your Resources</a> in the <i>Amazon WorkSpaces Applications Administration Guide</i>.</p>
+        r"""<p>Disassociates one or more specified tags from the specified WorkSpaces Applications resource.</p> <p>To list the current tags for your resources, use <a>ListTagsForResource</a>.</p> <p>For more information about tags, see <a href=\"https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html\">Tagging Your Resources</a> in the <i>Amazon WorkSpaces Applications Administration Guide</i>.</p>
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -4330,12 +4330,12 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_appstream.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4367,7 +4367,7 @@ class AsyncAppStreamClient:
             "aws_sdk_appstream.types.boolean_object.BooleanObject"
         ] = None,
     ) -> "aws_sdk_appstream.types.update_app_block_builder_result.UpdateAppBlockBuilderResult":
-        """<p>Updates an app block builder.</p> <p>If the app block builder is in the <code>STARTING</code> or <code>STOPPING</code> state, you can't update it. If the app block builder is in the <code>RUNNING</code> state, you can only update the DisplayName and Description. If the app block builder is in the <code>STOPPED</code> state, you can update any attribute except the Name.</p>
+        r"""<p>Updates an app block builder.</p> <p>If the app block builder is in the <code>STARTING</code> or <code>STOPPING</code> state, you can't update it. If the app block builder is in the <code>RUNNING</code> state, you can only update the DisplayName and Description. If the app block builder is in the <code>STOPPED</code> state, you can update any attribute except the Name.</p>
 
         Args:
             name: <p>The unique name for the app block builder.</p>
@@ -4399,31 +4399,31 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.update_app_block_builder_request.UpdateAppBlockBuilderRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_appstream.types.update_app_block_builder_request.UpdateAppBlockBuilderRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if display_name is not None:
-            input["display_name"] = display_name
+            input_["display_name"] = display_name
         if platform is not None:
-            input["platform"] = platform
+            input_["platform"] = platform
         if instance_type is not None:
-            input["instance_type"] = instance_type
+            input_["instance_type"] = instance_type
         if vpc_config is not None:
-            input["vpc_config"] = vpc_config
+            input_["vpc_config"] = vpc_config
         if enable_default_internet_access is not None:
-            input["enable_default_internet_access"] = enable_default_internet_access
+            input_["enable_default_internet_access"] = enable_default_internet_access
         if iam_role_arn is not None:
-            input["iam_role_arn"] = iam_role_arn
+            input_["iam_role_arn"] = iam_role_arn
         if access_endpoints is not None:
-            input["access_endpoints"] = access_endpoints
+            input_["access_endpoints"] = access_endpoints
         if attributes_to_delete is not None:
-            input["attributes_to_delete"] = attributes_to_delete
+            input_["attributes_to_delete"] = attributes_to_delete
         if disable_imdsv1 is not None:
-            input["disable_imdsv1"] = disable_imdsv1
+            input_["disable_imdsv1"] = disable_imdsv1
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4479,27 +4479,27 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.update_application_request.UpdateApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_appstream.types.update_application_request.UpdateApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if display_name is not None:
-            input["display_name"] = display_name
+            input_["display_name"] = display_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if icon_s3_location is not None:
-            input["icon_s3_location"] = icon_s3_location
+            input_["icon_s3_location"] = icon_s3_location
         if launch_path is not None:
-            input["launch_path"] = launch_path
+            input_["launch_path"] = launch_path
         if working_directory is not None:
-            input["working_directory"] = working_directory
+            input_["working_directory"] = working_directory
         if launch_parameters is not None:
-            input["launch_parameters"] = launch_parameters
+            input_["launch_parameters"] = launch_parameters
         if app_block_arn is not None:
-            input["app_block_arn"] = app_block_arn
+            input_["app_block_arn"] = app_block_arn
         if attributes_to_delete is not None:
-            input["attributes_to_delete"] = attributes_to_delete
+            input_["attributes_to_delete"] = attributes_to_delete
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4545,21 +4545,21 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.update_directory_config_request.UpdateDirectoryConfigRequest = {}  # type: ignore[typeddict-item]
-        input["directory_name"] = directory_name
+        input_: aws_sdk_appstream.types.update_directory_config_request.UpdateDirectoryConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_name"] = directory_name
         if organizational_unit_distinguished_names is not None:
-            input["organizational_unit_distinguished_names"] = (
+            input_["organizational_unit_distinguished_names"] = (
                 organizational_unit_distinguished_names
             )
         if service_account_credentials is not None:
-            input["service_account_credentials"] = service_account_credentials
+            input_["service_account_credentials"] = service_account_credentials
         if certificate_based_auth_properties is not None:
-            input["certificate_based_auth_properties"] = (
+            input_["certificate_based_auth_properties"] = (
                 certificate_based_auth_properties
             )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4605,18 +4605,18 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.update_entitlement_request.UpdateEntitlementRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["stack_name"] = stack_name
+        input_: aws_sdk_appstream.types.update_entitlement_request.UpdateEntitlementRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["stack_name"] = stack_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if app_visibility is not None:
-            input["app_visibility"] = app_visibility
+            input_["app_visibility"] = app_visibility
         if attributes is not None:
-            input["attributes"] = attributes
+            input_["attributes"] = attributes
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4679,7 +4679,7 @@ class AsyncAppStreamClient:
             "aws_sdk_appstream.types.boolean_object.BooleanObject"
         ] = None,
     ) -> "aws_sdk_appstream.types.update_fleet_result.UpdateFleetResult":
-        """<p>Updates the specified fleet.</p> <p>If the fleet is in the <code>STOPPED</code> state, you can update any attribute except the fleet name.</p> <p>If the fleet is in the <code>RUNNING</code> state, you can update the following based on the fleet type:</p> <ul> <li> <p>Always-On and On-Demand fleet types</p> <p>You can update the <code>DisplayName</code>, <code>ComputeCapacity</code>, <code>ImageARN</code>, <code>ImageName</code>, <code>IdleDisconnectTimeoutInSeconds</code>, and <code>DisconnectTimeoutInSeconds</code> attributes.</p> </li> <li> <p>Elastic fleet type</p> <p>You can update the <code>DisplayName</code>, <code>IdleDisconnectTimeoutInSeconds</code>, <code>DisconnectTimeoutInSeconds</code>, <code>MaxConcurrentSessions</code>, <code>SessionScriptS3Location</code> and <code>UsbDeviceFilterStrings</code> attributes.</p> </li> </ul> <p>If the fleet is in the <code>STARTING</code> or <code>STOPPED</code> state, you can't update it.</p>
+        r"""<p>Updates the specified fleet.</p> <p>If the fleet is in the <code>STOPPED</code> state, you can update any attribute except the fleet name.</p> <p>If the fleet is in the <code>RUNNING</code> state, you can update the following based on the fleet type:</p> <ul> <li> <p>Always-On and On-Demand fleet types</p> <p>You can update the <code>DisplayName</code>, <code>ComputeCapacity</code>, <code>ImageARN</code>, <code>ImageName</code>, <code>IdleDisconnectTimeoutInSeconds</code>, and <code>DisconnectTimeoutInSeconds</code> attributes.</p> </li> <li> <p>Elastic fleet type</p> <p>You can update the <code>DisplayName</code>, <code>IdleDisconnectTimeoutInSeconds</code>, <code>DisconnectTimeoutInSeconds</code>, <code>MaxConcurrentSessions</code>, <code>SessionScriptS3Location</code> and <code>UsbDeviceFilterStrings</code> attributes.</p> </li> </ul> <p>If the fleet is in the <code>STARTING</code> or <code>STOPPED</code> state, you can't update it.</p>
 
         Args:
             image_name: <p>The name of the image used to create the fleet.</p>
@@ -4724,60 +4724,60 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.update_fleet_request.UpdateFleetRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_appstream.types.update_fleet_request.UpdateFleetRequest = {}  # type: ignore[typeddict-item]
         if image_name is not None:
-            input["image_name"] = image_name
+            input_["image_name"] = image_name
         if image_arn is not None:
-            input["image_arn"] = image_arn
+            input_["image_arn"] = image_arn
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if instance_type is not None:
-            input["instance_type"] = instance_type
+            input_["instance_type"] = instance_type
         if compute_capacity is not None:
-            input["compute_capacity"] = compute_capacity
+            input_["compute_capacity"] = compute_capacity
         if vpc_config is not None:
-            input["vpc_config"] = vpc_config
+            input_["vpc_config"] = vpc_config
         if max_user_duration_in_seconds is not None:
-            input["max_user_duration_in_seconds"] = max_user_duration_in_seconds
+            input_["max_user_duration_in_seconds"] = max_user_duration_in_seconds
         if disconnect_timeout_in_seconds is not None:
-            input["disconnect_timeout_in_seconds"] = disconnect_timeout_in_seconds
+            input_["disconnect_timeout_in_seconds"] = disconnect_timeout_in_seconds
         if delete_vpc_config is not None:
-            input["delete_vpc_config"] = delete_vpc_config
+            input_["delete_vpc_config"] = delete_vpc_config
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if display_name is not None:
-            input["display_name"] = display_name
+            input_["display_name"] = display_name
         if enable_default_internet_access is not None:
-            input["enable_default_internet_access"] = enable_default_internet_access
+            input_["enable_default_internet_access"] = enable_default_internet_access
         if domain_join_info is not None:
-            input["domain_join_info"] = domain_join_info
+            input_["domain_join_info"] = domain_join_info
         if idle_disconnect_timeout_in_seconds is not None:
-            input["idle_disconnect_timeout_in_seconds"] = (
+            input_["idle_disconnect_timeout_in_seconds"] = (
                 idle_disconnect_timeout_in_seconds
             )
         if attributes_to_delete is not None:
-            input["attributes_to_delete"] = attributes_to_delete
+            input_["attributes_to_delete"] = attributes_to_delete
         if iam_role_arn is not None:
-            input["iam_role_arn"] = iam_role_arn
+            input_["iam_role_arn"] = iam_role_arn
         if stream_view is not None:
-            input["stream_view"] = stream_view
+            input_["stream_view"] = stream_view
         if platform is not None:
-            input["platform"] = platform
+            input_["platform"] = platform
         if max_concurrent_sessions is not None:
-            input["max_concurrent_sessions"] = max_concurrent_sessions
+            input_["max_concurrent_sessions"] = max_concurrent_sessions
         if usb_device_filter_strings is not None:
-            input["usb_device_filter_strings"] = usb_device_filter_strings
+            input_["usb_device_filter_strings"] = usb_device_filter_strings
         if session_script_s3_location is not None:
-            input["session_script_s3_location"] = session_script_s3_location
+            input_["session_script_s3_location"] = session_script_s3_location
         if max_sessions_per_instance is not None:
-            input["max_sessions_per_instance"] = max_sessions_per_instance
+            input_["max_sessions_per_instance"] = max_sessions_per_instance
         if root_volume_config is not None:
-            input["root_volume_config"] = root_volume_config
+            input_["root_volume_config"] = root_volume_config
         if disable_imdsv1 is not None:
-            input["disable_imdsv1"] = disable_imdsv1
+            input_["disable_imdsv1"] = disable_imdsv1
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4815,13 +4815,13 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.update_image_permissions_request.UpdateImagePermissionsRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["shared_account_id"] = shared_account_id
-        input["image_permissions"] = image_permissions
+        input_: aws_sdk_appstream.types.update_image_permissions_request.UpdateImagePermissionsRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["shared_account_id"] = shared_account_id
+        input_["image_permissions"] = image_permissions
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4908,39 +4908,39 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.update_stack_request.UpdateStackRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_appstream.types.update_stack_request.UpdateStackRequest = {}  # type: ignore[typeddict-item]
         if display_name is not None:
-            input["display_name"] = display_name
+            input_["display_name"] = display_name
         if description is not None:
-            input["description"] = description
-        input["name"] = name
+            input_["description"] = description
+        input_["name"] = name
         if storage_connectors is not None:
-            input["storage_connectors"] = storage_connectors
+            input_["storage_connectors"] = storage_connectors
         if delete_storage_connectors is not None:
-            input["delete_storage_connectors"] = delete_storage_connectors
+            input_["delete_storage_connectors"] = delete_storage_connectors
         if redirect_url is not None:
-            input["redirect_url"] = redirect_url
+            input_["redirect_url"] = redirect_url
         if feedback_url is not None:
-            input["feedback_url"] = feedback_url
+            input_["feedback_url"] = feedback_url
         if attributes_to_delete is not None:
-            input["attributes_to_delete"] = attributes_to_delete
+            input_["attributes_to_delete"] = attributes_to_delete
         if user_settings is not None:
-            input["user_settings"] = user_settings
+            input_["user_settings"] = user_settings
         if application_settings is not None:
-            input["application_settings"] = application_settings
+            input_["application_settings"] = application_settings
         if access_endpoints is not None:
-            input["access_endpoints"] = access_endpoints
+            input_["access_endpoints"] = access_endpoints
         if embed_host_domains is not None:
-            input["embed_host_domains"] = embed_host_domains
+            input_["embed_host_domains"] = embed_host_domains
         if streaming_experience_settings is not None:
-            input["streaming_experience_settings"] = streaming_experience_settings
+            input_["streaming_experience_settings"] = streaming_experience_settings
         if content_redirection is not None:
-            input["content_redirection"] = content_redirection
+            input_["content_redirection"] = content_redirection
         if agent_access_config is not None:
-            input["agent_access_config"] = agent_access_config
+            input_["agent_access_config"] = agent_access_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5000,25 +5000,25 @@ class AsyncAppStreamClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appstream.types.update_theme_for_stack_request.UpdateThemeForStackRequest = {}  # type: ignore[typeddict-item]
-        input["stack_name"] = stack_name
+        input_: aws_sdk_appstream.types.update_theme_for_stack_request.UpdateThemeForStackRequest = {}  # type: ignore[typeddict-item]
+        input_["stack_name"] = stack_name
         if footer_links is not None:
-            input["footer_links"] = footer_links
+            input_["footer_links"] = footer_links
         if title_text is not None:
-            input["title_text"] = title_text
+            input_["title_text"] = title_text
         if theme_styling is not None:
-            input["theme_styling"] = theme_styling
+            input_["theme_styling"] = theme_styling
         if organization_logo_s3_location is not None:
-            input["organization_logo_s3_location"] = organization_logo_s3_location
+            input_["organization_logo_s3_location"] = organization_logo_s3_location
         if favicon_s3_location is not None:
-            input["favicon_s3_location"] = favicon_s3_location
+            input_["favicon_s3_location"] = favicon_s3_location
         if state is not None:
-            input["state"] = state
+            input_["state"] = state
         if attributes_to_delete is not None:
-            input["attributes_to_delete"] = attributes_to_delete
+            input_["attributes_to_delete"] = attributes_to_delete
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

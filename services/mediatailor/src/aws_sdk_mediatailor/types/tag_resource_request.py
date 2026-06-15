@@ -13,7 +13,7 @@ class TagResourceRequest(TypedDict):
     resource_arn: "aws_sdk_mediatailor.types.__string.__string"
     """<p>The Amazon Resource Name (ARN) associated with the resource.</p>"""
     tags: "aws_sdk_mediatailor.types.__map_of__string.__mapOf__string"
-    """<p>The tags to assign to the resource. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html\">Tagging AWS Elemental MediaTailor Resources</a>.</p>"""
+    r"""<p>The tags to assign to the resource. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html\">Tagging AWS Elemental MediaTailor Resources</a>.</p>"""
 
 
 # --- restJson1 ser/de ---

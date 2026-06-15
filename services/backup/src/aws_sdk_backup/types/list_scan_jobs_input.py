@@ -18,7 +18,7 @@ class ListScanJobsInput(TypedDict):
     by_account_id: NotRequired["str"]
     """<p>The account ID to list the jobs from. Returns only backup jobs associated with the specified account ID.</p> <p>If used from an Amazon Web Services Organizations management account, passing <code>*</code> returns all jobs across the organization.</p> <p>Pattern: <code>^[0-9]{12}$</code> </p>"""
     by_backup_vault_name: NotRequired["str"]
-    """<p>Returns only scan jobs that will be stored in the specified backup vault. Backup vaults are identified by names that are unique to the account used to create them and the Amazon Web Services Region where they are created.</p> <p>Pattern: <code>^[a-zA-Z0-9\-\_\.]{2,50}$</code> </p>"""
+    r"""<p>Returns only scan jobs that will be stored in the specified backup vault. Backup vaults are identified by names that are unique to the account used to create them and the Amazon Web Services Region where they are created.</p> <p>Pattern: <code>^[a-zA-Z0-9\-\_\.]{2,50}$</code> </p>"""
     by_complete_after: NotRequired["datetime.datetime"]
     """<p>Returns only scan jobs completed after a date expressed in Unix format and Coordinated Universal Time (UTC).</p>"""
     by_complete_before: NotRequired["datetime.datetime"]
@@ -34,7 +34,7 @@ class ListScanJobsInput(TypedDict):
     by_resource_type: NotRequired[
         "aws_sdk_backup.types.scan_resource_type.ScanResourceType"
     ]
-    """<p>Returns restore testing selections by the specified restore testing plan name.</p> <ul> <li> <p> <code>EBS</code>for Amazon Elastic Block Store</p> </li> <li> <p> <code>EC2</code>for Amazon Elastic Compute Cloud</p> </li> <li> <p> <code>S3</code>for Amazon Simple Storage Service (Amazon S3)</p> </li> </ul> <p>Pattern: <code>^[a-zA-Z0-9\-\_\.]{1,50}$</code> </p>"""
+    r"""<p>Returns restore testing selections by the specified restore testing plan name.</p> <ul> <li> <p> <code>EBS</code>for Amazon Elastic Block Store</p> </li> <li> <p> <code>EC2</code>for Amazon Elastic Compute Cloud</p> </li> <li> <p> <code>S3</code>for Amazon Simple Storage Service (Amazon S3)</p> </li> </ul> <p>Pattern: <code>^[a-zA-Z0-9\-\_\.]{1,50}$</code> </p>"""
     by_scan_result_status: NotRequired[
         "aws_sdk_backup.types.scan_result_status.ScanResultStatus"
     ]

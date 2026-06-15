@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_account._auth._signers
@@ -40,7 +42,7 @@ class PrimaryEmailResource:
         *,
         config_overrides: Optional[AccountClientConfig] = None,
     ) -> "aws_sdk_account.types.accept_primary_email_update_response.AcceptPrimaryEmailUpdateResponse":
-        """<p>Accepts the request that originated from <a>StartPrimaryEmailUpdate</a> to update the primary email address (also known as the root user email address) for the specified account.</p>
+        r"""<p>Accepts the request that originated from <a>StartPrimaryEmailUpdate</a> to update the primary email address (also known as the root user email address) for the specified account.</p>
 
         Args:
             account_id: <p>Specifies the 12-digit account ID number of the Amazon Web Services account that you want to access or modify with this operation. To use this parameter, the caller must be an identity in the <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account\">organization's management account</a> or a delegated administrator account. The specified account ID must be a member account in the same organization. The organization must have <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html\">all features enabled</a>, and the organization must have <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html\">trusted access</a> enabled for the Account Management service, and optionally a <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#delegated-admin\">delegated admin</a> account assigned.</p> <p>This operation can only be called from the management account or the delegated administrator account of an organization for a member account.</p> <note> <p>The management account can't specify its own <code>AccountId</code>.</p> </note>
@@ -81,7 +83,7 @@ class PrimaryEmailResource:
         *,
         config_overrides: Optional[AccountClientConfig] = None,
     ) -> "aws_sdk_account.types.get_primary_email_response.GetPrimaryEmailResponse":
-        """<p>Retrieves the primary email address for the specified account.</p>
+        r"""<p>Retrieves the primary email address for the specified account.</p>
 
         Args:
             account_id: <p>Specifies the 12-digit account ID number of the Amazon Web Services account that you want to access or modify with this operation. To use this parameter, the caller must be an identity in the <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account\">organization's management account</a> or a delegated administrator account. The specified account ID must be a member account in the same organization. The organization must have <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html\">all features enabled</a>, and the organization must have <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html\">trusted access</a> enabled for the Account Management service, and optionally a <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#delegated-admin\">delegated admin</a> account assigned.</p> <p>This operation can only be called from the management account or the delegated administrator account of an organization for a member account.</p> <note> <p>The management account can't specify its own <code>AccountId</code>.</p> </note>
@@ -119,7 +121,7 @@ class PrimaryEmailResource:
         *,
         config_overrides: Optional[AccountClientConfig] = None,
     ) -> "aws_sdk_account.types.start_primary_email_update_response.StartPrimaryEmailUpdateResponse":
-        """<p>Starts the process to update the primary email address for the specified account.</p>
+        r"""<p>Starts the process to update the primary email address for the specified account.</p>
 
         Args:
             account_id: <p>Specifies the 12-digit account ID number of the Amazon Web Services account that you want to access or modify with this operation. To use this parameter, the caller must be an identity in the <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account\">organization's management account</a> or a delegated administrator account. The specified account ID must be a member account in the same organization. The organization must have <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html\">all features enabled</a>, and the organization must have <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html\">trusted access</a> enabled for the Account Management service, and optionally a <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#delegated-admin\">delegated admin</a> account assigned.</p> <p>This operation can only be called from the management account or the delegated administrator account of an organization for a member account.</p> <note> <p>The management account can't specify its own <code>AccountId</code>.</p> </note>
@@ -165,7 +167,7 @@ class AsyncPrimaryEmailResource:
         *,
         config_overrides: Optional[AsyncAccountClientConfig] = None,
     ) -> "aws_sdk_account.types.accept_primary_email_update_response.AcceptPrimaryEmailUpdateResponse":
-        """<p>Accepts the request that originated from <a>StartPrimaryEmailUpdate</a> to update the primary email address (also known as the root user email address) for the specified account.</p>
+        r"""<p>Accepts the request that originated from <a>StartPrimaryEmailUpdate</a> to update the primary email address (also known as the root user email address) for the specified account.</p>
 
         Args:
             account_id: <p>Specifies the 12-digit account ID number of the Amazon Web Services account that you want to access or modify with this operation. To use this parameter, the caller must be an identity in the <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account\">organization's management account</a> or a delegated administrator account. The specified account ID must be a member account in the same organization. The organization must have <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html\">all features enabled</a>, and the organization must have <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html\">trusted access</a> enabled for the Account Management service, and optionally a <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#delegated-admin\">delegated admin</a> account assigned.</p> <p>This operation can only be called from the management account or the delegated administrator account of an organization for a member account.</p> <note> <p>The management account can't specify its own <code>AccountId</code>.</p> </note>
@@ -207,7 +209,7 @@ class AsyncPrimaryEmailResource:
         *,
         config_overrides: Optional[AsyncAccountClientConfig] = None,
     ) -> "aws_sdk_account.types.get_primary_email_response.GetPrimaryEmailResponse":
-        """<p>Retrieves the primary email address for the specified account.</p>
+        r"""<p>Retrieves the primary email address for the specified account.</p>
 
         Args:
             account_id: <p>Specifies the 12-digit account ID number of the Amazon Web Services account that you want to access or modify with this operation. To use this parameter, the caller must be an identity in the <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account\">organization's management account</a> or a delegated administrator account. The specified account ID must be a member account in the same organization. The organization must have <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html\">all features enabled</a>, and the organization must have <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html\">trusted access</a> enabled for the Account Management service, and optionally a <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#delegated-admin\">delegated admin</a> account assigned.</p> <p>This operation can only be called from the management account or the delegated administrator account of an organization for a member account.</p> <note> <p>The management account can't specify its own <code>AccountId</code>.</p> </note>
@@ -246,7 +248,7 @@ class AsyncPrimaryEmailResource:
         *,
         config_overrides: Optional[AsyncAccountClientConfig] = None,
     ) -> "aws_sdk_account.types.start_primary_email_update_response.StartPrimaryEmailUpdateResponse":
-        """<p>Starts the process to update the primary email address for the specified account.</p>
+        r"""<p>Starts the process to update the primary email address for the specified account.</p>
 
         Args:
             account_id: <p>Specifies the 12-digit account ID number of the Amazon Web Services account that you want to access or modify with this operation. To use this parameter, the caller must be an identity in the <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account\">organization's management account</a> or a delegated administrator account. The specified account ID must be a member account in the same organization. The organization must have <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html\">all features enabled</a>, and the organization must have <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html\">trusted access</a> enabled for the Account Management service, and optionally a <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#delegated-admin\">delegated admin</a> account assigned.</p> <p>This operation can only be called from the management account or the delegated administrator account of an organization for a member account.</p> <note> <p>The management account can't specify its own <code>AccountId</code>.</p> </note>

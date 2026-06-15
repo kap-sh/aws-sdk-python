@@ -53,7 +53,7 @@ class HyperParameterTrainingJobSummary(TypedDict):
     final_hyper_parameter_tuning_job_objective_metric: NotRequired[
         "aws_sdk_sagemaker.types.final_hyper_parameter_tuning_job_objective_metric.FinalHyperParameterTuningJobObjectiveMetric"
     ]
-    """<p>The <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_FinalHyperParameterTuningJobObjectiveMetric.html\">FinalHyperParameterTuningJobObjectiveMetric</a> object that specifies the value of the objective metric of the tuning job that launched this training job.</p>"""
+    r"""<p>The <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_FinalHyperParameterTuningJobObjectiveMetric.html\">FinalHyperParameterTuningJobObjectiveMetric</a> object that specifies the value of the objective metric of the tuning job that launched this training job.</p>"""
     objective_status: NotRequired[
         "aws_sdk_sagemaker.types.objective_status.ObjectiveStatus"
     ]

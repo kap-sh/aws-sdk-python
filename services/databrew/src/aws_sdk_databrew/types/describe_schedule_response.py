@@ -35,7 +35,7 @@ class DescribeScheduleResponse(TypedDict):
     cron_expression: NotRequired[
         "aws_sdk_databrew.types.cron_expression.CronExpression"
     ]
-    """<p>The date or dates and time or times when the jobs are to be run for the schedule. For more information, see <a href=\"https://docs.aws.amazon.com/databrew/latest/dg/jobs.cron.html\">Cron expressions</a> in the <i>Glue DataBrew Developer Guide</i>.</p>"""
+    r"""<p>The date or dates and time or times when the jobs are to be run for the schedule. For more information, see <a href=\"https://docs.aws.amazon.com/databrew/latest/dg/jobs.cron.html\">Cron expressions</a> in the <i>Glue DataBrew Developer Guide</i>.</p>"""
     tags: NotRequired["aws_sdk_databrew.types.tag_map.TagMap"]
     """<p>Metadata tags associated with this schedule.</p>"""
     name: "aws_sdk_databrew.types.schedule_name.ScheduleName"

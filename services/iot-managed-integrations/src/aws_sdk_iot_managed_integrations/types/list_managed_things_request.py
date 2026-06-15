@@ -50,7 +50,7 @@ class ListManagedThingsRequest(TypedDict):
     provisioning_status_filter: NotRequired[
         "aws_sdk_iot_managed_integrations.types.provisioning_status.ProvisioningStatus"
     ]
-    """<p>Filter on the status of the device. For more information, see <a href=\"https://docs.aws.amazon.com/iot-mi/latest/devguide/device-provisioning.html\">Device Provisioning</a>.</p>"""
+    r"""<p>Filter on the status of the device. For more information, see <a href=\"https://docs.aws.amazon.com/iot-mi/latest/devguide/device-provisioning.html\">Device Provisioning</a>.</p>"""
     next_token: NotRequired[
         "aws_sdk_iot_managed_integrations.types.next_token.NextToken"
     ]

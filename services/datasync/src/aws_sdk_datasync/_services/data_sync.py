@@ -278,7 +278,7 @@ class DataSyncClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = DataSyncClientConfig(
+        self._config = DataSyncClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -298,7 +298,7 @@ class DataSyncClient:
         overrides: DataSyncClientConfig = config_overrides or {}
         interceptors_: list[Interceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             retry(),
         ]
@@ -306,16 +306,16 @@ class DataSyncClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            region=overrides.get("region", self.config.get("region")),
+            region=overrides.get("region", self._config.get("region")),
             use_dual_stack=overrides.get(
-                "use_dual_stack", self.config.get("use_dual_stack")
+                "use_dual_stack", self._config.get("use_dual_stack")
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -374,7 +374,7 @@ class DataSyncClient:
             "aws_sdk_datasync.types.pl_security_group_arn_list.PLSecurityGroupArnList"
         ] = None,
     ) -> "aws_sdk_datasync.types.create_agent_response.CreateAgentResponse":
-        """<p>Activates an DataSync agent that you deploy in your storage environment. The activation process associates the agent with your Amazon Web Services account.</p> <p>If you haven't deployed an agent yet, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/do-i-need-datasync-agent.html\">Do I need a DataSync agent?</a> </p>
+        r"""<p>Activates an DataSync agent that you deploy in your storage environment. The activation process associates the agent with your Amazon Web Services account.</p> <p>If you haven't deployed an agent yet, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/do-i-need-datasync-agent.html\">Do I need a DataSync agent?</a> </p>
 
         Args:
             activation_key: <p>Specifies your DataSync agent's activation key. If you don't have an activation key, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/activate-agent.html\">Activating your agent</a>.</p>
@@ -449,7 +449,7 @@ class DataSyncClient:
             "aws_sdk_datasync.types.custom_secret_config.CustomSecretConfig"
         ] = None,
     ) -> "aws_sdk_datasync.types.create_location_azure_blob_response.CreateLocationAzureBlobResponse":
-        """<p>Creates a transfer <i>location</i> for a Microsoft Azure Blob Storage container. DataSync can use this location as a transfer source or destination. You can make transfers with or without a <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/creating-azure-blob-location.html#azure-blob-creating-agent\">DataSync agent</a> that connects to your container.</p> <p>Before you begin, make sure you know <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/creating-azure-blob-location.html#azure-blob-access\">how DataSync accesses Azure Blob Storage</a> and works with <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/creating-azure-blob-location.html#azure-blob-access-tiers\">access tiers</a> and <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/creating-azure-blob-location.html#blob-types\">blob types</a>.</p>
+        r"""<p>Creates a transfer <i>location</i> for a Microsoft Azure Blob Storage container. DataSync can use this location as a transfer source or destination. You can make transfers with or without a <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/creating-azure-blob-location.html#azure-blob-creating-agent\">DataSync agent</a> that connects to your container.</p> <p>Before you begin, make sure you know <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/creating-azure-blob-location.html#azure-blob-access\">how DataSync accesses Azure Blob Storage</a> and works with <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/creating-azure-blob-location.html#azure-blob-access-tiers\">access tiers</a> and <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/creating-azure-blob-location.html#blob-types\">blob types</a>.</p>
 
         Args:
             container_url: <p>Specifies the URL of the Azure Blob Storage container involved in your transfer.</p>
@@ -528,7 +528,7 @@ class DataSyncClient:
     ) -> (
         "aws_sdk_datasync.types.create_location_efs_response.CreateLocationEfsResponse"
     ):
-        """<p>Creates a transfer <i>location</i> for an Amazon EFS file system. DataSync can use this location as a source or destination for transferring data.</p> <p>Before you begin, make sure that you understand how DataSync <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/create-efs-location.html#create-efs-location-access\">accesses Amazon EFS file systems</a>.</p>
+        r"""<p>Creates a transfer <i>location</i> for an Amazon EFS file system. DataSync can use this location as a source or destination for transferring data.</p> <p>Before you begin, make sure that you understand how DataSync <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/create-efs-location.html#create-efs-location-access\">accesses Amazon EFS file systems</a>.</p>
 
         Args:
             subdirectory: <p>Specifies a mount path for your Amazon EFS file system. This is where DataSync reads or writes data on your file system (depending on if this is a source or destination location).</p> <p>By default, DataSync uses the root directory (or <a href=\"https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html\">access point</a> if you provide one by using <code>AccessPointArn</code>). You can also include subdirectories using forward slashes (for example, <code>/path/to/folder</code>).</p>
@@ -587,7 +587,7 @@ class DataSyncClient:
         ] = None,
         tags: Optional["aws_sdk_datasync.types.input_tag_list.InputTagList"] = None,
     ) -> "aws_sdk_datasync.types.create_location_fsx_lustre_response.CreateLocationFsxLustreResponse":
-        """<p>Creates a transfer <i>location</i> for an Amazon FSx for Lustre file system. DataSync can use this location as a source or destination for transferring data.</p> <p>Before you begin, make sure that you understand how DataSync <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/create-lustre-location.html#create-lustre-location-access\">accesses FSx for Lustre file systems</a>.</p>
+        r"""<p>Creates a transfer <i>location</i> for an Amazon FSx for Lustre file system. DataSync can use this location as a source or destination for transferring data.</p> <p>Before you begin, make sure that you understand how DataSync <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/create-lustre-location.html#create-lustre-location-access\">accesses FSx for Lustre file systems</a>.</p>
 
         Args:
             fsx_filesystem_arn: <p>Specifies the Amazon Resource Name (ARN) of the FSx for Lustre file system.</p>
@@ -638,7 +638,7 @@ class DataSyncClient:
         ] = None,
         tags: Optional["aws_sdk_datasync.types.input_tag_list.InputTagList"] = None,
     ) -> "aws_sdk_datasync.types.create_location_fsx_ontap_response.CreateLocationFsxOntapResponse":
-        """<p>Creates a transfer <i>location</i> for an Amazon FSx for NetApp ONTAP file system. DataSync can use this location as a source or destination for transferring data.</p> <p>Before you begin, make sure that you understand how DataSync <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/create-ontap-location.html#create-ontap-location-access\">accesses FSx for ONTAP file systems</a>.</p>
+        r"""<p>Creates a transfer <i>location</i> for an Amazon FSx for NetApp ONTAP file system. DataSync can use this location as a source or destination for transferring data.</p> <p>Before you begin, make sure that you understand how DataSync <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/create-ontap-location.html#create-ontap-location-access\">accesses FSx for ONTAP file systems</a>.</p>
 
         Args:
             security_group_arns: <p>Specifies the Amazon EC2 security groups that provide access to your file system's preferred subnet.</p> <p>The security groups must allow outbound traffic on the following ports (depending on the protocol you use):</p> <ul> <li> <p> <b>Network File System (NFS)</b>: TCP ports 111, 635, and 2049</p> </li> <li> <p> <b>Server Message Block (SMB)</b>: TCP port 445</p> </li> </ul> <p>Your file system's security groups must also allow inbound traffic on the same ports.</p>
@@ -690,7 +690,7 @@ class DataSyncClient:
         ] = None,
         tags: Optional["aws_sdk_datasync.types.input_tag_list.InputTagList"] = None,
     ) -> "aws_sdk_datasync.types.create_location_fsx_open_zfs_response.CreateLocationFsxOpenZfsResponse":
-        """<p>Creates a transfer <i>location</i> for an Amazon FSx for OpenZFS file system. DataSync can use this location as a source or destination for transferring data.</p> <p>Before you begin, make sure that you understand how DataSync <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/create-openzfs-location.html#create-openzfs-access\">accesses FSx for OpenZFS file systems</a>.</p> <note> <p>Request parameters related to <code>SMB</code> aren't supported with the <code>CreateLocationFsxOpenZfs</code> operation.</p> </note>
+        r"""<p>Creates a transfer <i>location</i> for an Amazon FSx for OpenZFS file system. DataSync can use this location as a source or destination for transferring data.</p> <p>Before you begin, make sure that you understand how DataSync <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/create-openzfs-location.html#create-openzfs-access\">accesses FSx for OpenZFS file systems</a>.</p> <note> <p>Request parameters related to <code>SMB</code> aren't supported with the <code>CreateLocationFsxOpenZfs</code> operation.</p> </note>
 
         Args:
             fsx_filesystem_arn: <p>The Amazon Resource Name (ARN) of the FSx for OpenZFS file system.</p>
@@ -751,7 +751,7 @@ class DataSyncClient:
             "aws_sdk_datasync.types.custom_secret_config.CustomSecretConfig"
         ] = None,
     ) -> "aws_sdk_datasync.types.create_location_fsx_windows_response.CreateLocationFsxWindowsResponse":
-        """<p>Creates a transfer <i>location</i> for an Amazon FSx for Windows File Server file system. DataSync can use this location as a source or destination for transferring data.</p> <p>Before you begin, make sure that you understand how DataSync <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/create-fsx-location.html#create-fsx-location-access\">accesses FSx for Windows File Server file systems</a>.</p>
+        r"""<p>Creates a transfer <i>location</i> for an Amazon FSx for Windows File Server file system. DataSync can use this location as a source or destination for transferring data.</p> <p>Before you begin, make sure that you understand how DataSync <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/create-fsx-location.html#create-fsx-location-access\">accesses FSx for Windows File Server file systems</a>.</p>
 
         Args:
             subdirectory: <p>Specifies a mount path for your file system using forward slashes. This is where DataSync reads or writes data (depending on if this is a source or destination location).</p>
@@ -844,7 +844,7 @@ class DataSyncClient:
             "aws_sdk_datasync.types.custom_secret_config.CustomSecretConfig"
         ] = None,
     ) -> "aws_sdk_datasync.types.create_location_hdfs_response.CreateLocationHdfsResponse":
-        """<p>Creates a transfer <i>location</i> for a Hadoop Distributed File System (HDFS). DataSync can use this location as a source or destination for transferring data.</p> <p>Before you begin, make sure that you understand how DataSync <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/create-hdfs-location.html#accessing-hdfs\">accesses HDFS clusters</a>.</p>
+        r"""<p>Creates a transfer <i>location</i> for a Hadoop Distributed File System (HDFS). DataSync can use this location as a source or destination for transferring data.</p> <p>Before you begin, make sure that you understand how DataSync <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/create-hdfs-location.html#accessing-hdfs\">accesses HDFS clusters</a>.</p>
 
         Args:
             subdirectory: <p>A subdirectory in the HDFS cluster. This subdirectory is used to read data from or write data to the HDFS cluster. If the subdirectory isn't specified, it will default to <code>/</code>.</p>
@@ -929,7 +929,7 @@ class DataSyncClient:
     ) -> (
         "aws_sdk_datasync.types.create_location_nfs_response.CreateLocationNfsResponse"
     ):
-        """<p>Creates a transfer <i>location</i> for a Network File System (NFS) file server. DataSync can use this location as a source or destination for transferring data.</p> <p>Before you begin, make sure that you understand how DataSync <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html#accessing-nfs\">accesses NFS file servers</a>.</p>
+        r"""<p>Creates a transfer <i>location</i> for a Network File System (NFS) file server. DataSync can use this location as a source or destination for transferring data.</p> <p>Before you begin, make sure that you understand how DataSync <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html#accessing-nfs\">accesses NFS file servers</a>.</p>
 
         Args:
             subdirectory: <p>Specifies the export path in your NFS file server that you want DataSync to mount.</p> <p>This path (or a subdirectory of the path) is where DataSync transfers data to or from. For information on configuring an export for DataSync, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html#accessing-nfs\">Accessing NFS file servers</a>.</p>
@@ -1005,7 +1005,7 @@ class DataSyncClient:
             "aws_sdk_datasync.types.custom_secret_config.CustomSecretConfig"
         ] = None,
     ) -> "aws_sdk_datasync.types.create_location_object_storage_response.CreateLocationObjectStorageResponse":
-        """<p>Creates a transfer <i>location</i> for an object storage system. DataSync can use this location as a source or destination for transferring data. You can make transfers with or without a <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/do-i-need-datasync-agent.html#when-agent-required\">DataSync agent</a>.</p> <p>Before you begin, make sure that you understand the <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/create-object-location.html#create-object-location-prerequisites\">prerequisites</a> for DataSync to work with object storage systems.</p>
+        r"""<p>Creates a transfer <i>location</i> for an object storage system. DataSync can use this location as a source or destination for transferring data. You can make transfers with or without a <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/do-i-need-datasync-agent.html#when-agent-required\">DataSync agent</a>.</p> <p>Before you begin, make sure that you understand the <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/create-object-location.html#create-object-location-prerequisites\">prerequisites</a> for DataSync to work with object storage systems.</p>
 
         Args:
             server_hostname: <p>Specifies the domain name or IP address (IPv4 or IPv6) of the object storage server that your DataSync agent connects to.</p>
@@ -1085,7 +1085,7 @@ class DataSyncClient:
         ] = None,
         tags: Optional["aws_sdk_datasync.types.input_tag_list.InputTagList"] = None,
     ) -> "aws_sdk_datasync.types.create_location_s3_response.CreateLocationS3Response":
-        """<p>Creates a transfer <i>location</i> for an Amazon S3 bucket. DataSync can use this location as a source or destination for transferring data.</p> <important> <p>Before you begin, make sure that you read the following topics:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes\">Storage class considerations with Amazon S3 locations</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#create-s3-location-s3-requests\">Evaluating S3 request costs when using DataSync</a> </p> </li> </ul> </important> <p> For more information, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html\">Configuring transfers with Amazon S3</a>.</p>
+        r"""<p>Creates a transfer <i>location</i> for an Amazon S3 bucket. DataSync can use this location as a source or destination for transferring data.</p> <important> <p>Before you begin, make sure that you read the following topics:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes\">Storage class considerations with Amazon S3 locations</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#create-s3-location-s3-requests\">Evaluating S3 request costs when using DataSync</a> </p> </li> </ul> </important> <p> For more information, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html\">Configuring transfers with Amazon S3</a>.</p>
 
         Args:
             subdirectory: <p>Specifies a prefix in the S3 bucket that DataSync reads from or writes to (depending on whether the bucket is a source or destination location).</p> <note> <p>DataSync can't transfer objects with a prefix that begins with a slash (<code>/</code>) or includes <code>//</code>, <code>/./</code>, or <code>/../</code> patterns. For example:</p> <ul> <li> <p> <code>/photos</code> </p> </li> <li> <p> <code>photos//2006/January</code> </p> </li> <li> <p> <code>photos/./2006/February</code> </p> </li> <li> <p> <code>photos/../2006/March</code> </p> </li> </ul> </note>
@@ -1167,7 +1167,7 @@ class DataSyncClient:
     ) -> (
         "aws_sdk_datasync.types.create_location_smb_response.CreateLocationSmbResponse"
     ):
-        """<p>Creates a transfer <i>location</i> for a Server Message Block (SMB) file server. DataSync can use this location as a source or destination for transferring data.</p> <p>Before you begin, make sure that you understand how DataSync accesses SMB file servers. For more information, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions\">Providing DataSync access to SMB file servers</a>.</p>
+        r"""<p>Creates a transfer <i>location</i> for a Server Message Block (SMB) file server. DataSync can use this location as a source or destination for transferring data.</p> <p>Before you begin, make sure that you understand how DataSync accesses SMB file servers. For more information, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions\">Providing DataSync access to SMB file servers</a>.</p>
 
         Args:
             subdirectory: <p>Specifies the name of the share exported by your SMB file server where DataSync will read or write data. You can include a subdirectory in the share path (for example, <code>/path/to/subdirectory</code>). Make sure that other SMB clients in your network can also mount this path.</p> <p>To copy all data in the subdirectory, DataSync must be able to mount the SMB share and access all of its data. For more information, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions\">Providing DataSync access to SMB file servers</a>.</p>
@@ -1261,7 +1261,7 @@ class DataSyncClient:
         ] = None,
         task_mode: Optional["aws_sdk_datasync.types.task_mode.TaskMode"] = None,
     ) -> "aws_sdk_datasync.types.create_task_response.CreateTaskResponse":
-        """<p>Configures a <i>task</i>, which defines where and how DataSync transfers your data.</p> <p>A task includes a source location, destination location, and transfer options (such as bandwidth limits, scheduling, and more).</p> <important> <p>If you're planning to transfer data to or from an Amazon S3 location, review <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#create-s3-location-s3-requests\">how DataSync can affect your S3 request charges</a> and the <a href=\"http://aws.amazon.com/datasync/pricing/\">DataSync pricing page</a> before you begin.</p> </important>
+        r"""<p>Configures a <i>task</i>, which defines where and how DataSync transfers your data.</p> <p>A task includes a source location, destination location, and transfer options (such as bandwidth limits, scheduling, and more).</p> <important> <p>If you're planning to transfer data to or from an Amazon S3 location, review <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#create-s3-location-s3-requests\">how DataSync can affect your S3 request charges</a> and the <a href=\"http://aws.amazon.com/datasync/pricing/\">DataSync pricing page</a> before you begin.</p> </important>
 
         Args:
             source_location_arn: <p>Specifies the ARN of your transfer's source location.</p>
@@ -1330,7 +1330,7 @@ class DataSyncClient:
         *,
         config_overrides: Optional[DataSyncClientConfig] = None,
     ) -> "aws_sdk_datasync.types.delete_agent_response.DeleteAgentResponse":
-        """<p>Removes an DataSync agent resource from your Amazon Web Services account.</p> <p>Keep in mind that this operation (which can't be undone) doesn't remove the agent's virtual machine (VM) or Amazon EC2 instance from your storage environment. For next steps, you can delete the VM or instance from your storage environment or reuse it to <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/activate-agent.html\">activate a new agent</a>.</p>
+        r"""<p>Removes an DataSync agent resource from your Amazon Web Services account.</p> <p>Keep in mind that this operation (which can't be undone) doesn't remove the agent's virtual machine (VM) or Amazon EC2 instance from your storage environment. For next steps, you can delete the VM or instance from your storage environment or reuse it to <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/activate-agent.html\">activate a new agent</a>.</p>
 
         Args:
             agent_arn: <p>The Amazon Resource Name (ARN) of the agent to delete. Use the <code>ListAgents</code> operation to return a list of agents for your account and Amazon Web Services Region.</p>
@@ -1922,7 +1922,7 @@ class DataSyncClient:
         *,
         config_overrides: Optional[DataSyncClientConfig] = None,
     ) -> "aws_sdk_datasync.types.describe_task_execution_response.DescribeTaskExecutionResponse":
-        """<p>Provides information about an execution of your DataSync task. You can use this operation to help monitor the progress of an ongoing data transfer or check the results of the transfer.</p> <note> <p>Some <code>DescribeTaskExecution</code> response elements are only relevant to a specific task mode. For information, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/choosing-task-mode.html#task-mode-differences\">Understanding task mode differences</a> and <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/transfer-performance-counters.html\">Understanding data transfer performance counters</a>.</p> </note>
+        r"""<p>Provides information about an execution of your DataSync task. You can use this operation to help monitor the progress of an ongoing data transfer or check the results of the transfer.</p> <note> <p>Some <code>DescribeTaskExecution</code> response elements are only relevant to a specific task mode. For information, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/choosing-task-mode.html#task-mode-differences\">Understanding task mode differences</a> and <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/transfer-performance-counters.html\">Understanding data transfer performance counters</a>.</p> </note>
 
         Args:
             task_execution_arn: <p>Specifies the Amazon Resource Name (ARN) of the task execution that you want information about.</p>
@@ -1960,7 +1960,7 @@ class DataSyncClient:
         max_results: Optional["aws_sdk_datasync.types.max_results.MaxResults"] = None,
         next_token: Optional["aws_sdk_datasync.types.next_token.NextToken"] = None,
     ) -> "aws_sdk_datasync.types.list_agents_response.ListAgentsResponse":
-        """<p>Returns a list of DataSync agents that belong to an Amazon Web Services account in the Amazon Web Services Region specified in the request.</p> <p>With pagination, you can reduce the number of agents returned in a response. If you get a truncated list of agents in a response, the response contains a marker that you can specify in your next request to fetch the next page of agents.</p> <p> <code>ListAgents</code> is eventually consistent. This means the result of running the operation might not reflect that you just created or deleted an agent. For example, if you create an agent with <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/API_CreateAgent.html\">CreateAgent</a> and then immediately run <code>ListAgents</code>, that agent might not show up in the list right away. In situations like this, you can always confirm whether an agent has been created (or deleted) by using <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/API_DescribeAgent.html\">DescribeAgent</a>.</p>
+        r"""<p>Returns a list of DataSync agents that belong to an Amazon Web Services account in the Amazon Web Services Region specified in the request.</p> <p>With pagination, you can reduce the number of agents returned in a response. If you get a truncated list of agents in a response, the response contains a marker that you can specify in your next request to fetch the next page of agents.</p> <p> <code>ListAgents</code> is eventually consistent. This means the result of running the operation might not reflect that you just created or deleted an agent. For example, if you create an agent with <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/API_CreateAgent.html\">CreateAgent</a> and then immediately run <code>ListAgents</code>, that agent might not show up in the list right away. In situations like this, you can always confirm whether an agent has been created (or deleted) by using <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/API_DescribeAgent.html\">DescribeAgent</a>.</p>
 
         Args:
             max_results: <p>Specifies the maximum number of DataSync agents to list in a response. By default, a response shows a maximum of 100 agents.</p>
@@ -2311,7 +2311,7 @@ class DataSyncClient:
         ] = None,
         tags: Optional["aws_sdk_datasync.types.input_tag_list.InputTagList"] = None,
     ) -> "aws_sdk_datasync.types.start_task_execution_response.StartTaskExecutionResponse":
-        """<p>Starts an DataSync transfer task. For each task, you can only run one task execution at a time.</p> <p>There are several steps to a task execution. For more information, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/working-with-task-executions.html#understand-task-execution-statuses\">Task execution statuses</a>.</p> <important> <p>If you're planning to transfer data to or from an Amazon S3 location, review <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#create-s3-location-s3-requests\">how DataSync can affect your S3 request charges</a> and the <a href=\"http://aws.amazon.com/datasync/pricing/\">DataSync pricing page</a> before you begin.</p> </important>
+        r"""<p>Starts an DataSync transfer task. For each task, you can only run one task execution at a time.</p> <p>There are several steps to a task execution. For more information, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/working-with-task-executions.html#understand-task-execution-statuses\">Task execution statuses</a>.</p> <important> <p>If you're planning to transfer data to or from an Amazon S3 location, review <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#create-s3-location-s3-requests\">how DataSync can affect your S3 request charges</a> and the <a href=\"http://aws.amazon.com/datasync/pricing/\">DataSync pricing page</a> before you begin.</p> </important>
 
         Args:
             task_arn: <p>Specifies the Amazon Resource Name (ARN) of the task that you want to start.</p>
@@ -2510,7 +2510,7 @@ class DataSyncClient:
             "aws_sdk_datasync.types.custom_secret_config.CustomSecretConfig"
         ] = None,
     ) -> "aws_sdk_datasync.types.update_location_azure_blob_response.UpdateLocationAzureBlobResponse":
-        """<p>Modifies the following configurations of the Microsoft Azure Blob Storage transfer location that you're using with DataSync.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/creating-azure-blob-location.html\">Configuring DataSync transfers with Azure Blob Storage</a>.</p>
+        r"""<p>Modifies the following configurations of the Microsoft Azure Blob Storage transfer location that you're using with DataSync.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/creating-azure-blob-location.html\">Configuring DataSync transfers with Azure Blob Storage</a>.</p>
 
         Args:
             location_arn: <p>Specifies the ARN of the Azure Blob Storage transfer location that you're updating.</p>
@@ -2585,7 +2585,7 @@ class DataSyncClient:
     ) -> (
         "aws_sdk_datasync.types.update_location_efs_response.UpdateLocationEfsResponse"
     ):
-        """<p>Modifies the following configuration parameters of the Amazon EFS transfer location that you're using with DataSync.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/create-efs-location.html\">Configuring DataSync transfers with Amazon EFS</a>.</p>
+        r"""<p>Modifies the following configuration parameters of the Amazon EFS transfer location that you're using with DataSync.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/create-efs-location.html\">Configuring DataSync transfers with Amazon EFS</a>.</p>
 
         Args:
             location_arn: <p>Specifies the Amazon Resource Name (ARN) of the Amazon EFS transfer location that you're updating.</p>
@@ -2637,7 +2637,7 @@ class DataSyncClient:
             "aws_sdk_datasync.types.smb_subdirectory.SmbSubdirectory"
         ] = None,
     ) -> "aws_sdk_datasync.types.update_location_fsx_lustre_response.UpdateLocationFsxLustreResponse":
-        """<p>Modifies the following configuration parameters of the Amazon FSx for Lustre transfer location that you're using with DataSync.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/create-lustre-location.html\">Configuring DataSync transfers with FSx for Lustre</a>.</p>
+        r"""<p>Modifies the following configuration parameters of the Amazon FSx for Lustre transfer location that you're using with DataSync.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/create-lustre-location.html\">Configuring DataSync transfers with FSx for Lustre</a>.</p>
 
         Args:
             location_arn: <p>Specifies the Amazon Resource Name (ARN) of the FSx for Lustre transfer location that you're updating.</p>
@@ -2683,7 +2683,7 @@ class DataSyncClient:
             "aws_sdk_datasync.types.fsx_ontap_subdirectory.FsxOntapSubdirectory"
         ] = None,
     ) -> "aws_sdk_datasync.types.update_location_fsx_ontap_response.UpdateLocationFsxOntapResponse":
-        """<p>Modifies the following configuration parameters of the Amazon FSx for NetApp ONTAP transfer location that you're using with DataSync.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/create-ontap-location.html\">Configuring DataSync transfers with FSx for ONTAP</a>.</p>
+        r"""<p>Modifies the following configuration parameters of the Amazon FSx for NetApp ONTAP transfer location that you're using with DataSync.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/create-ontap-location.html\">Configuring DataSync transfers with FSx for ONTAP</a>.</p>
 
         Args:
             location_arn: <p>Specifies the Amazon Resource Name (ARN) of the FSx for ONTAP transfer location that you're updating.</p>
@@ -2730,7 +2730,7 @@ class DataSyncClient:
             "aws_sdk_datasync.types.smb_subdirectory.SmbSubdirectory"
         ] = None,
     ) -> "aws_sdk_datasync.types.update_location_fsx_open_zfs_response.UpdateLocationFsxOpenZfsResponse":
-        """<p>Modifies the following configuration parameters of the Amazon FSx for OpenZFS transfer location that you're using with DataSync.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/create-openzfs-location.html\">Configuring DataSync transfers with FSx for OpenZFS</a>.</p> <note> <p>Request parameters related to <code>SMB</code> aren't supported with the <code>UpdateLocationFsxOpenZfs</code> operation.</p> </note>
+        r"""<p>Modifies the following configuration parameters of the Amazon FSx for OpenZFS transfer location that you're using with DataSync.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/create-openzfs-location.html\">Configuring DataSync transfers with FSx for OpenZFS</a>.</p> <note> <p>Request parameters related to <code>SMB</code> aren't supported with the <code>UpdateLocationFsxOpenZfs</code> operation.</p> </note>
 
         Args:
             location_arn: <p>Specifies the Amazon Resource Name (ARN) of the FSx for OpenZFS transfer location that you're updating.</p>
@@ -2786,7 +2786,7 @@ class DataSyncClient:
             "aws_sdk_datasync.types.custom_secret_config.CustomSecretConfig"
         ] = None,
     ) -> "aws_sdk_datasync.types.update_location_fsx_windows_response.UpdateLocationFsxWindowsResponse":
-        """<p>Modifies the following configuration parameters of the Amazon FSx for Windows File Server transfer location that you're using with DataSync.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/create-fsx-location.html\">Configuring DataSync transfers with FSx for Windows File Server</a>.</p>
+        r"""<p>Modifies the following configuration parameters of the Amazon FSx for Windows File Server transfer location that you're using with DataSync.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/create-fsx-location.html\">Configuring DataSync transfers with FSx for Windows File Server</a>.</p>
 
         Args:
             location_arn: <p>Specifies the ARN of the FSx for Windows File Server transfer location that you're updating.</p>
@@ -2881,7 +2881,7 @@ class DataSyncClient:
             "aws_sdk_datasync.types.custom_secret_config.CustomSecretConfig"
         ] = None,
     ) -> "aws_sdk_datasync.types.update_location_hdfs_response.UpdateLocationHdfsResponse":
-        """<p>Modifies the following configuration parameters of the Hadoop Distributed File System (HDFS) transfer location that you're using with DataSync.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/create-hdfs-location.html\">Configuring DataSync transfers with an HDFS cluster</a>.</p>
+        r"""<p>Modifies the following configuration parameters of the Hadoop Distributed File System (HDFS) transfer location that you're using with DataSync.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/create-hdfs-location.html\">Configuring DataSync transfers with an HDFS cluster</a>.</p>
 
         Args:
             location_arn: <p>The Amazon Resource Name (ARN) of the source HDFS cluster location.</p>
@@ -2974,7 +2974,7 @@ class DataSyncClient:
     ) -> (
         "aws_sdk_datasync.types.update_location_nfs_response.UpdateLocationNfsResponse"
     ):
-        """<p>Modifies the following configuration parameters of the Network File System (NFS) transfer location that you're using with DataSync.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html\">Configuring transfers with an NFS file server</a>.</p>
+        r"""<p>Modifies the following configuration parameters of the Network File System (NFS) transfer location that you're using with DataSync.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html\">Configuring transfers with an NFS file server</a>.</p>
 
         Args:
             location_arn: <p>Specifies the Amazon Resource Name (ARN) of the NFS transfer location that you want to update.</p>
@@ -3051,7 +3051,7 @@ class DataSyncClient:
             "aws_sdk_datasync.types.custom_secret_config.CustomSecretConfig"
         ] = None,
     ) -> "aws_sdk_datasync.types.update_location_object_storage_response.UpdateLocationObjectStorageResponse":
-        """<p>Modifies the following configuration parameters of the object storage transfer location that you're using with DataSync.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/create-object-location.html\">Configuring DataSync transfers with an object storage system</a>.</p>
+        r"""<p>Modifies the following configuration parameters of the object storage transfer location that you're using with DataSync.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/create-object-location.html\">Configuring DataSync transfers with an object storage system</a>.</p>
 
         Args:
             location_arn: <p>Specifies the ARN of the object storage system location that you're updating.</p>
@@ -3125,7 +3125,7 @@ class DataSyncClient:
         ] = None,
         s3_config: Optional["aws_sdk_datasync.types.s3_config.S3Config"] = None,
     ) -> "aws_sdk_datasync.types.update_location_s3_response.UpdateLocationS3Response":
-        """<p>Modifies the following configuration parameters of the Amazon S3 transfer location that you're using with DataSync.</p> <important> <p>Before you begin, make sure that you read the following topics:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes\">Storage class considerations with Amazon S3 locations</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#create-s3-location-s3-requests\">Evaluating S3 request costs when using DataSync</a> </p> </li> </ul> </important>
+        r"""<p>Modifies the following configuration parameters of the Amazon S3 transfer location that you're using with DataSync.</p> <important> <p>Before you begin, make sure that you read the following topics:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes\">Storage class considerations with Amazon S3 locations</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#create-s3-location-s3-requests\">Evaluating S3 request costs when using DataSync</a> </p> </li> </ul> </important>
 
         Args:
             location_arn: <p>Specifies the Amazon Resource Name (ARN) of the Amazon S3 transfer location that you're updating.</p>
@@ -3208,7 +3208,7 @@ class DataSyncClient:
     ) -> (
         "aws_sdk_datasync.types.update_location_smb_response.UpdateLocationSmbResponse"
     ):
-        """<p>Modifies the following configuration parameters of the Server Message Block (SMB) transfer location that you're using with DataSync.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html\">Configuring DataSync transfers with an SMB file server</a>.</p>
+        r"""<p>Modifies the following configuration parameters of the Server Message Block (SMB) transfer location that you're using with DataSync.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html\">Configuring DataSync transfers with an SMB file server</a>.</p>
 
         Args:
             location_arn: <p>Specifies the ARN of the SMB location that you want to update.</p>
@@ -3300,7 +3300,7 @@ class DataSyncClient:
             "aws_sdk_datasync.types.task_report_config.TaskReportConfig"
         ] = None,
     ) -> "aws_sdk_datasync.types.update_task_response.UpdateTaskResponse":
-        """<p>Updates the configuration of a <i>task</i>, which defines where and how DataSync transfers your data.</p>
+        r"""<p>Updates the configuration of a <i>task</i>, which defines where and how DataSync transfers your data.</p>
 
         Args:
             task_arn: <p>Specifies the ARN of the task that you want to update.</p>
@@ -3361,7 +3361,7 @@ class DataSyncClient:
         *,
         config_overrides: Optional[DataSyncClientConfig] = None,
     ) -> "aws_sdk_datasync.types.update_task_execution_response.UpdateTaskExecutionResponse":
-        """<p>Updates the configuration of a running DataSync task execution.</p> <note> <p>Currently, the only <code>Option</code> that you can modify with <code>UpdateTaskExecution</code> is <code> <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/API_Options.html#DataSync-Type-Options-BytesPerSecond\">BytesPerSecond</a> </code>, which throttles bandwidth for a running or queued task execution.</p> </note>
+        r"""<p>Updates the configuration of a running DataSync task execution.</p> <note> <p>Currently, the only <code>Option</code> that you can modify with <code>UpdateTaskExecution</code> is <code> <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/API_Options.html#DataSync-Type-Options-BytesPerSecond\">BytesPerSecond</a> </code>, which throttles bandwidth for a running or queued task execution.</p> </note>
 
         Args:
             task_execution_arn: <p>Specifies the Amazon Resource Name (ARN) of the task execution that you're updating.</p>

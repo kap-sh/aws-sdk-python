@@ -192,7 +192,7 @@ class AsyncMediaTailorClient:
             "aws_sdk_mediatailor.types.manifest_service_interaction_log.ManifestServiceInteractionLog"
         ] = None,
     ) -> "aws_sdk_mediatailor.types.configure_logs_for_playback_configuration_response.ConfigureLogsForPlaybackConfigurationResponse":
-        """<p>Defines where AWS Elemental MediaTailor sends logs for the playback configuration.</p>
+        r"""<p>Defines where AWS Elemental MediaTailor sends logs for the playback configuration.</p>
 
         Args:
             percent_enabled: <p>The percentage of session logs that MediaTailor sends to your CloudWatch Logs account. For example, if your playback configuration has 1000 sessions and percentEnabled is set to <code>60</code>, MediaTailor sends logs for 600 of the sessions to CloudWatch Logs. MediaTailor decides at random which of the playback configuration sessions to send logs for. If you want to view logs for a specific session, you can use the <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/debug-log-mode.html\">debug log mode</a>.</p> <p>Valid values: <code>0</code> - <code>100</code> </p>
@@ -316,7 +316,7 @@ class AsyncMediaTailorClient:
         *,
         config_overrides: Optional[AsyncMediaTailorClientConfig] = None,
     ) -> "aws_sdk_mediatailor.types.list_tags_for_resource_response.ListTagsForResourceResponse":
-        """<p>A list of tags that are associated with this resource. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html\">Tagging AWS Elemental MediaTailor Resources</a>.</p>
+        r"""<p>A list of tags that are associated with this resource. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html\">Tagging AWS Elemental MediaTailor Resources</a>.</p>
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) associated with this resource.</p>
@@ -355,7 +355,7 @@ class AsyncMediaTailorClient:
         *,
         config_overrides: Optional[AsyncMediaTailorClientConfig] = None,
     ) -> None:
-        """<p>The resource to tag. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html\">Tagging AWS Elemental MediaTailor Resources</a>.</p>
+        r"""<p>The resource to tag. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html\">Tagging AWS Elemental MediaTailor Resources</a>.</p>
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) associated with the resource.</p>

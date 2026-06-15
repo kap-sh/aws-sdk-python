@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_application_signals._auth._signers
@@ -75,7 +77,7 @@ class ServiceLevelObjectiveResource:
         create_recommended_slo: Optional[bool] = None,
         auto_investigation_enabled: Optional[bool] = None,
     ) -> "aws_sdk_application_signals.types.create_service_level_objective_output.CreateServiceLevelObjectiveOutput":
-        """<p>Creates a service level objective (SLO), which can help you ensure that your critical business operations are meeting customer expectations. Use SLOs to set and track specific target levels for the reliability and availability of your applications and services. SLOs use service level indicators (SLIs) to calculate whether the application is performing at the level that you want.</p> <p>Create an SLO to set a target for a service or operation’s availability or latency. CloudWatch measures this target frequently you can find whether it has been breached. </p> <p>The target performance quality that is defined for an SLO is the <i>attainment goal</i>.</p> <p>You can set SLO targets for your applications that are discovered by Application Signals, using critical metrics such as latency and availability. You can also set SLOs against any CloudWatch metric or math expression that produces a time series.</p> <note> <p>You can't create an SLO for a service operation that was discovered by Application Signals until after that operation has reported standard metrics to Application Signals.</p> </note> <p>When you create an SLO, you specify whether it is a <i>period-based SLO</i> or a <i>request-based SLO</i>. Each type of SLO has a different way of evaluating your application's performance against its attainment goal.</p> <ul> <li> <p>A <i>period-based SLO</i> uses defined <i>periods</i> of time within a specified total time interval. For each period of time, Application Signals determines whether the application met its goal. The attainment rate is calculated as the <code>number of good periods/number of total periods</code>.</p> <p>For example, for a period-based SLO, meeting an attainment goal of 99.9% means that within your interval, your application must meet its performance goal during at least 99.9% of the time periods.</p> </li> <li> <p>A <i>request-based SLO</i> doesn't use pre-defined periods of time. Instead, the SLO measures <code>number of good requests/number of total requests</code> during the interval. At any time, you can find the ratio of good requests to total requests for the interval up to the time stamp that you specify, and measure that ratio against the goal set in your SLO.</p> </li> </ul> <p>After you have created an SLO, you can retrieve error budget reports for it. An <i>error budget</i> is the amount of time or amount of requests that your application can be non-compliant with the SLO's goal, and still have your application meet the goal.</p> <ul> <li> <p>For a period-based SLO, the error budget starts at a number defined by the highest number of periods that can fail to meet the threshold, while still meeting the overall goal. The <i>remaining error budget</i> decreases with every failed period that is recorded. The error budget within one interval can never increase.</p> <p>For example, an SLO with a threshold that 99.95% of requests must be completed under 2000ms every month translates to an error budget of 21.9 minutes of downtime per month.</p> </li> <li> <p>For a request-based SLO, the remaining error budget is dynamic and can increase or decrease, depending on the ratio of good requests to total requests.</p> </li> </ul> <p>For more information about SLOs, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-ServiceLevelObjectives.html\"> Service level objectives (SLOs)</a>. </p> <p>When you perform a <code>CreateServiceLevelObjective</code> operation, Application Signals creates the <i>AWSServiceRoleForCloudWatchApplicationSignals</i> service-linked role, if it doesn't already exist in your account. This service- linked role has the following permissions:</p> <ul> <li> <p> <code>xray:GetServiceGraph</code> </p> </li> <li> <p> <code>logs:StartQuery</code> </p> </li> <li> <p> <code>logs:GetQueryResults</code> </p> </li> <li> <p> <code>cloudwatch:GetMetricData</code> </p> </li> <li> <p> <code>cloudwatch:ListMetrics</code> </p> </li> <li> <p> <code>tag:GetResources</code> </p> </li> <li> <p> <code>autoscaling:DescribeAutoScalingGroups</code> </p> </li> </ul>
+        r"""<p>Creates a service level objective (SLO), which can help you ensure that your critical business operations are meeting customer expectations. Use SLOs to set and track specific target levels for the reliability and availability of your applications and services. SLOs use service level indicators (SLIs) to calculate whether the application is performing at the level that you want.</p> <p>Create an SLO to set a target for a service or operation’s availability or latency. CloudWatch measures this target frequently you can find whether it has been breached. </p> <p>The target performance quality that is defined for an SLO is the <i>attainment goal</i>.</p> <p>You can set SLO targets for your applications that are discovered by Application Signals, using critical metrics such as latency and availability. You can also set SLOs against any CloudWatch metric or math expression that produces a time series.</p> <note> <p>You can't create an SLO for a service operation that was discovered by Application Signals until after that operation has reported standard metrics to Application Signals.</p> </note> <p>When you create an SLO, you specify whether it is a <i>period-based SLO</i> or a <i>request-based SLO</i>. Each type of SLO has a different way of evaluating your application's performance against its attainment goal.</p> <ul> <li> <p>A <i>period-based SLO</i> uses defined <i>periods</i> of time within a specified total time interval. For each period of time, Application Signals determines whether the application met its goal. The attainment rate is calculated as the <code>number of good periods/number of total periods</code>.</p> <p>For example, for a period-based SLO, meeting an attainment goal of 99.9% means that within your interval, your application must meet its performance goal during at least 99.9% of the time periods.</p> </li> <li> <p>A <i>request-based SLO</i> doesn't use pre-defined periods of time. Instead, the SLO measures <code>number of good requests/number of total requests</code> during the interval. At any time, you can find the ratio of good requests to total requests for the interval up to the time stamp that you specify, and measure that ratio against the goal set in your SLO.</p> </li> </ul> <p>After you have created an SLO, you can retrieve error budget reports for it. An <i>error budget</i> is the amount of time or amount of requests that your application can be non-compliant with the SLO's goal, and still have your application meet the goal.</p> <ul> <li> <p>For a period-based SLO, the error budget starts at a number defined by the highest number of periods that can fail to meet the threshold, while still meeting the overall goal. The <i>remaining error budget</i> decreases with every failed period that is recorded. The error budget within one interval can never increase.</p> <p>For example, an SLO with a threshold that 99.95% of requests must be completed under 2000ms every month translates to an error budget of 21.9 minutes of downtime per month.</p> </li> <li> <p>For a request-based SLO, the remaining error budget is dynamic and can increase or decrease, depending on the ratio of good requests to total requests.</p> </li> </ul> <p>For more information about SLOs, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-ServiceLevelObjectives.html\"> Service level objectives (SLOs)</a>. </p> <p>When you perform a <code>CreateServiceLevelObjective</code> operation, Application Signals creates the <i>AWSServiceRoleForCloudWatchApplicationSignals</i> service-linked role, if it doesn't already exist in your account. This service- linked role has the following permissions:</p> <ul> <li> <p> <code>xray:GetServiceGraph</code> </p> </li> <li> <p> <code>logs:StartQuery</code> </p> </li> <li> <p> <code>logs:GetQueryResults</code> </p> </li> <li> <p> <code>cloudwatch:GetMetricData</code> </p> </li> <li> <p> <code>cloudwatch:ListMetrics</code> </p> </li> <li> <p> <code>tag:GetResources</code> </p> </li> <li> <p> <code>autoscaling:DescribeAutoScalingGroups</code> </p> </li> </ul>
 
         Args:
             name: <p>A name for this SLO.</p>
@@ -104,27 +106,27 @@ class ServiceLevelObjectiveResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_application_signals.types.create_service_level_objective_input.CreateServiceLevelObjectiveInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_application_signals.types.create_service_level_objective_input.CreateServiceLevelObjectiveInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if sli_config is not None:
-            input["sli_config"] = sli_config
+            input_["sli_config"] = sli_config
         if request_based_sli_config is not None:
-            input["request_based_sli_config"] = request_based_sli_config
+            input_["request_based_sli_config"] = request_based_sli_config
         if goal is not None:
-            input["goal"] = goal
+            input_["goal"] = goal
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if burn_rate_configurations is not None:
-            input["burn_rate_configurations"] = burn_rate_configurations
+            input_["burn_rate_configurations"] = burn_rate_configurations
         if create_recommended_slo is not None:
-            input["create_recommended_slo"] = create_recommended_slo
+            input_["create_recommended_slo"] = create_recommended_slo
         if auto_investigation_enabled is not None:
-            input["auto_investigation_enabled"] = auto_investigation_enabled
+            input_["auto_investigation_enabled"] = auto_investigation_enabled
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -136,7 +138,7 @@ class ServiceLevelObjectiveResource:
         *,
         config_overrides: Optional[ApplicationSignalsClientConfig] = None,
     ) -> "aws_sdk_application_signals.types.get_service_level_objective_output.GetServiceLevelObjectiveOutput":
-        """<p>Returns information about one SLO created in the account. </p>
+        r"""<p>Returns information about one SLO created in the account. </p>
 
         Args:
             id: <p>The ARN or name of the SLO that you want to retrieve information about. You can find the ARNs of SLOs by using the <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListServiceLevelObjectives.html\">ListServiceLevelObjectives</a> operation.</p>
@@ -157,11 +159,11 @@ class ServiceLevelObjectiveResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_application_signals.types.get_service_level_objective_input.GetServiceLevelObjectiveInput = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_application_signals.types.get_service_level_objective_input.GetServiceLevelObjectiveInput = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -214,23 +216,23 @@ class ServiceLevelObjectiveResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_application_signals.types.update_service_level_objective_input.UpdateServiceLevelObjectiveInput = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_application_signals.types.update_service_level_objective_input.UpdateServiceLevelObjectiveInput = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if sli_config is not None:
-            input["sli_config"] = sli_config
+            input_["sli_config"] = sli_config
         if request_based_sli_config is not None:
-            input["request_based_sli_config"] = request_based_sli_config
+            input_["request_based_sli_config"] = request_based_sli_config
         if goal is not None:
-            input["goal"] = goal
+            input_["goal"] = goal
         if burn_rate_configurations is not None:
-            input["burn_rate_configurations"] = burn_rate_configurations
+            input_["burn_rate_configurations"] = burn_rate_configurations
         if auto_investigation_enabled is not None:
-            input["auto_investigation_enabled"] = auto_investigation_enabled
+            input_["auto_investigation_enabled"] = auto_investigation_enabled
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -263,11 +265,11 @@ class ServiceLevelObjectiveResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_application_signals.types.delete_service_level_objective_input.DeleteServiceLevelObjectiveInput = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_application_signals.types.delete_service_level_objective_input.DeleteServiceLevelObjectiveInput = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -332,28 +334,28 @@ class ServiceLevelObjectiveResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_application_signals.types.list_service_level_objectives_input.ListServiceLevelObjectivesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_application_signals.types.list_service_level_objectives_input.ListServiceLevelObjectivesInput = {}  # type: ignore[typeddict-item]
         if key_attributes is not None:
-            input["key_attributes"] = key_attributes
+            input_["key_attributes"] = key_attributes
         if operation_name is not None:
-            input["operation_name"] = operation_name
+            input_["operation_name"] = operation_name
         if dependency_config is not None:
-            input["dependency_config"] = dependency_config
+            input_["dependency_config"] = dependency_config
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if metric_source_types is not None:
-            input["metric_source_types"] = metric_source_types
+            input_["metric_source_types"] = metric_source_types
         if include_linked_accounts is not None:
-            input["include_linked_accounts"] = include_linked_accounts
+            input_["include_linked_accounts"] = include_linked_accounts
         if slo_owner_aws_account_id is not None:
-            input["slo_owner_aws_account_id"] = slo_owner_aws_account_id
+            input_["slo_owner_aws_account_id"] = slo_owner_aws_account_id
         if metric_source is not None:
-            input["metric_source"] = metric_source
+            input_["metric_source"] = metric_source
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -386,7 +388,7 @@ class AsyncServiceLevelObjectiveResource:
         create_recommended_slo: Optional[bool] = None,
         auto_investigation_enabled: Optional[bool] = None,
     ) -> "aws_sdk_application_signals.types.create_service_level_objective_output.CreateServiceLevelObjectiveOutput":
-        """<p>Creates a service level objective (SLO), which can help you ensure that your critical business operations are meeting customer expectations. Use SLOs to set and track specific target levels for the reliability and availability of your applications and services. SLOs use service level indicators (SLIs) to calculate whether the application is performing at the level that you want.</p> <p>Create an SLO to set a target for a service or operation’s availability or latency. CloudWatch measures this target frequently you can find whether it has been breached. </p> <p>The target performance quality that is defined for an SLO is the <i>attainment goal</i>.</p> <p>You can set SLO targets for your applications that are discovered by Application Signals, using critical metrics such as latency and availability. You can also set SLOs against any CloudWatch metric or math expression that produces a time series.</p> <note> <p>You can't create an SLO for a service operation that was discovered by Application Signals until after that operation has reported standard metrics to Application Signals.</p> </note> <p>When you create an SLO, you specify whether it is a <i>period-based SLO</i> or a <i>request-based SLO</i>. Each type of SLO has a different way of evaluating your application's performance against its attainment goal.</p> <ul> <li> <p>A <i>period-based SLO</i> uses defined <i>periods</i> of time within a specified total time interval. For each period of time, Application Signals determines whether the application met its goal. The attainment rate is calculated as the <code>number of good periods/number of total periods</code>.</p> <p>For example, for a period-based SLO, meeting an attainment goal of 99.9% means that within your interval, your application must meet its performance goal during at least 99.9% of the time periods.</p> </li> <li> <p>A <i>request-based SLO</i> doesn't use pre-defined periods of time. Instead, the SLO measures <code>number of good requests/number of total requests</code> during the interval. At any time, you can find the ratio of good requests to total requests for the interval up to the time stamp that you specify, and measure that ratio against the goal set in your SLO.</p> </li> </ul> <p>After you have created an SLO, you can retrieve error budget reports for it. An <i>error budget</i> is the amount of time or amount of requests that your application can be non-compliant with the SLO's goal, and still have your application meet the goal.</p> <ul> <li> <p>For a period-based SLO, the error budget starts at a number defined by the highest number of periods that can fail to meet the threshold, while still meeting the overall goal. The <i>remaining error budget</i> decreases with every failed period that is recorded. The error budget within one interval can never increase.</p> <p>For example, an SLO with a threshold that 99.95% of requests must be completed under 2000ms every month translates to an error budget of 21.9 minutes of downtime per month.</p> </li> <li> <p>For a request-based SLO, the remaining error budget is dynamic and can increase or decrease, depending on the ratio of good requests to total requests.</p> </li> </ul> <p>For more information about SLOs, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-ServiceLevelObjectives.html\"> Service level objectives (SLOs)</a>. </p> <p>When you perform a <code>CreateServiceLevelObjective</code> operation, Application Signals creates the <i>AWSServiceRoleForCloudWatchApplicationSignals</i> service-linked role, if it doesn't already exist in your account. This service- linked role has the following permissions:</p> <ul> <li> <p> <code>xray:GetServiceGraph</code> </p> </li> <li> <p> <code>logs:StartQuery</code> </p> </li> <li> <p> <code>logs:GetQueryResults</code> </p> </li> <li> <p> <code>cloudwatch:GetMetricData</code> </p> </li> <li> <p> <code>cloudwatch:ListMetrics</code> </p> </li> <li> <p> <code>tag:GetResources</code> </p> </li> <li> <p> <code>autoscaling:DescribeAutoScalingGroups</code> </p> </li> </ul>
+        r"""<p>Creates a service level objective (SLO), which can help you ensure that your critical business operations are meeting customer expectations. Use SLOs to set and track specific target levels for the reliability and availability of your applications and services. SLOs use service level indicators (SLIs) to calculate whether the application is performing at the level that you want.</p> <p>Create an SLO to set a target for a service or operation’s availability or latency. CloudWatch measures this target frequently you can find whether it has been breached. </p> <p>The target performance quality that is defined for an SLO is the <i>attainment goal</i>.</p> <p>You can set SLO targets for your applications that are discovered by Application Signals, using critical metrics such as latency and availability. You can also set SLOs against any CloudWatch metric or math expression that produces a time series.</p> <note> <p>You can't create an SLO for a service operation that was discovered by Application Signals until after that operation has reported standard metrics to Application Signals.</p> </note> <p>When you create an SLO, you specify whether it is a <i>period-based SLO</i> or a <i>request-based SLO</i>. Each type of SLO has a different way of evaluating your application's performance against its attainment goal.</p> <ul> <li> <p>A <i>period-based SLO</i> uses defined <i>periods</i> of time within a specified total time interval. For each period of time, Application Signals determines whether the application met its goal. The attainment rate is calculated as the <code>number of good periods/number of total periods</code>.</p> <p>For example, for a period-based SLO, meeting an attainment goal of 99.9% means that within your interval, your application must meet its performance goal during at least 99.9% of the time periods.</p> </li> <li> <p>A <i>request-based SLO</i> doesn't use pre-defined periods of time. Instead, the SLO measures <code>number of good requests/number of total requests</code> during the interval. At any time, you can find the ratio of good requests to total requests for the interval up to the time stamp that you specify, and measure that ratio against the goal set in your SLO.</p> </li> </ul> <p>After you have created an SLO, you can retrieve error budget reports for it. An <i>error budget</i> is the amount of time or amount of requests that your application can be non-compliant with the SLO's goal, and still have your application meet the goal.</p> <ul> <li> <p>For a period-based SLO, the error budget starts at a number defined by the highest number of periods that can fail to meet the threshold, while still meeting the overall goal. The <i>remaining error budget</i> decreases with every failed period that is recorded. The error budget within one interval can never increase.</p> <p>For example, an SLO with a threshold that 99.95% of requests must be completed under 2000ms every month translates to an error budget of 21.9 minutes of downtime per month.</p> </li> <li> <p>For a request-based SLO, the remaining error budget is dynamic and can increase or decrease, depending on the ratio of good requests to total requests.</p> </li> </ul> <p>For more information about SLOs, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-ServiceLevelObjectives.html\"> Service level objectives (SLOs)</a>. </p> <p>When you perform a <code>CreateServiceLevelObjective</code> operation, Application Signals creates the <i>AWSServiceRoleForCloudWatchApplicationSignals</i> service-linked role, if it doesn't already exist in your account. This service- linked role has the following permissions:</p> <ul> <li> <p> <code>xray:GetServiceGraph</code> </p> </li> <li> <p> <code>logs:StartQuery</code> </p> </li> <li> <p> <code>logs:GetQueryResults</code> </p> </li> <li> <p> <code>cloudwatch:GetMetricData</code> </p> </li> <li> <p> <code>cloudwatch:ListMetrics</code> </p> </li> <li> <p> <code>tag:GetResources</code> </p> </li> <li> <p> <code>autoscaling:DescribeAutoScalingGroups</code> </p> </li> </ul>
 
         Args:
             name: <p>A name for this SLO.</p>
@@ -416,27 +418,27 @@ class AsyncServiceLevelObjectiveResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_application_signals.types.create_service_level_objective_input.CreateServiceLevelObjectiveInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_application_signals.types.create_service_level_objective_input.CreateServiceLevelObjectiveInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if sli_config is not None:
-            input["sli_config"] = sli_config
+            input_["sli_config"] = sli_config
         if request_based_sli_config is not None:
-            input["request_based_sli_config"] = request_based_sli_config
+            input_["request_based_sli_config"] = request_based_sli_config
         if goal is not None:
-            input["goal"] = goal
+            input_["goal"] = goal
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if burn_rate_configurations is not None:
-            input["burn_rate_configurations"] = burn_rate_configurations
+            input_["burn_rate_configurations"] = burn_rate_configurations
         if create_recommended_slo is not None:
-            input["create_recommended_slo"] = create_recommended_slo
+            input_["create_recommended_slo"] = create_recommended_slo
         if auto_investigation_enabled is not None:
-            input["auto_investigation_enabled"] = auto_investigation_enabled
+            input_["auto_investigation_enabled"] = auto_investigation_enabled
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -448,7 +450,7 @@ class AsyncServiceLevelObjectiveResource:
         *,
         config_overrides: Optional[AsyncApplicationSignalsClientConfig] = None,
     ) -> "aws_sdk_application_signals.types.get_service_level_objective_output.GetServiceLevelObjectiveOutput":
-        """<p>Returns information about one SLO created in the account. </p>
+        r"""<p>Returns information about one SLO created in the account. </p>
 
         Args:
             id: <p>The ARN or name of the SLO that you want to retrieve information about. You can find the ARNs of SLOs by using the <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListServiceLevelObjectives.html\">ListServiceLevelObjectives</a> operation.</p>
@@ -470,11 +472,11 @@ class AsyncServiceLevelObjectiveResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_application_signals.types.get_service_level_objective_input.GetServiceLevelObjectiveInput = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_application_signals.types.get_service_level_objective_input.GetServiceLevelObjectiveInput = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -528,23 +530,23 @@ class AsyncServiceLevelObjectiveResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_application_signals.types.update_service_level_objective_input.UpdateServiceLevelObjectiveInput = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_application_signals.types.update_service_level_objective_input.UpdateServiceLevelObjectiveInput = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if sli_config is not None:
-            input["sli_config"] = sli_config
+            input_["sli_config"] = sli_config
         if request_based_sli_config is not None:
-            input["request_based_sli_config"] = request_based_sli_config
+            input_["request_based_sli_config"] = request_based_sli_config
         if goal is not None:
-            input["goal"] = goal
+            input_["goal"] = goal
         if burn_rate_configurations is not None:
-            input["burn_rate_configurations"] = burn_rate_configurations
+            input_["burn_rate_configurations"] = burn_rate_configurations
         if auto_investigation_enabled is not None:
-            input["auto_investigation_enabled"] = auto_investigation_enabled
+            input_["auto_investigation_enabled"] = auto_investigation_enabled
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -578,11 +580,11 @@ class AsyncServiceLevelObjectiveResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_application_signals.types.delete_service_level_objective_input.DeleteServiceLevelObjectiveInput = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_application_signals.types.delete_service_level_objective_input.DeleteServiceLevelObjectiveInput = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -648,28 +650,28 @@ class AsyncServiceLevelObjectiveResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_application_signals.types.list_service_level_objectives_input.ListServiceLevelObjectivesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_application_signals.types.list_service_level_objectives_input.ListServiceLevelObjectivesInput = {}  # type: ignore[typeddict-item]
         if key_attributes is not None:
-            input["key_attributes"] = key_attributes
+            input_["key_attributes"] = key_attributes
         if operation_name is not None:
-            input["operation_name"] = operation_name
+            input_["operation_name"] = operation_name
         if dependency_config is not None:
-            input["dependency_config"] = dependency_config
+            input_["dependency_config"] = dependency_config
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if metric_source_types is not None:
-            input["metric_source_types"] = metric_source_types
+            input_["metric_source_types"] = metric_source_types
         if include_linked_accounts is not None:
-            input["include_linked_accounts"] = include_linked_accounts
+            input_["include_linked_accounts"] = include_linked_accounts
         if slo_owner_aws_account_id is not None:
-            input["slo_owner_aws_account_id"] = slo_owner_aws_account_id
+            input_["slo_owner_aws_account_id"] = slo_owner_aws_account_id
         if metric_source is not None:
-            input["metric_source"] = metric_source
+            input_["metric_source"] = metric_source
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

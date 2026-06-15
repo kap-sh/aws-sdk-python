@@ -24,7 +24,7 @@ class DataViewDestinationTypeParams(TypedDict):
     s3_destination_export_file_format_options: NotRequired[
         "aws_sdk_finspace_data.types.s3_destination_format_options.S3DestinationFormatOptions"
     ]
-    """<p>Format Options for S3 Destination type.</p> <p>Here is an example of how you could specify the <code>s3DestinationExportFileFormatOptions</code> </p> <p> <code> { \"header\": \"true\", \"delimiter\": \",\", \"compression\": \"gzip\" }</code> </p>"""
+    r"""<p>Format Options for S3 Destination type.</p> <p>Here is an example of how you could specify the <code>s3DestinationExportFileFormatOptions</code> </p> <p> <code> { \"header\": \"true\", \"delimiter\": \",\", \"compression\": \"gzip\" }</code> </p>"""
 
 
 # --- restJson1 ser/de ---

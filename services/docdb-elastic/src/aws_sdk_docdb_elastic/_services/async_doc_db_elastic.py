@@ -137,7 +137,7 @@ class AsyncDocDBElasticClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = AsyncDocDBElasticClientConfig(
+        self._config = AsyncDocDBElasticClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -157,7 +157,7 @@ class AsyncDocDBElasticClient:
         overrides: AsyncDocDBElasticClientConfig = config_overrides or {}
         interceptors_: list[AsyncInterceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             aretry(),
         ]
@@ -165,16 +165,16 @@ class AsyncDocDBElasticClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            region=overrides.get("region", self.config.get("region")),
+            region=overrides.get("region", self._config.get("region")),
             use_dual_stack=overrides.get(
-                "use_dual_stack", self.config.get("use_dual_stack")
+                "use_dual_stack", self._config.get("use_dual_stack")
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -312,7 +312,7 @@ class AsyncDocDBElasticClient:
         preferred_backup_window: Optional[str] = None,
         shard_instance_count: Optional[int] = None,
     ) -> "aws_sdk_docdb_elastic.types.create_cluster_output.CreateClusterOutput":
-        """<p>Creates a new Amazon DocumentDB elastic cluster and returns its cluster structure.</p>
+        r"""<p>Creates a new Amazon DocumentDB elastic cluster and returns its cluster structure.</p>
 
         Args:
             cluster_name: <p>The name of the new elastic cluster. This parameter is stored as a lowercase string.</p> <p> <i>Constraints</i>:</p> <ul> <li> <p>Must contain from 1 to 63 letters, numbers, or hyphens.</p> </li> <li> <p>The first character must be a letter.</p> </li> <li> <p>Cannot end with a hyphen or contain two consecutive hyphens.</p> </li> </ul> <p> <i>Example</i>: <code>my-cluster</code> </p>
@@ -1132,7 +1132,7 @@ class AsyncDocDBElasticClient:
         preferred_backup_window: Optional[str] = None,
         shard_instance_count: Optional[int] = None,
     ) -> "aws_sdk_docdb_elastic.types.update_cluster_output.UpdateClusterOutput":
-        """<p>Modifies an elastic cluster. This includes updating admin-username/password, upgrading the API version, and setting up a backup window and maintenance window</p>
+        r"""<p>Modifies an elastic cluster. This includes updating admin-username/password, upgrading the API version, and setting up a backup window and maintenance window</p>
 
         Args:
             cluster_arn: <p>The ARN identifier of the elastic cluster.</p>

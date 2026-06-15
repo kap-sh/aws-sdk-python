@@ -20,7 +20,7 @@ class RequestWidget(TypedDict):
     ]
     """<p> The optional query parameters. The following query parameters are valid: <code>$StartTime$</code>, <code>$EndTime$</code>, and <code>$Period$</code>. </p>"""
     view_properties: "aws_sdk_cloudtrail.types.view_properties_map.ViewPropertiesMap"
-    """<p> The view properties for the widget. For more information about view properties, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/lake-widget-properties.html\"> View properties for widgets </a> in the <i>CloudTrail User Guide</i>. </p>"""
+    r"""<p> The view properties for the widget. For more information about view properties, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/lake-widget-properties.html\"> View properties for widgets </a> in the <i>CloudTrail User Guide</i>. </p>"""
 
 
 # --- awsJson1_1 ser/de ---

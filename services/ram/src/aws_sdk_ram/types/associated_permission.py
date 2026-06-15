@@ -13,7 +13,7 @@ if TYPE_CHECKING:
 
 class AssociatedPermission(TypedDict):
     arn: NotRequired["aws_sdk_ram.types.string.String"]
-    """<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of the associated managed permission.</p>"""
+    r"""<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of the associated managed permission.</p>"""
     permission_version: NotRequired["aws_sdk_ram.types.string.String"]
     """<p>The version of the permission currently associated with the resource share.</p>"""
     default_version: NotRequired["aws_sdk_ram.types.boolean.Boolean"]
@@ -29,7 +29,7 @@ class AssociatedPermission(TypedDict):
     last_updated_time: NotRequired["aws_sdk_ram.types.date_time.DateTime"]
     """<p>The date and time when the association between the permission and the resource share was last updated.</p>"""
     resource_share_arn: NotRequired["aws_sdk_ram.types.string.String"]
-    """<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of a resource share associated with this permission.</p>"""
+    r"""<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of a resource share associated with this permission.</p>"""
 
 
 # --- restJson1 ser/de ---

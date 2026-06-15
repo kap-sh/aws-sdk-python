@@ -15,7 +15,7 @@ class AttributeType(TypedDict):
     name: (
         "aws_sdk_cognito_identity_provider.types.attribute_name_type.AttributeNameType"
     )
-    """<p>The name of the attribute, for example <code>email</code> or <code>custom:department</code>.</p> <p>In some older user pools, the regex pattern for acceptable values of this parameter is <code>[\p{L}\p{M}\p{S}\p{N}\p{P}]+</code>. Older pools will eventually be updated to use the new pattern. Affected user pools are those created before May 2024 in US East (N. Virginia), US East (Ohio), US West (N. California), US West (Oregon), Asia Pacific (Mumbai), Asia Pacific (Tokyo), Asia Pacific (Seoul), Asia Pacific (Singapore), Asia Pacific (Sydney), Canada (Central), Europe (Frankfurt), Europe (Ireland), Europe (London), Europe (Paris), Europe (Stockholm), Middle East (Bahrain), and South America (São Paulo). </p>"""
+    r"""<p>The name of the attribute, for example <code>email</code> or <code>custom:department</code>.</p> <p>In some older user pools, the regex pattern for acceptable values of this parameter is <code>[\p{L}\p{M}\p{S}\p{N}\p{P}]+</code>. Older pools will eventually be updated to use the new pattern. Affected user pools are those created before May 2024 in US East (N. Virginia), US East (Ohio), US West (N. California), US West (Oregon), Asia Pacific (Mumbai), Asia Pacific (Tokyo), Asia Pacific (Seoul), Asia Pacific (Singapore), Asia Pacific (Sydney), Canada (Central), Europe (Frankfurt), Europe (Ireland), Europe (London), Europe (Paris), Europe (Stockholm), Middle East (Bahrain), and South America (São Paulo). </p>"""
     value: NotRequired[
         "aws_sdk_cognito_identity_provider.types.attribute_value_type.AttributeValueType"
     ]

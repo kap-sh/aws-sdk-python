@@ -22,7 +22,7 @@ class ProductionVariantServerlessConfig(TypedDict):
     provisioned_concurrency: NotRequired[
         "aws_sdk_sagemaker.types.serverless_provisioned_concurrency.ServerlessProvisionedConcurrency"
     ]
-    """<p>The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to <code>MaxConcurrency</code>.</p> <note> <p>This field is not supported for serverless endpoint recommendations for Inference Recommender jobs. For more information about creating an Inference Recommender job, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateInferenceRecommendationsJob.html\">CreateInferenceRecommendationsJobs</a>.</p> </note>"""
+    r"""<p>The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to <code>MaxConcurrency</code>.</p> <note> <p>This field is not supported for serverless endpoint recommendations for Inference Recommender jobs. For more information about creating an Inference Recommender job, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateInferenceRecommendationsJob.html\">CreateInferenceRecommendationsJobs</a>.</p> </note>"""
 
 
 # --- awsJson1_1 ser/de ---

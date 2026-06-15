@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_connectcases._auth._signers
@@ -65,7 +67,7 @@ class Case:
         ] = None,
         tags: Optional["aws_sdk_connectcases.types.mutable_tags.MutableTags"] = None,
     ) -> "aws_sdk_connectcases.types.create_case_response.CreateCaseResponse":
-        """<note> <p>If you provide a value for <code>PerformedBy.UserArn</code> you must also have <a href=\"https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeUser.html\">connect:DescribeUser</a> permission on the User ARN resource that you provide</p> </note> <p>Creates a case in the specified Cases domain. Case system and custom fields are taken as an array id/value pairs with a declared data types.</p> <p>When creating a case from a template that has tag propagation configurations, the specified tags are automatically applied to the case.</p> <p>The following fields are required when creating a case:</p> <ul> <li> <p> <code>customer_id</code> - You must provide the full customer profile ARN in this format: <code>arn:aws:profile:your_AWS_Region:your_AWS_account ID:domains/your_profiles_domain_name/profiles/profile_ID</code> </p> </li> <li> <p> <code>title</code> </p> </li> </ul>
+        r"""<note> <p>If you provide a value for <code>PerformedBy.UserArn</code> you must also have <a href=\"https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeUser.html\">connect:DescribeUser</a> permission on the User ARN resource that you provide</p> </note> <p>Creates a case in the specified Cases domain. Case system and custom fields are taken as an array id/value pairs with a declared data types.</p> <p>When creating a case from a template that has tag propagation configurations, the specified tags are automatically applied to the case.</p> <p>The following fields are required when creating a case:</p> <ul> <li> <p> <code>customer_id</code> - You must provide the full customer profile ARN in this format: <code>arn:aws:profile:your_AWS_Region:your_AWS_account ID:domains/your_profiles_domain_name/profiles/profile_ID</code> </p> </li> <li> <p> <code>title</code> </p> </li> </ul>
 
         Args:
             domain_id: <p>The unique identifier of the Cases domain. </p>
@@ -166,7 +168,7 @@ class Case:
             "aws_sdk_connectcases.types.user_union.UserUnion"
         ] = None,
     ) -> "aws_sdk_connectcases.types.update_case_response.UpdateCaseResponse":
-        """<note> <p>If you provide a value for <code>PerformedBy.UserArn</code> you must also have <a href=\"https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeUser.html\">connect:DescribeUser</a> permission on the User ARN resource that you provide</p> </note> <p>Updates the values of fields on a case. Fields to be updated are received as an array of id/value pairs identical to the <code>CreateCase</code> input .</p> <p>If the action is successful, the service sends back an HTTP 200 response with an empty HTTP body.</p>
+        r"""<note> <p>If you provide a value for <code>PerformedBy.UserArn</code> you must also have <a href=\"https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeUser.html\">connect:DescribeUser</a> permission on the User ARN resource that you provide</p> </note> <p>Updates the values of fields on a case. Fields to be updated are received as an array of id/value pairs identical to the <code>CreateCase</code> input .</p> <p>If the action is successful, the service sends back an HTTP 200 response with an empty HTTP body.</p>
 
         Args:
             domain_id: <p>The unique identifier of the Cases domain. </p>
@@ -420,7 +422,7 @@ class AsyncCase:
         ] = None,
         tags: Optional["aws_sdk_connectcases.types.mutable_tags.MutableTags"] = None,
     ) -> "aws_sdk_connectcases.types.create_case_response.CreateCaseResponse":
-        """<note> <p>If you provide a value for <code>PerformedBy.UserArn</code> you must also have <a href=\"https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeUser.html\">connect:DescribeUser</a> permission on the User ARN resource that you provide</p> </note> <p>Creates a case in the specified Cases domain. Case system and custom fields are taken as an array id/value pairs with a declared data types.</p> <p>When creating a case from a template that has tag propagation configurations, the specified tags are automatically applied to the case.</p> <p>The following fields are required when creating a case:</p> <ul> <li> <p> <code>customer_id</code> - You must provide the full customer profile ARN in this format: <code>arn:aws:profile:your_AWS_Region:your_AWS_account ID:domains/your_profiles_domain_name/profiles/profile_ID</code> </p> </li> <li> <p> <code>title</code> </p> </li> </ul>
+        r"""<note> <p>If you provide a value for <code>PerformedBy.UserArn</code> you must also have <a href=\"https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeUser.html\">connect:DescribeUser</a> permission on the User ARN resource that you provide</p> </note> <p>Creates a case in the specified Cases domain. Case system and custom fields are taken as an array id/value pairs with a declared data types.</p> <p>When creating a case from a template that has tag propagation configurations, the specified tags are automatically applied to the case.</p> <p>The following fields are required when creating a case:</p> <ul> <li> <p> <code>customer_id</code> - You must provide the full customer profile ARN in this format: <code>arn:aws:profile:your_AWS_Region:your_AWS_account ID:domains/your_profiles_domain_name/profiles/profile_ID</code> </p> </li> <li> <p> <code>title</code> </p> </li> </ul>
 
         Args:
             domain_id: <p>The unique identifier of the Cases domain. </p>
@@ -523,7 +525,7 @@ class AsyncCase:
             "aws_sdk_connectcases.types.user_union.UserUnion"
         ] = None,
     ) -> "aws_sdk_connectcases.types.update_case_response.UpdateCaseResponse":
-        """<note> <p>If you provide a value for <code>PerformedBy.UserArn</code> you must also have <a href=\"https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeUser.html\">connect:DescribeUser</a> permission on the User ARN resource that you provide</p> </note> <p>Updates the values of fields on a case. Fields to be updated are received as an array of id/value pairs identical to the <code>CreateCase</code> input .</p> <p>If the action is successful, the service sends back an HTTP 200 response with an empty HTTP body.</p>
+        r"""<note> <p>If you provide a value for <code>PerformedBy.UserArn</code> you must also have <a href=\"https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeUser.html\">connect:DescribeUser</a> permission on the User ARN resource that you provide</p> </note> <p>Updates the values of fields on a case. Fields to be updated are received as an array of id/value pairs identical to the <code>CreateCase</code> input .</p> <p>If the action is successful, the service sends back an HTTP 200 response with an empty HTTP body.</p>
 
         Args:
             domain_id: <p>The unique identifier of the Cases domain. </p>

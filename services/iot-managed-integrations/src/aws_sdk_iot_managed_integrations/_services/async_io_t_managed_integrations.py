@@ -367,7 +367,7 @@ class AsyncIoTManagedIntegrationsClient:
             "aws_sdk_iot_managed_integrations.types.matter_endpoint.MatterEndpoint"
         ] = None,
     ) -> "aws_sdk_iot_managed_integrations.types.send_connector_event_response.SendConnectorEventResponse":
-        """<p>Relays third-party device events for a connector such as a new device or a device state change event.</p>
+        r"""<p>Relays third-party device events for a connector such as a new device or a device state change event.</p>
 
         Args:
             connector_id: <p>The id of the connector between the third-party cloud provider and IoT managed integrations.</p>

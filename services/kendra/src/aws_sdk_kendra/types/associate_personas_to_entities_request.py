@@ -16,7 +16,7 @@ class AssociatePersonasToEntitiesRequest(TypedDict):
     index_id: "aws_sdk_kendra.types.index_id.IndexId"
     """<p>The identifier of the index for your Amazon Kendra experience.</p>"""
     personas: "aws_sdk_kendra.types.entity_persona_configuration_list.EntityPersonaConfigurationList"
-    """<p>The personas that define the specific permissions of users or groups in your IAM Identity Center identity source. The available personas or access roles are <code>Owner</code> and <code>Viewer</code>. For more information on these personas, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html#access-search-experience\">Providing access to your search page</a>.</p>"""
+    r"""<p>The personas that define the specific permissions of users or groups in your IAM Identity Center identity source. The available personas or access roles are <code>Owner</code> and <code>Viewer</code>. For more information on these personas, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html#access-search-experience\">Providing access to your search page</a>.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

@@ -13,7 +13,7 @@ class UntagResourceInput(TypedDict):
     resource_arn: "aws_sdk_payment_cryptography.types.resource_arn.ResourceArn"
     """<p>The <code>KeyARN</code> of the key whose tags are being removed.</p>"""
     tag_keys: "aws_sdk_payment_cryptography.types.tag_keys.TagKeys"
-    """<p>One or more tag keys. Don't include the tag values.</p> <p>If the Amazon Web Services Payment Cryptography key doesn't have the specified tag key, Amazon Web Services Payment Cryptography doesn't throw an exception or return a response. To confirm that the operation succeeded, use the <a href=\"https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ListTagsForResource.html\">ListTagsForResource</a> operation.</p>"""
+    r"""<p>One or more tag keys. Don't include the tag values.</p> <p>If the Amazon Web Services Payment Cryptography key doesn't have the specified tag key, Amazon Web Services Payment Cryptography doesn't throw an exception or return a response. To confirm that the operation succeeded, use the <a href=\"https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ListTagsForResource.html\">ListTagsForResource</a> operation.</p>"""
 
 
 # --- awsJson1_0 ser/de ---

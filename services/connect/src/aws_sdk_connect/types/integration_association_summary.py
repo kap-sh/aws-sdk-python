@@ -22,7 +22,7 @@ class IntegrationAssociationSummary(TypedDict):
     integration_association_arn: NotRequired["aws_sdk_connect.types.arn.ARN"]
     """<p>The Amazon Resource Name (ARN) for the AppIntegration association.</p>"""
     instance_id: NotRequired["aws_sdk_connect.types.instance_id.InstanceId"]
-    """<p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>"""
+    r"""<p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>"""
     integration_type: NotRequired[
         "aws_sdk_connect.types.integration_type.IntegrationType"
     ]

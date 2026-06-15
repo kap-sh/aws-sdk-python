@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_datazone._auth._signers
@@ -66,7 +68,7 @@ class Notebook:
             "aws_sdk_datazone.types.client_token.ClientToken"
         ] = None,
     ) -> "aws_sdk_datazone.types.create_notebook_output.CreateNotebookOutput":
-        """<p>Creates a <a href=\"https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/notebooks.html\">notebook</a> in Amazon SageMaker Unified Studio. A notebook is a collaborative document within a project that contains code cells for interactive computing.</p>
+        r"""<p>Creates a <a href=\"https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/notebooks.html\">notebook</a> in Amazon SageMaker Unified Studio. A notebook is a collaborative document within a project that contains code cells for interactive computing.</p>
 
         Args:
             domain_identifier: <p>The identifier of the Amazon SageMaker Unified Studio domain in which to create the notebook.</p>
@@ -120,7 +122,7 @@ class Notebook:
         *,
         config_overrides: Optional[DataZoneClientConfig] = None,
     ) -> "aws_sdk_datazone.types.get_notebook_output.GetNotebookOutput":
-        """<p>Gets the details of a <a href=\"https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/notebooks.html\">notebook</a> in Amazon SageMaker Unified Studio.</p>
+        r"""<p>Gets the details of a <a href=\"https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/notebooks.html\">notebook</a> in Amazon SageMaker Unified Studio.</p>
 
         Args:
             domain_identifier: <p>The identifier of the Amazon SageMaker Unified Studio domain in which the notebook exists.</p>
@@ -174,7 +176,7 @@ class Notebook:
             "aws_sdk_datazone.types.client_token.ClientToken"
         ] = None,
     ) -> "aws_sdk_datazone.types.update_notebook_output.UpdateNotebookOutput":
-        """<p>Updates a <a href=\"https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/notebooks.html\">notebook</a> in Amazon SageMaker Unified Studio.</p>
+        r"""<p>Updates a <a href=\"https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/notebooks.html\">notebook</a> in Amazon SageMaker Unified Studio.</p>
 
         Args:
             domain_identifier: <p>The identifier of the Amazon SageMaker Unified Studio domain in which the notebook exists.</p>
@@ -238,7 +240,7 @@ class Notebook:
         *,
         config_overrides: Optional[DataZoneClientConfig] = None,
     ) -> "aws_sdk_datazone.types.delete_notebook_output.DeleteNotebookOutput":
-        """<p>Deletes a <a href=\"https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/notebooks.html\">notebook</a> in Amazon SageMaker Unified Studio.</p>
+        r"""<p>Deletes a <a href=\"https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/notebooks.html\">notebook</a> in Amazon SageMaker Unified Studio.</p>
 
         Args:
             domain_identifier: <p>The identifier of the Amazon SageMaker Unified Studio domain in which the notebook exists.</p>
@@ -287,7 +289,7 @@ class Notebook:
             "aws_sdk_datazone.types.pagination_token.PaginationToken"
         ] = None,
     ) -> "aws_sdk_datazone.types.list_notebooks_output.ListNotebooksOutput":
-        """<p>Lists <a href=\"https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/notebooks.html\">notebooks</a> in Amazon SageMaker Unified Studio.</p>
+        r"""<p>Lists <a href=\"https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/notebooks.html\">notebooks</a> in Amazon SageMaker Unified Studio.</p>
 
         Args:
             domain_identifier: <p>The identifier of the Amazon SageMaker Unified Studio domain in which to list notebooks.</p>
@@ -354,7 +356,7 @@ class AsyncNotebook:
             "aws_sdk_datazone.types.client_token.ClientToken"
         ] = None,
     ) -> "aws_sdk_datazone.types.create_notebook_output.CreateNotebookOutput":
-        """<p>Creates a <a href=\"https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/notebooks.html\">notebook</a> in Amazon SageMaker Unified Studio. A notebook is a collaborative document within a project that contains code cells for interactive computing.</p>
+        r"""<p>Creates a <a href=\"https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/notebooks.html\">notebook</a> in Amazon SageMaker Unified Studio. A notebook is a collaborative document within a project that contains code cells for interactive computing.</p>
 
         Args:
             domain_identifier: <p>The identifier of the Amazon SageMaker Unified Studio domain in which to create the notebook.</p>
@@ -409,7 +411,7 @@ class AsyncNotebook:
         *,
         config_overrides: Optional[AsyncDataZoneClientConfig] = None,
     ) -> "aws_sdk_datazone.types.get_notebook_output.GetNotebookOutput":
-        """<p>Gets the details of a <a href=\"https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/notebooks.html\">notebook</a> in Amazon SageMaker Unified Studio.</p>
+        r"""<p>Gets the details of a <a href=\"https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/notebooks.html\">notebook</a> in Amazon SageMaker Unified Studio.</p>
 
         Args:
             domain_identifier: <p>The identifier of the Amazon SageMaker Unified Studio domain in which the notebook exists.</p>
@@ -464,7 +466,7 @@ class AsyncNotebook:
             "aws_sdk_datazone.types.client_token.ClientToken"
         ] = None,
     ) -> "aws_sdk_datazone.types.update_notebook_output.UpdateNotebookOutput":
-        """<p>Updates a <a href=\"https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/notebooks.html\">notebook</a> in Amazon SageMaker Unified Studio.</p>
+        r"""<p>Updates a <a href=\"https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/notebooks.html\">notebook</a> in Amazon SageMaker Unified Studio.</p>
 
         Args:
             domain_identifier: <p>The identifier of the Amazon SageMaker Unified Studio domain in which the notebook exists.</p>
@@ -529,7 +531,7 @@ class AsyncNotebook:
         *,
         config_overrides: Optional[AsyncDataZoneClientConfig] = None,
     ) -> "aws_sdk_datazone.types.delete_notebook_output.DeleteNotebookOutput":
-        """<p>Deletes a <a href=\"https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/notebooks.html\">notebook</a> in Amazon SageMaker Unified Studio.</p>
+        r"""<p>Deletes a <a href=\"https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/notebooks.html\">notebook</a> in Amazon SageMaker Unified Studio.</p>
 
         Args:
             domain_identifier: <p>The identifier of the Amazon SageMaker Unified Studio domain in which the notebook exists.</p>
@@ -579,7 +581,7 @@ class AsyncNotebook:
             "aws_sdk_datazone.types.pagination_token.PaginationToken"
         ] = None,
     ) -> "aws_sdk_datazone.types.list_notebooks_output.ListNotebooksOutput":
-        """<p>Lists <a href=\"https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/notebooks.html\">notebooks</a> in Amazon SageMaker Unified Studio.</p>
+        r"""<p>Lists <a href=\"https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/notebooks.html\">notebooks</a> in Amazon SageMaker Unified Studio.</p>
 
         Args:
             domain_identifier: <p>The identifier of the Amazon SageMaker Unified Studio domain in which to list notebooks.</p>

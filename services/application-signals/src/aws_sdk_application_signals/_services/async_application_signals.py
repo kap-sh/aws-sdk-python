@@ -152,7 +152,7 @@ class AsyncApplicationSignalsClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = AsyncApplicationSignalsClientConfig(
+        self._config = AsyncApplicationSignalsClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -164,6 +164,7 @@ class AsyncApplicationSignalsClient:
                 "credentials_provider": credentials_provider,
             }
         )
+
         # resources
         self.service_level_objective_resource = AsyncServiceLevelObjectiveResource(self)
 
@@ -173,7 +174,7 @@ class AsyncApplicationSignalsClient:
         overrides: AsyncApplicationSignalsClientConfig = config_overrides or {}
         interceptors_: list[AsyncInterceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             aretry(),
         ]
@@ -181,13 +182,13 @@ class AsyncApplicationSignalsClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
-            region=overrides.get("region", self.config.get("region")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
+            region=overrides.get("region", self._config.get("region")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -199,7 +200,7 @@ class AsyncApplicationSignalsClient:
         *,
         config_overrides: Optional[AsyncApplicationSignalsClientConfig] = None,
     ) -> "aws_sdk_application_signals.types.batch_get_service_level_objective_budget_report_output.BatchGetServiceLevelObjectiveBudgetReportOutput":
-        """<p>Use this operation to retrieve one or more <i>service level objective (SLO) budget reports</i>.</p> <p>An <i>error budget</i> is the amount of time or requests in an unhealthy state that your service can accumulate during an interval before your overall SLO budget health is breached and the SLO is considered to be unmet. For example, an SLO with a threshold of 99.95% and a monthly interval translates to an error budget of 21.9 minutes of downtime in a 30-day month.</p> <p>Budget reports include a health indicator, the attainment value, and remaining budget.</p> <p>For more information about SLO error budgets, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-ServiceLevelObjectives.html#CloudWatch-ServiceLevelObjectives-concepts\"> SLO concepts</a>.</p>
+        r"""<p>Use this operation to retrieve one or more <i>service level objective (SLO) budget reports</i>.</p> <p>An <i>error budget</i> is the amount of time or requests in an unhealthy state that your service can accumulate during an interval before your overall SLO budget health is breached and the SLO is considered to be unmet. For example, an SLO with a threshold of 99.95% and a monthly interval translates to an error budget of 21.9 minutes of downtime in a 30-day month.</p> <p>Budget reports include a health indicator, the attainment value, and remaining budget.</p> <p>For more information about SLO error budgets, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-ServiceLevelObjectives.html#CloudWatch-ServiceLevelObjectives-concepts\"> SLO concepts</a>.</p>
 
         Args:
             timestamp: <p>The date and time that you want the report to be for. It is expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.</p>
@@ -222,12 +223,12 @@ class AsyncApplicationSignalsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_signals.types.batch_get_service_level_objective_budget_report_input.BatchGetServiceLevelObjectiveBudgetReportInput = {}  # type: ignore[typeddict-item]
-        input["timestamp"] = timestamp
-        input["slo_ids"] = slo_ids
+        input_: aws_sdk_application_signals.types.batch_get_service_level_objective_budget_report_input.BatchGetServiceLevelObjectiveBudgetReportInput = {}  # type: ignore[typeddict-item]
+        input_["timestamp"] = timestamp
+        input_["slo_ids"] = slo_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -269,15 +270,15 @@ class AsyncApplicationSignalsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_signals.types.batch_update_exclusion_windows_input.BatchUpdateExclusionWindowsInput = {}  # type: ignore[typeddict-item]
-        input["slo_ids"] = slo_ids
+        input_: aws_sdk_application_signals.types.batch_update_exclusion_windows_input.BatchUpdateExclusionWindowsInput = {}  # type: ignore[typeddict-item]
+        input_["slo_ids"] = slo_ids
         if add_exclusion_windows is not None:
-            input["add_exclusion_windows"] = add_exclusion_windows
+            input_["add_exclusion_windows"] = add_exclusion_windows
         if remove_exclusion_windows is not None:
-            input["remove_exclusion_windows"] = remove_exclusion_windows
+            input_["remove_exclusion_windows"] = remove_exclusion_windows
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -344,13 +345,13 @@ class AsyncApplicationSignalsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_signals.types.get_service_input.GetServiceInput = {}  # type: ignore[typeddict-item]
-        input["start_time"] = start_time
-        input["end_time"] = end_time
-        input["key_attributes"] = key_attributes
+        input_: aws_sdk_application_signals.types.get_service_input.GetServiceInput = {}  # type: ignore[typeddict-item]
+        input_["start_time"] = start_time
+        input_["end_time"] = end_time
+        input_["key_attributes"] = key_attributes
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -404,21 +405,21 @@ class AsyncApplicationSignalsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_signals.types.list_audit_findings_input.ListAuditFindingsInput = {}  # type: ignore[typeddict-item]
-        input["start_time"] = start_time
-        input["end_time"] = end_time
+        input_: aws_sdk_application_signals.types.list_audit_findings_input.ListAuditFindingsInput = {}  # type: ignore[typeddict-item]
+        input_["start_time"] = start_time
+        input_["end_time"] = end_time
         if auditors is not None:
-            input["auditors"] = auditors
-        input["audit_targets"] = audit_targets
+            input_["auditors"] = auditors
+        input_["audit_targets"] = audit_targets
         if detail_level is not None:
-            input["detail_level"] = detail_level
+            input_["detail_level"] = detail_level
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -438,7 +439,7 @@ class AsyncApplicationSignalsClient:
             "aws_sdk_application_signals.types.next_token.NextToken"
         ] = None,
     ) -> "aws_sdk_application_signals.types.list_entity_events_output.ListEntityEventsOutput":
-        """<p>Returns a list of change events for a specific entity, such as deployments, configuration changes, or other state-changing activities. This operation helps track the history of changes that may have affected service performance.</p>
+        r"""<p>Returns a list of change events for a specific entity, such as deployments, configuration changes, or other state-changing activities. This operation helps track the history of changes that may have affected service performance.</p>
 
         Args:
             entity: <p>The entity for which to retrieve change events. This specifies the service, resource, or other entity whose event history you want to examine.</p> <p>This is a string-to-string map. It can include the following fields.</p> <ul> <li> <p> <code>Type</code> designates the type of object this is.</p> </li> <li> <p> <code>ResourceType</code> specifies the type of the resource. This field is used only when the value of the <code>Type</code> field is <code>Resource</code> or <code>AWS::Resource</code>.</p> </li> <li> <p> <code>Name</code> specifies the name of the object. This is used only if the value of the <code>Type</code> field is <code>Service</code>, <code>RemoteService</code>, or <code>AWS::Service</code>.</p> </li> <li> <p> <code>Identifier</code> identifies the resource objects of this resource. This is used only if the value of the <code>Type</code> field is <code>Resource</code> or <code>AWS::Resource</code>.</p> </li> <li> <p> <code>Environment</code> specifies the location where this object is hosted, or what it belongs to.</p> </li> <li> <p> <code>AwsAccountId</code> specifies the account where this object is in.</p> </li> </ul> <p>Below is an example of a service.</p> <p> <code>{ \"Type\": \"Service\", \"Name\": \"visits-service\", \"Environment\": \"petclinic-test\" }</code> </p> <p>Below is an example of a resource.</p> <p> <code>{ \"Type\": \"AWS::Resource\", \"ResourceType\": \"AWS::DynamoDB::Table\", \"Identifier\": \"Customers\" }</code> </p>
@@ -464,17 +465,17 @@ class AsyncApplicationSignalsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_signals.types.list_entity_events_input.ListEntityEventsInput = {}  # type: ignore[typeddict-item]
-        input["entity"] = entity
-        input["start_time"] = start_time
-        input["end_time"] = end_time
+        input_: aws_sdk_application_signals.types.list_entity_events_input.ListEntityEventsInput = {}  # type: ignore[typeddict-item]
+        input_["entity"] = entity
+        input_["start_time"] = start_time
+        input_["end_time"] = end_time
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -547,16 +548,16 @@ class AsyncApplicationSignalsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_signals.types.list_grouping_attribute_definitions_input.ListGroupingAttributeDefinitionsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_application_signals.types.list_grouping_attribute_definitions_input.ListGroupingAttributeDefinitionsInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if aws_account_id is not None:
-            input["aws_account_id"] = aws_account_id
+            input_["aws_account_id"] = aws_account_id
         if include_linked_accounts is not None:
-            input["include_linked_accounts"] = include_linked_accounts
+            input_["include_linked_accounts"] = include_linked_accounts
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -602,17 +603,17 @@ class AsyncApplicationSignalsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_signals.types.list_service_dependencies_input.ListServiceDependenciesInput = {}  # type: ignore[typeddict-item]
-        input["start_time"] = start_time
-        input["end_time"] = end_time
-        input["key_attributes"] = key_attributes
+        input_: aws_sdk_application_signals.types.list_service_dependencies_input.ListServiceDependenciesInput = {}  # type: ignore[typeddict-item]
+        input_["start_time"] = start_time
+        input_["end_time"] = end_time
+        input_["key_attributes"] = key_attributes
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -689,17 +690,17 @@ class AsyncApplicationSignalsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_signals.types.list_service_dependents_input.ListServiceDependentsInput = {}  # type: ignore[typeddict-item]
-        input["start_time"] = start_time
-        input["end_time"] = end_time
-        input["key_attributes"] = key_attributes
+        input_: aws_sdk_application_signals.types.list_service_dependents_input.ListServiceDependentsInput = {}  # type: ignore[typeddict-item]
+        input_["start_time"] = start_time
+        input_["end_time"] = end_time
+        input_["key_attributes"] = key_attributes
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -772,15 +773,15 @@ class AsyncApplicationSignalsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_signals.types.list_service_level_objective_exclusion_windows_input.ListServiceLevelObjectiveExclusionWindowsInput = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_application_signals.types.list_service_level_objective_exclusion_windows_input.ListServiceLevelObjectiveExclusionWindowsInput = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -853,17 +854,17 @@ class AsyncApplicationSignalsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_signals.types.list_service_operations_input.ListServiceOperationsInput = {}  # type: ignore[typeddict-item]
-        input["start_time"] = start_time
-        input["end_time"] = end_time
-        input["key_attributes"] = key_attributes
+        input_: aws_sdk_application_signals.types.list_service_operations_input.ListServiceOperationsInput = {}  # type: ignore[typeddict-item]
+        input_["start_time"] = start_time
+        input_["end_time"] = end_time
+        input_["key_attributes"] = key_attributes
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -944,20 +945,20 @@ class AsyncApplicationSignalsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_signals.types.list_services_input.ListServicesInput = {}  # type: ignore[typeddict-item]
-        input["start_time"] = start_time
-        input["end_time"] = end_time
+        input_: aws_sdk_application_signals.types.list_services_input.ListServicesInput = {}  # type: ignore[typeddict-item]
+        input_["start_time"] = start_time
+        input_["end_time"] = end_time
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if include_linked_accounts is not None:
-            input["include_linked_accounts"] = include_linked_accounts
+            input_["include_linked_accounts"] = include_linked_accounts
         if aws_account_id is not None:
-            input["aws_account_id"] = aws_account_id
+            input_["aws_account_id"] = aws_account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1046,22 +1047,22 @@ class AsyncApplicationSignalsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_signals.types.list_service_states_input.ListServiceStatesInput = {}  # type: ignore[typeddict-item]
-        input["start_time"] = start_time
-        input["end_time"] = end_time
+        input_: aws_sdk_application_signals.types.list_service_states_input.ListServiceStatesInput = {}  # type: ignore[typeddict-item]
+        input_["start_time"] = start_time
+        input_["end_time"] = end_time
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if include_linked_accounts is not None:
-            input["include_linked_accounts"] = include_linked_accounts
+            input_["include_linked_accounts"] = include_linked_accounts
         if aws_account_id is not None:
-            input["aws_account_id"] = aws_account_id
+            input_["aws_account_id"] = aws_account_id
         if attribute_filters is not None:
-            input["attribute_filters"] = attribute_filters
+            input_["attribute_filters"] = attribute_filters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1112,7 +1113,7 @@ class AsyncApplicationSignalsClient:
         *,
         config_overrides: Optional[AsyncApplicationSignalsClientConfig] = None,
     ) -> "aws_sdk_application_signals.types.list_tags_for_resource_response.ListTagsForResourceResponse":
-        """<p>Displays the tags associated with a CloudWatch resource. Tags can be assigned to service level objectives.</p>
+        r"""<p>Displays the tags associated with a CloudWatch resource. Tags can be assigned to service level objectives.</p>
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the CloudWatch resource that you want to view tags for.</p> <p>The ARN format of an Application Signals SLO is <code>arn:aws:cloudwatch:<i>Region</i>:<i>account-id</i>:slo:<i>slo-name</i> </code> </p> <p>For more information about ARN format, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazoncloudwatch.html#amazoncloudwatch-resources-for-iam-policies\"> Resource Types Defined by Amazon CloudWatch</a> in the <i>Amazon Web Services General Reference</i>.</p>
@@ -1134,11 +1135,11 @@ class AsyncApplicationSignalsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_signals.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_application_signals.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1172,11 +1173,11 @@ class AsyncApplicationSignalsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_signals.types.put_grouping_configuration_input.PutGroupingConfigurationInput = {}  # type: ignore[typeddict-item]
-        input["grouping_attribute_definitions"] = grouping_attribute_definitions
+        input_: aws_sdk_application_signals.types.put_grouping_configuration_input.PutGroupingConfigurationInput = {}  # type: ignore[typeddict-item]
+        input_["grouping_attribute_definitions"] = grouping_attribute_definitions
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1187,7 +1188,7 @@ class AsyncApplicationSignalsClient:
     ) -> (
         "aws_sdk_application_signals.types.start_discovery_output.StartDiscoveryOutput"
     ):
-        """<p>Enables this Amazon Web Services account to be able to use CloudWatch Application Signals by creating the <i>AWSServiceRoleForCloudWatchApplicationSignals</i> service-linked role. This service- linked role has the following permissions:</p> <ul> <li> <p> <code>xray:GetServiceGraph</code> </p> </li> <li> <p> <code>logs:StartQuery</code> </p> </li> <li> <p> <code>logs:GetQueryResults</code> </p> </li> <li> <p> <code>cloudwatch:GetMetricData</code> </p> </li> <li> <p> <code>cloudwatch:ListMetrics</code> </p> </li> <li> <p> <code>tag:GetResources</code> </p> </li> <li> <p> <code>autoscaling:DescribeAutoScalingGroups</code> </p> </li> </ul> <p>A service-linked CloudTrail event channel is created to process CloudTrail events and return change event information. This includes last deployment time, userName, eventName, and other event metadata.</p> <p>After completing this step, you still need to instrument your Java and Python applications to send data to Application Signals. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Application-Signals-Enable.html\"> Enabling Application Signals</a>.</p>"""
+        r"""<p>Enables this Amazon Web Services account to be able to use CloudWatch Application Signals by creating the <i>AWSServiceRoleForCloudWatchApplicationSignals</i> service-linked role. This service- linked role has the following permissions:</p> <ul> <li> <p> <code>xray:GetServiceGraph</code> </p> </li> <li> <p> <code>logs:StartQuery</code> </p> </li> <li> <p> <code>logs:GetQueryResults</code> </p> </li> <li> <p> <code>cloudwatch:GetMetricData</code> </p> </li> <li> <p> <code>cloudwatch:ListMetrics</code> </p> </li> <li> <p> <code>tag:GetResources</code> </p> </li> <li> <p> <code>autoscaling:DescribeAutoScalingGroups</code> </p> </li> </ul> <p>A service-linked CloudTrail event channel is created to process CloudTrail events and return change event information. This includes last deployment time, userName, eventName, and other event metadata.</p> <p>After completing this step, you still need to instrument your Java and Python applications to send data to Application Signals. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Application-Signals-Enable.html\"> Enabling Application Signals</a>.</p>"""
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_application_signals.types.start_discovery_input.StartDiscoveryInput]",
@@ -1205,10 +1206,10 @@ class AsyncApplicationSignalsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_signals.types.start_discovery_input.StartDiscoveryInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_application_signals.types.start_discovery_input.StartDiscoveryInput = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1221,7 +1222,7 @@ class AsyncApplicationSignalsClient:
         *,
         config_overrides: Optional[AsyncApplicationSignalsClientConfig] = None,
     ) -> "aws_sdk_application_signals.types.tag_resource_response.TagResourceResponse":
-        """<p>Assigns one or more tags (key-value pairs) to the specified CloudWatch resource, such as a service level objective.</p> <p>Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.</p> <p>Tags don't have any semantic meaning to Amazon Web Services and are interpreted strictly as strings of characters.</p> <p>You can use the <code>TagResource</code> action with an alarm that already has tags. If you specify a new tag key for the alarm, this tag is appended to the list of tags associated with the alarm. If you specify a tag key that is already associated with the alarm, the new tag value that you specify replaces the previous value for that tag.</p> <p>You can associate as many as 50 tags with a CloudWatch resource.</p>
+        r"""<p>Assigns one or more tags (key-value pairs) to the specified CloudWatch resource, such as a service level objective.</p> <p>Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.</p> <p>Tags don't have any semantic meaning to Amazon Web Services and are interpreted strictly as strings of characters.</p> <p>You can use the <code>TagResource</code> action with an alarm that already has tags. If you specify a new tag key for the alarm, this tag is appended to the list of tags associated with the alarm. If you specify a tag key that is already associated with the alarm, the new tag value that you specify replaces the previous value for that tag.</p> <p>You can associate as many as 50 tags with a CloudWatch resource.</p>
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the CloudWatch resource that you want to set tags for.</p> <p>The ARN format of an Application Signals SLO is <code>arn:aws:cloudwatch:<i>Region</i>:<i>account-id</i>:slo:<i>slo-name</i> </code> </p> <p>For more information about ARN format, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazoncloudwatch.html#amazoncloudwatch-resources-for-iam-policies\"> Resource Types Defined by Amazon CloudWatch</a> in the <i>Amazon Web Services General Reference</i>.</p>
@@ -1244,12 +1245,12 @@ class AsyncApplicationSignalsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_signals.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_application_signals.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1262,7 +1263,7 @@ class AsyncApplicationSignalsClient:
         *,
         config_overrides: Optional[AsyncApplicationSignalsClientConfig] = None,
     ) -> "aws_sdk_application_signals.types.untag_resource_response.UntagResourceResponse":
-        """<p>Removes one or more tags from the specified resource.</p>
+        r"""<p>Removes one or more tags from the specified resource.</p>
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the CloudWatch resource that you want to delete tags from.</p> <p>The ARN format of an Application Signals SLO is <code>arn:aws:cloudwatch:<i>Region</i>:<i>account-id</i>:slo:<i>slo-name</i> </code> </p> <p>For more information about ARN format, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazoncloudwatch.html#amazoncloudwatch-resources-for-iam-policies\"> Resource Types Defined by Amazon CloudWatch</a> in the <i>Amazon Web Services General Reference</i>.</p>
@@ -1285,12 +1286,12 @@ class AsyncApplicationSignalsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_application_signals.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_application_signals.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

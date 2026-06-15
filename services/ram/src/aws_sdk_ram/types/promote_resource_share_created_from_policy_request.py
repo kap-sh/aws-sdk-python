@@ -8,7 +8,7 @@ if TYPE_CHECKING:
 
 class PromoteResourceShareCreatedFromPolicyRequest(TypedDict):
     resource_share_arn: "aws_sdk_ram.types.string.String"
-    """<p>Specifies the <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of the resource share to promote.</p>"""
+    r"""<p>Specifies the <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of the resource share to promote.</p>"""
 
 
 # --- restJson1 ser/de ---

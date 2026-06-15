@@ -24,7 +24,7 @@ class RcsAgentInformation(TypedDict):
     status: "aws_sdk_pinpoint_sms_voice_v2.types.rcs_agent_status.RcsAgentStatus"
     """<p>The current status of the RCS agent.</p>"""
     created_timestamp: "datetime.datetime"
-    """<p>The time when the RCS agent was created, in <a href=\"https://www.epochconverter.com/\">UNIX epoch time</a> format.</p>"""
+    r"""<p>The time when the RCS agent was created, in <a href=\"https://www.epochconverter.com/\">UNIX epoch time</a> format.</p>"""
     deletion_protection_enabled: "bool"
     """<p>When set to true the RCS agent can't be deleted.</p>"""
     opt_out_list_name: NotRequired[

@@ -16,7 +16,7 @@ class CreateInvocationRequest(TypedDict):
     description: NotRequired[
         "aws_sdk_bedrock_agent_runtime.types.invocation_description.InvocationDescription"
     ]
-    """<p>A description for the interactions in the invocation. For example, \"User asking about weather in Seattle\".</p>"""
+    r"""<p>A description for the interactions in the invocation. For example, \"User asking about weather in Seattle\".</p>"""
     session_identifier: (
         "aws_sdk_bedrock_agent_runtime.types.session_identifier.SessionIdentifier"
     )

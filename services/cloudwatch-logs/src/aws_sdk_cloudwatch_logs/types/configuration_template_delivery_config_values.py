@@ -14,11 +14,11 @@ class ConfigurationTemplateDeliveryConfigValues(TypedDict):
     record_fields: NotRequired[
         "aws_sdk_cloudwatch_logs.types.record_fields.RecordFields"
     ]
-    """<p>The default record fields that will be delivered when a list of record fields is not provided in a <a href=\"https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html\">CreateDelivery</a> operation.</p>"""
+    r"""<p>The default record fields that will be delivered when a list of record fields is not provided in a <a href=\"https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html\">CreateDelivery</a> operation.</p>"""
     field_delimiter: NotRequired[
         "aws_sdk_cloudwatch_logs.types.field_delimiter.FieldDelimiter"
     ]
-    """<p>The default field delimiter that is used in a <a href=\"https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html\">CreateDelivery</a> operation when the field delimiter is not specified in that operation. The field delimiter is used only when the final output delivery is in <code>Plain</code>, <code>W3C</code>, or <code>Raw</code> format.</p>"""
+    r"""<p>The default field delimiter that is used in a <a href=\"https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html\">CreateDelivery</a> operation when the field delimiter is not specified in that operation. The field delimiter is used only when the final output delivery is in <code>Plain</code>, <code>W3C</code>, or <code>Raw</code> format.</p>"""
     s3_delivery_configuration: NotRequired[
         "aws_sdk_cloudwatch_logs.types.s3_delivery_configuration.S3DeliveryConfiguration"
     ]

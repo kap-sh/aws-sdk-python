@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 from aws_sdk_iotfleetwise._services._pipeline import (
@@ -53,7 +55,7 @@ class FleetResource:
         ] = None,
         tags: Optional["aws_sdk_iotfleetwise.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_iotfleetwise.types.create_fleet_response.CreateFleetResponse":
-        """<p> Creates a fleet that represents a group of vehicles. </p> <note> <p>You must create both a signal catalog and vehicles before you can create a fleet. </p> </note> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/fleets.html\">Fleets</a> in the <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p>
+        r"""<p> Creates a fleet that represents a group of vehicles. </p> <note> <p>You must create both a signal catalog and vehicles before you can create a fleet. </p> </note> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/fleets.html\">Fleets</a> in the <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p>
 
         Args:
             fleet_id: <p> The unique ID of the fleet to create. </p>
@@ -178,7 +180,7 @@ class FleetResource:
         *,
         config_overrides: Optional[IoTFleetWiseClientConfig] = None,
     ) -> "aws_sdk_iotfleetwise.types.delete_fleet_response.DeleteFleetResponse":
-        """<p> Deletes a fleet. Before you delete a fleet, all vehicles must be dissociated from the fleet. For more information, see <a href=\"https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/delete-fleet-cli.html\">Delete a fleet (AWS CLI)</a> in the <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p>
+        r"""<p> Deletes a fleet. Before you delete a fleet, all vehicles must be dissociated from the fleet. For more information, see <a href=\"https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/delete-fleet-cli.html\">Delete a fleet (AWS CLI)</a> in the <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p>
 
         Args:
             fleet_id: <p> The ID of the fleet to delete. </p>
@@ -275,7 +277,7 @@ class AsyncFleetResource:
         ] = None,
         tags: Optional["aws_sdk_iotfleetwise.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_iotfleetwise.types.create_fleet_response.CreateFleetResponse":
-        """<p> Creates a fleet that represents a group of vehicles. </p> <note> <p>You must create both a signal catalog and vehicles before you can create a fleet. </p> </note> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/fleets.html\">Fleets</a> in the <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p>
+        r"""<p> Creates a fleet that represents a group of vehicles. </p> <note> <p>You must create both a signal catalog and vehicles before you can create a fleet. </p> </note> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/fleets.html\">Fleets</a> in the <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p>
 
         Args:
             fleet_id: <p> The unique ID of the fleet to create. </p>
@@ -403,7 +405,7 @@ class AsyncFleetResource:
         *,
         config_overrides: Optional[AsyncIoTFleetWiseClientConfig] = None,
     ) -> "aws_sdk_iotfleetwise.types.delete_fleet_response.DeleteFleetResponse":
-        """<p> Deletes a fleet. Before you delete a fleet, all vehicles must be dissociated from the fleet. For more information, see <a href=\"https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/delete-fleet-cli.html\">Delete a fleet (AWS CLI)</a> in the <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p>
+        r"""<p> Deletes a fleet. Before you delete a fleet, all vehicles must be dissociated from the fleet. For more information, see <a href=\"https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/delete-fleet-cli.html\">Delete a fleet (AWS CLI)</a> in the <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p>
 
         Args:
             fleet_id: <p> The ID of the fleet to delete. </p>

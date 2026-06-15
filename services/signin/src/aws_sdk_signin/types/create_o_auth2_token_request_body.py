@@ -19,7 +19,7 @@ class CreateOAuth2TokenRequestBody(TypedDict):
     client_id: "aws_sdk_signin.types.client_id.ClientId"
     """The client identifier (ARN) used during Sign-In onboarding Required for both authorization code and refresh token flows"""
     grant_type: "aws_sdk_signin.types.grant_type.GrantType"
-    """OAuth 2.0 grant type - determines which flow is used Must be \"authorization_code\" or \"refresh_token\""""
+    r"""OAuth 2.0 grant type - determines which flow is used Must be \"authorization_code\" or \"refresh_token\""""
     code: NotRequired["aws_sdk_signin.types.authorization_code.AuthorizationCode"]
     """The authorization code received from /v1/authorize Required only when grant_type=authorization_code"""
     redirect_uri: NotRequired["aws_sdk_signin.types.redirect_uri.RedirectUri"]

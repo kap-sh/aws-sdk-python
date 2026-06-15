@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_pca_connector_scep._auth._signers
@@ -52,7 +54,7 @@ class ChallengeResource:
         ] = None,
         tags: Optional["aws_sdk_pca_connector_scep.types.tags.Tags"] = None,
     ) -> "aws_sdk_pca_connector_scep.types.create_challenge_response.CreateChallengeResponse":
-        """<p>For general-purpose connectors. Creates a <i>challenge password</i> for the specified connector. The SCEP protocol uses a challenge password to authenticate a request before issuing a certificate from a certificate authority (CA). Your SCEP clients include the challenge password as part of their certificate request to Connector for SCEP. To retrieve the connector Amazon Resource Names (ARNs) for the connectors in your account, call <a href=\"https://docs.aws.amazon.com/pca-connector-scep/latest/APIReference/API_ListConnectors.html\">ListConnectors</a>.</p> <p>To create additional challenge passwords for the connector, call <code>CreateChallenge</code> again. We recommend frequently rotating your challenge passwords.</p>
+        r"""<p>For general-purpose connectors. Creates a <i>challenge password</i> for the specified connector. The SCEP protocol uses a challenge password to authenticate a request before issuing a certificate from a certificate authority (CA). Your SCEP clients include the challenge password as part of their certificate request to Connector for SCEP. To retrieve the connector Amazon Resource Names (ARNs) for the connectors in your account, call <a href=\"https://docs.aws.amazon.com/pca-connector-scep/latest/APIReference/API_ListConnectors.html\">ListConnectors</a>.</p> <p>To create additional challenge passwords for the connector, call <code>CreateChallenge</code> again. We recommend frequently rotating your challenge passwords.</p>
 
         Args:
             connector_arn: <p>The Amazon Resource Name (ARN) of the connector that you want to create a challenge for.</p>
@@ -95,7 +97,7 @@ class ChallengeResource:
         *,
         config_overrides: Optional[PcaConnectorScepClientConfig] = None,
     ) -> "aws_sdk_pca_connector_scep.types.get_challenge_metadata_response.GetChallengeMetadataResponse":
-        """<p>Retrieves the metadata for the specified <a href=\"https://docs.aws.amazon.com/pca-connector-scep/latest/APIReference/API_Challenge.html\">Challenge</a>.</p>
+        r"""<p>Retrieves the metadata for the specified <a href=\"https://docs.aws.amazon.com/pca-connector-scep/latest/APIReference/API_Challenge.html\">Challenge</a>.</p>
 
         Args:
             challenge_arn: <p>The Amazon Resource Name (ARN) of the challenge.</p>
@@ -132,7 +134,7 @@ class ChallengeResource:
         *,
         config_overrides: Optional[PcaConnectorScepClientConfig] = None,
     ) -> None:
-        """<p>Deletes the specified <a href=\"https://docs.aws.amazon.com/pca-connector-scep/latest/APIReference/API_Challenge.html\">Challenge</a>.</p>
+        r"""<p>Deletes the specified <a href=\"https://docs.aws.amazon.com/pca-connector-scep/latest/APIReference/API_Challenge.html\">Challenge</a>.</p>
 
         Args:
             challenge_arn: <p>The Amazon Resource Name (ARN) of the challenge password to delete.</p>
@@ -216,7 +218,7 @@ class ChallengeResource:
         *,
         config_overrides: Optional[PcaConnectorScepClientConfig] = None,
     ) -> "aws_sdk_pca_connector_scep.types.get_challenge_password_response.GetChallengePasswordResponse":
-        """<p>Retrieves the challenge password for the specified <a href=\"https://docs.aws.amazon.com/pca-connector-scep/latest/APIReference/API_Challenge.html\">Challenge</a>.</p>
+        r"""<p>Retrieves the challenge password for the specified <a href=\"https://docs.aws.amazon.com/pca-connector-scep/latest/APIReference/API_Challenge.html\">Challenge</a>.</p>
 
         Args:
             challenge_arn: <p>The Amazon Resource Name (ARN) of the challenge.</p>
@@ -262,7 +264,7 @@ class AsyncChallengeResource:
         ] = None,
         tags: Optional["aws_sdk_pca_connector_scep.types.tags.Tags"] = None,
     ) -> "aws_sdk_pca_connector_scep.types.create_challenge_response.CreateChallengeResponse":
-        """<p>For general-purpose connectors. Creates a <i>challenge password</i> for the specified connector. The SCEP protocol uses a challenge password to authenticate a request before issuing a certificate from a certificate authority (CA). Your SCEP clients include the challenge password as part of their certificate request to Connector for SCEP. To retrieve the connector Amazon Resource Names (ARNs) for the connectors in your account, call <a href=\"https://docs.aws.amazon.com/pca-connector-scep/latest/APIReference/API_ListConnectors.html\">ListConnectors</a>.</p> <p>To create additional challenge passwords for the connector, call <code>CreateChallenge</code> again. We recommend frequently rotating your challenge passwords.</p>
+        r"""<p>For general-purpose connectors. Creates a <i>challenge password</i> for the specified connector. The SCEP protocol uses a challenge password to authenticate a request before issuing a certificate from a certificate authority (CA). Your SCEP clients include the challenge password as part of their certificate request to Connector for SCEP. To retrieve the connector Amazon Resource Names (ARNs) for the connectors in your account, call <a href=\"https://docs.aws.amazon.com/pca-connector-scep/latest/APIReference/API_ListConnectors.html\">ListConnectors</a>.</p> <p>To create additional challenge passwords for the connector, call <code>CreateChallenge</code> again. We recommend frequently rotating your challenge passwords.</p>
 
         Args:
             connector_arn: <p>The Amazon Resource Name (ARN) of the connector that you want to create a challenge for.</p>
@@ -306,7 +308,7 @@ class AsyncChallengeResource:
         *,
         config_overrides: Optional[AsyncPcaConnectorScepClientConfig] = None,
     ) -> "aws_sdk_pca_connector_scep.types.get_challenge_metadata_response.GetChallengeMetadataResponse":
-        """<p>Retrieves the metadata for the specified <a href=\"https://docs.aws.amazon.com/pca-connector-scep/latest/APIReference/API_Challenge.html\">Challenge</a>.</p>
+        r"""<p>Retrieves the metadata for the specified <a href=\"https://docs.aws.amazon.com/pca-connector-scep/latest/APIReference/API_Challenge.html\">Challenge</a>.</p>
 
         Args:
             challenge_arn: <p>The Amazon Resource Name (ARN) of the challenge.</p>
@@ -344,7 +346,7 @@ class AsyncChallengeResource:
         *,
         config_overrides: Optional[AsyncPcaConnectorScepClientConfig] = None,
     ) -> None:
-        """<p>Deletes the specified <a href=\"https://docs.aws.amazon.com/pca-connector-scep/latest/APIReference/API_Challenge.html\">Challenge</a>.</p>
+        r"""<p>Deletes the specified <a href=\"https://docs.aws.amazon.com/pca-connector-scep/latest/APIReference/API_Challenge.html\">Challenge</a>.</p>
 
         Args:
             challenge_arn: <p>The Amazon Resource Name (ARN) of the challenge password to delete.</p>
@@ -430,7 +432,7 @@ class AsyncChallengeResource:
         *,
         config_overrides: Optional[AsyncPcaConnectorScepClientConfig] = None,
     ) -> "aws_sdk_pca_connector_scep.types.get_challenge_password_response.GetChallengePasswordResponse":
-        """<p>Retrieves the challenge password for the specified <a href=\"https://docs.aws.amazon.com/pca-connector-scep/latest/APIReference/API_Challenge.html\">Challenge</a>.</p>
+        r"""<p>Retrieves the challenge password for the specified <a href=\"https://docs.aws.amazon.com/pca-connector-scep/latest/APIReference/API_Challenge.html\">Challenge</a>.</p>
 
         Args:
             challenge_arn: <p>The Amazon Resource Name (ARN) of the challenge.</p>

@@ -776,7 +776,7 @@ class SESv2Client:
         config_overrides: Optional[SESv2ClientConfig] = None,
         tags: Optional["aws_sdk_sesv2.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_sesv2.types.create_custom_verification_email_template_response.CreateCustomVerificationEmailTemplateResponse":
-        """<p>Creates a new custom verification email template.</p> <p>For more information about custom verification email templates, see <a href=\"https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom\">Using custom verification email templates</a> in the <i>Amazon SES Developer Guide</i>.</p> <p>You can execute this operation no more than once per second.</p>
+        r"""<p>Creates a new custom verification email template.</p> <p>For more information about custom verification email templates, see <a href=\"https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom\">Using custom verification email templates</a> in the <i>Amazon SES Developer Guide</i>.</p> <p>You can execute this operation no more than once per second.</p>
 
         Args:
             template_name: <p>The name of the custom verification email template.</p>
@@ -928,7 +928,7 @@ class SESv2Client:
     ) -> (
         "aws_sdk_sesv2.types.create_email_identity_response.CreateEmailIdentityResponse"
     ):
-        """<p>Starts the process of verifying an email identity. An <i>identity</i> is an email address or domain that you use when you send email. Before you can use an identity to send email, you first have to verify it. By verifying an identity, you demonstrate that you're the owner of the identity, and that you've given Amazon SES API v2 permission to send email from the identity.</p> <p>When you verify an email address, Amazon SES sends an email to the address. Your email address is verified as soon as you follow the link in the verification email. </p> <p>When you verify a domain without specifying the <code>DkimSigningAttributes</code> object, this operation provides a set of DKIM tokens. You can convert these tokens into CNAME records, which you then add to the DNS configuration for your domain. Your domain is verified when Amazon SES detects these records in the DNS configuration for your domain. This verification method is known as <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html\">Easy DKIM</a>.</p> <p>Alternatively, you can perform the verification process by providing your own public-private key pair. This verification method is known as Bring Your Own DKIM (BYODKIM). To use BYODKIM, your call to the <code>CreateEmailIdentity</code> operation has to include the <code>DkimSigningAttributes</code> object. When you specify this object, you provide a selector (a component of the DNS record name that identifies the public key to use for DKIM authentication) and a private key.</p> <p>When you verify a domain, this operation provides a set of DKIM tokens, which you can convert into CNAME tokens. You add these CNAME tokens to the DNS configuration for your domain. Your domain is verified when Amazon SES detects these records in the DNS configuration for your domain. For some DNS providers, it can take 72 hours or more to complete the domain verification process.</p> <p>Additionally, you can associate an existing configuration set with the email identity that you're verifying.</p>
+        r"""<p>Starts the process of verifying an email identity. An <i>identity</i> is an email address or domain that you use when you send email. Before you can use an identity to send email, you first have to verify it. By verifying an identity, you demonstrate that you're the owner of the identity, and that you've given Amazon SES API v2 permission to send email from the identity.</p> <p>When you verify an email address, Amazon SES sends an email to the address. Your email address is verified as soon as you follow the link in the verification email. </p> <p>When you verify a domain without specifying the <code>DkimSigningAttributes</code> object, this operation provides a set of DKIM tokens. You can convert these tokens into CNAME records, which you then add to the DNS configuration for your domain. Your domain is verified when Amazon SES detects these records in the DNS configuration for your domain. This verification method is known as <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html\">Easy DKIM</a>.</p> <p>Alternatively, you can perform the verification process by providing your own public-private key pair. This verification method is known as Bring Your Own DKIM (BYODKIM). To use BYODKIM, your call to the <code>CreateEmailIdentity</code> operation has to include the <code>DkimSigningAttributes</code> object. When you specify this object, you provide a selector (a component of the DNS record name that identifies the public key to use for DKIM authentication) and a private key.</p> <p>When you verify a domain, this operation provides a set of DKIM tokens, which you can convert into CNAME tokens. You add these CNAME tokens to the DNS configuration for your domain. Your domain is verified when Amazon SES detects these records in the DNS configuration for your domain. For some DNS providers, it can take 72 hours or more to complete the domain verification process.</p> <p>Additionally, you can associate an existing configuration set with the email identity that you're verifying.</p>
 
         Args:
             email_identity: <p>The email address or domain to verify.</p>
@@ -976,7 +976,7 @@ class SESv2Client:
         *,
         config_overrides: Optional[SESv2ClientConfig] = None,
     ) -> "aws_sdk_sesv2.types.create_email_identity_policy_response.CreateEmailIdentityPolicyResponse":
-        """<p>Creates the specified sending authorization policy for the given identity (an email address or a domain).</p> <note> <p>This API is for the identity owner only. If you have not verified the identity, this API will return an error.</p> </note> <p>Sending authorization is a feature that enables an identity owner to authorize other senders to use its identities. For information about using sending authorization, see the <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html\">Amazon SES Developer Guide</a>.</p> <p>You can execute this operation no more than once per second.</p>
+        r"""<p>Creates the specified sending authorization policy for the given identity (an email address or a domain).</p> <note> <p>This API is for the identity owner only. If you have not verified the identity, this API will return an error.</p> </note> <p>Sending authorization is a feature that enables an identity owner to authorize other senders to use its identities. For information about using sending authorization, see the <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html\">Amazon SES Developer Guide</a>.</p> <p>You can execute this operation no more than once per second.</p>
 
         Args:
             email_identity: <p>The email identity.</p>
@@ -1021,7 +1021,7 @@ class SESv2Client:
     ) -> (
         "aws_sdk_sesv2.types.create_email_template_response.CreateEmailTemplateResponse"
     ):
-        """<p>Creates an email template. Email templates enable you to send personalized email to one or more destinations in a single API operation. For more information, see the <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html\">Amazon SES Developer Guide</a>.</p> <p>You can execute this operation no more than once per second.</p>
+        r"""<p>Creates an email template. Email templates enable you to send personalized email to one or more destinations in a single API operation. For more information, see the <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html\">Amazon SES Developer Guide</a>.</p> <p>You can execute this operation no more than once per second.</p>
 
         Args:
             template_name: <p>The name of the template.</p>
@@ -1428,7 +1428,7 @@ class SESv2Client:
         *,
         config_overrides: Optional[SESv2ClientConfig] = None,
     ) -> "aws_sdk_sesv2.types.delete_custom_verification_email_template_response.DeleteCustomVerificationEmailTemplateResponse":
-        """<p>Deletes an existing custom verification email template.</p> <p>For more information about custom verification email templates, see <a href=\"https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom\">Using custom verification email templates</a> in the <i>Amazon SES Developer Guide</i>.</p> <p>You can execute this operation no more than once per second.</p>
+        r"""<p>Deletes an existing custom verification email template.</p> <p>For more information about custom verification email templates, see <a href=\"https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom\">Using custom verification email templates</a> in the <i>Amazon SES Developer Guide</i>.</p> <p>You can execute this operation no more than once per second.</p>
 
         Args:
             template_name: <p>The name of the custom verification email template that you want to delete.</p>
@@ -1542,7 +1542,7 @@ class SESv2Client:
         *,
         config_overrides: Optional[SESv2ClientConfig] = None,
     ) -> "aws_sdk_sesv2.types.delete_email_identity_policy_response.DeleteEmailIdentityPolicyResponse":
-        """<p>Deletes the specified sending authorization policy for the given identity (an email address or a domain). This API returns successfully even if a policy with the specified name does not exist.</p> <note> <p>This API is for the identity owner only. If you have not verified the identity, this API will return an error.</p> </note> <p>Sending authorization is a feature that enables an identity owner to authorize other senders to use its identities. For information about using sending authorization, see the <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html\">Amazon SES Developer Guide</a>.</p> <p>You can execute this operation no more than once per second.</p>
+        r"""<p>Deletes the specified sending authorization policy for the given identity (an email address or a domain). This API returns successfully even if a policy with the specified name does not exist.</p> <note> <p>This API is for the identity owner only. If you have not verified the identity, this API will return an error.</p> </note> <p>Sending authorization is a feature that enables an identity owner to authorize other senders to use its identities. For information about using sending authorization, see the <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html\">Amazon SES Developer Guide</a>.</p> <p>You can execute this operation no more than once per second.</p>
 
         Args:
             email_identity: <p>The email identity.</p>
@@ -1996,7 +1996,7 @@ class SESv2Client:
         *,
         config_overrides: Optional[SESv2ClientConfig] = None,
     ) -> "aws_sdk_sesv2.types.get_custom_verification_email_template_response.GetCustomVerificationEmailTemplateResponse":
-        """<p>Returns the custom email verification template for the template name you specify.</p> <p>For more information about custom verification email templates, see <a href=\"https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom\">Using custom verification email templates</a> in the <i>Amazon SES Developer Guide</i>.</p> <p>You can execute this operation no more than once per second.</p>
+        r"""<p>Returns the custom email verification template for the template name you specify.</p> <p>For more information about custom verification email templates, see <a href=\"https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom\">Using custom verification email templates</a> in the <i>Amazon SES Developer Guide</i>.</p> <p>You can execute this operation no more than once per second.</p>
 
         Args:
             template_name: <p>The name of the custom verification email template that you want to retrieve.</p>
@@ -2152,7 +2152,7 @@ class SESv2Client:
     def get_deliverability_dashboard_options(
         self, *, config_overrides: Optional[SESv2ClientConfig] = None
     ) -> "aws_sdk_sesv2.types.get_deliverability_dashboard_options_response.GetDeliverabilityDashboardOptionsResponse":
-        """<p>Retrieve information about the status of the Deliverability dashboard for your account. When the Deliverability dashboard is enabled, you gain access to reputation, deliverability, and other metrics for the domains that you use to send email. You also gain the ability to perform predictive inbox placement tests.</p> <p>When you use the Deliverability dashboard, you pay a monthly subscription charge, in addition to any other fees that you accrue by using Amazon SES and other Amazon Web Services services. For more information about the features and cost of a Deliverability dashboard subscription, see <a href=\"http://aws.amazon.com/ses/pricing/\">Amazon SES Pricing</a>.</p>"""
+        r"""<p>Retrieve information about the status of the Deliverability dashboard for your account. When the Deliverability dashboard is enabled, you gain access to reputation, deliverability, and other metrics for the domains that you use to send email. You also gain the ability to perform predictive inbox placement tests.</p> <p>When you use the Deliverability dashboard, you pay a monthly subscription charge, in addition to any other fees that you accrue by using Amazon SES and other Amazon Web Services services. For more information about the features and cost of a Deliverability dashboard subscription, see <a href=\"http://aws.amazon.com/ses/pricing/\">Amazon SES Pricing</a>.</p>"""
 
         def _handler(
             req: "OperationRequest[aws_sdk_sesv2.types.get_deliverability_dashboard_options_request.GetDeliverabilityDashboardOptionsRequest]",
@@ -2381,7 +2381,7 @@ class SESv2Client:
         *,
         config_overrides: Optional[SESv2ClientConfig] = None,
     ) -> "aws_sdk_sesv2.types.get_email_identity_policies_response.GetEmailIdentityPoliciesResponse":
-        """<p>Returns the requested sending authorization policies for the given identity (an email address or a domain). The policies are returned as a map of policy names to policy contents. You can retrieve a maximum of 20 policies at a time.</p> <note> <p>This API is for the identity owner only. If you have not verified the identity, this API will return an error.</p> </note> <p>Sending authorization is a feature that enables an identity owner to authorize other senders to use its identities. For information about using sending authorization, see the <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html\">Amazon SES Developer Guide</a>.</p> <p>You can execute this operation no more than once per second.</p>
+        r"""<p>Returns the requested sending authorization policies for the given identity (an email address or a domain). The policies are returned as a map of policy names to policy contents. You can retrieve a maximum of 20 policies at a time.</p> <note> <p>This API is for the identity owner only. If you have not verified the identity, this API will return an error.</p> </note> <p>Sending authorization is a feature that enables an identity owner to authorize other senders to use its identities. For information about using sending authorization, see the <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html\">Amazon SES Developer Guide</a>.</p> <p>You can execute this operation no more than once per second.</p>
 
         Args:
             email_identity: <p>The email identity.</p>
@@ -2766,7 +2766,7 @@ class SESv2Client:
         page_size: Optional["aws_sdk_sesv2.types.max_items.MaxItems"] = None,
         next_token: Optional["aws_sdk_sesv2.types.next_token.NextToken"] = None,
     ) -> "aws_sdk_sesv2.types.list_contact_lists_response.ListContactListsResponse":
-        """<p>Lists all of the contact lists available.</p> <p>If your output includes a \"NextToken\" field with a string value, this indicates there may be additional contacts on the filtered list - regardless of the number of contacts returned.</p>
+        r"""<p>Lists all of the contact lists available.</p> <p>If your output includes a \"NextToken\" field with a string value, this indicates there may be additional contacts on the filtered list - regardless of the number of contacts returned.</p>
 
         Args:
             page_size: <p>Maximum number of contact lists to return at once. Use this parameter to paginate results. If additional contact lists exist beyond the specified limit, the <code>NextToken</code> element is sent in the response. Use the <code>NextToken</code> value in subsequent requests to retrieve additional lists.</p>
@@ -2859,7 +2859,7 @@ class SESv2Client:
         next_token: Optional["aws_sdk_sesv2.types.next_token.NextToken"] = None,
         page_size: Optional["aws_sdk_sesv2.types.max_items.MaxItems"] = None,
     ) -> "aws_sdk_sesv2.types.list_custom_verification_email_templates_response.ListCustomVerificationEmailTemplatesResponse":
-        """<p>Lists the existing custom verification email templates for your account in the current Amazon Web Services Region.</p> <p>For more information about custom verification email templates, see <a href=\"https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom\">Using custom verification email templates</a> in the <i>Amazon SES Developer Guide</i>.</p> <p>You can execute this operation no more than once per second.</p>
+        r"""<p>Lists the existing custom verification email templates for your account in the current Amazon Web Services Region.</p> <p>For more information about custom verification email templates, see <a href=\"https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom\">Using custom verification email templates</a> in the <i>Amazon SES Developer Guide</i>.</p> <p>You can execute this operation no more than once per second.</p>
 
         Args:
             next_token: <p>A token returned from a previous call to <code>ListCustomVerificationEmailTemplates</code> to indicate the position in the list of custom verification email templates.</p>
@@ -4399,7 +4399,7 @@ class SESv2Client:
             "aws_sdk_sesv2.types.domain_deliverability_tracking_options.DomainDeliverabilityTrackingOptions"
         ] = None,
     ) -> "aws_sdk_sesv2.types.put_deliverability_dashboard_option_response.PutDeliverabilityDashboardOptionResponse":
-        """<p>Enable or disable the Deliverability dashboard. When you enable the Deliverability dashboard, you gain access to reputation, deliverability, and other metrics for the domains that you use to send email. You also gain the ability to perform predictive inbox placement tests.</p> <p>When you use the Deliverability dashboard, you pay a monthly subscription charge, in addition to any other fees that you accrue by using Amazon SES and other Amazon Web Services services. For more information about the features and cost of a Deliverability dashboard subscription, see <a href=\"http://aws.amazon.com/ses/pricing/\">Amazon SES Pricing</a>.</p>
+        r"""<p>Enable or disable the Deliverability dashboard. When you enable the Deliverability dashboard, you gain access to reputation, deliverability, and other metrics for the domains that you use to send email. You also gain the ability to perform predictive inbox placement tests.</p> <p>When you use the Deliverability dashboard, you pay a monthly subscription charge, in addition to any other fees that you accrue by using Amazon SES and other Amazon Web Services services. For more information about the features and cost of a Deliverability dashboard subscription, see <a href=\"http://aws.amazon.com/ses/pricing/\">Amazon SES Pricing</a>.</p>
 
         Args:
             dashboard_enabled: <p>Specifies whether to enable the Deliverability dashboard. To enable the dashboard, set this value to <code>true</code>.</p>
@@ -4527,7 +4527,7 @@ class SESv2Client:
             "aws_sdk_sesv2.types.dkim_signing_attributes.DkimSigningAttributes"
         ] = None,
     ) -> "aws_sdk_sesv2.types.put_email_identity_dkim_signing_attributes_response.PutEmailIdentityDkimSigningAttributesResponse":
-        """<p>Used to configure or change the DKIM authentication settings for an email domain identity. You can use this operation to do any of the following:</p> <ul> <li> <p>Update the signing attributes for an identity that uses Bring Your Own DKIM (BYODKIM).</p> </li> <li> <p>Update the key length that should be used for Easy DKIM.</p> </li> <li> <p>Change from using no DKIM authentication to using Easy DKIM.</p> </li> <li> <p>Change from using no DKIM authentication to using BYODKIM.</p> </li> <li> <p>Change from using Easy DKIM to using BYODKIM.</p> </li> <li> <p>Change from using BYODKIM to using Easy DKIM.</p> </li> </ul>
+        r"""<p>Used to configure or change the DKIM authentication settings for an email domain identity. You can use this operation to do any of the following:</p> <ul> <li> <p>Update the signing attributes for an identity that uses Bring Your Own DKIM (BYODKIM).</p> </li> <li> <p>Update the key length that should be used for Easy DKIM.</p> </li> <li> <p>Change from using no DKIM authentication to using Easy DKIM.</p> </li> <li> <p>Change from using no DKIM authentication to using BYODKIM.</p> </li> <li> <p>Change from using Easy DKIM to using BYODKIM.</p> </li> <li> <p>Change from using BYODKIM to using Easy DKIM.</p> </li> </ul>
 
         Args:
             email_identity: <p>The email identity.</p>
@@ -4618,7 +4618,7 @@ class SESv2Client:
             "aws_sdk_sesv2.types.behavior_on_mx_failure.BehaviorOnMxFailure"
         ] = None,
     ) -> "aws_sdk_sesv2.types.put_email_identity_mail_from_attributes_response.PutEmailIdentityMailFromAttributesResponse":
-        """<p>Used to enable or disable the custom Mail-From domain configuration for an email identity.</p>
+        r"""<p>Used to enable or disable the custom Mail-From domain configuration for an email identity.</p>
 
         Args:
             email_identity: <p>The verified email identity.</p>
@@ -4778,7 +4778,7 @@ class SESv2Client:
         endpoint_id: Optional["aws_sdk_sesv2.types.endpoint_id.EndpointId"] = None,
         tenant_name: Optional["aws_sdk_sesv2.types.tenant_name.TenantName"] = None,
     ) -> "aws_sdk_sesv2.types.send_bulk_email_response.SendBulkEmailResponse":
-        """<p>Composes an email message to multiple destinations.</p>
+        r"""<p>Composes an email message to multiple destinations.</p>
 
         Args:
             from_email_address: <p>The email address to use as the \"From\" address for the email. The address that you specify has to be verified.</p>
@@ -4852,7 +4852,7 @@ class SESv2Client:
             "aws_sdk_sesv2.types.configuration_set_name.ConfigurationSetName"
         ] = None,
     ) -> "aws_sdk_sesv2.types.send_custom_verification_email_response.SendCustomVerificationEmailResponse":
-        """<p>Adds an email address to the list of identities for your Amazon SES account in the current Amazon Web Services Region and attempts to verify it. As a result of executing this operation, a customized verification email is sent to the specified address.</p> <p>To use this operation, you must first create a custom verification email template. For more information about creating and using custom verification email templates, see <a href=\"https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom\">Using custom verification email templates</a> in the <i>Amazon SES Developer Guide</i>.</p> <p>You can execute this operation no more than once per second.</p>
+        r"""<p>Adds an email address to the list of identities for your Amazon SES account in the current Amazon Web Services Region and attempts to verify it. As a result of executing this operation, a customized verification email is sent to the specified address.</p> <p>To use this operation, you must first create a custom verification email template. For more information about creating and using custom verification email templates, see <a href=\"https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom\">Using custom verification email templates</a> in the <i>Amazon SES Developer Guide</i>.</p> <p>You can execute this operation no more than once per second.</p>
 
         Args:
             email_address: <p>The email address to verify.</p>
@@ -4921,7 +4921,7 @@ class SESv2Client:
             "aws_sdk_sesv2.types.list_management_options.ListManagementOptions"
         ] = None,
     ) -> "aws_sdk_sesv2.types.send_email_response.SendEmailResponse":
-        """<p>Sends an email message. You can use the Amazon SES API v2 to send the following types of messages:</p> <ul> <li> <p> <b>Simple</b> – A standard email message. When you create this type of message, you specify the sender, the recipient, and the message body, and Amazon SES assembles the message for you.</p> </li> <li> <p> <b>Raw</b> – A raw, MIME-formatted email message. When you send this type of email, you have to specify all of the message headers, as well as the message body. You can use this message type to send messages that contain attachments. The message that you specify has to be a valid MIME message.</p> </li> <li> <p> <b>Templated</b> – A message that contains personalization tags. When you send this type of email, Amazon SES API v2 automatically replaces the tags with values that you specify.</p> </li> </ul>
+        r"""<p>Sends an email message. You can use the Amazon SES API v2 to send the following types of messages:</p> <ul> <li> <p> <b>Simple</b> – A standard email message. When you create this type of message, you specify the sender, the recipient, and the message body, and Amazon SES assembles the message for you.</p> </li> <li> <p> <b>Raw</b> – A raw, MIME-formatted email message. When you send this type of email, you have to specify all of the message headers, as well as the message body. You can use this message type to send messages that contain attachments. The message that you specify has to be a valid MIME message.</p> </li> <li> <p> <b>Templated</b> – A message that contains personalization tags. When you send this type of email, Amazon SES API v2 automatically replaces the tags with values that you specify.</p> </li> </ul>
 
         Args:
             from_email_address: <p>The email address to use as the \"From\" address for the email. The address that you specify has to be verified. </p>
@@ -5266,7 +5266,7 @@ class SESv2Client:
         *,
         config_overrides: Optional[SESv2ClientConfig] = None,
     ) -> "aws_sdk_sesv2.types.update_custom_verification_email_template_response.UpdateCustomVerificationEmailTemplateResponse":
-        """<p>Updates an existing custom verification email template.</p> <p>For more information about custom verification email templates, see <a href=\"https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom\">Using custom verification email templates</a> in the <i>Amazon SES Developer Guide</i>.</p> <p>You can execute this operation no more than once per second.</p>
+        r"""<p>Updates an existing custom verification email template.</p> <p>For more information about custom verification email templates, see <a href=\"https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom\">Using custom verification email templates</a> in the <i>Amazon SES Developer Guide</i>.</p> <p>You can execute this operation no more than once per second.</p>
 
         Args:
             template_name: <p>The name of the custom verification email template that you want to update.</p>
@@ -5315,7 +5315,7 @@ class SESv2Client:
         *,
         config_overrides: Optional[SESv2ClientConfig] = None,
     ) -> "aws_sdk_sesv2.types.update_email_identity_policy_response.UpdateEmailIdentityPolicyResponse":
-        """<p>Updates the specified sending authorization policy for the given identity (an email address or a domain). This API returns successfully even if a policy with the specified name does not exist.</p> <note> <p>This API is for the identity owner only. If you have not verified the identity, this API will return an error.</p> </note> <p>Sending authorization is a feature that enables an identity owner to authorize other senders to use its identities. For information about using sending authorization, see the <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html\">Amazon SES Developer Guide</a>.</p> <p>You can execute this operation no more than once per second.</p>
+        r"""<p>Updates the specified sending authorization policy for the given identity (an email address or a domain). This API returns successfully even if a policy with the specified name does not exist.</p> <note> <p>This API is for the identity owner only. If you have not verified the identity, this API will return an error.</p> </note> <p>Sending authorization is a feature that enables an identity owner to authorize other senders to use its identities. For information about using sending authorization, see the <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html\">Amazon SES Developer Guide</a>.</p> <p>You can execute this operation no more than once per second.</p>
 
         Args:
             email_identity: <p>The email identity.</p>
@@ -5359,7 +5359,7 @@ class SESv2Client:
     ) -> (
         "aws_sdk_sesv2.types.update_email_template_response.UpdateEmailTemplateResponse"
     ):
-        """<p>Updates an email template. Email templates enable you to send personalized email to one or more destinations in a single API operation. For more information, see the <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html\">Amazon SES Developer Guide</a>.</p> <p>You can execute this operation no more than once per second.</p>
+        r"""<p>Updates an email template. Email templates enable you to send personalized email to one or more destinations in a single API operation. For more information, see the <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html\">Amazon SES Developer Guide</a>.</p> <p>You can execute this operation no more than once per second.</p>
 
         Args:
             template_name: <p>The name of the template.</p>

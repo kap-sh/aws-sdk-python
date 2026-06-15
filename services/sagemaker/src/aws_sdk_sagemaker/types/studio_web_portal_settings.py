@@ -20,7 +20,7 @@ class StudioWebPortalSettings(TypedDict):
     hidden_app_types: NotRequired[
         "aws_sdk_sagemaker.types.hidden_app_types_list.HiddenAppTypesList"
     ]
-    """<p>The <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/studio-updated-apps.html\">Applications supported in Studio</a> that are hidden from the Studio left navigation pane.</p>"""
+    r"""<p>The <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/studio-updated-apps.html\">Applications supported in Studio</a> that are hidden from the Studio left navigation pane.</p>"""
     hidden_instance_types: NotRequired[
         "aws_sdk_sagemaker.types.hidden_instance_types_list.HiddenInstanceTypesList"
     ]

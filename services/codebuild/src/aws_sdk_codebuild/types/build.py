@@ -48,7 +48,7 @@ class Build(TypedDict):
     source_version: NotRequired[
         "aws_sdk_codebuild.types.non_empty_string.NonEmptyString"
     ]
-    """<p>Any version identifier for the version of the source code to be built. If <code>sourceVersion</code> is specified at the project level, then this <code>sourceVersion</code> (at the build level) takes precedence. </p> <p> For more information, see <a href=\"https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html\">Source Version Sample with CodeBuild</a> in the <i>CodeBuild User Guide</i>. </p>"""
+    r"""<p>Any version identifier for the version of the source code to be built. If <code>sourceVersion</code> is specified at the project level, then this <code>sourceVersion</code> (at the build level) takes precedence. </p> <p> For more information, see <a href=\"https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html\">Source Version Sample with CodeBuild</a> in the <i>CodeBuild User Guide</i>. </p>"""
     resolved_source_version: NotRequired[
         "aws_sdk_codebuild.types.non_empty_string.NonEmptyString"
     ]
@@ -106,7 +106,7 @@ class Build(TypedDict):
     exported_environment_variables: NotRequired[
         "aws_sdk_codebuild.types.exported_environment_variables.ExportedEnvironmentVariables"
     ]
-    """<p>A list of exported environment variables for this build.</p> <p>Exported environment variables are used in conjunction with CodePipeline to export environment variables from the current build stage to subsequent stages in the pipeline. For more information, see <a href=\"https://docs.aws.amazon.com/codepipeline/latest/userguide/actions-variables.html\">Working with variables</a> in the <i>CodePipeline User Guide</i>.</p>"""
+    r"""<p>A list of exported environment variables for this build.</p> <p>Exported environment variables are used in conjunction with CodePipeline to export environment variables from the current build stage to subsequent stages in the pipeline. For more information, see <a href=\"https://docs.aws.amazon.com/codepipeline/latest/userguide/actions-variables.html\">Working with variables</a> in the <i>CodePipeline User Guide</i>.</p>"""
     report_arns: NotRequired[
         "aws_sdk_codebuild.types.build_report_arns.BuildReportArns"
     ]

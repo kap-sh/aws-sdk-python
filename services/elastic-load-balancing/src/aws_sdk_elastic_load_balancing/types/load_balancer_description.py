@@ -33,7 +33,7 @@ class LoadBalancerDescription(TypedDict):
     canonical_hosted_zone_name: NotRequired[
         "aws_sdk_elastic_load_balancing.types.dns_name.DNSName"
     ]
-    """<p>The DNS name of the load balancer.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/using-domain-names-with-elb.html\">Configure a Custom Domain Name</a> in the <i>Classic Load Balancers Guide</i>.</p>"""
+    r"""<p>The DNS name of the load balancer.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/using-domain-names-with-elb.html\">Configure a Custom Domain Name</a> in the <i>Classic Load Balancers Guide</i>.</p>"""
     canonical_hosted_zone_name_id: NotRequired[
         "aws_sdk_elastic_load_balancing.types.dns_name.DNSName"
     ]

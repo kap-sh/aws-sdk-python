@@ -10,7 +10,7 @@ if TYPE_CHECKING:
 
 class Identity(TypedDict):
     oidc: NotRequired["aws_sdk_eks.types.oidc.OIDC"]
-    """<p>An object representing the <a href=\"https://openid.net/connect/\">OpenID Connect</a> identity provider information.</p>"""
+    r"""<p>An object representing the <a href=\"https://openid.net/connect/\">OpenID Connect</a> identity provider information.</p>"""
 
 
 # --- restJson1 ser/de ---

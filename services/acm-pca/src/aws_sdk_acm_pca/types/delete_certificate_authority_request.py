@@ -13,7 +13,7 @@ if TYPE_CHECKING:
 
 class DeleteCertificateAuthorityRequest(TypedDict):
     certificate_authority_arn: "aws_sdk_acm_pca.types.arn.Arn"
-    """<p>The Amazon Resource Name (ARN) that was returned when you called <a href=\"https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html\">CreateCertificateAuthority</a>. This must have the following form: </p> <p> <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i> </code>. </p>"""
+    r"""<p>The Amazon Resource Name (ARN) that was returned when you called <a href=\"https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html\">CreateCertificateAuthority</a>. This must have the following form: </p> <p> <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i> </code>. </p>"""
     permanent_deletion_time_in_days: NotRequired[
         "aws_sdk_acm_pca.types.permanent_deletion_time_in_days.PermanentDeletionTimeInDays"
     ]

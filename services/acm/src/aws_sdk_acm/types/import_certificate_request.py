@@ -16,7 +16,7 @@ if TYPE_CHECKING:
 
 class ImportCertificateRequest(TypedDict):
     certificate_arn: NotRequired["aws_sdk_acm.types.arn.Arn"]
-    """<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of an imported certificate to replace. To import a new certificate, omit this field. </p>"""
+    r"""<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of an imported certificate to replace. To import a new certificate, omit this field. </p>"""
     certificate: "aws_sdk_acm.types.certificate_body_blob.CertificateBodyBlob"
     """<p>The certificate to import.</p>"""
     private_key: "aws_sdk_acm.types.private_key_blob.PrivateKeyBlob"

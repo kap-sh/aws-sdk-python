@@ -42,7 +42,7 @@ class StartPiiEntitiesDetectionJobRequest(TypedDict):
     ]
     """<p>A unique identifier for the request. If you don't set the client request token, Amazon Comprehend generates one.</p>"""
     tags: NotRequired["aws_sdk_comprehend.types.tag_list.TagList"]
-    """<p>Tags to associate with the PII entities detection job. A tag is a key-value pair that adds metadata to a resource used by Amazon Comprehend. For example, a tag with \"Sales\" as the key might be added to a resource to indicate its use by the sales department.</p>"""
+    r"""<p>Tags to associate with the PII entities detection job. A tag is a key-value pair that adds metadata to a resource used by Amazon Comprehend. For example, a tag with \"Sales\" as the key might be added to a resource to indicate its use by the sales department.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

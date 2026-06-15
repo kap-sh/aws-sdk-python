@@ -31,7 +31,7 @@ class InboundIntegration(TypedDict):
     errors: NotRequired[
         "aws_sdk_redshift.types.integration_error_list.IntegrationErrorList"
     ]
-    """<p>The outstanding errors of an inbound integration. Each item is an \"IntegrationError\". This is null if there is no error.</p>"""
+    r"""<p>The outstanding errors of an inbound integration. Each item is an \"IntegrationError\". This is null if there is no error.</p>"""
     create_time: NotRequired["aws_sdk_redshift.types.t_stamp.TStamp"]
     """<p>The creation time of an inbound integration.</p>"""
 

@@ -91,7 +91,7 @@ class Contact(TypedDict):
     scheduled_timestamp: NotRequired["aws_sdk_connect.types.timestamp.Timestamp"]
     """<p>The timestamp, in Unix epoch time format, at which to start running the inbound flow. </p>"""
     related_contact_id: NotRequired["aws_sdk_connect.types.contact_id.ContactId"]
-    """<p>The contactId that is <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html#relatedcontactid\">related</a> to this contact.</p>"""
+    r"""<p>The contactId that is <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html#relatedcontactid\">related</a> to this contact.</p>"""
     wisdom_info: NotRequired["aws_sdk_connect.types.wisdom_info.WisdomInfo"]
     """<p>Information about Connect Customer Wisdom.</p>"""
     customer_id: NotRequired["aws_sdk_connect.types.customer_id.CustomerId"]
@@ -122,7 +122,7 @@ class Contact(TypedDict):
     answering_machine_detection_status: NotRequired[
         "aws_sdk_connect.types.answering_machine_detection_status.AnsweringMachineDetectionStatus"
     ]
-    """<p>Indicates how an <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/how-to-create-campaigns.html\">outbound campaign</a> call is actually disposed if the contact is connected to Connect Customer.</p>"""
+    r"""<p>Indicates how an <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/how-to-create-campaigns.html\">outbound campaign</a> call is actually disposed if the contact is connected to Connect Customer.</p>"""
     customer_voice_activity: NotRequired[
         "aws_sdk_connect.types.customer_voice_activity.CustomerVoiceActivity"
     ]
@@ -146,7 +146,7 @@ class Contact(TypedDict):
     recordings: NotRequired["aws_sdk_connect.types.recordings.Recordings"]
     """<p>If recording was enabled, this is information about the recordings.</p>"""
     disconnect_reason: NotRequired["aws_sdk_connect.types.string.String"]
-    """<p>The disconnect reason for the contact. For a list and description of all the possible disconnect reasons by channel, see DisconnectReason under <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/ctr-data-model.html#ctr-ContactTraceRecord\">ContactTraceRecord</a> in the <i>Connect Customer Administrator Guide</i>. </p>"""
+    r"""<p>The disconnect reason for the contact. For a list and description of all the possible disconnect reasons by channel, see DisconnectReason under <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/ctr-data-model.html#ctr-ContactTraceRecord\">ContactTraceRecord</a> in the <i>Connect Customer Administrator Guide</i>. </p>"""
     contact_evaluations: NotRequired[
         "aws_sdk_connect.types.contact_evaluations.ContactEvaluations"
     ]

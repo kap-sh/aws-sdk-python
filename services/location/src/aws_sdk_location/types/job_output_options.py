@@ -11,7 +11,7 @@ if TYPE_CHECKING:
 
 class JobOutputOptions(TypedDict):
     format: "aws_sdk_location.types.job_output_format.JobOutputFormat"
-    """<p>Output data format. Currently only \"Parquet\" is supported.</p>"""
+    r"""<p>Output data format. Currently only \"Parquet\" is supported.</p>"""
     location: "aws_sdk_location.types.job_output_location.JobOutputLocation"
     """<p>S3 ARN or URI where output files will be written.</p> <note> <p>The Amazon S3 bucket must exist in the same Amazon Web Services region where you plan to run your job.</p> </note>"""
 

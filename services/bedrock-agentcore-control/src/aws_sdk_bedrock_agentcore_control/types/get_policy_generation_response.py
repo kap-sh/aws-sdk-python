@@ -1,8 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#GetPolicyGenerationResponse``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.date_timestamp
     import aws_sdk_bedrock_agentcore_control.types.policy_generation_arn
@@ -13,10 +16,13 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.resource_id
     import aws_sdk_bedrock_agentcore_control.types.string
 
+
 class GetPolicyGenerationResponse(TypedDict):
     policy_engine_id: "aws_sdk_bedrock_agentcore_control.types.resource_id.ResourceId"
     """<p>The identifier of the policy engine associated with this policy generation. This confirms the policy engine context for the generation operation.</p>"""
-    policy_generation_id: "aws_sdk_bedrock_agentcore_control.types.resource_id.ResourceId"
+    policy_generation_id: (
+        "aws_sdk_bedrock_agentcore_control.types.resource_id.ResourceId"
+    )
     """<p>The unique identifier of the policy generation request. This matches the generation ID provided in the request and serves as the tracking identifier.</p>"""
     name: "aws_sdk_bedrock_agentcore_control.types.policy_generation_name.PolicyGenerationName"
     """<p>The customer-assigned name for the policy generation request. This helps identify and track generation operations across multiple requests.</p>"""
@@ -35,6 +41,7 @@ class GetPolicyGenerationResponse(TypedDict):
     status_reasons: "aws_sdk_bedrock_agentcore_control.types.policy_status_reasons.PolicyStatusReasons"
     """<p>Additional information about the generation status. This provides details about any failures, warnings, or the current state of the generation process.</p>"""
 
+
 # --- restJson1 ser/de ---
 def serialize_json(value: GetPolicyGenerationResponse) -> dict:
     out: dict = {}
@@ -43,17 +50,40 @@ def serialize_json(value: GetPolicyGenerationResponse) -> dict:
     out["name"] = value["name"]
     out["policyGenerationArn"] = value["policy_generation_arn"]
     import aws_sdk_bedrock_agentcore_control.types.resource
-    out["resource"] = aws_sdk_bedrock_agentcore_control.types.resource.serialize_json(value["resource"])
+
+    out["resource"] = aws_sdk_bedrock_agentcore_control.types.resource.serialize_json(
+        value["resource"]
+    )
     import aws_sdk_bedrock_agentcore_control.types.date_timestamp
-    out["createdAt"] = aws_sdk_bedrock_agentcore_control.types.date_timestamp.serialize_json(value["created_at"])
+
+    out["createdAt"] = (
+        aws_sdk_bedrock_agentcore_control.types.date_timestamp.serialize_json(
+            value["created_at"]
+        )
+    )
     import aws_sdk_bedrock_agentcore_control.types.date_timestamp
-    out["updatedAt"] = aws_sdk_bedrock_agentcore_control.types.date_timestamp.serialize_json(value["updated_at"])
+
+    out["updatedAt"] = (
+        aws_sdk_bedrock_agentcore_control.types.date_timestamp.serialize_json(
+            value["updated_at"]
+        )
+    )
     import aws_sdk_bedrock_agentcore_control.types.policy_generation_status
-    out["status"] = aws_sdk_bedrock_agentcore_control.types.policy_generation_status.serialize_json(value["status"])
+
+    out["status"] = (
+        aws_sdk_bedrock_agentcore_control.types.policy_generation_status.serialize_json(
+            value["status"]
+        )
+    )
     if "findings" in value:
         out["findings"] = value["findings"]
     import aws_sdk_bedrock_agentcore_control.types.policy_status_reasons
-    out["statusReasons"] = aws_sdk_bedrock_agentcore_control.types.policy_status_reasons.serialize_json(value["status_reasons"])
+
+    out["statusReasons"] = (
+        aws_sdk_bedrock_agentcore_control.types.policy_status_reasons.serialize_json(
+            value["status_reasons"]
+        )
+    )
     return out
 
 
@@ -62,11 +92,15 @@ def deserialize_json(data: dict) -> GetPolicyGenerationResponse:
     if "policyEngineId" in data:
         out["policy_engine_id"] = data["policyEngineId"]
     else:
-        raise DeserializationError("GetPolicyGenerationResponse.policy_engine_id required")
+        raise DeserializationError(
+            "GetPolicyGenerationResponse.policy_engine_id required"
+        )
     if "policyGenerationId" in data:
         out["policy_generation_id"] = data["policyGenerationId"]
     else:
-        raise DeserializationError("GetPolicyGenerationResponse.policy_generation_id required")
+        raise DeserializationError(
+            "GetPolicyGenerationResponse.policy_generation_id required"
+        )
     if "name" in data:
         out["name"] = data["name"]
     else:
@@ -74,32 +108,61 @@ def deserialize_json(data: dict) -> GetPolicyGenerationResponse:
     if "policyGenerationArn" in data:
         out["policy_generation_arn"] = data["policyGenerationArn"]
     else:
-        raise DeserializationError("GetPolicyGenerationResponse.policy_generation_arn required")
+        raise DeserializationError(
+            "GetPolicyGenerationResponse.policy_generation_arn required"
+        )
     if "resource" in data:
         import aws_sdk_bedrock_agentcore_control.types.resource
-        out["resource"] = aws_sdk_bedrock_agentcore_control.types.resource.deserialize_json(data["resource"])
+
+        out["resource"] = (
+            aws_sdk_bedrock_agentcore_control.types.resource.deserialize_json(
+                data["resource"]
+            )
+        )
     else:
         raise DeserializationError("GetPolicyGenerationResponse.resource required")
     if "createdAt" in data:
         import aws_sdk_bedrock_agentcore_control.types.date_timestamp
-        out["created_at"] = aws_sdk_bedrock_agentcore_control.types.date_timestamp.deserialize_json(data["createdAt"])
+
+        out["created_at"] = (
+            aws_sdk_bedrock_agentcore_control.types.date_timestamp.deserialize_json(
+                data["createdAt"]
+            )
+        )
     else:
         raise DeserializationError("GetPolicyGenerationResponse.created_at required")
     if "updatedAt" in data:
         import aws_sdk_bedrock_agentcore_control.types.date_timestamp
-        out["updated_at"] = aws_sdk_bedrock_agentcore_control.types.date_timestamp.deserialize_json(data["updatedAt"])
+
+        out["updated_at"] = (
+            aws_sdk_bedrock_agentcore_control.types.date_timestamp.deserialize_json(
+                data["updatedAt"]
+            )
+        )
     else:
         raise DeserializationError("GetPolicyGenerationResponse.updated_at required")
     if "status" in data:
         import aws_sdk_bedrock_agentcore_control.types.policy_generation_status
-        out["status"] = aws_sdk_bedrock_agentcore_control.types.policy_generation_status.deserialize_json(data["status"])
+
+        out["status"] = (
+            aws_sdk_bedrock_agentcore_control.types.policy_generation_status.deserialize_json(
+                data["status"]
+            )
+        )
     else:
         raise DeserializationError("GetPolicyGenerationResponse.status required")
     if "findings" in data:
         out["findings"] = data["findings"]
     if "statusReasons" in data:
         import aws_sdk_bedrock_agentcore_control.types.policy_status_reasons
-        out["status_reasons"] = aws_sdk_bedrock_agentcore_control.types.policy_status_reasons.deserialize_json(data["statusReasons"])
+
+        out["status_reasons"] = (
+            aws_sdk_bedrock_agentcore_control.types.policy_status_reasons.deserialize_json(
+                data["statusReasons"]
+            )
+        )
     else:
-        raise DeserializationError("GetPolicyGenerationResponse.status_reasons required")
+        raise DeserializationError(
+            "GetPolicyGenerationResponse.status_reasons required"
+        )
     return out

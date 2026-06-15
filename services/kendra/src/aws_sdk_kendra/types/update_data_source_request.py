@@ -33,19 +33,19 @@ class UpdateDataSourceRequest(TypedDict):
     vpc_configuration: NotRequired[
         "aws_sdk_kendra.types.data_source_vpc_configuration.DataSourceVpcConfiguration"
     ]
-    """<p>Configuration information for an Amazon Virtual Private Cloud to connect to your data source. For more information, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/vpc-configuration.html\">Configuring a VPC</a>.</p>"""
+    r"""<p>Configuration information for an Amazon Virtual Private Cloud to connect to your data source. For more information, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/vpc-configuration.html\">Configuring a VPC</a>.</p>"""
     description: NotRequired["aws_sdk_kendra.types.description.Description"]
     """<p>A new description for the data source connector.</p>"""
     schedule: NotRequired["aws_sdk_kendra.types.scan_schedule.ScanSchedule"]
     """<p>The sync schedule you want to update for the data source connector.</p>"""
     role_arn: NotRequired["aws_sdk_kendra.types.role_arn.RoleArn"]
-    """<p>The Amazon Resource Name (ARN) of an IAM role with permission to access the data source and required resources. For more information, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html\">IAM roles for Amazon Kendra</a>.</p>"""
+    r"""<p>The Amazon Resource Name (ARN) of an IAM role with permission to access the data source and required resources. For more information, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html\">IAM roles for Amazon Kendra</a>.</p>"""
     language_code: NotRequired["aws_sdk_kendra.types.language_code.LanguageCode"]
-    """<p>The code for a language you want to update for the data source connector. This allows you to support a language for all documents when updating the data source. English is supported by default. For more information on supported languages, including their codes, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html\">Adding documents in languages other than English</a>.</p>"""
+    r"""<p>The code for a language you want to update for the data source connector. This allows you to support a language for all documents when updating the data source. English is supported by default. For more information on supported languages, including their codes, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html\">Adding documents in languages other than English</a>.</p>"""
     custom_document_enrichment_configuration: NotRequired[
         "aws_sdk_kendra.types.custom_document_enrichment_configuration.CustomDocumentEnrichmentConfiguration"
     ]
-    """<p>Configuration information you want to update for altering document metadata and content during the document ingestion process.</p> <p>For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html\">Customizing document metadata during the ingestion process</a>.</p>"""
+    r"""<p>Configuration information you want to update for altering document metadata and content during the document ingestion process.</p> <p>For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html\">Customizing document metadata during the ingestion process</a>.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

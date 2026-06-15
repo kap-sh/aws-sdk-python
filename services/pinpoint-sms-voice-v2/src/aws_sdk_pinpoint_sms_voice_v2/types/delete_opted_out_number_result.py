@@ -23,7 +23,7 @@ class DeleteOptedOutNumberResult(TypedDict):
     ]
     """<p>The phone number that was removed from the OptOutList.</p>"""
     opted_out_timestamp: NotRequired["datetime.datetime"]
-    """<p>The time that the number was removed at, in <a href=\"https://www.epochconverter.com/\">UNIX epoch time</a> format.</p>"""
+    r"""<p>The time that the number was removed at, in <a href=\"https://www.epochconverter.com/\">UNIX epoch time</a> format.</p>"""
     end_user_opted_out: "bool"
     """<p>This is true if it was the end user who requested their phone number be removed. </p>"""
 

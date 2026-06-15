@@ -24,7 +24,7 @@ class SplunkDestinationDescription(TypedDict):
     hec_endpoint_type: NotRequired[
         "aws_sdk_firehose.types.hec_endpoint_type.HECEndpointType"
     ]
-    """<p>This type can be either \"Raw\" or \"Event.\"</p>"""
+    r"""<p>This type can be either \"Raw\" or \"Event.\"</p>"""
     hec_token: NotRequired["aws_sdk_firehose.types.hec_token.HECToken"]
     """<p>A GUID you obtain from your Splunk cluster when you create a new HEC endpoint.</p>"""
     hec_acknowledgment_timeout_in_seconds: NotRequired[

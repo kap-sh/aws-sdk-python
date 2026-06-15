@@ -13,7 +13,7 @@ class SqlParameter(TypedDict):
     name: "aws_sdk_redshift_data.types.parameter_name.ParameterName"
     """<p>The name of the parameter.</p>"""
     value: "aws_sdk_redshift_data.types.parameter_value.ParameterValue"
-    """<p>The value of the parameter. Amazon Redshift implicitly converts to the proper data type. For more information, see <a href=\"https://docs.aws.amazon.com/redshift/latest/dg/c_Supported_data_types.html\">Data types</a> in the <i>Amazon Redshift Database Developer Guide</i>. </p>"""
+    r"""<p>The value of the parameter. Amazon Redshift implicitly converts to the proper data type. For more information, see <a href=\"https://docs.aws.amazon.com/redshift/latest/dg/c_Supported_data_types.html\">Data types</a> in the <i>Amazon Redshift Database Developer Guide</i>. </p>"""
 
 
 # --- awsJson1_1 ser/de ---

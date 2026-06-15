@@ -10,7 +10,7 @@ if TYPE_CHECKING:
 
 class GetGroupQueryOutput(TypedDict):
     group_query: NotRequired["aws_sdk_resource_groups.types.group_query.GroupQuery"]
-    """<p>The resource query associated with the specified group. For more information about resource queries, see <a href=\"https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#gettingstarted-query-cli-tag\">Create a tag-based group in Resource Groups</a>.</p>"""
+    r"""<p>The resource query associated with the specified group. For more information about resource queries, see <a href=\"https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#gettingstarted-query-cli-tag\">Create a tag-based group in Resource Groups</a>.</p>"""
 
 
 # --- restJson1 ser/de ---

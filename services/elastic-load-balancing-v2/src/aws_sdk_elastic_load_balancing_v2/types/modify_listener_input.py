@@ -31,7 +31,7 @@ class ModifyListenerInput(TypedDict):
     ssl_policy: NotRequired[
         "aws_sdk_elastic_load_balancing_v2.types.ssl_policy_name.SslPolicyName"
     ]
-    """<p>[HTTPS and TLS listeners] The security policy that defines which protocols and ciphers are supported.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/application/describe-ssl-policies.html\">Security policies</a> in the <i>Application Load Balancers Guide</i> or <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/network/describe-ssl-policies.html\">Security policies</a> in the <i>Network Load Balancers Guide</i>.</p>"""
+    r"""<p>[HTTPS and TLS listeners] The security policy that defines which protocols and ciphers are supported.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/application/describe-ssl-policies.html\">Security policies</a> in the <i>Application Load Balancers Guide</i> or <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/network/describe-ssl-policies.html\">Security policies</a> in the <i>Network Load Balancers Guide</i>.</p>"""
     certificates: NotRequired[
         "aws_sdk_elastic_load_balancing_v2.types.certificate_list.CertificateList"
     ]
@@ -43,7 +43,7 @@ class ModifyListenerInput(TypedDict):
     alpn_policy: NotRequired[
         "aws_sdk_elastic_load_balancing_v2.types.alpn_policy_name.AlpnPolicyName"
     ]
-    """<p>[TLS listeners] The name of the Application-Layer Protocol Negotiation (ALPN) policy. You can specify one policy name. The following are the possible values:</p> <ul> <li> <p> <code>HTTP1Only</code> </p> </li> <li> <p> <code>HTTP2Only</code> </p> </li> <li> <p> <code>HTTP2Optional</code> </p> </li> <li> <p> <code>HTTP2Preferred</code> </p> </li> <li> <p> <code>None</code> </p> </li> </ul> <p>For more information, see <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-listeners.html#alpn-policies\">ALPN policies</a> in the <i>Network Load Balancers Guide</i>.</p>"""
+    r"""<p>[TLS listeners] The name of the Application-Layer Protocol Negotiation (ALPN) policy. You can specify one policy name. The following are the possible values:</p> <ul> <li> <p> <code>HTTP1Only</code> </p> </li> <li> <p> <code>HTTP2Only</code> </p> </li> <li> <p> <code>HTTP2Optional</code> </p> </li> <li> <p> <code>HTTP2Preferred</code> </p> </li> <li> <p> <code>None</code> </p> </li> </ul> <p>For more information, see <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-listeners.html#alpn-policies\">ALPN policies</a> in the <i>Network Load Balancers Guide</i>.</p>"""
     mutual_authentication: NotRequired[
         "aws_sdk_elastic_load_balancing_v2.types.mutual_authentication_attributes.MutualAuthenticationAttributes"
     ]

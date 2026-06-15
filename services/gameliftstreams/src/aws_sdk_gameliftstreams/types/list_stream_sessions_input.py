@@ -26,7 +26,7 @@ class ListStreamSessionsInput(TypedDict):
     max_results: NotRequired["aws_sdk_gameliftstreams.types.max_results.MaxResults"]
     """<p>The number of results to return. Use this parameter with <code>NextToken</code> to return results in sequential pages. Default value is <code>25</code>. </p>"""
     identifier: "aws_sdk_gameliftstreams.types.identifier.Identifier"
-    """<p>The unique identifier of a Amazon GameLift Streams stream group to retrieve the stream session for. You can use either the stream group ID or the <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html\">Amazon Resource Name (ARN)</a>.</p>"""
+    r"""<p>The unique identifier of a Amazon GameLift Streams stream group to retrieve the stream session for. You can use either the stream group ID or the <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html\">Amazon Resource Name (ARN)</a>.</p>"""
 
 
 # --- restJson1 ser/de ---

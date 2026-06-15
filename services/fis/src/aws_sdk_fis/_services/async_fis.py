@@ -180,7 +180,7 @@ class AsyncfisClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = AsyncfisClientConfig(
+        self._config = AsyncfisClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -200,7 +200,7 @@ class AsyncfisClient:
         overrides: AsyncfisClientConfig = config_overrides or {}
         interceptors_: list[AsyncInterceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             aretry(),
         ]
@@ -208,16 +208,16 @@ class AsyncfisClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            region=overrides.get("region", self.config.get("region")),
+            region=overrides.get("region", self._config.get("region")),
             use_dual_stack=overrides.get(
-                "use_dual_stack", self.config.get("use_dual_stack")
+                "use_dual_stack", self._config.get("use_dual_stack")
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -245,7 +245,7 @@ class AsyncfisClient:
             "aws_sdk_fis.types.create_experiment_template_report_configuration_input.CreateExperimentTemplateReportConfigurationInput"
         ] = None,
     ) -> "aws_sdk_fis.types.create_experiment_template_response.CreateExperimentTemplateResponse":
-        """<p>Creates an experiment template. </p> <p>An experiment template includes the following components:</p> <ul> <li> <p> <b>Targets</b>: A target can be a specific resource in your Amazon Web Services environment, or one or more resources that match criteria that you specify, for example, resources that have specific tags.</p> </li> <li> <p> <b>Actions</b>: The actions to carry out on the target. You can specify multiple actions, the duration of each action, and when to start each action during an experiment.</p> </li> <li> <p> <b>Stop conditions</b>: If a stop condition is triggered while an experiment is running, the experiment is automatically stopped. You can define a stop condition as a CloudWatch alarm.</p> </li> </ul> <p>For more information, see <a href=\"https://docs.aws.amazon.com/fis/latest/userguide/experiment-templates.html\">experiment templates</a> in the <i>Fault Injection Service User Guide</i>.</p>
+        r"""<p>Creates an experiment template. </p> <p>An experiment template includes the following components:</p> <ul> <li> <p> <b>Targets</b>: A target can be a specific resource in your Amazon Web Services environment, or one or more resources that match criteria that you specify, for example, resources that have specific tags.</p> </li> <li> <p> <b>Actions</b>: The actions to carry out on the target. You can specify multiple actions, the duration of each action, and when to start each action during an experiment.</p> </li> <li> <p> <b>Stop conditions</b>: If a stop condition is triggered while an experiment is running, the experiment is automatically stopped. You can define a stop condition as a CloudWatch alarm.</p> </li> </ul> <p>For more information, see <a href=\"https://docs.aws.amazon.com/fis/latest/userguide/experiment-templates.html\">experiment templates</a> in the <i>Fault Injection Service User Guide</i>.</p>
 
         Args:
             client_token: <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
@@ -312,7 +312,7 @@ class AsyncfisClient:
             "aws_sdk_fis.types.target_account_configuration_description.TargetAccountConfigurationDescription"
         ] = None,
     ) -> "aws_sdk_fis.types.create_target_account_configuration_response.CreateTargetAccountConfigurationResponse":
-        """<p>Creates a target account configuration for the experiment template. A target account configuration is required when <code>accountTargeting</code> of <code>experimentOptions</code> is set to <code>multi-account</code>. For more information, see <a href=\"https://docs.aws.amazon.com/fis/latest/userguide/experiment-options.html\">experiment options</a> in the <i>Fault Injection Service User Guide</i>. </p>
+        r"""<p>Creates a target account configuration for the experiment template. A target account configuration is required when <code>accountTargeting</code> of <code>experimentOptions</code> is set to <code>multi-account</code>. For more information, see <a href=\"https://docs.aws.amazon.com/fis/latest/userguide/experiment-options.html\">experiment options</a> in the <i>Fault Injection Service User Guide</i>. </p>
 
         Args:
             client_token: <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>

@@ -15,7 +15,7 @@ class DeleteTagsRequest(TypedDict):
     configuration_ids: "aws_sdk_application_discovery_service.types.configuration_id_list.ConfigurationIdList"
     """<p>A list of configuration items with tags that you want to delete.</p>"""
     tags: NotRequired["aws_sdk_application_discovery_service.types.tag_set.TagSet"]
-    """<p>Tags that you want to delete from one or more configuration items. Specify the tags that you want to delete in a <i>key</i>-<i>value</i> format. For example:</p> <p> <code>{\"key\": \"serverType\", \"value\": \"webServer\"}</code> </p>"""
+    r"""<p>Tags that you want to delete from one or more configuration items. Specify the tags that you want to delete in a <i>key</i>-<i>value</i> format. For example:</p> <p> <code>{\"key\": \"serverType\", \"value\": \"webServer\"}</code> </p>"""
 
 
 # --- awsJson1_1 ser/de ---

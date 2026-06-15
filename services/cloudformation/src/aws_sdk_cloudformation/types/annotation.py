@@ -27,11 +27,11 @@ class Annotation(TypedDict):
     status_message: NotRequired[
         "aws_sdk_cloudformation.types.remediation_message_status_message.RemediationMessageStatusMessage"
     ]
-    """<p>The explanation for the specific status assigned to this Hook invocation. For example, \"Bucket does not block public access\".</p>"""
+    r"""<p>The explanation for the specific status assigned to this Hook invocation. For example, \"Bucket does not block public access\".</p>"""
     remediation_message: NotRequired[
         "aws_sdk_cloudformation.types.remediation_message_remediation_message.RemediationMessageRemediationMessage"
     ]
-    """<p>Suggests what to change if your Hook returns a <code>FAILED</code> status. For example, \"Block public access to the bucket\".</p>"""
+    r"""<p>Suggests what to change if your Hook returns a <code>FAILED</code> status. For example, \"Block public access to the bucket\".</p>"""
     remediation_link: NotRequired[
         "aws_sdk_cloudformation.types.annotation_remediation_link.AnnotationRemediationLink"
     ]

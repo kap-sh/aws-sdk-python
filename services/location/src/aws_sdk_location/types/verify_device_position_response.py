@@ -17,9 +17,9 @@ class VerifyDevicePositionResponse(TypedDict):
     device_id: "aws_sdk_location.types.id.Id"
     """<p>The device identifier.</p>"""
     sample_time: "aws_sdk_location.types.timestamp.Timestamp"
-    """<p>The timestamp at which the device's position was determined. Uses <a href=\"https://www.iso.org/iso-8601-date-and-time-format.html\"> ISO 8601 </a> format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>"""
+    r"""<p>The timestamp at which the device's position was determined. Uses <a href=\"https://www.iso.org/iso-8601-date-and-time-format.html\"> ISO 8601 </a> format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>"""
     received_time: "aws_sdk_location.types.timestamp.Timestamp"
-    """<p>The timestamp for when the tracker resource received the device position in <a href=\"https://www.iso.org/iso-8601-date-and-time-format.html\"> ISO 8601 </a> format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>"""
+    r"""<p>The timestamp for when the tracker resource received the device position in <a href=\"https://www.iso.org/iso-8601-date-and-time-format.html\"> ISO 8601 </a> format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>"""
     distance_unit: "aws_sdk_location.types.distance_unit.DistanceUnit"
     """<p>The distance unit for the verification response.</p>"""
 

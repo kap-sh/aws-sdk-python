@@ -1,10 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#EntryPoints``."""
 
 from typing import TYPE_CHECKING, TypeAlias
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.entry_point
 
-EntryPoints: TypeAlias = list["aws_sdk_bedrock_agentcore_control.types.entry_point.entryPoint"]
+EntryPoints: TypeAlias = list[
+    "aws_sdk_bedrock_agentcore_control.types.entry_point.entryPoint"
+]
 
 
 # --- restJson1 ser/de ---

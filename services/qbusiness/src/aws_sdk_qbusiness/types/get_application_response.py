@@ -73,7 +73,7 @@ class GetApplicationResponse(TypedDict):
     personalization_configuration: NotRequired[
         "aws_sdk_qbusiness.types.personalization_configuration.PersonalizationConfiguration"
     ]
-    """<p>Configuration information about chat response personalization. For more information, see <a href=\"https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/personalizing-chat-responses.html\">Personalizing chat responses</a>.</p>"""
+    r"""<p>Configuration information about chat response personalization. For more information, see <a href=\"https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/personalizing-chat-responses.html\">Personalizing chat responses</a>.</p>"""
     auto_subscription_configuration: NotRequired[
         "aws_sdk_qbusiness.types.auto_subscription_configuration.AutoSubscriptionConfiguration"
     ]

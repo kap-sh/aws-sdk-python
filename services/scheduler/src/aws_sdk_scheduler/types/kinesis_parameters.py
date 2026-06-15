@@ -10,7 +10,7 @@ if TYPE_CHECKING:
 
 class KinesisParameters(TypedDict):
     partition_key: "aws_sdk_scheduler.types.target_partition_key.TargetPartitionKey"
-    """<p>Specifies the shard to which EventBridge Scheduler sends the event. For more information, see <a href=\"https://docs.aws.amazon.com/streams/latest/dev/key-concepts.html\">Amazon Kinesis Data Streams terminology and concepts</a> in the <i>Amazon Kinesis Streams Developer Guide</i>.</p>"""
+    r"""<p>Specifies the shard to which EventBridge Scheduler sends the event. For more information, see <a href=\"https://docs.aws.amazon.com/streams/latest/dev/key-concepts.html\">Amazon Kinesis Data Streams terminology and concepts</a> in the <i>Amazon Kinesis Streams Developer Guide</i>.</p>"""
 
 
 # --- restJson1 ser/de ---

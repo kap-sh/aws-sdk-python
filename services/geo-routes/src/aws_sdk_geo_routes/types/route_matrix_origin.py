@@ -15,7 +15,7 @@ class RouteMatrixOrigin(TypedDict):
     options: NotRequired[
         "aws_sdk_geo_routes.types.route_matrix_origin_options.RouteMatrixOriginOptions"
     ]
-    """<p> Origin related options. Not supported in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html\">GrabMaps</a> customers. </p>"""
+    r"""<p> Origin related options. Not supported in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html\">GrabMaps</a> customers. </p>"""
     position: "aws_sdk_geo_routes.types.position.Position"
     """<p>Position in World Geodetic System (WGS 84) format: [longitude, latitude].</p>"""
 

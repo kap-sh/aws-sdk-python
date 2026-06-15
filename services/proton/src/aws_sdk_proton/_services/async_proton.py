@@ -291,7 +291,7 @@ class AsyncProtonClient:
         *,
         config_overrides: Optional[AsyncProtonClientConfig] = None,
     ) -> "aws_sdk_proton.types.cancel_component_deployment_output.CancelComponentDeploymentOutput":
-        """<p>Attempts to cancel a component deployment (for a component that is in the <code>IN_PROGRESS</code> deployment status).</p> <p>For more information about components, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html\">Proton components</a> in the <i>Proton User Guide</i>.</p>
+        r"""<p>Attempts to cancel a component deployment (for a component that is in the <code>IN_PROGRESS</code> deployment status).</p> <p>For more information about components, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html\">Proton components</a> in the <i>Proton User Guide</i>.</p>
 
         Args:
             component_name: <p>The name of the component with the deployment to cancel.</p>
@@ -329,7 +329,7 @@ class AsyncProtonClient:
         *,
         config_overrides: Optional[AsyncProtonClientConfig] = None,
     ) -> "aws_sdk_proton.types.cancel_environment_deployment_output.CancelEnvironmentDeploymentOutput":
-        """<p>Attempts to cancel an environment deployment on an <a>UpdateEnvironment</a> action, if the deployment is <code>IN_PROGRESS</code>. For more information, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-env-update.html\">Update an environment</a> in the <i>Proton User guide</i>.</p> <p>The following list includes potential cancellation scenarios.</p> <ul> <li> <p>If the cancellation attempt succeeds, the resulting deployment state is <code>CANCELLED</code>.</p> </li> <li> <p>If the cancellation attempt fails, the resulting deployment state is <code>FAILED</code>.</p> </li> <li> <p>If the current <a>UpdateEnvironment</a> action succeeds before the cancellation attempt starts, the resulting deployment state is <code>SUCCEEDED</code> and the cancellation attempt has no effect.</p> </li> </ul>
+        r"""<p>Attempts to cancel an environment deployment on an <a>UpdateEnvironment</a> action, if the deployment is <code>IN_PROGRESS</code>. For more information, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-env-update.html\">Update an environment</a> in the <i>Proton User guide</i>.</p> <p>The following list includes potential cancellation scenarios.</p> <ul> <li> <p>If the cancellation attempt succeeds, the resulting deployment state is <code>CANCELLED</code>.</p> </li> <li> <p>If the cancellation attempt fails, the resulting deployment state is <code>FAILED</code>.</p> </li> <li> <p>If the current <a>UpdateEnvironment</a> action succeeds before the cancellation attempt starts, the resulting deployment state is <code>SUCCEEDED</code> and the cancellation attempt has no effect.</p> </li> </ul>
 
         Args:
             environment_name: <p>The name of the environment with the deployment to cancel.</p>
@@ -368,7 +368,7 @@ class AsyncProtonClient:
         *,
         config_overrides: Optional[AsyncProtonClientConfig] = None,
     ) -> "aws_sdk_proton.types.cancel_service_instance_deployment_output.CancelServiceInstanceDeploymentOutput":
-        """<p>Attempts to cancel a service instance deployment on an <a>UpdateServiceInstance</a> action, if the deployment is <code>IN_PROGRESS</code>. For more information, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-svc-instance-update.html\">Update a service instance</a> in the <i>Proton User guide</i>.</p> <p>The following list includes potential cancellation scenarios.</p> <ul> <li> <p>If the cancellation attempt succeeds, the resulting deployment state is <code>CANCELLED</code>.</p> </li> <li> <p>If the cancellation attempt fails, the resulting deployment state is <code>FAILED</code>.</p> </li> <li> <p>If the current <a>UpdateServiceInstance</a> action succeeds before the cancellation attempt starts, the resulting deployment state is <code>SUCCEEDED</code> and the cancellation attempt has no effect.</p> </li> </ul>
+        r"""<p>Attempts to cancel a service instance deployment on an <a>UpdateServiceInstance</a> action, if the deployment is <code>IN_PROGRESS</code>. For more information, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-svc-instance-update.html\">Update a service instance</a> in the <i>Proton User guide</i>.</p> <p>The following list includes potential cancellation scenarios.</p> <ul> <li> <p>If the cancellation attempt succeeds, the resulting deployment state is <code>CANCELLED</code>.</p> </li> <li> <p>If the cancellation attempt fails, the resulting deployment state is <code>FAILED</code>.</p> </li> <li> <p>If the current <a>UpdateServiceInstance</a> action succeeds before the cancellation attempt starts, the resulting deployment state is <code>SUCCEEDED</code> and the cancellation attempt has no effect.</p> </li> </ul>
 
         Args:
             service_instance_name: <p>The name of the service instance with the deployment to cancel.</p>
@@ -408,7 +408,7 @@ class AsyncProtonClient:
         *,
         config_overrides: Optional[AsyncProtonClientConfig] = None,
     ) -> "aws_sdk_proton.types.cancel_service_pipeline_deployment_output.CancelServicePipelineDeploymentOutput":
-        """<p>Attempts to cancel a service pipeline deployment on an <a>UpdateServicePipeline</a> action, if the deployment is <code>IN_PROGRESS</code>. For more information, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-svc-pipeline-update.html\">Update a service pipeline</a> in the <i>Proton User guide</i>.</p> <p>The following list includes potential cancellation scenarios.</p> <ul> <li> <p>If the cancellation attempt succeeds, the resulting deployment state is <code>CANCELLED</code>.</p> </li> <li> <p>If the cancellation attempt fails, the resulting deployment state is <code>FAILED</code>.</p> </li> <li> <p>If the current <a>UpdateServicePipeline</a> action succeeds before the cancellation attempt starts, the resulting deployment state is <code>SUCCEEDED</code> and the cancellation attempt has no effect.</p> </li> </ul>
+        r"""<p>Attempts to cancel a service pipeline deployment on an <a>UpdateServicePipeline</a> action, if the deployment is <code>IN_PROGRESS</code>. For more information, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-svc-pipeline-update.html\">Update a service pipeline</a> in the <i>Proton User guide</i>.</p> <p>The following list includes potential cancellation scenarios.</p> <ul> <li> <p>If the cancellation attempt succeeds, the resulting deployment state is <code>CANCELLED</code>.</p> </li> <li> <p>If the cancellation attempt fails, the resulting deployment state is <code>FAILED</code>.</p> </li> <li> <p>If the current <a>UpdateServicePipeline</a> action succeeds before the cancellation attempt starts, the resulting deployment state is <code>SUCCEEDED</code> and the cancellation attempt has no effect.</p> </li> </ul>
 
         Args:
             service_name: <p>The name of the service with the service pipeline deployment to cancel.</p>
@@ -449,7 +449,7 @@ class AsyncProtonClient:
         *,
         config_overrides: Optional[AsyncProtonClientConfig] = None,
     ) -> "aws_sdk_proton.types.get_repository_sync_status_output.GetRepositorySyncStatusOutput":
-        """<p>Get the sync status of a repository used for Proton template sync. For more information about template sync, see .</p> <note> <p>A repository sync status isn't tied to the Proton Repository resource (or any other Proton resource). Therefore, tags on an Proton Repository resource have no effect on this action. Specifically, you can't use these tags to control access to this action using Attribute-based access control (ABAC).</p> <p>For more information about ABAC, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-tags\">ABAC</a> in the <i>Proton User Guide</i>.</p> </note>
+        r"""<p>Get the sync status of a repository used for Proton template sync. For more information about template sync, see .</p> <note> <p>A repository sync status isn't tied to the Proton Repository resource (or any other Proton resource). Therefore, tags on an Proton Repository resource have no effect on this action. Specifically, you can't use these tags to control access to this action using Attribute-based access control (ABAC).</p> <p>For more information about ABAC, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-tags\">ABAC</a> in the <i>Proton User Guide</i>.</p> </note>
 
         Args:
             repository_name: <p>The repository name.</p>
@@ -490,7 +490,7 @@ class AsyncProtonClient:
     async def get_resources_summary(
         self, *, config_overrides: Optional[AsyncProtonClientConfig] = None
     ) -> "aws_sdk_proton.types.get_resources_summary_output.GetResourcesSummaryOutput":
-        """<p>Get counts of Proton resources.</p> <p>For infrastructure-provisioning resources (environments, services, service instances, pipelines), the action returns staleness counts. A resource is stale when it's behind the recommended version of the Proton template that it uses and it needs an update to become current.</p> <p>The action returns staleness counts (counts of resources that are up-to-date, behind a template major version, or behind a template minor version), the total number of resources, and the number of resources that are in a failed state, grouped by resource type. Components, environments, and service templates return less information - see the <code>components</code>, <code>environments</code>, and <code>serviceTemplates</code> field descriptions.</p> <p>For context, the action also returns the total number of each type of Proton template in the Amazon Web Services account.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/monitoring-dashboard.html\">Proton dashboard</a> in the <i>Proton User Guide</i>.</p>"""
+        r"""<p>Get counts of Proton resources.</p> <p>For infrastructure-provisioning resources (environments, services, service instances, pipelines), the action returns staleness counts. A resource is stale when it's behind the recommended version of the Proton template that it uses and it needs an update to become current.</p> <p>The action returns staleness counts (counts of resources that are up-to-date, behind a template major version, or behind a template minor version), the total number of resources, and the number of resources that are in a failed state, grouped by resource type. Components, environments, and service templates return less information - see the <code>components</code>, <code>environments</code>, and <code>serviceTemplates</code> field descriptions.</p> <p>For context, the action also returns the total number of each type of Proton template in the Amazon Web Services account.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/monitoring-dashboard.html\">Proton dashboard</a> in the <i>Proton User Guide</i>.</p>"""
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_proton.types.get_resources_summary_input.GetResourcesSummaryInput]",
@@ -689,7 +689,7 @@ class AsyncProtonClient:
             "aws_sdk_proton.types.max_page_results.MaxPageResults"
         ] = None,
     ) -> "aws_sdk_proton.types.list_tags_for_resource_output.ListTagsForResourceOutput":
-        """<p>List tags for a resource. For more information, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/resources.html\">Proton resources and tagging</a> in the <i>Proton User Guide</i>.</p>
+        r"""<p>List tags for a resource. For more information, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/resources.html\">Proton resources and tagging</a> in the <i>Proton User Guide</i>.</p>
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource for the listed tags.</p>
@@ -768,7 +768,7 @@ class AsyncProtonClient:
             "aws_sdk_proton.types.status_message.StatusMessage"
         ] = None,
     ) -> "aws_sdk_proton.types.notify_resource_deployment_status_change_output.NotifyResourceDeploymentStatusChangeOutput":
-        """<p>Notify Proton of status changes to a provisioned resource when you use self-managed provisioning.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-works-prov-methods.html#ag-works-prov-methods-self\">Self-managed provisioning</a> in the <i>Proton User Guide</i>.</p>
+        r"""<p>Notify Proton of status changes to a provisioned resource when you use self-managed provisioning.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-works-prov-methods.html#ag-works-prov-methods-self\">Self-managed provisioning</a> in the <i>Proton User Guide</i>.</p>
 
         Args:
             resource_arn: <p>The provisioned resource Amazon Resource Name (ARN).</p>
@@ -819,7 +819,7 @@ class AsyncProtonClient:
         *,
         config_overrides: Optional[AsyncProtonClientConfig] = None,
     ) -> "aws_sdk_proton.types.tag_resource_output.TagResourceOutput":
-        """<p>Tag a resource. A tag is a key-value pair of metadata that you associate with an Proton resource.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/resources.html\">Proton resources and tagging</a> in the <i>Proton User Guide</i>.</p>
+        r"""<p>Tag a resource. A tag is a key-value pair of metadata that you associate with an Proton resource.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/resources.html\">Proton resources and tagging</a> in the <i>Proton User Guide</i>.</p>
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the Proton resource to apply customer tags to.</p>
@@ -860,7 +860,7 @@ class AsyncProtonClient:
         *,
         config_overrides: Optional[AsyncProtonClientConfig] = None,
     ) -> "aws_sdk_proton.types.untag_resource_output.UntagResourceOutput":
-        """<p>Remove a customer tag from a resource. A tag is a key-value pair of metadata associated with an Proton resource.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/resources.html\">Proton resources and tagging</a> in the <i>Proton User Guide</i>.</p>
+        r"""<p>Remove a customer tag from a resource. A tag is a key-value pair of metadata associated with an Proton resource.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/resources.html\">Proton resources and tagging</a> in the <i>Proton User Guide</i>.</p>
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource to remove customer tags from.</p>

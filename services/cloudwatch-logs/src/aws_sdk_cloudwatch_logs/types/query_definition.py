@@ -18,7 +18,7 @@ class QueryDefinition(TypedDict):
     query_language: NotRequired[
         "aws_sdk_cloudwatch_logs.types.query_language.QueryLanguage"
     ]
-    """<p>The query language used for this query. For more information about the query languages that CloudWatch Logs supports, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_AnalyzeLogData_Languages.html\">Supported query languages</a>.</p>"""
+    r"""<p>The query language used for this query. For more information about the query languages that CloudWatch Logs supports, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_AnalyzeLogData_Languages.html\">Supported query languages</a>.</p>"""
     query_definition_id: NotRequired["aws_sdk_cloudwatch_logs.types.query_id.QueryId"]
     """<p>The unique ID of the query definition.</p>"""
     name: NotRequired[
@@ -28,7 +28,7 @@ class QueryDefinition(TypedDict):
     query_string: NotRequired[
         "aws_sdk_cloudwatch_logs.types.query_definition_string.QueryDefinitionString"
     ]
-    """<p>The query string to use for this definition. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html\">CloudWatch Logs Insights Query Syntax</a>.</p>"""
+    r"""<p>The query string to use for this definition. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html\">CloudWatch Logs Insights Query Syntax</a>.</p>"""
     last_modified: NotRequired["aws_sdk_cloudwatch_logs.types.timestamp.Timestamp"]
     """<p>The date that the query definition was most recently modified.</p>"""
     log_group_names: NotRequired[

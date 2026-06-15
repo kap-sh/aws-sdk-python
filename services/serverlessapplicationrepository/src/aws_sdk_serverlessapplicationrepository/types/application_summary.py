@@ -17,7 +17,7 @@ class ApplicationSummary(TypedDict):
     author: NotRequired[
         "aws_sdk_serverlessapplicationrepository.types.__string.__string"
     ]
-    """<p>The name of the author publishing the app.</p><p>Minimum length=1. Maximum length=127.</p><p>Pattern \"^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$\";</p>"""
+    r"""<p>The name of the author publishing the app.</p><p>Minimum length=1. Maximum length=127.</p><p>Pattern \"^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$\";</p>"""
     creation_time: NotRequired[
         "aws_sdk_serverlessapplicationrepository.types.__string.__string"
     ]
@@ -33,13 +33,13 @@ class ApplicationSummary(TypedDict):
     labels: NotRequired[
         "aws_sdk_serverlessapplicationrepository.types.__list_of__string.__listOf__string"
     ]
-    """<p>Labels to improve discovery of apps in search results.</p><p>Minimum length=1. Maximum length=127. Maximum number of labels: 10</p><p>Pattern: \"^[a-zA-Z0-9+\\-_:\\/@]+$\";</p>"""
+    r"""<p>Labels to improve discovery of apps in search results.</p><p>Minimum length=1. Maximum length=127. Maximum number of labels: 10</p><p>Pattern: \"^[a-zA-Z0-9+\\-_:\\/@]+$\";</p>"""
     name: NotRequired["aws_sdk_serverlessapplicationrepository.types.__string.__string"]
-    """<p>The name of the application.</p><p>Minimum length=1. Maximum length=140</p><p>Pattern: \"[a-zA-Z0-9\\-]+\";</p>"""
+    r"""<p>The name of the application.</p><p>Minimum length=1. Maximum length=140</p><p>Pattern: \"[a-zA-Z0-9\\-]+\";</p>"""
     spdx_license_id: NotRequired[
         "aws_sdk_serverlessapplicationrepository.types.__string.__string"
     ]
-    """<p>A valid identifier from <a href=\"https://spdx.org/licenses/\">https://spdx.org/licenses/</a>.</p>"""
+    r"""<p>A valid identifier from <a href=\"https://spdx.org/licenses/\">https://spdx.org/licenses/</a>.</p>"""
 
 
 # --- restJson1 ser/de ---

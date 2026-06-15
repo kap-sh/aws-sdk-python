@@ -184,7 +184,7 @@ class AsyncRoute53ProfilesClient:
         config_overrides: Optional[AsyncRoute53ProfilesClientConfig] = None,
         tags: Optional["aws_sdk_route53profiles.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_route53profiles.types.associate_profile_response.AssociateProfileResponse":
-        """<p> Associates a Route 53 Profiles profile with a VPC. A VPC can have only one Profile associated with it, but a Profile can be associated with 1000 of VPCs (and you can request a higher quota). For more information, see <a href=\"https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html#limits-api-entities\">https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html#limits-api-entities</a>. </p>
+        r"""<p> Associates a Route 53 Profiles profile with a VPC. A VPC can have only one Profile associated with it, but a Profile can be associated with 1000 of VPCs (and you can request a higher quota). For more information, see <a href=\"https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html#limits-api-entities\">https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html#limits-api-entities</a>. </p>
 
         Args:
             profile_id: <p> ID of the Profile. </p>

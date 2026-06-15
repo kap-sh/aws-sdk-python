@@ -13,7 +13,7 @@ class PutLogGroupDeletionProtectionRequest(TypedDict):
     log_group_identifier: (
         "aws_sdk_cloudwatch_logs.types.log_group_identifier.LogGroupIdentifier"
     )
-    """<p>The name or ARN of the log group.</p> <p>Type: String</p> <p>Length Constraints: Minimum length of 1. Maximum length of 512.</p> <p>Pattern: <code>[\.\-_/#A-Za-z0-9]+</code> </p> <p>Required: Yes</p>"""
+    r"""<p>The name or ARN of the log group.</p> <p>Type: String</p> <p>Length Constraints: Minimum length of 1. Maximum length of 512.</p> <p>Pattern: <code>[\.\-_/#A-Za-z0-9]+</code> </p> <p>Required: Yes</p>"""
     deletion_protection_enabled: "aws_sdk_cloudwatch_logs.types.deletion_protection_enabled.DeletionProtectionEnabled"
     """<p>Whether to enable deletion protection.</p> <p>Type: Boolean</p> <p>Required: Yes</p>"""
 

@@ -15,11 +15,11 @@ if TYPE_CHECKING:
 
 class PolicySummary(TypedDict):
     id: NotRequired["aws_sdk_organizations.types.policy_id.PolicyId"]
-    """<p>The unique identifier (ID) of the policy.</p> <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> for a policy ID string requires \"p-\" followed by from 8 to 128 lowercase or uppercase letters, digits, or the underscore character (_).</p>"""
+    r"""<p>The unique identifier (ID) of the policy.</p> <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> for a policy ID string requires \"p-\" followed by from 8 to 128 lowercase or uppercase letters, digits, or the underscore character (_).</p>"""
     arn: NotRequired["aws_sdk_organizations.types.policy_arn.PolicyArn"]
-    """<p>The Amazon Resource Name (ARN) of the policy.</p> <p>For more information about ARNs in Organizations, see <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies\">ARN Formats Supported by Organizations</a> in the <i>Amazon Web Services Service Authorization Reference</i>.</p>"""
+    r"""<p>The Amazon Resource Name (ARN) of the policy.</p> <p>For more information about ARNs in Organizations, see <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies\">ARN Formats Supported by Organizations</a> in the <i>Amazon Web Services Service Authorization Reference</i>.</p>"""
     name: NotRequired["aws_sdk_organizations.types.policy_name.PolicyName"]
-    """<p>The friendly name of the policy.</p> <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> that is used to validate this parameter is a string of any of the characters in the ASCII character range.</p>"""
+    r"""<p>The friendly name of the policy.</p> <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> that is used to validate this parameter is a string of any of the characters in the ASCII character range.</p>"""
     description: NotRequired[
         "aws_sdk_organizations.types.policy_description.PolicyDescription"
     ]

@@ -266,7 +266,7 @@ class AsyncECRClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = AsyncECRClientConfig(
+        self._config = AsyncECRClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -286,7 +286,7 @@ class AsyncECRClient:
         overrides: AsyncECRClientConfig = config_overrides or {}
         interceptors_: list[AsyncInterceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             aretry(),
         ]
@@ -294,16 +294,16 @@ class AsyncECRClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
             use_dual_stack=overrides.get(
-                "use_dual_stack", self.config.get("use_dual_stack")
+                "use_dual_stack", self._config.get("use_dual_stack")
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
-            region=overrides.get("region", self.config.get("region")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
+            region=overrides.get("region", self._config.get("region")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -567,7 +567,7 @@ class AsyncECRClient:
             "aws_sdk_ecr.types.pull_through_cache_rule_repository_prefix.PullThroughCacheRuleRepositoryPrefix"
         ] = None,
     ) -> "aws_sdk_ecr.types.create_pull_through_cache_rule_response.CreatePullThroughCacheRuleResponse":
-        """<p>Creates a pull through cache rule. A pull through cache rule provides a way to cache images from an upstream registry source in your Amazon ECR private registry. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECR/latest/userguide/pull-through-cache.html\">Using pull through cache rules</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</p>
+        r"""<p>Creates a pull through cache rule. A pull through cache rule provides a way to cache images from an upstream registry source in your Amazon ECR private registry. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECR/latest/userguide/pull-through-cache.html\">Using pull through cache rules</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</p>
 
         Args:
             ecr_repository_prefix: <p>The repository name prefix to use when caching images from the source registry.</p> <important> <p>There is always an assumed <code>/</code> applied to the end of the prefix. If you specify <code>ecr-public</code> as the prefix, Amazon ECR treats that as <code>ecr-public/</code>.</p> </important>
@@ -636,7 +636,7 @@ class AsyncECRClient:
             "aws_sdk_ecr.types.encryption_configuration.EncryptionConfiguration"
         ] = None,
     ) -> "aws_sdk_ecr.types.create_repository_response.CreateRepositoryResponse":
-        """<p>Creates a repository. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECR/latest/userguide/Repositories.html\">Amazon ECR repositories</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</p>
+        r"""<p>Creates a repository. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECR/latest/userguide/Repositories.html\">Amazon ECR repositories</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</p>
 
         Args:
             registry_id: <p>The Amazon Web Services account ID associated with the registry to create the repository. If you do not specify a registry, the default registry is assumed.</p>
@@ -723,7 +723,7 @@ class AsyncECRClient:
             "aws_sdk_ecr.types.custom_role_arn.CustomRoleArn"
         ] = None,
     ) -> "aws_sdk_ecr.types.create_repository_creation_template_response.CreateRepositoryCreationTemplateResponse":
-        """<p>Creates a repository creation template. This template is used to define the settings for repositories created by Amazon ECR on your behalf. For example, repositories created through pull through cache actions. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-creation-templates.html\">Private repository creation templates</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</p>
+        r"""<p>Creates a repository creation template. This template is used to define the settings for repositories created by Amazon ECR on your behalf. For example, repositories created through pull through cache actions. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-creation-templates.html\">Private repository creation templates</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</p>
 
         Args:
             prefix: <p>The repository namespace prefix to associate with the template. All repositories created using this namespace prefix will have the settings defined in this template applied. For example, a prefix of <code>prod</code> would apply to all repositories beginning with <code>prod/</code>. Similarly, a prefix of <code>prod/team</code> would apply to all repositories beginning with <code>prod/team/</code>.</p> <p>To apply a template to all repositories in your registry that don't have an associated creation template, you can use <code>ROOT</code> as the prefix.</p> <important> <p>There is always an assumed <code>/</code> applied to the end of the prefix. If you specify <code>ecr-public</code> as the prefix, Amazon ECR treats that as <code>ecr-public/</code>. When using a pull through cache rule, the repository prefix you specify during rule creation is what you should specify as your repository creation template prefix as well.</p> </important>
@@ -1040,7 +1040,7 @@ class AsyncECRClient:
     async def delete_signing_configuration(
         self, *, config_overrides: Optional[AsyncECRClientConfig] = None
     ) -> "aws_sdk_ecr.types.delete_signing_configuration_response.DeleteSigningConfigurationResponse":
-        """<p>Deletes the registry's signing configuration. Images pushed after deletion of the signing configuration will no longer be automatically signed.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECR/latest/userguide/managed-signing.html\">Managed signing</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</p> <note> <p>Deleting the signing configuration does not affect existing image signatures.</p> </note>"""
+        r"""<p>Deletes the registry's signing configuration. Images pushed after deletion of the signing configuration will no longer be automatically signed.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECR/latest/userguide/managed-signing.html\">Managed signing</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</p> <note> <p>Deleting the signing configuration does not affect existing image signatures.</p> </note>"""
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_ecr.types.delete_signing_configuration_request.DeleteSigningConfigurationRequest]",
@@ -1170,7 +1170,7 @@ class AsyncECRClient:
             "aws_sdk_ecr.types.describe_images_filter.DescribeImagesFilter"
         ] = None,
     ) -> "aws_sdk_ecr.types.describe_images_response.DescribeImagesResponse":
-        """<p>Returns metadata about the images in a repository.</p> <note> <p>Starting with Docker version 1.9, the Docker client compresses image layers before pushing them to a V2 Docker registry. The output of the <code>docker images</code> command shows the uncompressed image size. Therefore, Docker might return a larger image than the image shown in the Amazon Web Services Management Console.</p> </note> <important> <p>The new version of Amazon ECR <i>Basic Scanning</i> doesn't use the <a>ImageDetail$imageScanFindingsSummary</a> and <a>ImageDetail$imageScanStatus</a> attributes from the API response to return scan results. Use the <a>DescribeImageScanFindings</a> API instead. For more information about Amazon Web Services native basic scanning, see <a href=\"https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html\"> Scan images for software vulnerabilities in Amazon ECR</a>.</p> </important>
+        r"""<p>Returns metadata about the images in a repository.</p> <note> <p>Starting with Docker version 1.9, the Docker client compresses image layers before pushing them to a V2 Docker registry. The output of the <code>docker images</code> command shows the uncompressed image size. Therefore, Docker might return a larger image than the image shown in the Amazon Web Services Management Console.</p> </note> <important> <p>The new version of Amazon ECR <i>Basic Scanning</i> doesn't use the <a>ImageDetail$imageScanFindingsSummary</a> and <a>ImageDetail$imageScanStatus</a> attributes from the API response to return scan results. Use the <a>DescribeImageScanFindings</a> API instead. For more information about Amazon Web Services native basic scanning, see <a href=\"https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html\"> Scan images for software vulnerabilities in Amazon ECR</a>.</p> </important>
 
         Args:
             registry_id: <p>The Amazon Web Services account ID associated with the registry that contains the repository in which to describe images. If you do not specify a registry, the default registry is assumed.</p>
@@ -1310,7 +1310,7 @@ class AsyncECRClient:
         config_overrides: Optional[AsyncECRClientConfig] = None,
         registry_id: Optional["aws_sdk_ecr.types.registry_id.RegistryId"] = None,
     ) -> "aws_sdk_ecr.types.describe_image_signing_status_response.DescribeImageSigningStatusResponse":
-        """<p>Returns the signing status for a specified image. If the image matched signing rules that reference different signing profiles, a status is returned for each profile.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECR/latest/userguide/managed-signing.html\">Managed signing</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</p>
+        r"""<p>Returns the signing status for a specified image. If the image matched signing rules that reference different signing profiles, a status is returned for each profile.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECR/latest/userguide/managed-signing.html\">Managed signing</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</p>
 
         Args:
             repository_name: <p>The name of the repository that contains the image.</p>
@@ -1663,7 +1663,7 @@ class AsyncECRClient:
             "aws_sdk_ecr.types.get_authorization_token_registry_id_list.GetAuthorizationTokenRegistryIdList"
         ] = None,
     ) -> "aws_sdk_ecr.types.get_authorization_token_response.GetAuthorizationTokenResponse":
-        """<p>Retrieves an authorization token. An authorization token represents your IAM authentication credentials and can be used to access any Amazon ECR registry that your IAM principal has access to. The authorization token is valid for 12 hours.</p> <p>The <code>authorizationToken</code> returned is a base64 encoded string that can be decoded and used in a <code>docker login</code> command to authenticate to a registry. The CLI offers an <code>get-login-password</code> command that simplifies the login process. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html#registry_auth\">Registry authentication</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</p>
+        r"""<p>Retrieves an authorization token. An authorization token represents your IAM authentication credentials and can be used to access any Amazon ECR registry that your IAM principal has access to. The authorization token is valid for 12 hours.</p> <p>The <code>authorizationToken</code> returned is a base64 encoded string that can be decoded and used in a <code>docker login</code> command to authenticate to a registry. The CLI offers an <code>get-login-password</code> command that simplifies the login process. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html#registry_auth\">Registry authentication</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</p>
 
         Args:
             registry_ids: <p>A list of Amazon Web Services account IDs that are associated with the registries for which to get AuthorizationData objects. If you do not specify a registry, the default registry is assumed.</p>
@@ -1993,7 +1993,7 @@ class AsyncECRClient:
     async def get_signing_configuration(
         self, *, config_overrides: Optional[AsyncECRClientConfig] = None
     ) -> "aws_sdk_ecr.types.get_signing_configuration_response.GetSigningConfigurationResponse":
-        """<p>Retrieves the registry's signing configuration, which defines rules for automatically signing images using Amazon Web Services Signer.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECR/latest/userguide/managed-signing.html\">Managed signing</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</p>"""
+        r"""<p>Retrieves the registry's signing configuration, which defines rules for automatically signing images using Amazon Web Services Signer.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECR/latest/userguide/managed-signing.html\">Managed signing</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</p>"""
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_ecr.types.get_signing_configuration_request.GetSigningConfigurationRequest]",
@@ -2477,7 +2477,7 @@ class AsyncECRClient:
             "aws_sdk_ecr.types.image_tag_mutability_exclusion_filters.ImageTagMutabilityExclusionFilters"
         ] = None,
     ) -> "aws_sdk_ecr.types.put_image_tag_mutability_response.PutImageTagMutabilityResponse":
-        """<p>Updates the image tag mutability settings for the specified repository. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-tag-mutability.html\">Image tag mutability</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</p>
+        r"""<p>Updates the image tag mutability settings for the specified repository. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-tag-mutability.html\">Image tag mutability</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</p>
 
         Args:
             registry_id: <p>The Amazon Web Services account ID associated with the registry that contains the repository in which to update the image tag mutability settings. If you do not specify a registry, the default registry is assumed.</p>
@@ -2527,7 +2527,7 @@ class AsyncECRClient:
         config_overrides: Optional[AsyncECRClientConfig] = None,
         registry_id: Optional["aws_sdk_ecr.types.registry_id.RegistryId"] = None,
     ) -> "aws_sdk_ecr.types.put_lifecycle_policy_response.PutLifecyclePolicyResponse":
-        """<p>Creates or updates the lifecycle policy for the specified repository. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html\">Lifecycle policy template</a>.</p>
+        r"""<p>Creates or updates the lifecycle policy for the specified repository. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html\">Lifecycle policy template</a>.</p>
 
         Args:
             registry_id: <p>The Amazon Web Services account ID associated with the registry that contains the repository. If you do not specify a registry, the default registry is assumed.</p>
@@ -2570,7 +2570,7 @@ class AsyncECRClient:
         *,
         config_overrides: Optional[AsyncECRClientConfig] = None,
     ) -> "aws_sdk_ecr.types.put_registry_policy_response.PutRegistryPolicyResponse":
-        """<p>Creates or updates the permissions policy for your registry.</p> <p>A registry policy is used to specify permissions for another Amazon Web Services account and is used when configuring cross-account replication. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry-permissions.html\">Registry permissions</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</p>
+        r"""<p>Creates or updates the permissions policy for your registry.</p> <p>A registry policy is used to specify permissions for another Amazon Web Services account and is used when configuring cross-account replication. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry-permissions.html\">Registry permissions</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</p>
 
         Args:
             policy_text: <p>The JSON policy text to apply to your registry. The policy text follows the same format as IAM policy text. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry-permissions.html\">Registry permissions</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</p>
@@ -2653,7 +2653,7 @@ class AsyncECRClient:
         *,
         config_overrides: Optional[AsyncECRClientConfig] = None,
     ) -> "aws_sdk_ecr.types.put_replication_configuration_response.PutReplicationConfigurationResponse":
-        """<p>Creates or updates the replication configuration for a registry. The existing replication configuration for a repository can be retrieved with the <a>DescribeRegistry</a> API action. The first time the PutReplicationConfiguration API is called, a service-linked IAM role is created in your account for the replication process. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECR/latest/userguide/using-service-linked-roles.html\">Using service-linked roles for Amazon ECR</a> in the <i>Amazon Elastic Container Registry User Guide</i>. For more information on the custom role for replication, see <a href=\"https://docs.aws.amazon.com/AmazonECR/latest/userguide/replication-creation-templates.html#roles-creatingrole-user-console\">Creating an IAM role for replication</a>.</p> <note> <p>When configuring cross-account replication, the destination account must grant the source account permission to replicate. This permission is controlled using a registry permissions policy. For more information, see <a>PutRegistryPolicy</a>.</p> </note>
+        r"""<p>Creates or updates the replication configuration for a registry. The existing replication configuration for a repository can be retrieved with the <a>DescribeRegistry</a> API action. The first time the PutReplicationConfiguration API is called, a service-linked IAM role is created in your account for the replication process. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECR/latest/userguide/using-service-linked-roles.html\">Using service-linked roles for Amazon ECR</a> in the <i>Amazon Elastic Container Registry User Guide</i>. For more information on the custom role for replication, see <a href=\"https://docs.aws.amazon.com/AmazonECR/latest/userguide/replication-creation-templates.html#roles-creatingrole-user-console\">Creating an IAM role for replication</a>.</p> <note> <p>When configuring cross-account replication, the destination account must grant the source account permission to replicate. This permission is controlled using a registry permissions policy. For more information, see <a>PutRegistryPolicy</a>.</p> </note>
 
         Args:
             replication_configuration: <p>An object representing the replication configuration for a registry.</p>
@@ -2691,7 +2691,7 @@ class AsyncECRClient:
         *,
         config_overrides: Optional[AsyncECRClientConfig] = None,
     ) -> "aws_sdk_ecr.types.put_signing_configuration_response.PutSigningConfigurationResponse":
-        """<p>Creates or updates the registry's signing configuration, which defines rules for automatically signing images with Amazon Web Services Signer.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECR/latest/userguide/managed-signing.html\">Managed signing</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</p> <note> <p>To successfully generate a signature, the IAM principal pushing images must have permission to sign payloads with the Amazon Web Services Signer signing profile referenced in the signing configuration.</p> </note>
+        r"""<p>Creates or updates the registry's signing configuration, which defines rules for automatically signing images with Amazon Web Services Signer.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECR/latest/userguide/managed-signing.html\">Managed signing</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</p> <note> <p>To successfully generate a signature, the IAM principal pushing images must have permission to sign payloads with the Amazon Web Services Signer signing profile referenced in the signing configuration.</p> </note>
 
         Args:
             signing_configuration: <p>The signing configuration to assign to the registry.</p>
@@ -2770,7 +2770,7 @@ class AsyncECRClient:
         registry_id: Optional["aws_sdk_ecr.types.registry_id.RegistryId"] = None,
         force: Optional["aws_sdk_ecr.types.force_flag.ForceFlag"] = None,
     ) -> "aws_sdk_ecr.types.set_repository_policy_response.SetRepositoryPolicyResponse":
-        """<p>Applies a repository policy to the specified repository to control access permissions. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-policies.html\">Amazon ECR Repository policies</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</p>
+        r"""<p>Applies a repository policy to the specified repository to control access permissions. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-policies.html\">Amazon ECR Repository policies</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</p>
 
         Args:
             registry_id: <p>The Amazon Web Services account ID associated with the registry that contains the repository. If you do not specify a registry, the default registry is assumed.</p>
@@ -2818,7 +2818,7 @@ class AsyncECRClient:
         config_overrides: Optional[AsyncECRClientConfig] = None,
         registry_id: Optional["aws_sdk_ecr.types.registry_id.RegistryId"] = None,
     ) -> "aws_sdk_ecr.types.start_image_scan_response.StartImageScanResponse":
-        """<p>Starts a basic image vulnerability scan.</p> <p> A basic image scan can only be started once per 24 hours on an individual image. This limit includes if an image was scanned on initial push. You can start up to 100,000 basic scans per 24 hours. This limit includes both scans on initial push and scans initiated by the StartImageScan API. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning-basic.html\">Basic scanning</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</p>
+        r"""<p>Starts a basic image vulnerability scan.</p> <p> A basic image scan can only be started once per 24 hours on an individual image. This limit includes if an image was scanned on initial push. You can start up to 100,000 basic scans per 24 hours. This limit includes both scans on initial push and scans initiated by the StartImageScan API. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning-basic.html\">Basic scanning</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</p>
 
         Args:
             registry_id: <p>The Amazon Web Services account ID associated with the registry that contains the repository in which to start an image scan request. If you do not specify a registry, the default registry is assumed.</p>

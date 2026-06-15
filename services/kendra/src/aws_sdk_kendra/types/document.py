@@ -37,7 +37,7 @@ class Document(TypedDict):
     hierarchical_access_control_list: NotRequired[
         "aws_sdk_kendra.types.hierarchical_principal_list.HierarchicalPrincipalList"
     ]
-    """<p>The list of <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/API_Principal.html\">principal</a> lists that define the hierarchy for which documents users should have access to.</p>"""
+    r"""<p>The list of <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/API_Principal.html\">principal</a> lists that define the hierarchy for which documents users should have access to.</p>"""
     content_type: NotRequired["aws_sdk_kendra.types.content_type.ContentType"]
     """<p>The file type of the document in the <code>Blob</code> field.</p> <p>If you want to index snippets or subsets of HTML documents instead of the entirety of the HTML documents, you must add the <code>HTML</code> start and closing tags (<code><HTML>content</HTML></code>) around the content.</p>"""
     access_control_configuration_id: NotRequired[

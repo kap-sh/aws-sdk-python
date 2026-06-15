@@ -12,7 +12,7 @@ if TYPE_CHECKING:
 
 class UntagPolicyRequest(TypedDict):
     policy_arn: "aws_sdk_iam.types.arn_type.arnType"
-    """<p>The ARN of the IAM customer managed policy from which you want to remove tags.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>"""
+    r"""<p>The ARN of the IAM customer managed policy from which you want to remove tags.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>"""
     tag_keys: "aws_sdk_iam.types.tag_key_list_type.tagKeyListType"
     """<p>A list of key names as a simple array of strings. The tags with matching keys are removed from the specified policy.</p>"""
 

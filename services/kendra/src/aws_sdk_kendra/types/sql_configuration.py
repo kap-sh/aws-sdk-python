@@ -12,7 +12,7 @@ class SqlConfiguration(TypedDict):
     query_identifiers_enclosing_option: NotRequired[
         "aws_sdk_kendra.types.query_identifiers_enclosing_option.QueryIdentifiersEnclosingOption"
     ]
-    """<p>Determines whether Amazon Kendra encloses SQL identifiers for tables and column names in double quotes (\") when making a database query.</p> <p>By default, Amazon Kendra passes SQL identifiers the way that they are entered into the data source configuration. It does not change the case of identifiers or enclose them in quotes.</p> <p>PostgreSQL internally converts uppercase characters to lower case characters in identifiers unless they are quoted. Choosing this option encloses identifiers in quotes so that PostgreSQL does not convert the character's case.</p> <p>For MySQL databases, you must enable the <code>ansi_quotes</code> option when you set this field to <code>DOUBLE_QUOTES</code>.</p>"""
+    r"""<p>Determines whether Amazon Kendra encloses SQL identifiers for tables and column names in double quotes (\") when making a database query.</p> <p>By default, Amazon Kendra passes SQL identifiers the way that they are entered into the data source configuration. It does not change the case of identifiers or enclose them in quotes.</p> <p>PostgreSQL internally converts uppercase characters to lower case characters in identifiers unless they are quoted. Choosing this option encloses identifiers in quotes so that PostgreSQL does not convert the character's case.</p> <p>For MySQL databases, you must enable the <code>ansi_quotes</code> option when you set this field to <code>DOUBLE_QUOTES</code>.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

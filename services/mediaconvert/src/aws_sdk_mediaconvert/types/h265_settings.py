@@ -77,7 +77,7 @@ class H265Settings(TypedDict):
     codec_profile: NotRequired[
         "aws_sdk_mediaconvert.types.h265_codec_profile.H265CodecProfile"
     ]
-    """Represents the Profile and Tier, per the HEVC (H.265) specification. Selections are grouped as [Profile] / [Tier], so \"Main/High\" represents Main Profile with High Tier. 4:2:2 profiles are only available with the HEVC 4:2:2 License."""
+    r"""Represents the Profile and Tier, per the HEVC (H.265) specification. Selections are grouped as [Profile] / [Tier], so \"Main/High\" represents Main Profile with High Tier. 4:2:2 profiles are only available with the HEVC 4:2:2 License."""
     deblocking: NotRequired["aws_sdk_mediaconvert.types.h265_deblocking.H265Deblocking"]
     """Use Deblocking to improve the video quality of your output by smoothing the edges of macroblock artifacts created during video compression. To reduce blocking artifacts at block boundaries, and improve overall video quality: Keep the default value, Enabled. To not apply any deblocking: Choose Disabled. Visible block edge artifacts might appear in the output, especially at lower bitrates."""
     dynamic_sub_gop: NotRequired[
@@ -149,11 +149,11 @@ class H265Settings(TypedDict):
     mv_over_picture_boundaries: NotRequired[
         "aws_sdk_mediaconvert.types.h265_mv_over_picture_boundaries.H265MvOverPictureBoundaries"
     ]
-    """If you are setting up the picture as a tile, you must set this to \"disabled\". In all other configurations, you typically enter \"enabled\"."""
+    r"""If you are setting up the picture as a tile, you must set this to \"disabled\". In all other configurations, you typically enter \"enabled\"."""
     mv_temporal_predictor: NotRequired[
         "aws_sdk_mediaconvert.types.h265_mv_temporal_predictor.H265MvTemporalPredictor"
     ]
-    """If you are setting up the picture as a tile, you must set this to \"disabled\". In other configurations, you typically enter \"enabled\"."""
+    r"""If you are setting up the picture as a tile, you must set this to \"disabled\". In other configurations, you typically enter \"enabled\"."""
     number_b_frames_between_reference_frames: NotRequired[
         "aws_sdk_mediaconvert.types.__integer_min0_max7.__integerMin0Max7"
     ]
@@ -229,7 +229,7 @@ class H265Settings(TypedDict):
     tile_padding: NotRequired[
         "aws_sdk_mediaconvert.types.h265_tile_padding.H265TilePadding"
     ]
-    """Set to \"padded\" to force MediaConvert to add padding to the frame, to obtain a frame that is a whole multiple of the tile size. If you are setting up the picture as a tile, you must enter \"padded\". In all other configurations, you typically enter \"none\"."""
+    r"""Set to \"padded\" to force MediaConvert to add padding to the frame, to obtain a frame that is a whole multiple of the tile size. If you are setting up the picture as a tile, you must enter \"padded\". In all other configurations, you typically enter \"none\"."""
     tile_width: NotRequired[
         "aws_sdk_mediaconvert.types.__integer_min256_max3840.__integerMin256Max3840"
     ]
@@ -239,7 +239,7 @@ class H265Settings(TypedDict):
     tree_block_size: NotRequired[
         "aws_sdk_mediaconvert.types.h265_tree_block_size.H265TreeBlockSize"
     ]
-    """Select the tree block size used for encoding. If you enter \"auto\", the encoder will pick the best size. If you are setting up the picture as a tile, you must set this to 32x32. In all other configurations, you typically enter \"auto\"."""
+    r"""Select the tree block size used for encoding. If you enter \"auto\", the encoder will pick the best size. If you are setting up the picture as a tile, you must set this to 32x32. In all other configurations, you typically enter \"auto\"."""
     unregistered_sei_timecode: NotRequired[
         "aws_sdk_mediaconvert.types.h265_unregistered_sei_timecode.H265UnregisteredSeiTimecode"
     ]

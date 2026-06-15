@@ -1,12 +1,19 @@
-from typing import Optional, TYPE_CHECKING
-from aws_sdk_bedrock_agentcore_control._services.async_bedrock_agent_core_control import ensure_async_iterator
-from aws_sdk_bedrock_agentcore_control._services.bedrock_agent_core_control import ensure_sync_iterator
-from aws_sdk_bedrock_agentcore_control._services._pipeline import OperationRequest, OperationResponse, execute_pipeline, AsyncOperationRequest, AsyncOperationResponse, aexecute_pipeline
+from __future__ import annotations
+
+from typing import TYPE_CHECKING, Optional
+
 import aws_sdk_bedrock_agentcore_control._auth._signers
 import aws_sdk_bedrock_agentcore_control._auth._sigv4
+from aws_sdk_bedrock_agentcore_control._services._pipeline import (
+    AsyncOperationRequest,
+    AsyncOperationResponse,
+    OperationRequest,
+    OperationResponse,
+    aexecute_pipeline,
+    execute_pipeline,
+)
+
 if TYPE_CHECKING:
-    from aws_sdk_bedrock_agentcore_control._services.bedrock_agent_core_control import BedrockAgentCoreControlClient, BedrockAgentCoreControlClientConfig
-    from aws_sdk_bedrock_agentcore_control._services.async_bedrock_agent_core_control import AsyncBedrockAgentCoreControlClient, AsyncBedrockAgentCoreControlClientConfig
     import aws_sdk_bedrock_agentcore_control.types.agent_runtime
     import aws_sdk_bedrock_agentcore_control.types.agent_runtime_artifact
     import aws_sdk_bedrock_agentcore_control.types.agent_runtime_id
@@ -38,11 +45,56 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.tags_map
     import aws_sdk_bedrock_agentcore_control.types.update_agent_runtime_request
     import aws_sdk_bedrock_agentcore_control.types.update_agent_runtime_response
+    from aws_sdk_bedrock_agentcore_control._services.async_bedrock_agent_core_control import (
+        AsyncBedrockAgentCoreControlClient,
+        AsyncBedrockAgentCoreControlClientConfig,
+    )
+    from aws_sdk_bedrock_agentcore_control._services.bedrock_agent_core_control import (
+        BedrockAgentCoreControlClient,
+        BedrockAgentCoreControlClientConfig,
+    )
+
 
 class AgentResource:
     def __init__(self, service: BedrockAgentCoreControlClient) -> None:
         self._service = service
-    def create(self, agent_runtime_name: "aws_sdk_bedrock_agentcore_control.types.agent_runtime_name.AgentRuntimeName", agent_runtime_artifact: "aws_sdk_bedrock_agentcore_control.types.agent_runtime_artifact.AgentRuntimeArtifact", role_arn: "aws_sdk_bedrock_agentcore_control.types.role_arn.RoleArn", network_configuration: "aws_sdk_bedrock_agentcore_control.types.network_configuration.NetworkConfiguration", *, config_overrides: Optional[BedrockAgentCoreControlClientConfig] = None, client_token: Optional["aws_sdk_bedrock_agentcore_control.types.client_token.ClientToken"] = None, description: Optional["aws_sdk_bedrock_agentcore_control.types.description.Description"] = None, authorizer_configuration: Optional["aws_sdk_bedrock_agentcore_control.types.authorizer_configuration.AuthorizerConfiguration"] = None, request_header_configuration: Optional["aws_sdk_bedrock_agentcore_control.types.request_header_configuration.RequestHeaderConfiguration"] = None, protocol_configuration: Optional["aws_sdk_bedrock_agentcore_control.types.protocol_configuration.ProtocolConfiguration"] = None, lifecycle_configuration: Optional["aws_sdk_bedrock_agentcore_control.types.lifecycle_configuration.LifecycleConfiguration"] = None, environment_variables: Optional["aws_sdk_bedrock_agentcore_control.types.environment_variables_map.EnvironmentVariablesMap"] = None, filesystem_configurations: Optional["aws_sdk_bedrock_agentcore_control.types.filesystem_configurations.FilesystemConfigurations"] = None, tags: Optional["aws_sdk_bedrock_agentcore_control.types.tags_map.TagsMap"] = None) -> "aws_sdk_bedrock_agentcore_control.types.create_agent_runtime_response.CreateAgentRuntimeResponse":
+
+    def create(
+        self,
+        agent_runtime_name: "aws_sdk_bedrock_agentcore_control.types.agent_runtime_name.AgentRuntimeName",
+        agent_runtime_artifact: "aws_sdk_bedrock_agentcore_control.types.agent_runtime_artifact.AgentRuntimeArtifact",
+        role_arn: "aws_sdk_bedrock_agentcore_control.types.role_arn.RoleArn",
+        network_configuration: "aws_sdk_bedrock_agentcore_control.types.network_configuration.NetworkConfiguration",
+        *,
+        config_overrides: Optional[BedrockAgentCoreControlClientConfig] = None,
+        client_token: Optional[
+            "aws_sdk_bedrock_agentcore_control.types.client_token.ClientToken"
+        ] = None,
+        description: Optional[
+            "aws_sdk_bedrock_agentcore_control.types.description.Description"
+        ] = None,
+        authorizer_configuration: Optional[
+            "aws_sdk_bedrock_agentcore_control.types.authorizer_configuration.AuthorizerConfiguration"
+        ] = None,
+        request_header_configuration: Optional[
+            "aws_sdk_bedrock_agentcore_control.types.request_header_configuration.RequestHeaderConfiguration"
+        ] = None,
+        protocol_configuration: Optional[
+            "aws_sdk_bedrock_agentcore_control.types.protocol_configuration.ProtocolConfiguration"
+        ] = None,
+        lifecycle_configuration: Optional[
+            "aws_sdk_bedrock_agentcore_control.types.lifecycle_configuration.LifecycleConfiguration"
+        ] = None,
+        environment_variables: Optional[
+            "aws_sdk_bedrock_agentcore_control.types.environment_variables_map.EnvironmentVariablesMap"
+        ] = None,
+        filesystem_configurations: Optional[
+            "aws_sdk_bedrock_agentcore_control.types.filesystem_configurations.FilesystemConfigurations"
+        ] = None,
+        tags: Optional[
+            "aws_sdk_bedrock_agentcore_control.types.tags_map.TagsMap"
+        ] = None,
+    ) -> "aws_sdk_bedrock_agentcore_control.types.create_agent_runtime_response.CreateAgentRuntimeResponse":
         """<p>Creates an Amazon Bedrock AgentCore Runtime.</p>
 
         Args:
@@ -59,59 +111,132 @@ class AgentResource:
             filesystem_configurations: <p>The filesystem configurations to mount into the AgentCore Runtime. Use filesystem configurations to provide persistent storage to your AgentCore Runtime sessions.</p>
             tags: <p>A map of tag keys and values to assign to the agent runtime. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_bedrock_agentcore_control.types.create_agent_runtime_request.CreateAgentRuntimeRequest]') -> OperationResponse["aws_sdk_bedrock_agentcore_control.types.create_agent_runtime_response.CreateAgentRuntimeResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_bedrock_agentcore_control.types.create_agent_runtime_request.CreateAgentRuntimeRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_bedrock_agentcore_control.types.create_agent_runtime_response.CreateAgentRuntimeResponse"
+        ]:
             import aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.create_agent_runtime
-            output, http_response = aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.create_agent_runtime.create_agent_runtime(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.create_agent_runtime.create_agent_runtime(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore_control.types.create_agent_runtime_request.CreateAgentRuntimeRequest = {}  # type: ignore[typeddict-item]
-        input["agent_runtime_name"] = agent_runtime_name
-        input["agent_runtime_artifact"] = agent_runtime_artifact
-        input["role_arn"] = role_arn
-        input["network_configuration"] = network_configuration
+        input_: aws_sdk_bedrock_agentcore_control.types.create_agent_runtime_request.CreateAgentRuntimeRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_runtime_name"] = agent_runtime_name
+        input_["agent_runtime_artifact"] = agent_runtime_artifact
+        input_["role_arn"] = role_arn
+        input_["network_configuration"] = network_configuration
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if authorizer_configuration is not None:
-            input["authorizer_configuration"] = authorizer_configuration
+            input_["authorizer_configuration"] = authorizer_configuration
         if request_header_configuration is not None:
-            input["request_header_configuration"] = request_header_configuration
+            input_["request_header_configuration"] = request_header_configuration
         if protocol_configuration is not None:
-            input["protocol_configuration"] = protocol_configuration
+            input_["protocol_configuration"] = protocol_configuration
         if lifecycle_configuration is not None:
-            input["lifecycle_configuration"] = lifecycle_configuration
+            input_["lifecycle_configuration"] = lifecycle_configuration
         if environment_variables is not None:
-            input["environment_variables"] = environment_variables
+            input_["environment_variables"] = environment_variables
         if filesystem_configurations is not None:
-            input["filesystem_configurations"] = filesystem_configurations
+            input_["filesystem_configurations"] = filesystem_configurations
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def read(self, agent_runtime_id: "aws_sdk_bedrock_agentcore_control.types.agent_runtime_id.AgentRuntimeId", *, config_overrides: Optional[BedrockAgentCoreControlClientConfig] = None, agent_runtime_version: Optional["aws_sdk_bedrock_agentcore_control.types.agent_runtime_version.AgentRuntimeVersion"] = None) -> "aws_sdk_bedrock_agentcore_control.types.get_agent_runtime_response.GetAgentRuntimeResponse":
+
+    def read(
+        self,
+        agent_runtime_id: "aws_sdk_bedrock_agentcore_control.types.agent_runtime_id.AgentRuntimeId",
+        *,
+        config_overrides: Optional[BedrockAgentCoreControlClientConfig] = None,
+        agent_runtime_version: Optional[
+            "aws_sdk_bedrock_agentcore_control.types.agent_runtime_version.AgentRuntimeVersion"
+        ] = None,
+    ) -> "aws_sdk_bedrock_agentcore_control.types.get_agent_runtime_response.GetAgentRuntimeResponse":
         """<p>Gets an Amazon Bedrock AgentCore Runtime.</p>
 
         Args:
             agent_runtime_id: <p>The unique identifier of the AgentCore Runtime to retrieve.</p>
             agent_runtime_version: <p>The version of the AgentCore Runtime to retrieve.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_bedrock_agentcore_control.types.get_agent_runtime_request.GetAgentRuntimeRequest]') -> OperationResponse["aws_sdk_bedrock_agentcore_control.types.get_agent_runtime_response.GetAgentRuntimeResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_bedrock_agentcore_control.types.get_agent_runtime_request.GetAgentRuntimeRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_bedrock_agentcore_control.types.get_agent_runtime_response.GetAgentRuntimeResponse"
+        ]:
             import aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.get_agent_runtime
-            output, http_response = aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.get_agent_runtime.get_agent_runtime(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.get_agent_runtime.get_agent_runtime(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore_control.types.get_agent_runtime_request.GetAgentRuntimeRequest = {}  # type: ignore[typeddict-item]
-        input["agent_runtime_id"] = agent_runtime_id
+        input_: aws_sdk_bedrock_agentcore_control.types.get_agent_runtime_request.GetAgentRuntimeRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_runtime_id"] = agent_runtime_id
         if agent_runtime_version is not None:
-            input["agent_runtime_version"] = agent_runtime_version
+            input_["agent_runtime_version"] = agent_runtime_version
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def update(self, agent_runtime_id: "aws_sdk_bedrock_agentcore_control.types.agent_runtime_id.AgentRuntimeId", agent_runtime_artifact: "aws_sdk_bedrock_agentcore_control.types.agent_runtime_artifact.AgentRuntimeArtifact", role_arn: "aws_sdk_bedrock_agentcore_control.types.role_arn.RoleArn", network_configuration: "aws_sdk_bedrock_agentcore_control.types.network_configuration.NetworkConfiguration", *, config_overrides: Optional[BedrockAgentCoreControlClientConfig] = None, description: Optional["aws_sdk_bedrock_agentcore_control.types.description.Description"] = None, authorizer_configuration: Optional["aws_sdk_bedrock_agentcore_control.types.authorizer_configuration.AuthorizerConfiguration"] = None, request_header_configuration: Optional["aws_sdk_bedrock_agentcore_control.types.request_header_configuration.RequestHeaderConfiguration"] = None, protocol_configuration: Optional["aws_sdk_bedrock_agentcore_control.types.protocol_configuration.ProtocolConfiguration"] = None, lifecycle_configuration: Optional["aws_sdk_bedrock_agentcore_control.types.lifecycle_configuration.LifecycleConfiguration"] = None, metadata_configuration: Optional["aws_sdk_bedrock_agentcore_control.types.runtime_metadata_configuration.RuntimeMetadataConfiguration"] = None, environment_variables: Optional["aws_sdk_bedrock_agentcore_control.types.environment_variables_map.EnvironmentVariablesMap"] = None, filesystem_configurations: Optional["aws_sdk_bedrock_agentcore_control.types.filesystem_configurations.FilesystemConfigurations"] = None, client_token: Optional["aws_sdk_bedrock_agentcore_control.types.client_token.ClientToken"] = None) -> "aws_sdk_bedrock_agentcore_control.types.update_agent_runtime_response.UpdateAgentRuntimeResponse":
+
+    def update(
+        self,
+        agent_runtime_id: "aws_sdk_bedrock_agentcore_control.types.agent_runtime_id.AgentRuntimeId",
+        agent_runtime_artifact: "aws_sdk_bedrock_agentcore_control.types.agent_runtime_artifact.AgentRuntimeArtifact",
+        role_arn: "aws_sdk_bedrock_agentcore_control.types.role_arn.RoleArn",
+        network_configuration: "aws_sdk_bedrock_agentcore_control.types.network_configuration.NetworkConfiguration",
+        *,
+        config_overrides: Optional[BedrockAgentCoreControlClientConfig] = None,
+        description: Optional[
+            "aws_sdk_bedrock_agentcore_control.types.description.Description"
+        ] = None,
+        authorizer_configuration: Optional[
+            "aws_sdk_bedrock_agentcore_control.types.authorizer_configuration.AuthorizerConfiguration"
+        ] = None,
+        request_header_configuration: Optional[
+            "aws_sdk_bedrock_agentcore_control.types.request_header_configuration.RequestHeaderConfiguration"
+        ] = None,
+        protocol_configuration: Optional[
+            "aws_sdk_bedrock_agentcore_control.types.protocol_configuration.ProtocolConfiguration"
+        ] = None,
+        lifecycle_configuration: Optional[
+            "aws_sdk_bedrock_agentcore_control.types.lifecycle_configuration.LifecycleConfiguration"
+        ] = None,
+        metadata_configuration: Optional[
+            "aws_sdk_bedrock_agentcore_control.types.runtime_metadata_configuration.RuntimeMetadataConfiguration"
+        ] = None,
+        environment_variables: Optional[
+            "aws_sdk_bedrock_agentcore_control.types.environment_variables_map.EnvironmentVariablesMap"
+        ] = None,
+        filesystem_configurations: Optional[
+            "aws_sdk_bedrock_agentcore_control.types.filesystem_configurations.FilesystemConfigurations"
+        ] = None,
+        client_token: Optional[
+            "aws_sdk_bedrock_agentcore_control.types.client_token.ClientToken"
+        ] = None,
+    ) -> "aws_sdk_bedrock_agentcore_control.types.update_agent_runtime_response.UpdateAgentRuntimeResponse":
         """<p>Updates an existing Amazon Secure Agent.</p>
 
         Args:
@@ -128,80 +253,154 @@ class AgentResource:
             filesystem_configurations: <p>The updated filesystem configurations to mount into the AgentCore Runtime.</p>
             client_token: <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_bedrock_agentcore_control.types.update_agent_runtime_request.UpdateAgentRuntimeRequest]') -> OperationResponse["aws_sdk_bedrock_agentcore_control.types.update_agent_runtime_response.UpdateAgentRuntimeResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_bedrock_agentcore_control.types.update_agent_runtime_request.UpdateAgentRuntimeRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_bedrock_agentcore_control.types.update_agent_runtime_response.UpdateAgentRuntimeResponse"
+        ]:
             import aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.update_agent_runtime
-            output, http_response = aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.update_agent_runtime.update_agent_runtime(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.update_agent_runtime.update_agent_runtime(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore_control.types.update_agent_runtime_request.UpdateAgentRuntimeRequest = {}  # type: ignore[typeddict-item]
-        input["agent_runtime_id"] = agent_runtime_id
-        input["agent_runtime_artifact"] = agent_runtime_artifact
-        input["role_arn"] = role_arn
-        input["network_configuration"] = network_configuration
+        input_: aws_sdk_bedrock_agentcore_control.types.update_agent_runtime_request.UpdateAgentRuntimeRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_runtime_id"] = agent_runtime_id
+        input_["agent_runtime_artifact"] = agent_runtime_artifact
+        input_["role_arn"] = role_arn
+        input_["network_configuration"] = network_configuration
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if authorizer_configuration is not None:
-            input["authorizer_configuration"] = authorizer_configuration
+            input_["authorizer_configuration"] = authorizer_configuration
         if request_header_configuration is not None:
-            input["request_header_configuration"] = request_header_configuration
+            input_["request_header_configuration"] = request_header_configuration
         if protocol_configuration is not None:
-            input["protocol_configuration"] = protocol_configuration
+            input_["protocol_configuration"] = protocol_configuration
         if lifecycle_configuration is not None:
-            input["lifecycle_configuration"] = lifecycle_configuration
+            input_["lifecycle_configuration"] = lifecycle_configuration
         if metadata_configuration is not None:
-            input["metadata_configuration"] = metadata_configuration
+            input_["metadata_configuration"] = metadata_configuration
         if environment_variables is not None:
-            input["environment_variables"] = environment_variables
+            input_["environment_variables"] = environment_variables
         if filesystem_configurations is not None:
-            input["filesystem_configurations"] = filesystem_configurations
+            input_["filesystem_configurations"] = filesystem_configurations
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def delete(self, agent_runtime_id: "aws_sdk_bedrock_agentcore_control.types.agent_runtime_id.AgentRuntimeId", *, config_overrides: Optional[BedrockAgentCoreControlClientConfig] = None, client_token: Optional["aws_sdk_bedrock_agentcore_control.types.client_token.ClientToken"] = None) -> "aws_sdk_bedrock_agentcore_control.types.delete_agent_runtime_response.DeleteAgentRuntimeResponse":
+
+    def delete(
+        self,
+        agent_runtime_id: "aws_sdk_bedrock_agentcore_control.types.agent_runtime_id.AgentRuntimeId",
+        *,
+        config_overrides: Optional[BedrockAgentCoreControlClientConfig] = None,
+        client_token: Optional[
+            "aws_sdk_bedrock_agentcore_control.types.client_token.ClientToken"
+        ] = None,
+    ) -> "aws_sdk_bedrock_agentcore_control.types.delete_agent_runtime_response.DeleteAgentRuntimeResponse":
         """<p>Deletes an Amazon Bedrock AgentCore Runtime.</p>
 
         Args:
             agent_runtime_id: <p>The unique identifier of the AgentCore Runtime to delete.</p>
             client_token: <p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, the service ignores the request but does not return an error.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_bedrock_agentcore_control.types.delete_agent_runtime_request.DeleteAgentRuntimeRequest]') -> OperationResponse["aws_sdk_bedrock_agentcore_control.types.delete_agent_runtime_response.DeleteAgentRuntimeResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_bedrock_agentcore_control.types.delete_agent_runtime_request.DeleteAgentRuntimeRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_bedrock_agentcore_control.types.delete_agent_runtime_response.DeleteAgentRuntimeResponse"
+        ]:
             import aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.delete_agent_runtime
-            output, http_response = aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.delete_agent_runtime.delete_agent_runtime(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.delete_agent_runtime.delete_agent_runtime(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore_control.types.delete_agent_runtime_request.DeleteAgentRuntimeRequest = {}  # type: ignore[typeddict-item]
-        input["agent_runtime_id"] = agent_runtime_id
+        input_: aws_sdk_bedrock_agentcore_control.types.delete_agent_runtime_request.DeleteAgentRuntimeRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_runtime_id"] = agent_runtime_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def list(self, *, config_overrides: Optional[BedrockAgentCoreControlClientConfig] = None, max_results: Optional["aws_sdk_bedrock_agentcore_control.types.max_results.MaxResults"] = None, next_token: Optional["aws_sdk_bedrock_agentcore_control.types.next_token.NextToken"] = None) -> "aws_sdk_bedrock_agentcore_control.types.list_agent_runtimes_response.ListAgentRuntimesResponse":
+
+    def list(
+        self,
+        *,
+        config_overrides: Optional[BedrockAgentCoreControlClientConfig] = None,
+        max_results: Optional[
+            "aws_sdk_bedrock_agentcore_control.types.max_results.MaxResults"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_bedrock_agentcore_control.types.next_token.NextToken"
+        ] = None,
+    ) -> "aws_sdk_bedrock_agentcore_control.types.list_agent_runtimes_response.ListAgentRuntimesResponse":
         """<p>Lists all Amazon Secure Agents in your account.</p>
 
         Args:
             max_results: <p>The maximum number of results to return in the response.</p>
             next_token: <p>A token to retrieve the next page of results.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_bedrock_agentcore_control.types.list_agent_runtimes_request.ListAgentRuntimesRequest]') -> OperationResponse["aws_sdk_bedrock_agentcore_control.types.list_agent_runtimes_response.ListAgentRuntimesResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_bedrock_agentcore_control.types.list_agent_runtimes_request.ListAgentRuntimesRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_bedrock_agentcore_control.types.list_agent_runtimes_response.ListAgentRuntimesResponse"
+        ]:
             import aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.list_agent_runtimes
-            output, http_response = aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.list_agent_runtimes.list_agent_runtimes(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.list_agent_runtimes.list_agent_runtimes(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore_control.types.list_agent_runtimes_request.ListAgentRuntimesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock_agentcore_control.types.list_agent_runtimes_request.ListAgentRuntimesRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    def list_agent_runtime_versions(self, agent_runtime_id: "aws_sdk_bedrock_agentcore_control.types.agent_runtime_id.AgentRuntimeId", *, config_overrides: Optional[BedrockAgentCoreControlClientConfig] = None, max_results: Optional["aws_sdk_bedrock_agentcore_control.types.max_results.MaxResults"] = None, next_token: Optional["aws_sdk_bedrock_agentcore_control.types.next_token.NextToken"] = None) -> "aws_sdk_bedrock_agentcore_control.types.list_agent_runtime_versions_response.ListAgentRuntimeVersionsResponse":
+
+    def list_agent_runtime_versions(
+        self,
+        agent_runtime_id: "aws_sdk_bedrock_agentcore_control.types.agent_runtime_id.AgentRuntimeId",
+        *,
+        config_overrides: Optional[BedrockAgentCoreControlClientConfig] = None,
+        max_results: Optional[
+            "aws_sdk_bedrock_agentcore_control.types.max_results.MaxResults"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_bedrock_agentcore_control.types.next_token.NextToken"
+        ] = None,
+    ) -> "aws_sdk_bedrock_agentcore_control.types.list_agent_runtime_versions_response.ListAgentRuntimeVersionsResponse":
         """<p>Lists all versions of a specific Amazon Secure Agent.</p>
 
         Args:
@@ -209,26 +408,77 @@ class AgentResource:
             max_results: <p>The maximum number of results to return in the response.</p>
             next_token: <p>A token to retrieve the next page of results.</p>
         """
-        def _handler(req: 'OperationRequest[aws_sdk_bedrock_agentcore_control.types.list_agent_runtime_versions_request.ListAgentRuntimeVersionsRequest]') -> OperationResponse["aws_sdk_bedrock_agentcore_control.types.list_agent_runtime_versions_response.ListAgentRuntimeVersionsResponse"]:
+
+        def _handler(
+            req: "OperationRequest[aws_sdk_bedrock_agentcore_control.types.list_agent_runtime_versions_request.ListAgentRuntimeVersionsRequest]",
+        ) -> OperationResponse[
+            "aws_sdk_bedrock_agentcore_control.types.list_agent_runtime_versions_response.ListAgentRuntimeVersionsResponse"
+        ]:
             import aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.list_agent_runtime_versions
-            output, http_response = aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.list_agent_runtime_versions.list_agent_runtime_versions(req.options, req.input)
+
+            output, http_response = (
+                aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.list_agent_runtime_versions.list_agent_runtime_versions(
+                    req.options, req.input
+                )
+            )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore_control.types.list_agent_runtime_versions_request.ListAgentRuntimeVersionsRequest = {}  # type: ignore[typeddict-item]
-        input["agent_runtime_id"] = agent_runtime_id
+        input_: aws_sdk_bedrock_agentcore_control.types.list_agent_runtime_versions_request.ListAgentRuntimeVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_runtime_id"] = agent_runtime_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
+
 
 class AsyncAgentResource:
     def __init__(self, service: AsyncBedrockAgentCoreControlClient) -> None:
         self._service = service
-    async def create(self, agent_runtime_name: "aws_sdk_bedrock_agentcore_control.types.agent_runtime_name.AgentRuntimeName", agent_runtime_artifact: "aws_sdk_bedrock_agentcore_control.types.agent_runtime_artifact.AgentRuntimeArtifact", role_arn: "aws_sdk_bedrock_agentcore_control.types.role_arn.RoleArn", network_configuration: "aws_sdk_bedrock_agentcore_control.types.network_configuration.NetworkConfiguration", *, config_overrides: Optional[AsyncBedrockAgentCoreControlClientConfig] = None, client_token: Optional["aws_sdk_bedrock_agentcore_control.types.client_token.ClientToken"] = None, description: Optional["aws_sdk_bedrock_agentcore_control.types.description.Description"] = None, authorizer_configuration: Optional["aws_sdk_bedrock_agentcore_control.types.authorizer_configuration.AuthorizerConfiguration"] = None, request_header_configuration: Optional["aws_sdk_bedrock_agentcore_control.types.request_header_configuration.RequestHeaderConfiguration"] = None, protocol_configuration: Optional["aws_sdk_bedrock_agentcore_control.types.protocol_configuration.ProtocolConfiguration"] = None, lifecycle_configuration: Optional["aws_sdk_bedrock_agentcore_control.types.lifecycle_configuration.LifecycleConfiguration"] = None, environment_variables: Optional["aws_sdk_bedrock_agentcore_control.types.environment_variables_map.EnvironmentVariablesMap"] = None, filesystem_configurations: Optional["aws_sdk_bedrock_agentcore_control.types.filesystem_configurations.FilesystemConfigurations"] = None, tags: Optional["aws_sdk_bedrock_agentcore_control.types.tags_map.TagsMap"] = None) -> "aws_sdk_bedrock_agentcore_control.types.create_agent_runtime_response.CreateAgentRuntimeResponse":
+
+    async def create(
+        self,
+        agent_runtime_name: "aws_sdk_bedrock_agentcore_control.types.agent_runtime_name.AgentRuntimeName",
+        agent_runtime_artifact: "aws_sdk_bedrock_agentcore_control.types.agent_runtime_artifact.AgentRuntimeArtifact",
+        role_arn: "aws_sdk_bedrock_agentcore_control.types.role_arn.RoleArn",
+        network_configuration: "aws_sdk_bedrock_agentcore_control.types.network_configuration.NetworkConfiguration",
+        *,
+        config_overrides: Optional[AsyncBedrockAgentCoreControlClientConfig] = None,
+        client_token: Optional[
+            "aws_sdk_bedrock_agentcore_control.types.client_token.ClientToken"
+        ] = None,
+        description: Optional[
+            "aws_sdk_bedrock_agentcore_control.types.description.Description"
+        ] = None,
+        authorizer_configuration: Optional[
+            "aws_sdk_bedrock_agentcore_control.types.authorizer_configuration.AuthorizerConfiguration"
+        ] = None,
+        request_header_configuration: Optional[
+            "aws_sdk_bedrock_agentcore_control.types.request_header_configuration.RequestHeaderConfiguration"
+        ] = None,
+        protocol_configuration: Optional[
+            "aws_sdk_bedrock_agentcore_control.types.protocol_configuration.ProtocolConfiguration"
+        ] = None,
+        lifecycle_configuration: Optional[
+            "aws_sdk_bedrock_agentcore_control.types.lifecycle_configuration.LifecycleConfiguration"
+        ] = None,
+        environment_variables: Optional[
+            "aws_sdk_bedrock_agentcore_control.types.environment_variables_map.EnvironmentVariablesMap"
+        ] = None,
+        filesystem_configurations: Optional[
+            "aws_sdk_bedrock_agentcore_control.types.filesystem_configurations.FilesystemConfigurations"
+        ] = None,
+        tags: Optional[
+            "aws_sdk_bedrock_agentcore_control.types.tags_map.TagsMap"
+        ] = None,
+    ) -> "aws_sdk_bedrock_agentcore_control.types.create_agent_runtime_response.CreateAgentRuntimeResponse":
         """<p>Creates an Amazon Bedrock AgentCore Runtime.</p>
 
         Args:
@@ -245,59 +495,134 @@ class AsyncAgentResource:
             filesystem_configurations: <p>The filesystem configurations to mount into the AgentCore Runtime. Use filesystem configurations to provide persistent storage to your AgentCore Runtime sessions.</p>
             tags: <p>A map of tag keys and values to assign to the agent runtime. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_bedrock_agentcore_control.types.create_agent_runtime_request.CreateAgentRuntimeRequest]') -> AsyncOperationResponse["aws_sdk_bedrock_agentcore_control.types.create_agent_runtime_response.CreateAgentRuntimeResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_bedrock_agentcore_control.types.create_agent_runtime_request.CreateAgentRuntimeRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_bedrock_agentcore_control.types.create_agent_runtime_response.CreateAgentRuntimeResponse"
+        ]:
             import aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.create_agent_runtime
-            output, http_response = await aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.create_agent_runtime.async_create_agent_runtime(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.create_agent_runtime.async_create_agent_runtime(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore_control.types.create_agent_runtime_request.CreateAgentRuntimeRequest = {}  # type: ignore[typeddict-item]
-        input["agent_runtime_name"] = agent_runtime_name
-        input["agent_runtime_artifact"] = agent_runtime_artifact
-        input["role_arn"] = role_arn
-        input["network_configuration"] = network_configuration
+        input_: aws_sdk_bedrock_agentcore_control.types.create_agent_runtime_request.CreateAgentRuntimeRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_runtime_name"] = agent_runtime_name
+        input_["agent_runtime_artifact"] = agent_runtime_artifact
+        input_["role_arn"] = role_arn
+        input_["network_configuration"] = network_configuration
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if authorizer_configuration is not None:
-            input["authorizer_configuration"] = authorizer_configuration
+            input_["authorizer_configuration"] = authorizer_configuration
         if request_header_configuration is not None:
-            input["request_header_configuration"] = request_header_configuration
+            input_["request_header_configuration"] = request_header_configuration
         if protocol_configuration is not None:
-            input["protocol_configuration"] = protocol_configuration
+            input_["protocol_configuration"] = protocol_configuration
         if lifecycle_configuration is not None:
-            input["lifecycle_configuration"] = lifecycle_configuration
+            input_["lifecycle_configuration"] = lifecycle_configuration
         if environment_variables is not None:
-            input["environment_variables"] = environment_variables
+            input_["environment_variables"] = environment_variables
         if filesystem_configurations is not None:
-            input["filesystem_configurations"] = filesystem_configurations
+            input_["filesystem_configurations"] = filesystem_configurations
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def read(self, agent_runtime_id: "aws_sdk_bedrock_agentcore_control.types.agent_runtime_id.AgentRuntimeId", *, config_overrides: Optional[AsyncBedrockAgentCoreControlClientConfig] = None, agent_runtime_version: Optional["aws_sdk_bedrock_agentcore_control.types.agent_runtime_version.AgentRuntimeVersion"] = None) -> "aws_sdk_bedrock_agentcore_control.types.get_agent_runtime_response.GetAgentRuntimeResponse":
+
+    async def read(
+        self,
+        agent_runtime_id: "aws_sdk_bedrock_agentcore_control.types.agent_runtime_id.AgentRuntimeId",
+        *,
+        config_overrides: Optional[AsyncBedrockAgentCoreControlClientConfig] = None,
+        agent_runtime_version: Optional[
+            "aws_sdk_bedrock_agentcore_control.types.agent_runtime_version.AgentRuntimeVersion"
+        ] = None,
+    ) -> "aws_sdk_bedrock_agentcore_control.types.get_agent_runtime_response.GetAgentRuntimeResponse":
         """<p>Gets an Amazon Bedrock AgentCore Runtime.</p>
 
         Args:
             agent_runtime_id: <p>The unique identifier of the AgentCore Runtime to retrieve.</p>
             agent_runtime_version: <p>The version of the AgentCore Runtime to retrieve.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_bedrock_agentcore_control.types.get_agent_runtime_request.GetAgentRuntimeRequest]') -> AsyncOperationResponse["aws_sdk_bedrock_agentcore_control.types.get_agent_runtime_response.GetAgentRuntimeResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_bedrock_agentcore_control.types.get_agent_runtime_request.GetAgentRuntimeRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_bedrock_agentcore_control.types.get_agent_runtime_response.GetAgentRuntimeResponse"
+        ]:
             import aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.get_agent_runtime
-            output, http_response = await aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.get_agent_runtime.async_get_agent_runtime(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.get_agent_runtime.async_get_agent_runtime(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore_control.types.get_agent_runtime_request.GetAgentRuntimeRequest = {}  # type: ignore[typeddict-item]
-        input["agent_runtime_id"] = agent_runtime_id
+        input_: aws_sdk_bedrock_agentcore_control.types.get_agent_runtime_request.GetAgentRuntimeRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_runtime_id"] = agent_runtime_id
         if agent_runtime_version is not None:
-            input["agent_runtime_version"] = agent_runtime_version
+            input_["agent_runtime_version"] = agent_runtime_version
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def update(self, agent_runtime_id: "aws_sdk_bedrock_agentcore_control.types.agent_runtime_id.AgentRuntimeId", agent_runtime_artifact: "aws_sdk_bedrock_agentcore_control.types.agent_runtime_artifact.AgentRuntimeArtifact", role_arn: "aws_sdk_bedrock_agentcore_control.types.role_arn.RoleArn", network_configuration: "aws_sdk_bedrock_agentcore_control.types.network_configuration.NetworkConfiguration", *, config_overrides: Optional[AsyncBedrockAgentCoreControlClientConfig] = None, description: Optional["aws_sdk_bedrock_agentcore_control.types.description.Description"] = None, authorizer_configuration: Optional["aws_sdk_bedrock_agentcore_control.types.authorizer_configuration.AuthorizerConfiguration"] = None, request_header_configuration: Optional["aws_sdk_bedrock_agentcore_control.types.request_header_configuration.RequestHeaderConfiguration"] = None, protocol_configuration: Optional["aws_sdk_bedrock_agentcore_control.types.protocol_configuration.ProtocolConfiguration"] = None, lifecycle_configuration: Optional["aws_sdk_bedrock_agentcore_control.types.lifecycle_configuration.LifecycleConfiguration"] = None, metadata_configuration: Optional["aws_sdk_bedrock_agentcore_control.types.runtime_metadata_configuration.RuntimeMetadataConfiguration"] = None, environment_variables: Optional["aws_sdk_bedrock_agentcore_control.types.environment_variables_map.EnvironmentVariablesMap"] = None, filesystem_configurations: Optional["aws_sdk_bedrock_agentcore_control.types.filesystem_configurations.FilesystemConfigurations"] = None, client_token: Optional["aws_sdk_bedrock_agentcore_control.types.client_token.ClientToken"] = None) -> "aws_sdk_bedrock_agentcore_control.types.update_agent_runtime_response.UpdateAgentRuntimeResponse":
+
+    async def update(
+        self,
+        agent_runtime_id: "aws_sdk_bedrock_agentcore_control.types.agent_runtime_id.AgentRuntimeId",
+        agent_runtime_artifact: "aws_sdk_bedrock_agentcore_control.types.agent_runtime_artifact.AgentRuntimeArtifact",
+        role_arn: "aws_sdk_bedrock_agentcore_control.types.role_arn.RoleArn",
+        network_configuration: "aws_sdk_bedrock_agentcore_control.types.network_configuration.NetworkConfiguration",
+        *,
+        config_overrides: Optional[AsyncBedrockAgentCoreControlClientConfig] = None,
+        description: Optional[
+            "aws_sdk_bedrock_agentcore_control.types.description.Description"
+        ] = None,
+        authorizer_configuration: Optional[
+            "aws_sdk_bedrock_agentcore_control.types.authorizer_configuration.AuthorizerConfiguration"
+        ] = None,
+        request_header_configuration: Optional[
+            "aws_sdk_bedrock_agentcore_control.types.request_header_configuration.RequestHeaderConfiguration"
+        ] = None,
+        protocol_configuration: Optional[
+            "aws_sdk_bedrock_agentcore_control.types.protocol_configuration.ProtocolConfiguration"
+        ] = None,
+        lifecycle_configuration: Optional[
+            "aws_sdk_bedrock_agentcore_control.types.lifecycle_configuration.LifecycleConfiguration"
+        ] = None,
+        metadata_configuration: Optional[
+            "aws_sdk_bedrock_agentcore_control.types.runtime_metadata_configuration.RuntimeMetadataConfiguration"
+        ] = None,
+        environment_variables: Optional[
+            "aws_sdk_bedrock_agentcore_control.types.environment_variables_map.EnvironmentVariablesMap"
+        ] = None,
+        filesystem_configurations: Optional[
+            "aws_sdk_bedrock_agentcore_control.types.filesystem_configurations.FilesystemConfigurations"
+        ] = None,
+        client_token: Optional[
+            "aws_sdk_bedrock_agentcore_control.types.client_token.ClientToken"
+        ] = None,
+    ) -> "aws_sdk_bedrock_agentcore_control.types.update_agent_runtime_response.UpdateAgentRuntimeResponse":
         """<p>Updates an existing Amazon Secure Agent.</p>
 
         Args:
@@ -314,80 +639,157 @@ class AsyncAgentResource:
             filesystem_configurations: <p>The updated filesystem configurations to mount into the AgentCore Runtime.</p>
             client_token: <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_bedrock_agentcore_control.types.update_agent_runtime_request.UpdateAgentRuntimeRequest]') -> AsyncOperationResponse["aws_sdk_bedrock_agentcore_control.types.update_agent_runtime_response.UpdateAgentRuntimeResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_bedrock_agentcore_control.types.update_agent_runtime_request.UpdateAgentRuntimeRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_bedrock_agentcore_control.types.update_agent_runtime_response.UpdateAgentRuntimeResponse"
+        ]:
             import aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.update_agent_runtime
-            output, http_response = await aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.update_agent_runtime.async_update_agent_runtime(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.update_agent_runtime.async_update_agent_runtime(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore_control.types.update_agent_runtime_request.UpdateAgentRuntimeRequest = {}  # type: ignore[typeddict-item]
-        input["agent_runtime_id"] = agent_runtime_id
-        input["agent_runtime_artifact"] = agent_runtime_artifact
-        input["role_arn"] = role_arn
-        input["network_configuration"] = network_configuration
+        input_: aws_sdk_bedrock_agentcore_control.types.update_agent_runtime_request.UpdateAgentRuntimeRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_runtime_id"] = agent_runtime_id
+        input_["agent_runtime_artifact"] = agent_runtime_artifact
+        input_["role_arn"] = role_arn
+        input_["network_configuration"] = network_configuration
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if authorizer_configuration is not None:
-            input["authorizer_configuration"] = authorizer_configuration
+            input_["authorizer_configuration"] = authorizer_configuration
         if request_header_configuration is not None:
-            input["request_header_configuration"] = request_header_configuration
+            input_["request_header_configuration"] = request_header_configuration
         if protocol_configuration is not None:
-            input["protocol_configuration"] = protocol_configuration
+            input_["protocol_configuration"] = protocol_configuration
         if lifecycle_configuration is not None:
-            input["lifecycle_configuration"] = lifecycle_configuration
+            input_["lifecycle_configuration"] = lifecycle_configuration
         if metadata_configuration is not None:
-            input["metadata_configuration"] = metadata_configuration
+            input_["metadata_configuration"] = metadata_configuration
         if environment_variables is not None:
-            input["environment_variables"] = environment_variables
+            input_["environment_variables"] = environment_variables
         if filesystem_configurations is not None:
-            input["filesystem_configurations"] = filesystem_configurations
+            input_["filesystem_configurations"] = filesystem_configurations
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def delete(self, agent_runtime_id: "aws_sdk_bedrock_agentcore_control.types.agent_runtime_id.AgentRuntimeId", *, config_overrides: Optional[AsyncBedrockAgentCoreControlClientConfig] = None, client_token: Optional["aws_sdk_bedrock_agentcore_control.types.client_token.ClientToken"] = None) -> "aws_sdk_bedrock_agentcore_control.types.delete_agent_runtime_response.DeleteAgentRuntimeResponse":
+
+    async def delete(
+        self,
+        agent_runtime_id: "aws_sdk_bedrock_agentcore_control.types.agent_runtime_id.AgentRuntimeId",
+        *,
+        config_overrides: Optional[AsyncBedrockAgentCoreControlClientConfig] = None,
+        client_token: Optional[
+            "aws_sdk_bedrock_agentcore_control.types.client_token.ClientToken"
+        ] = None,
+    ) -> "aws_sdk_bedrock_agentcore_control.types.delete_agent_runtime_response.DeleteAgentRuntimeResponse":
         """<p>Deletes an Amazon Bedrock AgentCore Runtime.</p>
 
         Args:
             agent_runtime_id: <p>The unique identifier of the AgentCore Runtime to delete.</p>
             client_token: <p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, the service ignores the request but does not return an error.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_bedrock_agentcore_control.types.delete_agent_runtime_request.DeleteAgentRuntimeRequest]') -> AsyncOperationResponse["aws_sdk_bedrock_agentcore_control.types.delete_agent_runtime_response.DeleteAgentRuntimeResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_bedrock_agentcore_control.types.delete_agent_runtime_request.DeleteAgentRuntimeRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_bedrock_agentcore_control.types.delete_agent_runtime_response.DeleteAgentRuntimeResponse"
+        ]:
             import aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.delete_agent_runtime
-            output, http_response = await aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.delete_agent_runtime.async_delete_agent_runtime(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.delete_agent_runtime.async_delete_agent_runtime(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore_control.types.delete_agent_runtime_request.DeleteAgentRuntimeRequest = {}  # type: ignore[typeddict-item]
-        input["agent_runtime_id"] = agent_runtime_id
+        input_: aws_sdk_bedrock_agentcore_control.types.delete_agent_runtime_request.DeleteAgentRuntimeRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_runtime_id"] = agent_runtime_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def list(self, *, config_overrides: Optional[AsyncBedrockAgentCoreControlClientConfig] = None, max_results: Optional["aws_sdk_bedrock_agentcore_control.types.max_results.MaxResults"] = None, next_token: Optional["aws_sdk_bedrock_agentcore_control.types.next_token.NextToken"] = None) -> "aws_sdk_bedrock_agentcore_control.types.list_agent_runtimes_response.ListAgentRuntimesResponse":
+
+    async def list(
+        self,
+        *,
+        config_overrides: Optional[AsyncBedrockAgentCoreControlClientConfig] = None,
+        max_results: Optional[
+            "aws_sdk_bedrock_agentcore_control.types.max_results.MaxResults"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_bedrock_agentcore_control.types.next_token.NextToken"
+        ] = None,
+    ) -> "aws_sdk_bedrock_agentcore_control.types.list_agent_runtimes_response.ListAgentRuntimesResponse":
         """<p>Lists all Amazon Secure Agents in your account.</p>
 
         Args:
             max_results: <p>The maximum number of results to return in the response.</p>
             next_token: <p>A token to retrieve the next page of results.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_bedrock_agentcore_control.types.list_agent_runtimes_request.ListAgentRuntimesRequest]') -> AsyncOperationResponse["aws_sdk_bedrock_agentcore_control.types.list_agent_runtimes_response.ListAgentRuntimesResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_bedrock_agentcore_control.types.list_agent_runtimes_request.ListAgentRuntimesRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_bedrock_agentcore_control.types.list_agent_runtimes_response.ListAgentRuntimesResponse"
+        ]:
             import aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.list_agent_runtimes
-            output, http_response = await aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.list_agent_runtimes.async_list_agent_runtimes(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.list_agent_runtimes.async_list_agent_runtimes(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore_control.types.list_agent_runtimes_request.ListAgentRuntimesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock_agentcore_control.types.list_agent_runtimes_request.ListAgentRuntimesRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output
-    async def list_agent_runtime_versions(self, agent_runtime_id: "aws_sdk_bedrock_agentcore_control.types.agent_runtime_id.AgentRuntimeId", *, config_overrides: Optional[AsyncBedrockAgentCoreControlClientConfig] = None, max_results: Optional["aws_sdk_bedrock_agentcore_control.types.max_results.MaxResults"] = None, next_token: Optional["aws_sdk_bedrock_agentcore_control.types.next_token.NextToken"] = None) -> "aws_sdk_bedrock_agentcore_control.types.list_agent_runtime_versions_response.ListAgentRuntimeVersionsResponse":
+
+    async def list_agent_runtime_versions(
+        self,
+        agent_runtime_id: "aws_sdk_bedrock_agentcore_control.types.agent_runtime_id.AgentRuntimeId",
+        *,
+        config_overrides: Optional[AsyncBedrockAgentCoreControlClientConfig] = None,
+        max_results: Optional[
+            "aws_sdk_bedrock_agentcore_control.types.max_results.MaxResults"
+        ] = None,
+        next_token: Optional[
+            "aws_sdk_bedrock_agentcore_control.types.next_token.NextToken"
+        ] = None,
+    ) -> "aws_sdk_bedrock_agentcore_control.types.list_agent_runtime_versions_response.ListAgentRuntimeVersionsResponse":
         """<p>Lists all versions of a specific Amazon Secure Agent.</p>
 
         Args:
@@ -395,18 +797,33 @@ class AsyncAgentResource:
             max_results: <p>The maximum number of results to return in the response.</p>
             next_token: <p>A token to retrieve the next page of results.</p>
         """
-        async def _handler(req: 'AsyncOperationRequest[aws_sdk_bedrock_agentcore_control.types.list_agent_runtime_versions_request.ListAgentRuntimeVersionsRequest]') -> AsyncOperationResponse["aws_sdk_bedrock_agentcore_control.types.list_agent_runtime_versions_response.ListAgentRuntimeVersionsResponse"]:
+
+        async def _handler(
+            req: "AsyncOperationRequest[aws_sdk_bedrock_agentcore_control.types.list_agent_runtime_versions_request.ListAgentRuntimeVersionsRequest]",
+        ) -> AsyncOperationResponse[
+            "aws_sdk_bedrock_agentcore_control.types.list_agent_runtime_versions_response.ListAgentRuntimeVersionsResponse"
+        ]:
             import aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.list_agent_runtime_versions
-            output, http_response = await aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.list_agent_runtime_versions.async_list_agent_runtime_versions(req.options, req.input)
+
+            (
+                output,
+                http_response,
+            ) = await aws_sdk_bedrock_agentcore_control._operations.amazon_bedrock_agent_core_control.list_agent_runtime_versions.async_list_agent_runtime_versions(
+                req.options, req.input
+            )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore_control.types.list_agent_runtime_versions_request.ListAgentRuntimeVersionsRequest = {}  # type: ignore[typeddict-item]
-        input["agent_runtime_id"] = agent_runtime_id
+        input_: aws_sdk_bedrock_agentcore_control.types.list_agent_runtime_versions_request.ListAgentRuntimeVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_runtime_id"] = agent_runtime_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
         return response.output

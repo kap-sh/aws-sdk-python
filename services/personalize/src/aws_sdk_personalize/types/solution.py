@@ -28,11 +28,11 @@ class Solution(TypedDict):
     perform_hpo: "aws_sdk_personalize.types.perform_hpo.PerformHPO"
     """<p>Whether to perform hyperparameter optimization (HPO) on the chosen recipe. The default is <code>false</code>.</p>"""
     perform_auto_ml: "aws_sdk_personalize.types.perform_auto_ml.PerformAutoML"
-    """<important> <p>We don't recommend enabling automated machine learning. Instead, match your use case to the available Amazon Personalize recipes. For more information, see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/determining-use-case.html\">Determining your use case.</a> </p> </important> <p>When true, Amazon Personalize performs a search for the best USER_PERSONALIZATION recipe from the list specified in the solution configuration (<code>recipeArn</code> must not be specified). When false (the default), Amazon Personalize uses <code>recipeArn</code> for training.</p>"""
+    r"""<important> <p>We don't recommend enabling automated machine learning. Instead, match your use case to the available Amazon Personalize recipes. For more information, see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/determining-use-case.html\">Determining your use case.</a> </p> </important> <p>When true, Amazon Personalize performs a search for the best USER_PERSONALIZATION recipe from the list specified in the solution configuration (<code>recipeArn</code> must not be specified). When false (the default), Amazon Personalize uses <code>recipeArn</code> for training.</p>"""
     perform_auto_training: NotRequired[
         "aws_sdk_personalize.types.perform_auto_training.PerformAutoTraining"
     ]
-    """<p>Specifies whether the solution automatically creates solution versions. The default is <code>True</code> and the solution automatically creates new solution versions every 7 days.</p> <p>For more information about auto training, see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/customizing-solution-config.html\">Creating and configuring a solution</a>.</p>"""
+    r"""<p>Specifies whether the solution automatically creates solution versions. The default is <code>True</code> and the solution automatically creates new solution versions every 7 days.</p> <p>For more information about auto training, see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/customizing-solution-config.html\">Creating and configuring a solution</a>.</p>"""
     perform_incremental_update: NotRequired[
         "aws_sdk_personalize.types.perform_incremental_update.PerformIncrementalUpdate"
     ]

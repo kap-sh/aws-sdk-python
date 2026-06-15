@@ -18,7 +18,7 @@ class AssetModelCompositeModelSummary(TypedDict):
     id: "aws_sdk_iotsitewise.types.id.ID"
     """<p>The ID of the composite model that this summary describes..</p>"""
     external_id: NotRequired["aws_sdk_iotsitewise.types.external_id.ExternalId"]
-    """<p>The external ID of a composite model on this asset model. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-ids\">Using external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>"""
+    r"""<p>The external ID of a composite model on this asset model. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-ids\">Using external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>"""
     name: "aws_sdk_iotsitewise.types.name.Name"
     """<p>The name of the composite model that this summary describes..</p>"""
     type: "aws_sdk_iotsitewise.types.name.Name"

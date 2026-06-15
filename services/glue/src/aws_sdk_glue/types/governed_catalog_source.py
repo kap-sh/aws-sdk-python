@@ -22,7 +22,7 @@ class GovernedCatalogSource(TypedDict):
     partition_predicate: NotRequired[
         "aws_sdk_glue.types.enclosed_in_string_property.EnclosedInStringProperty"
     ]
-    """<p>Partitions satisfying this predicate are deleted. Files within the retention period in these partitions are not deleted. Set to <code>\"\"</code> – empty by default.</p>"""
+    r"""<p>Partitions satisfying this predicate are deleted. Files within the retention period in these partitions are not deleted. Set to <code>\"\"</code> – empty by default.</p>"""
     additional_options: NotRequired[
         "aws_sdk_glue.types.s3_source_additional_options.S3SourceAdditionalOptions"
     ]

@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_arc_zonal_shift._auth._signers
@@ -54,7 +56,7 @@ class ZonalShifts:
             "aws_sdk_arc_zonal_shift.types.resource_identifier.ResourceIdentifier"
         ] = None,
     ) -> "aws_sdk_arc_zonal_shift.types.list_zonal_shifts_response.ListZonalShiftsResponse":
-        """<p>Lists all active and completed zonal shifts in Amazon Application Recovery Controller in your Amazon Web Services account in this Amazon Web Services Region. <code>ListZonalShifts</code> returns customer-initiated zonal shifts, as well as practice run zonal shifts that ARC started on your behalf for zonal autoshift.</p> <p>For more information about listing autoshifts, see <a href=\"https://docs.aws.amazon.com/arc-zonal-shift/latest/api/API_ListAutoshifts.html\">\"&gt;ListAutoshifts</a>.</p>
+        r"""<p>Lists all active and completed zonal shifts in Amazon Application Recovery Controller in your Amazon Web Services account in this Amazon Web Services Region. <code>ListZonalShifts</code> returns customer-initiated zonal shifts, as well as practice run zonal shifts that ARC started on your behalf for zonal autoshift.</p> <p>For more information about listing autoshifts, see <a href=\"https://docs.aws.amazon.com/arc-zonal-shift/latest/api/API_ListAutoshifts.html\">\"&gt;ListAutoshifts</a>.</p>
 
         Args:
             next_token: <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>nextToken</code> response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's <code>nextToken</code> response to request the next page of results.</p>
@@ -78,18 +80,18 @@ class ZonalShifts:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_arc_zonal_shift.types.list_zonal_shifts_request.ListZonalShiftsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_arc_zonal_shift.types.list_zonal_shifts_request.ListZonalShiftsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if resource_identifier is not None:
-            input["resource_identifier"] = resource_identifier
+            input_["resource_identifier"] = resource_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -103,7 +105,7 @@ class ZonalShifts:
         *,
         config_overrides: Optional[ARCZonalShiftClientConfig] = None,
     ) -> "aws_sdk_arc_zonal_shift.types.start_practice_run_response.StartPracticeRunResponse":
-        """<p>Start an on-demand practice run zonal shift in Amazon Application Recovery Controller. With zonal autoshift enabled, you can start an on-demand practice run to verify preparedness at any time. Amazon Web Services also runs automated practice runs about weekly when you have enabled zonal autoshift.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-autoshift.considerations.html\"> Considerations when you configure zonal autoshift</a> in the Amazon Application Recovery Controller Developer Guide.</p>
+        r"""<p>Start an on-demand practice run zonal shift in Amazon Application Recovery Controller. With zonal autoshift enabled, you can start an on-demand practice run to verify preparedness at any time. Amazon Web Services also runs automated practice runs about weekly when you have enabled zonal autoshift.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-autoshift.considerations.html\"> Considerations when you configure zonal autoshift</a> in the Amazon Application Recovery Controller Developer Guide.</p>
 
         Args:
             resource_identifier: <p>The identifier for the resource that you want to start a practice run zonal shift for. The identifier is the Amazon Resource Name (ARN) for the resource.</p>
@@ -126,13 +128,13 @@ class ZonalShifts:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_arc_zonal_shift.types.start_practice_run_request.StartPracticeRunRequest = {}  # type: ignore[typeddict-item]
-        input["resource_identifier"] = resource_identifier
-        input["away_from"] = away_from
-        input["comment"] = comment
+        input_: aws_sdk_arc_zonal_shift.types.start_practice_run_request.StartPracticeRunRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_identifier"] = resource_identifier
+        input_["away_from"] = away_from
+        input_["comment"] = comment
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -147,7 +149,7 @@ class ZonalShifts:
         *,
         config_overrides: Optional[ARCZonalShiftClientConfig] = None,
     ) -> "aws_sdk_arc_zonal_shift.types.zonal_shift.ZonalShift":
-        """<p>You start a zonal shift to temporarily move load balancer traffic away from an Availability Zone in an Amazon Web Services Region, to help your application recover immediately, for example, from a developer's bad code deployment or from an Amazon Web Services infrastructure failure in a single Availability Zone. You can start a zonal shift in ARC only for managed resources in your Amazon Web Services account in an Amazon Web Services Region. Resources are automatically registered with ARC by Amazon Web Services services.</p> <p>Amazon Application Recovery Controller currently supports enabling the following resources for zonal shift and zonal autoshift:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.resource-types.ec2-auto-scaling-groups.html\">Amazon EC2 Auto Scaling groups</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.resource-types.eks.html\">Amazon Elastic Kubernetes Service</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.resource-types.app-load-balancers.html\">Application Load Balancer</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.resource-types.network-load-balancers.html\">Network Load Balancer</a> </p> </li> </ul> <p>When you start a zonal shift, traffic for the resource is no longer routed to the Availability Zone. The zonal shift is created immediately in ARC. However, it can take a short time, typically up to a few minutes, for existing, in-progress connections in the Availability Zone to complete.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.html\">Zonal shift</a> in the Amazon Application Recovery Controller Developer Guide.</p>
+        r"""<p>You start a zonal shift to temporarily move load balancer traffic away from an Availability Zone in an Amazon Web Services Region, to help your application recover immediately, for example, from a developer's bad code deployment or from an Amazon Web Services infrastructure failure in a single Availability Zone. You can start a zonal shift in ARC only for managed resources in your Amazon Web Services account in an Amazon Web Services Region. Resources are automatically registered with ARC by Amazon Web Services services.</p> <p>Amazon Application Recovery Controller currently supports enabling the following resources for zonal shift and zonal autoshift:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.resource-types.ec2-auto-scaling-groups.html\">Amazon EC2 Auto Scaling groups</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.resource-types.eks.html\">Amazon Elastic Kubernetes Service</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.resource-types.app-load-balancers.html\">Application Load Balancer</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.resource-types.network-load-balancers.html\">Network Load Balancer</a> </p> </li> </ul> <p>When you start a zonal shift, traffic for the resource is no longer routed to the Availability Zone. The zonal shift is created immediately in ARC. However, it can take a short time, typically up to a few minutes, for existing, in-progress connections in the Availability Zone to complete.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.html\">Zonal shift</a> in the Amazon Application Recovery Controller Developer Guide.</p>
 
         Args:
             resource_identifier: <p>The identifier for the resource that Amazon Web Services shifts traffic for. The identifier is the Amazon Resource Name (ARN) for the resource.</p> <p>Amazon Application Recovery Controller currently supports enabling the following resources for zonal shift and zonal autoshift:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.resource-types.ec2-auto-scaling-groups.html\">Amazon EC2 Auto Scaling groups</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.resource-types.eks.html\">Amazon Elastic Kubernetes Service</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.resource-types.app-load-balancers.html\">Application Load Balancer</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.resource-types.network-load-balancers.html\">Network Load Balancer</a> </p> </li> </ul>
@@ -169,14 +171,14 @@ class ZonalShifts:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_arc_zonal_shift.types.start_zonal_shift_request.StartZonalShiftRequest = {}  # type: ignore[typeddict-item]
-        input["resource_identifier"] = resource_identifier
-        input["away_from"] = away_from
-        input["expires_in"] = expires_in
-        input["comment"] = comment
+        input_: aws_sdk_arc_zonal_shift.types.start_zonal_shift_request.StartZonalShiftRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_identifier"] = resource_identifier
+        input_["away_from"] = away_from
+        input_["expires_in"] = expires_in
+        input_["comment"] = comment
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -202,7 +204,7 @@ class AsyncZonalShifts:
             "aws_sdk_arc_zonal_shift.types.resource_identifier.ResourceIdentifier"
         ] = None,
     ) -> "aws_sdk_arc_zonal_shift.types.list_zonal_shifts_response.ListZonalShiftsResponse":
-        """<p>Lists all active and completed zonal shifts in Amazon Application Recovery Controller in your Amazon Web Services account in this Amazon Web Services Region. <code>ListZonalShifts</code> returns customer-initiated zonal shifts, as well as practice run zonal shifts that ARC started on your behalf for zonal autoshift.</p> <p>For more information about listing autoshifts, see <a href=\"https://docs.aws.amazon.com/arc-zonal-shift/latest/api/API_ListAutoshifts.html\">\"&gt;ListAutoshifts</a>.</p>
+        r"""<p>Lists all active and completed zonal shifts in Amazon Application Recovery Controller in your Amazon Web Services account in this Amazon Web Services Region. <code>ListZonalShifts</code> returns customer-initiated zonal shifts, as well as practice run zonal shifts that ARC started on your behalf for zonal autoshift.</p> <p>For more information about listing autoshifts, see <a href=\"https://docs.aws.amazon.com/arc-zonal-shift/latest/api/API_ListAutoshifts.html\">\"&gt;ListAutoshifts</a>.</p>
 
         Args:
             next_token: <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>nextToken</code> response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's <code>nextToken</code> response to request the next page of results.</p>
@@ -227,18 +229,18 @@ class AsyncZonalShifts:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_arc_zonal_shift.types.list_zonal_shifts_request.ListZonalShiftsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_arc_zonal_shift.types.list_zonal_shifts_request.ListZonalShiftsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if resource_identifier is not None:
-            input["resource_identifier"] = resource_identifier
+            input_["resource_identifier"] = resource_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -252,7 +254,7 @@ class AsyncZonalShifts:
         *,
         config_overrides: Optional[AsyncARCZonalShiftClientConfig] = None,
     ) -> "aws_sdk_arc_zonal_shift.types.start_practice_run_response.StartPracticeRunResponse":
-        """<p>Start an on-demand practice run zonal shift in Amazon Application Recovery Controller. With zonal autoshift enabled, you can start an on-demand practice run to verify preparedness at any time. Amazon Web Services also runs automated practice runs about weekly when you have enabled zonal autoshift.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-autoshift.considerations.html\"> Considerations when you configure zonal autoshift</a> in the Amazon Application Recovery Controller Developer Guide.</p>
+        r"""<p>Start an on-demand practice run zonal shift in Amazon Application Recovery Controller. With zonal autoshift enabled, you can start an on-demand practice run to verify preparedness at any time. Amazon Web Services also runs automated practice runs about weekly when you have enabled zonal autoshift.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-autoshift.considerations.html\"> Considerations when you configure zonal autoshift</a> in the Amazon Application Recovery Controller Developer Guide.</p>
 
         Args:
             resource_identifier: <p>The identifier for the resource that you want to start a practice run zonal shift for. The identifier is the Amazon Resource Name (ARN) for the resource.</p>
@@ -276,13 +278,13 @@ class AsyncZonalShifts:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_arc_zonal_shift.types.start_practice_run_request.StartPracticeRunRequest = {}  # type: ignore[typeddict-item]
-        input["resource_identifier"] = resource_identifier
-        input["away_from"] = away_from
-        input["comment"] = comment
+        input_: aws_sdk_arc_zonal_shift.types.start_practice_run_request.StartPracticeRunRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_identifier"] = resource_identifier
+        input_["away_from"] = away_from
+        input_["comment"] = comment
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -297,7 +299,7 @@ class AsyncZonalShifts:
         *,
         config_overrides: Optional[AsyncARCZonalShiftClientConfig] = None,
     ) -> "aws_sdk_arc_zonal_shift.types.zonal_shift.ZonalShift":
-        """<p>You start a zonal shift to temporarily move load balancer traffic away from an Availability Zone in an Amazon Web Services Region, to help your application recover immediately, for example, from a developer's bad code deployment or from an Amazon Web Services infrastructure failure in a single Availability Zone. You can start a zonal shift in ARC only for managed resources in your Amazon Web Services account in an Amazon Web Services Region. Resources are automatically registered with ARC by Amazon Web Services services.</p> <p>Amazon Application Recovery Controller currently supports enabling the following resources for zonal shift and zonal autoshift:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.resource-types.ec2-auto-scaling-groups.html\">Amazon EC2 Auto Scaling groups</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.resource-types.eks.html\">Amazon Elastic Kubernetes Service</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.resource-types.app-load-balancers.html\">Application Load Balancer</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.resource-types.network-load-balancers.html\">Network Load Balancer</a> </p> </li> </ul> <p>When you start a zonal shift, traffic for the resource is no longer routed to the Availability Zone. The zonal shift is created immediately in ARC. However, it can take a short time, typically up to a few minutes, for existing, in-progress connections in the Availability Zone to complete.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.html\">Zonal shift</a> in the Amazon Application Recovery Controller Developer Guide.</p>
+        r"""<p>You start a zonal shift to temporarily move load balancer traffic away from an Availability Zone in an Amazon Web Services Region, to help your application recover immediately, for example, from a developer's bad code deployment or from an Amazon Web Services infrastructure failure in a single Availability Zone. You can start a zonal shift in ARC only for managed resources in your Amazon Web Services account in an Amazon Web Services Region. Resources are automatically registered with ARC by Amazon Web Services services.</p> <p>Amazon Application Recovery Controller currently supports enabling the following resources for zonal shift and zonal autoshift:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.resource-types.ec2-auto-scaling-groups.html\">Amazon EC2 Auto Scaling groups</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.resource-types.eks.html\">Amazon Elastic Kubernetes Service</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.resource-types.app-load-balancers.html\">Application Load Balancer</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.resource-types.network-load-balancers.html\">Network Load Balancer</a> </p> </li> </ul> <p>When you start a zonal shift, traffic for the resource is no longer routed to the Availability Zone. The zonal shift is created immediately in ARC. However, it can take a short time, typically up to a few minutes, for existing, in-progress connections in the Availability Zone to complete.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.html\">Zonal shift</a> in the Amazon Application Recovery Controller Developer Guide.</p>
 
         Args:
             resource_identifier: <p>The identifier for the resource that Amazon Web Services shifts traffic for. The identifier is the Amazon Resource Name (ARN) for the resource.</p> <p>Amazon Application Recovery Controller currently supports enabling the following resources for zonal shift and zonal autoshift:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.resource-types.ec2-auto-scaling-groups.html\">Amazon EC2 Auto Scaling groups</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.resource-types.eks.html\">Amazon Elastic Kubernetes Service</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.resource-types.app-load-balancers.html\">Application Load Balancer</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.resource-types.network-load-balancers.html\">Network Load Balancer</a> </p> </li> </ul>
@@ -322,14 +324,14 @@ class AsyncZonalShifts:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_arc_zonal_shift.types.start_zonal_shift_request.StartZonalShiftRequest = {}  # type: ignore[typeddict-item]
-        input["resource_identifier"] = resource_identifier
-        input["away_from"] = away_from
-        input["expires_in"] = expires_in
-        input["comment"] = comment
+        input_: aws_sdk_arc_zonal_shift.types.start_zonal_shift_request.StartZonalShiftRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_identifier"] = resource_identifier
+        input_["away_from"] = away_from
+        input_["expires_in"] = expires_in
+        input_["comment"] = comment
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

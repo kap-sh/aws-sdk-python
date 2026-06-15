@@ -24,7 +24,7 @@ class Attachment(TypedDict):
     ]
     """<p> A standard descriptor indicating how the attachment should be rendered in the email. Supported values: <code>ATTACHMENT</code> or <code>INLINE</code>.</p>"""
     file_name: "aws_sdk_sesv2.types.attachment_file_name.AttachmentFileName"
-    """<p>The file name for the attachment as it will appear in the email. Amazon SES restricts certain file extensions. To ensure attachments are accepted, check the <a href=\"https://docs.aws.amazon.com/ses/latest/dg/mime-types.html\">Unsupported attachment types</a> in the Amazon SES Developer Guide.</p>"""
+    r"""<p>The file name for the attachment as it will appear in the email. Amazon SES restricts certain file extensions. To ensure attachments are accepted, check the <a href=\"https://docs.aws.amazon.com/ses/latest/dg/mime-types.html\">Unsupported attachment types</a> in the Amazon SES Developer Guide.</p>"""
     content_description: NotRequired[
         "aws_sdk_sesv2.types.attachment_content_description.AttachmentContentDescription"
     ]

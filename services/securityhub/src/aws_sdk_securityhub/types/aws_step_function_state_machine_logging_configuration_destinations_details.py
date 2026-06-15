@@ -12,7 +12,7 @@ class AwsStepFunctionStateMachineLoggingConfigurationDestinationsDetails(TypedDi
     cloud_watch_logs_log_group: NotRequired[
         "aws_sdk_securityhub.types.aws_step_function_state_machine_logging_configuration_destinations_cloud_watch_logs_log_group_details.AwsStepFunctionStateMachineLoggingConfigurationDestinationsCloudWatchLogsLogGroupDetails"
     ]
-    """<p> An object describing a CloudWatch Logs log group. For more information, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html\"> Amazon Web Services::Logs::LogGroup</a> in the <i>CloudFormation User Guide</i>. </p>"""
+    r"""<p> An object describing a CloudWatch Logs log group. For more information, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html\"> Amazon Web Services::Logs::LogGroup</a> in the <i>CloudFormation User Guide</i>. </p>"""
 
 
 # --- restJson1 ser/de ---

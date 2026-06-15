@@ -10,7 +10,7 @@ if TYPE_CHECKING:
 
 class DescribeHandshakeRequest(TypedDict):
     handshake_id: "aws_sdk_organizations.types.handshake_id.HandshakeId"
-    """<p>ID for the handshake that you want information about.</p> <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> for handshake ID string requires \"h-\" followed by from 8 to 32 lowercase letters or digits.</p>"""
+    r"""<p>ID for the handshake that you want information about.</p> <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> for handshake ID string requires \"h-\" followed by from 8 to 32 lowercase letters or digits.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

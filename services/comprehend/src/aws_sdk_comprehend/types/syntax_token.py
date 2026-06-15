@@ -22,7 +22,7 @@ class SyntaxToken(TypedDict):
     part_of_speech: NotRequired[
         "aws_sdk_comprehend.types.part_of_speech_tag.PartOfSpeechTag"
     ]
-    """<p>Provides the part of speech label and the confidence level that Amazon Comprehend has that the part of speech was correctly identified. For more information, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/how-syntax.html\">Syntax</a> in the Comprehend Developer Guide. </p>"""
+    r"""<p>Provides the part of speech label and the confidence level that Amazon Comprehend has that the part of speech was correctly identified. For more information, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/how-syntax.html\">Syntax</a> in the Comprehend Developer Guide. </p>"""
 
 
 # --- awsJson1_1 ser/de ---

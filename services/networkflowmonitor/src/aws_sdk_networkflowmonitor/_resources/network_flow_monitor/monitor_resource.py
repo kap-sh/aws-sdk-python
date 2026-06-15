@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import datetime
 from typing import TYPE_CHECKING, Optional
 
@@ -407,7 +409,7 @@ class MonitorResource:
         config_overrides: Optional[NetworkFlowMonitorClientConfig] = None,
         limit: Optional["aws_sdk_networkflowmonitor.types.limit.Limit"] = None,
     ) -> "aws_sdk_networkflowmonitor.types.start_query_monitor_top_contributors_output.StartQueryMonitorTopContributorsOutput":
-        """<p>Create a query that you can use with the Network Flow Monitor query interface to return the top contributors for a monitor. Specify the monitor that you want to create the query for. </p> <p>The call returns a query ID that you can use with <a href=\"https://docs.aws.amazon.com/networkflowmonitor/2.0/APIReference/API_GetQueryResultsMonitorTopContributors.html\"> GetQueryResultsMonitorTopContributors</a> to run the query and return the top contributors for a specific monitor.</p> <p>Top contributors in Network Flow Monitor are network flows with the highest values for a specific metric type. Top contributors can be across all workload insights, for a given scope, or for a specific monitor. Use the applicable APIs for the top contributors that you want to be returned.</p>
+        r"""<p>Create a query that you can use with the Network Flow Monitor query interface to return the top contributors for a monitor. Specify the monitor that you want to create the query for. </p> <p>The call returns a query ID that you can use with <a href=\"https://docs.aws.amazon.com/networkflowmonitor/2.0/APIReference/API_GetQueryResultsMonitorTopContributors.html\"> GetQueryResultsMonitorTopContributors</a> to run the query and return the top contributors for a specific monitor.</p> <p>Top contributors in Network Flow Monitor are network flows with the highest values for a specific metric type. Top contributors can be across all workload insights, for a given scope, or for a specific monitor. Use the applicable APIs for the top contributors that you want to be returned.</p>
 
         Args:
             monitor_name: <p>The name of the monitor.</p>
@@ -850,7 +852,7 @@ class AsyncMonitorResource:
         config_overrides: Optional[AsyncNetworkFlowMonitorClientConfig] = None,
         limit: Optional["aws_sdk_networkflowmonitor.types.limit.Limit"] = None,
     ) -> "aws_sdk_networkflowmonitor.types.start_query_monitor_top_contributors_output.StartQueryMonitorTopContributorsOutput":
-        """<p>Create a query that you can use with the Network Flow Monitor query interface to return the top contributors for a monitor. Specify the monitor that you want to create the query for. </p> <p>The call returns a query ID that you can use with <a href=\"https://docs.aws.amazon.com/networkflowmonitor/2.0/APIReference/API_GetQueryResultsMonitorTopContributors.html\"> GetQueryResultsMonitorTopContributors</a> to run the query and return the top contributors for a specific monitor.</p> <p>Top contributors in Network Flow Monitor are network flows with the highest values for a specific metric type. Top contributors can be across all workload insights, for a given scope, or for a specific monitor. Use the applicable APIs for the top contributors that you want to be returned.</p>
+        r"""<p>Create a query that you can use with the Network Flow Monitor query interface to return the top contributors for a monitor. Specify the monitor that you want to create the query for. </p> <p>The call returns a query ID that you can use with <a href=\"https://docs.aws.amazon.com/networkflowmonitor/2.0/APIReference/API_GetQueryResultsMonitorTopContributors.html\"> GetQueryResultsMonitorTopContributors</a> to run the query and return the top contributors for a specific monitor.</p> <p>Top contributors in Network Flow Monitor are network flows with the highest values for a specific metric type. Top contributors can be across all workload insights, for a given scope, or for a specific monitor. Use the applicable APIs for the top contributors that you want to be returned.</p>
 
         Args:
             monitor_name: <p>The name of the monitor.</p>

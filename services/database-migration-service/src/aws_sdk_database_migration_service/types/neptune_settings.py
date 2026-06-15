@@ -16,7 +16,7 @@ class NeptuneSettings(TypedDict):
     service_access_role_arn: NotRequired[
         "aws_sdk_database_migration_service.types.string.String"
     ]
-    """<p>The Amazon Resource Name (ARN) of the service role that you created for the Neptune target endpoint. The role must allow the <code>iam:PassRole</code> action. For more information, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Neptune.html#CHAP_Target.Neptune.ServiceRole\">Creating an IAM Service Role for Accessing Amazon Neptune as a Target</a> in the <i>Database Migration Service User Guide. </i> </p>"""
+    r"""<p>The Amazon Resource Name (ARN) of the service role that you created for the Neptune target endpoint. The role must allow the <code>iam:PassRole</code> action. For more information, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Neptune.html#CHAP_Target.Neptune.ServiceRole\">Creating an IAM Service Role for Accessing Amazon Neptune as a Target</a> in the <i>Database Migration Service User Guide. </i> </p>"""
     s3_bucket_name: "aws_sdk_database_migration_service.types.string.String"
     """<p>The name of the Amazon S3 bucket where DMS can temporarily store migrated graph data in .csv files before bulk-loading it to the Neptune target database. DMS maps the SQL source data to graph data before storing it in these .csv files.</p>"""
     s3_bucket_folder: "aws_sdk_database_migration_service.types.string.String"

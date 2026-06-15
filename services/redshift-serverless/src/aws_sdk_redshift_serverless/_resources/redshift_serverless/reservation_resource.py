@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 from aws_sdk_redshift_serverless._services._pipeline import (
@@ -48,7 +50,7 @@ class ReservationResource:
         config_overrides: Optional[RedshiftServerlessClientConfig] = None,
         client_token: Optional[str] = None,
     ) -> "aws_sdk_redshift_serverless.types.create_reservation_response.CreateReservationResponse":
-        """<p>Creates an Amazon Redshift Serverless reservation, which gives you the option to commit to a specified number of Redshift Processing Units (RPUs) for a year at a discount from Serverless on-demand (OD) rates.</p>
+        r"""<p>Creates an Amazon Redshift Serverless reservation, which gives you the option to commit to a specified number of Redshift Processing Units (RPUs) for a year at a discount from Serverless on-demand (OD) rates.</p>
 
         Args:
             capacity: <p>The number of Redshift Processing Units (RPUs) to reserve.</p>
@@ -259,7 +261,7 @@ class AsyncReservationResource:
         config_overrides: Optional[AsyncRedshiftServerlessClientConfig] = None,
         client_token: Optional[str] = None,
     ) -> "aws_sdk_redshift_serverless.types.create_reservation_response.CreateReservationResponse":
-        """<p>Creates an Amazon Redshift Serverless reservation, which gives you the option to commit to a specified number of Redshift Processing Units (RPUs) for a year at a discount from Serverless on-demand (OD) rates.</p>
+        r"""<p>Creates an Amazon Redshift Serverless reservation, which gives you the option to commit to a specified number of Redshift Processing Units (RPUs) for a year at a discount from Serverless on-demand (OD) rates.</p>
 
         Args:
             capacity: <p>The number of Redshift Processing Units (RPUs) to reserve.</p>

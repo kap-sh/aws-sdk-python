@@ -13,7 +13,7 @@ class CustomRoutingAcceleratorAttributes(TypedDict):
     flow_logs_enabled: NotRequired[
         "aws_sdk_global_accelerator.types.generic_boolean.GenericBoolean"
     ]
-    """<p>Indicates whether flow logs are enabled. The default value is false. If the value is true, <code>FlowLogsS3Bucket</code> and <code>FlowLogsS3Prefix</code> must be specified.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/monitoring-global-accelerator.flow-logs.html\">Flow logs</a> in the <i>Global Accelerator Developer Guide</i>.</p>"""
+    r"""<p>Indicates whether flow logs are enabled. The default value is false. If the value is true, <code>FlowLogsS3Bucket</code> and <code>FlowLogsS3Prefix</code> must be specified.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/monitoring-global-accelerator.flow-logs.html\">Flow logs</a> in the <i>Global Accelerator Developer Guide</i>.</p>"""
     flow_logs_s3_bucket: NotRequired[
         "aws_sdk_global_accelerator.types.generic_string.GenericString"
     ]

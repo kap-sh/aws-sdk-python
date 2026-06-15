@@ -9,7 +9,7 @@ if TYPE_CHECKING:
 
 class GetAnalyzedResourceRequest(TypedDict):
     analyzer_arn: "aws_sdk_accessanalyzer.types.analyzer_arn.AnalyzerArn"
-    """<p>The <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources\">ARN of the analyzer</a> to retrieve information from.</p>"""
+    r"""<p>The <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources\">ARN of the analyzer</a> to retrieve information from.</p>"""
     resource_arn: "aws_sdk_accessanalyzer.types.resource_arn.ResourceArn"
     """<p>The ARN of the resource to retrieve information about.</p>"""
 

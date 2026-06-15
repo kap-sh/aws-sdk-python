@@ -53,7 +53,7 @@ class DomainDescriptionType(TypedDict):
     managed_login_version: NotRequired[
         "aws_sdk_cognito_identity_provider.types.wrapped_integer_type.WrappedIntegerType"
     ]
-    """<p>The version of managed login branding that you want to apply to your domain. A value of <code>1</code> indicates hosted UI (classic) branding and a version of <code>2</code> indicates managed login branding.</p> <p>Managed login requires that your user pool be configured for any <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sign-in-feature-plans.html\">feature plan</a> other than <code>Lite</code>.</p>"""
+    r"""<p>The version of managed login branding that you want to apply to your domain. A value of <code>1</code> indicates hosted UI (classic) branding and a version of <code>2</code> indicates managed login branding.</p> <p>Managed login requires that your user pool be configured for any <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sign-in-feature-plans.html\">feature plan</a> other than <code>Lite</code>.</p>"""
     routing: NotRequired[
         "aws_sdk_cognito_identity_provider.types.routing_type.RoutingType"
     ]

@@ -14,7 +14,7 @@ if TYPE_CHECKING:
 
 class IcebergSchemaV2(TypedDict):
     type: "aws_sdk_s3tables.types.schema_v2_field_type.SchemaV2FieldType"
-    """<p>The type of the top-level schema, which is always a <code>struct</code> type as defined in the <a href=\"https://iceberg.apache.org/spec/#schemas-and-data-types\">Apache Iceberg specification</a>. This value must be <code>struct</code>.</p>"""
+    r"""<p>The type of the top-level schema, which is always a <code>struct</code> type as defined in the <a href=\"https://iceberg.apache.org/spec/#schemas-and-data-types\">Apache Iceberg specification</a>. This value must be <code>struct</code>.</p>"""
     fields: "aws_sdk_s3tables.types.schema_v2_field_list.SchemaV2FieldList"
     """<p>The schema fields for the table. Each field defines a column in the table, including its name, type, and whether it is required.</p>"""
     schema_id: NotRequired["int"]

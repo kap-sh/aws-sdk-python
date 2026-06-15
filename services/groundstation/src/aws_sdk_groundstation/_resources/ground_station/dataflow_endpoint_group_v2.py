@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_groundstation._auth._signers
@@ -44,7 +46,7 @@ class DataflowEndpointGroupV2:
         ] = None,
         tags: Optional["aws_sdk_groundstation.types.tags_map.TagsMap"] = None,
     ) -> "aws_sdk_groundstation.types.create_dataflow_endpoint_group_v2_response.CreateDataflowEndpointGroupV2Response":
-        """<p>Creates a <code>DataflowEndpoint</code> group containing the specified list of Ground Station Agent based endpoints.</p> <p>The <code>name</code> field in each endpoint is used in your mission profile <code> DataflowEndpointConfig</code> to specify which endpoints to use during a contact.</p> <p>When a contact uses multiple <code>DataflowEndpointConfig</code> objects, each <code> Config</code> must match a <code>DataflowEndpoint</code> in the same group.</p>
+        r"""<p>Creates a <code>DataflowEndpoint</code> group containing the specified list of Ground Station Agent based endpoints.</p> <p>The <code>name</code> field in each endpoint is used in your mission profile <code> DataflowEndpointConfig</code> to specify which endpoints to use during a contact.</p> <p>When a contact uses multiple <code>DataflowEndpointConfig</code> objects, each <code> Config</code> must match a <code>DataflowEndpoint</code> in the same group.</p>
 
         Args:
             endpoints: <p>Dataflow endpoint group's endpoint definitions</p>
@@ -106,7 +108,7 @@ class AsyncDataflowEndpointGroupV2:
         ] = None,
         tags: Optional["aws_sdk_groundstation.types.tags_map.TagsMap"] = None,
     ) -> "aws_sdk_groundstation.types.create_dataflow_endpoint_group_v2_response.CreateDataflowEndpointGroupV2Response":
-        """<p>Creates a <code>DataflowEndpoint</code> group containing the specified list of Ground Station Agent based endpoints.</p> <p>The <code>name</code> field in each endpoint is used in your mission profile <code> DataflowEndpointConfig</code> to specify which endpoints to use during a contact.</p> <p>When a contact uses multiple <code>DataflowEndpointConfig</code> objects, each <code> Config</code> must match a <code>DataflowEndpoint</code> in the same group.</p>
+        r"""<p>Creates a <code>DataflowEndpoint</code> group containing the specified list of Ground Station Agent based endpoints.</p> <p>The <code>name</code> field in each endpoint is used in your mission profile <code> DataflowEndpointConfig</code> to specify which endpoints to use during a contact.</p> <p>When a contact uses multiple <code>DataflowEndpointConfig</code> objects, each <code> Config</code> must match a <code>DataflowEndpoint</code> in the same group.</p>
 
         Args:
             endpoints: <p>Dataflow endpoint group's endpoint definitions</p>

@@ -13,7 +13,7 @@ class BuiltinIntentMetadata(TypedDict):
     signature: NotRequired[
         "aws_sdk_lex_model_building_service.types.builtin_intent_signature.BuiltinIntentSignature"
     ]
-    """<p>A unique identifier for the built-in intent. To find the signature for an intent, see <a href=\"https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents\">Standard Built-in Intents</a> in the <i>Alexa Skills Kit</i>.</p>"""
+    r"""<p>A unique identifier for the built-in intent. To find the signature for an intent, see <a href=\"https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents\">Standard Built-in Intents</a> in the <i>Alexa Skills Kit</i>.</p>"""
     supported_locales: NotRequired[
         "aws_sdk_lex_model_building_service.types.locale_list.LocaleList"
     ]

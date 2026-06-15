@@ -24,13 +24,13 @@ class CreateLinkRequest(TypedDict):
     type: NotRequired[
         "aws_sdk_networkmanager.types.constrained_string.ConstrainedString"
     ]
-    """<p>The type of the link.</p> <p>Constraints: Maximum length of 128 characters. Cannot include the following characters: | \ ^</p>"""
+    r"""<p>The type of the link.</p> <p>Constraints: Maximum length of 128 characters. Cannot include the following characters: | \ ^</p>"""
     bandwidth: "aws_sdk_networkmanager.types.bandwidth.Bandwidth"
     """<p> The upload speed and download speed in Mbps. </p>"""
     provider: NotRequired[
         "aws_sdk_networkmanager.types.constrained_string.ConstrainedString"
     ]
-    """<p>The provider of the link.</p> <p>Constraints: Maximum length of 128 characters. Cannot include the following characters: | \ ^</p>"""
+    r"""<p>The provider of the link.</p> <p>Constraints: Maximum length of 128 characters. Cannot include the following characters: | \ ^</p>"""
     site_id: "aws_sdk_networkmanager.types.site_id.SiteId"
     """<p>The ID of the site.</p>"""
     tags: NotRequired["aws_sdk_networkmanager.types.tag_list.TagList"]

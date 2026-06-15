@@ -18,9 +18,9 @@ if TYPE_CHECKING:
 
 class QuipConfiguration(TypedDict):
     domain: "aws_sdk_kendra.types.domain.Domain"
-    """<p>The Quip site domain. For example, <i>https://quip-company.quipdomain.com/browse</i>. The domain in this example is \"quipdomain\".</p>"""
+    r"""<p>The Quip site domain. For example, <i>https://quip-company.quipdomain.com/browse</i>. The domain in this example is \"quipdomain\".</p>"""
     secret_arn: "aws_sdk_kendra.types.secret_arn.SecretArn"
-    """<p>The Amazon Resource Name (ARN) of an Secrets Manager secret that contains the key-value pairs that are required to connect to your Quip. The secret must contain a JSON structure with the following keys:</p> <ul> <li> <p>accessToken—The token created in Quip. For more information, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/data-source-slack.html\">Using a Quip data source</a>.</p> </li> </ul>"""
+    r"""<p>The Amazon Resource Name (ARN) of an Secrets Manager secret that contains the key-value pairs that are required to connect to your Quip. The secret must contain a JSON structure with the following keys:</p> <ul> <li> <p>accessToken—The token created in Quip. For more information, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/data-source-slack.html\">Using a Quip data source</a>.</p> </li> </ul>"""
     crawl_file_comments: "aws_sdk_kendra.types.boolean.Boolean"
     """<p> <code>TRUE</code> to index file comments.</p>"""
     crawl_chat_rooms: "aws_sdk_kendra.types.boolean.Boolean"
@@ -28,19 +28,19 @@ class QuipConfiguration(TypedDict):
     crawl_attachments: "aws_sdk_kendra.types.boolean.Boolean"
     """<p> <code>TRUE</code> to index attachments.</p>"""
     folder_ids: NotRequired["aws_sdk_kendra.types.folder_id_list.FolderIdList"]
-    """<p>The identifiers of the Quip folders you want to index. You can find the folder ID in your browser URL when you access your folder in Quip. For example, <i>https://quip-company.quipdomain.com/zlLuOVNSarTL/folder-name</i>. The folder ID in this example is \"zlLuOVNSarTL\".</p>"""
+    r"""<p>The identifiers of the Quip folders you want to index. You can find the folder ID in your browser URL when you access your folder in Quip. For example, <i>https://quip-company.quipdomain.com/zlLuOVNSarTL/folder-name</i>. The folder ID in this example is \"zlLuOVNSarTL\".</p>"""
     thread_field_mappings: NotRequired[
         "aws_sdk_kendra.types.data_source_to_index_field_mapping_list.DataSourceToIndexFieldMappingList"
     ]
-    """<p>A list of <code>DataSourceToIndexFieldMapping</code> objects that map attributes or field names of Quip threads to Amazon Kendra index field names. To create custom fields, use the <code>UpdateIndex</code> API before you map to Quip fields. For more information, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html\">Mapping data source fields</a>. The Quip field names must exist in your Quip custom metadata.</p>"""
+    r"""<p>A list of <code>DataSourceToIndexFieldMapping</code> objects that map attributes or field names of Quip threads to Amazon Kendra index field names. To create custom fields, use the <code>UpdateIndex</code> API before you map to Quip fields. For more information, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html\">Mapping data source fields</a>. The Quip field names must exist in your Quip custom metadata.</p>"""
     message_field_mappings: NotRequired[
         "aws_sdk_kendra.types.data_source_to_index_field_mapping_list.DataSourceToIndexFieldMappingList"
     ]
-    """<p>A list of <code>DataSourceToIndexFieldMapping</code> objects that map attributes or field names of Quip messages to Amazon Kendra index field names. To create custom fields, use the <code>UpdateIndex</code> API before you map to Quip fields. For more information, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html\">Mapping data source fields</a>. The Quip field names must exist in your Quip custom metadata.</p>"""
+    r"""<p>A list of <code>DataSourceToIndexFieldMapping</code> objects that map attributes or field names of Quip messages to Amazon Kendra index field names. To create custom fields, use the <code>UpdateIndex</code> API before you map to Quip fields. For more information, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html\">Mapping data source fields</a>. The Quip field names must exist in your Quip custom metadata.</p>"""
     attachment_field_mappings: NotRequired[
         "aws_sdk_kendra.types.data_source_to_index_field_mapping_list.DataSourceToIndexFieldMappingList"
     ]
-    """<p>A list of <code>DataSourceToIndexFieldMapping</code> objects that map attributes or field names of Quip attachments to Amazon Kendra index field names. To create custom fields, use the <code>UpdateIndex</code> API before you map to Quip fields. For more information, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html\">Mapping data source fields</a>. The Quip field names must exist in your Quip custom metadata.</p>"""
+    r"""<p>A list of <code>DataSourceToIndexFieldMapping</code> objects that map attributes or field names of Quip attachments to Amazon Kendra index field names. To create custom fields, use the <code>UpdateIndex</code> API before you map to Quip fields. For more information, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html\">Mapping data source fields</a>. The Quip field names must exist in your Quip custom metadata.</p>"""
     inclusion_patterns: NotRequired[
         "aws_sdk_kendra.types.data_source_inclusions_exclusions_strings.DataSourceInclusionsExclusionsStrings"
     ]
@@ -52,7 +52,7 @@ class QuipConfiguration(TypedDict):
     vpc_configuration: NotRequired[
         "aws_sdk_kendra.types.data_source_vpc_configuration.DataSourceVpcConfiguration"
     ]
-    """<p>Configuration information for an Amazon Virtual Private Cloud (VPC) to connect to your Quip. For more information, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/vpc-configuration.html\">Configuring a VPC</a>.</p>"""
+    r"""<p>Configuration information for an Amazon Virtual Private Cloud (VPC) to connect to your Quip. For more information, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/vpc-configuration.html\">Configuring a VPC</a>.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

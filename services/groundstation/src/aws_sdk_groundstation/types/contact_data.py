@@ -49,9 +49,9 @@ class ContactData(TypedDict):
     tags: NotRequired["aws_sdk_groundstation.types.tags_map.TagsMap"]
     """<p>Tags assigned to a contact.</p>"""
     visibility_start_time: NotRequired["datetime.datetime"]
-    """<p> Projected time in UTC your satellite will rise above the <a href=\"https://docs.aws.amazon.com/ground-station/latest/ug/site-masks.html\">receive mask</a>. This time is based on the satellite's current active ephemeris for future contacts and the ephemeris that was active during contact execution for completed contacts. <i>This field is not present for contacts with a <code>SCHEDULING</code> or <code>SCHEDULED</code> status.</i> </p>"""
+    r"""<p> Projected time in UTC your satellite will rise above the <a href=\"https://docs.aws.amazon.com/ground-station/latest/ug/site-masks.html\">receive mask</a>. This time is based on the satellite's current active ephemeris for future contacts and the ephemeris that was active during contact execution for completed contacts. <i>This field is not present for contacts with a <code>SCHEDULING</code> or <code>SCHEDULED</code> status.</i> </p>"""
     visibility_end_time: NotRequired["datetime.datetime"]
-    """<p> Projected time in UTC your satellite will set below the <a href=\"https://docs.aws.amazon.com/ground-station/latest/ug/site-masks.html\">receive mask</a>. This time is based on the satellite's current active ephemeris for future contacts and the ephemeris that was active during contact execution for completed contacts. <i>This field is not present for contacts with a <code>SCHEDULING</code> or <code>SCHEDULED</code> status.</i> </p>"""
+    r"""<p> Projected time in UTC your satellite will set below the <a href=\"https://docs.aws.amazon.com/ground-station/latest/ug/site-masks.html\">receive mask</a>. This time is based on the satellite's current active ephemeris for future contacts and the ephemeris that was active during contact execution for completed contacts. <i>This field is not present for contacts with a <code>SCHEDULING</code> or <code>SCHEDULED</code> status.</i> </p>"""
     ephemeris: NotRequired[
         "aws_sdk_groundstation.types.ephemeris_response_data.EphemerisResponseData"
     ]

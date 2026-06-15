@@ -16,7 +16,7 @@ class OrchestrationConfiguration(TypedDict):
     prompt_template: NotRequired[
         "aws_sdk_bedrock_agent_runtime.types.prompt_template.PromptTemplate"
     ]
-    """<p>Contains the template for the prompt that's sent to the model. Orchestration prompts must include the <code>$conversation_history$</code> and <code>$output_format_instructions$</code> variables. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-placeholders.html\">Use placeholder variables</a> in the user guide.</p>"""
+    r"""<p>Contains the template for the prompt that's sent to the model. Orchestration prompts must include the <code>$conversation_history$</code> and <code>$output_format_instructions$</code> variables. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-placeholders.html\">Use placeholder variables</a> in the user guide.</p>"""
     inference_config: NotRequired[
         "aws_sdk_bedrock_agent_runtime.types.inference_config.InferenceConfig"
     ]

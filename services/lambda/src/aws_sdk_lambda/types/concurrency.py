@@ -12,7 +12,7 @@ class Concurrency(TypedDict):
     reserved_concurrent_executions: NotRequired[
         "aws_sdk_lambda.types.reserved_concurrent_executions.ReservedConcurrentExecutions"
     ]
-    """<p>The number of concurrent executions that are reserved for this function. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html\">Managing Lambda reserved concurrency</a>.</p>"""
+    r"""<p>The number of concurrent executions that are reserved for this function. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html\">Managing Lambda reserved concurrency</a>.</p>"""
 
 
 # --- restJson1 ser/de ---

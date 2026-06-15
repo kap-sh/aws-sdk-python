@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_bedrock_agent_runtime._auth._signers
@@ -36,7 +38,7 @@ class OptimizePromptResource:
         *,
         config_overrides: Optional[BedrockAgentRuntimeClientConfig] = None,
     ) -> "aws_sdk_bedrock_agent_runtime.types.optimize_prompt_response.OptimizePromptResponse":
-        """<p>Optimizes a prompt for the task that you specify. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-optimize.html\">Optimize a prompt</a> in the <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html\">Amazon Bedrock User Guide</a>.</p>
+        r"""<p>Optimizes a prompt for the task that you specify. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-optimize.html\">Optimize a prompt</a> in the <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html\">Amazon Bedrock User Guide</a>.</p>
 
         Args:
             input: <p>Contains the prompt to optimize.</p>
@@ -81,7 +83,7 @@ class AsyncOptimizePromptResource:
         *,
         config_overrides: Optional[AsyncBedrockAgentRuntimeClientConfig] = None,
     ) -> "aws_sdk_bedrock_agent_runtime.types.optimize_prompt_response.OptimizePromptResponse":
-        """<p>Optimizes a prompt for the task that you specify. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-optimize.html\">Optimize a prompt</a> in the <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html\">Amazon Bedrock User Guide</a>.</p>
+        r"""<p>Optimizes a prompt for the task that you specify. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-optimize.html\">Optimize a prompt</a> in the <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html\">Amazon Bedrock User Guide</a>.</p>
 
         Args:
             input: <p>Contains the prompt to optimize.</p>

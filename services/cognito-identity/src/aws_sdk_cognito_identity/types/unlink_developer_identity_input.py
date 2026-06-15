@@ -19,7 +19,7 @@ class UnlinkDeveloperIdentityInput(TypedDict):
     developer_provider_name: (
         "aws_sdk_cognito_identity.types.developer_provider_name.DeveloperProviderName"
     )
-    """<p>The \"domain\" by which Cognito will refer to your users.</p>"""
+    r"""<p>The \"domain\" by which Cognito will refer to your users.</p>"""
     developer_user_identifier: "aws_sdk_cognito_identity.types.developer_user_identifier.DeveloperUserIdentifier"
     """<p>A unique ID used by your backend authentication process to identify a user.</p>"""
 

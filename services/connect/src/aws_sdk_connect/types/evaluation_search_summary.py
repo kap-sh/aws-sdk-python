@@ -44,7 +44,7 @@ class EvaluationSearchSummary(TypedDict):
     last_modified_time: "aws_sdk_connect.types.timestamp.Timestamp"
     """<p>The date and time when the evaluation was modified last time, in UTC time.</p>"""
     tags: NotRequired["aws_sdk_connect.types.tag_map.TagMap"]
-    """<p>The tags used to organize, track, or control access for this resource. For example, { \"Tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.</p>"""
+    r"""<p>The tags used to organize, track, or control access for this resource. For example, { \"Tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.</p>"""
 
 
 # --- restJson1 ser/de ---

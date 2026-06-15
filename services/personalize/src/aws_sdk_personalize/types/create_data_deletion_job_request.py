@@ -24,7 +24,7 @@ class CreateDataDeletionJobRequest(TypedDict):
     role_arn: "aws_sdk_personalize.types.role_arn.RoleArn"
     """<p>The Amazon Resource Name (ARN) of the IAM role that has permissions to read from the Amazon S3 data source.</p>"""
     tags: NotRequired["aws_sdk_personalize.types.tags.Tags"]
-    """<p>A list of <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html\">tags</a> to apply to the data deletion job.</p>"""
+    r"""<p>A list of <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html\">tags</a> to apply to the data deletion job.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

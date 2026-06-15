@@ -38,7 +38,7 @@ class CreateRegistrationResult(TypedDict):
     tags: NotRequired["aws_sdk_pinpoint_sms_voice_v2.types.tag_list.TagList"]
     """<p>An array of tags (key and value pairs) to associate with the registration.</p>"""
     created_timestamp: "datetime.datetime"
-    """<p>The time when the registration was created, in <a href=\"https://www.epochconverter.com/\">UNIX epoch time</a> format.</p>"""
+    r"""<p>The time when the registration was created, in <a href=\"https://www.epochconverter.com/\">UNIX epoch time</a> format.</p>"""
 
 
 # --- awsJson1_0 ser/de ---

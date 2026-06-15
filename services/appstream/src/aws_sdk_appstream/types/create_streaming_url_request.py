@@ -24,7 +24,7 @@ class CreateStreamingURLRequest(TypedDict):
     validity: NotRequired["aws_sdk_appstream.types.long.Long"]
     """<p>The time that the streaming URL will be valid, in seconds. Specify a value between 1 and 604800 seconds. The default is 60 seconds.</p>"""
     session_context: NotRequired["aws_sdk_appstream.types.string.String"]
-    """<p>The session context. For more information, see <a href=\"https://docs.aws.amazon.com/appstream2/latest/developerguide/managing-stacks-fleets.html#managing-stacks-fleets-parameters\">Session Context</a> in the <i>Amazon WorkSpaces Applications Administration Guide</i>.</p>"""
+    r"""<p>The session context. For more information, see <a href=\"https://docs.aws.amazon.com/appstream2/latest/developerguide/managing-stacks-fleets.html#managing-stacks-fleets-parameters\">Session Context</a> in the <i>Amazon WorkSpaces Applications Administration Guide</i>.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

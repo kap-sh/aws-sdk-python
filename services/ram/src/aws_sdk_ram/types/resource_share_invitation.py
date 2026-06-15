@@ -13,11 +13,11 @@ if TYPE_CHECKING:
 
 class ResourceShareInvitation(TypedDict):
     resource_share_invitation_arn: NotRequired["aws_sdk_ram.types.string.String"]
-    """<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of the invitation.</p>"""
+    r"""<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of the invitation.</p>"""
     resource_share_name: NotRequired["aws_sdk_ram.types.string.String"]
     """<p>The name of the resource share.</p>"""
     resource_share_arn: NotRequired["aws_sdk_ram.types.string.String"]
-    """<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of the resource share</p>"""
+    r"""<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of the resource share</p>"""
     sender_account_id: NotRequired["aws_sdk_ram.types.string.String"]
     """<p>The ID of the Amazon Web Services account that sent the invitation.</p>"""
     receiver_account_id: NotRequired["aws_sdk_ram.types.string.String"]
@@ -33,7 +33,7 @@ class ResourceShareInvitation(TypedDict):
     ]
     """<p>To view the resources associated with a pending resource share invitation, use <a>ListPendingInvitationResources</a>.</p>"""
     receiver_arn: NotRequired["aws_sdk_ram.types.string.String"]
-    """<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of the IAM user or role that received the invitation.</p>"""
+    r"""<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of the IAM user or role that received the invitation.</p>"""
 
 
 # --- restJson1 ser/de ---

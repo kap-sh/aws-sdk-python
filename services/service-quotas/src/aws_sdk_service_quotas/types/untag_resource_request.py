@@ -11,7 +11,7 @@ if TYPE_CHECKING:
 
 class UntagResourceRequest(TypedDict):
     resource_arn: "aws_sdk_service_quotas.types.amazon_resource_name.AmazonResourceName"
-    """<p>The Amazon Resource Name (ARN) for the applied quota that you want to untag. You can get this information by using the Service Quotas console, or by listing the quotas using the <a href=\"https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html\">list-service-quotas</a> CLI command or the <a href=\"https://docs.aws.amazon.com/servicequotas/2019-06-24/apireference/API_ListServiceQuotas.html\">ListServiceQuotas</a> Amazon Web Services API operation.</p>"""
+    r"""<p>The Amazon Resource Name (ARN) for the applied quota that you want to untag. You can get this information by using the Service Quotas console, or by listing the quotas using the <a href=\"https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html\">list-service-quotas</a> CLI command or the <a href=\"https://docs.aws.amazon.com/servicequotas/2019-06-24/apireference/API_ListServiceQuotas.html\">ListServiceQuotas</a> Amazon Web Services API operation.</p>"""
     tag_keys: "aws_sdk_service_quotas.types.input_tag_keys.InputTagKeys"
     """<p>The keys of the tags that you want to remove from the resource.</p>"""
 

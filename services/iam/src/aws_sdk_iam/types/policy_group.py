@@ -15,7 +15,7 @@ class PolicyGroup(TypedDict):
     group_name: NotRequired["aws_sdk_iam.types.group_name_type.groupNameType"]
     """<p>The name (friendly name, not ARN) identifying the group.</p>"""
     group_id: NotRequired["aws_sdk_iam.types.id_type.idType"]
-    """<p>The stable and unique string identifying the group. For more information about IDs, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html\">IAM identifiers</a> in the <i>IAM User Guide</i>.</p>"""
+    r"""<p>The stable and unique string identifying the group. For more information about IDs, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html\">IAM identifiers</a> in the <i>IAM User Guide</i>.</p>"""
 
 
 # --- awsQuery ser/de ---

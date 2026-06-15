@@ -14,7 +14,7 @@ class ProcessedObject(TypedDict):
     type: NotRequired["aws_sdk_database_migration_service.types.string.String"]
     """<p>The type of the database object. For example, a table, view, procedure, and so on.</p>"""
     endpoint_type: NotRequired["aws_sdk_database_migration_service.types.string.String"]
-    """<p>The type of the data provider. This parameter can store one of the following values: <code>\"SOURCE\"</code> or <code>\"TARGET\"</code>.</p>"""
+    r"""<p>The type of the data provider. This parameter can store one of the following values: <code>\"SOURCE\"</code> or <code>\"TARGET\"</code>.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

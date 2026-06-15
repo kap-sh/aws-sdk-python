@@ -23,7 +23,7 @@ class ReplicationTaskIndividualAssessment(TypedDict):
     ]
     """<p>Name of this individual assessment.</p>"""
     status: NotRequired["aws_sdk_database_migration_service.types.string.String"]
-    """<p>Individual assessment status.</p> <p>This status can have one of the following values:</p> <ul> <li> <p> <code>\"cancelled\"</code> </p> </li> <li> <p> <code>\"error\"</code> </p> </li> <li> <p> <code>\"failed\"</code> </p> </li> <li> <p> <code>\"passed\"</code> </p> </li> <li> <p> <code>\"pending\"</code> </p> </li> <li> <p> <code>\"skipped\"</code> </p> </li> <li> <p> <code>\"running\"</code> </p> </li> </ul>"""
+    r"""<p>Individual assessment status.</p> <p>This status can have one of the following values:</p> <ul> <li> <p> <code>\"cancelled\"</code> </p> </li> <li> <p> <code>\"error\"</code> </p> </li> <li> <p> <code>\"failed\"</code> </p> </li> <li> <p> <code>\"passed\"</code> </p> </li> <li> <p> <code>\"pending\"</code> </p> </li> <li> <p> <code>\"skipped\"</code> </p> </li> <li> <p> <code>\"running\"</code> </p> </li> </ul>"""
     replication_task_individual_assessment_start_date: NotRequired[
         "aws_sdk_database_migration_service.types.t_stamp.TStamp"
     ]

@@ -3,8 +3,8 @@
 from typing import TYPE_CHECKING, TypeAlias
 
 if TYPE_CHECKING:
-    import aws_sdk_cloudsearch_domain.types.string
     import aws_sdk_cloudsearch_domain.types.bucket_info
+    import aws_sdk_cloudsearch_domain.types.string
 
 Facets: TypeAlias = dict[
     "aws_sdk_cloudsearch_domain.types.string.String",

@@ -15,7 +15,7 @@ class UpdateApplicationRequest(TypedDict):
     author: NotRequired[
         "aws_sdk_serverlessapplicationrepository.types.__string.__string"
     ]
-    """<p>The name of the author publishing the app.</p><p>Minimum length=1. Maximum length=127.</p><p>Pattern \"^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$\";</p>"""
+    r"""<p>The name of the author publishing the app.</p><p>Minimum length=1. Maximum length=127.</p><p>Pattern \"^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$\";</p>"""
     description: NotRequired[
         "aws_sdk_serverlessapplicationrepository.types.__string.__string"
     ]
@@ -27,7 +27,7 @@ class UpdateApplicationRequest(TypedDict):
     labels: NotRequired[
         "aws_sdk_serverlessapplicationrepository.types.__list_of__string.__listOf__string"
     ]
-    """<p>Labels to improve discovery of apps in search results.</p><p>Minimum length=1. Maximum length=127. Maximum number of labels: 10</p><p>Pattern: \"^[a-zA-Z0-9+\\-_:\\/@]+$\";</p>"""
+    r"""<p>Labels to improve discovery of apps in search results.</p><p>Minimum length=1. Maximum length=127. Maximum number of labels: 10</p><p>Pattern: \"^[a-zA-Z0-9+\\-_:\\/@]+$\";</p>"""
     readme_body: NotRequired[
         "aws_sdk_serverlessapplicationrepository.types.__string.__string"
     ]

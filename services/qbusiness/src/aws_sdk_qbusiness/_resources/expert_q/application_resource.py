@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_qbusiness._auth._signers
@@ -96,7 +98,7 @@ class ApplicationResource:
     ) -> (
         "aws_sdk_qbusiness.types.create_application_response.CreateApplicationResponse"
     ):
-        """<p>Creates an Amazon Q Business application.</p> <note> <p>There are new tiers for Amazon Q Business. Not all features in Amazon Q Business Pro are also available in Amazon Q Business Lite. For information on what's included in Amazon Q Business Lite and what's included in Amazon Q Business Pro, see <a href=\"https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/tiers.html#user-sub-tiers\">Amazon Q Business tiers</a>. You must use the Amazon Q Business console to assign subscription tiers to users. </p> <p>An Amazon Q Apps service linked role will be created if it's absent in the Amazon Web Services account when <code>QAppsConfiguration</code> is enabled in the request. For more information, see <a href=\"https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/using-service-linked-roles-qapps.html\"> Using service-linked roles for Q Apps</a>.</p> <p>When you create an application, Amazon Q Business may securely transmit data for processing from your selected Amazon Web Services region, but within your geography. For more information, see <a href=\"https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/cross-region-inference.html\">Cross region inference in Amazon Q Business</a>.</p> </note>
+        r"""<p>Creates an Amazon Q Business application.</p> <note> <p>There are new tiers for Amazon Q Business. Not all features in Amazon Q Business Pro are also available in Amazon Q Business Lite. For information on what's included in Amazon Q Business Lite and what's included in Amazon Q Business Pro, see <a href=\"https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/tiers.html#user-sub-tiers\">Amazon Q Business tiers</a>. You must use the Amazon Q Business console to assign subscription tiers to users. </p> <p>An Amazon Q Apps service linked role will be created if it's absent in the Amazon Web Services account when <code>QAppsConfiguration</code> is enabled in the request. For more information, see <a href=\"https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/using-service-linked-roles-qapps.html\"> Using service-linked roles for Q Apps</a>.</p> <p>When you create an application, Amazon Q Business may securely transmit data for processing from your selected Amazon Web Services region, but within your geography. For more information, see <a href=\"https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/cross-region-inference.html\">Cross region inference in Amazon Q Business</a>.</p> </note>
 
         Args:
             display_name: <p>A name for the Amazon Q Business application. </p>
@@ -231,7 +233,7 @@ class ApplicationResource:
     ) -> (
         "aws_sdk_qbusiness.types.update_application_response.UpdateApplicationResponse"
     ):
-        """<p>Updates an existing Amazon Q Business application.</p> <note> <p>Amazon Q Business applications may securely transmit data for processing across Amazon Web Services Regions within your geography. For more information, see <a href=\"https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/cross-region-inference.html\">Cross region inference in Amazon Q Business</a>.</p> </note> <note> <p>An Amazon Q Apps service-linked role will be created if it's absent in the Amazon Web Services account when <code>QAppsConfiguration</code> is enabled in the request. For more information, see <a href=\"https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/using-service-linked-roles-qapps.html\">Using service-linked roles for Q Apps</a>. </p> </note>
+        r"""<p>Updates an existing Amazon Q Business application.</p> <note> <p>Amazon Q Business applications may securely transmit data for processing across Amazon Web Services Regions within your geography. For more information, see <a href=\"https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/cross-region-inference.html\">Cross region inference in Amazon Q Business</a>.</p> </note> <note> <p>An Amazon Q Apps service-linked role will be created if it's absent in the Amazon Web Services account when <code>QAppsConfiguration</code> is enabled in the request. For more information, see <a href=\"https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/using-service-linked-roles-qapps.html\">Using service-linked roles for Q Apps</a>. </p> </note>
 
         Args:
             application_id: <p>The identifier of the Amazon Q Business application.</p>
@@ -334,7 +336,7 @@ class ApplicationResource:
             "aws_sdk_qbusiness.types.max_results_integer_for_list_applications.MaxResultsIntegerForListApplications"
         ] = None,
     ) -> "aws_sdk_qbusiness.types.list_applications_response.ListApplicationsResponse":
-        """<p>Lists Amazon Q Business applications.</p> <note> <p>Amazon Q Business applications may securely transmit data for processing across Amazon Web Services Regions within your geography. For more information, see <a href=\"https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/cross-region-inference.html\">Cross region inference in Amazon Q Business</a>.</p> </note>
+        r"""<p>Lists Amazon Q Business applications.</p> <note> <p>Amazon Q Business applications may securely transmit data for processing across Amazon Web Services Regions within your geography. For more information, see <a href=\"https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/cross-region-inference.html\">Cross region inference in Amazon Q Business</a>.</p> </note>
 
         Args:
             next_token: <p>If the <code>maxResults</code> response was incomplete because there is more data to retrieve, Amazon Q Business returns a pagination token in the response. You can use this pagination token to retrieve the next set of Amazon Q Business applications.</p>
@@ -415,7 +417,7 @@ class AsyncApplicationResource:
     ) -> (
         "aws_sdk_qbusiness.types.create_application_response.CreateApplicationResponse"
     ):
-        """<p>Creates an Amazon Q Business application.</p> <note> <p>There are new tiers for Amazon Q Business. Not all features in Amazon Q Business Pro are also available in Amazon Q Business Lite. For information on what's included in Amazon Q Business Lite and what's included in Amazon Q Business Pro, see <a href=\"https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/tiers.html#user-sub-tiers\">Amazon Q Business tiers</a>. You must use the Amazon Q Business console to assign subscription tiers to users. </p> <p>An Amazon Q Apps service linked role will be created if it's absent in the Amazon Web Services account when <code>QAppsConfiguration</code> is enabled in the request. For more information, see <a href=\"https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/using-service-linked-roles-qapps.html\"> Using service-linked roles for Q Apps</a>.</p> <p>When you create an application, Amazon Q Business may securely transmit data for processing from your selected Amazon Web Services region, but within your geography. For more information, see <a href=\"https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/cross-region-inference.html\">Cross region inference in Amazon Q Business</a>.</p> </note>
+        r"""<p>Creates an Amazon Q Business application.</p> <note> <p>There are new tiers for Amazon Q Business. Not all features in Amazon Q Business Pro are also available in Amazon Q Business Lite. For information on what's included in Amazon Q Business Lite and what's included in Amazon Q Business Pro, see <a href=\"https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/tiers.html#user-sub-tiers\">Amazon Q Business tiers</a>. You must use the Amazon Q Business console to assign subscription tiers to users. </p> <p>An Amazon Q Apps service linked role will be created if it's absent in the Amazon Web Services account when <code>QAppsConfiguration</code> is enabled in the request. For more information, see <a href=\"https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/using-service-linked-roles-qapps.html\"> Using service-linked roles for Q Apps</a>.</p> <p>When you create an application, Amazon Q Business may securely transmit data for processing from your selected Amazon Web Services region, but within your geography. For more information, see <a href=\"https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/cross-region-inference.html\">Cross region inference in Amazon Q Business</a>.</p> </note>
 
         Args:
             display_name: <p>A name for the Amazon Q Business application. </p>
@@ -552,7 +554,7 @@ class AsyncApplicationResource:
     ) -> (
         "aws_sdk_qbusiness.types.update_application_response.UpdateApplicationResponse"
     ):
-        """<p>Updates an existing Amazon Q Business application.</p> <note> <p>Amazon Q Business applications may securely transmit data for processing across Amazon Web Services Regions within your geography. For more information, see <a href=\"https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/cross-region-inference.html\">Cross region inference in Amazon Q Business</a>.</p> </note> <note> <p>An Amazon Q Apps service-linked role will be created if it's absent in the Amazon Web Services account when <code>QAppsConfiguration</code> is enabled in the request. For more information, see <a href=\"https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/using-service-linked-roles-qapps.html\">Using service-linked roles for Q Apps</a>. </p> </note>
+        r"""<p>Updates an existing Amazon Q Business application.</p> <note> <p>Amazon Q Business applications may securely transmit data for processing across Amazon Web Services Regions within your geography. For more information, see <a href=\"https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/cross-region-inference.html\">Cross region inference in Amazon Q Business</a>.</p> </note> <note> <p>An Amazon Q Apps service-linked role will be created if it's absent in the Amazon Web Services account when <code>QAppsConfiguration</code> is enabled in the request. For more information, see <a href=\"https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/using-service-linked-roles-qapps.html\">Using service-linked roles for Q Apps</a>. </p> </note>
 
         Args:
             application_id: <p>The identifier of the Amazon Q Business application.</p>
@@ -657,7 +659,7 @@ class AsyncApplicationResource:
             "aws_sdk_qbusiness.types.max_results_integer_for_list_applications.MaxResultsIntegerForListApplications"
         ] = None,
     ) -> "aws_sdk_qbusiness.types.list_applications_response.ListApplicationsResponse":
-        """<p>Lists Amazon Q Business applications.</p> <note> <p>Amazon Q Business applications may securely transmit data for processing across Amazon Web Services Regions within your geography. For more information, see <a href=\"https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/cross-region-inference.html\">Cross region inference in Amazon Q Business</a>.</p> </note>
+        r"""<p>Lists Amazon Q Business applications.</p> <note> <p>Amazon Q Business applications may securely transmit data for processing across Amazon Web Services Regions within your geography. For more information, see <a href=\"https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/cross-region-inference.html\">Cross region inference in Amazon Q Business</a>.</p> </note>
 
         Args:
             next_token: <p>If the <code>maxResults</code> response was incomplete because there is more data to retrieve, Amazon Q Business returns a pagination token in the response. You can use this pagination token to retrieve the next set of Amazon Q Business applications.</p>

@@ -19,7 +19,7 @@ class AtigData(TypedDict):
     targets: NotRequired["aws_sdk_inspector2.types.targets.Targets"]
     """<p>The commercial sectors this vulnerability targets.</p>"""
     ttps: NotRequired["aws_sdk_inspector2.types.ttps.Ttps"]
-    """<p>The <a href=\"https://attack.mitre.org/\">MITRE ATT&amp;CK</a> tactics, techniques, and procedures (TTPs) associated with vulnerability.</p>"""
+    r"""<p>The <a href=\"https://attack.mitre.org/\">MITRE ATT&amp;CK</a> tactics, techniques, and procedures (TTPs) associated with vulnerability.</p>"""
 
 
 # --- restJson1 ser/de ---

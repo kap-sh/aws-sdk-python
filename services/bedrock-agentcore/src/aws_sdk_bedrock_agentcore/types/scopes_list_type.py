@@ -1,0 +1,17 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrockagentcore#ScopesListType``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+if TYPE_CHECKING:
+    import aws_sdk_bedrock_agentcore.types.scope_type
+
+ScopesListType: TypeAlias = list["aws_sdk_bedrock_agentcore.types.scope_type.ScopeType"]
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ScopesListType) -> list:
+    return list(value)
+
+
+def deserialize_json(data: list) -> ScopesListType:
+    return list(data)

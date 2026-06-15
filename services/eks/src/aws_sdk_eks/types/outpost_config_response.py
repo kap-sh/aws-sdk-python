@@ -20,7 +20,7 @@ class OutpostConfigResponse(TypedDict):
     control_plane_placement: NotRequired[
         "aws_sdk_eks.types.control_plane_placement_response.ControlPlanePlacementResponse"
     ]
-    """<p>An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on an Amazon Web Services Outpost. For more information, see <a href=\"https://docs.aws.amazon.com/eks/latest/userguide/eks-outposts-capacity-considerations.html\">Capacity considerations</a> in the <i>Amazon EKS User Guide</i>.</p>"""
+    r"""<p>An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on an Amazon Web Services Outpost. For more information, see <a href=\"https://docs.aws.amazon.com/eks/latest/userguide/eks-outposts-capacity-considerations.html\">Capacity considerations</a> in the <i>Amazon EKS User Guide</i>.</p>"""
 
 
 # --- restJson1 ser/de ---

@@ -13,7 +13,7 @@ if TYPE_CHECKING:
 
 class AssociateResolverRuleRequest(TypedDict):
     resolver_rule_id: "aws_sdk_route53resolver.types.resource_id.ResourceId"
-    """<p>The ID of the Resolver rule that you want to associate with the VPC. To list the existing Resolver rules, use <a href=\"https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverRules.html\">ListResolverRules</a>.</p>"""
+    r"""<p>The ID of the Resolver rule that you want to associate with the VPC. To list the existing Resolver rules, use <a href=\"https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverRules.html\">ListResolverRules</a>.</p>"""
     name: NotRequired["aws_sdk_route53resolver.types.name.Name"]
     """<p>A name for the association that you're creating between a Resolver rule and a VPC.</p> <p>The name can be up to 64 characters long and can contain letters (a-z, A-Z), numbers (0-9), hyphens (-), underscores (_), and spaces. The name cannot consist of only numbers.</p>"""
     vpc_id: "aws_sdk_route53resolver.types.resource_id.ResourceId"

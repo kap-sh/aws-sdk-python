@@ -14,7 +14,7 @@ class EC2InstanceLimit(TypedDict):
     ec2_instance_type: NotRequired[
         "aws_sdk_gamelift.types.ec2_instance_type.EC2InstanceType"
     ]
-    """<p>The name of an Amazon EC2 instance type. See <a href=\"http://aws.amazon.com/ec2/instance-types/\">Amazon Elastic Compute Cloud Instance Types</a> for detailed descriptions. </p>"""
+    r"""<p>The name of an Amazon EC2 instance type. See <a href=\"http://aws.amazon.com/ec2/instance-types/\">Amazon Elastic Compute Cloud Instance Types</a> for detailed descriptions. </p>"""
     current_instances: NotRequired["aws_sdk_gamelift.types.whole_number.WholeNumber"]
     """<p>The number of instances for the specified type and location that are currently being used by the Amazon Web Services account. </p>"""
     instance_limit: NotRequired["aws_sdk_gamelift.types.whole_number.WholeNumber"]

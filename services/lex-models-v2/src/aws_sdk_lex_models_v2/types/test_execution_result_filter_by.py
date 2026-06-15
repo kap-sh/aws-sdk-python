@@ -15,7 +15,7 @@ class TestExecutionResultFilterBy(TypedDict):
     result_type_filter: (
         "aws_sdk_lex_models_v2.types.test_result_type_filter.TestResultTypeFilter"
     )
-    """<p>Specifies which results to filter. See <a href=\"https://docs.aws.amazon.com/lexv2/latest/dg/test-results-details-test-set.html\">Test result details\">Test results details</a> for details about different types of results.</p>"""
+    r"""<p>Specifies which results to filter. See <a href=\"https://docs.aws.amazon.com/lexv2/latest/dg/test-results-details-test-set.html\">Test result details\">Test results details</a> for details about different types of results.</p>"""
     conversation_level_test_results_filter_by: NotRequired[
         "aws_sdk_lex_models_v2.types.conversation_level_test_results_filter_by.ConversationLevelTestResultsFilterBy"
     ]

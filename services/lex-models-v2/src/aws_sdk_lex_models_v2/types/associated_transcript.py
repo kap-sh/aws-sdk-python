@@ -10,7 +10,7 @@ if TYPE_CHECKING:
 
 class AssociatedTranscript(TypedDict):
     transcript: NotRequired["aws_sdk_lex_models_v2.types.transcript.Transcript"]
-    """<p>The content of the transcript that meets the search filter criteria. For the JSON format of the transcript, see <a href=\"https://docs.aws.amazon.com/lexv2/latest/dg/designing-output-format.html\">Output transcript format</a>.</p>"""
+    r"""<p>The content of the transcript that meets the search filter criteria. For the JSON format of the transcript, see <a href=\"https://docs.aws.amazon.com/lexv2/latest/dg/designing-output-format.html\">Output transcript format</a>.</p>"""
 
 
 # --- restJson1 ser/de ---

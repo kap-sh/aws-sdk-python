@@ -21,11 +21,11 @@ class ListInferenceExperimentsRequest(TypedDict):
     type: NotRequired[
         "aws_sdk_sagemaker.types.inference_experiment_type.InferenceExperimentType"
     ]
-    """<p> Selects inference experiments of this type. For the possible types of inference experiments, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateInferenceExperiment.html\">CreateInferenceExperiment</a>. </p>"""
+    r"""<p> Selects inference experiments of this type. For the possible types of inference experiments, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateInferenceExperiment.html\">CreateInferenceExperiment</a>. </p>"""
     status_equals: NotRequired[
         "aws_sdk_sagemaker.types.inference_experiment_status.InferenceExperimentStatus"
     ]
-    """<p> Selects inference experiments which are in this status. For the possible statuses, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeInferenceExperiment.html\">DescribeInferenceExperiment</a>. </p>"""
+    r"""<p> Selects inference experiments which are in this status. For the possible statuses, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeInferenceExperiment.html\">DescribeInferenceExperiment</a>. </p>"""
     creation_time_after: NotRequired["aws_sdk_sagemaker.types.timestamp.Timestamp"]
     """<p>Selects inference experiments which were created after this timestamp.</p>"""
     creation_time_before: NotRequired["aws_sdk_sagemaker.types.timestamp.Timestamp"]

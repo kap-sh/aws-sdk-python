@@ -56,7 +56,7 @@ def get_signer(
     options: AsyncOperationOptions | OperationOptions,
     auth_schemes: list[dict[str, Any]] | None = None,
 ) -> aws_sdk_backup._auth._signers.Signer | None:
-    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}
+    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}  # noqa: F841
     if options.credentials_provider is not None:
         sigv4_config = (
             name_to_schema.get("sigv4")
@@ -75,7 +75,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_backup.types.list_scan_jobs_input.ListScanJobsInput,
+    input_: aws_sdk_backup.types.list_scan_jobs_input.ListScanJobsInput,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -87,30 +87,30 @@ def build_request(
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/scan/jobs"
     params: dict[str, str] = {}
-    if "by_account_id" in input:
-        params["ByAccountId"] = str(input["by_account_id"])
-    if "by_backup_vault_name" in input:
-        params["ByBackupVaultName"] = str(input["by_backup_vault_name"])
-    if "by_complete_after" in input:
-        params["ByCompleteAfter"] = str(input["by_complete_after"])
-    if "by_complete_before" in input:
-        params["ByCompleteBefore"] = str(input["by_complete_before"])
-    if "by_malware_scanner" in input:
-        params["ByMalwareScanner"] = str(input["by_malware_scanner"])
-    if "by_recovery_point_arn" in input:
-        params["ByRecoveryPointArn"] = str(input["by_recovery_point_arn"])
-    if "by_resource_arn" in input:
-        params["ByResourceArn"] = str(input["by_resource_arn"])
-    if "by_resource_type" in input:
-        params["ByResourceType"] = str(input["by_resource_type"])
-    if "by_scan_result_status" in input:
-        params["ByScanResultStatus"] = str(input["by_scan_result_status"])
-    if "by_state" in input:
-        params["ByState"] = str(input["by_state"])
-    if "max_results" in input:
-        params["MaxResults"] = str(input["max_results"])
-    if "next_token" in input:
-        params["NextToken"] = str(input["next_token"])
+    if "by_account_id" in input_:
+        params["ByAccountId"] = str(input_["by_account_id"])
+    if "by_backup_vault_name" in input_:
+        params["ByBackupVaultName"] = str(input_["by_backup_vault_name"])
+    if "by_complete_after" in input_:
+        params["ByCompleteAfter"] = str(input_["by_complete_after"])
+    if "by_complete_before" in input_:
+        params["ByCompleteBefore"] = str(input_["by_complete_before"])
+    if "by_malware_scanner" in input_:
+        params["ByMalwareScanner"] = str(input_["by_malware_scanner"])
+    if "by_recovery_point_arn" in input_:
+        params["ByRecoveryPointArn"] = str(input_["by_recovery_point_arn"])
+    if "by_resource_arn" in input_:
+        params["ByResourceArn"] = str(input_["by_resource_arn"])
+    if "by_resource_type" in input_:
+        params["ByResourceType"] = str(input_["by_resource_type"])
+    if "by_scan_result_status" in input_:
+        params["ByScanResultStatus"] = str(input_["by_scan_result_status"])
+    if "by_state" in input_:
+        params["ByState"] = str(input_["by_state"])
+    if "max_results" in input_:
+        params["MaxResults"] = str(input_["max_results"])
+    if "next_token" in input_:
+        params["NextToken"] = str(input_["next_token"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
@@ -123,11 +123,11 @@ def build_request(
 
 def list_scan_jobs(
     options: OperationOptions,
-    input: aws_sdk_backup.types.list_scan_jobs_input.ListScanJobsInput,
+    input_: aws_sdk_backup.types.list_scan_jobs_input.ListScanJobsInput,
 ) -> tuple[
     aws_sdk_backup.types.list_scan_jobs_output.ListScanJobsOutput, zapros.Response
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -141,11 +141,11 @@ def list_scan_jobs(
 
 async def async_list_scan_jobs(
     options: AsyncOperationOptions,
-    input: aws_sdk_backup.types.list_scan_jobs_input.ListScanJobsInput,
+    input_: aws_sdk_backup.types.list_scan_jobs_input.ListScanJobsInput,
 ) -> tuple[
     aws_sdk_backup.types.list_scan_jobs_output.ListScanJobsOutput, zapros.Response
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

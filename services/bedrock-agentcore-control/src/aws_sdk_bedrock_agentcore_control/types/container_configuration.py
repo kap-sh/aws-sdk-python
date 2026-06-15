@@ -1,13 +1,17 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#ContainerConfiguration``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.runtime_container_uri
+
 
 class ContainerConfiguration(TypedDict):
     container_uri: "aws_sdk_bedrock_agentcore_control.types.runtime_container_uri.RuntimeContainerUri"
     """<p>The ECR URI of the container.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: ContainerConfiguration) -> dict:

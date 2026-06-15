@@ -10,7 +10,7 @@ if TYPE_CHECKING:
 
 class SlotTypeRegexConfiguration(TypedDict):
     pattern: "aws_sdk_lex_model_building_service.types.regex_pattern.RegexPattern"
-    """<p>A regular expression used to validate the value of a slot. </p> <p>Use a standard regular expression. Amazon Lex supports the following characters in the regular expression:</p> <ul> <li> <p>A-Z, a-z</p> </li> <li> <p>0-9</p> </li> <li> <p>Unicode characters (\"\ u<Unicode>\")</p> </li> </ul> <p>Represent Unicode characters with four digits, for example \"\u0041\" or \"\u005a\".</p> <p>The following regular expression operators are not supported:</p> <ul> <li> <p>Infinite repeaters: *, +, or {x,} with no upper bound.</p> </li> <li> <p>Wild card (.)</p> </li> </ul>"""
+    r"""<p>A regular expression used to validate the value of a slot. </p> <p>Use a standard regular expression. Amazon Lex supports the following characters in the regular expression:</p> <ul> <li> <p>A-Z, a-z</p> </li> <li> <p>0-9</p> </li> <li> <p>Unicode characters (\"\ u<Unicode>\")</p> </li> </ul> <p>Represent Unicode characters with four digits, for example \"\u0041\" or \"\u005A\".</p> <p>The following regular expression operators are not supported:</p> <ul> <li> <p>Infinite repeaters: *, +, or {x,} with no upper bound.</p> </li> <li> <p>Wild card (.)</p> </li> </ul>"""
 
 
 # --- restJson1 ser/de ---

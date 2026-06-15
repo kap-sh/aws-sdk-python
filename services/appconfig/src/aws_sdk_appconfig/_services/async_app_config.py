@@ -192,7 +192,7 @@ class AsyncAppConfigClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = AsyncAppConfigClientConfig(
+        self._config = AsyncAppConfigClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -212,7 +212,7 @@ class AsyncAppConfigClient:
         overrides: AsyncAppConfigClientConfig = config_overrides or {}
         interceptors_: list[AsyncInterceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             aretry(),
         ]
@@ -220,16 +220,16 @@ class AsyncAppConfigClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            region=overrides.get("region", self.config.get("region")),
+            region=overrides.get("region", self._config.get("region")),
             use_dual_stack=overrides.get(
-                "use_dual_stack", self.config.get("use_dual_stack")
+                "use_dual_stack", self._config.get("use_dual_stack")
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -304,7 +304,7 @@ class AsyncAppConfigClient:
             "aws_sdk_appconfig.types.kms_key_identifier.KmsKeyIdentifier"
         ] = None,
     ) -> "aws_sdk_appconfig.types.configuration_profile.ConfigurationProfile":
-        """<p>Creates a configuration profile, which is information that enables AppConfig to access the configuration source. Valid configuration sources include the following:</p> <ul> <li> <p>Configuration data in YAML, JSON, and other formats stored in the AppConfig hosted configuration store</p> </li> <li> <p>Configuration data stored as objects in an Amazon Simple Storage Service (Amazon S3) bucket</p> </li> <li> <p>Pipelines stored in CodePipeline</p> </li> <li> <p>Secrets stored in Secrets Manager</p> </li> <li> <p>Standard and secure string parameters stored in Amazon Web Services Systems Manager Parameter Store</p> </li> <li> <p>Configuration data in SSM documents stored in the Systems Manager document store</p> </li> </ul> <p>A configuration profile includes the following information:</p> <ul> <li> <p>The URI location of the configuration data.</p> </li> <li> <p>The Identity and Access Management (IAM) role that provides access to the configuration data.</p> </li> <li> <p>A validator for the configuration data. Available validators include either a JSON Schema or an Amazon Web Services Lambda function.</p> </li> </ul> <p>For more information, see <a href=\"http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-configuration-and-profile.html\">Create a Configuration and a Configuration Profile</a> in the <i>AppConfig User Guide</i>.</p>
+        r"""<p>Creates a configuration profile, which is information that enables AppConfig to access the configuration source. Valid configuration sources include the following:</p> <ul> <li> <p>Configuration data in YAML, JSON, and other formats stored in the AppConfig hosted configuration store</p> </li> <li> <p>Configuration data stored as objects in an Amazon Simple Storage Service (Amazon S3) bucket</p> </li> <li> <p>Pipelines stored in CodePipeline</p> </li> <li> <p>Secrets stored in Secrets Manager</p> </li> <li> <p>Standard and secure string parameters stored in Amazon Web Services Systems Manager Parameter Store</p> </li> <li> <p>Configuration data in SSM documents stored in the Systems Manager document store</p> </li> </ul> <p>A configuration profile includes the following information:</p> <ul> <li> <p>The URI location of the configuration data.</p> </li> <li> <p>The Identity and Access Management (IAM) role that provides access to the configuration data.</p> </li> <li> <p>A validator for the configuration data. Available validators include either a JSON Schema or an Amazon Web Services Lambda function.</p> </li> </ul> <p>For more information, see <a href=\"http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-configuration-and-profile.html\">Create a Configuration and a Configuration Profile</a> in the <i>AppConfig User Guide</i>.</p>
 
         Args:
             application_id: <p>The application ID.</p>
@@ -381,7 +381,7 @@ class AsyncAppConfigClient:
         ] = None,
         tags: Optional["aws_sdk_appconfig.types.tag_map.TagMap"] = None,
     ) -> "aws_sdk_appconfig.types.deployment_strategy.DeploymentStrategy":
-        """<p>Creates a deployment strategy that defines important criteria for rolling out your configuration to the designated targets. A deployment strategy includes the overall duration required, a percentage of targets to receive the deployment during each interval, an algorithm that defines how percentage grows, and bake time.</p>
+        r"""<p>Creates a deployment strategy that defines important criteria for rolling out your configuration to the designated targets. A deployment strategy includes the overall duration required, a percentage of targets to receive the deployment during each interval, an algorithm that defines how percentage grows, and bake time.</p>
 
         Args:
             name: <p>A name for the deployment strategy.</p>
@@ -510,7 +510,7 @@ class AsyncAppConfigClient:
             "aws_sdk_appconfig.types.integer.Integer"
         ] = None,
     ) -> "aws_sdk_appconfig.types.extension.Extension":
-        """<p>Creates an AppConfig extension. An extension augments your ability to inject logic or behavior at different points during the AppConfig workflow of creating or deploying a configuration.</p> <p>You can create your own extensions or use the Amazon Web Services authored extensions provided by AppConfig. For an AppConfig extension that uses Lambda, you must create a Lambda function to perform any computation and processing defined in the extension. If you plan to create custom versions of the Amazon Web Services authored notification extensions, you only need to specify an Amazon Resource Name (ARN) in the <code>Uri</code> field for the new extension version.</p> <ul> <li> <p>For a custom EventBridge notification extension, enter the ARN of the EventBridge default events in the <code>Uri</code> field.</p> </li> <li> <p>For a custom Amazon SNS notification extension, enter the ARN of an Amazon SNS topic in the <code>Uri</code> field.</p> </li> <li> <p>For a custom Amazon SQS notification extension, enter the ARN of an Amazon SQS message queue in the <code>Uri</code> field. </p> </li> </ul> <p>For more information about extensions, see <a href=\"https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html\">Extending workflows</a> in the <i>AppConfig User Guide</i>.</p>
+        r"""<p>Creates an AppConfig extension. An extension augments your ability to inject logic or behavior at different points during the AppConfig workflow of creating or deploying a configuration.</p> <p>You can create your own extensions or use the Amazon Web Services authored extensions provided by AppConfig. For an AppConfig extension that uses Lambda, you must create a Lambda function to perform any computation and processing defined in the extension. If you plan to create custom versions of the Amazon Web Services authored notification extensions, you only need to specify an Amazon Resource Name (ARN) in the <code>Uri</code> field for the new extension version.</p> <ul> <li> <p>For a custom EventBridge notification extension, enter the ARN of the EventBridge default events in the <code>Uri</code> field.</p> </li> <li> <p>For a custom Amazon SNS notification extension, enter the ARN of an Amazon SNS topic in the <code>Uri</code> field.</p> </li> <li> <p>For a custom Amazon SQS notification extension, enter the ARN of an Amazon SQS message queue in the <code>Uri</code> field. </p> </li> </ul> <p>For more information about extensions, see <a href=\"https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html\">Extending workflows</a> in the <i>AppConfig User Guide</i>.</p>
 
         Args:
             name: <p>A name for the extension. Each extension name in your account must be unique. Extension versions use the same name.</p>
@@ -568,7 +568,7 @@ class AsyncAppConfigClient:
         ] = None,
         tags: Optional["aws_sdk_appconfig.types.tag_map.TagMap"] = None,
     ) -> "aws_sdk_appconfig.types.extension_association.ExtensionAssociation":
-        """<p>When you create an extension or configure an Amazon Web Services authored extension, you associate the extension with an AppConfig application, environment, or configuration profile. For example, you can choose to run the <code>AppConfig deployment events to Amazon SNS</code> Amazon Web Services authored extension and receive notifications on an Amazon SNS topic anytime a configuration deployment is started for a specific application. Defining which extension to associate with an AppConfig resource is called an <i>extension association</i>. An extension association is a specified relationship between an extension and an AppConfig resource, such as an application or a configuration profile. For more information about extensions and associations, see <a href=\"https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html\">Extending workflows</a> in the <i>AppConfig User Guide</i>.</p>
+        r"""<p>When you create an extension or configure an Amazon Web Services authored extension, you associate the extension with an AppConfig application, environment, or configuration profile. For example, you can choose to run the <code>AppConfig deployment events to Amazon SNS</code> Amazon Web Services authored extension and receive notifications on an Amazon SNS topic anytime a configuration deployment is started for a specific application. Defining which extension to associate with an AppConfig resource is called an <i>extension association</i>. An extension association is a specified relationship between an extension and an AppConfig resource, such as an application or a configuration profile. For more information about extensions and associations, see <a href=\"https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html\">Extending workflows</a> in the <i>AppConfig User Guide</i>.</p>
 
         Args:
             extension_identifier: <p>The name, the ID, or the Amazon Resource Name (ARN) of the extension.</p>
@@ -627,7 +627,7 @@ class AsyncAppConfigClient:
             "aws_sdk_appconfig.types.version_label.VersionLabel"
         ] = None,
     ) -> "aws_sdk_appconfig.types.hosted_configuration_version.HostedConfigurationVersion":
-        """<p>Creates a new configuration in the AppConfig hosted configuration store. If you're creating a feature flag, we recommend you familiarize yourself with the JSON schema for feature flag data. For more information, see <a href=\"https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-configuration-and-profile-feature-flags.html#appconfig-type-reference-feature-flags\">Type reference for AWS.AppConfig.FeatureFlags</a> in the <i>AppConfig User Guide</i>.</p>
+        r"""<p>Creates a new configuration in the AppConfig hosted configuration store. If you're creating a feature flag, we recommend you familiarize yourself with the JSON schema for feature flag data. For more information, see <a href=\"https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-configuration-and-profile-feature-flags.html#appconfig-type-reference-feature-flags\">Type reference for AWS.AppConfig.FeatureFlags</a> in the <i>AppConfig User Guide</i>.</p>
 
         Args:
             application_id: <p>The application ID.</p>
@@ -733,7 +733,7 @@ class AsyncAppConfigClient:
             "aws_sdk_appconfig.types.deletion_protection_check.DeletionProtectionCheck"
         ] = None,
     ) -> None:
-        """<p>Deletes a configuration profile.</p> <p>To prevent users from unintentionally deleting actively-used configuration profiles, enable <a href=\"https://docs.aws.amazon.com/appconfig/latest/userguide/deletion-protection.html\">deletion protection</a>.</p>
+        r"""<p>Deletes a configuration profile.</p> <p>To prevent users from unintentionally deleting actively-used configuration profiles, enable <a href=\"https://docs.aws.amazon.com/appconfig/latest/userguide/deletion-protection.html\">deletion protection</a>.</p>
 
         Args:
             application_id: <p>The application ID that includes the configuration profile you want to delete.</p>
@@ -826,7 +826,7 @@ class AsyncAppConfigClient:
             "aws_sdk_appconfig.types.deletion_protection_check.DeletionProtectionCheck"
         ] = None,
     ) -> None:
-        """<p>Deletes an environment.</p> <p>To prevent users from unintentionally deleting actively-used environments, enable <a href=\"https://docs.aws.amazon.com/appconfig/latest/userguide/deletion-protection.html\">deletion protection</a>.</p>
+        r"""<p>Deletes an environment.</p> <p>To prevent users from unintentionally deleting actively-used environments, enable <a href=\"https://docs.aws.amazon.com/appconfig/latest/userguide/deletion-protection.html\">deletion protection</a>.</p>
 
         Args:
             environment_id: <p>The ID of the environment that you want to delete.</p>
@@ -1074,7 +1074,7 @@ class AsyncAppConfigClient:
             "aws_sdk_appconfig.types.version.Version"
         ] = None,
     ) -> "aws_sdk_appconfig.types.configuration.Configuration":
-        """<p>(Deprecated) Retrieves the latest deployed configuration.</p> <important> <p>Note the following important information.</p> <ul> <li> <p>This API action is deprecated. Calls to receive configuration data should use the <a href=\"https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_StartConfigurationSession.html\">StartConfigurationSession</a> and <a href=\"https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.html\">GetLatestConfiguration</a> APIs instead. </p> </li> <li> <p> <a>GetConfiguration</a> is a priced call. For more information, see <a href=\"https://aws.amazon.com/systems-manager/pricing/\">Pricing</a>.</p> </li> </ul> </important>
+        r"""<p>(Deprecated) Retrieves the latest deployed configuration.</p> <important> <p>Note the following important information.</p> <ul> <li> <p>This API action is deprecated. Calls to receive configuration data should use the <a href=\"https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_StartConfigurationSession.html\">StartConfigurationSession</a> and <a href=\"https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.html\">GetLatestConfiguration</a> APIs instead. </p> </li> <li> <p> <a>GetConfiguration</a> is a priced call. For more information, see <a href=\"https://aws.amazon.com/systems-manager/pricing/\">Pricing</a>.</p> </li> </ul> </important>
 
         Args:
             application: <p>The application to get. Specify either the application name or the application ID.</p>
@@ -1345,7 +1345,7 @@ class AsyncAppConfigClient:
         *,
         config_overrides: Optional[AsyncAppConfigClientConfig] = None,
     ) -> "aws_sdk_appconfig.types.extension_association.ExtensionAssociation":
-        """<p>Returns information about an AppConfig extension association. For more information about extensions and associations, see <a href=\"https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html\">Extending workflows</a> in the <i>AppConfig User Guide</i>.</p>
+        r"""<p>Returns information about an AppConfig extension association. For more information about extensions and associations, see <a href=\"https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html\">Extending workflows</a> in the <i>AppConfig User Guide</i>.</p>
 
         Args:
             extension_association_id: <p>The extension association ID to get.</p>
@@ -1815,7 +1815,7 @@ class AsyncAppConfigClient:
         max_results: Optional["aws_sdk_appconfig.types.max_results.MaxResults"] = None,
         next_token: Optional["aws_sdk_appconfig.types.next_token.NextToken"] = None,
     ) -> "aws_sdk_appconfig.types.extension_associations.ExtensionAssociations":
-        """<p>Lists all AppConfig extension associations in the account. For more information about extensions and associations, see <a href=\"https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html\">Extending workflows</a> in the <i>AppConfig User Guide</i>.</p>
+        r"""<p>Lists all AppConfig extension associations in the account. For more information about extensions and associations, see <a href=\"https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html\">Extending workflows</a> in the <i>AppConfig User Guide</i>.</p>
 
         Args:
             resource_identifier: <p>The ARN of an application, configuration profile, or environment.</p>
@@ -1899,7 +1899,7 @@ class AsyncAppConfigClient:
         next_token: Optional["aws_sdk_appconfig.types.next_token.NextToken"] = None,
         name: Optional["aws_sdk_appconfig.types.query_name.QueryName"] = None,
     ) -> "aws_sdk_appconfig.types.extensions.Extensions":
-        """<p>Lists all custom and Amazon Web Services authored AppConfig extensions in the account. For more information about extensions, see <a href=\"https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html\">Extending workflows</a> in the <i>AppConfig User Guide</i>.</p>
+        r"""<p>Lists all custom and Amazon Web Services authored AppConfig extensions in the account. For more information about extensions, see <a href=\"https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html\">Extending workflows</a> in the <i>AppConfig User Guide</i>.</p>
 
         Args:
             max_results: <p>The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.</p>
@@ -1969,7 +1969,7 @@ class AsyncAppConfigClient:
         next_token: Optional["aws_sdk_appconfig.types.next_token.NextToken"] = None,
         version_label: Optional["aws_sdk_appconfig.types.query_name.QueryName"] = None,
     ) -> "aws_sdk_appconfig.types.hosted_configuration_versions.HostedConfigurationVersions":
-        """<p>Lists configurations stored in the AppConfig hosted configuration store by version. </p>
+        r"""<p>Lists configurations stored in the AppConfig hosted configuration store by version. </p>
 
         Args:
             application_id: <p>The application ID.</p>
@@ -2307,7 +2307,7 @@ class AsyncAppConfigClient:
             "aws_sdk_appconfig.types.deletion_protection_settings.DeletionProtectionSettings"
         ] = None,
     ) -> "aws_sdk_appconfig.types.account_settings.AccountSettings":
-        """<p>Updates the value of the <code>DeletionProtection</code> parameter.</p>
+        r"""<p>Updates the value of the <code>DeletionProtection</code> parameter.</p>
 
         Args:
             deletion_protection: <p>A parameter to configure deletion protection. Deletion protection prevents a user from deleting a configuration profile or an environment if AppConfig has called either <a href=\"https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.html\">GetLatestConfiguration</a> or for the configuration profile or from the environment during the specified interval. The default interval for <code>ProtectionPeriodInMinutes</code> is 60.</p>
@@ -2601,7 +2601,7 @@ class AsyncAppConfigClient:
         ] = None,
         version_number: Optional["aws_sdk_appconfig.types.integer.Integer"] = None,
     ) -> "aws_sdk_appconfig.types.extension.Extension":
-        """<p>Updates an AppConfig extension. For more information about extensions, see <a href=\"https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html\">Extending workflows</a> in the <i>AppConfig User Guide</i>.</p>
+        r"""<p>Updates an AppConfig extension. For more information about extensions, see <a href=\"https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html\">Extending workflows</a> in the <i>AppConfig User Guide</i>.</p>
 
         Args:
             extension_identifier: <p>The name, the ID, or the Amazon Resource Name (ARN) of the extension.</p>
@@ -2652,7 +2652,7 @@ class AsyncAppConfigClient:
             "aws_sdk_appconfig.types.parameter_value_map.ParameterValueMap"
         ] = None,
     ) -> "aws_sdk_appconfig.types.extension_association.ExtensionAssociation":
-        """<p>Updates an association. For more information about extensions and associations, see <a href=\"https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html\">Extending workflows</a> in the <i>AppConfig User Guide</i>.</p>
+        r"""<p>Updates an association. For more information about extensions and associations, see <a href=\"https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html\">Extending workflows</a> in the <i>AppConfig User Guide</i>.</p>
 
         Args:
             extension_association_id: <p>The system-generated ID for the association.</p>

@@ -1,8 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#GetResourceOauth2TokenRequest``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.audiences_list_type
     import aws_sdk_bedrock_agentcore.types.credential_provider_name
@@ -15,6 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.state
     import aws_sdk_bedrock_agentcore.types.workload_identity_token_type
 
+
 class GetResourceOauth2TokenRequest(TypedDict):
     workload_identity_token: "aws_sdk_bedrock_agentcore.types.workload_identity_token_type.WorkloadIdentityTokenType"
     """<p>The identity token of the workload from which you want to retrieve the OAuth2 token.</p>"""
@@ -26,18 +30,27 @@ class GetResourceOauth2TokenRequest(TypedDict):
     """<p>The type of flow to be performed.</p>"""
     session_uri: NotRequired["aws_sdk_bedrock_agentcore.types.request_uri.RequestUri"]
     """<p>Unique identifier for the user's authentication session for retrieving OAuth2 tokens. This ID tracks the authorization flow state across multiple requests and responses during the OAuth2 authentication process.</p>"""
-    resource_oauth2_return_url: NotRequired["aws_sdk_bedrock_agentcore.types.resource_oauth2_return_url_type.ResourceOauth2ReturnUrlType"]
+    resource_oauth2_return_url: NotRequired[
+        "aws_sdk_bedrock_agentcore.types.resource_oauth2_return_url_type.ResourceOauth2ReturnUrlType"
+    ]
     """<p>The callback URL to redirect to after the OAuth 2.0 token retrieval is complete. This URL must be one of the provided URLs configured for the workload identity.</p>"""
     force_authentication: NotRequired["bool"]
     """<p>Indicates whether to always initiate a new three-legged OAuth (3LO) flow, regardless of any existing session.</p>"""
-    custom_parameters: NotRequired["aws_sdk_bedrock_agentcore.types.custom_request_parameters_type.CustomRequestParametersType"]
+    custom_parameters: NotRequired[
+        "aws_sdk_bedrock_agentcore.types.custom_request_parameters_type.CustomRequestParametersType"
+    ]
     """<p>A map of custom parameters to include in the authorization request to the resource credential provider. These parameters are in addition to the standard OAuth 2.0 flow parameters, and will not override them.</p>"""
     custom_state: NotRequired["aws_sdk_bedrock_agentcore.types.state.State"]
     """<p>An opaque string that will be sent back to the callback URL provided in resourceOauth2ReturnUrl. This state should be used to protect the callback URL of your application against CSRF attacks by ensuring the response corresponds to the original request.</p>"""
-    resources: NotRequired["aws_sdk_bedrock_agentcore.types.resources_list_type.ResourcesListType"]
+    resources: NotRequired[
+        "aws_sdk_bedrock_agentcore.types.resources_list_type.ResourcesListType"
+    ]
     """<p>The resources to include in the token request. These are used to specify the target resources for which the OAuth2 token is being requested.</p>"""
-    audiences: NotRequired["aws_sdk_bedrock_agentcore.types.audiences_list_type.AudiencesListType"]
+    audiences: NotRequired[
+        "aws_sdk_bedrock_agentcore.types.audiences_list_type.AudiencesListType"
+    ]
     """<p>The audiences to include in the token request. These are used to specify the intended recipients of the OAuth2 token.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: GetResourceOauth2TokenRequest) -> dict:
@@ -45,9 +58,15 @@ def serialize_json(value: GetResourceOauth2TokenRequest) -> dict:
     out["workloadIdentityToken"] = value["workload_identity_token"]
     out["resourceCredentialProviderName"] = value["resource_credential_provider_name"]
     import aws_sdk_bedrock_agentcore.types.scopes_list_type
-    out["scopes"] = aws_sdk_bedrock_agentcore.types.scopes_list_type.serialize_json(value["scopes"])
+
+    out["scopes"] = aws_sdk_bedrock_agentcore.types.scopes_list_type.serialize_json(
+        value["scopes"]
+    )
     import aws_sdk_bedrock_agentcore.types.oauth2_flow_type
-    out["oauth2Flow"] = aws_sdk_bedrock_agentcore.types.oauth2_flow_type.serialize_json(value["oauth2_flow"])
+
+    out["oauth2Flow"] = aws_sdk_bedrock_agentcore.types.oauth2_flow_type.serialize_json(
+        value["oauth2_flow"]
+    )
     if "session_uri" in value:
         out["sessionUri"] = value["session_uri"]
     if "resource_oauth2_return_url" in value:
@@ -56,15 +75,30 @@ def serialize_json(value: GetResourceOauth2TokenRequest) -> dict:
         out["forceAuthentication"] = value["force_authentication"]
     if "custom_parameters" in value:
         import aws_sdk_bedrock_agentcore.types.custom_request_parameters_type
-        out["customParameters"] = aws_sdk_bedrock_agentcore.types.custom_request_parameters_type.serialize_json(value["custom_parameters"])
+
+        out["customParameters"] = (
+            aws_sdk_bedrock_agentcore.types.custom_request_parameters_type.serialize_json(
+                value["custom_parameters"]
+            )
+        )
     if "custom_state" in value:
         out["customState"] = value["custom_state"]
     if "resources" in value:
         import aws_sdk_bedrock_agentcore.types.resources_list_type
-        out["resources"] = aws_sdk_bedrock_agentcore.types.resources_list_type.serialize_json(value["resources"])
+
+        out["resources"] = (
+            aws_sdk_bedrock_agentcore.types.resources_list_type.serialize_json(
+                value["resources"]
+            )
+        )
     if "audiences" in value:
         import aws_sdk_bedrock_agentcore.types.audiences_list_type
-        out["audiences"] = aws_sdk_bedrock_agentcore.types.audiences_list_type.serialize_json(value["audiences"])
+
+        out["audiences"] = (
+            aws_sdk_bedrock_agentcore.types.audiences_list_type.serialize_json(
+                value["audiences"]
+            )
+        )
     return out
 
 
@@ -73,19 +107,35 @@ def deserialize_json(data: dict) -> GetResourceOauth2TokenRequest:
     if "workloadIdentityToken" in data:
         out["workload_identity_token"] = data["workloadIdentityToken"]
     else:
-        raise DeserializationError("GetResourceOauth2TokenRequest.workload_identity_token required")
+        raise DeserializationError(
+            "GetResourceOauth2TokenRequest.workload_identity_token required"
+        )
     if "resourceCredentialProviderName" in data:
-        out["resource_credential_provider_name"] = data["resourceCredentialProviderName"]
+        out["resource_credential_provider_name"] = data[
+            "resourceCredentialProviderName"
+        ]
     else:
-        raise DeserializationError("GetResourceOauth2TokenRequest.resource_credential_provider_name required")
+        raise DeserializationError(
+            "GetResourceOauth2TokenRequest.resource_credential_provider_name required"
+        )
     if "scopes" in data:
         import aws_sdk_bedrock_agentcore.types.scopes_list_type
-        out["scopes"] = aws_sdk_bedrock_agentcore.types.scopes_list_type.deserialize_json(data["scopes"])
+
+        out["scopes"] = (
+            aws_sdk_bedrock_agentcore.types.scopes_list_type.deserialize_json(
+                data["scopes"]
+            )
+        )
     else:
         raise DeserializationError("GetResourceOauth2TokenRequest.scopes required")
     if "oauth2Flow" in data:
         import aws_sdk_bedrock_agentcore.types.oauth2_flow_type
-        out["oauth2_flow"] = aws_sdk_bedrock_agentcore.types.oauth2_flow_type.deserialize_json(data["oauth2Flow"])
+
+        out["oauth2_flow"] = (
+            aws_sdk_bedrock_agentcore.types.oauth2_flow_type.deserialize_json(
+                data["oauth2Flow"]
+            )
+        )
     else:
         raise DeserializationError("GetResourceOauth2TokenRequest.oauth2_flow required")
     if "sessionUri" in data:
@@ -96,13 +146,28 @@ def deserialize_json(data: dict) -> GetResourceOauth2TokenRequest:
         out["force_authentication"] = data["forceAuthentication"]
     if "customParameters" in data:
         import aws_sdk_bedrock_agentcore.types.custom_request_parameters_type
-        out["custom_parameters"] = aws_sdk_bedrock_agentcore.types.custom_request_parameters_type.deserialize_json(data["customParameters"])
+
+        out["custom_parameters"] = (
+            aws_sdk_bedrock_agentcore.types.custom_request_parameters_type.deserialize_json(
+                data["customParameters"]
+            )
+        )
     if "customState" in data:
         out["custom_state"] = data["customState"]
     if "resources" in data:
         import aws_sdk_bedrock_agentcore.types.resources_list_type
-        out["resources"] = aws_sdk_bedrock_agentcore.types.resources_list_type.deserialize_json(data["resources"])
+
+        out["resources"] = (
+            aws_sdk_bedrock_agentcore.types.resources_list_type.deserialize_json(
+                data["resources"]
+            )
+        )
     if "audiences" in data:
         import aws_sdk_bedrock_agentcore.types.audiences_list_type
-        out["audiences"] = aws_sdk_bedrock_agentcore.types.audiences_list_type.deserialize_json(data["audiences"])
+
+        out["audiences"] = (
+            aws_sdk_bedrock_agentcore.types.audiences_list_type.deserialize_json(
+                data["audiences"]
+            )
+        )
     return out

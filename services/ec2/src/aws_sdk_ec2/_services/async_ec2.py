@@ -2475,7 +2475,7 @@ class AsyncEC2Client:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = AsyncEC2ClientConfig(
+        self._config = AsyncEC2ClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -2495,7 +2495,7 @@ class AsyncEC2Client:
         overrides: AsyncEC2ClientConfig = config_overrides or {}
         interceptors_: list[AsyncInterceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             aretry(),
         ]
@@ -2503,16 +2503,16 @@ class AsyncEC2Client:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            region=overrides.get("region", self.config.get("region")),
+            region=overrides.get("region", self._config.get("region")),
             use_dual_stack=overrides.get(
-                "use_dual_stack", self.config.get("use_dual_stack")
+                "use_dual_stack", self._config.get("use_dual_stack")
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -2527,7 +2527,7 @@ class AsyncEC2Client:
         ] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.accept_address_transfer_result.AcceptAddressTransferResult":
-        """<p>Accepts an Elastic IP address transfer. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#using-instance-addressing-eips-transfer-accept\">Accept a transferred Elastic IP address</a> in the <i>Amazon VPC User Guide</i>.</p>
+        r"""<p>Accepts an Elastic IP address transfer. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#using-instance-addressing-eips-transfer-accept\">Accept a transferred Elastic IP address</a> in the <i>Amazon VPC User Guide</i>.</p>
 
         Args:
             address: <p>The Elastic IP address you are accepting for transfer.</p>
@@ -2572,7 +2572,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.accept_capacity_reservation_billing_ownership_result.AcceptCapacityReservationBillingOwnershipResult":
-        """<p>Accepts a request to assign billing of the available capacity of a shared Capacity Reservation to your account. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/assign-billing.html\"> Billing assignment for shared Amazon EC2 Capacity Reservations</a>.</p>
+        r"""<p>Accepts a request to assign billing of the available capacity of a shared Capacity Reservation to your account. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/assign-billing.html\"> Billing assignment for shared Amazon EC2 Capacity Reservations</a>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -2936,7 +2936,7 @@ class AsyncEC2Client:
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
         network_border_group: Optional["aws_sdk_ec2.types.string.String"] = None,
     ) -> "aws_sdk_ec2.types.advertise_byoip_cidr_result.AdvertiseByoipCidrResult":
-        """<p>Advertises an IPv4 or IPv6 address range that is provisioned for use with your Amazon Web Services resources through bring your own IP addresses (BYOIP).</p> <p>You can perform this operation at most once every 10 seconds, even if you specify different address ranges each time.</p> <p>We recommend that you stop advertising the BYOIP CIDR from other locations when you advertise it from Amazon Web Services. To minimize down time, you can configure your Amazon Web Services resources to use an address from a BYOIP CIDR before it is advertised, and then simultaneously stop advertising it from the current location and start advertising it through Amazon Web Services.</p> <p>It can take a few minutes before traffic to the specified addresses starts routing to Amazon Web Services because of BGP propagation delays.</p>
+        r"""<p>Advertises an IPv4 or IPv6 address range that is provisioned for use with your Amazon Web Services resources through bring your own IP addresses (BYOIP).</p> <p>You can perform this operation at most once every 10 seconds, even if you specify different address ranges each time.</p> <p>We recommend that you stop advertising the BYOIP CIDR from other locations when you advertise it from Amazon Web Services. To minimize down time, you can configure your Amazon Web Services resources to use an address from a BYOIP CIDR before it is advertised, and then simultaneously stop advertising it from the current location and start advertising it through Amazon Web Services.</p> <p>It can take a few minutes before traffic to the specified addresses starts routing to Amazon Web Services because of BGP propagation delays.</p>
 
         Args:
             cidr: <p>The address range, in CIDR notation. This must be the exact range that you provisioned. You can't advertise only a portion of the provisioned range.</p>
@@ -2994,7 +2994,7 @@ class AsyncEC2Client:
         ipam_pool_id: Optional["aws_sdk_ec2.types.ipam_pool_id.IpamPoolId"] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.allocate_address_result.AllocateAddressResult":
-        """<p>Allocates an Elastic IP address to your Amazon Web Services account. After you allocate the Elastic IP address you can associate it with an instance or network interface. After you release an Elastic IP address, it is released to the IP address pool and can be allocated to a different Amazon Web Services account.</p> <p>You can allocate an Elastic IP address from one of the following address pools:</p> <ul> <li> <p>Amazon's pool of IPv4 addresses</p> </li> <li> <p>Public IPv4 address range that you own and bring to your Amazon Web Services account using <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html\">Bring Your Own IP Addresses (BYOIP)</a> </p> </li> <li> <p>An IPv4 IPAM pool with an Amazon-provided or BYOIP public IPv4 address range</p> </li> <li> <p>IPv4 addresses from your on-premises network made available for use with an Outpost using a <a href=\"https://docs.aws.amazon.com/outposts/latest/userguide/routing.html#ip-addressing\">customer-owned IP address pool</a> (CoIP pool)</p> </li> </ul> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html\">Elastic IP Addresses</a> in the <i>Amazon EC2 User Guide</i>.</p> <p>If you release an Elastic IP address, you might be able to recover it. You cannot recover an Elastic IP address that you released after it is allocated to another Amazon Web Services account. To attempt to recover an Elastic IP address that you released, specify it in this operation.</p> <p>You can allocate a carrier IP address which is a public IP address from a telecommunication carrier, to a network interface which resides in a subnet in a Wavelength Zone (for example an EC2 instance).</p>
+        r"""<p>Allocates an Elastic IP address to your Amazon Web Services account. After you allocate the Elastic IP address you can associate it with an instance or network interface. After you release an Elastic IP address, it is released to the IP address pool and can be allocated to a different Amazon Web Services account.</p> <p>You can allocate an Elastic IP address from one of the following address pools:</p> <ul> <li> <p>Amazon's pool of IPv4 addresses</p> </li> <li> <p>Public IPv4 address range that you own and bring to your Amazon Web Services account using <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html\">Bring Your Own IP Addresses (BYOIP)</a> </p> </li> <li> <p>An IPv4 IPAM pool with an Amazon-provided or BYOIP public IPv4 address range</p> </li> <li> <p>IPv4 addresses from your on-premises network made available for use with an Outpost using a <a href=\"https://docs.aws.amazon.com/outposts/latest/userguide/routing.html#ip-addressing\">customer-owned IP address pool</a> (CoIP pool)</p> </li> </ul> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html\">Elastic IP Addresses</a> in the <i>Amazon EC2 User Guide</i>.</p> <p>If you release an Elastic IP address, you might be able to recover it. You cannot recover an Elastic IP address that you released after it is allocated to another Amazon Web Services account. To attempt to recover an Elastic IP address that you released, specify it in this operation.</p> <p>You can allocate a carrier IP address which is a public IP address from a telecommunication carrier, to a network interface which resides in a subnet in a Wavelength Zone (for example an EC2 instance).</p>
 
         Args:
             domain: <p>The network (<code>vpc</code>).</p>
@@ -3081,7 +3081,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.availability_zone_name.AvailabilityZoneName"
         ] = None,
     ) -> "aws_sdk_ec2.types.allocate_hosts_result.AllocateHostsResult":
-        """<p>Allocates a Dedicated Host to your account. At a minimum, specify the supported instance type or instance family, the Availability Zone in which to allocate the host, and the number of hosts to allocate.</p>
+        r"""<p>Allocates a Dedicated Host to your account. At a minimum, specify the supported instance type or instance family, the Availability Zone in which to allocate the host, and the number of hosts to allocate.</p>
 
         Args:
             instance_family: <p>Specifies the instance family to be supported by the Dedicated Hosts. If you specify an instance family, the Dedicated Hosts support multiple instance types within that instance family.</p> <p>If you want the Dedicated Hosts to support a specific instance type only, omit this parameter and specify <b>InstanceType</b> instead. You cannot specify <b>InstanceFamily</b> and <b>InstanceType</b> in the same request.</p>
@@ -3168,7 +3168,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.tag_specification_list.TagSpecificationList"
         ] = None,
     ) -> "aws_sdk_ec2.types.allocate_ipam_pool_cidr_result.AllocateIpamPoolCidrResult":
-        """<p>Allocate a CIDR from an IPAM pool. The Region you use should be the IPAM pool locale. The locale is the Amazon Web Services Region where this IPAM pool is available for allocations.</p> <p>In IPAM, an allocation is a CIDR assignment from an IPAM pool to another IPAM pool or to a resource. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/allocate-cidrs-ipam.html\">Allocate CIDRs</a> in the <i>Amazon VPC IPAM User Guide</i>.</p> <note> <p>This action creates an allocation with strong consistency. The returned CIDR will not overlap with any other allocations from the same pool.</p> </note>
+        r"""<p>Allocate a CIDR from an IPAM pool. The Region you use should be the IPAM pool locale. The locale is the Amazon Web Services Region where this IPAM pool is available for allocations.</p> <p>In IPAM, an allocation is a CIDR assignment from an IPAM pool to another IPAM pool or to a resource. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/allocate-cidrs-ipam.html\">Allocate CIDRs</a> in the <i>Amazon VPC IPAM User Guide</i>.</p> <note> <p>This action creates an allocation with strong consistency. The returned CIDR will not overlap with any other allocations from the same pool.</p> </note>
 
         Args:
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -3287,7 +3287,7 @@ class AsyncEC2Client:
         ] = None,
         ipv6_address_count: Optional["aws_sdk_ec2.types.integer.Integer"] = None,
     ) -> "aws_sdk_ec2.types.assign_ipv6_addresses_result.AssignIpv6AddressesResult":
-        """<p>Assigns the specified IPv6 addresses to the specified network interface. You can specify specific IPv6 addresses, or you can specify the number of IPv6 addresses to be automatically assigned from the subnet's IPv6 CIDR block range. You can assign as many IPv6 addresses to a network interface as you can assign private IPv4 addresses, and the limit varies by instance type.</p> <p>You must specify either the IPv6 addresses or the IPv6 address count in the request. </p> <p>You can optionally use Prefix Delegation on the network interface. You must specify either the IPV6 Prefix Delegation prefixes, or the IPv6 Prefix Delegation count. For information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html\"> Assigning prefixes to network interfaces</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Assigns the specified IPv6 addresses to the specified network interface. You can specify specific IPv6 addresses, or you can specify the number of IPv6 addresses to be automatically assigned from the subnet's IPv6 CIDR block range. You can assign as many IPv6 addresses to a network interface as you can assign private IPv4 addresses, and the limit varies by instance type.</p> <p>You must specify either the IPv6 addresses or the IPv6 address count in the request. </p> <p>You can optionally use Prefix Delegation on the network interface. You must specify either the IPV6 Prefix Delegation prefixes, or the IPv6 Prefix Delegation count. For information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html\"> Assigning prefixes to network interfaces</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             ipv6_prefix_count: <p>The number of IPv6 prefixes that Amazon Web Services automatically assigns to the network interface. You cannot use this option if you use the <code>Ipv6Prefixes</code> option.</p>
@@ -3346,7 +3346,7 @@ class AsyncEC2Client:
         ] = None,
         allow_reassignment: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.assign_private_ip_addresses_result.AssignPrivateIpAddressesResult":
-        """<p>Assigns the specified secondary private IP addresses to the specified network interface.</p> <p>You can specify specific secondary IP addresses, or you can specify the number of secondary IP addresses to be automatically assigned from the subnet's CIDR block range. The number of secondary IP addresses that you can assign to an instance varies by instance type. For more information about Elastic IP addresses, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html\">Elastic IP Addresses</a> in the <i>Amazon EC2 User Guide</i>.</p> <p>When you move a secondary private IP address to another network interface, any Elastic IP address that is associated with the IP address is also moved.</p> <p>Remapping an IP address is an asynchronous operation. When you move an IP address from one network interface to another, check <code>network/interfaces/macs/mac/local-ipv4s</code> in the instance metadata to confirm that the remapping is complete.</p> <p>You must specify either the IP addresses or the IP address count in the request.</p> <p>You can optionally use Prefix Delegation on the network interface. You must specify either the IPv4 Prefix Delegation prefixes, or the IPv4 Prefix Delegation count. For information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html\"> Assigning prefixes to network interfaces</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Assigns the specified secondary private IP addresses to the specified network interface.</p> <p>You can specify specific secondary IP addresses, or you can specify the number of secondary IP addresses to be automatically assigned from the subnet's CIDR block range. The number of secondary IP addresses that you can assign to an instance varies by instance type. For more information about Elastic IP addresses, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html\">Elastic IP Addresses</a> in the <i>Amazon EC2 User Guide</i>.</p> <p>When you move a secondary private IP address to another network interface, any Elastic IP address that is associated with the IP address is also moved.</p> <p>Remapping an IP address is an asynchronous operation. When you move an IP address from one network interface to another, check <code>network/interfaces/macs/mac/local-ipv4s</code> in the instance metadata to confirm that the remapping is complete.</p> <p>You must specify either the IP addresses or the IP address count in the request.</p> <p>You can optionally use Prefix Delegation on the network interface. You must specify either the IPv4 Prefix Delegation prefixes, or the IPv4 Prefix Delegation count. For information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html\"> Assigning prefixes to network interfaces</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             ipv4_prefixes: <p>One or more IPv4 prefixes assigned to the network interface. You can't use this option if you use the <code>Ipv4PrefixCount</code> option.</p>
@@ -3416,7 +3416,7 @@ class AsyncEC2Client:
         ] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.assign_private_nat_gateway_address_result.AssignPrivateNatGatewayAddressResult":
-        """<p>Assigns private IPv4 addresses to a private NAT gateway. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-working-with.html\">Work with NAT gateways</a> in the <i>Amazon VPC User Guide</i>.</p>
+        r"""<p>Assigns private IPv4 addresses to a private NAT gateway. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-working-with.html\">Work with NAT gateways</a> in the <i>Amazon VPC User Guide</i>.</p>
 
         Args:
             nat_gateway_id: <p>The ID of the NAT gateway.</p>
@@ -3473,7 +3473,7 @@ class AsyncEC2Client:
         private_ip_address: Optional["aws_sdk_ec2.types.string.String"] = None,
         allow_reassociation: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.associate_address_result.AssociateAddressResult":
-        """<p>Associates an Elastic IP address, or carrier IP address (for instances that are in subnets in Wavelength Zones) with an instance or a network interface. Before you can use an Elastic IP address, you must allocate it to your account.</p> <p>If the Elastic IP address is already associated with a different instance, it is disassociated from that instance and associated with the specified instance. If you associate an Elastic IP address with an instance that has an existing Elastic IP address, the existing address is disassociated from the instance, but remains allocated to your account.</p> <p>[Subnets in Wavelength Zones] You can associate an IP address from the telecommunication carrier to the instance or network interface. </p> <p>You cannot associate an Elastic IP address with an interface in a different network border group.</p> <important> <p>This is an idempotent operation. If you perform the operation more than once, Amazon EC2 doesn't return an error, and you may be charged for each time the Elastic IP address is remapped to the same instance. For more information, see the <i>Elastic IP Addresses</i> section of <a href=\"http://aws.amazon.com/ec2/pricing/\">Amazon EC2 Pricing</a>.</p> </important>
+        r"""<p>Associates an Elastic IP address, or carrier IP address (for instances that are in subnets in Wavelength Zones) with an instance or a network interface. Before you can use an Elastic IP address, you must allocate it to your account.</p> <p>If the Elastic IP address is already associated with a different instance, it is disassociated from that instance and associated with the specified instance. If you associate an Elastic IP address with an instance that has an existing Elastic IP address, the existing address is disassociated from the instance, but remains allocated to your account.</p> <p>[Subnets in Wavelength Zones] You can associate an IP address from the telecommunication carrier to the instance or network interface. </p> <p>You cannot associate an Elastic IP address with an interface in a different network border group.</p> <important> <p>This is an idempotent operation. If you perform the operation more than once, Amazon EC2 doesn't return an error, and you may be charged for each time the Elastic IP address is remapped to the same instance. For more information, see the <i>Elastic IP Addresses</i> section of <a href=\"http://aws.amazon.com/ec2/pricing/\">Amazon EC2 Pricing</a>.</p> </important>
 
         Args:
             allocation_id: <p>The allocation ID. This is required.</p>
@@ -3542,7 +3542,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.associate_capacity_reservation_billing_owner_result.AssociateCapacityReservationBillingOwnerResult":
-        """<p>Initiates a request to assign billing of the unused capacity of a shared Capacity Reservation to a consumer account that is consolidated under the same Amazon Web Services organizations payer account. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/assign-billing.html\">Billing assignment for shared Amazon EC2 Capacity Reservations</a>.</p>
+        r"""<p>Initiates a request to assign billing of the unused capacity of a shared Capacity Reservation to a consumer account that is consolidated under the same Amazon Web Services organizations payer account. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/assign-billing.html\">Billing assignment for shared Amazon EC2 Capacity Reservations</a>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -3596,7 +3596,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.availability_zone_id.AvailabilityZoneId"
         ] = None,
     ) -> "aws_sdk_ec2.types.associate_client_vpn_target_network_result.AssociateClientVpnTargetNetworkResult":
-        """<p>Associates a target network with a Client VPN endpoint. A target network is a subnet in a VPC. You can associate multiple subnets from the same VPC with a Client VPN endpoint. You can associate only one subnet in each Availability Zone. We recommend that you associate at least two subnets to provide Availability Zone redundancy.</p> <p>If you specified a VPC when you created the Client VPN endpoint or if you have previous subnet associations, the specified subnet must be in the same VPC. To specify a subnet that's in a different VPC, you must first modify the Client VPN endpoint (<a>ModifyClientVpnEndpoint</a>) and change the VPC that's associated with it.</p>
+        r"""<p>Associates a target network with a Client VPN endpoint. A target network is a subnet in a VPC. You can associate multiple subnets from the same VPC with a Client VPN endpoint. You can associate only one subnet in each Availability Zone. We recommend that you associate at least two subnets to provide Availability Zone redundancy.</p> <p>If you specified a VPC when you created the Client VPN endpoint or if you have previous subnet associations, the specified subnet must be in the same VPC. To specify a subnet that's in a different VPC, you must first modify the Client VPN endpoint (<a>ModifyClientVpnEndpoint</a>) and change the VPC that's associated with it.</p>
 
         Args:
             client_vpn_endpoint_id: <p>The ID of the Client VPN endpoint.</p>
@@ -3651,7 +3651,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> None:
-        """<p>Associates a set of DHCP options (that you've previously created) with the specified VPC, or associates no DHCP options with the VPC.</p> <p>After you associate the options with the VPC, any existing instances and all new instances that you launch in that VPC use the options. You don't need to restart or relaunch the instances. They automatically pick up the changes within a few hours, depending on how frequently the instance renews its DHCP lease. You can explicitly renew the lease using the operating system on the instance.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html\">DHCP option sets</a> in the <i>Amazon VPC User Guide</i>.</p>
+        r"""<p>Associates a set of DHCP options (that you've previously created) with the specified VPC, or associates no DHCP options with the VPC.</p> <p>After you associate the options with the VPC, any existing instances and all new instances that you launch in that VPC use the options. You don't need to restart or relaunch the instances. They automatically pick up the changes within a few hours, depending on how frequently the instance renews its DHCP lease. You can explicitly renew the lease using the operating system on the instance.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html\">DHCP option sets</a> in the <i>Amazon VPC User Guide</i>.</p>
 
         Args:
             dhcp_options_id: <p>The ID of the DHCP options set, or <code>default</code> to associate no DHCP options with the VPC.</p>
@@ -3704,7 +3704,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.associate_enclave_certificate_iam_role_result.AssociateEnclaveCertificateIamRoleResult":
-        """<p>Associates an Identity and Access Management (IAM) role with an Certificate Manager (ACM) certificate. This enables the certificate to be used by the ACM for Nitro Enclaves application inside an enclave. For more information, see <a href=\"https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave-refapp.html\">Certificate Manager for Nitro Enclaves</a> in the <i>Amazon Web Services Nitro Enclaves User Guide</i>.</p> <p>When the IAM role is associated with the ACM certificate, the certificate, certificate chain, and encrypted private key are placed in an Amazon S3 location that only the associated IAM role can access. The private key of the certificate is encrypted with an Amazon Web Services managed key that has an attached attestation-based key policy.</p> <p>To enable the IAM role to access the Amazon S3 object, you must grant it permission to call <code>s3:GetObject</code> on the Amazon S3 bucket returned by the command. To enable the IAM role to access the KMS key, you must grant it permission to call <code>kms:Decrypt</code> on the KMS key returned by the command. For more information, see <a href=\"https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave-refapp.html#add-policy\"> Grant the role permission to access the certificate and encryption key</a> in the <i>Amazon Web Services Nitro Enclaves User Guide</i>.</p>
+        r"""<p>Associates an Identity and Access Management (IAM) role with an Certificate Manager (ACM) certificate. This enables the certificate to be used by the ACM for Nitro Enclaves application inside an enclave. For more information, see <a href=\"https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave-refapp.html\">Certificate Manager for Nitro Enclaves</a> in the <i>Amazon Web Services Nitro Enclaves User Guide</i>.</p> <p>When the IAM role is associated with the ACM certificate, the certificate, certificate chain, and encrypted private key are placed in an Amazon S3 location that only the associated IAM role can access. The private key of the certificate is encrypted with an Amazon Web Services managed key that has an attached attestation-based key policy.</p> <p>To enable the IAM role to access the Amazon S3 object, you must grant it permission to call <code>s3:GetObject</code> on the Amazon S3 bucket returned by the command. To enable the IAM role to access the KMS key, you must grant it permission to call <code>kms:Decrypt</code> on the KMS key returned by the command. For more information, see <a href=\"https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave-refapp.html#add-policy\"> Grant the role permission to access the certificate and encryption key</a> in the <i>Amazon Web Services Nitro Enclaves User Guide</i>.</p>
 
         Args:
             certificate_arn: <p>The ARN of the ACM certificate with which to associate the IAM role.</p>
@@ -3796,7 +3796,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.associate_instance_event_window_result.AssociateInstanceEventWindowResult":
-        """<p>Associates one or more targets with an event window. Only one type of target (instance IDs, Dedicated Host IDs, or tags) can be specified with an event window.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/event-windows.html\">Define event windows for scheduled events</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Associates one or more targets with an event window. Only one type of target (instance IDs, Dedicated Host IDs, or tags) can be specified with an event window.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/event-windows.html\">Define event windows for scheduled events</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -3841,7 +3841,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.associate_ipam_byoasn_result.AssociateIpamByoasnResult":
-        """<p>Associates your Autonomous System Number (ASN) with a BYOIP CIDR that you own in the same Amazon Web Services Region. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoasn.html\">Tutorial: Bring your ASN to IPAM</a> in the <i>Amazon VPC IPAM guide</i>.</p> <p>After the association succeeds, the ASN is eligible for advertisement. You can view the association with <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeByoipCidrs.html\">DescribeByoipCidrs</a>. You can advertise the CIDR with <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AdvertiseByoipCidr.html\">AdvertiseByoipCidr</a>.</p>
+        r"""<p>Associates your Autonomous System Number (ASN) with a BYOIP CIDR that you own in the same Amazon Web Services Region. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoasn.html\">Tutorial: Bring your ASN to IPAM</a> in the <i>Amazon VPC IPAM guide</i>.</p> <p>After the association succeeds, the ASN is eligible for advertisement. You can view the association with <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeByoipCidrs.html\">DescribeByoipCidrs</a>. You can advertise the CIDR with <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AdvertiseByoipCidr.html\">AdvertiseByoipCidr</a>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -3948,7 +3948,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.availability_zone_id.AvailabilityZoneId"
         ] = None,
     ) -> "aws_sdk_ec2.types.associate_nat_gateway_address_result.AssociateNatGatewayAddressResult":
-        """<p>Associates Elastic IP addresses (EIPs) and private IPv4 addresses with a public NAT gateway. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-working-with.html\">Work with NAT gateways</a> in the <i>Amazon VPC User Guide</i>.</p> <p>By default, you can associate up to 2 Elastic IP addresses per public NAT gateway. You can increase the limit by requesting a quota adjustment. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html#vpc-limits-eips\">Elastic IP address quotas</a> in the <i>Amazon VPC User Guide</i>.</p> <important> <p>When you associate an EIP or secondary EIPs with a public NAT gateway, the network border group of the EIPs must match the network border group of the Availability Zone (AZ) that the public NAT gateway is in. If it's not the same, the EIP will fail to associate. You can see the network border group for the subnet's AZ by viewing the details of the subnet. Similarly, you can view the network border group of an EIP by viewing the details of the EIP address. For more information about network border groups and EIPs, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/WorkWithEIPs.html\">Allocate an Elastic IP address</a> in the <i>Amazon VPC User Guide</i>. </p> </important>
+        r"""<p>Associates Elastic IP addresses (EIPs) and private IPv4 addresses with a public NAT gateway. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-working-with.html\">Work with NAT gateways</a> in the <i>Amazon VPC User Guide</i>.</p> <p>By default, you can associate up to 2 Elastic IP addresses per public NAT gateway. You can increase the limit by requesting a quota adjustment. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html#vpc-limits-eips\">Elastic IP address quotas</a> in the <i>Amazon VPC User Guide</i>.</p> <important> <p>When you associate an EIP or secondary EIPs with a public NAT gateway, the network border group of the EIPs must match the network border group of the Availability Zone (AZ) that the public NAT gateway is in. If it's not the same, the EIP will fail to associate. You can see the network border group for the subnet's AZ by viewing the details of the subnet. Similarly, you can view the network border group of an EIP by viewing the details of the EIP address. For more information about network border groups and EIPs, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/WorkWithEIPs.html\">Allocate an Elastic IP address</a> in the <i>Amazon VPC User Guide</i>. </p> </important>
 
         Args:
             nat_gateway_id: <p>The ID of the NAT gateway.</p>
@@ -4002,7 +4002,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.associate_route_server_result.AssociateRouteServerResult":
-        """<p>Associates a route server with a VPC to enable dynamic route updates.</p> <p>A route server association is the connection established between a route server and a VPC.</p> <p>For more information see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/dynamic-routing-route-server.html\">Dynamic routing in your VPC with VPC Route Server</a> in the <i>Amazon VPC User Guide</i>.</p>
+        r"""<p>Associates a route server with a VPC to enable dynamic route updates.</p> <p>A route server association is the connection established between a route server and a VPC.</p> <p>For more information see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/dynamic-routing-route-server.html\">Dynamic routing in your VPC with VPC Route Server</a> in the <i>Amazon VPC User Guide</i>.</p>
 
         Args:
             route_server_id: <p>The unique identifier for the route server to be associated.</p>
@@ -4053,7 +4053,7 @@ class AsyncEC2Client:
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
         subnet_id: Optional["aws_sdk_ec2.types.subnet_id.SubnetId"] = None,
     ) -> "aws_sdk_ec2.types.associate_route_table_result.AssociateRouteTableResult":
-        """<p>Associates a subnet in your VPC or an internet gateway or virtual private gateway attached to your VPC with a route table in your VPC. This association causes traffic from the subnet or gateway to be routed according to the routes in the route table. The action returns an association ID, which you need in order to disassociate the route table later. A route table can be associated with multiple subnets.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html\">Route tables</a> in the <i>Amazon VPC User Guide</i>.</p>
+        r"""<p>Associates a subnet in your VPC or an internet gateway or virtual private gateway attached to your VPC with a route table in your VPC. This association causes traffic from the subnet or gateway to be routed according to the routes in the route table. The action returns an association ID, which you need in order to disassociate the route table later. A route table can be associated with multiple subnets.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html\">Route tables</a> in the <i>Amazon VPC User Guide</i>.</p>
 
         Args:
             gateway_id: <p>The ID of the internet gateway or virtual private gateway.</p>
@@ -4209,7 +4209,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.associate_transit_gateway_multicast_domain_result.AssociateTransitGatewayMulticastDomainResult":
-        """<p>Associates the specified subnets and transit gateway attachments with the specified transit gateway multicast domain.</p> <p>The transit gateway attachment must be in the available state before you can add a resource. Use <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html\">DescribeTransitGatewayAttachments</a> to see the state of the attachment.</p>
+        r"""<p>Associates the specified subnets and transit gateway attachments with the specified transit gateway multicast domain.</p> <p>The transit gateway attachment must be in the available state before you can add a resource. Use <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html\">DescribeTransitGatewayAttachments</a> to see the state of the attachment.</p>
 
         Args:
             transit_gateway_multicast_domain_id: <p>The ID of the transit gateway multicast domain.</p>
@@ -4351,7 +4351,7 @@ class AsyncEC2Client:
         client_token: Optional["aws_sdk_ec2.types.string.String"] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.associate_trunk_interface_result.AssociateTrunkInterfaceResult":
-        """<p>Associates a branch network interface with a trunk network interface.</p> <p>Before you create the association, use <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateNetworkInterface.html\">CreateNetworkInterface</a> command and set the interface type to <code>trunk</code>. You must also create a network interface for each branch network interface that you want to associate with the trunk network interface.</p>
+        r"""<p>Associates a branch network interface with a trunk network interface.</p> <p>Before you create the association, use <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateNetworkInterface.html\">CreateNetworkInterface</a> command and set the interface type to <code>trunk</code>. You must also create a network interface for each branch network interface that you want to associate with the trunk network interface.</p>
 
         Args:
             branch_interface_id: <p>The ID of the branch network interface.</p>
@@ -4422,7 +4422,7 @@ class AsyncEC2Client:
     ) -> (
         "aws_sdk_ec2.types.associate_vpc_cidr_block_result.AssociateVpcCidrBlockResult"
     ):
-        """<p>Associates a CIDR block with your VPC. You can associate a secondary IPv4 CIDR block, an Amazon-provided IPv6 CIDR block, or an IPv6 CIDR block from an IPv6 address pool that you provisioned through bring your own IP addresses (<a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html\">BYOIP</a>).</p> <p>You must specify one of the following in the request: an IPv4 CIDR block, an IPv6 pool, or an Amazon-provided IPv6 CIDR block.</p> <p>For more information about associating CIDR blocks with your VPC and applicable restrictions, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/vpc-ip-addressing.html\">IP addressing for your VPCs and subnets</a> in the <i>Amazon VPC User Guide</i>.</p>
+        r"""<p>Associates a CIDR block with your VPC. You can associate a secondary IPv4 CIDR block, an Amazon-provided IPv6 CIDR block, or an IPv6 CIDR block from an IPv6 address pool that you provisioned through bring your own IP addresses (<a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html\">BYOIP</a>).</p> <p>You must specify one of the following in the request: an IPv4 CIDR block, an IPv6 pool, or an Amazon-provided IPv6 CIDR block.</p> <p>For more information about associating CIDR blocks with your VPC and applicable restrictions, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/vpc-ip-addressing.html\">IP addressing for your VPCs and subnets</a> in the <i>Amazon VPC User Guide</i>.</p>
 
         Args:
             cidr_block: <p>An IPv4 CIDR block to associate with the VPC.</p>
@@ -4539,7 +4539,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> None:
-        """<p>Attaches an internet gateway or a virtual private gateway to a VPC, enabling connectivity between the internet and the VPC. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html\">Internet gateways</a> in the <i>Amazon VPC User Guide</i>.</p>
+        r"""<p>Attaches an internet gateway or a virtual private gateway to a VPC, enabling connectivity between the internet and the VPC. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html\">Internet gateways</a> in the <i>Amazon VPC User Guide</i>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -4659,7 +4659,7 @@ class AsyncEC2Client:
         client_token: Optional["aws_sdk_ec2.types.string.String"] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.attach_verified_access_trust_provider_result.AttachVerifiedAccessTrustProviderResult":
-        """<p>Attaches the specified Amazon Web Services Verified Access trust provider to the specified Amazon Web Services Verified Access instance.</p>
+        r"""<p>Attaches the specified Amazon Web Services Verified Access trust provider to the specified Amazon Web Services Verified Access instance.</p>
 
         Args:
             verified_access_instance_id: <p>The ID of the Verified Access instance.</p>
@@ -4709,7 +4709,7 @@ class AsyncEC2Client:
         ebs_card_index: Optional["aws_sdk_ec2.types.boxed_integer.BoxedInteger"] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.volume_attachment.VolumeAttachment":
-        """<p>Attaches an Amazon EBS volume to a <code>running</code> or <code>stopped</code> instance, and exposes it to the instance with the specified device name.</p> <note> <p>The maximum number of Amazon EBS volumes that you can attach to an instance depends on the instance type. If you exceed the volume attachment limit for an instance type, the attachment request fails with the <code>AttachmentLimitExceeded</code> error. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html\">Instance volume limits</a>.</p> </note> <p>After you attach an EBS volume, you must make it available for use. For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/ebs-using-volumes.html\">Make an EBS volume available for use</a>.</p> <p>If a volume has an Amazon Web Services Marketplace product code:</p> <ul> <li> <p>The volume can be attached only to a stopped instance.</p> </li> <li> <p>Amazon Web Services Marketplace product codes are copied from the volume to the instance.</p> </li> <li> <p>You must be subscribed to the product.</p> </li> <li> <p>The instance type and operating system of the instance must support the product. For example, you can't detach a volume from a Windows instance and attach it to a Linux instance.</p> </li> </ul> <p>For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/ebs-attaching-volume.html\">Attach an Amazon EBS volume to an instance</a> in the <i>Amazon EBS User Guide</i>.</p>
+        r"""<p>Attaches an Amazon EBS volume to a <code>running</code> or <code>stopped</code> instance, and exposes it to the instance with the specified device name.</p> <note> <p>The maximum number of Amazon EBS volumes that you can attach to an instance depends on the instance type. If you exceed the volume attachment limit for an instance type, the attachment request fails with the <code>AttachmentLimitExceeded</code> error. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html\">Instance volume limits</a>.</p> </note> <p>After you attach an EBS volume, you must make it available for use. For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/ebs-using-volumes.html\">Make an EBS volume available for use</a>.</p> <p>If a volume has an Amazon Web Services Marketplace product code:</p> <ul> <li> <p>The volume can be attached only to a stopped instance.</p> </li> <li> <p>Amazon Web Services Marketplace product codes are copied from the volume to the instance.</p> </li> <li> <p>You must be subscribed to the product.</p> </li> <li> <p>The instance type and operating system of the instance must support the product. For example, you can't detach a volume from a Windows instance and attach it to a Linux instance.</p> </li> </ul> <p>For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/ebs-attaching-volume.html\">Attach an Amazon EBS volume to an instance</a> in the <i>Amazon EBS User Guide</i>.</p>
 
         Args:
             device: <p>The device name (for example, <code>/dev/sdh</code> or <code>xvdh</code>).</p>
@@ -4765,7 +4765,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.attach_vpn_gateway_result.AttachVpnGatewayResult":
-        """<p>Attaches an available virtual private gateway to a VPC. You can attach one virtual private gateway to one VPC at a time.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html\">Amazon Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN User Guide</i>.</p>
+        r"""<p>Attaches an available virtual private gateway to a VPC. You can attach one virtual private gateway to one VPC at a time.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html\">Amazon Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN User Guide</i>.</p>
 
         Args:
             vpc_id: <p>The ID of the VPC.</p>
@@ -4814,7 +4814,7 @@ class AsyncEC2Client:
         client_token: Optional["aws_sdk_ec2.types.string.String"] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.authorize_client_vpn_ingress_result.AuthorizeClientVpnIngressResult":
-        """<p>Adds an ingress authorization rule to a Client VPN endpoint. Ingress authorization rules act as firewall rules that grant access to networks. You must configure ingress authorization rules to enable clients to access resources in Amazon Web Services or on-premises networks.</p>
+        r"""<p>Adds an ingress authorization rule to a Client VPN endpoint. Ingress authorization rules act as firewall rules that grant access to networks. You must configure ingress authorization rules to enable clients to access resources in Amazon Web Services or on-premises networks.</p>
 
         Args:
             client_vpn_endpoint_id: <p>The ID of the Client VPN endpoint.</p>
@@ -4884,7 +4884,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.ip_permission_list.IpPermissionList"
         ] = None,
     ) -> "aws_sdk_ec2.types.authorize_security_group_egress_result.AuthorizeSecurityGroupEgressResult":
-        """<p>Adds the specified outbound (egress) rules to a security group.</p> <p>An outbound rule permits instances to send traffic to the specified IPv4 or IPv6 address ranges, the IP address ranges specified by a prefix list, or the instances that are associated with a source security group. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/security-group-rules.html\">Security group rules</a>.</p> <p>You must specify exactly one of the following destinations: an IPv4 or IPv6 address range, a prefix list, or a security group. You must specify a protocol for each rule (for example, TCP). If the protocol is TCP or UDP, you must also specify a port or port range. If the protocol is ICMP or ICMPv6, you must also specify the ICMP type and code.</p> <p>Rule changes are propagated to instances associated with the security group as quickly as possible. However, a small delay might occur.</p> <p>For examples of rules that you can add to security groups for specific access scenarios, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html\">Security group rules for different use cases</a> in the <i>Amazon EC2 User Guide</i>.</p> <p>For information about security group quotas, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html\">Amazon VPC quotas</a> in the <i>Amazon VPC User Guide</i>.</p>
+        r"""<p>Adds the specified outbound (egress) rules to a security group.</p> <p>An outbound rule permits instances to send traffic to the specified IPv4 or IPv6 address ranges, the IP address ranges specified by a prefix list, or the instances that are associated with a source security group. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/security-group-rules.html\">Security group rules</a>.</p> <p>You must specify exactly one of the following destinations: an IPv4 or IPv6 address range, a prefix list, or a security group. You must specify a protocol for each rule (for example, TCP). If the protocol is TCP or UDP, you must also specify a port or port range. If the protocol is ICMP or ICMPv6, you must also specify the ICMP type and code.</p> <p>Rule changes are propagated to instances associated with the security group as quickly as possible. However, a small delay might occur.</p> <p>For examples of rules that you can add to security groups for specific access scenarios, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html\">Security group rules for different use cases</a> in the <i>Amazon EC2 User Guide</i>.</p> <p>For information about security group quotas, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html\">Amazon VPC quotas</a> in the <i>Amazon VPC User Guide</i>.</p>
 
         Args:
             tag_specifications: <p>The tags applied to the security group rule.</p>
@@ -4979,7 +4979,7 @@ class AsyncEC2Client:
         ] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.authorize_security_group_ingress_result.AuthorizeSecurityGroupIngressResult":
-        """<p>Adds the specified inbound (ingress) rules to a security group.</p> <p>An inbound rule permits instances to receive traffic from the specified IPv4 or IPv6 address range, the IP address ranges that are specified by a prefix list, or the instances that are associated with a destination security group. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/security-group-rules.html\">Security group rules</a>.</p> <p>You must specify exactly one of the following sources: an IPv4 or IPv6 address range, a prefix list, or a security group. You must specify a protocol for each rule (for example, TCP). If the protocol is TCP or UDP, you must also specify a port or port range. If the protocol is ICMP or ICMPv6, you must also specify the ICMP/ICMPv6 type and code.</p> <p>Rule changes are propagated to instances associated with the security group as quickly as possible. However, a small delay might occur.</p> <p>For examples of rules that you can add to security groups for specific access scenarios, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html\">Security group rules for different use cases</a> in the <i>Amazon EC2 User Guide</i>.</p> <p>For more information about security group quotas, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html\">Amazon VPC quotas</a> in the <i>Amazon VPC User Guide</i>.</p>
+        r"""<p>Adds the specified inbound (ingress) rules to a security group.</p> <p>An inbound rule permits instances to receive traffic from the specified IPv4 or IPv6 address range, the IP address ranges that are specified by a prefix list, or the instances that are associated with a destination security group. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/security-group-rules.html\">Security group rules</a>.</p> <p>You must specify exactly one of the following sources: an IPv4 or IPv6 address range, a prefix list, or a security group. You must specify a protocol for each rule (for example, TCP). If the protocol is TCP or UDP, you must also specify a port or port range. If the protocol is ICMP or ICMPv6, you must also specify the ICMP/ICMPv6 type and code.</p> <p>Rule changes are propagated to instances associated with the security group as quickly as possible. However, a small delay might occur.</p> <p>For examples of rules that you can add to security groups for specific access scenarios, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html\">Security group rules for different use cases</a> in the <i>Amazon EC2 User Guide</i>.</p> <p>For more information about security group quotas, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html\">Amazon VPC quotas</a> in the <i>Amazon VPC User Guide</i>.</p>
 
         Args:
             cidr_ip: <p>The IPv4 address range, in CIDR format.</p> <note> <p> Amazon Web Services <a href=\"https://en.wikipedia.org/wiki/Canonicalization\">canonicalizes</a> IPv4 and IPv6 CIDRs. For example, if you specify 100.68.0.18/18 for the CIDR block, Amazon Web Services canonicalizes the CIDR block to 100.68.0.0/18. Any subsequent DescribeSecurityGroups and DescribeSecurityGroupRules calls will return the canonicalized form of the CIDR block. Additionally, if you attempt to add another rule with the non-canonical form of the CIDR (such as 100.68.0.18/18) and there is already a rule for the canonicalized form of the CIDR block (such as 100.68.0.0/18), the API throws an duplicate rule error.</p> </note> <p>To specify an IPv6 address range, use IP permissions instead.</p> <p>To specify multiple rules and descriptions for the rules, use IP permissions instead.</p>
@@ -5064,7 +5064,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.bundle_instance_result.BundleInstanceResult":
-        """<p>Bundles an Amazon instance store-backed Windows instance.</p> <p>During bundling, only the root device volume (C:\) is bundled. Data on other instance store volumes is not preserved.</p> <note> <p>This action is no longer supported. To create an AMI, use <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html\">CreateImage</a>. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html\"> Create an Amazon EBS-backed AMI</a> in the <i>Amazon EC2 User Guide</i>.</p> </note>
+        r"""<p>Bundles an Amazon instance store-backed Windows instance.</p> <p>During bundling, only the root device volume (C:\) is bundled. Data on other instance store volumes is not preserved.</p> <note> <p>This action is no longer supported. To create an AMI, use <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html\">CreateImage</a>. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html\"> Create an Amazon EBS-backed AMI</a> in the <i>Amazon EC2 User Guide</i>.</p> </note>
 
         Args:
             instance_id: <p>The ID of the instance to bundle.</p> <p>Default: None</p>
@@ -5150,7 +5150,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.cancel_capacity_reservation_result.CancelCapacityReservationResult":
-        """<p>Cancels the specified Capacity Reservation, releases the reserved capacity, and changes the Capacity Reservation's state to <code>cancelled</code>.</p> <p>You can cancel a Capacity Reservation that is in the following states:</p> <ul> <li> <p> <code>assessing</code> </p> </li> <li> <p> <code>active</code> and there is no commitment duration or the commitment duration has elapsed. You can't cancel a future-dated Capacity Reservation during the commitment duration.</p> </li> </ul> <note> <p>You can't modify or cancel a Capacity Block. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-blocks.html\">Capacity Blocks for ML</a>.</p> </note> <p>If a future-dated Capacity Reservation enters the <code>delayed</code> state, the commitment duration is waived, and you can cancel it as soon as it enters the <code>active</code> state.</p> <p>Instances running in the reserved capacity continue running until you stop them. Stopped instances that target the Capacity Reservation can no longer launch. Modify these instances to either target a different Capacity Reservation, launch On-Demand Instance capacity, or run in any open Capacity Reservation that has matching attributes and sufficient capacity.</p>
+        r"""<p>Cancels the specified Capacity Reservation, releases the reserved capacity, and changes the Capacity Reservation's state to <code>cancelled</code>.</p> <p>You can cancel a Capacity Reservation that is in the following states:</p> <ul> <li> <p> <code>assessing</code> </p> </li> <li> <p> <code>active</code> and there is no commitment duration or the commitment duration has elapsed. You can't cancel a future-dated Capacity Reservation during the commitment duration.</p> </li> </ul> <note> <p>You can't modify or cancel a Capacity Block. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-blocks.html\">Capacity Blocks for ML</a>.</p> </note> <p>If a future-dated Capacity Reservation enters the <code>delayed</code> state, the commitment duration is waived, and you can cancel it as soon as it enters the <code>active</code> state.</p> <p>Instances running in the reserved capacity continue running until you stop them. Stopped instances that target the Capacity Reservation can no longer launch. Modify these instances to either target a different Capacity Reservation, launch On-Demand Instance capacity, or run in any open Capacity Reservation that has matching attributes and sufficient capacity.</p>
 
         Args:
             capacity_reservation_id: <p>The ID of the Capacity Reservation to be cancelled.</p>
@@ -5278,7 +5278,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.cancel_declarative_policies_report_result.CancelDeclarativePoliciesReportResult":
-        """<p>Cancels the generation of an account status report.</p> <p>You can only cancel a report while it has the <code>running</code> status. Reports with other statuses (<code>complete</code>, <code>cancelled</code>, or <code>error</code>) can't be canceled.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_declarative_status-report.html\">Generating the account status report for declarative policies</a> in the <i>Amazon Web Services Organizations User Guide</i>.</p>
+        r"""<p>Cancels the generation of an account status report.</p> <p>You can only cancel a report while it has the <code>running</code> status. Reports with other statuses (<code>complete</code>, <code>cancelled</code>, or <code>error</code>) can't be canceled.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_declarative_status-report.html\">Generating the account status report for declarative policies</a> in the <i>Amazon Web Services Organizations User Guide</i>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -5356,7 +5356,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.cancel_image_launch_permission_result.CancelImageLaunchPermissionResult":
-        """<p>Removes your Amazon Web Services account from the launch permissions for the specified AMI. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cancel-sharing-an-AMI.html\">Cancel having an AMI shared with your Amazon Web Services account</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Removes your Amazon Web Services account from the launch permissions for the specified AMI. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cancel-sharing-an-AMI.html\">Cancel having an AMI shared with your Amazon Web Services account</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             image_id: <p>The ID of the AMI that was shared with your Amazon Web Services account.</p>
@@ -5446,7 +5446,7 @@ class AsyncEC2Client:
         *,
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
     ) -> "aws_sdk_ec2.types.cancel_reserved_instances_listing_result.CancelReservedInstancesListingResult":
-        """<p>Cancels the specified Reserved Instance listing in the Reserved Instance Marketplace.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html\">Sell in the Reserved Instance Marketplace</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Cancels the specified Reserved Instance listing in the Reserved Instance Marketplace.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html\">Sell in the Reserved Instance Marketplace</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             reserved_instances_listing_id: <p>The ID of the Reserved Instance listing.</p>
@@ -5486,7 +5486,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.cancel_spot_fleet_requests_response.CancelSpotFleetRequestsResponse":
-        """<p>Cancels the specified Spot Fleet requests.</p> <p>After you cancel a Spot Fleet request, the Spot Fleet launches no new instances.</p> <p>You must also specify whether a canceled Spot Fleet request should terminate its instances. If you choose to terminate the instances, the Spot Fleet request enters the <code>cancelled_terminating</code> state. Otherwise, the Spot Fleet request enters the <code>cancelled_running</code> state and the instances continue to run until they are interrupted or you terminate them manually.</p> <important> <p> <b>Terminating an instance is permanent and irreversible.</b> </p> <p>After you terminate an instance, you can no longer connect to it, and it can't be recovered. All attached Amazon EBS volumes that are configured to be deleted on termination are also permanently deleted and can't be recovered. All data stored on instance store volumes is permanently lost. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/how-ec2-instance-termination-works.html\"> How instance termination works</a>.</p> <p>Before you terminate an instance, ensure that you have backed up all data that you need to retain after the termination to persistent storage.</p> </important> <p class=\"title\"> <b>Restrictions</b> </p> <ul> <li> <p>You can delete up to 100 fleets in a single request. If you exceed the specified number, no fleets are deleted.</p> </li> </ul>
+        r"""<p>Cancels the specified Spot Fleet requests.</p> <p>After you cancel a Spot Fleet request, the Spot Fleet launches no new instances.</p> <p>You must also specify whether a canceled Spot Fleet request should terminate its instances. If you choose to terminate the instances, the Spot Fleet request enters the <code>cancelled_terminating</code> state. Otherwise, the Spot Fleet request enters the <code>cancelled_running</code> state and the instances continue to run until they are interrupted or you terminate them manually.</p> <important> <p> <b>Terminating an instance is permanent and irreversible.</b> </p> <p>After you terminate an instance, you can no longer connect to it, and it can't be recovered. All attached Amazon EBS volumes that are configured to be deleted on termination are also permanently deleted and can't be recovered. All data stored on instance store volumes is permanently lost. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/how-ec2-instance-termination-works.html\"> How instance termination works</a>.</p> <p>Before you terminate an instance, ensure that you have backed up all data that you need to retain after the termination to persistent storage.</p> </important> <p class=\"title\"> <b>Restrictions</b> </p> <ul> <li> <p>You can delete up to 100 fleets in a single request. If you exceed the specified number, no fleets are deleted.</p> </li> </ul>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -5645,7 +5645,7 @@ class AsyncEC2Client:
         name: Optional["aws_sdk_ec2.types.string.String"] = None,
         client_token: Optional["aws_sdk_ec2.types.string.String"] = None,
     ) -> "aws_sdk_ec2.types.copy_fpga_image_result.CopyFpgaImageResult":
-        """<p>Copies the specified Amazon FPGA Image (AFI) to the current Region.</p>
+        r"""<p>Copies the specified Amazon FPGA Image (AFI) to the current Region.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -5722,7 +5722,7 @@ class AsyncEC2Client:
         ] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.copy_image_result.CopyImageResult":
-        """<p>Initiates an AMI copy operation. You must specify the source AMI ID and both the source and destination locations. The copy operation must be initiated in the destination Region.</p> <p class=\"title\"> <b>CopyImage supports the following source to destination copies:</b> </p> <ul> <li> <p>Region to Region</p> </li> <li> <p>Region to Outpost</p> </li> <li> <p>Parent Region to Local Zone</p> </li> <li> <p>Local Zone to parent Region</p> </li> <li> <p>Between Local Zones with the same parent Region (only supported for certain Local Zones)</p> </li> </ul> <p class=\"title\"> <b>CopyImage does not support the following source to destination copies:</b> </p> <ul> <li> <p>Local Zone to non-parent Regions</p> </li> <li> <p>Between Local Zones with different parent Regions</p> </li> <li> <p>Local Zone to Outpost</p> </li> <li> <p>Outpost to Local Zone</p> </li> <li> <p>Outpost to Region</p> </li> <li> <p>Between Outposts</p> </li> <li> <p>Within same Outpost</p> </li> <li> <p>Cross-partition copies (use <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateStoreImageTask.html\">CreateStoreImageTask</a> instead)</p> </li> </ul> <p class=\"title\"> <b>Destination specification</b> </p> <ul> <li> <p>Region to Region: The destination Region is the Region in which you initiate the copy operation.</p> </li> <li> <p>Region to Outpost: Specify the destination using the <code>DestinationOutpostArn</code> parameter (the ARN of the Outpost)</p> </li> <li> <p>Region to Local Zone, and Local Zone to Local Zone copies: Specify the destination using the <code>DestinationAvailabilityZone</code> parameter (the name of the destination Local Zone) or <code>DestinationAvailabilityZoneId</code> parameter (the ID of the destination Local Zone).</p> </li> </ul> <p class=\"title\"> <b>Snapshot encryption</b> </p> <ul> <li> <p>Region to Outpost: Backing snapshots copied to an Outpost are encrypted by default using the default encryption key for the Region or the key that you specify. Outposts do not support unencrypted snapshots.</p> </li> <li> <p>Region to Local Zone, and Local Zone to Local Zone: Not all Local Zones require encrypted snapshots. In Local Zones that require encrypted snapshots, backing snapshots are automatically encrypted during copy. In Local Zones where encryption is not required, snapshots retain their original encryption state (encrypted or unencrypted) by default.</p> </li> </ul> <p>For more information, including the required permissions for copying an AMI, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html\">Copy an Amazon EC2 AMI</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Initiates an AMI copy operation. You must specify the source AMI ID and both the source and destination locations. The copy operation must be initiated in the destination Region.</p> <p class=\"title\"> <b>CopyImage supports the following source to destination copies:</b> </p> <ul> <li> <p>Region to Region</p> </li> <li> <p>Region to Outpost</p> </li> <li> <p>Parent Region to Local Zone</p> </li> <li> <p>Local Zone to parent Region</p> </li> <li> <p>Between Local Zones with the same parent Region (only supported for certain Local Zones)</p> </li> </ul> <p class=\"title\"> <b>CopyImage does not support the following source to destination copies:</b> </p> <ul> <li> <p>Local Zone to non-parent Regions</p> </li> <li> <p>Between Local Zones with different parent Regions</p> </li> <li> <p>Local Zone to Outpost</p> </li> <li> <p>Outpost to Local Zone</p> </li> <li> <p>Outpost to Region</p> </li> <li> <p>Between Outposts</p> </li> <li> <p>Within same Outpost</p> </li> <li> <p>Cross-partition copies (use <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateStoreImageTask.html\">CreateStoreImageTask</a> instead)</p> </li> </ul> <p class=\"title\"> <b>Destination specification</b> </p> <ul> <li> <p>Region to Region: The destination Region is the Region in which you initiate the copy operation.</p> </li> <li> <p>Region to Outpost: Specify the destination using the <code>DestinationOutpostArn</code> parameter (the ARN of the Outpost)</p> </li> <li> <p>Region to Local Zone, and Local Zone to Local Zone copies: Specify the destination using the <code>DestinationAvailabilityZone</code> parameter (the name of the destination Local Zone) or <code>DestinationAvailabilityZoneId</code> parameter (the ID of the destination Local Zone).</p> </li> </ul> <p class=\"title\"> <b>Snapshot encryption</b> </p> <ul> <li> <p>Region to Outpost: Backing snapshots copied to an Outpost are encrypted by default using the default encryption key for the Region or the key that you specify. Outposts do not support unencrypted snapshots.</p> </li> <li> <p>Region to Local Zone, and Local Zone to Local Zone: Not all Local Zones require encrypted snapshots. In Local Zones that require encrypted snapshots, backing snapshots are automatically encrypted during copy. In Local Zones where encryption is not required, snapshots retain their original encryption state (encrypted or unencrypted) by default.</p> </li> </ul> <p>For more information, including the required permissions for copying an AMI, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html\">Copy an Amazon EC2 AMI</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             client_token: <p>Unique, case-sensitive identifier you provide to ensure idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring idempotency in Amazon EC2 API requests</a> in the <i>Amazon EC2 API Reference</i>.</p>
@@ -5826,7 +5826,7 @@ class AsyncEC2Client:
         ] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.copy_snapshot_result.CopySnapshotResult":
-        """<p>Creates an exact copy of an Amazon EBS snapshot.</p> <p>The location of the source snapshot determines whether you can copy it or not, and the allowed destinations for the snapshot copy.</p> <ul> <li> <p>If the source snapshot is in a Region, you can copy it within that Region, to another Region, to an Outpost associated with that Region, or to a Local Zone in that Region.</p> </li> <li> <p>If the source snapshot is in a Local Zone, you can copy it within that Local Zone, to another Local Zone in the same zone group, or to the parent Region of the Local Zone.</p> </li> <li> <p>If the source snapshot is on an Outpost, you can't copy it.</p> </li> </ul> <p>When copying snapshots to a Region, the encryption outcome for the snapshot copy depends on the Amazon EBS encryption by default setting for the destination Region, the encryption status of the source snapshot, and the encryption parameters you specify in the request. For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/ebs-copy-snapshot.html#creating-encrypted-snapshots\"> Encryption and snapshot copying</a>.</p> <p>Snapshots copied to an Outpost must be encrypted. Unencrypted snapshots are not supported on Outposts. For more information, <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/snapshots-outposts.html#considerations\"> Amazon EBS local snapshots on Outposts</a>.</p> <note> <p>Snapshots copies have an arbitrary source volume ID. Do not use this volume ID for any purpose.</p> </note> <p>For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/ebs-copy-snapshot.html\">Copy an Amazon EBS snapshot</a> in the <i>Amazon EBS User Guide</i>.</p>
+        r"""<p>Creates an exact copy of an Amazon EBS snapshot.</p> <p>The location of the source snapshot determines whether you can copy it or not, and the allowed destinations for the snapshot copy.</p> <ul> <li> <p>If the source snapshot is in a Region, you can copy it within that Region, to another Region, to an Outpost associated with that Region, or to a Local Zone in that Region.</p> </li> <li> <p>If the source snapshot is in a Local Zone, you can copy it within that Local Zone, to another Local Zone in the same zone group, or to the parent Region of the Local Zone.</p> </li> <li> <p>If the source snapshot is on an Outpost, you can't copy it.</p> </li> </ul> <p>When copying snapshots to a Region, the encryption outcome for the snapshot copy depends on the Amazon EBS encryption by default setting for the destination Region, the encryption status of the source snapshot, and the encryption parameters you specify in the request. For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/ebs-copy-snapshot.html#creating-encrypted-snapshots\"> Encryption and snapshot copying</a>.</p> <p>Snapshots copied to an Outpost must be encrypted. Unencrypted snapshots are not supported on Outposts. For more information, <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/snapshots-outposts.html#considerations\"> Amazon EBS local snapshots on Outposts</a>.</p> <note> <p>Snapshots copies have an arbitrary source volume ID. Do not use this volume ID for any purpose.</p> </note> <p>For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/ebs-copy-snapshot.html\">Copy an Amazon EBS snapshot</a> in the <i>Amazon EBS User Guide</i>.</p>
 
         Args:
             description: <p>A description for the EBS snapshot.</p>
@@ -5912,7 +5912,7 @@ class AsyncEC2Client:
         throughput: Optional["aws_sdk_ec2.types.integer.Integer"] = None,
         client_token: Optional["aws_sdk_ec2.types.string.String"] = None,
     ) -> "aws_sdk_ec2.types.copy_volumes_result.CopyVolumesResult":
-        """<p>Creates a crash-consistent, point-in-time copy of an existing Amazon EBS volume within the same Availability Zone. The volume copy can be attached to an Amazon EC2 instance once it reaches the <code>available</code> state. For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/ebs-copying-volume.html\">Copy an Amazon EBS volume</a>.</p>
+        r"""<p>Creates a crash-consistent, point-in-time copy of an existing Amazon EBS volume within the same Availability Zone. The volume copy can be attached to an Amazon EC2 instance once it reaches the <code>available</code> state. For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/ebs-copying-volume.html\">Copy an Amazon EBS volume</a>.</p>
 
         Args:
             source_volume_id: <p>The ID of the source EBS volume to copy.</p>
@@ -6072,7 +6072,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.capacity_reservation_delivery_preference.CapacityReservationDeliveryPreference"
         ] = None,
     ) -> "aws_sdk_ec2.types.create_capacity_reservation_result.CreateCapacityReservationResult":
-        """<p>Creates a new Capacity Reservation with the specified attributes. Capacity Reservations enable you to reserve capacity for your Amazon EC2 instances in a specific Availability Zone for any duration.</p> <p>You can create a Capacity Reservation at any time, and you can choose when it starts. You can create a Capacity Reservation for immediate use or you can request a Capacity Reservation for a future date.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-reservations.html\"> Reserve compute capacity with On-Demand Capacity Reservations</a> in the <i>Amazon EC2 User Guide</i>.</p> <p>Your request to create a Capacity Reservation could fail if:</p> <ul> <li> <p>Amazon EC2 does not have sufficient capacity. In this case, try again at a later time, try in a different Availability Zone, or request a smaller Capacity Reservation. If your workload is flexible across instance types and sizes, try with different instance attributes.</p> </li> <li> <p>The requested quantity exceeds your On-Demand Instance quota. In this case, increase your On-Demand Instance quota for the requested instance type and try again. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-resource-limits.html\"> Amazon EC2 Service Quotas</a> in the <i>Amazon EC2 User Guide</i>.</p> </li> </ul>
+        r"""<p>Creates a new Capacity Reservation with the specified attributes. Capacity Reservations enable you to reserve capacity for your Amazon EC2 instances in a specific Availability Zone for any duration.</p> <p>You can create a Capacity Reservation at any time, and you can choose when it starts. You can create a Capacity Reservation for immediate use or you can request a Capacity Reservation for a future date.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-reservations.html\"> Reserve compute capacity with On-Demand Capacity Reservations</a> in the <i>Amazon EC2 User Guide</i>.</p> <p>Your request to create a Capacity Reservation could fail if:</p> <ul> <li> <p>Amazon EC2 does not have sufficient capacity. In this case, try again at a later time, try in a different Availability Zone, or request a smaller Capacity Reservation. If your workload is flexible across instance types and sizes, try with different instance attributes.</p> </li> <li> <p>The requested quantity exceeds your On-Demand Instance quota. In this case, increase your On-Demand Instance quota for the requested instance type and try again. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-resource-limits.html\"> Amazon EC2 Service Quotas</a> in the <i>Amazon EC2 User Guide</i>.</p> </li> </ul>
 
         Args:
             client_token: <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensure Idempotency</a>.</p>
@@ -6168,7 +6168,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.tag_specification_list.TagSpecificationList"
         ] = None,
     ) -> "aws_sdk_ec2.types.create_capacity_reservation_by_splitting_result.CreateCapacityReservationBySplittingResult":
-        """<p> Create a new Capacity Reservation by splitting the capacity of the source Capacity Reservation. The new Capacity Reservation will have the same attributes as the source Capacity Reservation except for tags. The source Capacity Reservation must be <code>active</code> and owned by your Amazon Web Services account. </p>
+        r"""<p> Create a new Capacity Reservation by splitting the capacity of the source Capacity Reservation. The new Capacity Reservation will have the same attributes as the source Capacity Reservation except for tags. The source Capacity Reservation must be <code>active</code> and owned by your Amazon Web Services account. </p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -6233,7 +6233,7 @@ class AsyncEC2Client:
         ] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.create_capacity_reservation_fleet_result.CreateCapacityReservationFleetResult":
-        """<p>Creates a Capacity Reservation Fleet. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/work-with-cr-fleets.html#create-crfleet\">Create a Capacity Reservation Fleet</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Creates a Capacity Reservation Fleet. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/work-with-cr-fleets.html#create-crfleet\">Create a Capacity Reservation Fleet</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             allocation_strategy: <p>The strategy used by the Capacity Reservation Fleet to determine which of the specified instance types to use. Currently, only the <code>prioritized</code> allocation strategy is supported. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#allocation-strategy\"> Allocation strategy</a> in the <i>Amazon EC2 User Guide</i>.</p> <p>Valid values: <code>prioritized</code> </p>
@@ -6299,7 +6299,7 @@ class AsyncEC2Client:
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
         client_token: Optional["aws_sdk_ec2.types.string.String"] = None,
     ) -> "aws_sdk_ec2.types.create_carrier_gateway_result.CreateCarrierGatewayResult":
-        """<p>Creates a carrier gateway. For more information about carrier gateways, see <a href=\"https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#wavelength-carrier-gateway\">Carrier gateways</a> in the <i>Amazon Web Services Wavelength Developer Guide</i>.</p>
+        r"""<p>Creates a carrier gateway. For more information about carrier gateways, see <a href=\"https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#wavelength-carrier-gateway\">Carrier gateways</a> in the <i>Amazon Web Services Wavelength Developer Guide</i>.</p>
 
         Args:
             vpc_id: <p>The ID of the VPC to associate with the carrier gateway.</p>
@@ -6392,7 +6392,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.transit_gateway_configuration_input_structure.TransitGatewayConfigurationInputStructure"
         ] = None,
     ) -> "aws_sdk_ec2.types.create_client_vpn_endpoint_result.CreateClientVpnEndpointResult":
-        """<p>Creates a Client VPN endpoint. A Client VPN endpoint is the resource you create and configure to enable and manage client VPN sessions. It is the destination endpoint at which all client VPN sessions are terminated.</p>
+        r"""<p>Creates a Client VPN endpoint. A Client VPN endpoint is the resource you create and configure to enable and manage client VPN sessions. It is the destination endpoint at which all client VPN sessions are terminated.</p>
 
         Args:
             client_cidr_block: <p>The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. Client CIDR range must have a size of at least /22 and must not be greater than /12.</p>
@@ -6501,7 +6501,7 @@ class AsyncEC2Client:
         client_token: Optional["aws_sdk_ec2.types.string.String"] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.create_client_vpn_route_result.CreateClientVpnRouteResult":
-        """<p>Adds a route to a network to a Client VPN endpoint. Each Client VPN endpoint has a route table that describes the available destination network routes. Each route in the route table specifies the path for traﬃc to speciﬁc resources or networks.</p>
+        r"""<p>Adds a route to a network to a Client VPN endpoint. Each Client VPN endpoint has a route table that describes the available destination network routes. Each route in the route table specifies the path for traﬃc to speciﬁc resources or networks.</p>
 
         Args:
             client_vpn_endpoint_id: <p>The ID of the Client VPN endpoint to which to add the route.</p>
@@ -6656,7 +6656,7 @@ class AsyncEC2Client:
         bgp_asn_extended: Optional["aws_sdk_ec2.types.long.Long"] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.create_customer_gateway_result.CreateCustomerGatewayResult":
-        """<p>Provides information to Amazon Web Services about your customer gateway device. The customer gateway device is the appliance at your end of the VPN connection. You must provide the IP address of the customer gateway device’s external interface. The IP address must be static and can be behind a device performing network address translation (NAT).</p> <p>For devices that use Border Gateway Protocol (BGP), you can also provide the device's BGP Autonomous System Number (ASN). You can use an existing ASN assigned to your network. If you don't have an ASN already, you can use a private ASN. For more information, see <a href=\"https://docs.aws.amazon.com/vpn/latest/s2svpn/cgw-options.html\">Customer gateway options for your Site-to-Site VPN connection</a> in the <i>Amazon Web Services Site-to-Site VPN User Guide</i>.</p> <p>To create more than one customer gateway with the same VPN type, IP address, and BGP ASN, specify a unique device name for each customer gateway. An identical request returns information about the existing customer gateway; it doesn't create a new customer gateway.</p>
+        r"""<p>Provides information to Amazon Web Services about your customer gateway device. The customer gateway device is the appliance at your end of the VPN connection. You must provide the IP address of the customer gateway device’s external interface. The IP address must be static and can be behind a device performing network address translation (NAT).</p> <p>For devices that use Border Gateway Protocol (BGP), you can also provide the device's BGP Autonomous System Number (ASN). You can use an existing ASN assigned to your network. If you don't have an ASN already, you can use a private ASN. For more information, see <a href=\"https://docs.aws.amazon.com/vpn/latest/s2svpn/cgw-options.html\">Customer gateway options for your Site-to-Site VPN connection</a> in the <i>Amazon Web Services Site-to-Site VPN User Guide</i>.</p> <p>To create more than one customer gateway with the same VPN type, IP address, and BGP ASN, specify a unique device name for each customer gateway. An identical request returns information about the existing customer gateway; it doesn't create a new customer gateway.</p>
 
         Args:
             bgp_asn: <p>For customer gateway devices that support BGP, specify the device's ASN. You must specify either <code>BgpAsn</code> or <code>BgpAsnExtended</code> when creating the customer gateway. If the ASN is larger than <code>2,147,483,647</code>, you must use <code>BgpAsnExtended</code>.</p> <p>Default: 65000</p> <p>Valid values: <code>1</code> to <code>2,147,483,647</code> </p>
@@ -6731,7 +6731,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.availability_zone_id.AvailabilityZoneId"
         ] = None,
     ) -> "aws_sdk_ec2.types.create_default_subnet_result.CreateDefaultSubnetResult":
-        """<p>Creates a default subnet with a size <code>/20</code> IPv4 CIDR block in the specified Availability Zone in your default VPC. You can have only one default subnet per Availability Zone. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/work-with-default-vpc.html#create-default-subnet\">Create a default subnet</a> in the <i>Amazon VPC User Guide</i>.</p>
+        r"""<p>Creates a default subnet with a size <code>/20</code> IPv4 CIDR block in the specified Availability Zone in your default VPC. You can have only one default subnet per Availability Zone. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/work-with-default-vpc.html#create-default-subnet\">Create a default subnet</a> in the <i>Amazon VPC User Guide</i>.</p>
 
         Args:
             availability_zone: <p>The Availability Zone in which to create the default subnet.</p> <p>Either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code> must be specified, but not both.</p>
@@ -6779,7 +6779,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.create_default_vpc_result.CreateDefaultVpcResult":
-        """<p>Creates a default VPC with a size <code>/16</code> IPv4 CIDR block and a default subnet in each Availability Zone. For more information about the components of a default VPC, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/default-vpc.html\">Default VPCs</a> in the <i>Amazon VPC User Guide</i>. You cannot specify the components of the default VPC yourself.</p> <p>If you deleted your previous default VPC, you can create a default VPC. You cannot have more than one default VPC per Region.</p>
+        r"""<p>Creates a default VPC with a size <code>/16</code> IPv4 CIDR block and a default subnet in each Availability Zone. For more information about the components of a default VPC, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/default-vpc.html\">Default VPCs</a> in the <i>Amazon VPC User Guide</i>. You cannot specify the components of the default VPC yourself.</p> <p>If you deleted your previous default VPC, you can create a default VPC. You cannot have more than one default VPC per Region.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -6824,7 +6824,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.tag_specification_list.TagSpecificationList"
         ] = None,
     ) -> "aws_sdk_ec2.types.create_delegate_mac_volume_ownership_task_result.CreateDelegateMacVolumeOwnershipTaskResult":
-        """<p>Delegates ownership of the Amazon EBS root volume for an Apple silicon Mac instance to an administrative user.</p>
+        r"""<p>Delegates ownership of the Amazon EBS root volume for an Apple silicon Mac instance to an administrative user.</p>
 
         Args:
             client_token: <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring Idempotency</a>.</p>
@@ -6877,7 +6877,7 @@ class AsyncEC2Client:
         ] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.create_dhcp_options_result.CreateDhcpOptionsResult":
-        """<p>Creates a custom set of DHCP options. After you create a DHCP option set, you associate it with a VPC. After you associate a DHCP option set with a VPC, all existing and newly launched instances in the VPC use this set of DHCP options.</p> <p>The following are the individual DHCP options you can specify. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html\">DHCP option sets</a> in the <i>Amazon VPC User Guide</i>.</p> <ul> <li> <p> <code>domain-name</code> - If you're using AmazonProvidedDNS in <code>us-east-1</code>, specify <code>ec2.internal</code>. If you're using AmazonProvidedDNS in any other Region, specify <code>region.compute.internal</code>. Otherwise, specify a custom domain name. This value is used to complete unqualified DNS hostnames.</p> <p>Some Linux operating systems accept multiple domain names separated by spaces. However, Windows and other Linux operating systems treat the value as a single domain, which results in unexpected behavior. If your DHCP option set is associated with a VPC that has instances running operating systems that treat the value as a single domain, specify only one domain name.</p> </li> <li> <p> <code>domain-name-servers</code> - The IP addresses of up to four DNS servers, or AmazonProvidedDNS. To specify multiple domain name servers in a single parameter, separate the IP addresses using commas. To have your instances receive custom DNS hostnames as specified in <code>domain-name</code>, you must specify a custom DNS server.</p> </li> <li> <p> <code>ntp-servers</code> - The IP addresses of up to eight Network Time Protocol (NTP) servers (four IPv4 addresses and four IPv6 addresses).</p> </li> <li> <p> <code>netbios-name-servers</code> - The IP addresses of up to four NetBIOS name servers.</p> </li> <li> <p> <code>netbios-node-type</code> - The NetBIOS node type (1, 2, 4, or 8). We recommend that you specify 2. Broadcast and multicast are not supported. For more information about NetBIOS node types, see <a href=\"https://www.ietf.org/rfc/rfc2132.txt\">RFC 2132</a>.</p> </li> <li> <p> <code>ipv6-address-preferred-lease-time</code> - A value (in seconds, minutes, hours, or years) for how frequently a running instance with an IPv6 assigned to it goes through DHCPv6 lease renewal. Acceptable values are between 140 and 2147483647 seconds (approximately 68 years). If no value is entered, the default lease time is 140 seconds. If you use long-term addressing for EC2 instances, you can increase the lease time and avoid frequent lease renewal requests. Lease renewal typically occurs when half of the lease time has elapsed.</p> </li> </ul>
+        r"""<p>Creates a custom set of DHCP options. After you create a DHCP option set, you associate it with a VPC. After you associate a DHCP option set with a VPC, all existing and newly launched instances in the VPC use this set of DHCP options.</p> <p>The following are the individual DHCP options you can specify. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html\">DHCP option sets</a> in the <i>Amazon VPC User Guide</i>.</p> <ul> <li> <p> <code>domain-name</code> - If you're using AmazonProvidedDNS in <code>us-east-1</code>, specify <code>ec2.internal</code>. If you're using AmazonProvidedDNS in any other Region, specify <code>region.compute.internal</code>. Otherwise, specify a custom domain name. This value is used to complete unqualified DNS hostnames.</p> <p>Some Linux operating systems accept multiple domain names separated by spaces. However, Windows and other Linux operating systems treat the value as a single domain, which results in unexpected behavior. If your DHCP option set is associated with a VPC that has instances running operating systems that treat the value as a single domain, specify only one domain name.</p> </li> <li> <p> <code>domain-name-servers</code> - The IP addresses of up to four DNS servers, or AmazonProvidedDNS. To specify multiple domain name servers in a single parameter, separate the IP addresses using commas. To have your instances receive custom DNS hostnames as specified in <code>domain-name</code>, you must specify a custom DNS server.</p> </li> <li> <p> <code>ntp-servers</code> - The IP addresses of up to eight Network Time Protocol (NTP) servers (four IPv4 addresses and four IPv6 addresses).</p> </li> <li> <p> <code>netbios-name-servers</code> - The IP addresses of up to four NetBIOS name servers.</p> </li> <li> <p> <code>netbios-node-type</code> - The NetBIOS node type (1, 2, 4, or 8). We recommend that you specify 2. Broadcast and multicast are not supported. For more information about NetBIOS node types, see <a href=\"https://www.ietf.org/rfc/rfc2132.txt\">RFC 2132</a>.</p> </li> <li> <p> <code>ipv6-address-preferred-lease-time</code> - A value (in seconds, minutes, hours, or years) for how frequently a running instance with an IPv6 assigned to it goes through DHCPv6 lease renewal. Acceptable values are between 140 and 2147483647 seconds (approximately 68 years). If no value is entered, the default lease time is 140 seconds. If you use long-term addressing for EC2 instances, you can increase the lease time and avoid frequent lease renewal requests. Lease renewal typically occurs when half of the lease time has elapsed.</p> </li> </ul>
 
         Args:
             dhcp_configurations: <p>A DHCP configuration option.</p>
@@ -6932,7 +6932,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.tag_specification_list.TagSpecificationList"
         ] = None,
     ) -> "aws_sdk_ec2.types.create_egress_only_internet_gateway_result.CreateEgressOnlyInternetGatewayResult":
-        """<p>[IPv6 only] Creates an egress-only internet gateway for your VPC. An egress-only internet gateway is used to enable outbound communication over IPv6 from instances in your VPC to the internet, and prevents hosts outside of your VPC from initiating an IPv6 connection with your instance.</p>
+        r"""<p>[IPv6 only] Creates an egress-only internet gateway for your VPC. An egress-only internet gateway is used to enable outbound communication over IPv6 from instances in your VPC to the internet, and prevents hosts outside of your VPC from initiating an IPv6 connection with your instance.</p>
 
         Args:
             client_token: <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html\">Ensuring idempotency</a>.</p>
@@ -7007,7 +7007,7 @@ class AsyncEC2Client:
         ] = None,
         context: Optional["aws_sdk_ec2.types.string.String"] = None,
     ) -> "aws_sdk_ec2.types.create_fleet_result.CreateFleetResult":
-        """<p>Creates an EC2 Fleet that contains the configuration information for On-Demand Instances and Spot Instances. Instances are launched immediately if there is available capacity.</p> <p>A single EC2 Fleet can include multiple launch specifications that vary by instance type, AMI, Availability Zone, or subnet.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet.html\">EC2 Fleet</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Creates an EC2 Fleet that contains the configuration information for On-Demand Instances and Spot Instances. Instances are launched immediately if there is available capacity.</p> <p>A single EC2 Fleet can include multiple launch specifications that vary by instance type, AMI, Availability Zone, or subnet.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet.html\">EC2 Fleet</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -7109,7 +7109,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.destination_options_request.DestinationOptionsRequest"
         ] = None,
     ) -> "aws_sdk_ec2.types.create_flow_logs_result.CreateFlowLogsResult":
-        """<p>Creates one or more flow logs to capture information about IP traffic for a specific network interface, subnet, or VPC. </p> <p>Flow log data for a monitored network interface is recorded as flow log records, which are log events consisting of fields that describe the traffic flow. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/flow-log-records.html\">Flow log records</a> in the <i>Amazon VPC User Guide</i>.</p> <p>When publishing to CloudWatch Logs, flow log records are published to a log group, and each network interface has a unique log stream in the log group. When publishing to Amazon S3, flow log records for all of the monitored network interfaces are published to a single log file object that is stored in the specified bucket.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html\">VPC Flow Logs</a> in the <i>Amazon VPC User Guide</i>.</p>
+        r"""<p>Creates one or more flow logs to capture information about IP traffic for a specific network interface, subnet, or VPC. </p> <p>Flow log data for a monitored network interface is recorded as flow log records, which are log events consisting of fields that describe the traffic flow. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/flow-log-records.html\">Flow log records</a> in the <i>Amazon VPC User Guide</i>.</p> <p>When publishing to CloudWatch Logs, flow log records are published to a log group, and each network interface has a unique log stream in the log group. When publishing to Amazon S3, flow log records for all of the monitored network interfaces are published to a single log file object that is stored in the specified bucket.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html\">VPC Flow Logs</a> in the <i>Amazon VPC User Guide</i>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -7195,7 +7195,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.tag_specification_list.TagSpecificationList"
         ] = None,
     ) -> "aws_sdk_ec2.types.create_fpga_image_result.CreateFpgaImageResult":
-        """<p>Creates an Amazon FPGA Image (AFI) from the specified design checkpoint (DCP).</p> <p>The create operation is asynchronous. To verify that the AFI was successfully created and is ready for use, check the output logs.</p> <p>An AFI contains the FPGA bitstream that is ready to download to an FPGA. You can securely deploy an AFI on multiple FPGA-accelerated instances. For more information, see the <a href=\"https://github.com/aws/aws-fpga/\">Amazon Web Services FPGA Hardware Development Kit</a>.</p>
+        r"""<p>Creates an Amazon FPGA Image (AFI) from the specified design checkpoint (DCP).</p> <p>The create operation is asynchronous. To verify that the AFI was successfully created and is ready for use, check the output logs.</p> <p>An AFI contains the FPGA bitstream that is ready to download to an FPGA. You can securely deploy an AFI on multiple FPGA-accelerated instances. For more information, see the <a href=\"https://github.com/aws/aws-fpga/\">Amazon Web Services FPGA Hardware Development Kit</a>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -7266,7 +7266,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.block_device_mapping_request_list.BlockDeviceMappingRequestList"
         ] = None,
     ) -> "aws_sdk_ec2.types.create_image_result.CreateImageResult":
-        """<p>Creates an Amazon EBS-backed AMI from an Amazon EBS-backed instance that is either running or stopped.</p> <p>If you customized your instance with instance store volumes or Amazon EBS volumes in addition to the root device volume, the new AMI contains block device mapping information for those volumes. When you launch an instance from this new AMI, the instance automatically launches with those additional volumes.</p> <p>The location of the source instance determines where you can create the snapshots of the AMI:</p> <ul> <li> <p>If the source instance is in a Region, you must create the snapshots in the same Region as the instance.</p> </li> <li> <p>If the source instance is in a Local Zone, you can create the snapshots in the same Local Zone or in its parent Region.</p> </li> </ul> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html\">Create an Amazon EBS-backed AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+        r"""<p>Creates an Amazon EBS-backed AMI from an Amazon EBS-backed instance that is either running or stopped.</p> <p>If you customized your instance with instance store volumes or Amazon EBS volumes in addition to the root device volume, the new AMI contains block device mapping information for those volumes. When you launch an instance from this new AMI, the instance automatically launches with those additional volumes.</p> <p>The location of the source instance determines where you can create the snapshots of the AMI:</p> <ul> <li> <p>If the source instance is in a Region, you must create the snapshots in the same Region as the instance.</p> </li> <li> <p>If the source instance is in a Local Zone, you can create the snapshots in the same Local Zone or in its parent Region.</p> </li> </ul> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html\">Create an Amazon EBS-backed AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
 
         Args:
             tag_specifications: <p>The tags to apply to the AMI and snapshots on creation. You can tag the AMI, the snapshots, or both.</p> <ul> <li> <p>To tag the AMI, the value for <code>ResourceType</code> must be <code>image</code>.</p> </li> <li> <p>To tag the snapshots that are created of the root volume and of other Amazon EBS volumes that are attached to the instance, the value for <code>ResourceType</code> must be <code>snapshot</code>. The same tag is applied to all of the snapshots that are created.</p> </li> </ul> <p>If you specify other values for <code>ResourceType</code>, the request fails.</p> <p>To tag an AMI or snapshot after it has been created, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html\">CreateTags</a>. </p>
@@ -7335,7 +7335,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.tag_specification_list.TagSpecificationList"
         ] = None,
     ) -> "aws_sdk_ec2.types.create_image_usage_report_result.CreateImageUsageReportResult":
-        """<p>Creates a report that shows how your image is used across other Amazon Web Services accounts. The report provides visibility into which accounts are using the specified image, and how many resources (EC2 instances or launch templates) are referencing it.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/your-ec2-ami-usage.html\">View your AMI usage</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Creates a report that shows how your image is used across other Amazon Web Services accounts. The report provides visibility into which accounts are using the specified image, and how many resources (EC2 instances or launch templates) are referencing it.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/your-ec2-ami-usage.html\">View your AMI usage</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             image_id: <p>The ID of the image to report on.</p>
@@ -7399,7 +7399,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.ip_address_type.IpAddressType"
         ] = None,
     ) -> "aws_sdk_ec2.types.create_instance_connect_endpoint_result.CreateInstanceConnectEndpointResult":
-        """<p>Creates an EC2 Instance Connect Endpoint.</p> <p>An EC2 Instance Connect Endpoint allows you to connect to an instance, without requiring the instance to have a public IPv4 or public IPv6 address. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Connect-using-EC2-Instance-Connect-Endpoint.html\">Connect to your instances using EC2 Instance Connect Endpoint</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Creates an EC2 Instance Connect Endpoint.</p> <p>An EC2 Instance Connect Endpoint allows you to connect to an instance, without requiring the instance to have a public IPv4 or public IPv6 address. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Connect-using-EC2-Instance-Connect-Endpoint.html\">Connect to your instances using EC2 Instance Connect Endpoint</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -7465,7 +7465,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.tag_specification_list.TagSpecificationList"
         ] = None,
     ) -> "aws_sdk_ec2.types.create_instance_event_window_result.CreateInstanceEventWindowResult":
-        """<p>Creates an event window in which scheduled events for the associated Amazon EC2 instances can run.</p> <p>You can define either a set of time ranges or a cron expression when creating the event window, but not both. All event window times are in UTC.</p> <p>You can create up to 200 event windows per Amazon Web Services Region.</p> <p>When you create the event window, targets (instance IDs, Dedicated Host IDs, or tags) are not yet associated with it. To ensure that the event window can be used, you must associate one or more targets with it by using the <a>AssociateInstanceEventWindow</a> API.</p> <important> <p>Event windows are applicable only for scheduled events that stop, reboot, or terminate instances.</p> <p>Event windows are <i>not</i> applicable for:</p> <ul> <li> <p>Expedited scheduled events and network maintenance events. </p> </li> <li> <p>Unscheduled maintenance such as AutoRecovery and unplanned reboots.</p> </li> </ul> </important> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/event-windows.html\">Define event windows for scheduled events</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Creates an event window in which scheduled events for the associated Amazon EC2 instances can run.</p> <p>You can define either a set of time ranges or a cron expression when creating the event window, but not both. All event window times are in UTC.</p> <p>You can create up to 200 event windows per Amazon Web Services Region.</p> <p>When you create the event window, targets (instance IDs, Dedicated Host IDs, or tags) are not yet associated with it. To ensure that the event window can be used, you must associate one or more targets with it by using the <a>AssociateInstanceEventWindow</a> API.</p> <important> <p>Event windows are applicable only for scheduled events that stop, reboot, or terminate instances.</p> <p>Event windows are <i>not</i> applicable for:</p> <ul> <li> <p>Expedited scheduled events and network maintenance events. </p> </li> <li> <p>Unscheduled maintenance such as AutoRecovery and unplanned reboots.</p> </li> </ul> </important> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/event-windows.html\">Define event windows for scheduled events</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -7522,7 +7522,7 @@ class AsyncEC2Client:
         ] = None,
         description: Optional["aws_sdk_ec2.types.string.String"] = None,
     ) -> "aws_sdk_ec2.types.create_instance_export_task_result.CreateInstanceExportTaskResult":
-        """<p>Exports a running or stopped instance to an Amazon S3 bucket.</p> <p>For information about the prerequisites for your Amazon S3 bucket, supported operating systems, image formats, and known limitations for the types of instances you can export, see <a href=\"https://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html\">Exporting an instance as a VM Using VM Import/Export</a> in the <i>VM Import/Export User Guide</i>.</p>
+        r"""<p>Exports a running or stopped instance to an Amazon S3 bucket.</p> <p>For information about the prerequisites for your Amazon S3 bucket, supported operating systems, image formats, and known limitations for the types of instances you can export, see <a href=\"https://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html\">Exporting an instance as a VM Using VM Import/Export</a> in the <i>VM Import/Export User Guide</i>.</p>
 
         Args:
             tag_specifications: <p>The tags to apply to the export instance task during creation.</p>
@@ -7573,7 +7573,7 @@ class AsyncEC2Client:
         ] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.create_internet_gateway_result.CreateInternetGatewayResult":
-        """<p>Creates an internet gateway for use with a VPC. After creating the internet gateway, you attach it to a VPC using <a>AttachInternetGateway</a>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html\">Internet gateways</a> in the <i>Amazon VPC User Guide</i>.</p>
+        r"""<p>Creates an internet gateway for use with a VPC. After creating the internet gateway, you attach it to a VPC using <a>AttachInternetGateway</a>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html\">Internet gateways</a> in the <i>Amazon VPC User Guide</i>.</p>
 
         Args:
             tag_specifications: <p>The tags to assign to the internet gateway.</p>
@@ -7689,7 +7689,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.ipam_metered_account.IpamMeteredAccount"
         ] = None,
     ) -> "aws_sdk_ec2.types.create_ipam_result.CreateIpamResult":
-        """<p>Create an IPAM. Amazon VPC IP Address Manager (IPAM) is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across Amazon Web Services Regions and accounts throughout your Amazon Web Services Organization.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/create-ipam.html\">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
+        r"""<p>Create an IPAM. Amazon VPC IP Address Manager (IPAM) is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across Amazon Web Services Regions and accounts throughout your Amazon Web Services Organization.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/create-ipam.html\">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
 
         Args:
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -7754,7 +7754,7 @@ class AsyncEC2Client:
         ] = None,
         client_token: Optional["aws_sdk_ec2.types.string.String"] = None,
     ) -> "aws_sdk_ec2.types.create_ipam_external_resource_verification_token_result.CreateIpamExternalResourceVerificationTokenResult":
-        """<p>Create a verification token.</p> <p>A verification token is an Amazon Web Services-generated random value that you can use to prove ownership of an external resource. For example, you can use a verification token to validate that you control a public IP address range when you bring an IP address range to Amazon Web Services (BYOIP). </p>
+        r"""<p>Create a verification token.</p> <p>A verification token is an Amazon Web Services-generated random value that you can use to prove ownership of an external resource. For example, you can use a verification token to validate that you control a public IP address range when you bring an IP address range to Amazon Web Services (BYOIP). </p>
 
         Args:
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -7806,7 +7806,7 @@ class AsyncEC2Client:
         ] = None,
         client_token: Optional["aws_sdk_ec2.types.string.String"] = None,
     ) -> "aws_sdk_ec2.types.create_ipam_policy_result.CreateIpamPolicyResult":
-        """<p>Creates an IPAM policy.</p> <p>An IPAM policy is a set of rules that define how public IPv4 addresses from IPAM pools are allocated to Amazon Web Services resources. Each rule maps an Amazon Web Services service to IPAM pools that the service will use to get IP addresses. A single policy can have multiple rules and be applied to multiple Amazon Web Services Regions. If the IPAM pool run out of addresses then the services fallback to Amazon-provided IP addresses. A policy can be applied to an individual Amazon Web Services account or an entity within Amazon Web Services Organizations.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/define-public-ipv4-allocation-strategy-with-ipam-policies.html\">Define public IPv4 allocation strategy with IPAM policies</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+        r"""<p>Creates an IPAM policy.</p> <p>An IPAM policy is a set of rules that define how public IPv4 addresses from IPAM pools are allocated to Amazon Web Services resources. Each rule maps an Amazon Web Services service to IPAM pools that the service will use to get IP addresses. A single policy can have multiple rules and be applied to multiple Amazon Web Services Regions. If the IPAM pool run out of addresses then the services fallback to Amazon-provided IP addresses. A policy can be applied to an individual Amazon Web Services account or an entity within Amazon Web Services Organizations.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/define-public-ipv4-allocation-strategy-with-ipam-policies.html\">Define public IPv4 allocation strategy with IPAM policies</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
 
         Args:
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -7887,7 +7887,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.ipam_pool_source_resource_request.IpamPoolSourceResourceRequest"
         ] = None,
     ) -> "aws_sdk_ec2.types.create_ipam_pool_result.CreateIpamPoolResult":
-        """<p>Create an IP address pool for Amazon VPC IP Address Manager (IPAM). In IPAM, a pool is a collection of contiguous IP addresses CIDRs. Pools enable you to organize your IP addresses according to your routing and security needs. For example, if you have separate routing and security needs for development and production applications, you can create a pool for each.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/create-top-ipam.html\">Create a top-level pool</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
+        r"""<p>Create an IP address pool for Amazon VPC IP Address Manager (IPAM). In IPAM, a pool is a collection of contiguous IP addresses CIDRs. Pools enable you to organize your IP addresses according to your routing and security needs. For example, if you have separate routing and security needs for development and production applications, you can create a pool for each.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/create-top-ipam.html\">Create a top-level pool</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
 
         Args:
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -7984,7 +7984,7 @@ class AsyncEC2Client:
         ] = None,
         client_token: Optional["aws_sdk_ec2.types.string.String"] = None,
     ) -> "aws_sdk_ec2.types.create_ipam_prefix_list_resolver_result.CreateIpamPrefixListResolverResult":
-        """<p>Creates an IPAM prefix list resolver.</p> <p>An IPAM prefix list resolver is a component that manages the synchronization between IPAM's CIDR selection rules and customer-managed prefix lists. It automates connectivity configurations by selecting CIDRs from IPAM's database based on your business logic and synchronizing them with prefix lists used in resources such as VPC route tables and security groups.</p> <p>For more information about IPAM prefix list resolver, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/automate-prefix-list-updates.html\">Automate prefix list updates with IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+        r"""<p>Creates an IPAM prefix list resolver.</p> <p>An IPAM prefix list resolver is a component that manages the synchronization between IPAM's CIDR selection rules and customer-managed prefix lists. It automates connectivity configurations by selecting CIDRs from IPAM's database based on your business logic and synchronizing them with prefix lists used in resources such as VPC route tables and security groups.</p> <p>For more information about IPAM prefix list resolver, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/automate-prefix-list-updates.html\">Automate prefix list updates with IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
 
         Args:
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -8048,7 +8048,7 @@ class AsyncEC2Client:
         ] = None,
         client_token: Optional["aws_sdk_ec2.types.string.String"] = None,
     ) -> "aws_sdk_ec2.types.create_ipam_prefix_list_resolver_target_result.CreateIpamPrefixListResolverTargetResult":
-        """<p>Creates an IPAM prefix list resolver target.</p> <p>An IPAM prefix list resolver target is an association between a specific customer-managed prefix list and an IPAM prefix list resolver. The target enables the resolver to synchronize CIDRs selected by its rules into the specified prefix list, which can then be referenced in Amazon Web Services resources.</p> <p>For more information about IPAM prefix list resolver, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/automate-prefix-list-updates.html\">Automate prefix list updates with IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+        r"""<p>Creates an IPAM prefix list resolver target.</p> <p>An IPAM prefix list resolver target is an association between a specific customer-managed prefix list and an IPAM prefix list resolver. The target enables the resolver to synchronize CIDRs selected by its rules into the specified prefix list, which can then be referenced in Amazon Web Services resources.</p> <p>For more information about IPAM prefix list resolver, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/automate-prefix-list-updates.html\">Automate prefix list updates with IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
 
         Args:
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -8172,7 +8172,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.external_authority_configuration.ExternalAuthorityConfiguration"
         ] = None,
     ) -> "aws_sdk_ec2.types.create_ipam_scope_result.CreateIpamScopeResult":
-        """<p>Create an IPAM scope. In IPAM, a scope is the highest-level container within IPAM. An IPAM contains two default scopes. Each scope represents the IP space for a single network. The private scope is intended for all private IP address space. The public scope is intended for all public IP address space. Scopes enable you to reuse IP addresses across multiple unconnected networks without causing IP address overlap or conflict.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/add-scope-ipam.html\">Add a scope</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+        r"""<p>Create an IPAM scope. In IPAM, a scope is the highest-level container within IPAM. An IPAM contains two default scopes. Each scope represents the IP space for a single network. The private scope is intended for all private IP address space. The public scope is intended for all public IP address space. Scopes enable you to reuse IP addresses across multiple unconnected networks without causing IP address overlap or conflict.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/add-scope-ipam.html\">Add a scope</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
 
         Args:
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -8233,7 +8233,7 @@ class AsyncEC2Client:
         key_format: Optional["aws_sdk_ec2.types.key_format.KeyFormat"] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.key_pair.KeyPair":
-        """<p>Creates an ED25519 or 2048-bit RSA key pair with the specified name and in the specified format. Amazon EC2 stores the public key and displays the private key for you to save to a file. The private key is returned as an unencrypted PEM encoded PKCS#1 private key or an unencrypted PPK formatted private key for use with PuTTY. If a key with the specified name already exists, Amazon EC2 returns an error.</p> <p>The key pair returned to you is available only in the Amazon Web Services Region in which you create it. If you prefer, you can create your own key pair using a third-party tool and upload it to any Region using <a>ImportKeyPair</a>.</p> <p>You can have up to 5,000 key pairs per Amazon Web Services Region.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html\">Amazon EC2 key pairs</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Creates an ED25519 or 2048-bit RSA key pair with the specified name and in the specified format. Amazon EC2 stores the public key and displays the private key for you to save to a file. The private key is returned as an unencrypted PEM encoded PKCS#1 private key or an unencrypted PPK formatted private key for use with PuTTY. If a key with the specified name already exists, Amazon EC2 returns an error.</p> <p>The key pair returned to you is available only in the Amazon Web Services Region in which you create it. If you prefer, you can create your own key pair using a third-party tool and upload it to any Region using <a>ImportKeyPair</a>.</p> <p>You can have up to 5,000 key pairs per Amazon Web Services Region.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html\">Amazon EC2 key pairs</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             key_name: <p>A unique name for the key pair.</p> <p>Constraints: Up to 255 ASCII characters</p>
@@ -8297,7 +8297,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.tag_specification_list.TagSpecificationList"
         ] = None,
     ) -> "aws_sdk_ec2.types.create_launch_template_result.CreateLaunchTemplateResult":
-        """<p>Creates a launch template.</p> <p>A launch template contains the parameters to launch an instance. When you launch an instance using <a>RunInstances</a>, you can specify a launch template instead of providing the launch parameters in the request. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html\">Store instance launch parameters in Amazon EC2 launch templates</a> in the <i>Amazon EC2 User Guide</i>.</p> <p>To clone an existing launch template as the basis for a new launch template, use the Amazon EC2 console. The API, SDKs, and CLI do not support cloning a template. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-launch-template.html#create-launch-template-from-existing-launch-template\">Create a launch template from an existing launch template</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Creates a launch template.</p> <p>A launch template contains the parameters to launch an instance. When you launch an instance using <a>RunInstances</a>, you can specify a launch template instead of providing the launch parameters in the request. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html\">Store instance launch parameters in Amazon EC2 launch templates</a> in the <i>Amazon EC2 User Guide</i>.</p> <p>To clone an existing launch template as the basis for a new launch template, use the Amazon EC2 console. The API, SDKs, and CLI do not support cloning a template. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-launch-template.html#create-launch-template-from-existing-launch-template\">Create a launch template from an existing launch template</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -8371,7 +8371,7 @@ class AsyncEC2Client:
         ] = None,
         resolve_alias: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.create_launch_template_version_result.CreateLaunchTemplateVersionResult":
-        """<p>Creates a new version of a launch template. You must specify an existing launch template, either by name or ID. You can determine whether the new version inherits parameters from a source version, and add or overwrite parameters as needed.</p> <p>Launch template versions are numbered in the order in which they are created. You can't specify, change, or replace the numbering of launch template versions.</p> <p>Launch templates are immutable; after you create a launch template, you can't modify it. Instead, you can create a new version of the launch template that includes the changes that you require.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-launch-template-versions.html\">Modify a launch template (manage launch template versions)</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Creates a new version of a launch template. You must specify an existing launch template, either by name or ID. You can determine whether the new version inherits parameters from a source version, and add or overwrite parameters as needed.</p> <p>Launch template versions are numbered in the order in which they are created. You can't specify, change, or replace the numbering of launch template versions.</p> <p>Launch templates are immutable; after you create a launch template, you can't modify it. Instead, you can create a new version of the launch template that includes the changes that you require.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-launch-template-versions.html\">Modify a launch template (manage launch template versions)</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -8798,7 +8798,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.tag_specification_list.TagSpecificationList"
         ] = None,
     ) -> "aws_sdk_ec2.types.create_mac_system_integrity_protection_modification_task_result.CreateMacSystemIntegrityProtectionModificationTaskResult":
-        """<p>Creates a System Integrity Protection (SIP) modification task to configure the SIP settings for an x86 Mac instance or Apple silicon Mac instance. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/mac-sip-settings.html#mac-sip-configure\"> Configure SIP for Amazon EC2 instances</a> in the <i>Amazon EC2 User Guide</i>.</p> <p>When you configure the SIP settings for your instance, you can either enable or disable all SIP settings, or you can specify a custom SIP configuration that selectively enables or disables specific SIP settings.</p> <note> <p>If you implement a custom configuration, <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/mac-sip-settings.html#mac-sip-check-settings\"> connect to the instance and verify the settings</a> to ensure that your requirements are properly implemented and functioning as intended.</p> <p>SIP configurations might change with macOS updates. We recommend that you review custom SIP settings after any macOS version upgrade to ensure continued compatibility and proper functionality of your security configurations.</p> </note> <p>To enable or disable all SIP settings, use the <b>MacSystemIntegrityProtectionStatus</b> parameter only. For example, to enable all SIP settings, specify the following:</p> <ul> <li> <p> <code>MacSystemIntegrityProtectionStatus=enabled</code> </p> </li> </ul> <p>To specify a custom configuration that selectively enables or disables specific SIP settings, use the <b>MacSystemIntegrityProtectionStatus</b> parameter to enable or disable all SIP settings, and then use the <b>MacSystemIntegrityProtectionConfiguration</b> parameter to specify exceptions. In this case, the exceptions you specify for <b>MacSystemIntegrityProtectionConfiguration</b> override the value you specify for <b>MacSystemIntegrityProtectionStatus</b>. For example, to enable all SIP settings, except <code>NvramProtections</code>, specify the following:</p> <ul> <li> <p> <code>MacSystemIntegrityProtectionStatus=enabled</code> </p> </li> <li> <p> <code>MacSystemIntegrityProtectionConfigurationRequest \"NvramProtections=disabled\"</code> </p> </li> </ul>
+        r"""<p>Creates a System Integrity Protection (SIP) modification task to configure the SIP settings for an x86 Mac instance or Apple silicon Mac instance. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/mac-sip-settings.html#mac-sip-configure\"> Configure SIP for Amazon EC2 instances</a> in the <i>Amazon EC2 User Guide</i>.</p> <p>When you configure the SIP settings for your instance, you can either enable or disable all SIP settings, or you can specify a custom SIP configuration that selectively enables or disables specific SIP settings.</p> <note> <p>If you implement a custom configuration, <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/mac-sip-settings.html#mac-sip-check-settings\"> connect to the instance and verify the settings</a> to ensure that your requirements are properly implemented and functioning as intended.</p> <p>SIP configurations might change with macOS updates. We recommend that you review custom SIP settings after any macOS version upgrade to ensure continued compatibility and proper functionality of your security configurations.</p> </note> <p>To enable or disable all SIP settings, use the <b>MacSystemIntegrityProtectionStatus</b> parameter only. For example, to enable all SIP settings, specify the following:</p> <ul> <li> <p> <code>MacSystemIntegrityProtectionStatus=enabled</code> </p> </li> </ul> <p>To specify a custom configuration that selectively enables or disables specific SIP settings, use the <b>MacSystemIntegrityProtectionStatus</b> parameter to enable or disable all SIP settings, and then use the <b>MacSystemIntegrityProtectionConfiguration</b> parameter to specify exceptions. In this case, the exceptions you specify for <b>MacSystemIntegrityProtectionConfiguration</b> override the value you specify for <b>MacSystemIntegrityProtectionStatus</b>. For example, to enable all SIP settings, except <code>NvramProtections</code>, specify the following:</p> <ul> <li> <p> <code>MacSystemIntegrityProtectionStatus=enabled</code> </p> </li> <li> <p> <code>MacSystemIntegrityProtectionConfigurationRequest \"NvramProtections=disabled\"</code> </p> </li> </ul>
 
         Args:
             client_token: <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring Idempotency</a>.</p>
@@ -8867,7 +8867,7 @@ class AsyncEC2Client:
         ] = None,
         client_token: Optional["aws_sdk_ec2.types.string.String"] = None,
     ) -> "aws_sdk_ec2.types.create_managed_prefix_list_result.CreateManagedPrefixListResult":
-        """<p>Creates a managed prefix list. You can specify entries for the prefix list. Each entry consists of a CIDR block and an optional description.</p>
+        r"""<p>Creates a managed prefix list. You can specify entries for the prefix list. Each entry consists of a CIDR block and an optional description.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -8947,7 +8947,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.private_ip_address_count.PrivateIpAddressCount"
         ] = None,
     ) -> "aws_sdk_ec2.types.create_nat_gateway_result.CreateNatGatewayResult":
-        """<p>Creates a NAT gateway in the specified subnet. This action creates a network interface in the specified subnet with a private IP address from the IP address range of the subnet. You can create either a public NAT gateway or a private NAT gateway.</p> <p>With a public NAT gateway, internet-bound traffic from a private subnet can be routed to the NAT gateway, so that instances in a private subnet can connect to the internet.</p> <p>With a private NAT gateway, private communication is routed across VPCs and on-premises networks through a transit gateway or virtual private gateway. Common use cases include running large workloads behind a small pool of allowlisted IPv4 addresses, preserving private IPv4 addresses, and communicating between overlapping networks.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html\">NAT gateways</a> in the <i>Amazon VPC User Guide</i>.</p> <important> <p>When you create a public NAT gateway and assign it an EIP or secondary EIPs, the network border group of the EIPs must match the network border group of the Availability Zone (AZ) that the public NAT gateway is in. If it's not the same, the NAT gateway will fail to launch. You can see the network border group for the subnet's AZ by viewing the details of the subnet. Similarly, you can view the network border group of an EIP by viewing the details of the EIP address. For more information about network border groups and EIPs, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/WorkWithEIPs.html\">Allocate an Elastic IP address</a> in the <i>Amazon VPC User Guide</i>. </p> </important>
+        r"""<p>Creates a NAT gateway in the specified subnet. This action creates a network interface in the specified subnet with a private IP address from the IP address range of the subnet. You can create either a public NAT gateway or a private NAT gateway.</p> <p>With a public NAT gateway, internet-bound traffic from a private subnet can be routed to the NAT gateway, so that instances in a private subnet can connect to the internet.</p> <p>With a private NAT gateway, private communication is routed across VPCs and on-premises networks through a transit gateway or virtual private gateway. Common use cases include running large workloads behind a small pool of allowlisted IPv4 addresses, preserving private IPv4 addresses, and communicating between overlapping networks.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html\">NAT gateways</a> in the <i>Amazon VPC User Guide</i>.</p> <important> <p>When you create a public NAT gateway and assign it an EIP or secondary EIPs, the network border group of the EIPs must match the network border group of the Availability Zone (AZ) that the public NAT gateway is in. If it's not the same, the NAT gateway will fail to launch. You can see the network border group for the subnet's AZ by viewing the details of the subnet. Similarly, you can view the network border group of an EIP by viewing the details of the EIP address. For more information about network border groups and EIPs, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/WorkWithEIPs.html\">Allocate an Elastic IP address</a> in the <i>Amazon VPC User Guide</i>. </p> </important>
 
         Args:
             availability_mode: <p>Specifies whether to create a zonal (single-AZ) or regional (multi-AZ) NAT gateway. Defaults to <code>zonal</code>.</p> <p>A zonal NAT gateway is a NAT Gateway that provides redundancy and scalability within a single availability zone. A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html\">Regional NAT gateways for automatic multi-AZ expansion</a> in the <i>Amazon VPC User Guide</i>.</p>
@@ -9035,7 +9035,7 @@ class AsyncEC2Client:
         client_token: Optional["aws_sdk_ec2.types.string.String"] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.create_network_acl_result.CreateNetworkAclResult":
-        """<p>Creates a network ACL in a VPC. Network ACLs provide an optional layer of security (in addition to security groups) for the instances in your VPC.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html\">Network ACLs</a> in the <i>Amazon VPC User Guide</i>.</p>
+        r"""<p>Creates a network ACL in a VPC. Network ACLs provide an optional layer of security (in addition to security groups) for the instances in your VPC.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html\">Network ACLs</a> in the <i>Amazon VPC User Guide</i>.</p>
 
         Args:
             tag_specifications: <p>The tags to assign to the network ACL.</p>
@@ -9099,7 +9099,7 @@ class AsyncEC2Client:
         ] = None,
         port_range: Optional["aws_sdk_ec2.types.port_range.PortRange"] = None,
     ) -> None:
-        """<p>Creates an entry (a rule) in a network ACL with the specified rule number. Each network ACL has a set of numbered ingress rules and a separate set of numbered egress rules. When determining whether a packet should be allowed in or out of a subnet associated with the ACL, we process the entries in the ACL according to the rule numbers, in ascending order. Each network ACL has a set of ingress rules and a separate set of egress rules.</p> <p>We recommend that you leave room between the rule numbers (for example, 100, 110, 120, ...), and not number them one right after the other (for example, 101, 102, 103, ...). This makes it easier to add a rule between existing ones without having to renumber the rules.</p> <p>After you add an entry, you can't modify it; you must either replace it, or create an entry and delete the old one.</p> <p>For more information about network ACLs, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html\">Network ACLs</a> in the <i>Amazon VPC User Guide</i>.</p>
+        r"""<p>Creates an entry (a rule) in a network ACL with the specified rule number. Each network ACL has a set of numbered ingress rules and a separate set of numbered egress rules. When determining whether a packet should be allowed in or out of a subnet associated with the ACL, we process the entries in the ACL according to the rule numbers, in ascending order. Each network ACL has a set of ingress rules and a separate set of egress rules.</p> <p>We recommend that you leave room between the rule numbers (for example, 100, 110, 120, ...), and not number them one right after the other (for example, 101, 102, 103, ...). This makes it easier to add a rule between existing ones without having to renumber the rules.</p> <p>After you add an entry, you can't modify it; you must either replace it, or create an entry and delete the old one.</p> <p>For more information about network ACLs, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html\">Network ACLs</a> in the <i>Amazon VPC User Guide</i>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -9174,7 +9174,7 @@ class AsyncEC2Client:
         ] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.create_network_insights_access_scope_result.CreateNetworkInsightsAccessScopeResult":
-        """<p>Creates a Network Access Scope.</p> <p>Amazon Web Services Network Access Analyzer enables cloud networking and cloud operations teams to verify that their networks on Amazon Web Services conform to their network security and governance objectives. For more information, see the <a href=\"https://docs.aws.amazon.com/vpc/latest/network-access-analyzer/\">Amazon Web Services Network Access Analyzer Guide</a>.</p>
+        r"""<p>Creates a Network Access Scope.</p> <p>Amazon Web Services Network Access Analyzer enables cloud networking and cloud operations teams to verify that their networks on Amazon Web Services conform to their network security and governance objectives. For more information, see the <a href=\"https://docs.aws.amazon.com/vpc/latest/network-access-analyzer/\">Amazon Web Services Network Access Analyzer Guide</a>.</p>
 
         Args:
             match_paths: <p>The paths to match.</p>
@@ -9242,7 +9242,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.path_request_filter.PathRequestFilter"
         ] = None,
     ) -> "aws_sdk_ec2.types.create_network_insights_path_result.CreateNetworkInsightsPathResult":
-        """<p>Creates a path to analyze for reachability.</p> <p>Reachability Analyzer enables you to analyze and debug network reachability between two resources in your virtual private cloud (VPC). For more information, see the <a href=\"https://docs.aws.amazon.com/vpc/latest/reachability/\">Reachability Analyzer Guide</a>.</p>
+        r"""<p>Creates a path to analyze for reachability.</p> <p>Reachability Analyzer enables you to analyze and debug network reachability between two resources in your virtual private cloud (VPC). For more information, see the <a href=\"https://docs.aws.amazon.com/vpc/latest/reachability/\">Reachability Analyzer Guide</a>.</p>
 
         Args:
             source_ip: <p>The IP address of the source.</p>
@@ -9346,7 +9346,7 @@ class AsyncEC2Client:
     ) -> (
         "aws_sdk_ec2.types.create_network_interface_result.CreateNetworkInterfaceResult"
     ):
-        """<p>Creates a network interface in the specified subnet.</p> <p>The number of IP addresses you can assign to a network interface varies by instance type.</p> <p>For more information about network interfaces, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html\">Elastic network interfaces</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Creates a network interface in the specified subnet.</p> <p>The number of IP addresses you can assign to a network interface varies by instance type.</p> <p>For more information about network interfaces, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html\">Elastic network interfaces</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             ipv4_prefixes: <p>The IPv4 prefixes assigned to the network interface.</p> <p>You can't specify IPv4 prefixes if you've specified one of the following: a count of IPv4 prefixes, specific private IPv4 addresses, or a count of private IPv4 addresses.</p>
@@ -9508,7 +9508,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.placement_strategy.PlacementStrategy"
         ] = None,
     ) -> "aws_sdk_ec2.types.create_placement_group_result.CreatePlacementGroupResult":
-        """<p>Creates a placement group in which to launch instances. The strategy of the placement group determines how the instances are organized within the group. </p> <p>A <code>cluster</code> placement group is a logical grouping of instances within a single Availability Zone that benefit from low network latency, high network throughput. A <code>spread</code> placement group places instances on distinct hardware. A <code>partition</code> placement group places groups of instances in different partitions, where instances in one partition do not share the same hardware with instances in another partition.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html\">Placement groups</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Creates a placement group in which to launch instances. The strategy of the placement group determines how the instances are organized within the group. </p> <p>A <code>cluster</code> placement group is a logical grouping of instances within a single Availability Zone that benefit from low network latency, high network throughput. A <code>spread</code> placement group places instances on distinct hardware. A <code>partition</code> placement group places groups of instances in different partitions, where instances in one partition do not share the same hardware with instances in another partition.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html\">Placement groups</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             partition_count: <p>The number of partitions. Valid only when <b>Strategy</b> is set to <code>partition</code>.</p>
@@ -9578,7 +9578,7 @@ class AsyncEC2Client:
         ] = None,
         network_border_group: Optional["aws_sdk_ec2.types.string.String"] = None,
     ) -> "aws_sdk_ec2.types.create_public_ipv4_pool_result.CreatePublicIpv4PoolResult":
-        """<p>Creates a public IPv4 address pool. A public IPv4 pool is an EC2 IP address pool required for the public IPv4 CIDRs that you own and bring to Amazon Web Services to manage with IPAM. IPv6 addresses you bring to Amazon Web Services, however, use IPAM pools only. To monitor the status of pool creation, use <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePublicIpv4Pools.html\">DescribePublicIpv4Pools</a>.</p>
+        r"""<p>Creates a public IPv4 address pool. A public IPv4 pool is an EC2 IP address pool required for the public IPv4 CIDRs that you own and bring to Amazon Web Services to manage with IPAM. IPv6 addresses you bring to Amazon Web Services, however, use IPAM pools only. To monitor the status of pool creation, use <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePublicIpv4Pools.html\">DescribePublicIpv4Pools</a>.</p>
 
         Args:
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -9634,7 +9634,7 @@ class AsyncEC2Client:
         ] = None,
         volume_initialization_rate: Optional["aws_sdk_ec2.types.long.Long"] = None,
     ) -> "aws_sdk_ec2.types.create_replace_root_volume_task_result.CreateReplaceRootVolumeTaskResult":
-        """<p>Replaces the EBS-backed root volume for a <code>running</code> instance with a new volume that is restored to the original root volume's launch state, that is restored to a specific snapshot taken from the original root volume, or that is restored from an AMI that has the same key characteristics as that of the instance.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/replace-root.html\">Replace a root volume</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Replaces the EBS-backed root volume for a <code>running</code> instance with a new volume that is restored to the original root volume's launch state, that is restored to a specific snapshot taken from the original root volume, or that is restored from an AMI that has the same key characteristics as that of the instance.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/replace-root.html\">Replace a root volume</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             instance_id: <p>The ID of the instance for which to replace the root volume.</p>
@@ -9696,7 +9696,7 @@ class AsyncEC2Client:
         *,
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
     ) -> "aws_sdk_ec2.types.create_reserved_instances_listing_result.CreateReservedInstancesListingResult":
-        """<p>Creates a listing for Amazon EC2 Standard Reserved Instances to be sold in the Reserved Instance Marketplace. You can submit one Standard Reserved Instance listing at a time. To get a list of your Standard Reserved Instances, you can use the <a>DescribeReservedInstances</a> operation.</p> <note> <p>Only Standard Reserved Instances can be sold in the Reserved Instance Marketplace. Convertible Reserved Instances cannot be sold.</p> </note> <p>The Reserved Instance Marketplace matches sellers who want to resell Standard Reserved Instance capacity that they no longer need with buyers who want to purchase additional capacity. Reserved Instances bought and sold through the Reserved Instance Marketplace work like any other Reserved Instances.</p> <p>To sell your Standard Reserved Instances, you must first register as a seller in the Reserved Instance Marketplace. After completing the registration process, you can create a Reserved Instance Marketplace listing of some or all of your Standard Reserved Instances, and specify the upfront price to receive for them. Your Standard Reserved Instance listings then become available for purchase. To view the details of your Standard Reserved Instance listing, you can use the <a>DescribeReservedInstancesListings</a> operation.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html\">Sell in the Reserved Instance Marketplace</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Creates a listing for Amazon EC2 Standard Reserved Instances to be sold in the Reserved Instance Marketplace. You can submit one Standard Reserved Instance listing at a time. To get a list of your Standard Reserved Instances, you can use the <a>DescribeReservedInstances</a> operation.</p> <note> <p>Only Standard Reserved Instances can be sold in the Reserved Instance Marketplace. Convertible Reserved Instances cannot be sold.</p> </note> <p>The Reserved Instance Marketplace matches sellers who want to resell Standard Reserved Instance capacity that they no longer need with buyers who want to purchase additional capacity. Reserved Instances bought and sold through the Reserved Instance Marketplace work like any other Reserved Instances.</p> <p>To sell your Standard Reserved Instances, you must first register as a seller in the Reserved Instance Marketplace. After completing the registration process, you can create a Reserved Instance Marketplace listing of some or all of your Standard Reserved Instances, and specify the upfront price to receive for them. Your Standard Reserved Instance listings then become available for purchase. To view the details of your Standard Reserved Instance listing, you can use the <a>DescribeReservedInstancesListings</a> operation.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html\">Sell in the Reserved Instance Marketplace</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             reserved_instances_id: <p>The ID of the active Standard Reserved Instance.</p>
@@ -9746,7 +9746,7 @@ class AsyncEC2Client:
         ] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.create_restore_image_task_result.CreateRestoreImageTaskResult":
-        """<p>Starts a task that restores an AMI from an Amazon S3 object that was previously created by using <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateStoreImageTask.html\">CreateStoreImageTask</a>.</p> <p>To use this API, you must have the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/work-with-ami-store-restore.html#ami-s3-permissions\">Permissions for storing and restoring AMIs using S3</a> in the <i>Amazon EC2 User Guide</i>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html\">Store and restore an AMI using S3</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Starts a task that restores an AMI from an Amazon S3 object that was previously created by using <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateStoreImageTask.html\">CreateStoreImageTask</a>.</p> <p>To use this API, you must have the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/work-with-ami-store-restore.html#ami-s3-permissions\">Permissions for storing and restoring AMIs using S3</a> in the <i>Amazon EC2 User Guide</i>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html\">Store and restore an AMI using S3</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             bucket: <p>The name of the Amazon S3 bucket that contains the stored AMI object.</p>
@@ -9835,7 +9835,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.nat_gateway_id.NatGatewayId"
         ] = None,
     ) -> "aws_sdk_ec2.types.create_route_result.CreateRouteResult":
-        """<p>Creates a route in a route table within a VPC.</p> <p>You must specify either a destination CIDR block or a prefix list ID. You must also specify exactly one of the resources from the parameter list.</p> <p>When determining how to route traffic, we use the route with the most specific match. For example, traffic is destined for the IPv4 address <code>192.0.2.3</code>, and the route table includes the following two IPv4 routes:</p> <ul> <li> <p> <code>192.0.2.0/24</code> (goes to some target A)</p> </li> <li> <p> <code>192.0.2.0/28</code> (goes to some target B)</p> </li> </ul> <p>Both routes apply to the traffic destined for <code>192.0.2.3</code>. However, the second route in the list covers a smaller number of IP addresses and is therefore more specific, so we use that route to determine where to target the traffic.</p> <p>For more information about route tables, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html\">Route tables</a> in the <i>Amazon VPC User Guide</i>.</p>
+        r"""<p>Creates a route in a route table within a VPC.</p> <p>You must specify either a destination CIDR block or a prefix list ID. You must also specify exactly one of the resources from the parameter list.</p> <p>When determining how to route traffic, we use the route with the most specific match. For example, traffic is destined for the IPv4 address <code>192.0.2.3</code>, and the route table includes the following two IPv4 routes:</p> <ul> <li> <p> <code>192.0.2.0/24</code> (goes to some target A)</p> </li> <li> <p> <code>192.0.2.0/28</code> (goes to some target B)</p> </li> </ul> <p>Both routes apply to the traffic destined for <code>192.0.2.3</code>. However, the second route in the list covers a smaller number of IP addresses and is therefore more specific, so we use that route to determine where to target the traffic.</p> <p>For more information about route tables, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html\">Route tables</a> in the <i>Amazon VPC User Guide</i>.</p>
 
         Args:
             destination_prefix_list_id: <p>The ID of a prefix list used for the destination match.</p>
@@ -9939,7 +9939,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.tag_specification_list.TagSpecificationList"
         ] = None,
     ) -> "aws_sdk_ec2.types.create_route_server_result.CreateRouteServerResult":
-        """<p>Creates a new route server to manage dynamic routing in a VPC.</p> <p>Amazon VPC Route Server simplifies routing for traffic between workloads that are deployed within a VPC and its internet gateways. With this feature, VPC Route Server dynamically updates VPC and internet gateway route tables with your preferred IPv4 or IPv6 routes to achieve routing fault tolerance for those workloads. This enables you to automatically reroute traffic within a VPC, which increases the manageability of VPC routing and interoperability with third-party workloads.</p> <p>Route server supports the follow route table types:</p> <ul> <li> <p>VPC route tables not associated with subnets</p> </li> <li> <p>Subnet route tables</p> </li> <li> <p>Internet gateway route tables</p> </li> </ul> <p>Route server does not support route tables associated with virtual private gateways. To propagate routes into a transit gateway route table, use <a href=\"https://docs.aws.amazon.com/vpc/latest/tgw/tgw-connect.html\">Transit Gateway Connect</a>.</p> <p>For more information see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/dynamic-routing-route-server.html\">Dynamic routing in your VPC with VPC Route Server</a> in the <i>Amazon VPC User Guide</i>.</p>
+        r"""<p>Creates a new route server to manage dynamic routing in a VPC.</p> <p>Amazon VPC Route Server simplifies routing for traffic between workloads that are deployed within a VPC and its internet gateways. With this feature, VPC Route Server dynamically updates VPC and internet gateway route tables with your preferred IPv4 or IPv6 routes to achieve routing fault tolerance for those workloads. This enables you to automatically reroute traffic within a VPC, which increases the manageability of VPC routing and interoperability with third-party workloads.</p> <p>Route server supports the follow route table types:</p> <ul> <li> <p>VPC route tables not associated with subnets</p> </li> <li> <p>Subnet route tables</p> </li> <li> <p>Internet gateway route tables</p> </li> </ul> <p>Route server does not support route tables associated with virtual private gateways. To propagate routes into a transit gateway route table, use <a href=\"https://docs.aws.amazon.com/vpc/latest/tgw/tgw-connect.html\">Transit Gateway Connect</a>.</p> <p>For more information see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/dynamic-routing-route-server.html\">Dynamic routing in your VPC with VPC Route Server</a> in the <i>Amazon VPC User Guide</i>.</p>
 
         Args:
             amazon_side_asn: <p>The private Autonomous System Number (ASN) for the Amazon side of the BGP session. Valid values are from 1 to 4294967295. We recommend using a private ASN in the 64512–65534 (16-bit ASN) or 4200000000–4294967294 (32-bit ASN) range.</p>
@@ -10001,7 +10001,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.tag_specification_list.TagSpecificationList"
         ] = None,
     ) -> "aws_sdk_ec2.types.create_route_server_endpoint_result.CreateRouteServerEndpointResult":
-        """<p>Creates a new endpoint for a route server in a specified subnet.</p> <p>A route server endpoint is an Amazon Web Services-managed component inside a subnet that facilitates <a href=\"https://en.wikipedia.org/wiki/Border_Gateway_Protocol\">BGP (Border Gateway Protocol)</a> connections between your route server and your BGP peers.</p> <p>For more information see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/dynamic-routing-route-server.html\">Dynamic routing in your VPC with VPC Route Server</a> in the <i>Amazon VPC User Guide</i>.</p>
+        r"""<p>Creates a new endpoint for a route server in a specified subnet.</p> <p>A route server endpoint is an Amazon Web Services-managed component inside a subnet that facilitates <a href=\"https://en.wikipedia.org/wiki/Border_Gateway_Protocol\">BGP (Border Gateway Protocol)</a> connections between your route server and your BGP peers.</p> <p>For more information see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/dynamic-routing-route-server.html\">Dynamic routing in your VPC with VPC Route Server</a> in the <i>Amazon VPC User Guide</i>.</p>
 
         Args:
             route_server_id: <p>The ID of the route server for which to create an endpoint.</p>
@@ -10058,7 +10058,7 @@ class AsyncEC2Client:
     ) -> (
         "aws_sdk_ec2.types.create_route_server_peer_result.CreateRouteServerPeerResult"
     ):
-        """<p>Creates a new BGP peer for a specified route server endpoint.</p> <p>A route server peer is a session between a route server endpoint and the device deployed in Amazon Web Services (such as a firewall appliance or other network security function running on an EC2 instance). The device must meet these requirements:</p> <ul> <li> <p>Have an elastic network interface in the VPC</p> </li> <li> <p>Support BGP (Border Gateway Protocol)</p> </li> <li> <p>Can initiate BGP sessions</p> </li> </ul> <p>For more information see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/dynamic-routing-route-server.html\">Dynamic routing in your VPC with VPC Route Server</a> in the <i>Amazon VPC User Guide</i>.</p>
+        r"""<p>Creates a new BGP peer for a specified route server endpoint.</p> <p>A route server peer is a session between a route server endpoint and the device deployed in Amazon Web Services (such as a firewall appliance or other network security function running on an EC2 instance). The device must meet these requirements:</p> <ul> <li> <p>Have an elastic network interface in the VPC</p> </li> <li> <p>Support BGP (Border Gateway Protocol)</p> </li> <li> <p>Can initiate BGP sessions</p> </li> </ul> <p>For more information see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/dynamic-routing-route-server.html\">Dynamic routing in your VPC with VPC Route Server</a> in the <i>Amazon VPC User Guide</i>.</p>
 
         Args:
             route_server_endpoint_id: <p>The ID of the route server endpoint for which to create a peer.</p>
@@ -10111,7 +10111,7 @@ class AsyncEC2Client:
         client_token: Optional["aws_sdk_ec2.types.string.String"] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.create_route_table_result.CreateRouteTableResult":
-        """<p>Creates a route table for the specified VPC. After you create a route table, you can add routes and associate the table with a subnet.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html\">Route tables</a> in the <i>Amazon VPC User Guide</i>.</p>
+        r"""<p>Creates a route table for the specified VPC. After you create a route table, you can add routes and associate the table with a subnet.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html\">Route tables</a> in the <i>Amazon VPC User Guide</i>.</p>
 
         Args:
             tag_specifications: <p>The tags to assign to the route table.</p>
@@ -10172,7 +10172,7 @@ class AsyncEC2Client:
     ) -> (
         "aws_sdk_ec2.types.create_secondary_network_result.CreateSecondaryNetworkResult"
     ):
-        """<p>Creates a secondary network.</p> <p>The allowed size for a secondary network CIDR block is between /28 netmask (16 IP addresses) and /12 netmask (1,048,576 IP addresses).</p>
+        r"""<p>Creates a secondary network.</p> <p>The allowed size for a secondary network CIDR block is between /28 netmask (16 IP addresses) and /12 netmask (1,048,576 IP addresses).</p>
 
         Args:
             client_token: <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html\">Ensure Idempotency</a>.</p>
@@ -10239,7 +10239,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.tag_specification_list.TagSpecificationList"
         ] = None,
     ) -> "aws_sdk_ec2.types.create_secondary_subnet_result.CreateSecondarySubnetResult":
-        """<p>Creates a secondary subnet in a secondary network.</p> <p>A secondary subnet CIDR block must not overlap with the CIDR block of an existing secondary subnet in the secondary network. After you create a secondary subnet, you can't change its CIDR block.</p> <p>The allowed size for a secondary subnet CIDR block is between /28 netmask (16 IP addresses) and /12 netmask (1,048,576 IP addresses). Amazon reserves the first four IP addresses and the last IP address in each secondary subnet for internal use.</p>
+        r"""<p>Creates a secondary subnet in a secondary network.</p> <p>A secondary subnet CIDR block must not overlap with the CIDR block of an existing secondary subnet in the secondary network. After you create a secondary subnet, you can't change its CIDR block.</p> <p>The allowed size for a secondary subnet CIDR block is between /28 netmask (16 IP addresses) and /12 netmask (1,048,576 IP addresses). Amazon reserves the first four IP addresses and the last IP address in each secondary subnet for internal use.</p>
 
         Args:
             client_token: <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html\">Ensure Idempotency</a>.</p>
@@ -10306,7 +10306,7 @@ class AsyncEC2Client:
         ] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.create_security_group_result.CreateSecurityGroupResult":
-        """<p>Creates a security group.</p> <p>A security group acts as a virtual firewall for your instance to control inbound and outbound traffic. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html\">Amazon EC2 security groups</a> in the <i>Amazon EC2 User Guide</i> and <a href=\"https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html\">Security groups for your VPC</a> in the <i>Amazon VPC User Guide</i>.</p> <p>When you create a security group, you specify a friendly name of your choice. You can't have two security groups for the same VPC with the same name.</p> <p>You have a default security group for use in your VPC. If you don't specify a security group when you launch an instance, the instance is launched into the appropriate default security group. A default security group includes a default rule that grants instances unrestricted network access to each other.</p> <p>You can add or remove rules from your security groups using <a>AuthorizeSecurityGroupIngress</a>, <a>AuthorizeSecurityGroupEgress</a>, <a>RevokeSecurityGroupIngress</a>, and <a>RevokeSecurityGroupEgress</a>.</p> <p>For more information about VPC security group limits, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html\">Amazon VPC Limits</a>.</p>
+        r"""<p>Creates a security group.</p> <p>A security group acts as a virtual firewall for your instance to control inbound and outbound traffic. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html\">Amazon EC2 security groups</a> in the <i>Amazon EC2 User Guide</i> and <a href=\"https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html\">Security groups for your VPC</a> in the <i>Amazon VPC User Guide</i>.</p> <p>When you create a security group, you specify a friendly name of your choice. You can't have two security groups for the same VPC with the same name.</p> <p>You have a default security group for use in your VPC. If you don't specify a security group when you launch an instance, the instance is launched into the appropriate default security group. A default security group includes a default rule that grants instances unrestricted network access to each other.</p> <p>You can add or remove rules from your security groups using <a>AuthorizeSecurityGroupIngress</a>, <a>AuthorizeSecurityGroupEgress</a>, <a>RevokeSecurityGroupIngress</a>, and <a>RevokeSecurityGroupEgress</a>.</p> <p>For more information about VPC security group limits, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html\">Amazon VPC Limits</a>.</p>
 
         Args:
             description: <p>A description for the security group.</p> <p>Constraints: Up to 255 characters in length</p> <p>Valid characters: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&;{}!$*</p>
@@ -10370,7 +10370,7 @@ class AsyncEC2Client:
         ] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.snapshot.Snapshot":
-        """<p>Creates a snapshot of an EBS volume and stores it in Amazon S3. You can use snapshots for backups, to make copies of EBS volumes, and to save data before shutting down an instance.</p> <p>The location of the source EBS volume determines where you can create the snapshot.</p> <ul> <li> <p>If the source volume is in a Region, you must create the snapshot in the same Region as the volume.</p> </li> <li> <p>If the source volume is in a Local Zone, you can create the snapshot in the same Local Zone or in its parent Amazon Web Services Region.</p> </li> <li> <p>If the source volume is on an Outpost, you can create the snapshot on the same Outpost or in its parent Amazon Web Services Region.</p> </li> </ul> <p>When a snapshot is created, any Amazon Web Services Marketplace product codes that are associated with the source volume are propagated to the snapshot.</p> <p>You can take a snapshot of an attached volume that is in use. However, snapshots only capture data that has been written to your Amazon EBS volume at the time the snapshot command is issued; this might exclude any data that has been cached by any applications or the operating system. If you can pause any file systems on the volume long enough to take a snapshot, your snapshot should be complete. However, if you cannot pause all file writes to the volume, you should unmount the volume from within the instance, issue the snapshot command, and then remount the volume to ensure a consistent and complete snapshot. You may remount and use your volume while the snapshot status is <code>pending</code>.</p> <p>When you create a snapshot for an EBS volume that serves as a root device, we recommend that you stop the instance before taking the snapshot.</p> <p>Snapshots that are taken from encrypted volumes are automatically encrypted. Volumes that are created from encrypted snapshots are also automatically encrypted. Your encrypted volumes and any associated snapshots always remain protected. For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html\">Amazon EBS encryption</a> in the <i>Amazon EBS User Guide</i>.</p>
+        r"""<p>Creates a snapshot of an EBS volume and stores it in Amazon S3. You can use snapshots for backups, to make copies of EBS volumes, and to save data before shutting down an instance.</p> <p>The location of the source EBS volume determines where you can create the snapshot.</p> <ul> <li> <p>If the source volume is in a Region, you must create the snapshot in the same Region as the volume.</p> </li> <li> <p>If the source volume is in a Local Zone, you can create the snapshot in the same Local Zone or in its parent Amazon Web Services Region.</p> </li> <li> <p>If the source volume is on an Outpost, you can create the snapshot on the same Outpost or in its parent Amazon Web Services Region.</p> </li> </ul> <p>When a snapshot is created, any Amazon Web Services Marketplace product codes that are associated with the source volume are propagated to the snapshot.</p> <p>You can take a snapshot of an attached volume that is in use. However, snapshots only capture data that has been written to your Amazon EBS volume at the time the snapshot command is issued; this might exclude any data that has been cached by any applications or the operating system. If you can pause any file systems on the volume long enough to take a snapshot, your snapshot should be complete. However, if you cannot pause all file writes to the volume, you should unmount the volume from within the instance, issue the snapshot command, and then remount the volume to ensure a consistent and complete snapshot. You may remount and use your volume while the snapshot status is <code>pending</code>.</p> <p>When you create a snapshot for an EBS volume that serves as a root device, we recommend that you stop the instance before taking the snapshot.</p> <p>Snapshots that are taken from encrypted volumes are automatically encrypted. Volumes that are created from encrypted snapshots are also automatically encrypted. Your encrypted volumes and any associated snapshots always remain protected. For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html\">Amazon EBS encryption</a> in the <i>Amazon EBS User Guide</i>.</p>
 
         Args:
             description: <p>A description for the snapshot.</p>
@@ -10439,7 +10439,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.snapshot_location_enum.SnapshotLocationEnum"
         ] = None,
     ) -> "aws_sdk_ec2.types.create_snapshots_result.CreateSnapshotsResult":
-        """<p>Creates crash-consistent snapshots of multiple EBS volumes attached to an Amazon EC2 instance. Volumes are chosen by specifying an instance. Each volume attached to the specified instance will produce one snapshot that is crash-consistent across the instance. You can include all of the volumes currently attached to the instance, or you can exclude the root volume or specific data (non-root) volumes from the multi-volume snapshot set.</p> <p>The location of the source instance determines where you can create the snapshots.</p> <ul> <li> <p>If the source instance is in a Region, you must create the snapshots in the same Region as the instance.</p> </li> <li> <p>If the source instance is in a Local Zone, you can create the snapshots in the same Local Zone or in its parent Amazon Web Services Region.</p> </li> <li> <p>If the source instance is on an Outpost, you can create the snapshots on the same Outpost or in its parent Amazon Web Services Region.</p> </li> </ul>
+        r"""<p>Creates crash-consistent snapshots of multiple EBS volumes attached to an Amazon EC2 instance. Volumes are chosen by specifying an instance. Each volume attached to the specified instance will produce one snapshot that is crash-consistent across the instance. You can include all of the volumes currently attached to the instance, or you can exclude the root volume or specific data (non-root) volumes from the multi-volume snapshot set.</p> <p>The location of the source instance determines where you can create the snapshots.</p> <ul> <li> <p>If the source instance is in a Region, you must create the snapshots in the same Region as the instance.</p> </li> <li> <p>If the source instance is in a Local Zone, you can create the snapshots in the same Local Zone or in its parent Amazon Web Services Region.</p> </li> <li> <p>If the source instance is on an Outpost, you can create the snapshots on the same Outpost or in its parent Amazon Web Services Region.</p> </li> </ul>
 
         Args:
             description: <p> A description propagated to every snapshot specified by the instance.</p>
@@ -10497,7 +10497,7 @@ class AsyncEC2Client:
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
         prefix: Optional["aws_sdk_ec2.types.string.String"] = None,
     ) -> "aws_sdk_ec2.types.create_spot_datafeed_subscription_result.CreateSpotDatafeedSubscriptionResult":
-        """<p>Creates a data feed for Spot Instances, enabling you to view Spot Instance usage logs. You can create one data feed per Amazon Web Services account. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html\">Spot Instance data feed</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Creates a data feed for Spot Instances, enabling you to view Spot Instance usage logs. You can create one data feed per Amazon Web Services account. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html\">Spot Instance data feed</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -10552,7 +10552,7 @@ class AsyncEC2Client:
         ] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.create_store_image_task_result.CreateStoreImageTaskResult":
-        """<p>Stores an AMI as a single object in an Amazon S3 bucket.</p> <p>To use this API, you must have the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/work-with-ami-store-restore.html#ami-s3-permissions\">Permissions for storing and restoring AMIs using S3</a> in the <i>Amazon EC2 User Guide</i>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html\">Store and restore an AMI using S3</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Stores an AMI as a single object in an Amazon S3 bucket.</p> <p>To use this API, you must have the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/work-with-ami-store-restore.html#ami-s3-permissions\">Permissions for storing and restoring AMIs using S3</a> in the <i>Amazon EC2 User Guide</i>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html\">Store and restore an AMI using S3</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             image_id: <p>The ID of the AMI.</p>
@@ -10616,7 +10616,7 @@ class AsyncEC2Client:
         ] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.create_subnet_result.CreateSubnetResult":
-        """<p>Creates a subnet in the specified VPC. For an IPv4 only subnet, specify an IPv4 CIDR block. If the VPC has an IPv6 CIDR block, you can create an IPv6 only subnet or a dual stack subnet instead. For an IPv6 only subnet, specify an IPv6 CIDR block. For a dual stack subnet, specify both an IPv4 CIDR block and an IPv6 CIDR block.</p> <p>A subnet CIDR block must not overlap the CIDR block of an existing subnet in the VPC. After you create a subnet, you can't change its CIDR block.</p> <p>The allowed size for an IPv4 subnet is between a /28 netmask (16 IP addresses) and a /16 netmask (65,536 IP addresses). Amazon Web Services reserves both the first four and the last IPv4 address in each subnet's CIDR block. They're not available for your use.</p> <p>If you've associated an IPv6 CIDR block with your VPC, you can associate an IPv6 CIDR block with a subnet when you create it. </p> <p>If you add more than one subnet to a VPC, they're set up in a star topology with a logical router in the middle.</p> <p>When you stop an instance in a subnet, it retains its private IPv4 address. It's therefore possible to have a subnet with no running instances (they're all stopped), but no remaining IP addresses available.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/configure-subnets.html\">Subnets</a> in the <i>Amazon VPC User Guide</i>.</p>
+        r"""<p>Creates a subnet in the specified VPC. For an IPv4 only subnet, specify an IPv4 CIDR block. If the VPC has an IPv6 CIDR block, you can create an IPv6 only subnet or a dual stack subnet instead. For an IPv6 only subnet, specify an IPv6 CIDR block. For a dual stack subnet, specify both an IPv4 CIDR block and an IPv6 CIDR block.</p> <p>A subnet CIDR block must not overlap the CIDR block of an existing subnet in the VPC. After you create a subnet, you can't change its CIDR block.</p> <p>The allowed size for an IPv4 subnet is between a /28 netmask (16 IP addresses) and a /16 netmask (65,536 IP addresses). Amazon Web Services reserves both the first four and the last IPv4 address in each subnet's CIDR block. They're not available for your use.</p> <p>If you've associated an IPv6 CIDR block with your VPC, you can associate an IPv6 CIDR block with a subnet when you create it. </p> <p>If you add more than one subnet to a VPC, they're set up in a star topology with a logical router in the middle.</p> <p>When you stop an instance in a subnet, it retains its private IPv4 address. It's therefore possible to have a subnet with no running instances (they're all stopped), but no remaining IP addresses available.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/configure-subnets.html\">Subnets</a> in the <i>Amazon VPC User Guide</i>.</p>
 
         Args:
             tag_specifications: <p>The tags to assign to the subnet.</p>
@@ -10703,7 +10703,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.tag_specification_list.TagSpecificationList"
         ] = None,
     ) -> "aws_sdk_ec2.types.create_subnet_cidr_reservation_result.CreateSubnetCidrReservationResult":
-        """<p>Creates a subnet CIDR reservation. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/subnet-cidr-reservation.html\">Subnet CIDR reservations</a> in the <i>Amazon VPC User Guide</i> and <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/work-with-prefixes.html\">Manage prefixes for your network interfaces</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Creates a subnet CIDR reservation. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/subnet-cidr-reservation.html\">Subnet CIDR reservations</a> in the <i>Amazon VPC User Guide</i> and <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/work-with-prefixes.html\">Manage prefixes for your network interfaces</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             subnet_id: <p>The ID of the subnet.</p>
@@ -10756,7 +10756,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> None:
-        """<p>Adds or overwrites only the specified tags for the specified Amazon EC2 resource or resources. When you specify an existing tag key, the value is overwritten with the new value. Each resource can have a maximum of 50 tags. Each tag consists of a key and optional value. Tag keys must be unique per resource.</p> <p>For more information about tags, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html\">Tag your Amazon EC2 resources</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. For more information about creating IAM policies that control users' access to resources based on tags, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-iam-actions-resources.html\">Supported resource-level permissions for Amazon EC2 API actions</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+        r"""<p>Adds or overwrites only the specified tags for the specified Amazon EC2 resource or resources. When you specify an existing tag key, the value is overwritten with the new value. Each resource can have a maximum of 50 tags. Each tag consists of a key and optional value. Tag keys must be unique per resource.</p> <p>For more information about tags, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html\">Tag your Amazon EC2 resources</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. For more information about creating IAM policies that control users' access to resources based on tags, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-iam-actions-resources.html\">Supported resource-level permissions for Amazon EC2 API actions</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -10808,7 +10808,7 @@ class AsyncEC2Client:
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
         client_token: Optional["aws_sdk_ec2.types.string.String"] = None,
     ) -> "aws_sdk_ec2.types.create_traffic_mirror_filter_result.CreateTrafficMirrorFilterResult":
-        """<p>Creates a Traffic Mirror filter.</p> <p>A Traffic Mirror filter is a set of rules that defines the traffic to mirror.</p> <p>By default, no traffic is mirrored. To mirror traffic, use <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTrafficMirrorFilterRule.htm\">CreateTrafficMirrorFilterRule</a> to add Traffic Mirror rules to the filter. The rules you add define what traffic gets mirrored. You can also use <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyTrafficMirrorFilterNetworkServices.html\">ModifyTrafficMirrorFilterNetworkServices</a> to mirror supported network services.</p>
+        r"""<p>Creates a Traffic Mirror filter.</p> <p>A Traffic Mirror filter is a set of rules that defines the traffic to mirror.</p> <p>By default, no traffic is mirrored. To mirror traffic, use <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTrafficMirrorFilterRule.htm\">CreateTrafficMirrorFilterRule</a> to add Traffic Mirror rules to the filter. The rules you add define what traffic gets mirrored. You can also use <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyTrafficMirrorFilterNetworkServices.html\">ModifyTrafficMirrorFilterNetworkServices</a> to mirror supported network services.</p>
 
         Args:
             description: <p>The description of the Traffic Mirror filter.</p>
@@ -10874,7 +10874,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.tag_specification_list.TagSpecificationList"
         ] = None,
     ) -> "aws_sdk_ec2.types.create_traffic_mirror_filter_rule_result.CreateTrafficMirrorFilterRuleResult":
-        """<p>Creates a Traffic Mirror filter rule.</p> <p>A Traffic Mirror rule defines the Traffic Mirror source traffic to mirror.</p> <p>You need the Traffic Mirror filter ID when you create the rule.</p>
+        r"""<p>Creates a Traffic Mirror filter rule.</p> <p>A Traffic Mirror rule defines the Traffic Mirror source traffic to mirror.</p> <p>You need the Traffic Mirror filter ID when you create the rule.</p>
 
         Args:
             traffic_mirror_filter_id: <p>The ID of the filter that this rule is associated with.</p>
@@ -10954,7 +10954,7 @@ class AsyncEC2Client:
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
         client_token: Optional["aws_sdk_ec2.types.string.String"] = None,
     ) -> "aws_sdk_ec2.types.create_traffic_mirror_session_result.CreateTrafficMirrorSessionResult":
-        """<p>Creates a Traffic Mirror session.</p> <p>A Traffic Mirror session actively copies packets from a Traffic Mirror source to a Traffic Mirror target. Create a filter, and then assign it to the session to define a subset of the traffic to mirror, for example all TCP traffic.</p> <p>The Traffic Mirror source and the Traffic Mirror target (monitoring appliances) can be in the same VPC, or in a different VPC connected via VPC peering or a transit gateway. </p> <p>By default, no traffic is mirrored. Use <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTrafficMirrorFilter.html\">CreateTrafficMirrorFilter</a> to create filter rules that specify the traffic to mirror.</p>
+        r"""<p>Creates a Traffic Mirror session.</p> <p>A Traffic Mirror session actively copies packets from a Traffic Mirror source to a Traffic Mirror target. Create a filter, and then assign it to the session to define a subset of the traffic to mirror, for example all TCP traffic.</p> <p>The Traffic Mirror source and the Traffic Mirror target (monitoring appliances) can be in the same VPC, or in a different VPC connected via VPC peering or a transit gateway. </p> <p>By default, no traffic is mirrored. Use <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTrafficMirrorFilter.html\">CreateTrafficMirrorFilter</a> to create filter rules that specify the traffic to mirror.</p>
 
         Args:
             network_interface_id: <p>The ID of the source network interface.</p>
@@ -11028,7 +11028,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.vpc_endpoint_id.VpcEndpointId"
         ] = None,
     ) -> "aws_sdk_ec2.types.create_traffic_mirror_target_result.CreateTrafficMirrorTargetResult":
-        """<p>Creates a target for your Traffic Mirror session.</p> <p>A Traffic Mirror target is the destination for mirrored traffic. The Traffic Mirror source and the Traffic Mirror target (monitoring appliances) can be in the same VPC, or in different VPCs connected via VPC peering or a transit gateway.</p> <p>A Traffic Mirror target can be a network interface, a Network Load Balancer, or a Gateway Load Balancer endpoint.</p> <p>To use the target in a Traffic Mirror session, use <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTrafficMirrorSession.htm\">CreateTrafficMirrorSession</a>.</p>
+        r"""<p>Creates a target for your Traffic Mirror session.</p> <p>A Traffic Mirror target is the destination for mirrored traffic. The Traffic Mirror source and the Traffic Mirror target (monitoring appliances) can be in the same VPC, or in different VPCs connected via VPC peering or a transit gateway.</p> <p>A Traffic Mirror target can be a network interface, a Network Load Balancer, or a Gateway Load Balancer endpoint.</p> <p>To use the target in a Traffic Mirror session, use <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTrafficMirrorSession.htm\">CreateTrafficMirrorSession</a>.</p>
 
         Args:
             network_interface_id: <p>The network interface ID that is associated with the target.</p>
@@ -11205,7 +11205,7 @@ class AsyncEC2Client:
         ] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.create_transit_gateway_connect_peer_result.CreateTransitGatewayConnectPeerResult":
-        """<p>Creates a Connect peer for a specified transit gateway Connect attachment between a transit gateway and an appliance.</p> <p>The peer address and transit gateway address must be the same IP address family (IPv4 or IPv6).</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/tgw/tgw-connect.html#tgw-connect-peer\">Connect peers</a> in the <i>Amazon Web Services Transit Gateways Guide</i>.</p>
+        r"""<p>Creates a Connect peer for a specified transit gateway Connect attachment between a transit gateway and an appliance.</p> <p>The peer address and transit gateway address must be the same IP address family (IPv4 or IPv6).</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/tgw/tgw-connect.html#tgw-connect-peer\">Connect peers</a> in the <i>Amazon Web Services Transit Gateways Guide</i>.</p>
 
         Args:
             transit_gateway_attachment_id: <p>The ID of the Connect attachment.</p>
@@ -11422,7 +11422,7 @@ class AsyncEC2Client:
         ] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.create_transit_gateway_multicast_domain_result.CreateTransitGatewayMulticastDomainResult":
-        """<p>Creates a multicast domain using the specified transit gateway.</p> <p>The transit gateway must be in the available state before you create a domain. Use <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGateways.html\">DescribeTransitGateways</a> to see the state of transit gateway.</p>
+        r"""<p>Creates a multicast domain using the specified transit gateway.</p> <p>The transit gateway must be in the available state before you create a domain. Use <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGateways.html\">DescribeTransitGateways</a> to see the state of transit gateway.</p>
 
         Args:
             transit_gateway_id: <p>The ID of the transit gateway.</p>
@@ -11881,7 +11881,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.create_verified_access_endpoint_cidr_options.CreateVerifiedAccessEndpointCidrOptions"
         ] = None,
     ) -> "aws_sdk_ec2.types.create_verified_access_endpoint_result.CreateVerifiedAccessEndpointResult":
-        """<p>An Amazon Web Services Verified Access endpoint is where you define your application along with an optional endpoint-level access policy.</p>
+        r"""<p>An Amazon Web Services Verified Access endpoint is where you define your application along with an optional endpoint-level access policy.</p>
 
         Args:
             verified_access_group_id: <p>The ID of the Verified Access group to associate the endpoint with.</p>
@@ -11975,7 +11975,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.verified_access_sse_specification_request.VerifiedAccessSseSpecificationRequest"
         ] = None,
     ) -> "aws_sdk_ec2.types.create_verified_access_group_result.CreateVerifiedAccessGroupResult":
-        """<p>An Amazon Web Services Verified Access group is a collection of Amazon Web Services Verified Access endpoints who's associated applications have similar security requirements. Each instance within a Verified Access group shares an Verified Access policy. For example, you can group all Verified Access instances associated with \"sales\" applications together and use one common Verified Access policy.</p>
+        r"""<p>An Amazon Web Services Verified Access group is a collection of Amazon Web Services Verified Access endpoints who's associated applications have similar security requirements. Each instance within a Verified Access group shares an Verified Access policy. For example, you can group all Verified Access instances associated with \"sales\" applications together and use one common Verified Access policy.</p>
 
         Args:
             verified_access_instance_id: <p>The ID of the Verified Access instance.</p>
@@ -12040,7 +12040,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.string.String"
         ] = None,
     ) -> "aws_sdk_ec2.types.create_verified_access_instance_result.CreateVerifiedAccessInstanceResult":
-        """<p>An Amazon Web Services Verified Access instance is a regional entity that evaluates application requests and grants access only when your security requirements are met.</p>
+        r"""<p>An Amazon Web Services Verified Access instance is a regional entity that evaluates application requests and grants access only when your security requirements are met.</p>
 
         Args:
             description: <p>A description for the Verified Access instance.</p>
@@ -12121,7 +12121,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.create_verified_access_native_application_oidc_options.CreateVerifiedAccessNativeApplicationOidcOptions"
         ] = None,
     ) -> "aws_sdk_ec2.types.create_verified_access_trust_provider_result.CreateVerifiedAccessTrustProviderResult":
-        """<p>A trust provider is a third-party entity that creates, maintains, and manages identity information for users and devices. When an application request is made, the identity information sent by the trust provider is evaluated by Verified Access before allowing or denying the application request.</p>
+        r"""<p>A trust provider is a third-party entity that creates, maintains, and manages identity information for users and devices. When an application request is made, the identity information sent by the trust provider is evaluated by Verified Access before allowing or denying the application request.</p>
 
         Args:
             trust_provider_type: <p>The type of trust provider.</p>
@@ -12214,7 +12214,7 @@ class AsyncEC2Client:
         operator: Optional["aws_sdk_ec2.types.operator_request.OperatorRequest"] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.volume.Volume":
-        """<p>Creates an EBS volume that can be attached to an instance in the same Availability Zone.</p> <p>You can create a new empty volume or restore a volume from an EBS snapshot. Any Amazon Web Services Marketplace product codes from the snapshot are propagated to the volume.</p> <p>You can create encrypted volumes. Encrypted volumes must be attached to instances that support Amazon EBS encryption. Volumes that are created from encrypted snapshots are also automatically encrypted. For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html\">Amazon EBS encryption</a> in the <i>Amazon EBS User Guide</i>.</p> <p>You can tag your volumes during creation. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html\">Tag your Amazon EC2 resources</a> in the <i>Amazon EC2 User Guide</i>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/ebs-creating-volume.html\">Create an Amazon EBS volume</a> in the <i>Amazon EBS User Guide</i>.</p>
+        r"""<p>Creates an EBS volume that can be attached to an instance in the same Availability Zone.</p> <p>You can create a new empty volume or restore a volume from an EBS snapshot. Any Amazon Web Services Marketplace product codes from the snapshot are propagated to the volume.</p> <p>You can create encrypted volumes. Encrypted volumes must be attached to instances that support Amazon EBS encryption. Volumes that are created from encrypted snapshots are also automatically encrypted. For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html\">Amazon EBS encryption</a> in the <i>Amazon EBS User Guide</i>.</p> <p>You can tag your volumes during creation. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html\">Tag your Amazon EC2 resources</a> in the <i>Amazon EC2 User Guide</i>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/ebs-creating-volume.html\">Create an Amazon EBS volume</a> in the <i>Amazon EBS User Guide</i>.</p>
 
         Args:
             availability_zone: <p>The ID of the Availability Zone in which to create the volume. For example, <code>us-east-1a</code>.</p> <p>Either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code> must be specified, but not both.</p>
@@ -12330,7 +12330,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.boolean.Boolean"
         ] = None,
     ) -> "aws_sdk_ec2.types.create_vpc_result.CreateVpcResult":
-        """<p>Creates a VPC with the specified CIDR blocks.</p> <p>A VPC must have an associated IPv4 CIDR block. You can choose an IPv4 CIDR block or an IPAM-allocated IPv4 CIDR block. You can optionally associate an IPv6 CIDR block with a VPC. You can choose an IPv6 CIDR block, an Amazon-provided IPv6 CIDR block, an IPAM-allocated IPv6 CIDR block, or an IPv6 CIDR block that you brought to Amazon Web Services. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/vpc-ip-addressing.html\">IP addressing for your VPCs and subnets</a> in the <i>Amazon VPC User Guide</i>.</p> <p>By default, each instance that you launch in the VPC has the default DHCP options, which include only a default DNS server that we provide (AmazonProvidedDNS). For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html\">DHCP option sets</a> in the <i>Amazon VPC User Guide</i>.</p> <p>You can specify DNS options and tenancy for a VPC when you create it. You can't change the tenancy of a VPC after you create it. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/create-vpc-options.html\">VPC configuration options</a> in the <i>Amazon VPC User Guide</i>.</p>
+        r"""<p>Creates a VPC with the specified CIDR blocks.</p> <p>A VPC must have an associated IPv4 CIDR block. You can choose an IPv4 CIDR block or an IPAM-allocated IPv4 CIDR block. You can optionally associate an IPv6 CIDR block with a VPC. You can choose an IPv6 CIDR block, an Amazon-provided IPv6 CIDR block, an IPAM-allocated IPv6 CIDR block, or an IPv6 CIDR block that you brought to Amazon Web Services. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/vpc-ip-addressing.html\">IP addressing for your VPCs and subnets</a> in the <i>Amazon VPC User Guide</i>.</p> <p>By default, each instance that you launch in the VPC has the default DHCP options, which include only a default DNS server that we provide (AmazonProvidedDNS). For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html\">DHCP option sets</a> in the <i>Amazon VPC User Guide</i>.</p> <p>You can specify DNS options and tenancy for a VPC when you create it. You can't change the tenancy of a VPC after you create it. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/create-vpc-options.html\">VPC configuration options</a> in the <i>Amazon VPC User Guide</i>.</p>
 
         Args:
             cidr_block: <p>The IPv4 network range for the VPC, in CIDR notation. For example, <code>10.0.0.0/16</code>. We modify the specified CIDR block to its canonical form; for example, if you specify <code>100.68.0.18/18</code>, we modify it to <code>100.68.0.0/18</code>.</p>
@@ -12419,7 +12419,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.tag_specification_list.TagSpecificationList"
         ] = None,
     ) -> "aws_sdk_ec2.types.create_vpc_block_public_access_exclusion_result.CreateVpcBlockPublicAccessExclusionResult":
-        """<p>Create a VPC Block Public Access (BPA) exclusion. A VPC BPA exclusion is a mode that can be applied to a single VPC or subnet that exempts it from the account’s BPA mode and will allow bidirectional or egress-only access. You can create BPA exclusions for VPCs and subnets even when BPA is not enabled on the account to ensure that there is no traffic disruption to the exclusions when VPC BPA is turned on. To learn more about VPC BPA, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/security-vpc-bpa.html\">Block public access to VPCs and subnets</a> in the <i>Amazon VPC User Guide</i>.</p>
+        r"""<p>Create a VPC Block Public Access (BPA) exclusion. A VPC BPA exclusion is a mode that can be applied to a single VPC or subnet that exempts it from the account’s BPA mode and will allow bidirectional or egress-only access. You can create BPA exclusions for VPCs and subnets even when BPA is not enabled on the account to ensure that there is no traffic disruption to the exclusions when VPC BPA is turned on. To learn more about VPC BPA, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/security-vpc-bpa.html\">Block public access to VPCs and subnets</a> in the <i>Amazon VPC User Guide</i>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -12473,7 +12473,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.tag_specification_list.TagSpecificationList"
         ] = None,
     ) -> "aws_sdk_ec2.types.create_vpc_encryption_control_result.CreateVpcEncryptionControlResult":
-        """<p>Creates a VPC Encryption Control configuration for a specified VPC. VPC Encryption Control enables you to enforce encryption for all data in transit within and between VPCs to meet compliance requirements for standards like HIPAA, FedRAMP, and PCI DSS.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html\">Enforce VPC encryption in transit</a> in the <i>Amazon VPC User Guide</i>.</p>
+        r"""<p>Creates a VPC Encryption Control configuration for a specified VPC. VPC Encryption Control enables you to enforce encryption for all data in transit within and between VPCs to meet compliance requirements for standards like HIPAA, FedRAMP, and PCI DSS.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html\">Enforce VPC encryption in transit</a> in the <i>Amazon VPC User Guide</i>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -12553,7 +12553,7 @@ class AsyncEC2Client:
         ] = None,
         service_region: Optional["aws_sdk_ec2.types.string.String"] = None,
     ) -> "aws_sdk_ec2.types.create_vpc_endpoint_result.CreateVpcEndpointResult":
-        """<p>Creates a VPC endpoint. A VPC endpoint provides a private connection between the specified VPC and the specified endpoint service. You can use an endpoint service provided by Amazon Web Services, an Amazon Web Services Marketplace Partner, or another Amazon Web Services account. For more information, see the <a href=\"https://docs.aws.amazon.com/vpc/latest/privatelink/\">Amazon Web Services PrivateLink User Guide</a>.</p>
+        r"""<p>Creates a VPC endpoint. A VPC endpoint provides a private connection between the specified VPC and the specified endpoint service. You can use an endpoint service provided by Amazon Web Services, an Amazon Web Services Marketplace Partner, or another Amazon Web Services account. For more information, see the <a href=\"https://docs.aws.amazon.com/vpc/latest/privatelink/\">Amazon Web Services PrivateLink User Guide</a>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -12648,7 +12648,7 @@ class AsyncEC2Client:
         ] = None,
         client_token: Optional["aws_sdk_ec2.types.string.String"] = None,
     ) -> "aws_sdk_ec2.types.create_vpc_endpoint_connection_notification_result.CreateVpcEndpointConnectionNotificationResult":
-        """<p>Creates a connection notification for a specified VPC endpoint or VPC endpoint service. A connection notification notifies you of specific endpoint events. You must create an SNS topic to receive notifications. For more information, see <a href=\"https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html\">Creating an Amazon SNS topic</a> in the <i>Amazon SNS Developer Guide</i>.</p> <p>You can create a connection notification for interface endpoints only.</p>
+        r"""<p>Creates a connection notification for a specified VPC endpoint or VPC endpoint service. A connection notification notifies you of specific endpoint events. You must create an SNS topic to receive notifications. For more information, see <a href=\"https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html\">Creating an Amazon SNS topic</a> in the <i>Amazon SNS Developer Guide</i>.</p> <p>You can create a connection notification for interface endpoints only.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -12718,7 +12718,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.tag_specification_list.TagSpecificationList"
         ] = None,
     ) -> "aws_sdk_ec2.types.create_vpc_endpoint_service_configuration_result.CreateVpcEndpointServiceConfigurationResult":
-        """<p>Creates a VPC endpoint service to which service consumers (Amazon Web Services accounts, users, and IAM roles) can connect.</p> <p>Before you create an endpoint service, you must create one of the following for your service:</p> <ul> <li> <p>A <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/network/\">Network Load Balancer</a>. Service consumers connect to your service using an interface endpoint.</p> </li> <li> <p>A <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/\">Gateway Load Balancer</a>. Service consumers connect to your service using a Gateway Load Balancer endpoint.</p> </li> </ul> <p>If you set the private DNS name, you must prove that you own the private DNS domain name.</p> <p>For more information, see the <a href=\"https://docs.aws.amazon.com/vpc/latest/privatelink/\">Amazon Web Services PrivateLink Guide</a>.</p>
+        r"""<p>Creates a VPC endpoint service to which service consumers (Amazon Web Services accounts, users, and IAM roles) can connect.</p> <p>Before you create an endpoint service, you must create one of the following for your service:</p> <ul> <li> <p>A <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/network/\">Network Load Balancer</a>. Service consumers connect to your service using an interface endpoint.</p> </li> <li> <p>A <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/\">Gateway Load Balancer</a>. Service consumers connect to your service using a Gateway Load Balancer endpoint.</p> </li> </ul> <p>If you set the private DNS name, you must prove that you own the private DNS domain name.</p> <p>For more information, see the <a href=\"https://docs.aws.amazon.com/vpc/latest/privatelink/\">Amazon Web Services PrivateLink Guide</a>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -12788,7 +12788,7 @@ class AsyncEC2Client:
         peer_vpc_id: Optional["aws_sdk_ec2.types.string.String"] = None,
         peer_owner_id: Optional["aws_sdk_ec2.types.string.String"] = None,
     ) -> "aws_sdk_ec2.types.create_vpc_peering_connection_result.CreateVpcPeeringConnectionResult":
-        """<p>Requests a VPC peering connection between two VPCs: a requester VPC that you own and an accepter VPC with which to create the connection. The accepter VPC can belong to another Amazon Web Services account and can be in a different Region to the requester VPC. The requester VPC and accepter VPC cannot have overlapping CIDR blocks.</p> <note> <p>Limitations and rules apply to a VPC peering connection. For more information, see the <a href=\"https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-basics.html#vpc-peering-limitations\">VPC peering limitations</a> in the <i>VPC Peering Guide</i>.</p> </note> <p>The owner of the accepter VPC must accept the peering request to activate the peering connection. The VPC peering connection request expires after 7 days, after which it cannot be accepted or rejected.</p> <p>If you create a VPC peering connection request between VPCs with overlapping CIDR blocks, the VPC peering connection has a status of <code>failed</code>.</p>
+        r"""<p>Requests a VPC peering connection between two VPCs: a requester VPC that you own and an accepter VPC with which to create the connection. The accepter VPC can belong to another Amazon Web Services account and can be in a different Region to the requester VPC. The requester VPC and accepter VPC cannot have overlapping CIDR blocks.</p> <note> <p>Limitations and rules apply to a VPC peering connection. For more information, see the <a href=\"https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-basics.html#vpc-peering-limitations\">VPC peering limitations</a> in the <i>VPC Peering Guide</i>.</p> </note> <p>The owner of the accepter VPC must accept the peering request to activate the peering connection. The VPC peering connection request expires after 7 days, after which it cannot be accepted or rejected.</p> <p>If you create a VPC peering connection request between VPCs with overlapping CIDR blocks, the VPC peering connection has a status of <code>failed</code>.</p>
 
         Args:
             peer_region: <p>The Region code for the accepter VPC, if the accepter VPC is located in a Region other than the Region in which you make the request.</p> <p>Default: The Region in which you make the request.</p>
@@ -12913,7 +12913,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.vpn_connection_options_specification.VpnConnectionOptionsSpecification"
         ] = None,
     ) -> "aws_sdk_ec2.types.create_vpn_connection_result.CreateVpnConnectionResult":
-        """<p>Creates a VPN connection between an existing virtual private gateway or transit gateway and a customer gateway. The supported connection type is <code>ipsec.1</code>.</p> <p>The response includes information that you need to give to your network administrator to configure your customer gateway.</p> <important> <p>We strongly recommend that you use HTTPS when calling this operation because the response contains sensitive cryptographic information for configuring your customer gateway device.</p> </important> <p>If you decide to shut down your VPN connection for any reason and later create a new VPN connection, you must reconfigure your customer gateway with the new information returned from this call.</p> <p>This is an idempotent operation. If you perform the operation more than once, Amazon EC2 doesn't return an error.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html\">Amazon Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN User Guide</i>.</p>
+        r"""<p>Creates a VPN connection between an existing virtual private gateway or transit gateway and a customer gateway. The supported connection type is <code>ipsec.1</code>.</p> <p>The response includes information that you need to give to your network administrator to configure your customer gateway.</p> <important> <p>We strongly recommend that you use HTTPS when calling this operation because the response contains sensitive cryptographic information for configuring your customer gateway device.</p> </important> <p>If you decide to shut down your VPN connection for any reason and later create a new VPN connection, you must reconfigure your customer gateway with the new information returned from this call.</p> <p>This is an idempotent operation. If you perform the operation more than once, Amazon EC2 doesn't return an error.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html\">Amazon Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN User Guide</i>.</p>
 
         Args:
             customer_gateway_id: <p>The ID of the customer gateway.</p>
@@ -12975,7 +12975,7 @@ class AsyncEC2Client:
         *,
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
     ) -> None:
-        """<p>Creates a static route associated with a VPN connection between an existing virtual private gateway and a VPN customer gateway. The static route allows traffic to be routed from the virtual private gateway to the VPN customer gateway.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html\">Amazon Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN User Guide</i>.</p>
+        r"""<p>Creates a static route associated with a VPN connection between an existing virtual private gateway and a VPN customer gateway. The static route allows traffic to be routed from the virtual private gateway to the VPN customer gateway.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html\">Amazon Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN User Guide</i>.</p>
 
         Args:
             destination_cidr_block: <p>The CIDR block associated with the local subnet of the customer network.</p>
@@ -13019,7 +13019,7 @@ class AsyncEC2Client:
         amazon_side_asn: Optional["aws_sdk_ec2.types.long.Long"] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.create_vpn_gateway_result.CreateVpnGatewayResult":
-        """<p>Creates a virtual private gateway. A virtual private gateway is the endpoint on the VPC side of your VPN connection. You can create a virtual private gateway before creating the VPC itself.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html\">Amazon Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN User Guide</i>.</p>
+        r"""<p>Creates a virtual private gateway. A virtual private gateway is the endpoint on the VPC side of your VPN connection. You can create a virtual private gateway before creating the VPC itself.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html\">Amazon Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN User Guide</i>.</p>
 
         Args:
             availability_zone: <p>The Availability Zone for the virtual private gateway.</p>
@@ -13112,7 +13112,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.delete_carrier_gateway_result.DeleteCarrierGatewayResult":
-        """<p>Deletes a carrier gateway.</p> <important> <p>If you do not delete the route that contains the carrier gateway as the Target, the route is a blackhole route. For information about how to delete a route, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteRoute.html\">DeleteRoute</a>.</p> </important>
+        r"""<p>Deletes a carrier gateway.</p> <important> <p>If you do not delete the route that contains the carrier gateway as the Target, the route is a blackhole route. For information about how to delete a route, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteRoute.html\">DeleteRoute</a>.</p> </important>
 
         Args:
             carrier_gateway_id: <p>The ID of the carrier gateway.</p>
@@ -13467,7 +13467,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.delete_fleets_result.DeleteFleetsResult":
-        """<p>Deletes the specified EC2 Fleet request.</p> <p>After you delete an EC2 Fleet request, it launches no new instances.</p> <p>You must also specify whether a deleted EC2 Fleet request should terminate its instances. If you choose to terminate the instances, the EC2 Fleet request enters the <code>deleted_terminating</code> state. Otherwise, it enters the <code>deleted_running</code> state, and the instances continue to run until they are interrupted or you terminate them manually.</p> <p>A deleted <code>instant</code> fleet with running instances is not supported. When you delete an <code>instant</code> fleet, Amazon EC2 automatically terminates all its instances. For fleets with more than 1000 instances, the deletion request might fail. If your fleet has more than 1000 instances, first terminate most of the instances manually, leaving 1000 or fewer. Then delete the fleet, and the remaining instances will be terminated automatically.</p> <important> <p> <b>Terminating an instance is permanent and irreversible.</b> </p> <p>After you terminate an instance, you can no longer connect to it, and it can't be recovered. All attached Amazon EBS volumes that are configured to be deleted on termination are also permanently deleted and can't be recovered. All data stored on instance store volumes is permanently lost. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/how-ec2-instance-termination-works.html\"> How instance termination works</a>.</p> <p>Before you terminate an instance, ensure that you have backed up all data that you need to retain after the termination to persistent storage.</p> </important> <p class=\"title\"> <b>Restrictions</b> </p> <ul> <li> <p>You can delete up to 25 fleets of type <code>instant</code> in a single request.</p> </li> <li> <p>You can delete up to 100 fleets of type <code>maintain</code> or <code>request</code> in a single request.</p> </li> <li> <p>You can delete up to 125 fleets in a single request, provided you do not exceed the quota for each fleet type, as specified above.</p> </li> <li> <p>If you exceed the specified number of fleets to delete, no fleets are deleted.</p> </li> </ul> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/delete-fleet.html\">Delete an EC2 Fleet request and the instances in the fleet</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Deletes the specified EC2 Fleet request.</p> <p>After you delete an EC2 Fleet request, it launches no new instances.</p> <p>You must also specify whether a deleted EC2 Fleet request should terminate its instances. If you choose to terminate the instances, the EC2 Fleet request enters the <code>deleted_terminating</code> state. Otherwise, it enters the <code>deleted_running</code> state, and the instances continue to run until they are interrupted or you terminate them manually.</p> <p>A deleted <code>instant</code> fleet with running instances is not supported. When you delete an <code>instant</code> fleet, Amazon EC2 automatically terminates all its instances. For fleets with more than 1000 instances, the deletion request might fail. If your fleet has more than 1000 instances, first terminate most of the instances manually, leaving 1000 or fewer. Then delete the fleet, and the remaining instances will be terminated automatically.</p> <important> <p> <b>Terminating an instance is permanent and irreversible.</b> </p> <p>After you terminate an instance, you can no longer connect to it, and it can't be recovered. All attached Amazon EBS volumes that are configured to be deleted on termination are also permanently deleted and can't be recovered. All data stored on instance store volumes is permanently lost. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/how-ec2-instance-termination-works.html\"> How instance termination works</a>.</p> <p>Before you terminate an instance, ensure that you have backed up all data that you need to retain after the termination to persistent storage.</p> </important> <p class=\"title\"> <b>Restrictions</b> </p> <ul> <li> <p>You can delete up to 25 fleets of type <code>instant</code> in a single request.</p> </li> <li> <p>You can delete up to 100 fleets of type <code>maintain</code> or <code>request</code> in a single request.</p> </li> <li> <p>You can delete up to 125 fleets in a single request, provided you do not exceed the quota for each fleet type, as specified above.</p> </li> <li> <p>If you exceed the specified number of fleets to delete, no fleets are deleted.</p> </li> </ul> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/delete-fleet.html\">Delete an EC2 Fleet request and the instances in the fleet</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -13595,7 +13595,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.delete_image_usage_report_result.DeleteImageUsageReportResult":
-        """<p>Deletes the specified image usage report.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/your-ec2-ami-usage.html\">View your AMI usage</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Deletes the specified image usage report.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/your-ec2-ami-usage.html\">View your AMI usage</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             report_id: <p>The ID of the report to delete.</p>
@@ -13680,7 +13680,7 @@ class AsyncEC2Client:
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
         force_delete: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.delete_instance_event_window_result.DeleteInstanceEventWindowResult":
-        """<p>Deletes the specified event window.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/event-windows.html\">Define event windows for scheduled events</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Deletes the specified event window.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/event-windows.html\">Define event windows for scheduled events</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -13772,7 +13772,7 @@ class AsyncEC2Client:
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
         cascade: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.delete_ipam_result.DeleteIpamResult":
-        """<p>Delete an IPAM. Deleting an IPAM removes all monitored data associated with the IPAM including the historical data for CIDRs.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/delete-ipam.html\">Delete an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
+        r"""<p>Delete an IPAM. Deleting an IPAM removes all monitored data associated with the IPAM including the historical data for CIDRs.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/delete-ipam.html\">Delete an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
 
         Args:
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -13904,7 +13904,7 @@ class AsyncEC2Client:
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
         cascade: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.delete_ipam_pool_result.DeleteIpamPoolResult":
-        """<p>Delete an IPAM pool.</p> <note> <p>You cannot delete an IPAM pool if there are allocations in it or CIDRs provisioned to it. To release allocations, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ReleaseIpamPoolAllocation.html\">ReleaseIpamPoolAllocation</a>. To deprovision pool CIDRs, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeprovisionIpamPoolCidr.html\">DeprovisionIpamPoolCidr</a>.</p> </note> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/delete-pool-ipam.html\">Delete a pool</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
+        r"""<p>Delete an IPAM pool.</p> <note> <p>You cannot delete an IPAM pool if there are allocations in it or CIDRs provisioned to it. To release allocations, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ReleaseIpamPoolAllocation.html\">ReleaseIpamPoolAllocation</a>. To deprovision pool CIDRs, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeprovisionIpamPoolCidr.html\">DeprovisionIpamPoolCidr</a>.</p> </note> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/delete-pool-ipam.html\">Delete a pool</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
 
         Args:
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -13991,7 +13991,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.delete_ipam_prefix_list_resolver_target_result.DeleteIpamPrefixListResolverTargetResult":
-        """<p>Deletes an IPAM prefix list resolver target. This removes the association between the resolver and the managed prefix list, stopping automatic CIDR synchronization.</p> <p>For more information about IPAM prefix list resolver, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/automate-prefix-list-updates.html\">Automate prefix list updates with IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+        r"""<p>Deletes an IPAM prefix list resolver target. This removes the association between the resolver and the managed prefix list, stopping automatic CIDR synchronization.</p> <p>For more information about IPAM prefix list resolver, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/automate-prefix-list-updates.html\">Automate prefix list updates with IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
 
         Args:
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -14077,7 +14077,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.delete_ipam_scope_result.DeleteIpamScopeResult":
-        """<p>Delete the scope for an IPAM. You cannot delete the default scopes.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/delete-scope-ipam.html\">Delete a scope</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
+        r"""<p>Delete the scope for an IPAM. You cannot delete the default scopes.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/delete-scope-ipam.html\">Delete a scope</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
 
         Args:
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -14237,7 +14237,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.launch_template_name.LaunchTemplateName"
         ] = None,
     ) -> "aws_sdk_ec2.types.delete_launch_template_versions_result.DeleteLaunchTemplateVersionsResult":
-        """<p>Deletes one or more versions of a launch template.</p> <p>You can't delete the default version of a launch template; you must first assign a different version as the default. If the default version is the only version for the launch template, you must delete the entire launch template using <a>DeleteLaunchTemplate</a>.</p> <p>You can delete up to 200 launch template versions in a single request. To delete more than 200 versions in a single request, use <a>DeleteLaunchTemplate</a>, which deletes the launch template and all of its versions.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/delete-launch-template.html#delete-launch-template-version\">Delete a launch template version</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Deletes one or more versions of a launch template.</p> <p>You can't delete the default version of a launch template; you must first assign a different version as the default. If the default version is the only version for the launch template, you must delete the entire launch template using <a>DeleteLaunchTemplate</a>.</p> <p>You can delete up to 200 launch template versions in a single request. To delete more than 200 versions in a single request, use <a>DeleteLaunchTemplate</a>, which deletes the launch template and all of its versions.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/delete-launch-template.html#delete-launch-template-version\">Delete a launch template version</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -15011,7 +15011,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> None:
-        """<p>Deletes the specified placement group. You must terminate all instances in the placement group before you can delete the placement group. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html\">Placement groups</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Deletes the specified placement group. You must terminate all instances in the placement group before you can delete the placement group. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html\">Placement groups</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -15059,7 +15059,7 @@ class AsyncEC2Client:
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
         network_border_group: Optional["aws_sdk_ec2.types.string.String"] = None,
     ) -> "aws_sdk_ec2.types.delete_public_ipv4_pool_result.DeletePublicIpv4PoolResult":
-        """<p>Delete a public IPv4 pool. A public IPv4 pool is an EC2 IP address pool required for the public IPv4 CIDRs that you own and bring to Amazon Web Services to manage with IPAM. IPv6 addresses you bring to Amazon Web Services, however, use IPAM pools only.</p>
+        r"""<p>Delete a public IPv4 pool. A public IPv4 pool is an EC2 IP address pool required for the public IPv4 CIDRs that you own and bring to Amazon Web Services to manage with IPAM. IPv6 addresses you bring to Amazon Web Services, however, use IPAM pools only.</p>
 
         Args:
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -15206,7 +15206,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.delete_route_server_result.DeleteRouteServerResult":
-        """<p>Deletes the specified route server.</p> <p>Amazon VPC Route Server simplifies routing for traffic between workloads that are deployed within a VPC and its internet gateways. With this feature, VPC Route Server dynamically updates VPC and internet gateway route tables with your preferred IPv4 or IPv6 routes to achieve routing fault tolerance for those workloads. This enables you to automatically reroute traffic within a VPC, which increases the manageability of VPC routing and interoperability with third-party workloads.</p> <p>Route server supports the follow route table types:</p> <ul> <li> <p>VPC route tables not associated with subnets</p> </li> <li> <p>Subnet route tables</p> </li> <li> <p>Internet gateway route tables</p> </li> </ul> <p>Route server does not support route tables associated with virtual private gateways. To propagate routes into a transit gateway route table, use <a href=\"https://docs.aws.amazon.com/vpc/latest/tgw/tgw-connect.html\">Transit Gateway Connect</a>.</p> <p>For more information see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/dynamic-routing-route-server.html\">Dynamic routing in your VPC with VPC Route Server</a> in the <i>Amazon VPC User Guide</i>.</p>
+        r"""<p>Deletes the specified route server.</p> <p>Amazon VPC Route Server simplifies routing for traffic between workloads that are deployed within a VPC and its internet gateways. With this feature, VPC Route Server dynamically updates VPC and internet gateway route tables with your preferred IPv4 or IPv6 routes to achieve routing fault tolerance for those workloads. This enables you to automatically reroute traffic within a VPC, which increases the manageability of VPC routing and interoperability with third-party workloads.</p> <p>Route server supports the follow route table types:</p> <ul> <li> <p>VPC route tables not associated with subnets</p> </li> <li> <p>Subnet route tables</p> </li> <li> <p>Internet gateway route tables</p> </li> </ul> <p>Route server does not support route tables associated with virtual private gateways. To propagate routes into a transit gateway route table, use <a href=\"https://docs.aws.amazon.com/vpc/latest/tgw/tgw-connect.html\">Transit Gateway Connect</a>.</p> <p>For more information see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/dynamic-routing-route-server.html\">Dynamic routing in your VPC with VPC Route Server</a> in the <i>Amazon VPC User Guide</i>.</p>
 
         Args:
             route_server_id: <p>The ID of the route server to delete.</p>
@@ -15248,7 +15248,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.delete_route_server_endpoint_result.DeleteRouteServerEndpointResult":
-        """<p>Deletes the specified route server endpoint.</p> <p>A route server endpoint is an Amazon Web Services-managed component inside a subnet that facilitates <a href=\"https://en.wikipedia.org/wiki/Border_Gateway_Protocol\">BGP (Border Gateway Protocol)</a> connections between your route server and your BGP peers.</p>
+        r"""<p>Deletes the specified route server endpoint.</p> <p>A route server endpoint is an Amazon Web Services-managed component inside a subnet that facilitates <a href=\"https://en.wikipedia.org/wiki/Border_Gateway_Protocol\">BGP (Border Gateway Protocol)</a> connections between your route server and your BGP peers.</p>
 
         Args:
             route_server_endpoint_id: <p>The ID of the route server endpoint to delete.</p>
@@ -15383,7 +15383,7 @@ class AsyncEC2Client:
     ) -> (
         "aws_sdk_ec2.types.delete_secondary_network_result.DeleteSecondaryNetworkResult"
     ):
-        """<p>Deletes a secondary network. You must delete all secondary subnets in the secondary network before you can delete the secondary network.</p>
+        r"""<p>Deletes a secondary network. You must delete all secondary subnets in the secondary network before you can delete the secondary network.</p>
 
         Args:
             client_token: <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html\">Ensure Idempotency</a>.</p>
@@ -15435,7 +15435,7 @@ class AsyncEC2Client:
         client_token: Optional["aws_sdk_ec2.types.string.String"] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.delete_secondary_subnet_result.DeleteSecondarySubnetResult":
-        """<p>Deletes a secondary subnet. A secondary subnet must not contain any secondary interfaces prior to deletion.</p>
+        r"""<p>Deletes a secondary subnet. A secondary subnet must not contain any secondary interfaces prior to deletion.</p>
 
         Args:
             client_token: <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html\">Ensure Idempotency</a>.</p>
@@ -15543,7 +15543,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> None:
-        """<p>Deletes the specified snapshot.</p> <p>When you make periodic snapshots of a volume, the snapshots are incremental, and only the blocks on the device that have changed since your last snapshot are saved in the new snapshot. When you delete a snapshot, only the data not needed for any other snapshot is removed. So regardless of which prior snapshots have been deleted, all active snapshots will have access to all the information needed to restore the volume.</p> <p>You cannot delete a snapshot of the root device of an EBS volume used by a registered AMI. You must first deregister the AMI before you can delete the snapshot.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/ebs-deleting-snapshot.html\">Delete an Amazon EBS snapshot</a> in the <i>Amazon EBS User Guide</i>.</p>
+        r"""<p>Deletes the specified snapshot.</p> <p>When you make periodic snapshots of a volume, the snapshots are incremental, and only the blocks on the device that have changed since your last snapshot are saved in the new snapshot. When you delete a snapshot, only the data not needed for any other snapshot is removed. So regardless of which prior snapshots have been deleted, all active snapshots will have access to all the information needed to restore the volume.</p> <p>You cannot delete a snapshot of the root device of an EBS volume used by a registered AMI. You must first deregister the AMI before you can delete the snapshot.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/ebs-deleting-snapshot.html\">Delete an Amazon EBS snapshot</a> in the <i>Amazon EBS User Guide</i>.</p>
 
         Args:
             snapshot_id: <p>The ID of the EBS snapshot.</p>
@@ -15721,7 +15721,7 @@ class AsyncEC2Client:
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
         tags: Optional["aws_sdk_ec2.types.tag_list.TagList"] = None,
     ) -> None:
-        """<p>Deletes the specified set of tags from the specified set of resources.</p> <p>To list the current tags, use <a>DescribeTags</a>. For more information about tags, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html\">Tag your Amazon EC2 resources</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+        r"""<p>Deletes the specified set of tags from the specified set of resources.</p> <p>To list the current tags, use <a>DescribeTags</a>. For more information about tags, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html\">Tag your Amazon EC2 resources</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -16544,7 +16544,7 @@ class AsyncEC2Client:
         client_token: Optional["aws_sdk_ec2.types.string.String"] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.delete_verified_access_endpoint_result.DeleteVerifiedAccessEndpointResult":
-        """<p>Delete an Amazon Web Services Verified Access endpoint.</p>
+        r"""<p>Delete an Amazon Web Services Verified Access endpoint.</p>
 
         Args:
             verified_access_endpoint_id: <p>The ID of the Verified Access endpoint.</p>
@@ -16590,7 +16590,7 @@ class AsyncEC2Client:
         client_token: Optional["aws_sdk_ec2.types.string.String"] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.delete_verified_access_group_result.DeleteVerifiedAccessGroupResult":
-        """<p>Delete an Amazon Web Services Verified Access group.</p>
+        r"""<p>Delete an Amazon Web Services Verified Access group.</p>
 
         Args:
             verified_access_group_id: <p>The ID of the Verified Access group.</p>
@@ -16636,7 +16636,7 @@ class AsyncEC2Client:
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
         client_token: Optional["aws_sdk_ec2.types.string.String"] = None,
     ) -> "aws_sdk_ec2.types.delete_verified_access_instance_result.DeleteVerifiedAccessInstanceResult":
-        """<p>Delete an Amazon Web Services Verified Access instance.</p>
+        r"""<p>Delete an Amazon Web Services Verified Access instance.</p>
 
         Args:
             verified_access_instance_id: <p>The ID of the Verified Access instance.</p>
@@ -16682,7 +16682,7 @@ class AsyncEC2Client:
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
         client_token: Optional["aws_sdk_ec2.types.string.String"] = None,
     ) -> "aws_sdk_ec2.types.delete_verified_access_trust_provider_result.DeleteVerifiedAccessTrustProviderResult":
-        """<p>Delete an Amazon Web Services Verified Access trust provider.</p>
+        r"""<p>Delete an Amazon Web Services Verified Access trust provider.</p>
 
         Args:
             verified_access_trust_provider_id: <p>The ID of the Verified Access trust provider.</p>
@@ -16727,7 +16727,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> None:
-        """<p>Deletes the specified EBS volume. The volume must be in the <code>available</code> state (not attached to an instance).</p> <p>The volume can remain in the <code>deleting</code> state for several minutes.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/ebs-deleting-volume.html\">Delete an Amazon EBS volume</a> in the <i>Amazon EBS User Guide</i>.</p>
+        r"""<p>Deletes the specified EBS volume. The volume must be in the <code>available</code> state (not attached to an instance).</p> <p>The volume can remain in the <code>deleting</code> state for several minutes.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/ebs-deleting-volume.html\">Delete an Amazon EBS volume</a> in the <i>Amazon EBS User Guide</i>.</p>
 
         Args:
             volume_id: <p>The ID of the volume.</p>
@@ -16819,7 +16819,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.delete_vpc_block_public_access_exclusion_result.DeleteVpcBlockPublicAccessExclusionResult":
-        """<p>Delete a VPC Block Public Access (BPA) exclusion. A VPC BPA exclusion is a mode that can be applied to a single VPC or subnet that exempts it from the account’s BPA mode and will allow bidirectional or egress-only access. You can create BPA exclusions for VPCs and subnets even when BPA is not enabled on the account to ensure that there is no traffic disruption to the exclusions when VPC BPA is turned on. To learn more about VPC BPA, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/security-vpc-bpa.html\">Block public access to VPCs and subnets</a> in the <i>Amazon VPC User Guide</i>.</p>
+        r"""<p>Delete a VPC Block Public Access (BPA) exclusion. A VPC BPA exclusion is a mode that can be applied to a single VPC or subnet that exempts it from the account’s BPA mode and will allow bidirectional or egress-only access. You can create BPA exclusions for VPCs and subnets even when BPA is not enabled on the account to ensure that there is no traffic disruption to the exclusions when VPC BPA is turned on. To learn more about VPC BPA, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/security-vpc-bpa.html\">Block public access to VPCs and subnets</a> in the <i>Amazon VPC User Guide</i>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -16861,7 +16861,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.delete_vpc_encryption_control_result.DeleteVpcEncryptionControlResult":
-        """<p>Deletes a VPC Encryption Control configuration. This removes the encryption policy enforcement from the specified VPC.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html\">Enforce VPC encryption in transit</a> in the <i>Amazon VPC User Guide</i>.</p>
+        r"""<p>Deletes a VPC Encryption Control configuration. This removes the encryption policy enforcement from the specified VPC.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html\">Enforce VPC encryption in transit</a> in the <i>Amazon VPC User Guide</i>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -17275,7 +17275,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.deprovision_ipam_byoasn_result.DeprovisionIpamByoasnResult":
-        """<p>Deprovisions your Autonomous System Number (ASN) from your Amazon Web Services account. This action can only be called after any BYOIP CIDR associations are removed from your Amazon Web Services account with <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DisassociateIpamByoasn.html\">DisassociateIpamByoasn</a>. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoasn.html\">Tutorial: Bring your ASN to IPAM</a> in the <i>Amazon VPC IPAM guide</i>.</p>
+        r"""<p>Deprovisions your Autonomous System Number (ASN) from your Amazon Web Services account. This action can only be called after any BYOIP CIDR associations are removed from your Amazon Web Services account with <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DisassociateIpamByoasn.html\">DisassociateIpamByoasn</a>. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoasn.html\">Tutorial: Bring your ASN to IPAM</a> in the <i>Amazon VPC IPAM guide</i>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -17320,7 +17320,7 @@ class AsyncEC2Client:
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
         cidr: Optional["aws_sdk_ec2.types.string.String"] = None,
     ) -> "aws_sdk_ec2.types.deprovision_ipam_pool_cidr_result.DeprovisionIpamPoolCidrResult":
-        """<p>Deprovision a CIDR provisioned from an IPAM pool. If you deprovision a CIDR from a pool that has a source pool, the CIDR is recycled back into the source pool. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/depro-pool-cidr-ipam.html\">Deprovision pool CIDRs</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+        r"""<p>Deprovision a CIDR provisioned from an IPAM pool. If you deprovision a CIDR from a pool that has a source pool, the CIDR is recycled back into the source pool. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/depro-pool-cidr-ipam.html\">Deprovision pool CIDRs</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
 
         Args:
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -17413,7 +17413,7 @@ class AsyncEC2Client:
         ] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.deregister_image_result.DeregisterImageResult":
-        """<p>Deregisters the specified AMI. A deregistered AMI can't be used to launch new instances.</p> <p>If a deregistered EBS-backed AMI matches a Recycle Bin retention rule, it moves to the Recycle Bin for the specified retention period. It can be restored before its retention period expires, after which it is permanently deleted. If the deregistered AMI doesn't match a retention rule, it is permanently deleted immediately. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html\">Recover deleted Amazon EBS snapshots and EBS-backed AMIs with Recycle Bin</a> in the <i>Amazon EBS User Guide</i>.</p> <p>When deregistering an EBS-backed AMI, you can optionally delete its associated snapshots at the same time. However, if a snapshot is associated with multiple AMIs, it won't be deleted even if specified for deletion, although the AMI will still be deregistered.</p> <p>Deregistering an AMI does not delete the following:</p> <ul> <li> <p>Instances already launched from the AMI. You'll continue to incur usage costs for the instances until you terminate them.</p> </li> <li> <p>For EBS-backed AMIs: Snapshots that are associated with multiple AMIs. You'll continue to incur snapshot storage costs.</p> </li> <li> <p>For instance store-backed AMIs: The files uploaded to Amazon S3 during AMI creation. You'll continue to incur S3 storage costs.</p> </li> </ul> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/deregister-ami.html\">Deregister an Amazon EC2 AMI</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Deregisters the specified AMI. A deregistered AMI can't be used to launch new instances.</p> <p>If a deregistered EBS-backed AMI matches a Recycle Bin retention rule, it moves to the Recycle Bin for the specified retention period. It can be restored before its retention period expires, after which it is permanently deleted. If the deregistered AMI doesn't match a retention rule, it is permanently deleted immediately. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html\">Recover deleted Amazon EBS snapshots and EBS-backed AMIs with Recycle Bin</a> in the <i>Amazon EBS User Guide</i>.</p> <p>When deregistering an EBS-backed AMI, you can optionally delete its associated snapshots at the same time. However, if a snapshot is associated with multiple AMIs, it won't be deleted even if specified for deletion, although the AMI will still be deregistered.</p> <p>Deregistering an AMI does not delete the following:</p> <ul> <li> <p>Instances already launched from the AMI. You'll continue to incur usage costs for the instances until you terminate them.</p> </li> <li> <p>For EBS-backed AMIs: Snapshots that are associated with multiple AMIs. You'll continue to incur snapshot storage costs.</p> </li> <li> <p>For instance store-backed AMIs: The files uploaded to Amazon S3 during AMI creation. You'll continue to incur S3 storage costs.</p> </li> </ul> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/deregister-ami.html\">Deregister an Amazon EC2 AMI</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             image_id: <p>The ID of the AMI.</p>
@@ -17616,7 +17616,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.account_attribute_name_string_list.AccountAttributeNameStringList"
         ] = None,
     ) -> "aws_sdk_ec2.types.describe_account_attributes_result.DescribeAccountAttributesResult":
-        """<p>Describes attributes of your Amazon Web Services account. The following are the supported account attributes:</p> <ul> <li> <p> <code>default-vpc</code>: The ID of the default VPC for your account, or <code>none</code>.</p> </li> <li> <p> <code>max-instances</code>: This attribute is no longer supported. The returned value does not reflect your actual vCPU limit for running On-Demand Instances. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-on-demand-instances.html#ec2-on-demand-instances-limits\">On-Demand Instance Limits</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> </li> <li> <p> <code>max-elastic-ips</code>: The maximum number of Elastic IP addresses that you can allocate.</p> </li> <li> <p> <code>supported-platforms</code>: This attribute is deprecated.</p> </li> <li> <p> <code>vpc-max-elastic-ips</code>: The maximum number of Elastic IP addresses that you can allocate.</p> </li> <li> <p> <code>vpc-max-security-groups-per-interface</code>: The maximum number of security groups that you can assign to a network interface.</p> </li> </ul> <note> <p>The order of the elements in the response, including those within nested structures, might vary. Applications should not assume the elements appear in a particular order.</p> </note>
+        r"""<p>Describes attributes of your Amazon Web Services account. The following are the supported account attributes:</p> <ul> <li> <p> <code>default-vpc</code>: The ID of the default VPC for your account, or <code>none</code>.</p> </li> <li> <p> <code>max-instances</code>: This attribute is no longer supported. The returned value does not reflect your actual vCPU limit for running On-Demand Instances. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-on-demand-instances.html#ec2-on-demand-instances-limits\">On-Demand Instance Limits</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> </li> <li> <p> <code>max-elastic-ips</code>: The maximum number of Elastic IP addresses that you can allocate.</p> </li> <li> <p> <code>supported-platforms</code>: This attribute is deprecated.</p> </li> <li> <p> <code>vpc-max-elastic-ips</code>: The maximum number of Elastic IP addresses that you can allocate.</p> </li> <li> <p> <code>vpc-max-security-groups-per-interface</code>: The maximum number of security groups that you can assign to a network interface.</p> </li> </ul> <note> <p>The order of the elements in the response, including those within nested structures, might vary. Applications should not assume the elements appear in a particular order.</p> </note>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -17739,7 +17739,7 @@ class AsyncEC2Client:
         ] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.describe_addresses_attribute_result.DescribeAddressesAttributeResult":
-        """<p>Describes the attributes of the specified Elastic IP addresses. For requirements, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#Using_Elastic_Addressing_Reverse_DNS\">Using reverse DNS for email applications</a>.</p>
+        r"""<p>Describes the attributes of the specified Elastic IP addresses. For requirements, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#Using_Elastic_Addressing_Reverse_DNS\">Using reverse DNS for email applications</a>.</p>
 
         Args:
             allocation_ids: <p>[EC2-VPC] The allocation IDs.</p>
@@ -17830,7 +17830,7 @@ class AsyncEC2Client:
         ] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.describe_address_transfers_result.DescribeAddressTransfersResult":
-        """<p>Describes an Elastic IP address transfer. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#transfer-EIPs-intro\">Transfer Elastic IP addresses</a> in the <i>Amazon VPC User Guide</i>.</p> <p>When you transfer an Elastic IP address, there is a two-step handshake between the source and transfer Amazon Web Services accounts. When the source account starts the transfer, the transfer account has seven days to accept the Elastic IP address transfer. During those seven days, the source account can view the pending transfer by using this action. After seven days, the transfer expires and ownership of the Elastic IP address returns to the source account. Accepted transfers are visible to the source account for 14 days after the transfers have been accepted.</p>
+        r"""<p>Describes an Elastic IP address transfer. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#transfer-EIPs-intro\">Transfer Elastic IP addresses</a> in the <i>Amazon VPC User Guide</i>.</p> <p>When you transfer an Elastic IP address, there is a two-step handshake between the source and transfer Amazon Web Services accounts. When the source account starts the transfer, the transfer account has seven days to accept the Elastic IP address transfer. During those seven days, the source account can view the pending transfer by using this action. After seven days, the transfer expires and ownership of the Elastic IP address returns to the source account. Accepted transfers are visible to the source account for 14 days after the transfers have been accepted.</p>
 
         Args:
             allocation_ids: <p>The allocation IDs of Elastic IP addresses.</p>
@@ -17954,7 +17954,7 @@ class AsyncEC2Client:
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
         filters: Optional["aws_sdk_ec2.types.filter_list.FilterList"] = None,
     ) -> "aws_sdk_ec2.types.describe_availability_zones_result.DescribeAvailabilityZonesResult":
-        """<p>Describes the Availability Zones, Local Zones, and Wavelength Zones that are available to you.</p> <p>For more information about Availability Zones, Local Zones, and Wavelength Zones, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html\">Regions and zones</a> in the <i>Amazon EC2 User Guide</i>.</p> <note> <p>The order of the elements in the response, including those within nested structures, might vary. Applications should not assume the elements appear in a particular order.</p> </note>
+        r"""<p>Describes the Availability Zones, Local Zones, and Wavelength Zones that are available to you.</p> <p>For more information about Availability Zones, Local Zones, and Wavelength Zones, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html\">Regions and zones</a> in the <i>Amazon EC2 User Guide</i>.</p> <note> <p>The order of the elements in the response, including those within nested structures, might vary. Applications should not assume the elements appear in a particular order.</p> </note>
 
         Args:
             zone_names: <p>The names of the Availability Zones, Local Zones, and Wavelength Zones.</p>
@@ -18219,7 +18219,7 @@ class AsyncEC2Client:
         filters: Optional["aws_sdk_ec2.types.filter_list.FilterList"] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.describe_capacity_block_extension_history_result.DescribeCapacityBlockExtensionHistoryResult":
-        """<p>Describes the events for the specified Capacity Block extension during the specified time.</p>
+        r"""<p>Describes the events for the specified Capacity Block extension during the specified time.</p>
 
         Args:
             capacity_reservation_ids: <p>The IDs of Capacity Block reservations that you want to display the history for.</p>
@@ -18307,7 +18307,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.describe_capacity_block_extension_offerings_max_results.DescribeCapacityBlockExtensionOfferingsMaxResults"
         ] = None,
     ) -> "aws_sdk_ec2.types.describe_capacity_block_extension_offerings_result.DescribeCapacityBlockExtensionOfferingsResult":
-        """<p>Describes Capacity Block extension offerings available for purchase in the Amazon Web Services Region that you're currently using.</p>
+        r"""<p>Describes Capacity Block extension offerings available for purchase in the Amazon Web Services Region that you're currently using.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -18403,7 +18403,7 @@ class AsyncEC2Client:
         ultraserver_count: Optional["aws_sdk_ec2.types.integer.Integer"] = None,
         all_availability_zones: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.describe_capacity_block_offerings_result.DescribeCapacityBlockOfferingsResult":
-        """<p>Describes Capacity Block offerings available for purchase in the Amazon Web Services Region that you're currently using. With Capacity Blocks, you can purchase a specific GPU instance type or EC2 UltraServer for a period of time.</p> <p>To search for an available Capacity Block offering, you specify a reservation duration and instance count.</p>
+        r"""<p>Describes Capacity Block offerings available for purchase in the Amazon Web Services Region that you're currently using. With Capacity Blocks, you can purchase a specific GPU instance type or EC2 UltraServer for a period of time.</p> <p>To search for an available Capacity Block offering, you specify a reservation duration and instance count.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -18528,7 +18528,7 @@ class AsyncEC2Client:
     ) -> (
         "aws_sdk_ec2.types.describe_capacity_blocks_result.DescribeCapacityBlocksResult"
     ):
-        """<p>Describes details about Capacity Blocks in the Amazon Web Services Region that you're currently using.</p>
+        r"""<p>Describes details about Capacity Blocks in the Amazon Web Services Region that you're currently using.</p>
 
         Args:
             capacity_block_ids: <p>The IDs of the Capacity Blocks.</p>
@@ -18618,7 +18618,7 @@ class AsyncEC2Client:
         filters: Optional["aws_sdk_ec2.types.filter_list.FilterList"] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.describe_capacity_block_status_result.DescribeCapacityBlockStatusResult":
-        """<p>Describes the availability of capacity for the specified Capacity blocks, or all of your Capacity Blocks.</p>
+        r"""<p>Describes the availability of capacity for the specified Capacity blocks, or all of your Capacity Blocks.</p>
 
         Args:
             capacity_block_ids: <p>The ID of the Capacity Block.</p>
@@ -18801,7 +18801,7 @@ class AsyncEC2Client:
         filters: Optional["aws_sdk_ec2.types.filter_list.FilterList"] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.describe_capacity_reservation_billing_requests_result.DescribeCapacityReservationBillingRequestsResult":
-        """<p>Describes a request to assign the billing of the unused capacity of a Capacity Reservation. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/transfer-billing.html\"> Billing assignment for shared Amazon EC2 Capacity Reservations</a>.</p>
+        r"""<p>Describes a request to assign the billing of the unused capacity of a Capacity Reservation. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/transfer-billing.html\"> Billing assignment for shared Amazon EC2 Capacity Reservations</a>.</p>
 
         Args:
             capacity_reservation_ids: <p>The ID of the Capacity Reservation.</p>
@@ -18895,7 +18895,7 @@ class AsyncEC2Client:
         filters: Optional["aws_sdk_ec2.types.filter_list.FilterList"] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.describe_capacity_reservation_fleets_result.DescribeCapacityReservationFleetsResult":
-        """<p>Describes one or more Capacity Reservation Fleets.</p>
+        r"""<p>Describes one or more Capacity Reservation Fleets.</p>
 
         Args:
             capacity_reservation_fleet_ids: <p>The IDs of the Capacity Reservation Fleets to describe.</p>
@@ -18985,7 +18985,7 @@ class AsyncEC2Client:
         filters: Optional["aws_sdk_ec2.types.filter_list.FilterList"] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.describe_capacity_reservations_result.DescribeCapacityReservationsResult":
-        """<p>Describes one or more of your Capacity Reservations. The results describe only the Capacity Reservations in the Amazon Web Services Region that you're currently using.</p>
+        r"""<p>Describes one or more of your Capacity Reservations. The results describe only the Capacity Reservations in the Amazon Web Services Region that you're currently using.</p>
 
         Args:
             capacity_reservation_ids: <p>The ID of the Capacity Reservation.</p>
@@ -19075,7 +19075,7 @@ class AsyncEC2Client:
         ] = None,
         filters: Optional["aws_sdk_ec2.types.filter_list.FilterList"] = None,
     ) -> "aws_sdk_ec2.types.describe_capacity_reservation_topology_result.DescribeCapacityReservationTopologyResult":
-        """<p>Describes a tree-based hierarchy that represents the physical host placement of your pending or active Capacity Reservations within an Availability Zone or Local Zone. You can use this information to determine the relative proximity of your capacity within the Amazon Web Services network before it is launched and use this information to allocate capacity together to support your tightly coupled workloads.</p> <p>Capacity Reservation topology is supported for specific instance types only. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-topology-prerequisites.html\">Prerequisites for Amazon EC2 instance topology</a> in the <i>Amazon EC2 User Guide</i>.</p> <note> <p>The Amazon EC2 API follows an eventual consistency model due to the distributed nature of the system supporting it. As a result, when you call the DescribeCapacityReservationTopology API command immediately after launching instances, the response might return a <code>null</code> value for <code>capacityBlockId</code> because the data might not have fully propagated across all subsystems. For more information, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/eventual-consistency.html\">Eventual consistency in the Amazon EC2 API</a> in the <i>Amazon EC2 Developer Guide</i>.</p> </note> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-topology.html\">Amazon EC2 topology</a> in the <i>Amazon EC2 User Guide</i>.</p> <p></p>
+        r"""<p>Describes a tree-based hierarchy that represents the physical host placement of your pending or active Capacity Reservations within an Availability Zone or Local Zone. You can use this information to determine the relative proximity of your capacity within the Amazon Web Services network before it is launched and use this information to allocate capacity together to support your tightly coupled workloads.</p> <p>Capacity Reservation topology is supported for specific instance types only. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-topology-prerequisites.html\">Prerequisites for Amazon EC2 instance topology</a> in the <i>Amazon EC2 User Guide</i>.</p> <note> <p>The Amazon EC2 API follows an eventual consistency model due to the distributed nature of the system supporting it. As a result, when you call the DescribeCapacityReservationTopology API command immediately after launching instances, the response might return a <code>null</code> value for <code>capacityBlockId</code> because the data might not have fully propagated across all subsystems. For more information, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/eventual-consistency.html\">Eventual consistency in the Amazon EC2 API</a> in the <i>Amazon EC2 Developer Guide</i>.</p> </note> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-topology.html\">Amazon EC2 topology</a> in the <i>Amazon EC2 User Guide</i>.</p> <p></p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -19224,7 +19224,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.describe_classic_link_instances_max_results.DescribeClassicLinkInstancesMaxResults"
         ] = None,
     ) -> "aws_sdk_ec2.types.describe_classic_link_instances_result.DescribeClassicLinkInstancesResult":
-        """<note> <p>This action is deprecated.</p> </note> <p>Describes your linked EC2-Classic instances. This request only returns information about EC2-Classic instances linked to a VPC through ClassicLink. You cannot use this request to return information about other instances.</p>
+        r"""<note> <p>This action is deprecated.</p> </note> <p>Describes your linked EC2-Classic instances. This request only returns information about EC2-Classic instances linked to a VPC through ClassicLink. You cannot use this request to return information about other instances.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -19835,7 +19835,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.conversion_id_string_list.ConversionIdStringList"
         ] = None,
     ) -> "aws_sdk_ec2.types.describe_conversion_tasks_result.DescribeConversionTasksResult":
-        """<p>Describes the specified conversion tasks or all your conversion tasks. For more information, see the <a href=\"https://docs.aws.amazon.com/vm-import/latest/userguide/\">VM Import/Export User Guide</a>.</p> <p>For information about the import manifest referenced by this API action, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html\">VM Import Manifest</a>.</p>
+        r"""<p>Describes the specified conversion tasks or all your conversion tasks. For more information, see the <a href=\"https://docs.aws.amazon.com/vm-import/latest/userguide/\">VM Import/Export User Guide</a>.</p> <p>For information about the import manifest referenced by this API action, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html\">VM Import Manifest</a>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -19881,7 +19881,7 @@ class AsyncEC2Client:
         filters: Optional["aws_sdk_ec2.types.filter_list.FilterList"] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.describe_customer_gateways_result.DescribeCustomerGatewaysResult":
-        """<p>Describes one or more of your VPN customer gateways.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html\">Amazon Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN User Guide</i>.</p>
+        r"""<p>Describes one or more of your VPN customer gateways.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html\">Amazon Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN User Guide</i>.</p>
 
         Args:
             customer_gateway_ids: <p>One or more customer gateway IDs.</p> <p>Default: Describes all your customer gateways.</p>
@@ -19939,7 +19939,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.value_string_list.ValueStringList"
         ] = None,
     ) -> "aws_sdk_ec2.types.describe_declarative_policies_reports_result.DescribeDeclarativePoliciesReportsResult":
-        """<p>Describes the metadata of an account status report, including the status of the report.</p> <p>To view the full report, download it from the Amazon S3 bucket where it was saved. Reports are accessible only when they have the <code>complete</code> status. Reports with other statuses (<code>running</code>, <code>cancelled</code>, or <code>error</code>) are not available in the S3 bucket. For more information about downloading objects from an S3 bucket, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/download-objects.html\">Downloading objects</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_declarative_status-report.html\">Generating the account status report for declarative policies</a> in the <i>Amazon Web Services Organizations User Guide</i>.</p>
+        r"""<p>Describes the metadata of an account status report, including the status of the report.</p> <p>To view the full report, download it from the Amazon S3 bucket where it was saved. Reports are accessible only when they have the <code>complete</code> status. Reports with other statuses (<code>running</code>, <code>cancelled</code>, or <code>error</code>) are not available in the S3 bucket. For more information about downloading objects from an S3 bucket, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/download-objects.html\">Downloading objects</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_declarative_status-report.html\">Generating the account status report for declarative policies</a> in the <i>Amazon Web Services Organizations User Guide</i>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -19995,7 +19995,7 @@ class AsyncEC2Client:
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
         filters: Optional["aws_sdk_ec2.types.filter_list.FilterList"] = None,
     ) -> "aws_sdk_ec2.types.describe_dhcp_options_result.DescribeDhcpOptionsResult":
-        """<p>Describes your DHCP option sets. The default is to describe all your DHCP option sets. Alternatively, you can specify specific DHCP option set IDs or filter the results to include only the DHCP option sets that match specific criteria.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html\">DHCP option sets</a> in the <i>Amazon VPC User Guide</i>.</p>
+        r"""<p>Describes your DHCP option sets. The default is to describe all your DHCP option sets. Alternatively, you can specify specific DHCP option set IDs or filter the results to include only the DHCP option sets that match specific criteria.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html\">DHCP option sets</a> in the <i>Amazon VPC User Guide</i>.</p>
 
         Args:
             dhcp_options_ids: <p>The IDs of DHCP option sets.</p>
@@ -20091,7 +20091,7 @@ class AsyncEC2Client:
         next_token: Optional["aws_sdk_ec2.types.string.String"] = None,
         filters: Optional["aws_sdk_ec2.types.filter_list.FilterList"] = None,
     ) -> "aws_sdk_ec2.types.describe_egress_only_internet_gateways_result.DescribeEgressOnlyInternetGatewaysResult":
-        """<p>Describes your egress-only internet gateways. The default is to describe all your egress-only internet gateways. Alternatively, you can specify specific egress-only internet gateway IDs or filter the results to include only the egress-only internet gateways that match specific criteria.</p>
+        r"""<p>Describes your egress-only internet gateways. The default is to describe all your egress-only internet gateways. Alternatively, you can specify specific egress-only internet gateway IDs or filter the results to include only the egress-only internet gateways that match specific criteria.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -20377,7 +20377,7 @@ class AsyncEC2Client:
         next_token: Optional["aws_sdk_ec2.types.next_token.NextToken"] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.describe_fast_launch_images_result.DescribeFastLaunchImagesResult":
-        """<p>Describe details for Windows AMIs that are configured for Windows fast launch.</p>
+        r"""<p>Describe details for Windows AMIs that are configured for Windows fast launch.</p>
 
         Args:
             image_ids: <p>Specify one or more Windows AMI image IDs for the request.</p>
@@ -20464,7 +20464,7 @@ class AsyncEC2Client:
         next_token: Optional["aws_sdk_ec2.types.next_token.NextToken"] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.describe_fast_snapshot_restores_result.DescribeFastSnapshotRestoresResult":
-        """<p>Describes the state of fast snapshot restores for your snapshots.</p>
+        r"""<p>Describes the state of fast snapshot restores for your snapshots.</p>
 
         Args:
             filters: <p>The filters. The possible values are:</p> <ul> <li> <p> <code>availability-zone</code>: The Availability Zone of the snapshot. For example, <code>us-east-2a</code>.</p> </li> <li> <p> <code>availability-zone-id</code>: The ID of the Availability Zone of the snapshot. For example, <code>use2-az1</code>.</p> </li> <li> <p> <code>owner-id</code>: The ID of the Amazon Web Services account that enabled fast snapshot restore on the snapshot.</p> </li> <li> <p> <code>snapshot-id</code>: The ID of the snapshot.</p> </li> <li> <p> <code>state</code>: The state of fast snapshot restores for the snapshot (<code>enabling</code> | <code>optimizing</code> | <code>enabled</code> | <code>disabling</code> | <code>disabled</code>).</p> </li> </ul>
@@ -20546,7 +20546,7 @@ class AsyncEC2Client:
         max_results: Optional["aws_sdk_ec2.types.integer.Integer"] = None,
         next_token: Optional["aws_sdk_ec2.types.string.String"] = None,
     ) -> "aws_sdk_ec2.types.describe_fleet_history_result.DescribeFleetHistoryResult":
-        """<p>Describes the events for the specified EC2 Fleet during the specified time.</p> <p>EC2 Fleet events are delayed by up to 30 seconds before they can be described. This ensures that you can query by the last evaluated time and not miss a recorded event. EC2 Fleet events are available for 48 hours.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/fleet-monitor.html\">Monitor fleet events using Amazon EventBridge</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Describes the events for the specified EC2 Fleet during the specified time.</p> <p>EC2 Fleet events are delayed by up to 30 seconds before they can be described. This ensures that you can query by the last evaluated time and not miss a recorded event. EC2 Fleet events are available for 48 hours.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/fleet-monitor.html\">Monitor fleet events using Amazon EventBridge</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -20604,7 +20604,7 @@ class AsyncEC2Client:
     ) -> (
         "aws_sdk_ec2.types.describe_fleet_instances_result.DescribeFleetInstancesResult"
     ):
-        """<p>Describes the running instances for the specified EC2 Fleet.</p> <note> <p>Currently, <code>DescribeFleetInstances</code> does not support fleets of type <code>instant</code>. Instead, use <code>DescribeFleets</code>, specifying the <code>instant</code> fleet ID in the request.</p> </note> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#monitor-ec2-fleet\">Describe your EC2 Fleet</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Describes the running instances for the specified EC2 Fleet.</p> <note> <p>Currently, <code>DescribeFleetInstances</code> does not support fleets of type <code>instant</code>. Instead, use <code>DescribeFleets</code>, specifying the <code>instant</code> fleet ID in the request.</p> </note> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#monitor-ec2-fleet\">Describe your EC2 Fleet</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -20658,7 +20658,7 @@ class AsyncEC2Client:
         fleet_ids: Optional["aws_sdk_ec2.types.fleet_id_set.FleetIdSet"] = None,
         filters: Optional["aws_sdk_ec2.types.filter_list.FilterList"] = None,
     ) -> "aws_sdk_ec2.types.describe_fleets_result.DescribeFleetsResult":
-        """<p>Describes the specified EC2 Fleet or all of your EC2 Fleets.</p> <important> <p>If a fleet is of type <code>instant</code>, you must specify the fleet ID in the request, otherwise the fleet does not appear in the response.</p> </important> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#monitor-ec2-fleet\">Describe your EC2 Fleet</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Describes the specified EC2 Fleet or all of your EC2 Fleets.</p> <important> <p>If a fleet is of type <code>instant</code>, you must specify the fleet ID in the request, otherwise the fleet does not appear in the response.</p> </important> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#monitor-ec2-fleet\">Describe your EC2 Fleet</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -20742,7 +20742,7 @@ class AsyncEC2Client:
         max_results: Optional["aws_sdk_ec2.types.integer.Integer"] = None,
         next_token: Optional["aws_sdk_ec2.types.string.String"] = None,
     ) -> "aws_sdk_ec2.types.describe_flow_logs_result.DescribeFlowLogsResult":
-        """<p>Describes one or more flow logs.</p> <p>To view the published flow log records, you must view the log destination. For example, the CloudWatch Logs log group, the Amazon S3 bucket, or the Kinesis Data Firehose delivery stream.</p>
+        r"""<p>Describes one or more flow logs.</p> <p>To view the published flow log records, you must view the log destination. For example, the CloudWatch Logs log group, the Amazon S3 bucket, or the Kinesis Data Firehose delivery stream.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -20970,7 +20970,7 @@ class AsyncEC2Client:
         next_token: Optional["aws_sdk_ec2.types.string.String"] = None,
         offering_id: Optional["aws_sdk_ec2.types.offering_id.OfferingId"] = None,
     ) -> "aws_sdk_ec2.types.describe_host_reservation_offerings_result.DescribeHostReservationOfferingsResult":
-        """<p>Describes the Dedicated Host reservations that are available to purchase.</p> <p>The results describe all of the Dedicated Host reservation offerings, including offerings that might not match the instance family and Region of your Dedicated Hosts. When purchasing an offering, ensure that the instance family and Region of the offering matches that of the Dedicated Hosts with which it is to be associated. For more information about supported instance types, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-overview.html\">Dedicated Hosts</a> in the <i>Amazon EC2 User Guide</i>. </p>
+        r"""<p>Describes the Dedicated Host reservations that are available to purchase.</p> <p>The results describe all of the Dedicated Host reservation offerings, including offerings that might not match the instance family and Region of your Dedicated Hosts. When purchasing an offering, ensure that the instance family and Region of the offering matches that of the Dedicated Hosts with which it is to be associated. For more information about supported instance types, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-overview.html\">Dedicated Hosts</a> in the <i>Amazon EC2 User Guide</i>. </p>
 
         Args:
             filter: <p>The filters.</p> <ul> <li> <p> <code>instance-family</code> - The instance family of the offering (for example, <code>m4</code>).</p> </li> <li> <p> <code>payment-option</code> - The payment option (<code>NoUpfront</code> | <code>PartialUpfront</code> | <code>AllUpfront</code>).</p> </li> </ul>
@@ -21222,7 +21222,7 @@ class AsyncEC2Client:
         ] = None,
         next_token: Optional["aws_sdk_ec2.types.next_token.NextToken"] = None,
     ) -> "aws_sdk_ec2.types.describe_iam_instance_profile_associations_result.DescribeIamInstanceProfileAssociationsResult":
-        """<p>Describes your IAM instance profile associations.</p>
+        r"""<p>Describes your IAM instance profile associations.</p>
 
         Args:
             association_ids: <p>The IAM instance profile associations.</p>
@@ -21306,7 +21306,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         resource: Optional["aws_sdk_ec2.types.string.String"] = None,
     ) -> "aws_sdk_ec2.types.describe_identity_id_format_result.DescribeIdentityIdFormatResult":
-        """<p>Describes the ID format settings for resources for the specified IAM user, IAM role, or root user. For example, you can view the resource types that are enabled for longer IDs. This request only returns information about resource types whose ID formats can be modified; it does not return information about other resource types. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/resource-ids.html\">Resource IDs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. </p> <p>The following resource types support longer IDs: <code>bundle</code> | <code>conversion-task</code> | <code>customer-gateway</code> | <code>dhcp-options</code> | <code>elastic-ip-allocation</code> | <code>elastic-ip-association</code> | <code>export-task</code> | <code>flow-log</code> | <code>image</code> | <code>import-task</code> | <code>instance</code> | <code>internet-gateway</code> | <code>network-acl</code> | <code>network-acl-association</code> | <code>network-interface</code> | <code>network-interface-attachment</code> | <code>prefix-list</code> | <code>reservation</code> | <code>route-table</code> | <code>route-table-association</code> | <code>security-group</code> | <code>snapshot</code> | <code>subnet</code> | <code>subnet-cidr-block-association</code> | <code>volume</code> | <code>vpc</code> | <code>vpc-cidr-block-association</code> | <code>vpc-endpoint</code> | <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>. </p> <p>These settings apply to the principal specified in the request. They do not apply to the principal that makes the request.</p>
+        r"""<p>Describes the ID format settings for resources for the specified IAM user, IAM role, or root user. For example, you can view the resource types that are enabled for longer IDs. This request only returns information about resource types whose ID formats can be modified; it does not return information about other resource types. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/resource-ids.html\">Resource IDs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. </p> <p>The following resource types support longer IDs: <code>bundle</code> | <code>conversion-task</code> | <code>customer-gateway</code> | <code>dhcp-options</code> | <code>elastic-ip-allocation</code> | <code>elastic-ip-association</code> | <code>export-task</code> | <code>flow-log</code> | <code>image</code> | <code>import-task</code> | <code>instance</code> | <code>internet-gateway</code> | <code>network-acl</code> | <code>network-acl-association</code> | <code>network-interface</code> | <code>network-interface-attachment</code> | <code>prefix-list</code> | <code>reservation</code> | <code>route-table</code> | <code>route-table-association</code> | <code>security-group</code> | <code>snapshot</code> | <code>subnet</code> | <code>subnet-cidr-block-association</code> | <code>volume</code> | <code>vpc</code> | <code>vpc-cidr-block-association</code> | <code>vpc-endpoint</code> | <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>. </p> <p>These settings apply to the principal specified in the request. They do not apply to the principal that makes the request.</p>
 
         Args:
             resource: <p>The type of resource: <code>bundle</code> | <code>conversion-task</code> | <code>customer-gateway</code> | <code>dhcp-options</code> | <code>elastic-ip-allocation</code> | <code>elastic-ip-association</code> | <code>export-task</code> | <code>flow-log</code> | <code>image</code> | <code>import-task</code> | <code>instance</code> | <code>internet-gateway</code> | <code>network-acl</code> | <code>network-acl-association</code> | <code>network-interface</code> | <code>network-interface-attachment</code> | <code>prefix-list</code> | <code>reservation</code> | <code>route-table</code> | <code>route-table-association</code> | <code>security-group</code> | <code>snapshot</code> | <code>subnet</code> | <code>subnet-cidr-block-association</code> | <code>volume</code> | <code>vpc</code> | <code>vpc-cidr-block-association</code> | <code>vpc-endpoint</code> | <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code> </p>
@@ -21446,7 +21446,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.describe_image_references_max_results.DescribeImageReferencesMaxResults"
         ] = None,
     ) -> "aws_sdk_ec2.types.describe_image_references_result.DescribeImageReferencesResult":
-        """<p>Describes your Amazon Web Services resources that are referencing the specified images.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-ami-references.html\">Identify your resources referencing specified AMIs</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Describes your Amazon Web Services resources that are referencing the specified images.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-ami-references.html\">Identify your resources referencing specified AMIs</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             image_ids: <p>The IDs of the images to check for resource references.</p>
@@ -21546,7 +21546,7 @@ class AsyncEC2Client:
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
         filters: Optional["aws_sdk_ec2.types.filter_list.FilterList"] = None,
     ) -> "aws_sdk_ec2.types.describe_images_result.DescribeImagesResult":
-        """<p>Describes the specified images (AMIs, AKIs, and ARIs) available to you or all of the images available to you.</p> <p>The images available to you include public images, private images that you own, and private images owned by other Amazon Web Services accounts for which you have explicit launch permissions.</p> <p>Recently deregistered images appear in the returned results for a short interval and then return empty results. After all instances that reference a deregistered AMI are terminated, specifying the ID of the image will eventually return an error indicating that the AMI ID cannot be found.</p> <p>When Allowed AMIs is set to <code>enabled</code>, only allowed images are returned in the results, with the <code>imageAllowed</code> field set to <code>true</code> for each image. In <code>audit-mode</code>, the <code>imageAllowed</code> field is set to <code>true</code> for images that meet the account's Allowed AMIs criteria, and <code>false</code> for images that don't meet the criteria. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-allowed-amis.html\">Allowed AMIs</a>.</p> <p>The Amazon EC2 API follows an eventual consistency model. This means that the result of an API command you run that creates or modifies resources might not be immediately available to all subsequent commands you run. For guidance on how to manage eventual consistency, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/eventual-consistency.html\">Eventual consistency in the Amazon EC2 API</a> in the <i>Amazon EC2 Developer Guide</i>.</p> <important> <p>We strongly recommend using only paginated requests. Unpaginated requests are susceptible to throttling and timeouts.</p> </important> <note> <p>The order of the elements in the response, including those within nested structures, might vary. Applications should not assume the elements appear in a particular order.</p> </note>
+        r"""<p>Describes the specified images (AMIs, AKIs, and ARIs) available to you or all of the images available to you.</p> <p>The images available to you include public images, private images that you own, and private images owned by other Amazon Web Services accounts for which you have explicit launch permissions.</p> <p>Recently deregistered images appear in the returned results for a short interval and then return empty results. After all instances that reference a deregistered AMI are terminated, specifying the ID of the image will eventually return an error indicating that the AMI ID cannot be found.</p> <p>When Allowed AMIs is set to <code>enabled</code>, only allowed images are returned in the results, with the <code>imageAllowed</code> field set to <code>true</code> for each image. In <code>audit-mode</code>, the <code>imageAllowed</code> field is set to <code>true</code> for images that meet the account's Allowed AMIs criteria, and <code>false</code> for images that don't meet the criteria. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-allowed-amis.html\">Allowed AMIs</a>.</p> <p>The Amazon EC2 API follows an eventual consistency model. This means that the result of an API command you run that creates or modifies resources might not be immediately available to all subsequent commands you run. For guidance on how to manage eventual consistency, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/eventual-consistency.html\">Eventual consistency in the Amazon EC2 API</a> in the <i>Amazon EC2 Developer Guide</i>.</p> <important> <p>We strongly recommend using only paginated requests. Unpaginated requests are susceptible to throttling and timeouts.</p> </important> <note> <p>The order of the elements in the response, including those within nested structures, might vary. Applications should not assume the elements appear in a particular order.</p> </note>
 
         Args:
             executable_users: <p>Scopes the images by users with explicit launch permissions. Specify an Amazon Web Services account ID, <code>self</code> (the sender of the request), or <code>all</code> (public AMIs).</p> <ul> <li> <p>If you specify an Amazon Web Services account ID that is not your own, only AMIs shared with that specific Amazon Web Services account ID are returned. However, AMIs that are shared with the account’s organization or organizational unit (OU) are not returned.</p> </li> <li> <p>If you specify <code>self</code> or your own Amazon Web Services account ID, AMIs shared with your account are returned. In addition, AMIs that are shared with the organization or OU of which you are member are also returned. </p> </li> <li> <p>If you specify <code>all</code>, all public AMIs are returned.</p> </li> </ul>
@@ -21665,7 +21665,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.describe_image_usage_report_entries_max_results.DescribeImageUsageReportEntriesMaxResults"
         ] = None,
     ) -> "aws_sdk_ec2.types.describe_image_usage_report_entries_result.DescribeImageUsageReportEntriesResult":
-        """<p>Describes the entries in image usage reports, showing how your images are used across other Amazon Web Services accounts.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/your-ec2-ami-usage.html\">View your AMI usage</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Describes the entries in image usage reports, showing how your images are used across other Amazon Web Services accounts.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/your-ec2-ami-usage.html\">View your AMI usage</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             image_ids: <p>The IDs of the images for filtering the report entries. If specified, only report entries containing these images are returned.</p>
@@ -21765,7 +21765,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.describe_image_usage_reports_max_results.DescribeImageUsageReportsMaxResults"
         ] = None,
     ) -> "aws_sdk_ec2.types.describe_image_usage_reports_result.DescribeImageUsageReportsResult":
-        """<p>Describes the configuration and status of image usage reports, filtered by report IDs or image IDs.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/your-ec2-ami-usage.html\">View your AMI usage</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Describes the configuration and status of image usage reports, filtered by report IDs or image IDs.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/your-ec2-ami-usage.html\">View your AMI usage</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             image_ids: <p>The IDs of the images for filtering the reports. If specified, only reports containing these images are returned.</p>
@@ -22091,7 +22091,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.value_string_list.ValueStringList"
         ] = None,
     ) -> "aws_sdk_ec2.types.describe_instance_connect_endpoints_result.DescribeInstanceConnectEndpointsResult":
-        """<p>Describes the specified EC2 Instance Connect Endpoints or all EC2 Instance Connect Endpoints.</p>
+        r"""<p>Describes the specified EC2 Instance Connect Endpoints or all EC2 Instance Connect Endpoints.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -22181,7 +22181,7 @@ class AsyncEC2Client:
         ] = None,
         next_token: Optional["aws_sdk_ec2.types.string.String"] = None,
     ) -> "aws_sdk_ec2.types.describe_instance_credit_specifications_result.DescribeInstanceCreditSpecificationsResult":
-        """<p>Describes the credit option for CPU usage of the specified burstable performance instances. The credit options are <code>standard</code> and <code>unlimited</code>.</p> <p>If you do not specify an instance ID, Amazon EC2 returns burstable performance instances with the <code>unlimited</code> credit option, as well as instances that were previously configured as T2, T3, and T3a with the <code>unlimited</code> credit option. For example, if you resize a T2 instance, while it is configured as <code>unlimited</code>, to an M4 instance, Amazon EC2 returns the M4 instance.</p> <p>If you specify one or more instance IDs, Amazon EC2 returns the credit option (<code>standard</code> or <code>unlimited</code>) of those instances. If you specify an instance ID that is not valid, such as an instance that is not a burstable performance instance, an error is returned.</p> <p>Recently terminated instances might appear in the returned results. This interval is usually less than one hour.</p> <p>If an Availability Zone is experiencing a service disruption and you specify instance IDs in the affected zone, or do not specify any instance IDs at all, the call fails. If you specify only instance IDs in an unaffected zone, the call works normally.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html\">Burstable performance instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Describes the credit option for CPU usage of the specified burstable performance instances. The credit options are <code>standard</code> and <code>unlimited</code>.</p> <p>If you do not specify an instance ID, Amazon EC2 returns burstable performance instances with the <code>unlimited</code> credit option, as well as instances that were previously configured as T2, T3, and T3a with the <code>unlimited</code> credit option. For example, if you resize a T2 instance, while it is configured as <code>unlimited</code>, to an M4 instance, Amazon EC2 returns the M4 instance.</p> <p>If you specify one or more instance IDs, Amazon EC2 returns the credit option (<code>standard</code> or <code>unlimited</code>) of those instances. If you specify an instance ID that is not valid, such as an instance that is not a burstable performance instance, an error is returned.</p> <p>Recently terminated instances might appear in the returned results. This interval is usually less than one hour.</p> <p>If an Availability Zone is experiencing a service disruption and you specify instance IDs in the affected zone, or do not specify any instance IDs at all, the call fails. If you specify only instance IDs in an unaffected zone, the call works normally.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html\">Burstable performance instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -22308,7 +22308,7 @@ class AsyncEC2Client:
         max_results: Optional["aws_sdk_ec2.types.result_range.ResultRange"] = None,
         next_token: Optional["aws_sdk_ec2.types.string.String"] = None,
     ) -> "aws_sdk_ec2.types.describe_instance_event_windows_result.DescribeInstanceEventWindowsResult":
-        """<p>Describes the specified event windows or all event windows.</p> <p>If you specify event window IDs, the output includes information for only the specified event windows. If you specify filters, the output includes information for only those event windows that meet the filter criteria. If you do not specify event windows IDs or filters, the output includes information for all event windows, which can affect performance. We recommend that you use pagination to ensure that the operation returns quickly and successfully. </p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/event-windows.html\">Define event windows for scheduled events</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Describes the specified event windows or all event windows.</p> <p>If you specify event window IDs, the output includes information for only the specified event windows. If you specify filters, the output includes information for only those event windows that meet the filter criteria. If you do not specify event windows IDs or filters, the output includes information for all event windows, which can affect performance. We recommend that you use pagination to ensure that the operation returns quickly and successfully. </p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/event-windows.html\">Define event windows for scheduled events</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -22396,7 +22396,7 @@ class AsyncEC2Client:
         next_token: Optional["aws_sdk_ec2.types.string.String"] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.describe_instance_image_metadata_result.DescribeInstanceImageMetadataResult":
-        """<p>Describes the AMI that was used to launch an instance, even if the AMI is deprecated, deregistered, made private (no longer public or shared with your account), or not allowed.</p> <p>If you specify instance IDs, the output includes information for only the specified instances. If you specify filters, the output includes information for only those instances that meet the filter criteria. If you do not specify instance IDs or filters, the output includes information for all instances, which can affect performance.</p> <p>If you specify an instance ID that is not valid, an instance that doesn't exist, or an instance that you do not own, an error (<code>InvalidInstanceID.NotFound</code>) is returned.</p> <p>Recently terminated instances might appear in the returned results. This interval is usually less than one hour.</p> <p>In the rare case where an Availability Zone is experiencing a service disruption and you specify instance IDs that are in the affected Availability Zone, or do not specify any instance IDs at all, the call fails. If you specify only instance IDs that are in an unaffected Availability Zone, the call works normally.</p> <note> <p>The order of the elements in the response, including those within nested structures, might vary. Applications should not assume the elements appear in a particular order.</p> </note>
+        r"""<p>Describes the AMI that was used to launch an instance, even if the AMI is deprecated, deregistered, made private (no longer public or shared with your account), or not allowed.</p> <p>If you specify instance IDs, the output includes information for only the specified instances. If you specify filters, the output includes information for only those instances that meet the filter criteria. If you do not specify instance IDs or filters, the output includes information for all instances, which can affect performance.</p> <p>If you specify an instance ID that is not valid, an instance that doesn't exist, or an instance that you do not own, an error (<code>InvalidInstanceID.NotFound</code>) is returned.</p> <p>Recently terminated instances might appear in the returned results. This interval is usually less than one hour.</p> <p>In the rare case where an Availability Zone is experiencing a service disruption and you specify instance IDs that are in the affected Availability Zone, or do not specify any instance IDs at all, the call fails. If you specify only instance IDs that are in an unaffected Availability Zone, the call works normally.</p> <note> <p>The order of the elements in the response, including those within nested structures, might vary. Applications should not assume the elements appear in a particular order.</p> </note>
 
         Args:
             filters: <p>The filters.</p> <ul> <li> <p> <code>availability-zone</code> - The name of the Availability Zone (for example, <code>us-west-2a</code>) or Local Zone (for example, <code>us-west-2-lax-1b</code>) of the instance.</p> </li> <li> <p> <code>instance-id</code> - The ID of the instance.</p> </li> <li> <p> <code>image-allowed</code> - A Boolean that indicates whether the image meets the criteria specified for Allowed AMIs.</p> </li> <li> <p> <code>instance-state-name</code> - The state of the instance (<code>pending</code> | <code>running</code> | <code>shutting-down</code> | <code>terminated</code> | <code>stopping</code> | <code>stopped</code>).</p> </li> <li> <p> <code>instance-type</code> - The type of instance (for example, <code>t3.micro</code>).</p> </li> <li> <p> <code>launch-time</code> - The time when the instance was launched, in the ISO 8601 format in the UTC time zone (YYYY-MM-DDThh:mm:ss.sssZ), for example, <code>2023-09-29T11:04:43.305Z</code>. You can use a wildcard (<code>*</code>), for example, <code>2023-09-29T*</code>, which matches an entire day.</p> </li> <li> <p> <code>owner-alias</code> - The owner alias (<code>amazon</code> | <code>aws-marketplace</code> | <code>aws-backup-vault</code>). The valid aliases are defined in an Amazon-maintained list. This is not the Amazon Web Services account alias that can be set using the IAM console. We recommend that you use the <code>Owner</code> request parameter instead of this filter.</p> </li> <li> <p> <code>owner-id</code> - The Amazon Web Services account ID of the owner. We recommend that you use the <code>Owner</code> request parameter instead of this filter.</p> </li> <li> <p> <code>tag:<key></code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p> </li> <li> <p> <code>zone-id</code> - The ID of the Availability Zone (for example, <code>usw2-az2</code>) or Local Zone (for example, <code>usw2-lax1-az1</code>) of the instance.</p> </li> </ul>
@@ -22487,7 +22487,7 @@ class AsyncEC2Client:
         next_token: Optional["aws_sdk_ec2.types.string.String"] = None,
         max_results: Optional["aws_sdk_ec2.types.integer.Integer"] = None,
     ) -> "aws_sdk_ec2.types.describe_instances_result.DescribeInstancesResult":
-        """<p>Describes the specified instances or all instances.</p> <p>If you specify instance IDs, the output includes information for only the specified instances. If you specify filters, the output includes information for only those instances that meet the filter criteria. If you do not specify instance IDs or filters, the output includes information for all instances, which can affect performance. We recommend that you use pagination to ensure that the operation returns quickly and successfully.</p> <p>The response includes SQL license exemption status information for instances registered with the SQL LE service, providing visibility into license exemption configuration and status.</p> <p>If you specify an instance ID that is not valid, an error is returned. If you specify an instance that you do not own, it is not included in the output.</p> <p>Recently terminated instances might appear in the returned results. This interval is usually less than one hour.</p> <p>If you describe instances in the rare case where an Availability Zone is experiencing a service disruption and you specify instance IDs that are in the affected zone, or do not specify any instance IDs at all, the call fails. If you describe instances and specify only instance IDs that are in an unaffected zone, the call works normally.</p> <p>The Amazon EC2 API follows an eventual consistency model. This means that the result of an API command you run that creates or modifies resources might not be immediately available to all subsequent commands you run. For guidance on how to manage eventual consistency, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/eventual-consistency.html\">Eventual consistency in the Amazon EC2 API</a> in the <i>Amazon EC2 Developer Guide</i>.</p> <important> <p>We strongly recommend using only paginated requests. Unpaginated requests are susceptible to throttling and timeouts.</p> </important> <note> <p>The order of the elements in the response, including those within nested structures, might vary. Applications should not assume the elements appear in a particular order.</p> </note>
+        r"""<p>Describes the specified instances or all instances.</p> <p>If you specify instance IDs, the output includes information for only the specified instances. If you specify filters, the output includes information for only those instances that meet the filter criteria. If you do not specify instance IDs or filters, the output includes information for all instances, which can affect performance. We recommend that you use pagination to ensure that the operation returns quickly and successfully.</p> <p>The response includes SQL license exemption status information for instances registered with the SQL LE service, providing visibility into license exemption configuration and status.</p> <p>If you specify an instance ID that is not valid, an error is returned. If you specify an instance that you do not own, it is not included in the output.</p> <p>Recently terminated instances might appear in the returned results. This interval is usually less than one hour.</p> <p>If you describe instances in the rare case where an Availability Zone is experiencing a service disruption and you specify instance IDs that are in the affected zone, or do not specify any instance IDs at all, the call fails. If you describe instances and specify only instance IDs that are in an unaffected zone, the call works normally.</p> <p>The Amazon EC2 API follows an eventual consistency model. This means that the result of an API command you run that creates or modifies resources might not be immediately available to all subsequent commands you run. For guidance on how to manage eventual consistency, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/eventual-consistency.html\">Eventual consistency in the Amazon EC2 API</a> in the <i>Amazon EC2 Developer Guide</i>.</p> <important> <p>We strongly recommend using only paginated requests. Unpaginated requests are susceptible to throttling and timeouts.</p> </important> <note> <p>The order of the elements in the response, including those within nested structures, might vary. Applications should not assume the elements appear in a particular order.</p> </note>
 
         Args:
             instance_ids: <p>The instance IDs.</p> <p>Default: Describes all your instances.</p>
@@ -22726,7 +22726,7 @@ class AsyncEC2Client:
     ) -> (
         "aws_sdk_ec2.types.describe_instance_status_result.DescribeInstanceStatusResult"
     ):
-        """<p>Describes the status of the specified instances or all of your instances. By default, only running instances are described, unless you specifically indicate to return the status of all instances.</p> <p>Instance status includes the following components:</p> <ul> <li> <p> <b>Status checks</b> - Amazon EC2 performs status checks on running EC2 instances to identify hardware and software issues. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-system-instance-status-check.html\">Status checks for your instances</a> and <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstances.html\">Troubleshoot instances with failed status checks</a> in the <i>Amazon EC2 User Guide</i>.</p> </li> <li> <p> <b>Scheduled events</b> - Amazon EC2 can schedule events (such as reboot, stop, or terminate) for your instances related to hardware issues, software updates, or system maintenance. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-instances-status-check_sched.html\">Scheduled events for your instances</a> in the <i>Amazon EC2 User Guide</i>.</p> </li> <li> <p> <b>Instance state</b> - You can manage your instances from the moment you launch them through their termination. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html\">Instance lifecycle</a> in the <i>Amazon EC2 User Guide</i>.</p> </li> </ul> <p>The Amazon EC2 API follows an eventual consistency model. This means that the result of an API command you run that creates or modifies resources might not be immediately available to all subsequent commands you run. For guidance on how to manage eventual consistency, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/eventual-consistency.html\">Eventual consistency in the Amazon EC2 API</a> in the <i>Amazon EC2 Developer Guide</i>.</p> <note> <p>The order of the elements in the response, including those within nested structures, might vary. Applications should not assume the elements appear in a particular order.</p> </note>
+        r"""<p>Describes the status of the specified instances or all of your instances. By default, only running instances are described, unless you specifically indicate to return the status of all instances.</p> <p>Instance status includes the following components:</p> <ul> <li> <p> <b>Status checks</b> - Amazon EC2 performs status checks on running EC2 instances to identify hardware and software issues. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-system-instance-status-check.html\">Status checks for your instances</a> and <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstances.html\">Troubleshoot instances with failed status checks</a> in the <i>Amazon EC2 User Guide</i>.</p> </li> <li> <p> <b>Scheduled events</b> - Amazon EC2 can schedule events (such as reboot, stop, or terminate) for your instances related to hardware issues, software updates, or system maintenance. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-instances-status-check_sched.html\">Scheduled events for your instances</a> in the <i>Amazon EC2 User Guide</i>.</p> </li> <li> <p> <b>Instance state</b> - You can manage your instances from the moment you launch them through their termination. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html\">Instance lifecycle</a> in the <i>Amazon EC2 User Guide</i>.</p> </li> </ul> <p>The Amazon EC2 API follows an eventual consistency model. This means that the result of an API command you run that creates or modifies resources might not be immediately available to all subsequent commands you run. For guidance on how to manage eventual consistency, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/eventual-consistency.html\">Eventual consistency in the Amazon EC2 API</a> in the <i>Amazon EC2 Developer Guide</i>.</p> <note> <p>The order of the elements in the response, including those within nested structures, might vary. Applications should not assume the elements appear in a particular order.</p> </note>
 
         Args:
             instance_ids: <p>The instance IDs.</p> <p>Default: Describes all your instances.</p> <p>Constraints: Maximum 100 explicitly specified instance IDs.</p>
@@ -22833,7 +22833,7 @@ class AsyncEC2Client:
         ] = None,
         filters: Optional["aws_sdk_ec2.types.filter_list.FilterList"] = None,
     ) -> "aws_sdk_ec2.types.describe_instance_topology_result.DescribeInstanceTopologyResult":
-        """<p>Describes a tree-based hierarchy that represents the physical host placement of your EC2 instances within an Availability Zone or Local Zone. You can use this information to determine the relative proximity of your EC2 instances within the Amazon Web Services network to support your tightly coupled workloads.</p> <p>Instance topology is supported for specific instance types only. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-topology-prerequisites.html\">Prerequisites for Amazon EC2 instance topology</a> in the <i>Amazon EC2 User Guide</i>.</p> <note> <p>The Amazon EC2 API follows an eventual consistency model due to the distributed nature of the system supporting it. As a result, when you call the DescribeInstanceTopology API command immediately after launching instances, the response might return a <code>null</code> value for <code>capacityBlockId</code> because the data might not have fully propagated across all subsystems. For more information, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/eventual-consistency.html\">Eventual consistency in the Amazon EC2 API</a> in the <i>Amazon EC2 Developer Guide</i>.</p> </note> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-topology.html\">Amazon EC2 topology</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Describes a tree-based hierarchy that represents the physical host placement of your EC2 instances within an Availability Zone or Local Zone. You can use this information to determine the relative proximity of your EC2 instances within the Amazon Web Services network to support your tightly coupled workloads.</p> <p>Instance topology is supported for specific instance types only. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-topology-prerequisites.html\">Prerequisites for Amazon EC2 instance topology</a> in the <i>Amazon EC2 User Guide</i>.</p> <note> <p>The Amazon EC2 API follows an eventual consistency model due to the distributed nature of the system supporting it. As a result, when you call the DescribeInstanceTopology API command immediately after launching instances, the response might return a <code>null</code> value for <code>capacityBlockId</code> because the data might not have fully propagated across all subsystems. For more information, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/eventual-consistency.html\">Eventual consistency in the Amazon EC2 API</a> in the <i>Amazon EC2 Developer Guide</i>.</p> </note> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-topology.html\">Amazon EC2 topology</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -22928,7 +22928,7 @@ class AsyncEC2Client:
         ] = None,
         next_token: Optional["aws_sdk_ec2.types.next_token.NextToken"] = None,
     ) -> "aws_sdk_ec2.types.describe_instance_type_offerings_result.DescribeInstanceTypeOfferingsResult":
-        """<p>Lists the instance types that are offered for the specified location. If no location is specified, the default is to list the instance types that are offered in the current Region.</p>
+        r"""<p>Lists the instance types that are offered for the specified location. If no location is specified, the default is to list the instance types that are offered in the current Region.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -23017,7 +23017,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.include_unsupported_in_region.IncludeUnsupportedInRegion"
         ] = None,
     ) -> "aws_sdk_ec2.types.describe_instance_types_result.DescribeInstanceTypesResult":
-        """<p>Describes the specified instance types. By default, all instance types for the current Region are described. Alternatively, you can filter the results. To include instance types that are not supported in the current Region, set <code>IncludeUnsupportedInRegion</code> to <code>true</code>.</p>
+        r"""<p>Describes the specified instance types. By default, all instance types for the current Region are described. Alternatively, you can filter the results. To include instance types that are not supported in the current Region, set <code>IncludeUnsupportedInRegion</code> to <code>true</code>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -23112,7 +23112,7 @@ class AsyncEC2Client:
         ] = None,
         filters: Optional["aws_sdk_ec2.types.filter_list.FilterList"] = None,
     ) -> "aws_sdk_ec2.types.describe_internet_gateways_result.DescribeInternetGatewaysResult":
-        """<p>Describes your internet gateways. The default is to describe all your internet gateways. Alternatively, you can specify specific internet gateway IDs or filter the results to include only the internet gateways that match specific criteria.</p>
+        r"""<p>Describes your internet gateways. The default is to describe all your internet gateways. Alternatively, you can specify specific internet gateway IDs or filter the results to include only the internet gateways that match specific criteria.</p>
 
         Args:
             next_token: <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
@@ -23204,7 +23204,7 @@ class AsyncEC2Client:
         ] = None,
         next_token: Optional["aws_sdk_ec2.types.next_token.NextToken"] = None,
     ) -> "aws_sdk_ec2.types.describe_ipam_byoasn_result.DescribeIpamByoasnResult":
-        """<p>Describes your Autonomous System Numbers (ASNs), their provisioning statuses, and the BYOIP CIDRs with which they are associated. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoasn.html\">Tutorial: Bring your ASN to IPAM</a> in the <i>Amazon VPC IPAM guide</i>.</p>
+        r"""<p>Describes your Autonomous System Numbers (ASNs), their provisioning statuses, and the BYOIP CIDRs with which they are associated. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoasn.html\">Tutorial: Bring your ASN to IPAM</a> in the <i>Amazon VPC IPAM guide</i>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -23257,7 +23257,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.value_string_list.ValueStringList"
         ] = None,
     ) -> "aws_sdk_ec2.types.describe_ipam_external_resource_verification_tokens_result.DescribeIpamExternalResourceVerificationTokensResult":
-        """<p>Describe verification tokens.</p> <p>A verification token is an Amazon Web Services-generated random value that you can use to prove ownership of an external resource. For example, you can use a verification token to validate that you control a public IP address range when you bring an IP address range to Amazon Web Services (BYOIP). </p>
+        r"""<p>Describe verification tokens.</p> <p>A verification token is an Amazon Web Services-generated random value that you can use to prove ownership of an external resource. For example, you can use a verification token to validate that you control a public IP address range when you bring an IP address range to Amazon Web Services (BYOIP). </p>
 
         Args:
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -23377,7 +23377,7 @@ class AsyncEC2Client:
         ] = None,
         next_token: Optional["aws_sdk_ec2.types.next_token.NextToken"] = None,
     ) -> "aws_sdk_ec2.types.describe_ipam_pool_allocations_result.DescribeIpamPoolAllocationsResult":
-        """<p>Describes IPAM pool allocations. You can describe all allocations owned by you across all pools, or you can describe specific allocations by ID.</p> <p>If you specify <code>IpamPoolAllocationIds</code>, the results include only the specified allocations. If you do not specify <code>IpamPoolAllocationIds</code>, the results include all allocations owned by you. You can use <code>Filters</code> to narrow the results.</p> <note> <p>This action returns only allocations directly owned by you. To view all allocations in a pool you own or that has been shared with you, including allocations owned by other accounts, use <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetIpamPoolAllocations.html\">GetIpamPoolAllocations</a>.</p> </note>
+        r"""<p>Describes IPAM pool allocations. You can describe all allocations owned by you across all pools, or you can describe specific allocations by ID.</p> <p>If you specify <code>IpamPoolAllocationIds</code>, the results include only the specified allocations. If you do not specify <code>IpamPoolAllocationIds</code>, the results include all allocations owned by you. You can use <code>Filters</code> to narrow the results.</p> <note> <p>This action returns only allocations directly owned by you. To view all allocations in a pool you own or that has been shared with you, including allocations owned by other accounts, use <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetIpamPoolAllocations.html\">GetIpamPoolAllocations</a>.</p> </note>
 
         Args:
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -23467,7 +23467,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.value_string_list.ValueStringList"
         ] = None,
     ) -> "aws_sdk_ec2.types.describe_ipam_pools_result.DescribeIpamPoolsResult":
-        """<p>Get information about your IPAM pools.</p>
+        r"""<p>Get information about your IPAM pools.</p>
 
         Args:
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -23557,7 +23557,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.value_string_list.ValueStringList"
         ] = None,
     ) -> "aws_sdk_ec2.types.describe_ipam_prefix_list_resolvers_result.DescribeIpamPrefixListResolversResult":
-        """<p>Describes one or more IPAM prefix list resolvers. Use this operation to view the configuration, status, and properties of your resolvers.</p>
+        r"""<p>Describes one or more IPAM prefix list resolvers. Use this operation to view the configuration, status, and properties of your resolvers.</p>
 
         Args:
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -23650,7 +23650,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.ipam_prefix_list_resolver_id.IpamPrefixListResolverId"
         ] = None,
     ) -> "aws_sdk_ec2.types.describe_ipam_prefix_list_resolver_targets_result.DescribeIpamPrefixListResolverTargetsResult":
-        """<p>Describes one or more IPAM prefix list resolver Targets. Use this operation to view the configuration and status of resolver targets.</p>
+        r"""<p>Describes one or more IPAM prefix list resolver Targets. Use this operation to view the configuration and status of resolver targets.</p>
 
         Args:
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -23933,7 +23933,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.value_string_list.ValueStringList"
         ] = None,
     ) -> "aws_sdk_ec2.types.describe_ipams_result.DescribeIpamsResult":
-        """<p>Get information about your IPAM pools.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html\">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
+        r"""<p>Get information about your IPAM pools.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html\">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
 
         Args:
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -24023,7 +24023,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.value_string_list.ValueStringList"
         ] = None,
     ) -> "aws_sdk_ec2.types.describe_ipam_scopes_result.DescribeIpamScopesResult":
-        """<p>Get information about your IPAM scopes.</p>
+        r"""<p>Get information about your IPAM scopes.</p>
 
         Args:
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -24199,7 +24199,7 @@ class AsyncEC2Client:
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
         filters: Optional["aws_sdk_ec2.types.filter_list.FilterList"] = None,
     ) -> "aws_sdk_ec2.types.describe_key_pairs_result.DescribeKeyPairsResult":
-        """<p>Describes the specified key pairs or all of your key pairs.</p> <p>For more information about key pairs, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html\">Amazon EC2 key pairs</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Describes the specified key pairs or all of your key pairs.</p> <p>For more information about key pairs, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html\">Amazon EC2 key pairs</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             key_names: <p>The key pair names.</p> <p>Default: Describes all of your key pairs.</p>
@@ -24384,7 +24384,7 @@ class AsyncEC2Client:
         resolve_alias: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
         include_managed_resources: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.describe_launch_template_versions_result.DescribeLaunchTemplateVersionsResult":
-        """<p>Describes one or more versions of a specified launch template. You can describe all versions, individual versions, or a range of versions. You can also describe all the latest versions or all the default versions of all the launch templates in your account.</p>
+        r"""<p>Describes one or more versions of a specified launch template. You can describe all versions, individual versions, or a range of versions. You can also describe all the latest versions or all the default versions of all the launch templates in your account.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -25072,7 +25072,7 @@ class AsyncEC2Client:
         ] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.describe_locked_snapshots_result.DescribeLockedSnapshotsResult":
-        """<p>Describes the lock status for a snapshot.</p>
+        r"""<p>Describes the lock status for a snapshot.</p>
 
         Args:
             filters: <p>The filters.</p> <ul> <li> <p> <code>lock-state</code> - The state of the snapshot lock (<code>compliance-cooloff</code> | <code>governance</code> | <code>compliance</code> | <code>expired</code>).</p> </li> </ul>
@@ -25215,7 +25215,7 @@ class AsyncEC2Client:
         ] = None,
         next_token: Optional["aws_sdk_ec2.types.string.String"] = None,
     ) -> "aws_sdk_ec2.types.describe_mac_modification_tasks_result.DescribeMacModificationTasksResult":
-        """<p>Describes a System Integrity Protection (SIP) modification task or volume ownership delegation task for an Amazon EC2 Mac instance. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/mac-sip-settings.html#mac-sip-configure\">Configure SIP for Amazon EC2 instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Describes a System Integrity Protection (SIP) modification task or volume ownership delegation task for an Amazon EC2 Mac instance. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/mac-sip-settings.html#mac-sip-configure\">Configure SIP for Amazon EC2 instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -25491,7 +25491,7 @@ class AsyncEC2Client:
         ] = None,
         next_token: Optional["aws_sdk_ec2.types.string.String"] = None,
     ) -> "aws_sdk_ec2.types.describe_nat_gateways_result.DescribeNatGatewaysResult":
-        """<p>Describes your NAT gateways. The default is to describe all your NAT gateways. Alternatively, you can specify specific NAT gateway IDs or filter the results to include only the NAT gateways that match specific criteria.</p>
+        r"""<p>Describes your NAT gateways. The default is to describe all your NAT gateways. Alternatively, you can specify specific NAT gateway IDs or filter the results to include only the NAT gateways that match specific criteria.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -25587,7 +25587,7 @@ class AsyncEC2Client:
         ] = None,
         filters: Optional["aws_sdk_ec2.types.filter_list.FilterList"] = None,
     ) -> "aws_sdk_ec2.types.describe_network_acls_result.DescribeNetworkAclsResult":
-        """<p>Describes your network ACLs. The default is to describe all your network ACLs. Alternatively, you can specify specific network ACL IDs or filter the results to include only the network ACLs that match specific criteria.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html\">Network ACLs</a> in the <i>Amazon VPC User Guide</i>.</p>
+        r"""<p>Describes your network ACLs. The default is to describe all your network ACLs. Alternatively, you can specify specific network ACL IDs or filter the results to include only the network ACLs that match specific criteria.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html\">Network ACLs</a> in the <i>Amazon VPC User Guide</i>.</p>
 
         Args:
             next_token: <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
@@ -26176,7 +26176,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.describe_network_interface_permissions_max_results.DescribeNetworkInterfacePermissionsMaxResults"
         ] = None,
     ) -> "aws_sdk_ec2.types.describe_network_interface_permissions_result.DescribeNetworkInterfacePermissionsResult":
-        """<p>Describes the permissions for your network interfaces. </p>
+        r"""<p>Describes the permissions for your network interfaces. </p>
 
         Args:
             network_interface_permission_ids: <p>The network interface permission IDs.</p>
@@ -26264,7 +26264,7 @@ class AsyncEC2Client:
         ] = None,
         filters: Optional["aws_sdk_ec2.types.filter_list.FilterList"] = None,
     ) -> "aws_sdk_ec2.types.describe_network_interfaces_result.DescribeNetworkInterfacesResult":
-        """<p>Describes the specified network interfaces or all your network interfaces.</p> <p>If you have a large number of network interfaces, the operation fails unless you use pagination or one of the following filters: <code>group-id</code>, <code>mac-address</code>, <code>private-dns-name</code>, <code>private-ip-address</code>, <code>subnet-id</code>, or <code>vpc-id</code>.</p> <important> <p>We strongly recommend using only paginated requests. Unpaginated requests are susceptible to throttling and timeouts.</p> </important>
+        r"""<p>Describes the specified network interfaces or all your network interfaces.</p> <p>If you have a large number of network interfaces, the operation fails unless you use pagination or one of the following filters: <code>group-id</code>, <code>mac-address</code>, <code>private-dns-name</code>, <code>private-ip-address</code>, <code>subnet-id</code>, or <code>vpc-id</code>.</p> <important> <p>We strongly recommend using only paginated requests. Unpaginated requests are susceptible to throttling and timeouts.</p> </important>
 
         Args:
             next_token: <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
@@ -26422,7 +26422,7 @@ class AsyncEC2Client:
         ] = None,
         filters: Optional["aws_sdk_ec2.types.filter_list.FilterList"] = None,
     ) -> "aws_sdk_ec2.types.describe_placement_groups_result.DescribePlacementGroupsResult":
-        """<p>Describes the specified placement groups or all of your placement groups.</p> <note> <p>To describe a specific placement group that is <i>shared</i> with your account, you must specify the ID of the placement group using the <code>GroupId</code> parameter. Specifying the name of a <i>shared</i> placement group using the <code>GroupNames</code> parameter will result in an error.</p> </note> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html\">Placement groups</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Describes the specified placement groups or all of your placement groups.</p> <note> <p>To describe a specific placement group that is <i>shared</i> with your account, you must specify the ID of the placement group using the <code>GroupId</code> parameter. Specifying the name of a <i>shared</i> placement group using the <code>GroupNames</code> parameter will result in an error.</p> </note> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html\">Placement groups</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             group_ids: <p>The IDs of the placement groups.</p>
@@ -26725,7 +26725,7 @@ class AsyncEC2Client:
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
         filters: Optional["aws_sdk_ec2.types.filter_list.FilterList"] = None,
     ) -> "aws_sdk_ec2.types.describe_regions_result.DescribeRegionsResult":
-        """<p>Describes the Regions that are enabled for your account, or all Regions.</p> <p>For a list of the Regions supported by Amazon EC2, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/ec2-endpoints.html\">Amazon EC2 service endpoints</a>.</p> <p>For information about enabling and disabling Regions for your account, see <a href=\"https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-regions.html\">Specify which Amazon Web Services Regions your account can use</a> in the <i>Amazon Web Services Account Management Reference Guide</i>.</p> <note> <p>The order of the elements in the response, including those within nested structures, might vary. Applications should not assume the elements appear in a particular order.</p> </note>
+        r"""<p>Describes the Regions that are enabled for your account, or all Regions.</p> <p>For a list of the Regions supported by Amazon EC2, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/ec2-endpoints.html\">Amazon EC2 service endpoints</a>.</p> <p>For information about enabling and disabling Regions for your account, see <a href=\"https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-regions.html\">Specify which Amazon Web Services Regions your account can use</a> in the <i>Amazon Web Services Account Management Reference Guide</i>.</p> <note> <p>The order of the elements in the response, including those within nested structures, might vary. Applications should not assume the elements appear in a particular order.</p> </note>
 
         Args:
             region_names: <p>The names of the Regions. You can specify any Regions, whether they are enabled and disabled for your account.</p>
@@ -26787,7 +26787,7 @@ class AsyncEC2Client:
         next_token: Optional["aws_sdk_ec2.types.next_token.NextToken"] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.describe_replace_root_volume_tasks_result.DescribeReplaceRootVolumeTasksResult":
-        """<p>Describes a root volume replacement task. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/replace-root.html\">Replace a root volume</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Describes a root volume replacement task. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/replace-root.html\">Replace a root volume</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             replace_root_volume_task_ids: <p>The ID of the root volume replacement task to view.</p>
@@ -26879,7 +26879,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.offering_type_values.OfferingTypeValues"
         ] = None,
     ) -> "aws_sdk_ec2.types.describe_reserved_instances_result.DescribeReservedInstancesResult":
-        """<p>Describes one or more of the Reserved Instances that you purchased.</p> <p>For more information about Reserved Instances, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html\">Reserved Instances</a> in the <i>Amazon EC2 User Guide</i>.</p> <note> <p>The order of the elements in the response, including those within nested structures, might vary. Applications should not assume the elements appear in a particular order.</p> </note>
+        r"""<p>Describes one or more of the Reserved Instances that you purchased.</p> <p>For more information about Reserved Instances, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html\">Reserved Instances</a> in the <i>Amazon EC2 User Guide</i>.</p> <note> <p>The order of the elements in the response, including those within nested structures, might vary. Applications should not assume the elements appear in a particular order.</p> </note>
 
         Args:
             offering_class: <p>Describes whether the Reserved Instance is Standard or Convertible.</p>
@@ -26936,7 +26936,7 @@ class AsyncEC2Client:
         ] = None,
         filters: Optional["aws_sdk_ec2.types.filter_list.FilterList"] = None,
     ) -> "aws_sdk_ec2.types.describe_reserved_instances_listings_result.DescribeReservedInstancesListingsResult":
-        """<p>Describes your account's Reserved Instance listings in the Reserved Instance Marketplace.</p> <p>The Reserved Instance Marketplace matches sellers who want to resell Reserved Instance capacity that they no longer need with buyers who want to purchase additional capacity. Reserved Instances bought and sold through the Reserved Instance Marketplace work like any other Reserved Instances.</p> <p>As a seller, you choose to list some or all of your Reserved Instances, and you specify the upfront price to receive for them. Your Reserved Instances are then listed in the Reserved Instance Marketplace and are available for purchase.</p> <p>As a buyer, you specify the configuration of the Reserved Instance to purchase, and the Marketplace matches what you're searching for with what's available. The Marketplace first sells the lowest priced Reserved Instances to you, and continues to sell available Reserved Instance listings to you until your demand is met. You are charged based on the total price of all of the listings that you purchase.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html\">Sell in the Reserved Instance Marketplace</a> in the <i>Amazon EC2 User Guide</i>.</p> <note> <p>The order of the elements in the response, including those within nested structures, might vary. Applications should not assume the elements appear in a particular order.</p> </note>
+        r"""<p>Describes your account's Reserved Instance listings in the Reserved Instance Marketplace.</p> <p>The Reserved Instance Marketplace matches sellers who want to resell Reserved Instance capacity that they no longer need with buyers who want to purchase additional capacity. Reserved Instances bought and sold through the Reserved Instance Marketplace work like any other Reserved Instances.</p> <p>As a seller, you choose to list some or all of your Reserved Instances, and you specify the upfront price to receive for them. Your Reserved Instances are then listed in the Reserved Instance Marketplace and are available for purchase.</p> <p>As a buyer, you specify the configuration of the Reserved Instance to purchase, and the Marketplace matches what you're searching for with what's available. The Marketplace first sells the lowest priced Reserved Instances to you, and continues to sell available Reserved Instance listings to you until your demand is met. You are charged based on the total price of all of the listings that you purchase.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html\">Sell in the Reserved Instance Marketplace</a> in the <i>Amazon EC2 User Guide</i>.</p> <note> <p>The order of the elements in the response, including those within nested structures, might vary. Applications should not assume the elements appear in a particular order.</p> </note>
 
         Args:
             reserved_instances_id: <p>One or more Reserved Instance IDs.</p>
@@ -26985,7 +26985,7 @@ class AsyncEC2Client:
         next_token: Optional["aws_sdk_ec2.types.string.String"] = None,
         filters: Optional["aws_sdk_ec2.types.filter_list.FilterList"] = None,
     ) -> "aws_sdk_ec2.types.describe_reserved_instances_modifications_result.DescribeReservedInstancesModificationsResult":
-        """<p>Describes the modifications made to your Reserved Instances. If no parameter is specified, information about all your Reserved Instances modification requests is returned. If a modification ID is specified, only information about the specific modification is returned.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html\">Modify Reserved Instances</a> in the <i>Amazon EC2 User Guide</i>.</p> <note> <p>The order of the elements in the response, including those within nested structures, might vary. Applications should not assume the elements appear in a particular order.</p> </note>
+        r"""<p>Describes the modifications made to your Reserved Instances. If no parameter is specified, information about all your Reserved Instances modification requests is returned. If a modification ID is specified, only information about the specific modification is returned.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html\">Modify Reserved Instances</a> in the <i>Amazon EC2 User Guide</i>.</p> <note> <p>The order of the elements in the response, including those within nested structures, might vary. Applications should not assume the elements appear in a particular order.</p> </note>
 
         Args:
             reserved_instances_modification_ids: <p>IDs for the submitted modification request.</p>
@@ -27082,7 +27082,7 @@ class AsyncEC2Client:
         next_token: Optional["aws_sdk_ec2.types.string.String"] = None,
         max_results: Optional["aws_sdk_ec2.types.integer.Integer"] = None,
     ) -> "aws_sdk_ec2.types.describe_reserved_instances_offerings_result.DescribeReservedInstancesOfferingsResult":
-        """<p>Describes Reserved Instance offerings that are available for purchase. With Reserved Instances, you purchase the right to launch instances for a period of time. During that time period, you do not receive insufficient capacity errors, and you pay a lower usage rate than the rate charged for On-Demand instances for the actual time used.</p> <p>If you have listed your own Reserved Instances for sale in the Reserved Instance Marketplace, they will be excluded from these results. This is to ensure that you do not purchase your own Reserved Instances.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html\">Sell in the Reserved Instance Marketplace</a> in the <i>Amazon EC2 User Guide</i>.</p> <note> <p>The order of the elements in the response, including those within nested structures, might vary. Applications should not assume the elements appear in a particular order.</p> </note>
+        r"""<p>Describes Reserved Instance offerings that are available for purchase. With Reserved Instances, you purchase the right to launch instances for a period of time. During that time period, you do not receive insufficient capacity errors, and you pay a lower usage rate than the rate charged for On-Demand instances for the actual time used.</p> <p>If you have listed your own Reserved Instances for sale in the Reserved Instance Marketplace, they will be excluded from these results. This is to ensure that you do not purchase your own Reserved Instances.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html\">Sell in the Reserved Instance Marketplace</a> in the <i>Amazon EC2 User Guide</i>.</p> <note> <p>The order of the elements in the response, including those within nested structures, might vary. Applications should not assume the elements appear in a particular order.</p> </note>
 
         Args:
             availability_zone: <p>The Availability Zone in which the Reserved Instance can be used.</p> <p>Either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code> can be specified, but not both.</p>
@@ -27233,7 +27233,7 @@ class AsyncEC2Client:
         filters: Optional["aws_sdk_ec2.types.filter_list.FilterList"] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.describe_route_server_endpoints_result.DescribeRouteServerEndpointsResult":
-        """<p>Describes one or more route server endpoints.</p> <p>A route server endpoint is an Amazon Web Services-managed component inside a subnet that facilitates <a href=\"https://en.wikipedia.org/wiki/Border_Gateway_Protocol\">BGP (Border Gateway Protocol)</a> connections between your route server and your BGP peers.</p> <p>For more information see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/dynamic-routing-route-server.html\">Dynamic routing in your VPC with VPC Route Server</a> in the <i>Amazon VPC User Guide</i>.</p>
+        r"""<p>Describes one or more route server endpoints.</p> <p>A route server endpoint is an Amazon Web Services-managed component inside a subnet that facilitates <a href=\"https://en.wikipedia.org/wiki/Border_Gateway_Protocol\">BGP (Border Gateway Protocol)</a> connections between your route server and your BGP peers.</p> <p>For more information see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/dynamic-routing-route-server.html\">Dynamic routing in your VPC with VPC Route Server</a> in the <i>Amazon VPC User Guide</i>.</p>
 
         Args:
             route_server_endpoint_ids: <p>The IDs of the route server endpoints to describe.</p>
@@ -27323,7 +27323,7 @@ class AsyncEC2Client:
         filters: Optional["aws_sdk_ec2.types.filter_list.FilterList"] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.describe_route_server_peers_result.DescribeRouteServerPeersResult":
-        """<p>Describes one or more route server peers.</p> <p>A route server peer is a session between a route server endpoint and the device deployed in Amazon Web Services (such as a firewall appliance or other network security function running on an EC2 instance). The device must meet these requirements:</p> <ul> <li> <p>Have an elastic network interface in the VPC</p> </li> <li> <p>Support BGP (Border Gateway Protocol)</p> </li> <li> <p>Can initiate BGP sessions</p> </li> </ul> <p>For more information see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/dynamic-routing-route-server.html\">Dynamic routing in your VPC with VPC Route Server</a> in the <i>Amazon VPC User Guide</i>.</p>
+        r"""<p>Describes one or more route server peers.</p> <p>A route server peer is a session between a route server endpoint and the device deployed in Amazon Web Services (such as a firewall appliance or other network security function running on an EC2 instance). The device must meet these requirements:</p> <ul> <li> <p>Have an elastic network interface in the VPC</p> </li> <li> <p>Support BGP (Border Gateway Protocol)</p> </li> <li> <p>Can initiate BGP sessions</p> </li> </ul> <p>For more information see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/dynamic-routing-route-server.html\">Dynamic routing in your VPC with VPC Route Server</a> in the <i>Amazon VPC User Guide</i>.</p>
 
         Args:
             route_server_peer_ids: <p>The IDs of the route server peers to describe.</p>
@@ -27413,7 +27413,7 @@ class AsyncEC2Client:
         filters: Optional["aws_sdk_ec2.types.filter_list.FilterList"] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.describe_route_servers_result.DescribeRouteServersResult":
-        """<p>Describes one or more route servers.</p> <p>Amazon VPC Route Server simplifies routing for traffic between workloads that are deployed within a VPC and its internet gateways. With this feature, VPC Route Server dynamically updates VPC and internet gateway route tables with your preferred IPv4 or IPv6 routes to achieve routing fault tolerance for those workloads. This enables you to automatically reroute traffic within a VPC, which increases the manageability of VPC routing and interoperability with third-party workloads.</p> <p>Route server supports the follow route table types:</p> <ul> <li> <p>VPC route tables not associated with subnets</p> </li> <li> <p>Subnet route tables</p> </li> <li> <p>Internet gateway route tables</p> </li> </ul> <p>Route server does not support route tables associated with virtual private gateways. To propagate routes into a transit gateway route table, use <a href=\"https://docs.aws.amazon.com/vpc/latest/tgw/tgw-connect.html\">Transit Gateway Connect</a>.</p> <p>For more information see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/dynamic-routing-route-server.html\">Dynamic routing in your VPC with VPC Route Server</a> in the <i>Amazon VPC User Guide</i>.</p>
+        r"""<p>Describes one or more route servers.</p> <p>Amazon VPC Route Server simplifies routing for traffic between workloads that are deployed within a VPC and its internet gateways. With this feature, VPC Route Server dynamically updates VPC and internet gateway route tables with your preferred IPv4 or IPv6 routes to achieve routing fault tolerance for those workloads. This enables you to automatically reroute traffic within a VPC, which increases the manageability of VPC routing and interoperability with third-party workloads.</p> <p>Route server supports the follow route table types:</p> <ul> <li> <p>VPC route tables not associated with subnets</p> </li> <li> <p>Subnet route tables</p> </li> <li> <p>Internet gateway route tables</p> </li> </ul> <p>Route server does not support route tables associated with virtual private gateways. To propagate routes into a transit gateway route table, use <a href=\"https://docs.aws.amazon.com/vpc/latest/tgw/tgw-connect.html\">Transit Gateway Connect</a>.</p> <p>For more information see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/dynamic-routing-route-server.html\">Dynamic routing in your VPC with VPC Route Server</a> in the <i>Amazon VPC User Guide</i>.</p>
 
         Args:
             route_server_ids: <p>The IDs of the route servers to describe.</p>
@@ -27503,7 +27503,7 @@ class AsyncEC2Client:
         ] = None,
         filters: Optional["aws_sdk_ec2.types.filter_list.FilterList"] = None,
     ) -> "aws_sdk_ec2.types.describe_route_tables_result.DescribeRouteTablesResult":
-        """<p>Describes your route tables. The default is to describe all your route tables. Alternatively, you can specify specific route table IDs or filter the results to include only the route tables that match specific criteria.</p> <p>Each subnet in your VPC must be associated with a route table. If a subnet is not explicitly associated with any route table, it is implicitly associated with the main route table. This command does not return the subnet ID for implicit associations.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html\">Route tables</a> in the <i>Amazon VPC User Guide</i>.</p>
+        r"""<p>Describes your route tables. The default is to describe all your route tables. Alternatively, you can specify specific route table IDs or filter the results to include only the route tables that match specific criteria.</p> <p>Each subnet in your VPC must be associated with a route table. If a subnet is not explicitly associated with any route table, it is implicitly associated with the main route table. This command does not return the subnet ID for implicit associations.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html\">Route tables</a> in the <i>Amazon VPC User Guide</i>.</p>
 
         Args:
             next_token: <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
@@ -28149,7 +28149,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.describe_security_group_rules_max_results.DescribeSecurityGroupRulesMaxResults"
         ] = None,
     ) -> "aws_sdk_ec2.types.describe_security_group_rules_result.DescribeSecurityGroupRulesResult":
-        """<p>Describes one or more of your security group rules.</p>
+        r"""<p>Describes one or more of your security group rules.</p>
 
         Args:
             filters: <p>One or more filters.</p> <ul> <li> <p> <code>group-id</code> - The ID of the security group.</p> </li> <li> <p> <code>security-group-rule-id</code> - The ID of the security group rule.</p> </li> <li> <p> <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> </li> </ul>
@@ -28244,7 +28244,7 @@ class AsyncEC2Client:
     ) -> (
         "aws_sdk_ec2.types.describe_security_groups_result.DescribeSecurityGroupsResult"
     ):
-        """<p>Describes the specified security groups or all of your security groups.</p>
+        r"""<p>Describes the specified security groups or all of your security groups.</p>
 
         Args:
             group_ids: <p>The IDs of the security groups. Required for security groups in a nondefault VPC.</p> <p>Default: Describes all of your security groups.</p>
@@ -28348,7 +28348,7 @@ class AsyncEC2Client:
         ] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.describe_security_group_vpc_associations_result.DescribeSecurityGroupVpcAssociationsResult":
-        """<p>Describes security group VPC associations made with <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AssociateSecurityGroupVpc.html\">AssociateSecurityGroupVpc</a>.</p>
+        r"""<p>Describes security group VPC associations made with <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AssociateSecurityGroupVpc.html\">AssociateSecurityGroupVpc</a>.</p>
 
         Args:
             filters: <p>Security group VPC association filters.</p> <ul> <li> <p> <code>group-id</code>: The security group ID.</p> </li> <li> <p> <code>group-owner-id</code>: The group owner ID.</p> </li> <li> <p> <code>state</code>: The state of the association.</p> </li> <li> <p> <code>vpc-id</code>: The ID of the associated VPC.</p> </li> <li> <p> <code>vpc-owner-id</code>: The account ID of the VPC owner.</p> </li> </ul>
@@ -28486,7 +28486,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.describe_snapshot_attribute_result.DescribeSnapshotAttributeResult":
-        """<p>Describes the specified attribute of the specified snapshot. You can specify only one attribute at a time.</p> <p>For more information about EBS snapshots, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/ebs-snapshots.html\">Amazon EBS snapshots</a> in the <i>Amazon EBS User Guide</i>.</p>
+        r"""<p>Describes the specified attribute of the specified snapshot. You can specify only one attribute at a time.</p> <p>For more information about EBS snapshots, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/ebs-snapshots.html\">Amazon EBS snapshots</a> in the <i>Amazon EBS User Guide</i>.</p>
 
         Args:
             attribute: <p>The snapshot attribute you would like to view.</p>
@@ -28547,7 +28547,7 @@ class AsyncEC2Client:
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
         filters: Optional["aws_sdk_ec2.types.filter_list.FilterList"] = None,
     ) -> "aws_sdk_ec2.types.describe_snapshots_result.DescribeSnapshotsResult":
-        """<p>Describes the specified EBS snapshots available to you or all of the EBS snapshots available to you.</p> <p>The snapshots available to you include public snapshots, private snapshots that you own, and private snapshots owned by other Amazon Web Services accounts for which you have explicit create volume permissions.</p> <p>The create volume permissions fall into the following categories:</p> <ul> <li> <p> <i>public</i>: The owner of the snapshot granted create volume permissions for the snapshot to the <code>all</code> group. All Amazon Web Services accounts have create volume permissions for these snapshots.</p> </li> <li> <p> <i>explicit</i>: The owner of the snapshot granted create volume permissions to a specific Amazon Web Services account.</p> </li> <li> <p> <i>implicit</i>: An Amazon Web Services account has implicit create volume permissions for all snapshots it owns.</p> </li> </ul> <p>The list of snapshots returned can be filtered by specifying snapshot IDs, snapshot owners, or Amazon Web Services accounts with create volume permissions. If no options are specified, Amazon EC2 returns all snapshots for which you have create volume permissions.</p> <p>If you specify one or more snapshot IDs, only snapshots that have the specified IDs are returned. If you specify an invalid snapshot ID, an error is returned. If you specify a snapshot ID for which you do not have access, it is not included in the returned results.</p> <p>If you specify one or more snapshot owners using the <code>OwnerIds</code> option, only snapshots from the specified owners and for which you have access are returned. The results can include the Amazon Web Services account IDs of the specified owners, <code>amazon</code> for snapshots owned by Amazon, or <code>self</code> for snapshots that you own.</p> <p>If you specify a list of restorable users, only snapshots with create snapshot permissions for those users are returned. You can specify Amazon Web Services account IDs (if you own the snapshots), <code>self</code> for snapshots for which you own or have explicit permissions, or <code>all</code> for public snapshots.</p> <p>If you are describing a long list of snapshots, we recommend that you paginate the output to make the list more manageable. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p> <p>For more information about EBS snapshots, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/ebs-snapshots.html\">Amazon EBS snapshots</a> in the <i>Amazon EBS User Guide</i>.</p> <important> <p>We strongly recommend using only paginated requests. Unpaginated requests are susceptible to throttling and timeouts.</p> </important>
+        r"""<p>Describes the specified EBS snapshots available to you or all of the EBS snapshots available to you.</p> <p>The snapshots available to you include public snapshots, private snapshots that you own, and private snapshots owned by other Amazon Web Services accounts for which you have explicit create volume permissions.</p> <p>The create volume permissions fall into the following categories:</p> <ul> <li> <p> <i>public</i>: The owner of the snapshot granted create volume permissions for the snapshot to the <code>all</code> group. All Amazon Web Services accounts have create volume permissions for these snapshots.</p> </li> <li> <p> <i>explicit</i>: The owner of the snapshot granted create volume permissions to a specific Amazon Web Services account.</p> </li> <li> <p> <i>implicit</i>: An Amazon Web Services account has implicit create volume permissions for all snapshots it owns.</p> </li> </ul> <p>The list of snapshots returned can be filtered by specifying snapshot IDs, snapshot owners, or Amazon Web Services accounts with create volume permissions. If no options are specified, Amazon EC2 returns all snapshots for which you have create volume permissions.</p> <p>If you specify one or more snapshot IDs, only snapshots that have the specified IDs are returned. If you specify an invalid snapshot ID, an error is returned. If you specify a snapshot ID for which you do not have access, it is not included in the returned results.</p> <p>If you specify one or more snapshot owners using the <code>OwnerIds</code> option, only snapshots from the specified owners and for which you have access are returned. The results can include the Amazon Web Services account IDs of the specified owners, <code>amazon</code> for snapshots owned by Amazon, or <code>self</code> for snapshots that you own.</p> <p>If you specify a list of restorable users, only snapshots with create snapshot permissions for those users are returned. You can specify Amazon Web Services account IDs (if you own the snapshots), <code>self</code> for snapshots for which you own or have explicit permissions, or <code>all</code> for public snapshots.</p> <p>If you are describing a long list of snapshots, we recommend that you paginate the output to make the list more manageable. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p> <p>For more information about EBS snapshots, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/ebs-snapshots.html\">Amazon EBS snapshots</a> in the <i>Amazon EBS User Guide</i>.</p> <important> <p>We strongly recommend using only paginated requests. Unpaginated requests are susceptible to throttling and timeouts.</p> </important>
 
         Args:
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>
@@ -28656,7 +28656,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.describe_snapshot_tier_status_max_results.DescribeSnapshotTierStatusMaxResults"
         ] = None,
     ) -> "aws_sdk_ec2.types.describe_snapshot_tier_status_result.DescribeSnapshotTierStatusResult":
-        """<p>Describes the storage tier status of one or more Amazon EBS snapshots.</p>
+        r"""<p>Describes the storage tier status of one or more Amazon EBS snapshots.</p>
 
         Args:
             filters: <p>The filters.</p> <ul> <li> <p> <code>snapshot-id</code> - The snapshot ID.</p> </li> <li> <p> <code>volume-id</code> - The ID of the volume the snapshot is for.</p> </li> <li> <p> <code>last-tiering-operation</code> - The state of the last archive or restore action. (<code>archival-in-progress</code> | <code>archival-completed</code> | <code>archival-failed</code> | <code>permanent-restore-in-progress</code> | <code>permanent-restore-completed</code> | <code>permanent-restore-failed</code> | <code>temporary-restore-in-progress</code> | <code>temporary-restore-completed</code> | <code>temporary-restore-failed</code>)</p> </li> </ul>
@@ -28731,7 +28731,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.describe_spot_datafeed_subscription_result.DescribeSpotDatafeedSubscriptionResult":
-        """<p>Describes the data feed for Spot Instances. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html\">Spot Instance data feed</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Describes the data feed for Spot Instances. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html\">Spot Instance data feed</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -28781,7 +28781,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.describe_spot_fleet_instances_max_results.DescribeSpotFleetInstancesMaxResults"
         ] = None,
     ) -> "aws_sdk_ec2.types.describe_spot_fleet_instances_response.DescribeSpotFleetInstancesResponse":
-        """<p>Describes the running instances for the specified Spot Fleet.</p>
+        r"""<p>Describes the running instances for the specified Spot Fleet.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -28841,7 +28841,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.describe_spot_fleet_request_history_max_results.DescribeSpotFleetRequestHistoryMaxResults"
         ] = None,
     ) -> "aws_sdk_ec2.types.describe_spot_fleet_request_history_response.DescribeSpotFleetRequestHistoryResponse":
-        """<p>Describes the events for the specified Spot Fleet request during the specified time.</p> <p>Spot Fleet events are delayed by up to 30 seconds before they can be described. This ensures that you can query by the last evaluated time and not miss a recorded event. Spot Fleet events are available for 48 hours.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/fleet-monitor.html\">Monitor fleet events using Amazon EventBridge</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Describes the events for the specified Spot Fleet request during the specified time.</p> <p>Spot Fleet events are delayed by up to 30 seconds before they can be described. This ensures that you can query by the last evaluated time and not miss a recorded event. Spot Fleet events are available for 48 hours.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/fleet-monitor.html\">Monitor fleet events using Amazon EventBridge</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -28904,7 +28904,7 @@ class AsyncEC2Client:
         next_token: Optional["aws_sdk_ec2.types.string.String"] = None,
         max_results: Optional["aws_sdk_ec2.types.integer.Integer"] = None,
     ) -> "aws_sdk_ec2.types.describe_spot_fleet_requests_response.DescribeSpotFleetRequestsResponse":
-        """<p>Describes your Spot Fleet requests.</p> <p>Spot Fleet requests are deleted 48 hours after they are canceled and their instances are terminated.</p>
+        r"""<p>Describes your Spot Fleet requests.</p> <p>Spot Fleet requests are deleted 48 hours after they are canceled and their instances are terminated.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -28991,7 +28991,7 @@ class AsyncEC2Client:
         ] = None,
         filters: Optional["aws_sdk_ec2.types.filter_list.FilterList"] = None,
     ) -> "aws_sdk_ec2.types.describe_spot_instance_requests_result.DescribeSpotInstanceRequestsResult":
-        """<p>Describes the specified Spot Instance requests.</p> <p>You can use <code>DescribeSpotInstanceRequests</code> to find a running Spot Instance by examining the response. If the status of the Spot Instance is <code>fulfilled</code>, the instance ID appears in the response and contains the identifier of the instance. Alternatively, you can use <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances\">DescribeInstances</a> with a filter to look for instances where the instance lifecycle is <code>spot</code>.</p> <p>We recommend that you set <code>MaxResults</code> to a value between 5 and 1000 to limit the number of items returned. This paginates the output, which makes the list more manageable and returns the items faster. If the list of items exceeds your <code>MaxResults</code> value, then that number of items is returned along with a <code>NextToken</code> value that can be passed to a subsequent <code>DescribeSpotInstanceRequests</code> request to retrieve the remaining items.</p> <p>Spot Instance requests are deleted four hours after they are canceled and their instances are terminated.</p>
+        r"""<p>Describes the specified Spot Instance requests.</p> <p>You can use <code>DescribeSpotInstanceRequests</code> to find a running Spot Instance by examining the response. If the status of the Spot Instance is <code>fulfilled</code>, the instance ID appears in the response and contains the identifier of the instance. Alternatively, you can use <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances\">DescribeInstances</a> with a filter to look for instances where the instance lifecycle is <code>spot</code>.</p> <p>We recommend that you set <code>MaxResults</code> to a value between 5 and 1000 to limit the number of items returned. This paginates the output, which makes the list more manageable and returns the items faster. If the list of items exceeds your <code>MaxResults</code> value, then that number of items is returned along with a <code>NextToken</code> value that can be passed to a subsequent <code>DescribeSpotInstanceRequests</code> request to retrieve the remaining items.</p> <p>Spot Instance requests are deleted four hours after they are canceled and their instances are terminated.</p>
 
         Args:
             next_token: <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
@@ -29092,7 +29092,7 @@ class AsyncEC2Client:
         max_results: Optional["aws_sdk_ec2.types.integer.Integer"] = None,
         next_token: Optional["aws_sdk_ec2.types.string.String"] = None,
     ) -> "aws_sdk_ec2.types.describe_spot_price_history_result.DescribeSpotPriceHistoryResult":
-        """<p>Describes the Spot price history. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances-history.html\">Spot Instance pricing history</a> in the <i>Amazon EC2 User Guide</i>.</p> <p>When you specify a start and end time, the operation returns the prices of the instance types within that time range. It also returns the last price change before the start time, which is the effective price as of the start time.</p>
+        r"""<p>Describes the Spot price history. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances-history.html\">Spot Instance pricing history</a> in the <i>Amazon EC2 User Guide</i>.</p> <p>When you specify a start and end time, the operation returns the prices of the instance types within that time range. It also returns the last price change before the start time, which is the effective price as of the start time.</p>
 
         Args:
             availability_zone_id: <p>Filters the results by the specified ID of the Availability Zone.</p> <p>Either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code> can be specified, but not both</p>
@@ -29214,7 +29214,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.describe_stale_security_groups_next_token.DescribeStaleSecurityGroupsNextToken"
         ] = None,
     ) -> "aws_sdk_ec2.types.describe_stale_security_groups_result.DescribeStaleSecurityGroupsResult":
-        """<p>Describes the stale security group rules for security groups referenced across a VPC peering connection, transit gateway connection, or with a security group VPC association. Rules are stale when they reference a deleted security group. Rules can also be stale if they reference a security group in a peer VPC for which the VPC peering connection has been deleted, across a transit gateway where the transit gateway has been deleted (or <a href=\"https://docs.aws.amazon.com/vpc/latest/tgw/tgw-vpc-attachments.html#vpc-attachment-security\">the transit gateway security group referencing feature</a> has been disabled), or if a security group VPC association has been disassociated.</p>
+        r"""<p>Describes the stale security group rules for security groups referenced across a VPC peering connection, transit gateway connection, or with a security group VPC association. Rules are stale when they reference a deleted security group. Rules can also be stale if they reference a security group in a peer VPC for which the VPC peering connection has been deleted, across a transit gateway where the transit gateway has been deleted (or <a href=\"https://docs.aws.amazon.com/vpc/latest/tgw/tgw-vpc-attachments.html#vpc-attachment-security\">the transit gateway security group referencing feature</a> has been disabled), or if a security group VPC association has been disassociated.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -29296,7 +29296,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.describe_store_image_tasks_request_max_results.DescribeStoreImageTasksRequestMaxResults"
         ] = None,
     ) -> "aws_sdk_ec2.types.describe_store_image_tasks_result.DescribeStoreImageTasksResult":
-        """<p>Describes the progress of the AMI store tasks. You can describe the store tasks for specified AMIs. If you don't specify the AMIs, you get a paginated list of store tasks from the last 31 days.</p> <p>For each AMI task, the response indicates if the task is <code>InProgress</code>, <code>Completed</code>, or <code>Failed</code>. For tasks <code>InProgress</code>, the response shows the estimated progress as a percentage.</p> <p>Tasks are listed in reverse chronological order. Currently, only tasks from the past 31 days can be viewed.</p> <p>To use this API, you must have the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/work-with-ami-store-restore.html#ami-s3-permissions\">Permissions for storing and restoring AMIs using S3</a> in the <i>Amazon EC2 User Guide</i>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html\">Store and restore an AMI using S3</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Describes the progress of the AMI store tasks. You can describe the store tasks for specified AMIs. If you don't specify the AMIs, you get a paginated list of store tasks from the last 31 days.</p> <p>For each AMI task, the response indicates if the task is <code>InProgress</code>, <code>Completed</code>, or <code>Failed</code>. For tasks <code>InProgress</code>, the response shows the estimated progress as a percentage.</p> <p>Tasks are listed in reverse chronological order. Currently, only tasks from the past 31 days can be viewed.</p> <p>To use this API, you must have the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/work-with-ami-store-restore.html#ami-s3-permissions\">Permissions for storing and restoring AMIs using S3</a> in the <i>Amazon EC2 User Guide</i>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html\">Store and restore an AMI using S3</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             image_ids: <p>The AMI IDs for which to show progress. Up to 20 AMI IDs can be included in a request.</p>
@@ -29386,7 +29386,7 @@ class AsyncEC2Client:
         ] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.describe_subnets_result.DescribeSubnetsResult":
-        """<p>Describes your subnets. The default is to describe all your subnets. Alternatively, you can specify specific subnet IDs or filter the results to include only the subnets that match specific criteria.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/configure-subnets.html\">Subnets</a> in the <i>Amazon VPC User Guide</i>.</p>
+        r"""<p>Describes your subnets. The default is to describe all your subnets. Alternatively, you can specify specific subnet IDs or filter the results to include only the subnets that match specific criteria.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/configure-subnets.html\">Subnets</a> in the <i>Amazon VPC User Guide</i>.</p>
 
         Args:
             filters: <p>The filters.</p> <ul> <li> <p> <code>availability-zone</code> - The Availability Zone for the subnet. You can also use <code>availabilityZone</code> as the filter name.</p> </li> <li> <p> <code>availability-zone-id</code> - The ID of the Availability Zone for the subnet. You can also use <code>availabilityZoneId</code> as the filter name.</p> </li> <li> <p> <code>available-ip-address-count</code> - The number of IPv4 addresses in the subnet that are available.</p> </li> <li> <p> <code>cidr-block</code> - The IPv4 CIDR block of the subnet. The CIDR block you specify must exactly match the subnet's CIDR block for information to be returned for the subnet. You can also use <code>cidr</code> or <code>cidrBlock</code> as the filter names.</p> </li> <li> <p> <code>customer-owned-ipv4-pool</code> - The customer-owned IPv4 address pool associated with the subnet.</p> </li> <li> <p> <code>default-for-az</code> - Indicates whether this is the default subnet for the Availability Zone (<code>true</code> | <code>false</code>). You can also use <code>defaultForAz</code> as the filter name.</p> </li> <li> <p> <code>enable-dns64</code> - Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations.</p> </li> <li> <p> <code>enable-lni-at-device-index</code> - Indicates the device position for local network interfaces in this subnet. For example, <code>1</code> indicates local network interfaces in this subnet are the secondary network interface (eth1). </p> </li> <li> <p> <code>ipv6-cidr-block-association.ipv6-cidr-block</code> - An IPv6 CIDR block associated with the subnet.</p> </li> <li> <p> <code>ipv6-cidr-block-association.association-id</code> - An association ID for an IPv6 CIDR block associated with the subnet.</p> </li> <li> <p> <code>ipv6-cidr-block-association.state</code> - The state of an IPv6 CIDR block associated with the subnet.</p> </li> <li> <p> <code>ipv6-native</code> - Indicates whether this is an IPv6 only subnet (<code>true</code> | <code>false</code>).</p> </li> <li> <p> <code>map-customer-owned-ip-on-launch</code> - Indicates whether a network interface created in this subnet (including a network interface created by <a>RunInstances</a>) receives a customer-owned IPv4 address.</p> </li> <li> <p> <code>map-public-ip-on-launch</code> - Indicates whether instances launched in this subnet receive a public IPv4 address.</p> </li> <li> <p> <code>outpost-arn</code> - The Amazon Resource Name (ARN) of the Outpost.</p> </li> <li> <p> <code>owner-id</code> - The ID of the Amazon Web Services account that owns the subnet.</p> </li> <li> <p> <code>private-dns-name-options-on-launch.hostname-type</code> - The type of hostname to assign to instances in the subnet at launch. For IPv4-only and dual-stack (IPv4 and IPv6) subnets, an instance DNS name can be based on the instance IPv4 address (ip-name) or the instance ID (resource-name). For IPv6 only subnets, an instance DNS name must be based on the instance ID (resource-name).</p> </li> <li> <p> <code>private-dns-name-options-on-launch.enable-resource-name-dns-a-record</code> - Indicates whether to respond to DNS queries for instance hostnames with DNS A records.</p> </li> <li> <p> <code>private-dns-name-options-on-launch.enable-resource-name-dns-aaaa-record</code> - Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.</p> </li> <li> <p> <code>state</code> - The state of the subnet (<code>pending</code> | <code>available</code>).</p> </li> <li> <p> <code>subnet-arn</code> - The Amazon Resource Name (ARN) of the subnet.</p> </li> <li> <p> <code>subnet-id</code> - The ID of the subnet.</p> </li> <li> <p> <code>tag</code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p> </li> <li> <p> <code>vpc-id</code> - The ID of the VPC for the subnet.</p> </li> </ul>
@@ -29477,7 +29477,7 @@ class AsyncEC2Client:
         max_results: Optional["aws_sdk_ec2.types.integer.Integer"] = None,
         next_token: Optional["aws_sdk_ec2.types.string.String"] = None,
     ) -> "aws_sdk_ec2.types.describe_tags_result.DescribeTagsResult":
-        """<p>Describes the specified tags for your EC2 resources.</p> <p>For more information about tags, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html\">Tag your Amazon EC2 resources</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> <important> <p>We strongly recommend using only paginated requests. Unpaginated requests are susceptible to throttling and timeouts.</p> </important> <note> <p>The order of the elements in the response, including those within nested structures, might vary. Applications should not assume the elements appear in a particular order.</p> </note>
+        r"""<p>Describes the specified tags for your EC2 resources.</p> <p>For more information about tags, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html\">Tag your Amazon EC2 resources</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> <important> <p>We strongly recommend using only paginated requests. Unpaginated requests are susceptible to throttling and timeouts.</p> </important> <note> <p>The order of the elements in the response, including those within nested structures, might vary. Applications should not assume the elements appear in a particular order.</p> </note>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -31440,7 +31440,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.describe_volume_attribute_result.DescribeVolumeAttributeResult":
-        """<p>Describes the specified attribute of the specified volume. You can specify only one attribute at a time.</p> <p>For more information about EBS volumes, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volumes.html\">Amazon EBS volumes</a> in the <i>Amazon EBS User Guide</i>.</p>
+        r"""<p>Describes the specified attribute of the specified volume. You can specify only one attribute at a time.</p> <p>For more information about EBS volumes, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volumes.html\">Amazon EBS volumes</a> in the <i>Amazon EBS User Guide</i>.</p>
 
         Args:
             attribute: <p>The attribute of the volume. This parameter is required.</p>
@@ -31496,7 +31496,7 @@ class AsyncEC2Client:
         next_token: Optional["aws_sdk_ec2.types.string.String"] = None,
         max_results: Optional["aws_sdk_ec2.types.integer.Integer"] = None,
     ) -> "aws_sdk_ec2.types.describe_volumes_result.DescribeVolumesResult":
-        """<p>Describes the specified EBS volumes or all of your EBS volumes.</p> <p>If you are describing a long list of volumes, we recommend that you paginate the output to make the list more manageable. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p> <p>For more information about EBS volumes, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volumes.html\">Amazon EBS volumes</a> in the <i>Amazon EBS User Guide</i>.</p> <important> <p>We strongly recommend using only paginated requests. Unpaginated requests are susceptible to throttling and timeouts.</p> </important> <note> <p>The order of the elements in the response, including those within nested structures, might vary. Applications should not assume the elements appear in a particular order.</p> </note>
+        r"""<p>Describes the specified EBS volumes or all of your EBS volumes.</p> <p>If you are describing a long list of volumes, we recommend that you paginate the output to make the list more manageable. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p> <p>For more information about EBS volumes, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volumes.html\">Amazon EBS volumes</a> in the <i>Amazon EBS User Guide</i>.</p> <important> <p>We strongly recommend using only paginated requests. Unpaginated requests are susceptible to throttling and timeouts.</p> </important> <note> <p>The order of the elements in the response, including those within nested structures, might vary. Applications should not assume the elements appear in a particular order.</p> </note>
 
         Args:
             volume_ids: <p>The volume IDs. If not specified, then all volumes are included in the response.</p>
@@ -31597,7 +31597,7 @@ class AsyncEC2Client:
         next_token: Optional["aws_sdk_ec2.types.string.String"] = None,
         max_results: Optional["aws_sdk_ec2.types.integer.Integer"] = None,
     ) -> "aws_sdk_ec2.types.describe_volumes_modifications_result.DescribeVolumesModificationsResult":
-        """<p>Describes the most recent volume modification request for the specified EBS volumes.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/monitoring-volume-modifications.html\"> Monitor the progress of volume modifications</a> in the <i>Amazon EBS User Guide</i>.</p>
+        r"""<p>Describes the most recent volume modification request for the specified EBS volumes.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/monitoring-volume-modifications.html\"> Monitor the progress of volume modifications</a> in the <i>Amazon EBS User Guide</i>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -31684,7 +31684,7 @@ class AsyncEC2Client:
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
         filters: Optional["aws_sdk_ec2.types.filter_list.FilterList"] = None,
     ) -> "aws_sdk_ec2.types.describe_volume_status_result.DescribeVolumeStatusResult":
-        """<p>Describes the status of the specified volumes. Volume status provides the result of the checks performed on your volumes to determine events that can impair the performance of your volumes. The performance of a volume can be affected if an issue occurs on the volume's underlying host. If the volume's underlying host experiences a power outage or system issue, after the system is restored, there could be data inconsistencies on the volume. Volume events notify you if this occurs. Volume actions notify you if any action needs to be taken in response to the event.</p> <p>The <code>DescribeVolumeStatus</code> operation provides the following information about the specified volumes:</p> <p> <i>Status</i>: Reflects the current status of the volume. The possible values are <code>ok</code>, <code>impaired</code> , <code>warning</code>, or <code>insufficient-data</code>. If all checks pass, the overall status of the volume is <code>ok</code>. If the check fails, the overall status is <code>impaired</code>. If the status is <code>insufficient-data</code>, then the checks might still be taking place on your volume at the time. We recommend that you retry the request. For more information about volume status, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/monitoring-volume-status.html\">Monitor the status of your volumes</a> in the <i>Amazon EBS User Guide</i>.</p> <p> <i>Events</i>: Reflect the cause of a volume status and might require you to take action. For example, if your volume returns an <code>impaired</code> status, then the volume event might be <code>potential-data-inconsistency</code>. This means that your volume has been affected by an issue with the underlying host, has all I/O operations disabled, and might have inconsistent data.</p> <p> <i>Actions</i>: Reflect the actions you might have to take in response to an event. For example, if the status of the volume is <code>impaired</code> and the volume event shows <code>potential-data-inconsistency</code>, then the action shows <code>enable-volume-io</code>. This means that you may want to enable the I/O operations for the volume and then check the volume for data consistency. For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/work_volumes_impaired.html\">Work with an impaired EBS volume</a>.</p> <p>Volume status is based on the volume status checks, and does not reflect the volume state. Therefore, volume status does not indicate volumes in the <code>error</code> state (for example, when a volume is incapable of accepting I/O.)</p> <note> <p>The order of the elements in the response, including those within nested structures, might vary. Applications should not assume the elements appear in a particular order.</p> </note>
+        r"""<p>Describes the status of the specified volumes. Volume status provides the result of the checks performed on your volumes to determine events that can impair the performance of your volumes. The performance of a volume can be affected if an issue occurs on the volume's underlying host. If the volume's underlying host experiences a power outage or system issue, after the system is restored, there could be data inconsistencies on the volume. Volume events notify you if this occurs. Volume actions notify you if any action needs to be taken in response to the event.</p> <p>The <code>DescribeVolumeStatus</code> operation provides the following information about the specified volumes:</p> <p> <i>Status</i>: Reflects the current status of the volume. The possible values are <code>ok</code>, <code>impaired</code> , <code>warning</code>, or <code>insufficient-data</code>. If all checks pass, the overall status of the volume is <code>ok</code>. If the check fails, the overall status is <code>impaired</code>. If the status is <code>insufficient-data</code>, then the checks might still be taking place on your volume at the time. We recommend that you retry the request. For more information about volume status, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/monitoring-volume-status.html\">Monitor the status of your volumes</a> in the <i>Amazon EBS User Guide</i>.</p> <p> <i>Events</i>: Reflect the cause of a volume status and might require you to take action. For example, if your volume returns an <code>impaired</code> status, then the volume event might be <code>potential-data-inconsistency</code>. This means that your volume has been affected by an issue with the underlying host, has all I/O operations disabled, and might have inconsistent data.</p> <p> <i>Actions</i>: Reflect the actions you might have to take in response to an event. For example, if the status of the volume is <code>impaired</code> and the volume event shows <code>potential-data-inconsistency</code>, then the action shows <code>enable-volume-io</code>. This means that you may want to enable the I/O operations for the volume and then check the volume for data consistency. For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/work_volumes_impaired.html\">Work with an impaired EBS volume</a>.</p> <p>Volume status is based on the volume status checks, and does not reflect the volume state. Therefore, volume status does not indicate volumes in the <code>error</code> state (for example, when a volume is incapable of accepting I/O.)</p> <note> <p>The order of the elements in the response, including those within nested structures, might vary. Applications should not assume the elements appear in a particular order.</p> </note>
 
         Args:
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>
@@ -31842,7 +31842,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.describe_vpc_block_public_access_exclusions_max_results.DescribeVpcBlockPublicAccessExclusionsMaxResults"
         ] = None,
     ) -> "aws_sdk_ec2.types.describe_vpc_block_public_access_exclusions_result.DescribeVpcBlockPublicAccessExclusionsResult":
-        """<p>Describe VPC Block Public Access (BPA) exclusions. A VPC BPA exclusion is a mode that can be applied to a single VPC or subnet that exempts it from the account’s BPA mode and will allow bidirectional or egress-only access. You can create BPA exclusions for VPCs and subnets even when BPA is not enabled on the account to ensure that there is no traffic disruption to the exclusions when VPC BPA is turned on. To learn more about VPC BPA, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/security-vpc-bpa.html\">Block public access to VPCs and subnets</a> in the <i>Amazon VPC User Guide</i>.</p>
+        r"""<p>Describe VPC Block Public Access (BPA) exclusions. A VPC BPA exclusion is a mode that can be applied to a single VPC or subnet that exempts it from the account’s BPA mode and will allow bidirectional or egress-only access. You can create BPA exclusions for VPCs and subnets even when BPA is not enabled on the account to ensure that there is no traffic disruption to the exclusions when VPC BPA is turned on. To learn more about VPC BPA, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/security-vpc-bpa.html\">Block public access to VPCs and subnets</a> in the <i>Amazon VPC User Guide</i>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -31893,7 +31893,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.describe_vpc_block_public_access_options_result.DescribeVpcBlockPublicAccessOptionsResult":
-        """<p>Describe VPC Block Public Access (BPA) options. VPC Block Public Access (BPA) enables you to block resources in VPCs and subnets that you own in a Region from reaching or being reached from the internet through internet gateways and egress-only internet gateways. To learn more about VPC BPA, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/security-vpc-bpa.html\">Block public access to VPCs and subnets</a> in the <i>Amazon VPC User Guide</i>.</p>
+        r"""<p>Describe VPC Block Public Access (BPA) options. VPC Block Public Access (BPA) enables you to block resources in VPCs and subnets that you own in a Region from reaching or being reached from the internet through internet gateways and egress-only internet gateways. To learn more about VPC BPA, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/security-vpc-bpa.html\">Block public access to VPCs and subnets</a> in the <i>Amazon VPC User Guide</i>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -31989,7 +31989,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.describe_vpc_classic_link_dns_support_next_token.DescribeVpcClassicLinkDnsSupportNextToken"
         ] = None,
     ) -> "aws_sdk_ec2.types.describe_vpc_classic_link_dns_support_result.DescribeVpcClassicLinkDnsSupportResult":
-        """<note> <p>This action is deprecated.</p> </note> <p>Describes the ClassicLink DNS support status of one or more VPCs. If enabled, the DNS hostname of a linked EC2-Classic instance resolves to its private IP address when addressed from an instance in the VPC to which it's linked. Similarly, the DNS hostname of an instance in a VPC resolves to its private IP address when addressed from a linked EC2-Classic instance.</p>
+        r"""<note> <p>This action is deprecated.</p> </note> <p>Describes the ClassicLink DNS support status of one or more VPCs. If enabled, the DNS hostname of a linked EC2-Classic instance resolves to its private IP address when addressed from an instance in the VPC to which it's linked. Similarly, the DNS hostname of an instance in a VPC resolves to its private IP address when addressed from a linked EC2-Classic instance.</p>
 
         Args:
             vpc_ids: <p>The IDs of the VPCs.</p>
@@ -32074,7 +32074,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.describe_vpc_encryption_controls_max_results.DescribeVpcEncryptionControlsMaxResults"
         ] = None,
     ) -> "aws_sdk_ec2.types.describe_vpc_encryption_controls_result.DescribeVpcEncryptionControlsResult":
-        """<p>Describes one or more VPC Encryption Control configurations. VPC Encryption Control enables you to enforce encryption for all data in transit within and between VPCs to meet compliance requirements You can filter the results to return information about specific encryption controls or VPCs.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html\">Enforce VPC encryption in transit</a> in the <i>Amazon VPC User Guide</i>.</p>
+        r"""<p>Describes one or more VPC Encryption Control configurations. VPC Encryption Control enables you to enforce encryption for all data in transit within and between VPCs to meet compliance requirements You can filter the results to return information about specific encryption controls or VPCs.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html\">Enforce VPC encryption in transit</a> in the <i>Amazon VPC User Guide</i>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -32673,7 +32673,7 @@ class AsyncEC2Client:
         ] = None,
         filters: Optional["aws_sdk_ec2.types.filter_list.FilterList"] = None,
     ) -> "aws_sdk_ec2.types.describe_vpc_peering_connections_result.DescribeVpcPeeringConnectionsResult":
-        """<p>Describes your VPC peering connections. The default is to describe all your VPC peering connections. Alternatively, you can specify specific VPC peering connection IDs or filter the results to include only the VPC peering connections that match specific criteria.</p>
+        r"""<p>Describes your VPC peering connections. The default is to describe all your VPC peering connections. Alternatively, you can specify specific VPC peering connection IDs or filter the results to include only the VPC peering connections that match specific criteria.</p>
 
         Args:
             next_token: <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
@@ -32766,7 +32766,7 @@ class AsyncEC2Client:
         ] = None,
         filters: Optional["aws_sdk_ec2.types.filter_list.FilterList"] = None,
     ) -> "aws_sdk_ec2.types.describe_vpc_peering_connections_result.DescribeVpcPeeringConnectionsResult":
-        """Wait for vpc_peering_connection_exists.
+        r"""Wait for vpc_peering_connection_exists.
 
         Args:
             max_wait_time: Maximum total seconds to wait before raising WaiterTimeoutError.
@@ -32825,7 +32825,7 @@ class AsyncEC2Client:
         ] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.describe_vpcs_result.DescribeVpcsResult":
-        """<p>Describes your VPCs. The default is to describe all your VPCs. Alternatively, you can specify specific VPC IDs or filter the results to include only the VPCs that match specific criteria.</p>
+        r"""<p>Describes your VPCs. The default is to describe all your VPCs. Alternatively, you can specify specific VPC IDs or filter the results to include only the VPCs that match specific criteria.</p>
 
         Args:
             filters: <p>The filters.</p> <ul> <li> <p> <code>cidr</code> - The primary IPv4 CIDR block of the VPC. The CIDR block you specify must exactly match the VPC's CIDR block for information to be returned for the VPC. Must contain the slash followed by one or two digits (for example, <code>/28</code>).</p> </li> <li> <p> <code>cidr-block-association.cidr-block</code> - An IPv4 CIDR block associated with the VPC.</p> </li> <li> <p> <code>cidr-block-association.association-id</code> - The association ID for an IPv4 CIDR block associated with the VPC.</p> </li> <li> <p> <code>cidr-block-association.state</code> - The state of an IPv4 CIDR block associated with the VPC.</p> </li> <li> <p> <code>dhcp-options-id</code> - The ID of a set of DHCP options.</p> </li> <li> <p> <code>ipv6-cidr-block-association.ipv6-cidr-block</code> - An IPv6 CIDR block associated with the VPC.</p> </li> <li> <p> <code>ipv6-cidr-block-association.ipv6-pool</code> - The ID of the IPv6 address pool from which the IPv6 CIDR block is allocated.</p> </li> <li> <p> <code>ipv6-cidr-block-association.association-id</code> - The association ID for an IPv6 CIDR block associated with the VPC.</p> </li> <li> <p> <code>ipv6-cidr-block-association.state</code> - The state of an IPv6 CIDR block associated with the VPC.</p> </li> <li> <p> <code>is-default</code> - Indicates whether the VPC is the default VPC.</p> </li> <li> <p> <code>owner-id</code> - The ID of the Amazon Web Services account that owns the VPC.</p> </li> <li> <p> <code>state</code> - The state of the VPC (<code>pending</code> | <code>available</code>).</p> </li> <li> <p> <code>tag</code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p> </li> <li> <p> <code>vpc-id</code> - The ID of the VPC.</p> </li> </ul>
@@ -32924,7 +32924,7 @@ class AsyncEC2Client:
         ] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.describe_vpcs_result.DescribeVpcsResult":
-        """Wait for vpc_exists.
+        r"""Wait for vpc_exists.
 
         Args:
             max_wait_time: Maximum total seconds to wait before raising WaiterTimeoutError.
@@ -33068,7 +33068,7 @@ class AsyncEC2Client:
     ) -> (
         "aws_sdk_ec2.types.describe_vpn_connections_result.DescribeVpnConnectionsResult"
     ):
-        """<p>Describes one or more of your VPN connections.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html\">Amazon Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN User Guide</i>.</p>
+        r"""<p>Describes one or more of your VPN connections.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html\">Amazon Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN User Guide</i>.</p>
 
         Args:
             filters: <p>One or more filters.</p> <ul> <li> <p> <code>customer-gateway-configuration</code> - The configuration information for the customer gateway.</p> </li> <li> <p> <code>customer-gateway-id</code> - The ID of a customer gateway associated with the VPN connection.</p> </li> <li> <p> <code>state</code> - The state of the VPN connection (<code>pending</code> | <code>available</code> | <code>deleting</code> | <code>deleted</code>).</p> </li> <li> <p> <code>option.static-routes-only</code> - Indicates whether the connection has static routes only. Used for devices that do not support Border Gateway Protocol (BGP).</p> </li> <li> <p> <code>route.destination-cidr-block</code> - The destination CIDR block. This corresponds to the subnet used in a customer data center.</p> </li> <li> <p> <code>bgp-asn</code> - The BGP Autonomous System Number (ASN) associated with a BGP device.</p> </li> <li> <p> <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p> </li> <li> <p> <code>type</code> - The type of VPN connection. Currently the only supported type is <code>ipsec.1</code>.</p> </li> <li> <p> <code>vpn-connection-id</code> - The ID of the VPN connection.</p> </li> <li> <p> <code>vpn-gateway-id</code> - The ID of a virtual private gateway associated with the VPN connection.</p> </li> <li> <p> <code>transit-gateway-id</code> - The ID of a transit gateway associated with the VPN connection.</p> </li> </ul>
@@ -33117,7 +33117,7 @@ class AsyncEC2Client:
         ] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.describe_vpn_gateways_result.DescribeVpnGatewaysResult":
-        """<p>Describes one or more of your virtual private gateways.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html\">Amazon Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN User Guide</i>.</p>
+        r"""<p>Describes one or more of your virtual private gateways.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html\">Amazon Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN User Guide</i>.</p>
 
         Args:
             filters: <p>One or more filters.</p> <ul> <li> <p> <code>amazon-side-asn</code> - The Autonomous System Number (ASN) for the Amazon side of the gateway.</p> </li> <li> <p> <code>attachment.state</code> - The current state of the attachment between the gateway and the VPC (<code>attaching</code> | <code>attached</code> | <code>detaching</code> | <code>detached</code>).</p> </li> <li> <p> <code>attachment.vpc-id</code> - The ID of an attached VPC.</p> </li> <li> <p> <code>availability-zone</code> - The Availability Zone for the virtual private gateway (if applicable).</p> </li> <li> <p> <code>state</code> - The state of the virtual private gateway (<code>pending</code> | <code>available</code> | <code>deleting</code> | <code>deleted</code>).</p> </li> <li> <p> <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p> </li> <li> <p> <code>type</code> - The type of virtual private gateway. Currently the only supported type is <code>ipsec.1</code>.</p> </li> <li> <p> <code>vpn-gateway-id</code> - The ID of the virtual private gateway.</p> </li> </ul>
@@ -33258,7 +33258,7 @@ class AsyncEC2Client:
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
         force: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> None:
-        """<p>Detaches a network interface from an instance.</p>
+        r"""<p>Detaches a network interface from an instance.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -33309,7 +33309,7 @@ class AsyncEC2Client:
         client_token: Optional["aws_sdk_ec2.types.string.String"] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.detach_verified_access_trust_provider_result.DetachVerifiedAccessTrustProviderResult":
-        """<p>Detaches the specified Amazon Web Services Verified Access trust provider from the specified Amazon Web Services Verified Access instance.</p>
+        r"""<p>Detaches the specified Amazon Web Services Verified Access trust provider from the specified Amazon Web Services Verified Access instance.</p>
 
         Args:
             verified_access_instance_id: <p>The ID of the Verified Access instance.</p>
@@ -33361,7 +33361,7 @@ class AsyncEC2Client:
         ] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.volume_attachment.VolumeAttachment":
-        """<p>Detaches an EBS volume from an instance. Make sure to unmount any file systems on the device within your operating system before detaching the volume. Failure to do so can result in the volume becoming stuck in the <code>busy</code> state while detaching. If this happens, detachment can be delayed indefinitely until you unmount the volume, force detachment, reboot the instance, or all three. If an EBS volume is the root device of an instance, it can't be detached while the instance is running. To detach the root volume, stop the instance first.</p> <p>When a volume with an Amazon Web Services Marketplace product code is detached from an instance, the product code is no longer associated with the instance.</p> <p>You can't detach or force detach volumes that are attached to Amazon Web Services-managed resources. Attempting to do this results in the <code>UnsupportedOperationException</code> exception.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/ebs-detaching-volume.html\">Detach an Amazon EBS volume</a> in the <i>Amazon EBS User Guide</i>.</p>
+        r"""<p>Detaches an EBS volume from an instance. Make sure to unmount any file systems on the device within your operating system before detaching the volume. Failure to do so can result in the volume becoming stuck in the <code>busy</code> state while detaching. If this happens, detachment can be delayed indefinitely until you unmount the volume, force detachment, reboot the instance, or all three. If an EBS volume is the root device of an instance, it can't be detached while the instance is running. To detach the root volume, stop the instance first.</p> <p>When a volume with an Amazon Web Services Marketplace product code is detached from an instance, the product code is no longer associated with the instance.</p> <p>You can't detach or force detach volumes that are attached to Amazon Web Services-managed resources. Attempting to do this results in the <code>UnsupportedOperationException</code> exception.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/ebs-detaching-volume.html\">Detach an Amazon EBS volume</a> in the <i>Amazon EBS User Guide</i>.</p>
 
         Args:
             device: <p>The device name.</p>
@@ -33463,7 +33463,7 @@ class AsyncEC2Client:
     ) -> (
         "aws_sdk_ec2.types.disable_address_transfer_result.DisableAddressTransferResult"
     ):
-        """<p>Disables Elastic IP address transfer. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#transfer-EIPs-intro\">Transfer Elastic IP addresses</a> in the <i>Amazon VPC User Guide</i>.</p>
+        r"""<p>Disables Elastic IP address transfer. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#transfer-EIPs-intro\">Transfer Elastic IP addresses</a> in the <i>Amazon VPC User Guide</i>.</p>
 
         Args:
             allocation_id: <p>The allocation ID of an Elastic IP address.</p>
@@ -33504,7 +33504,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.disable_allowed_images_settings_result.DisableAllowedImagesSettingsResult":
-        """<p>Disables Allowed AMIs for your account in the specified Amazon Web Services Region. When set to <code>disabled</code>, the image criteria in your Allowed AMIs settings do not apply, and no restrictions are placed on AMI discoverability or usage. Users in your account can launch instances using any public AMI or AMI shared with your account.</p> <note> <p>The Allowed AMIs feature does not restrict the AMIs owned by your account. Regardless of the criteria you set, the AMIs created by your account will always be discoverable and usable by users in your account.</p> </note> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-allowed-amis.html\">Control the discovery and use of AMIs in Amazon EC2 with Allowed AMIs</a> in <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Disables Allowed AMIs for your account in the specified Amazon Web Services Region. When set to <code>disabled</code>, the image criteria in your Allowed AMIs settings do not apply, and no restrictions are placed on AMI discoverability or usage. Users in your account can launch instances using any public AMI or AMI shared with your account.</p> <note> <p>The Allowed AMIs feature does not restrict the AMIs owned by your account. Regardless of the criteria you set, the AMIs created by your account will always be discoverable and usable by users in your account.</p> </note> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-allowed-amis.html\">Control the discovery and use of AMIs in Amazon EC2 with Allowed AMIs</a> in <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -33643,7 +33643,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.disable_ebs_encryption_by_default_result.DisableEbsEncryptionByDefaultResult":
-        """<p>Disables EBS encryption by default for your account in the current Region.</p> <p>After you disable encryption by default, you can still create encrypted volumes by enabling encryption when you create each volume.</p> <p>Disabling encryption by default does not change the encryption status of your existing volumes.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html\">Amazon EBS encryption</a> in the <i>Amazon EBS User Guide</i>.</p>
+        r"""<p>Disables EBS encryption by default for your account in the current Region.</p> <p>After you disable encryption by default, you can still create encrypted volumes by enabling encryption when you create each volume.</p> <p>Disabling encryption by default does not change the encryption status of your existing volumes.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html\">Amazon EBS encryption</a> in the <i>Amazon EBS User Guide</i>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -33783,7 +33783,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.disable_image_result.DisableImageResult":
-        """<p>Sets the AMI state to <code>disabled</code> and removes all launch permissions from the AMI. A disabled AMI can't be used for instance launches.</p> <p>A disabled AMI can't be shared. If an AMI was public or previously shared, it is made private. If an AMI was shared with an Amazon Web Services account, organization, or Organizational Unit, they lose access to the disabled AMI. </p> <p>A disabled AMI does not appear in <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeImages.html\">DescribeImages</a> API calls by default.</p> <p>Only the AMI owner can disable an AMI.</p> <p>You can re-enable a disabled AMI using <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EnableImage.html\">EnableImage</a>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/disable-an-ami.html\">Disable an AMI</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Sets the AMI state to <code>disabled</code> and removes all launch permissions from the AMI. A disabled AMI can't be used for instance launches.</p> <p>A disabled AMI can't be shared. If an AMI was public or previously shared, it is made private. If an AMI was shared with an Amazon Web Services account, organization, or Organizational Unit, they lose access to the disabled AMI. </p> <p>A disabled AMI does not appear in <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeImages.html\">DescribeImages</a> API calls by default.</p> <p>Only the AMI owner can disable an AMI.</p> <p>You can re-enable a disabled AMI using <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EnableImage.html\">EnableImage</a>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/disable-an-ami.html\">Disable an AMI</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             image_id: <p>The ID of the AMI.</p>
@@ -33824,7 +33824,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.disable_image_block_public_access_result.DisableImageBlockPublicAccessResult":
-        """<p>Disables <i>block public access for AMIs</i> at the account level in the specified Amazon Web Services Region. This removes the <i>block public access</i> restriction from your account. With the restriction removed, you can publicly share your AMIs in the specified Amazon Web Services Region.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-public-access-to-amis.html\">Block public access to your AMIs</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Disables <i>block public access for AMIs</i> at the account level in the specified Amazon Web Services Region. This removes the <i>block public access</i> restriction from your account. With the restriction removed, you can publicly share your AMIs in the specified Amazon Web Services Region.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-public-access-to-amis.html\">Block public access to your AMIs</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -33864,7 +33864,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.disable_image_deprecation_result.DisableImageDeprecationResult":
-        """<p>Cancels the deprecation of the specified AMI.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-deprecate.html\">Deprecate an Amazon EC2 AMI</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Cancels the deprecation of the specified AMI.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-deprecate.html\">Deprecate an Amazon EC2 AMI</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             image_id: <p>The ID of the AMI.</p>
@@ -33906,7 +33906,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.disable_image_deregistration_protection_result.DisableImageDeregistrationProtectionResult":
-        """<p>Disables deregistration protection for an AMI. When deregistration protection is disabled, the AMI can be deregistered.</p> <p>If you chose to include a 24-hour cooldown period when you enabled deregistration protection for the AMI, then, when you disable deregistration protection, you won’t immediately be able to deregister the AMI.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-deregistration-protection.html\">Protect an Amazon EC2 AMI from deregistration</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Disables deregistration protection for an AMI. When deregistration protection is disabled, the AMI can be deregistered.</p> <p>If you chose to include a 24-hour cooldown period when you enabled deregistration protection for the AMI, then, when you disable deregistration protection, you won’t immediately be able to deregister the AMI.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-deregistration-protection.html\">Protect an Amazon EC2 AMI from deregistration</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             image_id: <p>The ID of the AMI.</p>
@@ -33990,7 +33990,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.disable_ipam_organization_admin_account_result.DisableIpamOrganizationAdminAccountResult":
-        """<p>Disable the IPAM account. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/enable-integ-ipam.html\">Enable integration with Organizations</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
+        r"""<p>Disable the IPAM account. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/enable-integ-ipam.html\">Enable integration with Organizations</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
 
         Args:
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -34079,7 +34079,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.disable_route_server_propagation_result.DisableRouteServerPropagationResult":
-        """<p>Disables route propagation from a route server to a specified route table.</p> <p>When enabled, route server propagation installs the routes in the FIB on the route table you've specified. Route server supports IPv4 and IPv6 route propagation.</p> <p>Amazon VPC Route Server simplifies routing for traffic between workloads that are deployed within a VPC and its internet gateways. With this feature, VPC Route Server dynamically updates VPC and internet gateway route tables with your preferred IPv4 or IPv6 routes to achieve routing fault tolerance for those workloads. This enables you to automatically reroute traffic within a VPC, which increases the manageability of VPC routing and interoperability with third-party workloads.</p> <p>Route server supports the follow route table types:</p> <ul> <li> <p>VPC route tables not associated with subnets</p> </li> <li> <p>Subnet route tables</p> </li> <li> <p>Internet gateway route tables</p> </li> </ul> <p>Route server does not support route tables associated with virtual private gateways. To propagate routes into a transit gateway route table, use <a href=\"https://docs.aws.amazon.com/vpc/latest/tgw/tgw-connect.html\">Transit Gateway Connect</a>.</p> <p>For more information see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/dynamic-routing-route-server.html\">Dynamic routing in your VPC with VPC Route Server</a> in the <i>Amazon VPC User Guide</i>.</p>
+        r"""<p>Disables route propagation from a route server to a specified route table.</p> <p>When enabled, route server propagation installs the routes in the FIB on the route table you've specified. Route server supports IPv4 and IPv6 route propagation.</p> <p>Amazon VPC Route Server simplifies routing for traffic between workloads that are deployed within a VPC and its internet gateways. With this feature, VPC Route Server dynamically updates VPC and internet gateway route tables with your preferred IPv4 or IPv6 routes to achieve routing fault tolerance for those workloads. This enables you to automatically reroute traffic within a VPC, which increases the manageability of VPC routing and interoperability with third-party workloads.</p> <p>Route server supports the follow route table types:</p> <ul> <li> <p>VPC route tables not associated with subnets</p> </li> <li> <p>Subnet route tables</p> </li> <li> <p>Internet gateway route tables</p> </li> </ul> <p>Route server does not support route tables associated with virtual private gateways. To propagate routes into a transit gateway route table, use <a href=\"https://docs.aws.amazon.com/vpc/latest/tgw/tgw-connect.html\">Transit Gateway Connect</a>.</p> <p>For more information see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/dynamic-routing-route-server.html\">Dynamic routing in your VPC with VPC Route Server</a> in the <i>Amazon VPC User Guide</i>.</p>
 
         Args:
             route_server_id: <p>The ID of the route server for which to disable propagation.</p>
@@ -34122,7 +34122,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.disable_serial_console_access_result.DisableSerialConsoleAccessResult":
-        """<p>Disables access to the EC2 serial console of all instances for your account. By default, access to the EC2 serial console is disabled for your account. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-access-to-serial-console.html#serial-console-account-access\">Manage account access to the EC2 serial console</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Disables access to the EC2 serial console of all instances for your account. By default, access to the EC2 serial console is disabled for your account. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-access-to-serial-console.html#serial-console-account-access\">Manage account access to the EC2 serial console</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -34161,7 +34161,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.disable_snapshot_block_public_access_result.DisableSnapshotBlockPublicAccessResult":
-        """<p>Disables the <i>block public access for snapshots</i> setting at the account level for the specified Amazon Web Services Region. After you disable block public access for snapshots in a Region, users can publicly share snapshots in that Region.</p> <important> <p>Enabling block public access for snapshots in <i>block-all-sharing</i> mode does not change the permissions for snapshots that are already publicly shared. Instead, it prevents these snapshots from be publicly visible and publicly accessible. Therefore, the attributes for these snapshots still indicate that they are publicly shared, even though they are not publicly available.</p> <p>If you disable block public access , these snapshots will become publicly available again.</p> </important> <p>For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/block-public-access-snapshots.html\"> Block public access for snapshots</a> in the <i>Amazon EBS User Guide</i> .</p> <p></p>
+        r"""<p>Disables the <i>block public access for snapshots</i> setting at the account level for the specified Amazon Web Services Region. After you disable block public access for snapshots in a Region, users can publicly share snapshots in that Region.</p> <important> <p>Enabling block public access for snapshots in <i>block-all-sharing</i> mode does not change the permissions for snapshots that are already publicly shared. Instead, it prevents these snapshots from be publicly visible and publicly accessible. Therefore, the attributes for these snapshots still indicate that they are publicly shared, even though they are not publicly available.</p> <p>If you disable block public access , these snapshots will become publicly available again.</p> </important> <p>For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/block-public-access-snapshots.html\"> Block public access for snapshots</a> in the <i>Amazon EBS User Guide</i> .</p> <p></p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -34445,7 +34445,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.disassociate_capacity_reservation_billing_owner_result.DisassociateCapacityReservationBillingOwnerResult":
-        """<p>Cancels a pending request to assign billing of the unused capacity of a Capacity Reservation to a consumer account, or revokes a request that has already been accepted. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/assign-billing.html\">Billing assignment for shared Amazon EC2 Capacity Reservations</a>.</p>
+        r"""<p>Cancels a pending request to assign billing of the unused capacity of a Capacity Reservation to a consumer account, or revokes a request that has already been accepted. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/assign-billing.html\">Billing assignment for shared Amazon EC2 Capacity Reservations</a>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -34626,7 +34626,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.disassociate_instance_event_window_result.DisassociateInstanceEventWindowResult":
-        """<p>Disassociates one or more targets from an event window.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/event-windows.html\">Define event windows for scheduled events</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Disassociates one or more targets from an event window.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/event-windows.html\">Define event windows for scheduled events</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -34673,7 +34673,7 @@ class AsyncEC2Client:
     ) -> (
         "aws_sdk_ec2.types.disassociate_ipam_byoasn_result.DisassociateIpamByoasnResult"
     ):
-        """<p>Remove the association between your Autonomous System Number (ASN) and your BYOIP CIDR. You may want to use this action to disassociate an ASN from a CIDR or if you want to swap ASNs. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoasn.html\">Tutorial: Bring your ASN to IPAM</a> in the <i>Amazon VPC IPAM guide</i>.</p>
+        r"""<p>Remove the association between your Autonomous System Number (ASN) and your BYOIP CIDR. You may want to use this action to disassociate an ASN from a CIDR or if you want to swap ASNs. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoasn.html\">Tutorial: Bring your ASN to IPAM</a> in the <i>Amazon VPC IPAM guide</i>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -34765,7 +34765,7 @@ class AsyncEC2Client:
         ] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.disassociate_nat_gateway_address_result.DisassociateNatGatewayAddressResult":
-        """<p>Disassociates secondary Elastic IP addresses (EIPs) from a public NAT gateway. You cannot disassociate your primary EIP. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-working-with.html#nat-gateway-edit-secondary\">Edit secondary IP address associations</a> in the <i>Amazon VPC User Guide</i>.</p> <p>While disassociating is in progress, you cannot associate/disassociate additional EIPs while the connections are being drained. You are, however, allowed to delete the NAT gateway.</p> <p>An EIP is released only at the end of MaxDrainDurationSeconds. It stays associated and supports the existing connections but does not support any new connections (new connections are distributed across the remaining associated EIPs). As the existing connections drain out, the EIPs (and the corresponding private IP addresses mapped to them) are released.</p>
+        r"""<p>Disassociates secondary Elastic IP addresses (EIPs) from a public NAT gateway. You cannot disassociate your primary EIP. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-working-with.html#nat-gateway-edit-secondary\">Edit secondary IP address associations</a> in the <i>Amazon VPC User Guide</i>.</p> <p>While disassociating is in progress, you cannot associate/disassociate additional EIPs while the connections are being drained. You are, however, allowed to delete the NAT gateway.</p> <p>An EIP is released only at the end of MaxDrainDurationSeconds. It stays associated and supports the existing connections but does not support any new connections (new connections are distributed across the remaining associated EIPs). As the existing connections drain out, the EIPs (and the corresponding private IP addresses mapped to them) are released.</p>
 
         Args:
             nat_gateway_id: <p>The ID of the NAT gateway.</p>
@@ -34813,7 +34813,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.disassociate_route_server_result.DisassociateRouteServerResult":
-        """<p>Disassociates a route server from a VPC.</p> <p>A route server association is the connection established between a route server and a VPC.</p> <p>For more information see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/dynamic-routing-route-server.html\">Dynamic routing in your VPC with VPC Route Server</a> in the <i>Amazon VPC User Guide</i>.</p>
+        r"""<p>Disassociates a route server from a VPC.</p> <p>A route server association is the connection established between a route server and a VPC.</p> <p>For more information see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/dynamic-routing-route-server.html\">Dynamic routing in your VPC with VPC Route Server</a> in the <i>Amazon VPC User Guide</i>.</p>
 
         Args:
             route_server_id: <p>The ID of the route server to disassociate.</p>
@@ -34857,7 +34857,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> None:
-        """<p>Disassociates a subnet or gateway from a route table.</p> <p>After you perform this action, the subnet no longer uses the routes in the route table. Instead, it uses the routes in the VPC's main route table. For more information about route tables, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html\">Route tables</a> in the <i>Amazon VPC User Guide</i>.</p>
+        r"""<p>Disassociates a subnet or gateway from a route table.</p> <p>After you perform this action, the subnet no longer uses the routes in the route table. Instead, it uses the routes in the VPC's main route table. For more information about route tables, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html\">Route tables</a> in the <i>Amazon VPC User Guide</i>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -34904,7 +34904,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.disassociate_security_group_vpc_result.DisassociateSecurityGroupVpcResult":
-        """<p>Disassociates a security group from a VPC. You cannot disassociate the security group if any Elastic network interfaces in the associated VPC are still associated with the security group. Note that the disassociation is asynchronous and you can check the status of the request with <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroupVpcAssociations.html\">DescribeSecurityGroupVpcAssociations</a>.</p>
+        r"""<p>Disassociates a security group from a VPC. You cannot disassociate the security group if any Elastic network interfaces in the associated VPC are still associated with the security group. Note that the disassociation is asynchronous and you can check the status of the request with <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroupVpcAssociations.html\">DescribeSecurityGroupVpcAssociations</a>.</p>
 
         Args:
             group_id: <p>A security group ID.</p>
@@ -35127,7 +35127,7 @@ class AsyncEC2Client:
         client_token: Optional["aws_sdk_ec2.types.string.String"] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.disassociate_trunk_interface_result.DisassociateTrunkInterfaceResult":
-        """<p>Removes an association between a branch network interface with a trunk network interface.</p>
+        r"""<p>Removes an association between a branch network interface with a trunk network interface.</p>
 
         Args:
             association_id: <p>The ID of the association</p>
@@ -35211,7 +35211,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.enable_address_transfer_result.EnableAddressTransferResult":
-        """<p>Enables Elastic IP address transfer. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#transfer-EIPs-intro\">Transfer Elastic IP addresses</a> in the <i>Amazon VPC User Guide</i>.</p>
+        r"""<p>Enables Elastic IP address transfer. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#transfer-EIPs-intro\">Transfer Elastic IP addresses</a> in the <i>Amazon VPC User Guide</i>.</p>
 
         Args:
             allocation_id: <p>The allocation ID of an Elastic IP address.</p>
@@ -35255,7 +35255,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.enable_allowed_images_settings_result.EnableAllowedImagesSettingsResult":
-        """<p>Enables Allowed AMIs for your account in the specified Amazon Web Services Region. Two values are accepted:</p> <ul> <li> <p> <code>enabled</code>: The image criteria in your Allowed AMIs settings are applied. As a result, only AMIs matching these criteria are discoverable and can be used by your account to launch instances.</p> </li> <li> <p> <code>audit-mode</code>: The image criteria in your Allowed AMIs settings are not applied. No restrictions are placed on AMI discoverability or usage. Users in your account can launch instances using any public AMI or AMI shared with your account.</p> <p>The purpose of <code>audit-mode</code> is to indicate which AMIs will be affected when Allowed AMIs is <code>enabled</code>. In <code>audit-mode</code>, each AMI displays either <code>\"ImageAllowed\": true</code> or <code>\"ImageAllowed\": false</code> to indicate whether the AMI will be discoverable and available to users in the account when Allowed AMIs is enabled.</p> </li> </ul> <note> <p>The Allowed AMIs feature does not restrict the AMIs owned by your account. Regardless of the criteria you set, the AMIs created by your account will always be discoverable and usable by users in your account.</p> </note> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-allowed-amis.html\">Control the discovery and use of AMIs in Amazon EC2 with Allowed AMIs</a> in <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Enables Allowed AMIs for your account in the specified Amazon Web Services Region. Two values are accepted:</p> <ul> <li> <p> <code>enabled</code>: The image criteria in your Allowed AMIs settings are applied. As a result, only AMIs matching these criteria are discoverable and can be used by your account to launch instances.</p> </li> <li> <p> <code>audit-mode</code>: The image criteria in your Allowed AMIs settings are not applied. No restrictions are placed on AMI discoverability or usage. Users in your account can launch instances using any public AMI or AMI shared with your account.</p> <p>The purpose of <code>audit-mode</code> is to indicate which AMIs will be affected when Allowed AMIs is <code>enabled</code>. In <code>audit-mode</code>, each AMI displays either <code>\"ImageAllowed\": true</code> or <code>\"ImageAllowed\": false</code> to indicate whether the AMI will be discoverable and available to users in the account when Allowed AMIs is enabled.</p> </li> </ul> <note> <p>The Allowed AMIs feature does not restrict the AMIs owned by your account. Regardless of the criteria you set, the AMIs created by your account will always be discoverable and usable by users in your account.</p> </note> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-allowed-amis.html\">Control the discovery and use of AMIs in Amazon EC2 with Allowed AMIs</a> in <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             allowed_images_settings_state: <p>Specify <code>enabled</code> to apply the image criteria specified by the Allowed AMIs settings. Specify <code>audit-mode</code> so that you can check which AMIs will be allowed or not allowed by the image criteria.</p>
@@ -35398,7 +35398,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.enable_ebs_encryption_by_default_result.EnableEbsEncryptionByDefaultResult":
-        """<p>Enables EBS encryption by default for your account in the current Region.</p> <p>After you enable encryption by default, the EBS volumes that you create are always encrypted, either using the default KMS key or the KMS key that you specified when you created each volume. For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html\">Amazon EBS encryption</a> in the <i>Amazon EBS User Guide</i>.</p> <p>Enabling encryption by default has no effect on the encryption status of your existing volumes.</p> <p>After you enable encryption by default, you can no longer launch instances using instance types that do not support encryption. For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption-requirements.html#ebs-encryption_supported_instances\">Supported instance types</a>.</p>
+        r"""<p>Enables EBS encryption by default for your account in the current Region.</p> <p>After you enable encryption by default, the EBS volumes that you create are always encrypted, either using the default KMS key or the KMS key that you specified when you created each volume. For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html\">Amazon EBS encryption</a> in the <i>Amazon EBS User Guide</i>.</p> <p>Enabling encryption by default has no effect on the encryption status of your existing volumes.</p> <p>After you enable encryption by default, you can no longer launch instances using instance types that do not support encryption. For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption-requirements.html#ebs-encryption_supported_instances\">Supported instance types</a>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -35506,7 +35506,7 @@ class AsyncEC2Client:
         ] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.enable_fast_snapshot_restores_result.EnableFastSnapshotRestoresResult":
-        """<p>Enables fast snapshot restores for the specified snapshots in the specified Availability Zones.</p> <p>You get the full benefit of fast snapshot restores after they enter the <code>enabled</code> state.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/ebs-fast-snapshot-restore.html\">Amazon EBS fast snapshot restore</a> in the <i>Amazon EBS User Guide</i>.</p>
+        r"""<p>Enables fast snapshot restores for the specified snapshots in the specified Availability Zones.</p> <p>You get the full benefit of fast snapshot restores after they enter the <code>enabled</code> state.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/ebs-fast-snapshot-restore.html\">Amazon EBS fast snapshot restore</a> in the <i>Amazon EBS User Guide</i>.</p>
 
         Args:
             availability_zones: <p>One or more Availability Zones. For example, <code>us-east-2a</code>.</p> <p>Either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code> must be specified in the request, but not both.</p>
@@ -35554,7 +35554,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.enable_image_result.EnableImageResult":
-        """<p>Re-enables a disabled AMI. The re-enabled AMI is marked as <code>available</code> and can be used for instance launches, appears in describe operations, and can be shared. Amazon Web Services accounts, organizations, and Organizational Units that lost access to the AMI when it was disabled do not regain access automatically. Once the AMI is available, it can be shared with them again.</p> <p>Only the AMI owner can re-enable a disabled AMI.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/disable-an-ami.html\">Disable an Amazon EC2 AMI</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Re-enables a disabled AMI. The re-enabled AMI is marked as <code>available</code> and can be used for instance launches, appears in describe operations, and can be shared. Amazon Web Services accounts, organizations, and Organizational Units that lost access to the AMI when it was disabled do not regain access automatically. Once the AMI is available, it can be shared with them again.</p> <p>Only the AMI owner can re-enable a disabled AMI.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/disable-an-ami.html\">Disable an Amazon EC2 AMI</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             image_id: <p>The ID of the AMI.</p>
@@ -35596,7 +35596,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.enable_image_block_public_access_result.EnableImageBlockPublicAccessResult":
-        """<p>Enables <i>block public access for AMIs</i> at the account level in the specified Amazon Web Services Region. This prevents the public sharing of your AMIs. However, if you already have public AMIs, they will remain publicly available.</p> <p>The API can take up to 10 minutes to configure this setting. During this time, if you run <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetImageBlockPublicAccessState.html\">GetImageBlockPublicAccessState</a>, the response will be <code>unblocked</code>. When the API has completed the configuration, the response will be <code>block-new-sharing</code>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-public-access-to-amis.html\">Block public access to your AMIs</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Enables <i>block public access for AMIs</i> at the account level in the specified Amazon Web Services Region. This prevents the public sharing of your AMIs. However, if you already have public AMIs, they will remain publicly available.</p> <p>The API can take up to 10 minutes to configure this setting. During this time, if you run <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetImageBlockPublicAccessState.html\">GetImageBlockPublicAccessState</a>, the response will be <code>unblocked</code>. When the API has completed the configuration, the response will be <code>block-new-sharing</code>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-public-access-to-amis.html\">Block public access to your AMIs</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             image_block_public_access_state: <p>Specify <code>block-new-sharing</code> to enable block public access for AMIs at the account level in the specified Region. This will block any attempt to publicly share your AMIs in the specified Region.</p>
@@ -35641,7 +35641,7 @@ class AsyncEC2Client:
     ) -> (
         "aws_sdk_ec2.types.enable_image_deprecation_result.EnableImageDeprecationResult"
     ):
-        """<p>Enables deprecation of the specified AMI at the specified date and time.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-deprecate.html\">Deprecate an AMI</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Enables deprecation of the specified AMI at the specified date and time.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-deprecate.html\">Deprecate an AMI</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             image_id: <p>The ID of the AMI.</p>
@@ -35686,7 +35686,7 @@ class AsyncEC2Client:
         with_cooldown: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.enable_image_deregistration_protection_result.EnableImageDeregistrationProtectionResult":
-        """<p>Enables deregistration protection for an AMI. When deregistration protection is enabled, the AMI can't be deregistered.</p> <p>To allow the AMI to be deregistered, you must first disable deregistration protection.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-deregistration-protection.html\">Protect an Amazon EC2 AMI from deregistration</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Enables deregistration protection for an AMI. When deregistration protection is enabled, the AMI can't be deregistered.</p> <p>To allow the AMI to be deregistered, you must first disable deregistration protection.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-deregistration-protection.html\">Protect an Amazon EC2 AMI from deregistration</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             image_id: <p>The ID of the AMI.</p>
@@ -35734,7 +35734,7 @@ class AsyncEC2Client:
         ] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.enable_instance_sql_ha_standby_detections_result.EnableInstanceSqlHaStandbyDetectionsResult":
-        """<p>Enable Amazon EC2 instances running in an SQL Server High Availability cluster for SQL Server High Availability instance standby detection monitoring. Once enabled, Amazon Web Services monitors the metadata for the instances to determine whether they are active or standby nodes in the SQL Server High Availability cluster. If the instances are determined to be standby failover nodes, Amazon Web Services automatically applies SQL Server licensing fee waiver for those instances.</p> <p>To register an instance, it must be running a Windows SQL Server license-included AMI and have the Amazon Web Services Systems Manager agent installed and running. Only Windows Server 2019 and later and SQL Server (Standard and Enterprise editions) 2017 and later are supported. For more information, see <a href=\"https://docs.aws.amazon.com/sql-server-ec2/latest/userguide/prerequisites-and-requirements.html\"> Prerequisites for using SQL Server High Availability instance standby detection</a>.</p>
+        r"""<p>Enable Amazon EC2 instances running in an SQL Server High Availability cluster for SQL Server High Availability instance standby detection monitoring. Once enabled, Amazon Web Services monitors the metadata for the instances to determine whether they are active or standby nodes in the SQL Server High Availability cluster. If the instances are determined to be standby failover nodes, Amazon Web Services automatically applies SQL Server licensing fee waiver for those instances.</p> <p>To register an instance, it must be running a Windows SQL Server license-included AMI and have the Amazon Web Services Systems Manager agent installed and running. Only Windows Server 2019 and later and SQL Server (Standard and Enterprise editions) 2017 and later are supported. For more information, see <a href=\"https://docs.aws.amazon.com/sql-server-ec2/latest/userguide/prerequisites-and-requirements.html\"> Prerequisites for using SQL Server High Availability instance standby detection</a>.</p>
 
         Args:
             instance_ids: <p>The IDs of the instances to enable for SQL Server High Availability standby detection monitoring.</p>
@@ -35779,7 +35779,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.enable_ipam_organization_admin_account_result.EnableIpamOrganizationAdminAccountResult":
-        """<p>Enable an Organizations member account as the IPAM admin account. You cannot select the Organizations management account as the IPAM admin account. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/enable-integ-ipam.html\">Enable integration with Organizations</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
+        r"""<p>Enable an Organizations member account as the IPAM admin account. You cannot select the Organizations management account as the IPAM admin account. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/enable-integ-ipam.html\">Enable integration with Organizations</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
 
         Args:
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -35822,7 +35822,7 @@ class AsyncEC2Client:
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
         organization_target_id: Optional["aws_sdk_ec2.types.string.String"] = None,
     ) -> "aws_sdk_ec2.types.enable_ipam_policy_result.EnableIpamPolicyResult":
-        """<p>Enables an IPAM policy.</p> <p>An IPAM policy is a set of rules that define how public IPv4 addresses from IPAM pools are allocated to Amazon Web Services resources. Each rule maps an Amazon Web Services service to IPAM pools that the service will use to get IP addresses. A single policy can have multiple rules and be applied to multiple Amazon Web Services Regions. If the IPAM pool run out of addresses then the services fallback to Amazon-provided IP addresses. A policy can be applied to an individual Amazon Web Services account or an entity within Amazon Web Services Organizations.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/define-public-ipv4-allocation-strategy-with-ipam-policies.html\">Define public IPv4 allocation strategy with IPAM policies</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+        r"""<p>Enables an IPAM policy.</p> <p>An IPAM policy is a set of rules that define how public IPv4 addresses from IPAM pools are allocated to Amazon Web Services resources. Each rule maps an Amazon Web Services service to IPAM pools that the service will use to get IP addresses. A single policy can have multiple rules and be applied to multiple Amazon Web Services Regions. If the IPAM pool run out of addresses then the services fallback to Amazon-provided IP addresses. A policy can be applied to an individual Amazon Web Services account or an entity within Amazon Web Services Organizations.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/define-public-ipv4-allocation-strategy-with-ipam-policies.html\">Define public IPv4 allocation strategy with IPAM policies</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
 
         Args:
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -35907,7 +35907,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.enable_route_server_propagation_result.EnableRouteServerPropagationResult":
-        """<p>Defines which route tables the route server can update with routes.</p> <p>When enabled, route server propagation installs the routes in the FIB on the route table you've specified. Route server supports IPv4 and IPv6 route propagation.</p> <p>For more information see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/dynamic-routing-route-server.html\">Dynamic routing in your VPC with VPC Route Server</a> in the <i>Amazon VPC User Guide</i>.</p>
+        r"""<p>Defines which route tables the route server can update with routes.</p> <p>When enabled, route server propagation installs the routes in the FIB on the route table you've specified. Route server supports IPv4 and IPv6 route propagation.</p> <p>For more information see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/dynamic-routing-route-server.html\">Dynamic routing in your VPC with VPC Route Server</a> in the <i>Amazon VPC User Guide</i>.</p>
 
         Args:
             route_server_id: <p>The ID of the route server for which to enable propagation.</p>
@@ -35950,7 +35950,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.enable_serial_console_access_result.EnableSerialConsoleAccessResult":
-        """<p>Enables access to the EC2 serial console of all instances for your account. By default, access to the EC2 serial console is disabled for your account. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-access-to-serial-console.html#serial-console-account-access\">Manage account access to the EC2 serial console</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Enables access to the EC2 serial console of all instances for your account. By default, access to the EC2 serial console is disabled for your account. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-access-to-serial-console.html#serial-console-account-access\">Manage account access to the EC2 serial console</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -35990,7 +35990,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.enable_snapshot_block_public_access_result.EnableSnapshotBlockPublicAccessResult":
-        """<p>Enables or modifies the <i>block public access for snapshots</i> setting at the account level for the specified Amazon Web Services Region. After you enable block public access for snapshots in a Region, users can no longer request public sharing for snapshots in that Region. Snapshots that are already publicly shared are either treated as private or they remain publicly shared, depending on the <b>State</b> that you specify.</p> <important> <p>Enabling block public access for snapshots in <i>block all sharing</i> mode does not change the permissions for snapshots that are already publicly shared. Instead, it prevents these snapshots from be publicly visible and publicly accessible. Therefore, the attributes for these snapshots still indicate that they are publicly shared, even though they are not publicly available.</p> <p>If you later disable block public access or change the mode to <i>block new sharing</i>, these snapshots will become publicly available again.</p> </important> <p>For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/block-public-access-snapshots.html\"> Block public access for snapshots</a> in the <i>Amazon EBS User Guide</i>.</p>
+        r"""<p>Enables or modifies the <i>block public access for snapshots</i> setting at the account level for the specified Amazon Web Services Region. After you enable block public access for snapshots in a Region, users can no longer request public sharing for snapshots in that Region. Snapshots that are already publicly shared are either treated as private or they remain publicly shared, depending on the <b>State</b> that you specify.</p> <important> <p>Enabling block public access for snapshots in <i>block all sharing</i> mode does not change the permissions for snapshots that are already publicly shared. Instead, it prevents these snapshots from be publicly visible and publicly accessible. Therefore, the attributes for these snapshots still indicate that they are publicly shared, even though they are not publicly available.</p> <p>If you later disable block public access or change the mode to <i>block new sharing</i>, these snapshots will become publicly available again.</p> </important> <p>For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/block-public-access-snapshots.html\"> Block public access for snapshots</a> in the <i>Amazon EBS User Guide</i>.</p>
 
         Args:
             state: <p>The mode in which to enable block public access for snapshots for the Region. Specify one of the following values:</p> <ul> <li> <p> <code>block-all-sharing</code> - Prevents all public sharing of snapshots in the Region. Users in the account will no longer be able to request new public sharing. Additionally, snapshots that are already publicly shared are treated as private and they are no longer publicly available.</p> </li> <li> <p> <code>block-new-sharing</code> - Prevents only new public sharing of snapshots in the Region. Users in the account will no longer be able to request new public sharing. However, snapshots that are already publicly shared, remain publicly available.</p> </li> </ul> <p> <code>unblocked</code> is not a valid value for <b>EnableSnapshotBlockPublicAccess</b>.</p>
@@ -36356,7 +36356,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.tag_specification_list.TagSpecificationList"
         ] = None,
     ) -> "aws_sdk_ec2.types.export_image_result.ExportImageResult":
-        """<p>Exports an Amazon Machine Image (AMI) to a VM file. For more information, see <a href=\"https://docs.aws.amazon.com/vm-import/latest/userguide/vmexport_image.html\">Exporting a VM directly from an Amazon Machine Image (AMI)</a> in the <i>VM Import/Export User Guide</i>.</p>
+        r"""<p>Exports an Amazon Machine Image (AMI) to a VM file. For more information, see <a href=\"https://docs.aws.amazon.com/vm-import/latest/userguide/vmexport_image.html\">Exporting a VM directly from an Amazon Machine Image (AMI)</a> in the <i>VM Import/Export User Guide</i>.</p>
 
         Args:
             client_token: <p>Token to enable idempotency for export image requests.</p>
@@ -36416,7 +36416,7 @@ class AsyncEC2Client:
         filters: Optional["aws_sdk_ec2.types.filter_list.FilterList"] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.export_transit_gateway_routes_result.ExportTransitGatewayRoutesResult":
-        """<p>Exports routes from the specified transit gateway route table to the specified S3 bucket. By default, all routes are exported. Alternatively, you can filter by CIDR range.</p> <p>The routes are saved to the specified bucket in a JSON file. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/tgw/tgw-route-tables.html#tgw-export-route-tables\">Export route tables to Amazon S3</a> in the <i>Amazon Web Services Transit Gateways Guide</i>.</p>
+        r"""<p>Exports routes from the specified transit gateway route table to the specified S3 bucket. By default, all routes are exported. Alternatively, you can filter by CIDR range.</p> <p>The routes are saved to the specified bucket in a JSON file. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/tgw/tgw-route-tables.html#tgw-export-route-tables\">Export route tables to Amazon S3</a> in the <i>Amazon Web Services Transit Gateways Guide</i>.</p>
 
         Args:
             transit_gateway_route_table_id: <p>The ID of the route table.</p>
@@ -36549,7 +36549,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.get_allowed_images_settings_result.GetAllowedImagesSettingsResult":
-        """<p>Gets the current state of the Allowed AMIs setting and the list of Allowed AMIs criteria at the account level in the specified Region.</p> <note> <p>The Allowed AMIs feature does not restrict the AMIs owned by your account. Regardless of the criteria you set, the AMIs created by your account will always be discoverable and usable by users in your account.</p> </note> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-allowed-amis.html\">Control the discovery and use of AMIs in Amazon EC2 with Allowed AMIs</a> in <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Gets the current state of the Allowed AMIs setting and the list of Allowed AMIs criteria at the account level in the specified Region.</p> <note> <p>The Allowed AMIs feature does not restrict the AMIs owned by your account. Regardless of the criteria you set, the AMIs created by your account will always be discoverable and usable by users in your account.</p> </note> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-allowed-amis.html\">Control the discovery and use of AMIs in Amazon EC2 with Allowed AMIs</a> in <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -37129,7 +37129,7 @@ class AsyncEC2Client:
         ] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.get_capacity_reservation_usage_result.GetCapacityReservationUsageResult":
-        """<p>Gets usage information about a Capacity Reservation. If the Capacity Reservation is shared, it shows usage information for the Capacity Reservation owner and each Amazon Web Services account that is currently using the shared capacity. If the Capacity Reservation is not shared, it shows only the Capacity Reservation owner's usage.</p>
+        r"""<p>Gets usage information about a Capacity Reservation. If the Capacity Reservation is shared, it shows usage information for the Capacity Reservation owner and each Amazon Web Services account that is currently using the shared capacity. If the Capacity Reservation is not shared, it shows only the Capacity Reservation owner's usage.</p>
 
         Args:
             capacity_reservation_id: <p>The ID of the Capacity Reservation.</p>
@@ -37234,7 +37234,7 @@ class AsyncEC2Client:
         latest: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.get_console_output_result.GetConsoleOutputResult":
-        """<p>Gets the console output for the specified instance. For Linux instances, the instance console output displays the exact console output that would normally be displayed on a physical monitor attached to a computer. For Windows instances, the instance console output includes the last three system event log errors.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-console.html#instance-console-console-output\">Instance console output</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Gets the console output for the specified instance. For Linux instances, the instance console output displays the exact console output that would normally be displayed on a physical monitor attached to a computer. For Windows instances, the instance console output includes the last three system event log errors.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-console.html#instance-console-console-output\">Instance console output</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             instance_id: <p>The ID of the instance.</p>
@@ -37286,7 +37286,7 @@ class AsyncEC2Client:
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
         wake_up: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.get_console_screenshot_result.GetConsoleScreenshotResult":
-        """<p>Retrieve a JPG-format screenshot of a running instance to help with troubleshooting.</p> <p>The returned content is Base64-encoded.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/troubleshoot-unreachable-instance.html#instance-console-console-output\">Instance console output</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Retrieve a JPG-format screenshot of a running instance to help with troubleshooting.</p> <p>The returned content is Base64-encoded.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/troubleshoot-unreachable-instance.html#instance-console-console-output\">Instance console output</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -37331,7 +37331,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.get_declarative_policies_report_summary_result.GetDeclarativePoliciesReportSummaryResult":
-        """<p>Retrieves a summary of the account status report.</p> <p>To view the full report, download it from the Amazon S3 bucket where it was saved. Reports are accessible only when they have the <code>complete</code> status. Reports with other statuses (<code>running</code>, <code>cancelled</code>, or <code>error</code>) are not available in the S3 bucket. For more information about downloading objects from an S3 bucket, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/download-objects.html\">Downloading objects</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_declarative_status-report.html\">Generating the account status report for declarative policies</a> in the <i>Amazon Web Services Organizations User Guide</i>.</p>
+        r"""<p>Retrieves a summary of the account status report.</p> <p>To view the full report, download it from the Amazon S3 bucket where it was saved. Reports are accessible only when they have the <code>complete</code> status. Reports with other statuses (<code>running</code>, <code>cancelled</code>, or <code>error</code>) are not available in the S3 bucket. For more information about downloading objects from an S3 bucket, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/download-objects.html\">Downloading objects</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_declarative_status-report.html\">Generating the account status report for declarative policies</a> in the <i>Amazon Web Services Organizations User Guide</i>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -37373,7 +37373,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.get_default_credit_specification_result.GetDefaultCreditSpecificationResult":
-        """<p>Describes the default credit option for CPU usage of a burstable performance instance family.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html\">Burstable performance instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Describes the default credit option for CPU usage of a burstable performance instance family.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html\">Burstable performance instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -37414,7 +37414,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.get_ebs_default_kms_key_id_result.GetEbsDefaultKmsKeyIdResult":
-        """<p>Describes the default KMS key for EBS encryption by default for your account in this Region.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html\">Amazon EBS encryption</a> in the <i>Amazon EBS User Guide</i>.</p>
+        r"""<p>Describes the default KMS key for EBS encryption by default for your account in this Region.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html\">Amazon EBS encryption</a> in the <i>Amazon EBS User Guide</i>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -37453,7 +37453,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.get_ebs_encryption_by_default_result.GetEbsEncryptionByDefaultResult":
-        """<p>Describes whether EBS encryption by default is enabled for your account in the current Region.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html\">Amazon EBS encryption</a> in the <i>Amazon EBS User Guide</i>.</p>
+        r"""<p>Describes whether EBS encryption by default is enabled for your account in the current Region.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html\">Amazon EBS encryption</a> in the <i>Amazon EBS User Guide</i>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -37586,7 +37586,7 @@ class AsyncEC2Client:
         ] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.get_groups_for_capacity_reservation_result.GetGroupsForCapacityReservationResult":
-        """<p>Lists the resource groups to which a Capacity Reservation has been added.</p>
+        r"""<p>Lists the resource groups to which a Capacity Reservation has been added.</p>
 
         Args:
             capacity_reservation_id: <p>The ID of the Capacity Reservation. If you specify a Capacity Reservation that is shared with you, the operation returns only Capacity Reservation groups that you own.</p>
@@ -37702,7 +37702,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.get_image_ancestry_result.GetImageAncestryResult":
-        """<p>Retrieves the ancestry chain of the specified AMI, tracing its lineage back to the root AMI. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-ancestry.html\">AMI ancestry</a> in <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Retrieves the ancestry chain of the specified AMI, tracing its lineage back to the root AMI. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-ancestry.html\">AMI ancestry</a> in <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             image_id: <p>The ID of the AMI whose ancestry you want to trace.</p>
@@ -37743,7 +37743,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.get_image_block_public_access_state_result.GetImageBlockPublicAccessStateResult":
-        """<p>Gets the current state of <i>block public access for AMIs</i> at the account level in the specified Amazon Web Services Region.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-public-access-to-amis.html\">Block public access to your AMIs</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Gets the current state of <i>block public access for AMIs</i> at the account level in the specified Amazon Web Services Region.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-public-access-to-amis.html\">Block public access to your AMIs</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -37782,7 +37782,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.get_instance_metadata_defaults_result.GetInstanceMetadataDefaultsResult":
-        """<p>Gets the default instance metadata service (IMDS) settings that are set at the account level in the specified Amazon Web Services Region.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-options.html#instance-metadata-options-order-of-precedence\">Order of precedence for instance metadata options</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Gets the default instance metadata service (IMDS) settings that are set at the account level in the specified Amazon Web Services Region.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-options.html#instance-metadata-options-order-of-precedence\">Order of precedence for instance metadata options</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -37875,7 +37875,7 @@ class AsyncEC2Client:
         next_token: Optional["aws_sdk_ec2.types.string.String"] = None,
         context: Optional["aws_sdk_ec2.types.string.String"] = None,
     ) -> "aws_sdk_ec2.types.get_instance_types_from_instance_requirements_result.GetInstanceTypesFromInstanceRequirementsResult":
-        """<p>Returns a list of instance types with the specified instance attributes. You can use the response to preview the instance types without launching instances. Note that the response does not consider capacity.</p> <p>When you specify multiple parameters, you get instance types that satisfy all of the specified parameters. If you specify multiple values for a parameter, you get instance types that satisfy any of the specified values.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html#ec2fleet-get-instance-types-from-instance-requirements\">Preview instance types with specified attributes</a>, <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html\">Specify attributes for instance type selection for EC2 Fleet or Spot Fleet</a>, and <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html\">Spot placement score</a> in the <i>Amazon EC2 User Guide</i>, and <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-instance-type-requirements.html\">Creating mixed instance groups using attribute-based instance type selection</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+        r"""<p>Returns a list of instance types with the specified instance attributes. You can use the response to preview the instance types without launching instances. Note that the response does not consider capacity.</p> <p>When you specify multiple parameters, you get instance types that satisfy all of the specified parameters. If you specify multiple values for a parameter, you get instance types that satisfy any of the specified values.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html#ec2fleet-get-instance-types-from-instance-requirements\">Preview instance types with specified attributes</a>, <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html\">Specify attributes for instance type selection for EC2 Fleet or Spot Fleet</a>, and <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html\">Spot placement score</a> in the <i>Amazon EC2 User Guide</i>, and <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-instance-type-requirements.html\">Creating mixed instance groups using attribute-based instance type selection</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -37961,7 +37961,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.get_instance_uefi_data_result.GetInstanceUefiDataResult":
-        """<p>A binary representation of the UEFI variable store. Only non-volatile variables are stored. This is a base64 encoded and zlib compressed binary value that must be properly encoded.</p> <p>When you use <a href=\"https://docs.aws.amazon.com/cli/latest/reference/ec2/register-image.html\">register-image</a> to create an AMI, you can create an exact copy of your variable store by passing the UEFI data in the <code>UefiData</code> parameter. You can modify the UEFI data by using the <a href=\"https://github.com/awslabs/python-uefivars\">python-uefivars tool</a> on GitHub. You can use the tool to convert the UEFI data into a human-readable format (JSON), which you can inspect and modify, and then convert back into the binary format to use with register-image.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/uefi-secure-boot.html\">UEFI Secure Boot</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>A binary representation of the UEFI variable store. Only non-volatile variables are stored. This is a base64 encoded and zlib compressed binary value that must be properly encoded.</p> <p>When you use <a href=\"https://docs.aws.amazon.com/cli/latest/reference/ec2/register-image.html\">register-image</a> to create an AMI, you can create an exact copy of your variable store by passing the UEFI data in the <code>UefiData</code> parameter. You can modify the UEFI data by using the <a href=\"https://github.com/awslabs/python-uefivars\">python-uefivars tool</a> on GitHub. You can use the tool to convert the UEFI data into a human-readable format (JSON), which you can inspect and modify, and then convert back into the binary format to use with register-image.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/uefi-secure-boot.html\">UEFI Secure Boot</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             instance_id: <p>The ID of the instance from which to retrieve the UEFI data.</p>
@@ -38017,7 +38017,7 @@ class AsyncEC2Client:
     ) -> (
         "aws_sdk_ec2.types.get_ipam_address_history_result.GetIpamAddressHistoryResult"
     ):
-        """<p>Retrieve historical information about a CIDR within an IPAM scope. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/view-history-cidr-ipam.html\">View the history of IP addresses</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+        r"""<p>Retrieve historical information about a CIDR within an IPAM scope. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/view-history-cidr-ipam.html\">View the history of IP addresses</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
 
         Args:
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -38486,7 +38486,7 @@ class AsyncEC2Client:
         ] = None,
         next_token: Optional["aws_sdk_ec2.types.next_token.NextToken"] = None,
     ) -> "aws_sdk_ec2.types.get_ipam_pool_allocations_result.GetIpamPoolAllocationsResult":
-        """<p>Get a list of all the CIDR allocations in an IPAM pool. The Region you use should be the IPAM pool locale. The locale is the Amazon Web Services Region where this IPAM pool is available for allocations.</p> <note> <p>If you use this action after <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AllocateIpamPoolCidr.html\">AllocateIpamPoolCidr</a> or <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ReleaseIpamPoolAllocation.html\">ReleaseIpamPoolAllocation</a>, note that all EC2 API actions follow an <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/eventual-consistency.html\">eventual consistency</a> model.</p> </note>
+        r"""<p>Get a list of all the CIDR allocations in an IPAM pool. The Region you use should be the IPAM pool locale. The locale is the Amazon Web Services Region where this IPAM pool is available for allocations.</p> <note> <p>If you use this action after <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AllocateIpamPoolCidr.html\">AllocateIpamPoolCidr</a> or <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ReleaseIpamPoolAllocation.html\">ReleaseIpamPoolAllocation</a>, note that all EC2 API actions follow an <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/eventual-consistency.html\">eventual consistency</a> model.</p> </note>
 
         Args:
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -38578,7 +38578,7 @@ class AsyncEC2Client:
         ] = None,
         next_token: Optional["aws_sdk_ec2.types.next_token.NextToken"] = None,
     ) -> "aws_sdk_ec2.types.get_ipam_pool_cidrs_result.GetIpamPoolCidrsResult":
-        """<p>Get the CIDRs provisioned to an IPAM pool.</p>
+        r"""<p>Get the CIDRs provisioned to an IPAM pool.</p>
 
         Args:
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -38663,7 +38663,7 @@ class AsyncEC2Client:
         ] = None,
         next_token: Optional["aws_sdk_ec2.types.next_token.NextToken"] = None,
     ) -> "aws_sdk_ec2.types.get_ipam_prefix_list_resolver_rules_result.GetIpamPrefixListResolverRulesResult":
-        """<p>Retrieves the CIDR selection rules for an IPAM prefix list resolver. Use this operation to view the business logic that determines which CIDRs are selected for synchronization with prefix lists.</p>
+        r"""<p>Retrieves the CIDR selection rules for an IPAM prefix list resolver. Use this operation to view the business logic that determines which CIDRs are selected for synchronization with prefix lists.</p>
 
         Args:
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -38748,7 +38748,7 @@ class AsyncEC2Client:
         ] = None,
         next_token: Optional["aws_sdk_ec2.types.next_token.NextToken"] = None,
     ) -> "aws_sdk_ec2.types.get_ipam_prefix_list_resolver_version_entries_result.GetIpamPrefixListResolverVersionEntriesResult":
-        """<p>Retrieves the CIDR entries for a specific version of an IPAM prefix list resolver. This shows the actual CIDRs that were selected and synchronized at a particular point in time.</p>
+        r"""<p>Retrieves the CIDR entries for a specific version of an IPAM prefix list resolver. This shows the actual CIDRs that were selected and synchronized at a particular point in time.</p>
 
         Args:
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -38835,7 +38835,7 @@ class AsyncEC2Client:
         filters: Optional["aws_sdk_ec2.types.filter_list.FilterList"] = None,
         next_token: Optional["aws_sdk_ec2.types.next_token.NextToken"] = None,
     ) -> "aws_sdk_ec2.types.get_ipam_prefix_list_resolver_versions_result.GetIpamPrefixListResolverVersionsResult":
-        """<p>Retrieves version information for an IPAM prefix list resolver.</p> <p>Each version is a snapshot of what CIDRs matched your rules at that moment in time. The version number increments every time the CIDR list changes due to infrastructure changes.</p> <p> <b>Version example:</b> </p> <p> <b>Initial State (Version 1)</b> </p> <p>Production environment:</p> <ul> <li> <p>vpc-prod-web (10.1.0.0/16) - tagged env=prod</p> </li> <li> <p>vpc-prod-db (10.2.0.0/16) - tagged env=prod</p> </li> </ul> <p>Resolver rule: Include all VPCs tagged env=prod</p> <p> <b>Version 1 CIDRs:</b> 10.1.0.0/16, 10.2.0.0/16</p> <p> <b>Infrastructure Change (Version 2)</b> </p> <p>New VPC added:</p> <ul> <li> <p>vpc-prod-api (10.3.0.0/16) - tagged env=prod</p> </li> </ul> <p>IPAM automatically detects the change and creates a new version.</p> <p> <b>Version 2 CIDRs:</b> 10.1.0.0/16, 10.2.0.0/16, 10.3.0.0/16</p>
+        r"""<p>Retrieves version information for an IPAM prefix list resolver.</p> <p>Each version is a snapshot of what CIDRs matched your rules at that moment in time. The version number increments every time the CIDR list changes due to infrastructure changes.</p> <p> <b>Version example:</b> </p> <p> <b>Initial State (Version 1)</b> </p> <p>Production environment:</p> <ul> <li> <p>vpc-prod-web (10.1.0.0/16) - tagged env=prod</p> </li> <li> <p>vpc-prod-db (10.2.0.0/16) - tagged env=prod</p> </li> </ul> <p>Resolver rule: Include all VPCs tagged env=prod</p> <p> <b>Version 1 CIDRs:</b> 10.1.0.0/16, 10.2.0.0/16</p> <p> <b>Infrastructure Change (Version 2)</b> </p> <p>New VPC added:</p> <ul> <li> <p>vpc-prod-api (10.3.0.0/16) - tagged env=prod</p> </li> </ul> <p>IPAM automatically detects the change and creates a new version.</p> <p> <b>Version 2 CIDRs:</b> 10.1.0.0/16, 10.2.0.0/16, 10.3.0.0/16</p>
 
         Args:
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -38938,7 +38938,7 @@ class AsyncEC2Client:
         ] = None,
         resource_owner: Optional["aws_sdk_ec2.types.string.String"] = None,
     ) -> "aws_sdk_ec2.types.get_ipam_resource_cidrs_result.GetIpamResourceCidrsResult":
-        """<p>Returns resource CIDRs managed by IPAM in a given scope. If an IPAM is associated with more than one resource discovery, the resource CIDRs across all of the resource discoveries is returned. A resource discovery is an IPAM component that enables IPAM to manage and monitor resources that belong to the owning account.</p>
+        r"""<p>Returns resource CIDRs managed by IPAM in a given scope. If an IPAM is associated with more than one resource discovery, the resource CIDRs across all of the resource discoveries is returned. A resource discovery is an IPAM component that enables IPAM to manage and monitor resources that belong to the owning account.</p>
 
         Args:
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -39425,7 +39425,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.get_password_data_result.GetPasswordDataResult":
-        """<p>Retrieves the encrypted administrator password for a running Windows instance.</p> <p>The Windows password is generated at boot by the <code>EC2Config</code> service or <code>EC2Launch</code> scripts (Windows Server 2016 and later). This usually only happens the first time an instance is launched. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UsingConfig_WinAMI.html\">EC2Config</a> and <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2launch.html\">EC2Launch</a> in the <i>Amazon EC2 User Guide</i>.</p> <p>For the <code>EC2Config</code> service, the password is not generated for rebundled AMIs unless <code>Ec2SetPassword</code> is enabled before bundling.</p> <p>The password is encrypted using the key pair that you specified when you launched the instance. You must provide the corresponding key pair file.</p> <p>When you launch an instance, password generation and encryption may take a few minutes. If you try to retrieve the password before it's available, the output returns an empty string. We recommend that you wait up to 15 minutes after launching an instance before trying to retrieve the generated password.</p>
+        r"""<p>Retrieves the encrypted administrator password for a running Windows instance.</p> <p>The Windows password is generated at boot by the <code>EC2Config</code> service or <code>EC2Launch</code> scripts (Windows Server 2016 and later). This usually only happens the first time an instance is launched. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UsingConfig_WinAMI.html\">EC2Config</a> and <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2launch.html\">EC2Launch</a> in the <i>Amazon EC2 User Guide</i>.</p> <p>For the <code>EC2Config</code> service, the password is not generated for rebundled AMIs unless <code>Ec2SetPassword</code> is enabled before bundling.</p> <p>The password is encrypted using the key pair that you specified when you launched the instance. You must provide the corresponding key pair file.</p> <p>When you launch an instance, password generation and encryption may take a few minutes. If you try to retrieve the password before it's available, the output returns an empty string. We recommend that you wait up to 15 minutes after launching an instance before trying to retrieve the generated password.</p>
 
         Args:
             instance_id: <p>The ID of the Windows instance.</p>
@@ -39515,7 +39515,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.get_route_server_associations_result.GetRouteServerAssociationsResult":
-        """<p>Gets information about the associations for the specified route server.</p> <p>A route server association is the connection established between a route server and a VPC.</p> <p>For more information see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/dynamic-routing-route-server.html\">Dynamic routing in your VPC with VPC Route Server</a> in the <i>Amazon VPC User Guide</i>.</p>
+        r"""<p>Gets information about the associations for the specified route server.</p> <p>A route server association is the connection established between a route server and a VPC.</p> <p>For more information see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/dynamic-routing-route-server.html\">Dynamic routing in your VPC with VPC Route Server</a> in the <i>Amazon VPC User Guide</i>.</p>
 
         Args:
             route_server_id: <p>The ID of the route server for which to get association information.</p>
@@ -39560,7 +39560,7 @@ class AsyncEC2Client:
         ] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.get_route_server_propagations_result.GetRouteServerPropagationsResult":
-        """<p>Gets information about the route propagations for the specified route server.</p> <p>When enabled, route server propagation installs the routes in the FIB on the route table you've specified. Route server supports IPv4 and IPv6 route propagation.</p> <p>Amazon VPC Route Server simplifies routing for traffic between workloads that are deployed within a VPC and its internet gateways. With this feature, VPC Route Server dynamically updates VPC and internet gateway route tables with your preferred IPv4 or IPv6 routes to achieve routing fault tolerance for those workloads. This enables you to automatically reroute traffic within a VPC, which increases the manageability of VPC routing and interoperability with third-party workloads.</p> <p>Route server supports the follow route table types:</p> <ul> <li> <p>VPC route tables not associated with subnets</p> </li> <li> <p>Subnet route tables</p> </li> <li> <p>Internet gateway route tables</p> </li> </ul> <p>Route server does not support route tables associated with virtual private gateways. To propagate routes into a transit gateway route table, use <a href=\"https://docs.aws.amazon.com/vpc/latest/tgw/tgw-connect.html\">Transit Gateway Connect</a>.</p>
+        r"""<p>Gets information about the route propagations for the specified route server.</p> <p>When enabled, route server propagation installs the routes in the FIB on the route table you've specified. Route server supports IPv4 and IPv6 route propagation.</p> <p>Amazon VPC Route Server simplifies routing for traffic between workloads that are deployed within a VPC and its internet gateways. With this feature, VPC Route Server dynamically updates VPC and internet gateway route tables with your preferred IPv4 or IPv6 routes to achieve routing fault tolerance for those workloads. This enables you to automatically reroute traffic within a VPC, which increases the manageability of VPC routing and interoperability with third-party workloads.</p> <p>Route server supports the follow route table types:</p> <ul> <li> <p>VPC route tables not associated with subnets</p> </li> <li> <p>Subnet route tables</p> </li> <li> <p>Internet gateway route tables</p> </li> </ul> <p>Route server does not support route tables associated with virtual private gateways. To propagate routes into a transit gateway route table, use <a href=\"https://docs.aws.amazon.com/vpc/latest/tgw/tgw-connect.html\">Transit Gateway Connect</a>.</p>
 
         Args:
             route_server_id: <p>The ID of the route server for which to get propagation information.</p>
@@ -39610,7 +39610,7 @@ class AsyncEC2Client:
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
         filters: Optional["aws_sdk_ec2.types.filter_list.FilterList"] = None,
     ) -> "aws_sdk_ec2.types.get_route_server_routing_database_result.GetRouteServerRoutingDatabaseResult":
-        """<p>Gets the routing database for the specified route server. The <a href=\"https://en.wikipedia.org/wiki/Routing_table\">Routing Information Base (RIB)</a> serves as a database that stores all the routing information and network topology data collected by a router or routing system, such as routes learned from BGP peers. The RIB is constantly updated as new routing information is received or existing routes change. This ensures that the route server always has the most current view of the network topology and can make optimal routing decisions.</p> <p>Amazon VPC Route Server simplifies routing for traffic between workloads that are deployed within a VPC and its internet gateways. With this feature, VPC Route Server dynamically updates VPC and internet gateway route tables with your preferred IPv4 or IPv6 routes to achieve routing fault tolerance for those workloads. This enables you to automatically reroute traffic within a VPC, which increases the manageability of VPC routing and interoperability with third-party workloads.</p> <p>Route server supports the follow route table types:</p> <ul> <li> <p>VPC route tables not associated with subnets</p> </li> <li> <p>Subnet route tables</p> </li> <li> <p>Internet gateway route tables</p> </li> </ul> <p>Route server does not support route tables associated with virtual private gateways. To propagate routes into a transit gateway route table, use <a href=\"https://docs.aws.amazon.com/vpc/latest/tgw/tgw-connect.html\">Transit Gateway Connect</a>.</p>
+        r"""<p>Gets the routing database for the specified route server. The <a href=\"https://en.wikipedia.org/wiki/Routing_table\">Routing Information Base (RIB)</a> serves as a database that stores all the routing information and network topology data collected by a router or routing system, such as routes learned from BGP peers. The RIB is constantly updated as new routing information is received or existing routes change. This ensures that the route server always has the most current view of the network topology and can make optimal routing decisions.</p> <p>Amazon VPC Route Server simplifies routing for traffic between workloads that are deployed within a VPC and its internet gateways. With this feature, VPC Route Server dynamically updates VPC and internet gateway route tables with your preferred IPv4 or IPv6 routes to achieve routing fault tolerance for those workloads. This enables you to automatically reroute traffic within a VPC, which increases the manageability of VPC routing and interoperability with third-party workloads.</p> <p>Route server supports the follow route table types:</p> <ul> <li> <p>VPC route tables not associated with subnets</p> </li> <li> <p>Subnet route tables</p> </li> <li> <p>Internet gateway route tables</p> </li> </ul> <p>Route server does not support route tables associated with virtual private gateways. To propagate routes into a transit gateway route table, use <a href=\"https://docs.aws.amazon.com/vpc/latest/tgw/tgw-connect.html\">Transit Gateway Connect</a>.</p>
 
         Args:
             route_server_id: <p>The ID of the route server for which to get the routing database.</p>
@@ -39666,7 +39666,7 @@ class AsyncEC2Client:
         filters: Optional["aws_sdk_ec2.types.filter_list.FilterList"] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.get_security_groups_for_vpc_result.GetSecurityGroupsForVpcResult":
-        """<p>Gets security groups that can be associated by the Amazon Web Services account making the request with network interfaces in the specified VPC.</p>
+        r"""<p>Gets security groups that can be associated by the Amazon Web Services account making the request with network interfaces in the specified VPC.</p>
 
         Args:
             vpc_id: <p>The VPC ID where the security group can be used.</p>
@@ -39745,7 +39745,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.get_serial_console_access_status_result.GetSerialConsoleAccessStatusResult":
-        """<p>Retrieves the access status of your account to the EC2 serial console of all instances. By default, access to the EC2 serial console is disabled for your account. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-access-to-serial-console.html#serial-console-account-access\">Manage account access to the EC2 serial console</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Retrieves the access status of your account to the EC2 serial console of all instances. By default, access to the EC2 serial console is disabled for your account. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-access-to-serial-console.html#serial-console-account-access\">Manage account access to the EC2 serial console</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -39784,7 +39784,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.get_snapshot_block_public_access_state_result.GetSnapshotBlockPublicAccessStateResult":
-        """<p>Gets the current state of <i>block public access for snapshots</i> setting for the account and Region.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/block-public-access-snapshots.html\"> Block public access for snapshots</a> in the <i>Amazon EBS User Guide</i>.</p>
+        r"""<p>Gets the current state of <i>block public access for snapshots</i> setting for the account and Region.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/block-public-access-snapshots.html\"> Block public access for snapshots</a> in the <i>Amazon EBS User Guide</i>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -39839,7 +39839,7 @@ class AsyncEC2Client:
         ] = None,
         next_token: Optional["aws_sdk_ec2.types.string.String"] = None,
     ) -> "aws_sdk_ec2.types.get_spot_placement_scores_result.GetSpotPlacementScoresResult":
-        """<p>Calculates the Spot placement score for a Region or Availability Zone based on the specified target capacity and compute requirements.</p> <p>You can specify your compute requirements either by using <code>InstanceRequirementsWithMetadata</code> and letting Amazon EC2 choose the optimal instance types to fulfill your Spot request, or you can specify the instance types by using <code>InstanceTypes</code>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html\">Spot placement score</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Calculates the Spot placement score for a Region or Availability Zone based on the specified target capacity and compute requirements.</p> <p>You can specify your compute requirements either by using <code>InstanceRequirementsWithMetadata</code> and letting Amazon EC2 choose the optimal instance types to fulfill your Spot request, or you can specify the instance types by using <code>InstanceTypes</code>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html\">Spot placement score</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             instance_types: <p>The instance types. We recommend that you specify at least three instance types. If you specify one or two instance types, or specify variations of a single instance type (for example, an <code>m3.xlarge</code> with and without instance storage), the returned placement score will always be low. </p> <p>If you specify <code>InstanceTypes</code>, you can't specify <code>InstanceRequirementsWithMetadata</code>.</p>
@@ -40775,7 +40775,7 @@ class AsyncEC2Client:
         next_token: Optional["aws_sdk_ec2.types.string.String"] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.get_vpc_resources_blocking_encryption_enforcement_result.GetVpcResourcesBlockingEncryptionEnforcementResult":
-        """<p>Gets information about resources in a VPC that are blocking encryption enforcement.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html\">Enforce VPC encryption in transit</a> in the <i>Amazon VPC User Guide</i>.</p>
+        r"""<p>Gets information about resources in a VPC that are blocking encryption enforcement.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html\">Enforce VPC encryption in transit</a> in the <i>Amazon VPC User Guide</i>.</p>
 
         Args:
             vpc_id: <p>The ID of the VPC to check for resources blocking encryption enforcement.</p>
@@ -40828,7 +40828,7 @@ class AsyncEC2Client:
         sample_type: Optional["aws_sdk_ec2.types.string.String"] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.get_vpn_connection_device_sample_configuration_result.GetVpnConnectionDeviceSampleConfigurationResult":
-        """<p>Download an Amazon Web Services-provided sample configuration file to be used with the customer gateway device specified for your Site-to-Site VPN connection.</p>
+        r"""<p>Download an Amazon Web Services-provided sample configuration file to be used with the customer gateway device specified for your Site-to-Site VPN connection.</p>
 
         Args:
             vpn_connection_id: <p>The <code>VpnConnectionId</code> specifies the Site-to-Site VPN connection used for the sample configuration.</p>
@@ -40881,7 +40881,7 @@ class AsyncEC2Client:
         next_token: Optional["aws_sdk_ec2.types.next_token.NextToken"] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.get_vpn_connection_device_types_result.GetVpnConnectionDeviceTypesResult":
-        """<p>Obtain a list of customer gateway devices for which sample configuration files can be provided. The request has no additional parameters. You can also see the list of device types with sample configuration files available under <a href=\"https://docs.aws.amazon.com/vpn/latest/s2svpn/your-cgw.html\">Your customer gateway device</a> in the <i>Amazon Web Services Site-to-Site VPN User Guide</i>.</p>
+        r"""<p>Obtain a list of customer gateway devices for which sample configuration files can be provided. The request has no additional parameters. You can also see the list of device types with sample configuration files available under <a href=\"https://docs.aws.amazon.com/vpn/latest/s2svpn/your-cgw.html\">Your customer gateway device</a> in the <i>Amazon Web Services Site-to-Site VPN User Guide</i>.</p>
 
         Args:
             max_results: <p>The maximum number of results returned by <code>GetVpnConnectionDeviceTypes</code> in paginated output. When this parameter is used, <code>GetVpnConnectionDeviceTypes</code> only returns <code>MaxResults</code> results in a single page along with a <code>NextToken</code> response element. The remaining results of the initial request can be seen by sending another <code>GetVpnConnectionDeviceTypes</code> request with the returned <code>NextToken</code> value. This value can be between 200 and 1000. If this parameter is not used, then <code>GetVpnConnectionDeviceTypes</code> returns all results.</p>
@@ -40998,7 +40998,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.import_client_vpn_client_certificate_revocation_list_result.ImportClientVpnClientCertificateRevocationListResult":
-        """<p>Uploads a client certificate revocation list to the specified Client VPN endpoint. Uploading a client certificate revocation list overwrites the existing client certificate revocation list.</p> <p>Uploading a client certificate revocation list resets existing client connections.</p>
+        r"""<p>Uploads a client certificate revocation list to the specified Client VPN endpoint. Uploading a client certificate revocation list overwrites the existing client certificate revocation list.</p> <p>Uploading a client certificate revocation list resets existing client connections.</p>
 
         Args:
             client_vpn_endpoint_id: <p>The ID of the Client VPN endpoint to which the client certificate revocation list applies.</p>
@@ -41062,7 +41062,7 @@ class AsyncEC2Client:
         usage_operation: Optional["aws_sdk_ec2.types.string.String"] = None,
         boot_mode: Optional["aws_sdk_ec2.types.boot_mode_values.BootModeValues"] = None,
     ) -> "aws_sdk_ec2.types.import_image_result.ImportImageResult":
-        """<note> <p>To import your virtual machines (VMs) with a console-based experience, you can use the <i>Import virtual machine images to Amazon Web Services</i> template in the <a href=\"https://console.aws.amazon.com/migrationhub/orchestrator\">Migration Hub Orchestrator console</a>. For more information, see the <a href=\"https://docs.aws.amazon.com/migrationhub-orchestrator/latest/userguide/import-vm-images.html\"> <i>Migration Hub Orchestrator User Guide</i> </a>.</p> </note> <p>Import single or multi-volume disk images or EBS snapshots into an Amazon Machine Image (AMI).</p> <important> <p>Amazon Web Services VM Import/Export strongly recommends specifying a value for either the <code>--license-type</code> or <code>--usage-operation</code> parameter when you create a new VM Import task. This ensures your operating system is licensed appropriately and your billing is optimized.</p> </important> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html\">Importing a VM as an image using VM Import/Export</a> in the <i>VM Import/Export User Guide</i>.</p>
+        r"""<note> <p>To import your virtual machines (VMs) with a console-based experience, you can use the <i>Import virtual machine images to Amazon Web Services</i> template in the <a href=\"https://console.aws.amazon.com/migrationhub/orchestrator\">Migration Hub Orchestrator console</a>. For more information, see the <a href=\"https://docs.aws.amazon.com/migrationhub-orchestrator/latest/userguide/import-vm-images.html\"> <i>Migration Hub Orchestrator User Guide</i> </a>.</p> </note> <p>Import single or multi-volume disk images or EBS snapshots into an Amazon Machine Image (AMI).</p> <important> <p>Amazon Web Services VM Import/Export strongly recommends specifying a value for either the <code>--license-type</code> or <code>--usage-operation</code> parameter when you create a new VM Import task. This ensures your operating system is licensed appropriately and your billing is optimized.</p> </important> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html\">Importing a VM as an image using VM Import/Export</a> in the <i>VM Import/Export User Guide</i>.</p>
 
         Args:
             architecture: <p>The architecture of the virtual machine.</p> <p>Valid values: <code>i386</code> | <code>x86_64</code> </p>
@@ -41152,7 +41152,7 @@ class AsyncEC2Client:
         ] = None,
         disk_images: Optional["aws_sdk_ec2.types.disk_image_list.DiskImageList"] = None,
     ) -> "aws_sdk_ec2.types.import_instance_result.ImportInstanceResult":
-        """<note> <p>We recommend that you use the <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportImage.html\"> <code>ImportImage</code> </a> API instead. For more information, see <a href=\"https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html\">Importing a VM as an image using VM Import/Export</a> in the <i>VM Import/Export User Guide</i>.</p> </note> <p>Creates an import instance task using metadata from the specified disk image.</p> <p>This API action supports only single-volume VMs. To import multi-volume VMs, use <a>ImportImage</a> instead.</p> <p>For information about the import manifest referenced by this API action, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html\">VM Import Manifest</a>.</p> <p>This API action is not supported by the Command Line Interface (CLI).</p>
+        r"""<note> <p>We recommend that you use the <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportImage.html\"> <code>ImportImage</code> </a> API instead. For more information, see <a href=\"https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html\">Importing a VM as an image using VM Import/Export</a> in the <i>VM Import/Export User Guide</i>.</p> </note> <p>Creates an import instance task using metadata from the specified disk image.</p> <p>This API action supports only single-volume VMs. To import multi-volume VMs, use <a>ImportImage</a> instead.</p> <p>For information about the import manifest referenced by this API action, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html\">VM Import Manifest</a>.</p> <p>This API action is not supported by the Command Line Interface (CLI).</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -41207,7 +41207,7 @@ class AsyncEC2Client:
         ] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.import_key_pair_result.ImportKeyPairResult":
-        """<p>Imports the public key from an RSA or ED25519 key pair that you created using a third-party tool. You give Amazon Web Services only the public key. The private key is never transferred between you and Amazon Web Services.</p> <p>For more information about the requirements for importing a key pair, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-key-pairs.html#how-to-generate-your-own-key-and-import-it-to-aws\">Create a key pair and import the public key to Amazon EC2</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Imports the public key from an RSA or ED25519 key pair that you created using a third-party tool. You give Amazon Web Services only the public key. The private key is never transferred between you and Amazon Web Services.</p> <p>For more information about the requirements for importing a key pair, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-key-pairs.html#how-to-generate-your-own-key-and-import-it-to-aws\">Create a key pair and import the public key to Amazon EC2</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             tag_specifications: <p>The tags to apply to the imported key pair.</p>
@@ -41265,7 +41265,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.tag_specification_list.TagSpecificationList"
         ] = None,
     ) -> "aws_sdk_ec2.types.import_snapshot_result.ImportSnapshotResult":
-        """<p>Imports a disk into an EBS snapshot.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-import-snapshot.html\">Importing a disk as a snapshot using VM Import/Export</a> in the <i>VM Import/Export User Guide</i>.</p>
+        r"""<p>Imports a disk into an EBS snapshot.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-import-snapshot.html\">Importing a disk as a snapshot using VM Import/Export</a> in the <i>VM Import/Export User Guide</i>.</p>
 
         Args:
             client_data: <p>The client-specific data.</p>
@@ -41335,7 +41335,7 @@ class AsyncEC2Client:
         availability_zone: Optional["aws_sdk_ec2.types.string.String"] = None,
         description: Optional["aws_sdk_ec2.types.string.String"] = None,
     ) -> "aws_sdk_ec2.types.import_volume_result.ImportVolumeResult":
-        """<note> <p>This API action supports only single-volume VMs. To import multi-volume VMs, use <a>ImportImage</a> instead. To import a disk to a snapshot, use <a>ImportSnapshot</a> instead.</p> </note> <p>Creates an import volume task using metadata from the specified disk image.</p> <p>For information about the import manifest referenced by this API action, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html\">VM Import Manifest</a>.</p> <p>This API action is not supported by the Command Line Interface (CLI).</p>
+        r"""<note> <p>This API action supports only single-volume VMs. To import multi-volume VMs, use <a>ImportImage</a> instead. To import a disk to a snapshot, use <a>ImportSnapshot</a> instead.</p> </note> <p>Creates an import volume task using metadata from the specified disk image.</p> <p>For information about the import manifest referenced by this API action, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html\">VM Import Manifest</a>.</p> <p>This API action is not supported by the Command Line Interface (CLI).</p>
 
         Args:
             availability_zone_id: <p>The ID of the Availability Zone for the resulting EBS volume.</p> <p>Either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code> must be specified, but not both.</p>
@@ -41394,7 +41394,7 @@ class AsyncEC2Client:
         ] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.list_images_in_recycle_bin_result.ListImagesInRecycleBinResult":
-        """<p>Lists one or more AMIs that are currently in the Recycle Bin. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html\">Recycle Bin</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Lists one or more AMIs that are currently in the Recycle Bin. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html\">Recycle Bin</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             image_ids: <p>The IDs of the AMIs to list. Omit this parameter to list all of the AMIs that are in the Recycle Bin. You can specify up to 20 IDs in a single request.</p>
@@ -41478,7 +41478,7 @@ class AsyncEC2Client:
         ] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.list_snapshots_in_recycle_bin_result.ListSnapshotsInRecycleBinResult":
-        """<p>Lists one or more snapshots that are currently in the Recycle Bin.</p>
+        r"""<p>Lists one or more snapshots that are currently in the Recycle Bin.</p>
 
         Args:
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>
@@ -41560,7 +41560,7 @@ class AsyncEC2Client:
         max_results: Optional["aws_sdk_ec2.types.integer.Integer"] = None,
         next_token: Optional["aws_sdk_ec2.types.string.String"] = None,
     ) -> "aws_sdk_ec2.types.list_volumes_in_recycle_bin_result.ListVolumesInRecycleBinResult":
-        """<p>Lists one or more volumes that are currently in the Recycle Bin.</p>
+        r"""<p>Lists one or more volumes that are currently in the Recycle Bin.</p>
 
         Args:
             volume_ids: <p>The IDs of the volumes to list. Omit this parameter to list all of the volumes that are in the Recycle Bin.</p>
@@ -41675,7 +41675,7 @@ class AsyncEC2Client:
     ) -> (
         "aws_sdk_ec2.types.modify_address_attribute_result.ModifyAddressAttributeResult"
     ):
-        """<p>Modifies an attribute of the specified Elastic IP address. For requirements, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#Using_Elastic_Addressing_Reverse_DNS\">Using reverse DNS for email applications</a>.</p>
+        r"""<p>Modifies an attribute of the specified Elastic IP address. For requirements, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#Using_Elastic_Addressing_Reverse_DNS\">Using reverse DNS for email applications</a>.</p>
 
         Args:
             allocation_id: <p>[EC2-VPC] The allocation ID.</p>
@@ -41773,7 +41773,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.instance_match_criteria.InstanceMatchCriteria"
         ] = None,
     ) -> "aws_sdk_ec2.types.modify_capacity_reservation_result.ModifyCapacityReservationResult":
-        """<p>Modifies a Capacity Reservation's capacity, instance eligibility, and the conditions under which it is to be released. You can't modify a Capacity Reservation's instance type, EBS optimization, platform, instance store settings, Availability Zone, or tenancy. If you need to modify any of these attributes, we recommend that you cancel the Capacity Reservation, and then create a new one with the required attributes. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-modify.html\"> Modify an active Capacity Reservation</a>.</p> <p>The allowed modifications depend on the state of the Capacity Reservation:</p> <ul> <li> <p> <code>assessing</code> or <code>scheduled</code> state - You can modify the tags only.</p> </li> <li> <p> <code>pending</code> state - You can't modify the Capacity Reservation in any way.</p> </li> <li> <p> <code>active</code> state but still within the commitment duration - You can't decrease the instance count or set an end date that is within the commitment duration. All other modifications are allowed.</p> </li> <li> <p> <code>active</code> state with no commitment duration or elapsed commitment duration - All modifications are allowed.</p> </li> <li> <p> <code>expired</code>, <code>cancelled</code>, <code>unsupported</code>, or <code>failed</code> state - You can't modify the Capacity Reservation in any way.</p> </li> </ul>
+        r"""<p>Modifies a Capacity Reservation's capacity, instance eligibility, and the conditions under which it is to be released. You can't modify a Capacity Reservation's instance type, EBS optimization, platform, instance store settings, Availability Zone, or tenancy. If you need to modify any of these attributes, we recommend that you cancel the Capacity Reservation, and then create a new one with the required attributes. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-modify.html\"> Modify an active Capacity Reservation</a>.</p> <p>The allowed modifications depend on the state of the Capacity Reservation:</p> <ul> <li> <p> <code>assessing</code> or <code>scheduled</code> state - You can modify the tags only.</p> </li> <li> <p> <code>pending</code> state - You can't modify the Capacity Reservation in any way.</p> </li> <li> <p> <code>active</code> state but still within the commitment duration - You can't decrease the instance count or set an end date that is within the commitment duration. All other modifications are allowed.</p> </li> <li> <p> <code>active</code> state with no commitment duration or elapsed commitment duration - All modifications are allowed.</p> </li> <li> <p> <code>expired</code>, <code>cancelled</code>, <code>unsupported</code>, or <code>failed</code> state - You can't modify the Capacity Reservation in any way.</p> </li> </ul>
 
         Args:
             capacity_reservation_id: <p>The ID of the Capacity Reservation.</p>
@@ -41838,7 +41838,7 @@ class AsyncEC2Client:
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
         remove_end_date: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.modify_capacity_reservation_fleet_result.ModifyCapacityReservationFleetResult":
-        """<p>Modifies a Capacity Reservation Fleet.</p> <p>When you modify the total target capacity of a Capacity Reservation Fleet, the Fleet automatically creates new Capacity Reservations, or modifies or cancels existing Capacity Reservations in the Fleet to meet the new total target capacity. When you modify the end date for the Fleet, the end dates for all of the individual Capacity Reservations in the Fleet are updated accordingly.</p>
+        r"""<p>Modifies a Capacity Reservation Fleet.</p> <p>When you modify the total target capacity of a Capacity Reservation Fleet, the Fleet automatically creates new Capacity Reservations, or modifies or cancels existing Capacity Reservations in the Fleet to meet the new total target capacity. When you modify the end date for the Fleet, the end dates for all of the individual Capacity Reservations in the Fleet are updated accordingly.</p>
 
         Args:
             capacity_reservation_fleet_id: <p>The ID of the Capacity Reservation Fleet to modify.</p>
@@ -41922,7 +41922,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.transit_gateway_configuration_input_structure.TransitGatewayConfigurationInputStructure"
         ] = None,
     ) -> "aws_sdk_ec2.types.modify_client_vpn_endpoint_result.ModifyClientVpnEndpointResult":
-        """<p>Modifies the specified Client VPN endpoint. Modifying the DNS server resets existing client connections.</p>
+        r"""<p>Modifies the specified Client VPN endpoint. Modifying the DNS server resets existing client connections.</p>
 
         Args:
             client_vpn_endpoint_id: <p>The ID of the Client VPN endpoint to modify.</p>
@@ -42012,7 +42012,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.modify_default_credit_specification_result.ModifyDefaultCreditSpecificationResult":
-        """<p>Modifies the default credit option for CPU usage of burstable performance instances. The default credit option is set at the account level per Amazon Web Services Region, and is specified per instance family. All new burstable performance instances in the account launch using the default credit option.</p> <p> <code>ModifyDefaultCreditSpecification</code> is an asynchronous operation, which works at an Amazon Web Services Region level and modifies the credit option for each Availability Zone. All zones in a Region are updated within five minutes. But if instances are launched during this operation, they might not get the new credit option until the zone is updated. To verify whether the update has occurred, you can call <code>GetDefaultCreditSpecification</code> and check <code>DefaultCreditSpecification</code> for updates.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html\">Burstable performance instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Modifies the default credit option for CPU usage of burstable performance instances. The default credit option is set at the account level per Amazon Web Services Region, and is specified per instance family. All new burstable performance instances in the account launch using the default credit option.</p> <p> <code>ModifyDefaultCreditSpecification</code> is an asynchronous operation, which works at an Amazon Web Services Region level and modifies the credit option for each Availability Zone. All zones in a Region are updated within five minutes. But if instances are launched during this operation, they might not get the new credit option until the zone is updated. To verify whether the update has occurred, you can call <code>GetDefaultCreditSpecification</code> and check <code>DefaultCreditSpecification</code> for updates.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html\">Burstable performance instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -42056,7 +42056,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.modify_ebs_default_kms_key_id_result.ModifyEbsDefaultKmsKeyIdResult":
-        """<p>Changes the default KMS key for EBS encryption by default for your account in this Region.</p> <p>Amazon Web Services creates a unique Amazon Web Services managed KMS key in each Region for use with encryption by default. If you change the default KMS key to a symmetric customer managed KMS key, it is used instead of the Amazon Web Services managed KMS key. Amazon EBS does not support asymmetric KMS keys.</p> <p>If you delete or disable the customer managed KMS key that you specified for use with encryption by default, your instances will fail to launch.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html\">Amazon EBS encryption</a> in the <i>Amazon EBS User Guide</i>.</p>
+        r"""<p>Changes the default KMS key for EBS encryption by default for your account in this Region.</p> <p>Amazon Web Services creates a unique Amazon Web Services managed KMS key in each Region for use with encryption by default. If you change the default KMS key to a symmetric customer managed KMS key, it is used instead of the Amazon Web Services managed KMS key. Amazon EBS does not support asymmetric KMS keys.</p> <p>If you delete or disable the customer managed KMS key that you specified for use with encryption by default, your instances will fail to launch.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html\">Amazon EBS encryption</a> in the <i>Amazon EBS User Guide</i>.</p>
 
         Args:
             kms_key_id: <p>The identifier of the KMS key to use for Amazon EBS encryption. If this parameter is not specified, your KMS key for Amazon EBS is used. If <code>KmsKeyId</code> is specified, the encrypted state must be <code>true</code>.</p> <p>You can specify the KMS key using any of the following:</p> <ul> <li> <p>Key ID. For example, 1234abcd-12ab-34cd-56ef-1234567890ab.</p> </li> <li> <p>Key alias. For example, alias/ExampleAlias.</p> </li> <li> <p>Key ARN. For example, arn:aws:kms:us-east-1:012345678910:key/1234abcd-12ab-34cd-56ef-1234567890ab.</p> </li> <li> <p>Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias.</p> </li> </ul> <p>Amazon Web Services authenticates the KMS key asynchronously. Therefore, if you specify an ID, alias, or ARN that is not valid, the action can appear to complete, but eventually fails.</p> <p>Amazon EBS does not support asymmetric KMS keys.</p>
@@ -42258,7 +42258,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.auto_placement.AutoPlacement"
         ] = None,
     ) -> "aws_sdk_ec2.types.modify_hosts_result.ModifyHostsResult":
-        """<p>Modify the auto-placement setting of a Dedicated Host. When auto-placement is enabled, any instances that you launch with a tenancy of <code>host</code> but without a specific host ID are placed onto any available Dedicated Host in your account that has auto-placement enabled. When auto-placement is disabled, you need to provide a host ID to have the instance launch onto a specific host. If no host ID is provided, the instance is launched onto a suitable host with auto-placement enabled.</p> <p>You can also use this API action to modify a Dedicated Host to support either multiple instance types in an instance family, or to support a specific instance type only.</p>
+        r"""<p>Modify the auto-placement setting of a Dedicated Host. When auto-placement is enabled, any instances that you launch with a tenancy of <code>host</code> but without a specific host ID are placed onto any available Dedicated Host in your account that has auto-placement enabled. When auto-placement is disabled, you need to provide a host ID to have the instance launch onto a specific host. If no host ID is provided, the instance is launched onto a suitable host with auto-placement enabled.</p> <p>You can also use this API action to modify a Dedicated Host to support either multiple instance types in an instance family, or to support a specific instance type only.</p>
 
         Args:
             host_recovery: <p>Indicates whether to enable or disable host recovery for the Dedicated Host. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-recovery.html\">Host recovery</a> in the <i>Amazon EC2 User Guide</i>.</p>
@@ -42313,7 +42313,7 @@ class AsyncEC2Client:
         *,
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
     ) -> None:
-        """<p>Modifies the ID format of a resource for a specified IAM user, IAM role, or the root user for an account; or all IAM users, IAM roles, and the root user for an account. You can specify that resources should receive longer IDs (17-character IDs) when they are created. </p> <p>This request can only be used to modify longer ID settings for resource types that are within the opt-in period. Resources currently in their opt-in period include: <code>bundle</code> | <code>conversion-task</code> | <code>customer-gateway</code> | <code>dhcp-options</code> | <code>elastic-ip-allocation</code> | <code>elastic-ip-association</code> | <code>export-task</code> | <code>flow-log</code> | <code>image</code> | <code>import-task</code> | <code>internet-gateway</code> | <code>network-acl</code> | <code>network-acl-association</code> | <code>network-interface</code> | <code>network-interface-attachment</code> | <code>prefix-list</code> | <code>route-table</code> | <code>route-table-association</code> | <code>security-group</code> | <code>subnet</code> | <code>subnet-cidr-block-association</code> | <code>vpc</code> | <code>vpc-cidr-block-association</code> | <code>vpc-endpoint</code> | <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>. </p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/resource-ids.html\">Resource IDs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. </p> <p>This setting applies to the principal specified in the request; it does not apply to the principal that makes the request. </p> <p>Resources created with longer IDs are visible to all IAM roles and users, regardless of these settings and provided that they have permission to use the relevant <code>Describe</code> command for the resource type.</p>
+        r"""<p>Modifies the ID format of a resource for a specified IAM user, IAM role, or the root user for an account; or all IAM users, IAM roles, and the root user for an account. You can specify that resources should receive longer IDs (17-character IDs) when they are created. </p> <p>This request can only be used to modify longer ID settings for resource types that are within the opt-in period. Resources currently in their opt-in period include: <code>bundle</code> | <code>conversion-task</code> | <code>customer-gateway</code> | <code>dhcp-options</code> | <code>elastic-ip-allocation</code> | <code>elastic-ip-association</code> | <code>export-task</code> | <code>flow-log</code> | <code>image</code> | <code>import-task</code> | <code>internet-gateway</code> | <code>network-acl</code> | <code>network-acl-association</code> | <code>network-interface</code> | <code>network-interface-attachment</code> | <code>prefix-list</code> | <code>route-table</code> | <code>route-table-association</code> | <code>security-group</code> | <code>subnet</code> | <code>subnet-cidr-block-association</code> | <code>vpc</code> | <code>vpc-cidr-block-association</code> | <code>vpc-endpoint</code> | <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>. </p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/resource-ids.html\">Resource IDs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. </p> <p>This setting applies to the principal specified in the request; it does not apply to the principal that makes the request. </p> <p>Resources created with longer IDs are visible to all IAM roles and users, regardless of these settings and provided that they have permission to use the relevant <code>Describe</code> command for the resource type.</p>
 
         Args:
             resource: <p>The type of resource: <code>bundle</code> | <code>conversion-task</code> | <code>customer-gateway</code> | <code>dhcp-options</code> | <code>elastic-ip-allocation</code> | <code>elastic-ip-association</code> | <code>export-task</code> | <code>flow-log</code> | <code>image</code> | <code>import-task</code> | <code>internet-gateway</code> | <code>network-acl</code> | <code>network-acl-association</code> | <code>network-interface</code> | <code>network-interface-attachment</code> | <code>prefix-list</code> | <code>route-table</code> | <code>route-table-association</code> | <code>security-group</code> | <code>subnet</code> | <code>subnet-cidr-block-association</code> | <code>vpc</code> | <code>vpc-cidr-block-association</code> | <code>vpc-endpoint</code> | <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>.</p> <p>Alternatively, use the <code>all-current</code> option to include all resource types that are currently within their opt-in period for longer IDs.</p>
@@ -42354,7 +42354,7 @@ class AsyncEC2Client:
         *,
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
     ) -> None:
-        """<p>Modifies the ID format for the specified resource on a per-Region basis. You can specify that resources should receive longer IDs (17-character IDs) when they are created.</p> <p>This request can only be used to modify longer ID settings for resource types that are within the opt-in period. Resources currently in their opt-in period include: <code>bundle</code> | <code>conversion-task</code> | <code>customer-gateway</code> | <code>dhcp-options</code> | <code>elastic-ip-allocation</code> | <code>elastic-ip-association</code> | <code>export-task</code> | <code>flow-log</code> | <code>image</code> | <code>import-task</code> | <code>internet-gateway</code> | <code>network-acl</code> | <code>network-acl-association</code> | <code>network-interface</code> | <code>network-interface-attachment</code> | <code>prefix-list</code> | <code>route-table</code> | <code>route-table-association</code> | <code>security-group</code> | <code>subnet</code> | <code>subnet-cidr-block-association</code> | <code>vpc</code> | <code>vpc-cidr-block-association</code> | <code>vpc-endpoint</code> | <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>.</p> <p>This setting applies to the IAM user who makes the request; it does not apply to the entire Amazon Web Services account. By default, an IAM user defaults to the same settings as the root user. If you're using this action as the root user, then these settings apply to the entire account, unless an IAM user explicitly overrides these settings for themselves. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/resource-ids.html\">Resource IDs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> <p>Resources created with longer IDs are visible to all IAM roles and users, regardless of these settings and provided that they have permission to use the relevant <code>Describe</code> command for the resource type.</p>
+        r"""<p>Modifies the ID format for the specified resource on a per-Region basis. You can specify that resources should receive longer IDs (17-character IDs) when they are created.</p> <p>This request can only be used to modify longer ID settings for resource types that are within the opt-in period. Resources currently in their opt-in period include: <code>bundle</code> | <code>conversion-task</code> | <code>customer-gateway</code> | <code>dhcp-options</code> | <code>elastic-ip-allocation</code> | <code>elastic-ip-association</code> | <code>export-task</code> | <code>flow-log</code> | <code>image</code> | <code>import-task</code> | <code>internet-gateway</code> | <code>network-acl</code> | <code>network-acl-association</code> | <code>network-interface</code> | <code>network-interface-attachment</code> | <code>prefix-list</code> | <code>route-table</code> | <code>route-table-association</code> | <code>security-group</code> | <code>subnet</code> | <code>subnet-cidr-block-association</code> | <code>vpc</code> | <code>vpc-cidr-block-association</code> | <code>vpc-endpoint</code> | <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>.</p> <p>This setting applies to the IAM user who makes the request; it does not apply to the entire Amazon Web Services account. By default, an IAM user defaults to the same settings as the root user. If you're using this action as the root user, then these settings apply to the entire account, unless an IAM user explicitly overrides these settings for themselves. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/resource-ids.html\">Resource IDs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> <p>Resources created with longer IDs are visible to all IAM roles and users, regardless of these settings and provided that they have permission to use the relevant <code>Describe</code> command for the resource type.</p>
 
         Args:
             resource: <p>The type of resource: <code>bundle</code> | <code>conversion-task</code> | <code>customer-gateway</code> | <code>dhcp-options</code> | <code>elastic-ip-allocation</code> | <code>elastic-ip-association</code> | <code>export-task</code> | <code>flow-log</code> | <code>image</code> | <code>import-task</code> | <code>internet-gateway</code> | <code>network-acl</code> | <code>network-acl-association</code> | <code>network-interface</code> | <code>network-interface-attachment</code> | <code>prefix-list</code> | <code>route-table</code> | <code>route-table-association</code> | <code>security-group</code> | <code>subnet</code> | <code>subnet-cidr-block-association</code> | <code>vpc</code> | <code>vpc-cidr-block-association</code> | <code>vpc-endpoint</code> | <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>.</p> <p>Alternatively, use the <code>all-current</code> option to include all resource types that are currently within their opt-in period for longer IDs.</p>
@@ -42422,7 +42422,7 @@ class AsyncEC2Client:
         ] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> None:
-        """<p>Modifies the specified attribute of the specified AMI. You can specify only one attribute at a time.</p> <p>To specify the attribute, you can use the <code>Attribute</code> parameter, or one of the following parameters: <code>Description</code>, <code>ImdsSupport</code>, or <code>LaunchPermission</code>.</p> <p>Images with an Amazon Web Services Marketplace product code cannot be made public.</p> <p>To enable the SriovNetSupport enhanced networking attribute of an image, enable SriovNetSupport on an instance and create an AMI from the instance.</p>
+        r"""<p>Modifies the specified attribute of the specified AMI. You can specify only one attribute at a time.</p> <p>To specify the attribute, you can use the <code>Attribute</code> parameter, or one of the following parameters: <code>Description</code>, <code>ImdsSupport</code>, or <code>LaunchPermission</code>.</p> <p>Images with an Amazon Web Services Marketplace product code cannot be made public.</p> <p>To enable the SriovNetSupport enhanced networking attribute of an image, enable SriovNetSupport on an instance and create an AMI from the instance.</p>
 
         Args:
             attribute: <p>The name of the attribute to modify.</p> <p>Valid values: <code>description</code> | <code>imdsSupport</code> | <code>launchPermission</code> </p>
@@ -42549,7 +42549,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.attribute_boolean_value.AttributeBooleanValue"
         ] = None,
     ) -> None:
-        """<p>Modifies the specified attribute of the specified instance. You can specify only one attribute at a time.</p> <p> <b>Note: </b>Using this action to change the security groups associated with an elastic network interface (ENI) attached to an instance can result in an error if the instance has more than one ENI. To change the security groups associated with an ENI attached to an instance that has multiple ENIs, we recommend that you use the <a>ModifyNetworkInterfaceAttribute</a> action.</p> <p>To modify some attributes, the instance must be stopped. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingAttributesWhileInstanceStopped.html\">Modify a stopped instance</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Modifies the specified attribute of the specified instance. You can specify only one attribute at a time.</p> <p> <b>Note: </b>Using this action to change the security groups associated with an elastic network interface (ENI) attached to an instance can result in an error if the instance has more than one ENI. To change the security groups associated with an ENI attached to an instance that has multiple ENIs, we recommend that you use the <a>ModifyNetworkInterfaceAttribute</a> action.</p> <p>To modify some attributes, the instance must be stopped. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingAttributesWhileInstanceStopped.html\">Modify a stopped instance</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             source_dest_check: <p>Enable or disable source/destination checks, which ensure that the instance is either the source or the destination of any traffic that it receives. If the value is <code>true</code>, source/destination checks are enabled; otherwise, they are disabled. The default value is <code>true</code>. You must disable source/destination checks if the instance runs services such as network address translation, routing, or firewalls.</p>
@@ -42703,7 +42703,7 @@ class AsyncEC2Client:
         ] = None,
         preserve_client_ip: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.modify_instance_connect_endpoint_result.ModifyInstanceConnectEndpointResult":
-        """<p>Modifies the specified EC2 Instance Connect Endpoint.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/modify-ec2-instance-connect-endpoint.html\">Modify an EC2 Instance Connect Endpoint</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Modifies the specified EC2 Instance Connect Endpoint.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/modify-ec2-instance-connect-endpoint.html\">Modify an EC2 Instance Connect Endpoint</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -42759,7 +42759,7 @@ class AsyncEC2Client:
         ] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.modify_instance_cpu_options_result.ModifyInstanceCpuOptionsResult":
-        """<p>By default, all vCPUs for the instance type are active when you launch an instance. When you configure the number of active vCPUs for the instance, it can help you save on licensing costs and optimize performance. The base cost of the instance remains unchanged.</p> <p>The number of active vCPUs equals the number of threads per CPU core multiplied by the number of cores. The instance must be in a <code>Stopped</code> state before you make changes.</p> <note> <p>Some instance type options do not support this capability. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cpu-options-supported-instances-values.html\">Supported CPU options</a> in the <i>Amazon EC2 User Guide</i>.</p> </note>
+        r"""<p>By default, all vCPUs for the instance type are active when you launch an instance. When you configure the number of active vCPUs for the instance, it can help you save on licensing costs and optimize performance. The base cost of the instance remains unchanged.</p> <p>The number of active vCPUs equals the number of threads per CPU core multiplied by the number of cores. The instance must be in a <code>Stopped</code> state before you make changes.</p> <note> <p>Some instance type options do not support this capability. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cpu-options-supported-instances-values.html\">Supported CPU options</a> in the <i>Amazon EC2 User Guide</i>.</p> </note>
 
         Args:
             instance_id: <p>The ID of the instance to update.</p>
@@ -42811,7 +42811,7 @@ class AsyncEC2Client:
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
         client_token: Optional["aws_sdk_ec2.types.string.String"] = None,
     ) -> "aws_sdk_ec2.types.modify_instance_credit_specification_result.ModifyInstanceCreditSpecificationResult":
-        """<p>Modifies the credit option for CPU usage on a running or stopped burstable performance instance. The credit options are <code>standard</code> and <code>unlimited</code>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html\">Burstable performance instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Modifies the credit option for CPU usage on a running or stopped burstable performance instance. The credit options are <code>standard</code> and <code>unlimited</code>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html\">Burstable performance instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -42911,7 +42911,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.instance_event_window_cron_expression.InstanceEventWindowCronExpression"
         ] = None,
     ) -> "aws_sdk_ec2.types.modify_instance_event_window_result.ModifyInstanceEventWindowResult":
-        """<p>Modifies the specified event window.</p> <p>You can define either a set of time ranges or a cron expression when modifying the event window, but not both.</p> <p>To modify the targets associated with the event window, use the <a>AssociateInstanceEventWindow</a> and <a>DisassociateInstanceEventWindow</a> API.</p> <p>If Amazon Web Services has already scheduled an event, modifying an event window won't change the time of the scheduled event.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/event-windows.html\">Define event windows for scheduled events</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Modifies the specified event window.</p> <p>You can define either a set of time ranges or a cron expression when modifying the event window, but not both.</p> <p>To modify the targets associated with the event window, use the <a>AssociateInstanceEventWindow</a> and <a>DisassociateInstanceEventWindow</a> API.</p> <p>If Amazon Web Services has already scheduled an event, modifying an event window won't change the time of the scheduled event.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/event-windows.html\">Define event windows for scheduled events</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -42968,7 +42968,7 @@ class AsyncEC2Client:
         ] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.modify_instance_maintenance_options_result.ModifyInstanceMaintenanceOptionsResult":
-        """<p>Modifies the recovery behavior of your instance to disable simplified automatic recovery or set the recovery behavior to default. The default configuration will not enable simplified automatic recovery for an unsupported instance type. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html#instance-configuration-recovery\">Simplified automatic recovery</a>.</p> <p>Modifies the reboot migration behavior during a user-initiated reboot of an instance that has a pending <code>system-reboot</code> event. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/schedevents_actions_reboot.html#reboot-migration\">Enable or disable reboot migration</a>.</p>
+        r"""<p>Modifies the recovery behavior of your instance to disable simplified automatic recovery or set the recovery behavior to default. The default configuration will not enable simplified automatic recovery for an unsupported instance type. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html#instance-configuration-recovery\">Simplified automatic recovery</a>.</p> <p>Modifies the reboot migration behavior during a user-initiated reboot of an instance that has a pending <code>system-reboot</code> event. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/schedevents_actions_reboot.html#reboot-migration\">Enable or disable reboot migration</a>.</p>
 
         Args:
             instance_id: <p>The ID of the instance.</p>
@@ -43030,7 +43030,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.default_http_tokens_enforced_state.DefaultHttpTokensEnforcedState"
         ] = None,
     ) -> "aws_sdk_ec2.types.modify_instance_metadata_defaults_result.ModifyInstanceMetadataDefaultsResult":
-        """<p>Modifies the default instance metadata service (IMDS) settings at the account level in the specified Amazon Web Services Region.</p> <note> <p>To remove a parameter's account-level default setting, specify <code>no-preference</code>. If an account-level setting is cleared with <code>no-preference</code>, then the instance launch considers the other instance metadata settings. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-options.html#instance-metadata-options-order-of-precedence\">Order of precedence for instance metadata options</a> in the <i>Amazon EC2 User Guide</i>.</p> </note>
+        r"""<p>Modifies the default instance metadata service (IMDS) settings at the account level in the specified Amazon Web Services Region.</p> <note> <p>To remove a parameter's account-level default setting, specify <code>no-preference</code>. If an account-level setting is cleared with <code>no-preference</code>, then the instance launch considers the other instance metadata settings. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-options.html#instance-metadata-options-order-of-precedence\">Order of precedence for instance metadata options</a> in the <i>Amazon EC2 User Guide</i>.</p> </note>
 
         Args:
             http_tokens: <p>Indicates whether IMDSv2 is required.</p> <ul> <li> <p> <code>optional</code> – IMDSv2 is optional, which means that you can use either IMDSv2 or IMDSv1.</p> </li> <li> <p> <code>required</code> – IMDSv2 is required, which means that IMDSv1 is disabled, and you must use IMDSv2.</p> </li> </ul>
@@ -43100,7 +43100,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.instance_metadata_tags_state.InstanceMetadataTagsState"
         ] = None,
     ) -> "aws_sdk_ec2.types.modify_instance_metadata_options_result.ModifyInstanceMetadataOptionsResult":
-        """<p>Modify the instance metadata parameters on a running or stopped instance. When you modify the parameters on a stopped instance, they are applied when the instance is started. When you modify the parameters on a running instance, the API responds with a state of “pending”. After the parameter modifications are successfully applied to the instance, the state of the modifications changes from “pending” to “applied” in subsequent describe-instances API calls. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html\">Instance metadata and user data</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Modify the instance metadata parameters on a running or stopped instance. When you modify the parameters on a stopped instance, they are applied when the instance is started. When you modify the parameters on a running instance, the API responds with a state of “pending”. After the parameter modifications are successfully applied to the instance, the state of the modifications changes from “pending” to “applied” in subsequent describe-instances API calls. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html\">Instance metadata and user data</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             instance_id: <p>The ID of the instance.</p>
@@ -43212,7 +43212,7 @@ class AsyncEC2Client:
         affinity: Optional["aws_sdk_ec2.types.affinity.Affinity"] = None,
         host_id: Optional["aws_sdk_ec2.types.dedicated_host_id.DedicatedHostId"] = None,
     ) -> "aws_sdk_ec2.types.modify_instance_placement_result.ModifyInstancePlacementResult":
-        """<p>Modifies the placement attributes for a specified instance. You can do the following:</p> <ul> <li> <p>Modify the affinity between an instance and a <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-overview.html\">Dedicated Host</a>. When affinity is set to <code>host</code> and the instance is not associated with a specific Dedicated Host, the next time the instance is started, it is automatically associated with the host on which it lands. If the instance is restarted or rebooted, this relationship persists.</p> </li> <li> <p>Change the Dedicated Host with which an instance is associated.</p> </li> <li> <p>Change the instance tenancy of an instance.</p> </li> <li> <p>Move an instance to or from a <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html\">placement group</a>.</p> </li> </ul> <p>At least one attribute for affinity, host ID, tenancy, or placement group name must be specified in the request. Affinity and tenancy can be modified in the same request.</p> <p>To modify the host ID, tenancy, placement group, or partition for an instance, the instance must be in the <code>stopped</code> state.</p>
+        r"""<p>Modifies the placement attributes for a specified instance. You can do the following:</p> <ul> <li> <p>Modify the affinity between an instance and a <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-overview.html\">Dedicated Host</a>. When affinity is set to <code>host</code> and the instance is not associated with a specific Dedicated Host, the next time the instance is started, it is automatically associated with the host on which it lands. If the instance is restarted or rebooted, this relationship persists.</p> </li> <li> <p>Change the Dedicated Host with which an instance is associated.</p> </li> <li> <p>Change the instance tenancy of an instance.</p> </li> <li> <p>Move an instance to or from a <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html\">placement group</a>.</p> </li> </ul> <p>At least one attribute for affinity, host ID, tenancy, or placement group name must be specified in the request. Affinity and tenancy can be modified in the same request.</p> <p>To modify the host ID, tenancy, placement group, or partition for an instance, the instance must be in the <code>stopped</code> state.</p>
 
         Args:
             group_name: <p>The name of the placement group in which to place the instance. For spread placement groups, the instance must have a tenancy of <code>default</code>. For cluster and partition placement groups, the instance must have a tenancy of <code>default</code> or <code>dedicated</code>.</p> <p>To remove an instance from a placement group, specify an empty string (\"\").</p>
@@ -43284,7 +43284,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.ipam_metered_account.IpamMeteredAccount"
         ] = None,
     ) -> "aws_sdk_ec2.types.modify_ipam_result.ModifyIpamResult":
-        """<p>Modify the configurations of an IPAM. </p>
+        r"""<p>Modify the configurations of an IPAM. </p>
 
         Args:
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -43418,7 +43418,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.request_ipam_resource_tag_list.RequestIpamResourceTagList"
         ] = None,
     ) -> "aws_sdk_ec2.types.modify_ipam_pool_result.ModifyIpamPoolResult":
-        """<p>Modify the configurations of an IPAM pool.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/mod-pool-ipam.html\">Modify a pool</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
+        r"""<p>Modify the configurations of an IPAM pool.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/mod-pool-ipam.html\">Modify a pool</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
 
         Args:
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -43489,7 +43489,7 @@ class AsyncEC2Client:
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
         description: Optional["aws_sdk_ec2.types.string.String"] = None,
     ) -> "aws_sdk_ec2.types.modify_ipam_pool_allocation_result.ModifyIpamPoolAllocationResult":
-        """<p>Modifies the description of an IPAM pool allocation. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/modify-alloc-ipam.html\">Modify an IPAM pool allocation</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+        r"""<p>Modifies the description of an IPAM pool allocation. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/modify-alloc-ipam.html\">Modify an IPAM pool allocation</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
 
         Args:
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -43591,7 +43591,7 @@ class AsyncEC2Client:
         ] = None,
         client_token: Optional["aws_sdk_ec2.types.string.String"] = None,
     ) -> "aws_sdk_ec2.types.modify_ipam_prefix_list_resolver_target_result.ModifyIpamPrefixListResolverTargetResult":
-        """<p>Modifies an IPAM prefix list resolver target. You can update version tracking settings and the desired version of the target prefix list.</p>
+        r"""<p>Modifies an IPAM prefix list resolver target. You can update version tracking settings and the desired version of the target prefix list.</p>
 
         Args:
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -43651,7 +43651,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.ipam_scope_id.IpamScopeId"
         ] = None,
     ) -> "aws_sdk_ec2.types.modify_ipam_resource_cidr_result.ModifyIpamResourceCidrResult":
-        """<p>Modify a resource CIDR. You can use this action to transfer resource CIDRs between scopes and ignore resource CIDRs that you do not want to manage. If set to false, the resource will not be tracked for overlap, it cannot be auto-imported into a pool, and it will be removed from any pool it has an allocation in.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/move-resource-ipam.html\">Move resource CIDRs between scopes</a> and <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/change-monitoring-state-ipam.html\">Change the monitoring state of resource CIDRs</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+        r"""<p>Modify a resource CIDR. You can use this action to transfer resource CIDRs between scopes and ignore resource CIDRs that you do not want to manage. If set to false, the resource will not be tracked for overlap, it cannot be auto-imported into a pool, and it will be removed from any pool it has an allocation in.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/move-resource-ipam.html\">Move resource CIDRs between scopes</a> and <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/change-monitoring-state-ipam.html\">Change the monitoring state of resource CIDRs</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
 
         Args:
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -43717,7 +43717,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.remove_ipam_organizational_unit_exclusion_set.RemoveIpamOrganizationalUnitExclusionSet"
         ] = None,
     ) -> "aws_sdk_ec2.types.modify_ipam_resource_discovery_result.ModifyIpamResourceDiscoveryResult":
-        """<p>Modifies a resource discovery. A resource discovery is an IPAM component that enables IPAM to manage and monitor resources that belong to the owning account.</p>
+        r"""<p>Modifies a resource discovery. A resource discovery is an IPAM component that enables IPAM to manage and monitor resources that belong to the owning account.</p>
 
         Args:
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -43847,7 +43847,7 @@ class AsyncEC2Client:
         ] = None,
         default_version: Optional["aws_sdk_ec2.types.string.String"] = None,
     ) -> "aws_sdk_ec2.types.modify_launch_template_result.ModifyLaunchTemplateResult":
-        """<p>Modifies a launch template. You can specify which version of the launch template to set as the default version. When launching an instance, the default version applies when a launch template version is not specified.</p>
+        r"""<p>Modifies a launch template. You can specify which version of the launch template to set as the default version. When launching an instance, the default version applies when a launch template version is not specified.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -44264,7 +44264,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.modify_public_ip_dns_name_options_result.ModifyPublicIpDnsNameOptionsResult":
-        """<p>Modify public hostname options for a network interface. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html\">EC2 instance hostnames, DNS names, and domains</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Modify public hostname options for a network interface. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html\">EC2 instance hostnames, DNS names, and domains</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             network_interface_id: <p>A network interface ID.</p>
@@ -44309,7 +44309,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         client_token: Optional["aws_sdk_ec2.types.string.String"] = None,
     ) -> "aws_sdk_ec2.types.modify_reserved_instances_result.ModifyReservedInstancesResult":
-        """<p>Modifies the configuration of your Reserved Instances, such as the Availability Zone, instance count, or instance type. The Reserved Instances to be modified must be identical, except for Availability Zone, network platform, and instance type.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html\">Modify Reserved Instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Modifies the configuration of your Reserved Instances, such as the Availability Zone, instance count, or instance type. The Reserved Instances to be modified must be identical, except for Availability Zone, network platform, and instance type.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html\">Modify Reserved Instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             reserved_instances_ids: <p>The IDs of the Reserved Instances to modify.</p>
@@ -44360,7 +44360,7 @@ class AsyncEC2Client:
         sns_notifications_enabled: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.modify_route_server_result.ModifyRouteServerResult":
-        """<p>Modifies the configuration of an existing route server.</p> <p>Amazon VPC Route Server simplifies routing for traffic between workloads that are deployed within a VPC and its internet gateways. With this feature, VPC Route Server dynamically updates VPC and internet gateway route tables with your preferred IPv4 or IPv6 routes to achieve routing fault tolerance for those workloads. This enables you to automatically reroute traffic within a VPC, which increases the manageability of VPC routing and interoperability with third-party workloads.</p> <p>Route server supports the follow route table types:</p> <ul> <li> <p>VPC route tables not associated with subnets</p> </li> <li> <p>Subnet route tables</p> </li> <li> <p>Internet gateway route tables</p> </li> </ul> <p>Route server does not support route tables associated with virtual private gateways. To propagate routes into a transit gateway route table, use <a href=\"https://docs.aws.amazon.com/vpc/latest/tgw/tgw-connect.html\">Transit Gateway Connect</a>.</p> <p>For more information see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/dynamic-routing-route-server.html\">Dynamic routing in your VPC with VPC Route Server</a> in the <i>Amazon VPC User Guide</i>.</p>
+        r"""<p>Modifies the configuration of an existing route server.</p> <p>Amazon VPC Route Server simplifies routing for traffic between workloads that are deployed within a VPC and its internet gateways. With this feature, VPC Route Server dynamically updates VPC and internet gateway route tables with your preferred IPv4 or IPv6 routes to achieve routing fault tolerance for those workloads. This enables you to automatically reroute traffic within a VPC, which increases the manageability of VPC routing and interoperability with third-party workloads.</p> <p>Route server supports the follow route table types:</p> <ul> <li> <p>VPC route tables not associated with subnets</p> </li> <li> <p>Subnet route tables</p> </li> <li> <p>Internet gateway route tables</p> </li> </ul> <p>Route server does not support route tables associated with virtual private gateways. To propagate routes into a transit gateway route table, use <a href=\"https://docs.aws.amazon.com/vpc/latest/tgw/tgw-connect.html\">Transit Gateway Connect</a>.</p> <p>For more information see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/dynamic-routing-route-server.html\">Dynamic routing in your VPC with VPC Route Server</a> in the <i>Amazon VPC User Guide</i>.</p>
 
         Args:
             route_server_id: <p>The ID of the route server to modify.</p>
@@ -44471,7 +44471,7 @@ class AsyncEC2Client:
         ] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> None:
-        """<p>Adds or removes permission settings for the specified snapshot. You may add or remove specified Amazon Web Services account IDs from a snapshot's list of create volume permissions, but you cannot do both in a single operation. If you need to both add and remove account IDs for a snapshot, you must use multiple operations. You can make up to 500 modifications to a snapshot in a single operation.</p> <p>Encrypted snapshots and snapshots with Amazon Web Services Marketplace product codes cannot be made public. Snapshots encrypted with your default KMS key cannot be shared with other accounts.</p> <p>For more information about modifying snapshot permissions, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/ebs-modifying-snapshot-permissions.html\">Share a snapshot</a> in the <i>Amazon EBS User Guide</i>.</p>
+        r"""<p>Adds or removes permission settings for the specified snapshot. You may add or remove specified Amazon Web Services account IDs from a snapshot's list of create volume permissions, but you cannot do both in a single operation. If you need to both add and remove account IDs for a snapshot, you must use multiple operations. You can make up to 500 modifications to a snapshot in a single operation.</p> <p>Encrypted snapshots and snapshots with Amazon Web Services Marketplace product codes cannot be made public. Snapshots encrypted with your default KMS key cannot be shared with other accounts.</p> <p>For more information about modifying snapshot permissions, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/ebs-modifying-snapshot-permissions.html\">Share a snapshot</a> in the <i>Amazon EBS User Guide</i>.</p>
 
         Args:
             attribute: <p>The snapshot attribute to modify. Only volume creation permissions can be modified.</p>
@@ -44539,7 +44539,7 @@ class AsyncEC2Client:
         ] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.modify_snapshot_tier_result.ModifySnapshotTierResult":
-        """<p>Archives an Amazon EBS snapshot. When you archive a snapshot, it is converted to a full snapshot that includes all of the blocks of data that were written to the volume at the time the snapshot was created, and moved from the standard tier to the archive tier. For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/snapshot-archive.html\">Archive Amazon EBS snapshots</a> in the <i>Amazon EBS User Guide</i>.</p>
+        r"""<p>Archives an Amazon EBS snapshot. When you archive a snapshot, it is converted to a full snapshot that includes all of the blocks of data that were written to the volume at the time the snapshot was created, and moved from the standard tier to the archive tier. For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/snapshot-archive.html\">Archive Amazon EBS snapshots</a> in the <i>Amazon EBS User Guide</i>.</p>
 
         Args:
             snapshot_id: <p>The ID of the snapshot.</p>
@@ -44683,7 +44683,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.attribute_boolean_value.AttributeBooleanValue"
         ] = None,
     ) -> None:
-        """<p>Modifies a subnet attribute. You can only modify one attribute at a time.</p> <p>Use this action to modify subnets on Amazon Web Services Outposts.</p> <ul> <li> <p>To modify a subnet on an Outpost rack, set both <code>MapCustomerOwnedIpOnLaunch</code> and <code>CustomerOwnedIpv4Pool</code>. These two parameters act as a single attribute.</p> </li> <li> <p>To modify a subnet on an Outpost server, set either <code>EnableLniAtDeviceIndex</code> or <code>DisableLniAtDeviceIndex</code>.</p> </li> </ul> <p>For more information about Amazon Web Services Outposts, see the following:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/outposts/latest/userguide/how-servers-work.html\">Outpost servers</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/outposts/latest/userguide/how-racks-work.html\">Outpost racks</a> </p> </li> </ul>
+        r"""<p>Modifies a subnet attribute. You can only modify one attribute at a time.</p> <p>Use this action to modify subnets on Amazon Web Services Outposts.</p> <ul> <li> <p>To modify a subnet on an Outpost rack, set both <code>MapCustomerOwnedIpOnLaunch</code> and <code>CustomerOwnedIpv4Pool</code>. These two parameters act as a single attribute.</p> </li> <li> <p>To modify a subnet on an Outpost server, set either <code>EnableLniAtDeviceIndex</code> or <code>DisableLniAtDeviceIndex</code>.</p> </li> </ul> <p>For more information about Amazon Web Services Outposts, see the following:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/outposts/latest/userguide/how-servers-work.html\">Outpost servers</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/outposts/latest/userguide/how-racks-work.html\">Outpost racks</a> </p> </li> </ul>
 
         Args:
             assign_ipv6_address_on_creation: <p>Specify <code>true</code> to indicate that network interfaces created in the specified subnet should be assigned an IPv6 address. This includes a network interface that's created when launching an instance into the subnet (the instance therefore receives an IPv6 address). </p> <p>If you enable the IPv6 addressing feature for your subnet, your network interface or instance only receives an IPv6 address if it's created using version <code>2016-11-15</code> or later of the Amazon EC2 API.</p>
@@ -45224,7 +45224,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.modify_verified_access_endpoint_cidr_options.ModifyVerifiedAccessEndpointCidrOptions"
         ] = None,
     ) -> "aws_sdk_ec2.types.modify_verified_access_endpoint_result.ModifyVerifiedAccessEndpointResult":
-        """<p>Modifies the configuration of the specified Amazon Web Services Verified Access endpoint.</p>
+        r"""<p>Modifies the configuration of the specified Amazon Web Services Verified Access endpoint.</p>
 
         Args:
             verified_access_endpoint_id: <p>The ID of the Verified Access endpoint.</p>
@@ -45293,7 +45293,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.verified_access_sse_specification_request.VerifiedAccessSseSpecificationRequest"
         ] = None,
     ) -> "aws_sdk_ec2.types.modify_verified_access_endpoint_policy_result.ModifyVerifiedAccessEndpointPolicyResult":
-        """<p>Modifies the specified Amazon Web Services Verified Access endpoint policy.</p>
+        r"""<p>Modifies the specified Amazon Web Services Verified Access endpoint policy.</p>
 
         Args:
             verified_access_endpoint_id: <p>The ID of the Verified Access endpoint.</p>
@@ -45352,7 +45352,7 @@ class AsyncEC2Client:
         client_token: Optional["aws_sdk_ec2.types.string.String"] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.modify_verified_access_group_result.ModifyVerifiedAccessGroupResult":
-        """<p>Modifies the specified Amazon Web Services Verified Access group configuration.</p>
+        r"""<p>Modifies the specified Amazon Web Services Verified Access group configuration.</p>
 
         Args:
             verified_access_group_id: <p>The ID of the Verified Access group.</p>
@@ -45409,7 +45409,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.verified_access_sse_specification_request.VerifiedAccessSseSpecificationRequest"
         ] = None,
     ) -> "aws_sdk_ec2.types.modify_verified_access_group_policy_result.ModifyVerifiedAccessGroupPolicyResult":
-        """<p>Modifies the specified Amazon Web Services Verified Access group policy.</p>
+        r"""<p>Modifies the specified Amazon Web Services Verified Access group policy.</p>
 
         Args:
             verified_access_group_id: <p>The ID of the Verified Access group.</p>
@@ -45468,7 +45468,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.string.String"
         ] = None,
     ) -> "aws_sdk_ec2.types.modify_verified_access_instance_result.ModifyVerifiedAccessInstanceResult":
-        """<p>Modifies the configuration of the specified Amazon Web Services Verified Access instance.</p>
+        r"""<p>Modifies the configuration of the specified Amazon Web Services Verified Access instance.</p>
 
         Args:
             verified_access_instance_id: <p>The ID of the Verified Access instance.</p>
@@ -45523,7 +45523,7 @@ class AsyncEC2Client:
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
         client_token: Optional["aws_sdk_ec2.types.string.String"] = None,
     ) -> "aws_sdk_ec2.types.modify_verified_access_instance_logging_configuration_result.ModifyVerifiedAccessInstanceLoggingConfigurationResult":
-        """<p>Modifies the logging configuration for the specified Amazon Web Services Verified Access instance.</p>
+        r"""<p>Modifies the logging configuration for the specified Amazon Web Services Verified Access instance.</p>
 
         Args:
             verified_access_instance_id: <p>The ID of the Verified Access instance.</p>
@@ -45584,7 +45584,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.modify_verified_access_native_application_oidc_options.ModifyVerifiedAccessNativeApplicationOidcOptions"
         ] = None,
     ) -> "aws_sdk_ec2.types.modify_verified_access_trust_provider_result.ModifyVerifiedAccessTrustProviderResult":
-        """<p>Modifies the configuration of the specified Amazon Web Services Verified Access trust provider.</p>
+        r"""<p>Modifies the configuration of the specified Amazon Web Services Verified Access trust provider.</p>
 
         Args:
             verified_access_trust_provider_id: <p>The ID of the Verified Access trust provider.</p>
@@ -45649,7 +45649,7 @@ class AsyncEC2Client:
         throughput: Optional["aws_sdk_ec2.types.integer.Integer"] = None,
         multi_attach_enabled: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.modify_volume_result.ModifyVolumeResult":
-        """<p>You can modify several parameters of an existing EBS volume, including volume size, volume type, and IOPS capacity. If your EBS volume is attached to a current-generation EC2 instance type, you might be able to apply these changes without stopping the instance or detaching the volume from it. For more information about modifying EBS volumes, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/ebs-modify-volume.html\">Amazon EBS Elastic Volumes</a> in the <i>Amazon EBS User Guide</i>.</p> <p>When you complete a resize operation on your volume, you need to extend the volume's file-system size to take advantage of the new storage capacity. For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/recognize-expanded-volume-linux.html\">Extend the file system</a>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/monitoring-volume-modifications.html\">Monitor the progress of volume modifications</a> in the <i>Amazon EBS User Guide</i>.</p> <p>With previous-generation instance types, resizing an EBS volume might require detaching and reattaching the volume or stopping and restarting the instance.</p> <p>After you initiate a volume modification, you must wait for that modification to reach the <code>completed</code> state before you can initiate another modification for the same volume. You can modify a volume up to four times within a rolling 24-hour period, as long as the volume is in the <code>in-use</code> or <code>available</code> state, and all previous modifications for that volume are <code>completed</code>. If you exceed this limit, you get an error message that indicates when you can perform your next modification.</p>
+        r"""<p>You can modify several parameters of an existing EBS volume, including volume size, volume type, and IOPS capacity. If your EBS volume is attached to a current-generation EC2 instance type, you might be able to apply these changes without stopping the instance or detaching the volume from it. For more information about modifying EBS volumes, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/ebs-modify-volume.html\">Amazon EBS Elastic Volumes</a> in the <i>Amazon EBS User Guide</i>.</p> <p>When you complete a resize operation on your volume, you need to extend the volume's file-system size to take advantage of the new storage capacity. For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/recognize-expanded-volume-linux.html\">Extend the file system</a>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/monitoring-volume-modifications.html\">Monitor the progress of volume modifications</a> in the <i>Amazon EBS User Guide</i>.</p> <p>With previous-generation instance types, resizing an EBS volume might require detaching and reattaching the volume or stopping and restarting the instance.</p> <p>After you initiate a volume modification, you must wait for that modification to reach the <code>completed</code> state before you can initiate another modification for the same volume. You can modify a volume up to four times within a rolling 24-hour period, as long as the volume is in the <code>in-use</code> or <code>available</code> state, and all previous modifications for that volume are <code>completed</code>. If you exceed this limit, you get an error message that indicates when you can perform your next modification.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -45766,7 +45766,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.attribute_boolean_value.AttributeBooleanValue"
         ] = None,
     ) -> None:
-        """<p>Modifies the specified attribute of the specified VPC.</p>
+        r"""<p>Modifies the specified attribute of the specified VPC.</p>
 
         Args:
             enable_dns_hostnames: <p>Indicates whether the instances launched in the VPC get DNS hostnames. If enabled, instances in the VPC get DNS hostnames; otherwise, they do not.</p> <p>You cannot modify the DNS resolution and DNS hostnames attributes in the same request. Use separate requests for each attribute. You can only enable DNS hostnames if you've enabled DNS support.</p>
@@ -45869,7 +45869,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.modify_vpc_block_public_access_options_result.ModifyVpcBlockPublicAccessOptionsResult":
-        """<p>Modify VPC Block Public Access (BPA) options. VPC Block Public Access (BPA) enables you to block resources in VPCs and subnets that you own in a Region from reaching or being reached from the internet through internet gateways and egress-only internet gateways. To learn more about VPC BPA, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/security-vpc-bpa.html\">Block public access to VPCs and subnets</a> in the <i>Amazon VPC User Guide</i>.</p>
+        r"""<p>Modify VPC Block Public Access (BPA) options. VPC Block Public Access (BPA) enables you to block resources in VPCs and subnets that you own in a Region from reaching or being reached from the internet through internet gateways and egress-only internet gateways. To learn more about VPC BPA, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/security-vpc-bpa.html\">Block public access to VPCs and subnets</a> in the <i>Amazon VPC User Guide</i>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -45938,7 +45938,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.vpc_encryption_control_exclusion_state_input.VpcEncryptionControlExclusionStateInput"
         ] = None,
     ) -> "aws_sdk_ec2.types.modify_vpc_encryption_control_result.ModifyVpcEncryptionControlResult":
-        """<p>Modifies the encryption control configuration for a VPC. You can update the encryption mode and exclusion settings for various gateway types and peering connections.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html\">Enforce VPC encryption in transit</a> in the <i>Amazon VPC User Guide</i>.</p>
+        r"""<p>Modifies the encryption control configuration for a VPC. You can update the encryption mode and exclusion settings for various gateway types and peering connections.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html\">Enforce VPC encryption in transit</a> in the <i>Amazon VPC User Guide</i>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -46041,7 +46041,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.subnet_configurations_list.SubnetConfigurationsList"
         ] = None,
     ) -> "aws_sdk_ec2.types.modify_vpc_endpoint_result.ModifyVpcEndpointResult":
-        """<p>Modifies attributes of a specified VPC endpoint. The attributes that you can modify depend on the type of VPC endpoint (interface, gateway, or Gateway Load Balancer). For more information, see the <a href=\"https://docs.aws.amazon.com/vpc/latest/privatelink/\">Amazon Web Services PrivateLink Guide</a>.</p>
+        r"""<p>Modifies attributes of a specified VPC endpoint. The attributes that you can modify depend on the type of VPC endpoint (interface, gateway, or Gateway Load Balancer). For more information, see the <a href=\"https://docs.aws.amazon.com/vpc/latest/privatelink/\">Amazon Web Services PrivateLink Guide</a>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -46437,7 +46437,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.modify_vpc_tenancy_result.ModifyVpcTenancyResult":
-        """<p>Modifies the instance tenancy attribute of the specified VPC. You can change the instance tenancy attribute of a VPC to <code>default</code> only. You cannot change the instance tenancy attribute to <code>dedicated</code>.</p> <p>After you modify the tenancy of the VPC, any new instances that you launch into the VPC have a tenancy of <code>default</code>, unless you specify otherwise during launch. The tenancy of any existing instances in the VPC is not affected.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-instance.html\">Dedicated Instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Modifies the instance tenancy attribute of the specified VPC. You can change the instance tenancy attribute of a VPC to <code>default</code> only. You cannot change the instance tenancy attribute to <code>dedicated</code>.</p> <p>After you modify the tenancy of the VPC, any new instances that you launch into the VPC have a tenancy of <code>default</code>, unless you specify otherwise during launch. The tenancy of any existing instances in the VPC is not affected.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-instance.html\">Dedicated Instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             vpc_id: <p>The ID of the VPC.</p>
@@ -46490,7 +46490,7 @@ class AsyncEC2Client:
         ] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.modify_vpn_connection_result.ModifyVpnConnectionResult":
-        """<p>Modifies the customer gateway or the target gateway of an Amazon Web Services Site-to-Site VPN connection. To modify the target gateway, the following migration options are available:</p> <ul> <li> <p>An existing virtual private gateway to a new virtual private gateway</p> </li> <li> <p>An existing virtual private gateway to a transit gateway</p> </li> <li> <p>An existing transit gateway to a new transit gateway</p> </li> <li> <p>An existing transit gateway to a virtual private gateway</p> </li> </ul> <p>Before you perform the migration to the new gateway, you must configure the new gateway. Use <a>CreateVpnGateway</a> to create a virtual private gateway, or <a>CreateTransitGateway</a> to create a transit gateway.</p> <p>This step is required when you migrate from a virtual private gateway with static routes to a transit gateway. </p> <p>You must delete the static routes before you migrate to the new gateway.</p> <p>Keep a copy of the static route before you delete it. You will need to add back these routes to the transit gateway after the VPN connection migration is complete.</p> <p>After you migrate to the new gateway, you might need to modify your VPC route table. Use <a>CreateRoute</a> and <a>DeleteRoute</a> to make the changes described in <a href=\"https://docs.aws.amazon.com/vpn/latest/s2svpn/modify-vpn-target.html#step-update-routing\">Update VPC route tables</a> in the <i>Amazon Web Services Site-to-Site VPN User Guide</i>.</p> <p>When the new gateway is a transit gateway, modify the transit gateway route table to allow traffic between the VPC and the Amazon Web Services Site-to-Site VPN connection. Use <a>CreateTransitGatewayRoute</a> to add the routes.</p> <p> If you deleted VPN static routes, you must add the static routes to the transit gateway route table.</p> <p>After you perform this operation, the VPN endpoint's IP addresses on the Amazon Web Services side and the tunnel options remain intact. Your Amazon Web Services Site-to-Site VPN connection will be temporarily unavailable for a brief period while we provision the new endpoints.</p>
+        r"""<p>Modifies the customer gateway or the target gateway of an Amazon Web Services Site-to-Site VPN connection. To modify the target gateway, the following migration options are available:</p> <ul> <li> <p>An existing virtual private gateway to a new virtual private gateway</p> </li> <li> <p>An existing virtual private gateway to a transit gateway</p> </li> <li> <p>An existing transit gateway to a new transit gateway</p> </li> <li> <p>An existing transit gateway to a virtual private gateway</p> </li> </ul> <p>Before you perform the migration to the new gateway, you must configure the new gateway. Use <a>CreateVpnGateway</a> to create a virtual private gateway, or <a>CreateTransitGateway</a> to create a transit gateway.</p> <p>This step is required when you migrate from a virtual private gateway with static routes to a transit gateway. </p> <p>You must delete the static routes before you migrate to the new gateway.</p> <p>Keep a copy of the static route before you delete it. You will need to add back these routes to the transit gateway after the VPN connection migration is complete.</p> <p>After you migrate to the new gateway, you might need to modify your VPC route table. Use <a>CreateRoute</a> and <a>DeleteRoute</a> to make the changes described in <a href=\"https://docs.aws.amazon.com/vpn/latest/s2svpn/modify-vpn-target.html#step-update-routing\">Update VPC route tables</a> in the <i>Amazon Web Services Site-to-Site VPN User Guide</i>.</p> <p>When the new gateway is a transit gateway, modify the transit gateway route table to allow traffic between the VPC and the Amazon Web Services Site-to-Site VPN connection. Use <a>CreateTransitGatewayRoute</a> to add the routes.</p> <p> If you deleted VPN static routes, you must add the static routes to the transit gateway route table.</p> <p>After you perform this operation, the VPN endpoint's IP addresses on the Amazon Web Services side and the tunnel options remain intact. Your Amazon Web Services Site-to-Site VPN connection will be temporarily unavailable for a brief period while we provision the new endpoints.</p>
 
         Args:
             vpn_connection_id: <p>The ID of the VPN connection.</p>
@@ -46654,7 +46654,7 @@ class AsyncEC2Client:
         skip_tunnel_replacement: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
         pre_shared_key_storage: Optional["aws_sdk_ec2.types.string.String"] = None,
     ) -> "aws_sdk_ec2.types.modify_vpn_tunnel_options_result.ModifyVpnTunnelOptionsResult":
-        """<p>Modifies the options for a VPN tunnel in an Amazon Web Services Site-to-Site VPN connection. You can modify multiple options for a tunnel in a single request, but you can only modify one tunnel at a time. For more information, see <a href=\"https://docs.aws.amazon.com/vpn/latest/s2svpn/VPNTunnels.html\">Site-to-Site VPN tunnel options for your Site-to-Site VPN connection</a> in the <i>Amazon Web Services Site-to-Site VPN User Guide</i>.</p>
+        r"""<p>Modifies the options for a VPN tunnel in an Amazon Web Services Site-to-Site VPN connection. You can modify multiple options for a tunnel in a single request, but you can only modify one tunnel at a time. For more information, see <a href=\"https://docs.aws.amazon.com/vpn/latest/s2svpn/VPNTunnels.html\">Site-to-Site VPN tunnel options for your Site-to-Site VPN connection</a> in the <i>Amazon Web Services Site-to-Site VPN User Guide</i>.</p>
 
         Args:
             vpn_connection_id: <p>The ID of the Amazon Web Services Site-to-Site VPN connection.</p>
@@ -46706,7 +46706,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.monitor_instances_result.MonitorInstancesResult":
-        """<p>Enables detailed monitoring for a running instance. Otherwise, basic monitoring is enabled. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html\">Monitor your instances using CloudWatch</a> in the <i>Amazon EC2 User Guide</i>.</p> <p>To disable detailed monitoring, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_UnmonitorInstances.html\">UnmonitorInstances</a>.</p>
+        r"""<p>Enables detailed monitoring for a running instance. Otherwise, basic monitoring is enabled. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html\">Monitor your instances using CloudWatch</a> in the <i>Amazon EC2 User Guide</i>.</p> <p>To disable detailed monitoring, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_UnmonitorInstances.html\">UnmonitorInstances</a>.</p>
 
         Args:
             instance_ids: <p>The IDs of the instances.</p>
@@ -46798,7 +46798,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.move_byoip_cidr_to_ipam_result.MoveByoipCidrToIpamResult":
-        """<p>Move a BYOIPv4 CIDR to IPAM from a public IPv4 pool.</p> <p>If you already have a BYOIPv4 CIDR with Amazon Web Services, you can move the CIDR to IPAM from a public IPv4 pool. You cannot move an IPv6 CIDR to IPAM. If you are bringing a new IP address to Amazon Web Services for the first time, complete the steps in <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoip-ipam.html\">Tutorial: BYOIP address CIDRs to IPAM</a>.</p>
+        r"""<p>Move a BYOIPv4 CIDR to IPAM from a public IPv4 pool.</p> <p>If you already have a BYOIPv4 CIDR with Amazon Web Services, you can move the CIDR to IPAM from a public IPv4 pool. You cannot move an IPv6 CIDR to IPAM. If you are bringing a new IP address to Amazon Web Services for the first time, complete the steps in <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoip-ipam.html\">Tutorial: BYOIP address CIDRs to IPAM</a>.</p>
 
         Args:
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -46847,7 +46847,7 @@ class AsyncEC2Client:
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
         client_token: Optional["aws_sdk_ec2.types.string.String"] = None,
     ) -> "aws_sdk_ec2.types.move_capacity_reservation_instances_result.MoveCapacityReservationInstancesResult":
-        """<p>Move available capacity from a source Capacity Reservation to a destination Capacity Reservation. The source Capacity Reservation and the destination Capacity Reservation must be <code>active</code>, owned by your Amazon Web Services account, and share the following: </p> <ul> <li> <p>Instance type</p> </li> <li> <p>Platform</p> </li> <li> <p>Availability Zone</p> </li> <li> <p>Tenancy</p> </li> <li> <p>Placement group</p> </li> <li> <p>Capacity Reservation end time - <code>At specific time</code> or <code>Manually</code>.</p> </li> </ul>
+        r"""<p>Move available capacity from a source Capacity Reservation to a destination Capacity Reservation. The source Capacity Reservation and the destination Capacity Reservation must be <code>active</code>, owned by your Amazon Web Services account, and share the following: </p> <ul> <li> <p>Instance type</p> </li> <li> <p>Platform</p> </li> <li> <p>Availability Zone</p> </li> <li> <p>Tenancy</p> </li> <li> <p>Placement group</p> </li> <li> <p>Capacity Reservation end time - <code>At specific time</code> or <code>Manually</code>.</p> </li> </ul>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -46908,7 +46908,7 @@ class AsyncEC2Client:
         multi_region: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
         network_border_group: Optional["aws_sdk_ec2.types.string.String"] = None,
     ) -> "aws_sdk_ec2.types.provision_byoip_cidr_result.ProvisionByoipCidrResult":
-        """<p>Provisions an IPv4 or IPv6 address range for use with your Amazon Web Services resources through bring your own IP addresses (BYOIP) and creates a corresponding address pool. After the address range is provisioned, it is ready to be advertised.</p> <p>Amazon Web Services verifies that you own the address range and are authorized to advertise it. You must ensure that the address range is registered to you and that you created an RPKI ROA to authorize Amazon ASNs 16509 and 14618 to advertise the address range. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html\">Bring your own IP addresses (BYOIP)</a> in the <i>Amazon EC2 User Guide</i>.</p> <p>Provisioning an address range is an asynchronous operation, so the call returns immediately, but the address range is not ready to use until its status changes from <code>pending-provision</code> to <code>provisioned</code>. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/byoip-onboard.html\">Onboard your address range</a>.</p>
+        r"""<p>Provisions an IPv4 or IPv6 address range for use with your Amazon Web Services resources through bring your own IP addresses (BYOIP) and creates a corresponding address pool. After the address range is provisioned, it is ready to be advertised.</p> <p>Amazon Web Services verifies that you own the address range and are authorized to advertise it. You must ensure that the address range is registered to you and that you created an RPKI ROA to authorize Amazon ASNs 16509 and 14618 to advertise the address range. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html\">Bring your own IP addresses (BYOIP)</a> in the <i>Amazon EC2 User Guide</i>.</p> <p>Provisioning an address range is an asynchronous operation, so the call returns immediately, but the address range is not ready to use until its status changes from <code>pending-provision</code> to <code>provisioned</code>. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/byoip-onboard.html\">Onboard your address range</a>.</p>
 
         Args:
             cidr: <p>The public IPv4 or IPv6 address range, in CIDR notation. The most specific IPv4 prefix that you can specify is /24. The most specific IPv6 address range that you can bring is /48 for CIDRs that are publicly advertisable and /56 for CIDRs that are not publicly advertisable. The address range cannot overlap with another address range that you've brought to this or another Region.</p>
@@ -46970,7 +46970,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.provision_ipam_byoasn_result.ProvisionIpamByoasnResult":
-        """<p>Provisions your Autonomous System Number (ASN) for use in your Amazon Web Services account. This action requires authorization context for Amazon to bring the ASN to an Amazon Web Services account. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoasn.html\">Tutorial: Bring your ASN to IPAM</a> in the <i>Amazon VPC IPAM guide</i>.</p>
+        r"""<p>Provisions your Autonomous System Number (ASN) for use in your Amazon Web Services account. This action requires authorization context for Amazon to bring the ASN to an Amazon Web Services account. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoasn.html\">Tutorial: Bring your ASN to IPAM</a> in the <i>Amazon VPC IPAM guide</i>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -47030,7 +47030,7 @@ class AsyncEC2Client:
     ) -> (
         "aws_sdk_ec2.types.provision_ipam_pool_cidr_result.ProvisionIpamPoolCidrResult"
     ):
-        """<p>Provision a CIDR to an IPAM pool. You can use this action to provision new CIDRs to a top-level pool or to transfer a CIDR from a top-level pool to a pool within it.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/prov-cidr-ipam.html\">Provision CIDRs to pools</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
+        r"""<p>Provision a CIDR to an IPAM pool. You can use this action to provision new CIDRs to a top-level pool or to transfer a CIDR from a top-level pool to a pool within it.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/prov-cidr-ipam.html\">Provision CIDRs to pools</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
 
         Args:
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -47095,7 +47095,7 @@ class AsyncEC2Client:
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
         network_border_group: Optional["aws_sdk_ec2.types.string.String"] = None,
     ) -> "aws_sdk_ec2.types.provision_public_ipv4_pool_cidr_result.ProvisionPublicIpv4PoolCidrResult":
-        """<p>Provision a CIDR to a public IPv4 pool.</p> <p>For more information about IPAM, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html\">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+        r"""<p>Provision a CIDR to a public IPv4 pool.</p> <p>For more information about IPAM, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html\">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
 
         Args:
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -47250,7 +47250,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.tag_specification_list.TagSpecificationList"
         ] = None,
     ) -> "aws_sdk_ec2.types.purchase_host_reservation_result.PurchaseHostReservationResult":
-        """<p>Purchase a reservation with configurations that match those of your Dedicated Host. You must have active Dedicated Hosts in your account before you purchase a reservation. This action results in the specified reservation being purchased and charged to your account.</p>
+        r"""<p>Purchase a reservation with configurations that match those of your Dedicated Host. You must have active Dedicated Hosts in your account before you purchase a reservation. This action results in the specified reservation being purchased and charged to your account.</p>
 
         Args:
             client_token: <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring Idempotency</a>.</p>
@@ -47308,7 +47308,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.reserved_instance_limit_price.ReservedInstanceLimitPrice"
         ] = None,
     ) -> "aws_sdk_ec2.types.purchase_reserved_instances_offering_result.PurchaseReservedInstancesOfferingResult":
-        """<p>Purchases a Reserved Instance for use with your account. With Reserved Instances, you pay a lower hourly rate compared to On-Demand instance pricing.</p> <p>Use <a>DescribeReservedInstancesOfferings</a> to get a list of Reserved Instance offerings that match your specifications. After you've purchased a Reserved Instance, you can check for your new Reserved Instance with <a>DescribeReservedInstances</a>.</p> <p>To queue a purchase for a future date and time, specify a purchase time. If you do not specify a purchase time, the default is the current time.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html\">Reserved Instances</a> and <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html\">Sell in the Reserved Instance Marketplace</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Purchases a Reserved Instance for use with your account. With Reserved Instances, you pay a lower hourly rate compared to On-Demand instance pricing.</p> <p>Use <a>DescribeReservedInstancesOfferings</a> to get a list of Reserved Instance offerings that match your specifications. After you've purchased a Reserved Instance, you can check for your new Reserved Instance with <a>DescribeReservedInstances</a>.</p> <p>To queue a purchase for a future date and time, specify a purchase time. If you do not specify a purchase time, the default is the current time.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html\">Reserved Instances</a> and <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html\">Sell in the Reserved Instance Marketplace</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             instance_count: <p>The number of Reserved Instances to purchase.</p>
@@ -47359,7 +47359,7 @@ class AsyncEC2Client:
         client_token: Optional["aws_sdk_ec2.types.string.String"] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.purchase_scheduled_instances_result.PurchaseScheduledInstancesResult":
-        """<note> <p>You can no longer purchase Scheduled Instances.</p> </note> <p>Purchases the Scheduled Instances with the specified schedule.</p> <p>Scheduled Instances enable you to purchase Amazon EC2 compute capacity by the hour for a one-year term. Before you can purchase a Scheduled Instance, you must call <a>DescribeScheduledInstanceAvailability</a> to check for available schedules and obtain a purchase token. After you purchase a Scheduled Instance, you must call <a>RunScheduledInstances</a> during each scheduled time period.</p> <p>After you purchase a Scheduled Instance, you can't cancel, modify, or resell your purchase.</p>
+        r"""<note> <p>You can no longer purchase Scheduled Instances.</p> </note> <p>Purchases the Scheduled Instances with the specified schedule.</p> <p>Scheduled Instances enable you to purchase Amazon EC2 compute capacity by the hour for a one-year term. Before you can purchase a Scheduled Instance, you must call <a>DescribeScheduledInstanceAvailability</a> to check for available schedules and obtain a purchase token. After you purchase a Scheduled Instance, you must call <a>RunScheduledInstances</a> during each scheduled time period.</p> <p>After you purchase a Scheduled Instance, you can't cancel, modify, or resell your purchase.</p>
 
         Args:
             client_token: <p>Unique, case-sensitive identifier that ensures the idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring Idempotency</a>.</p>
@@ -47404,7 +47404,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> None:
-        """<p>Requests a reboot of the specified instances. This operation is asynchronous; it only queues a request to reboot the specified instances. The operation succeeds if the instances are valid and belong to you. Requests to reboot terminated instances are ignored.</p> <p>If an instance does not cleanly shut down within a few minutes, Amazon EC2 performs a hard reboot.</p> <p>For more information about troubleshooting, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-console.html\">Troubleshoot an unreachable instance</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Requests a reboot of the specified instances. This operation is asynchronous; it only queues a request to reboot the specified instances. The operation succeeds if the instances are valid and belong to you. Requests to reboot terminated instances are ignored.</p> <p>If an instance does not cleanly shut down within a few minutes, Amazon EC2 performs a hard reboot.</p> <p>For more information about troubleshooting, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-console.html\">Troubleshoot an unreachable instance</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             instance_ids: <p>The instance IDs.</p>
@@ -47482,7 +47482,7 @@ class AsyncEC2Client:
         sriov_net_support: Optional["aws_sdk_ec2.types.string.String"] = None,
         ena_support: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.register_image_result.RegisterImageResult":
-        """<p>Registers an AMI. When you're creating an instance-store backed AMI, registering the AMI is the final step in the creation process. For more information about creating AMIs, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html#creating-launching-ami-from-snapshot\">Create an AMI from a snapshot</a> and <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-instance-store.html\">Create an instance-store backed AMI</a> in the <i>Amazon EC2 User Guide</i>.</p> <p>If needed, you can deregister an AMI at any time. Any modifications you make to an AMI backed by an instance store volume invalidates its registration. If you make changes to an image, deregister the previous image and register the new image.</p> <p> <b>Register a snapshot of a root device volume</b> </p> <p>You can use <code>RegisterImage</code> to create an Amazon EBS-backed Linux AMI from a snapshot of a root device volume. You specify the snapshot using a block device mapping. You can't set the encryption state of the volume using the block device mapping. If the snapshot is encrypted, or encryption by default is enabled, the root volume of an instance launched from the AMI is encrypted.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html#creating-launching-ami-from-snapshot\">Create an AMI from a snapshot</a> and <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIEncryption.html\">Use encryption with EBS-backed AMIs</a> in the <i>Amazon EC2 User Guide</i>.</p> <p> <b>Amazon Web Services Marketplace product codes</b> </p> <p>If any snapshots have Amazon Web Services Marketplace product codes, they are copied to the new AMI.</p> <p>In most cases, AMIs for Windows, RedHat, SUSE, and SQL Server require correct licensing information to be present on the AMI. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html\">Understand AMI billing information</a> in the <i>Amazon EC2 User Guide</i>. When creating an AMI from a snapshot, the <code>RegisterImage</code> operation derives the correct billing information from the snapshot's metadata, but this requires the appropriate metadata to be present. To verify if the correct billing information was applied, check the <code>PlatformDetails</code> field on the new AMI. If the field is empty or doesn't match the expected operating system code (for example, Windows, RedHat, SUSE, or SQL), the AMI creation was unsuccessful, and you should discard the AMI and instead create the AMI from an instance. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html#how-to-create-ebs-ami\">Create an AMI from an instance </a> in the <i>Amazon EC2 User Guide</i>.</p> <p>If you purchase a Reserved Instance to apply to an On-Demand Instance that was launched from an AMI with a billing product code, make sure that the Reserved Instance has the matching billing product code. If you purchase a Reserved Instance without the matching billing product code, the Reserved Instance is not applied to the On-Demand Instance. For information about how to obtain the platform details and billing information of an AMI, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html\">Understand AMI billing information</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Registers an AMI. When you're creating an instance-store backed AMI, registering the AMI is the final step in the creation process. For more information about creating AMIs, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html#creating-launching-ami-from-snapshot\">Create an AMI from a snapshot</a> and <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-instance-store.html\">Create an instance-store backed AMI</a> in the <i>Amazon EC2 User Guide</i>.</p> <p>If needed, you can deregister an AMI at any time. Any modifications you make to an AMI backed by an instance store volume invalidates its registration. If you make changes to an image, deregister the previous image and register the new image.</p> <p> <b>Register a snapshot of a root device volume</b> </p> <p>You can use <code>RegisterImage</code> to create an Amazon EBS-backed Linux AMI from a snapshot of a root device volume. You specify the snapshot using a block device mapping. You can't set the encryption state of the volume using the block device mapping. If the snapshot is encrypted, or encryption by default is enabled, the root volume of an instance launched from the AMI is encrypted.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html#creating-launching-ami-from-snapshot\">Create an AMI from a snapshot</a> and <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIEncryption.html\">Use encryption with EBS-backed AMIs</a> in the <i>Amazon EC2 User Guide</i>.</p> <p> <b>Amazon Web Services Marketplace product codes</b> </p> <p>If any snapshots have Amazon Web Services Marketplace product codes, they are copied to the new AMI.</p> <p>In most cases, AMIs for Windows, RedHat, SUSE, and SQL Server require correct licensing information to be present on the AMI. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html\">Understand AMI billing information</a> in the <i>Amazon EC2 User Guide</i>. When creating an AMI from a snapshot, the <code>RegisterImage</code> operation derives the correct billing information from the snapshot's metadata, but this requires the appropriate metadata to be present. To verify if the correct billing information was applied, check the <code>PlatformDetails</code> field on the new AMI. If the field is empty or doesn't match the expected operating system code (for example, Windows, RedHat, SUSE, or SQL), the AMI creation was unsuccessful, and you should discard the AMI and instead create the AMI from an instance. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html#how-to-create-ebs-ami\">Create an AMI from an instance </a> in the <i>Amazon EC2 User Guide</i>.</p> <p>If you purchase a Reserved Instance to apply to an On-Demand Instance that was launched from an AMI with a billing product code, make sure that the Reserved Instance has the matching billing product code. If you purchase a Reserved Instance without the matching billing product code, the Reserved Instance is not applied to the On-Demand Instance. For information about how to obtain the platform details and billing information of an AMI, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html\">Understand AMI billing information</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             image_location: <p>The full path to your AMI manifest in Amazon S3 storage. The specified bucket must have the <code>aws-exec-read</code> canned access control list (ACL) to ensure that it can be accessed by Amazon EC2. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl\">Canned ACL</a> in the <i>Amazon S3 Service Developer Guide</i>.</p>
@@ -47572,7 +47572,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.register_instance_event_notification_attributes_result.RegisterInstanceEventNotificationAttributesResult":
-        """<p>Registers a set of tag keys to include in scheduled event notifications for your resources. </p> <p>To remove tags, use <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeregisterInstanceEventNotificationAttributes.html\">DeregisterInstanceEventNotificationAttributes</a>.</p>
+        r"""<p>Registers a set of tag keys to include in scheduled event notifications for your resources. </p> <p>To remove tags, use <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeregisterInstanceEventNotificationAttributes.html\">DeregisterInstanceEventNotificationAttributes</a>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -47616,7 +47616,7 @@ class AsyncEC2Client:
         group_ip_address: Optional["aws_sdk_ec2.types.string.String"] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.register_transit_gateway_multicast_group_members_result.RegisterTransitGatewayMulticastGroupMembersResult":
-        """<p>Registers members (network interfaces) with the transit gateway multicast group. A member is a network interface associated with a supported EC2 instance that receives multicast traffic. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/tgw/tgw-multicast-overview.html\">Multicast on transit gateways</a> in the <i>Amazon Web Services Transit Gateways Guide</i>.</p> <p>After you add the members, use <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SearchTransitGatewayMulticastGroups.html\">SearchTransitGatewayMulticastGroups</a> to verify that the members were added to the transit gateway multicast group.</p>
+        r"""<p>Registers members (network interfaces) with the transit gateway multicast group. A member is a network interface associated with a supported EC2 instance that receives multicast traffic. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/tgw/tgw-multicast-overview.html\">Multicast on transit gateways</a> in the <i>Amazon Web Services Transit Gateways Guide</i>.</p> <p>After you add the members, use <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SearchTransitGatewayMulticastGroups.html\">SearchTransitGatewayMulticastGroups</a> to verify that the members were added to the transit gateway multicast group.</p>
 
         Args:
             transit_gateway_multicast_domain_id: <p>The ID of the transit gateway multicast domain.</p>
@@ -47667,7 +47667,7 @@ class AsyncEC2Client:
         group_ip_address: Optional["aws_sdk_ec2.types.string.String"] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.register_transit_gateway_multicast_group_sources_result.RegisterTransitGatewayMulticastGroupSourcesResult":
-        """<p>Registers sources (network interfaces) with the specified transit gateway multicast group.</p> <p>A multicast source is a network interface attached to a supported instance that sends multicast traffic. For more information about supported instances, see <a href=\"https://docs.aws.amazon.com/vpc/latest/tgw/tgw-multicast-overview.html\">Multicast on transit gateways</a> in the <i>Amazon Web Services Transit Gateways Guide</i>.</p> <p>After you add the source, use <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SearchTransitGatewayMulticastGroups.html\">SearchTransitGatewayMulticastGroups</a> to verify that the source was added to the multicast group.</p>
+        r"""<p>Registers sources (network interfaces) with the specified transit gateway multicast group.</p> <p>A multicast source is a network interface attached to a supported instance that sends multicast traffic. For more information about supported instances, see <a href=\"https://docs.aws.amazon.com/vpc/latest/tgw/tgw-multicast-overview.html\">Multicast on transit gateways</a> in the <i>Amazon Web Services Transit Gateways Guide</i>.</p> <p>After you add the source, use <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SearchTransitGatewayMulticastGroups.html\">SearchTransitGatewayMulticastGroups</a> to verify that the source was added to the multicast group.</p>
 
         Args:
             transit_gateway_multicast_domain_id: <p>The ID of the transit gateway multicast domain.</p>
@@ -47716,7 +47716,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.reject_capacity_reservation_billing_ownership_result.RejectCapacityReservationBillingOwnershipResult":
-        """<p>Rejects a request to assign billing of the available capacity of a shared Capacity Reservation to your account. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/assign-billing.html\"> Billing assignment for shared Amazon EC2 Capacity Reservations</a>.</p>
+        r"""<p>Rejects a request to assign billing of the available capacity of a shared Capacity Reservation to your account. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/assign-billing.html\"> Billing assignment for shared Amazon EC2 Capacity Reservations</a>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -48032,7 +48032,7 @@ class AsyncEC2Client:
         network_border_group: Optional["aws_sdk_ec2.types.string.String"] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> None:
-        """<p>Releases the specified Elastic IP address.</p> <p>[Default VPC] Releasing an Elastic IP address automatically disassociates it from any instance that it's associated with. Alternatively, you can disassociate an Elastic IP address without releasing it.</p> <p>[Nondefault VPC] You must disassociate the Elastic IP address before you can release it. Otherwise, Amazon EC2 returns an error (<code>InvalidIPAddress.InUse</code>).</p> <p>After releasing an Elastic IP address, it is released to the IP address pool. Be sure to update your DNS records and any servers or devices that communicate with the address. If you attempt to release an Elastic IP address that you already released, you'll get an <code>AuthFailure</code> error if the address is already allocated to another Amazon Web Services account.</p> <p>After you release an Elastic IP address, you might be able to recover it. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-instance-addressing-eips-releasing.html\">Release an Elastic IP address</a>.</p>
+        r"""<p>Releases the specified Elastic IP address.</p> <p>[Default VPC] Releasing an Elastic IP address automatically disassociates it from any instance that it's associated with. Alternatively, you can disassociate an Elastic IP address without releasing it.</p> <p>[Nondefault VPC] You must disassociate the Elastic IP address before you can release it. Otherwise, Amazon EC2 returns an error (<code>InvalidIPAddress.InUse</code>).</p> <p>After releasing an Elastic IP address, it is released to the IP address pool. Be sure to update your DNS records and any servers or devices that communicate with the address. If you attempt to release an Elastic IP address that you already released, you'll get an <code>AuthFailure</code> error if the address is already allocated to another Amazon Web Services account.</p> <p>After you release an Elastic IP address, you might be able to recover it. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-instance-addressing-eips-releasing.html\">Release an Elastic IP address</a>.</p>
 
         Args:
             allocation_id: <p>The allocation ID. This parameter is required.</p>
@@ -48125,7 +48125,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.release_ipam_pool_allocation_result.ReleaseIpamPoolAllocationResult":
-        """<p>Release an allocation within an IPAM pool. The Region you use should be the IPAM pool locale. The locale is the Amazon Web Services Region where this IPAM pool is available for allocations. You can only use this action to release manual allocations. To remove an allocation for a resource without deleting the resource, set its monitored state to false using <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyIpamResourceCidr.html\">ModifyIpamResourceCidr</a>. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/release-alloc-ipam.html\">Release an allocation</a> in the <i>Amazon VPC IPAM User Guide</i>. </p> <note> <p>All EC2 API actions follow an <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/eventual-consistency.html\">eventual consistency</a> model.</p> </note>
+        r"""<p>Release an allocation within an IPAM pool. The Region you use should be the IPAM pool locale. The locale is the Amazon Web Services Region where this IPAM pool is available for allocations. You can only use this action to release manual allocations. To remove an allocation for a resource without deleting the resource, set its monitored state to false using <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyIpamResourceCidr.html\">ModifyIpamResourceCidr</a>. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/release-alloc-ipam.html\">Release an allocation</a> in the <i>Amazon VPC IPAM User Guide</i>. </p> <note> <p>All EC2 API actions follow an <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/eventual-consistency.html\">eventual consistency</a> model.</p> </note>
 
         Args:
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -48214,7 +48214,7 @@ class AsyncEC2Client:
         ] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.replace_image_criteria_in_allowed_images_settings_result.ReplaceImageCriteriaInAllowedImagesSettingsResult":
-        """<p>Sets or replaces the criteria for Allowed AMIs.</p> <note> <p>The Allowed AMIs feature does not restrict the AMIs owned by your account. Regardless of the criteria you set, the AMIs created by your account will always be discoverable and usable by users in your account.</p> </note> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-allowed-amis.html\">Control the discovery and use of AMIs in Amazon EC2 with Allowed AMIs</a> in <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Sets or replaces the criteria for Allowed AMIs.</p> <note> <p>The Allowed AMIs feature does not restrict the AMIs owned by your account. Regardless of the criteria you set, the AMIs created by your account will always be discoverable and usable by users in your account.</p> </note> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-allowed-amis.html\">Control the discovery and use of AMIs in Amazon EC2 with Allowed AMIs</a> in <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             image_criteria: <p>The list of criteria that are evaluated to determine whether AMIs are discoverable and usable in the account in the specified Amazon Web Services Region.</p>
@@ -48258,7 +48258,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.replace_network_acl_association_result.ReplaceNetworkAclAssociationResult":
-        """<p>Changes which network ACL a subnet is associated with. By default when you create a subnet, it's automatically associated with the default network ACL. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html\">Network ACLs</a> in the <i>Amazon VPC User Guide</i>.</p> <p>This is an idempotent operation.</p>
+        r"""<p>Changes which network ACL a subnet is associated with. By default when you create a subnet, it's automatically associated with the default network ACL. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html\">Network ACLs</a> in the <i>Amazon VPC User Guide</i>.</p> <p>This is an idempotent operation.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -48318,7 +48318,7 @@ class AsyncEC2Client:
         ] = None,
         port_range: Optional["aws_sdk_ec2.types.port_range.PortRange"] = None,
     ) -> None:
-        """<p>Replaces an entry (rule) in a network ACL. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html\">Network ACLs</a> in the <i>Amazon VPC User Guide</i>.</p>
+        r"""<p>Replaces an entry (rule) in a network ACL. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html\">Network ACLs</a> in the <i>Amazon VPC User Guide</i>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -48424,7 +48424,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.nat_gateway_id.NatGatewayId"
         ] = None,
     ) -> None:
-        """<p>Replaces an existing route within a route table in a VPC.</p> <p>You must specify either a destination CIDR block or a prefix list ID. You must also specify exactly one of the resources from the parameter list, or reset the local route to its default target.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html\">Route tables</a> in the <i>Amazon VPC User Guide</i>.</p>
+        r"""<p>Replaces an existing route within a route table in a VPC.</p> <p>You must specify either a destination CIDR block or a prefix list ID. You must also specify exactly one of the resources from the parameter list, or reset the local route to its default target.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html\">Route tables</a> in the <i>Amazon VPC User Guide</i>.</p>
 
         Args:
             destination_prefix_list_id: <p>The ID of the prefix list for the route.</p>
@@ -48519,7 +48519,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.replace_route_table_association_result.ReplaceRouteTableAssociationResult":
-        """<p>Changes the route table associated with a given subnet, internet gateway, or virtual private gateway in a VPC. After the operation completes, the subnet or gateway uses the routes in the new route table. For more information about route tables, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html\">Route tables</a> in the <i>Amazon VPC User Guide</i>.</p> <p>You can also use this operation to change which table is the main route table in the VPC. Specify the main route table's association ID and the route table ID of the new main route table.</p>
+        r"""<p>Changes the route table associated with a given subnet, internet gateway, or virtual private gateway in a VPC. After the operation completes, the subnet or gateway uses the routes in the new route table. For more information about route tables, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html\">Route tables</a> in the <i>Amazon VPC User Guide</i>.</p> <p>You can also use this operation to change which table is the main route table in the VPC. Specify the main route table's association ID and the route table ID of the new main route table.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -48733,7 +48733,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.request_spot_fleet_response.RequestSpotFleetResponse":
-        """<p>Creates a Spot Fleet request.</p> <p>The Spot Fleet request specifies the total target capacity and the On-Demand target capacity. Amazon EC2 calculates the difference between the total capacity and On-Demand capacity, and launches the difference as Spot capacity.</p> <p>You can submit a single request that includes multiple launch specifications that vary by instance type, AMI, Availability Zone, or subnet.</p> <p>By default, the Spot Fleet requests Spot Instances in the Spot Instance pool where the price per unit is the lowest. Each launch specification can include its own instance weighting that reflects the value of the instance type to your application workload.</p> <p>Alternatively, you can specify that the Spot Fleet distribute the target capacity across the Spot pools included in its launch specifications. By ensuring that the Spot Instances in your Spot Fleet are in different Spot pools, you can improve the availability of your fleet.</p> <p>You can specify tags for the Spot Fleet request and instances launched by the fleet. You cannot tag other resource types in a Spot Fleet request because only the <code>spot-fleet-request</code> and <code>instance</code> resource types are supported.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-requests.html\">Spot Fleet requests</a> in the <i>Amazon EC2 User Guide</i>.</p> <important> <p>We strongly discourage using the RequestSpotFleet API because it is a legacy API with no planned investment. For options for requesting Spot Instances, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html#which-spot-request-method-to-use\">Which is the best Spot request method to use?</a> in the <i>Amazon EC2 User Guide</i>.</p> </important>
+        r"""<p>Creates a Spot Fleet request.</p> <p>The Spot Fleet request specifies the total target capacity and the On-Demand target capacity. Amazon EC2 calculates the difference between the total capacity and On-Demand capacity, and launches the difference as Spot capacity.</p> <p>You can submit a single request that includes multiple launch specifications that vary by instance type, AMI, Availability Zone, or subnet.</p> <p>By default, the Spot Fleet requests Spot Instances in the Spot Instance pool where the price per unit is the lowest. Each launch specification can include its own instance weighting that reflects the value of the instance type to your application workload.</p> <p>Alternatively, you can specify that the Spot Fleet distribute the target capacity across the Spot pools included in its launch specifications. By ensuring that the Spot Instances in your Spot Fleet are in different Spot pools, you can improve the availability of your fleet.</p> <p>You can specify tags for the Spot Fleet request and instances launched by the fleet. You cannot tag other resource types in a Spot Fleet request because only the <code>spot-fleet-request</code> and <code>instance</code> resource types are supported.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-requests.html\">Spot Fleet requests</a> in the <i>Amazon EC2 User Guide</i>.</p> <important> <p>We strongly discourage using the RequestSpotFleet API because it is a legacy API with no planned investment. For options for requesting Spot Instances, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html#which-spot-request-method-to-use\">Which is the best Spot request method to use?</a> in the <i>Amazon EC2 User Guide</i>.</p> </important>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -48810,7 +48810,7 @@ class AsyncEC2Client:
         availability_zone_group: Optional["aws_sdk_ec2.types.string.String"] = None,
         block_duration_minutes: Optional["aws_sdk_ec2.types.integer.Integer"] = None,
     ) -> "aws_sdk_ec2.types.request_spot_instances_result.RequestSpotInstancesResult":
-        """<p>Creates a Spot Instance request.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html\">Work with Spot Instance</a> in the <i>Amazon EC2 User Guide</i>.</p> <important> <p>We strongly discourage using the RequestSpotInstances API because it is a legacy API with no planned investment. For options for requesting Spot Instances, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html#which-spot-request-method-to-use\">Which is the best Spot request method to use?</a> in the <i>Amazon EC2 User Guide</i>.</p> </important>
+        r"""<p>Creates a Spot Instance request.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html\">Work with Spot Instance</a> in the <i>Amazon EC2 User Guide</i>.</p> <important> <p>We strongly discourage using the RequestSpotInstances API because it is a legacy API with no planned investment. For options for requesting Spot Instances, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html#which-spot-request-method-to-use\">Which is the best Spot request method to use?</a> in the <i>Amazon EC2 User Guide</i>.</p> </important>
 
         Args:
             launch_specification: <p>The launch specification.</p>
@@ -48897,7 +48897,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.reset_address_attribute_result.ResetAddressAttributeResult":
-        """<p>Resets the attribute of the specified IP address. For requirements, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#Using_Elastic_Addressing_Reverse_DNS\">Using reverse DNS for email applications</a>.</p>
+        r"""<p>Resets the attribute of the specified IP address. For requirements, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#Using_Elastic_Addressing_Reverse_DNS\">Using reverse DNS for email applications</a>.</p>
 
         Args:
             allocation_id: <p>[EC2-VPC] The allocation ID.</p>
@@ -48940,7 +48940,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.reset_ebs_default_kms_key_id_result.ResetEbsDefaultKmsKeyIdResult":
-        """<p>Resets the default KMS key for EBS encryption for your account in this Region to the Amazon Web Services managed KMS key for EBS.</p> <p>After resetting the default KMS key to the Amazon Web Services managed KMS key, you can continue to encrypt by a customer managed KMS key by specifying it when you create the volume. For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html\">Amazon EBS encryption</a> in the <i>Amazon EBS User Guide</i>.</p>
+        r"""<p>Resets the default KMS key for EBS encryption for your account in this Region to the Amazon Web Services managed KMS key for EBS.</p> <p>After resetting the default KMS key to the Amazon Web Services managed KMS key, you can continue to encrypt by a customer managed KMS key by specifying it when you create the volume. For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html\">Amazon EBS encryption</a> in the <i>Amazon EBS User Guide</i>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -49078,7 +49078,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> None:
-        """<p>Resets an attribute of an instance to its default value. To reset the <code>kernel</code> or <code>ramdisk</code>, the instance must be in a stopped state. To reset the <code>sourceDestCheck</code>, the instance can be either running or stopped.</p> <p>The <code>sourceDestCheck</code> attribute controls whether source/destination checking is enabled. The default value is <code>true</code>, which means checking is enabled. This value must be <code>false</code> for a NAT instance to perform NAT. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html\">NAT instances</a> in the <i>Amazon VPC User Guide</i>.</p>
+        r"""<p>Resets an attribute of an instance to its default value. To reset the <code>kernel</code> or <code>ramdisk</code>, the instance must be in a stopped state. To reset the <code>sourceDestCheck</code>, the instance can be either running or stopped.</p> <p>The <code>sourceDestCheck</code> attribute controls whether source/destination checking is enabled. The default value is <code>true</code>, which means checking is enabled. This value must be <code>false</code> for a NAT instance to perform NAT. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html\">NAT instances</a> in the <i>Amazon VPC User Guide</i>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -49171,7 +49171,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> None:
-        """<p>Resets permission settings for the specified snapshot.</p> <p>For more information about modifying snapshot permissions, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/ebs-modifying-snapshot-permissions.html\">Share a snapshot</a> in the <i>Amazon EBS User Guide</i>.</p>
+        r"""<p>Resets permission settings for the specified snapshot.</p> <p>For more information about modifying snapshot permissions, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/ebs-modifying-snapshot-permissions.html\">Share a snapshot</a> in the <i>Amazon EBS User Guide</i>.</p>
 
         Args:
             attribute: <p>The attribute to reset. Currently, only the attribute for permission to create volumes can be reset.</p>
@@ -49261,7 +49261,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.restore_image_from_recycle_bin_result.RestoreImageFromRecycleBinResult":
-        """<p>Restores an AMI from the Recycle Bin. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html\">Recover deleted Amazon EBS snapshots and EBS-back AMIs with Recycle Bin</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Restores an AMI from the Recycle Bin. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html\">Recover deleted Amazon EBS snapshots and EBS-back AMIs with Recycle Bin</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             image_id: <p>The ID of the AMI to restore.</p>
@@ -49351,7 +49351,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.restore_snapshot_from_recycle_bin_result.RestoreSnapshotFromRecycleBinResult":
-        """<p>Restores a snapshot from the Recycle Bin. For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/recycle-bin-working-with-snaps.html#recycle-bin-restore-snaps\">Restore snapshots from the Recycle Bin</a> in the <i>Amazon EBS User Guide</i>.</p>
+        r"""<p>Restores a snapshot from the Recycle Bin. For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/recycle-bin-working-with-snaps.html#recycle-bin-restore-snaps\">Restore snapshots from the Recycle Bin</a> in the <i>Amazon EBS User Guide</i>.</p>
 
         Args:
             snapshot_id: <p>The ID of the snapshot to restore.</p>
@@ -49397,7 +49397,7 @@ class AsyncEC2Client:
         permanent_restore: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.restore_snapshot_tier_result.RestoreSnapshotTierResult":
-        """<p>Restores an archived Amazon EBS snapshot for use temporarily or permanently, or modifies the restore period or restore type for a snapshot that was previously temporarily restored.</p> <p>For more information see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/working-with-snapshot-archiving.html#restore-archived-snapshot\"> Restore an archived snapshot</a> and <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/working-with-snapshot-archiving.html#modify-temp-restore-period\"> modify the restore period or restore type for a temporarily restored snapshot</a> in the <i>Amazon EBS User Guide</i>.</p>
+        r"""<p>Restores an archived Amazon EBS snapshot for use temporarily or permanently, or modifies the restore period or restore type for a snapshot that was previously temporarily restored.</p> <p>For more information see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/working-with-snapshot-archiving.html#restore-archived-snapshot\"> Restore an archived snapshot</a> and <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/working-with-snapshot-archiving.html#modify-temp-restore-period\"> modify the restore period or restore type for a temporarily restored snapshot</a> in the <i>Amazon EBS User Guide</i>.</p>
 
         Args:
             snapshot_id: <p>The ID of the snapshot to restore.</p>
@@ -49445,7 +49445,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.restore_volume_from_recycle_bin_result.RestoreVolumeFromRecycleBinResult":
-        """<p>Restores a volume from the Recycle Bin. For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/recycle-bin-working-with-volumes.html#recycle-bin-restore-volumes\">Restore volumes from the Recycle Bin</a> in the <i>Amazon EBS User Guide</i>.</p>
+        r"""<p>Restores a volume from the Recycle Bin. For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/recycle-bin-working-with-volumes.html#recycle-bin-restore-volumes\">Restore volumes from the Recycle Bin</a> in the <i>Amazon EBS User Guide</i>.</p>
 
         Args:
             volume_id: <p>The ID of the volume to restore.</p>
@@ -49639,7 +49639,7 @@ class AsyncEC2Client:
         ] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.revoke_security_group_ingress_result.RevokeSecurityGroupIngressResult":
-        """<p>Removes the specified inbound (ingress) rules from a security group.</p> <p>You can specify rules using either rule IDs or security group rule properties. If you use rule properties, the values that you specify (for example, ports) must match the existing rule's values exactly. Each rule has a protocol, from and to ports, and source (CIDR range, security group, or prefix list). For the TCP and UDP protocols, you must also specify the destination port or range of ports. For the ICMP protocol, you must also specify the ICMP type and code. If the security group rule has a description, you do not need to specify the description to revoke the rule.</p> <p>For a default VPC, if the values you specify do not match the existing rule's values, no error is returned, and the output describes the security group rules that were not revoked.</p> <p>For a non-default VPC, if the values you specify do not match the existing rule's values, an <code>InvalidPermission.NotFound</code> client error is returned, and no rules are revoked.</p> <p>Amazon Web Services recommends that you describe the security group to verify that the rules were removed.</p> <p>Rule changes are propagated to instances within the security group as quickly as possible. However, a small delay might occur.</p>
+        r"""<p>Removes the specified inbound (ingress) rules from a security group.</p> <p>You can specify rules using either rule IDs or security group rule properties. If you use rule properties, the values that you specify (for example, ports) must match the existing rule's values exactly. Each rule has a protocol, from and to ports, and source (CIDR range, security group, or prefix list). For the TCP and UDP protocols, you must also specify the destination port or range of ports. For the ICMP protocol, you must also specify the ICMP type and code. If the security group rule has a description, you do not need to specify the description to revoke the rule.</p> <p>For a default VPC, if the values you specify do not match the existing rule's values, no error is returned, and the output describes the security group rules that were not revoked.</p> <p>For a non-default VPC, if the values you specify do not match the existing rule's values, an <code>InvalidPermission.NotFound</code> client error is returned, and no rules are revoked.</p> <p>Amazon Web Services recommends that you describe the security group to verify that the rules were removed.</p> <p>Rule changes are propagated to instances within the security group as quickly as possible. However, a small delay might occur.</p>
 
         Args:
             cidr_ip: <p>The CIDR IP address range. You can't specify this parameter when specifying a source security group.</p>
@@ -49801,7 +49801,7 @@ class AsyncEC2Client:
         ] = None,
         ebs_optimized: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.reservation.Reservation":
-        """<p>Launches the specified number of instances using an AMI for which you have permissions.</p> <p>You can specify a number of options, or leave the default options. The following rules apply:</p> <ul> <li> <p>If you don't specify a subnet ID, we choose a default subnet from your default VPC for you. If you don't have a default VPC, you must specify a subnet ID in the request.</p> </li> <li> <p>All instances have a network interface with a primary private IPv4 address. If you don't specify this address, we choose one from the IPv4 range of your subnet.</p> </li> <li> <p>Not all instance types support IPv6 addresses. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html\">Instance types</a>.</p> </li> <li> <p>If you don't specify a security group ID, we use the default security group for the VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html\">Security groups</a>.</p> </li> <li> <p>If any of the AMIs have a product code attached for which the user has not subscribed, the request fails.</p> </li> </ul> <p>You can create a <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html\">launch template</a>, which is a resource that contains the parameters to launch an instance. When you launch an instance using <a>RunInstances</a>, you can specify the launch template instead of specifying the launch parameters.</p> <p>To ensure faster instance launches, break up large requests into smaller batches. For example, create five separate launch requests for 100 instances each instead of one launch request for 500 instances.</p> <p> <code>RunInstances</code> is subject to both request rate limiting and resource rate limiting. For more information, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-throttling.html\">Request throttling</a>.</p> <p>An instance is ready for you to use when it's in the <code>running</code> state. You can check the state of your instance using <a>DescribeInstances</a>. You can tag instances and EBS volumes during launch, after launch, or both. For more information, see <a>CreateTags</a> and <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html\">Tagging your Amazon EC2 resources</a>.</p> <p>Linux instances have access to the public key of the key pair at boot. You can use this key to provide secure access to the instance. Amazon EC2 public images use this feature to provide secure access without passwords. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html\">Key pairs</a>.</p> <p>For troubleshooting, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_InstanceStraightToTerminated.html\">What to do if an instance immediately terminates</a>, and <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesConnecting.html\">Troubleshooting connecting to your instance</a>.</p>
+        r"""<p>Launches the specified number of instances using an AMI for which you have permissions.</p> <p>You can specify a number of options, or leave the default options. The following rules apply:</p> <ul> <li> <p>If you don't specify a subnet ID, we choose a default subnet from your default VPC for you. If you don't have a default VPC, you must specify a subnet ID in the request.</p> </li> <li> <p>All instances have a network interface with a primary private IPv4 address. If you don't specify this address, we choose one from the IPv4 range of your subnet.</p> </li> <li> <p>Not all instance types support IPv6 addresses. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html\">Instance types</a>.</p> </li> <li> <p>If you don't specify a security group ID, we use the default security group for the VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html\">Security groups</a>.</p> </li> <li> <p>If any of the AMIs have a product code attached for which the user has not subscribed, the request fails.</p> </li> </ul> <p>You can create a <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html\">launch template</a>, which is a resource that contains the parameters to launch an instance. When you launch an instance using <a>RunInstances</a>, you can specify the launch template instead of specifying the launch parameters.</p> <p>To ensure faster instance launches, break up large requests into smaller batches. For example, create five separate launch requests for 100 instances each instead of one launch request for 500 instances.</p> <p> <code>RunInstances</code> is subject to both request rate limiting and resource rate limiting. For more information, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-throttling.html\">Request throttling</a>.</p> <p>An instance is ready for you to use when it's in the <code>running</code> state. You can check the state of your instance using <a>DescribeInstances</a>. You can tag instances and EBS volumes during launch, after launch, or both. For more information, see <a>CreateTags</a> and <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html\">Tagging your Amazon EC2 resources</a>.</p> <p>Linux instances have access to the public key of the key pair at boot. You can use this key to provide secure access to the instance. Amazon EC2 public images use this feature to provide secure access without passwords. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html\">Key pairs</a>.</p> <p>For troubleshooting, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_InstanceStraightToTerminated.html\">What to do if an instance immediately terminates</a>, and <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesConnecting.html\">Troubleshooting connecting to your instance</a>.</p>
 
         Args:
             block_device_mappings: <p>The block device mapping, which defines the EBS volumes and instance store volumes to attach to the instance at launch. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html\">Block device mappings</a> in the <i>Amazon EC2 User Guide</i>.</p>
@@ -49979,7 +49979,7 @@ class AsyncEC2Client:
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
         instance_count: Optional["aws_sdk_ec2.types.integer.Integer"] = None,
     ) -> "aws_sdk_ec2.types.run_scheduled_instances_result.RunScheduledInstancesResult":
-        """<p>Launches the specified Scheduled Instances.</p> <p>Before you can launch a Scheduled Instance, you must purchase it and obtain an identifier using <a>PurchaseScheduledInstances</a>.</p> <p>You must launch a Scheduled Instance during its scheduled time period. You can't stop or reboot a Scheduled Instance, but you can terminate it as needed. If you terminate a Scheduled Instance before the current scheduled time period ends, you can launch it again after a few minutes.</p>
+        r"""<p>Launches the specified Scheduled Instances.</p> <p>Before you can launch a Scheduled Instance, you must purchase it and obtain an identifier using <a>PurchaseScheduledInstances</a>.</p> <p>You must launch a Scheduled Instance during its scheduled time period. You can't stop or reboot a Scheduled Instance, but you can terminate it as needed. If you terminate a Scheduled Instance before the current scheduled time period ends, you can launch it again after a few minutes.</p>
 
         Args:
             client_token: <p>Unique, case-sensitive identifier that ensures the idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring Idempotency</a>.</p>
@@ -50281,7 +50281,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> None:
-        """<p>Sends a diagnostic interrupt to the specified Amazon EC2 instance to trigger a <i>kernel panic</i> (on Linux instances), or a <i>blue screen</i>/<i>stop error</i> (on Windows instances). For instances based on Intel and AMD processors, the interrupt is received as a <i>non-maskable interrupt</i> (NMI).</p> <p>In general, the operating system crashes and reboots when a kernel panic or stop error is triggered. The operating system can also be configured to perform diagnostic tasks, such as generating a memory dump file, loading a secondary kernel, or obtaining a call trace.</p> <p>Before sending a diagnostic interrupt to your instance, ensure that its operating system is configured to perform the required diagnostic tasks.</p> <p>For more information about configuring your operating system to generate a crash dump when a kernel panic or stop error occurs, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/diagnostic-interrupt.html\">Send a diagnostic interrupt (for advanced users)</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Sends a diagnostic interrupt to the specified Amazon EC2 instance to trigger a <i>kernel panic</i> (on Linux instances), or a <i>blue screen</i>/<i>stop error</i> (on Windows instances). For instances based on Intel and AMD processors, the interrupt is received as a <i>non-maskable interrupt</i> (NMI).</p> <p>In general, the operating system crashes and reboots when a kernel panic or stop error is triggered. The operating system can also be configured to perform diagnostic tasks, such as generating a memory dump file, loading a secondary kernel, or obtaining a call trace.</p> <p>Before sending a diagnostic interrupt to your instance, ensure that its operating system is configured to perform the required diagnostic tasks.</p> <p>For more information about configuring your operating system to generate a crash dump when a kernel panic or stop error occurs, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/diagnostic-interrupt.html\">Send a diagnostic interrupt (for advanced users)</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             instance_id: <p>The ID of the instance.</p>
@@ -50326,7 +50326,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.tag_specification_list.TagSpecificationList"
         ] = None,
     ) -> "aws_sdk_ec2.types.start_declarative_policies_report_result.StartDeclarativePoliciesReportResult":
-        """<p>Generates an account status report. The report is generated asynchronously, and can take several hours to complete.</p> <p>The report provides the current status of all attributes supported by declarative policies for the accounts within the specified scope. The scope is determined by the specified <code>TargetId</code>, which can represent an individual account, or all the accounts that fall under the specified organizational unit (OU) or root (the entire Amazon Web Services Organization).</p> <p>The report is saved to your specified S3 bucket, using the following path structure (with the capitalized placeholders representing your specific values):</p> <p> <code>s3://AMZN-S3-DEMO-BUCKET/YOUR-OPTIONAL-S3-PREFIX/ec2_TARGETID_REPORTID_YYYYMMDDTHHMMZ.csv</code> </p> <p class=\"title\"> <b>Prerequisites for generating a report</b> </p> <ul> <li> <p>The <code>StartDeclarativePoliciesReport</code> API can only be called by the management account or delegated administrators for the organization.</p> </li> <li> <p>An S3 bucket must be available before generating the report (you can create a new one or use an existing one), it must be in the same Region where the report generation request is made, and it must have an appropriate bucket policy. For a sample S3 policy, see <i>Sample Amazon S3 policy</i> under <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_StartDeclarativePoliciesReport.html#API_StartDeclarativePoliciesReport_Examples\">Examples</a>.</p> </li> <li> <p>Trusted access must be enabled for the service for which the declarative policy will enforce a baseline configuration. If you use the Amazon Web Services Organizations console, this is done automatically when you enable declarative policies. The API uses the following service principal to identify the EC2 service: <code>ec2.amazonaws.com</code>. For more information on how to enable trusted access with the Amazon Web Services CLI and Amazon Web Services SDKs, see <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html\">Using Organizations with other Amazon Web Services services</a> in the <i>Amazon Web Services Organizations User Guide</i>.</p> </li> <li> <p>Only one report per organization can be generated at a time. Attempting to generate a report while another is in progress will result in an error.</p> </li> </ul> <p>For more information, including the required IAM permissions to run this API, see <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_declarative_status-report.html\">Generating the account status report for declarative policies</a> in the <i>Amazon Web Services Organizations User Guide</i>.</p>
+        r"""<p>Generates an account status report. The report is generated asynchronously, and can take several hours to complete.</p> <p>The report provides the current status of all attributes supported by declarative policies for the accounts within the specified scope. The scope is determined by the specified <code>TargetId</code>, which can represent an individual account, or all the accounts that fall under the specified organizational unit (OU) or root (the entire Amazon Web Services Organization).</p> <p>The report is saved to your specified S3 bucket, using the following path structure (with the capitalized placeholders representing your specific values):</p> <p> <code>s3://AMZN-S3-DEMO-BUCKET/YOUR-OPTIONAL-S3-PREFIX/ec2_TARGETID_REPORTID_YYYYMMDDTHHMMZ.csv</code> </p> <p class=\"title\"> <b>Prerequisites for generating a report</b> </p> <ul> <li> <p>The <code>StartDeclarativePoliciesReport</code> API can only be called by the management account or delegated administrators for the organization.</p> </li> <li> <p>An S3 bucket must be available before generating the report (you can create a new one or use an existing one), it must be in the same Region where the report generation request is made, and it must have an appropriate bucket policy. For a sample S3 policy, see <i>Sample Amazon S3 policy</i> under <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_StartDeclarativePoliciesReport.html#API_StartDeclarativePoliciesReport_Examples\">Examples</a>.</p> </li> <li> <p>Trusted access must be enabled for the service for which the declarative policy will enforce a baseline configuration. If you use the Amazon Web Services Organizations console, this is done automatically when you enable declarative policies. The API uses the following service principal to identify the EC2 service: <code>ec2.amazonaws.com</code>. For more information on how to enable trusted access with the Amazon Web Services CLI and Amazon Web Services SDKs, see <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html\">Using Organizations with other Amazon Web Services services</a> in the <i>Amazon Web Services Organizations User Guide</i>.</p> </li> <li> <p>Only one report per organization can be generated at a time. Attempting to generate a report while another is in progress will result in an error.</p> </li> </ul> <p>For more information, including the required IAM permissions to run this API, see <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_declarative_status-report.html\">Generating the account status report for declarative policies</a> in the <i>Amazon Web Services Organizations User Guide</i>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -50377,7 +50377,7 @@ class AsyncEC2Client:
         additional_info: Optional["aws_sdk_ec2.types.string.String"] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.start_instances_result.StartInstancesResult":
-        """<p>Starts an Amazon EBS-backed instance that you've previously stopped.</p> <p>Instances that use Amazon EBS volumes as their root devices can be quickly stopped and started. When an instance is stopped, the compute resources are released and you are not billed for instance usage. However, your root partition Amazon EBS volume remains and continues to persist your data, and you are charged for Amazon EBS volume usage. You can restart your instance at any time. Every time you start your instance, Amazon EC2 charges a one-minute minimum for instance usage, and thereafter charges per second for instance usage.</p> <p>Before stopping an instance, make sure it is in a state from which it can be restarted. Stopping an instance does not preserve data stored in RAM.</p> <p>Performing this operation on an instance that uses an instance store as its root device returns an error.</p> <p>If you attempt to start a T3 instance with <code>host</code> tenancy and the <code>unlimited</code> CPU credit option, the request fails. The <code>unlimited</code> CPU credit option is not supported on Dedicated Hosts. Before you start the instance, either change its CPU credit option to <code>standard</code>, or change its tenancy to <code>default</code> or <code>dedicated</code>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html\">Stop and start Amazon EC2 instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Starts an Amazon EBS-backed instance that you've previously stopped.</p> <p>Instances that use Amazon EBS volumes as their root devices can be quickly stopped and started. When an instance is stopped, the compute resources are released and you are not billed for instance usage. However, your root partition Amazon EBS volume remains and continues to persist your data, and you are charged for Amazon EBS volume usage. You can restart your instance at any time. Every time you start your instance, Amazon EC2 charges a one-minute minimum for instance usage, and thereafter charges per second for instance usage.</p> <p>Before stopping an instance, make sure it is in a state from which it can be restarted. Stopping an instance does not preserve data stored in RAM.</p> <p>Performing this operation on an instance that uses an instance store as its root device returns an error.</p> <p>If you attempt to start a T3 instance with <code>host</code> tenancy and the <code>unlimited</code> CPU credit option, the request fails. The <code>unlimited</code> CPU credit option is not supported on Dedicated Hosts. Before you start the instance, either change its CPU credit option to <code>standard</code>, or change its tenancy to <code>default</code> or <code>dedicated</code>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html\">Stop and start Amazon EC2 instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             instance_ids: <p>The IDs of the instances.</p>
@@ -50432,7 +50432,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.tag_specification_list.TagSpecificationList"
         ] = None,
     ) -> "aws_sdk_ec2.types.start_network_insights_access_scope_analysis_result.StartNetworkInsightsAccessScopeAnalysisResult":
-        """<p>Starts analyzing the specified Network Access Scope.</p>
+        r"""<p>Starts analyzing the specified Network Access Scope.</p>
 
         Args:
             network_insights_access_scope_id: <p>The ID of the Network Access Scope.</p>
@@ -50488,7 +50488,7 @@ class AsyncEC2Client:
             "aws_sdk_ec2.types.tag_specification_list.TagSpecificationList"
         ] = None,
     ) -> "aws_sdk_ec2.types.start_network_insights_analysis_result.StartNetworkInsightsAnalysisResult":
-        """<p>Starts analyzing the specified path. If the path is reachable, the operation returns the shortest feasible path.</p>
+        r"""<p>Starts analyzing the specified path. If the path is reachable, the operation returns the shortest feasible path.</p>
 
         Args:
             network_insights_path_id: <p>The ID of the path.</p>
@@ -50589,7 +50589,7 @@ class AsyncEC2Client:
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
         force: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.stop_instances_result.StopInstancesResult":
-        """<p>Stops an Amazon EBS-backed instance. You can restart your instance at any time using the <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_StartInstances.html\">StartInstances</a> API. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html\">Stop and start Amazon EC2 instances</a> in the <i>Amazon EC2 User Guide</i>.</p> <p>When you stop or hibernate an instance, we shut it down. By default, this includes a graceful operating system (OS) shutdown. To bypass the graceful shutdown, use the <code>skipOsShutdown</code> parameter; however, this might risk data integrity.</p> <p>You can use the StopInstances operation together with the <code>Hibernate</code> parameter to hibernate an instance if the instance is <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enabling-hibernation.html\">enabled for hibernation</a> and meets the <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hibernating-prerequisites.html\">hibernation prerequisites</a>. Stopping an instance doesn't preserve data stored in RAM, while hibernation does. If hibernation fails, a normal shutdown occurs. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html\">Hibernate your Amazon EC2 instance</a> in the <i>Amazon EC2 User Guide</i>.</p> <p>If your instance appears stuck in the <code>stopping</code> state, there might be an issue with the underlying host computer. You can use the StopInstances operation together with the Force parameter to force stop your instance. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesStopping.html\">Troubleshoot Amazon EC2 instance stop issues</a> in the <i>Amazon EC2 User Guide</i>.</p> <p>Stopping and hibernating an instance differs from rebooting or terminating it. For example, a stopped or hibernated instance retains its root volume and any data volumes, unlike terminated instances where these volumes are automatically deleted. For more information about the differences between stopping, hibernating, rebooting, and terminating instances, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html\">Amazon EC2 instance state changes</a> in the <i>Amazon EC2 User Guide</i>.</p> <p>We don't charge for instance usage or data transfer fees when an instance is stopped. However, the root volume and any data volumes remain and continue to persist your data, and you're charged for volume usage. Every time you start your instance, Amazon EC2 charges a one-minute minimum for instance usage, followed by per-second billing.</p> <p>You can't stop or hibernate instance store-backed instances.</p>
+        r"""<p>Stops an Amazon EBS-backed instance. You can restart your instance at any time using the <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_StartInstances.html\">StartInstances</a> API. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html\">Stop and start Amazon EC2 instances</a> in the <i>Amazon EC2 User Guide</i>.</p> <p>When you stop or hibernate an instance, we shut it down. By default, this includes a graceful operating system (OS) shutdown. To bypass the graceful shutdown, use the <code>skipOsShutdown</code> parameter; however, this might risk data integrity.</p> <p>You can use the StopInstances operation together with the <code>Hibernate</code> parameter to hibernate an instance if the instance is <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enabling-hibernation.html\">enabled for hibernation</a> and meets the <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hibernating-prerequisites.html\">hibernation prerequisites</a>. Stopping an instance doesn't preserve data stored in RAM, while hibernation does. If hibernation fails, a normal shutdown occurs. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html\">Hibernate your Amazon EC2 instance</a> in the <i>Amazon EC2 User Guide</i>.</p> <p>If your instance appears stuck in the <code>stopping</code> state, there might be an issue with the underlying host computer. You can use the StopInstances operation together with the Force parameter to force stop your instance. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesStopping.html\">Troubleshoot Amazon EC2 instance stop issues</a> in the <i>Amazon EC2 User Guide</i>.</p> <p>Stopping and hibernating an instance differs from rebooting or terminating it. For example, a stopped or hibernated instance retains its root volume and any data volumes, unlike terminated instances where these volumes are automatically deleted. For more information about the differences between stopping, hibernating, rebooting, and terminating instances, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html\">Amazon EC2 instance state changes</a> in the <i>Amazon EC2 User Guide</i>.</p> <p>We don't charge for instance usage or data transfer fees when an instance is stopped. However, the root volume and any data volumes remain and continue to persist your data, and you're charged for volume usage. Every time you start your instance, Amazon EC2 charges a one-minute minimum for instance usage, followed by per-second billing.</p> <p>You can't stop or hibernate instance store-backed instances.</p>
 
         Args:
             instance_ids: <p>The IDs of the instances.</p>
@@ -50698,7 +50698,7 @@ class AsyncEC2Client:
         skip_os_shutdown: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.terminate_instances_result.TerminateInstancesResult":
-        """<p>Terminates (deletes) the specified instances. This operation is <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html\">idempotent</a>; if you terminate an instance more than once, each call succeeds.</p> <important> <p> <b>Terminating an instance is permanent and irreversible.</b> </p> <p>After you terminate an instance, you can no longer connect to it, and it can't be recovered. All attached Amazon EBS volumes that are configured to be deleted on termination are also permanently deleted and can't be recovered. All data stored on instance store volumes is permanently lost. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/how-ec2-instance-termination-works.html\"> How instance termination works</a>.</p> <p>Before you terminate an instance, ensure that you have backed up all data that you need to retain after the termination to persistent storage.</p> </important> <p>If you specify multiple instances and the request fails (for example, because of a single incorrect instance ID), none of the instances are terminated.</p> <p>If you terminate multiple instances across multiple Availability Zones, and one or more of the specified instances are enabled for termination protection, the request fails with the following results:</p> <ul> <li> <p>The specified instances that are in the same Availability Zone as the protected instance are not terminated.</p> </li> <li> <p>The specified instances that are in different Availability Zones, where no other specified instances are protected, are successfully terminated.</p> </li> </ul> <p>For example, say you have the following instances:</p> <ul> <li> <p>Instance A: <code>us-east-1a</code>; Not protected</p> </li> <li> <p>Instance B: <code>us-east-1a</code>; Not protected</p> </li> <li> <p>Instance C: <code>us-east-1b</code>; Protected</p> </li> <li> <p>Instance D: <code>us-east-1b</code>; not protected</p> </li> </ul> <p>If you attempt to terminate all of these instances in the same request, the request reports failure with the following results:</p> <ul> <li> <p>Instance A and Instance B are successfully terminated because none of the specified instances in <code>us-east-1a</code> are enabled for termination protection.</p> </li> <li> <p>Instance C and Instance D fail to terminate because at least one of the specified instances in <code>us-east-1b</code> (Instance C) is enabled for termination protection.</p> </li> </ul> <p>Terminated instances remain visible after termination (for approximately one hour).</p> <p>By default, Amazon EC2 deletes all EBS volumes that were attached when the instance launched. Volumes attached after instance launch continue running.</p> <p>By default, the TerminateInstances operation includes a graceful operating system (OS) shutdown. To bypass the graceful shutdown, use the <code>skipOsShutdown</code> parameter; however, this might risk data integrity.</p> <p>You can stop, start, and terminate EBS-backed instances. You can only terminate instance store-backed instances. What happens to an instance differs if you stop or terminate it. For example, when you stop an instance, the root device and any other devices attached to the instance persist. When you terminate an instance, any attached EBS volumes with the <code>DeleteOnTermination</code> block device mapping parameter set to <code>true</code> are automatically deleted. For more information about the differences between stopping and terminating instances, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html\">Amazon EC2 instance state changes</a> in the <i>Amazon EC2 User Guide</i>.</p> <p>When you terminate an instance, we attempt to terminate it forcibly after a short while. If your instance appears stuck in the shutting-down state after a period of time, there might be an issue with the underlying host computer. For more information about terminating and troubleshooting terminating your instances, see <a href=\"https://docs.aws.amazon.com/\">Terminate Amazon EC2 instances</a> and <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesShuttingDown.html\">Troubleshooting terminating your instance</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Terminates (deletes) the specified instances. This operation is <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html\">idempotent</a>; if you terminate an instance more than once, each call succeeds.</p> <important> <p> <b>Terminating an instance is permanent and irreversible.</b> </p> <p>After you terminate an instance, you can no longer connect to it, and it can't be recovered. All attached Amazon EBS volumes that are configured to be deleted on termination are also permanently deleted and can't be recovered. All data stored on instance store volumes is permanently lost. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/how-ec2-instance-termination-works.html\"> How instance termination works</a>.</p> <p>Before you terminate an instance, ensure that you have backed up all data that you need to retain after the termination to persistent storage.</p> </important> <p>If you specify multiple instances and the request fails (for example, because of a single incorrect instance ID), none of the instances are terminated.</p> <p>If you terminate multiple instances across multiple Availability Zones, and one or more of the specified instances are enabled for termination protection, the request fails with the following results:</p> <ul> <li> <p>The specified instances that are in the same Availability Zone as the protected instance are not terminated.</p> </li> <li> <p>The specified instances that are in different Availability Zones, where no other specified instances are protected, are successfully terminated.</p> </li> </ul> <p>For example, say you have the following instances:</p> <ul> <li> <p>Instance A: <code>us-east-1a</code>; Not protected</p> </li> <li> <p>Instance B: <code>us-east-1a</code>; Not protected</p> </li> <li> <p>Instance C: <code>us-east-1b</code>; Protected</p> </li> <li> <p>Instance D: <code>us-east-1b</code>; not protected</p> </li> </ul> <p>If you attempt to terminate all of these instances in the same request, the request reports failure with the following results:</p> <ul> <li> <p>Instance A and Instance B are successfully terminated because none of the specified instances in <code>us-east-1a</code> are enabled for termination protection.</p> </li> <li> <p>Instance C and Instance D fail to terminate because at least one of the specified instances in <code>us-east-1b</code> (Instance C) is enabled for termination protection.</p> </li> </ul> <p>Terminated instances remain visible after termination (for approximately one hour).</p> <p>By default, Amazon EC2 deletes all EBS volumes that were attached when the instance launched. Volumes attached after instance launch continue running.</p> <p>By default, the TerminateInstances operation includes a graceful operating system (OS) shutdown. To bypass the graceful shutdown, use the <code>skipOsShutdown</code> parameter; however, this might risk data integrity.</p> <p>You can stop, start, and terminate EBS-backed instances. You can only terminate instance store-backed instances. What happens to an instance differs if you stop or terminate it. For example, when you stop an instance, the root device and any other devices attached to the instance persist. When you terminate an instance, any attached EBS volumes with the <code>DeleteOnTermination</code> block device mapping parameter set to <code>true</code> are automatically deleted. For more information about the differences between stopping and terminating instances, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html\">Amazon EC2 instance state changes</a> in the <i>Amazon EC2 User Guide</i>.</p> <p>When you terminate an instance, we attempt to terminate it forcibly after a short while. If your instance appears stuck in the shutting-down state after a period of time, there might be an issue with the underlying host computer. For more information about terminating and troubleshooting terminating your instances, see <a href=\"https://docs.aws.amazon.com/\">Terminate Amazon EC2 instances</a> and <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesShuttingDown.html\">Troubleshooting terminating your instance</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             instance_ids: <p>The IDs of the instances.</p> <p>Constraints: Up to 1000 instance IDs. We recommend breaking up this request into smaller batches.</p>
@@ -50856,7 +50856,7 @@ class AsyncEC2Client:
         ] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.unassign_private_nat_gateway_address_result.UnassignPrivateNatGatewayAddressResult":
-        """<p>Unassigns secondary private IPv4 addresses from a private NAT gateway. You cannot unassign your primary private IP. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-working-with.html#nat-gateway-edit-secondary\">Edit secondary IP address associations</a> in the <i>Amazon VPC User Guide</i>.</p> <p>While unassigning is in progress, you cannot assign/unassign additional IP addresses while the connections are being drained. You are, however, allowed to delete the NAT gateway.</p> <p>A private IP address will only be released at the end of MaxDrainDurationSeconds. The private IP addresses stay associated and support the existing connections, but do not support any new connections (new connections are distributed across the remaining assigned private IP address). After the existing connections drain out, the private IP addresses are released.</p> <p></p> <p></p>
+        r"""<p>Unassigns secondary private IPv4 addresses from a private NAT gateway. You cannot unassign your primary private IP. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-working-with.html#nat-gateway-edit-secondary\">Edit secondary IP address associations</a> in the <i>Amazon VPC User Guide</i>.</p> <p>While unassigning is in progress, you cannot assign/unassign additional IP addresses while the connections are being drained. You are, however, allowed to delete the NAT gateway.</p> <p>A private IP address will only be released at the end of MaxDrainDurationSeconds. The private IP addresses stay associated and support the existing connections, but do not support any new connections (new connections are distributed across the remaining assigned private IP address). After the existing connections drain out, the private IP addresses are released.</p> <p></p> <p></p>
 
         Args:
             nat_gateway_id: <p>The ID of the NAT gateway.</p>
@@ -50945,7 +50945,7 @@ class AsyncEC2Client:
         config_overrides: Optional[AsyncEC2ClientConfig] = None,
         dry_run: Optional["aws_sdk_ec2.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_ec2.types.unmonitor_instances_result.UnmonitorInstancesResult":
-        """<p>Disables detailed monitoring for a running instance. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html\">Monitoring your instances and volumes</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Disables detailed monitoring for a running instance. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html\">Monitoring your instances and volumes</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             instance_ids: <p>The IDs of the instances.</p>

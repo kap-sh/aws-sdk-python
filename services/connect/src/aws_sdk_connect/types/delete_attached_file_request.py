@@ -14,7 +14,7 @@ class DeleteAttachedFileRequest(TypedDict):
     file_id: "aws_sdk_connect.types.file_id.FileId"
     """<p>The unique identifier of the attached file resource.</p>"""
     associated_resource_arn: "aws_sdk_connect.types.arn.ARN"
-    """<p>The resource to which the attached file is (being) uploaded to. <a href=\"https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateCase.html\">Cases</a> are the only current supported resource.</p> <note> <p>This value must be a valid ARN.</p> </note>"""
+    r"""<p>The resource to which the attached file is (being) uploaded to. <a href=\"https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateCase.html\">Cases</a> are the only current supported resource.</p> <note> <p>This value must be a valid ARN.</p> </note>"""
 
 
 # --- restJson1 ser/de ---

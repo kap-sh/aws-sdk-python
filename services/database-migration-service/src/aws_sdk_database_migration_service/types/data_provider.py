@@ -27,7 +27,7 @@ class DataProvider(TypedDict):
     description: NotRequired["aws_sdk_database_migration_service.types.string.String"]
     """<p>A description of the data provider. Descriptions can have up to 31 characters. A description can contain only ASCII letters, digits, and hyphens ('-'). Also, it can't end with a hyphen or contain two consecutive hyphens, and can only begin with a letter.</p>"""
     engine: NotRequired["aws_sdk_database_migration_service.types.string.String"]
-    """<p>The type of database engine for the data provider. Valid values include <code>\"aurora\"</code>, <code>\"aurora-postgresql\"</code>, <code>\"mysql\"</code>, <code>\"oracle\"</code>, <code>\"postgres\"</code>, <code>\"sqlserver\"</code>, <code>redshift</code>, <code>mariadb</code>, <code>mongodb</code>, <code>db2</code>, <code>db2-zos</code>, <code>docdb</code>, and <code>sybase</code>. A value of <code>\"aurora\"</code> represents Amazon Aurora MySQL-Compatible Edition.</p>"""
+    r"""<p>The type of database engine for the data provider. Valid values include <code>\"aurora\"</code>, <code>\"aurora-postgresql\"</code>, <code>\"mysql\"</code>, <code>\"oracle\"</code>, <code>\"postgres\"</code>, <code>\"sqlserver\"</code>, <code>redshift</code>, <code>mariadb</code>, <code>mongodb</code>, <code>db2</code>, <code>db2-zos</code>, <code>docdb</code>, and <code>sybase</code>. A value of <code>\"aurora\"</code> represents Amazon Aurora MySQL-Compatible Edition.</p>"""
     virtual: NotRequired[
         "aws_sdk_database_migration_service.types.boolean_optional.BooleanOptional"
     ]

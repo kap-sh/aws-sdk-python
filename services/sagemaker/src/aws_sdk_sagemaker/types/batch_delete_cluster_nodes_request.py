@@ -16,7 +16,7 @@ class BatchDeleteClusterNodesRequest(TypedDict):
     ]
     """<p>The name of the SageMaker HyperPod cluster from which to delete the specified nodes.</p>"""
     node_ids: NotRequired["aws_sdk_sagemaker.types.cluster_node_ids.ClusterNodeIds"]
-    """<p>A list of node IDs to be deleted from the specified cluster.</p> <note> <ul> <li> <p>For SageMaker HyperPod clusters using the Slurm workload manager, you cannot remove instances that are configured as Slurm controller nodes.</p> </li> <li> <p>If you need to delete more than 99 instances, contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for assistance.</p> </li> </ul> </note>"""
+    r"""<p>A list of node IDs to be deleted from the specified cluster.</p> <note> <ul> <li> <p>For SageMaker HyperPod clusters using the Slurm workload manager, you cannot remove instances that are configured as Slurm controller nodes.</p> </li> <li> <p>If you need to delete more than 99 instances, contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for assistance.</p> </li> </ul> </note>"""
     node_logical_ids: NotRequired[
         "aws_sdk_sagemaker.types.cluster_node_logical_id_list.ClusterNodeLogicalIdList"
     ]

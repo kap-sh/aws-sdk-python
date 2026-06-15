@@ -20,7 +20,7 @@ class CreatePlatformEndpointInput(TypedDict):
     custom_user_data: NotRequired["aws_sdk_sns.types.string.String"]
     """<p>Arbitrary user data to associate with the endpoint. Amazon SNS does not use this data. The data must be in UTF-8 format and less than 2KB.</p>"""
     attributes: NotRequired["aws_sdk_sns.types.map_string_to_string.MapStringToString"]
-    """<p>For a list of attributes, see <a href=\"https://docs.aws.amazon.com/sns/latest/api/API_SetEndpointAttributes.html\"> <code>SetEndpointAttributes</code> </a>.</p>"""
+    r"""<p>For a list of attributes, see <a href=\"https://docs.aws.amazon.com/sns/latest/api/API_SetEndpointAttributes.html\"> <code>SetEndpointAttributes</code> </a>.</p>"""
 
 
 # --- awsQuery ser/de ---

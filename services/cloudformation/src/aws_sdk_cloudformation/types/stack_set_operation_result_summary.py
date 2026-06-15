@@ -33,7 +33,7 @@ class StackSetOperationResultSummary(TypedDict):
     organizational_unit_id: NotRequired[
         "aws_sdk_cloudformation.types.organizational_unit_id.OrganizationalUnitId"
     ]
-    """<p>[Service-managed permissions] The organization root ID or organizational unit (OU) IDs that you specified for <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeploymentTargets.html\">DeploymentTargets</a>.</p>"""
+    r"""<p>[Service-managed permissions] The organization root ID or organizational unit (OU) IDs that you specified for <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeploymentTargets.html\">DeploymentTargets</a>.</p>"""
 
 
 # --- awsQuery ser/de ---

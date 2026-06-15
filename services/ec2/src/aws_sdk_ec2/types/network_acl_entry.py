@@ -27,7 +27,7 @@ class NetworkAclEntry(TypedDict):
     port_range: NotRequired["aws_sdk_ec2.types.port_range.PortRange"]
     """<p>TCP or UDP protocols: The range of ports the rule applies to.</p>"""
     protocol: NotRequired["aws_sdk_ec2.types.string.String"]
-    """<p>The protocol number. A value of \"-1\" means all protocols.</p>"""
+    r"""<p>The protocol number. A value of \"-1\" means all protocols.</p>"""
     rule_action: NotRequired["aws_sdk_ec2.types.rule_action.RuleAction"]
     """<p>Indicates whether to allow or deny the traffic that matches the rule.</p>"""
     rule_number: NotRequired["aws_sdk_ec2.types.integer.Integer"]

@@ -27,7 +27,7 @@ class GlacierJobDescription(TypedDict):
     vault_arn: NotRequired["aws_sdk_glacier.types.string.string"]
     """<p>The Amazon Resource Name (ARN) of the vault from which an archive retrieval was requested.</p>"""
     creation_date: NotRequired["aws_sdk_glacier.types.string.string"]
-    """<p>The UTC date when the job was created. This value is a string representation of ISO 8601 date format, for example <code>\"2012-03-20T17:03:43.221Z\"</code>.</p>"""
+    r"""<p>The UTC date when the job was created. This value is a string representation of ISO 8601 date format, for example <code>\"2012-03-20T17:03:43.221Z\"</code>.</p>"""
     completed: "aws_sdk_glacier.types.boolean.boolean"
     """<p>The job status. When a job is completed, you get the job's output using Get Job Output (GET output).</p>"""
     status_code: NotRequired["aws_sdk_glacier.types.status_code.StatusCode"]

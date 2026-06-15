@@ -12,7 +12,7 @@ if TYPE_CHECKING:
 
 class Indicator(TypedDict):
     key: NotRequired["aws_sdk_guardduty.types.indicator_type.IndicatorType"]
-    """<p>Specific indicator keys observed in the attack sequence. For description of the valid values for key, see <a href=\"https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings-summary.html#guardduty-extended-threat-detection-attack-sequence-finding-details\">Attack sequence finding details</a> in the <i>Amazon GuardDuty User Guide</i>.</p>"""
+    r"""<p>Specific indicator keys observed in the attack sequence. For description of the valid values for key, see <a href=\"https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings-summary.html#guardduty-extended-threat-detection-attack-sequence-finding-details\">Attack sequence finding details</a> in the <i>Amazon GuardDuty User Guide</i>.</p>"""
     values: NotRequired["aws_sdk_guardduty.types.indicator_values.IndicatorValues"]
     """<p>Values associated with each indicator key. For example, if the indicator key is <code>SUSPICIOUS_NETWORK</code>, then the value will be the name of the network. If the indicator key is <code>ATTACK_TACTIC</code>, then the value will be one of the MITRE tactics. </p>"""
     title: NotRequired["aws_sdk_guardduty.types.indicator_title.IndicatorTitle"]

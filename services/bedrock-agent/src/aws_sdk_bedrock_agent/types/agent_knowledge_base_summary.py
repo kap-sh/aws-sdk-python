@@ -21,7 +21,7 @@ class AgentKnowledgeBaseSummary(TypedDict):
     knowledge_base_state: (
         "aws_sdk_bedrock_agent.types.knowledge_base_state.KnowledgeBaseState"
     )
-    """<p>Specifies whether the agent uses the knowledge base or not when sending an <a href=\"https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html\">InvokeAgent</a> request.</p>"""
+    r"""<p>Specifies whether the agent uses the knowledge base or not when sending an <a href=\"https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html\">InvokeAgent</a> request.</p>"""
     updated_at: "aws_sdk_bedrock_agent.types.date_timestamp.DateTimestamp"
     """<p>The time at which the knowledge base associated with an agent was last updated.</p>"""
 

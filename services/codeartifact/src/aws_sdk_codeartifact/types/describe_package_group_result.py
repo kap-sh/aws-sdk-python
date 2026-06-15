@@ -12,7 +12,7 @@ class DescribePackageGroupResult(TypedDict):
     package_group: NotRequired[
         "aws_sdk_codeartifact.types.package_group_description.PackageGroupDescription"
     ]
-    """<p>A <a href=\"https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageGroupDescription.html\">PackageGroupDescription</a> object that contains information about the requested package group.</p>"""
+    r"""<p>A <a href=\"https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageGroupDescription.html\">PackageGroupDescription</a> object that contains information about the requested package group.</p>"""
 
 
 # --- restJson1 ser/de ---

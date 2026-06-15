@@ -18,11 +18,11 @@ class VpcConfigurationUpdate(TypedDict):
     subnet_id_updates: NotRequired[
         "aws_sdk_kinesis_analytics_v2.types.subnet_ids.SubnetIds"
     ]
-    """<p>Describes updates to the array of <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Subnet.html\">Subnet</a> IDs used by the VPC configuration.</p>"""
+    r"""<p>Describes updates to the array of <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Subnet.html\">Subnet</a> IDs used by the VPC configuration.</p>"""
     security_group_id_updates: NotRequired[
         "aws_sdk_kinesis_analytics_v2.types.security_group_ids.SecurityGroupIds"
     ]
-    """<p>Describes updates to the array of <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SecurityGroup.html\">SecurityGroup</a> IDs used by the VPC configuration.</p>"""
+    r"""<p>Describes updates to the array of <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SecurityGroup.html\">SecurityGroup</a> IDs used by the VPC configuration.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

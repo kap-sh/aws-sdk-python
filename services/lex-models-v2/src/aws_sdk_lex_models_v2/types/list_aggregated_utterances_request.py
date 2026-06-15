@@ -26,7 +26,7 @@ class ListAggregatedUtterancesRequest(TypedDict):
     bot_version: NotRequired["aws_sdk_lex_models_v2.types.bot_version.BotVersion"]
     """<p>The identifier of the bot version associated with this request. If you specify the bot version, you can't specify the bot alias.</p>"""
     locale_id: "aws_sdk_lex_models_v2.types.locale_id.LocaleId"
-    """<p>The identifier of the language and locale where the utterances were collected. For more information, see <a href=\"https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html\">Supported languages</a>.</p>"""
+    r"""<p>The identifier of the language and locale where the utterances were collected. For more information, see <a href=\"https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html\">Supported languages</a>.</p>"""
     aggregation_duration: "aws_sdk_lex_models_v2.types.utterance_aggregation_duration.UtteranceAggregationDuration"
     """<p>The time window for aggregating the utterance information. You can specify a time between one hour and two weeks.</p>"""
     sort_by: NotRequired[

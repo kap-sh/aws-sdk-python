@@ -35,7 +35,7 @@ class DescribeModelOutput(TypedDict):
     execution_role_arn: NotRequired["aws_sdk_sagemaker.types.role_arn.RoleArn"]
     """<p>The Amazon Resource Name (ARN) of the IAM role that you specified for the model.</p>"""
     vpc_config: NotRequired["aws_sdk_sagemaker.types.vpc_config.VpcConfig"]
-    """<p>A <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VpcConfig.html\">VpcConfig</a> object that specifies the VPC that this model has access to. For more information, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html\">Protect Endpoints by Using an Amazon Virtual Private Cloud</a> </p>"""
+    r"""<p>A <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VpcConfig.html\">VpcConfig</a> object that specifies the VPC that this model has access to. For more information, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html\">Protect Endpoints by Using an Amazon Virtual Private Cloud</a> </p>"""
     creation_time: NotRequired["aws_sdk_sagemaker.types.timestamp.Timestamp"]
     """<p>A timestamp that shows when the model was created.</p>"""
     model_arn: NotRequired["aws_sdk_sagemaker.types.model_arn.ModelArn"]

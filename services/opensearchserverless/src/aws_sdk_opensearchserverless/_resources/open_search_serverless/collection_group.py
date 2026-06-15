@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 from aws_sdk_opensearchserverless._services._pipeline import (
@@ -57,7 +59,7 @@ class CollectionGroup:
             "aws_sdk_opensearchserverless.types.client_token.ClientToken"
         ] = None,
     ) -> "aws_sdk_opensearchserverless.types.create_collection_group_response.CreateCollectionGroupResponse":
-        """<p>Creates a collection group within OpenSearch Serverless. Collection groups let you manage OpenSearch Compute Units (OCUs) at a group level, with multiple collections sharing the group's capacity limits.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-collection-groups.html\">Managing collection groups</a>.</p>
+        r"""<p>Creates a collection group within OpenSearch Serverless. Collection groups let you manage OpenSearch Compute Units (OCUs) at a group level, with multiple collections sharing the group's capacity limits.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-collection-groups.html\">Managing collection groups</a>.</p>
 
         Args:
             name: <p>The name of the collection group.</p>
@@ -167,7 +169,7 @@ class CollectionGroup:
             "aws_sdk_opensearchserverless.types.client_token.ClientToken"
         ] = None,
     ) -> "aws_sdk_opensearchserverless.types.delete_collection_group_response.DeleteCollectionGroupResponse":
-        """<p>Deletes a collection group. You can only delete empty collection groups that contain no collections. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html\">Creating and managing Amazon OpenSearch Serverless collections</a>.</p>
+        r"""<p>Deletes a collection group. You can only delete empty collection groups that contain no collections. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html\">Creating and managing Amazon OpenSearch Serverless collections</a>.</p>
 
         Args:
             id: <p>The unique identifier of the collection group to delete.</p>
@@ -208,7 +210,7 @@ class CollectionGroup:
         next_token: Optional[str] = None,
         max_results: Optional[int] = None,
     ) -> "aws_sdk_opensearchserverless.types.list_collection_groups_response.ListCollectionGroupsResponse":
-        """<p>Returns a list of collection groups. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html\">Creating and managing Amazon OpenSearch Serverless collections</a>.</p>
+        r"""<p>Returns a list of collection groups. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html\">Creating and managing Amazon OpenSearch Serverless collections</a>.</p>
 
         Args:
             next_token: <p>If your initial <code>ListCollectionGroups</code> operation returns a <code>nextToken</code>, you can include the returned <code>nextToken</code> in subsequent <code>ListCollectionGroups</code> operations, which returns results in the next page.</p>
@@ -266,7 +268,7 @@ class AsyncCollectionGroup:
             "aws_sdk_opensearchserverless.types.client_token.ClientToken"
         ] = None,
     ) -> "aws_sdk_opensearchserverless.types.create_collection_group_response.CreateCollectionGroupResponse":
-        """<p>Creates a collection group within OpenSearch Serverless. Collection groups let you manage OpenSearch Compute Units (OCUs) at a group level, with multiple collections sharing the group's capacity limits.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-collection-groups.html\">Managing collection groups</a>.</p>
+        r"""<p>Creates a collection group within OpenSearch Serverless. Collection groups let you manage OpenSearch Compute Units (OCUs) at a group level, with multiple collections sharing the group's capacity limits.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-collection-groups.html\">Managing collection groups</a>.</p>
 
         Args:
             name: <p>The name of the collection group.</p>
@@ -378,7 +380,7 @@ class AsyncCollectionGroup:
             "aws_sdk_opensearchserverless.types.client_token.ClientToken"
         ] = None,
     ) -> "aws_sdk_opensearchserverless.types.delete_collection_group_response.DeleteCollectionGroupResponse":
-        """<p>Deletes a collection group. You can only delete empty collection groups that contain no collections. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html\">Creating and managing Amazon OpenSearch Serverless collections</a>.</p>
+        r"""<p>Deletes a collection group. You can only delete empty collection groups that contain no collections. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html\">Creating and managing Amazon OpenSearch Serverless collections</a>.</p>
 
         Args:
             id: <p>The unique identifier of the collection group to delete.</p>
@@ -420,7 +422,7 @@ class AsyncCollectionGroup:
         next_token: Optional[str] = None,
         max_results: Optional[int] = None,
     ) -> "aws_sdk_opensearchserverless.types.list_collection_groups_response.ListCollectionGroupsResponse":
-        """<p>Returns a list of collection groups. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html\">Creating and managing Amazon OpenSearch Serverless collections</a>.</p>
+        r"""<p>Returns a list of collection groups. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html\">Creating and managing Amazon OpenSearch Serverless collections</a>.</p>
 
         Args:
             next_token: <p>If your initial <code>ListCollectionGroups</code> operation returns a <code>nextToken</code>, you can include the returned <code>nextToken</code> in subsequent <code>ListCollectionGroups</code> operations, which returns results in the next page.</p>

@@ -14,7 +14,7 @@ class FlinkApplicationConfiguration(TypedDict):
     checkpoint_configuration: NotRequired[
         "aws_sdk_kinesis_analytics_v2.types.checkpoint_configuration.CheckpointConfiguration"
     ]
-    """<p>Describes an application's checkpointing configuration. Checkpointing is the process of persisting application state for fault tolerance. For more information, see <a href=\"https://nightlies.apache.org/flink/flink-docs-release-2.2/docs/dev/datastream/fault-tolerance/checkpointing/#enabling-and-configuring-checkpointing\"> Checkpoints for Fault Tolerance</a> in the <a href=\"https://nightlies.apache.org/flink/flink-docs-release-2.2/\">Apache Flink Documentation</a>. </p>"""
+    r"""<p>Describes an application's checkpointing configuration. Checkpointing is the process of persisting application state for fault tolerance. For more information, see <a href=\"https://nightlies.apache.org/flink/flink-docs-release-2.2/docs/dev/datastream/fault-tolerance/checkpointing/#enabling-and-configuring-checkpointing\"> Checkpoints for Fault Tolerance</a> in the <a href=\"https://nightlies.apache.org/flink/flink-docs-release-2.2/\">Apache Flink Documentation</a>. </p>"""
     monitoring_configuration: NotRequired[
         "aws_sdk_kinesis_analytics_v2.types.monitoring_configuration.MonitoringConfiguration"
     ]

@@ -16,7 +16,7 @@ class HudiTarget(TypedDict):
     connection_name: NotRequired["aws_sdk_glue.types.connection_name.ConnectionName"]
     """<p>The name of the connection to use to connect to the Hudi target. If your Hudi files are stored in buckets that require VPC authorization, you can set their connection properties here.</p>"""
     exclusions: NotRequired["aws_sdk_glue.types.path_list.PathList"]
-    """<p>A list of glob patterns used to exclude from the crawl. For more information, see <a href=\"https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html\">Catalog Tables with a Crawler</a>.</p>"""
+    r"""<p>A list of glob patterns used to exclude from the crawl. For more information, see <a href=\"https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html\">Catalog Tables with a Crawler</a>.</p>"""
     maximum_traversal_depth: NotRequired[
         "aws_sdk_glue.types.nullable_integer.NullableInteger"
     ]

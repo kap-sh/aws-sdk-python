@@ -52,7 +52,7 @@ class UserImportJobType(TypedDict):
     cloud_watch_logs_role_arn: NotRequired[
         "aws_sdk_cognito_identity_provider.types.arn_type.ArnType"
     ]
-    """<p>The role Amazon Resource Name (ARN) for the Amazon CloudWatch Logging role for the user import job. For more information, see \"Creating the CloudWatch Logs IAM Role\" in the Amazon Cognito Developer Guide.</p>"""
+    r"""<p>The role Amazon Resource Name (ARN) for the Amazon CloudWatch Logging role for the user import job. For more information, see \"Creating the CloudWatch Logs IAM Role\" in the Amazon Cognito Developer Guide.</p>"""
     imported_users: "aws_sdk_cognito_identity_provider.types.long_type.LongType"
     """<p>The number of users that were successfully imported.</p>"""
     skipped_users: "aws_sdk_cognito_identity_provider.types.long_type.LongType"

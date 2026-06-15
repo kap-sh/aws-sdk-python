@@ -17,7 +17,7 @@ class GetStatisticsRequest(TypedDict):
     index_name: NotRequired["aws_sdk_iot.types.index_name.IndexName"]
     """<p>The name of the index to search. The default value is <code>AWS_Things</code>.</p>"""
     query_string: "aws_sdk_iot.types.query_string.QueryString"
-    """<p>The query used to search. You can specify \"*\" for the query string to get the count of all indexed things in your Amazon Web Services account.</p>"""
+    r"""<p>The query used to search. You can specify \"*\" for the query string to get the count of all indexed things in your Amazon Web Services account.</p>"""
     aggregation_field: NotRequired[
         "aws_sdk_iot.types.aggregation_field.AggregationField"
     ]

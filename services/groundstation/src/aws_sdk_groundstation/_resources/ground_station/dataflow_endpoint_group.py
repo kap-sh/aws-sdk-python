@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_groundstation._auth._signers
@@ -53,7 +55,7 @@ class DataflowEndpointGroup:
             "aws_sdk_groundstation.types.dataflow_endpoint_group_duration_in_seconds.DataflowEndpointGroupDurationInSeconds"
         ] = None,
     ) -> "aws_sdk_groundstation.types.dataflow_endpoint_group_id_response.DataflowEndpointGroupIdResponse":
-        """<p>Creates a <code>DataflowEndpoint</code> group containing the specified list of <code> DataflowEndpoint</code> objects.</p> <p>The <code>name</code> field in each endpoint is used in your mission profile <code> DataflowEndpointConfig</code> to specify which endpoints to use during a contact.</p> <p>When a contact uses multiple <code>DataflowEndpointConfig</code> objects, each <code> Config</code> must match a <code>DataflowEndpoint</code> in the same group.</p>
+        r"""<p>Creates a <code>DataflowEndpoint</code> group containing the specified list of <code> DataflowEndpoint</code> objects.</p> <p>The <code>name</code> field in each endpoint is used in your mission profile <code> DataflowEndpointConfig</code> to specify which endpoints to use during a contact.</p> <p>When a contact uses multiple <code>DataflowEndpointConfig</code> objects, each <code> Config</code> must match a <code>DataflowEndpoint</code> in the same group.</p>
 
         Args:
             endpoint_details: <p>Endpoint details of each endpoint in the dataflow endpoint group. All dataflow endpoints within a single dataflow endpoint group must be of the same type. You cannot mix <a href=\"https://docs.aws.amazon.com/ground-station/latest/APIReference/API_AwsGroundStationAgentEndpoint.html\"> AWS Ground Station Agent endpoints</a> with <a href=\"https://docs.aws.amazon.com/ground-station/latest/APIReference/API_DataflowEndpoint.html\">Dataflow endpoints</a> in the same group. If your use case requires both types of endpoints, you must create separate dataflow endpoint groups for each type. </p>
@@ -235,7 +237,7 @@ class AsyncDataflowEndpointGroup:
             "aws_sdk_groundstation.types.dataflow_endpoint_group_duration_in_seconds.DataflowEndpointGroupDurationInSeconds"
         ] = None,
     ) -> "aws_sdk_groundstation.types.dataflow_endpoint_group_id_response.DataflowEndpointGroupIdResponse":
-        """<p>Creates a <code>DataflowEndpoint</code> group containing the specified list of <code> DataflowEndpoint</code> objects.</p> <p>The <code>name</code> field in each endpoint is used in your mission profile <code> DataflowEndpointConfig</code> to specify which endpoints to use during a contact.</p> <p>When a contact uses multiple <code>DataflowEndpointConfig</code> objects, each <code> Config</code> must match a <code>DataflowEndpoint</code> in the same group.</p>
+        r"""<p>Creates a <code>DataflowEndpoint</code> group containing the specified list of <code> DataflowEndpoint</code> objects.</p> <p>The <code>name</code> field in each endpoint is used in your mission profile <code> DataflowEndpointConfig</code> to specify which endpoints to use during a contact.</p> <p>When a contact uses multiple <code>DataflowEndpointConfig</code> objects, each <code> Config</code> must match a <code>DataflowEndpoint</code> in the same group.</p>
 
         Args:
             endpoint_details: <p>Endpoint details of each endpoint in the dataflow endpoint group. All dataflow endpoints within a single dataflow endpoint group must be of the same type. You cannot mix <a href=\"https://docs.aws.amazon.com/ground-station/latest/APIReference/API_AwsGroundStationAgentEndpoint.html\"> AWS Ground Station Agent endpoints</a> with <a href=\"https://docs.aws.amazon.com/ground-station/latest/APIReference/API_DataflowEndpoint.html\">Dataflow endpoints</a> in the same group. If your use case requires both types of endpoints, you must create separate dataflow endpoint groups for each type. </p>

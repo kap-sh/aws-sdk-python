@@ -31,7 +31,7 @@ class CreateTransformJobRequest(TypedDict):
     max_concurrent_transforms: NotRequired[
         "aws_sdk_sagemaker.types.max_concurrent_transforms.MaxConcurrentTransforms"
     ]
-    """<p>The maximum number of parallel requests that can be sent to each instance in a transform job. If <code>MaxConcurrentTransforms</code> is set to <code>0</code> or left unset, Amazon SageMaker checks the optional execution-parameters to determine the settings for your chosen algorithm. If the execution-parameters endpoint is not enabled, the default value is <code>1</code>. For more information on execution-parameters, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-batch-code.html#your-algorithms-batch-code-how-containe-serves-requests\">How Containers Serve Requests</a>. For built-in algorithms, you don't need to set a value for <code>MaxConcurrentTransforms</code>.</p>"""
+    r"""<p>The maximum number of parallel requests that can be sent to each instance in a transform job. If <code>MaxConcurrentTransforms</code> is set to <code>0</code> or left unset, Amazon SageMaker checks the optional execution-parameters to determine the settings for your chosen algorithm. If the execution-parameters endpoint is not enabled, the default value is <code>1</code>. For more information on execution-parameters, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-batch-code.html#your-algorithms-batch-code-how-containe-serves-requests\">How Containers Serve Requests</a>. For built-in algorithms, you don't need to set a value for <code>MaxConcurrentTransforms</code>.</p>"""
     model_client_config: NotRequired[
         "aws_sdk_sagemaker.types.model_client_config.ModelClientConfig"
     ]
@@ -65,9 +65,9 @@ class CreateTransformJobRequest(TypedDict):
     data_processing: NotRequired[
         "aws_sdk_sagemaker.types.data_processing.DataProcessing"
     ]
-    """<p>The data structure used to specify the data to be used for inference in a batch transform job and to associate the data that is relevant to the prediction results in the output. The input filter provided allows you to exclude input data that is not needed for inference in a batch transform job. The output filter provided allows you to include input data relevant to interpreting the predictions in the output from the job. For more information, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html\">Associate Prediction Results with their Corresponding Input Records</a>.</p>"""
+    r"""<p>The data structure used to specify the data to be used for inference in a batch transform job and to associate the data that is relevant to the prediction results in the output. The input filter provided allows you to exclude input data that is not needed for inference in a batch transform job. The output filter provided allows you to include input data relevant to interpreting the predictions in the output from the job. For more information, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html\">Associate Prediction Results with their Corresponding Input Records</a>.</p>"""
     tags: NotRequired["aws_sdk_sagemaker.types.tag_list.TagList"]
-    """<p>(Optional) An array of key-value pairs. For more information, see <a href=\"https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what\">Using Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management User Guide</i>.</p>"""
+    r"""<p>(Optional) An array of key-value pairs. For more information, see <a href=\"https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what\">Using Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management User Guide</i>.</p>"""
     experiment_config: NotRequired[
         "aws_sdk_sagemaker.types.experiment_config.ExperimentConfig"
     ]

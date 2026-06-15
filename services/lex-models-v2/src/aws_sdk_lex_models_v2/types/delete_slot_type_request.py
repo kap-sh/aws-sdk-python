@@ -17,7 +17,7 @@ class DeleteSlotTypeRequest(TypedDict):
     bot_version: "aws_sdk_lex_models_v2.types.draft_bot_version.DraftBotVersion"
     """<p>The version of the bot associated with the slot type.</p>"""
     locale_id: "aws_sdk_lex_models_v2.types.locale_id.LocaleId"
-    """<p>The identifier of the language and locale that the slot type will be deleted from. The string must match one of the supported locales. For more information, see <a href=\"https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html\">Supported languages</a>.</p>"""
+    r"""<p>The identifier of the language and locale that the slot type will be deleted from. The string must match one of the supported locales. For more information, see <a href=\"https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html\">Supported languages</a>.</p>"""
     skip_resource_in_use_check: (
         "aws_sdk_lex_models_v2.types.skip_resource_in_use_check.SkipResourceInUseCheck"
     )

@@ -23,7 +23,7 @@ class Alarm(TypedDict):
     ]
     """<p>The version of the alarm model.</p>"""
     key_value: NotRequired["aws_sdk_iot_events_data.types.key_value.KeyValue"]
-    """<p>The value of the key used as a filter to select only the alarms associated with the <a href=\"https://docs.aws.amazon.com/iotevents/latest/apireference/API_CreateAlarmModel.html#iotevents-CreateAlarmModel-request-key\">key</a>.</p>"""
+    r"""<p>The value of the key used as a filter to select only the alarms associated with the <a href=\"https://docs.aws.amazon.com/iotevents/latest/apireference/API_CreateAlarmModel.html#iotevents-CreateAlarmModel-request-key\">key</a>.</p>"""
     alarm_state: NotRequired["aws_sdk_iot_events_data.types.alarm_state.AlarmState"]
     """<p>Contains information about the current state of the alarm.</p>"""
     severity: NotRequired["aws_sdk_iot_events_data.types.severity.Severity"]

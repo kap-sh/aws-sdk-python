@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_s3tables._auth._signers
@@ -42,7 +44,7 @@ class TablePolicyResource:
         *,
         config_overrides: Optional[S3TablesClientConfig] = None,
     ) -> None:
-        """<p>Deletes a table policy. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-table-policy.html#table-policy-delete\">Deleting a table policy</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3tables:DeleteTablePolicy</code> permission to use this operation. </p> </dd> </dl>
+        r"""<p>Deletes a table policy. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-table-policy.html#table-policy-delete\">Deleting a table policy</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3tables:DeleteTablePolicy</code> permission to use this operation. </p> </dd> </dl>
 
         Args:
             table_bucket_arn: <p>The Amazon Resource Name (ARN) of the table bucket that contains the table.</p>
@@ -83,7 +85,7 @@ class TablePolicyResource:
         *,
         config_overrides: Optional[S3TablesClientConfig] = None,
     ) -> "aws_sdk_s3tables.types.get_table_policy_response.GetTablePolicyResponse":
-        """<p>Gets details about a table policy. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-table-policy.html#table-policy-get\">Viewing a table policy</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3tables:GetTablePolicy</code> permission to use this operation. </p> </dd> </dl>
+        r"""<p>Gets details about a table policy. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-table-policy.html#table-policy-get\">Viewing a table policy</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3tables:GetTablePolicy</code> permission to use this operation. </p> </dd> </dl>
 
         Args:
             table_bucket_arn: <p>The Amazon Resource Name (ARN) of the table bucket that contains the table.</p>
@@ -127,7 +129,7 @@ class TablePolicyResource:
         *,
         config_overrides: Optional[S3TablesClientConfig] = None,
     ) -> None:
-        """<p>Creates a new table policy or replaces an existing table policy for a table. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-table-policy.html#table-policy-add\">Adding a table policy</a> in the <i>Amazon Simple Storage Service User Guide</i>. </p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3tables:PutTablePolicy</code> permission to use this operation. </p> </dd> </dl>
+        r"""<p>Creates a new table policy or replaces an existing table policy for a table. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-table-policy.html#table-policy-add\">Adding a table policy</a> in the <i>Amazon Simple Storage Service User Guide</i>. </p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3tables:PutTablePolicy</code> permission to use this operation. </p> </dd> </dl>
 
         Args:
             table_bucket_arn: <p>The Amazon Resource Name (ARN) of the table bucket that contains the table.</p>
@@ -175,7 +177,7 @@ class AsyncTablePolicyResource:
         *,
         config_overrides: Optional[AsyncS3TablesClientConfig] = None,
     ) -> None:
-        """<p>Deletes a table policy. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-table-policy.html#table-policy-delete\">Deleting a table policy</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3tables:DeleteTablePolicy</code> permission to use this operation. </p> </dd> </dl>
+        r"""<p>Deletes a table policy. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-table-policy.html#table-policy-delete\">Deleting a table policy</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3tables:DeleteTablePolicy</code> permission to use this operation. </p> </dd> </dl>
 
         Args:
             table_bucket_arn: <p>The Amazon Resource Name (ARN) of the table bucket that contains the table.</p>
@@ -217,7 +219,7 @@ class AsyncTablePolicyResource:
         *,
         config_overrides: Optional[AsyncS3TablesClientConfig] = None,
     ) -> "aws_sdk_s3tables.types.get_table_policy_response.GetTablePolicyResponse":
-        """<p>Gets details about a table policy. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-table-policy.html#table-policy-get\">Viewing a table policy</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3tables:GetTablePolicy</code> permission to use this operation. </p> </dd> </dl>
+        r"""<p>Gets details about a table policy. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-table-policy.html#table-policy-get\">Viewing a table policy</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3tables:GetTablePolicy</code> permission to use this operation. </p> </dd> </dl>
 
         Args:
             table_bucket_arn: <p>The Amazon Resource Name (ARN) of the table bucket that contains the table.</p>
@@ -262,7 +264,7 @@ class AsyncTablePolicyResource:
         *,
         config_overrides: Optional[AsyncS3TablesClientConfig] = None,
     ) -> None:
-        """<p>Creates a new table policy or replaces an existing table policy for a table. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-table-policy.html#table-policy-add\">Adding a table policy</a> in the <i>Amazon Simple Storage Service User Guide</i>. </p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3tables:PutTablePolicy</code> permission to use this operation. </p> </dd> </dl>
+        r"""<p>Creates a new table policy or replaces an existing table policy for a table. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-table-policy.html#table-policy-add\">Adding a table policy</a> in the <i>Amazon Simple Storage Service User Guide</i>. </p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3tables:PutTablePolicy</code> permission to use this operation. </p> </dd> </dl>
 
         Args:
             table_bucket_arn: <p>The Amazon Resource Name (ARN) of the table bucket that contains the table.</p>

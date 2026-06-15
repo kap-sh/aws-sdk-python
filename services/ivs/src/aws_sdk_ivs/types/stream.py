@@ -24,7 +24,7 @@ class Stream(TypedDict):
     start_time: NotRequired["aws_sdk_ivs.types.stream_start_time.StreamStartTime"]
     """<p>Time of the stream’s start. This is an ISO 8601 timestamp; <i>note that this is returned as a string</i>.</p>"""
     state: NotRequired["aws_sdk_ivs.types.stream_state.StreamState"]
-    """<p>The stream’s state. Do not rely on the <code>OFFLINE</code> state, as the API may not return it; instead, a \"NotBroadcasting\" error will indicate that the stream is not live.</p>"""
+    r"""<p>The stream’s state. Do not rely on the <code>OFFLINE</code> state, as the API may not return it; instead, a \"NotBroadcasting\" error will indicate that the stream is not live.</p>"""
     health: NotRequired["aws_sdk_ivs.types.stream_health.StreamHealth"]
     """<p>The stream’s health.</p>"""
     viewer_count: "aws_sdk_ivs.types.stream_viewer_count.StreamViewerCount"

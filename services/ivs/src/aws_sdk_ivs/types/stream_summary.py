@@ -19,7 +19,7 @@ class StreamSummary(TypedDict):
     stream_id: NotRequired["aws_sdk_ivs.types.stream_id.StreamId"]
     """<p>Unique identifier for a live or previously live stream in the specified channel.</p>"""
     state: NotRequired["aws_sdk_ivs.types.stream_state.StreamState"]
-    """<p>The stream’s state. Do not rely on the <code>OFFLINE</code> state, as the API may not return it; instead, a \"NotBroadcasting\" error will indicate that the stream is not live.</p>"""
+    r"""<p>The stream’s state. Do not rely on the <code>OFFLINE</code> state, as the API may not return it; instead, a \"NotBroadcasting\" error will indicate that the stream is not live.</p>"""
     health: NotRequired["aws_sdk_ivs.types.stream_health.StreamHealth"]
     """<p>The stream’s health.</p>"""
     viewer_count: "aws_sdk_ivs.types.stream_viewer_count.StreamViewerCount"

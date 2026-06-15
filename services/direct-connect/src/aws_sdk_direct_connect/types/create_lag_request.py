@@ -41,7 +41,7 @@ class CreateLagRequest(TypedDict):
     request_mac_sec: NotRequired[
         "aws_sdk_direct_connect.types.request_mac_sec.RequestMACSec"
     ]
-    """<p>Indicates whether the connection will support MAC Security (MACsec).</p> <note> <p>All connections in the LAG must be capable of supporting MAC Security (MACsec). For information about MAC Security (MACsec) prerequisties, see <a href=\"https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites\">MACsec prerequisties</a> in the <i>Direct Connect User Guide</i>.</p> </note>"""
+    r"""<p>Indicates whether the connection will support MAC Security (MACsec).</p> <note> <p>All connections in the LAG must be capable of supporting MAC Security (MACsec). For information about MAC Security (MACsec) prerequisties, see <a href=\"https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites\">MACsec prerequisties</a> in the <i>Direct Connect User Guide</i>.</p> </note>"""
 
 
 # --- awsJson1_1 ser/de ---

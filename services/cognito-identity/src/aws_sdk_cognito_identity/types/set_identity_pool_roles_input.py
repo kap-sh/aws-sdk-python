@@ -16,7 +16,7 @@ class SetIdentityPoolRolesInput(TypedDict):
     identity_pool_id: "aws_sdk_cognito_identity.types.identity_pool_id.IdentityPoolId"
     """<p>An identity pool ID in the format REGION:GUID.</p>"""
     roles: "aws_sdk_cognito_identity.types.roles_map.RolesMap"
-    """<p>The map of roles associated with this pool. For a given role, the key will be either \"authenticated\" or \"unauthenticated\" and the value will be the Role ARN.</p>"""
+    r"""<p>The map of roles associated with this pool. For a given role, the key will be either \"authenticated\" or \"unauthenticated\" and the value will be the Role ARN.</p>"""
     role_mappings: NotRequired[
         "aws_sdk_cognito_identity.types.role_mapping_map.RoleMappingMap"
     ]

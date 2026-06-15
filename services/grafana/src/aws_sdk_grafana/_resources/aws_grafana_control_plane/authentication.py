@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_grafana._auth._signers
@@ -77,7 +79,7 @@ class Authentication:
             "aws_sdk_grafana.types.saml_configuration.SamlConfiguration"
         ] = None,
     ) -> "aws_sdk_grafana.types.update_workspace_authentication_response.UpdateWorkspaceAuthenticationResponse":
-        """<p>Use this operation to define the identity provider (IdP) that this workspace authenticates users from, using SAML. You can also map SAML assertion attributes to workspace user information and define which groups in the assertion attribute are to have the <code>Admin</code> and <code>Editor</code> roles in the workspace.</p> <note> <p>Changes to the authentication method for a workspace may take a few minutes to take effect.</p> </note>
+        r"""<p>Use this operation to define the identity provider (IdP) that this workspace authenticates users from, using SAML. You can also map SAML assertion attributes to workspace user information and define which groups in the assertion attribute are to have the <code>Admin</code> and <code>Editor</code> roles in the workspace.</p> <note> <p>Changes to the authentication method for a workspace may take a few minutes to take effect.</p> </note>
 
         Args:
             workspace_id: <p>The ID of the workspace to update the authentication for.</p>
@@ -166,7 +168,7 @@ class AsyncAuthentication:
             "aws_sdk_grafana.types.saml_configuration.SamlConfiguration"
         ] = None,
     ) -> "aws_sdk_grafana.types.update_workspace_authentication_response.UpdateWorkspaceAuthenticationResponse":
-        """<p>Use this operation to define the identity provider (IdP) that this workspace authenticates users from, using SAML. You can also map SAML assertion attributes to workspace user information and define which groups in the assertion attribute are to have the <code>Admin</code> and <code>Editor</code> roles in the workspace.</p> <note> <p>Changes to the authentication method for a workspace may take a few minutes to take effect.</p> </note>
+        r"""<p>Use this operation to define the identity provider (IdP) that this workspace authenticates users from, using SAML. You can also map SAML assertion attributes to workspace user information and define which groups in the assertion attribute are to have the <code>Admin</code> and <code>Editor</code> roles in the workspace.</p> <note> <p>Changes to the authentication method for a workspace may take a few minutes to take effect.</p> </note>
 
         Args:
             workspace_id: <p>The ID of the workspace to update the authentication for.</p>

@@ -1,11 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#EvaluatorStatistics``."""
 
 from typing import TypedDict
+
 from typing_extensions import NotRequired
+
 
 class EvaluatorStatistics(TypedDict):
     average_score: NotRequired["float"]
     """<p>The average score across all evaluated sessions for this evaluator.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: EvaluatorStatistics) -> dict:

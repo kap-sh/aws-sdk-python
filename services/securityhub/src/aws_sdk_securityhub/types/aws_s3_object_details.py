@@ -12,7 +12,7 @@ class AwsS3ObjectDetails(TypedDict):
     last_modified: NotRequired[
         "aws_sdk_securityhub.types.non_empty_string.NonEmptyString"
     ]
-    """<p>Indicates when the object was last modified.</p> <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href=\"https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps\">Timestamps</a>.</p>"""
+    r"""<p>Indicates when the object was last modified.</p> <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href=\"https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps\">Timestamps</a>.</p>"""
     e_tag: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p>The opaque identifier assigned by a web server to a specific version of a resource found at a URL.</p>"""
     version_id: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]

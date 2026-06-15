@@ -16,7 +16,7 @@ class ListCoreDevicesRequest(TypedDict):
     thing_group_arn: NotRequired[
         "aws_sdk_greengrassv2.types.thing_group_arn.ThingGroupARN"
     ]
-    """<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the IoT thing group by which to filter. If you specify this parameter, the list includes only core devices that have successfully deployed a deployment that targets the thing group. When you remove a core device from a thing group, the list continues to include that core device.</p>"""
+    r"""<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the IoT thing group by which to filter. If you specify this parameter, the list includes only core devices that have successfully deployed a deployment that targets the thing group. When you remove a core device from a thing group, the list continues to include that core device.</p>"""
     status: NotRequired[
         "aws_sdk_greengrassv2.types.core_device_status.CoreDeviceStatus"
     ]

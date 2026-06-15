@@ -22,7 +22,7 @@ if TYPE_CHECKING:
 
 class AudioCodecSettings(TypedDict):
     aac_settings: NotRequired["aws_sdk_mediaconvert.types.aac_settings.AacSettings"]
-    """Required when you set Codec to the value AAC. The service accepts one of two mutually exclusive groups of AAC settings--VBR and CBR. To select one of these modes, set the value of Bitrate control mode to \"VBR\" or \"CBR\". In VBR mode, you control the audio quality with the setting VBR quality. In CBR mode, you use the setting Bitrate. Defaults and valid values depend on the rate control mode."""
+    r"""Required when you set Codec to the value AAC. The service accepts one of two mutually exclusive groups of AAC settings--VBR and CBR. To select one of these modes, set the value of Bitrate control mode to \"VBR\" or \"CBR\". In VBR mode, you control the audio quality with the setting VBR quality. In CBR mode, you use the setting Bitrate. Defaults and valid values depend on the rate control mode."""
     ac3_settings: NotRequired["aws_sdk_mediaconvert.types.ac3_settings.Ac3Settings"]
     """Required when you set Codec to the value AC3."""
     ac4_settings: NotRequired["aws_sdk_mediaconvert.types.ac4_settings.Ac4Settings"]

@@ -21,7 +21,7 @@ class DeleteResourcePolicyResult(TypedDict):
     ]
     """<p>The JSON formatted resource-based policy that was deleted.</p>"""
     created_timestamp: NotRequired["datetime.datetime"]
-    """<p>The time when the resource-based policy was created, in <a href=\"https://www.epochconverter.com/\">UNIX epoch time</a> format.</p>"""
+    r"""<p>The time when the resource-based policy was created, in <a href=\"https://www.epochconverter.com/\">UNIX epoch time</a> format.</p>"""
 
 
 # --- awsJson1_0 ser/de ---

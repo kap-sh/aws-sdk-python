@@ -7,7 +7,7 @@ from typing_extensions import NotRequired
 
 class Licensing(TypedDict):
     os_byol: NotRequired["bool"]
-    """<p>Whether to enable \"Bring your own license\" or not.</p>"""
+    r"""<p>Whether to enable \"Bring your own license\" or not.</p>"""
 
 
 # --- restJson1 ser/de ---

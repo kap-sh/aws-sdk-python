@@ -15,7 +15,7 @@ class GetResourceRequest(TypedDict):
     resource_id: "aws_sdk_api_gateway.types.string.String"
     """<p>The identifier for the Resource resource.</p>"""
     embed: NotRequired["aws_sdk_api_gateway.types.list_of_string.ListOfString"]
-    """<p>A query parameter to retrieve the specified resources embedded in the returned Resource representation in the response. This <code>embed</code> parameter value is a list of comma-separated strings. Currently, the request supports only retrieval of the embedded Method resources this way. The query parameter value must be a single-valued list and contain the <code>\"methods\"</code> string. For example, <code>GET /restapis/{restapi_id}/resources/{resource_id}?embed=methods</code>.</p>"""
+    r"""<p>A query parameter to retrieve the specified resources embedded in the returned Resource representation in the response. This <code>embed</code> parameter value is a list of comma-separated strings. Currently, the request supports only retrieval of the embedded Method resources this way. The query parameter value must be a single-valued list and contain the <code>\"methods\"</code> string. For example, <code>GET /restapis/{restapi_id}/resources/{resource_id}?embed=methods</code>.</p>"""
 
 
 # --- restJson1 ser/de ---

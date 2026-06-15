@@ -35,7 +35,7 @@ class StackInstanceResourceDriftsSummary(TypedDict):
     resource_type: NotRequired[
         "aws_sdk_cloudformation.types.resource_type.ResourceType"
     ]
-    """<p>Type of resource. For more information, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html\">Amazon Web Services resource and property types reference</a> in the <i>CloudFormation User Guide</i>.</p>"""
+    r"""<p>Type of resource. For more information, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html\">Amazon Web Services resource and property types reference</a> in the <i>CloudFormation User Guide</i>.</p>"""
     property_differences: NotRequired[
         "aws_sdk_cloudformation.types.property_differences.PropertyDifferences"
     ]

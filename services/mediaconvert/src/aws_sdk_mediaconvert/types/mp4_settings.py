@@ -44,7 +44,7 @@ class Mp4Settings(TypedDict):
     ]
     """To place the MOOV atom at the beginning of your output, which is useful for progressive downloading: Leave blank or choose Progressive download. To place the MOOV at the end of your output: Choose Normal."""
     mp4_major_brand: NotRequired["aws_sdk_mediaconvert.types.__string.__string"]
-    """Overrides the \"Major Brand\" field in the output file. Usually not necessary to specify."""
+    r"""Overrides the \"Major Brand\" field in the output file. Usually not necessary to specify."""
     signing_kms_key: NotRequired[
         "aws_sdk_mediaconvert.types.__string_min1_pattern_arn_aws_us_gov_cn_kms_az26_east_west_central_north_south_east_west1912_d12_key_afaf098_afaf094_afaf094_afaf094_afaf0912_mrk_afaf0932.__stringMin1PatternArnAwsUsGovCnKmsAZ26EastWestCentralNorthSouthEastWest1912D12KeyAFAF098AFAF094AFAF094AFAF094AFAF0912MrkAFAF0932"
     ]

@@ -13,7 +13,7 @@ class AwsWafv2VisibilityConfigDetails(TypedDict):
     cloud_watch_metrics_enabled: NotRequired[
         "aws_sdk_securityhub.types.boolean.Boolean"
     ]
-    """<p> A boolean indicating whether the associated resource sends metrics to Amazon CloudWatch. For the list of available metrics, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics\">WAF metrics and dimensions</a> in the <i>WAF Developer Guide</i>. </p>"""
+    r"""<p> A boolean indicating whether the associated resource sends metrics to Amazon CloudWatch. For the list of available metrics, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics\">WAF metrics and dimensions</a> in the <i>WAF Developer Guide</i>. </p>"""
     metric_name: NotRequired[
         "aws_sdk_securityhub.types.non_empty_string.NonEmptyString"
     ]

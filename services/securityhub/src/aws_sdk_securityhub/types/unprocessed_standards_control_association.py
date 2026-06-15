@@ -14,7 +14,7 @@ class UnprocessedStandardsControlAssociation(TypedDict):
     standards_control_association_id: NotRequired[
         "aws_sdk_securityhub.types.standards_control_association_id.StandardsControlAssociationId"
     ]
-    """<p> An array with one or more objects that includes a security control (identified with <code>SecurityControlId</code>, <code>SecurityControlArn</code>, or a mix of both parameters) and the Amazon Resource Name (ARN) of a standard. This parameter shows the specific controls for which the enablement status couldn't be retrieved in specified standards when calling <a href=\"https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchUpdateStandardsControlAssociations.html\">BatchUpdateStandardsControlAssociations</a>. </p>"""
+    r"""<p> An array with one or more objects that includes a security control (identified with <code>SecurityControlId</code>, <code>SecurityControlArn</code>, or a mix of both parameters) and the Amazon Resource Name (ARN) of a standard. This parameter shows the specific controls for which the enablement status couldn't be retrieved in specified standards when calling <a href=\"https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchUpdateStandardsControlAssociations.html\">BatchUpdateStandardsControlAssociations</a>. </p>"""
     error_code: NotRequired[
         "aws_sdk_securityhub.types.unprocessed_error_code.UnprocessedErrorCode"
     ]

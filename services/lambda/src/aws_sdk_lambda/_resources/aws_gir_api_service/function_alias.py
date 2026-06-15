@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_lambda._auth._signers
@@ -49,7 +51,7 @@ class FunctionAlias:
             "aws_sdk_lambda.types.alias_routing_configuration.AliasRoutingConfiguration"
         ] = None,
     ) -> "aws_sdk_lambda.types.alias_configuration.AliasConfiguration":
-        """<p>Creates an <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html\">alias</a> for a Lambda function version. Use aliases to provide clients with a function identifier that you can update to invoke a different version.</p> <p>You can also map an alias to split invocation requests between two versions. Use the <code>RoutingConfig</code> parameter to specify a second version and the percentage of invocation requests that it receives.</p>
+        r"""<p>Creates an <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html\">alias</a> for a Lambda function version. Use aliases to provide clients with a function identifier that you can update to invoke a different version.</p> <p>You can also map an alias to split invocation requests between two versions. Use the <code>RoutingConfig</code> parameter to specify a second version and the percentage of invocation requests that it receives.</p>
 
         Args:
             function_name: <p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
@@ -103,7 +105,7 @@ class FunctionAlias:
         *,
         config_overrides: Optional[LambdaClientConfig] = None,
     ) -> "aws_sdk_lambda.types.alias_configuration.AliasConfiguration":
-        """<p>Returns details about a Lambda function <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html\">alias</a>.</p>
+        r"""<p>Returns details about a Lambda function <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html\">alias</a>.</p>
 
         Args:
             function_name: <p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
@@ -157,7 +159,7 @@ class FunctionAlias:
         ] = None,
         revision_id: Optional["aws_sdk_lambda.types.string.String"] = None,
     ) -> "aws_sdk_lambda.types.alias_configuration.AliasConfiguration":
-        """<p>Updates the configuration of a Lambda function <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html\">alias</a>.</p>
+        r"""<p>Updates the configuration of a Lambda function <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html\">alias</a>.</p>
 
         Args:
             function_name: <p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
@@ -215,7 +217,7 @@ class FunctionAlias:
         *,
         config_overrides: Optional[LambdaClientConfig] = None,
     ) -> None:
-        """<p>Deletes a Lambda function <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html\">alias</a>.</p>
+        r"""<p>Deletes a Lambda function <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html\">alias</a>.</p>
 
         Args:
             function_name: <p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
@@ -263,7 +265,7 @@ class FunctionAlias:
         marker: Optional["aws_sdk_lambda.types.string.String"] = None,
         max_items: Optional["aws_sdk_lambda.types.max_list_items.MaxListItems"] = None,
     ) -> "aws_sdk_lambda.types.list_aliases_response.ListAliasesResponse":
-        """<p>Returns a list of <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html\">aliases</a> for a Lambda function.</p>
+        r"""<p>Returns a list of <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html\">aliases</a> for a Lambda function.</p>
 
         Args:
             function_name: <p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
@@ -326,7 +328,7 @@ class AsyncFunctionAlias:
             "aws_sdk_lambda.types.alias_routing_configuration.AliasRoutingConfiguration"
         ] = None,
     ) -> "aws_sdk_lambda.types.alias_configuration.AliasConfiguration":
-        """<p>Creates an <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html\">alias</a> for a Lambda function version. Use aliases to provide clients with a function identifier that you can update to invoke a different version.</p> <p>You can also map an alias to split invocation requests between two versions. Use the <code>RoutingConfig</code> parameter to specify a second version and the percentage of invocation requests that it receives.</p>
+        r"""<p>Creates an <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html\">alias</a> for a Lambda function version. Use aliases to provide clients with a function identifier that you can update to invoke a different version.</p> <p>You can also map an alias to split invocation requests between two versions. Use the <code>RoutingConfig</code> parameter to specify a second version and the percentage of invocation requests that it receives.</p>
 
         Args:
             function_name: <p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
@@ -381,7 +383,7 @@ class AsyncFunctionAlias:
         *,
         config_overrides: Optional[AsyncLambdaClientConfig] = None,
     ) -> "aws_sdk_lambda.types.alias_configuration.AliasConfiguration":
-        """<p>Returns details about a Lambda function <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html\">alias</a>.</p>
+        r"""<p>Returns details about a Lambda function <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html\">alias</a>.</p>
 
         Args:
             function_name: <p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
@@ -436,7 +438,7 @@ class AsyncFunctionAlias:
         ] = None,
         revision_id: Optional["aws_sdk_lambda.types.string.String"] = None,
     ) -> "aws_sdk_lambda.types.alias_configuration.AliasConfiguration":
-        """<p>Updates the configuration of a Lambda function <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html\">alias</a>.</p>
+        r"""<p>Updates the configuration of a Lambda function <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html\">alias</a>.</p>
 
         Args:
             function_name: <p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
@@ -495,7 +497,7 @@ class AsyncFunctionAlias:
         *,
         config_overrides: Optional[AsyncLambdaClientConfig] = None,
     ) -> None:
-        """<p>Deletes a Lambda function <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html\">alias</a>.</p>
+        r"""<p>Deletes a Lambda function <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html\">alias</a>.</p>
 
         Args:
             function_name: <p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
@@ -544,7 +546,7 @@ class AsyncFunctionAlias:
         marker: Optional["aws_sdk_lambda.types.string.String"] = None,
         max_items: Optional["aws_sdk_lambda.types.max_list_items.MaxListItems"] = None,
     ) -> "aws_sdk_lambda.types.list_aliases_response.ListAliasesResponse":
-        """<p>Returns a list of <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html\">aliases</a> for a Lambda function.</p>
+        r"""<p>Returns a list of <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html\">aliases</a> for a Lambda function.</p>
 
         Args:
             function_name: <p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>

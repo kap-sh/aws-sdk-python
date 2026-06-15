@@ -26,7 +26,7 @@ class RepositoryTrigger(TypedDict):
     branches: NotRequired["aws_sdk_codecommit.types.branch_name_list.BranchNameList"]
     """<p>The branches to be included in the trigger configuration. If you specify an empty array, the trigger applies to all branches.</p> <note> <p>Although no content is required in the array, you must include the array itself.</p> </note>"""
     events: "aws_sdk_codecommit.types.repository_trigger_event_list.RepositoryTriggerEventList"
-    """<p>The repository events that cause the trigger to run actions in another service, such as sending a notification through Amazon SNS. </p> <note> <p>The valid value \"all\" cannot be used with any other values.</p> </note>"""
+    r"""<p>The repository events that cause the trigger to run actions in another service, such as sending a notification through Amazon SNS. </p> <note> <p>The valid value \"all\" cannot be used with any other values.</p> </note>"""
 
 
 # --- awsJson1_1 ser/de ---

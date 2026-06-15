@@ -14,7 +14,7 @@ class ListCampaignsRequest(TypedDict):
     solution_arn: NotRequired["aws_sdk_personalize.types.arn.Arn"]
     """<p>The Amazon Resource Name (ARN) of the solution to list the campaigns for. When a solution is not specified, all the campaigns associated with the account are listed.</p>"""
     next_token: NotRequired["aws_sdk_personalize.types.next_token.NextToken"]
-    """<p>A token returned from the previous call to <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/API_ListCampaigns.html\">ListCampaigns</a> for getting the next set of campaigns (if they exist).</p>"""
+    r"""<p>A token returned from the previous call to <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/API_ListCampaigns.html\">ListCampaigns</a> for getting the next set of campaigns (if they exist).</p>"""
     max_results: NotRequired["aws_sdk_personalize.types.max_results.MaxResults"]
     """<p>The maximum number of campaigns to return.</p>"""
 

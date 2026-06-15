@@ -207,7 +207,7 @@ class IoTEventsDataClient:
         *,
         config_overrides: Optional[IoTEventsDataClientConfig] = None,
     ) -> "aws_sdk_iot_events_data.types.batch_delete_detector_response.BatchDeleteDetectorResponse":
-        """<p>Deletes one or more detectors that were created. When a detector is deleted, its state will be cleared and the detector will be removed from the list of detectors. The deleted detector will no longer appear if referenced in the <a href=\"https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_ListDetectors.html\">ListDetectors</a> API call.</p>
+        r"""<p>Deletes one or more detectors that were created. When a detector is deleted, its state will be cleared and the detector will be removed from the list of detectors. The deleted detector will no longer appear if referenced in the <a href=\"https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_ListDetectors.html\">ListDetectors</a> API call.</p>
 
         Args:
             detectors: <p>The list of one or more detectors to be deleted.</p>
@@ -318,7 +318,7 @@ class IoTEventsDataClient:
         *,
         config_overrides: Optional[IoTEventsDataClientConfig] = None,
     ) -> "aws_sdk_iot_events_data.types.batch_put_message_response.BatchPutMessageResponse":
-        """<p>Sends a set of messages to the IoT Events system. Each message payload is transformed into the input you specify (<code>\"inputName\"</code>) and ingested into any detectors that monitor that input. If multiple messages are sent, the order in which the messages are processed isn't guaranteed. To guarantee ordering, you must send messages one at a time and wait for a successful response.</p>
+        r"""<p>Sends a set of messages to the IoT Events system. Each message payload is transformed into the input you specify (<code>\"inputName\"</code>) and ingested into any detectors that monitor that input. If multiple messages are sent, the order in which the messages are processed isn't guaranteed. To guarantee ordering, you must send messages one at a time and wait for a successful response.</p>
 
         Args:
             messages: <p>The list of messages to send. Each message has the following format: <code>'{ \"messageId\": \"string\", \"inputName\": \"string\", \"payload\": \"string\"}'</code> </p>
@@ -467,7 +467,7 @@ class IoTEventsDataClient:
         config_overrides: Optional[IoTEventsDataClientConfig] = None,
         key_value: Optional["aws_sdk_iot_events_data.types.key_value.KeyValue"] = None,
     ) -> "aws_sdk_iot_events_data.types.describe_alarm_response.DescribeAlarmResponse":
-        """<p>Retrieves information about an alarm.</p>
+        r"""<p>Retrieves information about an alarm.</p>
 
         Args:
             alarm_model_name: <p>The name of the alarm model.</p>

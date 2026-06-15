@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_migrationhuborchestrator._auth._signers
@@ -56,7 +58,7 @@ class MigrationWorkflowTemplate:
         ] = None,
         tags: Optional["aws_sdk_migrationhuborchestrator.types.tag_map.TagMap"] = None,
     ) -> "aws_sdk_migrationhuborchestrator.types.create_template_response.CreateTemplateResponse":
-        """<p>Creates a migration workflow template.</p>
+        r"""<p>Creates a migration workflow template.</p>
 
         Args:
             template_name: <p>The name of the migration workflow template.</p>
@@ -292,7 +294,7 @@ class AsyncMigrationWorkflowTemplate:
         ] = None,
         tags: Optional["aws_sdk_migrationhuborchestrator.types.tag_map.TagMap"] = None,
     ) -> "aws_sdk_migrationhuborchestrator.types.create_template_response.CreateTemplateResponse":
-        """<p>Creates a migration workflow template.</p>
+        r"""<p>Creates a migration workflow template.</p>
 
         Args:
             template_name: <p>The name of the migration workflow template.</p>

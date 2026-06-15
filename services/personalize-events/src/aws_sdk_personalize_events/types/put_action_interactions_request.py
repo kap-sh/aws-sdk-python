@@ -11,7 +11,7 @@ if TYPE_CHECKING:
 
 class PutActionInteractionsRequest(TypedDict):
     tracking_id: "aws_sdk_personalize_events.types.string_type.StringType"
-    """<p>The ID of your action interaction event tracker. When you create an Action interactions dataset, Amazon Personalize creates an action interaction event tracker for you. For more information, see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/action-interaction-tracker-id.html\">Action interaction event tracker ID</a>.</p>"""
+    r"""<p>The ID of your action interaction event tracker. When you create an Action interactions dataset, Amazon Personalize creates an action interaction event tracker for you. For more information, see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/action-interaction-tracker-id.html\">Action interaction event tracker ID</a>.</p>"""
     action_interactions: "aws_sdk_personalize_events.types.action_interactions_list.ActionInteractionsList"
     """<p>A list of action interaction events from the session.</p>"""
 

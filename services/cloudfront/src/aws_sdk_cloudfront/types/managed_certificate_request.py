@@ -23,7 +23,7 @@ class ManagedCertificateRequest(TypedDict):
     certificate_transparency_logging_preference: NotRequired[
         "aws_sdk_cloudfront.types.certificate_transparency_logging_preference.CertificateTransparencyLoggingPreference"
     ]
-    """<p>You can opt out of certificate transparency logging by specifying the <code>disabled</code> option. Opt in by specifying <code>enabled</code>. For more information, see <a href=\"https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency\">Certificate Transparency Logging </a> in the <i>Certificate Manager User Guide</i>.</p>"""
+    r"""<p>You can opt out of certificate transparency logging by specifying the <code>disabled</code> option. Opt in by specifying <code>enabled</code>. For more information, see <a href=\"https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency\">Certificate Transparency Logging </a> in the <i>Certificate Manager User Guide</i>.</p>"""
 
 
 # --- restXml ser/de ---

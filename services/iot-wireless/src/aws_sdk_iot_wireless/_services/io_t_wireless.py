@@ -471,7 +471,7 @@ class IoTWirelessClient:
         ] = None,
         tags: Optional["aws_sdk_iot_wireless.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_iot_wireless.types.associate_aws_account_with_partner_account_response.AssociateAwsAccountWithPartnerAccountResponse":
-        """<p>Associates a partner account with your AWS account.</p>
+        r"""<p>Associates a partner account with your AWS account.</p>
 
         Args:
             sidewalk: <p>The Sidewalk account credentials.</p>
@@ -782,7 +782,7 @@ class IoTWirelessClient:
             "aws_sdk_iot_wireless.types.client_request_token.ClientRequestToken"
         ] = None,
     ) -> "aws_sdk_iot_wireless.types.create_destination_response.CreateDestinationResponse":
-        """<p>Creates a new destination that maps a device message to an AWS IoT rule.</p>
+        r"""<p>Creates a new destination that maps a device message to an AWS IoT rule.</p>
 
         Args:
             name: <p>The name of the new resource.</p>
@@ -846,7 +846,7 @@ class IoTWirelessClient:
             "aws_sdk_iot_wireless.types.sidewalk_create_device_profile.SidewalkCreateDeviceProfile"
         ] = None,
     ) -> "aws_sdk_iot_wireless.types.create_device_profile_response.CreateDeviceProfileResponse":
-        """<p>Creates a new device profile.</p>
+        r"""<p>Creates a new device profile.</p>
 
         Args:
             name: <p>The name of the new resource.</p> <note> <p>The following special characters aren't accepted: <code><>^#~$</code> </p> </note>
@@ -986,7 +986,7 @@ class IoTWirelessClient:
         ] = None,
         tags: Optional["aws_sdk_iot_wireless.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_iot_wireless.types.create_multicast_group_response.CreateMulticastGroupResponse":
-        """<p>Creates a multicast group.</p>
+        r"""<p>Creates a multicast group.</p>
 
         Args:
             description: <p>The description of the multicast group.</p>
@@ -1113,7 +1113,7 @@ class IoTWirelessClient:
             "aws_sdk_iot_wireless.types.client_request_token.ClientRequestToken"
         ] = None,
     ) -> "aws_sdk_iot_wireless.types.create_service_profile_response.CreateServiceProfileResponse":
-        """<p>Creates a new service profile.</p>
+        r"""<p>Creates a new service profile.</p>
 
         Args:
             name: <p>The name of the new resource.</p> <note> <p>The following special characters aren't accepted: <code><>^#~$</code> </p> </note>
@@ -1180,7 +1180,7 @@ class IoTWirelessClient:
             "aws_sdk_iot_wireless.types.sidewalk_create_wireless_device.SidewalkCreateWirelessDevice"
         ] = None,
     ) -> "aws_sdk_iot_wireless.types.create_wireless_device_response.CreateWirelessDeviceResponse":
-        """<p>Provisions a wireless device.</p>
+        r"""<p>Provisions a wireless device.</p>
 
         Args:
             type: <p>The wireless device type.</p>
@@ -1250,7 +1250,7 @@ class IoTWirelessClient:
             "aws_sdk_iot_wireless.types.client_request_token.ClientRequestToken"
         ] = None,
     ) -> "aws_sdk_iot_wireless.types.create_wireless_gateway_response.CreateWirelessGatewayResponse":
-        """<p>Provisions a wireless gateway.</p> <note> <p>When provisioning a wireless gateway, you might run into duplication errors for the following reasons.</p> <ul> <li> <p>If you specify a <code>GatewayEui</code> value that already exists.</p> </li> <li> <p>If you used a <code>ClientRequestToken</code> with the same parameters within the last 10 minutes.</p> </li> </ul> <p>To avoid this error, make sure that you use unique identifiers and parameters for each request within the specified time period.</p> </note>
+        r"""<p>Provisions a wireless gateway.</p> <note> <p>When provisioning a wireless gateway, you might run into duplication errors for the following reasons.</p> <ul> <li> <p>If you specify a <code>GatewayEui</code> value that already exists.</p> </li> <li> <p>If you used a <code>ClientRequestToken</code> with the same parameters within the last 10 minutes.</p> </li> </ul> <p>To avoid this error, make sure that you use unique identifiers and parameters for each request within the specified time period.</p> </note>
 
         Args:
             name: <p>The name of the new resource.</p> <note> <p>The following special characters aren't accepted: <code><>^#~$</code> </p> </note>
@@ -1351,7 +1351,7 @@ class IoTWirelessClient:
         ] = None,
         tags: Optional["aws_sdk_iot_wireless.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_iot_wireless.types.create_wireless_gateway_task_definition_response.CreateWirelessGatewayTaskDefinitionResponse":
-        """<p>Creates a gateway task definition.</p>
+        r"""<p>Creates a gateway task definition.</p>
 
         Args:
             auto_create_tasks: <p>Whether to automatically create tasks using this task definition for all gateways with the specified current version. If <code>false</code>, the task must me created by calling <code>CreateWirelessGatewayTask</code>.</p>
@@ -1579,7 +1579,7 @@ class IoTWirelessClient:
             "aws_sdk_iot_wireless.types.wireless_device_type.WirelessDeviceType"
         ] = None,
     ) -> "aws_sdk_iot_wireless.types.delete_queued_messages_response.DeleteQueuedMessagesResponse":
-        """<p>Remove queued messages from the downlink queue.</p>
+        r"""<p>Remove queued messages from the downlink queue.</p>
 
         Args:
             id: <p>The ID of a given wireless device for which downlink messages will be deleted.</p>
@@ -2516,7 +2516,7 @@ class IoTWirelessClient:
         *,
         config_overrides: Optional[IoTWirelessClientConfig] = None,
     ) -> "aws_sdk_iot_wireless.types.get_position_response.GetPositionResponse":
-        """<p>Get the position information for a given resource.</p> <important> <p>This action is no longer supported. Calls to retrieve the position information should use the <a href=\"https://docs.aws.amazon.com/iot-wireless/latest/apireference/API_GetResourcePosition.html\">GetResourcePosition</a> API operation instead.</p> </important>
+        r"""<p>Get the position information for a given resource.</p> <important> <p>This action is no longer supported. Calls to retrieve the position information should use the <a href=\"https://docs.aws.amazon.com/iot-wireless/latest/apireference/API_GetResourcePosition.html\">GetResourcePosition</a> API operation instead.</p> </important>
 
         Args:
             resource_identifier: <p>Resource identifier used to retrieve the position information.</p>
@@ -2556,7 +2556,7 @@ class IoTWirelessClient:
         *,
         config_overrides: Optional[IoTWirelessClientConfig] = None,
     ) -> "aws_sdk_iot_wireless.types.get_position_configuration_response.GetPositionConfigurationResponse":
-        """<p>Get position configuration for a given resource.</p> <important> <p>This action is no longer supported. Calls to retrieve the position configuration should use the <a href=\"https://docs.aws.amazon.com/iot-wireless/latest/apireference/API_GetResourcePosition.html\">GetResourcePosition</a> API operation instead.</p> </important>
+        r"""<p>Get position configuration for a given resource.</p> <important> <p>This action is no longer supported. Calls to retrieve the position configuration should use the <a href=\"https://docs.aws.amazon.com/iot-wireless/latest/apireference/API_GetResourcePosition.html\">GetResourcePosition</a> API operation instead.</p> </important>
 
         Args:
             resource_identifier: <p>Resource identifier used in a position configuration.</p>
@@ -2747,7 +2747,7 @@ class IoTWirelessClient:
         *,
         config_overrides: Optional[IoTWirelessClientConfig] = None,
     ) -> "aws_sdk_iot_wireless.types.get_resource_position_response.GetResourcePositionResponse":
-        """<p>Get the position information for a given wireless device or a wireless gateway resource. The position information uses the <a href=\"https://gisgeography.com/wgs84-world-geodetic-system/\"> World Geodetic System (WGS84)</a>.</p>
+        r"""<p>Get the position information for a given wireless device or a wireless gateway resource. The position information uses the <a href=\"https://gisgeography.com/wgs84-world-geodetic-system/\"> World Geodetic System (WGS84)</a>.</p>
 
         Args:
             resource_identifier: <p>The identifier of the resource for which position information is retrieved. It can be the wireless device ID or the wireless gateway ID, depending on the resource type.</p>
@@ -3620,7 +3620,7 @@ class IoTWirelessClient:
         ] = None,
         next_token: Optional["aws_sdk_iot_wireless.types.next_token.NextToken"] = None,
     ) -> "aws_sdk_iot_wireless.types.list_position_configurations_response.ListPositionConfigurationsResponse":
-        """<p>List position configurations for a given resource, such as positioning solvers.</p> <important> <p>This action is no longer supported. Calls to retrieve position information should use the <a href=\"https://docs.aws.amazon.com/iot-wireless/latest/apireference/API_GetResourcePosition.html\">GetResourcePosition</a> API operation instead.</p> </important>
+        r"""<p>List position configurations for a given resource, such as positioning solvers.</p> <important> <p>This action is no longer supported. Calls to retrieve position information should use the <a href=\"https://docs.aws.amazon.com/iot-wireless/latest/apireference/API_GetResourcePosition.html\">GetResourcePosition</a> API operation instead.</p> </important>
 
         Args:
             resource_type: <p>Resource type for which position configurations are listed.</p>
@@ -4019,7 +4019,7 @@ class IoTWirelessClient:
             "aws_sdk_iot_wireless.types.destination_name.DestinationName"
         ] = None,
     ) -> "aws_sdk_iot_wireless.types.put_position_configuration_response.PutPositionConfigurationResponse":
-        """<p>Put position configuration for a given resource.</p> <important> <p>This action is no longer supported. Calls to update the position configuration should use the <a href=\"https://docs.aws.amazon.com/iot-wireless/latest/apireference/API_UpdateResourcePosition.html\">UpdateResourcePosition</a> API operation instead.</p> </important>
+        r"""<p>Put position configuration for a given resource.</p> <important> <p>This action is no longer supported. Calls to update the position configuration should use the <a href=\"https://docs.aws.amazon.com/iot-wireless/latest/apireference/API_UpdateResourcePosition.html\">UpdateResourcePosition</a> API operation instead.</p> </important>
 
         Args:
             resource_identifier: <p>Resource identifier used to update the position configuration.</p>
@@ -5111,7 +5111,7 @@ class IoTWirelessClient:
         *,
         config_overrides: Optional[IoTWirelessClientConfig] = None,
     ) -> "aws_sdk_iot_wireless.types.update_position_response.UpdatePositionResponse":
-        """<p>Update the position information of a resource.</p> <important> <p>This action is no longer supported. Calls to update the position information should use the <a href=\"https://docs.aws.amazon.com/iot-wireless/latest/apireference/API_UpdateResourcePosition.html\">UpdateResourcePosition</a> API operation instead.</p> </important>
+        r"""<p>Update the position information of a resource.</p> <important> <p>This action is no longer supported. Calls to update the position information should use the <a href=\"https://docs.aws.amazon.com/iot-wireless/latest/apireference/API_UpdateResourcePosition.html\">UpdateResourcePosition</a> API operation instead.</p> </important>
 
         Args:
             resource_identifier: <p>Resource identifier of the resource for which position is updated.</p>
@@ -5232,7 +5232,7 @@ class IoTWirelessClient:
             "aws_sdk_iot_wireless.types.geo_json_payload.GeoJsonPayload"
         ] = None,
     ) -> "aws_sdk_iot_wireless.types.update_resource_position_response.UpdateResourcePositionResponse":
-        """<p>Update the position information of a given wireless device or a wireless gateway resource. The position coordinates are based on the <a href=\"https://gisgeography.com/wgs84-world-geodetic-system/\"> World Geodetic System (WGS84)</a>.</p>
+        r"""<p>Update the position information of a given wireless device or a wireless gateway resource. The position coordinates are based on the <a href=\"https://gisgeography.com/wgs84-world-geodetic-system/\"> World Geodetic System (WGS84)</a>.</p>
 
         Args:
             resource_identifier: <p>The identifier of the resource for which position information is updated. It can be the wireless device ID or the wireless gateway ID, depending on the resource type.</p>

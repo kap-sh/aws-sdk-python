@@ -38,7 +38,7 @@ class UpdateAction(TypedDict):
     service_update_recommended_apply_by_date: NotRequired[
         "aws_sdk_elasticache.types.t_stamp.TStamp"
     ]
-    """<p>The recommended date to apply the service update to ensure compliance. For information on compliance, see <a href=\"https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/elasticache-compliance.html#elasticache-compliance-self-service\">Self-Service Security Updates for Compliance</a>.</p>"""
+    r"""<p>The recommended date to apply the service update to ensure compliance. For information on compliance, see <a href=\"https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/elasticache-compliance.html#elasticache-compliance-self-service\">Self-Service Security Updates for Compliance</a>.</p>"""
     service_update_type: NotRequired[
         "aws_sdk_elasticache.types.service_update_type.ServiceUpdateType"
     ]

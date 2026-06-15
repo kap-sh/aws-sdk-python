@@ -47,11 +47,11 @@ class GetMetricStreamOutput(TypedDict):
     output_format: NotRequired[
         "aws_sdk_cloudwatch.types.metric_stream_output_format.MetricStreamOutputFormat"
     ]
-    """<p>The output format for the stream. Valid values are <code>json</code>, <code>opentelemetry1.0</code>, and <code>opentelemetry0.7</code>. For more information about metric stream output formats, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html\">Metric streams output formats</a>.</p>"""
+    r"""<p>The output format for the stream. Valid values are <code>json</code>, <code>opentelemetry1.0</code>, and <code>opentelemetry0.7</code>. For more information about metric stream output formats, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html\">Metric streams output formats</a>.</p>"""
     statistics_configurations: NotRequired[
         "aws_sdk_cloudwatch.types.metric_stream_statistics_configurations.MetricStreamStatisticsConfigurations"
     ]
-    """<p>Each entry in this array displays information about one or more metrics that include additional statistics in the metric stream. For more information about the additional statistics, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html\"> CloudWatch statistics definitions</a>. </p>"""
+    r"""<p>Each entry in this array displays information about one or more metrics that include additional statistics in the metric stream. For more information about the additional statistics, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html\"> CloudWatch statistics definitions</a>. </p>"""
     include_linked_accounts_metrics: NotRequired[
         "aws_sdk_cloudwatch.types.include_linked_accounts_metrics.IncludeLinkedAccountsMetrics"
     ]

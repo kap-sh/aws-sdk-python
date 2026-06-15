@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 from aws_sdk_ecs._services._pipeline import (
@@ -27,7 +29,7 @@ class ServiceRevisionResource:
         *,
         config_overrides: Optional[ECSClientConfig] = None,
     ) -> "aws_sdk_ecs.types.describe_service_revisions_response.DescribeServiceRevisionsResponse":
-        """<p>Describes one or more service revisions.</p> <p>A service revision is a version of the service that includes the values for the Amazon ECS resources (for example, task definition) and the environment resources (for example, load balancers, subnets, and security groups). For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-revision.html\">Amazon ECS service revisions</a>.</p> <p>You can't describe a service revision that was created before October 25, 2024.</p>
+        r"""<p>Describes one or more service revisions.</p> <p>A service revision is a version of the service that includes the values for the Amazon ECS resources (for example, task definition) and the environment resources (for example, load balancers, subnets, and security groups). For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-revision.html\">Amazon ECS service revisions</a>.</p> <p>You can't describe a service revision that was created before October 25, 2024.</p>
 
         Args:
             service_revision_arns: <p>The ARN of the service revision. </p> <p>You can specify a maximum of 20 ARNs.</p> <p>You can call <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListServiceDeployments.html\">ListServiceDeployments</a> to get the ARNs.</p>
@@ -75,7 +77,7 @@ class AsyncServiceRevisionResource:
         *,
         config_overrides: Optional[AsyncECSClientConfig] = None,
     ) -> "aws_sdk_ecs.types.describe_service_revisions_response.DescribeServiceRevisionsResponse":
-        """<p>Describes one or more service revisions.</p> <p>A service revision is a version of the service that includes the values for the Amazon ECS resources (for example, task definition) and the environment resources (for example, load balancers, subnets, and security groups). For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-revision.html\">Amazon ECS service revisions</a>.</p> <p>You can't describe a service revision that was created before October 25, 2024.</p>
+        r"""<p>Describes one or more service revisions.</p> <p>A service revision is a version of the service that includes the values for the Amazon ECS resources (for example, task definition) and the environment resources (for example, load balancers, subnets, and security groups). For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-revision.html\">Amazon ECS service revisions</a>.</p> <p>You can't describe a service revision that was created before October 25, 2024.</p>
 
         Args:
             service_revision_arns: <p>The ARN of the service revision. </p> <p>You can specify a maximum of 20 ARNs.</p> <p>You can call <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListServiceDeployments.html\">ListServiceDeployments</a> to get the ARNs.</p>

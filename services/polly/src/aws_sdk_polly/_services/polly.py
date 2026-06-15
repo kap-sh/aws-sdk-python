@@ -173,7 +173,7 @@ class PollyClient:
         *,
         config_overrides: Optional[PollyClientConfig] = None,
     ) -> "aws_sdk_polly.types.delete_lexicon_output.DeleteLexiconOutput":
-        """<p>Deletes the specified pronunciation lexicon stored in an Amazon Web Services Region. A lexicon which has been deleted is not available for speech synthesis, nor is it possible to retrieve it using either the <code>GetLexicon</code> or <code>ListLexicon</code> APIs.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html\">Managing Lexicons</a>.</p>
+        r"""<p>Deletes the specified pronunciation lexicon stored in an Amazon Web Services Region. A lexicon which has been deleted is not available for speech synthesis, nor is it possible to retrieve it using either the <code>GetLexicon</code> or <code>ListLexicon</code> APIs.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html\">Managing Lexicons</a>.</p>
 
         Args:
             name: <p>The name of the lexicon to delete. Must be an existing lexicon in the region.</p>
@@ -278,7 +278,7 @@ class PollyClient:
         *,
         config_overrides: Optional[PollyClientConfig] = None,
     ) -> "aws_sdk_polly.types.get_lexicon_output.GetLexiconOutput":
-        """<p>Returns the content of the specified pronunciation lexicon stored in an Amazon Web Services Region. For more information, see <a href=\"https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html\">Managing Lexicons</a>.</p>
+        r"""<p>Returns the content of the specified pronunciation lexicon stored in an Amazon Web Services Region. For more information, see <a href=\"https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html\">Managing Lexicons</a>.</p>
 
         Args:
             name: <p>Name of the lexicon.</p>
@@ -352,7 +352,7 @@ class PollyClient:
         config_overrides: Optional[PollyClientConfig] = None,
         next_token: Optional["aws_sdk_polly.types.next_token.NextToken"] = None,
     ) -> "aws_sdk_polly.types.list_lexicons_output.ListLexiconsOutput":
-        """<p>Returns a list of pronunciation lexicons stored in an Amazon Web Services Region. For more information, see <a href=\"https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html\">Managing Lexicons</a>.</p>
+        r"""<p>Returns a list of pronunciation lexicons stored in an Amazon Web Services Region. For more information, see <a href=\"https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html\">Managing Lexicons</a>.</p>
 
         Args:
             next_token: <p>An opaque pagination token returned from previous <code>ListLexicons</code> operation. If present, indicates where to continue the list of lexicons.</p>
@@ -443,7 +443,7 @@ class PollyClient:
         *,
         config_overrides: Optional[PollyClientConfig] = None,
     ) -> "aws_sdk_polly.types.put_lexicon_output.PutLexiconOutput":
-        """<p>Stores a pronunciation lexicon in an Amazon Web Services Region. If a lexicon with the same name already exists in the region, it is overwritten by the new lexicon. Lexicon operations have eventual consistency, therefore, it might take some time before the lexicon is available to the SynthesizeSpeech operation.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html\">Managing Lexicons</a>.</p>
+        r"""<p>Stores a pronunciation lexicon in an Amazon Web Services Region. If a lexicon with the same name already exists in the region, it is overwritten by the new lexicon. Lexicon operations have eventual consistency, therefore, it might take some time before the lexicon is available to the SynthesizeSpeech operation.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html\">Managing Lexicons</a>.</p>
 
         Args:
             name: <p>Name of the lexicon. The name must follow the regular express format [0-9A-Za-z]{1,20}. That is, the name is a case-sensitive alphanumeric string up to 20 characters long. </p>
@@ -498,7 +498,7 @@ class PollyClient:
         sample_rate: Optional["aws_sdk_polly.types.sample_rate.SampleRate"] = None,
         action_stream: Optional[Iterator[bytes] | bytes] = None,
     ) -> "aws_sdk_polly.types.start_speech_synthesis_stream_output.StartSpeechSynthesisStreamOutput":
-        """<p>Synthesizes UTF-8 input, plain text, or SSML over a bidirectional streaming connection. Specify synthesis parameters in HTTP/2 headers, send text incrementally as events on the input stream, and receive synthesized audio as it becomes available.</p> <p>This operation serves as a bidirectional counterpart to <code>SynthesizeSpeech</code>:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/polly/latest/API/API_SynthesizeSpeech.html\">SynthesizeSpeech</a> </p> </li> </ul>
+        r"""<p>Synthesizes UTF-8 input, plain text, or SSML over a bidirectional streaming connection. Specify synthesis parameters in HTTP/2 headers, send text incrementally as events on the input stream, and receive synthesized audio as it becomes available.</p> <p>This operation serves as a bidirectional counterpart to <code>SynthesizeSpeech</code>:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/polly/latest/API/API_SynthesizeSpeech.html\">SynthesizeSpeech</a> </p> </li> </ul>
 
         Args:
             engine: <p>Specifies the engine for Amazon Polly to use when processing input text for speech synthesis. Currently, only the <code>generative</code> engine is supported. If you specify a voice that the selected engine doesn't support, Amazon Polly returns an error.</p>
@@ -570,7 +570,7 @@ class PollyClient:
         ] = None,
         text_type: Optional["aws_sdk_polly.types.text_type.TextType"] = None,
     ) -> "aws_sdk_polly.types.start_speech_synthesis_task_output.StartSpeechSynthesisTaskOutput":
-        """<p>Allows the creation of an asynchronous synthesis task, by starting a new <code>SpeechSynthesisTask</code>. This operation requires all the standard information needed for speech synthesis, plus the name of an Amazon S3 bucket for the service to store the output of the synthesis task and two optional parameters (<code>OutputS3KeyPrefix</code> and <code>SnsTopicArn</code>). Once the synthesis task is created, this operation will return a <code>SpeechSynthesisTask</code> object, which will include an identifier of this task as well as the current status. The <code>SpeechSynthesisTask</code> object is available for 72 hours after starting the asynchronous synthesis task.</p>
+        r"""<p>Allows the creation of an asynchronous synthesis task, by starting a new <code>SpeechSynthesisTask</code>. This operation requires all the standard information needed for speech synthesis, plus the name of an Amazon S3 bucket for the service to store the output of the synthesis task and two optional parameters (<code>OutputS3KeyPrefix</code> and <code>SnsTopicArn</code>). Once the synthesis task is created, this operation will return a <code>SpeechSynthesisTask</code> object, which will include an identifier of this task as well as the current status. The <code>SpeechSynthesisTask</code> object is available for 72 hours after starting the asynchronous synthesis task.</p>
 
         Args:
             engine: <p>Specifies the engine (<code>standard</code>, <code>neural</code>, <code>long-form</code> or <code>generative</code>) for Amazon Polly to use when processing input text for speech synthesis. Using a voice that is not supported for the engine selected will result in an error.</p>
@@ -654,7 +654,7 @@ class PollyClient:
     ) -> (
         "Generator[aws_sdk_polly.types.synthesize_speech_output.SynthesizeSpeechOutput]"
     ):
-        """<p>Synthesizes UTF-8 input, plain text or SSML, to a stream of bytes. SSML input must be valid, well-formed SSML. Some alphabets might not be available with all the voices (for example, Cyrillic might not be read at all by English voices) unless phoneme mapping is used. For more information, see <a href=\"https://docs.aws.amazon.com/polly/latest/dg/how-text-to-speech-works.html\">How it Works</a>.</p>
+        r"""<p>Synthesizes UTF-8 input, plain text or SSML, to a stream of bytes. SSML input must be valid, well-formed SSML. Some alphabets might not be available with all the voices (for example, Cyrillic might not be read at all by English voices) unless phoneme mapping is used. For more information, see <a href=\"https://docs.aws.amazon.com/polly/latest/dg/how-text-to-speech-works.html\">How it Works</a>.</p>
 
         Args:
             engine: <p>Specifies the engine (<code>standard</code>, <code>neural</code>, <code>long-form</code>, or <code>generative</code>) for Amazon Polly to use when processing input text for speech synthesis. Provide an engine that is supported by the voice you select. If you don't provide an engine, the standard engine is selected by default. If a chosen voice isn't supported by the standard engine, this will result in an error. For information on Amazon Polly voices and which voices are available for each engine, see <a href=\"https://docs.aws.amazon.com/polly/latest/dg/voicelist.html\">Available Voices</a>.</p>

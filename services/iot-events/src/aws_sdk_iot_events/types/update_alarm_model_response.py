@@ -17,7 +17,7 @@ class UpdateAlarmModelResponse(TypedDict):
     alarm_model_arn: NotRequired[
         "aws_sdk_iot_events.types.alarm_model_arn.AlarmModelArn"
     ]
-    """<p>The ARN of the alarm model. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</p>"""
+    r"""<p>The ARN of the alarm model. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</p>"""
     alarm_model_version: NotRequired[
         "aws_sdk_iot_events.types.alarm_model_version.AlarmModelVersion"
     ]

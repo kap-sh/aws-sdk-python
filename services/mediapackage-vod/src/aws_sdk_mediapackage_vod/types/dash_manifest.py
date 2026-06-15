@@ -25,7 +25,7 @@ class DashManifest(TypedDict):
     ]
     """Minimum duration (in seconds) that a player will buffer media before starting the presentation."""
     profile: NotRequired["aws_sdk_mediapackage_vod.types.profile.Profile"]
-    """The Dynamic Adaptive Streaming over HTTP (DASH) profile type. When set to \"HBBTV_1_5\", HbbTV 1.5 compliant output is enabled."""
+    r"""The Dynamic Adaptive Streaming over HTTP (DASH) profile type. When set to \"HBBTV_1_5\", HbbTV 1.5 compliant output is enabled."""
     scte_markers_source: NotRequired[
         "aws_sdk_mediapackage_vod.types.scte_markers_source.ScteMarkersSource"
     ]

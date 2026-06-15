@@ -48,7 +48,7 @@ class ClientVpnEndpoint(TypedDict):
     dns_servers: NotRequired["aws_sdk_ec2.types.value_string_list.ValueStringList"]
     """<p>Information about the DNS servers to be used for DNS resolution. </p>"""
     split_tunnel: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]
-    """<p>Indicates whether split-tunnel is enabled in the Client VPN endpoint.</p> <p>For information about split-tunnel VPN endpoints, see <a href=\"https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html\">Split-Tunnel Client VPN endpoint</a> in the <i>Client VPN Administrator Guide</i>.</p>"""
+    r"""<p>Indicates whether split-tunnel is enabled in the Client VPN endpoint.</p> <p>For information about split-tunnel VPN endpoints, see <a href=\"https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html\">Split-Tunnel Client VPN endpoint</a> in the <i>Client VPN Administrator Guide</i>.</p>"""
     vpn_protocol: NotRequired["aws_sdk_ec2.types.vpn_protocol.VpnProtocol"]
     """<p>The protocol used by the VPN session.</p>"""
     transport_protocol: NotRequired[

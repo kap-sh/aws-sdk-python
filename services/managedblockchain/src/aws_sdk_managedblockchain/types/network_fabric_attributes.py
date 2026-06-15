@@ -15,7 +15,7 @@ class NetworkFabricAttributes(TypedDict):
     ]
     """<p>The endpoint of the ordering service for the network.</p>"""
     edition: NotRequired["aws_sdk_managedblockchain.types.edition.Edition"]
-    """<p>The edition of Amazon Managed Blockchain that Hyperledger Fabric uses. For more information, see <a href=\"http://aws.amazon.com/managed-blockchain/pricing/\">Amazon Managed Blockchain Pricing</a>.</p>"""
+    r"""<p>The edition of Amazon Managed Blockchain that Hyperledger Fabric uses. For more information, see <a href=\"http://aws.amazon.com/managed-blockchain/pricing/\">Amazon Managed Blockchain Pricing</a>.</p>"""
 
 
 # --- restJson1 ser/de ---

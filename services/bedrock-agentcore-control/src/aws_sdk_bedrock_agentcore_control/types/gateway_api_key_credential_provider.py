@@ -1,23 +1,34 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#GatewayApiKeyCredentialProvider``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.api_key_credential_location
     import aws_sdk_bedrock_agentcore_control.types.api_key_credential_parameter_name
     import aws_sdk_bedrock_agentcore_control.types.api_key_credential_prefix
     import aws_sdk_bedrock_agentcore_control.types.api_key_credential_provider_arn
 
+
 class GatewayApiKeyCredentialProvider(TypedDict):
     provider_arn: "aws_sdk_bedrock_agentcore_control.types.api_key_credential_provider_arn.ApiKeyCredentialProviderArn"
     """<p>The Amazon Resource Name (ARN) of the API key credential provider. This ARN identifies the provider in Amazon Web Services.</p>"""
-    credential_parameter_name: NotRequired["aws_sdk_bedrock_agentcore_control.types.api_key_credential_parameter_name.ApiKeyCredentialParameterName"]
+    credential_parameter_name: NotRequired[
+        "aws_sdk_bedrock_agentcore_control.types.api_key_credential_parameter_name.ApiKeyCredentialParameterName"
+    ]
     """<p>The name of the credential parameter for the API key. This parameter name is used when sending the API key to the target endpoint.</p>"""
-    credential_prefix: NotRequired["aws_sdk_bedrock_agentcore_control.types.api_key_credential_prefix.ApiKeyCredentialPrefix"]
+    credential_prefix: NotRequired[
+        "aws_sdk_bedrock_agentcore_control.types.api_key_credential_prefix.ApiKeyCredentialPrefix"
+    ]
     """<p>The prefix for the API key credential. This prefix is added to the API key when sending it to the target endpoint.</p>"""
-    credential_location: NotRequired["aws_sdk_bedrock_agentcore_control.types.api_key_credential_location.ApiKeyCredentialLocation"]
+    credential_location: NotRequired[
+        "aws_sdk_bedrock_agentcore_control.types.api_key_credential_location.ApiKeyCredentialLocation"
+    ]
     """<p>The location of the API key credential. This field specifies where in the request the API key should be placed.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: GatewayApiKeyCredentialProvider) -> dict:
@@ -29,7 +40,12 @@ def serialize_json(value: GatewayApiKeyCredentialProvider) -> dict:
         out["credentialPrefix"] = value["credential_prefix"]
     if "credential_location" in value:
         import aws_sdk_bedrock_agentcore_control.types.api_key_credential_location
-        out["credentialLocation"] = aws_sdk_bedrock_agentcore_control.types.api_key_credential_location.serialize_json(value["credential_location"])
+
+        out["credentialLocation"] = (
+            aws_sdk_bedrock_agentcore_control.types.api_key_credential_location.serialize_json(
+                value["credential_location"]
+            )
+        )
     return out
 
 
@@ -38,12 +54,19 @@ def deserialize_json(data: dict) -> GatewayApiKeyCredentialProvider:
     if "providerArn" in data:
         out["provider_arn"] = data["providerArn"]
     else:
-        raise DeserializationError("GatewayApiKeyCredentialProvider.provider_arn required")
+        raise DeserializationError(
+            "GatewayApiKeyCredentialProvider.provider_arn required"
+        )
     if "credentialParameterName" in data:
         out["credential_parameter_name"] = data["credentialParameterName"]
     if "credentialPrefix" in data:
         out["credential_prefix"] = data["credentialPrefix"]
     if "credentialLocation" in data:
         import aws_sdk_bedrock_agentcore_control.types.api_key_credential_location
-        out["credential_location"] = aws_sdk_bedrock_agentcore_control.types.api_key_credential_location.deserialize_json(data["credentialLocation"])
+
+        out["credential_location"] = (
+            aws_sdk_bedrock_agentcore_control.types.api_key_credential_location.deserialize_json(
+                data["credentialLocation"]
+            )
+        )
     return out

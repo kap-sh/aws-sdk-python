@@ -70,7 +70,7 @@ class Crawler(TypedDict):
     configuration: NotRequired[
         "aws_sdk_glue.types.crawler_configuration.CrawlerConfiguration"
     ]
-    """<p>Crawler configuration information. This versioned JSON string allows users to specify aspects of a crawler's behavior. For more information, see <a href=\"https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html\">Setting crawler configuration options</a>.</p>"""
+    r"""<p>Crawler configuration information. This versioned JSON string allows users to specify aspects of a crawler's behavior. For more information, see <a href=\"https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html\">Setting crawler configuration options</a>.</p>"""
     crawler_security_configuration: NotRequired[
         "aws_sdk_glue.types.crawler_security_configuration.CrawlerSecurityConfiguration"
     ]

@@ -52,7 +52,7 @@ class Item(TypedDict):
     related_contact_id: NotRequired[
         "aws_sdk_connectparticipant.types.contact_id.ContactId"
     ]
-    """<p>The contactId on which the transcript item was originally sent. This field is only populated for persistent chats when the transcript item is from the past chat session. For more information, see <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html\">Enable persistent chat</a>.</p>"""
+    r"""<p>The contactId on which the transcript item was originally sent. This field is only populated for persistent chats when the transcript item is from the past chat session. For more information, see <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html\">Enable persistent chat</a>.</p>"""
     contact_id: NotRequired["aws_sdk_connectparticipant.types.contact_id.ContactId"]
     """<p>The contactId on which the transcript item was originally sent. This field is populated only when the transcript item is from the current chat session.</p>"""
 

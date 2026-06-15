@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import datetime
 from typing import TYPE_CHECKING, Optional
 
@@ -44,7 +46,7 @@ class NotificationEventResource:
         config_overrides: Optional[NotificationsClientConfig] = None,
         locale: Optional["aws_sdk_notifications.types.locale_code.LocaleCode"] = None,
     ) -> "aws_sdk_notifications.types.get_notification_event_response.GetNotificationEventResponse":
-        """<p>Returns a specified <code>NotificationEvent</code>.</p> <important> <p>User Notifications stores notifications in the individual Regions you register as notification hubs and the Region of the source event rule. <code>GetNotificationEvent</code> only returns notifications stored in the same Region in which the action is called. User Notifications doesn't backfill notifications to new Regions selected as notification hubs. For this reason, we recommend that you make calls in your oldest registered notification hub. For more information, see <a href=\"https://docs.aws.amazon.com/notifications/latest/userguide/notification-hubs.html\">Notification hubs</a> in the <i>Amazon Web Services User Notifications User Guide</i>.</p> </important>
+        r"""<p>Returns a specified <code>NotificationEvent</code>.</p> <important> <p>User Notifications stores notifications in the individual Regions you register as notification hubs and the Region of the source event rule. <code>GetNotificationEvent</code> only returns notifications stored in the same Region in which the action is called. User Notifications doesn't backfill notifications to new Regions selected as notification hubs. For this reason, we recommend that you make calls in your oldest registered notification hub. For more information, see <a href=\"https://docs.aws.amazon.com/notifications/latest/userguide/notification-hubs.html\">Notification hubs</a> in the <i>Amazon Web Services User Notifications User Guide</i>.</p> </important>
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the <code>NotificationEvent</code> to return.</p>
@@ -96,7 +98,7 @@ class NotificationEventResource:
             "aws_sdk_notifications.types.organizational_unit_id.OrganizationalUnitId"
         ] = None,
     ) -> "aws_sdk_notifications.types.list_notification_events_response.ListNotificationEventsResponse":
-        """<p>Returns a list of <code>NotificationEvents</code> according to specified filters, in reverse chronological order (newest first).</p> <important> <p>User Notifications stores notifications in the individual Regions you register as notification hubs and the Region of the source event rule. ListNotificationEvents only returns notifications stored in the same Region in which the action is called. User Notifications doesn't backfill notifications to new Regions selected as notification hubs. For this reason, we recommend that you make calls in your oldest registered notification hub. For more information, see <a href=\"https://docs.aws.amazon.com/notifications/latest/userguide/notification-hubs.html\">Notification hubs</a> in the <i>Amazon Web Services User Notifications User Guide</i>.</p> </important>
+        r"""<p>Returns a list of <code>NotificationEvents</code> according to specified filters, in reverse chronological order (newest first).</p> <important> <p>User Notifications stores notifications in the individual Regions you register as notification hubs and the Region of the source event rule. ListNotificationEvents only returns notifications stored in the same Region in which the action is called. User Notifications doesn't backfill notifications to new Regions selected as notification hubs. For this reason, we recommend that you make calls in your oldest registered notification hub. For more information, see <a href=\"https://docs.aws.amazon.com/notifications/latest/userguide/notification-hubs.html\">Notification hubs</a> in the <i>Amazon Web Services User Notifications User Guide</i>.</p> </important>
 
         Args:
             start_time: <p>The earliest time of events to return from this call.</p>
@@ -166,7 +168,7 @@ class AsyncNotificationEventResource:
         config_overrides: Optional[AsyncNotificationsClientConfig] = None,
         locale: Optional["aws_sdk_notifications.types.locale_code.LocaleCode"] = None,
     ) -> "aws_sdk_notifications.types.get_notification_event_response.GetNotificationEventResponse":
-        """<p>Returns a specified <code>NotificationEvent</code>.</p> <important> <p>User Notifications stores notifications in the individual Regions you register as notification hubs and the Region of the source event rule. <code>GetNotificationEvent</code> only returns notifications stored in the same Region in which the action is called. User Notifications doesn't backfill notifications to new Regions selected as notification hubs. For this reason, we recommend that you make calls in your oldest registered notification hub. For more information, see <a href=\"https://docs.aws.amazon.com/notifications/latest/userguide/notification-hubs.html\">Notification hubs</a> in the <i>Amazon Web Services User Notifications User Guide</i>.</p> </important>
+        r"""<p>Returns a specified <code>NotificationEvent</code>.</p> <important> <p>User Notifications stores notifications in the individual Regions you register as notification hubs and the Region of the source event rule. <code>GetNotificationEvent</code> only returns notifications stored in the same Region in which the action is called. User Notifications doesn't backfill notifications to new Regions selected as notification hubs. For this reason, we recommend that you make calls in your oldest registered notification hub. For more information, see <a href=\"https://docs.aws.amazon.com/notifications/latest/userguide/notification-hubs.html\">Notification hubs</a> in the <i>Amazon Web Services User Notifications User Guide</i>.</p> </important>
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the <code>NotificationEvent</code> to return.</p>
@@ -219,7 +221,7 @@ class AsyncNotificationEventResource:
             "aws_sdk_notifications.types.organizational_unit_id.OrganizationalUnitId"
         ] = None,
     ) -> "aws_sdk_notifications.types.list_notification_events_response.ListNotificationEventsResponse":
-        """<p>Returns a list of <code>NotificationEvents</code> according to specified filters, in reverse chronological order (newest first).</p> <important> <p>User Notifications stores notifications in the individual Regions you register as notification hubs and the Region of the source event rule. ListNotificationEvents only returns notifications stored in the same Region in which the action is called. User Notifications doesn't backfill notifications to new Regions selected as notification hubs. For this reason, we recommend that you make calls in your oldest registered notification hub. For more information, see <a href=\"https://docs.aws.amazon.com/notifications/latest/userguide/notification-hubs.html\">Notification hubs</a> in the <i>Amazon Web Services User Notifications User Guide</i>.</p> </important>
+        r"""<p>Returns a list of <code>NotificationEvents</code> according to specified filters, in reverse chronological order (newest first).</p> <important> <p>User Notifications stores notifications in the individual Regions you register as notification hubs and the Region of the source event rule. ListNotificationEvents only returns notifications stored in the same Region in which the action is called. User Notifications doesn't backfill notifications to new Regions selected as notification hubs. For this reason, we recommend that you make calls in your oldest registered notification hub. For more information, see <a href=\"https://docs.aws.amazon.com/notifications/latest/userguide/notification-hubs.html\">Notification hubs</a> in the <i>Amazon Web Services User Notifications User Guide</i>.</p> </important>
 
         Args:
             start_time: <p>The earliest time of events to return from this call.</p>

@@ -2,9 +2,11 @@
 
 from typing import TypedDict
 
+
 class ApprovalConfiguration(TypedDict):
     auto_approval: "bool"
     """<p>Whether registry records are auto-approved. When set to <code>true</code>, records are automatically approved upon creation. When set to <code>false</code> (the default), records require explicit approval for security purposes.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: ApprovalConfiguration) -> dict:

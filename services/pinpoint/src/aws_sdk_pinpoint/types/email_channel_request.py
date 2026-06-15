@@ -11,7 +11,7 @@ if TYPE_CHECKING:
 
 class EmailChannelRequest(TypedDict):
     configuration_set: NotRequired["aws_sdk_pinpoint.types.__string.__string"]
-    """<p>The <a href=\"https://docs.aws.amazon.com/ses/latest/APIReference/API_ConfigurationSet.html\">Amazon SES configuration set</a> that you want to apply to messages that you send through the channel.</p>"""
+    r"""<p>The <a href=\"https://docs.aws.amazon.com/ses/latest/APIReference/API_ConfigurationSet.html\">Amazon SES configuration set</a> that you want to apply to messages that you send through the channel.</p>"""
     enabled: NotRequired["aws_sdk_pinpoint.types.__boolean.__boolean"]
     """<p>Specifies whether to enable the email channel for the application.</p>"""
     from_address: NotRequired["aws_sdk_pinpoint.types.__string.__string"]

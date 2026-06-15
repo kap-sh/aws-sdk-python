@@ -40,7 +40,7 @@ class DescribeChannelResponse(TypedDict):
     playback_mode: NotRequired["aws_sdk_mediatailor.types.__string.__string"]
     """<p>The channel's playback mode.</p>"""
     tags: NotRequired["aws_sdk_mediatailor.types.__map_of__string.__mapOf__string"]
-    """<p>The tags assigned to the channel. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html\">Tagging AWS Elemental MediaTailor Resources</a>.</p>"""
+    r"""<p>The tags assigned to the channel. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html\">Tagging AWS Elemental MediaTailor Resources</a>.</p>"""
     tier: NotRequired["aws_sdk_mediatailor.types.__string.__string"]
     """<p>The channel's tier.</p>"""
     log_configuration: "aws_sdk_mediatailor.types.log_configuration_for_channel.LogConfigurationForChannel"

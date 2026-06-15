@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_grafana._auth._signers
@@ -77,7 +79,7 @@ class Configuration:
             "aws_sdk_grafana.types.grafana_version.GrafanaVersion"
         ] = None,
     ) -> "aws_sdk_grafana.types.update_workspace_configuration_response.UpdateWorkspaceConfigurationResponse":
-        """<p>Updates the configuration string for the given workspace</p>
+        r"""<p>Updates the configuration string for the given workspace</p>
 
         Args:
             configuration: <p>The new configuration string for the workspace. For more information about the format and configuration options available, see <a href=\"https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html\">Working in your Grafana workspace</a>.</p>
@@ -166,7 +168,7 @@ class AsyncConfiguration:
             "aws_sdk_grafana.types.grafana_version.GrafanaVersion"
         ] = None,
     ) -> "aws_sdk_grafana.types.update_workspace_configuration_response.UpdateWorkspaceConfigurationResponse":
-        """<p>Updates the configuration string for the given workspace</p>
+        r"""<p>Updates the configuration string for the given workspace</p>
 
         Args:
             configuration: <p>The new configuration string for the workspace. For more information about the format and configuration options available, see <a href=\"https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html\">Working in your Grafana workspace</a>.</p>

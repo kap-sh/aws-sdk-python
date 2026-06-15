@@ -25,11 +25,11 @@ class DescribeRuleResponse(TypedDict):
     event_pattern: NotRequired[
         "aws_sdk_cloudwatch_events.types.event_pattern.EventPattern"
     ]
-    """<p>The event pattern. For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html\">Events and Event Patterns</a> in the <i>Amazon EventBridge User Guide</i>.</p>"""
+    r"""<p>The event pattern. For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html\">Events and Event Patterns</a> in the <i>Amazon EventBridge User Guide</i>.</p>"""
     schedule_expression: NotRequired[
         "aws_sdk_cloudwatch_events.types.schedule_expression.ScheduleExpression"
     ]
-    """<p>The scheduling expression. For example, \"cron(0 20 * * ? *)\", \"rate(5 minutes)\".</p>"""
+    r"""<p>The scheduling expression. For example, \"cron(0 20 * * ? *)\", \"rate(5 minutes)\".</p>"""
     state: NotRequired["aws_sdk_cloudwatch_events.types.rule_state.RuleState"]
     """<p>Specifies whether the rule is enabled or disabled.</p>"""
     description: NotRequired[

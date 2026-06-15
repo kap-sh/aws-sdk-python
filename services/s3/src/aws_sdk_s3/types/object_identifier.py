@@ -17,7 +17,7 @@ if TYPE_CHECKING:
 
 class ObjectIdentifier(TypedDict):
     key: "aws_sdk_s3.types.object_key.ObjectKey"
-    """<p>Key name of the object.</p> <important> <p>Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints\"> XML related object key constraints</a>.</p> </important>"""
+    r"""<p>Key name of the object.</p> <important> <p>Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints\"> XML related object key constraints</a>.</p> </important>"""
     version_id: NotRequired["aws_sdk_s3.types.object_version_id.ObjectVersionId"]
     """<p>Version ID for the specific version of the object to delete.</p> <note> <p>This functionality is not supported for directory buckets.</p> </note>"""
     e_tag: NotRequired["aws_sdk_s3.types.e_tag.ETag"]

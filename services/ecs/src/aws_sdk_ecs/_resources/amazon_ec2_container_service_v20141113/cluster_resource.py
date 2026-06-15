@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 from aws_sdk_ecs._services._pipeline import (
@@ -78,7 +80,7 @@ class ClusterResource:
             "aws_sdk_ecs.types.cluster_service_connect_defaults_request.ClusterServiceConnectDefaultsRequest"
         ] = None,
     ) -> "aws_sdk_ecs.types.update_cluster_response.UpdateClusterResponse":
-        """<p>Updates the cluster.</p>
+        r"""<p>Updates the cluster.</p>
 
         Args:
             cluster: <p>The name of the cluster to modify the settings for.</p>
@@ -134,7 +136,7 @@ class ClusterResource:
         *,
         config_overrides: Optional[ECSClientConfig] = None,
     ) -> "aws_sdk_ecs.types.delete_cluster_response.DeleteClusterResponse":
-        """<p>Deletes the specified cluster. The cluster transitions to the <code>INACTIVE</code> state. Clusters with an <code>INACTIVE</code> status might remain discoverable in your account for a period of time. However, this behavior is subject to change in the future. We don't recommend that you rely on <code>INACTIVE</code> clusters persisting.</p> <p>You must deregister all container instances from this cluster before you may delete it. You can list the container instances in a cluster with <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListContainerInstances.html\">ListContainerInstances</a> and deregister them with <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeregisterContainerInstance.html\">DeregisterContainerInstance</a>.</p>
+        r"""<p>Deletes the specified cluster. The cluster transitions to the <code>INACTIVE</code> state. Clusters with an <code>INACTIVE</code> status might remain discoverable in your account for a period of time. However, this behavior is subject to change in the future. We don't recommend that you rely on <code>INACTIVE</code> clusters persisting.</p> <p>You must deregister all container instances from this cluster before you may delete it. You can list the container instances in a cluster with <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListContainerInstances.html\">ListContainerInstances</a> and deregister them with <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeregisterContainerInstance.html\">DeregisterContainerInstance</a>.</p>
 
         Args:
             cluster: <p>The short name or full Amazon Resource Name (ARN) of the cluster to delete.</p>
@@ -179,7 +181,7 @@ class ClusterResource:
         *,
         config_overrides: Optional[ECSClientConfig] = None,
     ) -> "aws_sdk_ecs.types.put_cluster_capacity_providers_response.PutClusterCapacityProvidersResponse":
-        """<p>Modifies the available capacity providers and the default capacity provider strategy for a cluster.</p> <p>You must specify both the available capacity providers and a default capacity provider strategy for the cluster. If the specified cluster has existing capacity providers associated with it, you must specify all existing capacity providers in addition to any new ones you want to add. Any existing capacity providers that are associated with a cluster that are omitted from a <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutClusterCapacityProviders.html\">PutClusterCapacityProviders</a> API call will be disassociated with the cluster. You can only disassociate an existing capacity provider from a cluster if it's not being used by any existing tasks.</p> <p>When creating a service or running a task on a cluster, if no capacity provider or launch type is specified, then the cluster's default capacity provider strategy is used. We recommend that you define a default capacity provider strategy for your cluster. However, you must specify an empty array (<code>[]</code>) to bypass defining a default strategy.</p> <p>Amazon ECS Managed Instances doesn't support this, because when you create a capacity provider with Amazon ECS Managed Instances, it becomes available only within the specified cluster.</p>
+        r"""<p>Modifies the available capacity providers and the default capacity provider strategy for a cluster.</p> <p>You must specify both the available capacity providers and a default capacity provider strategy for the cluster. If the specified cluster has existing capacity providers associated with it, you must specify all existing capacity providers in addition to any new ones you want to add. Any existing capacity providers that are associated with a cluster that are omitted from a <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutClusterCapacityProviders.html\">PutClusterCapacityProviders</a> API call will be disassociated with the cluster. You can only disassociate an existing capacity provider from a cluster if it's not being used by any existing tasks.</p> <p>When creating a service or running a task on a cluster, if no capacity provider or launch type is specified, then the cluster's default capacity provider strategy is used. We recommend that you define a default capacity provider strategy for your cluster. However, you must specify an empty array (<code>[]</code>) to bypass defining a default strategy.</p> <p>Amazon ECS Managed Instances doesn't support this, because when you create a capacity provider with Amazon ECS Managed Instances, it becomes available only within the specified cluster.</p>
 
         Args:
             cluster: <p>The short name or full Amazon Resource Name (ARN) of the cluster to modify the capacity provider settings for. If you don't specify a cluster, the default cluster is assumed.</p>
@@ -237,7 +239,7 @@ class ClusterResource:
         *,
         config_overrides: Optional[ECSClientConfig] = None,
     ) -> "aws_sdk_ecs.types.update_cluster_settings_response.UpdateClusterSettingsResponse":
-        """<p>Modifies the settings to use for a cluster.</p>
+        r"""<p>Modifies the settings to use for a cluster.</p>
 
         Args:
             cluster: <p>The name of the cluster to modify the settings for.</p>
@@ -294,7 +296,7 @@ class ClusterResource:
             "aws_sdk_ecs.types.cluster_service_connect_defaults_request.ClusterServiceConnectDefaultsRequest"
         ] = None,
     ) -> "aws_sdk_ecs.types.create_cluster_response.CreateClusterResponse":
-        """<p>Creates a new Amazon ECS cluster. By default, your account receives a <code>default</code> cluster when you launch your first container instance. However, you can create your own cluster with a unique name.</p> <note> <p>When you call the <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateCluster.html\">CreateCluster</a> API operation, Amazon ECS attempts to create the Amazon ECS service-linked role for your account. This is so that it can manage required resources in other Amazon Web Services services on your behalf. However, if the user that makes the call doesn't have permissions to create the service-linked role, it isn't created. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html\">Using service-linked roles for Amazon ECS</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p> </note>
+        r"""<p>Creates a new Amazon ECS cluster. By default, your account receives a <code>default</code> cluster when you launch your first container instance. However, you can create your own cluster with a unique name.</p> <note> <p>When you call the <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateCluster.html\">CreateCluster</a> API operation, Amazon ECS attempts to create the Amazon ECS service-linked role for your account. This is so that it can manage required resources in other Amazon Web Services services on your behalf. However, if the user that makes the call doesn't have permissions to create the service-linked role, it isn't created. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html\">Using service-linked roles for Amazon ECS</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p> </note>
 
         Args:
             cluster_name: <p>The name of your cluster. If you don't specify a name for your cluster, you create a cluster that's named <code>default</code>. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed. </p>
@@ -360,7 +362,7 @@ class ClusterResource:
         cluster: Optional["aws_sdk_ecs.types.string.String"] = None,
         force: Optional["aws_sdk_ecs.types.boxed_boolean.BoxedBoolean"] = None,
     ) -> "aws_sdk_ecs.types.deregister_container_instance_response.DeregisterContainerInstanceResponse":
-        """<p>Deregisters an Amazon ECS container instance from the specified cluster. This instance is no longer available to run tasks.</p> <p>If you intend to use the container instance for some other purpose after deregistration, we recommend that you stop all of the tasks running on the container instance before deregistration. That prevents any orphaned tasks from consuming resources.</p> <p>Deregistering a container instance removes the instance from a cluster, but it doesn't terminate the EC2 instance. If you are finished using the instance, be sure to terminate it in the Amazon EC2 console to stop billing.</p> <note> <p>If you terminate a running container instance, Amazon ECS automatically deregisters the instance from your cluster (stopped container instances or instances with disconnected agents aren't automatically deregistered when terminated).</p> </note>
+        r"""<p>Deregisters an Amazon ECS container instance from the specified cluster. This instance is no longer available to run tasks.</p> <p>If you intend to use the container instance for some other purpose after deregistration, we recommend that you stop all of the tasks running on the container instance before deregistration. That prevents any orphaned tasks from consuming resources.</p> <p>Deregistering a container instance removes the instance from a cluster, but it doesn't terminate the EC2 instance. If you are finished using the instance, be sure to terminate it in the Amazon EC2 console to stop billing.</p> <note> <p>If you terminate a running container instance, Amazon ECS automatically deregisters the instance from your cluster (stopped container instances or instances with disconnected agents aren't automatically deregistered when terminated).</p> </note>
 
         Args:
             cluster: <p>The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container instance to deregister. If you do not specify a cluster, the default cluster is assumed.</p>
@@ -412,7 +414,7 @@ class ClusterResource:
             "aws_sdk_ecs.types.cluster_field_list.ClusterFieldList"
         ] = None,
     ) -> "aws_sdk_ecs.types.describe_clusters_response.DescribeClustersResponse":
-        """<p>Describes one or more of your clusters.</p> <p> For CLI examples, see <a href=\"https://github.com/aws/aws-cli/blob/develop/awscli/examples/ecs/describe-clusters.rst\">describe-clusters.rst</a> on GitHub.</p>
+        r"""<p>Describes one or more of your clusters.</p> <p> For CLI examples, see <a href=\"https://github.com/aws/aws-cli/blob/develop/awscli/examples/ecs/describe-clusters.rst\">describe-clusters.rst</a> on GitHub.</p>
 
         Args:
             clusters: <p>A list of up to 100 cluster names or full cluster Amazon Resource Name (ARN) entries. If you do not specify a cluster, the default cluster is assumed.</p>
@@ -463,7 +465,7 @@ class ClusterResource:
         cluster: Optional["aws_sdk_ecs.types.string.String"] = None,
         container: Optional["aws_sdk_ecs.types.string.String"] = None,
     ) -> "aws_sdk_ecs.types.execute_command_response.ExecuteCommandResponse":
-        """<p>Runs a command remotely on a container within a task.</p> <p>If you use a condition key in your IAM policy to refine the conditions for the policy statement, for example limit the actions to a specific cluster, you receive an <code>AccessDeniedException</code> when there is a mismatch between the condition key value and the corresponding parameter value.</p> <p>For information about required permissions and considerations, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-exec.html\">Using Amazon ECS Exec for debugging</a> in the <i>Amazon ECS Developer Guide</i>. </p>
+        r"""<p>Runs a command remotely on a container within a task.</p> <p>If you use a condition key in your IAM policy to refine the conditions for the policy statement, for example limit the actions to a specific cluster, you receive an <code>AccessDeniedException</code> when there is a mismatch between the condition key value and the corresponding parameter value.</p> <p>For information about required permissions and considerations, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-exec.html\">Using Amazon ECS Exec for debugging</a> in the <i>Amazon ECS Developer Guide</i>. </p>
 
         Args:
             cluster: <p>The Amazon Resource Name (ARN) or short name of the cluster the task is running in. If you do not specify a cluster, the default cluster is assumed.</p>
@@ -633,7 +635,7 @@ class ClusterResource:
             "aws_sdk_ecs.types.container_instance_status.ContainerInstanceStatus"
         ] = None,
     ) -> "aws_sdk_ecs.types.list_container_instances_response.ListContainerInstancesResponse":
-        """<p>Returns a list of container instances in a specified cluster. You can filter the results of a <code>ListContainerInstances</code> operation with cluster query language statements inside the <code>filter</code> parameter. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html\">Cluster Query Language</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+        r"""<p>Returns a list of container instances in a specified cluster. You can filter the results of a <code>ListContainerInstances</code> operation with cluster query language statements inside the <code>filter</code> parameter. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html\">Cluster Query Language</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
 
         Args:
             cluster: <p>The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container instances to list. If you do not specify a cluster, the default cluster is assumed.</p>
@@ -890,7 +892,7 @@ class AsyncClusterResource:
             "aws_sdk_ecs.types.cluster_service_connect_defaults_request.ClusterServiceConnectDefaultsRequest"
         ] = None,
     ) -> "aws_sdk_ecs.types.update_cluster_response.UpdateClusterResponse":
-        """<p>Updates the cluster.</p>
+        r"""<p>Updates the cluster.</p>
 
         Args:
             cluster: <p>The name of the cluster to modify the settings for.</p>
@@ -947,7 +949,7 @@ class AsyncClusterResource:
         *,
         config_overrides: Optional[AsyncECSClientConfig] = None,
     ) -> "aws_sdk_ecs.types.delete_cluster_response.DeleteClusterResponse":
-        """<p>Deletes the specified cluster. The cluster transitions to the <code>INACTIVE</code> state. Clusters with an <code>INACTIVE</code> status might remain discoverable in your account for a period of time. However, this behavior is subject to change in the future. We don't recommend that you rely on <code>INACTIVE</code> clusters persisting.</p> <p>You must deregister all container instances from this cluster before you may delete it. You can list the container instances in a cluster with <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListContainerInstances.html\">ListContainerInstances</a> and deregister them with <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeregisterContainerInstance.html\">DeregisterContainerInstance</a>.</p>
+        r"""<p>Deletes the specified cluster. The cluster transitions to the <code>INACTIVE</code> state. Clusters with an <code>INACTIVE</code> status might remain discoverable in your account for a period of time. However, this behavior is subject to change in the future. We don't recommend that you rely on <code>INACTIVE</code> clusters persisting.</p> <p>You must deregister all container instances from this cluster before you may delete it. You can list the container instances in a cluster with <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListContainerInstances.html\">ListContainerInstances</a> and deregister them with <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeregisterContainerInstance.html\">DeregisterContainerInstance</a>.</p>
 
         Args:
             cluster: <p>The short name or full Amazon Resource Name (ARN) of the cluster to delete.</p>
@@ -993,7 +995,7 @@ class AsyncClusterResource:
         *,
         config_overrides: Optional[AsyncECSClientConfig] = None,
     ) -> "aws_sdk_ecs.types.put_cluster_capacity_providers_response.PutClusterCapacityProvidersResponse":
-        """<p>Modifies the available capacity providers and the default capacity provider strategy for a cluster.</p> <p>You must specify both the available capacity providers and a default capacity provider strategy for the cluster. If the specified cluster has existing capacity providers associated with it, you must specify all existing capacity providers in addition to any new ones you want to add. Any existing capacity providers that are associated with a cluster that are omitted from a <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutClusterCapacityProviders.html\">PutClusterCapacityProviders</a> API call will be disassociated with the cluster. You can only disassociate an existing capacity provider from a cluster if it's not being used by any existing tasks.</p> <p>When creating a service or running a task on a cluster, if no capacity provider or launch type is specified, then the cluster's default capacity provider strategy is used. We recommend that you define a default capacity provider strategy for your cluster. However, you must specify an empty array (<code>[]</code>) to bypass defining a default strategy.</p> <p>Amazon ECS Managed Instances doesn't support this, because when you create a capacity provider with Amazon ECS Managed Instances, it becomes available only within the specified cluster.</p>
+        r"""<p>Modifies the available capacity providers and the default capacity provider strategy for a cluster.</p> <p>You must specify both the available capacity providers and a default capacity provider strategy for the cluster. If the specified cluster has existing capacity providers associated with it, you must specify all existing capacity providers in addition to any new ones you want to add. Any existing capacity providers that are associated with a cluster that are omitted from a <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutClusterCapacityProviders.html\">PutClusterCapacityProviders</a> API call will be disassociated with the cluster. You can only disassociate an existing capacity provider from a cluster if it's not being used by any existing tasks.</p> <p>When creating a service or running a task on a cluster, if no capacity provider or launch type is specified, then the cluster's default capacity provider strategy is used. We recommend that you define a default capacity provider strategy for your cluster. However, you must specify an empty array (<code>[]</code>) to bypass defining a default strategy.</p> <p>Amazon ECS Managed Instances doesn't support this, because when you create a capacity provider with Amazon ECS Managed Instances, it becomes available only within the specified cluster.</p>
 
         Args:
             cluster: <p>The short name or full Amazon Resource Name (ARN) of the cluster to modify the capacity provider settings for. If you don't specify a cluster, the default cluster is assumed.</p>
@@ -1052,7 +1054,7 @@ class AsyncClusterResource:
         *,
         config_overrides: Optional[AsyncECSClientConfig] = None,
     ) -> "aws_sdk_ecs.types.update_cluster_settings_response.UpdateClusterSettingsResponse":
-        """<p>Modifies the settings to use for a cluster.</p>
+        r"""<p>Modifies the settings to use for a cluster.</p>
 
         Args:
             cluster: <p>The name of the cluster to modify the settings for.</p>
@@ -1110,7 +1112,7 @@ class AsyncClusterResource:
             "aws_sdk_ecs.types.cluster_service_connect_defaults_request.ClusterServiceConnectDefaultsRequest"
         ] = None,
     ) -> "aws_sdk_ecs.types.create_cluster_response.CreateClusterResponse":
-        """<p>Creates a new Amazon ECS cluster. By default, your account receives a <code>default</code> cluster when you launch your first container instance. However, you can create your own cluster with a unique name.</p> <note> <p>When you call the <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateCluster.html\">CreateCluster</a> API operation, Amazon ECS attempts to create the Amazon ECS service-linked role for your account. This is so that it can manage required resources in other Amazon Web Services services on your behalf. However, if the user that makes the call doesn't have permissions to create the service-linked role, it isn't created. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html\">Using service-linked roles for Amazon ECS</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p> </note>
+        r"""<p>Creates a new Amazon ECS cluster. By default, your account receives a <code>default</code> cluster when you launch your first container instance. However, you can create your own cluster with a unique name.</p> <note> <p>When you call the <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateCluster.html\">CreateCluster</a> API operation, Amazon ECS attempts to create the Amazon ECS service-linked role for your account. This is so that it can manage required resources in other Amazon Web Services services on your behalf. However, if the user that makes the call doesn't have permissions to create the service-linked role, it isn't created. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html\">Using service-linked roles for Amazon ECS</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p> </note>
 
         Args:
             cluster_name: <p>The name of your cluster. If you don't specify a name for your cluster, you create a cluster that's named <code>default</code>. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed. </p>
@@ -1177,7 +1179,7 @@ class AsyncClusterResource:
         cluster: Optional["aws_sdk_ecs.types.string.String"] = None,
         force: Optional["aws_sdk_ecs.types.boxed_boolean.BoxedBoolean"] = None,
     ) -> "aws_sdk_ecs.types.deregister_container_instance_response.DeregisterContainerInstanceResponse":
-        """<p>Deregisters an Amazon ECS container instance from the specified cluster. This instance is no longer available to run tasks.</p> <p>If you intend to use the container instance for some other purpose after deregistration, we recommend that you stop all of the tasks running on the container instance before deregistration. That prevents any orphaned tasks from consuming resources.</p> <p>Deregistering a container instance removes the instance from a cluster, but it doesn't terminate the EC2 instance. If you are finished using the instance, be sure to terminate it in the Amazon EC2 console to stop billing.</p> <note> <p>If you terminate a running container instance, Amazon ECS automatically deregisters the instance from your cluster (stopped container instances or instances with disconnected agents aren't automatically deregistered when terminated).</p> </note>
+        r"""<p>Deregisters an Amazon ECS container instance from the specified cluster. This instance is no longer available to run tasks.</p> <p>If you intend to use the container instance for some other purpose after deregistration, we recommend that you stop all of the tasks running on the container instance before deregistration. That prevents any orphaned tasks from consuming resources.</p> <p>Deregistering a container instance removes the instance from a cluster, but it doesn't terminate the EC2 instance. If you are finished using the instance, be sure to terminate it in the Amazon EC2 console to stop billing.</p> <note> <p>If you terminate a running container instance, Amazon ECS automatically deregisters the instance from your cluster (stopped container instances or instances with disconnected agents aren't automatically deregistered when terminated).</p> </note>
 
         Args:
             cluster: <p>The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container instance to deregister. If you do not specify a cluster, the default cluster is assumed.</p>
@@ -1230,7 +1232,7 @@ class AsyncClusterResource:
             "aws_sdk_ecs.types.cluster_field_list.ClusterFieldList"
         ] = None,
     ) -> "aws_sdk_ecs.types.describe_clusters_response.DescribeClustersResponse":
-        """<p>Describes one or more of your clusters.</p> <p> For CLI examples, see <a href=\"https://github.com/aws/aws-cli/blob/develop/awscli/examples/ecs/describe-clusters.rst\">describe-clusters.rst</a> on GitHub.</p>
+        r"""<p>Describes one or more of your clusters.</p> <p> For CLI examples, see <a href=\"https://github.com/aws/aws-cli/blob/develop/awscli/examples/ecs/describe-clusters.rst\">describe-clusters.rst</a> on GitHub.</p>
 
         Args:
             clusters: <p>A list of up to 100 cluster names or full cluster Amazon Resource Name (ARN) entries. If you do not specify a cluster, the default cluster is assumed.</p>
@@ -1282,7 +1284,7 @@ class AsyncClusterResource:
         cluster: Optional["aws_sdk_ecs.types.string.String"] = None,
         container: Optional["aws_sdk_ecs.types.string.String"] = None,
     ) -> "aws_sdk_ecs.types.execute_command_response.ExecuteCommandResponse":
-        """<p>Runs a command remotely on a container within a task.</p> <p>If you use a condition key in your IAM policy to refine the conditions for the policy statement, for example limit the actions to a specific cluster, you receive an <code>AccessDeniedException</code> when there is a mismatch between the condition key value and the corresponding parameter value.</p> <p>For information about required permissions and considerations, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-exec.html\">Using Amazon ECS Exec for debugging</a> in the <i>Amazon ECS Developer Guide</i>. </p>
+        r"""<p>Runs a command remotely on a container within a task.</p> <p>If you use a condition key in your IAM policy to refine the conditions for the policy statement, for example limit the actions to a specific cluster, you receive an <code>AccessDeniedException</code> when there is a mismatch between the condition key value and the corresponding parameter value.</p> <p>For information about required permissions and considerations, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-exec.html\">Using Amazon ECS Exec for debugging</a> in the <i>Amazon ECS Developer Guide</i>. </p>
 
         Args:
             cluster: <p>The Amazon Resource Name (ARN) or short name of the cluster the task is running in. If you do not specify a cluster, the default cluster is assumed.</p>
@@ -1455,7 +1457,7 @@ class AsyncClusterResource:
             "aws_sdk_ecs.types.container_instance_status.ContainerInstanceStatus"
         ] = None,
     ) -> "aws_sdk_ecs.types.list_container_instances_response.ListContainerInstancesResponse":
-        """<p>Returns a list of container instances in a specified cluster. You can filter the results of a <code>ListContainerInstances</code> operation with cluster query language statements inside the <code>filter</code> parameter. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html\">Cluster Query Language</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+        r"""<p>Returns a list of container instances in a specified cluster. You can filter the results of a <code>ListContainerInstances</code> operation with cluster query language statements inside the <code>filter</code> parameter. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html\">Cluster Query Language</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
 
         Args:
             cluster: <p>The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container instances to list. If you do not specify a cluster, the default cluster is assumed.</p>

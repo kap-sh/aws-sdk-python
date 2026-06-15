@@ -11,9 +11,9 @@ if TYPE_CHECKING:
 
 class Tag(TypedDict):
     key: "aws_sdk_data_pipeline.types.tag_key.tagKey"
-    """<p>The key name of a tag defined by a user. For more information, see <a href=\"http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html\">Controlling User Access to Pipelines</a> in the <i>AWS Data Pipeline Developer Guide</i>.</p>"""
+    r"""<p>The key name of a tag defined by a user. For more information, see <a href=\"http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html\">Controlling User Access to Pipelines</a> in the <i>AWS Data Pipeline Developer Guide</i>.</p>"""
     value: "aws_sdk_data_pipeline.types.tag_value.tagValue"
-    """<p>The optional value portion of a tag defined by a user. For more information, see <a href=\"http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html\">Controlling User Access to Pipelines</a> in the <i>AWS Data Pipeline Developer Guide</i>.</p>"""
+    r"""<p>The optional value portion of a tag defined by a user. For more information, see <a href=\"http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html\">Controlling User Access to Pipelines</a> in the <i>AWS Data Pipeline Developer Guide</i>.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

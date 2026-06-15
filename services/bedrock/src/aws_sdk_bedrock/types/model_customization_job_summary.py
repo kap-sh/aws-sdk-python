@@ -48,7 +48,7 @@ class ModelCustomizationJobSummary(TypedDict):
     customization_type: NotRequired[
         "aws_sdk_bedrock.types.customization_type.CustomizationType"
     ]
-    """<p>Specifies whether to carry out continued pre-training of a model or whether to fine-tune it. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html\">Custom models</a>.</p>"""
+    r"""<p>Specifies whether to carry out continued pre-training of a model or whether to fine-tune it. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html\">Custom models</a>.</p>"""
 
 
 # --- restJson1 ser/de ---

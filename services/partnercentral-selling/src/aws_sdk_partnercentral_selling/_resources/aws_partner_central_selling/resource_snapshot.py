@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 from aws_sdk_partnercentral_selling._services._pipeline import (
@@ -176,7 +178,7 @@ class ResourceSnapshot:
             "aws_sdk_partnercentral_selling.types.aws_account.AwsAccount"
         ] = None,
     ) -> "aws_sdk_partnercentral_selling.types.list_engagement_resource_associations_response.ListEngagementResourceAssociationsResponse":
-        """<p>Lists the associations between resources and engagements where the caller is a member and has at least one snapshot in the engagement.</p>
+        r"""<p>Lists the associations between resources and engagements where the caller is a member and has at least one snapshot in the engagement.</p>
 
         Args:
             catalog: <p>Specifies the catalog in which to search for engagement-resource associations. Valid Values: \"AWS\" or \"Sandbox\"</p> <ul> <li> <p> <code>AWS</code> for production environments.</p> </li> <li> <p> <code>Sandbox</code> for testing and development purposes.</p> </li> </ul>
@@ -441,7 +443,7 @@ class AsyncResourceSnapshot:
             "aws_sdk_partnercentral_selling.types.aws_account.AwsAccount"
         ] = None,
     ) -> "aws_sdk_partnercentral_selling.types.list_engagement_resource_associations_response.ListEngagementResourceAssociationsResponse":
-        """<p>Lists the associations between resources and engagements where the caller is a member and has at least one snapshot in the engagement.</p>
+        r"""<p>Lists the associations between resources and engagements where the caller is a member and has at least one snapshot in the engagement.</p>
 
         Args:
             catalog: <p>Specifies the catalog in which to search for engagement-resource associations. Valid Values: \"AWS\" or \"Sandbox\"</p> <ul> <li> <p> <code>AWS</code> for production environments.</p> </li> <li> <p> <code>Sandbox</code> for testing and development purposes.</p> </li> </ul>

@@ -33,7 +33,7 @@ class Disk(TypedDict):
     resource_type: NotRequired["aws_sdk_lightsail.types.resource_type.ResourceType"]
     """<p>The Lightsail resource type (<code>Disk</code>).</p>"""
     tags: NotRequired["aws_sdk_lightsail.types.tag_list.TagList"]
-    """<p>The tag keys and optional values for the resource. For more information about tags in Lightsail, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-tags\">Amazon Lightsail Developer Guide</a>.</p>"""
+    r"""<p>The tag keys and optional values for the resource. For more information about tags in Lightsail, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-tags\">Amazon Lightsail Developer Guide</a>.</p>"""
     add_ons: NotRequired["aws_sdk_lightsail.types.add_on_list.AddOnList"]
     """<p>An array of objects representing the add-ons enabled on the disk.</p>"""
     size_in_gb: NotRequired["aws_sdk_lightsail.types.integer.integer"]

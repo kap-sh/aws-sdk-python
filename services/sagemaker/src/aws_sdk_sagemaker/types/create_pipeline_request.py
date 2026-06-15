@@ -25,7 +25,7 @@ class CreatePipelineRequest(TypedDict):
     pipeline_definition: NotRequired[
         "aws_sdk_sagemaker.types.pipeline_definition.PipelineDefinition"
     ]
-    """<p>The <a href=\"https://aws-sagemaker-mlops.github.io/sagemaker-model-building-pipeline-definition-JSON-schema/\">JSON pipeline definition</a> of the pipeline.</p>"""
+    r"""<p>The <a href=\"https://aws-sagemaker-mlops.github.io/sagemaker-model-building-pipeline-definition-JSON-schema/\">JSON pipeline definition</a> of the pipeline.</p>"""
     pipeline_definition_s3_location: NotRequired[
         "aws_sdk_sagemaker.types.pipeline_definition_s3_location.PipelineDefinitionS3Location"
     ]

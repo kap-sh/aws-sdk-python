@@ -169,7 +169,7 @@ class SSOOIDCClient:
             "aws_sdk_sso_oidc.types.code_verifier.CodeVerifier"
         ] = None,
     ) -> "aws_sdk_sso_oidc.types.create_token_response.CreateTokenResponse":
-        """<p>Creates and returns access and refresh tokens for clients that are authenticated using client secrets. The access token can be used to fetch short-lived credentials for the assigned AWS accounts or to access application APIs using <code>bearer</code> authentication.</p>
+        r"""<p>Creates and returns access and refresh tokens for clients that are authenticated using client secrets. The access token can be used to fetch short-lived credentials for the assigned AWS accounts or to access application APIs using <code>bearer</code> authentication.</p>
 
         Args:
             client_id: <p>The unique identifier string for the client or application. This value comes from the result of the <a>RegisterClient</a> API.</p>
@@ -256,7 +256,7 @@ class SSOOIDCClient:
             "aws_sdk_sso_oidc.types.code_verifier.CodeVerifier"
         ] = None,
     ) -> "aws_sdk_sso_oidc.types.create_token_with_iam_response.CreateTokenWithIAMResponse":
-        """<p>Creates and returns access and refresh tokens for authorized client applications that are authenticated using any IAM entity, such as a service role or user. These tokens might contain defined scopes that specify permissions such as <code>read:profile</code> or <code>write:data</code>. Through downscoping, you can use the scopes parameter to request tokens with reduced permissions compared to the original client application's permissions or, if applicable, the refresh token's scopes. The access token can be used to fetch short-lived credentials for the assigned Amazon Web Services accounts or to access application APIs using <code>bearer</code> authentication.</p> <note> <p>This API is used with Signature Version 4. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html\">Amazon Web Services Signature Version 4 for API Requests</a>.</p> </note>
+        r"""<p>Creates and returns access and refresh tokens for authorized client applications that are authenticated using any IAM entity, such as a service role or user. These tokens might contain defined scopes that specify permissions such as <code>read:profile</code> or <code>write:data</code>. Through downscoping, you can use the scopes parameter to request tokens with reduced permissions compared to the original client application's permissions or, if applicable, the refresh token's scopes. The access token can be used to fetch short-lived credentials for the assigned Amazon Web Services accounts or to access application APIs using <code>bearer</code> authentication.</p> <note> <p>This API is used with Signature Version 4. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html\">Amazon Web Services Signature Version 4 for API Requests</a>.</p> </note>
 
         Args:
             client_id: <p>The unique identifier string for the client or application. This value is an application ARN that has OAuth grants configured.</p>
@@ -407,7 +407,7 @@ class SSOOIDCClient:
         *,
         config_overrides: Optional[SSOOIDCClientConfig] = None,
     ) -> "aws_sdk_sso_oidc.types.start_device_authorization_response.StartDeviceAuthorizationResponse":
-        """<p>Initiates device authorization by requesting a pair of verification codes from the authorization service.</p>
+        r"""<p>Initiates device authorization by requesting a pair of verification codes from the authorization service.</p>
 
         Args:
             client_id: <p>The unique identifier string for the client that is registered with IAM Identity Center. This value should come from the persisted result of the <a>RegisterClient</a> API operation.</p>

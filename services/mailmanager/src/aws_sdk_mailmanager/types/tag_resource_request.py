@@ -13,7 +13,7 @@ class TagResourceRequest(TypedDict):
     resource_arn: "aws_sdk_mailmanager.types.taggable_resource_arn.TaggableResourceArn"
     """<p> The Amazon Resource Name (ARN) of the resource that you want to tag. </p>"""
     tags: "aws_sdk_mailmanager.types.tag_list.TagList"
-    """<p> The tags used to organize, track, or control access for the resource. For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }. </p>"""
+    r"""<p> The tags used to organize, track, or control access for the resource. For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }. </p>"""
 
 
 # --- awsJson1_0 ser/de ---

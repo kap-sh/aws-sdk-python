@@ -22,7 +22,7 @@ class UpdateNodegroupConfigRequest(TypedDict):
     labels: NotRequired["aws_sdk_eks.types.update_labels_payload.UpdateLabelsPayload"]
     """<p>The Kubernetes <code>labels</code> to apply to the nodes in the node group after the update.</p>"""
     taints: NotRequired["aws_sdk_eks.types.update_taints_payload.UpdateTaintsPayload"]
-    """<p>The Kubernetes taints to be applied to the nodes in the node group after the update. For more information, see <a href=\"https://docs.aws.amazon.com/eks/latest/userguide/node-taints-managed-node-groups.html\">Node taints on managed node groups</a>.</p>"""
+    r"""<p>The Kubernetes taints to be applied to the nodes in the node group after the update. For more information, see <a href=\"https://docs.aws.amazon.com/eks/latest/userguide/node-taints-managed-node-groups.html\">Node taints on managed node groups</a>.</p>"""
     scaling_config: NotRequired[
         "aws_sdk_eks.types.nodegroup_scaling_config.NodegroupScalingConfig"
     ]

@@ -151,7 +151,7 @@ class AsyncCloudSearchClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = AsyncCloudSearchClientConfig(
+        self._config = AsyncCloudSearchClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -171,7 +171,7 @@ class AsyncCloudSearchClient:
         overrides: AsyncCloudSearchClientConfig = config_overrides or {}
         interceptors_: list[AsyncInterceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             aretry(),
         ]
@@ -179,16 +179,16 @@ class AsyncCloudSearchClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            region=overrides.get("region", self.config.get("region")),
+            region=overrides.get("region", self._config.get("region")),
             use_dual_stack=overrides.get(
-                "use_dual_stack", self.config.get("use_dual_stack")
+                "use_dual_stack", self._config.get("use_dual_stack")
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -199,7 +199,7 @@ class AsyncCloudSearchClient:
         *,
         config_overrides: Optional[AsyncCloudSearchClientConfig] = None,
     ) -> "aws_sdk_cloudsearch.types.build_suggesters_response.BuildSuggestersResponse":
-        """<p>Indexes the search suggestions. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html#configuring-suggesters\">Configuring Suggesters</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>"""
+        r"""<p>Indexes the search suggestions. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html#configuring-suggesters\">Configuring Suggesters</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>"""
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_cloudsearch.types.build_suggesters_request.BuildSuggestersRequest]",
@@ -233,7 +233,7 @@ class AsyncCloudSearchClient:
         *,
         config_overrides: Optional[AsyncCloudSearchClientConfig] = None,
     ) -> "aws_sdk_cloudsearch.types.create_domain_response.CreateDomainResponse":
-        """<p>Creates a new search domain. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/creating-domains.html\" target=\"_blank\">Creating a Search Domain</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
+        r"""<p>Creates a new search domain. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/creating-domains.html\" target=\"_blank\">Creating a Search Domain</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
 
         Args:
             domain_name: <p>A name for the domain you are creating. Allowed characters are a-z (lower-case letters), 0-9, and hyphen (-). Domain names must start with a letter or number and be at least 3 and no more than 28 characters long.</p>
@@ -272,7 +272,7 @@ class AsyncCloudSearchClient:
         *,
         config_overrides: Optional[AsyncCloudSearchClientConfig] = None,
     ) -> "aws_sdk_cloudsearch.types.define_analysis_scheme_response.DefineAnalysisSchemeResponse":
-        """<p>Configures an analysis scheme that can be applied to a <code>text</code> or <code>text-array</code> field to define language-specific text processing options. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html\" target=\"_blank\">Configuring Analysis Schemes</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>"""
+        r"""<p>Configures an analysis scheme that can be applied to a <code>text</code> or <code>text-array</code> field to define language-specific text processing options. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html\" target=\"_blank\">Configuring Analysis Schemes</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>"""
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_cloudsearch.types.define_analysis_scheme_request.DefineAnalysisSchemeRequest]",
@@ -310,7 +310,7 @@ class AsyncCloudSearchClient:
     ) -> (
         "aws_sdk_cloudsearch.types.define_expression_response.DefineExpressionResponse"
     ):
-        """<p>Configures an <code><a>Expression</a></code> for the search domain. Used to create new expressions and modify existing ones. If the expression exists, the new configuration replaces the old one. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html\" target=\"_blank\">Configuring Expressions</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>"""
+        r"""<p>Configures an <code><a>Expression</a></code> for the search domain. Used to create new expressions and modify existing ones. If the expression exists, the new configuration replaces the old one. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html\" target=\"_blank\">Configuring Expressions</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>"""
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_cloudsearch.types.define_expression_request.DefineExpressionRequest]",
@@ -348,7 +348,7 @@ class AsyncCloudSearchClient:
     ) -> (
         "aws_sdk_cloudsearch.types.define_index_field_response.DefineIndexFieldResponse"
     ):
-        """<p>Configures an <code><a>IndexField</a></code> for the search domain. Used to create new fields and modify existing ones. You must specify the name of the domain you are configuring and an index field configuration. The index field configuration specifies a unique name, the index field type, and the options you want to configure for the field. The options you can specify depend on the <code><a>IndexFieldType</a></code>. If the field exists, the new configuration replaces the old one. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-index-fields.html\" target=\"_blank\">Configuring Index Fields</a> in the <i>Amazon CloudSearch Developer Guide</i>. </p>
+        r"""<p>Configures an <code><a>IndexField</a></code> for the search domain. Used to create new fields and modify existing ones. You must specify the name of the domain you are configuring and an index field configuration. The index field configuration specifies a unique name, the index field type, and the options you want to configure for the field. The options you can specify depend on the <code><a>IndexFieldType</a></code>. If the field exists, the new configuration replaces the old one. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-index-fields.html\" target=\"_blank\">Configuring Index Fields</a> in the <i>Amazon CloudSearch Developer Guide</i>. </p>
 
         Args:
             index_field: <p>The index field and field options you want to configure. </p>
@@ -388,7 +388,7 @@ class AsyncCloudSearchClient:
         *,
         config_overrides: Optional[AsyncCloudSearchClientConfig] = None,
     ) -> "aws_sdk_cloudsearch.types.define_suggester_response.DefineSuggesterResponse":
-        """<p>Configures a suggester for a domain. A suggester enables you to display possible matches before users finish typing their queries. When you configure a suggester, you must specify the name of the text field you want to search for possible matches and a unique name for the suggester. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html\" target=\"_blank\">Getting Search Suggestions</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>"""
+        r"""<p>Configures a suggester for a domain. A suggester enables you to display possible matches before users finish typing their queries. When you configure a suggester, you must specify the name of the text field you want to search for possible matches and a unique name for the suggester. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html\" target=\"_blank\">Getting Search Suggestions</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>"""
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_cloudsearch.types.define_suggester_request.DefineSuggesterRequest]",
@@ -424,7 +424,7 @@ class AsyncCloudSearchClient:
         *,
         config_overrides: Optional[AsyncCloudSearchClientConfig] = None,
     ) -> "aws_sdk_cloudsearch.types.delete_analysis_scheme_response.DeleteAnalysisSchemeResponse":
-        """<p>Deletes an analysis scheme. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html\" target=\"_blank\">Configuring Analysis Schemes</a> in the <i>Amazon CloudSearch Developer Guide</i>. </p>
+        r"""<p>Deletes an analysis scheme. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html\" target=\"_blank\">Configuring Analysis Schemes</a> in the <i>Amazon CloudSearch Developer Guide</i>. </p>
 
         Args:
             analysis_scheme_name: <p>The name of the analysis scheme you want to delete.</p>
@@ -463,7 +463,7 @@ class AsyncCloudSearchClient:
         *,
         config_overrides: Optional[AsyncCloudSearchClientConfig] = None,
     ) -> "aws_sdk_cloudsearch.types.delete_domain_response.DeleteDomainResponse":
-        """<p>Permanently deletes a search domain and all of its data. Once a domain has been deleted, it cannot be recovered. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/deleting-domains.html\" target=\"_blank\">Deleting a Search Domain</a> in the <i>Amazon CloudSearch Developer Guide</i>. </p>
+        r"""<p>Permanently deletes a search domain and all of its data. Once a domain has been deleted, it cannot be recovered. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/deleting-domains.html\" target=\"_blank\">Deleting a Search Domain</a> in the <i>Amazon CloudSearch Developer Guide</i>. </p>
 
         Args:
             domain_name: <p>The name of the domain you want to permanently delete.</p>
@@ -504,7 +504,7 @@ class AsyncCloudSearchClient:
     ) -> (
         "aws_sdk_cloudsearch.types.delete_expression_response.DeleteExpressionResponse"
     ):
-        """<p>Removes an <code><a>Expression</a></code> from the search domain. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html\" target=\"_blank\">Configuring Expressions</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
+        r"""<p>Removes an <code><a>Expression</a></code> from the search domain. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html\" target=\"_blank\">Configuring Expressions</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
 
         Args:
             expression_name: <p>The name of the <code><a>Expression</a></code> to delete.</p>
@@ -546,7 +546,7 @@ class AsyncCloudSearchClient:
     ) -> (
         "aws_sdk_cloudsearch.types.delete_index_field_response.DeleteIndexFieldResponse"
     ):
-        """<p>Removes an <code><a>IndexField</a></code> from the search domain. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-index-fields.html\" target=\"_blank\">Configuring Index Fields</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
+        r"""<p>Removes an <code><a>IndexField</a></code> from the search domain. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-index-fields.html\" target=\"_blank\">Configuring Index Fields</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
 
         Args:
             index_field_name: <p>The name of the index field your want to remove from the domain's indexing options.</p>
@@ -586,7 +586,7 @@ class AsyncCloudSearchClient:
         *,
         config_overrides: Optional[AsyncCloudSearchClientConfig] = None,
     ) -> "aws_sdk_cloudsearch.types.delete_suggester_response.DeleteSuggesterResponse":
-        """<p>Deletes a suggester. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html\" target=\"_blank\">Getting Search Suggestions</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
+        r"""<p>Deletes a suggester. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html\" target=\"_blank\">Getting Search Suggestions</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
 
         Args:
             suggester_name: <p>Specifies the name of the suggester you want to delete.</p>
@@ -629,7 +629,7 @@ class AsyncCloudSearchClient:
         ] = None,
         deployed: Optional["aws_sdk_cloudsearch.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_cloudsearch.types.describe_analysis_schemes_response.DescribeAnalysisSchemesResponse":
-        """<p>Gets the analysis schemes configured for a domain. An analysis scheme defines language-specific text processing options for a <code>text</code> field. Can be limited to specific analysis schemes by name. By default, shows all analysis schemes and includes any pending changes to the configuration. Set the <code>Deployed</code> option to <code>true</code> to show the active configuration and exclude pending changes. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html\" target=\"_blank\">Configuring Analysis Schemes</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
+        r"""<p>Gets the analysis schemes configured for a domain. An analysis scheme defines language-specific text processing options for a <code>text</code> field. Can be limited to specific analysis schemes by name. By default, shows all analysis schemes and includes any pending changes to the configuration. Set the <code>Deployed</code> option to <code>true</code> to show the active configuration and exclude pending changes. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html\" target=\"_blank\">Configuring Analysis Schemes</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
 
         Args:
             domain_name: <p>The name of the domain you want to describe.</p>
@@ -674,7 +674,7 @@ class AsyncCloudSearchClient:
         config_overrides: Optional[AsyncCloudSearchClientConfig] = None,
         deployed: Optional["aws_sdk_cloudsearch.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_cloudsearch.types.describe_availability_options_response.DescribeAvailabilityOptionsResponse":
-        """<p>Gets the availability options configured for a domain. By default, shows the configuration with any pending changes. Set the <code>Deployed</code> option to <code>true</code> to show the active configuration and exclude pending changes. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-availability-options.html\" target=\"_blank\">Configuring Availability Options</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
+        r"""<p>Gets the availability options configured for a domain. By default, shows the configuration with any pending changes. Set the <code>Deployed</code> option to <code>true</code> to show the active configuration and exclude pending changes. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-availability-options.html\" target=\"_blank\">Configuring Availability Options</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
 
         Args:
             domain_name: <p>The name of the domain you want to describe.</p>
@@ -716,7 +716,7 @@ class AsyncCloudSearchClient:
         config_overrides: Optional[AsyncCloudSearchClientConfig] = None,
         deployed: Optional["aws_sdk_cloudsearch.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_cloudsearch.types.describe_domain_endpoint_options_response.DescribeDomainEndpointOptionsResponse":
-        """<p>Returns the domain's endpoint options, specifically whether all requests to the domain must arrive over HTTPS. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-domain-endpoint-options.html\" target=\"_blank\">Configuring Domain Endpoint Options</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
+        r"""<p>Returns the domain's endpoint options, specifically whether all requests to the domain must arrive over HTTPS. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-domain-endpoint-options.html\" target=\"_blank\">Configuring Domain Endpoint Options</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
 
         Args:
             domain_name: <p>A string that represents the name of a domain.</p>
@@ -759,7 +759,7 @@ class AsyncCloudSearchClient:
             "aws_sdk_cloudsearch.types.domain_name_list.DomainNameList"
         ] = None,
     ) -> "aws_sdk_cloudsearch.types.describe_domains_response.DescribeDomainsResponse":
-        """<p>Gets information about the search domains owned by this account. Can be limited to specific domains. Shows all domains by default. To get the number of searchable documents in a domain, use the console or submit a <code>matchall</code> request to your domain's search endpoint: <code>q=matchall&amp;q.parser=structured&amp;size=0</code>. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-domain-info.html\" target=\"_blank\">Getting Information about a Search Domain</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
+        r"""<p>Gets information about the search domains owned by this account. Can be limited to specific domains. Shows all domains by default. To get the number of searchable documents in a domain, use the console or submit a <code>matchall</code> request to your domain's search endpoint: <code>q=matchall&amp;q.parser=structured&amp;size=0</code>. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-domain-info.html\" target=\"_blank\">Getting Information about a Search Domain</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
 
         Args:
             domain_names: <p>The names of the domains you want to include in the response.</p>
@@ -802,7 +802,7 @@ class AsyncCloudSearchClient:
         ] = None,
         deployed: Optional["aws_sdk_cloudsearch.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_cloudsearch.types.describe_expressions_response.DescribeExpressionsResponse":
-        """<p>Gets the expressions configured for the search domain. Can be limited to specific expressions by name. By default, shows all expressions and includes any pending changes to the configuration. Set the <code>Deployed</code> option to <code>true</code> to show the active configuration and exclude pending changes. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html\" target=\"_blank\">Configuring Expressions</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
+        r"""<p>Gets the expressions configured for the search domain. Can be limited to specific expressions by name. By default, shows all expressions and includes any pending changes to the configuration. Set the <code>Deployed</code> option to <code>true</code> to show the active configuration and exclude pending changes. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html\" target=\"_blank\">Configuring Expressions</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
 
         Args:
             domain_name: <p>The name of the domain you want to describe.</p>
@@ -850,7 +850,7 @@ class AsyncCloudSearchClient:
         ] = None,
         deployed: Optional["aws_sdk_cloudsearch.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_cloudsearch.types.describe_index_fields_response.DescribeIndexFieldsResponse":
-        """<p>Gets information about the index fields configured for the search domain. Can be limited to specific fields by name. By default, shows all fields and includes any pending changes to the configuration. Set the <code>Deployed</code> option to <code>true</code> to show the active configuration and exclude pending changes. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-domain-info.html\" target=\"_blank\">Getting Domain Information</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
+        r"""<p>Gets information about the index fields configured for the search domain. Can be limited to specific fields by name. By default, shows all fields and includes any pending changes to the configuration. Set the <code>Deployed</code> option to <code>true</code> to show the active configuration and exclude pending changes. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-domain-info.html\" target=\"_blank\">Getting Domain Information</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
 
         Args:
             domain_name: <p>The name of the domain you want to describe.</p>
@@ -894,7 +894,7 @@ class AsyncCloudSearchClient:
         *,
         config_overrides: Optional[AsyncCloudSearchClientConfig] = None,
     ) -> "aws_sdk_cloudsearch.types.describe_scaling_parameters_response.DescribeScalingParametersResponse":
-        """<p>Gets the scaling parameters configured for a domain. A domain's scaling parameters specify the desired search instance type and replication count. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-scaling-options.html\" target=\"_blank\">Configuring Scaling Options</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>"""
+        r"""<p>Gets the scaling parameters configured for a domain. A domain's scaling parameters specify the desired search instance type and replication count. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-scaling-options.html\" target=\"_blank\">Configuring Scaling Options</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>"""
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_cloudsearch.types.describe_scaling_parameters_request.DescribeScalingParametersRequest]",
@@ -929,7 +929,7 @@ class AsyncCloudSearchClient:
         config_overrides: Optional[AsyncCloudSearchClientConfig] = None,
         deployed: Optional["aws_sdk_cloudsearch.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_cloudsearch.types.describe_service_access_policies_response.DescribeServiceAccessPoliciesResponse":
-        """<p>Gets information about the access policies that control access to the domain's document and search endpoints. By default, shows the configuration with any pending changes. Set the <code>Deployed</code> option to <code>true</code> to show the active configuration and exclude pending changes. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html\" target=\"_blank\">Configuring Access for a Search Domain</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
+        r"""<p>Gets information about the access policies that control access to the domain's document and search endpoints. By default, shows the configuration with any pending changes. Set the <code>Deployed</code> option to <code>true</code> to show the active configuration and exclude pending changes. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html\" target=\"_blank\">Configuring Access for a Search Domain</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
 
         Args:
             domain_name: <p>The name of the domain you want to describe.</p>
@@ -974,7 +974,7 @@ class AsyncCloudSearchClient:
         ] = None,
         deployed: Optional["aws_sdk_cloudsearch.types.boolean.Boolean"] = None,
     ) -> "aws_sdk_cloudsearch.types.describe_suggesters_response.DescribeSuggestersResponse":
-        """<p>Gets the suggesters configured for a domain. A suggester enables you to display possible matches before users finish typing their queries. Can be limited to specific suggesters by name. By default, shows all suggesters and includes any pending changes to the configuration. Set the <code>Deployed</code> option to <code>true</code> to show the active configuration and exclude pending changes. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html\" target=\"_blank\">Getting Search Suggestions</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
+        r"""<p>Gets the suggesters configured for a domain. A suggester enables you to display possible matches before users finish typing their queries. Can be limited to specific suggesters by name. By default, shows all suggesters and includes any pending changes to the configuration. Set the <code>Deployed</code> option to <code>true</code> to show the active configuration and exclude pending changes. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html\" target=\"_blank\">Getting Search Suggestions</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
 
         Args:
             domain_name: <p>The name of the domain you want to describe.</p>
@@ -1082,7 +1082,7 @@ class AsyncCloudSearchClient:
         *,
         config_overrides: Optional[AsyncCloudSearchClientConfig] = None,
     ) -> "aws_sdk_cloudsearch.types.update_availability_options_response.UpdateAvailabilityOptionsResponse":
-        """<p>Configures the availability options for a domain. Enabling the Multi-AZ option expands an Amazon CloudSearch domain to an additional Availability Zone in the same Region to increase fault tolerance in the event of a service disruption. Changes to the Multi-AZ option can take about half an hour to become active. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-availability-options.html\" target=\"_blank\">Configuring Availability Options</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
+        r"""<p>Configures the availability options for a domain. Enabling the Multi-AZ option expands an Amazon CloudSearch domain to an additional Availability Zone in the same Region to increase fault tolerance in the event of a service disruption. Changes to the Multi-AZ option can take about half an hour to become active. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-availability-options.html\" target=\"_blank\">Configuring Availability Options</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
 
         Args:
             multi_az: <p>You expand an existing search domain to a second Availability Zone by setting the Multi-AZ option to true. Similarly, you can turn off the Multi-AZ option to downgrade the domain to a single Availability Zone by setting the Multi-AZ option to <code>false</code>. </p>
@@ -1122,7 +1122,7 @@ class AsyncCloudSearchClient:
         *,
         config_overrides: Optional[AsyncCloudSearchClientConfig] = None,
     ) -> "aws_sdk_cloudsearch.types.update_domain_endpoint_options_response.UpdateDomainEndpointOptionsResponse":
-        """<p>Updates the domain's endpoint options, specifically whether all requests to the domain must arrive over HTTPS. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-domain-endpoint-options.html\" target=\"_blank\">Configuring Domain Endpoint Options</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
+        r"""<p>Updates the domain's endpoint options, specifically whether all requests to the domain must arrive over HTTPS. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-domain-endpoint-options.html\" target=\"_blank\">Configuring Domain Endpoint Options</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
 
         Args:
             domain_name: <p>A string that represents the name of a domain.</p>
@@ -1163,7 +1163,7 @@ class AsyncCloudSearchClient:
         *,
         config_overrides: Optional[AsyncCloudSearchClientConfig] = None,
     ) -> "aws_sdk_cloudsearch.types.update_scaling_parameters_response.UpdateScalingParametersResponse":
-        """<p>Configures scaling parameters for a domain. A domain's scaling parameters specify the desired search instance type and replication count. Amazon CloudSearch will still automatically scale your domain based on the volume of data and traffic, but not below the desired instance type and replication count. If the Multi-AZ option is enabled, these values control the resources used per Availability Zone. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-scaling-options.html\" target=\"_blank\">Configuring Scaling Options</a> in the <i>Amazon CloudSearch Developer Guide</i>. </p>"""
+        r"""<p>Configures scaling parameters for a domain. A domain's scaling parameters specify the desired search instance type and replication count. Amazon CloudSearch will still automatically scale your domain based on the volume of data and traffic, but not below the desired instance type and replication count. If the Multi-AZ option is enabled, these values control the resources used per Availability Zone. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-scaling-options.html\" target=\"_blank\">Configuring Scaling Options</a> in the <i>Amazon CloudSearch Developer Guide</i>. </p>"""
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_cloudsearch.types.update_scaling_parameters_request.UpdateScalingParametersRequest]",
@@ -1199,7 +1199,7 @@ class AsyncCloudSearchClient:
         *,
         config_overrides: Optional[AsyncCloudSearchClientConfig] = None,
     ) -> "aws_sdk_cloudsearch.types.update_service_access_policies_response.UpdateServiceAccessPoliciesResponse":
-        """<p>Configures the access rules that control access to the domain's document and search endpoints. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html\" target=\"_blank\"> Configuring Access for an Amazon CloudSearch Domain</a>.</p>
+        r"""<p>Configures the access rules that control access to the domain's document and search endpoints. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html\" target=\"_blank\"> Configuring Access for an Amazon CloudSearch Domain</a>.</p>
 
         Args:
             access_policies: <p>The access rules you want to configure. These rules replace any existing rules. </p>

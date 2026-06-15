@@ -19,15 +19,15 @@ if TYPE_CHECKING:
 
 class S3DestinationDescription(TypedDict):
     role_arn: "aws_sdk_firehose.types.role_arn.RoleARN"
-    """<p>The Amazon Resource Name (ARN) of the Amazon Web Services credentials. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a>.</p>"""
+    r"""<p>The Amazon Resource Name (ARN) of the Amazon Web Services credentials. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a>.</p>"""
     bucket_arn: "aws_sdk_firehose.types.bucket_arn.BucketARN"
-    """<p>The ARN of the S3 bucket. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a>.</p>"""
+    r"""<p>The ARN of the S3 bucket. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a>.</p>"""
     prefix: NotRequired["aws_sdk_firehose.types.prefix.Prefix"]
-    """<p>The \"YYYY/MM/DD/HH\" time format prefix is automatically used for delivered Amazon S3 files. You can also specify a custom prefix, as described in <a href=\"https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html\">Custom Prefixes for Amazon S3 Objects</a>.</p>"""
+    r"""<p>The \"YYYY/MM/DD/HH\" time format prefix is automatically used for delivered Amazon S3 files. You can also specify a custom prefix, as described in <a href=\"https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html\">Custom Prefixes for Amazon S3 Objects</a>.</p>"""
     error_output_prefix: NotRequired[
         "aws_sdk_firehose.types.error_output_prefix.ErrorOutputPrefix"
     ]
-    """<p>A prefix that Firehose evaluates and adds to failed records before writing them to S3. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see <a href=\"https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html\">Custom Prefixes for Amazon S3 Objects</a>.</p>"""
+    r"""<p>A prefix that Firehose evaluates and adds to failed records before writing them to S3. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see <a href=\"https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html\">Custom Prefixes for Amazon S3 Objects</a>.</p>"""
     buffering_hints: "aws_sdk_firehose.types.buffering_hints.BufferingHints"
     """<p>The buffering option. If no value is specified, <code>BufferingHints</code> object default values are used.</p>"""
     compression_format: "aws_sdk_firehose.types.compression_format.CompressionFormat"

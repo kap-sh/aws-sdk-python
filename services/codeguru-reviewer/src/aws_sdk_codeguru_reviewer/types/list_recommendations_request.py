@@ -18,7 +18,7 @@ class ListRecommendationsRequest(TypedDict):
     ]
     """<p>The maximum number of results that are returned per call. The default is 100.</p>"""
     code_review_arn: "aws_sdk_codeguru_reviewer.types.arn.Arn"
-    """<p>The Amazon Resource Name (ARN) of the <a href=\"https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html\">CodeReview</a> object. </p>"""
+    r"""<p>The Amazon Resource Name (ARN) of the <a href=\"https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html\">CodeReview</a> object. </p>"""
 
 
 # --- restJson1 ser/de ---

@@ -37,7 +37,7 @@ class GetResourceSnapshotJobResponse(TypedDict):
     resource_type: NotRequired[
         "aws_sdk_partnercentral_selling.types.resource_type.ResourceType"
     ]
-    """<p>The type of resource being snapshotted. This would have \"Opportunity\" as a value as it is dependent on the supported resource type.</p>"""
+    r"""<p>The type of resource being snapshotted. This would have \"Opportunity\" as a value as it is dependent on the supported resource type.</p>"""
     resource_id: NotRequired[
         "aws_sdk_partnercentral_selling.types.resource_identifier.ResourceIdentifier"
     ]
@@ -51,7 +51,7 @@ class GetResourceSnapshotJobResponse(TypedDict):
     ]
     """<p>The name of the template used for creating the snapshot. This is the same as the template name. It defines the structure and content of the snapshot.</p>"""
     created_at: NotRequired["aws_sdk_partnercentral_selling.types.date_time.DateTime"]
-    """<p>The date and time when the snapshot job was created in ISO 8601 format (UTC). Example: \"2023-05-01T20:37:46Z\" </p>"""
+    r"""<p>The date and time when the snapshot job was created in ISO 8601 format (UTC). Example: \"2023-05-01T20:37:46Z\" </p>"""
     status: NotRequired[
         "aws_sdk_partnercentral_selling.types.resource_snapshot_job_status.ResourceSnapshotJobStatus"
     ]
@@ -59,7 +59,7 @@ class GetResourceSnapshotJobResponse(TypedDict):
     last_successful_execution_date: NotRequired[
         "aws_sdk_partnercentral_selling.types.date_time.DateTime"
     ]
-    """<p>The date and time of the last successful execution of the job, in ISO 8601 format (UTC). Example: \"2023-05-01T20:37:46Z\" </p>"""
+    r"""<p>The date and time of the last successful execution of the job, in ISO 8601 format (UTC). Example: \"2023-05-01T20:37:46Z\" </p>"""
     last_failure: NotRequired["str"]
     """<p>If the job has encountered any failures, this field contains the error message from the most recent failure. This can be useful for troubleshooting issues with the job. </p>"""
 

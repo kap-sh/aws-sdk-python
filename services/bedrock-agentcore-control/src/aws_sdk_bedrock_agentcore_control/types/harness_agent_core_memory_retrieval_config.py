@@ -1,7 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#HarnessAgentCoreMemoryRetrievalConfig``."""
 
 from typing import TypedDict
+
 from typing_extensions import NotRequired
+
 
 class HarnessAgentCoreMemoryRetrievalConfig(TypedDict):
     top_k: NotRequired["int"]
@@ -10,6 +12,7 @@ class HarnessAgentCoreMemoryRetrievalConfig(TypedDict):
     """<p>The minimum relevance score for retrieved memories.</p>"""
     strategy_id: NotRequired["str"]
     """<p>The ID of the retrieval strategy to use.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: HarnessAgentCoreMemoryRetrievalConfig) -> dict:

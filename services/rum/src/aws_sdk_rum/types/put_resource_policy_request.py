@@ -13,9 +13,9 @@ if TYPE_CHECKING:
 
 class PutResourcePolicyRequest(TypedDict):
     name: "aws_sdk_rum.types.app_monitor_name.AppMonitorName"
-    """<p>The name of the app monitor that you want to apply this resource-based policy to. To find the names of your app monitors, you can use the <a href=\"https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_ListAppMonitors.html\">ListAppMonitors</a> operation.</p>"""
+    r"""<p>The name of the app monitor that you want to apply this resource-based policy to. To find the names of your app monitors, you can use the <a href=\"https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_ListAppMonitors.html\">ListAppMonitors</a> operation.</p>"""
     policy_document: "str"
-    """<p>The JSON to use as the resource policy. The document can be up to 4 KB in size. For more information about the contents and syntax for this policy, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-resource-policies.html\">Using resource-based policies with CloudWatch RUM</a>.</p>"""
+    r"""<p>The JSON to use as the resource policy. The document can be up to 4 KB in size. For more information about the contents and syntax for this policy, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-resource-policies.html\">Using resource-based policies with CloudWatch RUM</a>.</p>"""
     policy_revision_id: NotRequired[
         "aws_sdk_rum.types.policy_revision_id.PolicyRevisionId"
     ]

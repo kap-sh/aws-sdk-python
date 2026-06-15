@@ -20,7 +20,7 @@ class GCMChannelResponse(TypedDict):
     default_authentication_method: NotRequired[
         "aws_sdk_pinpoint.types.__string.__string"
     ]
-    """<p>The default authentication method used for GCM. Values are either \"TOKEN\" or \"KEY\". Defaults to \"KEY\".</p>"""
+    r"""<p>The default authentication method used for GCM. Values are either \"TOKEN\" or \"KEY\". Defaults to \"KEY\".</p>"""
     enabled: NotRequired["aws_sdk_pinpoint.types.__boolean.__boolean"]
     """<p>Specifies whether the GCM channel is enabled for the application.</p>"""
     has_credential: NotRequired["aws_sdk_pinpoint.types.__boolean.__boolean"]

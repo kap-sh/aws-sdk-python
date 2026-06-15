@@ -29,9 +29,9 @@ class UpdateBrokerResponse(TypedDict):
     configuration: NotRequired["aws_sdk_mq.types.configuration_id.ConfigurationId"]
     """<p>The ID of the updated configuration.</p>"""
     engine_version: NotRequired["aws_sdk_mq.types.__string.__string"]
-    """<p>The broker engine version to upgrade to. For more information, see the <a href=\"https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/activemq-version-management.html\">ActiveMQ version management</a> and the <a href=\"https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/rabbitmq-version-management.html\">RabbitMQ version management</a> sections in the Amazon MQ Developer Guide.</p>"""
+    r"""<p>The broker engine version to upgrade to. For more information, see the <a href=\"https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/activemq-version-management.html\">ActiveMQ version management</a> and the <a href=\"https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/rabbitmq-version-management.html\">RabbitMQ version management</a> sections in the Amazon MQ Developer Guide.</p>"""
     host_instance_type: NotRequired["aws_sdk_mq.types.__string.__string"]
-    """<p>The broker's host instance type to upgrade to. For a list of supported instance types, see <a href=\"https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/broker.html#broker-instance-types\">Broker instance types</a>.</p>"""
+    r"""<p>The broker's host instance type to upgrade to. For a list of supported instance types, see <a href=\"https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/broker.html#broker-instance-types\">Broker instance types</a>.</p>"""
     ldap_server_metadata: NotRequired[
         "aws_sdk_mq.types.ldap_server_metadata_output.LdapServerMetadataOutput"
     ]

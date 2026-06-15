@@ -34,31 +34,31 @@ class UploadPartOutput(TypedDict):
     e_tag: NotRequired["aws_sdk_s3.types.e_tag.ETag"]
     """<p>Entity tag for the uploaded object.</p>"""
     checksum_crc32: NotRequired["aws_sdk_s3.types.checksum_crc32.ChecksumCRC32"]
-    """<p>The Base64 encoded, 32-bit <code>CRC32</code> checksum of the part. This will only be present if the checksum was provided in the request. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html\">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>"""
+    r"""<p>The Base64 encoded, 32-bit <code>CRC32</code> checksum of the part. This will only be present if the checksum was provided in the request. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html\">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>"""
     checksum_crc32_c: NotRequired["aws_sdk_s3.types.checksum_crc32_c.ChecksumCRC32C"]
-    """<p>The Base64 encoded, 32-bit <code>CRC32C</code> checksum of the part. This will only be present if the checksum was provided in the request. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html\">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>"""
+    r"""<p>The Base64 encoded, 32-bit <code>CRC32C</code> checksum of the part. This will only be present if the checksum was provided in the request. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html\">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>"""
     checksum_crc64_nvme: NotRequired[
         "aws_sdk_s3.types.checksum_crc64_nvme.ChecksumCRC64NVME"
     ]
-    """<p>The Base64 encoded, 64-bit <code>CRC64NVME</code> checksum of the part. This will only be present if the checksum was provided in the request. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html\">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>"""
+    r"""<p>The Base64 encoded, 64-bit <code>CRC64NVME</code> checksum of the part. This will only be present if the checksum was provided in the request. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html\">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>"""
     checksum_sha1: NotRequired["aws_sdk_s3.types.checksum_sha1.ChecksumSHA1"]
-    """<p>The Base64 encoded, 160-bit <code>SHA1</code> checksum of the part. This will only be present if the checksum was provided in the request. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html\">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>"""
+    r"""<p>The Base64 encoded, 160-bit <code>SHA1</code> checksum of the part. This will only be present if the checksum was provided in the request. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html\">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>"""
     checksum_sha256: NotRequired["aws_sdk_s3.types.checksum_sha256.ChecksumSHA256"]
-    """<p>The Base64 encoded, 256-bit <code>SHA256</code> checksum of the part. This will only be present if the checksum was provided in the request. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html\">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>"""
+    r"""<p>The Base64 encoded, 256-bit <code>SHA256</code> checksum of the part. This will only be present if the checksum was provided in the request. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html\">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>"""
     checksum_sha512: NotRequired["aws_sdk_s3.types.checksum_sha512.ChecksumSHA512"]
-    """<p>The Base64 encoded, 512-bit <code>SHA512</code> checksum of the part. This will only be present if the checksum was provided in the request. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html\">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>"""
+    r"""<p>The Base64 encoded, 512-bit <code>SHA512</code> checksum of the part. This will only be present if the checksum was provided in the request. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html\">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>"""
     checksum_md5: NotRequired["aws_sdk_s3.types.checksum_md5.ChecksumMD5"]
-    """<p>The Base64 encoded, 128-bit <code>MD5</code> checksum of the part. This will only be present if the checksum was provided in the request. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html\">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>"""
+    r"""<p>The Base64 encoded, 128-bit <code>MD5</code> checksum of the part. This will only be present if the checksum was provided in the request. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html\">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>"""
     checksum_xxhash64: NotRequired[
         "aws_sdk_s3.types.checksum_xxhash64.ChecksumXXHASH64"
     ]
-    """<p>The Base64 encoded, 64-bit <code>XXHASH64</code> checksum of the part. This will only be present if the checksum was provided in the request. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html\">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>"""
+    r"""<p>The Base64 encoded, 64-bit <code>XXHASH64</code> checksum of the part. This will only be present if the checksum was provided in the request. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html\">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>"""
     checksum_xxhash3: NotRequired["aws_sdk_s3.types.checksum_xxhash3.ChecksumXXHASH3"]
-    """<p>The Base64 encoded, 64-bit <code>XXHASH3</code> checksum of the part. This will only be present if the checksum was provided in the request. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html\">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>"""
+    r"""<p>The Base64 encoded, 64-bit <code>XXHASH3</code> checksum of the part. This will only be present if the checksum was provided in the request. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html\">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>"""
     checksum_xxhash128: NotRequired[
         "aws_sdk_s3.types.checksum_xxhash128.ChecksumXXHASH128"
     ]
-    """<p>The Base64 encoded, 128-bit <code>XXHASH128</code> checksum of the part. This will only be present if the checksum was provided in the request. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html\">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>"""
+    r"""<p>The Base64 encoded, 128-bit <code>XXHASH128</code> checksum of the part. This will only be present if the checksum was provided in the request. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html\">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>"""
     sse_customer_algorithm: NotRequired[
         "aws_sdk_s3.types.sse_customer_algorithm.SSECustomerAlgorithm"
     ]

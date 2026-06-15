@@ -13,7 +13,7 @@ class DescribeAddressesRequest(TypedDict):
     max_results: NotRequired["aws_sdk_snowball.types.list_limit.ListLimit"]
     """<p>The number of <code>ADDRESS</code> objects to return.</p>"""
     next_token: NotRequired["aws_sdk_snowball.types.string.String"]
-    """<p>HTTP requests are stateless. To identify what object comes \"next\" in the list of <code>ADDRESS</code> objects, you have the option of specifying a value for <code>NextToken</code> as the starting point for your list of returned addresses.</p>"""
+    r"""<p>HTTP requests are stateless. To identify what object comes \"next\" in the list of <code>ADDRESS</code> objects, you have the option of specifying a value for <code>NextToken</code> as the starting point for your list of returned addresses.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

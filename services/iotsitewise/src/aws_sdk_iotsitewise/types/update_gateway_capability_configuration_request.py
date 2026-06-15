@@ -20,7 +20,7 @@ class UpdateGatewayCapabilityConfigurationRequest(TypedDict):
     capability_configuration: (
         "aws_sdk_iotsitewise.types.capability_configuration.CapabilityConfiguration"
     )
-    """<p>The JSON document that defines the configuration for the gateway capability. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/configure-sources.html#configure-source-cli\">Configuring data sources (CLI)</a> in the <i>IoT SiteWise User Guide</i>.</p>"""
+    r"""<p>The JSON document that defines the configuration for the gateway capability. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/configure-sources.html#configure-source-cli\">Configuring data sources (CLI)</a> in the <i>IoT SiteWise User Guide</i>.</p>"""
 
 
 # --- restJson1 ser/de ---

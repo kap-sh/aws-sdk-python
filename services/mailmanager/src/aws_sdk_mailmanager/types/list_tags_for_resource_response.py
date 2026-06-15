@@ -10,7 +10,7 @@ if TYPE_CHECKING:
 
 class ListTagsForResourceResponse(TypedDict):
     tags: "aws_sdk_mailmanager.types.tag_list.TagList"
-    """<p>The tags used to organize, track, or control access for the resource. For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.</p>"""
+    r"""<p>The tags used to organize, track, or control access for the resource. For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.</p>"""
 
 
 # --- awsJson1_0 ser/de ---

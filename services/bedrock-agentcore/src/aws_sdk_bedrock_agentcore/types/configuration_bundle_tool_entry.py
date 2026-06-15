@@ -1,15 +1,19 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#ConfigurationBundleToolEntry``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.recommendation_tool_name
+
 
 class ConfigurationBundleToolEntry(TypedDict):
     tool_name: "aws_sdk_bedrock_agentcore.types.recommendation_tool_name.RecommendationToolName"
     """<p>The name of the tool.</p>"""
     tool_description_json_path: "str"
     """<p>The JSON path within the configuration bundle's components that contains the tool description.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: ConfigurationBundleToolEntry) -> dict:
@@ -28,5 +32,7 @@ def deserialize_json(data: dict) -> ConfigurationBundleToolEntry:
     if "toolDescriptionJsonPath" in data:
         out["tool_description_json_path"] = data["toolDescriptionJsonPath"]
     else:
-        raise DeserializationError("ConfigurationBundleToolEntry.tool_description_json_path required")
+        raise DeserializationError(
+            "ConfigurationBundleToolEntry.tool_description_json_path required"
+        )
     return out

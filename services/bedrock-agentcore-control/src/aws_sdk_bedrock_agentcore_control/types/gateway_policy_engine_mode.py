@@ -1,19 +1,22 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#GatewayPolicyEngineMode``."""
 
-import datetime
-import decimal
-from typing import AsyncIterator, Iterator, Literal, TypeAlias, cast
-from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
-from aws_sdk_bedrock_agentcore_control._protocol.xml import Element, SubElement
-import base64
-from email.utils import format_datetime as _fmt_http
-from email.utils import parsedate_to_datetime as _parse_http
+from typing import Literal, TypeAlias, cast
 
-GatewayPolicyEngineMode: TypeAlias = Literal["LOG_ONLY", "ENFORCE",]
+from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
+
+GatewayPolicyEngineMode: TypeAlias = Literal[
+    "LOG_ONLY",
+    "ENFORCE",
+]
 
 
 # --- restJson1 ser/de ---
-_VALUES: frozenset[str] = frozenset(("LOG_ONLY", "ENFORCE",))
+_VALUES: frozenset[str] = frozenset(
+    (
+        "LOG_ONLY",
+        "ENFORCE",
+    )
+)
 
 
 def serialize_json(value: GatewayPolicyEngineMode) -> str:

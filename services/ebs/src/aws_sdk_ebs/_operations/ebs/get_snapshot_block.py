@@ -72,7 +72,7 @@ def handle_response(
     )
     out: aws_sdk_ebs.types.get_snapshot_block_response.GetSnapshotBlockResponse = {
         "block_data": _iter
-    }
+    }  # type: ignore[reportAssignmentType]
     if "x-amz-Data-Length" in response.headers:
         out["data_length"] = int(response.headers["x-amz-Data-Length"])
     if "x-amz-Checksum" in response.headers:

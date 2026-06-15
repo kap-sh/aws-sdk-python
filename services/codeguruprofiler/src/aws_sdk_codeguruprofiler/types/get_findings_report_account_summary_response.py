@@ -13,7 +13,7 @@ if TYPE_CHECKING:
 
 class GetFindingsReportAccountSummaryResponse(TypedDict):
     report_summaries: "aws_sdk_codeguruprofiler.types.findings_report_summaries.FindingsReportSummaries"
-    """<p>The return list of <a href=\"https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_FindingsReportSummary.html\"> <code>FindingsReportSummary</code> </a> objects taht contain summaries of analysis results for all profiling groups in your AWS account.</p>"""
+    r"""<p>The return list of <a href=\"https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_FindingsReportSummary.html\"> <code>FindingsReportSummary</code> </a> objects taht contain summaries of analysis results for all profiling groups in your AWS account.</p>"""
     next_token: NotRequired[
         "aws_sdk_codeguruprofiler.types.pagination_token.PaginationToken"
     ]

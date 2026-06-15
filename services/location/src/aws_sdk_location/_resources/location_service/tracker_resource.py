@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_location._auth._signers
@@ -92,7 +94,7 @@ class TrackerResource:
         event_bridge_enabled: Optional[bool] = None,
         kms_key_enable_geospatial_queries: Optional[bool] = None,
     ) -> "aws_sdk_location.types.create_tracker_response.CreateTrackerResponse":
-        """<p>Creates a tracker resource in your Amazon Web Services account, which lets you retrieve current and historical location of devices.</p>
+        r"""<p>Creates a tracker resource in your Amazon Web Services account, which lets you retrieve current and historical location of devices.</p>
 
         Args:
             tracker_name: <p>The name for the tracker resource.</p> <p>Requirements:</p> <ul> <li> <p>Contain only alphanumeric characters (A-Z, a-z, 0-9) , hyphens (-), periods (.), and underscores (_).</p> </li> <li> <p>Must be a unique tracker resource name.</p> </li> <li> <p>No spaces allowed. For example, <code>ExampleTracker</code>.</p> </li> </ul>
@@ -204,7 +206,7 @@ class TrackerResource:
         event_bridge_enabled: Optional[bool] = None,
         kms_key_enable_geospatial_queries: Optional[bool] = None,
     ) -> "aws_sdk_location.types.update_tracker_response.UpdateTrackerResponse":
-        """<p>Updates the specified properties of a given tracker resource.</p>
+        r"""<p>Updates the specified properties of a given tracker resource.</p>
 
         Args:
             tracker_name: <p>The name of the tracker resource to update.</p>
@@ -461,7 +463,7 @@ class TrackerResource:
         *,
         config_overrides: Optional[LocationClientConfig] = None,
     ) -> "aws_sdk_location.types.batch_update_device_position_response.BatchUpdateDevicePositionResponse":
-        """<p>Uploads position update data for one or more devices to a tracker resource (up to 10 devices per batch). Amazon Location uses the data when it reports the last known device position and position history. Amazon Location retains location data for 30 days.</p> <note> <p>Position updates are handled based on the <code>PositionFiltering</code> property of the tracker. When <code>PositionFiltering</code> is set to <code>TimeBased</code>, updates are evaluated against linked geofence collections, and location data is stored at a maximum of one position per 30 second interval. If your update frequency is more often than every 30 seconds, only one update per 30 seconds is stored for each unique device ID.</p> <p>When <code>PositionFiltering</code> is set to <code>DistanceBased</code> filtering, location data is stored and evaluated against linked geofence collections only if the device has moved more than 30 m (98.4 ft).</p> <p>When <code>PositionFiltering</code> is set to <code>AccuracyBased</code> filtering, location data is stored and evaluated against linked geofence collections only if the device has moved more than the measured accuracy. For example, if two consecutive updates from a device have a horizontal accuracy of 5 m and 10 m, the second update is neither stored or evaluated if the device has moved less than 15 m. If <code>PositionFiltering</code> is set to <code>AccuracyBased</code> filtering, Amazon Location uses the default value <code>{ \"Horizontal\": 0}</code> when accuracy is not provided on a <code>DevicePositionUpdate</code>.</p> </note>
+        r"""<p>Uploads position update data for one or more devices to a tracker resource (up to 10 devices per batch). Amazon Location uses the data when it reports the last known device position and position history. Amazon Location retains location data for 30 days.</p> <note> <p>Position updates are handled based on the <code>PositionFiltering</code> property of the tracker. When <code>PositionFiltering</code> is set to <code>TimeBased</code>, updates are evaluated against linked geofence collections, and location data is stored at a maximum of one position per 30 second interval. If your update frequency is more often than every 30 seconds, only one update per 30 seconds is stored for each unique device ID.</p> <p>When <code>PositionFiltering</code> is set to <code>DistanceBased</code> filtering, location data is stored and evaluated against linked geofence collections only if the device has moved more than 30 m (98.4 ft).</p> <p>When <code>PositionFiltering</code> is set to <code>AccuracyBased</code> filtering, location data is stored and evaluated against linked geofence collections only if the device has moved more than the measured accuracy. For example, if two consecutive updates from a device have a horizontal accuracy of 5 m and 10 m, the second update is neither stored or evaluated if the device has moved less than 15 m. If <code>PositionFiltering</code> is set to <code>AccuracyBased</code> filtering, Amazon Location uses the default value <code>{ \"Horizontal\": 0}</code> when accuracy is not provided on a <code>DevicePositionUpdate</code>.</p> </note>
 
         Args:
             tracker_name: <p>The name of the tracker resource to update.</p>
@@ -591,7 +593,7 @@ class TrackerResource:
         ] = None,
         max_results: Optional[int] = None,
     ) -> "aws_sdk_location.types.get_device_position_history_response.GetDevicePositionHistoryResponse":
-        """<p>Retrieves the device position history from a tracker resource within a specified range of time.</p> <note> <p>Device positions are deleted after 30 days.</p> </note>
+        r"""<p>Retrieves the device position history from a tracker resource within a specified range of time.</p> <note> <p>Device positions are deleted after 30 days.</p> </note>
 
         Args:
             tracker_name: <p>The tracker resource receiving the request for the device position history.</p>
@@ -742,7 +744,7 @@ class TrackerResource:
             "aws_sdk_location.types.distance_unit.DistanceUnit"
         ] = None,
     ) -> "aws_sdk_location.types.verify_device_position_response.VerifyDevicePositionResponse":
-        """<p>Verifies the integrity of the device's position by determining if it was reported behind a proxy, and by comparing it to an inferred position estimated based on the device's state.</p> <note> <p>The Location Integrity SDK provides enhanced features related to device verification, and it is available for use by request. To get access to the SDK, contact <a href=\"https://aws.amazon.com/contact-us/sales-support/?pg=locationprice&amp;cta=herobtn\">Sales Support</a>.</p> </note>
+        r"""<p>Verifies the integrity of the device's position by determining if it was reported behind a proxy, and by comparing it to an inferred position estimated based on the device's state.</p> <note> <p>The Location Integrity SDK provides enhanced features related to device verification, and it is available for use by request. To get access to the SDK, contact <a href=\"https://aws.amazon.com/contact-us/sales-support/?pg=locationprice&amp;cta=herobtn\">Sales Support</a>.</p> </note>
 
         Args:
             tracker_name: <p>The name of the tracker resource to be associated with verification request.</p>
@@ -803,7 +805,7 @@ class AsyncTrackerResource:
         event_bridge_enabled: Optional[bool] = None,
         kms_key_enable_geospatial_queries: Optional[bool] = None,
     ) -> "aws_sdk_location.types.create_tracker_response.CreateTrackerResponse":
-        """<p>Creates a tracker resource in your Amazon Web Services account, which lets you retrieve current and historical location of devices.</p>
+        r"""<p>Creates a tracker resource in your Amazon Web Services account, which lets you retrieve current and historical location of devices.</p>
 
         Args:
             tracker_name: <p>The name for the tracker resource.</p> <p>Requirements:</p> <ul> <li> <p>Contain only alphanumeric characters (A-Z, a-z, 0-9) , hyphens (-), periods (.), and underscores (_).</p> </li> <li> <p>Must be a unique tracker resource name.</p> </li> <li> <p>No spaces allowed. For example, <code>ExampleTracker</code>.</p> </li> </ul>
@@ -917,7 +919,7 @@ class AsyncTrackerResource:
         event_bridge_enabled: Optional[bool] = None,
         kms_key_enable_geospatial_queries: Optional[bool] = None,
     ) -> "aws_sdk_location.types.update_tracker_response.UpdateTrackerResponse":
-        """<p>Updates the specified properties of a given tracker resource.</p>
+        r"""<p>Updates the specified properties of a given tracker resource.</p>
 
         Args:
             tracker_name: <p>The name of the tracker resource to update.</p>
@@ -1180,7 +1182,7 @@ class AsyncTrackerResource:
         *,
         config_overrides: Optional[AsyncLocationClientConfig] = None,
     ) -> "aws_sdk_location.types.batch_update_device_position_response.BatchUpdateDevicePositionResponse":
-        """<p>Uploads position update data for one or more devices to a tracker resource (up to 10 devices per batch). Amazon Location uses the data when it reports the last known device position and position history. Amazon Location retains location data for 30 days.</p> <note> <p>Position updates are handled based on the <code>PositionFiltering</code> property of the tracker. When <code>PositionFiltering</code> is set to <code>TimeBased</code>, updates are evaluated against linked geofence collections, and location data is stored at a maximum of one position per 30 second interval. If your update frequency is more often than every 30 seconds, only one update per 30 seconds is stored for each unique device ID.</p> <p>When <code>PositionFiltering</code> is set to <code>DistanceBased</code> filtering, location data is stored and evaluated against linked geofence collections only if the device has moved more than 30 m (98.4 ft).</p> <p>When <code>PositionFiltering</code> is set to <code>AccuracyBased</code> filtering, location data is stored and evaluated against linked geofence collections only if the device has moved more than the measured accuracy. For example, if two consecutive updates from a device have a horizontal accuracy of 5 m and 10 m, the second update is neither stored or evaluated if the device has moved less than 15 m. If <code>PositionFiltering</code> is set to <code>AccuracyBased</code> filtering, Amazon Location uses the default value <code>{ \"Horizontal\": 0}</code> when accuracy is not provided on a <code>DevicePositionUpdate</code>.</p> </note>
+        r"""<p>Uploads position update data for one or more devices to a tracker resource (up to 10 devices per batch). Amazon Location uses the data when it reports the last known device position and position history. Amazon Location retains location data for 30 days.</p> <note> <p>Position updates are handled based on the <code>PositionFiltering</code> property of the tracker. When <code>PositionFiltering</code> is set to <code>TimeBased</code>, updates are evaluated against linked geofence collections, and location data is stored at a maximum of one position per 30 second interval. If your update frequency is more often than every 30 seconds, only one update per 30 seconds is stored for each unique device ID.</p> <p>When <code>PositionFiltering</code> is set to <code>DistanceBased</code> filtering, location data is stored and evaluated against linked geofence collections only if the device has moved more than 30 m (98.4 ft).</p> <p>When <code>PositionFiltering</code> is set to <code>AccuracyBased</code> filtering, location data is stored and evaluated against linked geofence collections only if the device has moved more than the measured accuracy. For example, if two consecutive updates from a device have a horizontal accuracy of 5 m and 10 m, the second update is neither stored or evaluated if the device has moved less than 15 m. If <code>PositionFiltering</code> is set to <code>AccuracyBased</code> filtering, Amazon Location uses the default value <code>{ \"Horizontal\": 0}</code> when accuracy is not provided on a <code>DevicePositionUpdate</code>.</p> </note>
 
         Args:
             tracker_name: <p>The name of the tracker resource to update.</p>
@@ -1313,7 +1315,7 @@ class AsyncTrackerResource:
         ] = None,
         max_results: Optional[int] = None,
     ) -> "aws_sdk_location.types.get_device_position_history_response.GetDevicePositionHistoryResponse":
-        """<p>Retrieves the device position history from a tracker resource within a specified range of time.</p> <note> <p>Device positions are deleted after 30 days.</p> </note>
+        r"""<p>Retrieves the device position history from a tracker resource within a specified range of time.</p> <note> <p>Device positions are deleted after 30 days.</p> </note>
 
         Args:
             tracker_name: <p>The tracker resource receiving the request for the device position history.</p>
@@ -1467,7 +1469,7 @@ class AsyncTrackerResource:
             "aws_sdk_location.types.distance_unit.DistanceUnit"
         ] = None,
     ) -> "aws_sdk_location.types.verify_device_position_response.VerifyDevicePositionResponse":
-        """<p>Verifies the integrity of the device's position by determining if it was reported behind a proxy, and by comparing it to an inferred position estimated based on the device's state.</p> <note> <p>The Location Integrity SDK provides enhanced features related to device verification, and it is available for use by request. To get access to the SDK, contact <a href=\"https://aws.amazon.com/contact-us/sales-support/?pg=locationprice&amp;cta=herobtn\">Sales Support</a>.</p> </note>
+        r"""<p>Verifies the integrity of the device's position by determining if it was reported behind a proxy, and by comparing it to an inferred position estimated based on the device's state.</p> <note> <p>The Location Integrity SDK provides enhanced features related to device verification, and it is available for use by request. To get access to the SDK, contact <a href=\"https://aws.amazon.com/contact-us/sales-support/?pg=locationprice&amp;cta=herobtn\">Sales Support</a>.</p> </note>
 
         Args:
             tracker_name: <p>The name of the tracker resource to be associated with verification request.</p>

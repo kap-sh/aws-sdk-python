@@ -10,7 +10,7 @@ if TYPE_CHECKING:
 
 class VirtualGatewayListenerTlsAcmCertificate(TypedDict):
     certificate_arn: "aws_sdk_app_mesh.types.arn.Arn"
-    """<p>The Amazon Resource Name (ARN) for the certificate. The certificate must meet specific requirements and you must have proxy authorization enabled. For more information, see <a href=\"https://docs.aws.amazon.com/app-mesh/latest/userguide/tls.html#virtual-node-tls-prerequisites\">Transport Layer Security (TLS)</a>.</p>"""
+    r"""<p>The Amazon Resource Name (ARN) for the certificate. The certificate must meet specific requirements and you must have proxy authorization enabled. For more information, see <a href=\"https://docs.aws.amazon.com/app-mesh/latest/userguide/tls.html#virtual-node-tls-prerequisites\">Transport Layer Security (TLS)</a>.</p>"""
 
 
 # --- restJson1 ser/de ---

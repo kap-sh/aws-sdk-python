@@ -22,7 +22,7 @@ class AddApplicationOutputResponse(TypedDict):
     output_descriptions: NotRequired[
         "aws_sdk_kinesis_analytics_v2.types.output_descriptions.OutputDescriptions"
     ]
-    """<p>Describes the application output configuration. For more information, see <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html\">Configuring Application Output</a>. </p>"""
+    r"""<p>Describes the application output configuration. For more information, see <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html\">Configuring Application Output</a>. </p>"""
 
 
 # --- awsJson1_1 ser/de ---

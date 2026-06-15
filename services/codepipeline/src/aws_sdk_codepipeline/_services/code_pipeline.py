@@ -225,7 +225,7 @@ class CodePipelineClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = CodePipelineClientConfig(
+        self._config = CodePipelineClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -245,7 +245,7 @@ class CodePipelineClient:
         overrides: CodePipelineClientConfig = config_overrides or {}
         interceptors_: list[Interceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             retry(),
         ]
@@ -253,16 +253,16 @@ class CodePipelineClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            region=overrides.get("region", self.config.get("region")),
+            region=overrides.get("region", self._config.get("region")),
             use_dual_stack=overrides.get(
-                "use_dual_stack", self.config.get("use_dual_stack")
+                "use_dual_stack", self._config.get("use_dual_stack")
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -367,7 +367,7 @@ class CodePipelineClient:
         ] = None,
         tags: Optional["aws_sdk_codepipeline.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_codepipeline.types.create_custom_action_type_output.CreateCustomActionTypeOutput":
-        """<p>Creates a new custom action that can be used in all pipelines associated with the Amazon Web Services account. Only used for custom actions.</p>
+        r"""<p>Creates a new custom action that can be used in all pipelines associated with the Amazon Web Services account. Only used for custom actions.</p>
 
         Args:
             category: <p>The category of the custom action, such as a build action or a test action.</p>
@@ -1432,7 +1432,7 @@ class CodePipelineClient:
             "aws_sdk_codepipeline.types.aws_region_name.AWSRegionName"
         ] = None,
     ) -> "aws_sdk_codepipeline.types.list_rule_types_output.ListRuleTypesOutput":
-        """<p>Lists the rules for the condition. For more information about conditions, see <a href=\"https://docs.aws.amazon.com/codepipeline/latest/userguide/stage-conditions.html\">Stage conditions</a> and <a href=\"https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts-how-it-works-conditions.html\">How do stage conditions work?</a>.For more information about rules, see the <a href=\"https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html\">CodePipeline rule reference</a>.</p>
+        r"""<p>Lists the rules for the condition. For more information about conditions, see <a href=\"https://docs.aws.amazon.com/codepipeline/latest/userguide/stage-conditions.html\">Stage conditions</a> and <a href=\"https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts-how-it-works-conditions.html\">How do stage conditions work?</a>.For more information about rules, see the <a href=\"https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html\">CodePipeline rule reference</a>.</p>
 
         Args:
             rule_owner_filter: <p>The rule owner to filter on.</p>
@@ -1615,7 +1615,7 @@ class CodePipelineClient:
         *,
         config_overrides: Optional[CodePipelineClientConfig] = None,
     ) -> None:
-        """<p>Used to override a stage condition. For more information about conditions, see <a href=\"https://docs.aws.amazon.com/codepipeline/latest/userguide/stage-conditions.html\">Stage conditions</a> and <a href=\"https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts-how-it-works-conditions.html\">How do stage conditions work?</a>.</p>
+        r"""<p>Used to override a stage condition. For more information about conditions, see <a href=\"https://docs.aws.amazon.com/codepipeline/latest/userguide/stage-conditions.html\">Stage conditions</a> and <a href=\"https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts-how-it-works-conditions.html\">How do stage conditions work?</a>.</p>
 
         Args:
             pipeline_name: <p>The name of the pipeline with the stage that will override the condition.</p>
@@ -1662,7 +1662,7 @@ class CodePipelineClient:
             "aws_sdk_codepipeline.types.query_param_map.QueryParamMap"
         ] = None,
     ) -> "aws_sdk_codepipeline.types.poll_for_jobs_output.PollForJobsOutput":
-        """<p>Returns information about any jobs for CodePipeline to act on. <code>PollForJobs</code> is valid only for action types with \"Custom\" in the owner field. If the action type contains <code>AWS</code> or <code>ThirdParty</code> in the owner field, the <code>PollForJobs</code> action returns an error.</p> <important> <p>When this API is called, CodePipeline returns temporary credentials for the S3 bucket used to store artifacts for the pipeline, if the action requires access to that S3 bucket for input or output artifacts. This API also returns any secret values defined for the action.</p> </important>
+        r"""<p>Returns information about any jobs for CodePipeline to act on. <code>PollForJobs</code> is valid only for action types with \"Custom\" in the owner field. If the action type contains <code>AWS</code> or <code>ThirdParty</code> in the owner field, the <code>PollForJobs</code> action returns an error.</p> <important> <p>When this API is called, CodePipeline returns temporary credentials for the S3 bucket used to store artifacts for the pipeline, if the action requires access to that S3 bucket for input or output artifacts. This API also returns any secret values defined for the action.</p> </important>
 
         Args:
             action_type_id: <p>Represents information about an action type.</p>
@@ -2220,7 +2220,7 @@ class CodePipelineClient:
             "aws_sdk_codepipeline.types.source_revision_override_list.SourceRevisionOverrideList"
         ] = None,
     ) -> "aws_sdk_codepipeline.types.start_pipeline_execution_output.StartPipelineExecutionOutput":
-        """<p>Starts the specified pipeline. Specifically, it begins processing the latest commit to the source location specified as part of the pipeline.</p>
+        r"""<p>Starts the specified pipeline. Specifically, it begins processing the latest commit to the source location specified as part of the pipeline.</p>
 
         Args:
             name: <p>The name of the pipeline to start.</p>

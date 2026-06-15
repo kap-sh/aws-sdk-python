@@ -15,7 +15,7 @@ class IntegrationResponse(TypedDict):
     status_code: NotRequired["aws_sdk_api_gateway.types.status_code.StatusCode"]
     """<p>Specifies the status code that is used to map the integration response to an existing MethodResponse.</p>"""
     selection_pattern: NotRequired["aws_sdk_api_gateway.types.string.String"]
-    """<p>Specifies the regular expression (regex) pattern used to choose an integration response based on the response from the back end. For example, if the success response returns nothing and the error response returns some string, you could use the <code>.+</code> regex to match error response. However, make sure that the error response does not contain any newline (<code>\n</code>) character in such cases. If the back end is an Lambda function, the Lambda function error header is matched. For all other HTTP and Amazon Web Services back ends, the HTTP status code is matched.</p>"""
+    r"""<p>Specifies the regular expression (regex) pattern used to choose an integration response based on the response from the back end. For example, if the success response returns nothing and the error response returns some string, you could use the <code>.+</code> regex to match error response. However, make sure that the error response does not contain any newline (<code>\n</code>) character in such cases. If the back end is an Lambda function, the Lambda function error header is matched. For all other HTTP and Amazon Web Services back ends, the HTTP status code is matched.</p>"""
     response_parameters: NotRequired[
         "aws_sdk_api_gateway.types.map_of_string_to_string.MapOfStringToString"
     ]

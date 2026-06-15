@@ -1,15 +1,19 @@
 """Generated from Smithy shape ``com.amazonaws.appintegrations#EventIntegrationsList``."""
 
 from typing import TYPE_CHECKING, TypeAlias
+
 if TYPE_CHECKING:
     import aws_sdk_appintegrations.types.event_integration
 
-EventIntegrationsList: TypeAlias = list["aws_sdk_appintegrations.types.event_integration.EventIntegration"]
+EventIntegrationsList: TypeAlias = list[
+    "aws_sdk_appintegrations.types.event_integration.EventIntegration"
+]
 
 
 # --- restJson1 ser/de ---
 def serialize_json(value: EventIntegrationsList) -> list:
     import aws_sdk_appintegrations.types.event_integration
+
     out: list = []
     for item in value:
         out.append(aws_sdk_appintegrations.types.event_integration.serialize_json(item))
@@ -18,7 +22,10 @@ def serialize_json(value: EventIntegrationsList) -> list:
 
 def deserialize_json(data: list) -> EventIntegrationsList:
     import aws_sdk_appintegrations.types.event_integration
+
     out: EventIntegrationsList = []
     for item in data:
-        out.append(aws_sdk_appintegrations.types.event_integration.deserialize_json(item))
+        out.append(
+            aws_sdk_appintegrations.types.event_integration.deserialize_json(item)
+        )
     return out

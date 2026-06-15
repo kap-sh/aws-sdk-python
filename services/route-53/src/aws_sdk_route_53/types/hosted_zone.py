@@ -21,7 +21,7 @@ class HostedZone(TypedDict):
     id: "aws_sdk_route_53.types.resource_id.ResourceId"
     """<p>The ID that Amazon Route 53 assigned to the hosted zone when you created it.</p>"""
     name: "aws_sdk_route_53.types.dns_name.DNSName"
-    """<p>The name of the domain. For public hosted zones, this is the name that you have registered with your DNS registrar.</p> <p>For information about how to specify characters other than <code>a-z</code>, <code>0-9</code>, and <code>-</code> (hyphen) and how to specify internationalized domain names, see <a href=\"https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateHostedZone.html\">CreateHostedZone</a>.</p>"""
+    r"""<p>The name of the domain. For public hosted zones, this is the name that you have registered with your DNS registrar.</p> <p>For information about how to specify characters other than <code>a-z</code>, <code>0-9</code>, and <code>-</code> (hyphen) and how to specify internationalized domain names, see <a href=\"https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateHostedZone.html\">CreateHostedZone</a>.</p>"""
     caller_reference: "aws_sdk_route_53.types.nonce.Nonce"
     """<p>The value that you specified for <code>CallerReference</code> when you created the hosted zone.</p>"""
     config: NotRequired["aws_sdk_route_53.types.hosted_zone_config.HostedZoneConfig"]

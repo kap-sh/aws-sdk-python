@@ -17,7 +17,7 @@ class RealTimeContactAnalysisAttachment(TypedDict):
     attachment_name: "aws_sdk_connect.types.attachment_name.AttachmentName"
     """<p>A case-sensitive name of the attachment being uploaded. Can be redacted.</p>"""
     content_type: NotRequired["aws_sdk_connect.types.content_type.ContentType"]
-    """<p>Describes the MIME file type of the attachment. For a list of supported file types, see <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/feature-limits.html\">Feature specifications</a> in the <i>Connect Customer Administrator Guide</i>.</p>"""
+    r"""<p>Describes the MIME file type of the attachment. For a list of supported file types, see <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/feature-limits.html\">Feature specifications</a> in the <i>Connect Customer Administrator Guide</i>.</p>"""
     attachment_id: "aws_sdk_connect.types.artifact_id.ArtifactId"
     """<p>A unique identifier for the attachment.</p>"""
     status: NotRequired["aws_sdk_connect.types.artifact_status.ArtifactStatus"]

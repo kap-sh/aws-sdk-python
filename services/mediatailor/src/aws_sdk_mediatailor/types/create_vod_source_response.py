@@ -29,7 +29,7 @@ class CreateVodSourceResponse(TypedDict):
     source_location_name: NotRequired["aws_sdk_mediatailor.types.__string.__string"]
     """<p>The name to assign to the source location for this VOD source.</p>"""
     tags: NotRequired["aws_sdk_mediatailor.types.__map_of__string.__mapOf__string"]
-    """<p>The tags to assign to the VOD source. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html\">Tagging AWS Elemental MediaTailor Resources</a>.</p>"""
+    r"""<p>The tags to assign to the VOD source. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html\">Tagging AWS Elemental MediaTailor Resources</a>.</p>"""
     vod_source_name: NotRequired["aws_sdk_mediatailor.types.__string.__string"]
     """<p>The name to assign to the VOD source.</p>"""
 

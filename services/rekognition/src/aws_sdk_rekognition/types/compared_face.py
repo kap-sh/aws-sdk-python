@@ -26,7 +26,7 @@ class ComparedFace(TypedDict):
     quality: NotRequired["aws_sdk_rekognition.types.image_quality.ImageQuality"]
     """<p>Identifies face image brightness and sharpness. </p>"""
     emotions: NotRequired["aws_sdk_rekognition.types.emotions.Emotions"]
-    """<p> The emotions that appear to be expressed on the face, and the confidence level in the determination. Valid values include \"Happy\", \"Sad\", \"Angry\", \"Confused\", \"Disgusted\", \"Surprised\", \"Calm\", \"Unknown\", and \"Fear\". </p>"""
+    r"""<p> The emotions that appear to be expressed on the face, and the confidence level in the determination. Valid values include \"Happy\", \"Sad\", \"Angry\", \"Confused\", \"Disgusted\", \"Surprised\", \"Calm\", \"Unknown\", and \"Fear\". </p>"""
     smile: NotRequired["aws_sdk_rekognition.types.smile.Smile"]
     """<p> Indicates whether or not the face is smiling, and the confidence level in the determination. </p>"""
 

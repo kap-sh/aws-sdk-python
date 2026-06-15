@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_bedrock._auth._signers
@@ -85,7 +87,7 @@ class TrainingResource:
             "aws_sdk_bedrock.types.customization_config.CustomizationConfig"
         ] = None,
     ) -> "aws_sdk_bedrock.types.create_model_customization_job_response.CreateModelCustomizationJobResponse":
-        """<p>Creates a fine-tuning job to customize a base model.</p> <p>You specify the base foundation model and the location of the training data. After the model-customization job completes successfully, your custom model resource will be ready to use. Amazon Bedrock returns validation loss metrics and output generations after the job completes. </p> <p>For information on the format of training and validation data, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-prepare.html\">Prepare the datasets</a>.</p> <p> Model-customization jobs are asynchronous and the completion time depends on the base model and the training/validation data size. To monitor a job, use the <code>GetModelCustomizationJob</code> operation to retrieve the job status.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html\">Custom models</a> in the <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html\">Amazon Bedrock User Guide</a>.</p>
+        r"""<p>Creates a fine-tuning job to customize a base model.</p> <p>You specify the base foundation model and the location of the training data. After the model-customization job completes successfully, your custom model resource will be ready to use. Amazon Bedrock returns validation loss metrics and output generations after the job completes. </p> <p>For information on the format of training and validation data, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-prepare.html\">Prepare the datasets</a>.</p> <p> Model-customization jobs are asynchronous and the completion time depends on the base model and the training/validation data size. To monitor a job, use the <code>GetModelCustomizationJob</code> operation to retrieve the job status.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html\">Custom models</a> in the <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html\">Amazon Bedrock User Guide</a>.</p>
 
         Args:
             job_name: <p>A name for the fine-tuning job.</p>
@@ -159,7 +161,7 @@ class TrainingResource:
         *,
         config_overrides: Optional[BedrockClientConfig] = None,
     ) -> "aws_sdk_bedrock.types.get_model_customization_job_response.GetModelCustomizationJobResponse":
-        """<p>Retrieves the properties associated with a model-customization job, including the status of the job. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html\">Custom models</a> in the <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html\">Amazon Bedrock User Guide</a>.</p>
+        r"""<p>Retrieves the properties associated with a model-customization job, including the status of the job. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html\">Custom models</a> in the <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html\">Amazon Bedrock User Guide</a>.</p>
 
         Args:
             job_identifier: <p>Identifier for the customization job.</p>
@@ -211,7 +213,7 @@ class TrainingResource:
         sort_by: Optional["aws_sdk_bedrock.types.sort_jobs_by.SortJobsBy"] = None,
         sort_order: Optional["aws_sdk_bedrock.types.sort_order.SortOrder"] = None,
     ) -> "aws_sdk_bedrock.types.list_model_customization_jobs_response.ListModelCustomizationJobsResponse":
-        """<p>Returns a list of model customization jobs that you have submitted. You can filter the jobs to return based on one or more criteria.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html\">Custom models</a> in the <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html\">Amazon Bedrock User Guide</a>.</p>
+        r"""<p>Returns a list of model customization jobs that you have submitted. You can filter the jobs to return based on one or more criteria.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html\">Custom models</a> in the <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html\">Amazon Bedrock User Guide</a>.</p>
 
         Args:
             creation_time_after: <p>Return customization jobs created after the specified time. </p>
@@ -270,7 +272,7 @@ class TrainingResource:
         *,
         config_overrides: Optional[BedrockClientConfig] = None,
     ) -> "aws_sdk_bedrock.types.stop_model_customization_job_response.StopModelCustomizationJobResponse":
-        """<p>Stops an active model customization job. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html\">Custom models</a> in the <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html\">Amazon Bedrock User Guide</a>.</p>
+        r"""<p>Stops an active model customization job. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html\">Custom models</a> in the <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html\">Amazon Bedrock User Guide</a>.</p>
 
         Args:
             job_identifier: <p>Job identifier of the job to stop.</p>
@@ -338,7 +340,7 @@ class AsyncTrainingResource:
             "aws_sdk_bedrock.types.customization_config.CustomizationConfig"
         ] = None,
     ) -> "aws_sdk_bedrock.types.create_model_customization_job_response.CreateModelCustomizationJobResponse":
-        """<p>Creates a fine-tuning job to customize a base model.</p> <p>You specify the base foundation model and the location of the training data. After the model-customization job completes successfully, your custom model resource will be ready to use. Amazon Bedrock returns validation loss metrics and output generations after the job completes. </p> <p>For information on the format of training and validation data, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-prepare.html\">Prepare the datasets</a>.</p> <p> Model-customization jobs are asynchronous and the completion time depends on the base model and the training/validation data size. To monitor a job, use the <code>GetModelCustomizationJob</code> operation to retrieve the job status.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html\">Custom models</a> in the <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html\">Amazon Bedrock User Guide</a>.</p>
+        r"""<p>Creates a fine-tuning job to customize a base model.</p> <p>You specify the base foundation model and the location of the training data. After the model-customization job completes successfully, your custom model resource will be ready to use. Amazon Bedrock returns validation loss metrics and output generations after the job completes. </p> <p>For information on the format of training and validation data, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-prepare.html\">Prepare the datasets</a>.</p> <p> Model-customization jobs are asynchronous and the completion time depends on the base model and the training/validation data size. To monitor a job, use the <code>GetModelCustomizationJob</code> operation to retrieve the job status.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html\">Custom models</a> in the <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html\">Amazon Bedrock User Guide</a>.</p>
 
         Args:
             job_name: <p>A name for the fine-tuning job.</p>
@@ -413,7 +415,7 @@ class AsyncTrainingResource:
         *,
         config_overrides: Optional[AsyncBedrockClientConfig] = None,
     ) -> "aws_sdk_bedrock.types.get_model_customization_job_response.GetModelCustomizationJobResponse":
-        """<p>Retrieves the properties associated with a model-customization job, including the status of the job. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html\">Custom models</a> in the <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html\">Amazon Bedrock User Guide</a>.</p>
+        r"""<p>Retrieves the properties associated with a model-customization job, including the status of the job. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html\">Custom models</a> in the <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html\">Amazon Bedrock User Guide</a>.</p>
 
         Args:
             job_identifier: <p>Identifier for the customization job.</p>
@@ -466,7 +468,7 @@ class AsyncTrainingResource:
         sort_by: Optional["aws_sdk_bedrock.types.sort_jobs_by.SortJobsBy"] = None,
         sort_order: Optional["aws_sdk_bedrock.types.sort_order.SortOrder"] = None,
     ) -> "aws_sdk_bedrock.types.list_model_customization_jobs_response.ListModelCustomizationJobsResponse":
-        """<p>Returns a list of model customization jobs that you have submitted. You can filter the jobs to return based on one or more criteria.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html\">Custom models</a> in the <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html\">Amazon Bedrock User Guide</a>.</p>
+        r"""<p>Returns a list of model customization jobs that you have submitted. You can filter the jobs to return based on one or more criteria.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html\">Custom models</a> in the <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html\">Amazon Bedrock User Guide</a>.</p>
 
         Args:
             creation_time_after: <p>Return customization jobs created after the specified time. </p>
@@ -526,7 +528,7 @@ class AsyncTrainingResource:
         *,
         config_overrides: Optional[AsyncBedrockClientConfig] = None,
     ) -> "aws_sdk_bedrock.types.stop_model_customization_job_response.StopModelCustomizationJobResponse":
-        """<p>Stops an active model customization job. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html\">Custom models</a> in the <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html\">Amazon Bedrock User Guide</a>.</p>
+        r"""<p>Stops an active model customization job. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html\">Custom models</a> in the <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html\">Amazon Bedrock User Guide</a>.</p>
 
         Args:
             job_identifier: <p>Job identifier of the job to stop.</p>

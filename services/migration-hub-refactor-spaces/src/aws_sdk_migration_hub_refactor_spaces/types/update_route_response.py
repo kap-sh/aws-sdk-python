@@ -21,7 +21,7 @@ class UpdateRouteResponse(TypedDict):
     arn: NotRequired[
         "aws_sdk_migration_hub_refactor_spaces.types.resource_arn.ResourceArn"
     ]
-    """<p> The Amazon Resource Name (ARN) of the route. The format for this ARN is <code>arn:aws:refactor-spaces:<i>region</i>:<i>account-id</i>:<i>resource-type/resource-id</i> </code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>. </p>"""
+    r"""<p> The Amazon Resource Name (ARN) of the route. The format for this ARN is <code>arn:aws:refactor-spaces:<i>region</i>:<i>account-id</i>:<i>resource-type/resource-id</i> </code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>. </p>"""
     service_id: NotRequired[
         "aws_sdk_migration_hub_refactor_spaces.types.service_id.ServiceId"
     ]

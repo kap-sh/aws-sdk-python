@@ -106,7 +106,7 @@ class ApplicationCostProfilerClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = ApplicationCostProfilerClientConfig(
+        self._config = ApplicationCostProfilerClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -126,7 +126,7 @@ class ApplicationCostProfilerClient:
         overrides: ApplicationCostProfilerClientConfig = config_overrides or {}
         interceptors_: list[Interceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             retry(),
         ]
@@ -134,16 +134,16 @@ class ApplicationCostProfilerClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            region=overrides.get("region", self.config.get("region")),
+            region=overrides.get("region", self._config.get("region")),
             use_dual_stack=overrides.get(
-                "use_dual_stack", self.config.get("use_dual_stack")
+                "use_dual_stack", self._config.get("use_dual_stack")
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -175,11 +175,11 @@ class ApplicationCostProfilerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_applicationcostprofiler.types.delete_report_definition_request.DeleteReportDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["report_id"] = report_id
+        input_: aws_sdk_applicationcostprofiler.types.delete_report_definition_request.DeleteReportDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["report_id"] = report_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -212,11 +212,11 @@ class ApplicationCostProfilerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_applicationcostprofiler.types.get_report_definition_request.GetReportDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["report_id"] = report_id
+        input_: aws_sdk_applicationcostprofiler.types.get_report_definition_request.GetReportDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["report_id"] = report_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -249,11 +249,11 @@ class ApplicationCostProfilerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_applicationcostprofiler.types.import_application_usage_request.ImportApplicationUsageRequest = {}  # type: ignore[typeddict-item]
-        input["source_s3_location"] = source_s3_location
+        input_: aws_sdk_applicationcostprofiler.types.import_application_usage_request.ImportApplicationUsageRequest = {}  # type: ignore[typeddict-item]
+        input_["source_s3_location"] = source_s3_location
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -292,14 +292,14 @@ class ApplicationCostProfilerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_applicationcostprofiler.types.list_report_definitions_request.ListReportDefinitionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_applicationcostprofiler.types.list_report_definitions_request.ListReportDefinitionsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -365,15 +365,15 @@ class ApplicationCostProfilerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_applicationcostprofiler.types.put_report_definition_request.PutReportDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["report_id"] = report_id
-        input["report_description"] = report_description
-        input["report_frequency"] = report_frequency
-        input["format"] = format
-        input["destination_s3_location"] = destination_s3_location
+        input_: aws_sdk_applicationcostprofiler.types.put_report_definition_request.PutReportDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["report_id"] = report_id
+        input_["report_description"] = report_description
+        input_["report_frequency"] = report_frequency
+        input_["format"] = format
+        input_["destination_s3_location"] = destination_s3_location
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -414,15 +414,15 @@ class ApplicationCostProfilerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_applicationcostprofiler.types.update_report_definition_request.UpdateReportDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["report_id"] = report_id
-        input["report_description"] = report_description
-        input["report_frequency"] = report_frequency
-        input["format"] = format
-        input["destination_s3_location"] = destination_s3_location
+        input_: aws_sdk_applicationcostprofiler.types.update_report_definition_request.UpdateReportDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["report_id"] = report_id
+        input_["report_description"] = report_description
+        input_["report_frequency"] = report_frequency
+        input_["format"] = format
+        input_["destination_s3_location"] = destination_s3_location
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

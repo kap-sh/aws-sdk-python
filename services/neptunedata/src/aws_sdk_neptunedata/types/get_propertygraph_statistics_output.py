@@ -10,7 +10,7 @@ if TYPE_CHECKING:
 
 class GetPropertygraphStatisticsOutput(TypedDict):
     status: "str"
-    """<p>The HTTP return code of the request. If the request succeeded, the code is 200. See <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/neptune-dfe-statistics.html#neptune-dfe-statistics-errors\">Common error codes for DFE statistics request</a> for a list of common errors.</p>"""
+    r"""<p>The HTTP return code of the request. If the request succeeded, the code is 200. See <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/neptune-dfe-statistics.html#neptune-dfe-statistics-errors\">Common error codes for DFE statistics request</a> for a list of common errors.</p>"""
     payload: "aws_sdk_neptunedata.types.statistics.Statistics"
     """<p>Statistics for property-graph data.</p>"""
 

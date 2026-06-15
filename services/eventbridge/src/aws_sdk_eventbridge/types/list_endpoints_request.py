@@ -13,9 +13,9 @@ if TYPE_CHECKING:
 
 class ListEndpointsRequest(TypedDict):
     name_prefix: NotRequired["aws_sdk_eventbridge.types.endpoint_name.EndpointName"]
-    """<p>A value that will return a subset of the endpoints associated with this account. For example, <code>\"NamePrefix\": \"ABC\"</code> will return all endpoints with \"ABC\" in the name.</p>"""
+    r"""<p>A value that will return a subset of the endpoints associated with this account. For example, <code>\"NamePrefix\": \"ABC\"</code> will return all endpoints with \"ABC\" in the name.</p>"""
     home_region: NotRequired["aws_sdk_eventbridge.types.home_region.HomeRegion"]
-    """<p>The primary Region of the endpoints associated with this account. For example <code>\"HomeRegion\": \"us-east-1\"</code>.</p>"""
+    r"""<p>The primary Region of the endpoints associated with this account. For example <code>\"HomeRegion\": \"us-east-1\"</code>.</p>"""
     next_token: NotRequired["aws_sdk_eventbridge.types.next_token.NextToken"]
     """<p>The token returned by a previous call, which you can use to retrieve the next set of results.</p> <p>The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page of results, make the call again using the returned token. Keep all other arguments unchanged.</p> <p> Using an expired pagination token results in an <code>HTTP 400 InvalidToken</code> error.</p>"""
     max_results: NotRequired["aws_sdk_eventbridge.types.limit_max100.LimitMax100"]

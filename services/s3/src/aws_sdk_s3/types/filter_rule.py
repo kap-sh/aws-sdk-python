@@ -13,7 +13,7 @@ if TYPE_CHECKING:
 
 class FilterRule(TypedDict):
     name: NotRequired["aws_sdk_s3.types.filter_rule_name.FilterRuleName"]
-    """<p>The object key name prefix or suffix identifying one or more objects to which the filtering rule applies. The maximum length is 1,024 characters. Overlapping prefixes and suffixes are not supported. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html\">Configuring Event Notifications</a> in the <i>Amazon S3 User Guide</i>.</p>"""
+    r"""<p>The object key name prefix or suffix identifying one or more objects to which the filtering rule applies. The maximum length is 1,024 characters. Overlapping prefixes and suffixes are not supported. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html\">Configuring Event Notifications</a> in the <i>Amazon S3 User Guide</i>.</p>"""
     value: NotRequired["aws_sdk_s3.types.filter_rule_value.FilterRuleValue"]
     """<p>The value that the filter searches for in object key names.</p>"""
 

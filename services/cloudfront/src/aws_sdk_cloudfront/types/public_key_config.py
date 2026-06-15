@@ -17,7 +17,7 @@ class PublicKeyConfig(TypedDict):
     name: "aws_sdk_cloudfront.types.string.string"
     """<p>A name to help identify the public key.</p>"""
     encoded_key: "aws_sdk_cloudfront.types.string.string"
-    """<p>The public key that you can use with <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html\">signed URLs and signed cookies</a>, or with <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html\">field-level encryption</a>.</p>"""
+    r"""<p>The public key that you can use with <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html\">signed URLs and signed cookies</a>, or with <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html\">field-level encryption</a>.</p>"""
     comment: NotRequired["aws_sdk_cloudfront.types.string.string"]
     """<p>A comment to describe the public key. The comment cannot be longer than 128 characters.</p>"""
 

@@ -30,7 +30,7 @@ class SecurityControlDefinition(TypedDict):
     severity_rating: NotRequired[
         "aws_sdk_securityhub.types.severity_rating.SeverityRating"
     ]
-    """<p> The severity of a security control. For more information about how Security Hub CSPM determines control severity, see <a href=\"https://docs.aws.amazon.com/securityhub/latest/userguide/controls-findings-create-update.html#control-findings-severity\">Assigning severity to control findings</a> in the <i>Security Hub CSPM User Guide</i>. </p>"""
+    r"""<p> The severity of a security control. For more information about how Security Hub CSPM determines control severity, see <a href=\"https://docs.aws.amazon.com/securityhub/latest/userguide/controls-findings-create-update.html#control-findings-severity\">Assigning severity to control findings</a> in the <i>Security Hub CSPM User Guide</i>. </p>"""
     current_region_availability: NotRequired[
         "aws_sdk_securityhub.types.region_availability_status.RegionAvailabilityStatus"
     ]

@@ -20,7 +20,7 @@ class ObservabilityConfigurationSummary(TypedDict):
     ]
     """<p>The customer-provided observability configuration name. It can be used in multiple revisions of a configuration.</p>"""
     observability_configuration_revision: "aws_sdk_apprunner.types.integer.Integer"
-    """<p>The revision of this observability configuration. It's unique among all the active configurations (<code>\"Status\": \"ACTIVE\"</code>) that share the same <code>ObservabilityConfigurationName</code>.</p>"""
+    r"""<p>The revision of this observability configuration. It's unique among all the active configurations (<code>\"Status\": \"ACTIVE\"</code>) that share the same <code>ObservabilityConfigurationName</code>.</p>"""
 
 
 # --- awsJson1_0 ser/de ---

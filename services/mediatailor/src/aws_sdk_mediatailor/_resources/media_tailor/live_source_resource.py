@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_mediatailor._auth._signers
@@ -54,7 +56,7 @@ class LiveSourceResource:
     ) -> (
         "aws_sdk_mediatailor.types.create_live_source_response.CreateLiveSourceResponse"
     ):
-        """<p>The live source configuration.</p>
+        r"""<p>The live source configuration.</p>
 
         Args:
             http_package_configurations: <p>A list of HTTP package configuration parameters for this live source.</p>
@@ -284,7 +286,7 @@ class AsyncLiveSourceResource:
     ) -> (
         "aws_sdk_mediatailor.types.create_live_source_response.CreateLiveSourceResponse"
     ):
-        """<p>The live source configuration.</p>
+        r"""<p>The live source configuration.</p>
 
         Args:
             http_package_configurations: <p>A list of HTTP package configuration parameters for this live source.</p>

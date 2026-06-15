@@ -27,7 +27,7 @@ class LicenseOperationFailure(TypedDict):
     resource_owner_id: NotRequired["aws_sdk_license_manager.types.string.String"]
     """<p>ID of the Amazon Web Services account that owns the resource.</p>"""
     operation_requested_by: NotRequired["aws_sdk_license_manager.types.string.String"]
-    """<p>The requester is \"License Manager Automated Discovery\".</p>"""
+    r"""<p>The requester is \"License Manager Automated Discovery\".</p>"""
     metadata_list: NotRequired[
         "aws_sdk_license_manager.types.metadata_list.MetadataList"
     ]

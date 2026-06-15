@@ -44,7 +44,7 @@ class DescribeAssetModelCompositeModelResponse(TypedDict):
     composition_details: NotRequired[
         "aws_sdk_iotsitewise.types.composition_details.CompositionDetails"
     ]
-    """<p>Metadata for the composition relationship established by using <code>composedAssetModelId</code> in <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_CreateAssetModelCompositeModel.html\"> <code>CreateAssetModelCompositeModel</code> </a>. For instance, an array detailing the path of the composition relationship for this composite model.</p>"""
+    r"""<p>Metadata for the composition relationship established by using <code>composedAssetModelId</code> in <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_CreateAssetModelCompositeModel.html\"> <code>CreateAssetModelCompositeModel</code> </a>. For instance, an array detailing the path of the composition relationship for this composite model.</p>"""
     asset_model_composite_model_summaries: "aws_sdk_iotsitewise.types.asset_model_composite_model_summaries.AssetModelCompositeModelSummaries"
     """<p>The list of composite model summaries for the composite model.</p>"""
     action_definitions: NotRequired[

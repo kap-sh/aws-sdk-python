@@ -19,7 +19,7 @@ if TYPE_CHECKING:
 
 class DataLakeResource(TypedDict):
     data_lake_arn: "aws_sdk_securitylake.types.amazon_resource_name.AmazonResourceName"
-    """<p>The Amazon Resource Name (ARN) created by you to provide to the subscriber. For more information about ARNs and how to use them in policies, see the <a href=\"https://docs.aws.amazon.com/security-lake/latest/userguide/subscriber-management.html\">Amazon Security Lake User Guide</a>.</p>"""
+    r"""<p>The Amazon Resource Name (ARN) created by you to provide to the subscriber. For more information about ARNs and how to use them in policies, see the <a href=\"https://docs.aws.amazon.com/security-lake/latest/userguide/subscriber-management.html\">Amazon Security Lake User Guide</a>.</p>"""
     region: "aws_sdk_securitylake.types.region.Region"
     """<p>The Amazon Web Services Regions where Security Lake is enabled.</p>"""
     s3_bucket_arn: NotRequired["aws_sdk_securitylake.types.s3_bucket_arn.S3BucketArn"]

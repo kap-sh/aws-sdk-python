@@ -13,7 +13,7 @@ if TYPE_CHECKING:
 
 class PropertyType(TypedDict):
     attribute: NotRequired["aws_sdk_iotsitewise.types.attribute.Attribute"]
-    """<p>Specifies an asset attribute property. An attribute generally contains static information, such as the serial number of an <a href=\"https://en.wikipedia.org/wiki/Internet_of_things#Industrial_applications\">IIoT</a> wind turbine.</p>"""
+    r"""<p>Specifies an asset attribute property. An attribute generally contains static information, such as the serial number of an <a href=\"https://en.wikipedia.org/wiki/Internet_of_things#Industrial_applications\">IIoT</a> wind turbine.</p>"""
     measurement: NotRequired["aws_sdk_iotsitewise.types.measurement.Measurement"]
     """<p>Specifies an asset measurement property. A measurement represents a device's raw sensor data stream, such as timestamped temperature values or timestamped power values.</p>"""
     transform: NotRequired["aws_sdk_iotsitewise.types.transform.Transform"]

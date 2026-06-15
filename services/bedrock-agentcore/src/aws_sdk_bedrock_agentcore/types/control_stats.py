@@ -1,7 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#ControlStats``."""
 
 from typing import TypedDict
+
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
+
 
 class ControlStats(TypedDict):
     variant_name: "str"
@@ -10,6 +12,7 @@ class ControlStats(TypedDict):
     """<p>The number of sessions evaluated for the control variant.</p>"""
     mean: "float"
     """<p>The mean evaluation score for the control variant.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: ControlStats) -> dict:

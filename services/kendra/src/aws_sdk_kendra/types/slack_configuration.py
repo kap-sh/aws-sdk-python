@@ -24,11 +24,11 @@ class SlackConfiguration(TypedDict):
     team_id: "aws_sdk_kendra.types.team_id.TeamId"
     """<p>The identifier of the team in the Slack workspace. For example, <i>T0123456789</i>.</p> <p>You can find your team ID in the URL of the main page of your Slack workspace. When you log in to Slack via a browser, you are directed to the URL of the main page. For example, <i>https://app.slack.com/client/<b>T0123456789</b>/...</i>.</p>"""
     secret_arn: "aws_sdk_kendra.types.secret_arn.SecretArn"
-    """<p>The Amazon Resource Name (ARN) of an Secrets Manager secret that contains the key-value pairs required to connect to your Slack workspace team. The secret must contain a JSON structure with the following keys:</p> <ul> <li> <p>slackToken—The user or bot token created in Slack. For more information on creating a token in Slack, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/data-source-slack.html#slack-authentication\">Authentication for a Slack data source</a>.</p> </li> </ul>"""
+    r"""<p>The Amazon Resource Name (ARN) of an Secrets Manager secret that contains the key-value pairs required to connect to your Slack workspace team. The secret must contain a JSON structure with the following keys:</p> <ul> <li> <p>slackToken—The user or bot token created in Slack. For more information on creating a token in Slack, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/data-source-slack.html#slack-authentication\">Authentication for a Slack data source</a>.</p> </li> </ul>"""
     vpc_configuration: NotRequired[
         "aws_sdk_kendra.types.data_source_vpc_configuration.DataSourceVpcConfiguration"
     ]
-    """<p>Configuration information for an Amazon Virtual Private Cloud to connect to your Slack. For more information, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/vpc-configuration.html\">Configuring a VPC</a>.</p>"""
+    r"""<p>Configuration information for an Amazon Virtual Private Cloud to connect to your Slack. For more information, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/vpc-configuration.html\">Configuring a VPC</a>.</p>"""
     slack_entity_list: "aws_sdk_kendra.types.slack_entity_list.SlackEntityList"
     """<p>Specify whether to index public channels, private channels, group messages, and direct messages. You can specify one or more of these options.</p>"""
     use_change_log: "aws_sdk_kendra.types.boolean.Boolean"
@@ -62,7 +62,7 @@ class SlackConfiguration(TypedDict):
     field_mappings: NotRequired[
         "aws_sdk_kendra.types.data_source_to_index_field_mapping_list.DataSourceToIndexFieldMappingList"
     ]
-    """<p>A list of <code>DataSourceToIndexFieldMapping</code> objects that map Slack data source attributes or field names to Amazon Kendra index field names. To create custom fields, use the <code>UpdateIndex</code> API before you map to Slack fields. For more information, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html\">Mapping data source fields</a>. The Slack data source field names must exist in your Slack custom metadata.</p>"""
+    r"""<p>A list of <code>DataSourceToIndexFieldMapping</code> objects that map Slack data source attributes or field names to Amazon Kendra index field names. To create custom fields, use the <code>UpdateIndex</code> API before you map to Slack fields. For more information, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html\">Mapping data source fields</a>. The Slack data source field names must exist in your Slack custom metadata.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

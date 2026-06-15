@@ -7,7 +7,7 @@ from typing_extensions import NotRequired
 
 class GetDefaultViewOutput(TypedDict):
     view_arn: NotRequired["str"]
-    """<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon resource name (ARN)</a> of the view that is the current default for the Amazon Web Services Region in which you called this operation.</p>"""
+    r"""<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon resource name (ARN)</a> of the view that is the current default for the Amazon Web Services Region in which you called this operation.</p>"""
 
 
 # --- restJson1 ser/de ---

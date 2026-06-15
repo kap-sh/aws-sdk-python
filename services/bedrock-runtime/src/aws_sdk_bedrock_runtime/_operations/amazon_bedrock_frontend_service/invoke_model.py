@@ -109,7 +109,7 @@ def handle_response(
         import aws_sdk_bedrock_runtime.types.performance_config_latency
 
         out["performance_config_latency"] = (
-            aws_sdk_bedrock_runtime.types.performance_config_latency.from_xml_text(
+            aws_sdk_bedrock_runtime.types.performance_config_latency.deserialize_json(
                 response.headers["X-Amzn-Bedrock-PerformanceConfig-Latency"]
             )
         )
@@ -117,7 +117,7 @@ def handle_response(
         import aws_sdk_bedrock_runtime.types.service_tier_type
 
         out["service_tier"] = (
-            aws_sdk_bedrock_runtime.types.service_tier_type.from_xml_text(
+            aws_sdk_bedrock_runtime.types.service_tier_type.deserialize_json(
                 response.headers["X-Amzn-Bedrock-Service-Tier"]
             )
         )
@@ -128,7 +128,7 @@ def get_signer(
     options: AsyncOperationOptions | OperationOptions,
     auth_schemes: list[dict[str, Any]] | None = None,
 ) -> aws_sdk_bedrock_runtime._auth._signers.Signer | None:
-    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}
+    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}  # noqa: F841
     if options.credentials_provider is not None:
         sigv4_config = (
             name_to_schema.get("sigv4")

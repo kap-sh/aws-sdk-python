@@ -14,9 +14,9 @@ class AuditTaskMetadata(TypedDict):
     task_id: NotRequired["aws_sdk_iot.types.audit_task_id.AuditTaskId"]
     """<p>The ID of this audit.</p>"""
     task_status: NotRequired["aws_sdk_iot.types.audit_task_status.AuditTaskStatus"]
-    """<p>The status of this audit. One of \"IN_PROGRESS\", \"COMPLETED\", \"FAILED\", or \"CANCELED\".</p>"""
+    r"""<p>The status of this audit. One of \"IN_PROGRESS\", \"COMPLETED\", \"FAILED\", or \"CANCELED\".</p>"""
     task_type: NotRequired["aws_sdk_iot.types.audit_task_type.AuditTaskType"]
-    """<p>The type of this audit. One of \"ON_DEMAND_AUDIT_TASK\" or \"SCHEDULED_AUDIT_TASK\".</p>"""
+    r"""<p>The type of this audit. One of \"ON_DEMAND_AUDIT_TASK\" or \"SCHEDULED_AUDIT_TASK\".</p>"""
 
 
 # --- restJson1 ser/de ---

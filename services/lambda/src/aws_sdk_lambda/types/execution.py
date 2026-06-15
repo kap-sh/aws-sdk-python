@@ -28,11 +28,11 @@ class Execution(TypedDict):
     status: "aws_sdk_lambda.types.execution_status.ExecutionStatus"
     """<p>The current status of the durable execution.</p>"""
     start_timestamp: "aws_sdk_lambda.types.execution_timestamp.ExecutionTimestamp"
-    """<p>The date and time when the durable execution started, in <a href=\"https://www.w3.org/TR/NOTE-datetime\">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>"""
+    r"""<p>The date and time when the durable execution started, in <a href=\"https://www.w3.org/TR/NOTE-datetime\">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>"""
     end_timestamp: NotRequired[
         "aws_sdk_lambda.types.execution_timestamp.ExecutionTimestamp"
     ]
-    """<p>The date and time when the durable execution ended, in <a href=\"https://www.w3.org/TR/NOTE-datetime\">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>"""
+    r"""<p>The date and time when the durable execution ended, in <a href=\"https://www.w3.org/TR/NOTE-datetime\">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>"""
 
 
 # --- restJson1 ser/de ---

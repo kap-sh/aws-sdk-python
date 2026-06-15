@@ -24,7 +24,7 @@ class RDFGraphSummary(TypedDict):
     predicates: NotRequired[
         "aws_sdk_neptunedata.types.long_valued_map_list.LongValuedMapList"
     ]
-    """<p>\"A list of predicates in the graph, along with the predicate counts.</p>"""
+    r"""<p>\"A list of predicates in the graph, along with the predicate counts.</p>"""
     subject_structures: NotRequired[
         "aws_sdk_neptunedata.types.subject_structures.SubjectStructures"
     ]

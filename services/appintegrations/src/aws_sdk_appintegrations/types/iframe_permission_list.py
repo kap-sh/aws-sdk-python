@@ -1,10 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.appintegrations#IframePermissionList``."""
 
 from typing import TYPE_CHECKING, TypeAlias
+
 if TYPE_CHECKING:
     import aws_sdk_appintegrations.types.iframe_permission
 
-IframePermissionList: TypeAlias = list["aws_sdk_appintegrations.types.iframe_permission.IframePermission"]
+IframePermissionList: TypeAlias = list[
+    "aws_sdk_appintegrations.types.iframe_permission.IframePermission"
+]
 
 
 # --- restJson1 ser/de ---

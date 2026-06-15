@@ -26,7 +26,7 @@ class PromptVariant(TypedDict):
     model_id: NotRequired[
         "aws_sdk_bedrock_agent.types.prompt_model_identifier.PromptModelIdentifier"
     ]
-    """<p>The unique identifier of the model or <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html\">inference profile</a> with which to run inference on the prompt.</p>"""
+    r"""<p>The unique identifier of the model or <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html\">inference profile</a> with which to run inference on the prompt.</p>"""
     inference_configuration: NotRequired[
         "aws_sdk_bedrock_agent.types.prompt_inference_configuration.PromptInferenceConfiguration"
     ]
@@ -36,7 +36,7 @@ class PromptVariant(TypedDict):
     ]
     """<p>An array of objects, each containing a key-value pair that defines a metadata tag and value to attach to a prompt variant.</p>"""
     additional_model_request_fields: NotRequired["object"]
-    """<p>Contains model-specific inference configurations that aren't in the <code>inferenceConfiguration</code> field. To see model-specific inference parameters, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html\">Inference request parameters and response fields for foundation models</a>.</p>"""
+    r"""<p>Contains model-specific inference configurations that aren't in the <code>inferenceConfiguration</code> field. To see model-specific inference parameters, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html\">Inference request parameters and response fields for foundation models</a>.</p>"""
     gen_ai_resource: NotRequired[
         "aws_sdk_bedrock_agent.types.prompt_gen_ai_resource.PromptGenAiResource"
     ]

@@ -383,7 +383,7 @@ class DatabaseMigrationServiceClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = DatabaseMigrationServiceClientConfig(
+        self._config = DatabaseMigrationServiceClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -403,7 +403,7 @@ class DatabaseMigrationServiceClient:
         overrides: DatabaseMigrationServiceClientConfig = config_overrides or {}
         interceptors_: list[Interceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             retry(),
         ]
@@ -411,16 +411,16 @@ class DatabaseMigrationServiceClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            region=overrides.get("region", self.config.get("region")),
+            region=overrides.get("region", self._config.get("region")),
             use_dual_stack=overrides.get(
-                "use_dual_stack", self.config.get("use_dual_stack")
+                "use_dual_stack", self._config.get("use_dual_stack")
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -432,7 +432,7 @@ class DatabaseMigrationServiceClient:
         *,
         config_overrides: Optional[DatabaseMigrationServiceClientConfig] = None,
     ) -> "aws_sdk_database_migration_service.types.add_tags_to_resource_response.AddTagsToResourceResponse":
-        """<p>Adds metadata tags to an DMS resource, including replication instance, endpoint, subnet group, and migration task. These tags can also be used with cost allocation reporting to track cost associated with DMS resources, or used in a Condition statement in an IAM policy for DMS. For more information, see <a href=\"https://docs.aws.amazon.com/dms/latest/APIReference/API_Tag.html\"> <code>Tag</code> </a> data type description.</p>
+        r"""<p>Adds metadata tags to an DMS resource, including replication instance, endpoint, subnet group, and migration task. These tags can also be used with cost allocation reporting to track cost associated with DMS resources, or used in a Condition statement in an IAM policy for DMS. For more information, see <a href=\"https://docs.aws.amazon.com/dms/latest/APIReference/API_Tag.html\"> <code>Tag</code> </a> data type description.</p>
 
         Args:
             resource_arn: <p>Identifies the DMS resource to which tags should be added. The value for this parameter is an Amazon Resource Name (ARN).</p> <p>For DMS, you can tag a replication instance, an endpoint, or a replication task.</p>
@@ -522,7 +522,7 @@ class DatabaseMigrationServiceClient:
             "aws_sdk_database_migration_service.types.start_recommendations_request_entry_list.StartRecommendationsRequestEntryList"
         ] = None,
     ) -> "aws_sdk_database_migration_service.types.batch_start_recommendations_response.BatchStartRecommendationsResponse":
-        """<important> <p> End of support notice: On May 20, 2026, Amazon Web Services will end support for Amazon Web Services DMS Fleet Advisor;. After May 20, 2026, you will no longer be able to access the Amazon Web Services DMS Fleet Advisor; console or Amazon Web Services DMS Fleet Advisor; resources. For more information, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/dms_fleet.advisor-end-of-support.html\">Amazon Web Services DMS Fleet Advisor end of support</a>. </p> </important> <p>Starts the analysis of up to 20 source databases to recommend target engines for each source database. This is a batch version of <a href=\"https://docs.aws.amazon.com/dms/latest/APIReference/API_StartRecommendations.html\">StartRecommendations</a>.</p> <p>The result of analysis of each source database is reported individually in the response. Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of <code>200</code>.</p>
+        r"""<important> <p> End of support notice: On May 20, 2026, Amazon Web Services will end support for Amazon Web Services DMS Fleet Advisor;. After May 20, 2026, you will no longer be able to access the Amazon Web Services DMS Fleet Advisor; console or Amazon Web Services DMS Fleet Advisor; resources. For more information, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/dms_fleet.advisor-end-of-support.html\">Amazon Web Services DMS Fleet Advisor end of support</a>. </p> </important> <p>Starts the analysis of up to 20 source databases to recommend target engines for each source database. This is a batch version of <a href=\"https://docs.aws.amazon.com/dms/latest/APIReference/API_StartRecommendations.html\">StartRecommendations</a>.</p> <p>The result of analysis of each source database is reported individually in the response. Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of <code>200</code>.</p>
 
         Args:
             data: <p>Provides information about source databases to analyze. After this analysis, Fleet Advisor recommends target engines for each source database.</p>
@@ -777,7 +777,7 @@ class DatabaseMigrationServiceClient:
             "aws_sdk_database_migration_service.types.tag_list.TagList"
         ] = None,
     ) -> "aws_sdk_database_migration_service.types.create_data_provider_response.CreateDataProviderResponse":
-        """<p>Creates a data provider using the provided settings. A data provider stores a data store type and location information about your database. </p>
+        r"""<p>Creates a data provider using the provided settings. A data provider stores a data store type and location information about your database. </p>
 
         Args:
             data_provider_name: <p>A user-friendly name for the data provider.</p>
@@ -932,7 +932,7 @@ class DatabaseMigrationServiceClient:
             "aws_sdk_database_migration_service.types.timestream_settings.TimestreamSettings"
         ] = None,
     ) -> "aws_sdk_database_migration_service.types.create_endpoint_response.CreateEndpointResponse":
-        """<p>Creates an endpoint using the provided settings.</p> <note> <p>For a MySQL source or target endpoint, don't explicitly specify the database using the <code>DatabaseName</code> request parameter on the <code>CreateEndpoint</code> API call. Specifying <code>DatabaseName</code> when you create a MySQL endpoint replicates all the task tables to this single database. For MySQL endpoints, you specify the database only when you specify the schema in the table-mapping rules of the DMS task.</p> </note>
+        r"""<p>Creates an endpoint using the provided settings.</p> <note> <p>For a MySQL source or target endpoint, don't explicitly specify the database using the <code>DatabaseName</code> request parameter on the <code>CreateEndpoint</code> API call. Specifying <code>DatabaseName</code> when you create a MySQL endpoint replicates all the task tables to this single database. For MySQL endpoints, you specify the database only when you specify the schema in the table-mapping rules of the DMS task.</p> </note>
 
         Args:
             endpoint_identifier: <p>The database endpoint identifier. Identifiers must begin with a letter and must contain only ASCII letters, digits, and hyphens. They can't end with a hyphen, or contain two consecutive hyphens.</p>
@@ -1089,7 +1089,7 @@ class DatabaseMigrationServiceClient:
             "aws_sdk_database_migration_service.types.tag_list.TagList"
         ] = None,
     ) -> "aws_sdk_database_migration_service.types.create_event_subscription_response.CreateEventSubscriptionResponse":
-        """<p> Creates an DMS event notification subscription. </p> <p>You can specify the type of source (<code>SourceType</code>) you want to be notified of, provide a list of DMS source IDs (<code>SourceIds</code>) that triggers the events, and provide a list of event categories (<code>EventCategories</code>) for events you want to be notified of. If you specify both the <code>SourceType</code> and <code>SourceIds</code>, such as <code>SourceType = replication-instance</code> and <code>SourceIdentifier = my-replinstance</code>, you will be notified of all the replication instance events for the specified source. If you specify a <code>SourceType</code> but don't specify a <code>SourceIdentifier</code>, you receive notice of the events for that source type for all your DMS sources. If you don't specify either <code>SourceType</code> nor <code>SourceIdentifier</code>, you will be notified of events generated from all DMS sources belonging to your customer account.</p> <p>For more information about DMS events, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html\">Working with Events and Notifications</a> in the <i>Database Migration Service User Guide.</i> </p>
+        r"""<p> Creates an DMS event notification subscription. </p> <p>You can specify the type of source (<code>SourceType</code>) you want to be notified of, provide a list of DMS source IDs (<code>SourceIds</code>) that triggers the events, and provide a list of event categories (<code>EventCategories</code>) for events you want to be notified of. If you specify both the <code>SourceType</code> and <code>SourceIds</code>, such as <code>SourceType = replication-instance</code> and <code>SourceIdentifier = my-replinstance</code>, you will be notified of all the replication instance events for the specified source. If you specify a <code>SourceType</code> but don't specify a <code>SourceIdentifier</code>, you receive notice of the events for that source type for all your DMS sources. If you don't specify either <code>SourceType</code> nor <code>SourceIdentifier</code>, you will be notified of events generated from all DMS sources belonging to your customer account.</p> <p>For more information about DMS events, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html\">Working with Events and Notifications</a> in the <i>Database Migration Service User Guide.</i> </p>
 
         Args:
             subscription_name: <p>The name of the DMS event notification subscription. This name must be less than 255 characters.</p>
@@ -1148,7 +1148,7 @@ class DatabaseMigrationServiceClient:
             "aws_sdk_database_migration_service.types.string.String"
         ] = None,
     ) -> "aws_sdk_database_migration_service.types.create_fleet_advisor_collector_response.CreateFleetAdvisorCollectorResponse":
-        """<important> <p> End of support notice: On May 20, 2026, Amazon Web Services will end support for Amazon Web Services DMS Fleet Advisor;. After May 20, 2026, you will no longer be able to access the Amazon Web Services DMS Fleet Advisor; console or Amazon Web Services DMS Fleet Advisor; resources. For more information, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/dms_fleet.advisor-end-of-support.html\">Amazon Web Services DMS Fleet Advisor end of support</a>. </p> </important> <p>Creates a Fleet Advisor collector using the specified parameters.</p>
+        r"""<important> <p> End of support notice: On May 20, 2026, Amazon Web Services will end support for Amazon Web Services DMS Fleet Advisor;. After May 20, 2026, you will no longer be able to access the Amazon Web Services DMS Fleet Advisor; console or Amazon Web Services DMS Fleet Advisor; resources. For more information, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/dms_fleet.advisor-end-of-support.html\">Amazon Web Services DMS Fleet Advisor end of support</a>. </p> </important> <p>Creates a Fleet Advisor collector using the specified parameters.</p>
 
         Args:
             collector_name: <p>The name of your Fleet Advisor collector (for example, <code>sample-collector</code>).</p>
@@ -1303,7 +1303,7 @@ class DatabaseMigrationServiceClient:
             "aws_sdk_database_migration_service.types.sc_application_attributes.SCApplicationAttributes"
         ] = None,
     ) -> "aws_sdk_database_migration_service.types.create_migration_project_response.CreateMigrationProjectResponse":
-        """<p>Creates the migration project using the specified parameters.</p> <p>You can run this action only after you create an instance profile and data providers using <a href=\"https://docs.aws.amazon.com/dms/latest/APIReference/API_CreateInstanceProfile.html\">CreateInstanceProfile</a> and <a href=\"https://docs.aws.amazon.com/dms/latest/APIReference/API_CreateDataProvider.html\">CreateDataProvider</a>.</p>
+        r"""<p>Creates the migration project using the specified parameters.</p> <p>You can run this action only after you create an instance profile and data providers using <a href=\"https://docs.aws.amazon.com/dms/latest/APIReference/API_CreateInstanceProfile.html\">CreateInstanceProfile</a> and <a href=\"https://docs.aws.amazon.com/dms/latest/APIReference/API_CreateDataProvider.html\">CreateDataProvider</a>.</p>
 
         Args:
             migration_project_name: <p>A user-friendly name for the migration project.</p>
@@ -1384,7 +1384,7 @@ class DatabaseMigrationServiceClient:
             "aws_sdk_database_migration_service.types.tag_list.TagList"
         ] = None,
     ) -> "aws_sdk_database_migration_service.types.create_replication_config_response.CreateReplicationConfigResponse":
-        """<p>Creates a configuration that you can later provide to configure and start an DMS Serverless replication. You can also provide options to validate the configuration inputs before you start the replication.</p>
+        r"""<p>Creates a configuration that you can later provide to configure and start an DMS Serverless replication. You can also provide options to validate the configuration inputs before you start the replication.</p>
 
         Args:
             replication_config_identifier: <p>A unique identifier that you want to use to create a <code>ReplicationConfigArn</code> that is returned as part of the output from this action. You can then pass this output <code>ReplicationConfigArn</code> as the value of the <code>ReplicationConfigArn</code> option for other actions to identify both DMS Serverless replications and replication configurations that you want those actions to operate on. For some actions, you can also use either this unique identifier or a corresponding ARN in action filters to identify the specific replication and replication configuration to operate on.</p>
@@ -1489,7 +1489,7 @@ class DatabaseMigrationServiceClient:
             "aws_sdk_database_migration_service.types.kerberos_authentication_settings.KerberosAuthenticationSettings"
         ] = None,
     ) -> "aws_sdk_database_migration_service.types.create_replication_instance_response.CreateReplicationInstanceResponse":
-        """<p>Creates the replication instance using the specified parameters.</p> <p>DMS requires that your account have certain roles with appropriate permissions before you can create a replication instance. For information on the required roles, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.APIRole\">Creating the IAM Roles to Use With the CLI and DMS API</a>. For information on the required permissions, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.IAMPermissions\">IAM Permissions Needed to Use DMS</a>.</p> <note> <p>If you don't specify a version when creating a replication instance, DMS will create the instance using the default engine version. For information about the default engine version, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReleaseNotes.html\">Release Notes</a>.</p> </note>
+        r"""<p>Creates the replication instance using the specified parameters.</p> <p>DMS requires that your account have certain roles with appropriate permissions before you can create a replication instance. For information on the required roles, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.APIRole\">Creating the IAM Roles to Use With the CLI and DMS API</a>. For information on the required permissions, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.IAMPermissions\">IAM Permissions Needed to Use DMS</a>.</p> <note> <p>If you don't specify a version when creating a replication instance, DMS will create the instance using the default engine version. For information about the default engine version, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReleaseNotes.html\">Release Notes</a>.</p> </note>
 
         Args:
             replication_instance_identifier: <p>The replication instance identifier. This parameter is stored as a lowercase string.</p> <p>Constraints:</p> <ul> <li> <p>Must contain 1-63 alphanumeric characters or hyphens.</p> </li> <li> <p>First character must be a letter.</p> </li> <li> <p>Can't end with a hyphen or contain two consecutive hyphens.</p> </li> </ul> <p>Example: <code>myrepinstance</code> </p>
@@ -1588,7 +1588,7 @@ class DatabaseMigrationServiceClient:
             "aws_sdk_database_migration_service.types.tag_list.TagList"
         ] = None,
     ) -> "aws_sdk_database_migration_service.types.create_replication_subnet_group_response.CreateReplicationSubnetGroupResponse":
-        """<p>Creates a replication subnet group given a list of the subnet IDs in a VPC.</p> <p>The VPC needs to have at least one subnet in at least two availability zones in the Amazon Web Services Region, otherwise the service will throw a <code>ReplicationSubnetGroupDoesNotCoverEnoughAZs</code> exception.</p> <p>If a replication subnet group exists in your Amazon Web Services account, the CreateReplicationSubnetGroup action returns the following error message: The Replication Subnet Group already exists. In this case, delete the existing replication subnet group. To do so, use the <a href=\"https://docs.aws.amazon.com/en_us/dms/latest/APIReference/API_DeleteReplicationSubnetGroup.html\">DeleteReplicationSubnetGroup</a> action. Optionally, choose Subnet groups in the DMS console, then choose your subnet group. Next, choose Delete from Actions.</p>
+        r"""<p>Creates a replication subnet group given a list of the subnet IDs in a VPC.</p> <p>The VPC needs to have at least one subnet in at least two availability zones in the Amazon Web Services Region, otherwise the service will throw a <code>ReplicationSubnetGroupDoesNotCoverEnoughAZs</code> exception.</p> <p>If a replication subnet group exists in your Amazon Web Services account, the CreateReplicationSubnetGroup action returns the following error message: The Replication Subnet Group already exists. In this case, delete the existing replication subnet group. To do so, use the <a href=\"https://docs.aws.amazon.com/en_us/dms/latest/APIReference/API_DeleteReplicationSubnetGroup.html\">DeleteReplicationSubnetGroup</a> action. Optionally, choose Subnet groups in the DMS console, then choose your subnet group. Next, choose Delete from Actions.</p>
 
         Args:
             replication_subnet_group_identifier: <p>The name for the replication subnet group. This value is stored as a lowercase string.</p> <p>Constraints: Must contain no more than 255 alphanumeric characters, periods, underscores, or hyphens. Must not be \"default\".</p> <p>Example: <code>mySubnetgroup</code> </p>
@@ -1668,7 +1668,7 @@ class DatabaseMigrationServiceClient:
             "aws_sdk_database_migration_service.types.string.String"
         ] = None,
     ) -> "aws_sdk_database_migration_service.types.create_replication_task_response.CreateReplicationTaskResponse":
-        """<p>Creates a replication task using the specified parameters.</p>
+        r"""<p>Creates a replication task using the specified parameters.</p>
 
         Args:
             replication_task_identifier: <p>An identifier for the replication task.</p> <p>Constraints:</p> <ul> <li> <p>Must contain 1-255 alphanumeric characters or hyphens.</p> </li> <li> <p>First character must be a letter.</p> </li> <li> <p>Cannot end with a hyphen or contain two consecutive hyphens.</p> </li> </ul>
@@ -1992,7 +1992,7 @@ class DatabaseMigrationServiceClient:
         *,
         config_overrides: Optional[DatabaseMigrationServiceClientConfig] = None,
     ) -> None:
-        """<important> <p> End of support notice: On May 20, 2026, Amazon Web Services will end support for Amazon Web Services DMS Fleet Advisor;. After May 20, 2026, you will no longer be able to access the Amazon Web Services DMS Fleet Advisor; console or Amazon Web Services DMS Fleet Advisor; resources. For more information, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/dms_fleet.advisor-end-of-support.html\">Amazon Web Services DMS Fleet Advisor end of support</a>. </p> </important> <p>Deletes the specified Fleet Advisor collector.</p>
+        r"""<important> <p> End of support notice: On May 20, 2026, Amazon Web Services will end support for Amazon Web Services DMS Fleet Advisor;. After May 20, 2026, you will no longer be able to access the Amazon Web Services DMS Fleet Advisor; console or Amazon Web Services DMS Fleet Advisor; resources. For more information, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/dms_fleet.advisor-end-of-support.html\">Amazon Web Services DMS Fleet Advisor end of support</a>. </p> </important> <p>Deletes the specified Fleet Advisor collector.</p>
 
         Args:
             collector_referenced_id: <p>The reference ID of the Fleet Advisor collector to delete.</p>
@@ -2027,7 +2027,7 @@ class DatabaseMigrationServiceClient:
         *,
         config_overrides: Optional[DatabaseMigrationServiceClientConfig] = None,
     ) -> "aws_sdk_database_migration_service.types.delete_fleet_advisor_databases_response.DeleteFleetAdvisorDatabasesResponse":
-        """<important> <p> End of support notice: On May 20, 2026, Amazon Web Services will end support for Amazon Web Services DMS Fleet Advisor;. After May 20, 2026, you will no longer be able to access the Amazon Web Services DMS Fleet Advisor; console or Amazon Web Services DMS Fleet Advisor; resources. For more information, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/dms_fleet.advisor-end-of-support.html\">Amazon Web Services DMS Fleet Advisor end of support</a>. </p> </important> <p>Deletes the specified Fleet Advisor collector databases.</p>
+        r"""<important> <p> End of support notice: On May 20, 2026, Amazon Web Services will end support for Amazon Web Services DMS Fleet Advisor;. After May 20, 2026, you will no longer be able to access the Amazon Web Services DMS Fleet Advisor; console or Amazon Web Services DMS Fleet Advisor; resources. For more information, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/dms_fleet.advisor-end-of-support.html\">Amazon Web Services DMS Fleet Advisor end of support</a>. </p> </important> <p>Deletes the specified Fleet Advisor collector databases.</p>
 
         Args:
             database_ids: <p>The IDs of the Fleet Advisor collector databases to delete.</p>
@@ -3010,7 +3010,7 @@ class DatabaseMigrationServiceClient:
             "aws_sdk_database_migration_service.types.filter_list.FilterList"
         ] = None,
     ) -> "aws_sdk_database_migration_service.types.describe_event_categories_response.DescribeEventCategoriesResponse":
-        """<p>Lists categories for all event source types, or, if specified, for a specified source type. You can see a list of the event categories and source types in <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html\">Working with Events and Notifications</a> in the <i>Database Migration Service User Guide.</i> </p>
+        r"""<p>Lists categories for all event source types, or, if specified, for a specified source type. You can see a list of the event categories and source types in <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html\">Working with Events and Notifications</a> in the <i>Database Migration Service User Guide.</i> </p>
 
         Args:
             source_type: <p> The type of DMS resource that generates events. </p> <p>Valid values: replication-instance | replication-task</p>
@@ -3077,7 +3077,7 @@ class DatabaseMigrationServiceClient:
             "aws_sdk_database_migration_service.types.string.String"
         ] = None,
     ) -> "aws_sdk_database_migration_service.types.describe_events_response.DescribeEventsResponse":
-        """<p> Lists events for a given source identifier and source type. You can also specify a start and end time. For more information on DMS events, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html\">Working with Events and Notifications</a> in the <i>Database Migration Service User Guide.</i> </p>
+        r"""<p> Lists events for a given source identifier and source type. You can also specify a start and end time. For more information on DMS events, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html\">Working with Events and Notifications</a> in the <i>Database Migration Service User Guide.</i> </p>
 
         Args:
             source_identifier: <p> The identifier of an event source.</p>
@@ -3266,7 +3266,7 @@ class DatabaseMigrationServiceClient:
             "aws_sdk_database_migration_service.types.string.String"
         ] = None,
     ) -> "aws_sdk_database_migration_service.types.describe_fleet_advisor_collectors_response.DescribeFleetAdvisorCollectorsResponse":
-        """<important> <p> End of support notice: On May 20, 2026, Amazon Web Services will end support for Amazon Web Services DMS Fleet Advisor;. After May 20, 2026, you will no longer be able to access the Amazon Web Services DMS Fleet Advisor; console or Amazon Web Services DMS Fleet Advisor; resources. For more information, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/dms_fleet.advisor-end-of-support.html\">Amazon Web Services DMS Fleet Advisor end of support</a>. </p> </important> <p>Returns a list of the Fleet Advisor collectors in your account.</p>
+        r"""<important> <p> End of support notice: On May 20, 2026, Amazon Web Services will end support for Amazon Web Services DMS Fleet Advisor;. After May 20, 2026, you will no longer be able to access the Amazon Web Services DMS Fleet Advisor; console or Amazon Web Services DMS Fleet Advisor; resources. For more information, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/dms_fleet.advisor-end-of-support.html\">Amazon Web Services DMS Fleet Advisor end of support</a>. </p> </important> <p>Returns a list of the Fleet Advisor collectors in your account.</p>
 
         Args:
             filters: <p> If you specify any of the following filters, the output includes information for only those collectors that meet the filter criteria:</p> <ul> <li> <p> <code>collector-referenced-id</code> – The ID of the collector agent, for example <code>d4610ac5-e323-4ad9-bc50-eaf7249dfe9d</code>.</p> </li> <li> <p> <code>collector-name</code> – The name of the collector agent.</p> </li> </ul> <p>An example is: <code>describe-fleet-advisor-collectors --filter Name=\"collector-referenced-id\",Values=\"d4610ac5-e323-4ad9-bc50-eaf7249dfe9d\"</code> </p>
@@ -3318,7 +3318,7 @@ class DatabaseMigrationServiceClient:
             "aws_sdk_database_migration_service.types.string.String"
         ] = None,
     ) -> "aws_sdk_database_migration_service.types.describe_fleet_advisor_databases_response.DescribeFleetAdvisorDatabasesResponse":
-        """<important> <p> End of support notice: On May 20, 2026, Amazon Web Services will end support for Amazon Web Services DMS Fleet Advisor;. After May 20, 2026, you will no longer be able to access the Amazon Web Services DMS Fleet Advisor; console or Amazon Web Services DMS Fleet Advisor; resources. For more information, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/dms_fleet.advisor-end-of-support.html\">Amazon Web Services DMS Fleet Advisor end of support</a>. </p> </important> <p>Returns a list of Fleet Advisor databases in your account.</p>
+        r"""<important> <p> End of support notice: On May 20, 2026, Amazon Web Services will end support for Amazon Web Services DMS Fleet Advisor;. After May 20, 2026, you will no longer be able to access the Amazon Web Services DMS Fleet Advisor; console or Amazon Web Services DMS Fleet Advisor; resources. For more information, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/dms_fleet.advisor-end-of-support.html\">Amazon Web Services DMS Fleet Advisor end of support</a>. </p> </important> <p>Returns a list of Fleet Advisor databases in your account.</p>
 
         Args:
             filters: <p> If you specify any of the following filters, the output includes information for only those databases that meet the filter criteria: </p> <ul> <li> <p> <code>database-id</code> – The ID of the database.</p> </li> <li> <p> <code>database-name</code> – The name of the database.</p> </li> <li> <p> <code>database-engine</code> – The name of the database engine.</p> </li> <li> <p> <code>server-ip-address</code> – The IP address of the database server.</p> </li> <li> <p> <code>database-ip-address</code> – The IP address of the database.</p> </li> <li> <p> <code>collector-name</code> – The name of the associated Fleet Advisor collector.</p> </li> </ul> <p>An example is: <code>describe-fleet-advisor-databases --filter Name=\"database-id\",Values=\"45\"</code> </p>
@@ -3367,7 +3367,7 @@ class DatabaseMigrationServiceClient:
             "aws_sdk_database_migration_service.types.string.String"
         ] = None,
     ) -> "aws_sdk_database_migration_service.types.describe_fleet_advisor_lsa_analysis_response.DescribeFleetAdvisorLsaAnalysisResponse":
-        """<important> <p> End of support notice: On May 20, 2026, Amazon Web Services will end support for Amazon Web Services DMS Fleet Advisor;. After May 20, 2026, you will no longer be able to access the Amazon Web Services DMS Fleet Advisor; console or Amazon Web Services DMS Fleet Advisor; resources. For more information, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/dms_fleet.advisor-end-of-support.html\">Amazon Web Services DMS Fleet Advisor end of support</a>. </p> </important> <p>Provides descriptions of large-scale assessment (LSA) analyses produced by your Fleet Advisor collectors. </p>
+        r"""<important> <p> End of support notice: On May 20, 2026, Amazon Web Services will end support for Amazon Web Services DMS Fleet Advisor;. After May 20, 2026, you will no longer be able to access the Amazon Web Services DMS Fleet Advisor; console or Amazon Web Services DMS Fleet Advisor; resources. For more information, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/dms_fleet.advisor-end-of-support.html\">Amazon Web Services DMS Fleet Advisor end of support</a>. </p> </important> <p>Provides descriptions of large-scale assessment (LSA) analyses produced by your Fleet Advisor collectors. </p>
 
         Args:
             max_records: <p>Sets the maximum number of records returned in the response.</p>
@@ -3416,7 +3416,7 @@ class DatabaseMigrationServiceClient:
             "aws_sdk_database_migration_service.types.string.String"
         ] = None,
     ) -> "aws_sdk_database_migration_service.types.describe_fleet_advisor_schema_object_summary_response.DescribeFleetAdvisorSchemaObjectSummaryResponse":
-        """<important> <p> End of support notice: On May 20, 2026, Amazon Web Services will end support for Amazon Web Services DMS Fleet Advisor;. After May 20, 2026, you will no longer be able to access the Amazon Web Services DMS Fleet Advisor; console or Amazon Web Services DMS Fleet Advisor; resources. For more information, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/dms_fleet.advisor-end-of-support.html\">Amazon Web Services DMS Fleet Advisor end of support</a>. </p> </important> <p>Provides descriptions of the schemas discovered by your Fleet Advisor collectors.</p>
+        r"""<important> <p> End of support notice: On May 20, 2026, Amazon Web Services will end support for Amazon Web Services DMS Fleet Advisor;. After May 20, 2026, you will no longer be able to access the Amazon Web Services DMS Fleet Advisor; console or Amazon Web Services DMS Fleet Advisor; resources. For more information, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/dms_fleet.advisor-end-of-support.html\">Amazon Web Services DMS Fleet Advisor end of support</a>. </p> </important> <p>Provides descriptions of the schemas discovered by your Fleet Advisor collectors.</p>
 
         Args:
             filters: <p> If you specify any of the following filters, the output includes information for only those schema objects that meet the filter criteria:</p> <ul> <li> <p> <code>schema-id</code> – The ID of the schema, for example <code>d4610ac5-e323-4ad9-bc50-eaf7249dfe9d</code>.</p> </li> </ul> <p>Example: <code>describe-fleet-advisor-schema-object-summary --filter Name=\"schema-id\",Values=\"50\"</code> </p>
@@ -3468,7 +3468,7 @@ class DatabaseMigrationServiceClient:
             "aws_sdk_database_migration_service.types.string.String"
         ] = None,
     ) -> "aws_sdk_database_migration_service.types.describe_fleet_advisor_schemas_response.DescribeFleetAdvisorSchemasResponse":
-        """<important> <p> End of support notice: On May 20, 2026, Amazon Web Services will end support for Amazon Web Services DMS Fleet Advisor;. After May 20, 2026, you will no longer be able to access the Amazon Web Services DMS Fleet Advisor; console or Amazon Web Services DMS Fleet Advisor; resources. For more information, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/dms_fleet.advisor-end-of-support.html\">Amazon Web Services DMS Fleet Advisor end of support</a>. </p> </important> <p>Returns a list of schemas detected by Fleet Advisor Collectors in your account.</p>
+        r"""<important> <p> End of support notice: On May 20, 2026, Amazon Web Services will end support for Amazon Web Services DMS Fleet Advisor;. After May 20, 2026, you will no longer be able to access the Amazon Web Services DMS Fleet Advisor; console or Amazon Web Services DMS Fleet Advisor; resources. For more information, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/dms_fleet.advisor-end-of-support.html\">Amazon Web Services DMS Fleet Advisor end of support</a>. </p> </important> <p>Returns a list of schemas detected by Fleet Advisor Collectors in your account.</p>
 
         Args:
             filters: <p> If you specify any of the following filters, the output includes information for only those schemas that meet the filter criteria:</p> <ul> <li> <p> <code>complexity</code> – The schema's complexity, for example <code>Simple</code>.</p> </li> <li> <p> <code>database-id</code> – The ID of the schema's database.</p> </li> <li> <p> <code>database-ip-address</code> – The IP address of the schema's database.</p> </li> <li> <p> <code>database-name</code> – The name of the schema's database.</p> </li> <li> <p> <code>database-engine</code> – The name of the schema database's engine.</p> </li> <li> <p> <code>original-schema-name</code> – The name of the schema's database's main schema.</p> </li> <li> <p> <code>schema-id</code> – The ID of the schema, for example <code>15</code>.</p> </li> <li> <p> <code>schema-name</code> – The name of the schema.</p> </li> <li> <p> <code>server-ip-address</code> – The IP address of the schema database's server.</p> </li> </ul> <p>An example is: <code>describe-fleet-advisor-schemas --filter Name=\"schema-id\",Values=\"50\"</code> </p>
@@ -3572,7 +3572,7 @@ class DatabaseMigrationServiceClient:
         *,
         config_overrides: Optional[DatabaseMigrationServiceClientConfig] = None,
     ) -> "aws_sdk_database_migration_service.types.describe_metadata_model_response.DescribeMetadataModelResponse":
-        """<p>Gets detailed information about the specified metadata model, including its definition and corresponding converted objects in the target database if applicable.</p>
+        r"""<p>Gets detailed information about the specified metadata model, including its definition and corresponding converted objects in the target database if applicable.</p>
 
         Args:
             selection_rules: <p>The JSON string that specifies which metadata model to retrieve. Only one selection rule with \"rule-action\": \"explicit\" can be provided. For more information, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Selections.html\">Selection Rules</a> in the DMS User Guide.</p>
@@ -3682,7 +3682,7 @@ class DatabaseMigrationServiceClient:
             "aws_sdk_database_migration_service.types.integer_optional.IntegerOptional"
         ] = None,
     ) -> "aws_sdk_database_migration_service.types.describe_metadata_model_children_response.DescribeMetadataModelChildrenResponse":
-        """<p>Gets a list of child metadata models for the specified metadata model in the database hierarchy.</p>
+        r"""<p>Gets a list of child metadata models for the specified metadata model in the database hierarchy.</p>
 
         Args:
             selection_rules: <p>The JSON string that specifies which metadata model's children to retrieve. Only one selection rule with \"rule-action\": \"explicit\" can be provided. For more information, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Selections.html\">Selection Rules</a> in the DMS User Guide.</p>
@@ -4266,7 +4266,7 @@ class DatabaseMigrationServiceClient:
             "aws_sdk_database_migration_service.types.string.String"
         ] = None,
     ) -> "aws_sdk_database_migration_service.types.describe_recommendation_limitations_response.DescribeRecommendationLimitationsResponse":
-        """<important> <p> End of support notice: On May 20, 2026, Amazon Web Services will end support for Amazon Web Services DMS Fleet Advisor;. After May 20, 2026, you will no longer be able to access the Amazon Web Services DMS Fleet Advisor; console or Amazon Web Services DMS Fleet Advisor; resources. For more information, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/dms_fleet.advisor-end-of-support.html\">Amazon Web Services DMS Fleet Advisor end of support</a>. </p> </important> <p>Returns a paginated list of limitations for recommendations of target Amazon Web Services engines.</p>
+        r"""<important> <p> End of support notice: On May 20, 2026, Amazon Web Services will end support for Amazon Web Services DMS Fleet Advisor;. After May 20, 2026, you will no longer be able to access the Amazon Web Services DMS Fleet Advisor; console or Amazon Web Services DMS Fleet Advisor; resources. For more information, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/dms_fleet.advisor-end-of-support.html\">Amazon Web Services DMS Fleet Advisor end of support</a>. </p> </important> <p>Returns a paginated list of limitations for recommendations of target Amazon Web Services engines.</p>
 
         Args:
             filters: <p>Filters applied to the limitations described in the form of key-value pairs.</p> <p>Valid filter names: <code>database-id</code> | <code>engine-name</code> </p>
@@ -4318,7 +4318,7 @@ class DatabaseMigrationServiceClient:
             "aws_sdk_database_migration_service.types.string.String"
         ] = None,
     ) -> "aws_sdk_database_migration_service.types.describe_recommendations_response.DescribeRecommendationsResponse":
-        """<important> <p> End of support notice: On May 20, 2026, Amazon Web Services will end support for Amazon Web Services DMS Fleet Advisor;. After May 20, 2026, you will no longer be able to access the Amazon Web Services DMS Fleet Advisor; console or Amazon Web Services DMS Fleet Advisor; resources. For more information, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/dms_fleet.advisor-end-of-support.html\">Amazon Web Services DMS Fleet Advisor end of support</a>. </p> </important> <p>Returns a paginated list of target engine recommendations for your source databases.</p>
+        r"""<important> <p> End of support notice: On May 20, 2026, Amazon Web Services will end support for Amazon Web Services DMS Fleet Advisor;. After May 20, 2026, you will no longer be able to access the Amazon Web Services DMS Fleet Advisor; console or Amazon Web Services DMS Fleet Advisor; resources. For more information, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/dms_fleet.advisor-end-of-support.html\">Amazon Web Services DMS Fleet Advisor end of support</a>. </p> </important> <p>Returns a paginated list of target engine recommendations for your source databases.</p>
 
         Args:
             filters: <p>Filters applied to the target engine recommendations described in the form of key-value pairs.</p> <p>Valid filter names: <code>database-id</code> | <code>engine-name</code> </p>
@@ -4737,7 +4737,7 @@ class DatabaseMigrationServiceClient:
             "aws_sdk_database_migration_service.types.string.String"
         ] = None,
     ) -> "aws_sdk_database_migration_service.types.describe_replication_task_assessment_results_response.DescribeReplicationTaskAssessmentResultsResponse":
-        """<p>Returns the task assessment results from the Amazon S3 bucket that DMS creates in your Amazon Web Services account. This action always returns the latest results.</p> <p>For more information about DMS task assessments, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.AssessmentReport.html\">Creating a task assessment report</a> in the <i>Database Migration Service User Guide</i>.</p>
+        r"""<p>Returns the task assessment results from the Amazon S3 bucket that DMS creates in your Amazon Web Services account. This action always returns the latest results.</p> <p>For more information about DMS task assessments, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.AssessmentReport.html\">Creating a task assessment report</a> in the <i>Database Migration Service User Guide</i>.</p>
 
         Args:
             replication_task_arn: <p>The Amazon Resource Name (ARN) string that uniquely identifies the task. When this input parameter is specified, the API returns only one result and ignore the values of the <code>MaxRecords</code> and <code>Marker</code> parameters. </p>
@@ -5013,7 +5013,7 @@ class DatabaseMigrationServiceClient:
             "aws_sdk_database_migration_service.types.filter_list.FilterList"
         ] = None,
     ) -> "aws_sdk_database_migration_service.types.describe_table_statistics_response.DescribeTableStatisticsResponse":
-        """<p>Returns table statistics on the database migration task, including table name, rows inserted, rows updated, and rows deleted.</p> <p>Note that the \"last updated\" column the DMS console only indicates the time that DMS last updated the table statistics record for a table. It does not indicate the time of the last update to the table.</p>
+        r"""<p>Returns table statistics on the database migration task, including table name, rows inserted, rows updated, and rows deleted.</p> <p>Note that the \"last updated\" column the DMS console only indicates the time that DMS last updated the table statistics record for a table. It does not indicate the time of the last update to the table.</p>
 
         Args:
             replication_task_arn: <p>The Amazon Resource Name (ARN) of the replication task.</p>
@@ -5175,7 +5175,7 @@ class DatabaseMigrationServiceClient:
             "aws_sdk_database_migration_service.types.string.String"
         ] = None,
     ) -> "aws_sdk_database_migration_service.types.import_certificate_response.ImportCertificateResponse":
-        """<p>Uploads the specified certificate.</p>
+        r"""<p>Uploads the specified certificate.</p>
 
         Args:
             certificate_identifier: <p>A customer-assigned name for the certificate. Identifiers must begin with a letter and must contain only ASCII letters, digits, and hyphens. They can't end with a hyphen or contain two consecutive hyphens.</p>
@@ -5235,7 +5235,7 @@ class DatabaseMigrationServiceClient:
             "aws_sdk_database_migration_service.types.arn_list.ArnList"
         ] = None,
     ) -> "aws_sdk_database_migration_service.types.list_tags_for_resource_response.ListTagsForResourceResponse":
-        """<p>Lists all metadata tags attached to an DMS resource, including replication instance, endpoint, subnet group, and migration task. For more information, see <a href=\"https://docs.aws.amazon.com/dms/latest/APIReference/API_Tag.html\"> <code>Tag</code> </a> data type description.</p>
+        r"""<p>Lists all metadata tags attached to an DMS resource, including replication instance, endpoint, subnet group, and migration task. For more information, see <a href=\"https://docs.aws.amazon.com/dms/latest/APIReference/API_Tag.html\"> <code>Tag</code> </a> data type description.</p>
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) string that uniquely identifies the DMS resource to list tags for. This returns a list of keys (names of tags) created for the resource and their associated tag values.</p>
@@ -5431,7 +5431,7 @@ class DatabaseMigrationServiceClient:
             "aws_sdk_database_migration_service.types.data_provider_settings.DataProviderSettings"
         ] = None,
     ) -> "aws_sdk_database_migration_service.types.modify_data_provider_response.ModifyDataProviderResponse":
-        """<p>Modifies the specified data provider using the provided settings.</p> <note> <p>You must remove the data provider from all migration projects before you can modify it.</p> </note>
+        r"""<p>Modifies the specified data provider using the provided settings.</p> <note> <p>You must remove the data provider from all migration projects before you can modify it.</p> </note>
 
         Args:
             data_provider_identifier: <p>The identifier of the data provider. Identifiers must begin with a letter and must contain only ASCII letters, digits, and hyphens. They can't end with a hyphen, or contain two consecutive hyphens.</p>
@@ -5591,7 +5591,7 @@ class DatabaseMigrationServiceClient:
             "aws_sdk_database_migration_service.types.timestream_settings.TimestreamSettings"
         ] = None,
     ) -> "aws_sdk_database_migration_service.types.modify_endpoint_response.ModifyEndpointResponse":
-        """<p>Modifies the specified endpoint.</p> <note> <p>For a MySQL source or target endpoint, don't explicitly specify the database using the <code>DatabaseName</code> request parameter on the <code>ModifyEndpoint</code> API call. Specifying <code>DatabaseName</code> when you modify a MySQL endpoint replicates all the task tables to this single database. For MySQL endpoints, you specify the database only when you specify the schema in the table-mapping rules of the DMS task.</p> </note>
+        r"""<p>Modifies the specified endpoint.</p> <note> <p>For a MySQL source or target endpoint, don't explicitly specify the database using the <code>DatabaseName</code> request parameter on the <code>ModifyEndpoint</code> API call. Specifying <code>DatabaseName</code> when you modify a MySQL endpoint replicates all the task tables to this single database. For MySQL endpoints, you specify the database only when you specify the schema in the table-mapping rules of the DMS task.</p> </note>
 
         Args:
             endpoint_arn: <p>The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.</p>
@@ -6096,7 +6096,7 @@ class DatabaseMigrationServiceClient:
             "aws_sdk_database_migration_service.types.kerberos_authentication_settings.KerberosAuthenticationSettings"
         ] = None,
     ) -> "aws_sdk_database_migration_service.types.modify_replication_instance_response.ModifyReplicationInstanceResponse":
-        """<p>Modifies the replication instance to apply new settings. You can change one or more parameters by specifying these parameters and the new values in the request.</p> <p>Some settings are applied during the maintenance window.</p> <p></p>
+        r"""<p>Modifies the replication instance to apply new settings. You can change one or more parameters by specifying these parameters and the new values in the request.</p> <p>Some settings are applied during the maintenance window.</p> <p></p>
 
         Args:
             replication_instance_arn: <p>The Amazon Resource Name (ARN) of the replication instance.</p>
@@ -6257,7 +6257,7 @@ class DatabaseMigrationServiceClient:
             "aws_sdk_database_migration_service.types.string.String"
         ] = None,
     ) -> "aws_sdk_database_migration_service.types.modify_replication_task_response.ModifyReplicationTaskResponse":
-        """<p>Modifies the specified replication task.</p> <p>You can't modify the task endpoints. The task must be stopped before you can modify it. </p> <p>For more information about DMS tasks, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.html\">Working with Migration Tasks</a> in the <i>Database Migration Service User Guide</i>.</p>
+        r"""<p>Modifies the specified replication task.</p> <p>You can't modify the task endpoints. The task must be stopped before you can modify it. </p> <p>For more information about DMS tasks, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.html\">Working with Migration Tasks</a> in the <i>Database Migration Service User Guide</i>.</p>
 
         Args:
             replication_task_arn: <p>The Amazon Resource Name (ARN) of the replication task.</p>
@@ -6546,7 +6546,7 @@ class DatabaseMigrationServiceClient:
         *,
         config_overrides: Optional[DatabaseMigrationServiceClientConfig] = None,
     ) -> "aws_sdk_database_migration_service.types.remove_tags_from_resource_response.RemoveTagsFromResourceResponse":
-        """<p>Removes metadata tags from an DMS resource, including replication instance, endpoint, subnet group, and migration task. For more information, see <a href=\"https://docs.aws.amazon.com/dms/latest/APIReference/API_Tag.html\"> <code>Tag</code> </a> data type description.</p>
+        r"""<p>Removes metadata tags from an DMS resource, including replication instance, endpoint, subnet group, and migration task. For more information, see <a href=\"https://docs.aws.amazon.com/dms/latest/APIReference/API_Tag.html\"> <code>Tag</code> </a> data type description.</p>
 
         Args:
             resource_arn: <p>An DMS resource from which you want to remove tag(s). The value for this parameter is an Amazon Resource Name (ARN).</p>
@@ -6588,7 +6588,7 @@ class DatabaseMigrationServiceClient:
     def run_fleet_advisor_lsa_analysis(
         self, *, config_overrides: Optional[DatabaseMigrationServiceClientConfig] = None
     ) -> "aws_sdk_database_migration_service.types.run_fleet_advisor_lsa_analysis_response.RunFleetAdvisorLsaAnalysisResponse":
-        """<important> <p> End of support notice: On May 20, 2026, Amazon Web Services will end support for Amazon Web Services DMS Fleet Advisor;. After May 20, 2026, you will no longer be able to access the Amazon Web Services DMS Fleet Advisor; console or Amazon Web Services DMS Fleet Advisor; resources. For more information, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/dms_fleet.advisor-end-of-support.html\">Amazon Web Services DMS Fleet Advisor end of support</a>. </p> </important> <p>Runs large-scale assessment (LSA) analysis on every Fleet Advisor collector in your account.</p>"""
+        r"""<important> <p> End of support notice: On May 20, 2026, Amazon Web Services will end support for Amazon Web Services DMS Fleet Advisor;. After May 20, 2026, you will no longer be able to access the Amazon Web Services DMS Fleet Advisor; console or Amazon Web Services DMS Fleet Advisor; resources. For more information, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/dms_fleet.advisor-end-of-support.html\">Amazon Web Services DMS Fleet Advisor end of support</a>. </p> </important> <p>Runs large-scale assessment (LSA) analysis on every Fleet Advisor collector in your account.</p>"""
 
         def _handler(
             req: "OperationRequest[None]",
@@ -7004,7 +7004,7 @@ class DatabaseMigrationServiceClient:
         *,
         config_overrides: Optional[DatabaseMigrationServiceClientConfig] = None,
     ) -> None:
-        """<important> <p> End of support notice: On May 20, 2026, Amazon Web Services will end support for Amazon Web Services DMS Fleet Advisor;. After May 20, 2026, you will no longer be able to access the Amazon Web Services DMS Fleet Advisor; console or Amazon Web Services DMS Fleet Advisor; resources. For more information, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/dms_fleet.advisor-end-of-support.html\">Amazon Web Services DMS Fleet Advisor end of support</a>. </p> </important> <p>Starts the analysis of your source database to provide recommendations of target engines.</p> <p>You can create recommendations for multiple source databases using <a href=\"https://docs.aws.amazon.com/dms/latest/APIReference/API_BatchStartRecommendations.html\">BatchStartRecommendations</a>.</p>
+        r"""<important> <p> End of support notice: On May 20, 2026, Amazon Web Services will end support for Amazon Web Services DMS Fleet Advisor;. After May 20, 2026, you will no longer be able to access the Amazon Web Services DMS Fleet Advisor; console or Amazon Web Services DMS Fleet Advisor; resources. For more information, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/dms_fleet.advisor-end-of-support.html\">Amazon Web Services DMS Fleet Advisor end of support</a>. </p> </important> <p>Starts the analysis of your source database to provide recommendations of target engines.</p> <p>You can create recommendations for multiple source databases using <a href=\"https://docs.aws.amazon.com/dms/latest/APIReference/API_BatchStartRecommendations.html\">BatchStartRecommendations</a>.</p>
 
         Args:
             database_id: <p>The identifier of the source database to analyze and provide recommendations for.</p>
@@ -7054,7 +7054,7 @@ class DatabaseMigrationServiceClient:
             "aws_sdk_database_migration_service.types.string.String"
         ] = None,
     ) -> "aws_sdk_database_migration_service.types.start_replication_response.StartReplicationResponse":
-        """<p>For a given DMS Serverless replication configuration, DMS connects to the source endpoint and collects the metadata to analyze the replication workload. Using this metadata, DMS then computes and provisions the required capacity and starts replicating to the target endpoint using the server resources that DMS has provisioned for the DMS Serverless replication.</p>
+        r"""<p>For a given DMS Serverless replication configuration, DMS connects to the source endpoint and collects the metadata to analyze the replication workload. Using this metadata, DMS then computes and provisions the required capacity and starts replicating to the target endpoint using the server resources that DMS has provisioned for the DMS Serverless replication.</p>
 
         Args:
             replication_config_arn: <p>The Amazon Resource Name of the replication for which to start replication.</p>
@@ -7117,7 +7117,7 @@ class DatabaseMigrationServiceClient:
             "aws_sdk_database_migration_service.types.string.String"
         ] = None,
     ) -> "aws_sdk_database_migration_service.types.start_replication_task_response.StartReplicationTaskResponse":
-        """<p>Starts the replication task.</p> <p>For more information about DMS tasks, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.html\">Working with Migration Tasks </a> in the <i>Database Migration Service User Guide.</i> </p>
+        r"""<p>Starts the replication task.</p> <p>For more information about DMS tasks, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.html\">Working with Migration Tasks </a> in the <i>Database Migration Service User Guide.</i> </p>
 
         Args:
             replication_task_arn: <p>The Amazon Resource Name (ARN) of the replication task to be started.</p>
@@ -7171,7 +7171,7 @@ class DatabaseMigrationServiceClient:
         *,
         config_overrides: Optional[DatabaseMigrationServiceClientConfig] = None,
     ) -> "aws_sdk_database_migration_service.types.start_replication_task_assessment_response.StartReplicationTaskAssessmentResponse":
-        """<p> Starts the replication task assessment for unsupported data types in the source database. </p> <p>You can only use this operation for a task if the following conditions are true:</p> <ul> <li> <p>The task must be in the <code>stopped</code> state.</p> </li> <li> <p>The task must have successful connections to the source and target.</p> </li> </ul> <p>If either of these conditions are not met, an <code>InvalidResourceStateFault</code> error will result. </p> <p>For information about DMS task assessments, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.AssessmentReport.html\">Creating a task assessment report</a> in the <i>Database Migration Service User Guide</i>.</p>
+        r"""<p> Starts the replication task assessment for unsupported data types in the source database. </p> <p>You can only use this operation for a task if the following conditions are true:</p> <ul> <li> <p>The task must be in the <code>stopped</code> state.</p> </li> <li> <p>The task must have successful connections to the source and target.</p> </li> </ul> <p>If either of these conditions are not met, an <code>InvalidResourceStateFault</code> error will result. </p> <p>For information about DMS task assessments, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.AssessmentReport.html\">Creating a task assessment report</a> in the <i>Database Migration Service User Guide</i>.</p>
 
         Args:
             replication_task_arn: <p> The Amazon Resource Name (ARN) of the replication task. </p>
@@ -7229,7 +7229,7 @@ class DatabaseMigrationServiceClient:
             "aws_sdk_database_migration_service.types.tag_list.TagList"
         ] = None,
     ) -> "aws_sdk_database_migration_service.types.start_replication_task_assessment_run_response.StartReplicationTaskAssessmentRunResponse":
-        """<p>Starts a new premigration assessment run for one or more individual assessments of a migration task.</p> <p>The assessments that you can specify depend on the source and target database engine and the migration type defined for the given task. To run this operation, your migration task must already be created. After you run this operation, you can review the status of each individual assessment. You can also run the migration task manually after the assessment run and its individual assessments complete.</p>
+        r"""<p>Starts a new premigration assessment run for one or more individual assessments of a migration task.</p> <p>The assessments that you can specify depend on the source and target database engine and the migration type defined for the given task. To run this operation, your migration task must already be created. After you run this operation, you can review the status of each individual assessment. You can also run the migration task manually after the assessment run and its individual assessments complete.</p>
 
         Args:
             replication_task_arn: <p>Amazon Resource Name (ARN) of the migration task associated with the premigration assessment run that you want to start.</p>
@@ -7455,7 +7455,7 @@ class DatabaseMigrationServiceClient:
             "aws_sdk_database_migration_service.types.boolean_optional.BooleanOptional"
         ] = None,
     ) -> "aws_sdk_database_migration_service.types.update_subscriptions_to_event_bridge_response.UpdateSubscriptionsToEventBridgeResponse":
-        """<p>Migrates 10 active and enabled Amazon SNS subscriptions at a time and converts them to corresponding Amazon EventBridge rules. By default, this operation migrates subscriptions only when all your replication instance versions are 3.4.5 or higher. If any replication instances are from versions earlier than 3.4.5, the operation raises an error and tells you to upgrade these instances to version 3.4.5 or higher. To enable migration regardless of version, set the <code>Force</code> option to true. However, if you don't upgrade instances earlier than version 3.4.5, some types of events might not be available when you use Amazon EventBridge.</p> <p>To call this operation, make sure that you have certain permissions added to your user account. For more information, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html#CHAP_Events-migrate-to-eventbridge\">Migrating event subscriptions to Amazon EventBridge</a> in the <i>Amazon Web Services Database Migration Service User Guide</i>.</p>
+        r"""<p>Migrates 10 active and enabled Amazon SNS subscriptions at a time and converts them to corresponding Amazon EventBridge rules. By default, this operation migrates subscriptions only when all your replication instance versions are 3.4.5 or higher. If any replication instances are from versions earlier than 3.4.5, the operation raises an error and tells you to upgrade these instances to version 3.4.5 or higher. To enable migration regardless of version, set the <code>Force</code> option to true. However, if you don't upgrade instances earlier than version 3.4.5, some types of events might not be available when you use Amazon EventBridge.</p> <p>To call this operation, make sure that you have certain permissions added to your user account. For more information, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html#CHAP_Events-migrate-to-eventbridge\">Migrating event subscriptions to Amazon EventBridge</a> in the <i>Amazon Web Services Database Migration Service User Guide</i>.</p>
 
         Args:
             force_move: <p>When set to true, this operation migrates DMS subscriptions for Amazon SNS notifications no matter what your replication instance version is. If not set or set to false, this operation runs only when all your replication instances are from DMS version 3.4.5 or higher. </p>

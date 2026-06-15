@@ -1234,7 +1234,7 @@ class MailManagerClient:
         *,
         config_overrides: Optional[MailManagerClientConfig] = None,
     ) -> "aws_sdk_mailmanager.types.tag_resource_response.TagResourceResponse":
-        """<p> Adds one or more tags (keys and values) to a specified resource. </p>
+        r"""<p> Adds one or more tags (keys and values) to a specified resource. </p>
 
         Args:
             resource_arn: <p> The Amazon Resource Name (ARN) of the resource that you want to tag. </p>

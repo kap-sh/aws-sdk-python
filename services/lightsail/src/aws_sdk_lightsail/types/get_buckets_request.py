@@ -16,9 +16,9 @@ class GetBucketsRequest(TypedDict):
     page_token: NotRequired["aws_sdk_lightsail.types.string.string"]
     """<p>The token to advance to the next page of results from your request.</p> <p>To get a page token, perform an initial <code>GetBuckets</code> request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.</p>"""
     include_connected_resources: NotRequired["aws_sdk_lightsail.types.boolean.boolean"]
-    """<p>A Boolean value that indicates whether to include Lightsail instances that were given access to the bucket using the <a href=\"https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_SetResourceAccessForBucket.html\">SetResourceAccessForBucket</a> action.</p>"""
+    r"""<p>A Boolean value that indicates whether to include Lightsail instances that were given access to the bucket using the <a href=\"https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_SetResourceAccessForBucket.html\">SetResourceAccessForBucket</a> action.</p>"""
     include_cors: NotRequired["aws_sdk_lightsail.types.boolean.boolean"]
-    """<p>A Boolean value that indicates whether to include Lightsail bucket CORS configuration in the response. For more information, see <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/configure-cors.html\">Configuring cross-origin resource sharing (CORS)</a>.</p> <note> <p>This parameter is only supported when getting a single bucket with <code>bucketName</code> specified. The default value for this parameter is <code>False</code>.</p> </note>"""
+    r"""<p>A Boolean value that indicates whether to include Lightsail bucket CORS configuration in the response. For more information, see <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/configure-cors.html\">Configuring cross-origin resource sharing (CORS)</a>.</p> <note> <p>This parameter is only supported when getting a single bucket with <code>bucketName</code> specified. The default value for this parameter is <code>False</code>.</p> </note>"""
 
 
 # --- awsJson1_1 ser/de ---

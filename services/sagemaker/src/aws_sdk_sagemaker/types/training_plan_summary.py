@@ -34,7 +34,7 @@ class TrainingPlanSummary(TypedDict):
     status: NotRequired[
         "aws_sdk_sagemaker.types.training_plan_status.TrainingPlanStatus"
     ]
-    """<p>The current status of the training plan (e.g., Pending, Active, Expired). To see the complete list of status values available for a training plan, refer to the <code>Status</code> attribute within the <code> <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TrainingPlanSummary.html\">TrainingPlanSummary</a> </code> object.</p>"""
+    r"""<p>The current status of the training plan (e.g., Pending, Active, Expired). To see the complete list of status values available for a training plan, refer to the <code>Status</code> attribute within the <code> <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TrainingPlanSummary.html\">TrainingPlanSummary</a> </code> object.</p>"""
     status_message: NotRequired[
         "aws_sdk_sagemaker.types.training_plan_status_message.TrainingPlanStatusMessage"
     ]

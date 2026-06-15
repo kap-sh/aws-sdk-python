@@ -501,7 +501,7 @@ class AsyncNetworkManagerClient:
         config_overrides: Optional[AsyncNetworkManagerClientConfig] = None,
         link_id: Optional["aws_sdk_networkmanager.types.link_id.LinkId"] = None,
     ) -> "aws_sdk_networkmanager.types.associate_customer_gateway_response.AssociateCustomerGatewayResponse":
-        """<p>Associates a customer gateway with a device and optionally, with a link. If you specify a link, it must be associated with the specified device. </p> <p>You can only associate customer gateways that are connected to a VPN attachment on a transit gateway or core network registered in your global network. When you register a transit gateway or core network, customer gateways that are connected to the transit gateway are automatically included in the global network. To list customer gateways that are connected to a transit gateway, use the <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpnConnections.html\">DescribeVpnConnections</a> EC2 API and filter by <code>transit-gateway-id</code>.</p> <p>You cannot associate a customer gateway with more than one device and link. </p>
+        r"""<p>Associates a customer gateway with a device and optionally, with a link. If you specify a link, it must be associated with the specified device. </p> <p>You can only associate customer gateways that are connected to a VPN attachment on a transit gateway or core network registered in your global network. When you register a transit gateway or core network, customer gateways that are connected to the transit gateway are automatically included in the global network. To list customer gateways that are connected to a transit gateway, use the <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpnConnections.html\">DescribeVpnConnections</a> EC2 API and filter by <code>transit-gateway-id</code>.</p> <p>You cannot associate a customer gateway with more than one device and link. </p>
 
         Args:
             customer_gateway_arn: <p>The Amazon Resource Name (ARN) of the customer gateway.</p>
@@ -1153,7 +1153,7 @@ class AsyncNetworkManagerClient:
         ] = None,
         tags: Optional["aws_sdk_networkmanager.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_networkmanager.types.create_link_response.CreateLinkResponse":
-        """<p>Creates a new link for a specified site.</p>
+        r"""<p>Creates a new link for a specified site.</p>
 
         Args:
             global_network_id: <p>The ID of the global network.</p>
@@ -1375,7 +1375,7 @@ class AsyncNetworkManagerClient:
             "aws_sdk_networkmanager.types.client_token.ClientToken"
         ] = None,
     ) -> "aws_sdk_networkmanager.types.create_transit_gateway_route_table_attachment_response.CreateTransitGatewayRouteTableAttachmentResponse":
-        """<p>Creates a transit gateway route table attachment.</p>
+        r"""<p>Creates a transit gateway route table attachment.</p>
 
         Args:
             peering_id: <p>The ID of the peer for the </p>
@@ -5326,7 +5326,7 @@ class AsyncNetworkManagerClient:
         *,
         config_overrides: Optional[AsyncNetworkManagerClientConfig] = None,
     ) -> "aws_sdk_networkmanager.types.register_transit_gateway_response.RegisterTransitGatewayResponse":
-        """<p>Registers a transit gateway in your global network. Not all Regions support transit gateways for global networks. For a list of the supported Regions, see <a href=\"https://docs.aws.amazon.com/network-manager/latest/tgwnm/what-are-global-networks.html#nm-available-regions\">Region Availability</a> in the <i>Amazon Web Services Transit Gateways for Global Networks User Guide</i>. The transit gateway can be in any of the supported Amazon Web Services Regions, but it must be owned by the same Amazon Web Services account that owns the global network. You cannot register a transit gateway in more than one global network.</p>
+        r"""<p>Registers a transit gateway in your global network. Not all Regions support transit gateways for global networks. For a list of the supported Regions, see <a href=\"https://docs.aws.amazon.com/network-manager/latest/tgwnm/what-are-global-networks.html#nm-available-regions\">Region Availability</a> in the <i>Amazon Web Services Transit Gateways for Global Networks User Guide</i>. The transit gateway can be in any of the supported Amazon Web Services Regions, but it must be owned by the same Amazon Web Services account that owns the global network. You cannot register a transit gateway in more than one global network.</p>
 
         Args:
             global_network_id: <p>The ID of the global network.</p>
@@ -5532,7 +5532,7 @@ class AsyncNetworkManagerClient:
             "aws_sdk_networkmanager.types.boolean.Boolean"
         ] = None,
     ) -> "aws_sdk_networkmanager.types.start_route_analysis_response.StartRouteAnalysisResponse":
-        """<p>Starts analyzing the routing path between the specified source and destination. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/tgw/route-analyzer.html\">Route Analyzer</a>.</p>
+        r"""<p>Starts analyzing the routing path between the specified source and destination. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/tgw/route-analyzer.html\">Route Analyzer</a>.</p>
 
         Args:
             global_network_id: <p>The ID of the global network.</p>

@@ -111,7 +111,7 @@ class AsyncBCMDataExportsClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = AsyncBCMDataExportsClientConfig(
+        self._config = AsyncBCMDataExportsClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -123,6 +123,7 @@ class AsyncBCMDataExportsClient:
                 "credentials_provider": credentials_provider,
             }
         )
+
         # resources
         self.data_export = AsyncDataExport(self)
 
@@ -132,7 +133,7 @@ class AsyncBCMDataExportsClient:
         overrides: AsyncBCMDataExportsClientConfig = config_overrides or {}
         interceptors_: list[AsyncInterceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             aretry(),
         ]
@@ -140,13 +141,13 @@ class AsyncBCMDataExportsClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
-            region=overrides.get("region", self.config.get("region")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
+            region=overrides.get("region", self._config.get("region")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -181,12 +182,12 @@ class AsyncBCMDataExportsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_bcm_data_exports.types.get_execution_request.GetExecutionRequest = {}  # type: ignore[typeddict-item]
-        input["export_arn"] = export_arn
-        input["execution_id"] = execution_id
+        input_: aws_sdk_bcm_data_exports.types.get_execution_request.GetExecutionRequest = {}  # type: ignore[typeddict-item]
+        input_["export_arn"] = export_arn
+        input_["execution_id"] = execution_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -224,13 +225,13 @@ class AsyncBCMDataExportsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_bcm_data_exports.types.get_table_request.GetTableRequest = {}  # type: ignore[typeddict-item]
-        input["table_name"] = table_name
+        input_: aws_sdk_bcm_data_exports.types.get_table_request.GetTableRequest = {}  # type: ignore[typeddict-item]
+        input_["table_name"] = table_name
         if table_properties is not None:
-            input["table_properties"] = table_properties
+            input_["table_properties"] = table_properties
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -274,15 +275,15 @@ class AsyncBCMDataExportsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_bcm_data_exports.types.list_executions_request.ListExecutionsRequest = {}  # type: ignore[typeddict-item]
-        input["export_arn"] = export_arn
+        input_: aws_sdk_bcm_data_exports.types.list_executions_request.ListExecutionsRequest = {}  # type: ignore[typeddict-item]
+        input_["export_arn"] = export_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -349,14 +350,14 @@ class AsyncBCMDataExportsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_bcm_data_exports.types.list_tables_request.ListTablesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bcm_data_exports.types.list_tables_request.ListTablesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -423,15 +424,15 @@ class AsyncBCMDataExportsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_bcm_data_exports.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_bcm_data_exports.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -467,12 +468,12 @@ class AsyncBCMDataExportsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_bcm_data_exports.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["resource_tags"] = resource_tags
+        input_: aws_sdk_bcm_data_exports.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["resource_tags"] = resource_tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -508,12 +509,12 @@ class AsyncBCMDataExportsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_bcm_data_exports.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["resource_tag_keys"] = resource_tag_keys
+        input_: aws_sdk_bcm_data_exports.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["resource_tag_keys"] = resource_tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

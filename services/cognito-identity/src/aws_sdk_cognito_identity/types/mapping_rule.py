@@ -13,13 +13,13 @@ if TYPE_CHECKING:
 
 class MappingRule(TypedDict):
     claim: "aws_sdk_cognito_identity.types.claim_name.ClaimName"
-    """<p>The claim name that must be present in the token, for example, \"isAdmin\" or \"paid\".</p>"""
+    r"""<p>The claim name that must be present in the token, for example, \"isAdmin\" or \"paid\".</p>"""
     match_type: (
         "aws_sdk_cognito_identity.types.mapping_rule_match_type.MappingRuleMatchType"
     )
     """<p>The match condition that specifies how closely the claim value in the IdP token must match <code>Value</code>.</p>"""
     value: "aws_sdk_cognito_identity.types.claim_value.ClaimValue"
-    """<p>A brief string that the claim must match, for example, \"paid\" or \"yes\".</p>"""
+    r"""<p>A brief string that the claim must match, for example, \"paid\" or \"yes\".</p>"""
     role_arn: "aws_sdk_cognito_identity.types.arn_string.ARNString"
     """<p>The role ARN.</p>"""
 

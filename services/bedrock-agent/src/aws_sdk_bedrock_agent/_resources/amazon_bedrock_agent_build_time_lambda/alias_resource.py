@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_bedrock_agent._auth._signers
@@ -64,7 +66,7 @@ class AliasResource:
         ] = None,
         tags: Optional["aws_sdk_bedrock_agent.types.tags_map.TagsMap"] = None,
     ) -> "aws_sdk_bedrock_agent.types.create_agent_alias_response.CreateAgentAliasResponse":
-        """<p>Creates an alias of an agent that can be used to deploy the agent.</p>
+        r"""<p>Creates an alias of an agent that can be used to deploy the agent.</p>
 
         Args:
             agent_id: <p>The unique identifier of the agent.</p>
@@ -319,7 +321,7 @@ class AsyncAliasResource:
         ] = None,
         tags: Optional["aws_sdk_bedrock_agent.types.tags_map.TagsMap"] = None,
     ) -> "aws_sdk_bedrock_agent.types.create_agent_alias_response.CreateAgentAliasResponse":
-        """<p>Creates an alias of an agent that can be used to deploy the agent.</p>
+        r"""<p>Creates an alias of an agent that can be used to deploy the agent.</p>
 
         Args:
             agent_id: <p>The unique identifier of the agent.</p>

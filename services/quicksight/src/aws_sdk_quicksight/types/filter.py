@@ -19,7 +19,7 @@ class Filter(TypedDict):
     category_filter: NotRequired[
         "aws_sdk_quicksight.types.category_filter.CategoryFilter"
     ]
-    """<p>A <code>CategoryFilter</code> filters text values.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/quicksight/latest/user/add-a-text-filter-data-prep.html\">Adding text filters</a> in the <i>Amazon Quick Suite User Guide</i>.</p>"""
+    r"""<p>A <code>CategoryFilter</code> filters text values.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/quicksight/latest/user/add-a-text-filter-data-prep.html\">Adding text filters</a> in the <i>Amazon Quick Suite User Guide</i>.</p>"""
     numeric_range_filter: NotRequired[
         "aws_sdk_quicksight.types.numeric_range_filter.NumericRangeFilter"
     ]

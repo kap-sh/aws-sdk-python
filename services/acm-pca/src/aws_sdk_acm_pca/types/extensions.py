@@ -16,7 +16,7 @@ class Extensions(TypedDict):
     certificate_policies: NotRequired[
         "aws_sdk_acm_pca.types.certificate_policy_list.CertificatePolicyList"
     ]
-    """<p>Contains a sequence of one or more policy information terms, each of which consists of an object identifier (OID) and optional qualifiers. For more information, see NIST's definition of <a href=\"https://csrc.nist.gov/glossary/term/Object_Identifier\">Object Identifier (OID)</a>.</p> <p>In an end-entity certificate, these terms indicate the policy under which the certificate was issued and the purposes for which it may be used. In a CA certificate, these terms limit the set of policies for certification paths that include this certificate.</p>"""
+    r"""<p>Contains a sequence of one or more policy information terms, each of which consists of an object identifier (OID) and optional qualifiers. For more information, see NIST's definition of <a href=\"https://csrc.nist.gov/glossary/term/Object_Identifier\">Object Identifier (OID)</a>.</p> <p>In an end-entity certificate, these terms indicate the policy under which the certificate was issued and the purposes for which it may be used. In a CA certificate, these terms limit the set of policies for certification paths that include this certificate.</p>"""
     extended_key_usage: NotRequired[
         "aws_sdk_acm_pca.types.extended_key_usage_list.ExtendedKeyUsageList"
     ]
@@ -29,7 +29,7 @@ class Extensions(TypedDict):
     custom_extensions: NotRequired[
         "aws_sdk_acm_pca.types.custom_extension_list.CustomExtensionList"
     ]
-    """<p/> <p>Contains a sequence of one or more X.509 extensions, each of which consists of an object identifier (OID), a base64-encoded value, and the critical flag. For more information, see the <a href=\"https://oidref.com/2.5.29\">Global OID reference database.</a> </p>"""
+    r"""<p/> <p>Contains a sequence of one or more X.509 extensions, each of which consists of an object identifier (OID), a base64-encoded value, and the critical flag. For more information, see the <a href=\"https://oidref.com/2.5.29\">Global OID reference database.</a> </p>"""
 
 
 # --- awsJson1_1 ser/de ---

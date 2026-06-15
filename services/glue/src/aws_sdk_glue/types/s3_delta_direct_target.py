@@ -33,7 +33,7 @@ class S3DeltaDirectTarget(TypedDict):
     compression: (
         "aws_sdk_glue.types.delta_target_compression_type.DeltaTargetCompressionType"
     )
-    """<p>Specifies how the data is compressed. This is generally not necessary if the data has a standard file extension. Possible values are <code>\"gzip\"</code> and <code>\"bzip\"</code>).</p>"""
+    r"""<p>Specifies how the data is compressed. This is generally not necessary if the data has a standard file extension. Possible values are <code>\"gzip\"</code> and <code>\"bzip\"</code>).</p>"""
     number_target_partitions: NotRequired[
         "aws_sdk_glue.types.number_target_partitions_string.NumberTargetPartitionsString"
     ]

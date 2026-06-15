@@ -14,7 +14,7 @@ class DiscoverPollEndpointResponse(TypedDict):
     telemetry_endpoint: NotRequired["aws_sdk_ecs.types.string.String"]
     """<p>The telemetry endpoint for the Amazon ECS agent.</p>"""
     service_connect_endpoint: NotRequired["aws_sdk_ecs.types.string.String"]
-    """<p>The endpoint for the Amazon ECS agent to poll for Service Connect configuration. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html\">Service Connect</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>"""
+    r"""<p>The endpoint for the Amazon ECS agent to poll for Service Connect configuration. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html\">Service Connect</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

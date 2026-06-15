@@ -27,7 +27,7 @@ class EbsInstanceBlockDeviceSpecification(TypedDict):
     kms_key_id: NotRequired[
         "aws_sdk_imagebuilder.types.non_empty_string.NonEmptyString"
     ]
-    """<p>The Amazon Resource Name (ARN) that uniquely identifies the KMS key to use when encrypting the device. This can be either the Key ARN or the Alias ARN. For more information, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN\">Key identifiers (KeyId)</a> in the <i>Key Management Service Developer Guide</i>.</p>"""
+    r"""<p>The Amazon Resource Name (ARN) that uniquely identifies the KMS key to use when encrypting the device. This can be either the Key ARN or the Alias ARN. For more information, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN\">Key identifiers (KeyId)</a> in the <i>Key Management Service Developer Guide</i>.</p>"""
     snapshot_id: NotRequired[
         "aws_sdk_imagebuilder.types.non_empty_string.NonEmptyString"
     ]

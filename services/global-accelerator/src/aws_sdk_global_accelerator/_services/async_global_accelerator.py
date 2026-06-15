@@ -280,7 +280,7 @@ class AsyncGlobalAcceleratorClient:
         *,
         config_overrides: Optional[AsyncGlobalAcceleratorClientConfig] = None,
     ) -> "aws_sdk_global_accelerator.types.add_custom_routing_endpoints_response.AddCustomRoutingEndpointsResponse":
-        """<p>Associate a virtual private cloud (VPC) subnet endpoint with your custom routing accelerator.</p> <p>The listener port range must be large enough to support the number of IP addresses that can be specified in your subnet. The number of ports required is: subnet size times the number of ports per destination EC2 instances. For example, a subnet defined as /24 requires a listener port range of at least 255 ports. </p> <p>Note: You must have enough remaining listener ports available to map to the subnet ports, or the call will fail with a LimitExceededException.</p> <p>By default, all destinations in a subnet in a custom routing accelerator cannot receive traffic. To enable all destinations to receive traffic, or to specify individual port mappings that can receive traffic, see the <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/api/API_AllowCustomRoutingTraffic.html\"> AllowCustomRoutingTraffic</a> operation.</p>
+        r"""<p>Associate a virtual private cloud (VPC) subnet endpoint with your custom routing accelerator.</p> <p>The listener port range must be large enough to support the number of IP addresses that can be specified in your subnet. The number of ports required is: subnet size times the number of ports per destination EC2 instances. For example, a subnet defined as /24 requires a listener port range of at least 255 ports. </p> <p>Note: You must have enough remaining listener ports available to map to the subnet ports, or the call will fail with a LimitExceededException.</p> <p>By default, all destinations in a subnet in a custom routing accelerator cannot receive traffic. To enable all destinations to receive traffic, or to specify individual port mappings that can receive traffic, see the <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/api/API_AllowCustomRoutingTraffic.html\"> AllowCustomRoutingTraffic</a> operation.</p>
 
         Args:
             endpoint_configurations: <p>The list of endpoint objects to add to a custom routing accelerator.</p>
@@ -321,7 +321,7 @@ class AsyncGlobalAcceleratorClient:
         *,
         config_overrides: Optional[AsyncGlobalAcceleratorClientConfig] = None,
     ) -> "aws_sdk_global_accelerator.types.add_endpoints_response.AddEndpointsResponse":
-        """<p>Add endpoints to an endpoint group. The <code>AddEndpoints</code> API operation is the recommended option for adding endpoints. The alternative options are to add endpoints when you create an endpoint group (with the <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/api/API_CreateEndpointGroup.html\">CreateEndpointGroup</a> API) or when you update an endpoint group (with the <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/api/API_UpdateEndpointGroup.html\">UpdateEndpointGroup</a> API). </p> <p>There are two advantages to using <code>AddEndpoints</code> to add endpoints in Global Accelerator:</p> <ul> <li> <p>It's faster, because Global Accelerator only has to resolve the new endpoints that you're adding, rather than resolving new and existing endpoints.</p> </li> <li> <p>It's more convenient, because you don't need to specify the current endpoints that are already in the endpoint group, in addition to the new endpoints that you want to add.</p> </li> </ul> <p>For information about endpoint types and requirements for endpoints that you can add to Global Accelerator, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoints.html\"> Endpoints for standard accelerators</a> in the <i>Global Accelerator Developer Guide</i>.</p>
+        r"""<p>Add endpoints to an endpoint group. The <code>AddEndpoints</code> API operation is the recommended option for adding endpoints. The alternative options are to add endpoints when you create an endpoint group (with the <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/api/API_CreateEndpointGroup.html\">CreateEndpointGroup</a> API) or when you update an endpoint group (with the <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/api/API_UpdateEndpointGroup.html\">UpdateEndpointGroup</a> API). </p> <p>There are two advantages to using <code>AddEndpoints</code> to add endpoints in Global Accelerator:</p> <ul> <li> <p>It's faster, because Global Accelerator only has to resolve the new endpoints that you're adding, rather than resolving new and existing endpoints.</p> </li> <li> <p>It's more convenient, because you don't need to specify the current endpoints that are already in the endpoint group, in addition to the new endpoints that you want to add.</p> </li> </ul> <p>For information about endpoint types and requirements for endpoints that you can add to Global Accelerator, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoints.html\"> Endpoints for standard accelerators</a> in the <i>Global Accelerator Developer Guide</i>.</p>
 
         Args:
             endpoint_configurations: <p>The list of endpoint objects.</p>
@@ -361,7 +361,7 @@ class AsyncGlobalAcceleratorClient:
         *,
         config_overrides: Optional[AsyncGlobalAcceleratorClientConfig] = None,
     ) -> "aws_sdk_global_accelerator.types.advertise_byoip_cidr_response.AdvertiseByoipCidrResponse":
-        """<p>Advertises an IPv4 address range that is provisioned for use with your Amazon Web Services resources through bring your own IP addresses (BYOIP). It can take a few minutes before traffic to the specified addresses starts routing to Amazon Web Services because of propagation delays. </p> <p>To stop advertising the BYOIP address range, use <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/api/WithdrawByoipCidr.html\"> WithdrawByoipCidr</a>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html\">Bring your own IP addresses (BYOIP)</a> in the <i>Global Accelerator Developer Guide</i>.</p>
+        r"""<p>Advertises an IPv4 address range that is provisioned for use with your Amazon Web Services resources through bring your own IP addresses (BYOIP). It can take a few minutes before traffic to the specified addresses starts routing to Amazon Web Services because of propagation delays. </p> <p>To stop advertising the BYOIP address range, use <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/api/WithdrawByoipCidr.html\"> WithdrawByoipCidr</a>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html\">Bring your own IP addresses (BYOIP)</a> in the <i>Global Accelerator Developer Guide</i>.</p>
 
         Args:
             cidr: <p>The address range, in CIDR notation. This must be the exact range that you provisioned. You can't advertise only a portion of the provisioned range.</p> <p> For more information, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html\">Bring your own IP addresses (BYOIP)</a> in the Global Accelerator Developer Guide.</p>
@@ -467,7 +467,7 @@ class AsyncGlobalAcceleratorClient:
         ] = None,
         tags: Optional["aws_sdk_global_accelerator.types.tags.Tags"] = None,
     ) -> "aws_sdk_global_accelerator.types.create_accelerator_response.CreateAcceleratorResponse":
-        """<p>Create an accelerator. An accelerator includes one or more listeners that process inbound connections and direct traffic to one or more endpoint groups, each of which includes endpoints, such as Network Load Balancers. </p> <important> <p>Global Accelerator is a global service that supports endpoints in multiple Amazon Web Services Regions but you must specify the US West (Oregon) Region to create, update, or otherwise work with accelerators. That is, for example, specify <code>--region us-west-2</code> on Amazon Web Services CLI commands.</p> </important>
+        r"""<p>Create an accelerator. An accelerator includes one or more listeners that process inbound connections and direct traffic to one or more endpoint groups, each of which includes endpoints, such as Network Load Balancers. </p> <important> <p>Global Accelerator is a global service that supports endpoints in multiple Amazon Web Services Regions but you must specify the US West (Oregon) Region to create, update, or otherwise work with accelerators. That is, for example, specify <code>--region us-west-2</code> on Amazon Web Services CLI commands.</p> </important>
 
         Args:
             name: <p>The name of the accelerator. The name can have a maximum of 64 characters, must contain only alphanumeric characters, periods (.), or hyphens (-), and must not begin or end with a hyphen or period.</p>
@@ -527,7 +527,7 @@ class AsyncGlobalAcceleratorClient:
         ] = None,
         tags: Optional["aws_sdk_global_accelerator.types.tags.Tags"] = None,
     ) -> "aws_sdk_global_accelerator.types.create_cross_account_attachment_response.CreateCrossAccountAttachmentResponse":
-        """<p>Create a cross-account attachment in Global Accelerator. You create a cross-account attachment to specify the <i>principals</i> who have permission to work with <i>resources</i> in accelerators in their own account. You specify, in the same attachment, the resources that are shared.</p> <p>A principal can be an Amazon Web Services account number or the Amazon Resource Name (ARN) for an accelerator. For account numbers that are listed as principals, to work with a resource listed in the attachment, you must sign in to an account specified as a principal. Then, you can work with resources that are listed, with any of your accelerators. If an accelerator ARN is listed in the cross-account attachment as a principal, anyone with permission to make updates to the accelerator can work with resources that are listed in the attachment. </p> <p>Specify each principal and resource separately. To specify two CIDR address pools, list them individually under <code>Resources</code>, and so on. For a command line operation, for example, you might use a statement like the following:</p> <p> <code> \"Resources\": [{\"Cidr\": \"169.254.60.0/24\"},{\"Cidr\": \"169.254.59.0/24\"}]</code> </p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/cross-account-resources.html\"> Working with cross-account attachments and resources in Global Accelerator</a> in the <i> Global Accelerator Developer Guide</i>.</p>
+        r"""<p>Create a cross-account attachment in Global Accelerator. You create a cross-account attachment to specify the <i>principals</i> who have permission to work with <i>resources</i> in accelerators in their own account. You specify, in the same attachment, the resources that are shared.</p> <p>A principal can be an Amazon Web Services account number or the Amazon Resource Name (ARN) for an accelerator. For account numbers that are listed as principals, to work with a resource listed in the attachment, you must sign in to an account specified as a principal. Then, you can work with resources that are listed, with any of your accelerators. If an accelerator ARN is listed in the cross-account attachment as a principal, anyone with permission to make updates to the accelerator can work with resources that are listed in the attachment. </p> <p>Specify each principal and resource separately. To specify two CIDR address pools, list them individually under <code>Resources</code>, and so on. For a command line operation, for example, you might use a statement like the following:</p> <p> <code> \"Resources\": [{\"Cidr\": \"169.254.60.0/24\"},{\"Cidr\": \"169.254.59.0/24\"}]</code> </p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/cross-account-resources.html\"> Working with cross-account attachments and resources in Global Accelerator</a> in the <i> Global Accelerator Developer Guide</i>.</p>
 
         Args:
             name: <p>The name of the cross-account attachment. </p>
@@ -587,7 +587,7 @@ class AsyncGlobalAcceleratorClient:
         ] = None,
         tags: Optional["aws_sdk_global_accelerator.types.tags.Tags"] = None,
     ) -> "aws_sdk_global_accelerator.types.create_custom_routing_accelerator_response.CreateCustomRoutingAcceleratorResponse":
-        """<p>Create a custom routing accelerator. A custom routing accelerator directs traffic to one of possibly thousands of Amazon EC2 instance destinations running in a single or multiple virtual private clouds (VPC) subnet endpoints.</p> <p>Be aware that, by default, all destination EC2 instances in a VPC subnet endpoint cannot receive traffic. To enable all destinations to receive traffic, or to specify individual port mappings that can receive traffic, see the <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/api/API_AllowCustomRoutingTraffic.html\"> AllowCustomRoutingTraffic</a> operation.</p> <important> <p>Global Accelerator is a global service that supports endpoints in multiple Amazon Web Services Regions but you must specify the US West (Oregon) Region to create, update, or otherwise work with accelerators. That is, for example, specify <code>--region us-west-2</code> on Amazon Web Services CLI commands.</p> </important>
+        r"""<p>Create a custom routing accelerator. A custom routing accelerator directs traffic to one of possibly thousands of Amazon EC2 instance destinations running in a single or multiple virtual private clouds (VPC) subnet endpoints.</p> <p>Be aware that, by default, all destination EC2 instances in a VPC subnet endpoint cannot receive traffic. To enable all destinations to receive traffic, or to specify individual port mappings that can receive traffic, see the <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/api/API_AllowCustomRoutingTraffic.html\"> AllowCustomRoutingTraffic</a> operation.</p> <important> <p>Global Accelerator is a global service that supports endpoints in multiple Amazon Web Services Regions but you must specify the US West (Oregon) Region to create, update, or otherwise work with accelerators. That is, for example, specify <code>--region us-west-2</code> on Amazon Web Services CLI commands.</p> </important>
 
         Args:
             name: <p>The name of a custom routing accelerator. The name can have a maximum of 64 characters, must contain only alphanumeric characters or hyphens (-), and must not begin or end with a hyphen.</p>
@@ -688,7 +688,7 @@ class AsyncGlobalAcceleratorClient:
         *,
         config_overrides: Optional[AsyncGlobalAcceleratorClientConfig] = None,
     ) -> "aws_sdk_global_accelerator.types.create_custom_routing_listener_response.CreateCustomRoutingListenerResponse":
-        """<p>Create a listener to process inbound connections from clients to a custom routing accelerator. Connections arrive to assigned static IP addresses on the port range that you specify. </p>
+        r"""<p>Create a listener to process inbound connections from clients to a custom routing accelerator. Connections arrive to assigned static IP addresses on the port range that you specify. </p>
 
         Args:
             accelerator_arn: <p>The Amazon Resource Name (ARN) of the accelerator for a custom routing listener.</p>
@@ -756,7 +756,7 @@ class AsyncGlobalAcceleratorClient:
             "aws_sdk_global_accelerator.types.port_overrides.PortOverrides"
         ] = None,
     ) -> "aws_sdk_global_accelerator.types.create_endpoint_group_response.CreateEndpointGroupResponse":
-        """<p>Create an endpoint group for the specified listener. An endpoint group is a collection of endpoints in one Amazon Web Services Region. A resource must be valid and active when you add it as an endpoint.</p> <p>For more information about endpoint types and requirements for endpoints that you can add to Global Accelerator, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoints.html\"> Endpoints for standard accelerators</a> in the <i>Global Accelerator Developer Guide</i>.</p>
+        r"""<p>Create an endpoint group for the specified listener. An endpoint group is a collection of endpoints in one Amazon Web Services Region. A resource must be valid and active when you add it as an endpoint.</p> <p>For more information about endpoint types and requirements for endpoints that you can add to Global Accelerator, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoints.html\"> Endpoints for standard accelerators</a> in the <i>Global Accelerator Developer Guide</i>.</p>
 
         Args:
             listener_arn: <p>The Amazon Resource Name (ARN) of the listener.</p>
@@ -828,7 +828,7 @@ class AsyncGlobalAcceleratorClient:
             "aws_sdk_global_accelerator.types.client_affinity.ClientAffinity"
         ] = None,
     ) -> "aws_sdk_global_accelerator.types.create_listener_response.CreateListenerResponse":
-        """<p>Create a listener to process inbound connections from clients to an accelerator. Connections arrive to assigned static IP addresses on a port, port range, or list of port ranges that you specify. </p>
+        r"""<p>Create a listener to process inbound connections from clients to an accelerator. Connections arrive to assigned static IP addresses on a port, port range, or list of port ranges that you specify. </p>
 
         Args:
             accelerator_arn: <p>The Amazon Resource Name (ARN) of your accelerator.</p>
@@ -875,7 +875,7 @@ class AsyncGlobalAcceleratorClient:
         *,
         config_overrides: Optional[AsyncGlobalAcceleratorClientConfig] = None,
     ) -> None:
-        """<p>Delete an accelerator. Before you can delete an accelerator, you must disable it and remove all dependent resources (listeners and endpoint groups). To disable the accelerator, update the accelerator to set <code>Enabled</code> to false.</p> <important> <p>When you create an accelerator, by default, Global Accelerator provides you with a set of two static IP addresses. Alternatively, you can bring your own IP address ranges to Global Accelerator and assign IP addresses from those ranges. </p> <p>The IP addresses are assigned to your accelerator for as long as it exists, even if you disable the accelerator and it no longer accepts or routes traffic. However, when you <i>delete</i> an accelerator, you lose the static IP addresses that are assigned to the accelerator, so you can no longer route traffic by using them. As a best practice, ensure that you have permissions in place to avoid inadvertently deleting accelerators. You can use IAM policies with Global Accelerator to limit the users who have permissions to delete an accelerator. For more information, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/auth-and-access-control.html\">Identity and access management</a> in the <i>Global Accelerator Developer Guide</i>.</p> </important>
+        r"""<p>Delete an accelerator. Before you can delete an accelerator, you must disable it and remove all dependent resources (listeners and endpoint groups). To disable the accelerator, update the accelerator to set <code>Enabled</code> to false.</p> <important> <p>When you create an accelerator, by default, Global Accelerator provides you with a set of two static IP addresses. Alternatively, you can bring your own IP address ranges to Global Accelerator and assign IP addresses from those ranges. </p> <p>The IP addresses are assigned to your accelerator for as long as it exists, even if you disable the accelerator and it no longer accepts or routes traffic. However, when you <i>delete</i> an accelerator, you lose the static IP addresses that are assigned to the accelerator, so you can no longer route traffic by using them. As a best practice, ensure that you have permissions in place to avoid inadvertently deleting accelerators. You can use IAM policies with Global Accelerator to limit the users who have permissions to delete an accelerator. For more information, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/auth-and-access-control.html\">Identity and access management</a> in the <i>Global Accelerator Developer Guide</i>.</p> </important>
 
         Args:
             accelerator_arn: <p>The Amazon Resource Name (ARN) of an accelerator.</p>
@@ -911,7 +911,7 @@ class AsyncGlobalAcceleratorClient:
         *,
         config_overrides: Optional[AsyncGlobalAcceleratorClientConfig] = None,
     ) -> None:
-        """<p>Delete a cross-account attachment. When you delete an attachment, Global Accelerator revokes the permission to use the resources in the attachment from all principals in the list of principals. Global Accelerator revokes the permission for specific resources.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/cross-account-resources.html\"> Working with cross-account attachments and resources in Global Accelerator</a> in the <i> Global Accelerator Developer Guide</i>.</p>
+        r"""<p>Delete a cross-account attachment. When you delete an attachment, Global Accelerator revokes the permission to use the resources in the attachment from all principals in the list of principals. Global Accelerator revokes the permission for specific resources.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/cross-account-resources.html\"> Working with cross-account attachments and resources in Global Accelerator</a> in the <i> Global Accelerator Developer Guide</i>.</p>
 
         Args:
             attachment_arn: <p>The Amazon Resource Name (ARN) for the cross-account attachment to delete.</p>
@@ -947,7 +947,7 @@ class AsyncGlobalAcceleratorClient:
         *,
         config_overrides: Optional[AsyncGlobalAcceleratorClientConfig] = None,
     ) -> None:
-        """<p>Delete a custom routing accelerator. Before you can delete an accelerator, you must disable it and remove all dependent resources (listeners and endpoint groups). To disable the accelerator, update the accelerator to set <code>Enabled</code> to false.</p> <important> <p>When you create a custom routing accelerator, by default, Global Accelerator provides you with a set of two static IP addresses. </p> <p>The IP addresses are assigned to your accelerator for as long as it exists, even if you disable the accelerator and it no longer accepts or routes traffic. However, when you <i>delete</i> an accelerator, you lose the static IP addresses that are assigned to the accelerator, so you can no longer route traffic by using them. As a best practice, ensure that you have permissions in place to avoid inadvertently deleting accelerators. You can use IAM policies with Global Accelerator to limit the users who have permissions to delete an accelerator. For more information, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/auth-and-access-control.html\">Identity and access management</a> in the <i>Global Accelerator Developer Guide</i>.</p> </important>
+        r"""<p>Delete a custom routing accelerator. Before you can delete an accelerator, you must disable it and remove all dependent resources (listeners and endpoint groups). To disable the accelerator, update the accelerator to set <code>Enabled</code> to false.</p> <important> <p>When you create a custom routing accelerator, by default, Global Accelerator provides you with a set of two static IP addresses. </p> <p>The IP addresses are assigned to your accelerator for as long as it exists, even if you disable the accelerator and it no longer accepts or routes traffic. However, when you <i>delete</i> an accelerator, you lose the static IP addresses that are assigned to the accelerator, so you can no longer route traffic by using them. As a best practice, ensure that you have permissions in place to avoid inadvertently deleting accelerators. You can use IAM policies with Global Accelerator to limit the users who have permissions to delete an accelerator. For more information, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/auth-and-access-control.html\">Identity and access management</a> in the <i>Global Accelerator Developer Guide</i>.</p> </important>
 
         Args:
             accelerator_arn: <p>The Amazon Resource Name (ARN) of the custom routing accelerator to delete.</p>
@@ -1184,7 +1184,7 @@ class AsyncGlobalAcceleratorClient:
         *,
         config_overrides: Optional[AsyncGlobalAcceleratorClientConfig] = None,
     ) -> "aws_sdk_global_accelerator.types.deprovision_byoip_cidr_response.DeprovisionByoipCidrResponse":
-        """<p>Releases the specified address range that you provisioned to use with your Amazon Web Services resources through bring your own IP addresses (BYOIP) and deletes the corresponding address pool. </p> <p>Before you can release an address range, you must stop advertising it by using <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/api/WithdrawByoipCidr.html\">WithdrawByoipCidr</a> and you must not have any accelerators that are using static IP addresses allocated from its address range. </p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html\">Bring your own IP addresses (BYOIP)</a> in the <i>Global Accelerator Developer Guide</i>.</p>
+        r"""<p>Releases the specified address range that you provisioned to use with your Amazon Web Services resources through bring your own IP addresses (BYOIP) and deletes the corresponding address pool. </p> <p>Before you can release an address range, you must stop advertising it by using <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/api/WithdrawByoipCidr.html\">WithdrawByoipCidr</a> and you must not have any accelerators that are using static IP addresses allocated from its address range. </p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html\">Bring your own IP addresses (BYOIP)</a> in the <i>Global Accelerator Developer Guide</i>.</p>
 
         Args:
             cidr: <p>The address range, in CIDR notation. The prefix must be the same prefix that you specified when you provisioned the address range.</p> <p> For more information, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html\">Bring your own IP addresses (BYOIP)</a> in the Global Accelerator Developer Guide.</p>
@@ -1641,7 +1641,7 @@ class AsyncGlobalAcceleratorClient:
             "aws_sdk_global_accelerator.types.generic_string.GenericString"
         ] = None,
     ) -> "aws_sdk_global_accelerator.types.list_byoip_cidrs_response.ListByoipCidrsResponse":
-        """<p>Lists the IP address ranges that were specified in calls to <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/api/ProvisionByoipCidr.html\">ProvisionByoipCidr</a>, including the current state and a history of state changes.</p>
+        r"""<p>Lists the IP address ranges that were specified in calls to <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/api/ProvisionByoipCidr.html\">ProvisionByoipCidr</a>, including the current state and a history of state changes.</p>
 
         Args:
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
@@ -1777,7 +1777,7 @@ class AsyncGlobalAcceleratorClient:
     async def list_cross_account_resource_accounts(
         self, *, config_overrides: Optional[AsyncGlobalAcceleratorClientConfig] = None
     ) -> "aws_sdk_global_accelerator.types.list_cross_account_resource_accounts_response.ListCrossAccountResourceAccountsResponse":
-        """<p>List the accounts that have cross-account resources.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/cross-account-resources.html\"> Working with cross-account attachments and resources in Global Accelerator</a> in the <i> Global Accelerator Developer Guide</i>.</p>"""
+        r"""<p>List the accounts that have cross-account resources.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/cross-account-resources.html\"> Working with cross-account attachments and resources in Global Accelerator</a> in the <i> Global Accelerator Developer Guide</i>.</p>"""
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_global_accelerator.types.list_cross_account_resource_accounts_request.ListCrossAccountResourceAccountsRequest]",
@@ -2448,7 +2448,7 @@ class AsyncGlobalAcceleratorClient:
         *,
         config_overrides: Optional[AsyncGlobalAcceleratorClientConfig] = None,
     ) -> "aws_sdk_global_accelerator.types.list_tags_for_resource_response.ListTagsForResourceResponse":
-        """<p>List all tags for an accelerator. </p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html\">Tagging in Global Accelerator</a> in the <i>Global Accelerator Developer Guide</i>. </p>
+        r"""<p>List all tags for an accelerator. </p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html\">Tagging in Global Accelerator</a> in the <i>Global Accelerator Developer Guide</i>. </p>
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the accelerator to list tags for. An ARN uniquely identifies an accelerator.</p>
@@ -2487,7 +2487,7 @@ class AsyncGlobalAcceleratorClient:
         *,
         config_overrides: Optional[AsyncGlobalAcceleratorClientConfig] = None,
     ) -> "aws_sdk_global_accelerator.types.provision_byoip_cidr_response.ProvisionByoipCidrResponse":
-        """<p>Provisions an IP address range to use with your Amazon Web Services resources through bring your own IP addresses (BYOIP) and creates a corresponding address pool. After the address range is provisioned, it is ready to be advertised using <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/api/AdvertiseByoipCidr.html\"> AdvertiseByoipCidr</a>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html\">Bring your own IP addresses (BYOIP)</a> in the <i>Global Accelerator Developer Guide</i>.</p>
+        r"""<p>Provisions an IP address range to use with your Amazon Web Services resources through bring your own IP addresses (BYOIP) and creates a corresponding address pool. After the address range is provisioned, it is ready to be advertised using <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/api/AdvertiseByoipCidr.html\"> AdvertiseByoipCidr</a>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html\">Bring your own IP addresses (BYOIP)</a> in the <i>Global Accelerator Developer Guide</i>.</p>
 
         Args:
             cidr: <p>The public IPv4 address range, in CIDR notation. The most specific IP prefix that you can specify is /24. The address range cannot overlap with another address range that you've brought to this Amazon Web Services Region or another Region.</p> <p> For more information, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html\">Bring your own IP addresses (BYOIP)</a> in the Global Accelerator Developer Guide.</p>
@@ -2567,7 +2567,7 @@ class AsyncGlobalAcceleratorClient:
         *,
         config_overrides: Optional[AsyncGlobalAcceleratorClientConfig] = None,
     ) -> None:
-        """<p>Remove endpoints from an endpoint group. </p> <p>The <code>RemoveEndpoints</code> API operation is the recommended option for removing endpoints. The alternative is to remove endpoints by updating an endpoint group by using the <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/api/API_UpdateEndpointGroup.html\">UpdateEndpointGroup</a> API operation. There are two advantages to using <code>AddEndpoints</code> to remove endpoints instead:</p> <ul> <li> <p>It's more convenient, because you only need to specify the endpoints that you want to remove. With the <code>UpdateEndpointGroup</code> API operation, you must specify all of the endpoints in the endpoint group except the ones that you want to remove from the group.</p> </li> <li> <p>It's faster, because Global Accelerator doesn't need to resolve any endpoints. With the <code>UpdateEndpointGroup</code> API operation, Global Accelerator must resolve all of the endpoints that remain in the group.</p> </li> </ul>
+        r"""<p>Remove endpoints from an endpoint group. </p> <p>The <code>RemoveEndpoints</code> API operation is the recommended option for removing endpoints. The alternative is to remove endpoints by updating an endpoint group by using the <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/api/API_UpdateEndpointGroup.html\">UpdateEndpointGroup</a> API operation. There are two advantages to using <code>AddEndpoints</code> to remove endpoints instead:</p> <ul> <li> <p>It's more convenient, because you only need to specify the endpoints that you want to remove. With the <code>UpdateEndpointGroup</code> API operation, you must specify all of the endpoints in the endpoint group except the ones that you want to remove from the group.</p> </li> <li> <p>It's faster, because Global Accelerator doesn't need to resolve any endpoints. With the <code>UpdateEndpointGroup</code> API operation, Global Accelerator must resolve all of the endpoints that remain in the group.</p> </li> </ul>
 
         Args:
             endpoint_identifiers: <p>The identifiers of the endpoints that you want to remove.</p>
@@ -2606,7 +2606,7 @@ class AsyncGlobalAcceleratorClient:
         *,
         config_overrides: Optional[AsyncGlobalAcceleratorClientConfig] = None,
     ) -> "aws_sdk_global_accelerator.types.tag_resource_response.TagResourceResponse":
-        """<p>Add tags to an accelerator resource. </p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html\">Tagging in Global Accelerator</a> in the <i>Global Accelerator Developer Guide</i>. </p>
+        r"""<p>Add tags to an accelerator resource. </p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html\">Tagging in Global Accelerator</a> in the <i>Global Accelerator Developer Guide</i>. </p>
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the Global Accelerator resource to add tags to. An ARN uniquely identifies a resource.</p>
@@ -2649,7 +2649,7 @@ class AsyncGlobalAcceleratorClient:
     ) -> (
         "aws_sdk_global_accelerator.types.untag_resource_response.UntagResourceResponse"
     ):
-        """<p>Remove tags from a Global Accelerator resource. When you specify a tag key, the action removes both that key and its associated value. The operation succeeds even if you attempt to remove tags from an accelerator that was already removed.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html\">Tagging in Global Accelerator</a> in the <i>Global Accelerator Developer Guide</i>.</p>
+        r"""<p>Remove tags from a Global Accelerator resource. When you specify a tag key, the action removes both that key and its associated value. The operation succeeds even if you attempt to remove tags from an accelerator that was already removed.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html\">Tagging in Global Accelerator</a> in the <i>Global Accelerator Developer Guide</i>.</p>
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the Global Accelerator resource to remove tags from. An ARN uniquely identifies a resource.</p>
@@ -2760,7 +2760,7 @@ class AsyncGlobalAcceleratorClient:
             "aws_sdk_global_accelerator.types.generic_string.GenericString"
         ] = None,
     ) -> "aws_sdk_global_accelerator.types.update_accelerator_attributes_response.UpdateAcceleratorAttributesResponse":
-        """<p>Update the attributes for an accelerator. </p>
+        r"""<p>Update the attributes for an accelerator. </p>
 
         Args:
             accelerator_arn: <p>The Amazon Resource Name (ARN) of the accelerator that you want to update.</p>
@@ -2822,7 +2822,7 @@ class AsyncGlobalAcceleratorClient:
             "aws_sdk_global_accelerator.types.resources.Resources"
         ] = None,
     ) -> "aws_sdk_global_accelerator.types.update_cross_account_attachment_response.UpdateCrossAccountAttachmentResponse":
-        """<p>Update a cross-account attachment to add or remove principals or resources. When you update an attachment to remove a principal (account ID or accelerator) or a resource, Global Accelerator revokes the permission for specific resources. </p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/cross-account-resources.html\"> Working with cross-account attachments and resources in Global Accelerator</a> in the <i> Global Accelerator Developer Guide</i>.</p>
+        r"""<p>Update a cross-account attachment to add or remove principals or resources. When you update an attachment to remove a principal (account ID or accelerator) or a resource, Global Accelerator revokes the permission for specific resources. </p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/cross-account-resources.html\"> Working with cross-account attachments and resources in Global Accelerator</a> in the <i> Global Accelerator Developer Guide</i>.</p>
 
         Args:
             attachment_arn: <p>The Amazon Resource Name (ARN) of the cross-account attachment to update.</p>
@@ -2946,7 +2946,7 @@ class AsyncGlobalAcceleratorClient:
             "aws_sdk_global_accelerator.types.generic_string.GenericString"
         ] = None,
     ) -> "aws_sdk_global_accelerator.types.update_custom_routing_accelerator_attributes_response.UpdateCustomRoutingAcceleratorAttributesResponse":
-        """<p>Update the attributes for a custom routing accelerator. </p>
+        r"""<p>Update the attributes for a custom routing accelerator. </p>
 
         Args:
             accelerator_arn: <p>The Amazon Resource Name (ARN) of the custom routing accelerator to update attributes for.</p>
@@ -2994,7 +2994,7 @@ class AsyncGlobalAcceleratorClient:
         *,
         config_overrides: Optional[AsyncGlobalAcceleratorClientConfig] = None,
     ) -> "aws_sdk_global_accelerator.types.update_custom_routing_listener_response.UpdateCustomRoutingListenerResponse":
-        """<p>Update a listener for a custom routing accelerator. </p>
+        r"""<p>Update a listener for a custom routing accelerator. </p>
 
         Args:
             listener_arn: <p>The Amazon Resource Name (ARN) of the listener to update.</p>
@@ -3058,7 +3058,7 @@ class AsyncGlobalAcceleratorClient:
             "aws_sdk_global_accelerator.types.port_overrides.PortOverrides"
         ] = None,
     ) -> "aws_sdk_global_accelerator.types.update_endpoint_group_response.UpdateEndpointGroupResponse":
-        """<p>Update an endpoint group. A resource must be valid and active when you add it as an endpoint.</p>
+        r"""<p>Update an endpoint group. A resource must be valid and active when you add it as an endpoint.</p>
 
         Args:
             endpoint_group_arn: <p>The Amazon Resource Name (ARN) of the endpoint group.</p>
@@ -3127,7 +3127,7 @@ class AsyncGlobalAcceleratorClient:
             "aws_sdk_global_accelerator.types.client_affinity.ClientAffinity"
         ] = None,
     ) -> "aws_sdk_global_accelerator.types.update_listener_response.UpdateListenerResponse":
-        """<p>Update a listener. </p>
+        r"""<p>Update a listener. </p>
 
         Args:
             listener_arn: <p>The Amazon Resource Name (ARN) of the listener to update.</p>
@@ -3174,7 +3174,7 @@ class AsyncGlobalAcceleratorClient:
         *,
         config_overrides: Optional[AsyncGlobalAcceleratorClientConfig] = None,
     ) -> "aws_sdk_global_accelerator.types.withdraw_byoip_cidr_response.WithdrawByoipCidrResponse":
-        """<p>Stops advertising an address range that is provisioned as an address pool. You can perform this operation at most once every 10 seconds, even if you specify different address ranges each time.</p> <p>It can take a few minutes before traffic to the specified addresses stops routing to Amazon Web Services because of propagation delays.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html\">Bring your own IP addresses (BYOIP)</a> in the <i>Global Accelerator Developer Guide</i>.</p>
+        r"""<p>Stops advertising an address range that is provisioned as an address pool. You can perform this operation at most once every 10 seconds, even if you specify different address ranges each time.</p> <p>It can take a few minutes before traffic to the specified addresses stops routing to Amazon Web Services because of propagation delays.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html\">Bring your own IP addresses (BYOIP)</a> in the <i>Global Accelerator Developer Guide</i>.</p>
 
         Args:
             cidr: <p>The address range, in CIDR notation.</p> <p> For more information, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html\">Bring your own IP addresses (BYOIP)</a> in the Global Accelerator Developer Guide.</p>

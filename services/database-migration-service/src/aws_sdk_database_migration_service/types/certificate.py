@@ -27,7 +27,7 @@ class Certificate(TypedDict):
     certificate_wallet: NotRequired[
         "aws_sdk_database_migration_service.types.certificate_wallet.CertificateWallet"
     ]
-    """<p>The location of an imported Oracle Wallet certificate for use with SSL. Example: <code>filebase64(\"${path.root}/rds-ca-2019-root.sso\")</code> </p>"""
+    r"""<p>The location of an imported Oracle Wallet certificate for use with SSL. Example: <code>filebase64(\"${path.root}/rds-ca-2019-root.sso\")</code> </p>"""
     certificate_arn: NotRequired[
         "aws_sdk_database_migration_service.types.string.String"
     ]

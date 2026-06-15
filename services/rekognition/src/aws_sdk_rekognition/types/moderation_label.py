@@ -16,7 +16,7 @@ class ModerationLabel(TypedDict):
     name: NotRequired["aws_sdk_rekognition.types.string.String"]
     """<p>The label name for the type of unsafe content detected in the image.</p>"""
     parent_name: NotRequired["aws_sdk_rekognition.types.string.String"]
-    """<p>The name for the parent label. Labels at the top level of the hierarchy have the parent label <code>\"\"</code>.</p>"""
+    r"""<p>The name for the parent label. Labels at the top level of the hierarchy have the parent label <code>\"\"</code>.</p>"""
     taxonomy_level: NotRequired["aws_sdk_rekognition.types.u_integer.UInteger"]
     """<p>The level of the moderation label with regard to its taxonomy, from 1 to 3.</p>"""
 

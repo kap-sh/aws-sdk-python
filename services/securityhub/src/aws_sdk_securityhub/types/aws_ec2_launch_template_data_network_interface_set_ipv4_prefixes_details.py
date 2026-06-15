@@ -12,7 +12,7 @@ class AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv4PrefixesDetails(TypedDict):
     ipv4_prefix: NotRequired[
         "aws_sdk_securityhub.types.non_empty_string.NonEmptyString"
     ]
-    """<p> The IPv4 prefix. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html\">Assigning prefixes to Amazon EC2 network interfaces</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. </p>"""
+    r"""<p> The IPv4 prefix. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html\">Assigning prefixes to Amazon EC2 network interfaces</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. </p>"""
 
 
 # --- restJson1 ser/de ---

@@ -34,7 +34,7 @@ class Place(TypedDict):
     region: NotRequired["aws_sdk_location.types.sensitive_string.SensitiveString"]
     """<p>A name for an area or geographical division, such as a province or state name. For example, <code>British Columbia</code>.</p>"""
     country: NotRequired["aws_sdk_location.types.sensitive_string.SensitiveString"]
-    """<p>A country/region specified using <a href=\"https://www.iso.org/iso-3166-country-codes.html\">ISO 3166</a> 3-digit country/region code. For example, <code>CAN</code>.</p>"""
+    r"""<p>A country/region specified using <a href=\"https://www.iso.org/iso-3166-country-codes.html\">ISO 3166</a> 3-digit country/region code. For example, <code>CAN</code>.</p>"""
     postal_code: NotRequired["aws_sdk_location.types.sensitive_string.SensitiveString"]
     """<p>A group of numbers and letters in a country-specific format, which accompanies the address for the purpose of identifying a location. </p>"""
     interpolated: NotRequired[
@@ -50,7 +50,7 @@ class Place(TypedDict):
     categories: NotRequired[
         "aws_sdk_location.types.place_category_list.PlaceCategoryList"
     ]
-    """<p>The Amazon Location categories that describe this Place.</p> <p>For more information about using categories, including a list of Amazon Location categories, see <a href=\"https://docs.aws.amazon.com/location/previous/developerguide/category-filtering.html\">Categories and filtering</a>, in the <i>Amazon Location Service developer guide</i>.</p>"""
+    r"""<p>The Amazon Location categories that describe this Place.</p> <p>For more information about using categories, including a list of Amazon Location categories, see <a href=\"https://docs.aws.amazon.com/location/previous/developerguide/category-filtering.html\">Categories and filtering</a>, in the <i>Amazon Location Service developer guide</i>.</p>"""
     supplemental_categories: NotRequired[
         "aws_sdk_location.types.place_supplemental_category_list.PlaceSupplementalCategoryList"
     ]

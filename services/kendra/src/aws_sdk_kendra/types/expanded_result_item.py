@@ -28,7 +28,7 @@ class ExpandedResultItem(TypedDict):
     document_attributes: NotRequired[
         "aws_sdk_kendra.types.document_attribute_list.DocumentAttributeList"
     ]
-    """<p>An array of document attributes assigned to a document in the search results. For example, the document author (\"_author\") or the source URI (\"_source_uri\") of the document.</p>"""
+    r"""<p>An array of document attributes assigned to a document in the search results. For example, the document author (\"_author\") or the source URI (\"_source_uri\") of the document.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

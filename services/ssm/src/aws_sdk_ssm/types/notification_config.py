@@ -16,7 +16,7 @@ class NotificationConfig(TypedDict):
     notification_events: NotRequired[
         "aws_sdk_ssm.types.notification_event_list.NotificationEventList"
     ]
-    """<p>The different events for which you can receive notifications. To learn more about these events, see <a href=\"https://docs.aws.amazon.com/systems-manager/latest/userguide/monitoring-sns-notifications.html\">Monitoring Systems Manager status changes using Amazon SNS notifications</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>"""
+    r"""<p>The different events for which you can receive notifications. To learn more about these events, see <a href=\"https://docs.aws.amazon.com/systems-manager/latest/userguide/monitoring-sns-notifications.html\">Monitoring Systems Manager status changes using Amazon SNS notifications</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>"""
     notification_type: NotRequired[
         "aws_sdk_ssm.types.notification_type.NotificationType"
     ]

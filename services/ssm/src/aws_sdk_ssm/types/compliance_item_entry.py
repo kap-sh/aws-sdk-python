@@ -26,7 +26,7 @@ class ComplianceItemEntry(TypedDict):
     details: NotRequired[
         "aws_sdk_ssm.types.compliance_item_details.ComplianceItemDetails"
     ]
-    """<p>A \"Key\": \"Value\" tag combination for the compliance item.</p>"""
+    r"""<p>A \"Key\": \"Value\" tag combination for the compliance item.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

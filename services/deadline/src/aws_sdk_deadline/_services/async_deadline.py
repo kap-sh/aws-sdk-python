@@ -185,7 +185,7 @@ class AsyncdeadlineClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = AsyncdeadlineClientConfig(
+        self._config = AsyncdeadlineClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -210,7 +210,7 @@ class AsyncdeadlineClient:
         overrides: AsyncdeadlineClientConfig = config_overrides or {}
         interceptors_: list[AsyncInterceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             aretry(),
         ]
@@ -218,16 +218,16 @@ class AsyncdeadlineClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            region=overrides.get("region", self.config.get("region")),
+            region=overrides.get("region", self._config.get("region")),
             use_dual_stack=overrides.get(
-                "use_dual_stack", self.config.get("use_dual_stack")
+                "use_dual_stack", self._config.get("use_dual_stack")
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -1451,7 +1451,7 @@ class AsyncdeadlineClient:
         timezone: Optional["aws_sdk_deadline.types.timezone.Timezone"] = None,
         period: Optional["aws_sdk_deadline.types.period.Period"] = None,
     ) -> "aws_sdk_deadline.types.start_sessions_statistics_aggregation_response.StartSessionsStatisticsAggregationResponse":
-        """<p>Starts an asynchronous request for getting aggregated statistics about queues and farms. Get the statistics using the <code>GetSessionsStatisticsAggregation</code> operation. You can only have one running aggregation for your Deadline Cloud farm. Call the <code>GetSessionsStatisticsAggregation</code> operation and check the <code>status</code> field to see if an aggregation is running. Statistics are available for 1 hour after you call the <code>StartSessionsStatisticsAggregation</code> operation.</p>
+        r"""<p>Starts an asynchronous request for getting aggregated statistics about queues and farms. Get the statistics using the <code>GetSessionsStatisticsAggregation</code> operation. You can only have one running aggregation for your Deadline Cloud farm. Call the <code>GetSessionsStatisticsAggregation</code> operation and check the <code>status</code> field to see if an aggregation is running. Statistics are available for 1 hour after you call the <code>StartSessionsStatisticsAggregation</code> operation.</p>
 
         Args:
             farm_id: <p>The identifier of the farm that contains queues or fleets to return statistics for.</p>

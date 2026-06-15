@@ -30,13 +30,13 @@ class DynamoDBAction(TypedDict):
     hash_key_value: "aws_sdk_iot.types.hash_key_value.HashKeyValue"
     """<p>The hash key value.</p>"""
     hash_key_type: NotRequired["aws_sdk_iot.types.dynamo_key_type.DynamoKeyType"]
-    """<p>The hash key type. Valid values are \"STRING\" or \"NUMBER\"</p>"""
+    r"""<p>The hash key type. Valid values are \"STRING\" or \"NUMBER\"</p>"""
     range_key_field: NotRequired["aws_sdk_iot.types.range_key_field.RangeKeyField"]
     """<p>The range key name.</p>"""
     range_key_value: NotRequired["aws_sdk_iot.types.range_key_value.RangeKeyValue"]
     """<p>The range key value.</p>"""
     range_key_type: NotRequired["aws_sdk_iot.types.dynamo_key_type.DynamoKeyType"]
-    """<p>The range key type. Valid values are \"STRING\" or \"NUMBER\"</p>"""
+    r"""<p>The range key type. Valid values are \"STRING\" or \"NUMBER\"</p>"""
     payload_field: NotRequired["aws_sdk_iot.types.payload_field.PayloadField"]
     """<p>The action payload. This name can be customized.</p>"""
 

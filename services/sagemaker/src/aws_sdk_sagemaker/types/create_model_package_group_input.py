@@ -21,7 +21,7 @@ class CreateModelPackageGroupInput(TypedDict):
     ]
     """<p>A description for the model group.</p>"""
     tags: NotRequired["aws_sdk_sagemaker.types.tag_list.TagList"]
-    """<p>A list of key value pairs associated with the model group. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services resources</a> in the <i>Amazon Web Services General Reference Guide</i>.</p>"""
+    r"""<p>A list of key value pairs associated with the model group. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services resources</a> in the <i>Amazon Web Services General Reference Guide</i>.</p>"""
     managed_configuration: NotRequired[
         "aws_sdk_sagemaker.types.managed_configuration.ManagedConfiguration"
     ]

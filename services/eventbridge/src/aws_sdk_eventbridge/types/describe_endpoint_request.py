@@ -13,9 +13,9 @@ if TYPE_CHECKING:
 
 class DescribeEndpointRequest(TypedDict):
     name: "aws_sdk_eventbridge.types.endpoint_name.EndpointName"
-    """<p>The name of the endpoint you want to get information about. For example, <code>\"Name\":\"us-east-2-custom_bus_A-endpoint\"</code>.</p>"""
+    r"""<p>The name of the endpoint you want to get information about. For example, <code>\"Name\":\"us-east-2-custom_bus_A-endpoint\"</code>.</p>"""
     home_region: NotRequired["aws_sdk_eventbridge.types.home_region.HomeRegion"]
-    """<p>The primary Region of the endpoint you want to get information about. For example <code>\"HomeRegion\": \"us-east-1\"</code>.</p>"""
+    r"""<p>The primary Region of the endpoint you want to get information about. For example <code>\"HomeRegion\": \"us-east-1\"</code>.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

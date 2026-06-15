@@ -943,7 +943,7 @@ class AsyncIoTTwinMakerClient:
         ] = None,
         next_token: Optional["aws_sdk_iottwinmaker.types.next_token.NextToken"] = None,
     ) -> "aws_sdk_iottwinmaker.types.execute_query_response.ExecuteQueryResponse":
-        """<p>Run queries to access information from your knowledge graph of entities within individual workspaces.</p> <note> <p>The ExecuteQuery action only works with <a href=\"https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/home.html\">Amazon Web Services Java SDK2</a>. ExecuteQuery will not work with any Amazon Web Services Java SDK version &lt; 2.x.</p> </note>
+        r"""<p>Run queries to access information from your knowledge graph of entities within individual workspaces.</p> <note> <p>The ExecuteQuery action only works with <a href=\"https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/home.html\">Amazon Web Services Java SDK2</a>. ExecuteQuery will not work with any Amazon Web Services Java SDK version &lt; 2.x.</p> </note>
 
         Args:
             workspace_id: <p>The ID of the workspace.</p>
@@ -1250,7 +1250,7 @@ class AsyncIoTTwinMakerClient:
         start_time: Optional["aws_sdk_iottwinmaker.types.time.Time"] = None,
         end_time: Optional["aws_sdk_iottwinmaker.types.time.Time"] = None,
     ) -> "aws_sdk_iottwinmaker.types.get_property_value_history_response.GetPropertyValueHistoryResponse":
-        """<p>Retrieves information about the history of a time series property value for a component, component type, entity, or workspace.</p> <p>You must specify a value for <code>workspaceId</code>. For entity-specific queries, specify values for <code>componentName</code> and <code>entityId</code>. For cross-entity quries, specify a value for <code>componentTypeId</code>.</p>
+        r"""<p>Retrieves information about the history of a time series property value for a component, component type, entity, or workspace.</p> <p>You must specify a value for <code>workspaceId</code>. For entity-specific queries, specify values for <code>componentName</code> and <code>entityId</code>. For cross-entity quries, specify a value for <code>componentTypeId</code>.</p>
 
         Args:
             workspace_id: <p>The ID of the workspace.</p>

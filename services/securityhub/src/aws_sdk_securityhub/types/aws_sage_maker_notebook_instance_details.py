@@ -19,11 +19,11 @@ class AwsSageMakerNotebookInstanceDetails(TypedDict):
     additional_code_repositories: NotRequired[
         "aws_sdk_securityhub.types.non_empty_string_list.NonEmptyStringList"
     ]
-    """<p> An array of up to three Git repositories associated with the notebook instance. These can be either the names of Git repositories stored as resources in your account, or the URL of Git repositories in <a href=\"https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html\">CodeCommit</a> or in any other Git repository. These repositories are cloned at the same level as the default repository of your notebook instance. For more information, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html\">Associating Git repositories with SageMaker AI notebook instances</a> in the <i>Amazon SageMaker AI Developer Guide</i>. </p>"""
+    r"""<p> An array of up to three Git repositories associated with the notebook instance. These can be either the names of Git repositories stored as resources in your account, or the URL of Git repositories in <a href=\"https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html\">CodeCommit</a> or in any other Git repository. These repositories are cloned at the same level as the default repository of your notebook instance. For more information, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html\">Associating Git repositories with SageMaker AI notebook instances</a> in the <i>Amazon SageMaker AI Developer Guide</i>. </p>"""
     default_code_repository: NotRequired[
         "aws_sdk_securityhub.types.non_empty_string.NonEmptyString"
     ]
-    """<p> The Git repository associated with the notebook instance as its default code repository. This can be either the name of a Git repository stored as a resource in your account, or the URL of a Git repository in <a href=\"https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html\">CodeCommit</a> or in any other Git repository. When you open a notebook instance, it opens in the directory that contains this repository. For more information, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html\">Associating Git repositories with SageMaker AI notebook instances</a> in the <i>Amazon SageMaker AI Developer Guide</i>. </p>"""
+    r"""<p> The Git repository associated with the notebook instance as its default code repository. This can be either the name of a Git repository stored as a resource in your account, or the URL of a Git repository in <a href=\"https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html\">CodeCommit</a> or in any other Git repository. When you open a notebook instance, it opens in the directory that contains this repository. For more information, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html\">Associating Git repositories with SageMaker AI notebook instances</a> in the <i>Amazon SageMaker AI Developer Guide</i>. </p>"""
     direct_internet_access: NotRequired[
         "aws_sdk_securityhub.types.non_empty_string.NonEmptyString"
     ]
@@ -41,7 +41,7 @@ class AwsSageMakerNotebookInstanceDetails(TypedDict):
     ]
     """<p> The type of machine learning (ML) compute instance to launch for the notebook instance. </p>"""
     kms_key_id: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
-    """<p> The Amazon Resource Name (ARN) of an Key Management Service (KMS) key that SageMaker AI uses to encrypt data on the storage volume attached to your notebook instance. The KMS key you provide must be enabled. For information, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/enabling-keys.html\">Enabling and disabling keys</a> in the <i>Key Management Service Developer Guide</i>. </p>"""
+    r"""<p> The Amazon Resource Name (ARN) of an Key Management Service (KMS) key that SageMaker AI uses to encrypt data on the storage volume attached to your notebook instance. The KMS key you provide must be enabled. For information, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/enabling-keys.html\">Enabling and disabling keys</a> in the <i>Key Management Service Developer Guide</i>. </p>"""
     network_interface_id: NotRequired[
         "aws_sdk_securityhub.types.non_empty_string.NonEmptyString"
     ]

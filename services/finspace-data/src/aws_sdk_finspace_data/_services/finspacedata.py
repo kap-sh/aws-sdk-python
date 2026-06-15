@@ -188,7 +188,7 @@ class finspacedataClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = finspacedataClientConfig(
+        self._config = finspacedataClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -208,7 +208,7 @@ class finspacedataClient:
         overrides: finspacedataClientConfig = config_overrides or {}
         interceptors_: list[Interceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             retry(),
         ]
@@ -216,16 +216,16 @@ class finspacedataClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            region=overrides.get("region", self.config.get("region")),
+            region=overrides.get("region", self._config.get("region")),
             use_dual_stack=overrides.get(
-                "use_dual_stack", self.config.get("use_dual_stack")
+                "use_dual_stack", self._config.get("use_dual_stack")
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -290,7 +290,7 @@ class finspacedataClient:
     ) -> (
         "aws_sdk_finspace_data.types.create_changeset_response.CreateChangesetResponse"
     ):
-        """<p>Creates a new Changeset in a FinSpace Dataset.</p>
+        r"""<p>Creates a new Changeset in a FinSpace Dataset.</p>
 
         Args:
             client_token: <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
@@ -1006,7 +1006,7 @@ class finspacedataClient:
             "aws_sdk_finspace_data.types.session_duration.SessionDuration"
         ] = None,
     ) -> "aws_sdk_finspace_data.types.get_programmatic_access_credentials_response.GetProgrammaticAccessCredentialsResponse":
-        """<p>Request programmatic credentials to use with FinSpace SDK. For more information, see <a href=\"https://docs.aws.amazon.com/finspace/latest/data-api/fs-using-the-finspace-api.html#accessing-credentials\">Step 2. Access credentials programmatically using IAM access key id and secret access key</a>.</p>
+        r"""<p>Request programmatic credentials to use with FinSpace SDK. For more information, see <a href=\"https://docs.aws.amazon.com/finspace/latest/data-api/fs-using-the-finspace-api.html#accessing-credentials\">Step 2. Access credentials programmatically using IAM access key id and secret access key</a>.</p>
 
         Args:
             duration_in_minutes: <p>The time duration in which the credentials remain valid. </p>
@@ -1621,7 +1621,7 @@ class finspacedataClient:
     ) -> (
         "aws_sdk_finspace_data.types.update_changeset_response.UpdateChangesetResponse"
     ):
-        """<p>Updates a FinSpace Changeset.</p>
+        r"""<p>Updates a FinSpace Changeset.</p>
 
         Args:
             client_token: <p>A token that ensures idempotency. This token expires in 10 minutes.</p>

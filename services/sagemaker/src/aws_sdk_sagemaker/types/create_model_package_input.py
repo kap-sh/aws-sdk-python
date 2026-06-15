@@ -63,7 +63,7 @@ class CreateModelPackageInput(TypedDict):
     ]
     """<p>Whether to certify the model package for listing on Amazon Web Services Marketplace.</p> <p>This parameter is optional for unversioned models, and does not apply to versioned models.</p>"""
     tags: NotRequired["aws_sdk_sagemaker.types.tag_list.TagList"]
-    """<p>A list of key value pairs associated with the model. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services resources</a> in the <i>Amazon Web Services General Reference Guide</i>.</p> <p>If you supply <code>ModelPackageGroupName</code>, your model package belongs to the model group you specify and uses the tags associated with the model group. In this case, you cannot supply a <code>tag</code> argument. </p>"""
+    r"""<p>A list of key value pairs associated with the model. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services resources</a> in the <i>Amazon Web Services General Reference Guide</i>.</p> <p>If you supply <code>ModelPackageGroupName</code>, your model package belongs to the model group you specify and uses the tags associated with the model group. In this case, you cannot supply a <code>tag</code> argument. </p>"""
     model_approval_status: NotRequired[
         "aws_sdk_sagemaker.types.model_approval_status.ModelApprovalStatus"
     ]
@@ -78,9 +78,9 @@ class CreateModelPackageInput(TypedDict):
     domain: NotRequired["aws_sdk_sagemaker.types.string.String"]
     """<p>The machine learning domain of your model package and its components. Common machine learning domains include computer vision and natural language processing.</p>"""
     task: NotRequired["aws_sdk_sagemaker.types.string.String"]
-    """<p>The machine learning task your model package accomplishes. Common machine learning tasks include object detection and image classification. The following tasks are supported by Inference Recommender: <code>\"IMAGE_CLASSIFICATION\"</code> | <code>\"OBJECT_DETECTION\"</code> | <code>\"TEXT_GENERATION\"</code> |<code>\"IMAGE_SEGMENTATION\"</code> | <code>\"FILL_MASK\"</code> | <code>\"CLASSIFICATION\"</code> | <code>\"REGRESSION\"</code> | <code>\"OTHER\"</code>.</p> <p>Specify \"OTHER\" if none of the tasks listed fit your use case.</p>"""
+    r"""<p>The machine learning task your model package accomplishes. Common machine learning tasks include object detection and image classification. The following tasks are supported by Inference Recommender: <code>\"IMAGE_CLASSIFICATION\"</code> | <code>\"OBJECT_DETECTION\"</code> | <code>\"TEXT_GENERATION\"</code> |<code>\"IMAGE_SEGMENTATION\"</code> | <code>\"FILL_MASK\"</code> | <code>\"CLASSIFICATION\"</code> | <code>\"REGRESSION\"</code> | <code>\"OTHER\"</code>.</p> <p>Specify \"OTHER\" if none of the tasks listed fit your use case.</p>"""
     sample_payload_url: NotRequired["aws_sdk_sagemaker.types.s3_uri.S3Uri"]
-    """<p>The Amazon Simple Storage Service (Amazon S3) path where the sample payload is stored. This path must point to a single gzip compressed tar archive (.tar.gz suffix). This archive can hold multiple files that are all equally used in the load test. Each file in the archive must satisfy the size constraints of the <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_runtime_InvokeEndpoint.html#API_runtime_InvokeEndpoint_RequestSyntax\">InvokeEndpoint</a> call.</p>"""
+    r"""<p>The Amazon Simple Storage Service (Amazon S3) path where the sample payload is stored. This path must point to a single gzip compressed tar archive (.tar.gz suffix). This archive can hold multiple files that are all equally used in the load test. Each file in the archive must satisfy the size constraints of the <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_runtime_InvokeEndpoint.html#API_runtime_InvokeEndpoint_RequestSyntax\">InvokeEndpoint</a> call.</p>"""
     customer_metadata_properties: NotRequired[
         "aws_sdk_sagemaker.types.customer_metadata_map.CustomerMetadataMap"
     ]
@@ -88,7 +88,7 @@ class CreateModelPackageInput(TypedDict):
     drift_check_baselines: NotRequired[
         "aws_sdk_sagemaker.types.drift_check_baselines.DriftCheckBaselines"
     ]
-    """<p>Represents the drift check baselines that can be used when the model monitor is set using the model package. For more information, see the topic on <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/pipelines-quality-clarify-baseline-lifecycle.html#pipelines-quality-clarify-baseline-drift-detection\">Drift Detection against Previous Baselines in SageMaker Pipelines</a> in the <i>Amazon SageMaker Developer Guide</i>. </p>"""
+    r"""<p>Represents the drift check baselines that can be used when the model monitor is set using the model package. For more information, see the topic on <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/pipelines-quality-clarify-baseline-lifecycle.html#pipelines-quality-clarify-baseline-drift-detection\">Drift Detection against Previous Baselines in SageMaker Pipelines</a> in the <i>Amazon SageMaker Developer Guide</i>. </p>"""
     additional_inference_specifications: NotRequired[
         "aws_sdk_sagemaker.types.additional_inference_specifications.AdditionalInferenceSpecifications"
     ]
@@ -108,7 +108,7 @@ class CreateModelPackageInput(TypedDict):
     model_card: NotRequired[
         "aws_sdk_sagemaker.types.model_package_model_card.ModelPackageModelCard"
     ]
-    """<p>The model card associated with the model package. Since <code>ModelPackageModelCard</code> is tied to a model package, it is a specific usage of a model card and its schema is simplified compared to the schema of <code>ModelCard</code>. The <code>ModelPackageModelCard</code> schema does not include <code>model_package_details</code>, and <code>model_overview</code> is composed of the <code>model_creator</code> and <code>model_artifact</code> properties. For more information about the model package model card schema, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html#model-card-schema\">Model package model card schema</a>. For more information about the model card associated with the model package, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html\">View the Details of a Model Version</a>.</p>"""
+    r"""<p>The model card associated with the model package. Since <code>ModelPackageModelCard</code> is tied to a model package, it is a specific usage of a model card and its schema is simplified compared to the schema of <code>ModelCard</code>. The <code>ModelPackageModelCard</code> schema does not include <code>model_package_details</code>, and <code>model_overview</code> is composed of the <code>model_creator</code> and <code>model_artifact</code> properties. For more information about the model package model card schema, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html#model-card-schema\">Model package model card schema</a>. For more information about the model card associated with the model package, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html\">View the Details of a Model Version</a>.</p>"""
     model_life_cycle: NotRequired[
         "aws_sdk_sagemaker.types.model_life_cycle.ModelLifeCycle"
     ]

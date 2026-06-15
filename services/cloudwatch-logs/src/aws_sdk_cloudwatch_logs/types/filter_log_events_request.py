@@ -41,7 +41,7 @@ class FilterLogEventsRequest(TypedDict):
     filter_pattern: NotRequired[
         "aws_sdk_cloudwatch_logs.types.filter_pattern.FilterPattern"
     ]
-    """<p>The filter pattern to use. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html\">Filter and Pattern Syntax</a>.</p> <p>If not provided, all the events are matched.</p>"""
+    r"""<p>The filter pattern to use. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html\">Filter and Pattern Syntax</a>.</p> <p>If not provided, all the events are matched.</p>"""
     next_token: NotRequired["aws_sdk_cloudwatch_logs.types.next_token.NextToken"]
     """<p>The token for the next set of events to return. (You received this token from a previous call.)</p>"""
     limit: NotRequired["aws_sdk_cloudwatch_logs.types.events_limit.EventsLimit"]

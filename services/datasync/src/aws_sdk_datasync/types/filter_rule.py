@@ -13,7 +13,7 @@ class FilterRule(TypedDict):
     filter_type: NotRequired["aws_sdk_datasync.types.filter_type.FilterType"]
     """<p>The type of filter rule to apply. DataSync only supports the SIMPLE_PATTERN rule type.</p>"""
     value: NotRequired["aws_sdk_datasync.types.filter_value.FilterValue"]
-    """<p>A single filter string that consists of the patterns to include or exclude. The patterns are delimited by \"|\" (that is, a pipe), for example: <code>/folder1|/folder2</code> </p> <p> </p>"""
+    r"""<p>A single filter string that consists of the patterns to include or exclude. The patterns are delimited by \"|\" (that is, a pipe), for example: <code>/folder1|/folder2</code> </p> <p> </p>"""
 
 
 # --- awsJson1_1 ser/de ---

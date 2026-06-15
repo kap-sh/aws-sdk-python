@@ -88,7 +88,7 @@ class BCMRecommendedActionsClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = BCMRecommendedActionsClientConfig(
+        self._config = BCMRecommendedActionsClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -107,7 +107,7 @@ class BCMRecommendedActionsClient:
         overrides: BCMRecommendedActionsClientConfig = config_overrides or {}
         interceptors_: list[Interceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             retry(),
         ]
@@ -115,13 +115,13 @@ class BCMRecommendedActionsClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
-            region=overrides.get("region", self.config.get("region")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
+            region=overrides.get("region", self._config.get("region")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -163,16 +163,16 @@ class BCMRecommendedActionsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_bcm_recommended_actions.types.list_recommended_actions_request.ListRecommendedActionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bcm_recommended_actions.types.list_recommended_actions_request.ListRecommendedActionsRequest = {}  # type: ignore[typeddict-item]
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -21,14 +21,14 @@ if TYPE_CHECKING:
 
 class UserDetail(TypedDict):
     path: NotRequired["aws_sdk_iam.types.path_type.pathType"]
-    """<p>The path to the user. For more information about paths, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html\">IAM identifiers</a> in the <i>IAM User Guide</i>.</p>"""
+    r"""<p>The path to the user. For more information about paths, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html\">IAM identifiers</a> in the <i>IAM User Guide</i>.</p>"""
     user_name: NotRequired["aws_sdk_iam.types.user_name_type.userNameType"]
     """<p>The friendly name identifying the user.</p>"""
     user_id: NotRequired["aws_sdk_iam.types.id_type.idType"]
-    """<p>The stable and unique string identifying the user. For more information about IDs, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html\">IAM identifiers</a> in the <i>IAM User Guide</i>.</p>"""
+    r"""<p>The stable and unique string identifying the user. For more information about IDs, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html\">IAM identifiers</a> in the <i>IAM User Guide</i>.</p>"""
     arn: NotRequired["aws_sdk_iam.types.arn_type.arnType"]
     create_date: NotRequired["aws_sdk_iam.types.date_type.dateType"]
-    """<p>The date and time, in <a href=\"http://www.iso.org/iso/iso8601\">ISO 8601 date-time format</a>, when the user was created.</p>"""
+    r"""<p>The date and time, in <a href=\"http://www.iso.org/iso/iso8601\">ISO 8601 date-time format</a>, when the user was created.</p>"""
     user_policy_list: NotRequired[
         "aws_sdk_iam.types.policy_detail_list_type.policyDetailListType"
     ]
@@ -42,9 +42,9 @@ class UserDetail(TypedDict):
     permissions_boundary: NotRequired[
         "aws_sdk_iam.types.attached_permissions_boundary.AttachedPermissionsBoundary"
     ]
-    """<p>The ARN of the policy used to set the permissions boundary for the user.</p> <p>For more information about permissions boundaries, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html\">Permissions boundaries for IAM identities </a> in the <i>IAM User Guide</i>.</p>"""
+    r"""<p>The ARN of the policy used to set the permissions boundary for the user.</p> <p>For more information about permissions boundaries, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html\">Permissions boundaries for IAM identities </a> in the <i>IAM User Guide</i>.</p>"""
     tags: NotRequired["aws_sdk_iam.types.tag_list_type.tagListType"]
-    """<p>A list of tags that are associated with the user. For more information about tagging, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html\">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>"""
+    r"""<p>A list of tags that are associated with the user. For more information about tagging, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html\">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>"""
 
 
 # --- awsQuery ser/de ---

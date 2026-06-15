@@ -33,11 +33,11 @@ class Operation(TypedDict):
     sub_type: NotRequired["aws_sdk_lambda.types.operation_sub_type.OperationSubType"]
     """<p>The subtype of the operation, providing additional categorization.</p>"""
     start_timestamp: "aws_sdk_lambda.types.execution_timestamp.ExecutionTimestamp"
-    """<p>The date and time when the operation started, in <a href=\"https://www.w3.org/TR/NOTE-datetime\">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>"""
+    r"""<p>The date and time when the operation started, in <a href=\"https://www.w3.org/TR/NOTE-datetime\">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>"""
     end_timestamp: NotRequired[
         "aws_sdk_lambda.types.execution_timestamp.ExecutionTimestamp"
     ]
-    """<p>The date and time when the operation ended, in <a href=\"https://www.w3.org/TR/NOTE-datetime\">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>"""
+    r"""<p>The date and time when the operation ended, in <a href=\"https://www.w3.org/TR/NOTE-datetime\">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>"""
     status: "aws_sdk_lambda.types.operation_status.OperationStatus"
     """<p>The current status of the operation.</p>"""
     execution_details: NotRequired[

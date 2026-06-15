@@ -34,7 +34,7 @@ class MongoDbDataProviderSettings(TypedDict):
     ]
     """<p>The authentication type for the database connection. Valid values are PASSWORD or NO.</p>"""
     auth_source: NotRequired["aws_sdk_database_migration_service.types.string.String"]
-    """<p> The MongoDB database name. This setting isn't used when <code>AuthType</code> is set to <code>\"no\"</code>. </p> <p>The default is <code>\"admin\"</code>.</p>"""
+    r"""<p> The MongoDB database name. This setting isn't used when <code>AuthType</code> is set to <code>\"no\"</code>. </p> <p>The default is <code>\"admin\"</code>.</p>"""
     auth_mechanism: NotRequired[
         "aws_sdk_database_migration_service.types.auth_mechanism_value.AuthMechanismValue"
     ]

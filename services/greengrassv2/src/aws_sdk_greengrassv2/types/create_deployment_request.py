@@ -19,7 +19,7 @@ if TYPE_CHECKING:
 
 class CreateDeploymentRequest(TypedDict):
     target_arn: "aws_sdk_greengrassv2.types.target_arn.TargetARN"
-    """<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the target IoT thing or thing group. When creating a subdeployment, the targetARN can only be a thing group.</p>"""
+    r"""<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the target IoT thing or thing group. When creating a subdeployment, the targetARN can only be a thing group.</p>"""
     deployment_name: NotRequired[
         "aws_sdk_greengrassv2.types.deployment_name_string.DeploymentNameString"
     ]
@@ -39,9 +39,9 @@ class CreateDeploymentRequest(TypedDict):
     parent_target_arn: NotRequired[
         "aws_sdk_greengrassv2.types.thing_group_arn.ThingGroupARN"
     ]
-    """<p>The parent deployment's target <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> within a subdeployment.</p>"""
+    r"""<p>The parent deployment's target <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> within a subdeployment.</p>"""
     tags: NotRequired["aws_sdk_greengrassv2.types.tag_map.TagMap"]
-    """<p>A list of key-value pairs that contain metadata for the resource. For more information, see <a href=\"https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html\">Tag your resources</a> in the <i>IoT Greengrass V2 Developer Guide</i>.</p>"""
+    r"""<p>A list of key-value pairs that contain metadata for the resource. For more information, see <a href=\"https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html\">Tag your resources</a> in the <i>IoT Greengrass V2 Developer Guide</i>.</p>"""
     client_token: NotRequired[
         "aws_sdk_greengrassv2.types.client_token_string.ClientTokenString"
     ]

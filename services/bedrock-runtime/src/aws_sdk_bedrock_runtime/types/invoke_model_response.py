@@ -15,7 +15,7 @@ if TYPE_CHECKING:
 
 class InvokeModelResponse(TypedDict):
     body: "aws_sdk_bedrock_runtime.types.body.Body"
-    """<p>Inference response from the model in the format specified in the <code>contentType</code> header. To see the format and content of the request and response bodies for different models, refer to <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html\">Inference parameters</a>.</p>"""
+    r"""<p>Inference response from the model in the format specified in the <code>contentType</code> header. To see the format and content of the request and response bodies for different models, refer to <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html\">Inference parameters</a>.</p>"""
     content_type: "aws_sdk_bedrock_runtime.types.mime_type.MimeType"
     """<p>The MIME type of the inference result.</p>"""
     performance_config_latency: NotRequired[

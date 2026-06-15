@@ -171,7 +171,7 @@ class ChimeSDKMediaPipelinesClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = ChimeSDKMediaPipelinesClientConfig(
+        self._config = ChimeSDKMediaPipelinesClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -191,7 +191,7 @@ class ChimeSDKMediaPipelinesClient:
         overrides: ChimeSDKMediaPipelinesClientConfig = config_overrides or {}
         interceptors_: list[Interceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             retry(),
         ]
@@ -199,16 +199,16 @@ class ChimeSDKMediaPipelinesClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            region=overrides.get("region", self.config.get("region")),
+            region=overrides.get("region", self._config.get("region")),
             use_dual_stack=overrides.get(
-                "use_dual_stack", self.config.get("use_dual_stack")
+                "use_dual_stack", self._config.get("use_dual_stack")
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -550,7 +550,7 @@ class ChimeSDKMediaPipelinesClient:
             "aws_sdk_chime_sdk_media_pipelines.types.tag_list.TagList"
         ] = None,
     ) -> "aws_sdk_chime_sdk_media_pipelines.types.create_media_pipeline_kinesis_video_stream_pool_response.CreateMediaPipelineKinesisVideoStreamPoolResponse":
-        """<p>Creates an Amazon Kinesis Video Stream pool for use with media stream pipelines.</p> <note> <p>If a meeting uses an opt-in Region as its <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_CreateMeeting.html#chimesdk-meeting-chime_CreateMeeting-request-MediaRegion\">MediaRegion</a>, the KVS stream must be in that same Region. For example, if a meeting uses the <code>af-south-1</code> Region, the KVS stream must also be in <code>af-south-1</code>. However, if the meeting uses a Region that AWS turns on by default, the KVS stream can be in any available Region, including an opt-in Region. For example, if the meeting uses <code>ca-central-1</code>, the KVS stream can be in <code>eu-west-2</code>, <code>us-east-1</code>, <code>af-south-1</code>, or any other Region that the Amazon Chime SDK supports.</p> <p>To learn which AWS Region a meeting uses, call the <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_GetMeeting.html\">GetMeeting</a> API and use the <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_CreateMeeting.html#chimesdk-meeting-chime_CreateMeeting-request-MediaRegion\">MediaRegion</a> parameter from the response.</p> <p>For more information about opt-in Regions, refer to <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/dg/sdk-available-regions.html\">Available Regions</a> in the <i>Amazon Chime SDK Developer Guide</i>, and <a href=\"https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-regions.html#rande-manage-enable.html\">Specify which AWS Regions your account can use</a>, in the <i>AWS Account Management Reference Guide</i>.</p> </note>
+        r"""<p>Creates an Amazon Kinesis Video Stream pool for use with media stream pipelines.</p> <note> <p>If a meeting uses an opt-in Region as its <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_CreateMeeting.html#chimesdk-meeting-chime_CreateMeeting-request-MediaRegion\">MediaRegion</a>, the KVS stream must be in that same Region. For example, if a meeting uses the <code>af-south-1</code> Region, the KVS stream must also be in <code>af-south-1</code>. However, if the meeting uses a Region that AWS turns on by default, the KVS stream can be in any available Region, including an opt-in Region. For example, if the meeting uses <code>ca-central-1</code>, the KVS stream can be in <code>eu-west-2</code>, <code>us-east-1</code>, <code>af-south-1</code>, or any other Region that the Amazon Chime SDK supports.</p> <p>To learn which AWS Region a meeting uses, call the <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_GetMeeting.html\">GetMeeting</a> API and use the <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_CreateMeeting.html#chimesdk-meeting-chime_CreateMeeting-request-MediaRegion\">MediaRegion</a> parameter from the response.</p> <p>For more information about opt-in Regions, refer to <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/dg/sdk-available-regions.html\">Available Regions</a> in the <i>Amazon Chime SDK Developer Guide</i>, and <a href=\"https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-regions.html#rande-manage-enable.html\">Specify which AWS Regions your account can use</a>, in the <i>AWS Account Management Reference Guide</i>.</p> </note>
 
         Args:
             stream_configuration: <p>The configuration settings for the stream.</p>
@@ -1243,7 +1243,7 @@ class ChimeSDKMediaPipelinesClient:
             "aws_sdk_chime_sdk_media_pipelines.types.client_request_token.ClientRequestToken"
         ] = None,
     ) -> "aws_sdk_chime_sdk_media_pipelines.types.start_speaker_search_task_response.StartSpeakerSearchTaskResponse":
-        """<p>Starts a speaker search task.</p> <important> <p>Before starting any speaker search tasks, you must provide all notices and obtain all consents from the speaker as required under applicable privacy and biometrics laws, and as required under the <a href=\"https://aws.amazon.com/service-terms/\">AWS service terms</a> for the Amazon Chime SDK.</p> </important>
+        r"""<p>Starts a speaker search task.</p> <important> <p>Before starting any speaker search tasks, you must provide all notices and obtain all consents from the speaker as required under applicable privacy and biometrics laws, and as required under the <a href=\"https://aws.amazon.com/service-terms/\">AWS service terms</a> for the Amazon Chime SDK.</p> </important>
 
         Args:
             identifier: <p>The unique identifier of the resource to be updated. Valid values include the ID and ARN of the media insights pipeline.</p>
@@ -1297,7 +1297,7 @@ class ChimeSDKMediaPipelinesClient:
             "aws_sdk_chime_sdk_media_pipelines.types.client_request_token.ClientRequestToken"
         ] = None,
     ) -> "aws_sdk_chime_sdk_media_pipelines.types.start_voice_tone_analysis_task_response.StartVoiceToneAnalysisTaskResponse":
-        """<p>Starts a voice tone analysis task. For more information about voice tone analysis, see <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/dg/voice-analytics.html\">Using Amazon Chime SDK voice analytics</a> in the <i>Amazon Chime SDK Developer Guide</i>.</p> <important> <p>Before starting any voice tone analysis tasks, you must provide all notices and obtain all consents from the speaker as required under applicable privacy and biometrics laws, and as required under the <a href=\"https://aws.amazon.com/service-terms/\">AWS service terms</a> for the Amazon Chime SDK.</p> </important>
+        r"""<p>Starts a voice tone analysis task. For more information about voice tone analysis, see <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/dg/voice-analytics.html\">Using Amazon Chime SDK voice analytics</a> in the <i>Amazon Chime SDK Developer Guide</i>.</p> <important> <p>Before starting any voice tone analysis tasks, you must provide all notices and obtain all consents from the speaker as required under applicable privacy and biometrics laws, and as required under the <a href=\"https://aws.amazon.com/service-terms/\">AWS service terms</a> for the Amazon Chime SDK.</p> </important>
 
         Args:
             identifier: <p>The unique identifier of the resource to be updated. Valid values include the ID and ARN of the media insights pipeline.</p>

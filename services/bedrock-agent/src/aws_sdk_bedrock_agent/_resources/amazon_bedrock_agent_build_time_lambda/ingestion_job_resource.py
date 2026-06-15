@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_bedrock_agent._auth._signers
@@ -162,7 +164,7 @@ class IngestionJobResource:
             "aws_sdk_bedrock_agent.types.description.Description"
         ] = None,
     ) -> "aws_sdk_bedrock_agent.types.start_ingestion_job_response.StartIngestionJobResponse":
-        """<p>Begins a data ingestion job. Data sources are ingested into your knowledge base so that Large Language Models (LLMs) can use your data.</p>
+        r"""<p>Begins a data ingestion job. Data sources are ingested into your knowledge base so that Large Language Models (LLMs) can use your data.</p>
 
         Args:
             knowledge_base_id: <p>The unique identifier of the knowledge base for the data ingestion job.</p>
@@ -371,7 +373,7 @@ class AsyncIngestionJobResource:
             "aws_sdk_bedrock_agent.types.description.Description"
         ] = None,
     ) -> "aws_sdk_bedrock_agent.types.start_ingestion_job_response.StartIngestionJobResponse":
-        """<p>Begins a data ingestion job. Data sources are ingested into your knowledge base so that Large Language Models (LLMs) can use your data.</p>
+        r"""<p>Begins a data ingestion job. Data sources are ingested into your knowledge base so that Large Language Models (LLMs) can use your data.</p>
 
         Args:
             knowledge_base_id: <p>The unique identifier of the knowledge base for the data ingestion job.</p>

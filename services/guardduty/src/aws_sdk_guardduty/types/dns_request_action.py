@@ -18,7 +18,7 @@ class DnsRequestAction(TypedDict):
     blocked: NotRequired["aws_sdk_guardduty.types.boolean.Boolean"]
     """<p>Indicates whether the targeted port is blocked.</p>"""
     domain_with_suffix: NotRequired["aws_sdk_guardduty.types.string.String"]
-    """<p>The second and top level domain involved in the activity that potentially prompted GuardDuty to generate this finding. For a list of top-level and second-level domains, see <a href=\"https://publicsuffix.org/\">public suffix list</a>.</p>"""
+    r"""<p>The second and top level domain involved in the activity that potentially prompted GuardDuty to generate this finding. For a list of top-level and second-level domains, see <a href=\"https://publicsuffix.org/\">public suffix list</a>.</p>"""
     vpc_owner_account_id: NotRequired["aws_sdk_guardduty.types.account_id.AccountId"]
     """<p>The Amazon Web Services account ID that owns the VPC through which the DNS request was made.</p>"""
 

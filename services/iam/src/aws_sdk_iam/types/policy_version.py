@@ -15,7 +15,7 @@ if TYPE_CHECKING:
 
 class PolicyVersion(TypedDict):
     document: NotRequired["aws_sdk_iam.types.policy_document_type.policyDocumentType"]
-    """<p>The policy document.</p> <p>The policy document is returned in the response to the <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetPolicyVersion.html\">GetPolicyVersion</a> and <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetAccountAuthorizationDetails.html\">GetAccountAuthorizationDetails</a> operations. It is not returned in the response to the <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreatePolicyVersion.html\">CreatePolicyVersion</a> or <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListPolicyVersions.html\">ListPolicyVersions</a> operations. </p> <p>The policy document returned in this structure is URL-encoded compliant with <a href=\"https://tools.ietf.org/html/rfc3986\">RFC 3986</a>. You can use a URL decoding method to convert the policy back to plain JSON text. For example, if you use Java, you can use the <code>decode</code> method of the <code>java.net.URLDecoder</code> utility class in the Java SDK. Other languages and SDKs provide similar functionality.</p>"""
+    r"""<p>The policy document.</p> <p>The policy document is returned in the response to the <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetPolicyVersion.html\">GetPolicyVersion</a> and <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetAccountAuthorizationDetails.html\">GetAccountAuthorizationDetails</a> operations. It is not returned in the response to the <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreatePolicyVersion.html\">CreatePolicyVersion</a> or <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListPolicyVersions.html\">ListPolicyVersions</a> operations. </p> <p>The policy document returned in this structure is URL-encoded compliant with <a href=\"https://tools.ietf.org/html/rfc3986\">RFC 3986</a>. You can use a URL decoding method to convert the policy back to plain JSON text. For example, if you use Java, you can use the <code>decode</code> method of the <code>java.net.URLDecoder</code> utility class in the Java SDK. Other languages and SDKs provide similar functionality.</p>"""
     version_id: NotRequired[
         "aws_sdk_iam.types.policy_version_id_type.policyVersionIdType"
     ]
@@ -23,7 +23,7 @@ class PolicyVersion(TypedDict):
     is_default_version: "aws_sdk_iam.types.boolean_type.booleanType"
     """<p>Specifies whether the policy version is set as the policy's default version.</p>"""
     create_date: NotRequired["aws_sdk_iam.types.date_type.dateType"]
-    """<p>The date and time, in <a href=\"http://www.iso.org/iso/iso8601\">ISO 8601 date-time format</a>, when the policy version was created.</p>"""
+    r"""<p>The date and time, in <a href=\"http://www.iso.org/iso/iso8601\">ISO 8601 date-time format</a>, when the policy version was created.</p>"""
 
 
 # --- awsQuery ser/de ---

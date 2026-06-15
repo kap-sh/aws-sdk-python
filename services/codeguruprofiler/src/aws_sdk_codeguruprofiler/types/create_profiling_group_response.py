@@ -10,7 +10,7 @@ if TYPE_CHECKING:
 
 class CreateProfilingGroupResponse(TypedDict):
     profiling_group: "aws_sdk_codeguruprofiler.types.profiling_group_description.ProfilingGroupDescription"
-    """<p> The returned <a href=\"https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ProfilingGroupDescription.html\"> <code>ProfilingGroupDescription</code> </a> object that contains information about the created profiling group. </p>"""
+    r"""<p> The returned <a href=\"https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ProfilingGroupDescription.html\"> <code>ProfilingGroupDescription</code> </a> object that contains information about the created profiling group. </p>"""
 
 
 # --- restJson1 ser/de ---

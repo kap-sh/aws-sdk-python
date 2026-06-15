@@ -26,7 +26,7 @@ class EcsTaskOverride(TypedDict):
     execution_role_arn: NotRequired[
         "aws_sdk_pipes.types.arn_or_json_path.ArnOrJsonPath"
     ]
-    """<p>The Amazon Resource Name (ARN) of the task execution IAM role override for the task. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_execution_IAM_role.html\">Amazon ECS task execution IAM role</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>"""
+    r"""<p>The Amazon Resource Name (ARN) of the task execution IAM role override for the task. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_execution_IAM_role.html\">Amazon ECS task execution IAM role</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>"""
     inference_accelerator_overrides: NotRequired[
         "aws_sdk_pipes.types.ecs_inference_accelerator_override_list.EcsInferenceAcceleratorOverrideList"
     ]
@@ -34,7 +34,7 @@ class EcsTaskOverride(TypedDict):
     memory: NotRequired["aws_sdk_pipes.types.string.String"]
     """<p>The memory override for the task.</p>"""
     task_role_arn: NotRequired["aws_sdk_pipes.types.arn_or_json_path.ArnOrJsonPath"]
-    """<p>The Amazon Resource Name (ARN) of the IAM role that containers in this task can assume. All containers in this task are granted the permissions that are specified in this role. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html\">IAM Role for Tasks</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>"""
+    r"""<p>The Amazon Resource Name (ARN) of the IAM role that containers in this task can assume. All containers in this task are granted the permissions that are specified in this role. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html\">IAM Role for Tasks</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>"""
 
 
 # --- restJson1 ser/de ---

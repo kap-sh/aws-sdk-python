@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_artifact._auth._signers
@@ -79,13 +81,13 @@ class ReportResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_artifact.types.get_report_metadata_request.GetReportMetadataRequest = {}  # type: ignore[typeddict-item]
-        input["report_id"] = report_id
+        input_: aws_sdk_artifact.types.get_report_metadata_request.GetReportMetadataRequest = {}  # type: ignore[typeddict-item]
+        input_["report_id"] = report_id
         if report_version is not None:
-            input["report_version"] = report_version
+            input_["report_version"] = report_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -130,14 +132,14 @@ class ReportResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_artifact.types.list_reports_request.ListReportsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_artifact.types.list_reports_request.ListReportsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -185,14 +187,14 @@ class ReportResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_artifact.types.get_report_request.GetReportRequest = {}  # type: ignore[typeddict-item]
-        input["report_id"] = report_id
+        input_: aws_sdk_artifact.types.get_report_request.GetReportRequest = {}  # type: ignore[typeddict-item]
+        input_["report_id"] = report_id
         if report_version is not None:
-            input["report_version"] = report_version
-        input["term_token"] = term_token
+            input_["report_version"] = report_version
+        input_["term_token"] = term_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -236,13 +238,13 @@ class ReportResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_artifact.types.get_term_for_report_request.GetTermForReportRequest = {}  # type: ignore[typeddict-item]
-        input["report_id"] = report_id
+        input_: aws_sdk_artifact.types.get_term_for_report_request.GetTermForReportRequest = {}  # type: ignore[typeddict-item]
+        input_["report_id"] = report_id
         if report_version is not None:
-            input["report_version"] = report_version
+            input_["report_version"] = report_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -290,15 +292,15 @@ class ReportResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_artifact.types.list_report_versions_request.ListReportVersionsRequest = {}  # type: ignore[typeddict-item]
-        input["report_id"] = report_id
+        input_: aws_sdk_artifact.types.list_report_versions_request.ListReportVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_["report_id"] = report_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -350,13 +352,13 @@ class AsyncReportResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_artifact.types.get_report_metadata_request.GetReportMetadataRequest = {}  # type: ignore[typeddict-item]
-        input["report_id"] = report_id
+        input_: aws_sdk_artifact.types.get_report_metadata_request.GetReportMetadataRequest = {}  # type: ignore[typeddict-item]
+        input_["report_id"] = report_id
         if report_version is not None:
-            input["report_version"] = report_version
+            input_["report_version"] = report_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -402,14 +404,14 @@ class AsyncReportResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_artifact.types.list_reports_request.ListReportsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_artifact.types.list_reports_request.ListReportsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -458,14 +460,14 @@ class AsyncReportResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_artifact.types.get_report_request.GetReportRequest = {}  # type: ignore[typeddict-item]
-        input["report_id"] = report_id
+        input_: aws_sdk_artifact.types.get_report_request.GetReportRequest = {}  # type: ignore[typeddict-item]
+        input_["report_id"] = report_id
         if report_version is not None:
-            input["report_version"] = report_version
-        input["term_token"] = term_token
+            input_["report_version"] = report_version
+        input_["term_token"] = term_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -510,13 +512,13 @@ class AsyncReportResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_artifact.types.get_term_for_report_request.GetTermForReportRequest = {}  # type: ignore[typeddict-item]
-        input["report_id"] = report_id
+        input_: aws_sdk_artifact.types.get_term_for_report_request.GetTermForReportRequest = {}  # type: ignore[typeddict-item]
+        input_["report_id"] = report_id
         if report_version is not None:
-            input["report_version"] = report_version
+            input_["report_version"] = report_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -565,15 +567,15 @@ class AsyncReportResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_artifact.types.list_report_versions_request.ListReportVersionsRequest = {}  # type: ignore[typeddict-item]
-        input["report_id"] = report_id
+        input_: aws_sdk_artifact.types.list_report_versions_request.ListReportVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_["report_id"] = report_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

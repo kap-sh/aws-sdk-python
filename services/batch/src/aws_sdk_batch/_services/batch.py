@@ -238,7 +238,7 @@ class BatchClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = BatchClientConfig(
+        self._config = BatchClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -258,7 +258,7 @@ class BatchClient:
         overrides: BatchClientConfig = config_overrides or {}
         interceptors_: list[Interceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             retry(),
         ]
@@ -266,16 +266,16 @@ class BatchClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            region=overrides.get("region", self.config.get("region")),
+            region=overrides.get("region", self._config.get("region")),
             use_dual_stack=overrides.get(
-                "use_dual_stack", self.config.get("use_dual_stack")
+                "use_dual_stack", self._config.get("use_dual_stack")
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -315,12 +315,12 @@ class BatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_batch.types.cancel_job_request.CancelJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
-        input["reason"] = reason
+        input_: aws_sdk_batch.types.cancel_job_request.CancelJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
+        input_["reason"] = reason
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -344,7 +344,7 @@ class BatchClient:
         ] = None,
         context: Optional["aws_sdk_batch.types.string.String"] = None,
     ) -> "aws_sdk_batch.types.create_compute_environment_response.CreateComputeEnvironmentResponse":
-        """<p>Creates an Batch compute environment. You can create <code>MANAGED</code> or <code>UNMANAGED</code> compute environments. <code>MANAGED</code> compute environments can use Amazon EC2 or Fargate resources. <code>UNMANAGED</code> compute environments can only use EC2 resources.</p> <p>In a managed compute environment, Batch manages the capacity and instance types of the compute resources within the environment. This is based on the compute resource specification that you define or the <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html\">launch template</a> that you specify when you create the compute environment. Either, you can choose to use EC2 On-Demand Instances and EC2 Spot Instances. Or, you can use Fargate and Fargate Spot capacity in your managed compute environment. You can optionally set a maximum price so that Spot Instances only launch when the Spot Instance price is less than a specified percentage of the On-Demand price.</p> <p>In an unmanaged compute environment, you can manage your own EC2 compute resources and have flexibility with how you configure your compute resources. For example, you can use custom AMIs. However, you must verify that each of your AMIs meet the Amazon ECS container instance AMI specification. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container_instance_AMIs.html\">container instance AMIs</a> in the <i>Amazon Elastic Container Service Developer Guide</i>. After you created your unmanaged compute environment, you can use the <a>DescribeComputeEnvironments</a> operation to find the Amazon ECS cluster that's associated with it. Then, launch your container instances into that Amazon ECS cluster. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_container_instance.html\">Launching an Amazon ECS container instance</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p> <note> <p>Batch doesn't automatically upgrade the AMIs in a compute environment after it's created. For more information on how to update a compute environment's AMI, see <a href=\"https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html\">Updating compute environments</a> in the <i>Batch User Guide</i>.</p> </note>
+        r"""<p>Creates an Batch compute environment. You can create <code>MANAGED</code> or <code>UNMANAGED</code> compute environments. <code>MANAGED</code> compute environments can use Amazon EC2 or Fargate resources. <code>UNMANAGED</code> compute environments can only use EC2 resources.</p> <p>In a managed compute environment, Batch manages the capacity and instance types of the compute resources within the environment. This is based on the compute resource specification that you define or the <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html\">launch template</a> that you specify when you create the compute environment. Either, you can choose to use EC2 On-Demand Instances and EC2 Spot Instances. Or, you can use Fargate and Fargate Spot capacity in your managed compute environment. You can optionally set a maximum price so that Spot Instances only launch when the Spot Instance price is less than a specified percentage of the On-Demand price.</p> <p>In an unmanaged compute environment, you can manage your own EC2 compute resources and have flexibility with how you configure your compute resources. For example, you can use custom AMIs. However, you must verify that each of your AMIs meet the Amazon ECS container instance AMI specification. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container_instance_AMIs.html\">container instance AMIs</a> in the <i>Amazon Elastic Container Service Developer Guide</i>. After you created your unmanaged compute environment, you can use the <a>DescribeComputeEnvironments</a> operation to find the Amazon ECS cluster that's associated with it. Then, launch your container instances into that Amazon ECS cluster. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_container_instance.html\">Launching an Amazon ECS container instance</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p> <note> <p>Batch doesn't automatically upgrade the AMIs in a compute environment after it's created. For more information on how to update a compute environment's AMI, see <a href=\"https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html\">Updating compute environments</a> in the <i>Batch User Guide</i>.</p> </note>
 
         Args:
             compute_environment_name: <p>The name for your compute environment. It can be up to 128 characters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).</p>
@@ -383,26 +383,26 @@ class BatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_batch.types.create_compute_environment_request.CreateComputeEnvironmentRequest = {}  # type: ignore[typeddict-item]
-        input["compute_environment_name"] = compute_environment_name
-        input["type"] = type
+        input_: aws_sdk_batch.types.create_compute_environment_request.CreateComputeEnvironmentRequest = {}  # type: ignore[typeddict-item]
+        input_["compute_environment_name"] = compute_environment_name
+        input_["type"] = type
         if state is not None:
-            input["state"] = state
+            input_["state"] = state
         if unmanagedv_cpus is not None:
-            input["unmanagedv_cpus"] = unmanagedv_cpus
+            input_["unmanagedv_cpus"] = unmanagedv_cpus
         if compute_resources is not None:
-            input["compute_resources"] = compute_resources
+            input_["compute_resources"] = compute_resources
         if service_role is not None:
-            input["service_role"] = service_role
+            input_["service_role"] = service_role
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if eks_configuration is not None:
-            input["eks_configuration"] = eks_configuration
+            input_["eks_configuration"] = eks_configuration
         if context is not None:
-            input["context"] = context
+            input_["context"] = context
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -417,7 +417,7 @@ class BatchClient:
         resource_type: Optional["aws_sdk_batch.types.string.String"] = None,
         tags: Optional["aws_sdk_batch.types.tagris_tags_map.TagrisTagsMap"] = None,
     ) -> "aws_sdk_batch.types.create_consumable_resource_response.CreateConsumableResourceResponse":
-        """<p>Creates an Batch consumable resource.</p>
+        r"""<p>Creates an Batch consumable resource.</p>
 
         Args:
             consumable_resource_name: <p>The name of the consumable resource. Must be unique.</p>
@@ -447,17 +447,17 @@ class BatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_batch.types.create_consumable_resource_request.CreateConsumableResourceRequest = {}  # type: ignore[typeddict-item]
-        input["consumable_resource_name"] = consumable_resource_name
+        input_: aws_sdk_batch.types.create_consumable_resource_request.CreateConsumableResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["consumable_resource_name"] = consumable_resource_name
         if total_quantity is not None:
-            input["total_quantity"] = total_quantity
+            input_["total_quantity"] = total_quantity
         if resource_type is not None:
-            input["resource_type"] = resource_type
+            input_["resource_type"] = resource_type
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -485,7 +485,7 @@ class BatchClient:
             "aws_sdk_batch.types.job_state_time_limit_actions.JobStateTimeLimitActions"
         ] = None,
     ) -> "aws_sdk_batch.types.create_job_queue_response.CreateJobQueueResponse":
-        """<p>Creates an Batch job queue. When you create a job queue, you associate one or more compute environments to the queue and assign an order of preference for the compute environments.</p> <p>You also set a priority to the job queue that determines the order that the Batch scheduler places jobs onto its associated compute environments. For example, if a compute environment is associated with more than one job queue, the job queue with a higher priority is given preference for scheduling jobs to that compute environment.</p>
+        r"""<p>Creates an Batch job queue. When you create a job queue, you associate one or more compute environments to the queue and assign an order of preference for the compute environments.</p> <p>You also set a priority to the job queue that determines the order that the Batch scheduler places jobs onto its associated compute environments. For example, if a compute environment is associated with more than one job queue, the job queue with a higher priority is given preference for scheduling jobs to that compute environment.</p>
 
         Args:
             job_queue_name: <p>The name of the job queue. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).</p>
@@ -524,26 +524,26 @@ class BatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_batch.types.create_job_queue_request.CreateJobQueueRequest = {}  # type: ignore[typeddict-item]
-        input["job_queue_name"] = job_queue_name
+        input_: aws_sdk_batch.types.create_job_queue_request.CreateJobQueueRequest = {}  # type: ignore[typeddict-item]
+        input_["job_queue_name"] = job_queue_name
         if state is not None:
-            input["state"] = state
+            input_["state"] = state
         if scheduling_policy_arn is not None:
-            input["scheduling_policy_arn"] = scheduling_policy_arn
-        input["priority"] = priority
+            input_["scheduling_policy_arn"] = scheduling_policy_arn
+        input_["priority"] = priority
         if compute_environment_order is not None:
-            input["compute_environment_order"] = compute_environment_order
+            input_["compute_environment_order"] = compute_environment_order
         if service_environment_order is not None:
-            input["service_environment_order"] = service_environment_order
+            input_["service_environment_order"] = service_environment_order
         if job_queue_type is not None:
-            input["job_queue_type"] = job_queue_type
+            input_["job_queue_type"] = job_queue_type
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if job_state_time_limit_actions is not None:
-            input["job_state_time_limit_actions"] = job_state_time_limit_actions
+            input_["job_state_time_limit_actions"] = job_state_time_limit_actions
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -561,7 +561,7 @@ class BatchClient:
         state: Optional["aws_sdk_batch.types.quota_share_state.QuotaShareState"] = None,
         tags: Optional["aws_sdk_batch.types.tagris_tags_map.TagrisTagsMap"] = None,
     ) -> "aws_sdk_batch.types.create_quota_share_response.CreateQuotaShareResponse":
-        """<p>Creates an Batch quota share. Each quota share operates as a virtual queue with a configured compute capacity, resource sharing strategy, and borrow limits. </p>
+        r"""<p>Creates an Batch quota share. Each quota share operates as a virtual queue with a configured compute capacity, resource sharing strategy, and borrow limits. </p>
 
         Args:
             quota_share_name: <p>The name of the quota share. It can be up to 128 characters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).</p>
@@ -588,19 +588,19 @@ class BatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_batch.types.create_quota_share_request.CreateQuotaShareRequest = {}  # type: ignore[typeddict-item]
-        input["quota_share_name"] = quota_share_name
-        input["job_queue"] = job_queue
-        input["capacity_limits"] = capacity_limits
-        input["resource_sharing_configuration"] = resource_sharing_configuration
-        input["preemption_configuration"] = preemption_configuration
+        input_: aws_sdk_batch.types.create_quota_share_request.CreateQuotaShareRequest = {}  # type: ignore[typeddict-item]
+        input_["quota_share_name"] = quota_share_name
+        input_["job_queue"] = job_queue
+        input_["capacity_limits"] = capacity_limits
+        input_["resource_sharing_configuration"] = resource_sharing_configuration
+        input_["preemption_configuration"] = preemption_configuration
         if state is not None:
-            input["state"] = state
+            input_["state"] = state
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -619,7 +619,7 @@ class BatchClient:
         ] = None,
         tags: Optional["aws_sdk_batch.types.tagris_tags_map.TagrisTagsMap"] = None,
     ) -> "aws_sdk_batch.types.create_scheduling_policy_response.CreateSchedulingPolicyResponse":
-        """<p>Creates an Batch scheduling policy.</p>
+        r"""<p>Creates an Batch scheduling policy.</p>
 
         Args:
             name: <p>The name of the fair-share scheduling policy. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).</p>
@@ -643,17 +643,17 @@ class BatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_batch.types.create_scheduling_policy_request.CreateSchedulingPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_batch.types.create_scheduling_policy_request.CreateSchedulingPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if quota_share_policy is not None:
-            input["quota_share_policy"] = quota_share_policy
+            input_["quota_share_policy"] = quota_share_policy
         if fairshare_policy is not None:
-            input["fairshare_policy"] = fairshare_policy
+            input_["fairshare_policy"] = fairshare_policy
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -671,7 +671,7 @@ class BatchClient:
         ] = None,
         tags: Optional["aws_sdk_batch.types.tagris_tags_map.TagrisTagsMap"] = None,
     ) -> "aws_sdk_batch.types.create_service_environment_response.CreateServiceEnvironmentResponse":
-        """<p>Creates a service environment for running service jobs. Service environments define capacity limits for specific service types such as SageMaker Training jobs.</p>
+        r"""<p>Creates a service environment for running service jobs. Service environments define capacity limits for specific service types such as SageMaker Training jobs.</p>
 
         Args:
             service_environment_name: <p>The name for the service environment. It can be up to 128 characters long and can contain letters, numbers, hyphens (-), and underscores (_).</p>
@@ -696,17 +696,17 @@ class BatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_batch.types.create_service_environment_request.CreateServiceEnvironmentRequest = {}  # type: ignore[typeddict-item]
-        input["service_environment_name"] = service_environment_name
-        input["service_environment_type"] = service_environment_type
+        input_: aws_sdk_batch.types.create_service_environment_request.CreateServiceEnvironmentRequest = {}  # type: ignore[typeddict-item]
+        input_["service_environment_name"] = service_environment_name
+        input_["service_environment_type"] = service_environment_type
         if state is not None:
-            input["state"] = state
-        input["capacity_limits"] = capacity_limits
+            input_["state"] = state
+        input_["capacity_limits"] = capacity_limits
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -745,11 +745,11 @@ class BatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_batch.types.delete_compute_environment_request.DeleteComputeEnvironmentRequest = {}  # type: ignore[typeddict-item]
-        input["compute_environment"] = compute_environment
+        input_: aws_sdk_batch.types.delete_compute_environment_request.DeleteComputeEnvironmentRequest = {}  # type: ignore[typeddict-item]
+        input_["compute_environment"] = compute_environment
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -788,11 +788,11 @@ class BatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_batch.types.delete_consumable_resource_request.DeleteConsumableResourceRequest = {}  # type: ignore[typeddict-item]
-        input["consumable_resource"] = consumable_resource
+        input_: aws_sdk_batch.types.delete_consumable_resource_request.DeleteConsumableResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["consumable_resource"] = consumable_resource
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -831,11 +831,11 @@ class BatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_batch.types.delete_job_queue_request.DeleteJobQueueRequest = {}  # type: ignore[typeddict-item]
-        input["job_queue"] = job_queue
+        input_: aws_sdk_batch.types.delete_job_queue_request.DeleteJobQueueRequest = {}  # type: ignore[typeddict-item]
+        input_["job_queue"] = job_queue
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -868,11 +868,11 @@ class BatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_batch.types.delete_quota_share_request.DeleteQuotaShareRequest = {}  # type: ignore[typeddict-item]
-        input["quota_share_arn"] = quota_share_arn
+        input_: aws_sdk_batch.types.delete_quota_share_request.DeleteQuotaShareRequest = {}  # type: ignore[typeddict-item]
+        input_["quota_share_arn"] = quota_share_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -905,11 +905,11 @@ class BatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_batch.types.delete_scheduling_policy_request.DeleteSchedulingPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_batch.types.delete_scheduling_policy_request.DeleteSchedulingPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -942,11 +942,11 @@ class BatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_batch.types.delete_service_environment_request.DeleteServiceEnvironmentRequest = {}  # type: ignore[typeddict-item]
-        input["service_environment"] = service_environment
+        input_: aws_sdk_batch.types.delete_service_environment_request.DeleteServiceEnvironmentRequest = {}  # type: ignore[typeddict-item]
+        input_["service_environment"] = service_environment
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -985,11 +985,11 @@ class BatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_batch.types.deregister_job_definition_request.DeregisterJobDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["job_definition"] = job_definition
+        input_: aws_sdk_batch.types.deregister_job_definition_request.DeregisterJobDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["job_definition"] = job_definition
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1034,16 +1034,16 @@ class BatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_batch.types.describe_compute_environments_request.DescribeComputeEnvironmentsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_batch.types.describe_compute_environments_request.DescribeComputeEnvironmentsRequest = {}  # type: ignore[typeddict-item]
         if compute_environments is not None:
-            input["compute_environments"] = compute_environments
+            input_["compute_environments"] = compute_environments
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1107,11 +1107,11 @@ class BatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_batch.types.describe_consumable_resource_request.DescribeConsumableResourceRequest = {}  # type: ignore[typeddict-item]
-        input["consumable_resource"] = consumable_resource
+        input_: aws_sdk_batch.types.describe_consumable_resource_request.DescribeConsumableResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["consumable_resource"] = consumable_resource
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1158,20 +1158,20 @@ class BatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_batch.types.describe_job_definitions_request.DescribeJobDefinitionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_batch.types.describe_job_definitions_request.DescribeJobDefinitionsRequest = {}  # type: ignore[typeddict-item]
         if job_definitions is not None:
-            input["job_definitions"] = job_definitions
+            input_["job_definitions"] = job_definitions
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if job_definition_name is not None:
-            input["job_definition_name"] = job_definition_name
+            input_["job_definition_name"] = job_definition_name
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1241,16 +1241,16 @@ class BatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_batch.types.describe_job_queues_request.DescribeJobQueuesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_batch.types.describe_job_queues_request.DescribeJobQueuesRequest = {}  # type: ignore[typeddict-item]
         if job_queues is not None:
-            input["job_queues"] = job_queues
+            input_["job_queues"] = job_queues
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1312,11 +1312,11 @@ class BatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_batch.types.describe_jobs_request.DescribeJobsRequest = {}  # type: ignore[typeddict-item]
-        input["jobs"] = jobs
+        input_: aws_sdk_batch.types.describe_jobs_request.DescribeJobsRequest = {}  # type: ignore[typeddict-item]
+        input_["jobs"] = jobs
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1349,11 +1349,11 @@ class BatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_batch.types.describe_quota_share_request.DescribeQuotaShareRequest = {}  # type: ignore[typeddict-item]
-        input["quota_share_arn"] = quota_share_arn
+        input_: aws_sdk_batch.types.describe_quota_share_request.DescribeQuotaShareRequest = {}  # type: ignore[typeddict-item]
+        input_["quota_share_arn"] = quota_share_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1386,11 +1386,11 @@ class BatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_batch.types.describe_scheduling_policies_request.DescribeSchedulingPoliciesRequest = {}  # type: ignore[typeddict-item]
-        input["arns"] = arns
+        input_: aws_sdk_batch.types.describe_scheduling_policies_request.DescribeSchedulingPoliciesRequest = {}  # type: ignore[typeddict-item]
+        input_["arns"] = arns
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1429,16 +1429,16 @@ class BatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_batch.types.describe_service_environments_request.DescribeServiceEnvironmentsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_batch.types.describe_service_environments_request.DescribeServiceEnvironmentsRequest = {}  # type: ignore[typeddict-item]
         if service_environments is not None:
-            input["service_environments"] = service_environments
+            input_["service_environments"] = service_environments
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1496,11 +1496,11 @@ class BatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_batch.types.describe_service_job_request.DescribeServiceJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_batch.types.describe_service_job_request.DescribeServiceJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1533,11 +1533,11 @@ class BatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_batch.types.get_job_queue_snapshot_request.GetJobQueueSnapshotRequest = {}  # type: ignore[typeddict-item]
-        input["job_queue"] = job_queue
+        input_: aws_sdk_batch.types.get_job_queue_snapshot_request.GetJobQueueSnapshotRequest = {}  # type: ignore[typeddict-item]
+        input_["job_queue"] = job_queue
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1582,16 +1582,16 @@ class BatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_batch.types.list_consumable_resources_request.ListConsumableResourcesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_batch.types.list_consumable_resources_request.ListConsumableResourcesRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1673,24 +1673,24 @@ class BatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_batch.types.list_jobs_request.ListJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_batch.types.list_jobs_request.ListJobsRequest = {}  # type: ignore[typeddict-item]
         if job_queue is not None:
-            input["job_queue"] = job_queue
+            input_["job_queue"] = job_queue
         if array_job_id is not None:
-            input["array_job_id"] = array_job_id
+            input_["array_job_id"] = array_job_id
         if multi_node_job_id is not None:
-            input["multi_node_job_id"] = multi_node_job_id
+            input_["multi_node_job_id"] = multi_node_job_id
         if job_status is not None:
-            input["job_status"] = job_status
+            input_["job_status"] = job_status
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1770,17 +1770,17 @@ class BatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_batch.types.list_jobs_by_consumable_resource_request.ListJobsByConsumableResourceRequest = {}  # type: ignore[typeddict-item]
-        input["consumable_resource"] = consumable_resource
+        input_: aws_sdk_batch.types.list_jobs_by_consumable_resource_request.ListJobsByConsumableResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["consumable_resource"] = consumable_resource
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1844,15 +1844,15 @@ class BatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_batch.types.list_quota_shares_request.ListQuotaSharesRequest = {}  # type: ignore[typeddict-item]
-        input["job_queue"] = job_queue
+        input_: aws_sdk_batch.types.list_quota_shares_request.ListQuotaSharesRequest = {}  # type: ignore[typeddict-item]
+        input_["job_queue"] = job_queue
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1910,14 +1910,14 @@ class BatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_batch.types.list_scheduling_policies_request.ListSchedulingPoliciesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_batch.types.list_scheduling_policies_request.ListSchedulingPoliciesRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1983,20 +1983,20 @@ class BatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_batch.types.list_service_jobs_request.ListServiceJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_batch.types.list_service_jobs_request.ListServiceJobsRequest = {}  # type: ignore[typeddict-item]
         if job_queue is not None:
-            input["job_queue"] = job_queue
+            input_["job_queue"] = job_queue
         if job_status is not None:
-            input["job_status"] = job_status
+            input_["job_status"] = job_status
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2066,11 +2066,11 @@ class BatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_batch.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_batch.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2109,7 +2109,7 @@ class BatchClient:
             "aws_sdk_batch.types.consumable_resource_properties.ConsumableResourceProperties"
         ] = None,
     ) -> "aws_sdk_batch.types.register_job_definition_response.RegisterJobDefinitionResponse":
-        """<p>Registers an Batch job definition.</p>
+        r"""<p>Registers an Batch job definition.</p>
 
         Args:
             job_definition_name: <p>The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).</p>
@@ -2153,36 +2153,36 @@ class BatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_batch.types.register_job_definition_request.RegisterJobDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["job_definition_name"] = job_definition_name
-        input["type"] = type
+        input_: aws_sdk_batch.types.register_job_definition_request.RegisterJobDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["job_definition_name"] = job_definition_name
+        input_["type"] = type
         if parameters is not None:
-            input["parameters"] = parameters
+            input_["parameters"] = parameters
         if scheduling_priority is not None:
-            input["scheduling_priority"] = scheduling_priority
+            input_["scheduling_priority"] = scheduling_priority
         if container_properties is not None:
-            input["container_properties"] = container_properties
+            input_["container_properties"] = container_properties
         if node_properties is not None:
-            input["node_properties"] = node_properties
+            input_["node_properties"] = node_properties
         if retry_strategy is not None:
-            input["retry_strategy"] = retry_strategy
+            input_["retry_strategy"] = retry_strategy
         if propagate_tags is not None:
-            input["propagate_tags"] = propagate_tags
+            input_["propagate_tags"] = propagate_tags
         if timeout is not None:
-            input["timeout"] = timeout
+            input_["timeout"] = timeout
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if platform_capabilities is not None:
-            input["platform_capabilities"] = platform_capabilities
+            input_["platform_capabilities"] = platform_capabilities
         if eks_properties is not None:
-            input["eks_properties"] = eks_properties
+            input_["eks_properties"] = eks_properties
         if ecs_properties is not None:
-            input["ecs_properties"] = ecs_properties
+            input_["ecs_properties"] = ecs_properties
         if consumable_resource_properties is not None:
-            input["consumable_resource_properties"] = consumable_resource_properties
+            input_["consumable_resource_properties"] = consumable_resource_properties
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2228,7 +2228,7 @@ class BatchClient:
             "aws_sdk_batch.types.consumable_resource_properties.ConsumableResourceProperties"
         ] = None,
     ) -> "aws_sdk_batch.types.submit_job_response.SubmitJobResponse":
-        """<p>Submits an Batch job from a job definition. Parameters that are specified during <a>SubmitJob</a> override parameters defined in the job definition. vCPU and memory requirements that are specified in the <code>resourceRequirements</code> objects in the job definition are the exception. They can't be overridden this way using the <code>memory</code> and <code>vcpus</code> parameters. Rather, you must specify updates to job definition parameters in a <code>resourceRequirements</code> object that's included in the <code>containerOverrides</code> parameter.</p> <note> <p>Job queues with a scheduling policy are limited to 500 active share identifiers at a time. </p> </note> <important> <p>Jobs that run on Fargate resources can't be guaranteed to run for more than 14 days. This is because, after 14 days, Fargate resources might become unavailable and job might be terminated.</p> </important>
+        r"""<p>Submits an Batch job from a job definition. Parameters that are specified during <a>SubmitJob</a> override parameters defined in the job definition. vCPU and memory requirements that are specified in the <code>resourceRequirements</code> objects in the job definition are the exception. They can't be overridden this way using the <code>memory</code> and <code>vcpus</code> parameters. Rather, you must specify updates to job definition parameters in a <code>resourceRequirements</code> object that's included in the <code>containerOverrides</code> parameter.</p> <note> <p>Job queues with a scheduling policy are limited to 500 active share identifiers at a time. </p> </note> <important> <p>Jobs that run on Fargate resources can't be guaranteed to run for more than 14 days. This is because, after 14 days, Fargate resources might become unavailable and job might be terminated.</p> </important>
 
         Args:
             job_name: <p>The name of the job. It can be up to 128 letters long. The first character must be alphanumeric, can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).</p>
@@ -2271,43 +2271,43 @@ class BatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_batch.types.submit_job_request.SubmitJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_name"] = job_name
-        input["job_queue"] = job_queue
+        input_: aws_sdk_batch.types.submit_job_request.SubmitJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_name"] = job_name
+        input_["job_queue"] = job_queue
         if share_identifier is not None:
-            input["share_identifier"] = share_identifier
+            input_["share_identifier"] = share_identifier
         if scheduling_priority_override is not None:
-            input["scheduling_priority_override"] = scheduling_priority_override
+            input_["scheduling_priority_override"] = scheduling_priority_override
         if array_properties is not None:
-            input["array_properties"] = array_properties
+            input_["array_properties"] = array_properties
         if depends_on is not None:
-            input["depends_on"] = depends_on
-        input["job_definition"] = job_definition
+            input_["depends_on"] = depends_on
+        input_["job_definition"] = job_definition
         if parameters is not None:
-            input["parameters"] = parameters
+            input_["parameters"] = parameters
         if container_overrides is not None:
-            input["container_overrides"] = container_overrides
+            input_["container_overrides"] = container_overrides
         if node_overrides is not None:
-            input["node_overrides"] = node_overrides
+            input_["node_overrides"] = node_overrides
         if retry_strategy is not None:
-            input["retry_strategy"] = retry_strategy
+            input_["retry_strategy"] = retry_strategy
         if propagate_tags is not None:
-            input["propagate_tags"] = propagate_tags
+            input_["propagate_tags"] = propagate_tags
         if timeout is not None:
-            input["timeout"] = timeout
+            input_["timeout"] = timeout
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if eks_properties_override is not None:
-            input["eks_properties_override"] = eks_properties_override
+            input_["eks_properties_override"] = eks_properties_override
         if ecs_properties_override is not None:
-            input["ecs_properties_override"] = ecs_properties_override
+            input_["ecs_properties_override"] = ecs_properties_override
         if consumable_resource_properties_override is not None:
-            input["consumable_resource_properties_override"] = (
+            input_["consumable_resource_properties_override"] = (
                 consumable_resource_properties_override
             )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2338,7 +2338,7 @@ class BatchClient:
             "aws_sdk_batch.types.client_request_token.ClientRequestToken"
         ] = None,
     ) -> "aws_sdk_batch.types.submit_service_job_response.SubmitServiceJobResponse":
-        """<p>Submits a service job to a specified job queue to run on SageMaker AI. A service job is a unit of work that you submit to Batch for execution on SageMaker AI.</p>
+        r"""<p>Submits a service job to a specified job queue to run on SageMaker AI. A service job is a unit of work that you submit to Batch for execution on SageMaker AI.</p>
 
         Args:
             job_name: <p>The name of the service job. It can be up to 128 characters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).</p>
@@ -2370,30 +2370,30 @@ class BatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_batch.types.submit_service_job_request.SubmitServiceJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_name"] = job_name
-        input["job_queue"] = job_queue
+        input_: aws_sdk_batch.types.submit_service_job_request.SubmitServiceJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_name"] = job_name
+        input_["job_queue"] = job_queue
         if retry_strategy is not None:
-            input["retry_strategy"] = retry_strategy
+            input_["retry_strategy"] = retry_strategy
         if scheduling_priority is not None:
-            input["scheduling_priority"] = scheduling_priority
-        input["service_request_payload"] = service_request_payload
-        input["service_job_type"] = service_job_type
+            input_["scheduling_priority"] = scheduling_priority
+        input_["service_request_payload"] = service_request_payload
+        input_["service_job_type"] = service_job_type
         if share_identifier is not None:
-            input["share_identifier"] = share_identifier
+            input_["share_identifier"] = share_identifier
         if quota_share_name is not None:
-            input["quota_share_name"] = quota_share_name
+            input_["quota_share_name"] = quota_share_name
         if preemption_configuration is not None:
-            input["preemption_configuration"] = preemption_configuration
+            input_["preemption_configuration"] = preemption_configuration
         if timeout_config is not None:
-            input["timeout_config"] = timeout_config
+            input_["timeout_config"] = timeout_config
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2406,7 +2406,7 @@ class BatchClient:
         *,
         config_overrides: Optional[BatchClientConfig] = None,
     ) -> "aws_sdk_batch.types.tag_resource_response.TagResourceResponse":
-        """<p>Associates the specified tags to a resource with the specified <code>resourceArn</code>. If existing tags on a resource aren't specified in the request parameters, they aren't changed. When a resource is deleted, the tags that are associated with that resource are deleted as well. Batch resources that support tags are compute environments, jobs, job definitions, job queues, and scheduling policies. ARNs for child jobs of array and multi-node parallel (MNP) jobs aren't supported.</p>
+        r"""<p>Associates the specified tags to a resource with the specified <code>resourceArn</code>. If existing tags on a resource aren't specified in the request parameters, they aren't changed. When a resource is deleted, the tags that are associated with that resource are deleted as well. Batch resources that support tags are compute environments, jobs, job definitions, job queues, and scheduling policies. ARNs for child jobs of array and multi-node parallel (MNP) jobs aren't supported.</p>
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource that tags are added to. Batch resources that support tags are compute environments, jobs, job definitions, job queues, and scheduling policies. ARNs for child jobs of array and multi-node parallel (MNP) jobs aren't supported.</p>
@@ -2434,12 +2434,12 @@ class BatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_batch.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_batch.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2480,12 +2480,12 @@ class BatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_batch.types.terminate_job_request.TerminateJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
-        input["reason"] = reason
+        input_: aws_sdk_batch.types.terminate_job_request.TerminateJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
+        input_["reason"] = reason
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2522,12 +2522,12 @@ class BatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_batch.types.terminate_service_job_request.TerminateServiceJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
-        input["reason"] = reason
+        input_: aws_sdk_batch.types.terminate_service_job_request.TerminateServiceJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
+        input_["reason"] = reason
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2568,12 +2568,12 @@ class BatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_batch.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_batch.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2595,7 +2595,7 @@ class BatchClient:
         ] = None,
         context: Optional["aws_sdk_batch.types.string.String"] = None,
     ) -> "aws_sdk_batch.types.update_compute_environment_response.UpdateComputeEnvironmentResponse":
-        """<p>Updates an Batch compute environment.</p>
+        r"""<p>Updates an Batch compute environment.</p>
 
         Args:
             compute_environment: <p>The name or full Amazon Resource Name (ARN) of the compute environment to update.</p>
@@ -2628,23 +2628,23 @@ class BatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_batch.types.update_compute_environment_request.UpdateComputeEnvironmentRequest = {}  # type: ignore[typeddict-item]
-        input["compute_environment"] = compute_environment
+        input_: aws_sdk_batch.types.update_compute_environment_request.UpdateComputeEnvironmentRequest = {}  # type: ignore[typeddict-item]
+        input_["compute_environment"] = compute_environment
         if state is not None:
-            input["state"] = state
+            input_["state"] = state
         if unmanagedv_cpus is not None:
-            input["unmanagedv_cpus"] = unmanagedv_cpus
+            input_["unmanagedv_cpus"] = unmanagedv_cpus
         if compute_resources is not None:
-            input["compute_resources"] = compute_resources
+            input_["compute_resources"] = compute_resources
         if service_role is not None:
-            input["service_role"] = service_role
+            input_["service_role"] = service_role
         if update_policy is not None:
-            input["update_policy"] = update_policy
+            input_["update_policy"] = update_policy
         if context is not None:
-            input["context"] = context
+            input_["context"] = context
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2691,17 +2691,17 @@ class BatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_batch.types.update_consumable_resource_request.UpdateConsumableResourceRequest = {}  # type: ignore[typeddict-item]
-        input["consumable_resource"] = consumable_resource
+        input_: aws_sdk_batch.types.update_consumable_resource_request.UpdateConsumableResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["consumable_resource"] = consumable_resource
         if operation is not None:
-            input["operation"] = operation
+            input_["operation"] = operation
         if quantity is not None:
-            input["quantity"] = quantity
+            input_["quantity"] = quantity
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2758,23 +2758,23 @@ class BatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_batch.types.update_job_queue_request.UpdateJobQueueRequest = {}  # type: ignore[typeddict-item]
-        input["job_queue"] = job_queue
+        input_: aws_sdk_batch.types.update_job_queue_request.UpdateJobQueueRequest = {}  # type: ignore[typeddict-item]
+        input_["job_queue"] = job_queue
         if state is not None:
-            input["state"] = state
+            input_["state"] = state
         if scheduling_policy_arn is not None:
-            input["scheduling_policy_arn"] = scheduling_policy_arn
+            input_["scheduling_policy_arn"] = scheduling_policy_arn
         if priority is not None:
-            input["priority"] = priority
+            input_["priority"] = priority
         if compute_environment_order is not None:
-            input["compute_environment_order"] = compute_environment_order
+            input_["compute_environment_order"] = compute_environment_order
         if service_environment_order is not None:
-            input["service_environment_order"] = service_environment_order
+            input_["service_environment_order"] = service_environment_order
         if job_state_time_limit_actions is not None:
-            input["job_state_time_limit_actions"] = job_state_time_limit_actions
+            input_["job_state_time_limit_actions"] = job_state_time_limit_actions
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2821,19 +2821,19 @@ class BatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_batch.types.update_quota_share_request.UpdateQuotaShareRequest = {}  # type: ignore[typeddict-item]
-        input["quota_share_arn"] = quota_share_arn
+        input_: aws_sdk_batch.types.update_quota_share_request.UpdateQuotaShareRequest = {}  # type: ignore[typeddict-item]
+        input_["quota_share_arn"] = quota_share_arn
         if capacity_limits is not None:
-            input["capacity_limits"] = capacity_limits
+            input_["capacity_limits"] = capacity_limits
         if resource_sharing_configuration is not None:
-            input["resource_sharing_configuration"] = resource_sharing_configuration
+            input_["resource_sharing_configuration"] = resource_sharing_configuration
         if preemption_configuration is not None:
-            input["preemption_configuration"] = preemption_configuration
+            input_["preemption_configuration"] = preemption_configuration
         if state is not None:
-            input["state"] = state
+            input_["state"] = state
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2874,15 +2874,15 @@ class BatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_batch.types.update_scheduling_policy_request.UpdateSchedulingPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_batch.types.update_scheduling_policy_request.UpdateSchedulingPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
         if quota_share_policy is not None:
-            input["quota_share_policy"] = quota_share_policy
+            input_["quota_share_policy"] = quota_share_policy
         if fairshare_policy is not None:
-            input["fairshare_policy"] = fairshare_policy
+            input_["fairshare_policy"] = fairshare_policy
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2923,15 +2923,15 @@ class BatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_batch.types.update_service_environment_request.UpdateServiceEnvironmentRequest = {}  # type: ignore[typeddict-item]
-        input["service_environment"] = service_environment
+        input_: aws_sdk_batch.types.update_service_environment_request.UpdateServiceEnvironmentRequest = {}  # type: ignore[typeddict-item]
+        input_["service_environment"] = service_environment
         if state is not None:
-            input["state"] = state
+            input_["state"] = state
         if capacity_limits is not None:
-            input["capacity_limits"] = capacity_limits
+            input_["capacity_limits"] = capacity_limits
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2966,12 +2966,12 @@ class BatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_batch.types.update_service_job_request.UpdateServiceJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
-        input["scheduling_priority"] = scheduling_priority
+        input_: aws_sdk_batch.types.update_service_job_request.UpdateServiceJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
+        input_["scheduling_priority"] = scheduling_priority
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

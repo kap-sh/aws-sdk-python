@@ -20,7 +20,7 @@ class GetAutoManagementConfigurationResponse(TypedDict):
     notification_arn: NotRequired[
         "aws_sdk_service_quotas.types.amazon_resource_name.AmazonResourceName"
     ]
-    """<p>The <a href=\"https://docs.aws.amazon.com/notifications/latest/userguide/resource-level-permissions.html#rlp-table\">User Notifications</a> Amazon Resource Name (ARN) for Automatic Management notifications.</p>"""
+    r"""<p>The <a href=\"https://docs.aws.amazon.com/notifications/latest/userguide/resource-level-permissions.html#rlp-table\">User Notifications</a> Amazon Resource Name (ARN) for Automatic Management notifications.</p>"""
     opt_in_status: NotRequired["aws_sdk_service_quotas.types.opt_in_status.OptInStatus"]
     """<p>Status on whether Automatic Management is started or stopped.</p>"""
     exclusion_list: NotRequired[

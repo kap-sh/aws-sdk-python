@@ -18,7 +18,7 @@ class PackageVersionSummary(TypedDict):
     version_name: NotRequired["aws_sdk_iot.types.version_name.VersionName"]
     """<p>The name of the target package version.</p>"""
     status: NotRequired["aws_sdk_iot.types.package_version_status.PackageVersionStatus"]
-    """<p>The status of the package version. For more information, see <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle\">Package version lifecycle</a>.</p>"""
+    r"""<p>The status of the package version. For more information, see <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle\">Package version lifecycle</a>.</p>"""
     creation_date: NotRequired["aws_sdk_iot.types.creation_date.CreationDate"]
     """<p>The date that the package version was created.</p>"""
     last_modified_date: NotRequired[

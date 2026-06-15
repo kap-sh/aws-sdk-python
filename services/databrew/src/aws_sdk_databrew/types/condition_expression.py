@@ -14,7 +14,7 @@ if TYPE_CHECKING:
 
 class ConditionExpression(TypedDict):
     condition: "aws_sdk_databrew.types.condition.Condition"
-    """<p>A specific condition to apply to a recipe action. For more information, see <a href=\"https://docs.aws.amazon.com/databrew/latest/dg/recipes.html#recipes.structure\">Recipe structure</a> in the <i>Glue DataBrew Developer Guide</i>.</p>"""
+    r"""<p>A specific condition to apply to a recipe action. For more information, see <a href=\"https://docs.aws.amazon.com/databrew/latest/dg/recipes.html#recipes.structure\">Recipe structure</a> in the <i>Glue DataBrew Developer Guide</i>.</p>"""
     value: NotRequired["aws_sdk_databrew.types.condition_value.ConditionValue"]
     """<p>A value that the condition must evaluate to for the condition to succeed.</p>"""
     target_column: "aws_sdk_databrew.types.target_column.TargetColumn"

@@ -334,7 +334,7 @@ class AsyncSNSClient:
             "aws_sdk_sns.types.authenticate_on_unsubscribe.authenticateOnUnsubscribe"
         ] = None,
     ) -> "aws_sdk_sns.types.confirm_subscription_response.ConfirmSubscriptionResponse":
-        """<p>Verifies an endpoint owner's intent to receive messages by validating the token sent to the endpoint by an earlier <code>Subscribe</code> action. If the token is valid, the action creates a new subscription and returns its Amazon Resource Name (ARN). This call requires an AWS signature only when the <code>AuthenticateOnUnsubscribe</code> flag is set to \"true\".</p>
+        r"""<p>Verifies an endpoint owner's intent to receive messages by validating the token sent to the endpoint by an earlier <code>Subscribe</code> action. If the token is valid, the action creates a new subscription and returns its Amazon Resource Name (ARN). This call requires an AWS signature only when the <code>AuthenticateOnUnsubscribe</code> flag is set to \"true\".</p>
 
         Args:
             topic_arn: <p>The ARN of the topic for which you wish to confirm a subscription.</p>
@@ -379,7 +379,7 @@ class AsyncSNSClient:
         *,
         config_overrides: Optional[AsyncSNSClientConfig] = None,
     ) -> "aws_sdk_sns.types.create_platform_application_response.CreatePlatformApplicationResponse":
-        """<p>Creates a platform application object for one of the supported push notification services, such as APNS and GCM (Firebase Cloud Messaging), to which devices and mobile apps may register. You must specify <code>PlatformPrincipal</code> and <code>PlatformCredential</code> attributes when using the <code>CreatePlatformApplication</code> action.</p> <p> <code>PlatformPrincipal</code> and <code>PlatformCredential</code> are received from the notification service.</p> <ul> <li> <p>For ADM, <code>PlatformPrincipal</code> is <code>client id</code> and <code>PlatformCredential</code> is <code>client secret</code>.</p> </li> <li> <p>For APNS and <code>APNS_SANDBOX</code> using certificate credentials, <code>PlatformPrincipal</code> is <code>SSL certificate</code> and <code>PlatformCredential</code> is <code>private key</code>.</p> </li> <li> <p>For APNS and <code>APNS_SANDBOX</code> using token credentials, <code>PlatformPrincipal</code> is <code>signing key ID</code> and <code>PlatformCredential</code> is <code>signing key</code>.</p> </li> <li> <p>For Baidu, <code>PlatformPrincipal</code> is <code>API key</code> and <code>PlatformCredential</code> is <code>secret key</code>.</p> </li> <li> <p>For GCM (Firebase Cloud Messaging) using key credentials, there is no <code>PlatformPrincipal</code>. The <code>PlatformCredential</code> is <code>API key</code>.</p> </li> <li> <p>For GCM (Firebase Cloud Messaging) using token credentials, there is no <code>PlatformPrincipal</code>. The <code>PlatformCredential</code> is a JSON formatted private key file. When using the Amazon Web Services CLI or Amazon Web Services SDKs, the file must be in string format and special characters must be ignored. To format the file correctly, Amazon SNS recommends using the following command: <code>SERVICE_JSON=$(jq @json < service.json)</code>.</p> </li> <li> <p>For MPNS, <code>PlatformPrincipal</code> is <code>TLS certificate</code> and <code>PlatformCredential</code> is <code>private key</code>.</p> </li> <li> <p>For WNS, <code>PlatformPrincipal</code> is <code>Package Security Identifier</code> and <code>PlatformCredential</code> is <code>secret key</code>.</p> </li> </ul> <p>You can use the returned <code>PlatformApplicationArn</code> as an attribute for the <code>CreatePlatformEndpoint</code> action.</p>
+        r"""<p>Creates a platform application object for one of the supported push notification services, such as APNS and GCM (Firebase Cloud Messaging), to which devices and mobile apps may register. You must specify <code>PlatformPrincipal</code> and <code>PlatformCredential</code> attributes when using the <code>CreatePlatformApplication</code> action.</p> <p> <code>PlatformPrincipal</code> and <code>PlatformCredential</code> are received from the notification service.</p> <ul> <li> <p>For ADM, <code>PlatformPrincipal</code> is <code>client id</code> and <code>PlatformCredential</code> is <code>client secret</code>.</p> </li> <li> <p>For APNS and <code>APNS_SANDBOX</code> using certificate credentials, <code>PlatformPrincipal</code> is <code>SSL certificate</code> and <code>PlatformCredential</code> is <code>private key</code>.</p> </li> <li> <p>For APNS and <code>APNS_SANDBOX</code> using token credentials, <code>PlatformPrincipal</code> is <code>signing key ID</code> and <code>PlatformCredential</code> is <code>signing key</code>.</p> </li> <li> <p>For Baidu, <code>PlatformPrincipal</code> is <code>API key</code> and <code>PlatformCredential</code> is <code>secret key</code>.</p> </li> <li> <p>For GCM (Firebase Cloud Messaging) using key credentials, there is no <code>PlatformPrincipal</code>. The <code>PlatformCredential</code> is <code>API key</code>.</p> </li> <li> <p>For GCM (Firebase Cloud Messaging) using token credentials, there is no <code>PlatformPrincipal</code>. The <code>PlatformCredential</code> is a JSON formatted private key file. When using the Amazon Web Services CLI or Amazon Web Services SDKs, the file must be in string format and special characters must be ignored. To format the file correctly, Amazon SNS recommends using the following command: <code>SERVICE_JSON=$(jq @json < service.json)</code>.</p> </li> <li> <p>For MPNS, <code>PlatformPrincipal</code> is <code>TLS certificate</code> and <code>PlatformCredential</code> is <code>private key</code>.</p> </li> <li> <p>For WNS, <code>PlatformPrincipal</code> is <code>Package Security Identifier</code> and <code>PlatformCredential</code> is <code>secret key</code>.</p> </li> </ul> <p>You can use the returned <code>PlatformApplicationArn</code> as an attribute for the <code>CreatePlatformEndpoint</code> action.</p>
 
         Args:
             name: <p>Application names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, hyphens, and periods, and must be between 1 and 256 characters long.</p>
@@ -426,7 +426,7 @@ class AsyncSNSClient:
             "aws_sdk_sns.types.map_string_to_string.MapStringToString"
         ] = None,
     ) -> "aws_sdk_sns.types.create_endpoint_response.CreateEndpointResponse":
-        """<p>Creates an endpoint for a device and mobile app on one of the supported push notification services, such as GCM (Firebase Cloud Messaging) and APNS. <code>CreatePlatformEndpoint</code> requires the <code>PlatformApplicationArn</code> that is returned from <code>CreatePlatformApplication</code>. You can use the returned <code>EndpointArn</code> to send a message to a mobile app or by the <code>Subscribe</code> action for subscription to a topic. The <code>CreatePlatformEndpoint</code> action is idempotent, so if the requester already owns an endpoint with the same device token and attributes, that endpoint's ARN is returned without creating a new endpoint. For more information, see <a href=\"https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html\">Using Amazon SNS Mobile Push Notifications</a>. </p> <p>When using <code>CreatePlatformEndpoint</code> with Baidu, two attributes must be provided: ChannelId and UserId. The token field must also contain the ChannelId. For more information, see <a href=\"https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePushBaiduEndpoint.html\">Creating an Amazon SNS Endpoint for Baidu</a>. </p>
+        r"""<p>Creates an endpoint for a device and mobile app on one of the supported push notification services, such as GCM (Firebase Cloud Messaging) and APNS. <code>CreatePlatformEndpoint</code> requires the <code>PlatformApplicationArn</code> that is returned from <code>CreatePlatformApplication</code>. You can use the returned <code>EndpointArn</code> to send a message to a mobile app or by the <code>Subscribe</code> action for subscription to a topic. The <code>CreatePlatformEndpoint</code> action is idempotent, so if the requester already owns an endpoint with the same device token and attributes, that endpoint's ARN is returned without creating a new endpoint. For more information, see <a href=\"https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html\">Using Amazon SNS Mobile Push Notifications</a>. </p> <p>When using <code>CreatePlatformEndpoint</code> with Baidu, two attributes must be provided: ChannelId and UserId. The token field must also contain the ChannelId. For more information, see <a href=\"https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePushBaiduEndpoint.html\">Creating an Amazon SNS Endpoint for Baidu</a>. </p>
 
         Args:
             platform_application_arn: <p> <code>PlatformApplicationArn</code> returned from CreatePlatformApplication is used to create a an endpoint.</p>
@@ -475,7 +475,7 @@ class AsyncSNSClient:
             "aws_sdk_sns.types.language_code_string.LanguageCodeString"
         ] = None,
     ) -> "aws_sdk_sns.types.create_sms_sandbox_phone_number_result.CreateSMSSandboxPhoneNumberResult":
-        """<p>Adds a destination phone number to an Amazon Web Services account in the SMS sandbox and sends a one-time password (OTP) to that phone number.</p> <p>When you start using Amazon SNS to send SMS messages, your Amazon Web Services account is in the <i>SMS sandbox</i>. The SMS sandbox provides a safe environment for you to try Amazon SNS features without risking your reputation as an SMS sender. While your Amazon Web Services account is in the SMS sandbox, you can use all of the features of Amazon SNS. However, you can send SMS messages only to verified destination phone numbers. For more information, including how to move out of the sandbox to send messages without restrictions, see <a href=\"https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html\">SMS sandbox</a> in the <i>Amazon SNS Developer Guide</i>.</p>
+        r"""<p>Adds a destination phone number to an Amazon Web Services account in the SMS sandbox and sends a one-time password (OTP) to that phone number.</p> <p>When you start using Amazon SNS to send SMS messages, your Amazon Web Services account is in the <i>SMS sandbox</i>. The SMS sandbox provides a safe environment for you to try Amazon SNS features without risking your reputation as an SMS sender. While your Amazon Web Services account is in the SMS sandbox, you can use all of the features of Amazon SNS. However, you can send SMS messages only to verified destination phone numbers. For more information, including how to move out of the sandbox to send messages without restrictions, see <a href=\"https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html\">SMS sandbox</a> in the <i>Amazon SNS Developer Guide</i>.</p>
 
         Args:
             phone_number: <p>The destination phone number to verify. On verification, Amazon SNS adds this phone number to the list of verified phone numbers that you can send SMS messages to.</p>
@@ -523,7 +523,7 @@ class AsyncSNSClient:
             "aws_sdk_sns.types.attribute_value.attributeValue"
         ] = None,
     ) -> "aws_sdk_sns.types.create_topic_response.CreateTopicResponse":
-        """<p>Creates a topic to which notifications can be published. Users can create at most 100,000 standard topics (at most 1,000 FIFO topics). For more information, see <a href=\"https://docs.aws.amazon.com/sns/latest/dg/sns-create-topic.html\">Creating an Amazon SNS topic</a> in the <i>Amazon SNS Developer Guide</i>. This action is idempotent, so if the requester already owns a topic with the specified name, that topic's ARN is returned without creating a new topic.</p>
+        r"""<p>Creates a topic to which notifications can be published. Users can create at most 100,000 standard topics (at most 1,000 FIFO topics). For more information, see <a href=\"https://docs.aws.amazon.com/sns/latest/dg/sns-create-topic.html\">Creating an Amazon SNS topic</a> in the <i>Amazon SNS Developer Guide</i>. This action is idempotent, so if the requester already owns a topic with the specified name, that topic's ARN is returned without creating a new topic.</p>
 
         Args:
             name: <p>The name of the topic you want to create.</p> <p>Constraints: Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long.</p> <p>For a FIFO (first-in-first-out) topic, the name must end with the <code>.fifo</code> suffix. </p>
@@ -570,7 +570,7 @@ class AsyncSNSClient:
         *,
         config_overrides: Optional[AsyncSNSClientConfig] = None,
     ) -> None:
-        """<p>Deletes the endpoint for a device and mobile app from Amazon SNS. This action is idempotent. For more information, see <a href=\"https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html\">Using Amazon SNS Mobile Push Notifications</a>. </p> <p>When you delete an endpoint that is also subscribed to a topic, then you must also unsubscribe the endpoint from the topic.</p>
+        r"""<p>Deletes the endpoint for a device and mobile app from Amazon SNS. This action is idempotent. For more information, see <a href=\"https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html\">Using Amazon SNS Mobile Push Notifications</a>. </p> <p>When you delete an endpoint that is also subscribed to a topic, then you must also unsubscribe the endpoint from the topic.</p>
 
         Args:
             endpoint_arn: <p> <code>EndpointArn</code> of endpoint to delete.</p>
@@ -606,7 +606,7 @@ class AsyncSNSClient:
         *,
         config_overrides: Optional[AsyncSNSClientConfig] = None,
     ) -> None:
-        """<p>Deletes a platform application object for one of the supported push notification services, such as APNS and GCM (Firebase Cloud Messaging). For more information, see <a href=\"https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html\">Using Amazon SNS Mobile Push Notifications</a>. </p>
+        r"""<p>Deletes a platform application object for one of the supported push notification services, such as APNS and GCM (Firebase Cloud Messaging). For more information, see <a href=\"https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html\">Using Amazon SNS Mobile Push Notifications</a>. </p>
 
         Args:
             platform_application_arn: <p> <code>PlatformApplicationArn</code> of platform application object to delete.</p>
@@ -642,7 +642,7 @@ class AsyncSNSClient:
         *,
         config_overrides: Optional[AsyncSNSClientConfig] = None,
     ) -> "aws_sdk_sns.types.delete_sms_sandbox_phone_number_result.DeleteSMSSandboxPhoneNumberResult":
-        """<p>Deletes an Amazon Web Services account's verified or pending phone number from the SMS sandbox.</p> <p>When you start using Amazon SNS to send SMS messages, your Amazon Web Services account is in the <i>SMS sandbox</i>. The SMS sandbox provides a safe environment for you to try Amazon SNS features without risking your reputation as an SMS sender. While your Amazon Web Services account is in the SMS sandbox, you can use all of the features of Amazon SNS. However, you can send SMS messages only to verified destination phone numbers. For more information, including how to move out of the sandbox to send messages without restrictions, see <a href=\"https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html\">SMS sandbox</a> in the <i>Amazon SNS Developer Guide</i>.</p>
+        r"""<p>Deletes an Amazon Web Services account's verified or pending phone number from the SMS sandbox.</p> <p>When you start using Amazon SNS to send SMS messages, your Amazon Web Services account is in the <i>SMS sandbox</i>. The SMS sandbox provides a safe environment for you to try Amazon SNS features without risking your reputation as an SMS sender. While your Amazon Web Services account is in the SMS sandbox, you can use all of the features of Amazon SNS. However, you can send SMS messages only to verified destination phone numbers. For more information, including how to move out of the sandbox to send messages without restrictions, see <a href=\"https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html\">SMS sandbox</a> in the <i>Amazon SNS Developer Guide</i>.</p>
 
         Args:
             phone_number: <p>The destination phone number to delete.</p>
@@ -716,7 +716,7 @@ class AsyncSNSClient:
         *,
         config_overrides: Optional[AsyncSNSClientConfig] = None,
     ) -> "aws_sdk_sns.types.get_data_protection_policy_response.GetDataProtectionPolicyResponse":
-        """<p>Retrieves the specified inline <code>DataProtectionPolicy</code> document that is stored in the specified Amazon SNS topic. </p>
+        r"""<p>Retrieves the specified inline <code>DataProtectionPolicy</code> document that is stored in the specified Amazon SNS topic. </p>
 
         Args:
             resource_arn: <p>The ARN of the topic whose <code>DataProtectionPolicy</code> you want to get.</p> <p>For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the Amazon Web Services General Reference.</p>
@@ -754,7 +754,7 @@ class AsyncSNSClient:
         *,
         config_overrides: Optional[AsyncSNSClientConfig] = None,
     ) -> "aws_sdk_sns.types.get_endpoint_attributes_response.GetEndpointAttributesResponse":
-        """<p>Retrieves the endpoint attributes for a device on one of the supported push notification services, such as GCM (Firebase Cloud Messaging) and APNS. For more information, see <a href=\"https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html\">Using Amazon SNS Mobile Push Notifications</a>. </p>
+        r"""<p>Retrieves the endpoint attributes for a device on one of the supported push notification services, such as GCM (Firebase Cloud Messaging) and APNS. For more information, see <a href=\"https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html\">Using Amazon SNS Mobile Push Notifications</a>. </p>
 
         Args:
             endpoint_arn: <p> <code>EndpointArn</code> for <code>GetEndpointAttributes</code> input.</p>
@@ -792,7 +792,7 @@ class AsyncSNSClient:
         *,
         config_overrides: Optional[AsyncSNSClientConfig] = None,
     ) -> "aws_sdk_sns.types.get_platform_application_attributes_response.GetPlatformApplicationAttributesResponse":
-        """<p>Retrieves the attributes of the platform application object for the supported push notification services, such as APNS and GCM (Firebase Cloud Messaging). For more information, see <a href=\"https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html\">Using Amazon SNS Mobile Push Notifications</a>. </p>
+        r"""<p>Retrieves the attributes of the platform application object for the supported push notification services, such as APNS and GCM (Firebase Cloud Messaging). For more information, see <a href=\"https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html\">Using Amazon SNS Mobile Push Notifications</a>. </p>
 
         Args:
             platform_application_arn: <p> <code>PlatformApplicationArn</code> for GetPlatformApplicationAttributesInput.</p>
@@ -830,7 +830,7 @@ class AsyncSNSClient:
         config_overrides: Optional[AsyncSNSClientConfig] = None,
         attributes: Optional["aws_sdk_sns.types.list_string.ListString"] = None,
     ) -> "aws_sdk_sns.types.get_sms_attributes_response.GetSMSAttributesResponse":
-        """<p>Returns the settings for sending SMS messages from your Amazon Web Services account.</p> <p>These settings are set with the <code>SetSMSAttributes</code> action.</p>
+        r"""<p>Returns the settings for sending SMS messages from your Amazon Web Services account.</p> <p>These settings are set with the <code>SetSMSAttributes</code> action.</p>
 
         Args:
             attributes: <p>A list of the individual attribute names, such as <code>MonthlySpendLimit</code>, for which you want values.</p> <p>For all attribute names, see <a href=\"https://docs.aws.amazon.com/sns/latest/api/API_SetSMSAttributes.html\">SetSMSAttributes</a>.</p> <p>If you don't use this parameter, Amazon SNS returns all SMS attributes.</p>
@@ -866,7 +866,7 @@ class AsyncSNSClient:
     async def get_sms_sandbox_account_status(
         self, *, config_overrides: Optional[AsyncSNSClientConfig] = None
     ) -> "aws_sdk_sns.types.get_sms_sandbox_account_status_result.GetSMSSandboxAccountStatusResult":
-        """<p>Retrieves the SMS sandbox status for the calling Amazon Web Services account in the target Amazon Web Services Region.</p> <p>When you start using Amazon SNS to send SMS messages, your Amazon Web Services account is in the <i>SMS sandbox</i>. The SMS sandbox provides a safe environment for you to try Amazon SNS features without risking your reputation as an SMS sender. While your Amazon Web Services account is in the SMS sandbox, you can use all of the features of Amazon SNS. However, you can send SMS messages only to verified destination phone numbers. For more information, including how to move out of the sandbox to send messages without restrictions, see <a href=\"https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html\">SMS sandbox</a> in the <i>Amazon SNS Developer Guide</i>.</p>"""
+        r"""<p>Retrieves the SMS sandbox status for the calling Amazon Web Services account in the target Amazon Web Services Region.</p> <p>When you start using Amazon SNS to send SMS messages, your Amazon Web Services account is in the <i>SMS sandbox</i>. The SMS sandbox provides a safe environment for you to try Amazon SNS features without risking your reputation as an SMS sender. While your Amazon Web Services account is in the SMS sandbox, you can use all of the features of Amazon SNS. However, you can send SMS messages only to verified destination phone numbers. For more information, including how to move out of the sandbox to send messages without restrictions, see <a href=\"https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html\">SMS sandbox</a> in the <i>Amazon SNS Developer Guide</i>.</p>"""
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_sns.types.get_sms_sandbox_account_status_input.GetSMSSandboxAccountStatusInput]",
@@ -976,7 +976,7 @@ class AsyncSNSClient:
         config_overrides: Optional[AsyncSNSClientConfig] = None,
         next_token: Optional["aws_sdk_sns.types.string.String"] = None,
     ) -> "aws_sdk_sns.types.list_endpoints_by_platform_application_response.ListEndpointsByPlatformApplicationResponse":
-        """<p>Lists the endpoints and endpoint attributes for devices in a supported push notification service, such as GCM (Firebase Cloud Messaging) and APNS. The results for <code>ListEndpointsByPlatformApplication</code> are paginated and return a limited list of endpoints, up to 100. If additional records are available after the first page results, then a NextToken string will be returned. To receive the next page, you call <code>ListEndpointsByPlatformApplication</code> again using the NextToken string received from the previous call. When there are no more records to return, NextToken will be null. For more information, see <a href=\"https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html\">Using Amazon SNS Mobile Push Notifications</a>. </p> <p>This action is throttled at 30 transactions per second (TPS).</p>
+        r"""<p>Lists the endpoints and endpoint attributes for devices in a supported push notification service, such as GCM (Firebase Cloud Messaging) and APNS. The results for <code>ListEndpointsByPlatformApplication</code> are paginated and return a limited list of endpoints, up to 100. If additional records are available after the first page results, then a NextToken string will be returned. To receive the next page, you call <code>ListEndpointsByPlatformApplication</code> again using the NextToken string received from the previous call. When there are no more records to return, NextToken will be null. For more information, see <a href=\"https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html\">Using Amazon SNS Mobile Push Notifications</a>. </p> <p>This action is throttled at 30 transactions per second (TPS).</p>
 
         Args:
             platform_application_arn: <p> <code>PlatformApplicationArn</code> for <code>ListEndpointsByPlatformApplicationInput</code> action.</p>
@@ -1043,7 +1043,7 @@ class AsyncSNSClient:
     ) -> (
         "aws_sdk_sns.types.list_origination_numbers_result.ListOriginationNumbersResult"
     ):
-        """<p>Lists the calling Amazon Web Services account's dedicated origination numbers and their metadata. For more information about origination numbers, see <a href=\"https://docs.aws.amazon.com/sns/latest/dg/channels-sms-originating-identities-origination-numbers.html\">Origination numbers</a> in the <i>Amazon SNS Developer Guide</i>.</p>
+        r"""<p>Lists the calling Amazon Web Services account's dedicated origination numbers and their metadata. For more information about origination numbers, see <a href=\"https://docs.aws.amazon.com/sns/latest/dg/channels-sms-originating-identities-origination-numbers.html\">Origination numbers</a> in the <i>Amazon SNS Developer Guide</i>.</p>
 
         Args:
             next_token: <p>Token that the previous <code>ListOriginationNumbers</code> request returns.</p>
@@ -1166,7 +1166,7 @@ class AsyncSNSClient:
         config_overrides: Optional[AsyncSNSClientConfig] = None,
         next_token: Optional["aws_sdk_sns.types.string.String"] = None,
     ) -> "aws_sdk_sns.types.list_platform_applications_response.ListPlatformApplicationsResponse":
-        """<p>Lists the platform application objects for the supported push notification services, such as APNS and GCM (Firebase Cloud Messaging). The results for <code>ListPlatformApplications</code> are paginated and return a limited list of applications, up to 100. If additional records are available after the first page results, then a NextToken string will be returned. To receive the next page, you call <code>ListPlatformApplications</code> using the NextToken string received from the previous call. When there are no more records to return, <code>NextToken</code> will be null. For more information, see <a href=\"https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html\">Using Amazon SNS Mobile Push Notifications</a>. </p> <p>This action is throttled at 15 transactions per second (TPS).</p>
+        r"""<p>Lists the platform application objects for the supported push notification services, such as APNS and GCM (Firebase Cloud Messaging). The results for <code>ListPlatformApplications</code> are paginated and return a limited list of applications, up to 100. If additional records are available after the first page results, then a NextToken string will be returned. To receive the next page, you call <code>ListPlatformApplications</code> using the NextToken string received from the previous call. When there are no more records to return, <code>NextToken</code> will be null. For more information, see <a href=\"https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html\">Using Amazon SNS Mobile Push Notifications</a>. </p> <p>This action is throttled at 15 transactions per second (TPS).</p>
 
         Args:
             next_token: <p> <code>NextToken</code> string is used when calling <code>ListPlatformApplications</code> action to retrieve additional records that are available after the first page results.</p>
@@ -1225,7 +1225,7 @@ class AsyncSNSClient:
         next_token: Optional["aws_sdk_sns.types.next_token.nextToken"] = None,
         max_results: Optional["aws_sdk_sns.types.max_items.MaxItems"] = None,
     ) -> "aws_sdk_sns.types.list_sms_sandbox_phone_numbers_result.ListSMSSandboxPhoneNumbersResult":
-        """<p>Lists the calling Amazon Web Services account's current verified and pending destination phone numbers in the SMS sandbox.</p> <p>When you start using Amazon SNS to send SMS messages, your Amazon Web Services account is in the <i>SMS sandbox</i>. The SMS sandbox provides a safe environment for you to try Amazon SNS features without risking your reputation as an SMS sender. While your Amazon Web Services account is in the SMS sandbox, you can use all of the features of Amazon SNS. However, you can send SMS messages only to verified destination phone numbers. For more information, including how to move out of the sandbox to send messages without restrictions, see <a href=\"https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html\">SMS sandbox</a> in the <i>Amazon SNS Developer Guide</i>.</p>
+        r"""<p>Lists the calling Amazon Web Services account's current verified and pending destination phone numbers in the SMS sandbox.</p> <p>When you start using Amazon SNS to send SMS messages, your Amazon Web Services account is in the <i>SMS sandbox</i>. The SMS sandbox provides a safe environment for you to try Amazon SNS features without risking your reputation as an SMS sender. While your Amazon Web Services account is in the SMS sandbox, you can use all of the features of Amazon SNS. However, you can send SMS messages only to verified destination phone numbers. For more information, including how to move out of the sandbox to send messages without restrictions, see <a href=\"https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html\">SMS sandbox</a> in the <i>Amazon SNS Developer Guide</i>.</p>
 
         Args:
             next_token: <p>Token that the previous <code>ListSMSSandboxPhoneNumbersInput</code> request returns.</p>
@@ -1411,7 +1411,7 @@ class AsyncSNSClient:
     ) -> (
         "aws_sdk_sns.types.list_tags_for_resource_response.ListTagsForResourceResponse"
     ):
-        """<p>List all tags added to the specified Amazon SNS topic. For an overview, see <a href=\"https://docs.aws.amazon.com/sns/latest/dg/sns-tags.html\">Amazon SNS Tags</a> in the <i>Amazon Simple Notification Service Developer Guide</i>.</p>
+        r"""<p>List all tags added to the specified Amazon SNS topic. For an overview, see <a href=\"https://docs.aws.amazon.com/sns/latest/dg/sns-tags.html\">Amazon SNS Tags</a> in the <i>Amazon Simple Notification Service Developer Guide</i>.</p>
 
         Args:
             resource_arn: <p>The ARN of the topic for which to list tags.</p>
@@ -1557,7 +1557,7 @@ class AsyncSNSClient:
         message_deduplication_id: Optional["aws_sdk_sns.types.string.String"] = None,
         message_group_id: Optional["aws_sdk_sns.types.string.String"] = None,
     ) -> "aws_sdk_sns.types.publish_response.PublishResponse":
-        """<p>Sends a message to an Amazon SNS topic, a text message (SMS message) directly to a phone number, or a message to a mobile platform endpoint (when you specify the <code>TargetArn</code>).</p> <p>If you send a message to a topic, Amazon SNS delivers the message to each endpoint that is subscribed to the topic. The format of the message depends on the notification protocol for each subscribed endpoint.</p> <p>When a <code>messageId</code> is returned, the message is saved and Amazon SNS immediately delivers it to subscribers.</p> <p>To use the <code>Publish</code> action for publishing a message to a mobile endpoint, such as an app on a Kindle device or mobile phone, you must specify the EndpointArn for the TargetArn parameter. The EndpointArn is returned when making a call with the <code>CreatePlatformEndpoint</code> action. </p> <p>For more information about formatting messages, see <a href=\"https://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-custommessage.html\">Send Custom Platform-Specific Payloads in Messages to Mobile Devices</a>. </p> <important> <p>You can publish messages only to topics and endpoints in the same Amazon Web Services Region.</p> </important>
+        r"""<p>Sends a message to an Amazon SNS topic, a text message (SMS message) directly to a phone number, or a message to a mobile platform endpoint (when you specify the <code>TargetArn</code>).</p> <p>If you send a message to a topic, Amazon SNS delivers the message to each endpoint that is subscribed to the topic. The format of the message depends on the notification protocol for each subscribed endpoint.</p> <p>When a <code>messageId</code> is returned, the message is saved and Amazon SNS immediately delivers it to subscribers.</p> <p>To use the <code>Publish</code> action for publishing a message to a mobile endpoint, such as an app on a Kindle device or mobile phone, you must specify the EndpointArn for the TargetArn parameter. The EndpointArn is returned when making a call with the <code>CreatePlatformEndpoint</code> action. </p> <p>For more information about formatting messages, see <a href=\"https://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-custommessage.html\">Send Custom Platform-Specific Payloads in Messages to Mobile Devices</a>. </p> <important> <p>You can publish messages only to topics and endpoints in the same Amazon Web Services Region.</p> </important>
 
         Args:
             topic_arn: <p>The topic you want to publish to.</p> <p>If you don't specify a value for the <code>TopicArn</code> parameter, you must specify a value for the <code>PhoneNumber</code> or <code>TargetArn</code> parameters.</p>
@@ -1661,7 +1661,7 @@ class AsyncSNSClient:
         *,
         config_overrides: Optional[AsyncSNSClientConfig] = None,
     ) -> None:
-        """<p>Adds or updates an inline policy document that is stored in the specified Amazon SNS topic.</p>
+        r"""<p>Adds or updates an inline policy document that is stored in the specified Amazon SNS topic.</p>
 
         Args:
             resource_arn: <p>The ARN of the topic whose <code>DataProtectionPolicy</code> you want to add or update.</p> <p>For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the Amazon Web Services General Reference.</p>
@@ -1739,7 +1739,7 @@ class AsyncSNSClient:
         *,
         config_overrides: Optional[AsyncSNSClientConfig] = None,
     ) -> None:
-        """<p>Sets the attributes for an endpoint for a device on one of the supported push notification services, such as GCM (Firebase Cloud Messaging) and APNS. For more information, see <a href=\"https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html\">Using Amazon SNS Mobile Push Notifications</a>. </p>
+        r"""<p>Sets the attributes for an endpoint for a device on one of the supported push notification services, such as GCM (Firebase Cloud Messaging) and APNS. For more information, see <a href=\"https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html\">Using Amazon SNS Mobile Push Notifications</a>. </p>
 
         Args:
             endpoint_arn: <p>EndpointArn used for <code>SetEndpointAttributes</code> action.</p>
@@ -1778,7 +1778,7 @@ class AsyncSNSClient:
         *,
         config_overrides: Optional[AsyncSNSClientConfig] = None,
     ) -> None:
-        """<p>Sets the attributes of the platform application object for the supported push notification services, such as APNS and GCM (Firebase Cloud Messaging). For more information, see <a href=\"https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html\">Using Amazon SNS Mobile Push Notifications</a>. For information on configuring attributes for message delivery status, see <a href=\"https://docs.aws.amazon.com/sns/latest/dg/sns-msg-status.html\">Using Amazon SNS Application Attributes for Message Delivery Status</a>. </p>
+        r"""<p>Sets the attributes of the platform application object for the supported push notification services, such as APNS and GCM (Firebase Cloud Messaging). For more information, see <a href=\"https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html\">Using Amazon SNS Mobile Push Notifications</a>. For information on configuring attributes for message delivery status, see <a href=\"https://docs.aws.amazon.com/sns/latest/dg/sns-msg-status.html\">Using Amazon SNS Application Attributes for Message Delivery Status</a>. </p>
 
         Args:
             platform_application_arn: <p> <code>PlatformApplicationArn</code> for <code>SetPlatformApplicationAttributes</code> action.</p>
@@ -1816,7 +1816,7 @@ class AsyncSNSClient:
         *,
         config_overrides: Optional[AsyncSNSClientConfig] = None,
     ) -> "aws_sdk_sns.types.set_sms_attributes_response.SetSMSAttributesResponse":
-        """<p>Use this request to set the default settings for sending SMS messages and receiving daily SMS usage reports.</p> <p>You can override some of these settings for a single message when you use the <code>Publish</code> action with the <code>MessageAttributes.entry.N</code> parameter. For more information, see <a href=\"https://docs.aws.amazon.com/sns/latest/dg/sms_publish-to-phone.html\">Publishing to a mobile phone</a> in the <i>Amazon SNS Developer Guide</i>.</p> <note> <p>To use this operation, you must grant the Amazon SNS service principal (<code>sns.amazonaws.com</code>) permission to perform the <code>s3:ListBucket</code> action. </p> </note>
+        r"""<p>Use this request to set the default settings for sending SMS messages and receiving daily SMS usage reports.</p> <p>You can override some of these settings for a single message when you use the <code>Publish</code> action with the <code>MessageAttributes.entry.N</code> parameter. For more information, see <a href=\"https://docs.aws.amazon.com/sns/latest/dg/sms_publish-to-phone.html\">Publishing to a mobile phone</a> in the <i>Amazon SNS Developer Guide</i>.</p> <note> <p>To use this operation, you must grant the Amazon SNS service principal (<code>sns.amazonaws.com</code>) permission to perform the <code>s3:ListBucket</code> action. </p> </note>
 
         Args:
             attributes: <p>The default settings for sending SMS messages from your Amazon Web Services account. You can set values for the following attribute names:</p> <p> <code>MonthlySpendLimit</code> – The maximum amount in USD that you are willing to spend each month to send SMS messages. When Amazon SNS determines that sending an SMS message would incur a cost that exceeds this limit, it stops sending SMS messages within minutes.</p> <important> <p>Amazon SNS stops sending SMS messages within minutes of the limit being crossed. During that interval, if you continue to send SMS messages, you will incur costs that exceed your limit.</p> </important> <p>By default, the spend limit is set to the maximum allowed by Amazon SNS. If you want to raise the limit, submit an <a href=\"https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=service-code-sns\">SNS Limit Increase case</a>. For <b>New limit value</b>, enter your desired monthly spend limit. In the <b>Use Case Description</b> field, explain that you are requesting an SMS monthly spend limit increase.</p> <p> <code>DeliveryStatusIAMRole</code> – The ARN of the IAM role that allows Amazon SNS to write logs about SMS deliveries in CloudWatch Logs. For each SMS message that you send, Amazon SNS writes a log that includes the message price, the success or failure status, the reason for failure (if the message failed), the message dwell time, and other information.</p> <p> <code>DeliveryStatusSuccessSamplingRate</code> – The percentage of successful SMS deliveries for which Amazon SNS will write logs in CloudWatch Logs. The value can be an integer from 0 - 100. For example, to write logs only for failed deliveries, set this value to <code>0</code>. To write logs for 10% of your successful deliveries, set it to <code>10</code>.</p> <p> <code>DefaultSenderID</code> – A string, such as your business brand, that is displayed as the sender on the receiving device. Support for sender IDs varies by country. The sender ID can be 1 - 11 alphanumeric characters, and it must contain at least one letter.</p> <p> <code>DefaultSMSType</code> – The type of SMS message that you will send by default. You can assign the following values:</p> <ul> <li> <p> <code>Promotional</code> – (Default) Noncritical messages, such as marketing messages. Amazon SNS optimizes the message delivery to incur the lowest cost.</p> </li> <li> <p> <code>Transactional</code> – Critical messages that support customer transactions, such as one-time passcodes for multi-factor authentication. Amazon SNS optimizes the message delivery to achieve the highest reliability.</p> </li> </ul> <p> <code>UsageReportS3Bucket</code> – The name of the Amazon S3 bucket to receive daily SMS usage reports from Amazon SNS. Each day, Amazon SNS will deliver a usage report as a CSV file to the bucket. The report includes the following information for each SMS message that was successfully delivered by your Amazon Web Services account:</p> <ul> <li> <p>Time that the message was published (in UTC)</p> </li> <li> <p>Message ID</p> </li> <li> <p>Destination phone number</p> </li> <li> <p>Message type</p> </li> <li> <p>Delivery status</p> </li> <li> <p>Message price (in USD)</p> </li> <li> <p>Part number (a message is split into multiple parts if it is too long for a single message)</p> </li> <li> <p>Total number of parts</p> </li> </ul> <p>To receive the report, the bucket must have a policy that allows the Amazon SNS service principal to perform the <code>s3:PutObject</code> and <code>s3:GetBucketLocation</code> actions.</p> <p>For an example bucket policy and usage report, see <a href=\"https://docs.aws.amazon.com/sns/latest/dg/sms_stats.html\">Monitoring SMS Activity</a> in the <i>Amazon SNS Developer Guide</i>.</p>
@@ -1858,7 +1858,7 @@ class AsyncSNSClient:
             "aws_sdk_sns.types.attribute_value.attributeValue"
         ] = None,
     ) -> None:
-        """<p>Allows a subscription owner to set an attribute of the subscription to a new value.</p>
+        r"""<p>Allows a subscription owner to set an attribute of the subscription to a new value.</p>
 
         Args:
             subscription_arn: <p>The ARN of the subscription to modify.</p>
@@ -1903,7 +1903,7 @@ class AsyncSNSClient:
             "aws_sdk_sns.types.attribute_value.attributeValue"
         ] = None,
     ) -> None:
-        """<p>Allows a topic owner to set an attribute of the topic to a new value.</p> <note> <p>To remove the ability to change topic permissions, you must deny permissions to the <code>AddPermission</code>, <code>RemovePermission</code>, and <code>SetTopicAttributes</code> actions in your IAM policy.</p> </note>
+        r"""<p>Allows a topic owner to set an attribute of the topic to a new value.</p> <note> <p>To remove the ability to change topic permissions, you must deny permissions to the <code>AddPermission</code>, <code>RemovePermission</code>, and <code>SetTopicAttributes</code> actions in your IAM policy.</p> </note>
 
         Args:
             topic_arn: <p>The ARN of the topic to modify.</p>
@@ -1950,7 +1950,7 @@ class AsyncSNSClient:
         ] = None,
         return_subscription_arn: Optional["aws_sdk_sns.types.boolean.boolean"] = None,
     ) -> "aws_sdk_sns.types.subscribe_response.SubscribeResponse":
-        """<p>Subscribes an endpoint to an Amazon SNS topic. If the endpoint type is HTTP/S or email, or if the endpoint and the topic are not in the same Amazon Web Services account, the endpoint owner must run the <code>ConfirmSubscription</code> action to confirm the subscription.</p> <p>You call the <code>ConfirmSubscription</code> action with the token from the subscription response. Confirmation tokens are valid for two days.</p> <p>This action is throttled at 100 transactions per second (TPS).</p>
+        r"""<p>Subscribes an endpoint to an Amazon SNS topic. If the endpoint type is HTTP/S or email, or if the endpoint and the topic are not in the same Amazon Web Services account, the endpoint owner must run the <code>ConfirmSubscription</code> action to confirm the subscription.</p> <p>You call the <code>ConfirmSubscription</code> action with the token from the subscription response. Confirmation tokens are valid for two days.</p> <p>This action is throttled at 100 transactions per second (TPS).</p>
 
         Args:
             topic_arn: <p>The ARN of the topic you want to subscribe to.</p>
@@ -2000,7 +2000,7 @@ class AsyncSNSClient:
         *,
         config_overrides: Optional[AsyncSNSClientConfig] = None,
     ) -> "aws_sdk_sns.types.tag_resource_response.TagResourceResponse":
-        """<p>Add tags to the specified Amazon SNS topic. For an overview, see <a href=\"https://docs.aws.amazon.com/sns/latest/dg/sns-tags.html\">Amazon SNS Tags</a> in the <i>Amazon SNS Developer Guide</i>.</p> <p>When you use topic tags, keep the following guidelines in mind:</p> <ul> <li> <p>Adding more than 50 tags to a topic isn't recommended.</p> </li> <li> <p>Tags don't have any semantic meaning. Amazon SNS interprets tags as character strings.</p> </li> <li> <p>Tags are case-sensitive.</p> </li> <li> <p>A new tag with a key identical to that of an existing tag overwrites the existing tag.</p> </li> <li> <p>Tagging actions are limited to 10 TPS per Amazon Web Services account, per Amazon Web Services Region. If your application requires a higher throughput, file a <a href=\"https://console.aws.amazon.com/support/home#/case/create?issueType=technical\">technical support request</a>.</p> </li> </ul>
+        r"""<p>Add tags to the specified Amazon SNS topic. For an overview, see <a href=\"https://docs.aws.amazon.com/sns/latest/dg/sns-tags.html\">Amazon SNS Tags</a> in the <i>Amazon SNS Developer Guide</i>.</p> <p>When you use topic tags, keep the following guidelines in mind:</p> <ul> <li> <p>Adding more than 50 tags to a topic isn't recommended.</p> </li> <li> <p>Tags don't have any semantic meaning. Amazon SNS interprets tags as character strings.</p> </li> <li> <p>Tags are case-sensitive.</p> </li> <li> <p>A new tag with a key identical to that of an existing tag overwrites the existing tag.</p> </li> <li> <p>Tagging actions are limited to 10 TPS per Amazon Web Services account, per Amazon Web Services Region. If your application requires a higher throughput, file a <a href=\"https://console.aws.amazon.com/support/home#/case/create?issueType=technical\">technical support request</a>.</p> </li> </ul>
 
         Args:
             resource_arn: <p>The ARN of the topic to which to add tags.</p>
@@ -2077,7 +2077,7 @@ class AsyncSNSClient:
         *,
         config_overrides: Optional[AsyncSNSClientConfig] = None,
     ) -> "aws_sdk_sns.types.untag_resource_response.UntagResourceResponse":
-        """<p>Remove tags from the specified Amazon SNS topic. For an overview, see <a href=\"https://docs.aws.amazon.com/sns/latest/dg/sns-tags.html\">Amazon SNS Tags</a> in the <i>Amazon SNS Developer Guide</i>.</p>
+        r"""<p>Remove tags from the specified Amazon SNS topic. For an overview, see <a href=\"https://docs.aws.amazon.com/sns/latest/dg/sns-tags.html\">Amazon SNS Tags</a> in the <i>Amazon SNS Developer Guide</i>.</p>
 
         Args:
             resource_arn: <p>The ARN of the topic from which to remove tags.</p>
@@ -2118,7 +2118,7 @@ class AsyncSNSClient:
         *,
         config_overrides: Optional[AsyncSNSClientConfig] = None,
     ) -> "aws_sdk_sns.types.verify_sms_sandbox_phone_number_result.VerifySMSSandboxPhoneNumberResult":
-        """<p>Verifies a destination phone number with a one-time password (OTP) for the calling Amazon Web Services account.</p> <p>When you start using Amazon SNS to send SMS messages, your Amazon Web Services account is in the <i>SMS sandbox</i>. The SMS sandbox provides a safe environment for you to try Amazon SNS features without risking your reputation as an SMS sender. While your Amazon Web Services account is in the SMS sandbox, you can use all of the features of Amazon SNS. However, you can send SMS messages only to verified destination phone numbers. For more information, including how to move out of the sandbox to send messages without restrictions, see <a href=\"https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html\">SMS sandbox</a> in the <i>Amazon SNS Developer Guide</i>.</p>
+        r"""<p>Verifies a destination phone number with a one-time password (OTP) for the calling Amazon Web Services account.</p> <p>When you start using Amazon SNS to send SMS messages, your Amazon Web Services account is in the <i>SMS sandbox</i>. The SMS sandbox provides a safe environment for you to try Amazon SNS features without risking your reputation as an SMS sender. While your Amazon Web Services account is in the SMS sandbox, you can use all of the features of Amazon SNS. However, you can send SMS messages only to verified destination phone numbers. For more information, including how to move out of the sandbox to send messages without restrictions, see <a href=\"https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html\">SMS sandbox</a> in the <i>Amazon SNS Developer Guide</i>.</p>
 
         Args:
             phone_number: <p>The destination phone number to verify.</p>

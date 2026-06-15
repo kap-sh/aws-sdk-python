@@ -23,7 +23,7 @@ class Namespace(TypedDict):
     namespace_name: NotRequired[
         "aws_sdk_redshift_serverless.types.namespace_name.NamespaceName"
     ]
-    """<p>The name of the namespace. Must be between 3-64 alphanumeric characters in lowercase, and it cannot be a reserved word. A list of reserved words can be found in <a href=\"https://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html\">Reserved Words</a> in the Amazon Redshift Database Developer Guide.</p>"""
+    r"""<p>The name of the namespace. Must be between 3-64 alphanumeric characters in lowercase, and it cannot be a reserved word. A list of reserved words can be found in <a href=\"https://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html\">Reserved Words</a> in the Amazon Redshift Database Developer Guide.</p>"""
     admin_username: NotRequired["aws_sdk_redshift_serverless.types.db_user.DbUser"]
     """<p>The username of the administrator for the first database created in the namespace.</p>"""
     db_name: NotRequired["str"]

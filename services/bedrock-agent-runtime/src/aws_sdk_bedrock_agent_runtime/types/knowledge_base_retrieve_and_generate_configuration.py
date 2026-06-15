@@ -20,7 +20,7 @@ class KnowledgeBaseRetrieveAndGenerateConfiguration(TypedDict):
     )
     """<p>The unique identifier of the knowledge base that is queried.</p>"""
     model_arn: "aws_sdk_bedrock_agent_runtime.types.bedrock_model_arn.BedrockModelArn"
-    """<p>The ARN of the foundation model or <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html\">inference profile</a> used to generate a response.</p>"""
+    r"""<p>The ARN of the foundation model or <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html\">inference profile</a> used to generate a response.</p>"""
     retrieval_configuration: NotRequired[
         "aws_sdk_bedrock_agent_runtime.types.knowledge_base_retrieval_configuration.KnowledgeBaseRetrievalConfiguration"
     ]

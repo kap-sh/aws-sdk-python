@@ -13,7 +13,7 @@ if TYPE_CHECKING:
 
 class UpdateFindingsFeedbackRequest(TypedDict):
     detector_id: "aws_sdk_guardduty.types.detector_id.DetectorId"
-    """<p>The ID of the detector that is associated with the findings for which you want to update the feedback.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html\">ListDetectors</a> API.</p>"""
+    r"""<p>The ID of the detector that is associated with the findings for which you want to update the feedback.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html\">ListDetectors</a> API.</p>"""
     finding_ids: NotRequired["aws_sdk_guardduty.types.finding_ids.FindingIds"]
     """<p>The IDs of the findings that you want to mark as useful or not useful.</p>"""
     feedback: NotRequired["aws_sdk_guardduty.types.feedback.Feedback"]

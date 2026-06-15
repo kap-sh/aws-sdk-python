@@ -1,13 +1,17 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#DeleteMemoryRecordOutput``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.memory_record_id
+
 
 class DeleteMemoryRecordOutput(TypedDict):
     memory_record_id: "aws_sdk_bedrock_agentcore.types.memory_record_id.MemoryRecordId"
     """<p>The identifier of the memory record that was deleted.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: DeleteMemoryRecordOutput) -> dict:

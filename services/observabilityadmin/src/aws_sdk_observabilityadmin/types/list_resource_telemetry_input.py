@@ -29,7 +29,7 @@ class ListResourceTelemetryInput(TypedDict):
     resource_tags: NotRequired[
         "aws_sdk_observabilityadmin.types.tag_map_input.TagMapInput"
     ]
-    """<p> A key-value pair to filter resources based on tags associated with the resource. For more information about tags, see <a href=\"https://docs.aws.amazon.com/whitepapers/latest/tagging-best-practices/what-are-tags.html\">What are tags?</a> </p>"""
+    r"""<p> A key-value pair to filter resources based on tags associated with the resource. For more information about tags, see <a href=\"https://docs.aws.amazon.com/whitepapers/latest/tagging-best-practices/what-are-tags.html\">What are tags?</a> </p>"""
     max_results: NotRequired[
         "aws_sdk_observabilityadmin.types.list_resource_telemetry_max_results.ListResourceTelemetryMaxResults"
     ]

@@ -12,7 +12,7 @@ class ConfigureAgentResponse(TypedDict):
     configuration: (
         "aws_sdk_codeguruprofiler.types.agent_configuration.AgentConfiguration"
     )
-    """<p> An <a href=\"https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_AgentConfiguration.html\"> <code>AgentConfiguration</code> </a> object that specifies if an agent profiles or not and for how long to return profiling data. </p>"""
+    r"""<p> An <a href=\"https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_AgentConfiguration.html\"> <code>AgentConfiguration</code> </a> object that specifies if an agent profiles or not and for how long to return profiling data. </p>"""
 
 
 # --- restJson1 ser/de ---

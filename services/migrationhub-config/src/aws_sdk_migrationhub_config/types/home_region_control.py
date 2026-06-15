@@ -13,9 +13,9 @@ if TYPE_CHECKING:
 
 class HomeRegionControl(TypedDict):
     control_id: NotRequired["aws_sdk_migrationhub_config.types.control_id.ControlId"]
-    """<p>A unique identifier that's generated for each home region control. It's always a string that begins with \"hrc-\" followed by 12 lowercase letters and numbers.</p>"""
+    r"""<p>A unique identifier that's generated for each home region control. It's always a string that begins with \"hrc-\" followed by 12 lowercase letters and numbers.</p>"""
     home_region: NotRequired["aws_sdk_migrationhub_config.types.home_region.HomeRegion"]
-    """<p>The AWS Region that's been set as home region. For example, \"us-west-2\" or \"eu-central-1\" are valid home regions.</p>"""
+    r"""<p>The AWS Region that's been set as home region. For example, \"us-west-2\" or \"eu-central-1\" are valid home regions.</p>"""
     target: NotRequired["aws_sdk_migrationhub_config.types.target.Target"]
     """<p>The target parameter specifies the identifier to which the home region is applied, which is always an <code>ACCOUNT</code>. It applies the home region to the current <code>ACCOUNT</code>.</p>"""
     requested_time: NotRequired[

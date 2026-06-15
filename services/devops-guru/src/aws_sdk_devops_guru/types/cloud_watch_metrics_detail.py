@@ -30,7 +30,7 @@ class CloudWatchMetricsDetail(TypedDict):
     stat: NotRequired[
         "aws_sdk_devops_guru.types.cloud_watch_metrics_stat.CloudWatchMetricsStat"
     ]
-    """<p> The type of statistic associated with the CloudWatch metric. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Statistic\">Statistics</a> in the <i>Amazon CloudWatch User Guide</i>. </p>"""
+    r"""<p> The type of statistic associated with the CloudWatch metric. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Statistic\">Statistics</a> in the <i>Amazon CloudWatch User Guide</i>. </p>"""
     unit: NotRequired[
         "aws_sdk_devops_guru.types.cloud_watch_metrics_unit.CloudWatchMetricsUnit"
     ]

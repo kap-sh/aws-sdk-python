@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_artifact._auth._signers
@@ -55,10 +57,10 @@ class AccountSettingsResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_artifact.types.get_account_settings_request.GetAccountSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_artifact.types.get_account_settings_request.GetAccountSettingsRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -99,12 +101,14 @@ class AccountSettingsResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_artifact.types.put_account_settings_request.PutAccountSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_artifact.types.put_account_settings_request.PutAccountSettingsRequest = {}  # type: ignore[typeddict-item]
         if notification_subscription_status is not None:
-            input["notification_subscription_status"] = notification_subscription_status
+            input_["notification_subscription_status"] = (
+                notification_subscription_status
+            )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -143,10 +147,10 @@ class AsyncAccountSettingsResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_artifact.types.get_account_settings_request.GetAccountSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_artifact.types.get_account_settings_request.GetAccountSettingsRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -188,12 +192,14 @@ class AsyncAccountSettingsResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_artifact.types.put_account_settings_request.PutAccountSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_artifact.types.put_account_settings_request.PutAccountSettingsRequest = {}  # type: ignore[typeddict-item]
         if notification_subscription_status is not None:
-            input["notification_subscription_status"] = notification_subscription_status
+            input_["notification_subscription_status"] = (
+                notification_subscription_status
+            )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

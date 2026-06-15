@@ -44,7 +44,7 @@ class UpdateMaintenanceWindowResult(TypedDict):
     schedule_timezone: NotRequired[
         "aws_sdk_ssm.types.maintenance_window_timezone.MaintenanceWindowTimezone"
     ]
-    """<p>The time zone that the scheduled maintenance window executions are based on, in Internet Assigned Numbers Authority (IANA) format. For example: \"America/Los_Angeles\", \"UTC\", or \"Asia/Seoul\". For more information, see the <a href=\"https://www.iana.org/time-zones\">Time Zone Database</a> on the IANA website.</p>"""
+    r"""<p>The time zone that the scheduled maintenance window executions are based on, in Internet Assigned Numbers Authority (IANA) format. For example: \"America/Los_Angeles\", \"UTC\", or \"Asia/Seoul\". For more information, see the <a href=\"https://www.iana.org/time-zones\">Time Zone Database</a> on the IANA website.</p>"""
     schedule_offset: NotRequired[
         "aws_sdk_ssm.types.maintenance_window_offset.MaintenanceWindowOffset"
     ]

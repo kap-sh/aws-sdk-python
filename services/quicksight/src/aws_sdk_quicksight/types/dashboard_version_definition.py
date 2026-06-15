@@ -37,11 +37,11 @@ class DashboardVersionDefinition(TypedDict):
     parameter_declarations: NotRequired[
         "aws_sdk_quicksight.types.parameter_declaration_list.ParameterDeclarationList"
     ]
-    """<p>The parameter declarations for a dashboard. Parameters are named variables that can transfer a value for use by an action or an object.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/quicksight/latest/user/parameters-in-quicksight.html\">Parameters in Amazon Quick Sight</a> in the <i>Amazon Quick Suite User Guide</i>.</p>"""
+    r"""<p>The parameter declarations for a dashboard. Parameters are named variables that can transfer a value for use by an action or an object.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/quicksight/latest/user/parameters-in-quicksight.html\">Parameters in Amazon Quick Sight</a> in the <i>Amazon Quick Suite User Guide</i>.</p>"""
     filter_groups: NotRequired[
         "aws_sdk_quicksight.types.filter_group_list.FilterGroupList"
     ]
-    """<p>The filter definitions for a dashboard.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/quicksight/latest/user/adding-a-filter.html\">Filtering Data in Amazon Quick Sight</a> in the <i>Amazon Quick Suite User Guide</i>.</p>"""
+    r"""<p>The filter definitions for a dashboard.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/quicksight/latest/user/adding-a-filter.html\">Filtering Data in Amazon Quick Sight</a> in the <i>Amazon Quick Suite User Guide</i>.</p>"""
     column_configurations: NotRequired[
         "aws_sdk_quicksight.types.column_configuration_list.ColumnConfigurationList"
     ]

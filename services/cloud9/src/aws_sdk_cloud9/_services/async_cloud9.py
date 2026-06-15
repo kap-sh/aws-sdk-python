@@ -132,7 +132,7 @@ class AsyncCloud9Client:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = AsyncCloud9ClientConfig(
+        self._config = AsyncCloud9ClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -152,7 +152,7 @@ class AsyncCloud9Client:
         overrides: AsyncCloud9ClientConfig = config_overrides or {}
         interceptors_: list[AsyncInterceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             aretry(),
         ]
@@ -160,16 +160,16 @@ class AsyncCloud9Client:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            region=overrides.get("region", self.config.get("region")),
+            region=overrides.get("region", self._config.get("region")),
             use_dual_stack=overrides.get(
-                "use_dual_stack", self.config.get("use_dual_stack")
+                "use_dual_stack", self._config.get("use_dual_stack")
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -202,7 +202,7 @@ class AsyncCloud9Client:
     ) -> (
         "aws_sdk_cloud9.types.create_environment_ec2_result.CreateEnvironmentEC2Result"
     ):
-        """<p>Creates an Cloud9 development environment, launches an Amazon Elastic Compute Cloud (Amazon EC2) instance, and then connects from the instance to the environment.</p> <important> <p>Cloud9 is no longer available to new customers. Existing customers of Cloud9 can continue to use the service as normal. <a href=\"http://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/\">Learn more\"</a> </p> </important>
+        r"""<p>Creates an Cloud9 development environment, launches an Amazon Elastic Compute Cloud (Amazon EC2) instance, and then connects from the instance to the environment.</p> <important> <p>Cloud9 is no longer available to new customers. Existing customers of Cloud9 can continue to use the service as normal. <a href=\"http://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/\">Learn more\"</a> </p> </important>
 
         Args:
             name: <p>The name of the environment to create.</p> <p>This name is visible to other IAM users in the same Amazon Web Services account.</p>
@@ -275,7 +275,7 @@ class AsyncCloud9Client:
         *,
         config_overrides: Optional[AsyncCloud9ClientConfig] = None,
     ) -> "aws_sdk_cloud9.types.create_environment_membership_result.CreateEnvironmentMembershipResult":
-        """<p>Adds an environment member to an Cloud9 development environment.</p> <important> <p>Cloud9 is no longer available to new customers. Existing customers of Cloud9 can continue to use the service as normal. <a href=\"http://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/\">Learn more\"</a> </p> </important>
+        r"""<p>Adds an environment member to an Cloud9 development environment.</p> <important> <p>Cloud9 is no longer available to new customers. Existing customers of Cloud9 can continue to use the service as normal. <a href=\"http://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/\">Learn more\"</a> </p> </important>
 
         Args:
             environment_id: <p>The ID of the environment that contains the environment member you want to add.</p>
@@ -322,7 +322,7 @@ class AsyncCloud9Client:
         *,
         config_overrides: Optional[AsyncCloud9ClientConfig] = None,
     ) -> "aws_sdk_cloud9.types.delete_environment_result.DeleteEnvironmentResult":
-        """<p>Deletes an Cloud9 development environment. If an Amazon EC2 instance is connected to the environment, also terminates the instance.</p> <important> <p>Cloud9 is no longer available to new customers. Existing customers of Cloud9 can continue to use the service as normal. <a href=\"http://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/\">Learn more\"</a> </p> </important>
+        r"""<p>Deletes an Cloud9 development environment. If an Amazon EC2 instance is connected to the environment, also terminates the instance.</p> <important> <p>Cloud9 is no longer available to new customers. Existing customers of Cloud9 can continue to use the service as normal. <a href=\"http://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/\">Learn more\"</a> </p> </important>
 
         Args:
             environment_id: <p>The ID of the environment to delete.</p>
@@ -366,7 +366,7 @@ class AsyncCloud9Client:
         *,
         config_overrides: Optional[AsyncCloud9ClientConfig] = None,
     ) -> "aws_sdk_cloud9.types.delete_environment_membership_result.DeleteEnvironmentMembershipResult":
-        """<p>Deletes an environment member from a development environment.</p> <important> <p>Cloud9 is no longer available to new customers. Existing customers of Cloud9 can continue to use the service as normal. <a href=\"http://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/\">Learn more\"</a> </p> </important>
+        r"""<p>Deletes an environment member from a development environment.</p> <important> <p>Cloud9 is no longer available to new customers. Existing customers of Cloud9 can continue to use the service as normal. <a href=\"http://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/\">Learn more\"</a> </p> </important>
 
         Args:
             environment_id: <p>The ID of the environment to delete the environment member from.</p>
@@ -419,7 +419,7 @@ class AsyncCloud9Client:
         next_token: Optional["aws_sdk_cloud9.types.string.String"] = None,
         max_results: Optional["aws_sdk_cloud9.types.max_results.MaxResults"] = None,
     ) -> "aws_sdk_cloud9.types.describe_environment_memberships_result.DescribeEnvironmentMembershipsResult":
-        """<p>Gets information about environment members for an Cloud9 development environment.</p> <important> <p>Cloud9 is no longer available to new customers. Existing customers of Cloud9 can continue to use the service as normal. <a href=\"http://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/\">Learn more\"</a> </p> </important>
+        r"""<p>Gets information about environment members for an Cloud9 development environment.</p> <important> <p>Cloud9 is no longer available to new customers. Existing customers of Cloud9 can continue to use the service as normal. <a href=\"http://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/\">Learn more\"</a> </p> </important>
 
         Args:
             user_arn: <p>The Amazon Resource Name (ARN) of an individual environment member to get information about. If no value is specified, information about all environment members are returned.</p>
@@ -484,7 +484,7 @@ class AsyncCloud9Client:
         *,
         config_overrides: Optional[AsyncCloud9ClientConfig] = None,
     ) -> "aws_sdk_cloud9.types.describe_environments_result.DescribeEnvironmentsResult":
-        """<p>Gets information about Cloud9 development environments.</p> <important> <p>Cloud9 is no longer available to new customers. Existing customers of Cloud9 can continue to use the service as normal. <a href=\"http://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/\">Learn more\"</a> </p> </important>
+        r"""<p>Gets information about Cloud9 development environments.</p> <important> <p>Cloud9 is no longer available to new customers. Existing customers of Cloud9 can continue to use the service as normal. <a href=\"http://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/\">Learn more\"</a> </p> </important>
 
         Args:
             environment_ids: <p>The IDs of individual environments to get information about.</p>
@@ -527,7 +527,7 @@ class AsyncCloud9Client:
         *,
         config_overrides: Optional[AsyncCloud9ClientConfig] = None,
     ) -> "aws_sdk_cloud9.types.describe_environment_status_result.DescribeEnvironmentStatusResult":
-        """<p>Gets status information for an Cloud9 development environment.</p> <important> <p>Cloud9 is no longer available to new customers. Existing customers of Cloud9 can continue to use the service as normal. <a href=\"http://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/\">Learn more\"</a> </p> </important>
+        r"""<p>Gets status information for an Cloud9 development environment.</p> <important> <p>Cloud9 is no longer available to new customers. Existing customers of Cloud9 can continue to use the service as normal. <a href=\"http://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/\">Learn more\"</a> </p> </important>
 
         Args:
             environment_id: <p>The ID of the environment to get status information about.</p>
@@ -571,7 +571,7 @@ class AsyncCloud9Client:
         next_token: Optional["aws_sdk_cloud9.types.string.String"] = None,
         max_results: Optional["aws_sdk_cloud9.types.max_results.MaxResults"] = None,
     ) -> "aws_sdk_cloud9.types.list_environments_result.ListEnvironmentsResult":
-        """<p>Gets a list of Cloud9 development environment identifiers.</p> <important> <p>Cloud9 is no longer available to new customers. Existing customers of Cloud9 can continue to use the service as normal. <a href=\"http://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/\">Learn more\"</a> </p> </important> <important> <p>Cloud9 is no longer available to new customers. Existing customers of Cloud9 can continue to use the service as normal. <a href=\"http://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/\">Learn more\"</a> </p> </important>
+        r"""<p>Gets a list of Cloud9 development environment identifiers.</p> <important> <p>Cloud9 is no longer available to new customers. Existing customers of Cloud9 can continue to use the service as normal. <a href=\"http://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/\">Learn more\"</a> </p> </important> <important> <p>Cloud9 is no longer available to new customers. Existing customers of Cloud9 can continue to use the service as normal. <a href=\"http://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/\">Learn more\"</a> </p> </important>
 
         Args:
             next_token: <p>During a previous call, if there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.</p>
@@ -618,7 +618,7 @@ class AsyncCloud9Client:
         *,
         config_overrides: Optional[AsyncCloud9ClientConfig] = None,
     ) -> "aws_sdk_cloud9.types.list_tags_for_resource_response.ListTagsForResourceResponse":
-        """<p>Gets a list of the tags associated with an Cloud9 development environment.</p> <important> <p>Cloud9 is no longer available to new customers. Existing customers of Cloud9 can continue to use the service as normal. <a href=\"http://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/\">Learn more\"</a> </p> </important>
+        r"""<p>Gets a list of the tags associated with an Cloud9 development environment.</p> <important> <p>Cloud9 is no longer available to new customers. Existing customers of Cloud9 can continue to use the service as normal. <a href=\"http://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/\">Learn more\"</a> </p> </important>
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the Cloud9 development environment to get the tags for.</p>
@@ -657,7 +657,7 @@ class AsyncCloud9Client:
         *,
         config_overrides: Optional[AsyncCloud9ClientConfig] = None,
     ) -> "aws_sdk_cloud9.types.tag_resource_response.TagResourceResponse":
-        """<p>Adds tags to an Cloud9 development environment.</p> <important> <p>Cloud9 is no longer available to new customers. Existing customers of Cloud9 can continue to use the service as normal. <a href=\"http://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/\">Learn more\"</a> </p> </important> <important> <p>Tags that you add to an Cloud9 environment by using this method will NOT be automatically propagated to underlying resources.</p> </important>
+        r"""<p>Adds tags to an Cloud9 development environment.</p> <important> <p>Cloud9 is no longer available to new customers. Existing customers of Cloud9 can continue to use the service as normal. <a href=\"http://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/\">Learn more\"</a> </p> </important> <important> <p>Tags that you add to an Cloud9 environment by using this method will NOT be automatically propagated to underlying resources.</p> </important>
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the Cloud9 development environment to add tags to.</p>
@@ -698,7 +698,7 @@ class AsyncCloud9Client:
         *,
         config_overrides: Optional[AsyncCloud9ClientConfig] = None,
     ) -> "aws_sdk_cloud9.types.untag_resource_response.UntagResourceResponse":
-        """<p>Removes tags from an Cloud9 development environment.</p> <important> <p>Cloud9 is no longer available to new customers. Existing customers of Cloud9 can continue to use the service as normal. <a href=\"http://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/\">Learn more\"</a> </p> </important>
+        r"""<p>Removes tags from an Cloud9 development environment.</p> <important> <p>Cloud9 is no longer available to new customers. Existing customers of Cloud9 can continue to use the service as normal. <a href=\"http://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/\">Learn more\"</a> </p> </important>
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the Cloud9 development environment to remove tags from.</p>
@@ -745,7 +745,7 @@ class AsyncCloud9Client:
             "aws_sdk_cloud9.types.managed_credentials_action.ManagedCredentialsAction"
         ] = None,
     ) -> "aws_sdk_cloud9.types.update_environment_result.UpdateEnvironmentResult":
-        """<p>Changes the settings of an existing Cloud9 development environment.</p> <important> <p>Cloud9 is no longer available to new customers. Existing customers of Cloud9 can continue to use the service as normal. <a href=\"http://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/\">Learn more\"</a> </p> </important>
+        r"""<p>Changes the settings of an existing Cloud9 development environment.</p> <important> <p>Cloud9 is no longer available to new customers. Existing customers of Cloud9 can continue to use the service as normal. <a href=\"http://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/\">Learn more\"</a> </p> </important>
 
         Args:
             environment_id: <p>The ID of the environment to change settings.</p>
@@ -799,7 +799,7 @@ class AsyncCloud9Client:
         *,
         config_overrides: Optional[AsyncCloud9ClientConfig] = None,
     ) -> "aws_sdk_cloud9.types.update_environment_membership_result.UpdateEnvironmentMembershipResult":
-        """<p>Changes the settings of an existing environment member for an Cloud9 development environment.</p> <important> <p>Cloud9 is no longer available to new customers. Existing customers of Cloud9 can continue to use the service as normal. <a href=\"http://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/\">Learn more\"</a> </p> </important>
+        r"""<p>Changes the settings of an existing environment member for an Cloud9 development environment.</p> <important> <p>Cloud9 is no longer available to new customers. Existing customers of Cloud9 can continue to use the service as normal. <a href=\"http://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/\">Learn more\"</a> </p> </important>
 
         Args:
             environment_id: <p>The ID of the environment for the environment member whose settings you want to change.</p>

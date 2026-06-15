@@ -37,11 +37,11 @@ class GetApprovalTeamResponse(TypedDict):
     name: NotRequired["aws_sdk_mpa.types.string.String"]
     """<p>Name of the approval team.</p>"""
     status: NotRequired["aws_sdk_mpa.types.approval_team_status.ApprovalTeamStatus"]
-    """<p>Status for the team. For more information, see <a href=\"https://docs.aws.amazon.com/mpa/latest/userguide/mpa-health.html\">Team health</a> in the <i>Multi-party approval User Guide</i>.</p>"""
+    r"""<p>Status for the team. For more information, see <a href=\"https://docs.aws.amazon.com/mpa/latest/userguide/mpa-health.html\">Team health</a> in the <i>Multi-party approval User Guide</i>.</p>"""
     status_code: NotRequired[
         "aws_sdk_mpa.types.approval_team_status_code.ApprovalTeamStatusCode"
     ]
-    """<p>Status code for the approval team. For more information, see <a href=\"https://docs.aws.amazon.com/mpa/latest/userguide/mpa-health.html\">Team health</a> in the <i>Multi-party approval User Guide</i>.</p>"""
+    r"""<p>Status code for the approval team. For more information, see <a href=\"https://docs.aws.amazon.com/mpa/latest/userguide/mpa-health.html\">Team health</a> in the <i>Multi-party approval User Guide</i>.</p>"""
     status_message: NotRequired["aws_sdk_mpa.types.message.Message"]
     """<p>Message describing the status for the team.</p>"""
     update_session_arn: NotRequired["aws_sdk_mpa.types.string.String"]

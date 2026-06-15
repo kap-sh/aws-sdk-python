@@ -343,7 +343,7 @@ class SSOAdminClient:
         *,
         config_overrides: Optional[SSOAdminClientConfig] = None,
     ) -> "aws_sdk_sso_admin.types.add_region_response.AddRegionResponse":
-        """<p>Adds a Region to an IAM Identity Center instance. This operation initiates an asynchronous workflow to replicate the IAM Identity Center instance to the target Region. The Region status is set to ADDING at first and changes to ACTIVE when the workflow completes.</p> <p>To use this operation, your IAM Identity Center instance and the target Region must meet the requirements described in the <a href=\"https://docs.aws.amazon.com/singlesignon/latest/userguide/multi-region-iam-identity-center.html#multi-region-prerequisites\">IAM Identity Center User Guide</a>. </p> <p>The following actions are related to <code>AddRegion</code>:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_RemoveRegion.html\">RemoveRegion</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_DescribeRegion.html\">DescribeRegion</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ListRegions.html\">ListRegions</a> </p> </li> </ul>
+        r"""<p>Adds a Region to an IAM Identity Center instance. This operation initiates an asynchronous workflow to replicate the IAM Identity Center instance to the target Region. The Region status is set to ADDING at first and changes to ACTIVE when the workflow completes.</p> <p>To use this operation, your IAM Identity Center instance and the target Region must meet the requirements described in the <a href=\"https://docs.aws.amazon.com/singlesignon/latest/userguide/multi-region-iam-identity-center.html#multi-region-prerequisites\">IAM Identity Center User Guide</a>. </p> <p>The following actions are related to <code>AddRegion</code>:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_RemoveRegion.html\">RemoveRegion</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_DescribeRegion.html\">DescribeRegion</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ListRegions.html\">ListRegions</a> </p> </li> </ul>
 
         Args:
             instance_arn: <p>The Amazon Resource Name (ARN) of the IAM Identity Center instance to replicate to the target Region.</p>
@@ -427,7 +427,7 @@ class SSOAdminClient:
         *,
         config_overrides: Optional[SSOAdminClientConfig] = None,
     ) -> "aws_sdk_sso_admin.types.attach_managed_policy_to_permission_set_response.AttachManagedPolicyToPermissionSetResponse":
-        """<p>Attaches an Amazon Web Services managed policy ARN to a permission set.</p> <note> <p>If the permission set is already referenced by one or more account assignments, you will need to call <code> <a>ProvisionPermissionSet</a> </code> after this operation. Calling <code>ProvisionPermissionSet</code> applies the corresponding IAM policy updates to all assigned accounts.</p> </note>
+        r"""<p>Attaches an Amazon Web Services managed policy ARN to a permission set.</p> <note> <p>If the permission set is already referenced by one or more account assignments, you will need to call <code> <a>ProvisionPermissionSet</a> </code> after this operation. Calling <code>ProvisionPermissionSet</code> applies the corresponding IAM policy updates to all assigned accounts.</p> </note>
 
         Args:
             instance_arn: <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
@@ -473,7 +473,7 @@ class SSOAdminClient:
         *,
         config_overrides: Optional[SSOAdminClientConfig] = None,
     ) -> "aws_sdk_sso_admin.types.create_account_assignment_response.CreateAccountAssignmentResponse":
-        """<p>Assigns access to a principal for a specified Amazon Web Services account using a specified permission set.</p> <note> <p>The term <i>principal</i> here refers to a user or group that is defined in IAM Identity Center.</p> </note> <note> <p>As part of a successful <code>CreateAccountAssignment</code> call, the specified permission set will automatically be provisioned to the account in the form of an IAM policy. That policy is attached to the IAM role created in IAM Identity Center. If the permission set is subsequently updated, the corresponding IAM policies attached to roles in your accounts will not be updated automatically. In this case, you must call <code> <a>ProvisionPermissionSet</a> </code> to make these updates.</p> </note> <note> <p> After a successful response, call <code>DescribeAccountAssignmentCreationStatus</code> to describe the status of an assignment creation request. </p> </note>
+        r"""<p>Assigns access to a principal for a specified Amazon Web Services account using a specified permission set.</p> <note> <p>The term <i>principal</i> here refers to a user or group that is defined in IAM Identity Center.</p> </note> <note> <p>As part of a successful <code>CreateAccountAssignment</code> call, the specified permission set will automatically be provisioned to the account in the form of an IAM policy. That policy is attached to the IAM role created in IAM Identity Center. If the permission set is subsequently updated, the corresponding IAM policies attached to roles in your accounts will not be updated automatically. In this case, you must call <code> <a>ProvisionPermissionSet</a> </code> to make these updates.</p> </note> <note> <p> After a successful response, call <code>DescribeAccountAssignmentCreationStatus</code> to describe the status of an assignment creation request. </p> </note>
 
         Args:
             instance_arn: <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
@@ -535,7 +535,7 @@ class SSOAdminClient:
     ) -> (
         "aws_sdk_sso_admin.types.create_application_response.CreateApplicationResponse"
     ):
-        """<p>Creates an OAuth 2.0 customer managed application in IAM Identity Center for the given application provider.</p> <note> <p>This API does not support creating SAML 2.0 customer managed applications or Amazon Web Services managed applications. To learn how to create an Amazon Web Services managed application, see the application user guide. You can create a SAML 2.0 customer managed application in the Amazon Web Services Management Console only. See <a href=\"https://docs.aws.amazon.com/singlesignon/latest/userguide/customermanagedapps-saml2-setup.html\">Setting up customer managed SAML 2.0 applications</a>. For more information on these application types, see <a href=\"https://docs.aws.amazon.com/singlesignon/latest/userguide/awsapps.html\">Amazon Web Services managed applications</a>.</p> </note>
+        r"""<p>Creates an OAuth 2.0 customer managed application in IAM Identity Center for the given application provider.</p> <note> <p>This API does not support creating SAML 2.0 customer managed applications or Amazon Web Services managed applications. To learn how to create an Amazon Web Services managed application, see the application user guide. You can create a SAML 2.0 customer managed application in the Amazon Web Services Management Console only. See <a href=\"https://docs.aws.amazon.com/singlesignon/latest/userguide/customermanagedapps-saml2-setup.html\">Setting up customer managed SAML 2.0 applications</a>. For more information on these application types, see <a href=\"https://docs.aws.amazon.com/singlesignon/latest/userguide/awsapps.html\">Amazon Web Services managed applications</a>.</p> </note>
 
         Args:
             instance_arn: <p>The ARN of the instance of IAM Identity Center under which the operation will run. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
@@ -593,7 +593,7 @@ class SSOAdminClient:
         *,
         config_overrides: Optional[SSOAdminClientConfig] = None,
     ) -> "aws_sdk_sso_admin.types.create_application_assignment_response.CreateApplicationAssignmentResponse":
-        """<p>Grant application access to a user or group.</p>
+        r"""<p>Grant application access to a user or group.</p>
 
         Args:
             application_arn: <p>The ARN of the application for which the assignment is created.</p>
@@ -638,7 +638,7 @@ class SSOAdminClient:
         ] = None,
         tags: Optional["aws_sdk_sso_admin.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_sso_admin.types.create_instance_response.CreateInstanceResponse":
-        """<p>Creates an instance of IAM Identity Center for a standalone Amazon Web Services account that is not managed by Organizations or a member Amazon Web Services account in an organization. You can create only one instance per account and across all Amazon Web Services Regions.</p> <p>The CreateInstance request is rejected if the following apply: </p> <ul> <li> <p>The instance is created within the organization management account.</p> </li> <li> <p>An instance already exists in the same account.</p> </li> </ul>
+        r"""<p>Creates an instance of IAM Identity Center for a standalone Amazon Web Services account that is not managed by Organizations or a member Amazon Web Services account in an organization. You can create only one instance per account and across all Amazon Web Services Regions.</p> <p>The CreateInstance request is rejected if the following apply: </p> <ul> <li> <p>The instance is created within the organization management account.</p> </li> <li> <p>An instance already exists in the same account.</p> </li> </ul>
 
         Args:
             name: <p>The name of the instance of IAM Identity Center.</p>
@@ -683,7 +683,7 @@ class SSOAdminClient:
         *,
         config_overrides: Optional[SSOAdminClientConfig] = None,
     ) -> "aws_sdk_sso_admin.types.create_instance_access_control_attribute_configuration_response.CreateInstanceAccessControlAttributeConfigurationResponse":
-        """<p>Enables the attributes-based access control (ABAC) feature for the specified IAM Identity Center instance. You can also specify new attributes to add to your ABAC configuration during the enabling process. For more information about ABAC, see <a href=\"/singlesignon/latest/userguide/abac.html\">Attribute-Based Access Control</a> in the <i>IAM Identity Center User Guide</i>.</p> <note> <p>After a successful response, call <code>DescribeInstanceAccessControlAttributeConfiguration</code> to validate that <code>InstanceAccessControlAttributeConfiguration</code> was created.</p> </note>
+        r"""<p>Enables the attributes-based access control (ABAC) feature for the specified IAM Identity Center instance. You can also specify new attributes to add to your ABAC configuration during the enabling process. For more information about ABAC, see <a href=\"/singlesignon/latest/userguide/abac.html\">Attribute-Based Access Control</a> in the <i>IAM Identity Center User Guide</i>.</p> <note> <p>After a successful response, call <code>DescribeInstanceAccessControlAttributeConfiguration</code> to validate that <code>InstanceAccessControlAttributeConfiguration</code> was created.</p> </note>
 
         Args:
             instance_arn: <p>The ARN of the IAM Identity Center instance under which the operation will be executed.</p>
@@ -731,7 +731,7 @@ class SSOAdminClient:
         relay_state: Optional["aws_sdk_sso_admin.types.relay_state.RelayState"] = None,
         tags: Optional["aws_sdk_sso_admin.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_sso_admin.types.create_permission_set_response.CreatePermissionSetResponse":
-        """<p>Creates a permission set within a specified IAM Identity Center instance.</p> <note> <p>To grant users and groups access to Amazon Web Services account resources, use <code> <a>CreateAccountAssignment</a> </code>.</p> </note>
+        r"""<p>Creates a permission set within a specified IAM Identity Center instance.</p> <note> <p>To grant users and groups access to Amazon Web Services account resources, use <code> <a>CreateAccountAssignment</a> </code>.</p> </note>
 
         Args:
             name: <p>The name of the <a>PermissionSet</a>.</p>
@@ -789,7 +789,7 @@ class SSOAdminClient:
         ] = None,
         tags: Optional["aws_sdk_sso_admin.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_sso_admin.types.create_trusted_token_issuer_response.CreateTrustedTokenIssuerResponse":
-        """<p>Creates a connection to a trusted token issuer in an instance of IAM Identity Center. A trusted token issuer enables trusted identity propagation to be used with applications that authenticate outside of Amazon Web Services.</p> <p>This trusted token issuer describes an external identity provider (IdP) that can generate claims or assertions in the form of access tokens for a user. Applications enabled for IAM Identity Center can use these tokens for authentication. </p>
+        r"""<p>Creates a connection to a trusted token issuer in an instance of IAM Identity Center. A trusted token issuer enables trusted identity propagation to be used with applications that authenticate outside of Amazon Web Services.</p> <p>This trusted token issuer describes an external identity provider (IdP) that can generate claims or assertions in the form of access tokens for a user. Applications enabled for IAM Identity Center can use these tokens for authentication. </p>
 
         Args:
             instance_arn: <p>Specifies the ARN of the instance of IAM Identity Center to contain the new trusted token issuer configuration.</p>
@@ -845,7 +845,7 @@ class SSOAdminClient:
         *,
         config_overrides: Optional[SSOAdminClientConfig] = None,
     ) -> "aws_sdk_sso_admin.types.delete_account_assignment_response.DeleteAccountAssignmentResponse":
-        """<p>Deletes a principal's access from a specified Amazon Web Services account using a specified permission set.</p> <note> <p>After a successful response, call <code>DescribeAccountAssignmentDeletionStatus</code> to describe the status of an assignment deletion request.</p> </note>
+        r"""<p>Deletes a principal's access from a specified Amazon Web Services account using a specified permission set.</p> <note> <p>After a successful response, call <code>DescribeAccountAssignmentDeletionStatus</code> to describe the status of an assignment deletion request.</p> </note>
 
         Args:
             instance_arn: <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
@@ -894,7 +894,7 @@ class SSOAdminClient:
     ) -> (
         "aws_sdk_sso_admin.types.delete_application_response.DeleteApplicationResponse"
     ):
-        """<p>Deletes the association with the application. The connected service resource still exists.</p>
+        r"""<p>Deletes the association with the application. The connected service resource still exists.</p>
 
         Args:
             application_arn: <p>Specifies the ARN of the application. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>. </p>
@@ -933,7 +933,7 @@ class SSOAdminClient:
         *,
         config_overrides: Optional[SSOAdminClientConfig] = None,
     ) -> "aws_sdk_sso_admin.types.delete_application_assignment_response.DeleteApplicationAssignmentResponse":
-        """<p>Revoke application access to an application by deleting application assignments for a user or group.</p>
+        r"""<p>Revoke application access to an application by deleting application assignments for a user or group.</p>
 
         Args:
             application_arn: <p>Specifies the ARN of the application.</p>
@@ -975,7 +975,7 @@ class SSOAdminClient:
         *,
         config_overrides: Optional[SSOAdminClientConfig] = None,
     ) -> "aws_sdk_sso_admin.types.delete_inline_policy_from_permission_set_response.DeleteInlinePolicyFromPermissionSetResponse":
-        """<p>Deletes the inline policy from a specified permission set.</p>
+        r"""<p>Deletes the inline policy from a specified permission set.</p>
 
         Args:
             instance_arn: <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
@@ -1051,7 +1051,7 @@ class SSOAdminClient:
         *,
         config_overrides: Optional[SSOAdminClientConfig] = None,
     ) -> "aws_sdk_sso_admin.types.delete_instance_access_control_attribute_configuration_response.DeleteInstanceAccessControlAttributeConfigurationResponse":
-        """<p>Disables the attributes-based access control (ABAC) feature for the specified IAM Identity Center instance and deletes all of the attribute mappings that have been configured. Once deleted, any attributes that are received from an identity source and any custom attributes you have previously configured will not be passed. For more information about ABAC, see <a href=\"/singlesignon/latest/userguide/abac.html\">Attribute-Based Access Control</a> in the <i>IAM Identity Center User Guide</i>.</p>
+        r"""<p>Disables the attributes-based access control (ABAC) feature for the specified IAM Identity Center instance and deletes all of the attribute mappings that have been configured. Once deleted, any attributes that are received from an identity source and any custom attributes you have previously configured will not be passed. For more information about ABAC, see <a href=\"/singlesignon/latest/userguide/abac.html\">Attribute-Based Access Control</a> in the <i>IAM Identity Center User Guide</i>.</p>
 
         Args:
             instance_arn: <p>The ARN of the IAM Identity Center instance under which the operation will be executed.</p>
@@ -1129,7 +1129,7 @@ class SSOAdminClient:
         *,
         config_overrides: Optional[SSOAdminClientConfig] = None,
     ) -> "aws_sdk_sso_admin.types.delete_permission_set_response.DeletePermissionSetResponse":
-        """<p>Deletes the specified permission set.</p>
+        r"""<p>Deletes the specified permission set.</p>
 
         Args:
             instance_arn: <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
@@ -1206,7 +1206,7 @@ class SSOAdminClient:
         *,
         config_overrides: Optional[SSOAdminClientConfig] = None,
     ) -> "aws_sdk_sso_admin.types.describe_account_assignment_creation_status_response.DescribeAccountAssignmentCreationStatusResponse":
-        """<p>Describes the status of the assignment creation request.</p>
+        r"""<p>Describes the status of the assignment creation request.</p>
 
         Args:
             instance_arn: <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
@@ -1248,7 +1248,7 @@ class SSOAdminClient:
         *,
         config_overrides: Optional[SSOAdminClientConfig] = None,
     ) -> "aws_sdk_sso_admin.types.describe_account_assignment_deletion_status_response.DescribeAccountAssignmentDeletionStatusResponse":
-        """<p>Describes the status of the assignment deletion request.</p>
+        r"""<p>Describes the status of the assignment deletion request.</p>
 
         Args:
             instance_arn: <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
@@ -1289,7 +1289,7 @@ class SSOAdminClient:
         *,
         config_overrides: Optional[SSOAdminClientConfig] = None,
     ) -> "aws_sdk_sso_admin.types.describe_application_response.DescribeApplicationResponse":
-        """<p>Retrieves the details of an application associated with an instance of IAM Identity Center.</p>
+        r"""<p>Retrieves the details of an application associated with an instance of IAM Identity Center.</p>
 
         Args:
             application_arn: <p>Specifies the ARN of the application. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
@@ -1328,7 +1328,7 @@ class SSOAdminClient:
         *,
         config_overrides: Optional[SSOAdminClientConfig] = None,
     ) -> "aws_sdk_sso_admin.types.describe_application_assignment_response.DescribeApplicationAssignmentResponse":
-        """<p>Retrieves a direct assignment of a user or group to an application. If the user doesn’t have a direct assignment to the application, the user may still have access to the application through a group. Therefore, don’t use this API to test access to an application for a user. Instead use <a>ListApplicationAssignmentsForPrincipal</a>.</p>
+        r"""<p>Retrieves a direct assignment of a user or group to an application. If the user doesn’t have a direct assignment to the application, the user may still have access to the application through a group. Therefore, don’t use this API to test access to an application for a user. Instead use <a>ListApplicationAssignmentsForPrincipal</a>.</p>
 
         Args:
             application_arn: <p>Specifies the ARN of the application. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
@@ -1443,7 +1443,7 @@ class SSOAdminClient:
         *,
         config_overrides: Optional[SSOAdminClientConfig] = None,
     ) -> "aws_sdk_sso_admin.types.describe_instance_access_control_attribute_configuration_response.DescribeInstanceAccessControlAttributeConfigurationResponse":
-        """<p>Returns the list of IAM Identity Center identity store attributes that have been configured to work with attributes-based access control (ABAC) for the specified IAM Identity Center instance. This will not return attributes configured and sent by an external identity provider. For more information about ABAC, see <a href=\"/singlesignon/latest/userguide/abac.html\">Attribute-Based Access Control</a> in the <i>IAM Identity Center User Guide</i>.</p>
+        r"""<p>Returns the list of IAM Identity Center identity store attributes that have been configured to work with attributes-based access control (ABAC) for the specified IAM Identity Center instance. This will not return attributes configured and sent by an external identity provider. For more information about ABAC, see <a href=\"/singlesignon/latest/userguide/abac.html\">Attribute-Based Access Control</a> in the <i>IAM Identity Center User Guide</i>.</p>
 
         Args:
             instance_arn: <p>The ARN of the IAM Identity Center instance under which the operation will be executed.</p>
@@ -1481,7 +1481,7 @@ class SSOAdminClient:
         *,
         config_overrides: Optional[SSOAdminClientConfig] = None,
     ) -> "aws_sdk_sso_admin.types.describe_permission_set_response.DescribePermissionSetResponse":
-        """<p>Gets the details of the permission set.</p>
+        r"""<p>Gets the details of the permission set.</p>
 
         Args:
             instance_arn: <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
@@ -1521,7 +1521,7 @@ class SSOAdminClient:
         *,
         config_overrides: Optional[SSOAdminClientConfig] = None,
     ) -> "aws_sdk_sso_admin.types.describe_permission_set_provisioning_status_response.DescribePermissionSetProvisioningStatusResponse":
-        """<p>Describes the status for the given permission set provisioning request.</p>
+        r"""<p>Describes the status for the given permission set provisioning request.</p>
 
         Args:
             instance_arn: <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
@@ -1563,7 +1563,7 @@ class SSOAdminClient:
         *,
         config_overrides: Optional[SSOAdminClientConfig] = None,
     ) -> "aws_sdk_sso_admin.types.describe_region_response.DescribeRegionResponse":
-        """<p>Retrieves details about a specific Region enabled in an IAM Identity Center instance. Details include the Region name, current status (ACTIVE, ADDING, or REMOVING), the date when the Region was added, and whether it is the primary Region. The request must be made from one of the enabled Regions of the IAM Identity Center instance.</p> <p>The following actions are related to <code>DescribeRegion</code>:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_AddRegion.html\"> AddRegion</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_RemoveRegion.html\">RemoveRegion</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ListRegions.html\">ListRegions</a> </p> </li> </ul>
+        r"""<p>Retrieves details about a specific Region enabled in an IAM Identity Center instance. Details include the Region name, current status (ACTIVE, ADDING, or REMOVING), the date when the Region was added, and whether it is the primary Region. The request must be made from one of the enabled Regions of the IAM Identity Center instance.</p> <p>The following actions are related to <code>DescribeRegion</code>:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_AddRegion.html\"> AddRegion</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_RemoveRegion.html\">RemoveRegion</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ListRegions.html\">ListRegions</a> </p> </li> </ul>
 
         Args:
             instance_arn: <p>The Amazon Resource Name (ARN) of the IAM Identity Center instance.</p>
@@ -1684,7 +1684,7 @@ class SSOAdminClient:
         *,
         config_overrides: Optional[SSOAdminClientConfig] = None,
     ) -> "aws_sdk_sso_admin.types.detach_managed_policy_from_permission_set_response.DetachManagedPolicyFromPermissionSetResponse":
-        """<p>Detaches the attached Amazon Web Services managed policy ARN from the specified permission set.</p>
+        r"""<p>Detaches the attached Amazon Web Services managed policy ARN from the specified permission set.</p>
 
         Args:
             instance_arn: <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
@@ -1725,7 +1725,7 @@ class SSOAdminClient:
         *,
         config_overrides: Optional[SSOAdminClientConfig] = None,
     ) -> "aws_sdk_sso_admin.types.get_application_assignment_configuration_response.GetApplicationAssignmentConfigurationResponse":
-        """<p>Retrieves the configuration of <a>PutApplicationAssignmentConfiguration</a>.</p>
+        r"""<p>Retrieves the configuration of <a>PutApplicationAssignmentConfiguration</a>.</p>
 
         Args:
             application_arn: <p>Specifies the ARN of the application. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
@@ -1800,7 +1800,7 @@ class SSOAdminClient:
         *,
         config_overrides: Optional[SSOAdminClientConfig] = None,
     ) -> "aws_sdk_sso_admin.types.get_inline_policy_for_permission_set_response.GetInlinePolicyForPermissionSetResponse":
-        """<p>Obtains the inline policy assigned to the permission set.</p>
+        r"""<p>Obtains the inline policy assigned to the permission set.</p>
 
         Args:
             instance_arn: <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
@@ -1884,7 +1884,7 @@ class SSOAdminClient:
             "aws_sdk_sso_admin.types.operation_status_filter.OperationStatusFilter"
         ] = None,
     ) -> "aws_sdk_sso_admin.types.list_account_assignment_creation_status_response.ListAccountAssignmentCreationStatusResponse":
-        """<p>Lists the status of the Amazon Web Services account assignment creation requests for a specified IAM Identity Center instance.</p>
+        r"""<p>Lists the status of the Amazon Web Services account assignment creation requests for a specified IAM Identity Center instance.</p>
 
         Args:
             instance_arn: <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
@@ -1962,7 +1962,7 @@ class SSOAdminClient:
             "aws_sdk_sso_admin.types.operation_status_filter.OperationStatusFilter"
         ] = None,
     ) -> "aws_sdk_sso_admin.types.list_account_assignment_deletion_status_response.ListAccountAssignmentDeletionStatusResponse":
-        """<p>Lists the status of the Amazon Web Services account assignment deletion requests for a specified IAM Identity Center instance.</p>
+        r"""<p>Lists the status of the Amazon Web Services account assignment deletion requests for a specified IAM Identity Center instance.</p>
 
         Args:
             instance_arn: <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
@@ -2039,7 +2039,7 @@ class SSOAdminClient:
         max_results: Optional["aws_sdk_sso_admin.types.max_results.MaxResults"] = None,
         next_token: Optional["aws_sdk_sso_admin.types.token.Token"] = None,
     ) -> "aws_sdk_sso_admin.types.list_account_assignments_response.ListAccountAssignmentsResponse":
-        """<p>Lists the assignee of the specified Amazon Web Services account with the specified permission set.</p>
+        r"""<p>Lists the assignee of the specified Amazon Web Services account with the specified permission set.</p>
 
         Args:
             instance_arn: <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
@@ -2207,7 +2207,7 @@ class SSOAdminClient:
         max_results: Optional["aws_sdk_sso_admin.types.max_results.MaxResults"] = None,
         next_token: Optional["aws_sdk_sso_admin.types.token.Token"] = None,
     ) -> "aws_sdk_sso_admin.types.list_accounts_for_provisioned_permission_set_response.ListAccountsForProvisionedPermissionSetResponse":
-        """<p>Lists all the Amazon Web Services accounts where the specified permission set is provisioned.</p>
+        r"""<p>Lists all the Amazon Web Services accounts where the specified permission set is provisioned.</p>
 
         Args:
             instance_arn: <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
@@ -2510,7 +2510,7 @@ class SSOAdminClient:
             "aws_sdk_sso_admin.types.list_applications_filter.ListApplicationsFilter"
         ] = None,
     ) -> "aws_sdk_sso_admin.types.list_applications_response.ListApplicationsResponse":
-        """<p>Lists all applications associated with the instance of IAM Identity Center. When listing applications for an organization instance in the management account, member accounts must use the <code>applicationAccount</code> parameter to filter the list to only applications created from that account. When listing applications for an account instance in the same member account, a filter is not required.</p>
+        r"""<p>Lists all applications associated with the instance of IAM Identity Center. When listing applications for an organization instance in the management account, member accounts must use the <code>applicationAccount</code> parameter to filter the list to only applications created from that account. When listing applications for an account instance in the same member account, a filter is not required.</p>
 
         Args:
             instance_arn: <p>The ARN of the IAM Identity Center application under which the operation will run. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
@@ -2722,7 +2722,7 @@ class SSOAdminClient:
         max_results: Optional["aws_sdk_sso_admin.types.max_results.MaxResults"] = None,
         next_token: Optional["aws_sdk_sso_admin.types.token.Token"] = None,
     ) -> "aws_sdk_sso_admin.types.list_managed_policies_in_permission_set_response.ListManagedPoliciesInPermissionSetResponse":
-        """<p>Lists the Amazon Web Services managed policy that is attached to a specified permission set.</p>
+        r"""<p>Lists the Amazon Web Services managed policy that is attached to a specified permission set.</p>
 
         Args:
             instance_arn: <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
@@ -2797,7 +2797,7 @@ class SSOAdminClient:
             "aws_sdk_sso_admin.types.operation_status_filter.OperationStatusFilter"
         ] = None,
     ) -> "aws_sdk_sso_admin.types.list_permission_set_provisioning_status_response.ListPermissionSetProvisioningStatusResponse":
-        """<p>Lists the status of the permission set provisioning requests for a specified IAM Identity Center instance.</p>
+        r"""<p>Lists the status of the permission set provisioning requests for a specified IAM Identity Center instance.</p>
 
         Args:
             instance_arn: <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
@@ -2872,7 +2872,7 @@ class SSOAdminClient:
         next_token: Optional["aws_sdk_sso_admin.types.token.Token"] = None,
         max_results: Optional["aws_sdk_sso_admin.types.max_results.MaxResults"] = None,
     ) -> "aws_sdk_sso_admin.types.list_permission_sets_response.ListPermissionSetsResponse":
-        """<p>Lists the <a>PermissionSet</a>s in an IAM Identity Center instance.</p>
+        r"""<p>Lists the <a>PermissionSet</a>s in an IAM Identity Center instance.</p>
 
         Args:
             instance_arn: <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
@@ -2944,7 +2944,7 @@ class SSOAdminClient:
         max_results: Optional["aws_sdk_sso_admin.types.max_results.MaxResults"] = None,
         next_token: Optional["aws_sdk_sso_admin.types.token.Token"] = None,
     ) -> "aws_sdk_sso_admin.types.list_permission_sets_provisioned_to_account_response.ListPermissionSetsProvisionedToAccountResponse":
-        """<p>Lists all the permission sets that are provisioned to a specified Amazon Web Services account.</p>
+        r"""<p>Lists all the permission sets that are provisioned to a specified Amazon Web Services account.</p>
 
         Args:
             instance_arn: <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
@@ -3023,7 +3023,7 @@ class SSOAdminClient:
         max_results: Optional["aws_sdk_sso_admin.types.max_results.MaxResults"] = None,
         next_token: Optional["aws_sdk_sso_admin.types.token.Token"] = None,
     ) -> "aws_sdk_sso_admin.types.list_regions_response.ListRegionsResponse":
-        """<p>Lists all enabled Regions of an IAM Identity Center instance, including those that are being added or removed. This operation returns Regions with ACTIVE, ADDING, or REMOVING status.</p> <p>The following actions are related to <code>ListRegions</code>:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_AddRegion.html\"> AddRegion</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_RemoveRegion.html\">RemoveRegion</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_DescribeRegion.html\">DescribeRegion</a> </p> </li> </ul>
+        r"""<p>Lists all enabled Regions of an IAM Identity Center instance, including those that are being added or removed. This operation returns Regions with ACTIVE, ADDING, or REMOVING status.</p> <p>The following actions are related to <code>ListRegions</code>:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_AddRegion.html\"> AddRegion</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_RemoveRegion.html\">RemoveRegion</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_DescribeRegion.html\">DescribeRegion</a> </p> </li> </ul>
 
         Args:
             instance_arn: <p>The Amazon Resource Name (ARN) of the IAM Identity Center instance.</p>
@@ -3093,7 +3093,7 @@ class SSOAdminClient:
         ] = None,
         next_token: Optional["aws_sdk_sso_admin.types.token.Token"] = None,
     ) -> "aws_sdk_sso_admin.types.list_tags_for_resource_response.ListTagsForResourceResponse":
-        """<p>Lists the tags that are attached to a specified resource.</p>
+        r"""<p>Lists the tags that are attached to a specified resource.</p>
 
         Args:
             instance_arn: <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
@@ -3232,7 +3232,7 @@ class SSOAdminClient:
         config_overrides: Optional[SSOAdminClientConfig] = None,
         target_id: Optional["aws_sdk_sso_admin.types.target_id.TargetId"] = None,
     ) -> "aws_sdk_sso_admin.types.provision_permission_set_response.ProvisionPermissionSetResponse":
-        """<p>The process by which a specified permission set is provisioned to the specified target.</p>
+        r"""<p>The process by which a specified permission set is provisioned to the specified target.</p>
 
         Args:
             instance_arn: <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
@@ -3277,7 +3277,7 @@ class SSOAdminClient:
         *,
         config_overrides: Optional[SSOAdminClientConfig] = None,
     ) -> "aws_sdk_sso_admin.types.put_application_assignment_configuration_response.PutApplicationAssignmentConfigurationResponse":
-        """<p>Configure how users gain access to an application. If <code>AssignmentsRequired</code> is <code>true</code> (default value), users don’t have access to the application unless an assignment is created using the <a href=\"https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_CreateApplicationAssignment.html\">CreateApplicationAssignment API</a>. If <code>false</code>, all users have access to the application. If an assignment is created using <a href=\"https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_CreateApplicationAssignment.html\">CreateApplicationAssignment</a>., the user retains access if <code>AssignmentsRequired</code> is set to <code>true</code>. </p>
+        r"""<p>Configure how users gain access to an application. If <code>AssignmentsRequired</code> is <code>true</code> (default value), users don’t have access to the application unless an assignment is created using the <a href=\"https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_CreateApplicationAssignment.html\">CreateApplicationAssignment API</a>. If <code>false</code>, all users have access to the application. If an assignment is created using <a href=\"https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_CreateApplicationAssignment.html\">CreateApplicationAssignment</a>., the user retains access if <code>AssignmentsRequired</code> is set to <code>true</code>. </p>
 
         Args:
             application_arn: <p>Specifies the ARN of the application. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
@@ -3363,7 +3363,7 @@ class SSOAdminClient:
         *,
         config_overrides: Optional[SSOAdminClientConfig] = None,
     ) -> "aws_sdk_sso_admin.types.put_inline_policy_to_permission_set_response.PutInlinePolicyToPermissionSetResponse":
-        """<p>Attaches an inline policy to a permission set.</p> <note> <p>If the permission set is already referenced by one or more account assignments, you will need to call <code> <a>ProvisionPermissionSet</a> </code> after this action to apply the corresponding IAM policy updates to all assigned accounts.</p> </note>
+        r"""<p>Attaches an inline policy to a permission set.</p> <note> <p>If the permission set is already referenced by one or more account assignments, you will need to call <code> <a>ProvisionPermissionSet</a> </code> after this action to apply the corresponding IAM policy updates to all assigned accounts.</p> </note>
 
         Args:
             instance_arn: <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
@@ -3448,7 +3448,7 @@ class SSOAdminClient:
         *,
         config_overrides: Optional[SSOAdminClientConfig] = None,
     ) -> "aws_sdk_sso_admin.types.remove_region_response.RemoveRegionResponse":
-        """<p>Removes an additional Region from an IAM Identity Center instance. This operation initiates an asynchronous workflow to clean up IAM Identity Center resources in the specified additional Region. The Region status is set to REMOVING and the Region record is deleted when the workflow completes. The request must be made from the primary Region. The target Region cannot be the primary Region, and no other add or remove Region workflows can be in progress.</p> <p>The following actions are related to <code>RemoveRegion</code>:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_AddRegion.html\"> AddRegion</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_DescribeRegion.html\">DescribeRegion</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ListRegions.html\">ListRegions</a> </p> </li> </ul>
+        r"""<p>Removes an additional Region from an IAM Identity Center instance. This operation initiates an asynchronous workflow to clean up IAM Identity Center resources in the specified additional Region. The Region status is set to REMOVING and the Region record is deleted when the workflow completes. The request must be made from the primary Region. The target Region cannot be the primary Region, and no other add or remove Region workflows can be in progress.</p> <p>The following actions are related to <code>RemoveRegion</code>:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_AddRegion.html\"> AddRegion</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_DescribeRegion.html\">DescribeRegion</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ListRegions.html\">ListRegions</a> </p> </li> </ul>
 
         Args:
             instance_arn: <p>The Amazon Resource Name (ARN) of the IAM Identity Center instance.</p>
@@ -3491,7 +3491,7 @@ class SSOAdminClient:
             "aws_sdk_sso_admin.types.instance_arn.InstanceArn"
         ] = None,
     ) -> "aws_sdk_sso_admin.types.tag_resource_response.TagResourceResponse":
-        """<p>Associates a set of tags with a specified resource.</p>
+        r"""<p>Associates a set of tags with a specified resource.</p>
 
         Args:
             instance_arn: <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
@@ -3537,7 +3537,7 @@ class SSOAdminClient:
             "aws_sdk_sso_admin.types.instance_arn.InstanceArn"
         ] = None,
     ) -> "aws_sdk_sso_admin.types.untag_resource_response.UntagResourceResponse":
-        """<p>Disassociates a set of tags from a specified resource.</p>
+        r"""<p>Disassociates a set of tags from a specified resource.</p>
 
         Args:
             instance_arn: <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
@@ -3591,7 +3591,7 @@ class SSOAdminClient:
     ) -> (
         "aws_sdk_sso_admin.types.update_application_response.UpdateApplicationResponse"
     ):
-        """<p>Updates application properties. </p>
+        r"""<p>Updates application properties. </p>
 
         Args:
             application_arn: <p>Specifies the ARN of the application. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
@@ -3644,7 +3644,7 @@ class SSOAdminClient:
             "aws_sdk_sso_admin.types.encryption_configuration.EncryptionConfiguration"
         ] = None,
     ) -> "aws_sdk_sso_admin.types.update_instance_response.UpdateInstanceResponse":
-        """<p>Update the details for the instance of IAM Identity Center that is owned by the Amazon Web Services account.</p>
+        r"""<p>Update the details for the instance of IAM Identity Center that is owned by the Amazon Web Services account.</p>
 
         Args:
             name: <p>Updates the instance name.</p>
@@ -3688,7 +3688,7 @@ class SSOAdminClient:
         *,
         config_overrides: Optional[SSOAdminClientConfig] = None,
     ) -> "aws_sdk_sso_admin.types.update_instance_access_control_attribute_configuration_response.UpdateInstanceAccessControlAttributeConfigurationResponse":
-        """<p>Updates the IAM Identity Center identity store attributes that you can use with the IAM Identity Center instance for attributes-based access control (ABAC). When using an external identity provider as an identity source, you can pass attributes through the SAML assertion as an alternative to configuring attributes from the IAM Identity Center identity store. If a SAML assertion passes any of these attributes, IAM Identity Center replaces the attribute value with the value from the IAM Identity Center identity store. For more information about ABAC, see <a href=\"/singlesignon/latest/userguide/abac.html\">Attribute-Based Access Control</a> in the <i>IAM Identity Center User Guide</i>.</p>
+        r"""<p>Updates the IAM Identity Center identity store attributes that you can use with the IAM Identity Center instance for attributes-based access control (ABAC). When using an external identity provider as an identity source, you can pass attributes through the SAML assertion as an alternative to configuring attributes from the IAM Identity Center identity store. If a SAML assertion passes any of these attributes, IAM Identity Center replaces the attribute value with the value from the IAM Identity Center identity store. For more information about ABAC, see <a href=\"/singlesignon/latest/userguide/abac.html\">Attribute-Based Access Control</a> in the <i>IAM Identity Center User Guide</i>.</p>
 
         Args:
             instance_arn: <p>The ARN of the IAM Identity Center instance under which the operation will be executed.</p>
@@ -3735,7 +3735,7 @@ class SSOAdminClient:
         session_duration: Optional["aws_sdk_sso_admin.types.duration.Duration"] = None,
         relay_state: Optional["aws_sdk_sso_admin.types.relay_state.RelayState"] = None,
     ) -> "aws_sdk_sso_admin.types.update_permission_set_response.UpdatePermissionSetResponse":
-        """<p>Updates an existing permission set.</p>
+        r"""<p>Updates an existing permission set.</p>
 
         Args:
             instance_arn: <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>

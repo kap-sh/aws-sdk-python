@@ -1,11 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#CustomRequestParametersType``."""
 
 from typing import TYPE_CHECKING, TypeAlias
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.custom_request_key_type
     import aws_sdk_bedrock_agentcore.types.custom_request_value_type
 
-CustomRequestParametersType: TypeAlias = dict["aws_sdk_bedrock_agentcore.types.custom_request_key_type.CustomRequestKeyType", "aws_sdk_bedrock_agentcore.types.custom_request_value_type.CustomRequestValueType"]
+CustomRequestParametersType: TypeAlias = dict[
+    "aws_sdk_bedrock_agentcore.types.custom_request_key_type.CustomRequestKeyType",
+    "aws_sdk_bedrock_agentcore.types.custom_request_value_type.CustomRequestValueType",
+]
 
 
 # --- restJson1 ser/de ---

@@ -253,7 +253,7 @@ class CloudDirectoryClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = CloudDirectoryClientConfig(
+        self._config = CloudDirectoryClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -273,7 +273,7 @@ class CloudDirectoryClient:
         overrides: CloudDirectoryClientConfig = config_overrides or {}
         interceptors_: list[Interceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             retry(),
         ]
@@ -281,16 +281,16 @@ class CloudDirectoryClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            region=overrides.get("region", self.config.get("region")),
+            region=overrides.get("region", self._config.get("region")),
             use_dual_stack=overrides.get(
-                "use_dual_stack", self.config.get("use_dual_stack")
+                "use_dual_stack", self._config.get("use_dual_stack")
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -551,7 +551,7 @@ class CloudDirectoryClient:
         *,
         config_overrides: Optional[CloudDirectoryClientConfig] = None,
     ) -> "aws_sdk_clouddirectory.types.attach_typed_link_response.AttachTypedLinkResponse":
-        """<p>Attaches a typed link to a specified source and target object. For more information, see <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink\">Typed Links</a>.</p>
+        r"""<p>Attaches a typed link to a specified source and target object. For more information, see <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink\">Typed Links</a>.</p>
 
         Args:
             directory_arn: <p>The Amazon Resource Name (ARN) of the directory where you want to attach the typed link.</p>
@@ -700,7 +700,7 @@ class CloudDirectoryClient:
     ) -> (
         "aws_sdk_clouddirectory.types.create_directory_response.CreateDirectoryResponse"
     ):
-        """<p>Creates a <a>Directory</a> by copying the published schema into the directory. A directory cannot be created without a schema.</p> <p>You can also quickly create a directory using a managed schema, called the <code>QuickStartSchema</code>. For more information, see <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_managed.html\">Managed Schema</a> in the <i>Amazon Cloud Directory Developer Guide</i>.</p>
+        r"""<p>Creates a <a>Directory</a> by copying the published schema into the directory. A directory cannot be created without a schema.</p> <p>You can also quickly create a directory using a managed schema, called the <code>QuickStartSchema</code>. For more information, see <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_managed.html\">Managed Schema</a> in the <i>Amazon Cloud Directory Developer Guide</i>.</p>
 
         Args:
             name: <p>The name of the <a>Directory</a>. Should be unique per account, per region.</p>
@@ -754,7 +754,7 @@ class CloudDirectoryClient:
             "aws_sdk_clouddirectory.types.facet_style.FacetStyle"
         ] = None,
     ) -> "aws_sdk_clouddirectory.types.create_facet_response.CreateFacetResponse":
-        """<p>Creates a new <a>Facet</a> in a schema. Facet creation is allowed only in development or applied schemas.</p>
+        r"""<p>Creates a new <a>Facet</a> in a schema. Facet creation is allowed only in development or applied schemas.</p>
 
         Args:
             schema_arn: <p>The schema ARN in which the new <a>Facet</a> will be created. For more information, see <a>arns</a>.</p>
@@ -813,7 +813,7 @@ class CloudDirectoryClient:
         ] = None,
         link_name: Optional["aws_sdk_clouddirectory.types.link_name.LinkName"] = None,
     ) -> "aws_sdk_clouddirectory.types.create_index_response.CreateIndexResponse":
-        """<p>Creates an index object. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/indexing_search.html\">Indexing and search</a> for more information.</p>
+        r"""<p>Creates an index object. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/indexing_search.html\">Indexing and search</a> for more information.</p>
 
         Args:
             directory_arn: <p>The ARN of the directory where the index should be created.</p>
@@ -969,7 +969,7 @@ class CloudDirectoryClient:
         *,
         config_overrides: Optional[CloudDirectoryClientConfig] = None,
     ) -> "aws_sdk_clouddirectory.types.create_typed_link_facet_response.CreateTypedLinkFacetResponse":
-        """<p>Creates a <a>TypedLinkFacet</a>. For more information, see <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink\">Typed Links</a>.</p>
+        r"""<p>Creates a <a>TypedLinkFacet</a>. For more information, see <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink\">Typed Links</a>.</p>
 
         Args:
             schema_arn: <p>The Amazon Resource Name (ARN) that is associated with the schema. For more information, see <a>arns</a>.</p>
@@ -1103,7 +1103,7 @@ class CloudDirectoryClient:
         *,
         config_overrides: Optional[CloudDirectoryClientConfig] = None,
     ) -> "aws_sdk_clouddirectory.types.delete_object_response.DeleteObjectResponse":
-        """<p>Deletes an object and its associated attributes. Only objects with no children and no parents can be deleted. The maximum number of attributes that can be deleted during an object deletion is 30. For more information, see <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html\">Amazon Cloud Directory Limits</a>.</p>
+        r"""<p>Deletes an object and its associated attributes. Only objects with no children and no parents can be deleted. The maximum number of attributes that can be deleted during an object deletion is 30. For more information, see <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html\">Amazon Cloud Directory Limits</a>.</p>
 
         Args:
             directory_arn: <p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a> where the object resides. For more information, see <a>arns</a>.</p>
@@ -1190,7 +1190,7 @@ class CloudDirectoryClient:
         *,
         config_overrides: Optional[CloudDirectoryClientConfig] = None,
     ) -> "aws_sdk_clouddirectory.types.delete_typed_link_facet_response.DeleteTypedLinkFacetResponse":
-        """<p>Deletes a <a>TypedLinkFacet</a>. For more information, see <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink\">Typed Links</a>.</p>
+        r"""<p>Deletes a <a>TypedLinkFacet</a>. For more information, see <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink\">Typed Links</a>.</p>
 
         Args:
             schema_arn: <p>The Amazon Resource Name (ARN) that is associated with the schema. For more information, see <a>arns</a>.</p>
@@ -1379,7 +1379,7 @@ class CloudDirectoryClient:
         *,
         config_overrides: Optional[CloudDirectoryClientConfig] = None,
     ) -> None:
-        """<p>Detaches a typed link from a specified source and target object. For more information, see <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink\">Typed Links</a>.</p>
+        r"""<p>Detaches a typed link from a specified source and target object. For more information, see <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink\">Typed Links</a>.</p>
 
         Args:
             directory_arn: <p>The Amazon Resource Name (ARN) of the directory where you want to detach the typed link.</p>
@@ -1636,7 +1636,7 @@ class CloudDirectoryClient:
             "aws_sdk_clouddirectory.types.consistency_level.ConsistencyLevel"
         ] = None,
     ) -> "aws_sdk_clouddirectory.types.get_link_attributes_response.GetLinkAttributesResponse":
-        """<p>Retrieves attributes that are associated with a typed link.</p>
+        r"""<p>Retrieves attributes that are associated with a typed link.</p>
 
         Args:
             directory_arn: <p>The Amazon Resource Name (ARN) that is associated with the Directory where the typed link resides. For more information, see <a>arns</a> or <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink\">Typed Links</a>.</p>
@@ -1783,7 +1783,7 @@ class CloudDirectoryClient:
         *,
         config_overrides: Optional[CloudDirectoryClientConfig] = None,
     ) -> "aws_sdk_clouddirectory.types.get_schema_as_json_response.GetSchemaAsJsonResponse":
-        """<p>Retrieves a JSON representation of the schema. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_jsonformat.html#schemas_json\">JSON Schema Format</a> for more information.</p>
+        r"""<p>Retrieves a JSON representation of the schema. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_jsonformat.html#schemas_json\">JSON Schema Format</a> for more information.</p>
 
         Args:
             schema_arn: <p>The ARN of the schema to retrieve.</p>
@@ -1826,7 +1826,7 @@ class CloudDirectoryClient:
         *,
         config_overrides: Optional[CloudDirectoryClientConfig] = None,
     ) -> "aws_sdk_clouddirectory.types.get_typed_link_facet_information_response.GetTypedLinkFacetInformationResponse":
-        """<p>Returns the identity attribute order for a specific <a>TypedLinkFacet</a>. For more information, see <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink\">Typed Links</a>.</p>
+        r"""<p>Returns the identity attribute order for a specific <a>TypedLinkFacet</a>. For more information, see <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink\">Typed Links</a>.</p>
 
         Args:
             schema_arn: <p>The Amazon Resource Name (ARN) that is associated with the schema. For more information, see <a>arns</a>.</p>
@@ -2230,7 +2230,7 @@ class CloudDirectoryClient:
             "aws_sdk_clouddirectory.types.consistency_level.ConsistencyLevel"
         ] = None,
     ) -> "aws_sdk_clouddirectory.types.list_incoming_typed_links_response.ListIncomingTypedLinksResponse":
-        """<p>Returns a paginated list of all the incoming <a>TypedLinkSpecifier</a> information for an object. It also supports filtering by typed link facet and identity attributes. For more information, see <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink\">Typed Links</a>.</p>
+        r"""<p>Returns a paginated list of all the incoming <a>TypedLinkSpecifier</a> information for an object. It also supports filtering by typed link facet and identity attributes. For more information, see <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink\">Typed Links</a>.</p>
 
         Args:
             directory_arn: <p>The Amazon Resource Name (ARN) of the directory where you want to list the typed links.</p>
@@ -2302,7 +2302,7 @@ class CloudDirectoryClient:
             "aws_sdk_clouddirectory.types.consistency_level.ConsistencyLevel"
         ] = None,
     ) -> "aws_sdk_clouddirectory.types.list_index_response.ListIndexResponse":
-        """<p>Lists objects attached to the specified index.</p>
+        r"""<p>Lists objects attached to the specified index.</p>
 
         Args:
             directory_arn: <p>The ARN of the directory that the index exists in.</p>
@@ -2547,7 +2547,7 @@ class CloudDirectoryClient:
             "aws_sdk_clouddirectory.types.number_results.NumberResults"
         ] = None,
     ) -> "aws_sdk_clouddirectory.types.list_object_parent_paths_response.ListObjectParentPathsResponse":
-        """<p>Retrieves all available parent paths for any object type such as node, leaf node, policy node, and index node objects. For more information about objects, see <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directorystructure.html\">Directory Structure</a>.</p> <p>Use this API to evaluate all parents for an object. The call returns all objects from the root of the directory up to the requested object. The API returns the number of paths based on user-defined <code>MaxResults</code>, in case there are multiple paths to the parent. The order of the paths and nodes returned is consistent among multiple API calls unless the objects are deleted or moved. Paths not leading to the directory root are ignored from the target object.</p>
+        r"""<p>Retrieves all available parent paths for any object type such as node, leaf node, policy node, and index node objects. For more information about objects, see <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directorystructure.html\">Directory Structure</a>.</p> <p>Use this API to evaluate all parents for an object. The call returns all objects from the root of the directory up to the requested object. The API returns the number of paths based on user-defined <code>MaxResults</code>, in case there are multiple paths to the parent. The order of the paths and nodes returned is consistent among multiple API calls unless the objects are deleted or moved. Paths not leading to the directory root are ignored from the target object.</p>
 
         Args:
             directory_arn: <p>The ARN of the directory to which the parent path applies.</p>
@@ -2732,7 +2732,7 @@ class CloudDirectoryClient:
             "aws_sdk_clouddirectory.types.consistency_level.ConsistencyLevel"
         ] = None,
     ) -> "aws_sdk_clouddirectory.types.list_outgoing_typed_links_response.ListOutgoingTypedLinksResponse":
-        """<p>Returns a paginated list of all the outgoing <a>TypedLinkSpecifier</a> information for an object. It also supports filtering by typed link facet and identity attributes. For more information, see <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink\">Typed Links</a>.</p>
+        r"""<p>Returns a paginated list of all the outgoing <a>TypedLinkSpecifier</a> information for an object. It also supports filtering by typed link facet and identity attributes. For more information, see <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink\">Typed Links</a>.</p>
 
         Args:
             directory_arn: <p>The Amazon Resource Name (ARN) of the directory where you want to list the typed links.</p>
@@ -2950,7 +2950,7 @@ class CloudDirectoryClient:
             "aws_sdk_clouddirectory.types.number_results.NumberResults"
         ] = None,
     ) -> "aws_sdk_clouddirectory.types.list_typed_link_facet_attributes_response.ListTypedLinkFacetAttributesResponse":
-        """<p>Returns a paginated list of all attribute definitions for a particular <a>TypedLinkFacet</a>. For more information, see <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink\">Typed Links</a>.</p>
+        r"""<p>Returns a paginated list of all attribute definitions for a particular <a>TypedLinkFacet</a>. For more information, see <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink\">Typed Links</a>.</p>
 
         Args:
             schema_arn: <p>The Amazon Resource Name (ARN) that is associated with the schema. For more information, see <a>arns</a>.</p>
@@ -3001,7 +3001,7 @@ class CloudDirectoryClient:
             "aws_sdk_clouddirectory.types.number_results.NumberResults"
         ] = None,
     ) -> "aws_sdk_clouddirectory.types.list_typed_link_facet_names_response.ListTypedLinkFacetNamesResponse":
-        """<p>Returns a paginated list of <code>TypedLink</code> facet names for a particular schema. For more information, see <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink\">Typed Links</a>.</p>
+        r"""<p>Returns a paginated list of <code>TypedLink</code> facet names for a particular schema. For more information, see <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink\">Typed Links</a>.</p>
 
         Args:
             schema_arn: <p>The Amazon Resource Name (ARN) that is associated with the schema. For more information, see <a>arns</a>.</p>
@@ -3051,7 +3051,7 @@ class CloudDirectoryClient:
             "aws_sdk_clouddirectory.types.number_results.NumberResults"
         ] = None,
     ) -> "aws_sdk_clouddirectory.types.lookup_policy_response.LookupPolicyResponse":
-        """<p>Lists all policies from the root of the <a>Directory</a> to the object specified. If there are no policies present, an empty list is returned. If policies are present, and if some objects don't have the policies attached, it returns the <code>ObjectIdentifier</code> for such objects. If policies are present, it returns <code>ObjectIdentifier</code>, <code>policyId</code>, and <code>policyType</code>. Paths that don't lead to the root from the target object are ignored. For more information, see <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directory.html#key_concepts_policies\">Policies</a>.</p>
+        r"""<p>Lists all policies from the root of the <a>Directory</a> to the object specified. If there are no policies present, an empty list is returned. If policies are present, and if some objects don't have the policies attached, it returns the <code>ObjectIdentifier</code> for such objects. If policies are present, it returns <code>ObjectIdentifier</code>, <code>policyId</code>, and <code>policyType</code>. Paths that don't lead to the root from the target object are ignored. For more information, see <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directory.html#key_concepts_policies\">Policies</a>.</p>
 
         Args:
             directory_arn: <p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>. For more information, see <a>arns</a>.</p>
@@ -3145,7 +3145,7 @@ class CloudDirectoryClient:
         *,
         config_overrides: Optional[CloudDirectoryClientConfig] = None,
     ) -> "aws_sdk_clouddirectory.types.put_schema_from_json_response.PutSchemaFromJsonResponse":
-        """<p>Allows a schema to be updated using JSON upload. Only available for development schemas. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_jsonformat.html#schemas_json\">JSON Schema Format</a> for more information.</p>
+        r"""<p>Allows a schema to be updated using JSON upload. Only available for development schemas. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_jsonformat.html#schemas_json\">JSON Schema Format</a> for more information.</p>
 
         Args:
             schema_arn: <p>The ARN of the schema to update.</p>
@@ -3361,7 +3361,7 @@ class CloudDirectoryClient:
         *,
         config_overrides: Optional[CloudDirectoryClientConfig] = None,
     ) -> "aws_sdk_clouddirectory.types.update_link_attributes_response.UpdateLinkAttributesResponse":
-        """<p>Updates a given typed link’s attributes. Attributes to be updated must not contribute to the typed link’s identity, as defined by its <code>IdentityAttributeOrder</code>.</p>
+        r"""<p>Updates a given typed link’s attributes. Attributes to be updated must not contribute to the typed link’s identity, as defined by its <code>IdentityAttributeOrder</code>.</p>
 
         Args:
             directory_arn: <p>The Amazon Resource Name (ARN) that is associated with the Directory where the updated typed link resides. For more information, see <a>arns</a> or <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink\">Typed Links</a>.</p>
@@ -3488,7 +3488,7 @@ class CloudDirectoryClient:
         *,
         config_overrides: Optional[CloudDirectoryClientConfig] = None,
     ) -> "aws_sdk_clouddirectory.types.update_typed_link_facet_response.UpdateTypedLinkFacetResponse":
-        """<p>Updates a <a>TypedLinkFacet</a>. For more information, see <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink\">Typed Links</a>.</p>
+        r"""<p>Updates a <a>TypedLinkFacet</a>. For more information, see <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink\">Typed Links</a>.</p>
 
         Args:
             schema_arn: <p>The Amazon Resource Name (ARN) that is associated with the schema. For more information, see <a>arns</a>.</p>

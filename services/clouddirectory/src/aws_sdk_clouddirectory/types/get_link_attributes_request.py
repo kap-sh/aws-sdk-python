@@ -15,7 +15,7 @@ if TYPE_CHECKING:
 
 class GetLinkAttributesRequest(TypedDict):
     directory_arn: "aws_sdk_clouddirectory.types.arn.Arn"
-    """<p>The Amazon Resource Name (ARN) that is associated with the Directory where the typed link resides. For more information, see <a>arns</a> or <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink\">Typed Links</a>.</p>"""
+    r"""<p>The Amazon Resource Name (ARN) that is associated with the Directory where the typed link resides. For more information, see <a>arns</a> or <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink\">Typed Links</a>.</p>"""
     typed_link_specifier: (
         "aws_sdk_clouddirectory.types.typed_link_specifier.TypedLinkSpecifier"
     )

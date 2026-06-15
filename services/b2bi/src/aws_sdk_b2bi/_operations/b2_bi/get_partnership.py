@@ -75,7 +75,7 @@ def get_signer(
     options: AsyncOperationOptions | OperationOptions,
     auth_schemes: list[dict[str, Any]] | None = None,
 ) -> aws_sdk_b2bi._auth._signers.Signer | None:
-    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}
+    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}  # noqa: F841
     if options.credentials_provider is not None:
         sigv4_config = (
             name_to_schema.get("sigv4")
@@ -92,7 +92,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_b2bi.types.get_partnership_request.GetPartnershipRequest,
+    input_: aws_sdk_b2bi.types.get_partnership_request.GetPartnershipRequest,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -103,7 +103,7 @@ def build_request(
         )
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/partnerships/{partnershipId}"
-    url = url.replace("{partnershipId}", quote(str(input["partnership_id"]), safe=""))
+    url = url.replace("{partnershipId}", quote(str(input_["partnership_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "B2BI.GetPartnership"
@@ -118,11 +118,11 @@ def build_request(
 
 def get_partnership(
     options: OperationOptions,
-    input: aws_sdk_b2bi.types.get_partnership_request.GetPartnershipRequest,
+    input_: aws_sdk_b2bi.types.get_partnership_request.GetPartnershipRequest,
 ) -> tuple[
     aws_sdk_b2bi.types.get_partnership_response.GetPartnershipResponse, zapros.Response
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -136,11 +136,11 @@ def get_partnership(
 
 async def async_get_partnership(
     options: AsyncOperationOptions,
-    input: aws_sdk_b2bi.types.get_partnership_request.GetPartnershipRequest,
+    input_: aws_sdk_b2bi.types.get_partnership_request.GetPartnershipRequest,
 ) -> tuple[
     aws_sdk_b2bi.types.get_partnership_response.GetPartnershipResponse, zapros.Response
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

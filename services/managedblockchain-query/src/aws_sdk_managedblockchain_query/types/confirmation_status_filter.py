@@ -10,7 +10,7 @@ if TYPE_CHECKING:
 
 class ConfirmationStatusFilter(TypedDict):
     include: "aws_sdk_managedblockchain_query.types.confirmation_status_include_list.ConfirmationStatusIncludeList"
-    """<p>The container to determine whether to list results that have only reached <a href=\"https://docs.aws.amazon.com/managed-blockchain/latest/ambq-dg/key-concepts.html#finality\"> <i>finality</i> </a>. Transactions that have reached finality are always part of the response.</p>"""
+    r"""<p>The container to determine whether to list results that have only reached <a href=\"https://docs.aws.amazon.com/managed-blockchain/latest/ambq-dg/key-concepts.html#finality\"> <i>finality</i> </a>. Transactions that have reached finality are always part of the response.</p>"""
 
 
 # --- restJson1 ser/de ---

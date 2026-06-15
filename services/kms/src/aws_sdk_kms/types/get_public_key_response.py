@@ -17,9 +17,9 @@ if TYPE_CHECKING:
 
 class GetPublicKeyResponse(TypedDict):
     key_id: NotRequired["aws_sdk_kms.types.key_id_type.KeyIdType"]
-    """<p>The Amazon Resource Name (<a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN\">key ARN</a>) of the asymmetric KMS key from which the public key was downloaded.</p>"""
+    r"""<p>The Amazon Resource Name (<a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN\">key ARN</a>) of the asymmetric KMS key from which the public key was downloaded.</p>"""
     public_key: NotRequired["aws_sdk_kms.types.public_key_type.PublicKeyType"]
-    """<p>The exported public key. </p> <p>The value is a DER-encoded X.509 public key, also known as <code>SubjectPublicKeyInfo</code> (SPKI), as defined in <a href=\"https://tools.ietf.org/html/rfc5280\">RFC 5280</a>. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p> <p></p>"""
+    r"""<p>The exported public key. </p> <p>The value is a DER-encoded X.509 public key, also known as <code>SubjectPublicKeyInfo</code> (SPKI), as defined in <a href=\"https://tools.ietf.org/html/rfc5280\">RFC 5280</a>. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p> <p></p>"""
     customer_master_key_spec: NotRequired[
         "aws_sdk_kms.types.customer_master_key_spec.CustomerMasterKeySpec"
     ]

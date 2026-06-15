@@ -13,7 +13,7 @@ if TYPE_CHECKING:
 
 class CreateCacheSecurityGroupMessage(TypedDict):
     cache_security_group_name: NotRequired["aws_sdk_elasticache.types.string.String"]
-    """<p>A name for the cache security group. This value is stored as a lowercase string.</p> <p>Constraints: Must contain no more than 255 alphanumeric characters. Cannot be the word \"Default\".</p> <p>Example: <code>mysecuritygroup</code> </p>"""
+    r"""<p>A name for the cache security group. This value is stored as a lowercase string.</p> <p>Constraints: Must contain no more than 255 alphanumeric characters. Cannot be the word \"Default\".</p> <p>Example: <code>mysecuritygroup</code> </p>"""
     description: NotRequired["aws_sdk_elasticache.types.string.String"]
     """<p>A description for the cache security group.</p>"""
     tags: NotRequired["aws_sdk_elasticache.types.tag_list.TagList"]

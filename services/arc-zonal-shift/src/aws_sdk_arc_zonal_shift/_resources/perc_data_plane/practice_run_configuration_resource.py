@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_arc_zonal_shift._auth._signers
@@ -85,21 +87,21 @@ class PracticeRunConfigurationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_arc_zonal_shift.types.update_practice_run_configuration_request.UpdatePracticeRunConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["resource_identifier"] = resource_identifier
+        input_: aws_sdk_arc_zonal_shift.types.update_practice_run_configuration_request.UpdatePracticeRunConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_identifier"] = resource_identifier
         if blocked_windows is not None:
-            input["blocked_windows"] = blocked_windows
+            input_["blocked_windows"] = blocked_windows
         if blocked_dates is not None:
-            input["blocked_dates"] = blocked_dates
+            input_["blocked_dates"] = blocked_dates
         if blocking_alarms is not None:
-            input["blocking_alarms"] = blocking_alarms
+            input_["blocking_alarms"] = blocking_alarms
         if allowed_windows is not None:
-            input["allowed_windows"] = allowed_windows
+            input_["allowed_windows"] = allowed_windows
         if outcome_alarms is not None:
-            input["outcome_alarms"] = outcome_alarms
+            input_["outcome_alarms"] = outcome_alarms
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -132,11 +134,11 @@ class PracticeRunConfigurationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_arc_zonal_shift.types.delete_practice_run_configuration_request.DeletePracticeRunConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["resource_identifier"] = resource_identifier
+        input_: aws_sdk_arc_zonal_shift.types.delete_practice_run_configuration_request.DeletePracticeRunConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_identifier"] = resource_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -161,7 +163,7 @@ class PracticeRunConfigurationResource:
             "aws_sdk_arc_zonal_shift.types.allowed_windows.AllowedWindows"
         ] = None,
     ) -> "aws_sdk_arc_zonal_shift.types.create_practice_run_configuration_response.CreatePracticeRunConfigurationResponse":
-        """<p>A practice run configuration for zonal autoshift is required when you enable zonal autoshift. A practice run configuration includes specifications for blocked dates and blocked time windows, and for Amazon CloudWatch alarms that you create to use with practice runs. The alarms that you specify are an <i>outcome alarm</i>, to monitor application health during practice runs and, optionally, a <i>blocking alarm</i>, to block practice runs from starting.</p> <p>When a resource has a practice run configuration, ARC starts zonal shifts for the resource weekly, to shift traffic for practice runs. Practice runs help you to ensure that shifting away traffic from an Availability Zone during an autoshift is safe for your application.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-autoshift.considerations.html\"> Considerations when you configure zonal autoshift</a> in the Amazon Application Recovery Controller Developer Guide.</p>
+        r"""<p>A practice run configuration for zonal autoshift is required when you enable zonal autoshift. A practice run configuration includes specifications for blocked dates and blocked time windows, and for Amazon CloudWatch alarms that you create to use with practice runs. The alarms that you specify are an <i>outcome alarm</i>, to monitor application health during practice runs and, optionally, a <i>blocking alarm</i>, to block practice runs from starting.</p> <p>When a resource has a practice run configuration, ARC starts zonal shifts for the resource weekly, to shift traffic for practice runs. Practice runs help you to ensure that shifting away traffic from an Availability Zone during an autoshift is safe for your application.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-autoshift.considerations.html\"> Considerations when you configure zonal autoshift</a> in the Amazon Application Recovery Controller Developer Guide.</p>
 
         Args:
             resource_identifier: <p>The identifier of the resource that Amazon Web Services shifts traffic for with a practice run zonal shift. The identifier is the Amazon Resource Name (ARN) for the resource.</p> <p>Amazon Application Recovery Controller currently supports enabling the following resources for zonal shift and zonal autoshift:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.resource-types.ec2-auto-scaling-groups.html\">Amazon EC2 Auto Scaling groups</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.resource-types.eks.html\">Amazon Elastic Kubernetes Service</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.resource-types.app-load-balancers.html\">Application Load Balancer</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.resource-types.network-load-balancers.html\">Network Load Balancer</a> </p> </li> </ul>
@@ -187,20 +189,20 @@ class PracticeRunConfigurationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_arc_zonal_shift.types.create_practice_run_configuration_request.CreatePracticeRunConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["resource_identifier"] = resource_identifier
+        input_: aws_sdk_arc_zonal_shift.types.create_practice_run_configuration_request.CreatePracticeRunConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_identifier"] = resource_identifier
         if blocked_windows is not None:
-            input["blocked_windows"] = blocked_windows
+            input_["blocked_windows"] = blocked_windows
         if blocked_dates is not None:
-            input["blocked_dates"] = blocked_dates
+            input_["blocked_dates"] = blocked_dates
         if blocking_alarms is not None:
-            input["blocking_alarms"] = blocking_alarms
+            input_["blocking_alarms"] = blocking_alarms
         if allowed_windows is not None:
-            input["allowed_windows"] = allowed_windows
-        input["outcome_alarms"] = outcome_alarms
+            input_["allowed_windows"] = allowed_windows
+        input_["outcome_alarms"] = outcome_alarms
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -259,21 +261,21 @@ class AsyncPracticeRunConfigurationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_arc_zonal_shift.types.update_practice_run_configuration_request.UpdatePracticeRunConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["resource_identifier"] = resource_identifier
+        input_: aws_sdk_arc_zonal_shift.types.update_practice_run_configuration_request.UpdatePracticeRunConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_identifier"] = resource_identifier
         if blocked_windows is not None:
-            input["blocked_windows"] = blocked_windows
+            input_["blocked_windows"] = blocked_windows
         if blocked_dates is not None:
-            input["blocked_dates"] = blocked_dates
+            input_["blocked_dates"] = blocked_dates
         if blocking_alarms is not None:
-            input["blocking_alarms"] = blocking_alarms
+            input_["blocking_alarms"] = blocking_alarms
         if allowed_windows is not None:
-            input["allowed_windows"] = allowed_windows
+            input_["allowed_windows"] = allowed_windows
         if outcome_alarms is not None:
-            input["outcome_alarms"] = outcome_alarms
+            input_["outcome_alarms"] = outcome_alarms
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -307,11 +309,11 @@ class AsyncPracticeRunConfigurationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_arc_zonal_shift.types.delete_practice_run_configuration_request.DeletePracticeRunConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["resource_identifier"] = resource_identifier
+        input_: aws_sdk_arc_zonal_shift.types.delete_practice_run_configuration_request.DeletePracticeRunConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_identifier"] = resource_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -336,7 +338,7 @@ class AsyncPracticeRunConfigurationResource:
             "aws_sdk_arc_zonal_shift.types.allowed_windows.AllowedWindows"
         ] = None,
     ) -> "aws_sdk_arc_zonal_shift.types.create_practice_run_configuration_response.CreatePracticeRunConfigurationResponse":
-        """<p>A practice run configuration for zonal autoshift is required when you enable zonal autoshift. A practice run configuration includes specifications for blocked dates and blocked time windows, and for Amazon CloudWatch alarms that you create to use with practice runs. The alarms that you specify are an <i>outcome alarm</i>, to monitor application health during practice runs and, optionally, a <i>blocking alarm</i>, to block practice runs from starting.</p> <p>When a resource has a practice run configuration, ARC starts zonal shifts for the resource weekly, to shift traffic for practice runs. Practice runs help you to ensure that shifting away traffic from an Availability Zone during an autoshift is safe for your application.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-autoshift.considerations.html\"> Considerations when you configure zonal autoshift</a> in the Amazon Application Recovery Controller Developer Guide.</p>
+        r"""<p>A practice run configuration for zonal autoshift is required when you enable zonal autoshift. A practice run configuration includes specifications for blocked dates and blocked time windows, and for Amazon CloudWatch alarms that you create to use with practice runs. The alarms that you specify are an <i>outcome alarm</i>, to monitor application health during practice runs and, optionally, a <i>blocking alarm</i>, to block practice runs from starting.</p> <p>When a resource has a practice run configuration, ARC starts zonal shifts for the resource weekly, to shift traffic for practice runs. Practice runs help you to ensure that shifting away traffic from an Availability Zone during an autoshift is safe for your application.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-autoshift.considerations.html\"> Considerations when you configure zonal autoshift</a> in the Amazon Application Recovery Controller Developer Guide.</p>
 
         Args:
             resource_identifier: <p>The identifier of the resource that Amazon Web Services shifts traffic for with a practice run zonal shift. The identifier is the Amazon Resource Name (ARN) for the resource.</p> <p>Amazon Application Recovery Controller currently supports enabling the following resources for zonal shift and zonal autoshift:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.resource-types.ec2-auto-scaling-groups.html\">Amazon EC2 Auto Scaling groups</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.resource-types.eks.html\">Amazon Elastic Kubernetes Service</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.resource-types.app-load-balancers.html\">Application Load Balancer</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.resource-types.network-load-balancers.html\">Network Load Balancer</a> </p> </li> </ul>
@@ -363,20 +365,20 @@ class AsyncPracticeRunConfigurationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_arc_zonal_shift.types.create_practice_run_configuration_request.CreatePracticeRunConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["resource_identifier"] = resource_identifier
+        input_: aws_sdk_arc_zonal_shift.types.create_practice_run_configuration_request.CreatePracticeRunConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_identifier"] = resource_identifier
         if blocked_windows is not None:
-            input["blocked_windows"] = blocked_windows
+            input_["blocked_windows"] = blocked_windows
         if blocked_dates is not None:
-            input["blocked_dates"] = blocked_dates
+            input_["blocked_dates"] = blocked_dates
         if blocking_alarms is not None:
-            input["blocking_alarms"] = blocking_alarms
+            input_["blocking_alarms"] = blocking_alarms
         if allowed_windows is not None:
-            input["allowed_windows"] = allowed_windows
-        input["outcome_alarms"] = outcome_alarms
+            input_["allowed_windows"] = allowed_windows
+        input_["outcome_alarms"] = outcome_alarms
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

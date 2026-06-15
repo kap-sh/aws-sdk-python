@@ -48,7 +48,7 @@ class GetDashManifestConfiguration(TypedDict):
     period_triggers: NotRequired[
         "aws_sdk_mediapackagev2.types.dash_period_triggers.DashPeriodTriggers"
     ]
-    """<p>A list of triggers that controls when AWS Elemental MediaPackage separates the MPEG-DASH manifest into multiple periods. Leave this value empty to indicate that the manifest is contained all in one period. For more information about periods in the DASH manifest, see <a href=\"https://docs.aws.amazon.com/mediapackage/latest/userguide/multi-period.html\">Multi-period DASH in AWS Elemental MediaPackage</a>.</p>"""
+    r"""<p>A list of triggers that controls when AWS Elemental MediaPackage separates the MPEG-DASH manifest into multiple periods. Leave this value empty to indicate that the manifest is contained all in one period. For more information about periods in the DASH manifest, see <a href=\"https://docs.aws.amazon.com/mediapackage/latest/userguide/multi-period.html\">Multi-period DASH in AWS Elemental MediaPackage</a>.</p>"""
     scte_dash: NotRequired["aws_sdk_mediapackagev2.types.scte_dash.ScteDash"]
     """<p>The SCTE configuration.</p>"""
     drm_signaling: NotRequired[

@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 from aws_sdk_proton._services._pipeline import (
@@ -58,7 +60,7 @@ class EnvironmentAccountConnectionResource:
         component_role_arn: Optional["aws_sdk_proton.types.role_arn.RoleArn"] = None,
         codebuild_role_arn: Optional["aws_sdk_proton.types.role_arn.RoleArn"] = None,
     ) -> "aws_sdk_proton.types.create_environment_account_connection_output.CreateEnvironmentAccountConnectionOutput":
-        """<p>Create an environment account connection in an environment account so that environment infrastructure resources can be provisioned in the environment account from a management account.</p> <p>An environment account connection is a secure bi-directional connection between a <i>management account</i> and an <i>environment account</i> that maintains authorization and permissions. For more information, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html\">Environment account connections</a> in the <i>Proton User guide</i>.</p>
+        r"""<p>Create an environment account connection in an environment account so that environment infrastructure resources can be provisioned in the environment account from a management account.</p> <p>An environment account connection is a secure bi-directional connection between a <i>management account</i> and an <i>environment account</i> that maintains authorization and permissions. For more information, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html\">Environment account connections</a> in the <i>Proton User guide</i>.</p>
 
         Args:
             client_token: <p>When included, if two identical requests are made with the same client token, Proton returns the environment account connection that the first request created.</p>
@@ -112,7 +114,7 @@ class EnvironmentAccountConnectionResource:
         *,
         config_overrides: Optional[ProtonClientConfig] = None,
     ) -> "aws_sdk_proton.types.get_environment_account_connection_output.GetEnvironmentAccountConnectionOutput":
-        """<p>In an environment account, get the detailed data for an environment account connection.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html\">Environment account connections</a> in the <i>Proton User guide</i>.</p>
+        r"""<p>In an environment account, get the detailed data for an environment account connection.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html\">Environment account connections</a> in the <i>Proton User guide</i>.</p>
 
         Args:
             id: <p>The ID of the environment account connection that you want to get the detailed data for.</p>
@@ -152,7 +154,7 @@ class EnvironmentAccountConnectionResource:
         component_role_arn: Optional["aws_sdk_proton.types.role_arn.RoleArn"] = None,
         codebuild_role_arn: Optional["aws_sdk_proton.types.role_arn.RoleArn"] = None,
     ) -> "aws_sdk_proton.types.update_environment_account_connection_output.UpdateEnvironmentAccountConnectionOutput":
-        """<p>In an environment account, update an environment account connection to use a new IAM role.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html\">Environment account connections</a> in the <i>Proton User guide</i>.</p>
+        r"""<p>In an environment account, update an environment account connection to use a new IAM role.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html\">Environment account connections</a> in the <i>Proton User guide</i>.</p>
 
         Args:
             id: <p>The ID of the environment account connection to update.</p>
@@ -198,7 +200,7 @@ class EnvironmentAccountConnectionResource:
         *,
         config_overrides: Optional[ProtonClientConfig] = None,
     ) -> "aws_sdk_proton.types.delete_environment_account_connection_output.DeleteEnvironmentAccountConnectionOutput":
-        """<p>In an environment account, delete an environment account connection.</p> <p>After you delete an environment account connection that’s in use by an Proton environment, Proton <i>can’t</i> manage the environment infrastructure resources until a new environment account connection is accepted for the environment account and associated environment. You're responsible for cleaning up provisioned resources that remain without an environment connection.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html\">Environment account connections</a> in the <i>Proton User guide</i>.</p>
+        r"""<p>In an environment account, delete an environment account connection.</p> <p>After you delete an environment account connection that’s in use by an Proton environment, Proton <i>can’t</i> manage the environment infrastructure resources until a new environment account connection is accepted for the environment account and associated environment. You're responsible for cleaning up provisioned resources that remain without an environment connection.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html\">Environment account connections</a> in the <i>Proton User guide</i>.</p>
 
         Args:
             id: <p>The ID of the environment account connection to delete.</p>
@@ -245,7 +247,7 @@ class EnvironmentAccountConnectionResource:
             "aws_sdk_proton.types.max_page_results.MaxPageResults"
         ] = None,
     ) -> "aws_sdk_proton.types.list_environment_account_connections_output.ListEnvironmentAccountConnectionsOutput":
-        """<p>View a list of environment account connections.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html\">Environment account connections</a> in the <i>Proton User guide</i>.</p>
+        r"""<p>View a list of environment account connections.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html\">Environment account connections</a> in the <i>Proton User guide</i>.</p>
 
         Args:
             requested_by: <p>The type of account making the <code>ListEnvironmentAccountConnections</code> request.</p>
@@ -294,7 +296,7 @@ class EnvironmentAccountConnectionResource:
         *,
         config_overrides: Optional[ProtonClientConfig] = None,
     ) -> "aws_sdk_proton.types.accept_environment_account_connection_output.AcceptEnvironmentAccountConnectionOutput":
-        """<p>In a management account, an environment account connection request is accepted. When the environment account connection request is accepted, Proton can use the associated IAM role to provision environment infrastructure resources in the associated environment account.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html\">Environment account connections</a> in the <i>Proton User guide</i>.</p>
+        r"""<p>In a management account, an environment account connection request is accepted. When the environment account connection request is accepted, Proton can use the associated IAM role to provision environment infrastructure resources in the associated environment account.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html\">Environment account connections</a> in the <i>Proton User guide</i>.</p>
 
         Args:
             id: <p>The ID of the environment account connection.</p>
@@ -331,7 +333,7 @@ class EnvironmentAccountConnectionResource:
         *,
         config_overrides: Optional[ProtonClientConfig] = None,
     ) -> "aws_sdk_proton.types.reject_environment_account_connection_output.RejectEnvironmentAccountConnectionOutput":
-        """<p>In a management account, reject an environment account connection from another environment account.</p> <p>After you reject an environment account connection request, you <i>can't</i> accept or use the rejected environment account connection.</p> <p>You <i>can’t</i> reject an environment account connection that's connected to an environment.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html\">Environment account connections</a> in the <i>Proton User guide</i>.</p>
+        r"""<p>In a management account, reject an environment account connection from another environment account.</p> <p>After you reject an environment account connection request, you <i>can't</i> accept or use the rejected environment account connection.</p> <p>You <i>can’t</i> reject an environment account connection that's connected to an environment.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html\">Environment account connections</a> in the <i>Proton User guide</i>.</p>
 
         Args:
             id: <p>The ID of the environment account connection to reject.</p>
@@ -379,7 +381,7 @@ class AsyncEnvironmentAccountConnectionResource:
         component_role_arn: Optional["aws_sdk_proton.types.role_arn.RoleArn"] = None,
         codebuild_role_arn: Optional["aws_sdk_proton.types.role_arn.RoleArn"] = None,
     ) -> "aws_sdk_proton.types.create_environment_account_connection_output.CreateEnvironmentAccountConnectionOutput":
-        """<p>Create an environment account connection in an environment account so that environment infrastructure resources can be provisioned in the environment account from a management account.</p> <p>An environment account connection is a secure bi-directional connection between a <i>management account</i> and an <i>environment account</i> that maintains authorization and permissions. For more information, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html\">Environment account connections</a> in the <i>Proton User guide</i>.</p>
+        r"""<p>Create an environment account connection in an environment account so that environment infrastructure resources can be provisioned in the environment account from a management account.</p> <p>An environment account connection is a secure bi-directional connection between a <i>management account</i> and an <i>environment account</i> that maintains authorization and permissions. For more information, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html\">Environment account connections</a> in the <i>Proton User guide</i>.</p>
 
         Args:
             client_token: <p>When included, if two identical requests are made with the same client token, Proton returns the environment account connection that the first request created.</p>
@@ -434,7 +436,7 @@ class AsyncEnvironmentAccountConnectionResource:
         *,
         config_overrides: Optional[AsyncProtonClientConfig] = None,
     ) -> "aws_sdk_proton.types.get_environment_account_connection_output.GetEnvironmentAccountConnectionOutput":
-        """<p>In an environment account, get the detailed data for an environment account connection.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html\">Environment account connections</a> in the <i>Proton User guide</i>.</p>
+        r"""<p>In an environment account, get the detailed data for an environment account connection.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html\">Environment account connections</a> in the <i>Proton User guide</i>.</p>
 
         Args:
             id: <p>The ID of the environment account connection that you want to get the detailed data for.</p>
@@ -475,7 +477,7 @@ class AsyncEnvironmentAccountConnectionResource:
         component_role_arn: Optional["aws_sdk_proton.types.role_arn.RoleArn"] = None,
         codebuild_role_arn: Optional["aws_sdk_proton.types.role_arn.RoleArn"] = None,
     ) -> "aws_sdk_proton.types.update_environment_account_connection_output.UpdateEnvironmentAccountConnectionOutput":
-        """<p>In an environment account, update an environment account connection to use a new IAM role.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html\">Environment account connections</a> in the <i>Proton User guide</i>.</p>
+        r"""<p>In an environment account, update an environment account connection to use a new IAM role.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html\">Environment account connections</a> in the <i>Proton User guide</i>.</p>
 
         Args:
             id: <p>The ID of the environment account connection to update.</p>
@@ -522,7 +524,7 @@ class AsyncEnvironmentAccountConnectionResource:
         *,
         config_overrides: Optional[AsyncProtonClientConfig] = None,
     ) -> "aws_sdk_proton.types.delete_environment_account_connection_output.DeleteEnvironmentAccountConnectionOutput":
-        """<p>In an environment account, delete an environment account connection.</p> <p>After you delete an environment account connection that’s in use by an Proton environment, Proton <i>can’t</i> manage the environment infrastructure resources until a new environment account connection is accepted for the environment account and associated environment. You're responsible for cleaning up provisioned resources that remain without an environment connection.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html\">Environment account connections</a> in the <i>Proton User guide</i>.</p>
+        r"""<p>In an environment account, delete an environment account connection.</p> <p>After you delete an environment account connection that’s in use by an Proton environment, Proton <i>can’t</i> manage the environment infrastructure resources until a new environment account connection is accepted for the environment account and associated environment. You're responsible for cleaning up provisioned resources that remain without an environment connection.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html\">Environment account connections</a> in the <i>Proton User guide</i>.</p>
 
         Args:
             id: <p>The ID of the environment account connection to delete.</p>
@@ -570,7 +572,7 @@ class AsyncEnvironmentAccountConnectionResource:
             "aws_sdk_proton.types.max_page_results.MaxPageResults"
         ] = None,
     ) -> "aws_sdk_proton.types.list_environment_account_connections_output.ListEnvironmentAccountConnectionsOutput":
-        """<p>View a list of environment account connections.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html\">Environment account connections</a> in the <i>Proton User guide</i>.</p>
+        r"""<p>View a list of environment account connections.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html\">Environment account connections</a> in the <i>Proton User guide</i>.</p>
 
         Args:
             requested_by: <p>The type of account making the <code>ListEnvironmentAccountConnections</code> request.</p>
@@ -620,7 +622,7 @@ class AsyncEnvironmentAccountConnectionResource:
         *,
         config_overrides: Optional[AsyncProtonClientConfig] = None,
     ) -> "aws_sdk_proton.types.accept_environment_account_connection_output.AcceptEnvironmentAccountConnectionOutput":
-        """<p>In a management account, an environment account connection request is accepted. When the environment account connection request is accepted, Proton can use the associated IAM role to provision environment infrastructure resources in the associated environment account.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html\">Environment account connections</a> in the <i>Proton User guide</i>.</p>
+        r"""<p>In a management account, an environment account connection request is accepted. When the environment account connection request is accepted, Proton can use the associated IAM role to provision environment infrastructure resources in the associated environment account.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html\">Environment account connections</a> in the <i>Proton User guide</i>.</p>
 
         Args:
             id: <p>The ID of the environment account connection.</p>
@@ -658,7 +660,7 @@ class AsyncEnvironmentAccountConnectionResource:
         *,
         config_overrides: Optional[AsyncProtonClientConfig] = None,
     ) -> "aws_sdk_proton.types.reject_environment_account_connection_output.RejectEnvironmentAccountConnectionOutput":
-        """<p>In a management account, reject an environment account connection from another environment account.</p> <p>After you reject an environment account connection request, you <i>can't</i> accept or use the rejected environment account connection.</p> <p>You <i>can’t</i> reject an environment account connection that's connected to an environment.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html\">Environment account connections</a> in the <i>Proton User guide</i>.</p>
+        r"""<p>In a management account, reject an environment account connection from another environment account.</p> <p>After you reject an environment account connection request, you <i>can't</i> accept or use the rejected environment account connection.</p> <p>You <i>can’t</i> reject an environment account connection that's connected to an environment.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html\">Environment account connections</a> in the <i>Proton User guide</i>.</p>
 
         Args:
             id: <p>The ID of the environment account connection to reject.</p>

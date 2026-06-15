@@ -56,7 +56,7 @@ class DescribeIndexResponse(TypedDict):
     capacity_units: NotRequired[
         "aws_sdk_kendra.types.capacity_units_configuration.CapacityUnitsConfiguration"
     ]
-    """<p>For Enterprise Edition indexes, you can choose to use additional capacity to meet the needs of your application. This contains the capacity units used for the index. A query or document storage capacity of zero indicates that the index is using the default capacity. For more information on the default capacity for an index and adjusting this, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/adjusting-capacity.html\">Adjusting capacity</a>.</p>"""
+    r"""<p>For Enterprise Edition indexes, you can choose to use additional capacity to meet the needs of your application. This contains the capacity units used for the index. A query or document storage capacity of zero indicates that the index is using the default capacity. For more information on the default capacity for an index and adjusting this, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/adjusting-capacity.html\">Adjusting capacity</a>.</p>"""
     user_token_configurations: NotRequired[
         "aws_sdk_kendra.types.user_token_configuration_list.UserTokenConfigurationList"
     ]

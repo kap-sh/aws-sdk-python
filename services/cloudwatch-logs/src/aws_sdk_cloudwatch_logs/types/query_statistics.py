@@ -12,11 +12,11 @@ class QueryStatistics(TypedDict):
     records_scanned: "aws_sdk_cloudwatch_logs.types.stats_value.StatsValue"
     """<p>The total number of log events scanned during the query.</p>"""
     estimated_records_skipped: "aws_sdk_cloudwatch_logs.types.stats_value.StatsValue"
-    """<p>An estimate of the number of log events that were skipped when processing this query, because the query contained an indexed field. Skipping these entries lowers query costs and improves the query performance time. For more information about field indexes, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutIndexPolicy.html\">PutIndexPolicy</a>.</p>"""
+    r"""<p>An estimate of the number of log events that were skipped when processing this query, because the query contained an indexed field. Skipping these entries lowers query costs and improves the query performance time. For more information about field indexes, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutIndexPolicy.html\">PutIndexPolicy</a>.</p>"""
     bytes_scanned: "aws_sdk_cloudwatch_logs.types.stats_value.StatsValue"
     """<p>The total number of bytes in the log events scanned during the query.</p>"""
     estimated_bytes_skipped: "aws_sdk_cloudwatch_logs.types.stats_value.StatsValue"
-    """<p>An estimate of the number of bytes in the log events that were skipped when processing this query, because the query contained an indexed field. Skipping these entries lowers query costs and improves the query performance time. For more information about field indexes, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutIndexPolicy.html\">PutIndexPolicy</a>.</p>"""
+    r"""<p>An estimate of the number of bytes in the log events that were skipped when processing this query, because the query contained an indexed field. Skipping these entries lowers query costs and improves the query performance time. For more information about field indexes, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutIndexPolicy.html\">PutIndexPolicy</a>.</p>"""
     log_groups_scanned: "aws_sdk_cloudwatch_logs.types.stats_value.StatsValue"
     """<p>The number of log groups that were scanned by this query.</p>"""
 

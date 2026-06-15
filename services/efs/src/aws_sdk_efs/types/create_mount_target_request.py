@@ -27,7 +27,7 @@ class CreateMountTargetRequest(TypedDict):
     ip_address_type: NotRequired["aws_sdk_efs.types.ip_address_type.IpAddressType"]
     """<p>Specify the type of IP address of the mount target you are creating. Options are IPv4, dual stack, or IPv6. If you don’t specify an IpAddressType, then IPv4 is used.</p> <ul> <li> <p>IPV4_ONLY – Create mount target with IPv4 only subnet or dual-stack subnet.</p> </li> <li> <p>DUAL_STACK – Create mount target with dual-stack subnet.</p> </li> <li> <p>IPV6_ONLY – Create mount target with IPv6 only subnet.</p> </li> </ul> <note> <p>Creating IPv6 mount target only ENI in dual-stack subnet is not supported.</p> </note>"""
     security_groups: NotRequired["aws_sdk_efs.types.security_groups.SecurityGroups"]
-    """<p>VPC security group IDs, of the form <code>sg-xxxxxxxx</code>. These must be for the same VPC as the subnet specified. The maximum number of security groups depends on account quota. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html\">Amazon VPC Quotas</a> in the <i>Amazon VPC User Guide</i> (see the <b>Security Groups</b> table). </p>"""
+    r"""<p>VPC security group IDs, of the form <code>sg-xxxxxxxx</code>. These must be for the same VPC as the subnet specified. The maximum number of security groups depends on account quota. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html\">Amazon VPC Quotas</a> in the <i>Amazon VPC User Guide</i> (see the <b>Security Groups</b> table). </p>"""
 
 
 # --- restJson1 ser/de ---

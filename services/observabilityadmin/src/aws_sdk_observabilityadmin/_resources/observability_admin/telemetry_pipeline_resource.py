@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_observabilityadmin._auth._signers
@@ -53,7 +55,7 @@ class TelemetryPipelineResource:
             "aws_sdk_observabilityadmin.types.tag_map_input.TagMapInput"
         ] = None,
     ) -> "aws_sdk_observabilityadmin.types.create_telemetry_pipeline_output.CreateTelemetryPipelineOutput":
-        """<p>Creates a telemetry pipeline for processing and transforming telemetry data. The pipeline defines how data flows from sources through processors to destinations, enabling data transformation and delivering capabilities. </p>
+        r"""<p>Creates a telemetry pipeline for processing and transforming telemetry data. The pipeline defines how data flows from sources through processors to destinations, enabling data transformation and delivering capabilities. </p>
 
         Args:
             name: <p>The name of the telemetry pipeline to create. The name must be unique within your account.</p>
@@ -264,7 +266,7 @@ class AsyncTelemetryPipelineResource:
             "aws_sdk_observabilityadmin.types.tag_map_input.TagMapInput"
         ] = None,
     ) -> "aws_sdk_observabilityadmin.types.create_telemetry_pipeline_output.CreateTelemetryPipelineOutput":
-        """<p>Creates a telemetry pipeline for processing and transforming telemetry data. The pipeline defines how data flows from sources through processors to destinations, enabling data transformation and delivering capabilities. </p>
+        r"""<p>Creates a telemetry pipeline for processing and transforming telemetry data. The pipeline defines how data flows from sources through processors to destinations, enabling data transformation and delivering capabilities. </p>
 
         Args:
             name: <p>The name of the telemetry pipeline to create. The name must be unique within your account.</p>

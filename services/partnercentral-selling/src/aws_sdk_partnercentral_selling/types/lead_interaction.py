@@ -19,7 +19,7 @@ if TYPE_CHECKING:
 
 class LeadInteraction(TypedDict):
     source_type: "aws_sdk_partnercentral_selling.types.lead_source_type.LeadSourceType"
-    """<p>Specifies the type of source that generated the lead interaction, such as \"Event\", \"Website\", \"Referral\", or \"Campaign\". This categorization helps track lead generation effectiveness across different channels.</p>"""
+    r"""<p>Specifies the type of source that generated the lead interaction, such as \"Event\", \"Website\", \"Referral\", or \"Campaign\". This categorization helps track lead generation effectiveness across different channels.</p>"""
     source_id: "aws_sdk_partnercentral_selling.types.lead_source_id.LeadSourceId"
     """<p>The unique identifier of the specific source that generated the lead interaction. This ID provides traceability back to the original lead generation activity.</p>"""
     source_name: "aws_sdk_partnercentral_selling.types.lead_source_name.LeadSourceName"

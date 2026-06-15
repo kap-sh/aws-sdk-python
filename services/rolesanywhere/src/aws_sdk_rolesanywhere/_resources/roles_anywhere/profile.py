@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_rolesanywhere._auth._signers
@@ -61,7 +63,7 @@ class Profile:
         tags: Optional["aws_sdk_rolesanywhere.types.tag_list.TagList"] = None,
         accept_role_session_name: Optional[bool] = None,
     ) -> "aws_sdk_rolesanywhere.types.profile_detail_response.ProfileDetailResponse":
-        """<p>Creates a <i>profile</i>, a list of the roles that Roles Anywhere service is trusted to assume. You use profiles to intersect permissions with IAM managed policies.</p> <p> <b>Required permissions: </b> <code>rolesanywhere:CreateProfile</code>. </p>
+        r"""<p>Creates a <i>profile</i>, a list of the roles that Roles Anywhere service is trusted to assume. You use profiles to intersect permissions with IAM managed policies.</p> <p> <b>Required permissions: </b> <code>rolesanywhere:CreateProfile</code>. </p>
 
         Args:
             name: <p>The name of the profile.</p>
@@ -168,7 +170,7 @@ class Profile:
         duration_seconds: Optional[int] = None,
         accept_role_session_name: Optional[bool] = None,
     ) -> "aws_sdk_rolesanywhere.types.profile_detail_response.ProfileDetailResponse":
-        """<p>Updates a <i>profile</i>, a list of the roles that IAM Roles Anywhere service is trusted to assume. You use profiles to intersect permissions with IAM managed policies.</p> <p> <b>Required permissions: </b> <code>rolesanywhere:UpdateProfile</code>. </p>
+        r"""<p>Updates a <i>profile</i>, a list of the roles that IAM Roles Anywhere service is trusted to assume. You use profiles to intersect permissions with IAM managed policies.</p> <p> <b>Required permissions: </b> <code>rolesanywhere:UpdateProfile</code>. </p>
 
         Args:
             profile_id: <p>The unique identifier of the profile.</p>
@@ -490,7 +492,7 @@ class AsyncProfile:
         tags: Optional["aws_sdk_rolesanywhere.types.tag_list.TagList"] = None,
         accept_role_session_name: Optional[bool] = None,
     ) -> "aws_sdk_rolesanywhere.types.profile_detail_response.ProfileDetailResponse":
-        """<p>Creates a <i>profile</i>, a list of the roles that Roles Anywhere service is trusted to assume. You use profiles to intersect permissions with IAM managed policies.</p> <p> <b>Required permissions: </b> <code>rolesanywhere:CreateProfile</code>. </p>
+        r"""<p>Creates a <i>profile</i>, a list of the roles that Roles Anywhere service is trusted to assume. You use profiles to intersect permissions with IAM managed policies.</p> <p> <b>Required permissions: </b> <code>rolesanywhere:CreateProfile</code>. </p>
 
         Args:
             name: <p>The name of the profile.</p>
@@ -599,7 +601,7 @@ class AsyncProfile:
         duration_seconds: Optional[int] = None,
         accept_role_session_name: Optional[bool] = None,
     ) -> "aws_sdk_rolesanywhere.types.profile_detail_response.ProfileDetailResponse":
-        """<p>Updates a <i>profile</i>, a list of the roles that IAM Roles Anywhere service is trusted to assume. You use profiles to intersect permissions with IAM managed policies.</p> <p> <b>Required permissions: </b> <code>rolesanywhere:UpdateProfile</code>. </p>
+        r"""<p>Updates a <i>profile</i>, a list of the roles that IAM Roles Anywhere service is trusted to assume. You use profiles to intersect permissions with IAM managed policies.</p> <p> <b>Required permissions: </b> <code>rolesanywhere:UpdateProfile</code>. </p>
 
         Args:
             profile_id: <p>The unique identifier of the profile.</p>

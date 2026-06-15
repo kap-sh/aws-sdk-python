@@ -12,7 +12,7 @@ if TYPE_CHECKING:
 
 class BatchDeleteDetectorErrorEntry(TypedDict):
     message_id: NotRequired["aws_sdk_iot_events_data.types.message_id.MessageId"]
-    """<p>The ID of the message that caused the error. (See the value of the <code>\"messageId\"</code> in the <a href=\"https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_BatchDeleteDetector.html#iotevents-iotevents-data_BatchDeleteDetector-request-detectors\">detectors</a> object of the <code>DeleteDetectorRequest</code>.)</p>"""
+    r"""<p>The ID of the message that caused the error. (See the value of the <code>\"messageId\"</code> in the <a href=\"https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_BatchDeleteDetector.html#iotevents-iotevents-data_BatchDeleteDetector-request-detectors\">detectors</a> object of the <code>DeleteDetectorRequest</code>.)</p>"""
     error_code: NotRequired["aws_sdk_iot_events_data.types.error_code.ErrorCode"]
     """<p>The error code.</p>"""
     error_message: NotRequired[

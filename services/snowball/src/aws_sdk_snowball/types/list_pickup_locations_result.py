@@ -13,7 +13,7 @@ class ListPickupLocationsResult(TypedDict):
     addresses: NotRequired["aws_sdk_snowball.types.address_list.AddressList"]
     """<p>Information about the address of pickup locations.</p>"""
     next_token: NotRequired["aws_sdk_snowball.types.string.String"]
-    """<p>HTTP requests are stateless. To identify what object comes \"next\" in the list of <code>ListPickupLocationsResult</code> objects, you have the option of specifying <code>NextToken</code> as the starting point for your returned list.</p>"""
+    r"""<p>HTTP requests are stateless. To identify what object comes \"next\" in the list of <code>ListPickupLocationsResult</code> objects, you have the option of specifying <code>NextToken</code> as the starting point for your returned list.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

@@ -14,7 +14,7 @@ class AddHeaderAction(TypedDict):
     header_name: "aws_sdk_ses.types.header_name.HeaderName"
     """<p>The name of the header to add to the incoming message. The name must contain at least one character, and can contain up to 50 characters. It consists of alphanumeric (a–z, A–Z, 0–9) characters and dashes.</p>"""
     header_value: "aws_sdk_ses.types.header_value.HeaderValue"
-    """<p>The content to include in the header. This value can contain up to 2048 characters. It can't contain newline (<code>\n</code>) or carriage return (<code>\r</code>) characters.</p>"""
+    r"""<p>The content to include in the header. This value can contain up to 2048 characters. It can't contain newline (<code>\n</code>) or carriage return (<code>\r</code>) characters.</p>"""
 
 
 # --- awsQuery ser/de ---

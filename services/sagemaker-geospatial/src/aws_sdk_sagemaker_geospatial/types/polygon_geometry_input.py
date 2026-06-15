@@ -10,7 +10,7 @@ if TYPE_CHECKING:
 
 class PolygonGeometryInput(TypedDict):
     coordinates: "aws_sdk_sagemaker_geospatial.types.linear_rings.LinearRings"
-    """<p>Coordinates representing a Polygon based on the <a href=\"https://www.rfc-editor.org/rfc/rfc7946#section-3.1.6\">GeoJson spec</a>.</p>"""
+    r"""<p>Coordinates representing a Polygon based on the <a href=\"https://www.rfc-editor.org/rfc/rfc7946#section-3.1.6\">GeoJson spec</a>.</p>"""
 
 
 # --- restJson1 ser/de ---

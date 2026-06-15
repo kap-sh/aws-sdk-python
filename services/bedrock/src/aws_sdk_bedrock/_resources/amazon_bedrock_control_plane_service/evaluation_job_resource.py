@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_bedrock._auth._signers
@@ -118,7 +120,7 @@ class EvaluationJobResource:
             "aws_sdk_bedrock.types.application_type.ApplicationType"
         ] = None,
     ) -> "aws_sdk_bedrock.types.create_evaluation_job_response.CreateEvaluationJobResponse":
-        """<p>Creates an evaluation job.</p>
+        r"""<p>Creates an evaluation job.</p>
 
         Args:
             job_name: <p>A name for the evaluation job. Names must unique with your Amazon Web Services account, and your account's Amazon Web Services region.</p>
@@ -402,7 +404,7 @@ class AsyncEvaluationJobResource:
             "aws_sdk_bedrock.types.application_type.ApplicationType"
         ] = None,
     ) -> "aws_sdk_bedrock.types.create_evaluation_job_response.CreateEvaluationJobResponse":
-        """<p>Creates an evaluation job.</p>
+        r"""<p>Creates an evaluation job.</p>
 
         Args:
             job_name: <p>A name for the evaluation job. Names must unique with your Amazon Web Services account, and your account's Amazon Web Services region.</p>

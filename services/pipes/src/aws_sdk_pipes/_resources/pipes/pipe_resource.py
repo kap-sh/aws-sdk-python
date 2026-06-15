@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_pipes._auth._signers
@@ -88,7 +90,7 @@ class PipeResource:
             "aws_sdk_pipes.types.kms_key_identifier.KmsKeyIdentifier"
         ] = None,
     ) -> "aws_sdk_pipes.types.create_pipe_response.CreatePipeResponse":
-        """<p>Create a pipe. Amazon EventBridge Pipes connect event sources to targets and reduces the need for specialized knowledge and integration code.</p>
+        r"""<p>Create a pipe. Amazon EventBridge Pipes connect event sources to targets and reduces the need for specialized knowledge and integration code.</p>
 
         Args:
             name: <p>The name of the pipe.</p>
@@ -158,7 +160,7 @@ class PipeResource:
         *,
         config_overrides: Optional[PipesClientConfig] = None,
     ) -> "aws_sdk_pipes.types.describe_pipe_response.DescribePipeResponse":
-        """<p>Get the information about an existing pipe. For more information about pipes, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html\">Amazon EventBridge Pipes</a> in the Amazon EventBridge User Guide.</p>
+        r"""<p>Get the information about an existing pipe. For more information about pipes, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html\">Amazon EventBridge Pipes</a> in the Amazon EventBridge User Guide.</p>
 
         Args:
             name: <p>The name of the pipe.</p>
@@ -219,7 +221,7 @@ class PipeResource:
             "aws_sdk_pipes.types.kms_key_identifier.KmsKeyIdentifier"
         ] = None,
     ) -> "aws_sdk_pipes.types.update_pipe_response.UpdatePipeResponse":
-        """<p>Update an existing pipe. When you call <code>UpdatePipe</code>, EventBridge only the updates fields you have specified in the request; the rest remain unchanged. The exception to this is if you modify any Amazon Web Services-service specific fields in the <code>SourceParameters</code>, <code>EnrichmentParameters</code>, or <code>TargetParameters</code> objects. For example, <code>DynamoDBStreamParameters</code> or <code>EventBridgeEventBusParameters</code>. EventBridge updates the fields in these objects atomically as one and overrides existing values. This is by design, and means that if you don't specify an optional field in one of these <code>Parameters</code> objects, EventBridge sets that field to its system-default value during the update.</p> <p>For more information about pipes, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html\"> Amazon EventBridge Pipes</a> in the Amazon EventBridge User Guide.</p>
+        r"""<p>Update an existing pipe. When you call <code>UpdatePipe</code>, EventBridge only the updates fields you have specified in the request; the rest remain unchanged. The exception to this is if you modify any Amazon Web Services-service specific fields in the <code>SourceParameters</code>, <code>EnrichmentParameters</code>, or <code>TargetParameters</code> objects. For example, <code>DynamoDBStreamParameters</code> or <code>EventBridgeEventBusParameters</code>. EventBridge updates the fields in these objects atomically as one and overrides existing values. This is by design, and means that if you don't specify an optional field in one of these <code>Parameters</code> objects, EventBridge sets that field to its system-default value during the update.</p> <p>For more information about pipes, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html\"> Amazon EventBridge Pipes</a> in the Amazon EventBridge User Guide.</p>
 
         Args:
             name: <p>The name of the pipe.</p>
@@ -285,7 +287,7 @@ class PipeResource:
         *,
         config_overrides: Optional[PipesClientConfig] = None,
     ) -> "aws_sdk_pipes.types.delete_pipe_response.DeletePipeResponse":
-        """<p>Delete an existing pipe. For more information about pipes, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html\">Amazon EventBridge Pipes</a> in the Amazon EventBridge User Guide.</p>
+        r"""<p>Delete an existing pipe. For more information about pipes, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html\">Amazon EventBridge Pipes</a> in the Amazon EventBridge User Guide.</p>
 
         Args:
             name: <p>The name of the pipe.</p>
@@ -330,7 +332,7 @@ class PipeResource:
         next_token: Optional["aws_sdk_pipes.types.next_token.NextToken"] = None,
         limit: Optional["aws_sdk_pipes.types.limit_max100.LimitMax100"] = None,
     ) -> "aws_sdk_pipes.types.list_pipes_response.ListPipesResponse":
-        """<p>Get the pipes associated with this account. For more information about pipes, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html\">Amazon EventBridge Pipes</a> in the Amazon EventBridge User Guide.</p>
+        r"""<p>Get the pipes associated with this account. For more information about pipes, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html\">Amazon EventBridge Pipes</a> in the Amazon EventBridge User Guide.</p>
 
         Args:
             name_prefix: <p>A value that will return a subset of the pipes associated with this account. For example, <code>\"NamePrefix\": \"ABC\"</code> will return all endpoints with \"ABC\" in the name.</p>
@@ -489,7 +491,7 @@ class AsyncPipeResource:
             "aws_sdk_pipes.types.kms_key_identifier.KmsKeyIdentifier"
         ] = None,
     ) -> "aws_sdk_pipes.types.create_pipe_response.CreatePipeResponse":
-        """<p>Create a pipe. Amazon EventBridge Pipes connect event sources to targets and reduces the need for specialized knowledge and integration code.</p>
+        r"""<p>Create a pipe. Amazon EventBridge Pipes connect event sources to targets and reduces the need for specialized knowledge and integration code.</p>
 
         Args:
             name: <p>The name of the pipe.</p>
@@ -560,7 +562,7 @@ class AsyncPipeResource:
         *,
         config_overrides: Optional[AsyncPipesClientConfig] = None,
     ) -> "aws_sdk_pipes.types.describe_pipe_response.DescribePipeResponse":
-        """<p>Get the information about an existing pipe. For more information about pipes, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html\">Amazon EventBridge Pipes</a> in the Amazon EventBridge User Guide.</p>
+        r"""<p>Get the information about an existing pipe. For more information about pipes, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html\">Amazon EventBridge Pipes</a> in the Amazon EventBridge User Guide.</p>
 
         Args:
             name: <p>The name of the pipe.</p>
@@ -622,7 +624,7 @@ class AsyncPipeResource:
             "aws_sdk_pipes.types.kms_key_identifier.KmsKeyIdentifier"
         ] = None,
     ) -> "aws_sdk_pipes.types.update_pipe_response.UpdatePipeResponse":
-        """<p>Update an existing pipe. When you call <code>UpdatePipe</code>, EventBridge only the updates fields you have specified in the request; the rest remain unchanged. The exception to this is if you modify any Amazon Web Services-service specific fields in the <code>SourceParameters</code>, <code>EnrichmentParameters</code>, or <code>TargetParameters</code> objects. For example, <code>DynamoDBStreamParameters</code> or <code>EventBridgeEventBusParameters</code>. EventBridge updates the fields in these objects atomically as one and overrides existing values. This is by design, and means that if you don't specify an optional field in one of these <code>Parameters</code> objects, EventBridge sets that field to its system-default value during the update.</p> <p>For more information about pipes, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html\"> Amazon EventBridge Pipes</a> in the Amazon EventBridge User Guide.</p>
+        r"""<p>Update an existing pipe. When you call <code>UpdatePipe</code>, EventBridge only the updates fields you have specified in the request; the rest remain unchanged. The exception to this is if you modify any Amazon Web Services-service specific fields in the <code>SourceParameters</code>, <code>EnrichmentParameters</code>, or <code>TargetParameters</code> objects. For example, <code>DynamoDBStreamParameters</code> or <code>EventBridgeEventBusParameters</code>. EventBridge updates the fields in these objects atomically as one and overrides existing values. This is by design, and means that if you don't specify an optional field in one of these <code>Parameters</code> objects, EventBridge sets that field to its system-default value during the update.</p> <p>For more information about pipes, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html\"> Amazon EventBridge Pipes</a> in the Amazon EventBridge User Guide.</p>
 
         Args:
             name: <p>The name of the pipe.</p>
@@ -689,7 +691,7 @@ class AsyncPipeResource:
         *,
         config_overrides: Optional[AsyncPipesClientConfig] = None,
     ) -> "aws_sdk_pipes.types.delete_pipe_response.DeletePipeResponse":
-        """<p>Delete an existing pipe. For more information about pipes, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html\">Amazon EventBridge Pipes</a> in the Amazon EventBridge User Guide.</p>
+        r"""<p>Delete an existing pipe. For more information about pipes, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html\">Amazon EventBridge Pipes</a> in the Amazon EventBridge User Guide.</p>
 
         Args:
             name: <p>The name of the pipe.</p>
@@ -735,7 +737,7 @@ class AsyncPipeResource:
         next_token: Optional["aws_sdk_pipes.types.next_token.NextToken"] = None,
         limit: Optional["aws_sdk_pipes.types.limit_max100.LimitMax100"] = None,
     ) -> "aws_sdk_pipes.types.list_pipes_response.ListPipesResponse":
-        """<p>Get the pipes associated with this account. For more information about pipes, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html\">Amazon EventBridge Pipes</a> in the Amazon EventBridge User Guide.</p>
+        r"""<p>Get the pipes associated with this account. For more information about pipes, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html\">Amazon EventBridge Pipes</a> in the Amazon EventBridge User Guide.</p>
 
         Args:
             name_prefix: <p>A value that will return a subset of the pipes associated with this account. For example, <code>\"NamePrefix\": \"ABC\"</code> will return all endpoints with \"ABC\" in the name.</p>

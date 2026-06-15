@@ -190,7 +190,7 @@ class MigrationHubConfigClient:
         *,
         config_overrides: Optional[MigrationHubConfigClientConfig] = None,
     ) -> "aws_sdk_migrationhub_config.types.delete_home_region_control_result.DeleteHomeRegionControlResult":
-        """<p>This operation deletes the home region configuration for the calling account. The operation does not delete discovery or migration tracking data in the home region.</p>
+        r"""<p>This operation deletes the home region configuration for the calling account. The operation does not delete discovery or migration tracking data in the home region.</p>
 
         Args:
             control_id: <p>A unique identifier that's generated for each home region control. It's always a string that begins with \"hrc-\" followed by 12 lowercase letters and numbers.</p>

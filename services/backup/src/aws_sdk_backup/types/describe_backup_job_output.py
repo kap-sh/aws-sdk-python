@@ -74,7 +74,7 @@ class DescribeBackupJobOutput(TypedDict):
     backup_options: NotRequired["aws_sdk_backup.types.backup_options.BackupOptions"]
     """<p>Represents the options specified as part of backup plan or on-demand backup job.</p>"""
     backup_type: NotRequired["aws_sdk_backup.types.string.string"]
-    """<p>Represents the actual backup type selected for a backup job. For example, if a successful Windows Volume Shadow Copy Service (VSS) backup was taken, <code>BackupType</code> returns <code>\"WindowsVSS\"</code>. If <code>BackupType</code> is empty, then the backup type was a regular backup.</p>"""
+    r"""<p>Represents the actual backup type selected for a backup job. For example, if a successful Windows Volume Shadow Copy Service (VSS) backup was taken, <code>BackupType</code> returns <code>\"WindowsVSS\"</code>. If <code>BackupType</code> is empty, then the backup type was a regular backup.</p>"""
     parent_job_id: NotRequired["aws_sdk_backup.types.string.string"]
     """<p>This returns the parent (composite) resource backup job ID.</p>"""
     is_parent: "aws_sdk_backup.types.boolean2.Boolean2"
@@ -90,7 +90,7 @@ class DescribeBackupJobOutput(TypedDict):
     initiation_date: NotRequired["aws_sdk_backup.types.timestamp.timestamp"]
     """<p>The date a backup job was initiated.</p>"""
     message_category: NotRequired["aws_sdk_backup.types.string.string"]
-    """<p>The job count for the specified message category.</p> <p>Example strings may include <code>AccessDenied</code>, <code>SUCCESS</code>, <code>AGGREGATE_ALL</code>, and <code>INVALIDPARAMETERS</code>. View <a href=\"https://docs.aws.amazon.com/aws-backup/latest/devguide/monitoring.html\">Monitoring</a> for a list of accepted MessageCategory strings.</p>"""
+    r"""<p>The job count for the specified message category.</p> <p>Example strings may include <code>AccessDenied</code>, <code>SUCCESS</code>, <code>AGGREGATE_ALL</code>, and <code>INVALIDPARAMETERS</code>. View <a href=\"https://docs.aws.amazon.com/aws-backup/latest/devguide/monitoring.html\">Monitoring</a> for a list of accepted MessageCategory strings.</p>"""
 
 
 # --- restJson1 ser/de ---

@@ -19,7 +19,7 @@ class DescribeInstancePatchStatesForPatchGroupRequest(TypedDict):
     filters: NotRequired[
         "aws_sdk_ssm.types.instance_patch_state_filter_list.InstancePatchStateFilterList"
     ]
-    """<p>Each entry in the array is a structure containing:</p> <ul> <li> <p>Key (string between 1 and 200 characters)</p> </li> <li> <p>Values (array containing a single string)</p> </li> <li> <p>Type (string \"Equal\", \"NotEqual\", \"LessThan\", \"GreaterThan\")</p> </li> </ul>"""
+    r"""<p>Each entry in the array is a structure containing:</p> <ul> <li> <p>Key (string between 1 and 200 characters)</p> </li> <li> <p>Values (array containing a single string)</p> </li> <li> <p>Type (string \"Equal\", \"NotEqual\", \"LessThan\", \"GreaterThan\")</p> </li> </ul>"""
     next_token: NotRequired["aws_sdk_ssm.types.next_token.NextToken"]
     """<p>The token for the next set of items to return. (You received this token from a previous call.)</p>"""
     max_results: NotRequired[

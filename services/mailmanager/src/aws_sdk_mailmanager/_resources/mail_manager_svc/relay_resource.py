@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 from aws_sdk_mailmanager._services._pipeline import (
@@ -56,7 +58,7 @@ class RelayResource:
         ] = None,
         tags: Optional["aws_sdk_mailmanager.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_mailmanager.types.create_relay_response.CreateRelayResponse":
-        """<p>Creates a relay resource which can be used in rules to relay incoming emails to defined relay destinations. </p>
+        r"""<p>Creates a relay resource which can be used in rules to relay incoming emails to defined relay destinations. </p>
 
         Args:
             client_token: <p>A unique token that Amazon SES uses to recognize subsequent retries of the same request.</p>
@@ -294,7 +296,7 @@ class AsyncRelayResource:
         ] = None,
         tags: Optional["aws_sdk_mailmanager.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_mailmanager.types.create_relay_response.CreateRelayResponse":
-        """<p>Creates a relay resource which can be used in rules to relay incoming emails to defined relay destinations. </p>
+        r"""<p>Creates a relay resource which can be used in rules to relay incoming emails to defined relay destinations. </p>
 
         Args:
             client_token: <p>A unique token that Amazon SES uses to recognize subsequent retries of the same request.</p>

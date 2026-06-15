@@ -17,7 +17,7 @@ class GroupingAttributeDefinition(TypedDict):
     grouping_source_keys: NotRequired[
         "aws_sdk_application_signals.types.grouping_source_key_string_list.GroupingSourceKeyStringList"
     ]
-    """<p>An array of source keys used to derive the grouping attribute value from telemetry data, Amazon Web Services tags, or other sources. For example, [\"business_unit\", \"team\"] would look for values in those fields.</p>"""
+    r"""<p>An array of source keys used to derive the grouping attribute value from telemetry data, Amazon Web Services tags, or other sources. For example, [\"business_unit\", \"team\"] would look for values in those fields.</p>"""
     default_grouping_value: NotRequired[
         "aws_sdk_application_signals.types.grouping_string.GroupingString"
     ]

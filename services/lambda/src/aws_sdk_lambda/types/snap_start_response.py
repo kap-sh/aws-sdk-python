@@ -15,7 +15,7 @@ class SnapStartResponse(TypedDict):
     optimization_status: NotRequired[
         "aws_sdk_lambda.types.snap_start_optimization_status.SnapStartOptimizationStatus"
     ]
-    """<p>When you provide a <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-versions.html#versioning-versions-using\">qualified Amazon Resource Name (ARN)</a>, this response element indicates whether SnapStart is activated for the specified function version.</p>"""
+    r"""<p>When you provide a <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-versions.html#versioning-versions-using\">qualified Amazon Resource Name (ARN)</a>, this response element indicates whether SnapStart is activated for the specified function version.</p>"""
 
 
 # --- restJson1 ser/de ---

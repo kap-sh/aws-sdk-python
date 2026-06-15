@@ -15,7 +15,7 @@ class GetComputeAccessInput(TypedDict):
     compute_name: NotRequired[
         "aws_sdk_gamelift.types.compute_name_or_arn.ComputeNameOrArn"
     ]
-    """<p>A unique identifier for the compute resource that you want to connect to. For an EC2 fleet, use an instance ID. For a managed container fleet, use a compute name. You can retrieve a fleet's compute names by calling <a href=\"https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListCompute.html\">ListCompute</a>.</p>"""
+    r"""<p>A unique identifier for the compute resource that you want to connect to. For an EC2 fleet, use an instance ID. For a managed container fleet, use a compute name. You can retrieve a fleet's compute names by calling <a href=\"https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListCompute.html\">ListCompute</a>.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

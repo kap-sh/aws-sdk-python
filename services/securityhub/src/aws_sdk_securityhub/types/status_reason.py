@@ -12,7 +12,7 @@ class StatusReason(TypedDict):
     reason_code: NotRequired[
         "aws_sdk_securityhub.types.non_empty_string.NonEmptyString"
     ]
-    """<p>A code that represents a reason for the control status. For the list of status reason codes and their meanings, see <a href=\"https://docs.aws.amazon.com/securityhub/latest/userguide/controls-findings-create-update.html#control-findings-asff-compliance\">Compliance details for control findings</a> in the <i>Security Hub CSPM User Guide</i>. </p>"""
+    r"""<p>A code that represents a reason for the control status. For the list of status reason codes and their meanings, see <a href=\"https://docs.aws.amazon.com/securityhub/latest/userguide/controls-findings-create-update.html#control-findings-asff-compliance\">Compliance details for control findings</a> in the <i>Security Hub CSPM User Guide</i>. </p>"""
     description: NotRequired[
         "aws_sdk_securityhub.types.non_empty_string.NonEmptyString"
     ]

@@ -17,7 +17,7 @@ class CreateAccessTokenResponse(TypedDict):
     name: "aws_sdk_codecatalyst.types.access_token_name.AccessTokenName"
     """<p>The friendly name of the personal access token.</p>"""
     expires_time: "aws_sdk_codecatalyst.types.timestamp.Timestamp"
-    """<p>The date and time the personal access token expires, in coordinated universal time (UTC) timestamp format as specified in <a href=\"https://www.rfc-editor.org/rfc/rfc3339#section-5.6\">RFC 3339</a>. If not specified, the default is one year from creation.</p>"""
+    r"""<p>The date and time the personal access token expires, in coordinated universal time (UTC) timestamp format as specified in <a href=\"https://www.rfc-editor.org/rfc/rfc3339#section-5.6\">RFC 3339</a>. If not specified, the default is one year from creation.</p>"""
     access_token_id: "aws_sdk_codecatalyst.types.access_token_id.AccessTokenId"
     """<p>The system-generated unique ID of the access token.</p>"""
 

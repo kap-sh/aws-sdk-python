@@ -26,7 +26,7 @@ class RuleBasedMatchingRequest(TypedDict):
     max_allowed_rule_level_for_merging: NotRequired[
         "aws_sdk_customer_profiles.types.max_allowed_rule_level_for_merging.MaxAllowedRuleLevelForMerging"
     ]
-    """<p> <a href=\"https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_MatchingRule.html\">MatchingRule</a> </p>"""
+    r"""<p> <a href=\"https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_MatchingRule.html\">MatchingRule</a> </p>"""
     max_allowed_rule_level_for_matching: NotRequired[
         "aws_sdk_customer_profiles.types.max_allowed_rule_level_for_matching.MaxAllowedRuleLevelForMatching"
     ]

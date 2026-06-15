@@ -33,7 +33,7 @@ class ServiceEnvironmentDetail(TypedDict):
     capacity_limits: NotRequired["aws_sdk_batch.types.capacity_limits.CapacityLimits"]
     """<p>The capacity limits for the service environment. This defines the maximum resources that can be used by service jobs in this environment.</p>"""
     tags: NotRequired["aws_sdk_batch.types.tagris_tags_map.TagrisTagsMap"]
-    """<p>The tags associated with the service environment. Each tag consists of a key and an optional value. For more information, see <a href=\"https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html\">Tagging your Batch resources</a>.</p>"""
+    r"""<p>The tags associated with the service environment. Each tag consists of a key and an optional value. For more information, see <a href=\"https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html\">Tagging your Batch resources</a>.</p>"""
 
 
 # --- restJson1 ser/de ---

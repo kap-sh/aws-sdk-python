@@ -8,7 +8,7 @@ if TYPE_CHECKING:
 
 class ListTagsForResourceRequest(TypedDict):
     resource_arn: "aws_sdk_s3tables.types.resource_arn.ResourceArn"
-    """<p>The Amazon Resource Name (ARN) of the Amazon S3 Tables resource that you want to list tags for. The tagged resource can be a table bucket or a table. For a list of all S3 resources that support tagging, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html#manage-tags\">Managing tags for Amazon S3 resources</a>.</p>"""
+    r"""<p>The Amazon Resource Name (ARN) of the Amazon S3 Tables resource that you want to list tags for. The tagged resource can be a table bucket or a table. For a list of all S3 resources that support tagging, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html#manage-tags\">Managing tags for Amazon S3 resources</a>.</p>"""
 
 
 # --- restJson1 ser/de ---

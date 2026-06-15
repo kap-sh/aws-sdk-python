@@ -33,7 +33,7 @@ class GetAttachedFileResponse(TypedDict):
     file_size_in_bytes: "aws_sdk_connect.types.file_size_in_bytes.FileSizeInBytes"
     """<p>The size of the attached file in bytes.</p>"""
     associated_resource_arn: NotRequired["aws_sdk_connect.types.arn.ARN"]
-    """<p>The resource to which the attached file is (being) uploaded to. <a href=\"https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateCase.html\">Cases</a> are the only current supported resource.</p>"""
+    r"""<p>The resource to which the attached file is (being) uploaded to. <a href=\"https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateCase.html\">Cases</a> are the only current supported resource.</p>"""
     file_use_case_type: NotRequired[
         "aws_sdk_connect.types.file_use_case_type.FileUseCaseType"
     ]
@@ -45,7 +45,7 @@ class GetAttachedFileResponse(TypedDict):
     ]
     """<p>URL and expiry to be used when downloading the attached file. </p>"""
     tags: NotRequired["aws_sdk_connect.types.tag_map.TagMap"]
-    """<p>The tags used to organize, track, or control access for this resource. For example, <code>{ \"Tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }</code>.</p>"""
+    r"""<p>The tags used to organize, track, or control access for this resource. For example, <code>{ \"Tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }</code>.</p>"""
 
 
 # --- restJson1 ser/de ---

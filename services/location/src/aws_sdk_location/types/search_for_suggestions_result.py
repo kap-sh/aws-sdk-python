@@ -21,7 +21,7 @@ class SearchForSuggestionsResult(TypedDict):
     categories: NotRequired[
         "aws_sdk_location.types.place_category_list.PlaceCategoryList"
     ]
-    """<p>The Amazon Location categories that describe the Place.</p> <p>For more information about using categories, including a list of Amazon Location categories, see <a href=\"https://docs.aws.amazon.com/location/previous/developerguide/category-filtering.html\">Categories and filtering</a>, in the <i>Amazon Location Service developer guide</i>.</p>"""
+    r"""<p>The Amazon Location categories that describe the Place.</p> <p>For more information about using categories, including a list of Amazon Location categories, see <a href=\"https://docs.aws.amazon.com/location/previous/developerguide/category-filtering.html\">Categories and filtering</a>, in the <i>Amazon Location Service developer guide</i>.</p>"""
     supplemental_categories: NotRequired[
         "aws_sdk_location.types.place_supplemental_category_list.PlaceSupplementalCategoryList"
     ]

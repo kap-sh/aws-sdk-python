@@ -16,7 +16,7 @@ class TaskReportConfig(TypedDict):
     destination: NotRequired[
         "aws_sdk_datasync.types.report_destination.ReportDestination"
     ]
-    """<p>Specifies the Amazon S3 bucket where DataSync uploads your task report. For more information, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html#task-report-access\">Task reports</a>.</p>"""
+    r"""<p>Specifies the Amazon S3 bucket where DataSync uploads your task report. For more information, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html#task-report-access\">Task reports</a>.</p>"""
     output_type: NotRequired[
         "aws_sdk_datasync.types.report_output_type.ReportOutputType"
     ]
@@ -26,7 +26,7 @@ class TaskReportConfig(TypedDict):
     object_version_ids: NotRequired[
         "aws_sdk_datasync.types.object_version_ids.ObjectVersionIds"
     ]
-    """<p>Specifies whether your task report includes the new version of each object transferred into an S3 bucket. This only applies if you <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/manage-versioning-examples.html\">enable versioning on your bucket</a>. Keep in mind that setting this to <code>INCLUDE</code> can increase the duration of your task execution.</p>"""
+    r"""<p>Specifies whether your task report includes the new version of each object transferred into an S3 bucket. This only applies if you <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/manage-versioning-examples.html\">enable versioning on your bucket</a>. Keep in mind that setting this to <code>INCLUDE</code> can increase the duration of your task execution.</p>"""
     overrides: NotRequired["aws_sdk_datasync.types.report_overrides.ReportOverrides"]
     """<p>Customizes the reporting level for aspects of your task report. For example, your report might generally only include errors, but you could specify that you want a list of successes and errors just for the files that DataSync attempted to delete in your destination location.</p>"""
 

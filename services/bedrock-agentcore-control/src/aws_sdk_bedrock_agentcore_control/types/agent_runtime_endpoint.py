@@ -1,8 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#AgentRuntimeEndpoint``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.agent_endpoint_description
     import aws_sdk_bedrock_agentcore_control.types.agent_runtime_arn
@@ -13,27 +16,39 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.date_timestamp
     import aws_sdk_bedrock_agentcore_control.types.endpoint_name
 
+
 class AgentRuntimeEndpoint(TypedDict):
     name: "aws_sdk_bedrock_agentcore_control.types.endpoint_name.EndpointName"
     """<p>The name of the agent runtime endpoint.</p>"""
-    live_version: NotRequired["aws_sdk_bedrock_agentcore_control.types.agent_runtime_version.AgentRuntimeVersion"]
+    live_version: NotRequired[
+        "aws_sdk_bedrock_agentcore_control.types.agent_runtime_version.AgentRuntimeVersion"
+    ]
     """<p>The live version of the agent runtime endpoint. This is the version that is currently serving requests.</p>"""
-    target_version: NotRequired["aws_sdk_bedrock_agentcore_control.types.agent_runtime_version.AgentRuntimeVersion"]
+    target_version: NotRequired[
+        "aws_sdk_bedrock_agentcore_control.types.agent_runtime_version.AgentRuntimeVersion"
+    ]
     """<p>The target version of the agent runtime endpoint. This is the version that the endpoint is being updated to.</p>"""
     agent_runtime_endpoint_arn: "aws_sdk_bedrock_agentcore_control.types.agent_runtime_endpoint_arn.AgentRuntimeEndpointArn"
     """<p>The Amazon Resource Name (ARN) of the agent runtime endpoint.</p>"""
-    agent_runtime_arn: "aws_sdk_bedrock_agentcore_control.types.agent_runtime_arn.AgentRuntimeArn"
+    agent_runtime_arn: (
+        "aws_sdk_bedrock_agentcore_control.types.agent_runtime_arn.AgentRuntimeArn"
+    )
     """<p>The Amazon Resource Name (ARN) of the agent runtime associated with the endpoint.</p>"""
     status: "aws_sdk_bedrock_agentcore_control.types.agent_runtime_endpoint_status.AgentRuntimeEndpointStatus"
     """<p>The current status of the agent runtime endpoint.</p>"""
     id: "aws_sdk_bedrock_agentcore_control.types.agent_runtime_endpoint_id.AgentRuntimeEndpointId"
     """<p>The unique identifier of the agent runtime endpoint.</p>"""
-    description: NotRequired["aws_sdk_bedrock_agentcore_control.types.agent_endpoint_description.AgentEndpointDescription"]
+    description: NotRequired[
+        "aws_sdk_bedrock_agentcore_control.types.agent_endpoint_description.AgentEndpointDescription"
+    ]
     """<p>The description of the agent runtime endpoint.</p>"""
     created_at: "aws_sdk_bedrock_agentcore_control.types.date_timestamp.DateTimestamp"
     """<p>The timestamp when the agent runtime endpoint was created.</p>"""
-    last_updated_at: "aws_sdk_bedrock_agentcore_control.types.date_timestamp.DateTimestamp"
+    last_updated_at: (
+        "aws_sdk_bedrock_agentcore_control.types.date_timestamp.DateTimestamp"
+    )
     """<p>The timestamp when the agent runtime endpoint was last updated.</p>"""
+
 
 # --- restJson1 ser/de ---
 def serialize_json(value: AgentRuntimeEndpoint) -> dict:
@@ -46,14 +61,29 @@ def serialize_json(value: AgentRuntimeEndpoint) -> dict:
     out["agentRuntimeEndpointArn"] = value["agent_runtime_endpoint_arn"]
     out["agentRuntimeArn"] = value["agent_runtime_arn"]
     import aws_sdk_bedrock_agentcore_control.types.agent_runtime_endpoint_status
-    out["status"] = aws_sdk_bedrock_agentcore_control.types.agent_runtime_endpoint_status.serialize_json(value["status"])
+
+    out["status"] = (
+        aws_sdk_bedrock_agentcore_control.types.agent_runtime_endpoint_status.serialize_json(
+            value["status"]
+        )
+    )
     out["id"] = value["id"]
     if "description" in value:
         out["description"] = value["description"]
     import aws_sdk_bedrock_agentcore_control.types.date_timestamp
-    out["createdAt"] = aws_sdk_bedrock_agentcore_control.types.date_timestamp.serialize_json(value["created_at"])
+
+    out["createdAt"] = (
+        aws_sdk_bedrock_agentcore_control.types.date_timestamp.serialize_json(
+            value["created_at"]
+        )
+    )
     import aws_sdk_bedrock_agentcore_control.types.date_timestamp
-    out["lastUpdatedAt"] = aws_sdk_bedrock_agentcore_control.types.date_timestamp.serialize_json(value["last_updated_at"])
+
+    out["lastUpdatedAt"] = (
+        aws_sdk_bedrock_agentcore_control.types.date_timestamp.serialize_json(
+            value["last_updated_at"]
+        )
+    )
     return out
 
 
@@ -70,14 +100,21 @@ def deserialize_json(data: dict) -> AgentRuntimeEndpoint:
     if "agentRuntimeEndpointArn" in data:
         out["agent_runtime_endpoint_arn"] = data["agentRuntimeEndpointArn"]
     else:
-        raise DeserializationError("AgentRuntimeEndpoint.agent_runtime_endpoint_arn required")
+        raise DeserializationError(
+            "AgentRuntimeEndpoint.agent_runtime_endpoint_arn required"
+        )
     if "agentRuntimeArn" in data:
         out["agent_runtime_arn"] = data["agentRuntimeArn"]
     else:
         raise DeserializationError("AgentRuntimeEndpoint.agent_runtime_arn required")
     if "status" in data:
         import aws_sdk_bedrock_agentcore_control.types.agent_runtime_endpoint_status
-        out["status"] = aws_sdk_bedrock_agentcore_control.types.agent_runtime_endpoint_status.deserialize_json(data["status"])
+
+        out["status"] = (
+            aws_sdk_bedrock_agentcore_control.types.agent_runtime_endpoint_status.deserialize_json(
+                data["status"]
+            )
+        )
     else:
         raise DeserializationError("AgentRuntimeEndpoint.status required")
     if "id" in data:
@@ -88,12 +125,22 @@ def deserialize_json(data: dict) -> AgentRuntimeEndpoint:
         out["description"] = data["description"]
     if "createdAt" in data:
         import aws_sdk_bedrock_agentcore_control.types.date_timestamp
-        out["created_at"] = aws_sdk_bedrock_agentcore_control.types.date_timestamp.deserialize_json(data["createdAt"])
+
+        out["created_at"] = (
+            aws_sdk_bedrock_agentcore_control.types.date_timestamp.deserialize_json(
+                data["createdAt"]
+            )
+        )
     else:
         raise DeserializationError("AgentRuntimeEndpoint.created_at required")
     if "lastUpdatedAt" in data:
         import aws_sdk_bedrock_agentcore_control.types.date_timestamp
-        out["last_updated_at"] = aws_sdk_bedrock_agentcore_control.types.date_timestamp.deserialize_json(data["lastUpdatedAt"])
+
+        out["last_updated_at"] = (
+            aws_sdk_bedrock_agentcore_control.types.date_timestamp.deserialize_json(
+                data["lastUpdatedAt"]
+            )
+        )
     else:
         raise DeserializationError("AgentRuntimeEndpoint.last_updated_at required")
     return out

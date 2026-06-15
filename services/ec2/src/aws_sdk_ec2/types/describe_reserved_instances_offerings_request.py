@@ -27,7 +27,7 @@ class DescribeReservedInstancesOfferingsRequest(TypedDict):
     include_marketplace: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]
     """<p>Include Reserved Instance Marketplace offerings in the response.</p>"""
     instance_type: NotRequired["aws_sdk_ec2.types.instance_type.InstanceType"]
-    """<p>The instance type that the reservation will cover (for example, <code>m1.small</code>). For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html\">Amazon EC2 instance types</a> in the <i>Amazon EC2 User Guide</i>.</p>"""
+    r"""<p>The instance type that the reservation will cover (for example, <code>m1.small</code>). For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html\">Amazon EC2 instance types</a> in the <i>Amazon EC2 User Guide</i>.</p>"""
     max_duration: NotRequired["aws_sdk_ec2.types.long.Long"]
     """<p>The maximum duration (in seconds) to filter when searching for offerings.</p> <p>Default: 94608000 (3 years)</p>"""
     max_instance_count: NotRequired["aws_sdk_ec2.types.integer.Integer"]

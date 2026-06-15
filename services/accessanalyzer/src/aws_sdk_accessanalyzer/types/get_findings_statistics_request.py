@@ -10,7 +10,7 @@ if TYPE_CHECKING:
 
 class GetFindingsStatisticsRequest(TypedDict):
     analyzer_arn: "aws_sdk_accessanalyzer.types.analyzer_arn.AnalyzerArn"
-    """<p>The <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources\">ARN of the analyzer</a> used to generate the statistics.</p>"""
+    r"""<p>The <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources\">ARN of the analyzer</a> used to generate the statistics.</p>"""
 
 
 # --- restJson1 ser/de ---

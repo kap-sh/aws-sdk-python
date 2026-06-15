@@ -13,7 +13,7 @@ class ExtendedKeyUsage(TypedDict):
     extended_key_usage_type: NotRequired[
         "aws_sdk_acm_pca.types.extended_key_usage_type.ExtendedKeyUsageType"
     ]
-    """<p>Specifies a standard <code>ExtendedKeyUsage</code> as defined as in <a href=\"https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.12\">RFC 5280</a>.</p>"""
+    r"""<p>Specifies a standard <code>ExtendedKeyUsage</code> as defined as in <a href=\"https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.12\">RFC 5280</a>.</p>"""
     extended_key_usage_object_identifier: NotRequired[
         "aws_sdk_acm_pca.types.custom_object_identifier.CustomObjectIdentifier"
     ]

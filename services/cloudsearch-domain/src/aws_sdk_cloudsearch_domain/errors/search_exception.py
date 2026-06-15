@@ -1,7 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.cloudsearchdomain#SearchException``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_cloudsearch_domain.errors import ServiceError
 
 if TYPE_CHECKING:

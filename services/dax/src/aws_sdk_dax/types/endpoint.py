@@ -15,7 +15,7 @@ class Endpoint(TypedDict):
     port: "aws_sdk_dax.types.integer.Integer"
     """<p>The port number that applications should use to connect to the endpoint.</p>"""
     url: NotRequired["aws_sdk_dax.types.string.String"]
-    """<p>The URL that applications should use to connect to the endpoint. The default ports are 8111 for the \"dax\" protocol and 9111 for the \"daxs\" protocol.</p>"""
+    r"""<p>The URL that applications should use to connect to the endpoint. The default ports are 8111 for the \"dax\" protocol and 9111 for the \"daxs\" protocol.</p>"""
 
 
 # --- awsJson1_1 ser/de ---

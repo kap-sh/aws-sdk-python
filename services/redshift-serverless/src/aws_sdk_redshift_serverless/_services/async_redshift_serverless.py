@@ -345,7 +345,7 @@ class AsyncRedshiftServerlessClient:
             "aws_sdk_redshift_serverless.types.custom_domain_name.CustomDomainName"
         ] = None,
     ) -> "aws_sdk_redshift_serverless.types.get_credentials_response.GetCredentialsResponse":
-        """<p>Returns a database user name and temporary password with temporary authorization to log in to Amazon Redshift Serverless.</p> <p>By default, the temporary credentials expire in 900 seconds. You can optionally specify a duration between 900 seconds (15 minutes) and 3600 seconds (60 minutes).</p> <p>The Identity and Access Management (IAM) user or role that runs GetCredentials must have an IAM policy attached that allows access to all necessary actions and resources.</p> <p>If the <code>DbName</code> parameter is specified, the IAM policy must allow access to the resource dbname for the specified database name.</p>
+        r"""<p>Returns a database user name and temporary password with temporary authorization to log in to Amazon Redshift Serverless.</p> <p>By default, the temporary credentials expire in 900 seconds. You can optionally specify a duration between 900 seconds (15 minutes) and 3600 seconds (60 minutes).</p> <p>The Identity and Access Management (IAM) user or role that runs GetCredentials must have an IAM policy attached that allows access to all necessary actions and resources.</p> <p>If the <code>DbName</code> parameter is specified, the IAM policy must allow access to the resource dbname for the specified database name.</p>
 
         Args:
             db_name: <p>The name of the database to get temporary authorization to log on to.</p> <p>Constraints:</p> <ul> <li> <p>Must be 1 to 64 alphanumeric characters or hyphens.</p> </li> <li> <p>Must contain only uppercase or lowercase letters, numbers, underscore, plus sign, period (dot), at symbol (@), or hyphen.</p> </li> <li> <p>The first character must be a letter.</p> </li> <li> <p>Must not contain a colon ( : ) or slash ( / ).</p> </li> <li> <p>Cannot be a reserved word. A list of reserved words can be found in <a href=\"https://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html\">Reserved Words </a> in the Amazon Redshift Database Developer Guide</p> </li> </ul>
@@ -743,7 +743,7 @@ class AsyncRedshiftServerlessClient:
         *,
         config_overrides: Optional[AsyncRedshiftServerlessClientConfig] = None,
     ) -> "aws_sdk_redshift_serverless.types.put_resource_policy_response.PutResourcePolicyResponse":
-        """<p>Creates or updates a resource policy. Currently, you can use policies to share snapshots across Amazon Web Services accounts.</p>
+        r"""<p>Creates or updates a resource policy. Currently, you can use policies to share snapshots across Amazon Web Services accounts.</p>
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the account to create or update a resource policy for.</p>

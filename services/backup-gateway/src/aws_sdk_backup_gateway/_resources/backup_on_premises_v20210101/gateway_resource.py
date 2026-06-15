@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 from aws_sdk_backup_gateway._services._pipeline import (
@@ -92,15 +94,15 @@ class GatewayResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_backup_gateway.types.create_gateway_input.CreateGatewayInput = {}  # type: ignore[typeddict-item]
-        input["activation_key"] = activation_key
-        input["gateway_display_name"] = gateway_display_name
-        input["gateway_type"] = gateway_type
+        input_: aws_sdk_backup_gateway.types.create_gateway_input.CreateGatewayInput = {}  # type: ignore[typeddict-item]
+        input_["activation_key"] = activation_key
+        input_["gateway_display_name"] = gateway_display_name
+        input_["gateway_type"] = gateway_type
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -133,11 +135,11 @@ class GatewayResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_backup_gateway.types.get_gateway_input.GetGatewayInput = {}  # type: ignore[typeddict-item]
-        input["gateway_arn"] = gateway_arn
+        input_: aws_sdk_backup_gateway.types.get_gateway_input.GetGatewayInput = {}  # type: ignore[typeddict-item]
+        input_["gateway_arn"] = gateway_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -172,13 +174,13 @@ class GatewayResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_backup_gateway.types.update_gateway_information_input.UpdateGatewayInformationInput = {}  # type: ignore[typeddict-item]
-        input["gateway_arn"] = gateway_arn
+        input_: aws_sdk_backup_gateway.types.update_gateway_information_input.UpdateGatewayInformationInput = {}  # type: ignore[typeddict-item]
+        input_["gateway_arn"] = gateway_arn
         if gateway_display_name is not None:
-            input["gateway_display_name"] = gateway_display_name
+            input_["gateway_display_name"] = gateway_display_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -211,11 +213,11 @@ class GatewayResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_backup_gateway.types.delete_gateway_input.DeleteGatewayInput = {}  # type: ignore[typeddict-item]
-        input["gateway_arn"] = gateway_arn
+        input_: aws_sdk_backup_gateway.types.delete_gateway_input.DeleteGatewayInput = {}  # type: ignore[typeddict-item]
+        input_["gateway_arn"] = gateway_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -254,14 +256,14 @@ class GatewayResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_backup_gateway.types.list_gateways_input.ListGatewaysInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_backup_gateway.types.list_gateways_input.ListGatewaysInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -296,12 +298,12 @@ class GatewayResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_backup_gateway.types.associate_gateway_to_server_input.AssociateGatewayToServerInput = {}  # type: ignore[typeddict-item]
-        input["gateway_arn"] = gateway_arn
-        input["server_arn"] = server_arn
+        input_: aws_sdk_backup_gateway.types.associate_gateway_to_server_input.AssociateGatewayToServerInput = {}  # type: ignore[typeddict-item]
+        input_["gateway_arn"] = gateway_arn
+        input_["server_arn"] = server_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -334,11 +336,11 @@ class GatewayResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_backup_gateway.types.disassociate_gateway_from_server_input.DisassociateGatewayFromServerInput = {}  # type: ignore[typeddict-item]
-        input["gateway_arn"] = gateway_arn
+        input_: aws_sdk_backup_gateway.types.disassociate_gateway_from_server_input.DisassociateGatewayFromServerInput = {}  # type: ignore[typeddict-item]
+        input_["gateway_arn"] = gateway_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -383,17 +385,17 @@ class GatewayResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_backup_gateway.types.put_maintenance_start_time_input.PutMaintenanceStartTimeInput = {}  # type: ignore[typeddict-item]
-        input["gateway_arn"] = gateway_arn
-        input["hour_of_day"] = hour_of_day
-        input["minute_of_hour"] = minute_of_hour
+        input_: aws_sdk_backup_gateway.types.put_maintenance_start_time_input.PutMaintenanceStartTimeInput = {}  # type: ignore[typeddict-item]
+        input_["gateway_arn"] = gateway_arn
+        input_["hour_of_day"] = hour_of_day
+        input_["minute_of_hour"] = minute_of_hour
         if day_of_week is not None:
-            input["day_of_week"] = day_of_week
+            input_["day_of_week"] = day_of_week
         if day_of_month is not None:
-            input["day_of_month"] = day_of_month
+            input_["day_of_month"] = day_of_month
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -432,16 +434,16 @@ class GatewayResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_backup_gateway.types.test_hypervisor_configuration_input.TestHypervisorConfigurationInput = {}  # type: ignore[typeddict-item]
-        input["gateway_arn"] = gateway_arn
-        input["host"] = host
+        input_: aws_sdk_backup_gateway.types.test_hypervisor_configuration_input.TestHypervisorConfigurationInput = {}  # type: ignore[typeddict-item]
+        input_["gateway_arn"] = gateway_arn
+        input_["host"] = host
         if username is not None:
-            input["username"] = username
+            input_["username"] = username
         if password is not None:
-            input["password"] = password
+            input_["password"] = password
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -474,11 +476,11 @@ class GatewayResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_backup_gateway.types.update_gateway_software_now_input.UpdateGatewaySoftwareNowInput = {}  # type: ignore[typeddict-item]
-        input["gateway_arn"] = gateway_arn
+        input_: aws_sdk_backup_gateway.types.update_gateway_software_now_input.UpdateGatewaySoftwareNowInput = {}  # type: ignore[typeddict-item]
+        input_["gateway_arn"] = gateway_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -523,15 +525,15 @@ class AsyncGatewayResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_backup_gateway.types.create_gateway_input.CreateGatewayInput = {}  # type: ignore[typeddict-item]
-        input["activation_key"] = activation_key
-        input["gateway_display_name"] = gateway_display_name
-        input["gateway_type"] = gateway_type
+        input_: aws_sdk_backup_gateway.types.create_gateway_input.CreateGatewayInput = {}  # type: ignore[typeddict-item]
+        input_["activation_key"] = activation_key
+        input_["gateway_display_name"] = gateway_display_name
+        input_["gateway_type"] = gateway_type
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -565,11 +567,11 @@ class AsyncGatewayResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_backup_gateway.types.get_gateway_input.GetGatewayInput = {}  # type: ignore[typeddict-item]
-        input["gateway_arn"] = gateway_arn
+        input_: aws_sdk_backup_gateway.types.get_gateway_input.GetGatewayInput = {}  # type: ignore[typeddict-item]
+        input_["gateway_arn"] = gateway_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -605,13 +607,13 @@ class AsyncGatewayResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_backup_gateway.types.update_gateway_information_input.UpdateGatewayInformationInput = {}  # type: ignore[typeddict-item]
-        input["gateway_arn"] = gateway_arn
+        input_: aws_sdk_backup_gateway.types.update_gateway_information_input.UpdateGatewayInformationInput = {}  # type: ignore[typeddict-item]
+        input_["gateway_arn"] = gateway_arn
         if gateway_display_name is not None:
-            input["gateway_display_name"] = gateway_display_name
+            input_["gateway_display_name"] = gateway_display_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -645,11 +647,11 @@ class AsyncGatewayResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_backup_gateway.types.delete_gateway_input.DeleteGatewayInput = {}  # type: ignore[typeddict-item]
-        input["gateway_arn"] = gateway_arn
+        input_: aws_sdk_backup_gateway.types.delete_gateway_input.DeleteGatewayInput = {}  # type: ignore[typeddict-item]
+        input_["gateway_arn"] = gateway_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -689,14 +691,14 @@ class AsyncGatewayResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_backup_gateway.types.list_gateways_input.ListGatewaysInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_backup_gateway.types.list_gateways_input.ListGatewaysInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -732,12 +734,12 @@ class AsyncGatewayResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_backup_gateway.types.associate_gateway_to_server_input.AssociateGatewayToServerInput = {}  # type: ignore[typeddict-item]
-        input["gateway_arn"] = gateway_arn
-        input["server_arn"] = server_arn
+        input_: aws_sdk_backup_gateway.types.associate_gateway_to_server_input.AssociateGatewayToServerInput = {}  # type: ignore[typeddict-item]
+        input_["gateway_arn"] = gateway_arn
+        input_["server_arn"] = server_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -771,11 +773,11 @@ class AsyncGatewayResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_backup_gateway.types.disassociate_gateway_from_server_input.DisassociateGatewayFromServerInput = {}  # type: ignore[typeddict-item]
-        input["gateway_arn"] = gateway_arn
+        input_: aws_sdk_backup_gateway.types.disassociate_gateway_from_server_input.DisassociateGatewayFromServerInput = {}  # type: ignore[typeddict-item]
+        input_["gateway_arn"] = gateway_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -821,17 +823,17 @@ class AsyncGatewayResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_backup_gateway.types.put_maintenance_start_time_input.PutMaintenanceStartTimeInput = {}  # type: ignore[typeddict-item]
-        input["gateway_arn"] = gateway_arn
-        input["hour_of_day"] = hour_of_day
-        input["minute_of_hour"] = minute_of_hour
+        input_: aws_sdk_backup_gateway.types.put_maintenance_start_time_input.PutMaintenanceStartTimeInput = {}  # type: ignore[typeddict-item]
+        input_["gateway_arn"] = gateway_arn
+        input_["hour_of_day"] = hour_of_day
+        input_["minute_of_hour"] = minute_of_hour
         if day_of_week is not None:
-            input["day_of_week"] = day_of_week
+            input_["day_of_week"] = day_of_week
         if day_of_month is not None:
-            input["day_of_month"] = day_of_month
+            input_["day_of_month"] = day_of_month
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -871,16 +873,16 @@ class AsyncGatewayResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_backup_gateway.types.test_hypervisor_configuration_input.TestHypervisorConfigurationInput = {}  # type: ignore[typeddict-item]
-        input["gateway_arn"] = gateway_arn
-        input["host"] = host
+        input_: aws_sdk_backup_gateway.types.test_hypervisor_configuration_input.TestHypervisorConfigurationInput = {}  # type: ignore[typeddict-item]
+        input_["gateway_arn"] = gateway_arn
+        input_["host"] = host
         if username is not None:
-            input["username"] = username
+            input_["username"] = username
         if password is not None:
-            input["password"] = password
+            input_["password"] = password
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -914,11 +916,11 @@ class AsyncGatewayResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_backup_gateway.types.update_gateway_software_now_input.UpdateGatewaySoftwareNowInput = {}  # type: ignore[typeddict-item]
-        input["gateway_arn"] = gateway_arn
+        input_: aws_sdk_backup_gateway.types.update_gateway_software_now_input.UpdateGatewaySoftwareNowInput = {}  # type: ignore[typeddict-item]
+        input_["gateway_arn"] = gateway_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

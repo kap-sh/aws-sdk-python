@@ -33,7 +33,7 @@ class AnswerRecommendationAIAgentConfiguration(TypedDict):
     ]
     """<p>The association configurations for overriding behavior on this AI Agent.</p>"""
     locale: NotRequired["aws_sdk_qconnect.types.non_empty_string.NonEmptyString"]
-    """<p>The locale to which specifies the language and region settings that determine the response language for <a href=\"https://docs.aws.amazon.com/connect/latest/APIReference/API_amazon-q-connect_QueryAssistant.html\">QueryAssistant</a>.</p> <note> <p>For more information on supported locales, see <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/supported-languages.html#qic-notes-languages\">Language support for Amazon Q in Connect</a>.</p> </note>"""
+    r"""<p>The locale to which specifies the language and region settings that determine the response language for <a href=\"https://docs.aws.amazon.com/connect/latest/APIReference/API_amazon-q-connect_QueryAssistant.html\">QueryAssistant</a>.</p> <note> <p>For more information on supported locales, see <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/supported-languages.html#qic-notes-languages\">Language support for Amazon Q in Connect</a>.</p> </note>"""
     suggested_messages: NotRequired[
         "aws_sdk_qconnect.types.suggested_messages_list.SuggestedMessagesList"
     ]

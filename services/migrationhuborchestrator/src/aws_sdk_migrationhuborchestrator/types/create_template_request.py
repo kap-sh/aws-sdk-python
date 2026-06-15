@@ -24,7 +24,7 @@ class CreateTemplateRequest(TypedDict):
     client_token: NotRequired[
         "aws_sdk_migrationhuborchestrator.types.client_token.ClientToken"
     ]
-    """<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\"https://smithy.io/2.0/spec/behavior-traits.html#idempotencytoken-trait\">Idempotency</a> in the Smithy documentation.</p>"""
+    r"""<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\"https://smithy.io/2.0/spec/behavior-traits.html#idempotencytoken-trait\">Idempotency</a> in the Smithy documentation.</p>"""
     tags: NotRequired["aws_sdk_migrationhuborchestrator.types.tag_map.TagMap"]
     """<p>The tags to add to the migration workflow template.</p>"""
 

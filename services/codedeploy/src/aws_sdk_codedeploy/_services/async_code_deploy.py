@@ -231,7 +231,7 @@ class AsyncCodeDeployClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = AsyncCodeDeployClientConfig(
+        self._config = AsyncCodeDeployClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -251,7 +251,7 @@ class AsyncCodeDeployClient:
         overrides: AsyncCodeDeployClientConfig = config_overrides or {}
         interceptors_: list[AsyncInterceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             aretry(),
         ]
@@ -259,16 +259,16 @@ class AsyncCodeDeployClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            region=overrides.get("region", self.config.get("region")),
+            region=overrides.get("region", self._config.get("region")),
             use_dual_stack=overrides.get(
-                "use_dual_stack", self.config.get("use_dual_stack")
+                "use_dual_stack", self._config.get("use_dual_stack")
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -801,7 +801,7 @@ class AsyncCodeDeployClient:
             "aws_sdk_codedeploy.types.zonal_config.ZonalConfig"
         ] = None,
     ) -> "aws_sdk_codedeploy.types.create_deployment_config_output.CreateDeploymentConfigOutput":
-        """<p> Creates a deployment configuration. </p>
+        r"""<p> Creates a deployment configuration. </p>
 
         Args:
             deployment_config_name: <p>The name of the deployment configuration to create.</p>
@@ -897,7 +897,7 @@ class AsyncCodeDeployClient:
             "aws_sdk_codedeploy.types.nullable_boolean.NullableBoolean"
         ] = None,
     ) -> "aws_sdk_codedeploy.types.create_deployment_group_output.CreateDeploymentGroupOutput":
-        """<p>Creates a deployment group to which application revisions are deployed.</p>
+        r"""<p>Creates a deployment group to which application revisions are deployed.</p>
 
         Args:
             application_name: <p>The name of an CodeDeploy application associated with the user or Amazon Web Services account.</p>
@@ -1825,7 +1825,7 @@ class AsyncCodeDeployClient:
             "aws_sdk_codedeploy.types.instance_type_list.InstanceTypeList"
         ] = None,
     ) -> "aws_sdk_codedeploy.types.list_deployment_instances_output.ListDeploymentInstancesOutput":
-        """<note> <p> The newer <code>BatchGetDeploymentTargets</code> should be used instead because it works with all compute types. <code>ListDeploymentInstances</code> throws an exception if it is used with a compute platform other than EC2/On-premises or Lambda. </p> </note> <p> Lists the instance for a deployment associated with the user or Amazon Web Services account. </p>
+        r"""<note> <p> The newer <code>BatchGetDeploymentTargets</code> should be used instead because it works with all compute types. <code>ListDeploymentInstances</code> throws an exception if it is used with a compute platform other than EC2/On-premises or Lambda. </p> </note> <p> Lists the instance for a deployment associated with the user or Amazon Web Services account. </p>
 
         Args:
             deployment_id: <p> The unique ID of a deployment. </p>
@@ -2193,7 +2193,7 @@ class AsyncCodeDeployClient:
             "aws_sdk_codedeploy.types.lifecycle_event_status.LifecycleEventStatus"
         ] = None,
     ) -> "aws_sdk_codedeploy.types.put_lifecycle_event_hook_execution_status_output.PutLifecycleEventHookExecutionStatusOutput":
-        """<p> Sets the result of a Lambda validation function. The function validates lifecycle hooks during a deployment that uses the Lambda or Amazon ECS compute platform. For Lambda deployments, the available lifecycle hooks are <code>BeforeAllowTraffic</code> and <code>AfterAllowTraffic</code>. For Amazon ECS deployments, the available lifecycle hooks are <code>BeforeInstall</code>, <code>AfterInstall</code>, <code>AfterAllowTestTraffic</code>, <code>BeforeAllowTraffic</code>, and <code>AfterAllowTraffic</code>. Lambda validation functions return <code>Succeeded</code> or <code>Failed</code>. For more information, see <a href=\"https://docs.aws.amazon.com/codedeploy/latest/userguide/reference-appspec-file-structure-hooks.html#appspec-hooks-lambda\">AppSpec 'hooks' Section for an Lambda Deployment </a> and <a href=\"https://docs.aws.amazon.com/codedeploy/latest/userguide/reference-appspec-file-structure-hooks.html#appspec-hooks-ecs\">AppSpec 'hooks' Section for an Amazon ECS Deployment</a>.</p>
+        r"""<p> Sets the result of a Lambda validation function. The function validates lifecycle hooks during a deployment that uses the Lambda or Amazon ECS compute platform. For Lambda deployments, the available lifecycle hooks are <code>BeforeAllowTraffic</code> and <code>AfterAllowTraffic</code>. For Amazon ECS deployments, the available lifecycle hooks are <code>BeforeInstall</code>, <code>AfterInstall</code>, <code>AfterAllowTestTraffic</code>, <code>BeforeAllowTraffic</code>, and <code>AfterAllowTraffic</code>. Lambda validation functions return <code>Succeeded</code> or <code>Failed</code>. For more information, see <a href=\"https://docs.aws.amazon.com/codedeploy/latest/userguide/reference-appspec-file-structure-hooks.html#appspec-hooks-lambda\">AppSpec 'hooks' Section for an Lambda Deployment </a> and <a href=\"https://docs.aws.amazon.com/codedeploy/latest/userguide/reference-appspec-file-structure-hooks.html#appspec-hooks-ecs\">AppSpec 'hooks' Section for an Amazon ECS Deployment</a>.</p>
 
         Args:
             deployment_id: <p> The unique ID of a deployment. Pass this ID to a Lambda function that validates a deployment lifecycle event. </p>
@@ -2630,7 +2630,7 @@ class AsyncCodeDeployClient:
             "aws_sdk_codedeploy.types.nullable_boolean.NullableBoolean"
         ] = None,
     ) -> "aws_sdk_codedeploy.types.update_deployment_group_output.UpdateDeploymentGroupOutput":
-        """<p>Changes information about a deployment group.</p>
+        r"""<p>Changes information about a deployment group.</p>
 
         Args:
             application_name: <p>The application name that corresponds to the deployment group to update.</p>

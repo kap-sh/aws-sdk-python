@@ -563,7 +563,7 @@ class AsyncMacie2Client:
         ] = None,
         tags: Optional["aws_sdk_macie2.types.tag_map.TagMap"] = None,
     ) -> "aws_sdk_macie2.types.create_classification_job_response.CreateClassificationJobResponse":
-        """<p>Creates and defines the settings for a classification job.</p>
+        r"""<p>Creates and defines the settings for a classification job.</p>
 
         Args:
             allow_list_ids: <p>An array of unique identifiers, one for each allow list for the job to use when it analyzes data.</p>
@@ -1383,7 +1383,7 @@ class AsyncMacie2Client:
     async def disassociate_from_master_account(
         self, *, config_overrides: Optional[AsyncMacie2ClientConfig] = None
     ) -> "aws_sdk_macie2.types.disassociate_from_master_account_response.DisassociateFromMasterAccountResponse":
-        """<p>(Deprecated) Disassociates a member account from its Amazon Macie administrator account. This operation has been replaced by the <link linkend=\"DisassociateFromAdministratorAccount\">DisassociateFromAdministratorAccount</link> operation.</p>"""
+        r"""<p>(Deprecated) Disassociates a member account from its Amazon Macie administrator account. This operation has been replaced by the <link linkend=\"DisassociateFromAdministratorAccount\">DisassociateFromAdministratorAccount</link> operation.</p>"""
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_macie2.types.disassociate_from_master_account_request.DisassociateFromMasterAccountRequest]",
@@ -2011,7 +2011,7 @@ class AsyncMacie2Client:
     async def get_master_account(
         self, *, config_overrides: Optional[AsyncMacie2ClientConfig] = None
     ) -> "aws_sdk_macie2.types.get_master_account_response.GetMasterAccountResponse":
-        """<p>(Deprecated) Retrieves information about the Amazon Macie administrator account for an account. This operation has been replaced by the <link linkend=\"GetAdministratorAccount\">GetAdministratorAccount</link> operation.</p>"""
+        r"""<p>(Deprecated) Retrieves information about the Amazon Macie administrator account for an account. This operation has been replaced by the <link linkend=\"GetAdministratorAccount\">GetAdministratorAccount</link> operation.</p>"""
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_macie2.types.get_master_account_request.GetMasterAccountRequest]",

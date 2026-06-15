@@ -11,7 +11,7 @@ if TYPE_CHECKING:
 
 class GetActionRecommendationsResponse(TypedDict):
     action_list: NotRequired["aws_sdk_personalize_runtime.types.action_list.ActionList"]
-    """<p>A list of action recommendations sorted in descending order by prediction score. There can be a maximum of 100 actions in the list. For information about action scores, see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/how-action-recommendation-scoring-works.html\">How action recommendation scoring works</a>.</p>"""
+    r"""<p>A list of action recommendations sorted in descending order by prediction score. There can be a maximum of 100 actions in the list. For information about action scores, see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/how-action-recommendation-scoring-works.html\">How action recommendation scoring works</a>.</p>"""
     recommendation_id: NotRequired[
         "aws_sdk_personalize_runtime.types.recommendation_id.RecommendationID"
     ]

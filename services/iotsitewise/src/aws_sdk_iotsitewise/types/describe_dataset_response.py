@@ -21,7 +21,7 @@ class DescribeDatasetResponse(TypedDict):
     dataset_id: "aws_sdk_iotsitewise.types.id.ID"
     """<p>The ID of the dataset.</p>"""
     dataset_arn: "aws_sdk_iotsitewise.types.arn.ARN"
-    """<p>The <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html\">ARN</a> of the dataset. The format is <code>arn:${Partition}:iotsitewise:${Region}:${Account}:dataset/${DatasetId}</code>.</p>"""
+    r"""<p>The <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html\">ARN</a> of the dataset. The format is <code>arn:${Partition}:iotsitewise:${Region}:${Account}:dataset/${DatasetId}</code>.</p>"""
     dataset_name: "aws_sdk_iotsitewise.types.restricted_name.RestrictedName"
     """<p>The name of the dataset.</p>"""
     dataset_description: (

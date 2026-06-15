@@ -16,7 +16,7 @@ if TYPE_CHECKING:
 
 class SearchQueuesRequest(TypedDict):
     instance_id: "aws_sdk_connect.types.instance_id.InstanceId"
-    """<p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>"""
+    r"""<p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>"""
     next_token: NotRequired["aws_sdk_connect.types.next_token2500.NextToken2500"]
     """<p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>"""
     max_results: NotRequired["aws_sdk_connect.types.max_result500.MaxResult500"]
@@ -28,7 +28,7 @@ class SearchQueuesRequest(TypedDict):
     search_criteria: NotRequired[
         "aws_sdk_connect.types.queue_search_criteria.QueueSearchCriteria"
     ]
-    """<p>The search criteria to be used to return queues.</p> <note> <p>The <code>name</code> and <code>description</code> fields support \"contains\" queries with a minimum of 2 characters and a maximum of 25 characters. Any queries with character lengths outside of this range will throw invalid results. </p> </note>"""
+    r"""<p>The search criteria to be used to return queues.</p> <note> <p>The <code>name</code> and <code>description</code> fields support \"contains\" queries with a minimum of 2 characters and a maximum of 25 characters. Any queries with character lengths outside of this range will throw invalid results. </p> </note>"""
 
 
 # --- restJson1 ser/de ---

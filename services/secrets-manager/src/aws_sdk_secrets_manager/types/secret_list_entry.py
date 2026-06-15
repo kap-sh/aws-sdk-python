@@ -33,7 +33,7 @@ class SecretListEntry(TypedDict):
     name: NotRequired["aws_sdk_secrets_manager.types.secret_name_type.SecretNameType"]
     """<p>The friendly name of the secret. </p>"""
     type: NotRequired["aws_sdk_secrets_manager.types.medea_type_type.MedeaTypeType"]
-    """<p>The exact string that identifies the third-party partner that holds the external secret. For more information, see <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html\">Managed external secret partners</a>.</p>"""
+    r"""<p>The exact string that identifies the third-party partner that holds the external secret. For more information, see <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html\">Managed external secret partners</a>.</p>"""
     description: NotRequired[
         "aws_sdk_secrets_manager.types.description_type.DescriptionType"
     ]
@@ -49,7 +49,7 @@ class SecretListEntry(TypedDict):
     rotation_lambda_arn: NotRequired[
         "aws_sdk_secrets_manager.types.rotation_lambda_arn_type.RotationLambdaARNType"
     ]
-    """<p>The ARN of an Amazon Web Services Lambda function invoked by Secrets Manager to rotate and expire the secret either automatically per the schedule or manually by a call to <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_RotateSecret.html\"> <code>RotateSecret</code> </a>.</p>"""
+    r"""<p>The ARN of an Amazon Web Services Lambda function invoked by Secrets Manager to rotate and expire the secret either automatically per the schedule or manually by a call to <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_RotateSecret.html\"> <code>RotateSecret</code> </a>.</p>"""
     rotation_rules: NotRequired[
         "aws_sdk_secrets_manager.types.rotation_rules_type.RotationRulesType"
     ]
@@ -57,11 +57,11 @@ class SecretListEntry(TypedDict):
     external_secret_rotation_metadata: NotRequired[
         "aws_sdk_secrets_manager.types.external_secret_rotation_metadata_type.ExternalSecretRotationMetadataType"
     ]
-    """<p>The metadata needed to successfully rotate a managed external secret. A list of key value pairs in JSON format specified by the partner. For more information about the required information, see <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html\">Managed external secrets partners</a>.</p>"""
+    r"""<p>The metadata needed to successfully rotate a managed external secret. A list of key value pairs in JSON format specified by the partner. For more information about the required information, see <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html\">Managed external secrets partners</a>.</p>"""
     external_secret_rotation_role_arn: NotRequired[
         "aws_sdk_secrets_manager.types.role_arn_type.RoleARNType"
     ]
-    """<p>The role that Secrets Manager assumes to call APIs required to perform the rotation. For more information about the required information, see <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html\">Managed external secrets partners</a>.</p>"""
+    r"""<p>The role that Secrets Manager assumes to call APIs required to perform the rotation. For more information about the required information, see <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html\">Managed external secrets partners</a>.</p>"""
     last_rotated_date: NotRequired[
         "aws_sdk_secrets_manager.types.last_rotated_date_type.LastRotatedDateType"
     ]
@@ -77,13 +77,13 @@ class SecretListEntry(TypedDict):
     deleted_date: NotRequired[
         "aws_sdk_secrets_manager.types.deleted_date_type.DeletedDateType"
     ]
-    """<p>The date and time the deletion of the secret occurred. Not present on active secrets. The secret can be recovered until the number of days in the recovery window has passed, as specified in the <code>RecoveryWindowInDays</code> parameter of the <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_DeleteSecret.html\"> <code>DeleteSecret</code> </a> operation.</p>"""
+    r"""<p>The date and time the deletion of the secret occurred. Not present on active secrets. The secret can be recovered until the number of days in the recovery window has passed, as specified in the <code>RecoveryWindowInDays</code> parameter of the <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_DeleteSecret.html\"> <code>DeleteSecret</code> </a> operation.</p>"""
     next_rotation_date: NotRequired[
         "aws_sdk_secrets_manager.types.next_rotation_date_type.NextRotationDateType"
     ]
     """<p>The next rotation is scheduled to occur on or before this date. If the secret isn't configured for rotation or rotation has been disabled, Secrets Manager returns null.</p>"""
     tags: NotRequired["aws_sdk_secrets_manager.types.tag_list_type.TagListType"]
-    """<p>The list of user-defined tags associated with the secret. To add tags to a secret, use <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_TagResource.html\"> <code>TagResource</code> </a>. To remove tags, use <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_UntagResource.html\"> <code>UntagResource</code> </a>.</p>"""
+    r"""<p>The list of user-defined tags associated with the secret. To add tags to a secret, use <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_TagResource.html\"> <code>TagResource</code> </a>. To remove tags, use <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_UntagResource.html\"> <code>UntagResource</code> </a>.</p>"""
     secret_versions_to_stages: NotRequired[
         "aws_sdk_secrets_manager.types.secret_versions_to_stages_map_type.SecretVersionsToStagesMapType"
     ]

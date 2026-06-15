@@ -37,7 +37,7 @@ class UpdateCrawlerRequest(TypedDict):
     targets: NotRequired["aws_sdk_glue.types.crawler_targets.CrawlerTargets"]
     """<p>A list of targets to crawl.</p>"""
     schedule: NotRequired["aws_sdk_glue.types.cron_expression.CronExpression"]
-    """<p>A <code>cron</code> expression used to specify the schedule (see <a href=\"https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html\">Time-Based Schedules for Jobs and Crawlers</a>. For example, to run something every day at 12:15 UTC, you would specify: <code>cron(15 12 * * ? *)</code>.</p>"""
+    r"""<p>A <code>cron</code> expression used to specify the schedule (see <a href=\"https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html\">Time-Based Schedules for Jobs and Crawlers</a>. For example, to run something every day at 12:15 UTC, you would specify: <code>cron(15 12 * * ? *)</code>.</p>"""
     classifiers: NotRequired[
         "aws_sdk_glue.types.classifier_name_list.ClassifierNameList"
     ]
@@ -61,7 +61,7 @@ class UpdateCrawlerRequest(TypedDict):
     configuration: NotRequired[
         "aws_sdk_glue.types.crawler_configuration.CrawlerConfiguration"
     ]
-    """<p>Crawler configuration information. This versioned JSON string allows users to specify aspects of a crawler's behavior. For more information, see <a href=\"https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html\">Setting crawler configuration options</a>.</p>"""
+    r"""<p>Crawler configuration information. This versioned JSON string allows users to specify aspects of a crawler's behavior. For more information, see <a href=\"https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html\">Setting crawler configuration options</a>.</p>"""
     crawler_security_configuration: NotRequired[
         "aws_sdk_glue.types.crawler_security_configuration.CrawlerSecurityConfiguration"
     ]

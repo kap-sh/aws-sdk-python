@@ -22,7 +22,7 @@ class StorageOptimizer(TypedDict):
     error_message: NotRequired[
         "aws_sdk_lakeformation.types.message_string.MessageString"
     ]
-    """<p>A message that contains information about any error (if present).</p> <p>When an acceleration result has an enabled status, the error message is empty.</p> <p>When an acceleration result has a disabled status, the message describes an error or simply indicates \"disabled by the user\".</p>"""
+    r"""<p>A message that contains information about any error (if present).</p> <p>When an acceleration result has an enabled status, the error message is empty.</p> <p>When an acceleration result has a disabled status, the message describes an error or simply indicates \"disabled by the user\".</p>"""
     warnings: NotRequired["aws_sdk_lakeformation.types.message_string.MessageString"]
     """<p>A message that contains information about any warnings (if present).</p>"""
     last_run_details: NotRequired[

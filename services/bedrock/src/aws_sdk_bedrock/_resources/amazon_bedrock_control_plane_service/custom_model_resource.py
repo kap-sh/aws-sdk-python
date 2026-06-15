@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_bedrock._auth._signers
@@ -68,7 +70,7 @@ class CustomModelResource:
             "aws_sdk_bedrock.types.idempotency_token.IdempotencyToken"
         ] = None,
     ) -> "aws_sdk_bedrock.types.create_custom_model_response.CreateCustomModelResponse":
-        """<p>Creates a new custom model in Amazon Bedrock. After the model is active, you can use it for inference.</p> <p>You can provide the model data source in one of the following ways:</p> <ul> <li> <p> <code>customModelDataSource</code> — Specify a SageMaker AI model package ARN. Amazon Bedrock resolves the model package to retrieve the model artifacts. This is the preferred method for new SageMaker AI training outputs.</p> </li> <li> <p> <code>modelSourceConfig</code> — Specify an Amazon S3 URI pointing to the Amazon-managed Amazon S3 bucket containing your model artifacts.</p> </li> </ul> <p>To use the model for inference, you must purchase Provisioned Throughput for it. You can't use On-demand inference with these custom models. For more information about Provisioned Throughput, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html\">Provisioned Throughput</a>.</p> <p>The model appears in <code>ListCustomModels</code> with a <code>customizationType</code> of <code>imported</code>. To track the status of the new model, you use the <code>GetCustomModel</code> API operation. The model can be in the following states:</p> <ul> <li> <p> <code>Creating</code> - Initial state during validation and registration</p> </li> <li> <p> <code>Active</code> - Model is ready for use in inference</p> </li> <li> <p> <code>Failed</code> - Creation process encountered an error</p> </li> </ul> <p> <b>Related APIs</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetCustomModel.html\">GetCustomModel</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListCustomModels.html\">ListCustomModels</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/bedrock/latest/APIReference/API_DeleteCustomModel.html\">DeleteCustomModel</a> </p> </li> </ul>
+        r"""<p>Creates a new custom model in Amazon Bedrock. After the model is active, you can use it for inference.</p> <p>You can provide the model data source in one of the following ways:</p> <ul> <li> <p> <code>customModelDataSource</code> — Specify a SageMaker AI model package ARN. Amazon Bedrock resolves the model package to retrieve the model artifacts. This is the preferred method for new SageMaker AI training outputs.</p> </li> <li> <p> <code>modelSourceConfig</code> — Specify an Amazon S3 URI pointing to the Amazon-managed Amazon S3 bucket containing your model artifacts.</p> </li> </ul> <p>To use the model for inference, you must purchase Provisioned Throughput for it. You can't use On-demand inference with these custom models. For more information about Provisioned Throughput, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html\">Provisioned Throughput</a>.</p> <p>The model appears in <code>ListCustomModels</code> with a <code>customizationType</code> of <code>imported</code>. To track the status of the new model, you use the <code>GetCustomModel</code> API operation. The model can be in the following states:</p> <ul> <li> <p> <code>Creating</code> - Initial state during validation and registration</p> </li> <li> <p> <code>Active</code> - Model is ready for use in inference</p> </li> <li> <p> <code>Failed</code> - Creation process encountered an error</p> </li> </ul> <p> <b>Related APIs</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetCustomModel.html\">GetCustomModel</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListCustomModels.html\">ListCustomModels</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/bedrock/latest/APIReference/API_DeleteCustomModel.html\">DeleteCustomModel</a> </p> </li> </ul>
 
         Args:
             model_name: <p>A unique name for the custom model.</p>
@@ -128,7 +130,7 @@ class CustomModelResource:
         *,
         config_overrides: Optional[BedrockClientConfig] = None,
     ) -> "aws_sdk_bedrock.types.delete_custom_model_response.DeleteCustomModelResponse":
-        """<p>Deletes a custom model that you created earlier. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html\">Custom models</a> in the <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html\">Amazon Bedrock User Guide</a>.</p>
+        r"""<p>Deletes a custom model that you created earlier. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html\">Custom models</a> in the <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html\">Amazon Bedrock User Guide</a>.</p>
 
         Args:
             model_identifier: <p>Name of the model to delete.</p>
@@ -165,7 +167,7 @@ class CustomModelResource:
         *,
         config_overrides: Optional[BedrockClientConfig] = None,
     ) -> "aws_sdk_bedrock.types.get_custom_model_response.GetCustomModelResponse":
-        """<p>Get the properties associated with a Amazon Bedrock custom model that you have created. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html\">Custom models</a> in the <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html\">Amazon Bedrock User Guide</a>.</p>
+        r"""<p>Get the properties associated with a Amazon Bedrock custom model that you have created. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html\">Custom models</a> in the <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html\">Amazon Bedrock User Guide</a>.</p>
 
         Args:
             model_identifier: <p>Name or Amazon Resource Name (ARN) of the custom model.</p>
@@ -224,7 +226,7 @@ class CustomModelResource:
         is_owned: Optional[bool] = None,
         model_status: Optional["aws_sdk_bedrock.types.model_status.ModelStatus"] = None,
     ) -> "aws_sdk_bedrock.types.list_custom_models_response.ListCustomModelsResponse":
-        """<p>Returns a list of the custom models that you have created with the <code>CreateModelCustomizationJob</code> operation.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html\">Custom models</a> in the <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html\">Amazon Bedrock User Guide</a>.</p>
+        r"""<p>Returns a list of the custom models that you have created with the <code>CreateModelCustomizationJob</code> operation.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html\">Custom models</a> in the <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html\">Amazon Bedrock User Guide</a>.</p>
 
         Args:
             creation_time_before: <p>Return custom models created before the specified time. </p>
@@ -311,7 +313,7 @@ class AsyncCustomModelResource:
             "aws_sdk_bedrock.types.idempotency_token.IdempotencyToken"
         ] = None,
     ) -> "aws_sdk_bedrock.types.create_custom_model_response.CreateCustomModelResponse":
-        """<p>Creates a new custom model in Amazon Bedrock. After the model is active, you can use it for inference.</p> <p>You can provide the model data source in one of the following ways:</p> <ul> <li> <p> <code>customModelDataSource</code> — Specify a SageMaker AI model package ARN. Amazon Bedrock resolves the model package to retrieve the model artifacts. This is the preferred method for new SageMaker AI training outputs.</p> </li> <li> <p> <code>modelSourceConfig</code> — Specify an Amazon S3 URI pointing to the Amazon-managed Amazon S3 bucket containing your model artifacts.</p> </li> </ul> <p>To use the model for inference, you must purchase Provisioned Throughput for it. You can't use On-demand inference with these custom models. For more information about Provisioned Throughput, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html\">Provisioned Throughput</a>.</p> <p>The model appears in <code>ListCustomModels</code> with a <code>customizationType</code> of <code>imported</code>. To track the status of the new model, you use the <code>GetCustomModel</code> API operation. The model can be in the following states:</p> <ul> <li> <p> <code>Creating</code> - Initial state during validation and registration</p> </li> <li> <p> <code>Active</code> - Model is ready for use in inference</p> </li> <li> <p> <code>Failed</code> - Creation process encountered an error</p> </li> </ul> <p> <b>Related APIs</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetCustomModel.html\">GetCustomModel</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListCustomModels.html\">ListCustomModels</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/bedrock/latest/APIReference/API_DeleteCustomModel.html\">DeleteCustomModel</a> </p> </li> </ul>
+        r"""<p>Creates a new custom model in Amazon Bedrock. After the model is active, you can use it for inference.</p> <p>You can provide the model data source in one of the following ways:</p> <ul> <li> <p> <code>customModelDataSource</code> — Specify a SageMaker AI model package ARN. Amazon Bedrock resolves the model package to retrieve the model artifacts. This is the preferred method for new SageMaker AI training outputs.</p> </li> <li> <p> <code>modelSourceConfig</code> — Specify an Amazon S3 URI pointing to the Amazon-managed Amazon S3 bucket containing your model artifacts.</p> </li> </ul> <p>To use the model for inference, you must purchase Provisioned Throughput for it. You can't use On-demand inference with these custom models. For more information about Provisioned Throughput, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html\">Provisioned Throughput</a>.</p> <p>The model appears in <code>ListCustomModels</code> with a <code>customizationType</code> of <code>imported</code>. To track the status of the new model, you use the <code>GetCustomModel</code> API operation. The model can be in the following states:</p> <ul> <li> <p> <code>Creating</code> - Initial state during validation and registration</p> </li> <li> <p> <code>Active</code> - Model is ready for use in inference</p> </li> <li> <p> <code>Failed</code> - Creation process encountered an error</p> </li> </ul> <p> <b>Related APIs</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetCustomModel.html\">GetCustomModel</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListCustomModels.html\">ListCustomModels</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/bedrock/latest/APIReference/API_DeleteCustomModel.html\">DeleteCustomModel</a> </p> </li> </ul>
 
         Args:
             model_name: <p>A unique name for the custom model.</p>
@@ -372,7 +374,7 @@ class AsyncCustomModelResource:
         *,
         config_overrides: Optional[AsyncBedrockClientConfig] = None,
     ) -> "aws_sdk_bedrock.types.delete_custom_model_response.DeleteCustomModelResponse":
-        """<p>Deletes a custom model that you created earlier. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html\">Custom models</a> in the <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html\">Amazon Bedrock User Guide</a>.</p>
+        r"""<p>Deletes a custom model that you created earlier. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html\">Custom models</a> in the <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html\">Amazon Bedrock User Guide</a>.</p>
 
         Args:
             model_identifier: <p>Name of the model to delete.</p>
@@ -410,7 +412,7 @@ class AsyncCustomModelResource:
         *,
         config_overrides: Optional[AsyncBedrockClientConfig] = None,
     ) -> "aws_sdk_bedrock.types.get_custom_model_response.GetCustomModelResponse":
-        """<p>Get the properties associated with a Amazon Bedrock custom model that you have created. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html\">Custom models</a> in the <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html\">Amazon Bedrock User Guide</a>.</p>
+        r"""<p>Get the properties associated with a Amazon Bedrock custom model that you have created. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html\">Custom models</a> in the <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html\">Amazon Bedrock User Guide</a>.</p>
 
         Args:
             model_identifier: <p>Name or Amazon Resource Name (ARN) of the custom model.</p>
@@ -470,7 +472,7 @@ class AsyncCustomModelResource:
         is_owned: Optional[bool] = None,
         model_status: Optional["aws_sdk_bedrock.types.model_status.ModelStatus"] = None,
     ) -> "aws_sdk_bedrock.types.list_custom_models_response.ListCustomModelsResponse":
-        """<p>Returns a list of the custom models that you have created with the <code>CreateModelCustomizationJob</code> operation.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html\">Custom models</a> in the <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html\">Amazon Bedrock User Guide</a>.</p>
+        r"""<p>Returns a list of the custom models that you have created with the <code>CreateModelCustomizationJob</code> operation.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html\">Custom models</a> in the <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html\">Amazon Bedrock User Guide</a>.</p>
 
         Args:
             creation_time_before: <p>Return custom models created before the specified time. </p>

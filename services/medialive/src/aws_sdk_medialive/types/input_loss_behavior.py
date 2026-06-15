@@ -19,11 +19,11 @@ class InputLossBehavior(TypedDict):
     input_loss_image_color: NotRequired[
         "aws_sdk_medialive.types.__string_min6_max6.__stringMin6Max6"
     ]
-    """When input loss image type is \"color\" this field specifies the color to use. Value: 6 hex characters representing the values of RGB."""
+    r"""When input loss image type is \"color\" this field specifies the color to use. Value: 6 hex characters representing the values of RGB."""
     input_loss_image_slate: NotRequired[
         "aws_sdk_medialive.types.input_location.InputLocation"
     ]
-    """When input loss image type is \"slate\" these fields specify the parameters for accessing the slate."""
+    r"""When input loss image type is \"slate\" these fields specify the parameters for accessing the slate."""
     input_loss_image_type: NotRequired[
         "aws_sdk_medialive.types.input_loss_image_type.InputLossImageType"
     ]

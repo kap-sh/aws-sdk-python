@@ -53,7 +53,7 @@ class GetMigrationResponse(TypedDict):
     alerts: NotRequired[
         "aws_sdk_lex_model_building_service.types.migration_alerts.MigrationAlerts"
     ]
-    """<p>A list of alerts and warnings that indicate issues with the migration for the Amazon Lex V1 bot to Amazon Lex V2. You receive a warning when an Amazon Lex V1 feature has a different implementation if Amazon Lex V2.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/lexv2/latest/dg/migrate.html\">Migrating a bot</a> in the <i>Amazon Lex V2 developer guide</i>.</p>"""
+    r"""<p>A list of alerts and warnings that indicate issues with the migration for the Amazon Lex V1 bot to Amazon Lex V2. You receive a warning when an Amazon Lex V1 feature has a different implementation if Amazon Lex V2.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/lexv2/latest/dg/migrate.html\">Migrating a bot</a> in the <i>Amazon Lex V2 developer guide</i>.</p>"""
 
 
 # --- restJson1 ser/de ---

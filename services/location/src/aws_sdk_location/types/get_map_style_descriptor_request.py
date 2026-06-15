@@ -13,7 +13,7 @@ class GetMapStyleDescriptorRequest(TypedDict):
     map_name: "aws_sdk_location.types.resource_name.ResourceName"
     """<p>The map resource to retrieve the style descriptor from.</p>"""
     key: NotRequired["aws_sdk_location.types.api_key.ApiKey"]
-    """<p>The optional <a href=\"https://docs.aws.amazon.com/location/previous/developerguide/using-apikeys.html\">API key</a> to authorize the request.</p>"""
+    r"""<p>The optional <a href=\"https://docs.aws.amazon.com/location/previous/developerguide/using-apikeys.html\">API key</a> to authorize the request.</p>"""
 
 
 # --- restJson1 ser/de ---

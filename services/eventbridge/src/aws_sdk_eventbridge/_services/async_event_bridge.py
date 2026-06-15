@@ -256,7 +256,7 @@ class AsyncEventBridgeClient:
             )
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
-        self.config = AsyncEventBridgeClientConfig(
+        self._config = AsyncEventBridgeClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
                 "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
@@ -276,7 +276,7 @@ class AsyncEventBridgeClient:
         overrides: AsyncEventBridgeClientConfig = config_overrides or {}
         interceptors_: list[AsyncInterceptor[Any, Any]] = [
             *overrides.get(
-                "operation_interceptors", self.config.get("operation_interceptors", [])
+                "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
             aretry(),
         ]
@@ -284,16 +284,16 @@ class AsyncEventBridgeClient:
             client=self._client,
             retry_max_attempts=overrides.get(
                 "retry_max_attempts",
-                self.config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
             ),
-            region=overrides.get("region", self.config.get("region")),
+            region=overrides.get("region", self._config.get("region")),
             use_dual_stack=overrides.get(
-                "use_dual_stack", self.config.get("use_dual_stack")
+                "use_dual_stack", self._config.get("use_dual_stack")
             ),
-            use_fips=overrides.get("use_fips", self.config.get("use_fips")),
-            endpoint=overrides.get("endpoint", self.config.get("endpoint")),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
             credentials_provider=overrides.get(
-                "credentials_provider", self.config.get("credentials_provider")
+                "credentials_provider", self._config.get("credentials_provider")
             ),
         )
         return interceptors_, options_
@@ -387,7 +387,7 @@ class AsyncEventBridgeClient:
             "aws_sdk_eventbridge.types.api_destination_invocation_rate_limit_per_second.ApiDestinationInvocationRateLimitPerSecond"
         ] = None,
     ) -> "aws_sdk_eventbridge.types.create_api_destination_response.CreateApiDestinationResponse":
-        """<p>Creates an API destination, which is an HTTP invocation endpoint configured as a target for events.</p> <p>API destinations do not support private destinations, such as interface VPC endpoints.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-api-destinations.html\">API destinations</a> in the <i>EventBridge User Guide</i>.</p>
+        r"""<p>Creates an API destination, which is an HTTP invocation endpoint configured as a target for events.</p> <p>API destinations do not support private destinations, such as interface VPC endpoints.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-api-destinations.html\">API destinations</a> in the <i>EventBridge User Guide</i>.</p>
 
         Args:
             name: <p>The name for the API destination to create.</p>
@@ -452,7 +452,7 @@ class AsyncEventBridgeClient:
             "aws_sdk_eventbridge.types.kms_key_identifier.KmsKeyIdentifier"
         ] = None,
     ) -> "aws_sdk_eventbridge.types.create_archive_response.CreateArchiveResponse":
-        """<p>Creates an archive of events with the specified settings. When you create an archive, incoming events might not immediately start being sent to the archive. Allow a short period of time for changes to take effect. If you do not specify a pattern to filter events sent to the archive, all events are sent to the archive except replayed events. Replayed events are not sent to an archive.</p> <important> <p>If you have specified that EventBridge use a customer managed key for encrypting the source event bus, we strongly recommend you also specify a customer managed key for any archives for the event bus as well. </p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/encryption-archives.html\">Encrypting archives</a> in the <i>Amazon EventBridge User Guide</i>.</p> </important>
+        r"""<p>Creates an archive of events with the specified settings. When you create an archive, incoming events might not immediately start being sent to the archive. Allow a short period of time for changes to take effect. If you do not specify a pattern to filter events sent to the archive, all events are sent to the archive except replayed events. Replayed events are not sent to an archive.</p> <important> <p>If you have specified that EventBridge use a customer managed key for encrypting the source event bus, we strongly recommend you also specify a customer managed key for any archives for the event bus as well. </p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/encryption-archives.html\">Encrypting archives</a> in the <i>Amazon EventBridge User Guide</i>.</p> </important>
 
         Args:
             archive_name: <p>The name for the archive to create.</p>
@@ -517,7 +517,7 @@ class AsyncEventBridgeClient:
     ) -> (
         "aws_sdk_eventbridge.types.create_connection_response.CreateConnectionResponse"
     ):
-        """<p>Creates a connection. A connection defines the authorization type and credentials to use for authorization with an API destination HTTP endpoint.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-target-connection.html\">Connections for endpoint targets</a> in the <i>Amazon EventBridge User Guide</i>.</p>
+        r"""<p>Creates a connection. A connection defines the authorization type and credentials to use for authorization with an API destination HTTP endpoint.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-target-connection.html\">Connections for endpoint targets</a> in the <i>Amazon EventBridge User Guide</i>.</p>
 
         Args:
             name: <p>The name for the connection to create.</p>
@@ -579,7 +579,7 @@ class AsyncEventBridgeClient:
         ] = None,
         role_arn: Optional["aws_sdk_eventbridge.types.iam_role_arn.IamRoleArn"] = None,
     ) -> "aws_sdk_eventbridge.types.create_endpoint_response.CreateEndpointResponse":
-        """<p>Creates a global endpoint. Global endpoints improve your application's availability by making it regional-fault tolerant. To do this, you define a primary and secondary Region with event buses in each Region. You also create a Amazon Route 53 health check that will tell EventBridge to route events to the secondary Region when an \"unhealthy\" state is encountered and events will be routed back to the primary Region when the health check reports a \"healthy\" state.</p>
+        r"""<p>Creates a global endpoint. Global endpoints improve your application's availability by making it regional-fault tolerant. To do this, you define a primary and secondary Region with event buses in each Region. You also create a Amazon Route 53 health check that will tell EventBridge to route events to the secondary Region when an \"unhealthy\" state is encountered and events will be routed back to the primary Region when the health check reports a \"healthy\" state.</p>
 
         Args:
             name: <p>The name of the global endpoint. For example, <code>\"Name\":\"us-east-2-custom_bus_A-endpoint\"</code>.</p>
@@ -644,7 +644,7 @@ class AsyncEventBridgeClient:
         log_config: Optional["aws_sdk_eventbridge.types.log_config.LogConfig"] = None,
         tags: Optional["aws_sdk_eventbridge.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_eventbridge.types.create_event_bus_response.CreateEventBusResponse":
-        """<p>Creates a new event bus within your account. This can be a custom event bus which you can use to receive events from your custom applications and services, or it can be a partner event bus which can be matched to a partner event source.</p>
+        r"""<p>Creates a new event bus within your account. This can be a custom event bus which you can use to receive events from your custom applications and services, or it can be a partner event bus which can be matched to a partner event source.</p>
 
         Args:
             name: <p>The name of the new event bus. </p> <p>Custom event bus names can't contain the <code>/</code> character, but you can use the <code>/</code> character in partner event bus names. In addition, for partner event buses, the name must exactly match the name of the partner event source that this event bus is matched to.</p> <p>You can't use the name <code>default</code> for a custom event bus, as this name is already used for your account's default event bus.</p>
@@ -740,7 +740,7 @@ class AsyncEventBridgeClient:
         *,
         config_overrides: Optional[AsyncEventBridgeClientConfig] = None,
     ) -> None:
-        """<p>You can use this operation to temporarily stop receiving events from the specified partner event source. The matching event bus is not deleted. </p> <p>When you deactivate a partner event source, the source goes into PENDING state. If it remains in PENDING state for more than two weeks, it is deleted.</p> <p>To activate a deactivated partner event source, use <a href=\"https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_ActivateEventSource.html\">ActivateEventSource</a>.</p>
+        r"""<p>You can use this operation to temporarily stop receiving events from the specified partner event source. The matching event bus is not deleted. </p> <p>When you deactivate a partner event source, the source goes into PENDING state. If it remains in PENDING state for more than two weeks, it is deleted.</p> <p>To activate a deactivated partner event source, use <a href=\"https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_ActivateEventSource.html\">ActivateEventSource</a>.</p>
 
         Args:
             name: <p>The name of the partner event source to deactivate.</p>
@@ -930,7 +930,7 @@ class AsyncEventBridgeClient:
         *,
         config_overrides: Optional[AsyncEventBridgeClientConfig] = None,
     ) -> "aws_sdk_eventbridge.types.delete_endpoint_response.DeleteEndpointResponse":
-        """<p>Delete an existing global endpoint. For more information about global endpoints, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-global-endpoints.html\">Making applications Regional-fault tolerant with global endpoints and event replication</a> in the <i> <i>Amazon EventBridge User Guide</i> </i>.</p>
+        r"""<p>Delete an existing global endpoint. For more information about global endpoints, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-global-endpoints.html\">Making applications Regional-fault tolerant with global endpoints and event replication</a> in the <i> <i>Amazon EventBridge User Guide</i> </i>.</p>
 
         Args:
             name: <p>The name of the endpoint you want to delete. For example, <code>\"Name\":\"us-east-2-custom_bus_A-endpoint\"</code>..</p>
@@ -1047,7 +1047,7 @@ class AsyncEventBridgeClient:
         ] = None,
         force: Optional["aws_sdk_eventbridge.types.boolean.Boolean"] = None,
     ) -> None:
-        """<p>Deletes the specified rule.</p> <p>Before you can delete the rule, you must remove all targets, using <a href=\"https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_RemoveTargets.html\">RemoveTargets</a>.</p> <p>When you delete a rule, incoming events might continue to match to the deleted rule. Allow a short period of time for changes to take effect.</p> <p>If you call delete rule multiple times for the same rule, all calls will succeed. When you call delete rule for a non-existent custom eventbus, <code>ResourceNotFoundException</code> is returned.</p> <p>Managed rules are rules created and managed by another Amazon Web Services service on your behalf. These rules are created by those other Amazon Web Services services to support functionality in those services. You can delete these rules using the <code>Force</code> option, but you should do so only if you are sure the other service is not still using that rule.</p>
+        r"""<p>Deletes the specified rule.</p> <p>Before you can delete the rule, you must remove all targets, using <a href=\"https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_RemoveTargets.html\">RemoveTargets</a>.</p> <p>When you delete a rule, incoming events might continue to match to the deleted rule. Allow a short period of time for changes to take effect.</p> <p>If you call delete rule multiple times for the same rule, all calls will succeed. When you call delete rule for a non-existent custom eventbus, <code>ResourceNotFoundException</code> is returned.</p> <p>Managed rules are rules created and managed by another Amazon Web Services service on your behalf. These rules are created by those other Amazon Web Services services to support functionality in those services. You can delete these rules using the <code>Force</code> option, but you should do so only if you are sure the other service is not still using that rule.</p>
 
         Args:
             name: <p>The name of the rule.</p>
@@ -1208,7 +1208,7 @@ class AsyncEventBridgeClient:
     ) -> (
         "aws_sdk_eventbridge.types.describe_endpoint_response.DescribeEndpointResponse"
     ):
-        """<p>Get the information about an existing global endpoint. For more information about global endpoints, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-global-endpoints.html\">Making applications Regional-fault tolerant with global endpoints and event replication</a> in the <i> <i>Amazon EventBridge User Guide</i> </i>.</p>
+        r"""<p>Get the information about an existing global endpoint. For more information about global endpoints, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-global-endpoints.html\">Making applications Regional-fault tolerant with global endpoints and event replication</a> in the <i> <i>Amazon EventBridge User Guide</i> </i>.</p>
 
         Args:
             name: <p>The name of the endpoint you want to get information about. For example, <code>\"Name\":\"us-east-2-custom_bus_A-endpoint\"</code>.</p>
@@ -1253,7 +1253,7 @@ class AsyncEventBridgeClient:
     ) -> (
         "aws_sdk_eventbridge.types.describe_event_bus_response.DescribeEventBusResponse"
     ):
-        """<p>Displays details about an event bus in your account. This can include the external Amazon Web Services accounts that are permitted to write events to your default event bus, and the associated policy. For custom event buses and partner event buses, it displays the name, ARN, policy, state, and creation time.</p> <p> To enable your account to receive events from other accounts on its default event bus, use <a href=\"https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutPermission.html\">PutPermission</a>.</p> <p>For more information about partner event buses, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_CreateEventBus.html\">CreateEventBus</a>.</p>
+        r"""<p>Displays details about an event bus in your account. This can include the external Amazon Web Services accounts that are permitted to write events to your default event bus, and the associated policy. For custom event buses and partner event buses, it displays the name, ARN, policy, state, and creation time.</p> <p> To enable your account to receive events from other accounts on its default event bus, use <a href=\"https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutPermission.html\">PutPermission</a>.</p> <p>For more information about partner event buses, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_CreateEventBus.html\">CreateEventBus</a>.</p>
 
         Args:
             name: <p>The name or ARN of the event bus to show details for. If you omit this, the default event bus is displayed.</p>
@@ -1330,7 +1330,7 @@ class AsyncEventBridgeClient:
         *,
         config_overrides: Optional[AsyncEventBridgeClientConfig] = None,
     ) -> "aws_sdk_eventbridge.types.describe_partner_event_source_response.DescribePartnerEventSourceResponse":
-        """<p>An SaaS partner can use this operation to list details about a partner event source that they have created. Amazon Web Services customers do not use this operation. Instead, Amazon Web Services customers can use <a href=\"https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_DescribeEventSource.html\">DescribeEventSource</a> to see details about a partner event source that is shared with them.</p>
+        r"""<p>An SaaS partner can use this operation to list details about a partner event source that they have created. Amazon Web Services customers do not use this operation. Instead, Amazon Web Services customers can use <a href=\"https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_DescribeEventSource.html\">DescribeEventSource</a> to see details about a partner event source that is shared with them.</p>
 
         Args:
             name: <p>The name of the event source to display.</p>
@@ -1409,7 +1409,7 @@ class AsyncEventBridgeClient:
             "aws_sdk_eventbridge.types.event_bus_name_or_arn.EventBusNameOrArn"
         ] = None,
     ) -> "aws_sdk_eventbridge.types.describe_rule_response.DescribeRuleResponse":
-        """<p>Describes the specified rule.</p> <p>DescribeRule does not list the targets of a rule. To see the targets associated with a rule, use <a href=\"https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_ListTargetsByRule.html\">ListTargetsByRule</a>.</p>
+        r"""<p>Describes the specified rule.</p> <p>DescribeRule does not list the targets of a rule. To see the targets associated with a rule, use <a href=\"https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_ListTargetsByRule.html\">ListTargetsByRule</a>.</p>
 
         Args:
             name: <p>The name of the rule.</p>
@@ -1712,7 +1712,7 @@ class AsyncEventBridgeClient:
             "aws_sdk_eventbridge.types.limit_max100.LimitMax100"
         ] = None,
     ) -> "aws_sdk_eventbridge.types.list_endpoints_response.ListEndpointsResponse":
-        """<p>List the global endpoints associated with this account. For more information about global endpoints, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-global-endpoints.html\">Making applications Regional-fault tolerant with global endpoints and event replication</a> in the <i> <i>Amazon EventBridge User Guide</i> </i>.</p>
+        r"""<p>List the global endpoints associated with this account. For more information about global endpoints, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-global-endpoints.html\">Making applications Regional-fault tolerant with global endpoints and event replication</a> in the <i> <i>Amazon EventBridge User Guide</i> </i>.</p>
 
         Args:
             name_prefix: <p>A value that will return a subset of the endpoints associated with this account. For example, <code>\"NamePrefix\": \"ABC\"</code> will return all endpoints with \"ABC\" in the name.</p>
@@ -1815,7 +1815,7 @@ class AsyncEventBridgeClient:
     ) -> (
         "aws_sdk_eventbridge.types.list_event_sources_response.ListEventSourcesResponse"
     ):
-        """<p>You can use this to see all the partner event sources that have been shared with your Amazon Web Services account. For more information about partner event sources, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_CreateEventBus.html\">CreateEventBus</a>.</p>
+        r"""<p>You can use this to see all the partner event sources that have been shared with your Amazon Web Services account. For more information about partner event sources, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_CreateEventBus.html\">CreateEventBus</a>.</p>
 
         Args:
             name_prefix: <p>Specifying this limits the results to only those partner event sources with names that start with the specified prefix.</p>
@@ -2068,7 +2068,7 @@ class AsyncEventBridgeClient:
         next_token: Optional["aws_sdk_eventbridge.types.next_token.NextToken"] = None,
         limit: Optional["aws_sdk_eventbridge.types.limit_max100.LimitMax100"] = None,
     ) -> "aws_sdk_eventbridge.types.list_rules_response.ListRulesResponse":
-        """<p>Lists your Amazon EventBridge rules. You can either list all the rules or you can provide a prefix to match to the rule names.</p> <p>The maximum number of results per page for requests is 100.</p> <p>ListRules does not list the targets of a rule. To see the targets associated with a rule, use <a href=\"https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_ListTargetsByRule.html\">ListTargetsByRule</a>.</p>
+        r"""<p>Lists your Amazon EventBridge rules. You can either list all the rules or you can provide a prefix to match to the rule names.</p> <p>The maximum number of results per page for requests is 100.</p> <p>ListRules does not list the targets of a rule. To see the targets associated with a rule, use <a href=\"https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_ListTargetsByRule.html\">ListTargetsByRule</a>.</p>
 
         Args:
             name_prefix: <p>The prefix matching the rule name.</p>
@@ -2209,7 +2209,7 @@ class AsyncEventBridgeClient:
             "aws_sdk_eventbridge.types.endpoint_id.EndpointId"
         ] = None,
     ) -> "aws_sdk_eventbridge.types.put_events_response.PutEventsResponse":
-        """<p>Sends custom events to Amazon EventBridge so that they can be matched to rules.</p> <p>You can batch multiple event entries into one request for efficiency. However, the total entry size must be less than 256KB. You can calculate the entry size before you send the events. For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-putevents.html#eb-putevent-size\">Calculating PutEvents event entry size</a> in the <i> <i>Amazon EventBridge User Guide</i> </i>.</p> <p>PutEvents accepts the data in JSON format. For the JSON number (integer) data type, the constraints are: a minimum value of -9,223,372,036,854,775,808 and a maximum value of 9,223,372,036,854,775,807.</p> <note> <p>PutEvents will only process nested JSON up to 1000 levels deep.</p> </note>
+        r"""<p>Sends custom events to Amazon EventBridge so that they can be matched to rules.</p> <p>You can batch multiple event entries into one request for efficiency. However, the total entry size must be less than 256KB. You can calculate the entry size before you send the events. For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-putevents.html#eb-putevent-size\">Calculating PutEvents event entry size</a> in the <i> <i>Amazon EventBridge User Guide</i> </i>.</p> <p>PutEvents accepts the data in JSON format. For the JSON number (integer) data type, the constraints are: a minimum value of -9,223,372,036,854,775,808 and a maximum value of 9,223,372,036,854,775,807.</p> <note> <p>PutEvents will only process nested JSON up to 1000 levels deep.</p> </note>
 
         Args:
             entries: <p>The entry that defines an event in your system. You can specify several parameters for the entry such as the source and type of the event, resources associated with the event, and so on.</p>
@@ -2252,7 +2252,7 @@ class AsyncEventBridgeClient:
     ) -> (
         "aws_sdk_eventbridge.types.put_partner_events_response.PutPartnerEventsResponse"
     ):
-        """<p>This is used by SaaS partners to write events to a customer's partner event bus. Amazon Web Services customers do not use this operation.</p> <p>For information on calculating event batch size, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-putevent-size.html\">Calculating EventBridge PutEvents event entry size</a> in the <i>EventBridge User Guide</i>.</p>
+        r"""<p>This is used by SaaS partners to write events to a customer's partner event bus. Amazon Web Services customers do not use this operation.</p> <p>For information on calculating event batch size, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-putevent-size.html\">Calculating EventBridge PutEvents event entry size</a> in the <i>EventBridge User Guide</i>.</p>
 
         Args:
             entries: <p>The list of events to write to the event bus.</p>
@@ -2299,7 +2299,7 @@ class AsyncEventBridgeClient:
         condition: Optional["aws_sdk_eventbridge.types.condition.Condition"] = None,
         policy: Optional["aws_sdk_eventbridge.types.string.String"] = None,
     ) -> None:
-        """<p>Running <code>PutPermission</code> permits the specified Amazon Web Services account or Amazon Web Services organization to put events to the specified <i>event bus</i>. Amazon EventBridge rules in your account are triggered by these events arriving to an event bus in your account. </p> <p>For another account to send events to your account, that external account must have an EventBridge rule with your account's event bus as a target.</p> <p>To enable multiple Amazon Web Services accounts to put events to your event bus, run <code>PutPermission</code> once for each of these accounts. Or, if all the accounts are members of the same Amazon Web Services organization, you can run <code>PutPermission</code> once specifying <code>Principal</code> as \"*\" and specifying the Amazon Web Services organization ID in <code>Condition</code>, to grant permissions to all accounts in that organization.</p> <p>If you grant permissions using an organization, then accounts in that organization must specify a <code>RoleArn</code> with proper permissions when they use <code>PutTarget</code> to add your account's event bus as a target. For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-cross-account-event-delivery.html\">Sending and Receiving Events Between Amazon Web Services Accounts</a> in the <i>Amazon EventBridge User Guide</i>.</p> <p>The permission policy on the event bus cannot exceed 10 KB in size.</p>
+        r"""<p>Running <code>PutPermission</code> permits the specified Amazon Web Services account or Amazon Web Services organization to put events to the specified <i>event bus</i>. Amazon EventBridge rules in your account are triggered by these events arriving to an event bus in your account. </p> <p>For another account to send events to your account, that external account must have an EventBridge rule with your account's event bus as a target.</p> <p>To enable multiple Amazon Web Services accounts to put events to your event bus, run <code>PutPermission</code> once for each of these accounts. Or, if all the accounts are members of the same Amazon Web Services organization, you can run <code>PutPermission</code> once specifying <code>Principal</code> as \"*\" and specifying the Amazon Web Services organization ID in <code>Condition</code>, to grant permissions to all accounts in that organization.</p> <p>If you grant permissions using an organization, then accounts in that organization must specify a <code>RoleArn</code> with proper permissions when they use <code>PutTarget</code> to add your account's event bus as a target. For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-cross-account-event-delivery.html\">Sending and Receiving Events Between Amazon Web Services Accounts</a> in the <i>Amazon EventBridge User Guide</i>.</p> <p>The permission policy on the event bus cannot exceed 10 KB in size.</p>
 
         Args:
             event_bus_name: <p>The name of the event bus associated with the rule. If you omit this, the default event bus is used.</p>
@@ -2366,7 +2366,7 @@ class AsyncEventBridgeClient:
             "aws_sdk_eventbridge.types.event_bus_name_or_arn.EventBusNameOrArn"
         ] = None,
     ) -> "aws_sdk_eventbridge.types.put_rule_response.PutRuleResponse":
-        """<p>Creates or updates the specified rule. Rules are enabled by default, or based on value of the state. You can disable a rule using <a href=\"https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_DisableRule.html\">DisableRule</a>.</p> <p>A single rule watches for events from a single event bus. Events generated by Amazon Web Services services go to your account's default event bus. Events generated by SaaS partner services or applications go to the matching partner event bus. If you have custom applications or services, you can specify whether their events go to your default event bus or a custom event bus that you have created. For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_CreateEventBus.html\">CreateEventBus</a>.</p> <p>If you are updating an existing rule, the rule is replaced with what you specify in this <code>PutRule</code> command. If you omit arguments in <code>PutRule</code>, the old values for those arguments are not kept. Instead, they are replaced with null values.</p> <p>When you create or update a rule, incoming events might not immediately start matching to new or updated rules. Allow a short period of time for changes to take effect.</p> <p>A rule must contain at least an EventPattern or ScheduleExpression. Rules with EventPatterns are triggered when a matching event is observed. Rules with ScheduleExpressions self-trigger based on the given schedule. A rule can have both an EventPattern and a ScheduleExpression, in which case the rule triggers on matching events as well as on a schedule.</p> <p>When you initially create a rule, you can optionally assign one or more tags to the rule. Tags can help you organize and categorize your resources. You can also use them to scope user permissions, by granting a user permission to access or change only rules with certain tag values. To use the <code>PutRule</code> operation and assign tags, you must have both the <code>events:PutRule</code> and <code>events:TagResource</code> permissions.</p> <p>If you are updating an existing rule, any tags you specify in the <code>PutRule</code> operation are ignored. To update the tags of an existing rule, use <a href=\"https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_TagResource.html\">TagResource</a> and <a href=\"https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_UntagResource.html\">UntagResource</a>.</p> <p>Most services in Amazon Web Services treat : or / as the same character in Amazon Resource Names (ARNs). However, EventBridge uses an exact match in event patterns and rules. Be sure to use the correct ARN characters when creating event patterns so that they match the ARN syntax in the event you want to match.</p> <p>In EventBridge, it is possible to create rules that lead to infinite loops, where a rule is fired repeatedly. For example, a rule might detect that ACLs have changed on an S3 bucket, and trigger software to change them to the desired state. If the rule is not written carefully, the subsequent change to the ACLs fires the rule again, creating an infinite loop.</p> <p>To prevent this, write the rules so that the triggered actions do not re-fire the same rule. For example, your rule could fire only if ACLs are found to be in a bad state, instead of after any change. </p> <p>An infinite loop can quickly cause higher than expected charges. We recommend that you use budgeting, which alerts you when charges exceed your specified limit. For more information, see <a href=\"https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/budgets-managing-costs.html\">Managing Your Costs with Budgets</a>.</p> <p>To create a rule that filters for management events from Amazon Web Services services, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-service-event-cloudtrail.html#eb-service-event-cloudtrail-management\">Receiving read-only management events from Amazon Web Services services</a> in the <i>EventBridge User Guide</i>.</p>
+        r"""<p>Creates or updates the specified rule. Rules are enabled by default, or based on value of the state. You can disable a rule using <a href=\"https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_DisableRule.html\">DisableRule</a>.</p> <p>A single rule watches for events from a single event bus. Events generated by Amazon Web Services services go to your account's default event bus. Events generated by SaaS partner services or applications go to the matching partner event bus. If you have custom applications or services, you can specify whether their events go to your default event bus or a custom event bus that you have created. For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_CreateEventBus.html\">CreateEventBus</a>.</p> <p>If you are updating an existing rule, the rule is replaced with what you specify in this <code>PutRule</code> command. If you omit arguments in <code>PutRule</code>, the old values for those arguments are not kept. Instead, they are replaced with null values.</p> <p>When you create or update a rule, incoming events might not immediately start matching to new or updated rules. Allow a short period of time for changes to take effect.</p> <p>A rule must contain at least an EventPattern or ScheduleExpression. Rules with EventPatterns are triggered when a matching event is observed. Rules with ScheduleExpressions self-trigger based on the given schedule. A rule can have both an EventPattern and a ScheduleExpression, in which case the rule triggers on matching events as well as on a schedule.</p> <p>When you initially create a rule, you can optionally assign one or more tags to the rule. Tags can help you organize and categorize your resources. You can also use them to scope user permissions, by granting a user permission to access or change only rules with certain tag values. To use the <code>PutRule</code> operation and assign tags, you must have both the <code>events:PutRule</code> and <code>events:TagResource</code> permissions.</p> <p>If you are updating an existing rule, any tags you specify in the <code>PutRule</code> operation are ignored. To update the tags of an existing rule, use <a href=\"https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_TagResource.html\">TagResource</a> and <a href=\"https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_UntagResource.html\">UntagResource</a>.</p> <p>Most services in Amazon Web Services treat : or / as the same character in Amazon Resource Names (ARNs). However, EventBridge uses an exact match in event patterns and rules. Be sure to use the correct ARN characters when creating event patterns so that they match the ARN syntax in the event you want to match.</p> <p>In EventBridge, it is possible to create rules that lead to infinite loops, where a rule is fired repeatedly. For example, a rule might detect that ACLs have changed on an S3 bucket, and trigger software to change them to the desired state. If the rule is not written carefully, the subsequent change to the ACLs fires the rule again, creating an infinite loop.</p> <p>To prevent this, write the rules so that the triggered actions do not re-fire the same rule. For example, your rule could fire only if ACLs are found to be in a bad state, instead of after any change. </p> <p>An infinite loop can quickly cause higher than expected charges. We recommend that you use budgeting, which alerts you when charges exceed your specified limit. For more information, see <a href=\"https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/budgets-managing-costs.html\">Managing Your Costs with Budgets</a>.</p> <p>To create a rule that filters for management events from Amazon Web Services services, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-service-event-cloudtrail.html#eb-service-event-cloudtrail-management\">Receiving read-only management events from Amazon Web Services services</a> in the <i>EventBridge User Guide</i>.</p>
 
         Args:
             name: <p>The name of the rule that you are creating or updating.</p>
@@ -2429,7 +2429,7 @@ class AsyncEventBridgeClient:
             "aws_sdk_eventbridge.types.event_bus_name_or_arn.EventBusNameOrArn"
         ] = None,
     ) -> "aws_sdk_eventbridge.types.put_targets_response.PutTargetsResponse":
-        """<p>Adds the specified targets to the specified rule, or updates the targets if they are already associated with the rule.</p> <p>Targets are the resources that are invoked when a rule is triggered.</p> <p>The maximum number of entries per request is 10.</p> <note> <p>Each rule can have up to five (5) targets associated with it at one time.</p> </note> <p>For a list of services you can configure as targets for events, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-targets.html\">EventBridge targets</a> in the <i> <i>Amazon EventBridge User Guide</i> </i>.</p> <p>Creating rules with built-in targets is supported only in the Amazon Web Services Management Console. The built-in targets are:</p> <ul> <li> <p> <code>Amazon EBS CreateSnapshot API call</code> </p> </li> <li> <p> <code>Amazon EC2 RebootInstances API call</code> </p> </li> <li> <p> <code>Amazon EC2 StopInstances API call</code> </p> </li> <li> <p> <code>Amazon EC2 TerminateInstances API call</code> </p> </li> </ul> <p>For some target types, <code>PutTargets</code> provides target-specific parameters. If the target is a Kinesis data stream, you can optionally specify which shard the event goes to by using the <code>KinesisParameters</code> argument. To invoke a command on multiple EC2 instances with one rule, you can use the <code>RunCommandParameters</code> field.</p> <p>To be able to make API calls against the resources that you own, Amazon EventBridge needs the appropriate permissions: </p> <ul> <li> <p>For Lambda and Amazon SNS resources, EventBridge relies on resource-based policies.</p> </li> <li> <p>For EC2 instances, Kinesis Data Streams, Step Functions state machines and API Gateway APIs, EventBridge relies on IAM roles that you specify in the <code>RoleARN</code> argument in <code>PutTargets</code>.</p> </li> </ul> <p>For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/auth-and-access-control-eventbridge.html\">Authentication and Access Control</a> in the <i> <i>Amazon EventBridge User Guide</i> </i>.</p> <p>If another Amazon Web Services account is in the same region and has granted you permission (using <code>PutPermission</code>), you can send events to that account. Set that account's event bus as a target of the rules in your account. To send the matched events to the other account, specify that account's event bus as the <code>Arn</code> value when you run <code>PutTargets</code>. If your account sends events to another account, your account is charged for each sent event. Each event sent to another account is charged as a custom event. The account receiving the event is not charged. For more information, see <a href=\"http://aws.amazon.com/eventbridge/pricing/\">Amazon EventBridge Pricing</a>.</p> <note> <p> <code>Input</code>, <code>InputPath</code>, and <code>InputTransformer</code> are not available with <code>PutTarget</code> if the target is an event bus of a different Amazon Web Services account.</p> </note> <p>If you are setting the event bus of another account as the target, and that account granted permission to your account through an organization instead of directly by the account ID, then you must specify a <code>RoleArn</code> with proper permissions in the <code>Target</code> structure. For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-cross-account-event-delivery.html\">Sending and Receiving Events Between Amazon Web Services Accounts</a> in the <i>Amazon EventBridge User Guide</i>.</p> <note> <p>If you have an IAM role on a cross-account event bus target, a <code>PutTargets</code> call without a role on the same target (same <code>Id</code> and <code>Arn</code>) will not remove the role.</p> </note> <p>For more information about enabling cross-account events, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutPermission.html\">PutPermission</a>.</p> <p> <b>Input</b>, <b>InputPath</b>, and <b>InputTransformer</b> are mutually exclusive and optional parameters of a target. When a rule is triggered due to a matched event:</p> <ul> <li> <p>If none of the following arguments are specified for a target, then the entire event is passed to the target in JSON format (unless the target is Amazon EC2 Run Command or Amazon ECS task, in which case nothing from the event is passed to the target).</p> </li> <li> <p>If <b>Input</b> is specified in the form of valid JSON, then the matched event is overridden with this constant.</p> </li> <li> <p>If <b>InputPath</b> is specified in the form of JSONPath (for example, <code>$.detail</code>), then only the part of the event specified in the path is passed to the target (for example, only the detail part of the event is passed).</p> </li> <li> <p>If <b>InputTransformer</b> is specified, then one or more specified JSONPaths are extracted from the event and used as values in a template that you specify as the input to the target.</p> </li> </ul> <p>When you specify <code>InputPath</code> or <code>InputTransformer</code>, you must use JSON dot notation, not bracket notation.</p> <p>When you add targets to a rule and the associated rule triggers soon after, new or updated targets might not be immediately invoked. Allow a short period of time for changes to take effect.</p> <p>This action can partially fail if too many requests are made at the same time. If that happens, <code>FailedEntryCount</code> is non-zero in the response and each entry in <code>FailedEntries</code> provides the ID of the failed target and the error code.</p>
+        r"""<p>Adds the specified targets to the specified rule, or updates the targets if they are already associated with the rule.</p> <p>Targets are the resources that are invoked when a rule is triggered.</p> <p>The maximum number of entries per request is 10.</p> <note> <p>Each rule can have up to five (5) targets associated with it at one time.</p> </note> <p>For a list of services you can configure as targets for events, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-targets.html\">EventBridge targets</a> in the <i> <i>Amazon EventBridge User Guide</i> </i>.</p> <p>Creating rules with built-in targets is supported only in the Amazon Web Services Management Console. The built-in targets are:</p> <ul> <li> <p> <code>Amazon EBS CreateSnapshot API call</code> </p> </li> <li> <p> <code>Amazon EC2 RebootInstances API call</code> </p> </li> <li> <p> <code>Amazon EC2 StopInstances API call</code> </p> </li> <li> <p> <code>Amazon EC2 TerminateInstances API call</code> </p> </li> </ul> <p>For some target types, <code>PutTargets</code> provides target-specific parameters. If the target is a Kinesis data stream, you can optionally specify which shard the event goes to by using the <code>KinesisParameters</code> argument. To invoke a command on multiple EC2 instances with one rule, you can use the <code>RunCommandParameters</code> field.</p> <p>To be able to make API calls against the resources that you own, Amazon EventBridge needs the appropriate permissions: </p> <ul> <li> <p>For Lambda and Amazon SNS resources, EventBridge relies on resource-based policies.</p> </li> <li> <p>For EC2 instances, Kinesis Data Streams, Step Functions state machines and API Gateway APIs, EventBridge relies on IAM roles that you specify in the <code>RoleARN</code> argument in <code>PutTargets</code>.</p> </li> </ul> <p>For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/auth-and-access-control-eventbridge.html\">Authentication and Access Control</a> in the <i> <i>Amazon EventBridge User Guide</i> </i>.</p> <p>If another Amazon Web Services account is in the same region and has granted you permission (using <code>PutPermission</code>), you can send events to that account. Set that account's event bus as a target of the rules in your account. To send the matched events to the other account, specify that account's event bus as the <code>Arn</code> value when you run <code>PutTargets</code>. If your account sends events to another account, your account is charged for each sent event. Each event sent to another account is charged as a custom event. The account receiving the event is not charged. For more information, see <a href=\"http://aws.amazon.com/eventbridge/pricing/\">Amazon EventBridge Pricing</a>.</p> <note> <p> <code>Input</code>, <code>InputPath</code>, and <code>InputTransformer</code> are not available with <code>PutTarget</code> if the target is an event bus of a different Amazon Web Services account.</p> </note> <p>If you are setting the event bus of another account as the target, and that account granted permission to your account through an organization instead of directly by the account ID, then you must specify a <code>RoleArn</code> with proper permissions in the <code>Target</code> structure. For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-cross-account-event-delivery.html\">Sending and Receiving Events Between Amazon Web Services Accounts</a> in the <i>Amazon EventBridge User Guide</i>.</p> <note> <p>If you have an IAM role on a cross-account event bus target, a <code>PutTargets</code> call without a role on the same target (same <code>Id</code> and <code>Arn</code>) will not remove the role.</p> </note> <p>For more information about enabling cross-account events, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutPermission.html\">PutPermission</a>.</p> <p> <b>Input</b>, <b>InputPath</b>, and <b>InputTransformer</b> are mutually exclusive and optional parameters of a target. When a rule is triggered due to a matched event:</p> <ul> <li> <p>If none of the following arguments are specified for a target, then the entire event is passed to the target in JSON format (unless the target is Amazon EC2 Run Command or Amazon ECS task, in which case nothing from the event is passed to the target).</p> </li> <li> <p>If <b>Input</b> is specified in the form of valid JSON, then the matched event is overridden with this constant.</p> </li> <li> <p>If <b>InputPath</b> is specified in the form of JSONPath (for example, <code>$.detail</code>), then only the part of the event specified in the path is passed to the target (for example, only the detail part of the event is passed).</p> </li> <li> <p>If <b>InputTransformer</b> is specified, then one or more specified JSONPaths are extracted from the event and used as values in a template that you specify as the input to the target.</p> </li> </ul> <p>When you specify <code>InputPath</code> or <code>InputTransformer</code>, you must use JSON dot notation, not bracket notation.</p> <p>When you add targets to a rule and the associated rule triggers soon after, new or updated targets might not be immediately invoked. Allow a short period of time for changes to take effect.</p> <p>This action can partially fail if too many requests are made at the same time. If that happens, <code>FailedEntryCount</code> is non-zero in the response and each entry in <code>FailedEntries</code> provides the ID of the failed target and the error code.</p>
 
         Args:
             rule: <p>The name of the rule.</p>
@@ -2480,7 +2480,7 @@ class AsyncEventBridgeClient:
             "aws_sdk_eventbridge.types.non_partner_event_bus_name.NonPartnerEventBusName"
         ] = None,
     ) -> None:
-        """<p>Revokes the permission of another Amazon Web Services account to be able to put events to the specified event bus. Specify the account to revoke by the <code>StatementId</code> value that you associated with the account when you granted it permission with <code>PutPermission</code>. You can find the <code>StatementId</code> by using <a href=\"https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_DescribeEventBus.html\">DescribeEventBus</a>.</p>
+        r"""<p>Revokes the permission of another Amazon Web Services account to be able to put events to the specified event bus. Specify the account to revoke by the <code>StatementId</code> value that you associated with the account when you granted it permission with <code>PutPermission</code>. You can find the <code>StatementId</code> by using <a href=\"https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_DescribeEventBus.html\">DescribeEventBus</a>.</p>
 
         Args:
             statement_id: <p>The statement ID corresponding to the account that is no longer allowed to put events to the default event bus.</p>
@@ -2674,7 +2674,7 @@ class AsyncEventBridgeClient:
     ) -> (
         "aws_sdk_eventbridge.types.test_event_pattern_response.TestEventPatternResponse"
     ):
-        """<p>Tests whether the specified event pattern matches the provided event.</p> <p>Most services in Amazon Web Services treat : or / as the same character in Amazon Resource Names (ARNs). However, EventBridge uses an exact match in event patterns and rules. Be sure to use the correct ARN characters when creating event patterns so that they match the ARN syntax in the event you want to match.</p>
+        r"""<p>Tests whether the specified event pattern matches the provided event.</p> <p>Most services in Amazon Web Services treat : or / as the same character in Amazon Resource Names (ARNs). However, EventBridge uses an exact match in event patterns and rules. Be sure to use the correct ARN characters when creating event patterns so that they match the ARN syntax in the event you want to match.</p>
 
         Args:
             event_pattern: <p>The event pattern. For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html\">Events and Event Patterns</a> in the <i> <i>Amazon EventBridge User Guide</i> </i>.</p>
@@ -2837,7 +2837,7 @@ class AsyncEventBridgeClient:
             "aws_sdk_eventbridge.types.kms_key_identifier.KmsKeyIdentifier"
         ] = None,
     ) -> "aws_sdk_eventbridge.types.update_archive_response.UpdateArchiveResponse":
-        """<p>Updates the specified archive.</p>
+        r"""<p>Updates the specified archive.</p>
 
         Args:
             archive_name: <p>The name of the archive to update.</p>
@@ -2904,7 +2904,7 @@ class AsyncEventBridgeClient:
     ) -> (
         "aws_sdk_eventbridge.types.update_connection_response.UpdateConnectionResponse"
     ):
-        """<p>Updates settings for a connection.</p>
+        r"""<p>Updates settings for a connection.</p>
 
         Args:
             name: <p>The name of the connection to update.</p>
@@ -2972,7 +2972,7 @@ class AsyncEventBridgeClient:
         ] = None,
         role_arn: Optional["aws_sdk_eventbridge.types.iam_role_arn.IamRoleArn"] = None,
     ) -> "aws_sdk_eventbridge.types.update_endpoint_response.UpdateEndpointResponse":
-        """<p>Update an existing endpoint. For more information about global endpoints, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-global-endpoints.html\">Making applications Regional-fault tolerant with global endpoints and event replication</a> in the <i> <i>Amazon EventBridge User Guide</i> </i>.</p>
+        r"""<p>Update an existing endpoint. For more information about global endpoints, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-global-endpoints.html\">Making applications Regional-fault tolerant with global endpoints and event replication</a> in the <i> <i>Amazon EventBridge User Guide</i> </i>.</p>
 
         Args:
             name: <p>The name of the endpoint you want to update.</p>
@@ -3035,7 +3035,7 @@ class AsyncEventBridgeClient:
         ] = None,
         log_config: Optional["aws_sdk_eventbridge.types.log_config.LogConfig"] = None,
     ) -> "aws_sdk_eventbridge.types.update_event_bus_response.UpdateEventBusResponse":
-        """<p>Updates the specified event bus.</p>
+        r"""<p>Updates the specified event bus.</p>
 
         Args:
             name: <p>The name of the event bus.</p>

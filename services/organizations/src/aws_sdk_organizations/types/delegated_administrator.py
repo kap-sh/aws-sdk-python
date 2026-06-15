@@ -27,7 +27,7 @@ class DelegatedAdministrator(TypedDict):
     status: NotRequired["aws_sdk_organizations.types.account_status.AccountStatus"]
     """<p>The status of the delegated administrator's account in the organization.</p>"""
     state: NotRequired["aws_sdk_organizations.types.account_state.AccountState"]
-    """<p>Each state represents a specific phase in the account lifecycle. Use this information to manage account access, automate workflows, or trigger actions based on account state changes.</p> <p>For more information about account states and their implications, see <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_account_state.html\">Monitor the state of your Amazon Web Services accounts </a> in the <i>Organizations User Guide</i>.</p>"""
+    r"""<p>Each state represents a specific phase in the account lifecycle. Use this information to manage account access, automate workflows, or trigger actions based on account state changes.</p> <p>For more information about account states and their implications, see <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_account_state.html\">Monitor the state of your Amazon Web Services accounts </a> in the <i>Organizations User Guide</i>.</p>"""
     joined_method: NotRequired[
         "aws_sdk_organizations.types.account_joined_method.AccountJoinedMethod"
     ]

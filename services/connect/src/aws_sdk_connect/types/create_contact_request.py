@@ -24,9 +24,9 @@ if TYPE_CHECKING:
 
 class CreateContactRequest(TypedDict):
     instance_id: "aws_sdk_connect.types.instance_id.InstanceId"
-    """<p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>"""
+    r"""<p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>"""
     client_token: NotRequired["aws_sdk_connect.types.client_token.ClientToken"]
-    """<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>"""
+    r"""<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>"""
     related_contact_id: NotRequired["aws_sdk_connect.types.contact_id.ContactId"]
     """<p>The identifier of the contact in this instance of Connect Customer. </p>"""
     attributes: NotRequired["aws_sdk_connect.types.attributes.Attributes"]
@@ -56,9 +56,9 @@ class CreateContactRequest(TypedDict):
     segment_attributes: NotRequired[
         "aws_sdk_connect.types.segment_attributes.SegmentAttributes"
     ]
-    """<p>A set of system defined key-value pairs stored on individual contact segments (unique contact ID) using an attribute map. The attributes are standard Connect Customer attributes. They can be accessed in flows.</p> <p>Attribute keys can include only alphanumeric, -, and _.</p> <p>This field can be used to set Segment Contact Expiry as a duration in minutes.</p> <note> <p>To set contact expiry, a ValueMap must be specified containing the integer number of minutes the contact will be active for before expiring, with <code>SegmentAttributes</code> like { <code> \"connect:ContactExpiry\": {\"ValueMap\" : { \"ExpiryDuration\": { \"ValueInteger\": 135}}}}</code>. </p> </note>"""
+    r"""<p>A set of system defined key-value pairs stored on individual contact segments (unique contact ID) using an attribute map. The attributes are standard Connect Customer attributes. They can be accessed in flows.</p> <p>Attribute keys can include only alphanumeric, -, and _.</p> <p>This field can be used to set Segment Contact Expiry as a duration in minutes.</p> <note> <p>To set contact expiry, a ValueMap must be specified containing the integer number of minutes the contact will be active for before expiring, with <code>SegmentAttributes</code> like { <code> \"connect:ContactExpiry\": {\"ValueMap\" : { \"ExpiryDuration\": { \"ValueInteger\": 135}}}}</code>. </p> </note>"""
     previous_contact_id: NotRequired["aws_sdk_connect.types.contact_id.ContactId"]
-    """<p>The ID of the previous contact when creating a transfer contact. This value can be provided only for external audio contacts. For more information, see <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-integration.html\">Integrate Connect Customer Contact Lens with external voice systems</a> in the <i>Connect Customer Administrator Guide</i>.</p>"""
+    r"""<p>The ID of the previous contact when creating a transfer contact. This value can be provided only for external audio contacts. For more information, see <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-integration.html\">Integrate Connect Customer Contact Lens with external voice systems</a> in the <i>Connect Customer Administrator Guide</i>.</p>"""
 
 
 # --- restJson1 ser/de ---

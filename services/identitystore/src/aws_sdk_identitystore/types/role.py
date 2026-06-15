@@ -13,11 +13,11 @@ class Role(TypedDict):
     value: NotRequired[
         "aws_sdk_identitystore.types.sensitive_string_type.SensitiveStringType"
     ]
-    """<p>A string containing a role name. For example, \"Researcher.\"</p>"""
+    r"""<p>A string containing a role name. For example, \"Researcher.\"</p>"""
     type: NotRequired[
         "aws_sdk_identitystore.types.sensitive_string_type.SensitiveStringType"
     ]
-    """<p>A string representing the type of role. For example, \"Work.\"</p>"""
+    r"""<p>A string representing the type of role. For example, \"Work.\"</p>"""
     primary: "aws_sdk_identitystore.types.boolean_type.BooleanType"
     """<p>A Boolean value representing whether this is the primary role for the associated resource.</p>"""
 

@@ -34,7 +34,7 @@ class DescribeApplicationResponse(TypedDict):
     application_account: NotRequired["aws_sdk_sso_admin.types.account_id.AccountId"]
     """<p>The account ID.</p>"""
     instance_arn: NotRequired["aws_sdk_sso_admin.types.instance_arn.InstanceArn"]
-    """<p>The ARN of the IAM Identity Center application under which the operation will run. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>"""
+    r"""<p>The ARN of the IAM Identity Center application under which the operation will run. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>"""
     identity_store_arn: NotRequired[
         "aws_sdk_sso_admin.types.identity_store_arn.IdentityStoreArn"
     ]

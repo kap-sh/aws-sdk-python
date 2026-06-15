@@ -17,7 +17,7 @@ class GetBuiltinSlotTypesRequest(TypedDict):
     signature_contains: NotRequired[
         "aws_sdk_lex_model_building_service.types.string.String"
     ]
-    """<p>Substring to match in built-in slot type signatures. A slot type will be returned if any part of its signature matches the substring. For example, \"xyz\" matches both \"xyzabc\" and \"abcxyz.\"</p>"""
+    r"""<p>Substring to match in built-in slot type signatures. A slot type will be returned if any part of its signature matches the substring. For example, \"xyz\" matches both \"xyzabc\" and \"abcxyz.\"</p>"""
     next_token: NotRequired[
         "aws_sdk_lex_model_building_service.types.next_token.NextToken"
     ]

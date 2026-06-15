@@ -368,7 +368,7 @@ class NotificationsClient:
         *,
         config_overrides: Optional[NotificationsClientConfig] = None,
     ) -> "aws_sdk_notifications.types.list_tags_for_resource_response.ListTagsForResourceResponse":
-        """<p>Returns a list of tags for a specified Amazon Resource Name (ARN).</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html\">Tagging your Amazon Web Services resources</a> in the <i>Tagging Amazon Web Services Resources User Guide</i>.</p> <note> <p>This is only supported for <code>NotificationConfigurations</code>.</p> </note>
+        r"""<p>Returns a list of tags for a specified Amazon Resource Name (ARN).</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html\">Tagging your Amazon Web Services resources</a> in the <i>Tagging Amazon Web Services Resources User Guide</i>.</p> <note> <p>This is only supported for <code>NotificationConfigurations</code>.</p> </note>
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) to use to list tags.</p>
@@ -406,7 +406,7 @@ class NotificationsClient:
         *,
         config_overrides: Optional[NotificationsClientConfig] = None,
     ) -> "aws_sdk_notifications.types.tag_resource_response.TagResourceResponse":
-        """<p>Tags the resource with a tag key and value.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html\">Tagging your Amazon Web Services resources</a> in the <i>Tagging Amazon Web Services Resources User Guide</i>.</p> <note> <p>This is only supported for <code>NotificationConfigurations</code>.</p> </note>
+        r"""<p>Tags the resource with a tag key and value.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html\">Tagging your Amazon Web Services resources</a> in the <i>Tagging Amazon Web Services Resources User Guide</i>.</p> <note> <p>This is only supported for <code>NotificationConfigurations</code>.</p> </note>
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) to use to tag a resource.</p>
@@ -446,7 +446,7 @@ class NotificationsClient:
         *,
         config_overrides: Optional[NotificationsClientConfig] = None,
     ) -> "aws_sdk_notifications.types.untag_resource_response.UntagResourceResponse":
-        """<p>Untags a resource with a specified Amazon Resource Name (ARN).</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html\">Tagging your Amazon Web Services resources</a> in the <i>Tagging Amazon Web Services Resources User Guide</i>.</p>
+        r"""<p>Untags a resource with a specified Amazon Resource Name (ARN).</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html\">Tagging your Amazon Web Services resources</a> in the <i>Tagging Amazon Web Services Resources User Guide</i>.</p>
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) to use to untag a resource.</p>

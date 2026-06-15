@@ -21,7 +21,7 @@ class CreateDataSourceRequest(TypedDict):
     knowledge_base_id: "aws_sdk_bedrock_agent.types.id.Id"
     """<p>The unique identifier of the knowledge base to which to add the data source.</p>"""
     client_token: NotRequired["aws_sdk_bedrock_agent.types.client_token.ClientToken"]
-    """<p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring idempotency</a>.</p>"""
+    r"""<p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring idempotency</a>.</p>"""
     name: "aws_sdk_bedrock_agent.types.name.Name"
     """<p>The name of the data source.</p>"""
     description: NotRequired["aws_sdk_bedrock_agent.types.description.Description"]

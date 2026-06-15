@@ -26,7 +26,7 @@ class Sequence(TypedDict):
     sequence_indicators: NotRequired[
         "aws_sdk_securityhub.types.indicators_list.IndicatorsList"
     ]
-    """<p> Contains information about the indicators observed in the attack sequence. The values for <a href=\"https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_Signal.html\">SignalIndicators</a> are a subset of the values for <code>SequenceIndicators</code>, but the values for these fields don't always match 1:1.</p>"""
+    r"""<p> Contains information about the indicators observed in the attack sequence. The values for <a href=\"https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_Signal.html\">SignalIndicators</a> are a subset of the values for <code>SequenceIndicators</code>, but the values for these fields don't always match 1:1.</p>"""
 
 
 # --- restJson1 ser/de ---

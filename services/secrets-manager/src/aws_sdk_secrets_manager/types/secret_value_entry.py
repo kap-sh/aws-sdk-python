@@ -26,7 +26,7 @@ class SecretValueEntry(TypedDict):
     secret_binary: NotRequired[
         "aws_sdk_secrets_manager.types.secret_binary_type.SecretBinaryType"
     ]
-    """<p>The decrypted secret value, if the secret value was originally provided as binary data in the form of a byte array. The parameter represents the binary data as a <a href=\"https://tools.ietf.org/html/rfc4648#section-4\">base64-encoded</a> string.</p>"""
+    r"""<p>The decrypted secret value, if the secret value was originally provided as binary data in the form of a byte array. The parameter represents the binary data as a <a href=\"https://tools.ietf.org/html/rfc4648#section-4\">base64-encoded</a> string.</p>"""
     secret_string: NotRequired[
         "aws_sdk_secrets_manager.types.secret_string_type.SecretStringType"
     ]

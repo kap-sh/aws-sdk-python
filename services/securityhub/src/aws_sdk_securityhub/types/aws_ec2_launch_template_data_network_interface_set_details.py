@@ -19,7 +19,7 @@ class AwsEc2LaunchTemplateDataNetworkInterfaceSetDetails(TypedDict):
     associate_carrier_ip_address: NotRequired[
         "aws_sdk_securityhub.types.boolean.Boolean"
     ]
-    """<p> Indicates whether to associate a Carrier IP address with eth0 for a new network interface. You use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface. For more information, see <a href=\"https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#provider-owned-ip\">Carrier IP address</a> in the <i>Wavelength Developer Guide</i>. </p>"""
+    r"""<p> Indicates whether to associate a Carrier IP address with eth0 for a new network interface. You use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface. For more information, see <a href=\"https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#provider-owned-ip\">Carrier IP address</a> in the <i>Wavelength Developer Guide</i>. </p>"""
     associate_public_ip_address: NotRequired[
         "aws_sdk_securityhub.types.boolean.Boolean"
     ]

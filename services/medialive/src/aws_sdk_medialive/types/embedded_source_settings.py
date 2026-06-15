@@ -15,11 +15,11 @@ class EmbeddedSourceSettings(TypedDict):
     convert608_to708: NotRequired[
         "aws_sdk_medialive.types.embedded_convert608_to708.EmbeddedConvert608To708"
     ]
-    """If upconvert, 608 data is both passed through via the \"608 compatibility bytes\" fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded."""
+    r"""If upconvert, 608 data is both passed through via the \"608 compatibility bytes\" fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded."""
     scte20_detection: NotRequired[
         "aws_sdk_medialive.types.embedded_scte20_detection.EmbeddedScte20Detection"
     ]
-    """Set to \"auto\" to handle streams with intermittent and/or non-aligned SCTE-20 and Embedded captions."""
+    r"""Set to \"auto\" to handle streams with intermittent and/or non-aligned SCTE-20 and Embedded captions."""
     source608_channel_number: NotRequired[
         "aws_sdk_medialive.types.__integer_min1_max4.__integerMin1Max4"
     ]

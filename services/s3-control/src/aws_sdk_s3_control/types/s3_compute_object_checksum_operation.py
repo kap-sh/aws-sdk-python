@@ -15,11 +15,11 @@ class S3ComputeObjectChecksumOperation(TypedDict):
     checksum_algorithm: NotRequired[
         "aws_sdk_s3_control.types.compute_object_checksum_algorithm.ComputeObjectChecksumAlgorithm"
     ]
-    """<p>Indicates the algorithm that you want Amazon S3 to use to create the checksum. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html\">Checking object integrity</a> in the Amazon S3 User Guide.</p>"""
+    r"""<p>Indicates the algorithm that you want Amazon S3 to use to create the checksum. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html\">Checking object integrity</a> in the Amazon S3 User Guide.</p>"""
     checksum_type: NotRequired[
         "aws_sdk_s3_control.types.compute_object_checksum_type.ComputeObjectChecksumType"
     ]
-    """<p>Indicates the checksum type that you want Amazon S3 to use to calculate the object's checksum value. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html\">Checking object integrity</a> in the Amazon S3 User Guide.</p>"""
+    r"""<p>Indicates the checksum type that you want Amazon S3 to use to calculate the object's checksum value. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html\">Checking object integrity</a> in the Amazon S3 User Guide.</p>"""
 
 
 # --- restXml ser/de ---

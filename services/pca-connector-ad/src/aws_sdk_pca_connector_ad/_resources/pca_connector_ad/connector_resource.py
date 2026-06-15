@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_pca_connector_ad._auth._signers
@@ -101,7 +103,7 @@ class ConnectorResource:
         *,
         config_overrides: Optional[PcaConnectorAdClientConfig] = None,
     ) -> "aws_sdk_pca_connector_ad.types.get_connector_response.GetConnectorResponse":
-        """<p>Lists information about your connector. You specify the connector on input by its ARN (Amazon Resource Name). </p>
+        r"""<p>Lists information about your connector. You specify the connector on input by its ARN (Amazon Resource Name). </p>
 
         Args:
             connector_arn: <p> The Amazon Resource Name (ARN) that was returned when you called <a href=\"https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html\">CreateConnector</a>.</p>
@@ -138,7 +140,7 @@ class ConnectorResource:
         *,
         config_overrides: Optional[PcaConnectorAdClientConfig] = None,
     ) -> None:
-        """<p>Deletes a connector for Active Directory. You must provide the Amazon Resource Name (ARN) of the connector that you want to delete. You can find the ARN by calling the <a href=\"https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_ListConnectors\">https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_ListConnectors</a> action. Deleting a connector does not deregister your directory with Amazon Web Services Private CA. You can deregister your directory by calling the <a href=\"https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_DeleteDirectoryRegistration\">https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_DeleteDirectoryRegistration</a> action.</p>
+        r"""<p>Deletes a connector for Active Directory. You must provide the Amazon Resource Name (ARN) of the connector that you want to delete. You can find the ARN by calling the <a href=\"https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_ListConnectors\">https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_ListConnectors</a> action. Deleting a connector does not deregister your directory with Amazon Web Services Private CA. You can deregister your directory by calling the <a href=\"https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_DeleteDirectoryRegistration\">https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_DeleteDirectoryRegistration</a> action.</p>
 
         Args:
             connector_arn: <p> The Amazon Resource Name (ARN) that was returned when you called <a href=\"https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html\">CreateConnector</a>.</p>
@@ -180,7 +182,7 @@ class ConnectorResource:
     ) -> (
         "aws_sdk_pca_connector_ad.types.list_connectors_response.ListConnectorsResponse"
     ):
-        """<p>Lists the connectors that you created by using the <a href=\"https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector\">https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector</a> action.</p>
+        r"""<p>Lists the connectors that you created by using the <a href=\"https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector\">https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector</a> action.</p>
 
         Args:
             max_results: <p>Use this parameter when paginating results to specify the maximum number of items to return in the response on each page. If additional items exist beyond the number you specify, the <code>NextToken</code> element is sent in the response. Use this <code>NextToken</code> value in a subsequent request to retrieve additional items.</p>
@@ -280,7 +282,7 @@ class AsyncConnectorResource:
         *,
         config_overrides: Optional[AsyncPcaConnectorAdClientConfig] = None,
     ) -> "aws_sdk_pca_connector_ad.types.get_connector_response.GetConnectorResponse":
-        """<p>Lists information about your connector. You specify the connector on input by its ARN (Amazon Resource Name). </p>
+        r"""<p>Lists information about your connector. You specify the connector on input by its ARN (Amazon Resource Name). </p>
 
         Args:
             connector_arn: <p> The Amazon Resource Name (ARN) that was returned when you called <a href=\"https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html\">CreateConnector</a>.</p>
@@ -318,7 +320,7 @@ class AsyncConnectorResource:
         *,
         config_overrides: Optional[AsyncPcaConnectorAdClientConfig] = None,
     ) -> None:
-        """<p>Deletes a connector for Active Directory. You must provide the Amazon Resource Name (ARN) of the connector that you want to delete. You can find the ARN by calling the <a href=\"https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_ListConnectors\">https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_ListConnectors</a> action. Deleting a connector does not deregister your directory with Amazon Web Services Private CA. You can deregister your directory by calling the <a href=\"https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_DeleteDirectoryRegistration\">https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_DeleteDirectoryRegistration</a> action.</p>
+        r"""<p>Deletes a connector for Active Directory. You must provide the Amazon Resource Name (ARN) of the connector that you want to delete. You can find the ARN by calling the <a href=\"https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_ListConnectors\">https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_ListConnectors</a> action. Deleting a connector does not deregister your directory with Amazon Web Services Private CA. You can deregister your directory by calling the <a href=\"https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_DeleteDirectoryRegistration\">https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_DeleteDirectoryRegistration</a> action.</p>
 
         Args:
             connector_arn: <p> The Amazon Resource Name (ARN) that was returned when you called <a href=\"https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html\">CreateConnector</a>.</p>
@@ -361,7 +363,7 @@ class AsyncConnectorResource:
     ) -> (
         "aws_sdk_pca_connector_ad.types.list_connectors_response.ListConnectorsResponse"
     ):
-        """<p>Lists the connectors that you created by using the <a href=\"https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector\">https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector</a> action.</p>
+        r"""<p>Lists the connectors that you created by using the <a href=\"https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector\">https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector</a> action.</p>
 
         Args:
             max_results: <p>Use this parameter when paginating results to specify the maximum number of items to return in the response on each page. If additional items exist beyond the number you specify, the <code>NextToken</code> element is sent in the response. Use this <code>NextToken</code> value in a subsequent request to retrieve additional items.</p>
