@@ -1,6 +1,6 @@
 {
   "$schema": "https://unpkg.com/@changesets/config@3/schema.json",
-  "changelog": ["@changesets/changelog-github", { "repo": "kap-sh/aws-sdk-python" }],
+  "changelog": "@changesets/cli/changelog",
   "commit": false,
   "access": "restricted",
   "baseBranch": "main",
