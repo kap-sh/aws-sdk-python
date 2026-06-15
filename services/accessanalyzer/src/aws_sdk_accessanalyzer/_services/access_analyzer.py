@@ -17,6 +17,7 @@ from aws_sdk_accessanalyzer._auth._providers import (
 from aws_sdk_accessanalyzer._auth._zapros_handler import AuthMiddleware
 from aws_sdk_accessanalyzer._pagination import resolve_path as _resolve_path
 from aws_sdk_accessanalyzer._resources.access_analyzer.analyzer import Analyzer
+from aws_sdk_accessanalyzer._services._aws_config import aws_config
 from aws_sdk_accessanalyzer._services._pipeline import (
     Interceptor,
     OperationOptions,
@@ -113,15 +114,12 @@ if TYPE_CHECKING:
 
 class AccessAnalyzerClientConfig(TypedDict, total=False):
     operation_interceptors: Iterable[Interceptor[Any, Any]]
-    retry_max_attempts: int
+    retry_max_attempts: int | None
     region: str | None
     use_dual_stack: bool | None
     use_fips: bool | None
     endpoint: str | None
     credentials_provider: CredentialsProvider | None
-
-
-DEFAULT_RETRY_MAX_ATTEMPTS = 3
 
 
 class AccessAnalyzerClient:
@@ -163,9 +161,7 @@ class AccessAnalyzerClient:
         self._config = AccessAnalyzerClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
-                "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
-                if retry_max_attempts is None
-                else retry_max_attempts,
+                "retry_max_attempts": retry_max_attempts,
                 "region": region,
                 "use_dual_stack": use_dual_stack,
                 "use_fips": use_fips,
@@ -185,13 +181,13 @@ class AccessAnalyzerClient:
             *overrides.get(
                 "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
+            aws_config(),
             retry(),
         ]
         options_: OperationOptions = OperationOptions(
             client=self._client,
             retry_max_attempts=overrides.get(
-                "retry_max_attempts",
-                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                "retry_max_attempts", self._config.get("retry_max_attempts")
             ),
             region=overrides.get("region", self._config.get("region")),
             use_dual_stack=overrides.get(

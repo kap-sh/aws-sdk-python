@@ -20,6 +20,7 @@ from aws_sdk_qbusiness._pagination import resolve_path as _resolve_path
 from aws_sdk_qbusiness._resources.expert_q.application_resource import (
     ApplicationResource,
 )
+from aws_sdk_qbusiness._services._aws_config import aws_config
 from aws_sdk_qbusiness._services._pipeline import (
     Interceptor,
     OperationOptions,
@@ -214,14 +215,11 @@ if TYPE_CHECKING:
 
 class QBusinessClientConfig(TypedDict, total=False):
     operation_interceptors: Iterable[Interceptor[Any, Any]]
-    retry_max_attempts: int
+    retry_max_attempts: int | None
     region: str | None
     use_fips: bool | None
     endpoint: str | None
     credentials_provider: CredentialsProvider | None
-
-
-DEFAULT_RETRY_MAX_ATTEMPTS = 3
 
 
 class QBusinessClient:
@@ -261,9 +259,7 @@ class QBusinessClient:
         self._config = QBusinessClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
-                "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
-                if retry_max_attempts is None
-                else retry_max_attempts,
+                "retry_max_attempts": retry_max_attempts,
                 "region": region,
                 "use_fips": use_fips,
                 "endpoint": endpoint,
@@ -282,13 +278,13 @@ class QBusinessClient:
             *overrides.get(
                 "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
+            aws_config(),
             retry(),
         ]
         options_: OperationOptions = OperationOptions(
             client=self._client,
             retry_max_attempts=overrides.get(
-                "retry_max_attempts",
-                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                "retry_max_attempts", self._config.get("retry_max_attempts")
             ),
             region=overrides.get("region", self._config.get("region")),
             use_fips=overrides.get("use_fips", self._config.get("use_fips")),
