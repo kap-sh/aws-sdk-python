@@ -16,6 +16,7 @@ from aws_sdk_kafkaconnect._auth._providers import (
 )
 from aws_sdk_kafkaconnect._auth._zapros_handler import AuthMiddleware
 from aws_sdk_kafkaconnect._pagination import resolve_path as _resolve_path
+from aws_sdk_kafkaconnect._services._aws_config import aws_config
 from aws_sdk_kafkaconnect._services._pipeline import (
     Interceptor,
     OperationOptions,
@@ -90,15 +91,12 @@ if TYPE_CHECKING:
 
 class KafkaConnectClientConfig(TypedDict, total=False):
     operation_interceptors: Iterable[Interceptor[Any, Any]]
-    retry_max_attempts: int
+    retry_max_attempts: int | None
     use_dual_stack: bool | None
     use_fips: bool | None
     endpoint: str | None
     region: str | None
     credentials_provider: CredentialsProvider | None
-
-
-DEFAULT_RETRY_MAX_ATTEMPTS = 3
 
 
 class KafkaConnectClient:
@@ -140,9 +138,7 @@ class KafkaConnectClient:
         self._config = KafkaConnectClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
-                "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
-                if retry_max_attempts is None
-                else retry_max_attempts,
+                "retry_max_attempts": retry_max_attempts,
                 "use_dual_stack": use_dual_stack,
                 "use_fips": use_fips,
                 "endpoint": endpoint,
@@ -159,13 +155,13 @@ class KafkaConnectClient:
             *overrides.get(
                 "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
+            aws_config(),
             retry(),
         ]
         options_: OperationOptions = OperationOptions(
             client=self._client,
             retry_max_attempts=overrides.get(
-                "retry_max_attempts",
-                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                "retry_max_attempts", self._config.get("retry_max_attempts")
             ),
             use_dual_stack=overrides.get(
                 "use_dual_stack", self._config.get("use_dual_stack")
