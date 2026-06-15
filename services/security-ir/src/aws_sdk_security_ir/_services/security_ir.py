@@ -18,6 +18,7 @@ from aws_sdk_security_ir._resources.security_incident_response.case import Case
 from aws_sdk_security_ir._resources.security_incident_response.membership import (
     Membership,
 )
+from aws_sdk_security_ir._services._aws_config import aws_config
 from aws_sdk_security_ir._services._pipeline import (
     Interceptor,
     OperationOptions,
@@ -41,14 +42,11 @@ if TYPE_CHECKING:
 
 class SecurityIRClientConfig(TypedDict, total=False):
     operation_interceptors: Iterable[Interceptor[Any, Any]]
-    retry_max_attempts: int
+    retry_max_attempts: int | None
     use_fips: bool | None
     endpoint: str | None
     region: str | None
     credentials_provider: CredentialsProvider | None
-
-
-DEFAULT_RETRY_MAX_ATTEMPTS = 3
 
 
 class SecurityIRClient:
@@ -88,9 +86,7 @@ class SecurityIRClient:
         self._config = SecurityIRClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
-                "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS
-                if retry_max_attempts is None
-                else retry_max_attempts,
+                "retry_max_attempts": retry_max_attempts,
                 "use_fips": use_fips,
                 "endpoint": endpoint,
                 "region": region,
@@ -110,13 +106,13 @@ class SecurityIRClient:
             *overrides.get(
                 "operation_interceptors", self._config.get("operation_interceptors", [])
             ),
+            aws_config(),
             retry(),
         ]
         options_: OperationOptions = OperationOptions(
             client=self._client,
             retry_max_attempts=overrides.get(
-                "retry_max_attempts",
-                self._config.get("retry_max_attempts", DEFAULT_RETRY_MAX_ATTEMPTS),
+                "retry_max_attempts", self._config.get("retry_max_attempts")
             ),
             use_fips=overrides.get("use_fips", self._config.get("use_fips")),
             endpoint=overrides.get("endpoint", self._config.get("endpoint")),
