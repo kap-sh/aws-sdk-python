@@ -4,7 +4,7 @@ import random
 import time
 from collections.abc import Sequence
 from dataclasses import dataclass
-from typing import Awaitable, Callable, Generic, TypeVar
+from typing import TYPE_CHECKING, Awaitable, Callable, Generic, TypeVar
 
 from zapros import (
     AsyncClient,
@@ -16,8 +16,10 @@ from zapros import (
 )
 
 from aws_sdk_codecatalyst._async import anysleep
-from aws_sdk_codecatalyst._auth._providers import BearerTokenProvider
 from aws_sdk_codecatalyst.errors import ServiceError
+
+if TYPE_CHECKING:
+    from aws_sdk_codecatalyst._auth._providers import BearerTokenProvider
 
 TInput = TypeVar("TInput")
 TOutput = TypeVar("TOutput")

@@ -48,7 +48,7 @@ class SigV4Signer(Signer[Credentials]):
         self._auth_scheme = auth_scheme
 
     async def asign(self, req: Request) -> Request:
-        creds = self.provider.resolve_identity()
+        creds = await self.provider.aresolve_identity()
         ctx: SigV4AuthContext = {
             "type": "sig_v4",
             "access_key_id": creds["access_key"],

@@ -9,7 +9,9 @@ from zapros import AsyncBaseHandler, AsyncClient
 from aws_sdk_artifact._auth._identity import Credentials
 from aws_sdk_artifact._auth._providers import (
     CredentialsProvider,
+    IdentityProvider,
     StaticAwsCredentialsProvider,
+    default_aws_credentials_chain,
 )
 from aws_sdk_artifact._auth._zapros_handler import AuthMiddleware
 from aws_sdk_artifact._resources.artifact.account_settings_resource import (
@@ -35,7 +37,7 @@ class AsyncArtifactClientConfig(TypedDict, total=False):
     use_fips: bool | None
     endpoint: str | None
     region: str | None
-    credentials_provider: CredentialsProvider | None
+    credentials_provider: IdentityProvider[Credentials] | None
 
 
 class AsyncArtifactClient:
@@ -72,8 +74,15 @@ class AsyncArtifactClient:
             warnings.warn(
                 "Both credentials and credentials_provider given; provider takes precedence"
             )
-        if credentials_provider is None and credentials is not None:
-            credentials_provider = StaticAwsCredentialsProvider(credentials)
+        resolved_credentials_provider: IdentityProvider[Credentials] | None = (
+            credentials_provider
+        )
+        if resolved_credentials_provider is None and credentials is not None:
+            resolved_credentials_provider = StaticAwsCredentialsProvider(credentials)
+        if resolved_credentials_provider is None and credentials is None:
+            resolved_credentials_provider = default_aws_credentials_chain(
+                AsyncClient(http_handler)
+            )
         self._config = AsyncArtifactClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
@@ -82,7 +91,7 @@ class AsyncArtifactClient:
                 "use_fips": use_fips,
                 "endpoint": endpoint,
                 "region": region,
-                "credentials_provider": credentials_provider,
+                "credentials_provider": resolved_credentials_provider,
             }
         )
 

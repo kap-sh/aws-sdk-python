@@ -11,7 +11,9 @@ import aws_sdk_kendra_ranking._auth._sigv4
 from aws_sdk_kendra_ranking._auth._identity import Credentials
 from aws_sdk_kendra_ranking._auth._providers import (
     CredentialsProvider,
+    IdentityProvider,
     StaticAwsCredentialsProvider,
+    default_aws_credentials_chain,
 )
 from aws_sdk_kendra_ranking._auth._zapros_handler import AuthMiddleware
 from aws_sdk_kendra_ranking._services._aws_config import aaws_config
@@ -61,7 +63,7 @@ class AsyncKendraRankingClientConfig(TypedDict, total=False):
     region: str | None
     use_fips: bool | None
     endpoint: str | None
-    credentials_provider: CredentialsProvider | None
+    credentials_provider: IdentityProvider[Credentials] | None
 
 
 class AsyncKendraRankingClient:
@@ -96,8 +98,15 @@ class AsyncKendraRankingClient:
             warnings.warn(
                 "Both credentials and credentials_provider given; provider takes precedence"
             )
-        if credentials_provider is None and credentials is not None:
-            credentials_provider = StaticAwsCredentialsProvider(credentials)
+        resolved_credentials_provider: IdentityProvider[Credentials] | None = (
+            credentials_provider
+        )
+        if resolved_credentials_provider is None and credentials is not None:
+            resolved_credentials_provider = StaticAwsCredentialsProvider(credentials)
+        if resolved_credentials_provider is None and credentials is None:
+            resolved_credentials_provider = default_aws_credentials_chain(
+                AsyncClient(http_handler)
+            )
         self._config = AsyncKendraRankingClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
@@ -105,7 +114,7 @@ class AsyncKendraRankingClient:
                 "region": region,
                 "use_fips": use_fips,
                 "endpoint": endpoint,
-                "credentials_provider": credentials_provider,
+                "credentials_provider": resolved_credentials_provider,
             }
         )
 

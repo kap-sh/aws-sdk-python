@@ -4,7 +4,7 @@ import random
 import time
 from collections.abc import Sequence
 from dataclasses import dataclass
-from typing import Awaitable, Callable, Generic, TypeVar
+from typing import TYPE_CHECKING, Awaitable, Callable, Generic, TypeVar
 
 from zapros import (
     AsyncClient,
@@ -16,8 +16,11 @@ from zapros import (
 )
 
 from aws_sdk_s3._async import anysleep
-from aws_sdk_s3._auth._providers import CredentialsProvider
 from aws_sdk_s3.errors import ServiceError
+
+if TYPE_CHECKING:
+    from aws_sdk_s3._auth._identity import Credentials
+    from aws_sdk_s3._auth._providers import IdentityProvider
 
 TInput = TypeVar("TInput")
 TOutput = TypeVar("TOutput")
@@ -44,7 +47,7 @@ class OperationOptions:
     use_s3_express_control_endpoint: bool | None = None
     disable_s3_express_session_auth: bool | None = None
     retry_max_attempts: int | None = None
-    credentials_provider: CredentialsProvider | None = None
+    credentials_provider: IdentityProvider[Credentials] | None = None
 
 
 @dataclass
@@ -68,7 +71,7 @@ class AsyncOperationOptions:
     use_s3_express_control_endpoint: bool | None = None
     disable_s3_express_session_auth: bool | None = None
     retry_max_attempts: int | None = None
-    credentials_provider: CredentialsProvider | None = None
+    credentials_provider: IdentityProvider[Credentials] | None = None
 
 
 @dataclass

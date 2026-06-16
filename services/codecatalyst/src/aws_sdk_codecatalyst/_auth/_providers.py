@@ -24,6 +24,10 @@ class IdentityProvider(Generic[IdentityT]):
     def resolve_identity(self) -> IdentityT:
         raise NotImplementedError
 
+    async def aresolve_identity(self) -> IdentityT:
+        # default: no network I/O, reuse the sync resolution
+        return self.resolve_identity()
+
 
 class ChainedProvider(IdentityProvider[IdentityT]):
     """Try each provider in order; first non-`IdentityNotFound` wins."""
@@ -42,6 +46,15 @@ class ChainedProvider(IdentityProvider[IdentityT]):
                 errors.append(f"{type(p).__name__}: {e}")
         raise IdentityNotFound("no provider succeeded: " + "; ".join(errors))
 
+    async def aresolve_identity(self) -> IdentityT:
+        errors: list[str] = []
+        for p in self._providers:
+            try:
+                return await p.aresolve_identity()
+            except IdentityNotFound as e:
+                errors.append(f"{type(p).__name__}: {e}")
+        raise IdentityNotFound("no provider succeeded: " + "; ".join(errors))
+
 
 class CachedProvider(IdentityProvider[IdentityT]):
     """Cache an identity until its `expiration` (minus skew) elapses."""
@@ -56,6 +69,12 @@ class CachedProvider(IdentityProvider[IdentityT]):
         if self._cached is not None and not self._expired(self._cached):
             return self._cached
         self._cached = self._inner.resolve_identity()
+        return self._cached
+
+    async def aresolve_identity(self) -> IdentityT:
+        if self._cached is not None and not self._expired(self._cached):
+            return self._cached
+        self._cached = await self._inner.aresolve_identity()
         return self._cached
 
     @classmethod

@@ -4,7 +4,7 @@ import random
 import time
 from collections.abc import Sequence
 from dataclasses import dataclass
-from typing import Awaitable, Callable, Generic, TypeVar
+from typing import TYPE_CHECKING, Awaitable, Callable, Generic, TypeVar
 
 from zapros import (
     AsyncClient,
@@ -16,8 +16,13 @@ from zapros import (
 )
 
 from aws_sdk_route53_recovery_control_config._async import anysleep
-from aws_sdk_route53_recovery_control_config._auth._providers import CredentialsProvider
 from aws_sdk_route53_recovery_control_config.errors import ServiceError
+
+if TYPE_CHECKING:
+    from aws_sdk_route53_recovery_control_config._auth._identity import Credentials
+    from aws_sdk_route53_recovery_control_config._auth._providers import (
+        IdentityProvider,
+    )
 
 TInput = TypeVar("TInput")
 TOutput = TypeVar("TOutput")
@@ -31,7 +36,7 @@ class OperationOptions:
     endpoint: str | None = None
     region: str | None = None
     retry_max_attempts: int | None = None
-    credentials_provider: CredentialsProvider | None = None
+    credentials_provider: IdentityProvider[Credentials] | None = None
 
 
 @dataclass
@@ -42,7 +47,7 @@ class AsyncOperationOptions:
     endpoint: str | None = None
     region: str | None = None
     retry_max_attempts: int | None = None
-    credentials_provider: CredentialsProvider | None = None
+    credentials_provider: IdentityProvider[Credentials] | None = None
 
 
 @dataclass

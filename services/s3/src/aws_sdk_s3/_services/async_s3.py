@@ -15,7 +15,9 @@ from aws_sdk_s3._async import anysleep
 from aws_sdk_s3._auth._identity import Credentials
 from aws_sdk_s3._auth._providers import (
     CredentialsProvider,
+    IdentityProvider,
     StaticAwsCredentialsProvider,
+    default_aws_credentials_chain,
 )
 from aws_sdk_s3._auth._signers import SigV4Signer
 from aws_sdk_s3._auth._sigv4 import presign_sigv4
@@ -391,7 +393,7 @@ class AsyncS3ClientConfig(TypedDict, total=False):
     use_dual_stack: bool | None
     endpoint: str | None
     use_global_endpoint: bool | None
-    credentials_provider: CredentialsProvider | None
+    credentials_provider: IdentityProvider[Credentials] | None
     force_path_style: bool | None
     use_arn_region: bool | None
     disable_multi_region_access_points: bool | None
@@ -445,8 +447,15 @@ class AsyncS3Client:
             warnings.warn(
                 "Both credentials and credentials_provider given; provider takes precedence"
             )
-        if credentials_provider is None and credentials is not None:
-            credentials_provider = StaticAwsCredentialsProvider(credentials)
+        resolved_credentials_provider: IdentityProvider[Credentials] | None = (
+            credentials_provider
+        )
+        if resolved_credentials_provider is None and credentials is not None:
+            resolved_credentials_provider = StaticAwsCredentialsProvider(credentials)
+        if resolved_credentials_provider is None and credentials is None:
+            resolved_credentials_provider = default_aws_credentials_chain(
+                AsyncClient(http_handler)
+            )
         self._config = AsyncS3ClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
@@ -456,7 +465,7 @@ class AsyncS3Client:
                 "use_dual_stack": use_dual_stack,
                 "endpoint": endpoint,
                 "use_global_endpoint": use_global_endpoint,
-                "credentials_provider": credentials_provider,
+                "credentials_provider": resolved_credentials_provider,
                 "force_path_style": force_path_style,
                 "use_arn_region": use_arn_region,
                 "disable_multi_region_access_points": disable_multi_region_access_points,
