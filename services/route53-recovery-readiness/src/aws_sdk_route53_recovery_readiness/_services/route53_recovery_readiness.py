@@ -12,7 +12,9 @@ import aws_sdk_route53_recovery_readiness._auth._sigv4
 from aws_sdk_route53_recovery_readiness._auth._identity import Credentials
 from aws_sdk_route53_recovery_readiness._auth._providers import (
     CredentialsProvider,
+    IdentityProvider,
     StaticAwsCredentialsProvider,
+    default_aws_credentials_chain,
 )
 from aws_sdk_route53_recovery_readiness._auth._zapros_handler import AuthMiddleware
 from aws_sdk_route53_recovery_readiness._pagination import resolve_path as _resolve_path
@@ -110,7 +112,7 @@ class Route53RecoveryReadinessClientConfig(TypedDict, total=False):
     use_dual_stack: bool | None
     use_fips: bool | None
     endpoint: str | None
-    credentials_provider: CredentialsProvider | None
+    credentials_provider: IdentityProvider[Credentials] | None
 
 
 class Route53RecoveryReadinessClient:
@@ -147,8 +149,15 @@ class Route53RecoveryReadinessClient:
             warnings.warn(
                 "Both credentials and credentials_provider given; provider takes precedence"
             )
-        if credentials_provider is None and credentials is not None:
-            credentials_provider = StaticAwsCredentialsProvider(credentials)
+        resolved_credentials_provider: IdentityProvider[Credentials] | None = (
+            credentials_provider
+        )
+        if resolved_credentials_provider is None and credentials is not None:
+            resolved_credentials_provider = StaticAwsCredentialsProvider(credentials)
+        if resolved_credentials_provider is None and credentials is None:
+            resolved_credentials_provider = default_aws_credentials_chain(
+                Client(http_handler)
+            )
         self._config = Route53RecoveryReadinessClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
@@ -157,7 +166,7 @@ class Route53RecoveryReadinessClient:
                 "use_dual_stack": use_dual_stack,
                 "use_fips": use_fips,
                 "endpoint": endpoint,
-                "credentials_provider": credentials_provider,
+                "credentials_provider": resolved_credentials_provider,
             }
         )
 

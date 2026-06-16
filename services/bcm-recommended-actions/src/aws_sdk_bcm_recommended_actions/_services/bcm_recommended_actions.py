@@ -12,7 +12,9 @@ import aws_sdk_bcm_recommended_actions._auth._sigv4
 from aws_sdk_bcm_recommended_actions._auth._identity import Credentials
 from aws_sdk_bcm_recommended_actions._auth._providers import (
     CredentialsProvider,
+    IdentityProvider,
     StaticAwsCredentialsProvider,
+    default_aws_credentials_chain,
 )
 from aws_sdk_bcm_recommended_actions._auth._zapros_handler import AuthMiddleware
 from aws_sdk_bcm_recommended_actions._pagination import resolve_path as _resolve_path
@@ -41,7 +43,7 @@ class BCMRecommendedActionsClientConfig(TypedDict, total=False):
     use_fips: bool | None
     endpoint: str | None
     region: str | None
-    credentials_provider: CredentialsProvider | None
+    credentials_provider: IdentityProvider[Credentials] | None
 
 
 class BCMRecommendedActionsClient:
@@ -76,8 +78,15 @@ class BCMRecommendedActionsClient:
             warnings.warn(
                 "Both credentials and credentials_provider given; provider takes precedence"
             )
-        if credentials_provider is None and credentials is not None:
-            credentials_provider = StaticAwsCredentialsProvider(credentials)
+        resolved_credentials_provider: IdentityProvider[Credentials] | None = (
+            credentials_provider
+        )
+        if resolved_credentials_provider is None and credentials is not None:
+            resolved_credentials_provider = StaticAwsCredentialsProvider(credentials)
+        if resolved_credentials_provider is None and credentials is None:
+            resolved_credentials_provider = default_aws_credentials_chain(
+                Client(http_handler)
+            )
         self._config = BCMRecommendedActionsClientConfig(
             {
                 "operation_interceptors": operation_interceptors or [],
@@ -85,7 +94,7 @@ class BCMRecommendedActionsClient:
                 "use_fips": use_fips,
                 "endpoint": endpoint,
                 "region": region,
-                "credentials_provider": credentials_provider,
+                "credentials_provider": resolved_credentials_provider,
             }
         )
 

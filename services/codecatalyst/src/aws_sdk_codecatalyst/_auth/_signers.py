@@ -27,7 +27,7 @@ class HttpBearerSigner(Signer[BearerToken]):
     """smithy.api#httpBearerAuth — RFC 6750 ``Authorization: Bearer <token>``."""
 
     async def asign(self, req: Request) -> Request:
-        t = self.provider.resolve_identity()
+        t = await self.provider.aresolve_identity()
         headers = req.headers.copy()
         headers["Authorization"] = f"Bearer {t['token']}"
         return Request(

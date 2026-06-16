@@ -10,8 +10,10 @@ from aws_sdk_bedrock._auth._identity import Credentials
 from aws_sdk_bedrock._auth._providers import (
     BearerTokenProvider,
     CredentialsProvider,
+    IdentityProvider,
     StaticAwsCredentialsProvider,
     StaticBearerTokenProvider,
+    default_aws_credentials_chain,
 )
 from aws_sdk_bedrock._auth._zapros_handler import AuthMiddleware
 from aws_sdk_bedrock._resources.amazon_bedrock_control_plane_service.advanced_prompt_optimization_job_resource import (
@@ -95,7 +97,7 @@ class BedrockClientConfig(TypedDict, total=False):
     use_dual_stack: bool | None
     use_fips: bool | None
     endpoint: str | None
-    credentials_provider: CredentialsProvider | None
+    credentials_provider: IdentityProvider[Credentials] | None
     bearer_provider: BearerTokenProvider | None
 
 
@@ -137,8 +139,15 @@ class BedrockClient:
             warnings.warn(
                 "Both credentials and credentials_provider given; provider takes precedence"
             )
-        if credentials_provider is None and credentials is not None:
-            credentials_provider = StaticAwsCredentialsProvider(credentials)
+        resolved_credentials_provider: IdentityProvider[Credentials] | None = (
+            credentials_provider
+        )
+        if resolved_credentials_provider is None and credentials is not None:
+            resolved_credentials_provider = StaticAwsCredentialsProvider(credentials)
+        if resolved_credentials_provider is None and credentials is None:
+            resolved_credentials_provider = default_aws_credentials_chain(
+                Client(http_handler)
+            )
         if bearer is not None and bearer_provider is not None:
             warnings.warn(
                 "Both bearer and bearer_provider given; provider takes precedence"
@@ -153,7 +162,7 @@ class BedrockClient:
                 "use_dual_stack": use_dual_stack,
                 "use_fips": use_fips,
                 "endpoint": endpoint,
-                "credentials_provider": credentials_provider,
+                "credentials_provider": resolved_credentials_provider,
                 "bearer_provider": bearer_provider,
             }
         )
