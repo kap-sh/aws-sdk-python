@@ -14,7 +14,7 @@ def to_xml_text(value: RestoreExpiryDate) -> str:
 
 
 def from_xml_text(text: str) -> RestoreExpiryDate:
-    return datetime.datetime.fromisoformat(text)
+    return datetime.datetime.fromisoformat(text.replace("Z", "+00:00"))
 
 
 def serialize_xml(value: RestoreExpiryDate, parent: Element, tag: str) -> None:

@@ -186,6 +186,10 @@ def build_request(
     if "expected_bucket_owner" in input_:
         headers["x-amz-expected-bucket-owner"] = str(input_["expected_bucket_owner"])
     body = input_["body"]
+    if not isinstance(body, bytes) and "content-length" not in [
+        header.lower() for header in headers
+    ]:
+        raise ValueError("Content-Length is required for streaming input")
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)

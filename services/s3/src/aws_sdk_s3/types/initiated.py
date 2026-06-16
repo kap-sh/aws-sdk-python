@@ -14,7 +14,7 @@ def to_xml_text(value: Initiated) -> str:
 
 
 def from_xml_text(text: str) -> Initiated:
-    return datetime.datetime.fromisoformat(text)
+    return datetime.datetime.fromisoformat(text.replace("Z", "+00:00"))
 
 
 def serialize_xml(value: Initiated, parent: Element, tag: str) -> None:

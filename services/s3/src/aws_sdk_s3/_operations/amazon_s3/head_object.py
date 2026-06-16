@@ -167,7 +167,9 @@ def handle_response(
         import aws_sdk_s3.types.object_lock_retain_until_date
 
         out["object_lock_retain_until_date"] = datetime.datetime.fromisoformat(
-            response.headers["x-amz-object-lock-retain-until-date"]
+            response.headers["x-amz-object-lock-retain-until-date"].replace(
+                "Z", "+00:00"
+            )
         )
     if "x-amz-object-lock-legal-hold" in response.headers:
         import aws_sdk_s3.types.object_lock_legal_hold_status

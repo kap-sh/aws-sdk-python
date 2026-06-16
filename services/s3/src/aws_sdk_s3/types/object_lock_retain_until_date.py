@@ -14,7 +14,7 @@ def to_xml_text(value: ObjectLockRetainUntilDate) -> str:
 
 
 def from_xml_text(text: str) -> ObjectLockRetainUntilDate:
-    return datetime.datetime.fromisoformat(text)
+    return datetime.datetime.fromisoformat(text.replace("Z", "+00:00"))
 
 
 def serialize_xml(value: ObjectLockRetainUntilDate, parent: Element, tag: str) -> None:

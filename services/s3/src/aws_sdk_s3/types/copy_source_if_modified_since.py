@@ -14,7 +14,7 @@ def to_xml_text(value: CopySourceIfModifiedSince) -> str:
 
 
 def from_xml_text(text: str) -> CopySourceIfModifiedSince:
-    return datetime.datetime.fromisoformat(text)
+    return datetime.datetime.fromisoformat(text.replace("Z", "+00:00"))
 
 
 def serialize_xml(value: CopySourceIfModifiedSince, parent: Element, tag: str) -> None:
