@@ -2,10 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Any, Never
+from typing import Any
 from urllib.parse import urlencode
 
 import zapros
+from typing_extensions import Never
 
 import aws_sdk_iam._auth._signers
 import aws_sdk_iam._auth._sigv4

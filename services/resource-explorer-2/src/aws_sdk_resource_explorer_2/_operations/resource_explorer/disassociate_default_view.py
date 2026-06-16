@@ -3,9 +3,10 @@
 from __future__ import annotations
 
 import json
-from typing import Any, Never
+from typing import Any
 
 import zapros
+from typing_extensions import Never
 
 import aws_sdk_resource_explorer_2._auth._signers
 import aws_sdk_resource_explorer_2._auth._sigv4

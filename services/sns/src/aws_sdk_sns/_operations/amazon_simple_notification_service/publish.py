@@ -2,10 +2,11 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Never
+from typing import TYPE_CHECKING, Any
 from urllib.parse import urlencode
 
 import zapros
+from typing_extensions import Never
 
 import aws_sdk_sns._auth._signers
 import aws_sdk_sns._auth._sigv4

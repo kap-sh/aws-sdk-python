@@ -2,9 +2,10 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Never
+from typing import TYPE_CHECKING, Any
 
 import zapros
+from typing_extensions import Never
 
 import aws_sdk_route_53._auth._signers
 import aws_sdk_route_53._auth._sigv4

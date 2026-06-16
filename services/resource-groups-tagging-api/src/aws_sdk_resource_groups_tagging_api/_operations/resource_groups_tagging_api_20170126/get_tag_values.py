@@ -3,9 +3,10 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any, Never
+from typing import TYPE_CHECKING, Any
 
 import zapros
+from typing_extensions import Never
 
 import aws_sdk_resource_groups_tagging_api._auth._signers
 import aws_sdk_resource_groups_tagging_api._auth._sigv4
