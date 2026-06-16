@@ -4,10 +4,11 @@ from __future__ import annotations
 
 import datetime
 from email.utils import parsedate_to_datetime as _parse_http_date
-from typing import TYPE_CHECKING, Any, Never, cast
+from typing import TYPE_CHECKING, Any, cast
 from urllib.parse import quote
 
 import zapros
+from typing_extensions import Never
 
 import aws_sdk_s3._auth._signers
 import aws_sdk_s3._auth._sigv4

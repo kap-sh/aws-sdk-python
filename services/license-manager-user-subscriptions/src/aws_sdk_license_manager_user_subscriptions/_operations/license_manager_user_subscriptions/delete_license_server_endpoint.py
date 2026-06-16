@@ -3,9 +3,10 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any, Never
+from typing import TYPE_CHECKING, Any
 
 import zapros
+from typing_extensions import Never
 
 import aws_sdk_license_manager_user_subscriptions._auth._signers
 import aws_sdk_license_manager_user_subscriptions._auth._sigv4

@@ -3,9 +3,10 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any, Never, cast
+from typing import TYPE_CHECKING, Any, cast
 
 import zapros
+from typing_extensions import Never
 
 import aws_sdk_kinesis_video_media._auth._signers
 import aws_sdk_kinesis_video_media._auth._sigv4
