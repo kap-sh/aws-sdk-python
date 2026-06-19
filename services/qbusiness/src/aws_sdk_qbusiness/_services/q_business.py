@@ -17,7 +17,6 @@ from aws_sdk_qbusiness._auth._providers import (
     default_aws_credentials_chain,
 )
 from aws_sdk_qbusiness._auth._zapros_handler import AuthMiddleware
-from aws_sdk_qbusiness._iter import ensure_sync_iterator
 from aws_sdk_qbusiness._pagination import resolve_path as _resolve_path
 from aws_sdk_qbusiness._resources.expert_q.application_resource import (
     ApplicationResource,
@@ -552,7 +551,7 @@ class QBusinessClient:
         if client_token is not None:
             input_["client_token"] = client_token
         if input_stream is not None:
-            input_["input_stream"] = ensure_sync_iterator(input_stream)  # type: ignore
+            input_["input_stream"] = input_stream  # type: ignore
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),

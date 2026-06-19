@@ -18,7 +18,6 @@ from aws_sdk_lex_runtime_service._auth._providers import (
     default_aws_credentials_chain,
 )
 from aws_sdk_lex_runtime_service._auth._zapros_handler import AuthMiddleware
-from aws_sdk_lex_runtime_service._iter import ensure_async_iterator
 from aws_sdk_lex_runtime_service._services._aws_config import aaws_config
 from aws_sdk_lex_runtime_service._services._pipeline import (
     AsyncInterceptor,
@@ -305,7 +304,7 @@ class AsyncLexRuntimeServiceClient:
         input_["content_type"] = content_type
         if accept is not None:
             input_["accept"] = accept
-        input_["input_stream"] = ensure_async_iterator(input_stream)  # type: ignore
+        input_["input_stream"] = input_stream  # type: ignore
         if active_contexts is not None:
             input_["active_contexts"] = active_contexts
 

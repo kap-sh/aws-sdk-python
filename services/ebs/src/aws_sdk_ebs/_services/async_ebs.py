@@ -18,7 +18,6 @@ from aws_sdk_ebs._auth._providers import (
     default_aws_credentials_chain,
 )
 from aws_sdk_ebs._auth._zapros_handler import AuthMiddleware
-from aws_sdk_ebs._iter import ensure_async_iterator
 from aws_sdk_ebs._services._aws_config import aaws_config
 from aws_sdk_ebs._services._pipeline import (
     AsyncInterceptor,
@@ -409,7 +408,7 @@ class AsyncEBSClient:
         input_: aws_sdk_ebs.types.put_snapshot_block_request.PutSnapshotBlockRequest = {}  # type: ignore[typeddict-item]
         input_["snapshot_id"] = snapshot_id
         input_["block_index"] = block_index
-        input_["block_data"] = ensure_async_iterator(block_data)  # type: ignore
+        input_["block_data"] = block_data  # type: ignore
         input_["data_length"] = data_length
         if progress is not None:
             input_["progress"] = progress

@@ -14,7 +14,7 @@ def to_xml_text(value: AsyncCreationTimestamp) -> str:
 
 
 def from_xml_text(text: str) -> AsyncCreationTimestamp:
-    return datetime.datetime.fromisoformat(text)
+    return datetime.datetime.fromisoformat(text.replace("Z", "+00:00"))
 
 
 def serialize_xml(value: AsyncCreationTimestamp, parent: Element, tag: str) -> None:

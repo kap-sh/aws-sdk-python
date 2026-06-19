@@ -5,7 +5,6 @@ from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_omics._auth._signers
 import aws_sdk_omics._auth._sigv4
-from aws_sdk_omics._iter import ensure_async_iterator, ensure_sync_iterator
 from aws_sdk_omics._services._pipeline import (
     AsyncOperationRequest,
     AsyncOperationResponse,
@@ -1100,7 +1099,7 @@ class SequenceStoreResource:
         input_["upload_id"] = upload_id
         input_["part_source"] = part_source
         input_["part_number"] = part_number
-        input_["payload"] = ensure_sync_iterator(payload)  # type: ignore
+        input_["payload"] = payload  # type: ignore
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -2126,7 +2125,7 @@ class AsyncSequenceStoreResource:
         input_["upload_id"] = upload_id
         input_["part_source"] = part_source
         input_["part_number"] = part_number
-        input_["payload"] = ensure_async_iterator(payload)  # type: ignore
+        input_["payload"] = payload  # type: ignore
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),

@@ -21,7 +21,7 @@ async def main():
 
 ## Streaming Request
 
-Some operations accept a streaming request body. Pass an async iterator of `bytes` chunks for the streaming parameter.
+Some operations accept a streaming request body. Pass an async iterator of `bytes` chunks, or the whole body as `bytes`, for the streaming parameter.
 
 ```python
 from aws_sdk_lex_runtime_v2 import AsyncLexRuntimeV2Client
@@ -31,9 +31,13 @@ async def main():
     async with AsyncLexRuntimeV2Client() as s3:
         # Example: call recognize_utterance with a streaming request body
         async def chunks():
-            yield b"Hello, World!"
+            yield b'Hello, World!'
 
         response = await s3.recognize_utterance(input_stream=chunks())
+        print(response)
+
+        # Or pass the whole body as bytes
+        response = await s3.recognize_utterance(input_stream=b'Hello, World!')
         print(response)
 ```
 

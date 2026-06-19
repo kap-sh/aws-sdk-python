@@ -18,7 +18,6 @@ from aws_sdk_polly._auth._providers import (
     default_aws_credentials_chain,
 )
 from aws_sdk_polly._auth._zapros_handler import AuthMiddleware
-from aws_sdk_polly._iter import ensure_sync_iterator
 from aws_sdk_polly._services._aws_config import aws_config
 from aws_sdk_polly._services._pipeline import (
     Interceptor,
@@ -534,7 +533,7 @@ class PollyClient:
             input_["sample_rate"] = sample_rate
         input_["voice_id"] = voice_id
         if action_stream is not None:
-            input_["action_stream"] = ensure_sync_iterator(action_stream)  # type: ignore
+            input_["action_stream"] = action_stream  # type: ignore
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),

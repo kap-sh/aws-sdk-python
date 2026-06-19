@@ -14,7 +14,7 @@ def to_query_text(value: LastModifiedTime) -> str:
 
 
 def from_query_text(text: str) -> LastModifiedTime:
-    return datetime.datetime.fromisoformat(text)
+    return datetime.datetime.fromisoformat(text.replace("Z", "+00:00"))
 
 
 def serialize_query(

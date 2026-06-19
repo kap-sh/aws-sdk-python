@@ -17,7 +17,6 @@ from aws_sdk_transcribe_streaming._auth._providers import (
     default_aws_credentials_chain,
 )
 from aws_sdk_transcribe_streaming._auth._zapros_handler import AuthMiddleware
-from aws_sdk_transcribe_streaming._iter import ensure_async_iterator
 from aws_sdk_transcribe_streaming._services._aws_config import aaws_config
 from aws_sdk_transcribe_streaming._services._pipeline import (
     AsyncInterceptor,
@@ -304,7 +303,7 @@ class AsyncTranscribeStreamingClient:
             input_["vocabulary_name"] = vocabulary_name
         if session_id is not None:
             input_["session_id"] = session_id
-        input_["audio_stream"] = ensure_async_iterator(audio_stream)  # type: ignore
+        input_["audio_stream"] = audio_stream  # type: ignore
         if vocabulary_filter_name is not None:
             input_["vocabulary_filter_name"] = vocabulary_filter_name
         if vocabulary_filter_method is not None:
@@ -385,7 +384,7 @@ class AsyncTranscribeStreamingClient:
         input_["language_code"] = language_code
         input_["media_sample_rate_hertz"] = media_sample_rate_hertz
         input_["media_encoding"] = media_encoding
-        input_["input_stream"] = ensure_async_iterator(input_stream)  # type: ignore
+        input_["input_stream"] = input_stream  # type: ignore
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -467,7 +466,7 @@ class AsyncTranscribeStreamingClient:
             input_["show_speaker_label"] = show_speaker_label
         if session_id is not None:
             input_["session_id"] = session_id
-        input_["audio_stream"] = ensure_async_iterator(audio_stream)  # type: ignore
+        input_["audio_stream"] = audio_stream  # type: ignore
         if enable_channel_identification is not None:
             input_["enable_channel_identification"] = enable_channel_identification
         if number_of_channels is not None:
@@ -607,7 +606,7 @@ class AsyncTranscribeStreamingClient:
             input_["vocabulary_name"] = vocabulary_name
         if session_id is not None:
             input_["session_id"] = session_id
-        input_["audio_stream"] = ensure_async_iterator(audio_stream)  # type: ignore
+        input_["audio_stream"] = audio_stream  # type: ignore
         if vocabulary_filter_name is not None:
             input_["vocabulary_filter_name"] = vocabulary_filter_name
         if vocabulary_filter_method is not None:

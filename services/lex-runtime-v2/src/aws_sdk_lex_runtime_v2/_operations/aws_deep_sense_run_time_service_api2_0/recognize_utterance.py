@@ -171,6 +171,10 @@ def build_request(
     if "response_content_type" in input_:
         headers["Response-Content-Type"] = str(input_["response_content_type"])
     body = input_["input_stream"]
+    if not isinstance(body, bytes) and "content-length" not in [
+        header.lower() for header in headers
+    ]:
+        raise ValueError("Content-Length is required for streaming input")
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)

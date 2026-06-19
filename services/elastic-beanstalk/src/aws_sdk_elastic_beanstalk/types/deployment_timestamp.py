@@ -14,7 +14,7 @@ def to_query_text(value: DeploymentTimestamp) -> str:
 
 
 def from_query_text(text: str) -> DeploymentTimestamp:
-    return datetime.datetime.fromisoformat(text)
+    return datetime.datetime.fromisoformat(text.replace("Z", "+00:00"))
 
 
 def serialize_query(

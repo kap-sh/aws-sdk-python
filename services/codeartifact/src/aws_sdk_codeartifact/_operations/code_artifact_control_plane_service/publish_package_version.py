@@ -141,6 +141,10 @@ def build_request(
     if "asset_sha256" in input_:
         headers["x-amz-content-sha256"] = str(input_["asset_sha256"])
     body = input_["asset_content"]
+    if not isinstance(body, bytes) and "content-length" not in [
+        header.lower() for header in headers
+    ]:
+        raise ValueError("Content-Length is required for streaming input")
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)

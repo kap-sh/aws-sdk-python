@@ -17,7 +17,6 @@ from aws_sdk_sagemaker_runtime_http2._auth._providers import (
     default_aws_credentials_chain,
 )
 from aws_sdk_sagemaker_runtime_http2._auth._zapros_handler import AuthMiddleware
-from aws_sdk_sagemaker_runtime_http2._iter import ensure_sync_iterator
 from aws_sdk_sagemaker_runtime_http2._services._aws_config import aws_config
 from aws_sdk_sagemaker_runtime_http2._services._pipeline import (
     Interceptor,
@@ -164,7 +163,7 @@ class SageMakerRuntimeHTTP2Client:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: aws_sdk_sagemaker_runtime_http2.types.invoke_endpoint_with_bidirectional_stream_input.InvokeEndpointWithBidirectionalStreamInput = {}  # type: ignore[typeddict-item]
         input_["endpoint_name"] = endpoint_name
-        input_["body"] = ensure_sync_iterator(body)  # type: ignore
+        input_["body"] = body  # type: ignore
         if target_variant is not None:
             input_["target_variant"] = target_variant
         if model_invocation_path is not None:

@@ -12,4 +12,4 @@ def serialize_json(value: BatchTimestamp) -> str:
 
 
 def deserialize_json(data: str) -> BatchTimestamp:
-    return datetime.datetime.fromisoformat(data)
+    return datetime.datetime.fromisoformat(data.replace("Z", "+00:00"))

@@ -13,4 +13,4 @@ def serialize_json(value: SessionStartTimeTimestamp) -> str:
 
 
 def deserialize_json(data: str) -> SessionStartTimeTimestamp:
-    return datetime.datetime.fromisoformat(data)
+    return datetime.datetime.fromisoformat(data.replace("Z", "+00:00"))

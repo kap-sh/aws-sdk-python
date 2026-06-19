@@ -5,7 +5,6 @@ from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_bedrock_runtime._auth._signers
 import aws_sdk_bedrock_runtime._auth._sigv4
-from aws_sdk_bedrock_runtime._iter import ensure_async_iterator, ensure_sync_iterator
 from aws_sdk_bedrock_runtime._services._pipeline import (
     AsyncOperationRequest,
     AsyncOperationResponse,
@@ -395,7 +394,7 @@ class InferenceResource:
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: aws_sdk_bedrock_runtime.types.invoke_model_with_bidirectional_stream_request.InvokeModelWithBidirectionalStreamRequest = {}  # type: ignore[typeddict-item]
         input_["model_id"] = model_id
-        input_["body"] = ensure_sync_iterator(body)  # type: ignore
+        input_["body"] = body  # type: ignore
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -830,7 +829,7 @@ class AsyncInferenceResource:
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: aws_sdk_bedrock_runtime.types.invoke_model_with_bidirectional_stream_request.InvokeModelWithBidirectionalStreamRequest = {}  # type: ignore[typeddict-item]
         input_["model_id"] = model_id
-        input_["body"] = ensure_async_iterator(body)  # type: ignore
+        input_["body"] = body  # type: ignore
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),

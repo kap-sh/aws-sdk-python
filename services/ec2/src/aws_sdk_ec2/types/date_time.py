@@ -14,7 +14,7 @@ def to_ec2_query_text(value: DateTime) -> str:
 
 
 def from_ec2_query_text(text: str) -> DateTime:
-    return datetime.datetime.fromisoformat(text)
+    return datetime.datetime.fromisoformat(text.replace("Z", "+00:00"))
 
 
 def serialize_ec2_query(

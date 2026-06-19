@@ -14,7 +14,7 @@ def to_xml_text(value: JobCreationTime) -> str:
 
 
 def from_xml_text(text: str) -> JobCreationTime:
-    return datetime.datetime.fromisoformat(text)
+    return datetime.datetime.fromisoformat(text.replace("Z", "+00:00"))
 
 
 def serialize_xml(value: JobCreationTime, parent: Element, tag: str) -> None:

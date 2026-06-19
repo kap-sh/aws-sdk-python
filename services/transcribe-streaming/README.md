@@ -21,7 +21,7 @@ async def main():
 
 ## Streaming Request
 
-Some operations accept a streaming request body. Pass an async iterator of `bytes` chunks for the streaming parameter.
+Some operations accept a streaming request body. Pass an async iterator of `bytes` chunks, or the whole body as `bytes`, for the streaming parameter.
 
 ```python
 from aws_sdk_transcribe_streaming import AsyncTranscribeStreamingClient
@@ -31,9 +31,13 @@ async def main():
     async with AsyncTranscribeStreamingClient() as s3:
         # Example: call start_call_analytics_stream_transcription with a streaming request body
         async def chunks():
-            yield b"Hello, World!"
+            yield b'Hello, World!'
 
         response = await s3.start_call_analytics_stream_transcription(audio_stream=chunks())
+        print(response)
+
+        # Or pass the whole body as bytes
+        response = await s3.start_call_analytics_stream_transcription(audio_stream=b'Hello, World!')
         print(response)
 ```
 

@@ -127,6 +127,10 @@ def build_request(
     if "checksum_algorithm" in input_:
         headers["x-amz-Checksum-Algorithm"] = str(input_["checksum_algorithm"])
     body = input_["block_data"]
+    if not isinstance(body, bytes) and "content-length" not in [
+        header.lower() for header in headers
+    ]:
+        raise ValueError("Content-Length is required for streaming input")
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)

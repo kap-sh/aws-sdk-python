@@ -36,7 +36,7 @@ async def main():
 
 ## Streaming Request
 
-Some operations accept a streaming request body. Pass an async iterator of `bytes` chunks for the streaming parameter.
+Some operations accept a streaming request body. Pass an async iterator of `bytes` chunks, or the whole body as `bytes`, for the streaming parameter.
 
 ```python
 from aws_sdk_s3 import AsyncS3Client
@@ -46,9 +46,14 @@ async def main():
     async with AsyncS3Client() as s3:
         # Example: call put_object with a streaming request body
         async def chunks():
-            yield b"Hello, World!"
+            yield b'Hello, World!'
 
-        response = await s3.put_object(body=chunks())
+        # content_length is required: AWS must know the total body size up front
+        response = await s3.put_object(body=chunks(), content_length=13)
+        print(response)
+
+        # Or pass the whole body as bytes
+        response = await s3.put_object(body=b'Hello, World!')
         print(response)
 ```
 

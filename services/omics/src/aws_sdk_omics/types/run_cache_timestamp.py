@@ -12,4 +12,4 @@ def serialize_json(value: RunCacheTimestamp) -> str:
 
 
 def deserialize_json(data: str) -> RunCacheTimestamp:
-    return datetime.datetime.fromisoformat(data)
+    return datetime.datetime.fromisoformat(data.replace("Z", "+00:00"))

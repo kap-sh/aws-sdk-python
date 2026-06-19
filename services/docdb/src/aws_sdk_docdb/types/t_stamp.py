@@ -14,7 +14,7 @@ def to_query_text(value: TStamp) -> str:
 
 
 def from_query_text(text: str) -> TStamp:
-    return datetime.datetime.fromisoformat(text)
+    return datetime.datetime.fromisoformat(text.replace("Z", "+00:00"))
 
 
 def serialize_query(value: TStamp, pairs: list[tuple[str, str]], prefix: str) -> None:

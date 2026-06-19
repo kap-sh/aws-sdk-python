@@ -36,7 +36,7 @@ async def main():
 
 ## Streaming Request
 
-Some operations accept a streaming request body. Pass an async iterator of `bytes` chunks for the streaming parameter.
+Some operations accept a streaming request body. Pass an async iterator of `bytes` chunks, or the whole body as `bytes`, for the streaming parameter.
 
 ```python
 from aws_sdk_codeartifact import AsynccodeartifactClient
@@ -46,9 +46,13 @@ async def main():
     async with AsynccodeartifactClient() as s3:
         # Example: call publish_package_version with a streaming request body
         async def chunks():
-            yield b"Hello, World!"
+            yield b'Hello, World!'
 
         response = await s3.publish_package_version(asset_content=chunks())
+        print(response)
+
+        # Or pass the whole body as bytes
+        response = await s3.publish_package_version(asset_content=b'Hello, World!')
         print(response)
 ```
 

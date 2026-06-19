@@ -12,4 +12,4 @@ def serialize_json(value: SlaTargetTime) -> str:
 
 
 def deserialize_json(data: str) -> SlaTargetTime:
-    return datetime.datetime.fromisoformat(data)
+    return datetime.datetime.fromisoformat(data.replace("Z", "+00:00"))

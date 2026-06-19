@@ -13,4 +13,4 @@ def serialize_json(value: BackLogTimestamp) -> str:
 
 
 def deserialize_json(data: str) -> BackLogTimestamp:
-    return datetime.datetime.fromisoformat(data)
+    return datetime.datetime.fromisoformat(data.replace("Z", "+00:00"))

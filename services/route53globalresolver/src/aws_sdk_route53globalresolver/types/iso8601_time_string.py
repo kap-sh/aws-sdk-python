@@ -12,4 +12,4 @@ def serialize_json(value: ISO8601TimeString) -> str:
 
 
 def deserialize_json(data: str) -> ISO8601TimeString:
-    return datetime.datetime.fromisoformat(data)
+    return datetime.datetime.fromisoformat(data.replace("Z", "+00:00"))

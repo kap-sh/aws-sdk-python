@@ -21,7 +21,7 @@ async def main():
 
 ## Streaming Request
 
-Some operations accept a streaming request body. Pass an async iterator of `bytes` chunks for the streaming parameter.
+Some operations accept a streaming request body. Pass an async iterator of `bytes` chunks, or the whole body as `bytes`, for the streaming parameter.
 
 ```python
 from aws_sdk_mediastore_data import AsyncMediaStoreDataClient
@@ -31,9 +31,13 @@ async def main():
     async with AsyncMediaStoreDataClient() as s3:
         # Example: call put_object with a streaming request body
         async def chunks():
-            yield b"Hello, World!"
+            yield b'Hello, World!'
 
         response = await s3.put_object(body=chunks())
+        print(response)
+
+        # Or pass the whole body as bytes
+        response = await s3.put_object(body=b'Hello, World!')
         print(response)
 ```
 

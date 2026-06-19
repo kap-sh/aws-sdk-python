@@ -12,4 +12,4 @@ def serialize_aws_json_1_0(value: ModifiedDate) -> str:
 
 
 def deserialize_aws_json_1_0(data: str) -> ModifiedDate:
-    return datetime.datetime.fromisoformat(data)
+    return datetime.datetime.fromisoformat(data.replace("Z", "+00:00"))

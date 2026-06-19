@@ -138,6 +138,10 @@ def build_request(
         params["partNumber"] = str(input_["part_number"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body = input_["payload"]
+    if not isinstance(body, bytes) and "content-length" not in [
+        header.lower() for header in headers
+    ]:
+        raise ValueError("Content-Length is required for streaming input")
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)

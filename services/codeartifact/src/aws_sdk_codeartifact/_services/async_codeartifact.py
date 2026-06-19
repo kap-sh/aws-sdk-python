@@ -18,7 +18,6 @@ from aws_sdk_codeartifact._auth._providers import (
     default_aws_credentials_chain,
 )
 from aws_sdk_codeartifact._auth._zapros_handler import AuthMiddleware
-from aws_sdk_codeartifact._iter import ensure_async_iterator
 from aws_sdk_codeartifact._pagination import resolve_path as _resolve_path
 from aws_sdk_codeartifact._services._aws_config import aaws_config
 from aws_sdk_codeartifact._services._pipeline import (
@@ -2951,7 +2950,7 @@ class AsynccodeartifactClient:
             input_["namespace"] = namespace
         input_["package"] = package
         input_["package_version"] = package_version
-        input_["asset_content"] = ensure_async_iterator(asset_content)  # type: ignore
+        input_["asset_content"] = asset_content  # type: ignore
         input_["asset_name"] = asset_name
         input_["asset_sha256"] = asset_sha256
         if unfinished is not None:

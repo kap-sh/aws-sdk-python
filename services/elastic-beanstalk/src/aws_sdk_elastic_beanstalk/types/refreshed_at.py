@@ -14,7 +14,7 @@ def to_query_text(value: RefreshedAt) -> str:
 
 
 def from_query_text(text: str) -> RefreshedAt:
-    return datetime.datetime.fromisoformat(text)
+    return datetime.datetime.fromisoformat(text.replace("Z", "+00:00"))
 
 
 def serialize_query(

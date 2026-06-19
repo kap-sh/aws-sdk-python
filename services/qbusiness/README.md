@@ -36,7 +36,7 @@ async def main():
 
 ## Streaming Request
 
-Some operations accept a streaming request body. Pass an async iterator of `bytes` chunks for the streaming parameter.
+Some operations accept a streaming request body. Pass an async iterator of `bytes` chunks, or the whole body as `bytes`, for the streaming parameter.
 
 ```python
 from aws_sdk_qbusiness import AsyncQBusinessClient
@@ -46,9 +46,13 @@ async def main():
     async with AsyncQBusinessClient() as s3:
         # Example: call chat with a streaming request body
         async def chunks():
-            yield b"Hello, World!"
+            yield b'Hello, World!'
 
         response = await s3.chat(input_stream=chunks())
+        print(response)
+
+        # Or pass the whole body as bytes
+        response = await s3.chat(input_stream=b'Hello, World!')
         print(response)
 ```
 
