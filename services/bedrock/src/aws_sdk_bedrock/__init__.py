@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-import _iter as _iter
-
+from . import _iter as _iter
+from . import _protocol as _protocol
 from ._auth._identity import (
     BearerToken as BearerToken,
 )

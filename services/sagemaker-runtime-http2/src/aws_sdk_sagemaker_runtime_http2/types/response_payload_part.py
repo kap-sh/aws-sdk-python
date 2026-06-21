@@ -52,11 +52,11 @@ def deserialize_event_json(message: Message) -> ResponsePayloadPart:
     payload = message.payload  # noqa: F841
     out: ResponsePayloadPart = {}  # type: ignore[typeddict-item]
     if "DataType" in headers:
-        out["data_type"] = headers["DataType"]
+        out["data_type"] = headers["DataType"]  # type: ignore[assignment]
     if "CompletionState" in headers:
-        out["completion_state"] = headers["CompletionState"]
+        out["completion_state"] = headers["CompletionState"]  # type: ignore[assignment]
     if "P" in headers:
-        out["p"] = headers["P"]
+        out["p"] = headers["P"]  # type: ignore[assignment]
     if payload:
         out["bytes"] = payload
     return out
