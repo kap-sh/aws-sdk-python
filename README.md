@@ -187,6 +187,24 @@ async with AsyncS3Client() as s3:
         print(item)
 ```
 
+## Presigning
+
+Some operations support presigning, which generates a URL that can be used without credentials. Use the `presigned_` prefixed method on the client to get a presigned URL.
+
+```python
+from aws_sdk_s3 import AsyncS3Client
+
+
+async def main():
+    async with AsyncS3Client() as s3:
+        # Example: get a presigned URL for delete_object
+        url = s3.presigned_delete_object()
+        print(url)
+```
+
+> **Note**
+> Smithy models don't indicate which operations support presigning, so presigned methods are added by maintainers rather than the code generator. If you notice an operation that should support presigning but has no `presigned_` method, please [open an issue](https://github.com/kap-sh/aws-sdk-python/issues).
+
 ## Retrying
 
 The SDK retries failed operations automatically. Retry behaviour follows the Smithy specification: errors are retried based on their `is_retryable` and `is_throttling_error` attributes. Throttling errors use a longer base delay. Network-level failures (connection errors and timeouts) are also retried. Non-retryable errors, such as client errors without the `@retryable` trait, are raised immediately without further attempts.
