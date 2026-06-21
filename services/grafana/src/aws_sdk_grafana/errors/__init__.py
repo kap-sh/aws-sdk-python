@@ -18,6 +18,9 @@ from ._base import (
 from ._base import (
     WaiterTimeoutError as WaiterTimeoutError,
 )
+from ._base import (
+    grafanaError as grafanaError,
+)
 from .access_denied_exception import AccessDeniedException as AccessDeniedException
 from .conflict_exception import ConflictException as ConflictException
 from .internal_server_exception import (

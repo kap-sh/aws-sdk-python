@@ -1666,7 +1666,7 @@ class ElasticLoadBalancingv2Client:
             if not _token:
                 break
 
-    def wait_load_balancer_exists(
+    def wait_until_load_balancer_exists(
         self,
         *,
         max_wait_time: float,

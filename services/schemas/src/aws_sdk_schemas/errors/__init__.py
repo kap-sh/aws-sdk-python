@@ -18,6 +18,9 @@ from ._base import (
 from ._base import (
     WaiterTimeoutError as WaiterTimeoutError,
 )
+from ._base import (
+    schemasError as schemasError,
+)
 from .bad_request_exception import BadRequestException as BadRequestException
 from .conflict_exception import ConflictException as ConflictException
 from .forbidden_exception import ForbiddenException as ForbiddenException

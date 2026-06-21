@@ -18,6 +18,9 @@ from ._base import (
 from ._base import (
     WaiterTimeoutError as WaiterTimeoutError,
 )
+from ._base import (
+    syntheticsError as syntheticsError,
+)
 from .access_denied_exception import AccessDeniedException as AccessDeniedException
 from .bad_request_exception import BadRequestException as BadRequestException
 from .conflict_exception import ConflictException as ConflictException

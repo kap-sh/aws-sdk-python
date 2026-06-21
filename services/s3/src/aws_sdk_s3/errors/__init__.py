@@ -4,6 +4,9 @@ from ._base import (
     DeserializationError as DeserializationError,
 )
 from ._base import (
+    S3Error as S3Error,
+)
+from ._base import (
     SerializationError as SerializationError,
 )
 from ._base import (

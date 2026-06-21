@@ -10,6 +10,9 @@ from ._base import (
     ServiceError as ServiceError,
 )
 from ._base import (
+    TranscribeError as TranscribeError,
+)
+from ._base import (
     UnknownServiceError as UnknownServiceError,
 )
 from ._base import (

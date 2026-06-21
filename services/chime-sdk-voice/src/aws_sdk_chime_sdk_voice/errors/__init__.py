@@ -1,6 +1,9 @@
 from __future__ import annotations
 
 from ._base import (
+    ChimeSDKVoiceError as ChimeSDKVoiceError,
+)
+from ._base import (
     DeserializationError as DeserializationError,
 )
 from ._base import (

@@ -3654,7 +3654,7 @@ class AsyncIAMClient:
         )
         return response.output
 
-    async def wait_instance_profile_exists(
+    async def wait_until_instance_profile_exists(
         self,
         instance_profile_name: "aws_sdk_iam.types.instance_profile_name_type.instanceProfileNameType",
         *,
@@ -3944,7 +3944,7 @@ class AsyncIAMClient:
         )
         return response.output
 
-    async def wait_policy_exists(
+    async def wait_until_policy_exists(
         self,
         policy_arn: "aws_sdk_iam.types.arn_type.arnType",
         *,
@@ -4071,7 +4071,7 @@ class AsyncIAMClient:
         )
         return response.output
 
-    async def wait_role_exists(
+    async def wait_until_role_exists(
         self,
         role_name: "aws_sdk_iam.types.role_name_type.roleNameType",
         *,
@@ -4470,7 +4470,7 @@ class AsyncIAMClient:
         )
         return response.output
 
-    async def wait_user_exists(
+    async def wait_until_user_exists(
         self,
         *,
         max_wait_time: float,

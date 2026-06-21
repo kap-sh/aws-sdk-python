@@ -18,6 +18,9 @@ from ._base import (
 from ._base import (
     WaiterTimeoutError as WaiterTimeoutError,
 )
+from ._base import (
+    forecastqueryError as forecastqueryError,
+)
 from .invalid_input_exception import InvalidInputException as InvalidInputException
 from .invalid_next_token_exception import (
     InvalidNextTokenException as InvalidNextTokenException,

@@ -10,6 +10,9 @@ from ._base import (
     ServiceError as ServiceError,
 )
 from ._base import (
+    SocialMessagingError as SocialMessagingError,
+)
+from ._base import (
     UnknownServiceError as UnknownServiceError,
 )
 from ._base import (

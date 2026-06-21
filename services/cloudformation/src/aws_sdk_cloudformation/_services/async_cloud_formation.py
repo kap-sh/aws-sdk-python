@@ -2576,7 +2576,7 @@ class AsyncCloudFormationClient:
             if not _token:
                 break
 
-    async def wait_stack_exists(
+    async def wait_until_stack_exists(
         self,
         *,
         max_wait_time: float,

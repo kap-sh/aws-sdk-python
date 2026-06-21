@@ -18,6 +18,9 @@ from ._base import (
 from ._base import (
     WaiterTimeoutError as WaiterTimeoutError,
 )
+from ._base import (
+    kendraError as kendraError,
+)
 from .access_denied_exception import AccessDeniedException as AccessDeniedException
 from .conflict_exception import ConflictException as ConflictException
 from .featured_results_conflict_exception import (

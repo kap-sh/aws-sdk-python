@@ -18,6 +18,9 @@ from ._base import (
 from ._base import (
     WaiterTimeoutError as WaiterTimeoutError,
 )
+from ._base import (
+    XRayError as XRayError,
+)
 from .invalid_policy_revision_id_exception import (
     InvalidPolicyRevisionIdException as InvalidPolicyRevisionIdException,
 )

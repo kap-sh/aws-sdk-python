@@ -3574,7 +3574,7 @@ class IAMClient:
         )
         return response.output
 
-    def wait_instance_profile_exists(
+    def wait_until_instance_profile_exists(
         self,
         instance_profile_name: "aws_sdk_iam.types.instance_profile_name_type.instanceProfileNameType",
         *,
@@ -3858,7 +3858,7 @@ class IAMClient:
         )
         return response.output
 
-    def wait_policy_exists(
+    def wait_until_policy_exists(
         self,
         policy_arn: "aws_sdk_iam.types.arn_type.arnType",
         *,
@@ -3981,7 +3981,7 @@ class IAMClient:
         )
         return response.output
 
-    def wait_role_exists(
+    def wait_until_role_exists(
         self,
         role_name: "aws_sdk_iam.types.role_name_type.roleNameType",
         *,
@@ -4370,7 +4370,7 @@ class IAMClient:
         )
         return response.output
 
-    def wait_user_exists(
+    def wait_until_user_exists(
         self,
         *,
         max_wait_time: float,

@@ -36,7 +36,7 @@ async def main():
 
 ## Waiters
 
-Waiters poll an operation until a resource reaches a desired state. If the operation supports waiters it will have a `wait_` prefixed method.
+Waiters poll an operation until a resource reaches a desired state. If the operation supports waiters it will have a `wait_until_` prefixed method.
 
 ```python
 from aws_sdk_acm_pca import AsyncACMPCAClient
@@ -45,7 +45,7 @@ from aws_sdk_acm_pca import AsyncACMPCAClient
 async def main():
     async with AsyncACMPCAClient() as s3:
         # Example: wait for certificate_issued
-        await s3.wait_certificate_issued(max_wait_time=300)
+        await s3.wait_until_certificate_issued(max_wait_time=300)
 ```
 
 ## Error Handling

@@ -4,6 +4,9 @@ from ._base import (
     DeserializationError as DeserializationError,
 )
 from ._base import (
+    Route53ProfilesError as Route53ProfilesError,
+)
+from ._base import (
     SerializationError as SerializationError,
 )
 from ._base import (

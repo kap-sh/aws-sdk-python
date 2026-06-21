@@ -645,7 +645,7 @@ class AsyncKinesisClient:
         )
         return response.output
 
-    async def wait_stream_not_exists(
+    async def wait_until_stream_not_exists(
         self,
         *,
         max_wait_time: float,

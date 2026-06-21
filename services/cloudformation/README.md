@@ -36,7 +36,7 @@ async def main():
 
 ## Waiters
 
-Waiters poll an operation until a resource reaches a desired state. If the operation supports waiters it will have a `wait_` prefixed method.
+Waiters poll an operation until a resource reaches a desired state. If the operation supports waiters it will have a `wait_until_` prefixed method.
 
 ```python
 from aws_sdk_cloudformation import AsyncCloudFormationClient
@@ -45,7 +45,7 @@ from aws_sdk_cloudformation import AsyncCloudFormationClient
 async def main():
     async with AsyncCloudFormationClient() as s3:
         # Example: wait for stack_exists
-        await s3.wait_stack_exists(max_wait_time=300)
+        await s3.wait_until_stack_exists(max_wait_time=300)
 ```
 
 ## Error Handling

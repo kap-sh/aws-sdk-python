@@ -4251,7 +4251,7 @@ class AsyncS3Client:
         )
         return response.output
 
-    async def wait_bucket_exists(
+    async def wait_until_bucket_exists(
         self,
         bucket: "aws_sdk_s3.types.bucket_name.BucketName",
         *,
@@ -4299,7 +4299,7 @@ class AsyncS3Client:
             await anysleep(delay)
             attempt += 1
 
-    async def wait_bucket_not_exists(
+    async def wait_until_bucket_not_exists(
         self,
         bucket: "aws_sdk_s3.types.bucket_name.BucketName",
         *,
@@ -4606,7 +4606,7 @@ class AsyncS3Client:
         }
         return str(presign_sigv4(request, ctx, expires_in=expire_in).url)
 
-    async def wait_object_exists(
+    async def wait_until_object_exists(
         self,
         bucket: "aws_sdk_s3.types.bucket_name.BucketName",
         key: "aws_sdk_s3.types.object_key.ObjectKey",
@@ -4734,7 +4734,7 @@ class AsyncS3Client:
             await anysleep(delay)
             attempt += 1
 
-    async def wait_object_not_exists(
+    async def wait_until_object_not_exists(
         self,
         bucket: "aws_sdk_s3.types.bucket_name.BucketName",
         key: "aws_sdk_s3.types.object_key.ObjectKey",

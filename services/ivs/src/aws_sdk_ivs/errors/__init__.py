@@ -18,6 +18,9 @@ from ._base import (
 from ._base import (
     WaiterTimeoutError as WaiterTimeoutError,
 )
+from ._base import (
+    ivsError as ivsError,
+)
 from .access_denied_exception import AccessDeniedException as AccessDeniedException
 from .channel_not_broadcasting import ChannelNotBroadcasting as ChannelNotBroadcasting
 from .conflict_exception import ConflictException as ConflictException

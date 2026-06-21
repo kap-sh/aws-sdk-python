@@ -1,6 +1,9 @@
 from __future__ import annotations
 
 from ._base import (
+    BedrockDataAutomationError as BedrockDataAutomationError,
+)
+from ._base import (
     DeserializationError as DeserializationError,
 )
 from ._base import (

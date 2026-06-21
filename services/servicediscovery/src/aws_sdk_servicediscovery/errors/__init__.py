@@ -7,6 +7,9 @@ from ._base import (
     SerializationError as SerializationError,
 )
 from ._base import (
+    ServiceDiscoveryError as ServiceDiscoveryError,
+)
+from ._base import (
     ServiceError as ServiceError,
 )
 from ._base import (

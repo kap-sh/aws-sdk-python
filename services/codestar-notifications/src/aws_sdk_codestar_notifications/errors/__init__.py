@@ -18,6 +18,9 @@ from ._base import (
 from ._base import (
     WaiterTimeoutError as WaiterTimeoutError,
 )
+from ._base import (
+    codestarnotificationsError as codestarnotificationsError,
+)
 from .access_denied_exception import AccessDeniedException as AccessDeniedException
 from .concurrent_modification_exception import (
     ConcurrentModificationException as ConcurrentModificationException,

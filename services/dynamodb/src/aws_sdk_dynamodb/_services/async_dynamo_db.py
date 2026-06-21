@@ -1359,7 +1359,7 @@ class AsyncDynamoDBClient:
         )
         return response.output
 
-    async def wait_table_not_exists(
+    async def wait_until_table_not_exists(
         self,
         table_name: "aws_sdk_dynamodb.types.table_arn.TableArn",
         *,

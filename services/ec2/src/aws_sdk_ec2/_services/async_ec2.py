@@ -32744,7 +32744,7 @@ class AsyncEC2Client:
             if not _token:
                 break
 
-    async def wait_vpc_peering_connection_exists(
+    async def wait_until_vpc_peering_connection_exists(
         self,
         *,
         max_wait_time: float,
@@ -32902,7 +32902,7 @@ class AsyncEC2Client:
             if not _token:
                 break
 
-    async def wait_vpc_exists(
+    async def wait_until_vpc_exists(
         self,
         *,
         max_wait_time: float,

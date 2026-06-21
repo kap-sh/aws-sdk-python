@@ -1,6 +1,9 @@
 from __future__ import annotations
 
 from ._base import (
+    CloudHSMV2Error as CloudHSMV2Error,
+)
+from ._base import (
     DeserializationError as DeserializationError,
 )
 from ._base import (

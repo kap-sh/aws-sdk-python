@@ -36,7 +36,7 @@ async def main():
 
 ## Waiters
 
-Waiters poll an operation until a resource reaches a desired state. If the operation supports waiters it will have a `wait_` prefixed method.
+Waiters poll an operation until a resource reaches a desired state. If the operation supports waiters it will have a `wait_until_` prefixed method.
 
 ```python
 from aws_sdk_ec2 import AsyncEC2Client
@@ -45,7 +45,7 @@ from aws_sdk_ec2 import AsyncEC2Client
 async def main():
     async with AsyncEC2Client() as s3:
         # Example: wait for vpc_peering_connection_exists
-        await s3.wait_vpc_peering_connection_exists(max_wait_time=300)
+        await s3.wait_until_vpc_peering_connection_exists(max_wait_time=300)
 ```
 
 ## Retrying

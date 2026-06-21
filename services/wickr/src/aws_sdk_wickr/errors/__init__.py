@@ -18,6 +18,9 @@ from ._base import (
 from ._base import (
     WaiterTimeoutError as WaiterTimeoutError,
 )
+from ._base import (
+    WickrError as WickrError,
+)
 from .bad_request_error import BadRequestError as BadRequestError
 from .forbidden_error import ForbiddenError as ForbiddenError
 from .internal_server_error import InternalServerError as InternalServerError

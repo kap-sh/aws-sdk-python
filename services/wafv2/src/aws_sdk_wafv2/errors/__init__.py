@@ -13,6 +13,9 @@ from ._base import (
     UnknownServiceError as UnknownServiceError,
 )
 from ._base import (
+    WAFV2Error as WAFV2Error,
+)
+from ._base import (
     WaiterFailedError as WaiterFailedError,
 )
 from ._base import (

@@ -18,6 +18,9 @@ from ._base import (
 from ._base import (
     WaiterTimeoutError as WaiterTimeoutError,
 )
+from ._base import (
+    tnbError as tnbError,
+)
 from .access_denied_exception import AccessDeniedException as AccessDeniedException
 from .internal_server_exception import (
     InternalServerException as InternalServerException,

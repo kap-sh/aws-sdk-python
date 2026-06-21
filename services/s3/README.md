@@ -75,7 +75,7 @@ async def main():
 
 ## Waiters
 
-Waiters poll an operation until a resource reaches a desired state. If the operation supports waiters it will have a `wait_` prefixed method.
+Waiters poll an operation until a resource reaches a desired state. If the operation supports waiters it will have a `wait_until_` prefixed method.
 
 ```python
 from aws_sdk_s3 import AsyncS3Client
@@ -84,7 +84,7 @@ from aws_sdk_s3 import AsyncS3Client
 async def main():
     async with AsyncS3Client() as s3:
         # Example: wait for bucket_exists
-        await s3.wait_bucket_exists(max_wait_time=300)
+        await s3.wait_until_bucket_exists(max_wait_time=300)
 ```
 
 ## Presigning

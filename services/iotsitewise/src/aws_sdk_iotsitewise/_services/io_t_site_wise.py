@@ -2262,7 +2262,7 @@ class IoTSiteWiseClient:
         )
         return response.output
 
-    def wait_asset_not_exists(
+    def wait_until_asset_not_exists(
         self,
         asset_id: "aws_sdk_iotsitewise.types.custom_id.CustomID",
         *,
@@ -2397,7 +2397,7 @@ class IoTSiteWiseClient:
         )
         return response.output
 
-    def wait_asset_model_not_exists(
+    def wait_until_asset_model_not_exists(
         self,
         asset_model_id: "aws_sdk_iotsitewise.types.custom_id.CustomID",
         *,
@@ -2984,7 +2984,7 @@ class IoTSiteWiseClient:
         )
         return response.output
 
-    def wait_portal_not_exists(
+    def wait_until_portal_not_exists(
         self,
         portal_id: "aws_sdk_iotsitewise.types.id.ID",
         *,

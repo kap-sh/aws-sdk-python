@@ -1,6 +1,9 @@
 from __future__ import annotations
 
 from ._base import (
+    CognitoIdentityProviderError as CognitoIdentityProviderError,
+)
+from ._base import (
     DeserializationError as DeserializationError,
 )
 from ._base import (

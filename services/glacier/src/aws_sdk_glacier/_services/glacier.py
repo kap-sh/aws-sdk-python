@@ -754,7 +754,7 @@ class GlacierClient:
         )
         return response.output
 
-    def wait_vault_exists(
+    def wait_until_vault_exists(
         self,
         account_id: "aws_sdk_glacier.types.string.string",
         vault_name: "aws_sdk_glacier.types.string.string",
@@ -798,7 +798,7 @@ class GlacierClient:
             time.sleep(delay)
             attempt += 1
 
-    def wait_vault_not_exists(
+    def wait_until_vault_not_exists(
         self,
         account_id: "aws_sdk_glacier.types.string.string",
         vault_name: "aws_sdk_glacier.types.string.string",

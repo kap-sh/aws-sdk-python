@@ -1271,7 +1271,7 @@ class AsyncCloudWatchClient:
         )
         return response.output
 
-    async def wait_alarm_mute_rule_exists(
+    async def wait_until_alarm_mute_rule_exists(
         self,
         alarm_mute_rule_name: "aws_sdk_cloudwatch.types.name.Name",
         *,

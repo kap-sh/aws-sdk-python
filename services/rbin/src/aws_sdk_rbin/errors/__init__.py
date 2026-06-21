@@ -18,6 +18,9 @@ from ._base import (
 from ._base import (
     WaiterTimeoutError as WaiterTimeoutError,
 )
+from ._base import (
+    rbinError as rbinError,
+)
 from .conflict_exception import ConflictException as ConflictException
 from .internal_server_exception import (
     InternalServerException as InternalServerException,

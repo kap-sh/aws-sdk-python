@@ -18,6 +18,9 @@ from ._base import (
 from ._base import (
     WaiterTimeoutError as WaiterTimeoutError,
 )
+from ._base import (
+    neptunedataError as neptunedataError,
+)
 from .access_denied_exception import AccessDeniedException as AccessDeniedException
 from .bad_request_exception import BadRequestException as BadRequestException
 from .bulk_load_id_not_found_exception import (

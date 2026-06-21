@@ -4,6 +4,9 @@ from ._base import (
     DeserializationError as DeserializationError,
 )
 from ._base import (
+    OutpostsError as OutpostsError,
+)
+from ._base import (
     SerializationError as SerializationError,
 )
 from ._base import (

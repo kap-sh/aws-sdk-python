@@ -32268,7 +32268,7 @@ class EC2Client:
             if not _token:
                 break
 
-    def wait_vpc_peering_connection_exists(
+    def wait_until_vpc_peering_connection_exists(
         self,
         *,
         max_wait_time: float,
@@ -32425,7 +32425,7 @@ class EC2Client:
             if not _token:
                 break
 
-    def wait_vpc_exists(
+    def wait_until_vpc_exists(
         self,
         *,
         max_wait_time: float,

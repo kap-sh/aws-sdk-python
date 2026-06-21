@@ -18,6 +18,9 @@ from ._base import (
 from ._base import (
     WaiterTimeoutError as WaiterTimeoutError,
 )
+from ._base import (
+    chatbotError as chatbotError,
+)
 from .conflict_exception import ConflictException as ConflictException
 from .create_chime_webhook_configuration_exception import (
     CreateChimeWebhookConfigurationException as CreateChimeWebhookConfigurationException,

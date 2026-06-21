@@ -18,6 +18,9 @@ from ._base import (
 from ._base import (
     WaiterTimeoutError as WaiterTimeoutError,
 )
+from ._base import (
+    imagebuilderError as imagebuilderError,
+)
 from .access_denied_exception import AccessDeniedException as AccessDeniedException
 from .call_rate_limit_exceeded_exception import (
     CallRateLimitExceededException as CallRateLimitExceededException,

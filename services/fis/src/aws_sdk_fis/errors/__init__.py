@@ -18,6 +18,9 @@ from ._base import (
 from ._base import (
     WaiterTimeoutError as WaiterTimeoutError,
 )
+from ._base import (
+    fisError as fisError,
+)
 from .conflict_exception import ConflictException as ConflictException
 from .resource_not_found_exception import (
     ResourceNotFoundException as ResourceNotFoundException,

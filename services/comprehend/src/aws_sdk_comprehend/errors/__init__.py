@@ -1,6 +1,9 @@
 from __future__ import annotations
 
 from ._base import (
+    ComprehendError as ComprehendError,
+)
+from ._base import (
     DeserializationError as DeserializationError,
 )
 from ._base import (

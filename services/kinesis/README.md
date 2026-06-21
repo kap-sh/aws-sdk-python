@@ -21,7 +21,7 @@ async def main():
 
 ## Waiters
 
-Waiters poll an operation until a resource reaches a desired state. If the operation supports waiters it will have a `wait_` prefixed method.
+Waiters poll an operation until a resource reaches a desired state. If the operation supports waiters it will have a `wait_until_` prefixed method.
 
 ```python
 from aws_sdk_kinesis import AsyncKinesisClient
@@ -30,7 +30,7 @@ from aws_sdk_kinesis import AsyncKinesisClient
 async def main():
     async with AsyncKinesisClient() as s3:
         # Example: wait for stream_not_exists
-        await s3.wait_stream_not_exists(max_wait_time=300)
+        await s3.wait_until_stream_not_exists(max_wait_time=300)
 ```
 
 ## Error Handling

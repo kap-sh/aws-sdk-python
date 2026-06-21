@@ -1,6 +1,9 @@
 from __future__ import annotations
 
 from ._base import (
+    BedrockAgentCoreError as BedrockAgentCoreError,
+)
+from ._base import (
     DeserializationError as DeserializationError,
 )
 from ._base import (

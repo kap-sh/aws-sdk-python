@@ -4,6 +4,9 @@ from ._base import (
     DeserializationError as DeserializationError,
 )
 from ._base import (
+    ElastiCacheError as ElastiCacheError,
+)
+from ._base import (
     SerializationError as SerializationError,
 )
 from ._base import (

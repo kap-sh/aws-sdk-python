@@ -585,7 +585,7 @@ class ACMPCAClient:
         )
         return response.output
 
-    def wait_certificate_issued(
+    def wait_until_certificate_issued(
         self,
         certificate_authority_arn: "aws_sdk_acm_pca.types.arn.Arn",
         certificate_arn: "aws_sdk_acm_pca.types.arn.Arn",
@@ -710,7 +710,7 @@ class ACMPCAClient:
         )
         return response.output
 
-    def wait_certificate_authority_csr_created(
+    def wait_until_certificate_authority_csr_created(
         self,
         certificate_authority_arn: "aws_sdk_acm_pca.types.arn.Arn",
         *,

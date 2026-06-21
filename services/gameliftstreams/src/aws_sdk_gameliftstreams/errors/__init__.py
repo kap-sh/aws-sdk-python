@@ -4,6 +4,9 @@ from ._base import (
     DeserializationError as DeserializationError,
 )
 from ._base import (
+    GameLiftStreamsError as GameLiftStreamsError,
+)
+from ._base import (
     SerializationError as SerializationError,
 )
 from ._base import (

@@ -635,7 +635,7 @@ class KinesisClient:
         )
         return response.output
 
-    def wait_stream_not_exists(
+    def wait_until_stream_not_exists(
         self,
         *,
         max_wait_time: float,

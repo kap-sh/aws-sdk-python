@@ -10,6 +10,9 @@ from ._base import (
     ServiceError as ServiceError,
 )
 from ._base import (
+    SSMContactsError as SSMContactsError,
+)
+from ._base import (
     UnknownServiceError as UnknownServiceError,
 )
 from ._base import (

@@ -18,6 +18,9 @@ from ._base import (
 from ._base import (
     WaiterTimeoutError as WaiterTimeoutError,
 )
+from ._base import (
+    WorkMailError as WorkMailError,
+)
 from .directory_in_use_exception import (
     DirectoryInUseException as DirectoryInUseException,
 )

@@ -1,6 +1,9 @@
 from __future__ import annotations
 
 from ._base import (
+    ApplicationAutoScalingError as ApplicationAutoScalingError,
+)
+from ._base import (
     DeserializationError as DeserializationError,
 )
 from ._base import (

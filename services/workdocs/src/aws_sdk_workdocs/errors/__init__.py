@@ -18,6 +18,9 @@ from ._base import (
 from ._base import (
     WaiterTimeoutError as WaiterTimeoutError,
 )
+from ._base import (
+    WorkDocsError as WorkDocsError,
+)
 from .concurrent_modification_exception import (
     ConcurrentModificationException as ConcurrentModificationException,
 )

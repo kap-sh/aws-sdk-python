@@ -18,6 +18,9 @@ from ._base import (
 from ._base import (
     WaiterTimeoutError as WaiterTimeoutError,
 )
+from ._base import (
+    WorkSpacesError as WorkSpacesError,
+)
 from .access_denied_exception import AccessDeniedException as AccessDeniedException
 from .application_not_supported_exception import (
     ApplicationNotSupportedException as ApplicationNotSupportedException,

@@ -13,6 +13,9 @@ from ._base import (
     UnknownServiceError as UnknownServiceError,
 )
 from ._base import (
+    VPCLatticeError as VPCLatticeError,
+)
+from ._base import (
     WaiterFailedError as WaiterFailedError,
 )
 from ._base import (

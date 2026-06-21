@@ -767,7 +767,7 @@ class AsyncGlacierClient:
         )
         return response.output
 
-    async def wait_vault_exists(
+    async def wait_until_vault_exists(
         self,
         account_id: "aws_sdk_glacier.types.string.string",
         vault_name: "aws_sdk_glacier.types.string.string",
@@ -811,7 +811,7 @@ class AsyncGlacierClient:
             await anysleep(delay)
             attempt += 1
 
-    async def wait_vault_not_exists(
+    async def wait_until_vault_not_exists(
         self,
         account_id: "aws_sdk_glacier.types.string.string",
         vault_name: "aws_sdk_glacier.types.string.string",

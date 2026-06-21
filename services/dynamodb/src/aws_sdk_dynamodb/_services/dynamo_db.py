@@ -1337,7 +1337,7 @@ class DynamoDBClient:
         )
         return response.output
 
-    def wait_table_not_exists(
+    def wait_until_table_not_exists(
         self,
         table_name: "aws_sdk_dynamodb.types.table_arn.TableArn",
         *,

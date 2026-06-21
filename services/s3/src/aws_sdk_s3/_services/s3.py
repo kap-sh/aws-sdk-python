@@ -4184,7 +4184,7 @@ class S3Client:
         )
         return response.output
 
-    def wait_bucket_exists(
+    def wait_until_bucket_exists(
         self,
         bucket: "aws_sdk_s3.types.bucket_name.BucketName",
         *,
@@ -4232,7 +4232,7 @@ class S3Client:
             time.sleep(delay)
             attempt += 1
 
-    def wait_bucket_not_exists(
+    def wait_until_bucket_not_exists(
         self,
         bucket: "aws_sdk_s3.types.bucket_name.BucketName",
         *,
@@ -4536,7 +4536,7 @@ class S3Client:
         }
         return str(presign_sigv4(request, ctx, expires_in=expire_in).url)
 
-    def wait_object_exists(
+    def wait_until_object_exists(
         self,
         bucket: "aws_sdk_s3.types.bucket_name.BucketName",
         key: "aws_sdk_s3.types.object_key.ObjectKey",
@@ -4664,7 +4664,7 @@ class S3Client:
             time.sleep(delay)
             attempt += 1
 
-    def wait_object_not_exists(
+    def wait_until_object_not_exists(
         self,
         bucket: "aws_sdk_s3.types.bucket_name.BucketName",
         key: "aws_sdk_s3.types.object_key.ObjectKey",

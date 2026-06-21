@@ -1,6 +1,9 @@
 from __future__ import annotations
 
 from ._base import (
+    DataSyncError as DataSyncError,
+)
+from ._base import (
     DeserializationError as DeserializationError,
 )
 from ._base import (

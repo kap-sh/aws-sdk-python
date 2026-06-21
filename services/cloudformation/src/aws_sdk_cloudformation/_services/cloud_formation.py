@@ -2540,7 +2540,7 @@ class CloudFormationClient:
             if not _token:
                 break
 
-    def wait_stack_exists(
+    def wait_until_stack_exists(
         self,
         *,
         max_wait_time: float,
